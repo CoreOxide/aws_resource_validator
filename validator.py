@@ -1,4 +1,5 @@
 import time
+import exrex
 
 import requests
 import json
@@ -6,9 +7,7 @@ import re
 import base64
 import keyword
 # TODO: get token dynamically somehow...
-headers = {'Authorization': 'Bearer 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'}
-max_calls = 5
-
+headers = {'Authorization': 'Bearer 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'}
 
 # Function to handle rate limiting
 def check_rate_limit(response):
@@ -34,6 +33,10 @@ class APIObject:
         if self.max_length is not None and len(value) > self.max_length:
             return False
         return re.match(self.pattern, value) is not None
+
+    def generate(self):
+        """Generates a string that conforms to the regex pattern."""
+        return exrex.getone(self.pattern)
 
 class Service:
     def __init__(self, name):
@@ -118,15 +121,13 @@ def fetch_and_parse_github():
                 continue
 
             print("Fetching:", service_json_url, "Status:", service_response.status_code)
-            # TODO: for testing, remove in full version
-            current_calls += 1
-            if current_calls >= max_calls:
-                print("Max calls reached. Exiting.")
-                break
             service_response = requests.get(service_json_url, headers=headers, timeout=10)
 
             if service_response.status_code == 200:
                 service_content = base64.b64decode(service_response.json()['content']).decode('utf-8')
+                if not service_content:
+                    print(f"Failed to fetch service data for {service_name} or is empty")
+                    continue
                 service_json = json.loads(service_content)
 
                 service = Service(service_name)
