@@ -7,7 +7,8 @@ import re
 import base64
 import keyword
 # TODO: get token dynamically somehow...
-headers = {'Authorization': 'Bearer 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'}
+github_api_token: str = ''  # your github api token
+headers = {'Authorization': f'Bearer {github_api_token}'}
 
 # Function to handle rate limiting
 def check_rate_limit(response):
