@@ -1,7 +1,4 @@
-from validator import Service
-from validator import APIObject
-from validator import APIRegistry
-
+from aws_resource_validator.models import Service, APIRegistry, APIObject
 
 class Accessanalyzer(Service):
     def __init__(self):
@@ -1018,7 +1015,7 @@ class Auditmanager(Service):
         self.add_api_object('QueryStatement', self.QueryStatement)
         self.Region = APIObject('Region', 'string', r'^[a-z]{2}-[a-z]+-[0-9]{1}$', None, None)
         self.add_api_object('Region', self.Region)
-        self.S3Url = APIObject('S3Url', 'string', r'^(S|s)3:\/\/[a-zA-Z0-9\-\.\(\)\\'\*\_\!\/]+$', 1, 1024)
+        self.S3Url = APIObject('S3Url', 'string', r'''^(S|s)3:\/\/[a-zA-Z0-9\-\.\(\)\\'\*\_\!\/]+$''', 1, 1024)
         self.add_api_object('S3Url', self.S3Url)
         self.SNSTopic = APIObject('SNSTopic', 'string', r'^[a-zA-Z0-9-_\(\)\[\]]+$', 1, 255)
         self.add_api_object('SNSTopic', self.SNSTopic)
@@ -1208,7 +1205,7 @@ class BcmDataExports(Service):
         super().__init__('BcmDataExports')
         self.Arn = APIObject('Arn', 'string', r'^arn:aws[-a-z0-9]*:[-a-z0-9]+:[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+$', 20, 2048)
         self.add_api_object('Arn', self.Arn)
-        self.ExportName = APIObject('ExportName', 'string', r'^[0-9A-Za-z!\-_.*\\'()]+$', 1, 128)
+        self.ExportName = APIObject('ExportName', 'string', r'''^[0-9A-Za-z!\-_.*\\'()]+$''', 1, 128)
         self.add_api_object('ExportName', self.ExportName)
         self.GenericString = APIObject('GenericString', 'string', r'^[\S\s]*$', 0, 1024)
         self.add_api_object('GenericString', self.GenericString)
@@ -1330,7 +1327,7 @@ class BedrockAgent(Service):
         self.add_api_object('S3BucketArn', self.S3BucketArn)
         self.S3BucketName = APIObject('S3BucketName', 'string', r'^[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]$', 3, 63)
         self.add_api_object('S3BucketName', self.S3BucketName)
-        self.S3ObjectKey = APIObject('S3ObjectKey', 'string', r'^[\.\-\!\*\_\\'\(\)a-zA-Z0-9][\.\-\!\*\_\\'\(\)\/a-zA-Z0-9]*$', 1, 1024)
+        self.S3ObjectKey = APIObject('S3ObjectKey', 'string', r'''^[\.\-\!\*\_\\'\(\)a-zA-Z0-9][\.\-\!\*\_\\'\(\)\/a-zA-Z0-9]*$''', 1, 1024)
         self.add_api_object('S3ObjectKey', self.S3ObjectKey)
         self.SecretArn = APIObject('SecretArn', 'string', r'^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$', None, None)
         self.add_api_object('SecretArn', self.SecretArn)
@@ -3236,11 +3233,11 @@ class Cur(Service):
         self.add_api_object('GenericString', self.GenericString)
         self.LastDelivery = APIObject('LastDelivery', 'string', r'[0-9]{8}[T][0-9]{6}([Z]|[+-][0-9]{4})', 16, 20)
         self.add_api_object('LastDelivery', self.LastDelivery)
-        self.ReportName = APIObject('ReportName', 'string', r'[0-9A-Za-z!\-_.*\\'()]+', None, 256)
+        self.ReportName = APIObject('ReportName', 'string', r'''[0-9A-Za-z!\-_.*\\'()]+''', None, 256)
         self.add_api_object('ReportName', self.ReportName)
         self.S3Bucket = APIObject('S3Bucket', 'string', r'[A-Za-z0-9_\.\-]+', None, 256)
         self.add_api_object('S3Bucket', self.S3Bucket)
-        self.S3Prefix = APIObject('S3Prefix', 'string', r'[0-9A-Za-z!\-_.*\\'()/]*', None, 256)
+        self.S3Prefix = APIObject('S3Prefix', 'string', r'''[0-9A-Za-z!\-_.*\\'()/]*''', None, 256)
         self.add_api_object('S3Prefix', self.S3Prefix)
         self.TagKey = APIObject('TagKey', 'string', r'.*', 1, 128)
         self.add_api_object('TagKey', self.TagKey)
@@ -5312,7 +5309,7 @@ class Forecast(Service):
         self.add_api_object('TagValue', self.TagValue)
         self.TimeZone = APIObject('TimeZone', 'string', r'^[a-zA-Z0-9\/\+\-\_]+$', None, 256)
         self.add_api_object('TimeZone', self.TimeZone)
-        self.TimestampFormat = APIObject('TimestampFormat', 'string', r'^[a-zA-Z0-9\-\:\.\,\\'\s]+$', None, 256)
+        self.TimestampFormat = APIObject('TimestampFormat', 'string', r'''^[a-zA-Z0-9\-\:\.\,\\'\s]+$''', None, 256)
         self.add_api_object('TimestampFormat', self.TimestampFormat)
         self.Value = APIObject('Value', 'string', r'^[a-zA-Z0-9\_\-]+$', None, 256)
         self.add_api_object('Value', self.Value)
@@ -7435,7 +7432,7 @@ class Lakeformation(Service):
         self.VersionString = APIObject('VersionString', 'string', r'[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]*', 1, 255)
         self.add_api_object('VersionString', self.VersionString)
 
-class Lambda(Service):
+class Lambda_(Service):
     def __init__(self):
         super().__init__('Lambda')
         self.FunctionArn = APIObject('FunctionArn', 'string', r'arn:aws:lambda:[a-z]{2}-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_]+(\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})?', None, None)
@@ -7584,7 +7581,7 @@ class Lexv2Models(Service):
         self.add_api_object('S3BucketArn', self.S3BucketArn)
         self.S3BucketName = APIObject('S3BucketName', 'string', r'^[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]$', 3, 63)
         self.add_api_object('S3BucketName', self.S3BucketName)
-        self.S3ObjectPath = APIObject('S3ObjectPath', 'string', r'[\.\-\!\*\_\\'\(\)a-zA-Z0-9][\.\-\!\*\_\\'\(\)\/a-zA-Z0-9]*$', 1, 1024)
+        self.S3ObjectPath = APIObject('S3ObjectPath', 'string', r'''[\.\-\!\*\_\\'\(\)a-zA-Z0-9][\.\-\!\*\_\\'\(\)\/a-zA-Z0-9]*$''', 1, 1024)
         self.add_api_object('S3ObjectPath', self.S3ObjectPath)
         self.ServicePrincipal = APIObject('ServicePrincipal', 'string', r'^[0-9a-zA-Z_.]+$', 15, 1024)
         self.add_api_object('ServicePrincipal', self.ServicePrincipal)
@@ -8666,7 +8663,7 @@ class MigrationHubRefactorSpaces(Service):
         self.add_api_object('ApplicationName', self.ApplicationName)
         self.ClientToken = APIObject('ClientToken', 'string', r'^[\x20-\x7E]{1,64}$', 1, 64)
         self.add_api_object('ClientToken', self.ClientToken)
-        self.Description = APIObject('Description', 'string', r'^[a-zA-Z0-9-_\s\.\!\*\#\@\\']+$', 1, 256)
+        self.Description = APIObject('Description', 'string', r'''^[a-zA-Z0-9-_\s\.\!\*\#\@\\']+$''', 1, 256)
         self.add_api_object('Description', self.Description)
         self.Ec2TagValue = APIObject('Ec2TagValue', 'string', r'^.*$', 0, 255)
         self.add_api_object('Ec2TagValue', self.Ec2TagValue)
@@ -10168,7 +10165,7 @@ class Polly(Service):
         self.add_api_object('LexiconName', self.LexiconName)
         self.OutputS3BucketName = APIObject('OutputS3BucketName', 'string', r'^[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]$', None, None)
         self.add_api_object('OutputS3BucketName', self.OutputS3BucketName)
-        self.OutputS3KeyPrefix = APIObject('OutputS3KeyPrefix', 'string', r'^[0-9a-zA-Z\/\!\-_\.\*\\'\(\):;\$@=+\,\?&]{0,800}$', None, None)
+        self.OutputS3KeyPrefix = APIObject('OutputS3KeyPrefix', 'string', r'''^[0-9a-zA-Z\/\!\-_\.\*\\'\(\):;\$@=+\,\?&]{0,800}$''', None, None)
         self.add_api_object('OutputS3KeyPrefix', self.OutputS3KeyPrefix)
         self.SnsTopicArn = APIObject('SnsTopicArn', 'string', r'^arn:aws(-(cn|iso(-b)?|us-gov))?:sns:[a-z0-9_-]{1,50}:\d{12}:[a-zA-Z0-9_-]{1,251}([a-zA-Z0-9_-]{0,5}|\.fifo)$', None, None)
         self.add_api_object('SnsTopicArn', self.SnsTopicArn)
@@ -13438,8 +13435,8 @@ kms = Kms()
 api_registry.add_service(kms)
 lakeformation = Lakeformation()
 api_registry.add_service(lakeformation)
-lambda = Lambda()
-api_registry.add_service(lambda)
+lambda_ = Lambda_()
+api_registry.add_service(lambda_)
 launchwizard = LaunchWizard()
 api_registry.add_service(launchwizard)
 lexmodels = LexModels()

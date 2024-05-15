@@ -1,4 +1,4 @@
-from api_registry_definitions import api_registry, Acm
+from aws_resource_validator.api_registry_definitions import Acm, api_registry
 
 # Now you can use `api_registry` with full class definitions
 acm: Acm = api_registry.Acm
