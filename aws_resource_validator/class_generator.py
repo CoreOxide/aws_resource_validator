@@ -1,4 +1,5 @@
-from models import APIRegistry
+from aws_resource_validator.models import APIRegistry
+
 
 def generate_static_classes(api_registry: APIRegistry, filename: str = 'api_registry_definitions.py') -> None:
     """
