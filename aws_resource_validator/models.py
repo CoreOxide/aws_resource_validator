@@ -85,7 +85,7 @@ class Service:
         :param name: The string to convert.
         :return: The string as a valid Python identifier.
         """
-        new_name: str = name.replace("_", "")
+        new_name: str = name.replace("-", "_")
         if keyword.iskeyword(new_name):
             new_name += "_"
         return new_name
