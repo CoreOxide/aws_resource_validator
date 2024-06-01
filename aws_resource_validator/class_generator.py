@@ -1,7 +1,7 @@
 from aws_resource_validator.models import APIRegistry
 
 
-def generate_static_classes(api_registry: APIRegistry, filename: str = 'api_registry_definitions.py') -> None:
+def generate_static_classes(api_registry: APIRegistry, filename: str = 'class_definitions.py') -> None:
     """
     This function generates static classes based on the services and API objects in the given API registry.
     The generated classes are written to a Python file with the given filename.
