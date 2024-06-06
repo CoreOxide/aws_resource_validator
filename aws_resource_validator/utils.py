@@ -1,3 +1,5 @@
+""" This module contains utility functions for the AWS Resource Validator. """
+
 import time
 from requests.models import Response
 
@@ -12,6 +14,5 @@ def check_rate_limit(response: Response) -> None:
     if 'X-RateLimit-Remaining' in response.headers and int(response.headers['X-RateLimit-Remaining']) == 0:
         reset_time: int = int(response.headers['X-RateLimit-Reset'])
         sleep_time: float = reset_time - time.time() + 10  # Adding 10 seconds to ensure limit is reset
-        # TODO: use logging instead of print
         print(f"Rate limit exceeded. Sleeping for {sleep_time} seconds.")
         time.sleep(sleep_time)

@@ -1,3 +1,5 @@
+""" Module that holds al class definitions for this project. """
+
 from typing import Dict, Optional, Union, List
 
 import keyword
@@ -6,18 +8,19 @@ import exrex
 
 
 class APIObject:
-    def __init__(self, name: str, type: str, pattern: str, min_length: Optional[int] = None, max_length: Optional[int] = None):
+    """ Represents an API object with constraints. """
+    def __init__(self, name: str, object_type: str, pattern: str, min_length: Optional[int] = None, max_length: Optional[int] = None):
         """
         Initialize an APIObject instance.
 
         :param name: The name of the API object.
-        :param type: The type of the API object.
+        :param object_type: The type of the API object.
         :param pattern: The pattern of the API object.
         :param min_length: The minimum length of the API object.
         :param max_length: The maximum length of the API object.
         """
         self.name: str = name
-        self.type: str = type
+        self.type: str = object_type
         self.pattern: str = pattern
         self.min_length: Optional[int] = min_length
         self.max_length: Optional[int] = max_length
@@ -45,6 +48,7 @@ class APIObject:
 
 
 class Service:
+    """ Represents an AWS service. """
     def __init__(self, name: str):
         """
         Initialize a Service instance.
@@ -110,6 +114,7 @@ class Service:
 
 
 class APIRegistry:
+    """ Represents a registry of AWS services. """
     def __init__(self):
         """
         Initialize an APIRegistry instance.
