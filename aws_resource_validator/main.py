@@ -1,8 +1,10 @@
+""" Main module to run the AWS Resource Validator. """
+
 from typing import Dict
 from aws_resource_validator.class_generator import generate_static_classes
 from aws_resource_validator.scrapper import fetch_and_parse_github
 
-# TODO: get token dynamically somehow...
+# get token dynamically somehow...?
 github_api_token: str = ''  # your github api token
 headers: Dict[str, str] = {'Authorization': f'Bearer {github_api_token}'}
 

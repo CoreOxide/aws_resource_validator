@@ -1,3 +1,6 @@
+"""A generator function that creates an importable Python module containing static classes based
+ on the services and API objects in the given API registry."""
+
 from aws_resource_validator.models import APIRegistry
 
 
@@ -9,7 +12,7 @@ def generate_static_classes(api_registry: APIRegistry, filename: str = 'class_de
     :param api_registry: The API registry containing the services and API objects.
     :param filename: The name of the Python file to which the generated classes will be written.
     """
-    with open(filename, 'w') as f:
+    with open(filename, 'w', encoding='utf-8') as f:
         f.write("# --- this is an auto-generate file ---\n\n")
         # Write imports and any needed boilerplate
         f.write("from aws_resource_validator.models import Service, APIObject, APIRegistry\n\n\n")
@@ -18,13 +21,14 @@ def generate_static_classes(api_registry: APIRegistry, filename: str = 'class_de
         for service_name, service in api_registry.services.items():
             # Define the service class
             f.write(f"class {service_name}(Service):\n")
-            f.write(f"    def __init__(self):\n")
+            f.write("    def __init__(self):\n")
             f.write(f"        super().__init__('{service_name}')\n")
 
             for obj_name, api_obj in service.api_objects.items():
                 # Define APIObject within the service class
                 pattern: str = api_obj.pattern.replace("'", "\\'")
-                f.write(f"        self.{obj_name} = APIObject('{obj_name}', '{api_obj.type}', r'{pattern}', {api_obj.min_length}, {api_obj.max_length})\n")
+                f.write(f"        self.{obj_name} = APIObject('{obj_name}', '{api_obj.type}', "
+                        f"r'{pattern}', {api_obj.min_length}, {api_obj.max_length})\n")
                 f.write(f"        self.add_api_object('{obj_name}', self.{obj_name})\n")
 
             f.write("\n")

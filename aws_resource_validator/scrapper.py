@@ -1,3 +1,5 @@
+""" This module is responsible for fetching and parsing AWS API data from the botocore repository on GitHub. """
+
 import base64
 import json
 from typing import Dict, Optional
@@ -9,11 +11,17 @@ from aws_resource_validator.models import APIRegistry, Service, APIObject
 from aws_resource_validator.utils import check_rate_limit
 
 
+# this needs a refactor...
+# pylint: disable=too-many-locals,too-many-nested-blocks,too-many-branches
 def fetch_and_parse_github(headers: Dict[str, str]) -> Optional[APIRegistry]:
+    """
+    Fetches and parses AWS API data from the botocore repository on GitHub.
+    :param headers: headers for the request
+    :return: an APIRegistry object containing the parsed API data
+    """
     base_url: str = "https://api.github.com/repos/boto/botocore/contents/botocore/data"
     response: Response = requests.get(base_url, headers=headers, timeout=10)
     services_data = response.json()
-    current_calls: int = 0
 
     if not isinstance(services_data, list):
         print("Failed to fetch services:", services_data)
@@ -58,7 +66,7 @@ def fetch_and_parse_github(headers: Dict[str, str]) -> Optional[APIRegistry]:
                         if 'type' in obj_data and 'pattern' in obj_data:
                             api_obj: APIObject = APIObject(
                                 name=obj_name,
-                                type=obj_data['type'],
+                                object_type=obj_data['type'],
                                 pattern=obj_data['pattern'],
                                 min_length=obj_data.get('min'),
                                 max_length=obj_data.get('max')
