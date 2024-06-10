@@ -44,7 +44,7 @@ class APIObject:
 
         :return: A string that matches the pattern.
         """
-        return exrex.getone(self.pattern)
+        return exrex.getone(self.pattern, limit=self.max_length)
 
 
 class Service:

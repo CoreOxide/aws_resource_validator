@@ -15,7 +15,7 @@ class TestGenerateStaticClasses(unittest.TestCase):
     @patch("builtins.open", new_callable=mock_open)
     def test_file_creation(self, mock_file):
         generate_static_classes(self.api_registry, 'test_file.py')
-        mock_file.assert_called_once_with('test_file.py', 'w')
+        mock_file.assert_called_once_with('test_file.py', 'w', encoding='utf-8')
 
     @patch("builtins.open", new_callable=mock_open)
     def test_file_content(self, mock_file):
