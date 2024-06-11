@@ -1,0 +1,24 @@
+[MASTER]
+# Add files or directories to the blacklist. They should be base names, not paths.
+ignore=class_definitions.py
+
+[MESSAGES CONTROL]
+# Disable the message, report, category or checker with the given id(s).
+# For example, disable all the message ids in the category 'line-too-long' (C0301).
+disable=
+
+[DESIGN]
+# Maximum number of arguments for function / method.
+max-args=10
+
+[BASIC]
+# Regular expression which should only match correct module names
+module-rgx=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
+
+[FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=140
+
+[REPORTS]
+# Tells whether to display a full report or only the messages.
+reports=no
