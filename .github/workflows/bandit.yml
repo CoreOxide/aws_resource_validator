@@ -1,0 +1,92 @@
+name: Bandit Security Workflow
+
+on:
+  push:
+    branches: [ "main" ] # Runs on push to the main branch
+  pull_request:
+    branches: [ "main" ]  # Runs on pull requests to the main branch
+  schedule:
+    - cron: '0 7 * * 1'  # Scheduled to run every Monday at 7 AM
+
+jobs:
+  bandit-security-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read  # for actions/checkout to fetch code
+      security-events: write  # for github/codeql-action/upload-sarif to upload SARIF results
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+      issues: write  # for creating GitHub issues
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python 3.12.2
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12.2'
+
+    - name: Install Poetry
+      run: pip install poetry
+
+    - name: Cache Poetry virtual environment
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pypoetry
+        key: ${{ runner.os }}-poetry-${{ hashFiles('**/pyproject.toml', '**/poetry.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-poetry-
+
+    - name: Install dependencies
+      run: poetry install
+
+    - name: Bandit Scan
+      uses: shundor/python-bandit-scan@9cc5aa4a006482b8a7f91134412df6772dbda22c
+      with:
+        exit_zero: true  # optional, default is DEFAULT
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information.
+
+    - name: Check for Issues in SARIF
+      id: check_sarif
+      run: |
+        if grep -q '"level": "\(error\|warning\|note\)"' results.sarif; then
+          echo "issues_found=true" >> $GITHUB_ENV
+        else
+          echo "issues_found=false" >> $GITHUB_ENV
+        fi
+
+    - name: Auto-create GitHub Issues for Security Vulnerabilities
+      if: env.issues_found == 'true'
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const fs = require('fs');
+          const sarifPath = 'results.sarif';
+          if (fs.existsSync(sarifPath)) {
+            const sarif = JSON.parse(fs.readFileSync(sarifPath));
+            const { owner, repo } = context.repo;
+            const existingIssues = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open'
+            });
+            sarif.runs[0].results.forEach(result => {
+              const title = `[Security] ${result.ruleId}: ${result.message.text}`;
+              const body = `## Issue Description\n- **Severity**: ${result.level}\n- **Path**: ${result.locations[0].physicalLocation.artifactLocation.uri}\n- **Line**: ${result.locations[0].physicalLocation.region.startLine}\n\nPlease address this issue as soon as possible.`;
+              const issueExists = existingIssues.data.some(issue => issue.title === title);
+              if (!issueExists) {
+                github.rest.issues.create({
+                  owner,
+                  repo,
+                  title,
+                  body,
+                  labels: ['security']
+                });
+              } else {
+                console.log(`Issue "${title}" already exists. Not opening a new one.`);
+              }
+            });
+          } else {
+            console.log('SARIF file does not exist.');
+            process.exit(1);
+          }
