@@ -1,0 +1,4 @@
+# CODEOWNERS file for aws_resource_validator
+
+# Specify the default code owner for the repository
+* @CoreOxide @ytupman

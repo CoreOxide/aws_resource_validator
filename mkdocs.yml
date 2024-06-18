@@ -1,0 +1,11 @@
+site_name: aws_resource_validator
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Usage: usage.md
+  - API Reference: api.md
+
+plugins:
+  - search
