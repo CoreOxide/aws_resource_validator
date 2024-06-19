@@ -1,11 +1,15 @@
-site_name: aws_resource_validator
-theme:
-  name: material
-
+site_name: AWS Resource Validator Documentation
 nav:
   - Home: index.md
   - Usage: usage.md
-  - API Reference: api.md
-
+  - API Reference:
+      - Acm: api/acm.md
+  - Best Practices: best_practices.md
+  - Installation: installation.md
+  - Configuration: configuration.md
+  - Contributing: contributing.md
+  - Code of Conduct: code_of_conduct.md
+theme:
+  name: material
 plugins:
   - search

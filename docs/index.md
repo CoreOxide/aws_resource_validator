@@ -1,5 +1,6 @@
+# Welcome to AWS Resource Validator
 
-# Welcome to aws_resource_validator
+![AWS Resource Validator Banner](images/banner.png)
 
 `aws_resource_validator` is a Python package that creates objects to validate, show constraints of common AWS resource names, and generate compatible patterns for tests. This helps ensure that AWS resource names comply with AWS naming rules and can be used for testing and validation purposes.
 
