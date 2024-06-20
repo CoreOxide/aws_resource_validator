@@ -1,3 +1,7 @@
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
 [tool.poetry]
 name = "aws-resource-validator"
 version = "0.1.0"
@@ -5,6 +9,10 @@ description = "Validate, get validation patterns and generate valid AWS resource
 authors = ["Alexy Grabov <alexy.grabov@gmail.com>"]
 license = "Apache License 2.0"
 readme = "README.md"
+packages = [
+    {include = "aws_resource_validator/class_definitions.py", from = "."},
+    {include = "aws_resource_validator/models.py", from = "."}
+]
 
 [tool.poetry.dependencies]
 python = "^3.8 || ^3.12"
