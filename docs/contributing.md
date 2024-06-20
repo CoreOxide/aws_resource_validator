@@ -1,6 +1,6 @@
 # Contributing
 
-We welcome contributions from everyone. Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+We welcome contributions from everyone. Please see our [CONTRIBUTING.md](https://github.com/CoreOxide/aws_resource_validator/blob/main/CONTRIBUTING.md) for more details.
 
 ## How to Contribute
 
