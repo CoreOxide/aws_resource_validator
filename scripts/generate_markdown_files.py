@@ -37,15 +37,19 @@ class APIObject:
 def create_markdown_for_class(service_class):
     md_content = f"# {service_class.service_name_} Service\n\n"
 
-    for api_object_name, api_object in service_class.api_objects.items():
-        md_content += f"### {api_object.name}\n"
-        md_content += f"- **Type**: {api_object.type}\n"
-        md_content += f"- **Pattern**: `{api_object.pattern}`\n"
-        if api_object.min_length is not None:
-            md_content += f"- **Min Length**: {api_object.min_length}\n"
-        if api_object.max_length is not None:
-            md_content += f"- **Max Length**: {api_object.max_length}\n"
-        md_content += "\n"
+    if not service_class.api_objects:
+        md_content += "Oops! This boto3 class is currently empty. Stay tuned!\n\n"
+        md_content += '<img src="..\images\oops_loki.png" width="500" height="400" title="Oops Loki">\n'
+    else:
+        for api_object_name, api_object in service_class.api_objects.items():
+            md_content += f"### {api_object.name}\n"
+            md_content += f"- **Type**: {api_object.type}\n"
+            md_content += f"- **Pattern**: `{api_object.pattern}`\n"
+            if api_object.min_length is not None:
+                md_content += f"- **Min Length**: {api_object.min_length}\n"
+            if api_object.max_length is not None:
+                md_content += f"- **Max Length**: {api_object.max_length}\n"
+            md_content += "\n"
 
     return md_content
 
