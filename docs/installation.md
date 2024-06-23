@@ -7,7 +7,7 @@ pip install aws_resource_validator
 ```
 
 ## Requirements
-- Python 3.6 or later
+- Python 3.8 or later
 - pip
 
 ## Setup
