@@ -2,6 +2,7 @@ import os
 import importlib.util
 from inspect import getmembers, isclass
 import yaml
+from typing import List, Tuple, Optional
 
 # Define the paths
 class_definitions_path = '../aws_resource_validator/class_definitions.py'
@@ -16,16 +17,16 @@ spec.loader.exec_module(class_definitions)
 
 # Ensure Service and APIObject are defined or imported here
 class Service:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.service_name_ = name
         self.api_objects = {}
 
-    def add_api_object(self, name, api_object):
+    def add_api_object(self, name: str, api_object: 'APIObject'):
         self.api_objects[name] = api_object
 
 
 class APIObject:
-    def __init__(self, name, type, pattern, min_length, max_length):
+    def __init__(self, name: str, type: str, pattern: str, min_length: Optional[int], max_length: Optional[int]):
         self.name = name
         self.type = type
         self.pattern = pattern
@@ -34,7 +35,7 @@ class APIObject:
 
 
 # Function to create markdown for each class
-def create_markdown_for_class(service_class):
+def create_markdown_for_class(service_class: Service) -> str:
     md_content = f"# {service_class.service_name_} Service\n\n"
 
     if not service_class.api_objects:
@@ -55,7 +56,7 @@ def create_markdown_for_class(service_class):
 
 
 # Function to find all subclasses of Service and generate markdown files
-def generate_markdown_files(output_dir):
+def generate_markdown_files(output_dir: str) -> Tuple[bool, List[Tuple[str, str]]]:
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
@@ -65,7 +66,7 @@ def generate_markdown_files(output_dir):
     print(f"Detected {len(service_classes)} service classes.")
 
     updates_made = False
-    updated_classes = []
+    updated_classes: List[Tuple[str, str]] = []
 
     for service_class in service_classes:
         instance = service_class()
@@ -91,7 +92,7 @@ def generate_markdown_files(output_dir):
 
 
 # Function to update only the 'API Reference' section in mkdocs.yml
-def update_mkdocs_yml(mkdocs_yml_path, api_dir):
+def update_mkdocs_yml(mkdocs_yml_path: str, api_dir: str) -> Tuple[bool, Optional[List], List]:
     with open(mkdocs_yml_path, 'r', encoding='utf-8') as yml_file:
         mkdocs_config = yaml.safe_load(yml_file)
 
@@ -123,7 +124,7 @@ def update_mkdocs_yml(mkdocs_yml_path, api_dir):
     return nav_updated, original_nav, api_nav
 
 
-def main():
+def main() -> None:
     markdown_updates, updated_classes = generate_markdown_files(output_dir)
     mkdocs_updates, original_nav, new_nav = update_mkdocs_yml(mkdocs_yml_path, output_dir)
 
