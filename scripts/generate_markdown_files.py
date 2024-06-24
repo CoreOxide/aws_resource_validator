@@ -3,11 +3,12 @@ import importlib.util
 from inspect import getmembers, isclass
 import yaml
 from typing import List, Tuple, Optional
+from pathlib import Path
 
 # Define the paths
-class_definitions_path = '../aws_resource_validator/class_definitions.py'
-output_dir = '../docs/api'
-mkdocs_yml_path = '../mkdocs.yml'
+class_definitions_path = Path('../aws_resource_validator/class_definitions.py')
+output_dir = Path('../docs/api')
+mkdocs_yml_path = Path('../mkdocs.yml')
 
 # Load the module from the given path
 spec = importlib.util.spec_from_file_location("class_definitions", class_definitions_path)
@@ -56,9 +57,9 @@ def create_markdown_for_class(service_class: Service) -> str:
 
 
 # Function to find all subclasses of Service and generate markdown files
-def generate_markdown_files(output_dir: str) -> Tuple[bool, List[Tuple[str, str]]]:
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+def generate_markdown_files(output_dir: Path) -> Tuple[bool, List[Tuple[str, str]]]:
+    if not output_dir.exists():
+        output_dir.mkdir(parents=True)
 
     service_classes = [cls for _, cls in getmembers(class_definitions, isclass) if
                        issubclass(cls, class_definitions.Service) and cls is not class_definitions.Service]
@@ -73,9 +74,9 @@ def generate_markdown_files(output_dir: str) -> Tuple[bool, List[Tuple[str, str]
         if isinstance(instance.service_name_, str) and instance.service_name_:
             md_content = create_markdown_for_class(instance)
             file_name = f"{service_class.__name__.lower()}.md"
-            file_path = os.path.join(output_dir, file_name)
-            if os.path.exists(file_path):
-                with open(file_path, 'r', encoding='utf-8') as md_file:
+            file_path = output_dir / file_name
+            if file_path.exists():
+                with file_path.open('r', encoding='utf-8') as md_file:
                     current_content = md_file.read()
                 if current_content == md_content:
                     continue
@@ -83,7 +84,7 @@ def generate_markdown_files(output_dir: str) -> Tuple[bool, List[Tuple[str, str]
                     update_type = 'updated'
             else:
                 update_type = 'created'
-            with open(file_path, 'w', encoding='utf-8') as md_file:
+            with file_path.open('w', encoding='utf-8') as md_file:
                 md_file.write(md_content)
             updates_made = True
             updated_classes.append((service_class.__name__, update_type))
@@ -92,14 +93,13 @@ def generate_markdown_files(output_dir: str) -> Tuple[bool, List[Tuple[str, str]
 
 
 # Function to update only the 'API Reference' section in mkdocs.yml
-def update_mkdocs_yml(mkdocs_yml_path: str, api_dir: str) -> Tuple[bool, Optional[List], List]:
-    with open(mkdocs_yml_path, 'r', encoding='utf-8') as yml_file:
+def update_mkdocs_yml(mkdocs_yml_path: Path, api_dir: Path) -> Tuple[bool, Optional[List], List]:
+    with mkdocs_yml_path.open('r', encoding='utf-8') as yml_file:
         mkdocs_config = yaml.safe_load(yml_file)
 
     # Generate the API Reference nav entries
-    api_files = sorted(os.listdir(api_dir))
-    api_nav = [{'{}'.format(os.path.splitext(f)[0].capitalize()): os.path.join('api', f).replace("\\", "/")} for f in
-               api_files]
+    api_files = sorted(api_dir.iterdir())
+    api_nav = [{'{}'.format(api_file.stem.capitalize()): str(api_file.relative_to(api_dir.parent)).replace("\\", "/")} for api_file in api_files]
 
     # Update only the 'API Reference' section in the nav
     nav_updated = False
@@ -117,7 +117,7 @@ def update_mkdocs_yml(mkdocs_yml_path: str, api_dir: str) -> Tuple[bool, Optiona
         nav_updated = True
 
     if nav_updated:
-        with open(mkdocs_yml_path, 'w', encoding='utf-8') as yml_file:
+        with mkdocs_yml_path.open('w', encoding='utf-8') as yml_file:
             yaml.safe_dump(mkdocs_config, yml_file, line_break='\n\n', allow_unicode=True, sort_keys=False)
         print("Updated mkdocs.yml with API reference documentation.")
 
