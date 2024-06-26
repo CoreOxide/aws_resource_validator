@@ -5,9 +5,9 @@ repo_url: https://github.com/CoreOxide/aws_resource_validator
 edit_uri: edit/main/docs
 
 nav:
-    - Home: index.md
-    - Usage: usage.md
-    - API Reference:
+  - Home: index.md
+  - Usage: usage.md
+  - API Reference:
       - Accessanalyzer: api/accessanalyzer.md
       - Account: api/account.md
       - Acm: api/acm.md
@@ -388,11 +388,11 @@ nav:
       - Workspacesthinclient: api/workspacesthinclient.md
       - Workspacesweb: api/workspacesweb.md
       - Xray: api/xray.md
-    - Best Practices: best_practices.md
-    - Installation: installation.md
-    - Configuration: configuration.md
-    - Contributing: contributing.md
-    - Code of Conduct: code_of_conduct.md
+  - Best Practices: best_practices.md
+  - Installation: installation.md
+  - Configuration: configuration.md
+  - Contributing: contributing.md
+  - Code of Conduct: code_of_conduct.md
 
 plugins:
   - search

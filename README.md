@@ -1,6 +1,12 @@
 
 # AWS Resource Validator
 
+![version](https://img.shields.io/github/v/release/CoreOxide/aws_resource_validator)
+![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.8-3.12&color=blue?style=flat-square&logo=python)
+[![GitHub License](https://img.shields.io/github/license/CoreOxide/aws_resource_validator)](https://github.com/CoreOxide/aws_resource_validator/blob/main/LICENSE)]
+![github-star-badge](https://img.shields.io/github/stars/CoreOxide/aws_resource_validator.svg?style=social)
+![issues](https://img.shields.io/github/issues/CoreOxide/aws_resource_validator)
+
 `aws_resource_validator` is a Python package that creates objects to validate, show constraints of common AWS resource names, and generate compatible patterns for tests. This helps ensure that AWS resource names comply with AWS naming rules and can be used for testing and validation purposes.
 
 ## Features
@@ -53,5 +59,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 If you have any questions, feel free to reach out to us:
 
-- Alexy Grabov: [alexy.grabov@gmail.com](mailto:alexy.grabov@gmail.com)
-- Yafit Tupman: [ytupman@gmail.com](mailto:ytupman@gmail.com)
+- Alexy Grabov: [alexy.grabov@gmail.com](mailto:alexy.grabov@gmail.com) ![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/alexygrabov)
+- Yafit Tupman: [ytupman@gmail.com](mailto:ytupman@gmail.com) ![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/yafit-tupman)
