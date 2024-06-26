@@ -1,38 +1,14 @@
-import os
-import importlib.util
 from inspect import getmembers, isclass
-import yaml
-from typing import List, Tuple, Optional
+from ruamel.yaml import YAML
+
+from aws_resource_validator import class_definitions
+from aws_resource_validator.class_definitions import Service
+from typing import List, Tuple, Optional, Dict
 from pathlib import Path
 
 # Define the paths
-class_definitions_path = Path('../aws_resource_validator/class_definitions.py')
-output_dir = Path('../docs/api')
-mkdocs_yml_path = Path('../mkdocs.yml')
-
-# Load the module from the given path
-spec = importlib.util.spec_from_file_location("class_definitions", class_definitions_path)
-class_definitions = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(class_definitions)
-
-
-# Ensure Service and APIObject are defined or imported here
-class Service:
-    def __init__(self, name: str):
-        self.service_name_ = name
-        self.api_objects = {}
-
-    def add_api_object(self, name: str, api_object: 'APIObject'):
-        self.api_objects[name] = api_object
-
-
-class APIObject:
-    def __init__(self, name: str, type: str, pattern: str, min_length: Optional[int], max_length: Optional[int]):
-        self.name = name
-        self.type = type
-        self.pattern = pattern
-        self.min_length = min_length
-        self.max_length = max_length
+OUTER_DIR: Path = Path('../docs/api')
+MKDOCS_YAML_PATH: Path = Path('../mkdocs.yml')
 
 
 # Function to create markdown for each class
@@ -57,16 +33,15 @@ def create_markdown_for_class(service_class: Service) -> str:
 
 
 # Function to find all subclasses of Service and generate markdown files
-def generate_markdown_files(output_dir: Path) -> Tuple[bool, List[Tuple[str, str]]]:
+def generate_markdown_files(output_dir: Path) -> List[Tuple[str, str]]:
     if not output_dir.exists():
         output_dir.mkdir(parents=True)
 
-    service_classes = [cls for _, cls in getmembers(class_definitions, isclass) if
-                       issubclass(cls, class_definitions.Service) and cls is not class_definitions.Service]
+    service_classes: List[Service.__class__] = [cls for _, cls in getmembers(class_definitions, isclass) if
+                                                issubclass(cls, Service) and cls is not Service]
 
     print(f"Detected {len(service_classes)} service classes.")
 
-    updates_made = False
     updated_classes: List[Tuple[str, str]] = []
 
     for service_class in service_classes:
@@ -86,20 +61,22 @@ def generate_markdown_files(output_dir: Path) -> Tuple[bool, List[Tuple[str, str
                 update_type = 'created'
             with file_path.open('w', encoding='utf-8') as md_file:
                 md_file.write(md_content)
-            updates_made = True
             updated_classes.append((service_class.__name__, update_type))
 
-    return updates_made, updated_classes
+    return updated_classes
 
 
 # Function to update only the 'API Reference' section in mkdocs.yml
 def update_mkdocs_yml(mkdocs_yml_path: Path, api_dir: Path) -> Tuple[bool, Optional[List], List]:
-    with mkdocs_yml_path.open('r', encoding='utf-8') as yml_file:
-        mkdocs_config = yaml.safe_load(yml_file)
+    yaml = YAML()
+    with open(mkdocs_yml_path, 'r', encoding='utf-8') as yml_file:
+        mkdocs_config = yaml.load(yml_file)
 
     # Generate the API Reference nav entries
     api_files = sorted(api_dir.iterdir())
-    api_nav = [{'{}'.format(api_file.stem.capitalize()): str(api_file.relative_to(api_dir.parent)).replace("\\", "/")} for api_file in api_files]
+    api_nav: List[Dict[str, str]] = [
+        {api_file.stem.capitalize(): str(api_file.relative_to(api_dir.parent)).replace("\\", "/")} for api_file in
+        api_files]
 
     # Update only the 'API Reference' section in the nav
     nav_updated = False
@@ -117,18 +94,19 @@ def update_mkdocs_yml(mkdocs_yml_path: Path, api_dir: Path) -> Tuple[bool, Optio
         nav_updated = True
 
     if nav_updated:
+        yaml.indent(mapping=2, sequence=4, offset=2)
         with mkdocs_yml_path.open('w', encoding='utf-8') as yml_file:
-            yaml.safe_dump(mkdocs_config, yml_file, line_break='\n\n', allow_unicode=True, sort_keys=False)
+            yaml.dump(mkdocs_config, yml_file, )
         print("Updated mkdocs.yml with API reference documentation.")
 
     return nav_updated, original_nav, api_nav
 
 
 def main() -> None:
-    markdown_updates, updated_classes = generate_markdown_files(output_dir)
-    mkdocs_updates, original_nav, new_nav = update_mkdocs_yml(mkdocs_yml_path, output_dir)
+    updated_classes = generate_markdown_files(OUTER_DIR)
+    mkdocs_updates, original_nav, new_nav = update_mkdocs_yml(MKDOCS_YAML_PATH, OUTER_DIR)
 
-    if markdown_updates or mkdocs_updates:
+    if updated_classes or mkdocs_updates:
         if updated_classes:
             print(f"Updated classes: {', '.join(f'{cls} ({utype})' for cls, utype in updated_classes)}")
         if mkdocs_updates:
