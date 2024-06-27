@@ -400,6 +400,8 @@ plugins:
 
 theme:
   name: material
+  logo: images/icon.png
+  favicon: images/icon.png
   font:
     text: Ubuntu
   palette:
