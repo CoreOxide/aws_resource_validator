@@ -1,7 +1,7 @@
 site_name: AWS Resource Validator Documentation
 site_description: AWS Resource Validator Documentation
 site_author: Yafit Tupman
-repo_url: https://github.com/CoreOxide/aws_resource_validator
+site_url: https://coreoxide.github.io/aws_resource_validator/
 edit_uri: edit/main/docs
 
 nav:
