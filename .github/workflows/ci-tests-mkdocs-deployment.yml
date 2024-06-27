@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - '*'  # Triggers for all branches for tests and linters
-  pull_request:
-    branches:
-      - main
+#   pull_request:
+#     branches:
+#       - main
 
 jobs:
   linter-and-test:
