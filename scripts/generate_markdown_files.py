@@ -34,8 +34,7 @@ def create_markdown_for_class(service_class: Service) -> str:
 
 # Function to find all subclasses of Service and generate markdown files
 def generate_markdown_files(output_dir: Path) -> List[Tuple[str, str]]:
-    if not output_dir.exists():
-        output_dir.mkdir(parents=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     service_classes: List[Service.__class__] = [cls for _, cls in getmembers(class_definitions, isclass) if
                                                 issubclass(cls, Service) and cls is not Service]
