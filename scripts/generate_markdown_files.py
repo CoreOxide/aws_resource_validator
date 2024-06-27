@@ -17,7 +17,7 @@ def create_markdown_for_class(service_class: Service) -> str:
 
     if not service_class.api_objects:
         md_content += "Oops! This boto3 class is currently empty. Stay tuned!\n\n"
-        md_content += '<img src="..\images\oops_loki.png" width="500" height="400" title="Oops Loki">\n'
+        md_content += '<img src="../images/oops_loki.png" width="500" height="400" title="Oops Loki">\n'
     else:
         for api_object_name, api_object in service_class.api_objects.items():
             md_content += f"### {api_object.name}\n"

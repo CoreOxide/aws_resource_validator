@@ -51,7 +51,7 @@ jobs:
 
   update-github-pages:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+#     if: github.ref == 'refs/heads/main'
     permissions:
       contents: write
     steps:
