@@ -1,14 +1,12 @@
 name: CI Tests, Linter, and MkDocs Deployment
 
-on: [push]
-
-# on:
-#   push:
-#     branches:
-#       - '*'  # Triggers for all branches for tests and linters
-#   pull_request:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - '*'  # Triggers for all branches for tests and linters
+  pull_request:
+    branches:
+      - main
 
 jobs:
   linter-and-test:
