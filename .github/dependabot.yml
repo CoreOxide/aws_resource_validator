@@ -1,0 +1,15 @@
+version: "2"
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "update"
+    open-pull-requests-limit: 10
+    groups:
+      all-pip-updates:
+        patterns:
+          - "*"
+        commit-message:
+          include: "scope"
