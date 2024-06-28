@@ -2,11 +2,7 @@
 
 ## Supported Versions
 
-We are a small team and will do our best to provide patches for supported versions of our project. Currently, we support only the latest version:
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.1.1   | :white_check_mark: |
+We are a small team and will do our best to provide patches for supported versions of our project.
 
 ## Reporting a Vulnerability
 
