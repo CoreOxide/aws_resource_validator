@@ -1,4 +1,4 @@
-version: "2"
+version: 2
 updates:
   - package-ecosystem: "pip"
     directory: "/"
@@ -10,6 +10,4 @@ updates:
     groups:
       all-pip-updates:
         patterns:
-          - "*"
-        commit-message:
-          include: "scope"
+          - "pyproject.toml"
