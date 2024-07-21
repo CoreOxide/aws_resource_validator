@@ -18,6 +18,8 @@ packages = [
 python = "^3.8 || ^3.12"
 requests = "^2.31.0"
 exrex = "^0.11.0"
+boto3-stubs = { extras = ["all"], version = "*" }
+pydantic = "^2.8.2"
 
 [build-system]
 requires = ["poetry-core"]
