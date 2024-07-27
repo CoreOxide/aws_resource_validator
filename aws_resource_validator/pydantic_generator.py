@@ -23,7 +23,8 @@ def parse_type_defs(file_path: str) -> Tuple[Dict[str, Dict[str, str]], Dict[str
     )
     # Pattern to exclude TypedDicts and capture other definitions
     other_defs_pattern = re.compile(
-        r'(\w+)\s*=\s*(?!TypedDict)(Union\[[^\]]+\]|Optional\[[^\]]+\]|Dict\[[^\]]+\]|List\[[^\]]+\]|Any|Literal\[[^\]]+\]|datetime|str|int|float|bool)',
+        r'(\w+)\s*=\s*(?!TypedDict)(Union\[[^\]]+\]|Optional\[[^\]]+\]|Dict\[[^\]]+\]|List\[[^\]]+\]|Any|Literal\[['
+        r'^\]]+\]|datetime|str|int|float|bool)',
         re.DOTALL
     )
 
