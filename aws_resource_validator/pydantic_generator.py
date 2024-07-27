@@ -24,6 +24,7 @@ output_dir = os.path.join(project_root, 'aws_resource_validator', 'pydantic_mode
 # Create output directory if it doesn't exist
 os.makedirs(output_dir, exist_ok=True)
 
+
 # pylint: disable=too-many-locals
 def parse_type_defs(file_path: str) -> Tuple[Dict[str, Dict[str, str]], Dict[str, str]]:
     """
