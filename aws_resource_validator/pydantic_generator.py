@@ -1,3 +1,17 @@
+"""
+This module provides functionality to generate Pydantic models and constants files from TypedDict
+definitions and literals found in the `mypy_boto3_*` packages within a virtual environment.
+
+The main functions in this module include:
+- `parse_type_defs`: Parses `type_defs.py` files to extract TypedDict definitions.
+- `generate_pydantic_models`: Generates Pydantic models from TypedDict definitions.
+- `parse_literals`: Parses `literals.py` files to extract literal definitions.
+- `generate_constants_file`: Generates a constants file from literals and other definitions.
+- `generate_models`: Main function to process all `mypy_boto3_*` packages and generate the corresponding
+  Pydantic models and constants files.
+
+The generated files are saved in the `aws_resource_validator/pydantic_models` directory.
+"""
 import os
 import re
 from typing import Dict, Tuple
@@ -10,11 +24,21 @@ output_dir = os.path.join(project_root, 'aws_resource_validator', 'pydantic_mode
 # Create output directory if it doesn't exist
 os.makedirs(output_dir, exist_ok=True)
 
-
-# Function to parse type_defs.py
+# pylint: disable=too-many-locals
 def parse_type_defs(file_path: str) -> Tuple[Dict[str, Dict[str, str]], Dict[str, str]]:
+    """
+    Parse the `type_defs.py` file to extract TypedDict definitions and other type definitions.
+
+    Args:
+        file_path (str): The path to the `type_defs.py` file.
+
+    Returns:
+        Tuple[Dict[str, Dict[str, str]], Dict[str, str]]: A tuple containing two dictionaries:
+            - The first dictionary maps TypedDict names to their field definitions.
+            - The second dictionary maps other type definition names to their type values.
+    """
     type_defs, other_defs = {}, {}
-    with open(file_path, 'r') as f:
+    with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
     # Regex pattern to capture TypedDict name and its fields, including nested types with commas
@@ -50,7 +74,6 @@ def parse_type_defs(file_path: str) -> Tuple[Dict[str, Dict[str, str]], Dict[str
     return type_defs, other_defs
 
 
-# Function to generate Pydantic models
 def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name: str, file_path: str):
     """
     Generate Pydantic models from TypedDict definitions and save them to a specified output file.
@@ -73,7 +96,7 @@ def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name:
         "IO": "from typing import IO"
     }
 
-    with open(file_path, 'w') as f:
+    with open(file_path, 'w', encoding='utf-8') as f:
         # Write imports
         for import_statement in sorted(imports.union(type_imports.values())):
             f.write(f'{import_statement}\n')
@@ -92,7 +115,6 @@ def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name:
             f.write('\n')
 
 
-# Function to parse literals.py
 def parse_literals(file_path: str) -> Dict[str, str]:
     """
     Parse the literals.py file to identify literals.
@@ -105,7 +127,7 @@ def parse_literals(file_path: str) -> Dict[str, str]:
     """
     literals = {}
     literal_pattern = re.compile(r'(\w+)\s*=\s*Literal\[(.*?)\]', re.DOTALL)
-    with open(file_path, 'r') as f:
+    with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
     for match in literal_pattern.finditer(content):
@@ -115,7 +137,6 @@ def parse_literals(file_path: str) -> Dict[str, str]:
     return literals
 
 
-# Function to generate constants file
 def generate_constants_file(literals: Dict[str, str], other_defs: Dict[str, str], file_path: str) -> None:
     """
     Generate a constants file from literals and other definitions and save them to a specified output file.
@@ -125,7 +146,7 @@ def generate_constants_file(literals: Dict[str, str], other_defs: Dict[str, str]
         other_defs (Dict[str, str]): Dictionary of other definitions.
         file_path (str): The path to the output file where constants will be saved.
     """
-    with open(file_path, 'w') as f:
+    with open(file_path, 'w', encoding='utf-8') as f:
         # Add imports
         f.write("from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO\n")
         f.write("from datetime import datetime\n\n")
@@ -139,7 +160,7 @@ def generate_constants_file(literals: Dict[str, str], other_defs: Dict[str, str]
             f.write(f'{def_name} = {def_value}\n')
 
 
-def generate_models():
+def generate_models():  # pylint: disable=missing-function-docstring
     for folder in os.listdir(venv_path):
         if folder.startswith('mypy_boto3_'):
             folder_path = os.path.join(venv_path, folder)
