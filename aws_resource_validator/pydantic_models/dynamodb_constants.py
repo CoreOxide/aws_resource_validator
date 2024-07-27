@@ -1,5 +1,7 @@
-from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO
+from decimal import Decimal
+from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO, Set
 from datetime import datetime
+from boto3.dynamodb.conditions import ConditionBase
 
 ApproximateCreationDateTimePrecisionType = Literal["MICROSECOND", "MILLISECOND"]
 AttributeActionType = Literal["ADD", "DELETE", "PUT"]
@@ -508,10 +510,10 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-TableAttributeValueTypeDef = Union[   bytes,   bytearray,   str,   int,   Decimal,   bool,   Set[int]
+TableAttributeValueTypeDef = Union[   bytes,   bytearray,   str,   int,   Decimal,   bool,   Set[int]]
 ConditionBaseImportTypeDef = Union[str, ConditionBase]
 TimestampTypeDef = Union[datetime, str]
-UniversalAttributeValueTypeDef = Union[   'AttributeValueTypeDef',   bytes,   bytearray,   str,   int,   Decimal,   bool,   Set[int]
+UniversalAttributeValueTypeDef = Union[   'AttributeValueTypeDef',   bytes,   bytearray,   str,   int,   Decimal,   bool,   Set[int]]
 KeysAndAttributesServiceResourceUnionTypeDef = Union[   'KeysAndAttributesServiceResourceTypeDef', 'KeysAndAttributesServiceResourceOutputTypeDef' ]
 InputFormatOptionsUnionTypeDef = Union['InputFormatOptionsTypeDef', 'InputFormatOptionsOutputTypeDef']
 IncrementalExportSpecificationUnionTypeDef = Union[   'IncrementalExportSpecificationTypeDef', 'IncrementalExportSpecificationOutputTypeDef' ]

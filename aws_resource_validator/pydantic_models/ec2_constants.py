@@ -2297,7 +2297,7 @@ RegionName = Literal["af-south-1",
     "us-west-1",
     "us-west-2",]
 TimestampTypeDef = Union[datetime, str]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 TagSpecificationUnionTypeDef = Union['TagSpecificationTypeDef', 'TagSpecificationExtraOutputTypeDef']
 IpPermissionUnionTypeDef = Union['IpPermissionTypeDef', 'IpPermissionExtraExtraOutputTypeDef']
 StorageUnionTypeDef = Union['StorageTypeDef', 'StorageOutputTypeDef']

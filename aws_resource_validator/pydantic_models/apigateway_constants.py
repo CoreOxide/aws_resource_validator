@@ -516,7 +516,7 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 CanarySettingsUnionTypeDef = Union['CanarySettingsTypeDef', 'CanarySettingsOutputTypeDef']
 EndpointConfigurationUnionTypeDef = Union[   'EndpointConfigurationTypeDef', 'EndpointConfigurationExtraOutputTypeDef' ]
 ApiStageUnionTypeDef = Union['ApiStageTypeDef', 'ApiStageExtraOutputTypeDef']

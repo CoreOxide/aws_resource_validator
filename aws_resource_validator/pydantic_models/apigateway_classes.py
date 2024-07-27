@@ -9,6 +9,7 @@ from typing import Mapping
 from typing import Optional
 from typing import Sequence
 from typing import Union
+from botocore.response import StreamingBody
 from aws_resource_validator.pydantic_models.apigateway_constants import *
 
 class AccessLogSettingsTypeDef(BaseModel):
@@ -538,7 +539,7 @@ class PatchOperationTypeDef(BaseModel):
     op: Optional[OpType] = None
     path: Optional[str] = None
     value: Optional[str] = None
-    from: Optional[str] = None
+    _from: Optional[str] = None
 
 class PutGatewayResponseRequestRequestTypeDef(BaseModel):
     restApiId: str

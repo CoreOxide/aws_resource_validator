@@ -308,7 +308,7 @@ class SendMessageBatchRequestEntryTypeDef(BaseModel):
     MessageBody: str
     DelaySeconds: Optional[int] = None
     MessageAttributes: Optional[Mapping[str, MessageAttributeValueTypeDef]] = None
-    MessageSystemAttributes: Optional[       Mapping[Literal["AWSTraceHeader"], MessageSystemAttributeValueTypeDef] = None
+    MessageSystemAttributes: Optional[       Mapping[Literal["AWSTraceHeader"], MessageSystemAttributeValueTypeDef]] = None
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 
@@ -316,7 +316,7 @@ class SendMessageRequestQueueSendMessageTypeDef(BaseModel):
     MessageBody: str
     DelaySeconds: Optional[int] = None
     MessageAttributes: Optional[Mapping[str, MessageAttributeValueTypeDef]] = None
-    MessageSystemAttributes: Optional[       Mapping[Literal["AWSTraceHeader"], MessageSystemAttributeValueTypeDef] = None
+    MessageSystemAttributes: Optional[       Mapping[Literal["AWSTraceHeader"], MessageSystemAttributeValueTypeDef]] = None
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 
@@ -329,7 +329,7 @@ class SendMessageRequestRequestTypeDef(BaseModel):
     MessageBody: str
     DelaySeconds: Optional[int] = None
     MessageAttributes: Optional[Mapping[str, MessageAttributeValueUnionTypeDef]] = None
-    MessageSystemAttributes: Optional[       Mapping[Literal["AWSTraceHeader"], MessageSystemAttributeValueTypeDef] = None
+    MessageSystemAttributes: Optional[       Mapping[Literal["AWSTraceHeader"], MessageSystemAttributeValueTypeDef]] = None
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 

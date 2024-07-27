@@ -465,4 +465,4 @@ ResourceServiceName = Literal["cloudformation",
     "sns",
     "sqs",]
 PaginatorName = Literal["get_agent_memory", "retrieve"]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]

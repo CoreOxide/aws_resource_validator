@@ -9,6 +9,7 @@ from typing import Mapping
 from typing import Optional
 from typing import Sequence
 from typing import Union
+from botocore.response import StreamingBody
 from aws_resource_validator.pydantic_models.lambda_constants import *
 
 class AccountLimitTypeDef(BaseModel):

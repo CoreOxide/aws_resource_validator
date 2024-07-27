@@ -282,7 +282,7 @@ class RetrievalFilterTypeDef(BaseModel):
     equals: Optional[FilterAttributeTypeDef] = None
     greaterThan: Optional[FilterAttributeTypeDef] = None
     greaterThanOrEquals: Optional[FilterAttributeTypeDef] = None
-    in: Optional[FilterAttributeTypeDef] = None
+    _in: Optional[FilterAttributeTypeDef] = None
     lessThan: Optional[FilterAttributeTypeDef] = None
     lessThanOrEquals: Optional[FilterAttributeTypeDef] = None
     listContains: Optional[FilterAttributeTypeDef] = None

@@ -17,7 +17,7 @@ class S3IdentifierTypeDef(BaseModel):
 
 class ActionGroupExecutorTypeDef(BaseModel):
     customControl: Optional[Literal["RETURN_CONTROL"]] = None
-    lambda: Optional[str] = None
+    _lambda: Optional[str] = None
 
 class ActionGroupSummaryTypeDef(BaseModel):
     actionGroupId: str
