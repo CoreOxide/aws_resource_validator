@@ -16,13 +16,13 @@ typing-extensions = {version = ">=4.0.0", markers = "python_version < \"3.9\""}
 
 [[package]]
 name = "boto3-stubs"
-version = "1.34.143"
-description = "Type annotations for boto3 1.34.143 generated with mypy-boto3-builder 7.25.0"
+version = "1.34.149"
+description = "Type annotations for boto3 1.34.149 generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "boto3_stubs-1.34.143-py3-none-any.whl", hash = "sha256:7a84989088c160d2f0bd177f6f02632b1e9efac1eb548b8b5cb0cbe3aa8f81a6"},
-    {file = "boto3_stubs-1.34.143.tar.gz", hash = "sha256:55f1b549507caac68d1affee2f3d8769a1c993960b562fd014f5840dfce9cd29"},
+    {file = "boto3_stubs-1.34.149-py3-none-any.whl", hash = "sha256:d4d28c5d349364292efe83b26bf1caf909a95f4ed3a57614045371f777cf14fe"},
+    {file = "boto3_stubs-1.34.149.tar.gz", hash = "sha256:3deb59b18fc73c4fbe3324fcb52cc3c7d0cc789338d43e07e0efd1ef1bc0d98c"},
 ]
 
 [package.dependencies]
@@ -272,7 +272,6 @@ mypy-boto3-migration-hub-refactor-spaces = {version = ">=1.34.0,<1.35.0", option
 mypy-boto3-migrationhub-config = {version = ">=1.34.0,<1.35.0", optional = true, markers = "extra == \"all\""}
 mypy-boto3-migrationhuborchestrator = {version = ">=1.34.0,<1.35.0", optional = true, markers = "extra == \"all\""}
 mypy-boto3-migrationhubstrategy = {version = ">=1.34.0,<1.35.0", optional = true, markers = "extra == \"all\""}
-mypy-boto3-mobile = {version = ">=1.34.0,<1.35.0", optional = true, markers = "extra == \"all\""}
 mypy-boto3-mq = {version = ">=1.34.0,<1.35.0", optional = true, markers = "extra == \"all\""}
 mypy-boto3-mturk = {version = ">=1.34.0,<1.35.0", optional = true, markers = "extra == \"all\""}
 mypy-boto3-mwaa = {version = ">=1.34.0,<1.35.0", optional = true, markers = "extra == \"all\""}
@@ -421,7 +420,7 @@ accessanalyzer = ["mypy-boto3-accessanalyzer (>=1.34.0,<1.35.0)"]
 account = ["mypy-boto3-account (>=1.34.0,<1.35.0)"]
 acm = ["mypy-boto3-acm (>=1.34.0,<1.35.0)"]
 acm-pca = ["mypy-boto3-acm-pca (>=1.34.0,<1.35.0)"]
-all = ["mypy-boto3-accessanalyzer (>=1.34.0,<1.35.0)", "mypy-boto3-account (>=1.34.0,<1.35.0)", "mypy-boto3-acm (>=1.34.0,<1.35.0)", "mypy-boto3-acm-pca (>=1.34.0,<1.35.0)", "mypy-boto3-amp (>=1.34.0,<1.35.0)", "mypy-boto3-amplify (>=1.34.0,<1.35.0)", "mypy-boto3-amplifybackend (>=1.34.0,<1.35.0)", "mypy-boto3-amplifyuibuilder (>=1.34.0,<1.35.0)", "mypy-boto3-apigateway (>=1.34.0,<1.35.0)", "mypy-boto3-apigatewaymanagementapi (>=1.34.0,<1.35.0)", "mypy-boto3-apigatewayv2 (>=1.34.0,<1.35.0)", "mypy-boto3-appconfig (>=1.34.0,<1.35.0)", "mypy-boto3-appconfigdata (>=1.34.0,<1.35.0)", "mypy-boto3-appfabric (>=1.34.0,<1.35.0)", "mypy-boto3-appflow (>=1.34.0,<1.35.0)", "mypy-boto3-appintegrations (>=1.34.0,<1.35.0)", "mypy-boto3-application-autoscaling (>=1.34.0,<1.35.0)", "mypy-boto3-application-insights (>=1.34.0,<1.35.0)", "mypy-boto3-application-signals (>=1.34.0,<1.35.0)", "mypy-boto3-applicationcostprofiler (>=1.34.0,<1.35.0)", "mypy-boto3-appmesh (>=1.34.0,<1.35.0)", "mypy-boto3-apprunner (>=1.34.0,<1.35.0)", "mypy-boto3-appstream (>=1.34.0,<1.35.0)", "mypy-boto3-appsync (>=1.34.0,<1.35.0)", "mypy-boto3-apptest (>=1.34.0,<1.35.0)", "mypy-boto3-arc-zonal-shift (>=1.34.0,<1.35.0)", "mypy-boto3-artifact (>=1.34.0,<1.35.0)", "mypy-boto3-athena (>=1.34.0,<1.35.0)", "mypy-boto3-auditmanager (>=1.34.0,<1.35.0)", "mypy-boto3-autoscaling (>=1.34.0,<1.35.0)", "mypy-boto3-autoscaling-plans (>=1.34.0,<1.35.0)", "mypy-boto3-b2bi (>=1.34.0,<1.35.0)", "mypy-boto3-backup (>=1.34.0,<1.35.0)", "mypy-boto3-backup-gateway (>=1.34.0,<1.35.0)", "mypy-boto3-batch (>=1.34.0,<1.35.0)", "mypy-boto3-bcm-data-exports (>=1.34.0,<1.35.0)", "mypy-boto3-bedrock (>=1.34.0,<1.35.0)", "mypy-boto3-bedrock-agent (>=1.34.0,<1.35.0)", "mypy-boto3-bedrock-agent-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-bedrock-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-billingconductor (>=1.34.0,<1.35.0)", "mypy-boto3-braket (>=1.34.0,<1.35.0)", "mypy-boto3-budgets (>=1.34.0,<1.35.0)", "mypy-boto3-ce (>=1.34.0,<1.35.0)", "mypy-boto3-chatbot (>=1.34.0,<1.35.0)", "mypy-boto3-chime (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-identity (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-media-pipelines (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-meetings (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-messaging (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-voice (>=1.34.0,<1.35.0)", "mypy-boto3-cleanrooms (>=1.34.0,<1.35.0)", "mypy-boto3-cleanroomsml (>=1.34.0,<1.35.0)", "mypy-boto3-cloud9 (>=1.34.0,<1.35.0)", "mypy-boto3-cloudcontrol (>=1.34.0,<1.35.0)", "mypy-boto3-clouddirectory (>=1.34.0,<1.35.0)", "mypy-boto3-cloudformation (>=1.34.0,<1.35.0)", "mypy-boto3-cloudfront (>=1.34.0,<1.35.0)", "mypy-boto3-cloudfront-keyvaluestore (>=1.34.0,<1.35.0)", "mypy-boto3-cloudhsm (>=1.34.0,<1.35.0)", "mypy-boto3-cloudhsmv2 (>=1.34.0,<1.35.0)", "mypy-boto3-cloudsearch (>=1.34.0,<1.35.0)", "mypy-boto3-cloudsearchdomain (>=1.34.0,<1.35.0)", "mypy-boto3-cloudtrail (>=1.34.0,<1.35.0)", "mypy-boto3-cloudtrail-data (>=1.34.0,<1.35.0)", "mypy-boto3-cloudwatch (>=1.34.0,<1.35.0)", "mypy-boto3-codeartifact (>=1.34.0,<1.35.0)", "mypy-boto3-codebuild (>=1.34.0,<1.35.0)", "mypy-boto3-codecatalyst (>=1.34.0,<1.35.0)", "mypy-boto3-codecommit (>=1.34.0,<1.35.0)", "mypy-boto3-codeconnections (>=1.34.0,<1.35.0)", "mypy-boto3-codedeploy (>=1.34.0,<1.35.0)", "mypy-boto3-codeguru-reviewer (>=1.34.0,<1.35.0)", "mypy-boto3-codeguru-security (>=1.34.0,<1.35.0)", "mypy-boto3-codeguruprofiler (>=1.34.0,<1.35.0)", "mypy-boto3-codepipeline (>=1.34.0,<1.35.0)", "mypy-boto3-codestar (>=1.34.0,<1.35.0)", "mypy-boto3-codestar-connections (>=1.34.0,<1.35.0)", "mypy-boto3-codestar-notifications (>=1.34.0,<1.35.0)", "mypy-boto3-cognito-identity (>=1.34.0,<1.35.0)", "mypy-boto3-cognito-idp (>=1.34.0,<1.35.0)", "mypy-boto3-cognito-sync (>=1.34.0,<1.35.0)", "mypy-boto3-comprehend (>=1.34.0,<1.35.0)", "mypy-boto3-comprehendmedical (>=1.34.0,<1.35.0)", "mypy-boto3-compute-optimizer (>=1.34.0,<1.35.0)", "mypy-boto3-config (>=1.34.0,<1.35.0)", "mypy-boto3-connect (>=1.34.0,<1.35.0)", "mypy-boto3-connect-contact-lens (>=1.34.0,<1.35.0)", "mypy-boto3-connectcampaigns (>=1.34.0,<1.35.0)", "mypy-boto3-connectcases (>=1.34.0,<1.35.0)", "mypy-boto3-connectparticipant (>=1.34.0,<1.35.0)", "mypy-boto3-controlcatalog (>=1.34.0,<1.35.0)", "mypy-boto3-controltower (>=1.34.0,<1.35.0)", "mypy-boto3-cost-optimization-hub (>=1.34.0,<1.35.0)", "mypy-boto3-cur (>=1.34.0,<1.35.0)", "mypy-boto3-customer-profiles (>=1.34.0,<1.35.0)", "mypy-boto3-databrew (>=1.34.0,<1.35.0)", "mypy-boto3-dataexchange (>=1.34.0,<1.35.0)", "mypy-boto3-datapipeline (>=1.34.0,<1.35.0)", "mypy-boto3-datasync (>=1.34.0,<1.35.0)", "mypy-boto3-datazone (>=1.34.0,<1.35.0)", "mypy-boto3-dax (>=1.34.0,<1.35.0)", "mypy-boto3-deadline (>=1.34.0,<1.35.0)", "mypy-boto3-detective (>=1.34.0,<1.35.0)", "mypy-boto3-devicefarm (>=1.34.0,<1.35.0)", "mypy-boto3-devops-guru (>=1.34.0,<1.35.0)", "mypy-boto3-directconnect (>=1.34.0,<1.35.0)", "mypy-boto3-discovery (>=1.34.0,<1.35.0)", "mypy-boto3-dlm (>=1.34.0,<1.35.0)", "mypy-boto3-dms (>=1.34.0,<1.35.0)", "mypy-boto3-docdb (>=1.34.0,<1.35.0)", "mypy-boto3-docdb-elastic (>=1.34.0,<1.35.0)", "mypy-boto3-drs (>=1.34.0,<1.35.0)", "mypy-boto3-ds (>=1.34.0,<1.35.0)", "mypy-boto3-dynamodb (>=1.34.0,<1.35.0)", "mypy-boto3-dynamodbstreams (>=1.34.0,<1.35.0)", "mypy-boto3-ebs (>=1.34.0,<1.35.0)", "mypy-boto3-ec2 (>=1.34.0,<1.35.0)", "mypy-boto3-ec2-instance-connect (>=1.34.0,<1.35.0)", "mypy-boto3-ecr (>=1.34.0,<1.35.0)", "mypy-boto3-ecr-public (>=1.34.0,<1.35.0)", "mypy-boto3-ecs (>=1.34.0,<1.35.0)", "mypy-boto3-efs (>=1.34.0,<1.35.0)", "mypy-boto3-eks (>=1.34.0,<1.35.0)", "mypy-boto3-eks-auth (>=1.34.0,<1.35.0)", "mypy-boto3-elastic-inference (>=1.34.0,<1.35.0)", "mypy-boto3-elasticache (>=1.34.0,<1.35.0)", "mypy-boto3-elasticbeanstalk (>=1.34.0,<1.35.0)", "mypy-boto3-elastictranscoder (>=1.34.0,<1.35.0)", "mypy-boto3-elb (>=1.34.0,<1.35.0)", "mypy-boto3-elbv2 (>=1.34.0,<1.35.0)", "mypy-boto3-emr (>=1.34.0,<1.35.0)", "mypy-boto3-emr-containers (>=1.34.0,<1.35.0)", "mypy-boto3-emr-serverless (>=1.34.0,<1.35.0)", "mypy-boto3-entityresolution (>=1.34.0,<1.35.0)", "mypy-boto3-es (>=1.34.0,<1.35.0)", "mypy-boto3-events (>=1.34.0,<1.35.0)", "mypy-boto3-evidently (>=1.34.0,<1.35.0)", "mypy-boto3-finspace (>=1.34.0,<1.35.0)", "mypy-boto3-finspace-data (>=1.34.0,<1.35.0)", "mypy-boto3-firehose (>=1.34.0,<1.35.0)", "mypy-boto3-fis (>=1.34.0,<1.35.0)", "mypy-boto3-fms (>=1.34.0,<1.35.0)", "mypy-boto3-forecast (>=1.34.0,<1.35.0)", "mypy-boto3-forecastquery (>=1.34.0,<1.35.0)", "mypy-boto3-frauddetector (>=1.34.0,<1.35.0)", "mypy-boto3-freetier (>=1.34.0,<1.35.0)", "mypy-boto3-fsx (>=1.34.0,<1.35.0)", "mypy-boto3-gamelift (>=1.34.0,<1.35.0)", "mypy-boto3-glacier (>=1.34.0,<1.35.0)", "mypy-boto3-globalaccelerator (>=1.34.0,<1.35.0)", "mypy-boto3-glue (>=1.34.0,<1.35.0)", "mypy-boto3-grafana (>=1.34.0,<1.35.0)", "mypy-boto3-greengrass (>=1.34.0,<1.35.0)", "mypy-boto3-greengrassv2 (>=1.34.0,<1.35.0)", "mypy-boto3-groundstation (>=1.34.0,<1.35.0)", "mypy-boto3-guardduty (>=1.34.0,<1.35.0)", "mypy-boto3-health (>=1.34.0,<1.35.0)", "mypy-boto3-healthlake (>=1.34.0,<1.35.0)", "mypy-boto3-iam (>=1.34.0,<1.35.0)", "mypy-boto3-identitystore (>=1.34.0,<1.35.0)", "mypy-boto3-imagebuilder (>=1.34.0,<1.35.0)", "mypy-boto3-importexport (>=1.34.0,<1.35.0)", "mypy-boto3-inspector (>=1.34.0,<1.35.0)", "mypy-boto3-inspector-scan (>=1.34.0,<1.35.0)", "mypy-boto3-inspector2 (>=1.34.0,<1.35.0)", "mypy-boto3-internetmonitor (>=1.34.0,<1.35.0)", "mypy-boto3-iot (>=1.34.0,<1.35.0)", "mypy-boto3-iot-data (>=1.34.0,<1.35.0)", "mypy-boto3-iot-jobs-data (>=1.34.0,<1.35.0)", "mypy-boto3-iot1click-devices (>=1.34.0,<1.35.0)", "mypy-boto3-iot1click-projects (>=1.34.0,<1.35.0)", "mypy-boto3-iotanalytics (>=1.34.0,<1.35.0)", "mypy-boto3-iotdeviceadvisor (>=1.34.0,<1.35.0)", "mypy-boto3-iotevents (>=1.34.0,<1.35.0)", "mypy-boto3-iotevents-data (>=1.34.0,<1.35.0)", "mypy-boto3-iotfleethub (>=1.34.0,<1.35.0)", "mypy-boto3-iotfleetwise (>=1.34.0,<1.35.0)", "mypy-boto3-iotsecuretunneling (>=1.34.0,<1.35.0)", "mypy-boto3-iotsitewise (>=1.34.0,<1.35.0)", "mypy-boto3-iotthingsgraph (>=1.34.0,<1.35.0)", "mypy-boto3-iottwinmaker (>=1.34.0,<1.35.0)", "mypy-boto3-iotwireless (>=1.34.0,<1.35.0)", "mypy-boto3-ivs (>=1.34.0,<1.35.0)", "mypy-boto3-ivs-realtime (>=1.34.0,<1.35.0)", "mypy-boto3-ivschat (>=1.34.0,<1.35.0)", "mypy-boto3-kafka (>=1.34.0,<1.35.0)", "mypy-boto3-kafkaconnect (>=1.34.0,<1.35.0)", "mypy-boto3-kendra (>=1.34.0,<1.35.0)", "mypy-boto3-kendra-ranking (>=1.34.0,<1.35.0)", "mypy-boto3-keyspaces (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis-video-archived-media (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis-video-media (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis-video-signaling (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis-video-webrtc-storage (>=1.34.0,<1.35.0)", "mypy-boto3-kinesisanalytics (>=1.34.0,<1.35.0)", "mypy-boto3-kinesisanalyticsv2 (>=1.34.0,<1.35.0)", "mypy-boto3-kinesisvideo (>=1.34.0,<1.35.0)", "mypy-boto3-kms (>=1.34.0,<1.35.0)", "mypy-boto3-lakeformation (>=1.34.0,<1.35.0)", "mypy-boto3-lambda (>=1.34.0,<1.35.0)", "mypy-boto3-launch-wizard (>=1.34.0,<1.35.0)", "mypy-boto3-lex-models (>=1.34.0,<1.35.0)", "mypy-boto3-lex-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-lexv2-models (>=1.34.0,<1.35.0)", "mypy-boto3-lexv2-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-license-manager (>=1.34.0,<1.35.0)", "mypy-boto3-license-manager-linux-subscriptions (>=1.34.0,<1.35.0)", "mypy-boto3-license-manager-user-subscriptions (>=1.34.0,<1.35.0)", "mypy-boto3-lightsail (>=1.34.0,<1.35.0)", "mypy-boto3-location (>=1.34.0,<1.35.0)", "mypy-boto3-logs (>=1.34.0,<1.35.0)", "mypy-boto3-lookoutequipment (>=1.34.0,<1.35.0)", "mypy-boto3-lookoutmetrics (>=1.34.0,<1.35.0)", "mypy-boto3-lookoutvision (>=1.34.0,<1.35.0)", "mypy-boto3-m2 (>=1.34.0,<1.35.0)", "mypy-boto3-machinelearning (>=1.34.0,<1.35.0)", "mypy-boto3-macie2 (>=1.34.0,<1.35.0)", "mypy-boto3-mailmanager (>=1.34.0,<1.35.0)", "mypy-boto3-managedblockchain (>=1.34.0,<1.35.0)", "mypy-boto3-managedblockchain-query (>=1.34.0,<1.35.0)", "mypy-boto3-marketplace-agreement (>=1.34.0,<1.35.0)", "mypy-boto3-marketplace-catalog (>=1.34.0,<1.35.0)", "mypy-boto3-marketplace-deployment (>=1.34.0,<1.35.0)", "mypy-boto3-marketplace-entitlement (>=1.34.0,<1.35.0)", "mypy-boto3-marketplacecommerceanalytics (>=1.34.0,<1.35.0)", "mypy-boto3-mediaconnect (>=1.34.0,<1.35.0)", "mypy-boto3-mediaconvert (>=1.34.0,<1.35.0)", "mypy-boto3-medialive (>=1.34.0,<1.35.0)", "mypy-boto3-mediapackage (>=1.34.0,<1.35.0)", "mypy-boto3-mediapackage-vod (>=1.34.0,<1.35.0)", "mypy-boto3-mediapackagev2 (>=1.34.0,<1.35.0)", "mypy-boto3-mediastore (>=1.34.0,<1.35.0)", "mypy-boto3-mediastore-data (>=1.34.0,<1.35.0)", "mypy-boto3-mediatailor (>=1.34.0,<1.35.0)", "mypy-boto3-medical-imaging (>=1.34.0,<1.35.0)", "mypy-boto3-memorydb (>=1.34.0,<1.35.0)", "mypy-boto3-meteringmarketplace (>=1.34.0,<1.35.0)", "mypy-boto3-mgh (>=1.34.0,<1.35.0)", "mypy-boto3-mgn (>=1.34.0,<1.35.0)", "mypy-boto3-migration-hub-refactor-spaces (>=1.34.0,<1.35.0)", "mypy-boto3-migrationhub-config (>=1.34.0,<1.35.0)", "mypy-boto3-migrationhuborchestrator (>=1.34.0,<1.35.0)", "mypy-boto3-migrationhubstrategy (>=1.34.0,<1.35.0)", "mypy-boto3-mobile (>=1.34.0,<1.35.0)", "mypy-boto3-mq (>=1.34.0,<1.35.0)", "mypy-boto3-mturk (>=1.34.0,<1.35.0)", "mypy-boto3-mwaa (>=1.34.0,<1.35.0)", "mypy-boto3-neptune (>=1.34.0,<1.35.0)", "mypy-boto3-neptune-graph (>=1.34.0,<1.35.0)", "mypy-boto3-neptunedata (>=1.34.0,<1.35.0)", "mypy-boto3-network-firewall (>=1.34.0,<1.35.0)", "mypy-boto3-networkmanager (>=1.34.0,<1.35.0)", "mypy-boto3-networkmonitor (>=1.34.0,<1.35.0)", "mypy-boto3-nimble (>=1.34.0,<1.35.0)", "mypy-boto3-oam (>=1.34.0,<1.35.0)", "mypy-boto3-omics (>=1.34.0,<1.35.0)", "mypy-boto3-opensearch (>=1.34.0,<1.35.0)", "mypy-boto3-opensearchserverless (>=1.34.0,<1.35.0)", "mypy-boto3-opsworks (>=1.34.0,<1.35.0)", "mypy-boto3-opsworkscm (>=1.34.0,<1.35.0)", "mypy-boto3-organizations (>=1.34.0,<1.35.0)", "mypy-boto3-osis (>=1.34.0,<1.35.0)", "mypy-boto3-outposts (>=1.34.0,<1.35.0)", "mypy-boto3-panorama (>=1.34.0,<1.35.0)", "mypy-boto3-payment-cryptography (>=1.34.0,<1.35.0)", "mypy-boto3-payment-cryptography-data (>=1.34.0,<1.35.0)", "mypy-boto3-pca-connector-ad (>=1.34.0,<1.35.0)", "mypy-boto3-pca-connector-scep (>=1.34.0,<1.35.0)", "mypy-boto3-personalize (>=1.34.0,<1.35.0)", "mypy-boto3-personalize-events (>=1.34.0,<1.35.0)", "mypy-boto3-personalize-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-pi (>=1.34.0,<1.35.0)", "mypy-boto3-pinpoint (>=1.34.0,<1.35.0)", "mypy-boto3-pinpoint-email (>=1.34.0,<1.35.0)", "mypy-boto3-pinpoint-sms-voice (>=1.34.0,<1.35.0)", "mypy-boto3-pinpoint-sms-voice-v2 (>=1.34.0,<1.35.0)", "mypy-boto3-pipes (>=1.34.0,<1.35.0)", "mypy-boto3-polly (>=1.34.0,<1.35.0)", "mypy-boto3-pricing (>=1.34.0,<1.35.0)", "mypy-boto3-privatenetworks (>=1.34.0,<1.35.0)", "mypy-boto3-proton (>=1.34.0,<1.35.0)", "mypy-boto3-qapps (>=1.34.0,<1.35.0)", "mypy-boto3-qbusiness (>=1.34.0,<1.35.0)", "mypy-boto3-qconnect (>=1.34.0,<1.35.0)", "mypy-boto3-qldb (>=1.34.0,<1.35.0)", "mypy-boto3-qldb-session (>=1.34.0,<1.35.0)", "mypy-boto3-quicksight (>=1.34.0,<1.35.0)", "mypy-boto3-ram (>=1.34.0,<1.35.0)", "mypy-boto3-rbin (>=1.34.0,<1.35.0)", "mypy-boto3-rds (>=1.34.0,<1.35.0)", "mypy-boto3-rds-data (>=1.34.0,<1.35.0)", "mypy-boto3-redshift (>=1.34.0,<1.35.0)", "mypy-boto3-redshift-data (>=1.34.0,<1.35.0)", "mypy-boto3-redshift-serverless (>=1.34.0,<1.35.0)", "mypy-boto3-rekognition (>=1.34.0,<1.35.0)", "mypy-boto3-repostspace (>=1.34.0,<1.35.0)", "mypy-boto3-resiliencehub (>=1.34.0,<1.35.0)", "mypy-boto3-resource-explorer-2 (>=1.34.0,<1.35.0)", "mypy-boto3-resource-groups (>=1.34.0,<1.35.0)", "mypy-boto3-resourcegroupstaggingapi (>=1.34.0,<1.35.0)", "mypy-boto3-robomaker (>=1.34.0,<1.35.0)", "mypy-boto3-rolesanywhere (>=1.34.0,<1.35.0)", "mypy-boto3-route53 (>=1.34.0,<1.35.0)", "mypy-boto3-route53-recovery-cluster (>=1.34.0,<1.35.0)", "mypy-boto3-route53-recovery-control-config (>=1.34.0,<1.35.0)", "mypy-boto3-route53-recovery-readiness (>=1.34.0,<1.35.0)", "mypy-boto3-route53domains (>=1.34.0,<1.35.0)", "mypy-boto3-route53profiles (>=1.34.0,<1.35.0)", "mypy-boto3-route53resolver (>=1.34.0,<1.35.0)", "mypy-boto3-rum (>=1.34.0,<1.35.0)", "mypy-boto3-s3 (>=1.34.0,<1.35.0)", "mypy-boto3-s3control (>=1.34.0,<1.35.0)", "mypy-boto3-s3outposts (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-a2i-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-edge (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-featurestore-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-geospatial (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-metrics (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-savingsplans (>=1.34.0,<1.35.0)", "mypy-boto3-scheduler (>=1.34.0,<1.35.0)", "mypy-boto3-schemas (>=1.34.0,<1.35.0)", "mypy-boto3-sdb (>=1.34.0,<1.35.0)", "mypy-boto3-secretsmanager (>=1.34.0,<1.35.0)", "mypy-boto3-securityhub (>=1.34.0,<1.35.0)", "mypy-boto3-securitylake (>=1.34.0,<1.35.0)", "mypy-boto3-serverlessrepo (>=1.34.0,<1.35.0)", "mypy-boto3-service-quotas (>=1.34.0,<1.35.0)", "mypy-boto3-servicecatalog (>=1.34.0,<1.35.0)", "mypy-boto3-servicecatalog-appregistry (>=1.34.0,<1.35.0)", "mypy-boto3-servicediscovery (>=1.34.0,<1.35.0)", "mypy-boto3-ses (>=1.34.0,<1.35.0)", "mypy-boto3-sesv2 (>=1.34.0,<1.35.0)", "mypy-boto3-shield (>=1.34.0,<1.35.0)", "mypy-boto3-signer (>=1.34.0,<1.35.0)", "mypy-boto3-simspaceweaver (>=1.34.0,<1.35.0)", "mypy-boto3-sms (>=1.34.0,<1.35.0)", "mypy-boto3-sms-voice (>=1.34.0,<1.35.0)", "mypy-boto3-snow-device-management (>=1.34.0,<1.35.0)", "mypy-boto3-snowball (>=1.34.0,<1.35.0)", "mypy-boto3-sns (>=1.34.0,<1.35.0)", "mypy-boto3-sqs (>=1.34.0,<1.35.0)", "mypy-boto3-ssm (>=1.34.0,<1.35.0)", "mypy-boto3-ssm-contacts (>=1.34.0,<1.35.0)", "mypy-boto3-ssm-incidents (>=1.34.0,<1.35.0)", "mypy-boto3-ssm-sap (>=1.34.0,<1.35.0)", "mypy-boto3-sso (>=1.34.0,<1.35.0)", "mypy-boto3-sso-admin (>=1.34.0,<1.35.0)", "mypy-boto3-sso-oidc (>=1.34.0,<1.35.0)", "mypy-boto3-stepfunctions (>=1.34.0,<1.35.0)", "mypy-boto3-storagegateway (>=1.34.0,<1.35.0)", "mypy-boto3-sts (>=1.34.0,<1.35.0)", "mypy-boto3-supplychain (>=1.34.0,<1.35.0)", "mypy-boto3-support (>=1.34.0,<1.35.0)", "mypy-boto3-support-app (>=1.34.0,<1.35.0)", "mypy-boto3-swf (>=1.34.0,<1.35.0)", "mypy-boto3-synthetics (>=1.34.0,<1.35.0)", "mypy-boto3-taxsettings (>=1.34.0,<1.35.0)", "mypy-boto3-textract (>=1.34.0,<1.35.0)", "mypy-boto3-timestream-influxdb (>=1.34.0,<1.35.0)", "mypy-boto3-timestream-query (>=1.34.0,<1.35.0)", "mypy-boto3-timestream-write (>=1.34.0,<1.35.0)", "mypy-boto3-tnb (>=1.34.0,<1.35.0)", "mypy-boto3-transcribe (>=1.34.0,<1.35.0)", "mypy-boto3-transfer (>=1.34.0,<1.35.0)", "mypy-boto3-translate (>=1.34.0,<1.35.0)", "mypy-boto3-trustedadvisor (>=1.34.0,<1.35.0)", "mypy-boto3-verifiedpermissions (>=1.34.0,<1.35.0)", "mypy-boto3-voice-id (>=1.34.0,<1.35.0)", "mypy-boto3-vpc-lattice (>=1.34.0,<1.35.0)", "mypy-boto3-waf (>=1.34.0,<1.35.0)", "mypy-boto3-waf-regional (>=1.34.0,<1.35.0)", "mypy-boto3-wafv2 (>=1.34.0,<1.35.0)", "mypy-boto3-wellarchitected (>=1.34.0,<1.35.0)", "mypy-boto3-wisdom (>=1.34.0,<1.35.0)", "mypy-boto3-workdocs (>=1.34.0,<1.35.0)", "mypy-boto3-worklink (>=1.34.0,<1.35.0)", "mypy-boto3-workmail (>=1.34.0,<1.35.0)", "mypy-boto3-workmailmessageflow (>=1.34.0,<1.35.0)", "mypy-boto3-workspaces (>=1.34.0,<1.35.0)", "mypy-boto3-workspaces-thin-client (>=1.34.0,<1.35.0)", "mypy-boto3-workspaces-web (>=1.34.0,<1.35.0)", "mypy-boto3-xray (>=1.34.0,<1.35.0)"]
+all = ["mypy-boto3-accessanalyzer (>=1.34.0,<1.35.0)", "mypy-boto3-account (>=1.34.0,<1.35.0)", "mypy-boto3-acm (>=1.34.0,<1.35.0)", "mypy-boto3-acm-pca (>=1.34.0,<1.35.0)", "mypy-boto3-amp (>=1.34.0,<1.35.0)", "mypy-boto3-amplify (>=1.34.0,<1.35.0)", "mypy-boto3-amplifybackend (>=1.34.0,<1.35.0)", "mypy-boto3-amplifyuibuilder (>=1.34.0,<1.35.0)", "mypy-boto3-apigateway (>=1.34.0,<1.35.0)", "mypy-boto3-apigatewaymanagementapi (>=1.34.0,<1.35.0)", "mypy-boto3-apigatewayv2 (>=1.34.0,<1.35.0)", "mypy-boto3-appconfig (>=1.34.0,<1.35.0)", "mypy-boto3-appconfigdata (>=1.34.0,<1.35.0)", "mypy-boto3-appfabric (>=1.34.0,<1.35.0)", "mypy-boto3-appflow (>=1.34.0,<1.35.0)", "mypy-boto3-appintegrations (>=1.34.0,<1.35.0)", "mypy-boto3-application-autoscaling (>=1.34.0,<1.35.0)", "mypy-boto3-application-insights (>=1.34.0,<1.35.0)", "mypy-boto3-application-signals (>=1.34.0,<1.35.0)", "mypy-boto3-applicationcostprofiler (>=1.34.0,<1.35.0)", "mypy-boto3-appmesh (>=1.34.0,<1.35.0)", "mypy-boto3-apprunner (>=1.34.0,<1.35.0)", "mypy-boto3-appstream (>=1.34.0,<1.35.0)", "mypy-boto3-appsync (>=1.34.0,<1.35.0)", "mypy-boto3-apptest (>=1.34.0,<1.35.0)", "mypy-boto3-arc-zonal-shift (>=1.34.0,<1.35.0)", "mypy-boto3-artifact (>=1.34.0,<1.35.0)", "mypy-boto3-athena (>=1.34.0,<1.35.0)", "mypy-boto3-auditmanager (>=1.34.0,<1.35.0)", "mypy-boto3-autoscaling (>=1.34.0,<1.35.0)", "mypy-boto3-autoscaling-plans (>=1.34.0,<1.35.0)", "mypy-boto3-b2bi (>=1.34.0,<1.35.0)", "mypy-boto3-backup (>=1.34.0,<1.35.0)", "mypy-boto3-backup-gateway (>=1.34.0,<1.35.0)", "mypy-boto3-batch (>=1.34.0,<1.35.0)", "mypy-boto3-bcm-data-exports (>=1.34.0,<1.35.0)", "mypy-boto3-bedrock (>=1.34.0,<1.35.0)", "mypy-boto3-bedrock-agent (>=1.34.0,<1.35.0)", "mypy-boto3-bedrock-agent-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-bedrock-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-billingconductor (>=1.34.0,<1.35.0)", "mypy-boto3-braket (>=1.34.0,<1.35.0)", "mypy-boto3-budgets (>=1.34.0,<1.35.0)", "mypy-boto3-ce (>=1.34.0,<1.35.0)", "mypy-boto3-chatbot (>=1.34.0,<1.35.0)", "mypy-boto3-chime (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-identity (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-media-pipelines (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-meetings (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-messaging (>=1.34.0,<1.35.0)", "mypy-boto3-chime-sdk-voice (>=1.34.0,<1.35.0)", "mypy-boto3-cleanrooms (>=1.34.0,<1.35.0)", "mypy-boto3-cleanroomsml (>=1.34.0,<1.35.0)", "mypy-boto3-cloud9 (>=1.34.0,<1.35.0)", "mypy-boto3-cloudcontrol (>=1.34.0,<1.35.0)", "mypy-boto3-clouddirectory (>=1.34.0,<1.35.0)", "mypy-boto3-cloudformation (>=1.34.0,<1.35.0)", "mypy-boto3-cloudfront (>=1.34.0,<1.35.0)", "mypy-boto3-cloudfront-keyvaluestore (>=1.34.0,<1.35.0)", "mypy-boto3-cloudhsm (>=1.34.0,<1.35.0)", "mypy-boto3-cloudhsmv2 (>=1.34.0,<1.35.0)", "mypy-boto3-cloudsearch (>=1.34.0,<1.35.0)", "mypy-boto3-cloudsearchdomain (>=1.34.0,<1.35.0)", "mypy-boto3-cloudtrail (>=1.34.0,<1.35.0)", "mypy-boto3-cloudtrail-data (>=1.34.0,<1.35.0)", "mypy-boto3-cloudwatch (>=1.34.0,<1.35.0)", "mypy-boto3-codeartifact (>=1.34.0,<1.35.0)", "mypy-boto3-codebuild (>=1.34.0,<1.35.0)", "mypy-boto3-codecatalyst (>=1.34.0,<1.35.0)", "mypy-boto3-codecommit (>=1.34.0,<1.35.0)", "mypy-boto3-codeconnections (>=1.34.0,<1.35.0)", "mypy-boto3-codedeploy (>=1.34.0,<1.35.0)", "mypy-boto3-codeguru-reviewer (>=1.34.0,<1.35.0)", "mypy-boto3-codeguru-security (>=1.34.0,<1.35.0)", "mypy-boto3-codeguruprofiler (>=1.34.0,<1.35.0)", "mypy-boto3-codepipeline (>=1.34.0,<1.35.0)", "mypy-boto3-codestar (>=1.34.0,<1.35.0)", "mypy-boto3-codestar-connections (>=1.34.0,<1.35.0)", "mypy-boto3-codestar-notifications (>=1.34.0,<1.35.0)", "mypy-boto3-cognito-identity (>=1.34.0,<1.35.0)", "mypy-boto3-cognito-idp (>=1.34.0,<1.35.0)", "mypy-boto3-cognito-sync (>=1.34.0,<1.35.0)", "mypy-boto3-comprehend (>=1.34.0,<1.35.0)", "mypy-boto3-comprehendmedical (>=1.34.0,<1.35.0)", "mypy-boto3-compute-optimizer (>=1.34.0,<1.35.0)", "mypy-boto3-config (>=1.34.0,<1.35.0)", "mypy-boto3-connect (>=1.34.0,<1.35.0)", "mypy-boto3-connect-contact-lens (>=1.34.0,<1.35.0)", "mypy-boto3-connectcampaigns (>=1.34.0,<1.35.0)", "mypy-boto3-connectcases (>=1.34.0,<1.35.0)", "mypy-boto3-connectparticipant (>=1.34.0,<1.35.0)", "mypy-boto3-controlcatalog (>=1.34.0,<1.35.0)", "mypy-boto3-controltower (>=1.34.0,<1.35.0)", "mypy-boto3-cost-optimization-hub (>=1.34.0,<1.35.0)", "mypy-boto3-cur (>=1.34.0,<1.35.0)", "mypy-boto3-customer-profiles (>=1.34.0,<1.35.0)", "mypy-boto3-databrew (>=1.34.0,<1.35.0)", "mypy-boto3-dataexchange (>=1.34.0,<1.35.0)", "mypy-boto3-datapipeline (>=1.34.0,<1.35.0)", "mypy-boto3-datasync (>=1.34.0,<1.35.0)", "mypy-boto3-datazone (>=1.34.0,<1.35.0)", "mypy-boto3-dax (>=1.34.0,<1.35.0)", "mypy-boto3-deadline (>=1.34.0,<1.35.0)", "mypy-boto3-detective (>=1.34.0,<1.35.0)", "mypy-boto3-devicefarm (>=1.34.0,<1.35.0)", "mypy-boto3-devops-guru (>=1.34.0,<1.35.0)", "mypy-boto3-directconnect (>=1.34.0,<1.35.0)", "mypy-boto3-discovery (>=1.34.0,<1.35.0)", "mypy-boto3-dlm (>=1.34.0,<1.35.0)", "mypy-boto3-dms (>=1.34.0,<1.35.0)", "mypy-boto3-docdb (>=1.34.0,<1.35.0)", "mypy-boto3-docdb-elastic (>=1.34.0,<1.35.0)", "mypy-boto3-drs (>=1.34.0,<1.35.0)", "mypy-boto3-ds (>=1.34.0,<1.35.0)", "mypy-boto3-dynamodb (>=1.34.0,<1.35.0)", "mypy-boto3-dynamodbstreams (>=1.34.0,<1.35.0)", "mypy-boto3-ebs (>=1.34.0,<1.35.0)", "mypy-boto3-ec2 (>=1.34.0,<1.35.0)", "mypy-boto3-ec2-instance-connect (>=1.34.0,<1.35.0)", "mypy-boto3-ecr (>=1.34.0,<1.35.0)", "mypy-boto3-ecr-public (>=1.34.0,<1.35.0)", "mypy-boto3-ecs (>=1.34.0,<1.35.0)", "mypy-boto3-efs (>=1.34.0,<1.35.0)", "mypy-boto3-eks (>=1.34.0,<1.35.0)", "mypy-boto3-eks-auth (>=1.34.0,<1.35.0)", "mypy-boto3-elastic-inference (>=1.34.0,<1.35.0)", "mypy-boto3-elasticache (>=1.34.0,<1.35.0)", "mypy-boto3-elasticbeanstalk (>=1.34.0,<1.35.0)", "mypy-boto3-elastictranscoder (>=1.34.0,<1.35.0)", "mypy-boto3-elb (>=1.34.0,<1.35.0)", "mypy-boto3-elbv2 (>=1.34.0,<1.35.0)", "mypy-boto3-emr (>=1.34.0,<1.35.0)", "mypy-boto3-emr-containers (>=1.34.0,<1.35.0)", "mypy-boto3-emr-serverless (>=1.34.0,<1.35.0)", "mypy-boto3-entityresolution (>=1.34.0,<1.35.0)", "mypy-boto3-es (>=1.34.0,<1.35.0)", "mypy-boto3-events (>=1.34.0,<1.35.0)", "mypy-boto3-evidently (>=1.34.0,<1.35.0)", "mypy-boto3-finspace (>=1.34.0,<1.35.0)", "mypy-boto3-finspace-data (>=1.34.0,<1.35.0)", "mypy-boto3-firehose (>=1.34.0,<1.35.0)", "mypy-boto3-fis (>=1.34.0,<1.35.0)", "mypy-boto3-fms (>=1.34.0,<1.35.0)", "mypy-boto3-forecast (>=1.34.0,<1.35.0)", "mypy-boto3-forecastquery (>=1.34.0,<1.35.0)", "mypy-boto3-frauddetector (>=1.34.0,<1.35.0)", "mypy-boto3-freetier (>=1.34.0,<1.35.0)", "mypy-boto3-fsx (>=1.34.0,<1.35.0)", "mypy-boto3-gamelift (>=1.34.0,<1.35.0)", "mypy-boto3-glacier (>=1.34.0,<1.35.0)", "mypy-boto3-globalaccelerator (>=1.34.0,<1.35.0)", "mypy-boto3-glue (>=1.34.0,<1.35.0)", "mypy-boto3-grafana (>=1.34.0,<1.35.0)", "mypy-boto3-greengrass (>=1.34.0,<1.35.0)", "mypy-boto3-greengrassv2 (>=1.34.0,<1.35.0)", "mypy-boto3-groundstation (>=1.34.0,<1.35.0)", "mypy-boto3-guardduty (>=1.34.0,<1.35.0)", "mypy-boto3-health (>=1.34.0,<1.35.0)", "mypy-boto3-healthlake (>=1.34.0,<1.35.0)", "mypy-boto3-iam (>=1.34.0,<1.35.0)", "mypy-boto3-identitystore (>=1.34.0,<1.35.0)", "mypy-boto3-imagebuilder (>=1.34.0,<1.35.0)", "mypy-boto3-importexport (>=1.34.0,<1.35.0)", "mypy-boto3-inspector (>=1.34.0,<1.35.0)", "mypy-boto3-inspector-scan (>=1.34.0,<1.35.0)", "mypy-boto3-inspector2 (>=1.34.0,<1.35.0)", "mypy-boto3-internetmonitor (>=1.34.0,<1.35.0)", "mypy-boto3-iot (>=1.34.0,<1.35.0)", "mypy-boto3-iot-data (>=1.34.0,<1.35.0)", "mypy-boto3-iot-jobs-data (>=1.34.0,<1.35.0)", "mypy-boto3-iot1click-devices (>=1.34.0,<1.35.0)", "mypy-boto3-iot1click-projects (>=1.34.0,<1.35.0)", "mypy-boto3-iotanalytics (>=1.34.0,<1.35.0)", "mypy-boto3-iotdeviceadvisor (>=1.34.0,<1.35.0)", "mypy-boto3-iotevents (>=1.34.0,<1.35.0)", "mypy-boto3-iotevents-data (>=1.34.0,<1.35.0)", "mypy-boto3-iotfleethub (>=1.34.0,<1.35.0)", "mypy-boto3-iotfleetwise (>=1.34.0,<1.35.0)", "mypy-boto3-iotsecuretunneling (>=1.34.0,<1.35.0)", "mypy-boto3-iotsitewise (>=1.34.0,<1.35.0)", "mypy-boto3-iotthingsgraph (>=1.34.0,<1.35.0)", "mypy-boto3-iottwinmaker (>=1.34.0,<1.35.0)", "mypy-boto3-iotwireless (>=1.34.0,<1.35.0)", "mypy-boto3-ivs (>=1.34.0,<1.35.0)", "mypy-boto3-ivs-realtime (>=1.34.0,<1.35.0)", "mypy-boto3-ivschat (>=1.34.0,<1.35.0)", "mypy-boto3-kafka (>=1.34.0,<1.35.0)", "mypy-boto3-kafkaconnect (>=1.34.0,<1.35.0)", "mypy-boto3-kendra (>=1.34.0,<1.35.0)", "mypy-boto3-kendra-ranking (>=1.34.0,<1.35.0)", "mypy-boto3-keyspaces (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis-video-archived-media (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis-video-media (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis-video-signaling (>=1.34.0,<1.35.0)", "mypy-boto3-kinesis-video-webrtc-storage (>=1.34.0,<1.35.0)", "mypy-boto3-kinesisanalytics (>=1.34.0,<1.35.0)", "mypy-boto3-kinesisanalyticsv2 (>=1.34.0,<1.35.0)", "mypy-boto3-kinesisvideo (>=1.34.0,<1.35.0)", "mypy-boto3-kms (>=1.34.0,<1.35.0)", "mypy-boto3-lakeformation (>=1.34.0,<1.35.0)", "mypy-boto3-lambda (>=1.34.0,<1.35.0)", "mypy-boto3-launch-wizard (>=1.34.0,<1.35.0)", "mypy-boto3-lex-models (>=1.34.0,<1.35.0)", "mypy-boto3-lex-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-lexv2-models (>=1.34.0,<1.35.0)", "mypy-boto3-lexv2-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-license-manager (>=1.34.0,<1.35.0)", "mypy-boto3-license-manager-linux-subscriptions (>=1.34.0,<1.35.0)", "mypy-boto3-license-manager-user-subscriptions (>=1.34.0,<1.35.0)", "mypy-boto3-lightsail (>=1.34.0,<1.35.0)", "mypy-boto3-location (>=1.34.0,<1.35.0)", "mypy-boto3-logs (>=1.34.0,<1.35.0)", "mypy-boto3-lookoutequipment (>=1.34.0,<1.35.0)", "mypy-boto3-lookoutmetrics (>=1.34.0,<1.35.0)", "mypy-boto3-lookoutvision (>=1.34.0,<1.35.0)", "mypy-boto3-m2 (>=1.34.0,<1.35.0)", "mypy-boto3-machinelearning (>=1.34.0,<1.35.0)", "mypy-boto3-macie2 (>=1.34.0,<1.35.0)", "mypy-boto3-mailmanager (>=1.34.0,<1.35.0)", "mypy-boto3-managedblockchain (>=1.34.0,<1.35.0)", "mypy-boto3-managedblockchain-query (>=1.34.0,<1.35.0)", "mypy-boto3-marketplace-agreement (>=1.34.0,<1.35.0)", "mypy-boto3-marketplace-catalog (>=1.34.0,<1.35.0)", "mypy-boto3-marketplace-deployment (>=1.34.0,<1.35.0)", "mypy-boto3-marketplace-entitlement (>=1.34.0,<1.35.0)", "mypy-boto3-marketplacecommerceanalytics (>=1.34.0,<1.35.0)", "mypy-boto3-mediaconnect (>=1.34.0,<1.35.0)", "mypy-boto3-mediaconvert (>=1.34.0,<1.35.0)", "mypy-boto3-medialive (>=1.34.0,<1.35.0)", "mypy-boto3-mediapackage (>=1.34.0,<1.35.0)", "mypy-boto3-mediapackage-vod (>=1.34.0,<1.35.0)", "mypy-boto3-mediapackagev2 (>=1.34.0,<1.35.0)", "mypy-boto3-mediastore (>=1.34.0,<1.35.0)", "mypy-boto3-mediastore-data (>=1.34.0,<1.35.0)", "mypy-boto3-mediatailor (>=1.34.0,<1.35.0)", "mypy-boto3-medical-imaging (>=1.34.0,<1.35.0)", "mypy-boto3-memorydb (>=1.34.0,<1.35.0)", "mypy-boto3-meteringmarketplace (>=1.34.0,<1.35.0)", "mypy-boto3-mgh (>=1.34.0,<1.35.0)", "mypy-boto3-mgn (>=1.34.0,<1.35.0)", "mypy-boto3-migration-hub-refactor-spaces (>=1.34.0,<1.35.0)", "mypy-boto3-migrationhub-config (>=1.34.0,<1.35.0)", "mypy-boto3-migrationhuborchestrator (>=1.34.0,<1.35.0)", "mypy-boto3-migrationhubstrategy (>=1.34.0,<1.35.0)", "mypy-boto3-mq (>=1.34.0,<1.35.0)", "mypy-boto3-mturk (>=1.34.0,<1.35.0)", "mypy-boto3-mwaa (>=1.34.0,<1.35.0)", "mypy-boto3-neptune (>=1.34.0,<1.35.0)", "mypy-boto3-neptune-graph (>=1.34.0,<1.35.0)", "mypy-boto3-neptunedata (>=1.34.0,<1.35.0)", "mypy-boto3-network-firewall (>=1.34.0,<1.35.0)", "mypy-boto3-networkmanager (>=1.34.0,<1.35.0)", "mypy-boto3-networkmonitor (>=1.34.0,<1.35.0)", "mypy-boto3-nimble (>=1.34.0,<1.35.0)", "mypy-boto3-oam (>=1.34.0,<1.35.0)", "mypy-boto3-omics (>=1.34.0,<1.35.0)", "mypy-boto3-opensearch (>=1.34.0,<1.35.0)", "mypy-boto3-opensearchserverless (>=1.34.0,<1.35.0)", "mypy-boto3-opsworks (>=1.34.0,<1.35.0)", "mypy-boto3-opsworkscm (>=1.34.0,<1.35.0)", "mypy-boto3-organizations (>=1.34.0,<1.35.0)", "mypy-boto3-osis (>=1.34.0,<1.35.0)", "mypy-boto3-outposts (>=1.34.0,<1.35.0)", "mypy-boto3-panorama (>=1.34.0,<1.35.0)", "mypy-boto3-payment-cryptography (>=1.34.0,<1.35.0)", "mypy-boto3-payment-cryptography-data (>=1.34.0,<1.35.0)", "mypy-boto3-pca-connector-ad (>=1.34.0,<1.35.0)", "mypy-boto3-pca-connector-scep (>=1.34.0,<1.35.0)", "mypy-boto3-personalize (>=1.34.0,<1.35.0)", "mypy-boto3-personalize-events (>=1.34.0,<1.35.0)", "mypy-boto3-personalize-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-pi (>=1.34.0,<1.35.0)", "mypy-boto3-pinpoint (>=1.34.0,<1.35.0)", "mypy-boto3-pinpoint-email (>=1.34.0,<1.35.0)", "mypy-boto3-pinpoint-sms-voice (>=1.34.0,<1.35.0)", "mypy-boto3-pinpoint-sms-voice-v2 (>=1.34.0,<1.35.0)", "mypy-boto3-pipes (>=1.34.0,<1.35.0)", "mypy-boto3-polly (>=1.34.0,<1.35.0)", "mypy-boto3-pricing (>=1.34.0,<1.35.0)", "mypy-boto3-privatenetworks (>=1.34.0,<1.35.0)", "mypy-boto3-proton (>=1.34.0,<1.35.0)", "mypy-boto3-qapps (>=1.34.0,<1.35.0)", "mypy-boto3-qbusiness (>=1.34.0,<1.35.0)", "mypy-boto3-qconnect (>=1.34.0,<1.35.0)", "mypy-boto3-qldb (>=1.34.0,<1.35.0)", "mypy-boto3-qldb-session (>=1.34.0,<1.35.0)", "mypy-boto3-quicksight (>=1.34.0,<1.35.0)", "mypy-boto3-ram (>=1.34.0,<1.35.0)", "mypy-boto3-rbin (>=1.34.0,<1.35.0)", "mypy-boto3-rds (>=1.34.0,<1.35.0)", "mypy-boto3-rds-data (>=1.34.0,<1.35.0)", "mypy-boto3-redshift (>=1.34.0,<1.35.0)", "mypy-boto3-redshift-data (>=1.34.0,<1.35.0)", "mypy-boto3-redshift-serverless (>=1.34.0,<1.35.0)", "mypy-boto3-rekognition (>=1.34.0,<1.35.0)", "mypy-boto3-repostspace (>=1.34.0,<1.35.0)", "mypy-boto3-resiliencehub (>=1.34.0,<1.35.0)", "mypy-boto3-resource-explorer-2 (>=1.34.0,<1.35.0)", "mypy-boto3-resource-groups (>=1.34.0,<1.35.0)", "mypy-boto3-resourcegroupstaggingapi (>=1.34.0,<1.35.0)", "mypy-boto3-robomaker (>=1.34.0,<1.35.0)", "mypy-boto3-rolesanywhere (>=1.34.0,<1.35.0)", "mypy-boto3-route53 (>=1.34.0,<1.35.0)", "mypy-boto3-route53-recovery-cluster (>=1.34.0,<1.35.0)", "mypy-boto3-route53-recovery-control-config (>=1.34.0,<1.35.0)", "mypy-boto3-route53-recovery-readiness (>=1.34.0,<1.35.0)", "mypy-boto3-route53domains (>=1.34.0,<1.35.0)", "mypy-boto3-route53profiles (>=1.34.0,<1.35.0)", "mypy-boto3-route53resolver (>=1.34.0,<1.35.0)", "mypy-boto3-rum (>=1.34.0,<1.35.0)", "mypy-boto3-s3 (>=1.34.0,<1.35.0)", "mypy-boto3-s3control (>=1.34.0,<1.35.0)", "mypy-boto3-s3outposts (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-a2i-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-edge (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-featurestore-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-geospatial (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-metrics (>=1.34.0,<1.35.0)", "mypy-boto3-sagemaker-runtime (>=1.34.0,<1.35.0)", "mypy-boto3-savingsplans (>=1.34.0,<1.35.0)", "mypy-boto3-scheduler (>=1.34.0,<1.35.0)", "mypy-boto3-schemas (>=1.34.0,<1.35.0)", "mypy-boto3-sdb (>=1.34.0,<1.35.0)", "mypy-boto3-secretsmanager (>=1.34.0,<1.35.0)", "mypy-boto3-securityhub (>=1.34.0,<1.35.0)", "mypy-boto3-securitylake (>=1.34.0,<1.35.0)", "mypy-boto3-serverlessrepo (>=1.34.0,<1.35.0)", "mypy-boto3-service-quotas (>=1.34.0,<1.35.0)", "mypy-boto3-servicecatalog (>=1.34.0,<1.35.0)", "mypy-boto3-servicecatalog-appregistry (>=1.34.0,<1.35.0)", "mypy-boto3-servicediscovery (>=1.34.0,<1.35.0)", "mypy-boto3-ses (>=1.34.0,<1.35.0)", "mypy-boto3-sesv2 (>=1.34.0,<1.35.0)", "mypy-boto3-shield (>=1.34.0,<1.35.0)", "mypy-boto3-signer (>=1.34.0,<1.35.0)", "mypy-boto3-simspaceweaver (>=1.34.0,<1.35.0)", "mypy-boto3-sms (>=1.34.0,<1.35.0)", "mypy-boto3-sms-voice (>=1.34.0,<1.35.0)", "mypy-boto3-snow-device-management (>=1.34.0,<1.35.0)", "mypy-boto3-snowball (>=1.34.0,<1.35.0)", "mypy-boto3-sns (>=1.34.0,<1.35.0)", "mypy-boto3-sqs (>=1.34.0,<1.35.0)", "mypy-boto3-ssm (>=1.34.0,<1.35.0)", "mypy-boto3-ssm-contacts (>=1.34.0,<1.35.0)", "mypy-boto3-ssm-incidents (>=1.34.0,<1.35.0)", "mypy-boto3-ssm-sap (>=1.34.0,<1.35.0)", "mypy-boto3-sso (>=1.34.0,<1.35.0)", "mypy-boto3-sso-admin (>=1.34.0,<1.35.0)", "mypy-boto3-sso-oidc (>=1.34.0,<1.35.0)", "mypy-boto3-stepfunctions (>=1.34.0,<1.35.0)", "mypy-boto3-storagegateway (>=1.34.0,<1.35.0)", "mypy-boto3-sts (>=1.34.0,<1.35.0)", "mypy-boto3-supplychain (>=1.34.0,<1.35.0)", "mypy-boto3-support (>=1.34.0,<1.35.0)", "mypy-boto3-support-app (>=1.34.0,<1.35.0)", "mypy-boto3-swf (>=1.34.0,<1.35.0)", "mypy-boto3-synthetics (>=1.34.0,<1.35.0)", "mypy-boto3-taxsettings (>=1.34.0,<1.35.0)", "mypy-boto3-textract (>=1.34.0,<1.35.0)", "mypy-boto3-timestream-influxdb (>=1.34.0,<1.35.0)", "mypy-boto3-timestream-query (>=1.34.0,<1.35.0)", "mypy-boto3-timestream-write (>=1.34.0,<1.35.0)", "mypy-boto3-tnb (>=1.34.0,<1.35.0)", "mypy-boto3-transcribe (>=1.34.0,<1.35.0)", "mypy-boto3-transfer (>=1.34.0,<1.35.0)", "mypy-boto3-translate (>=1.34.0,<1.35.0)", "mypy-boto3-trustedadvisor (>=1.34.0,<1.35.0)", "mypy-boto3-verifiedpermissions (>=1.34.0,<1.35.0)", "mypy-boto3-voice-id (>=1.34.0,<1.35.0)", "mypy-boto3-vpc-lattice (>=1.34.0,<1.35.0)", "mypy-boto3-waf (>=1.34.0,<1.35.0)", "mypy-boto3-waf-regional (>=1.34.0,<1.35.0)", "mypy-boto3-wafv2 (>=1.34.0,<1.35.0)", "mypy-boto3-wellarchitected (>=1.34.0,<1.35.0)", "mypy-boto3-wisdom (>=1.34.0,<1.35.0)", "mypy-boto3-workdocs (>=1.34.0,<1.35.0)", "mypy-boto3-worklink (>=1.34.0,<1.35.0)", "mypy-boto3-workmail (>=1.34.0,<1.35.0)", "mypy-boto3-workmailmessageflow (>=1.34.0,<1.35.0)", "mypy-boto3-workspaces (>=1.34.0,<1.35.0)", "mypy-boto3-workspaces-thin-client (>=1.34.0,<1.35.0)", "mypy-boto3-workspaces-web (>=1.34.0,<1.35.0)", "mypy-boto3-xray (>=1.34.0,<1.35.0)"]
 amp = ["mypy-boto3-amp (>=1.34.0,<1.35.0)"]
 amplify = ["mypy-boto3-amplify (>=1.34.0,<1.35.0)"]
 amplifybackend = ["mypy-boto3-amplifybackend (>=1.34.0,<1.35.0)"]
@@ -459,7 +458,7 @@ bedrock-agent = ["mypy-boto3-bedrock-agent (>=1.34.0,<1.35.0)"]
 bedrock-agent-runtime = ["mypy-boto3-bedrock-agent-runtime (>=1.34.0,<1.35.0)"]
 bedrock-runtime = ["mypy-boto3-bedrock-runtime (>=1.34.0,<1.35.0)"]
 billingconductor = ["mypy-boto3-billingconductor (>=1.34.0,<1.35.0)"]
-boto3 = ["boto3 (==1.34.143)", "botocore (==1.34.143)"]
+boto3 = ["boto3 (==1.34.149)", "botocore (==1.34.149)"]
 braket = ["mypy-boto3-braket (>=1.34.0,<1.35.0)"]
 budgets = ["mypy-boto3-budgets (>=1.34.0,<1.35.0)"]
 ce = ["mypy-boto3-ce (>=1.34.0,<1.35.0)"]
@@ -665,7 +664,6 @@ migration-hub-refactor-spaces = ["mypy-boto3-migration-hub-refactor-spaces (>=1.
 migrationhub-config = ["mypy-boto3-migrationhub-config (>=1.34.0,<1.35.0)"]
 migrationhuborchestrator = ["mypy-boto3-migrationhuborchestrator (>=1.34.0,<1.35.0)"]
 migrationhubstrategy = ["mypy-boto3-migrationhubstrategy (>=1.34.0,<1.35.0)"]
-mobile = ["mypy-boto3-mobile (>=1.34.0,<1.35.0)"]
 mq = ["mypy-boto3-mq (>=1.34.0,<1.35.0)"]
 mturk = ["mypy-boto3-mturk (>=1.34.0,<1.35.0)"]
 mwaa = ["mypy-boto3-mwaa (>=1.34.0,<1.35.0)"]
@@ -809,13 +807,13 @@ xray = ["mypy-boto3-xray (>=1.34.0,<1.35.0)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.34.143"
+version = "1.34.149"
 description = "Type annotations and code completion for botocore"
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "botocore_stubs-1.34.143-py3-none-any.whl", hash = "sha256:2bfd2707c9c6857d21616c6c56ed6efcd335782d36d95217483d902f446420f2"},
-    {file = "botocore_stubs-1.34.143.tar.gz", hash = "sha256:ff6e7ca53dbd73cba8009fd29a99bf27d714936ea24eaffd500ecdcef36c9d5a"},
+    {file = "botocore_stubs-1.34.149-py3-none-any.whl", hash = "sha256:5fe4b32209b32cf98c75df5287acdde5df978e3586809329e3078045493b6bfc"},
+    {file = "botocore_stubs-1.34.149.tar.gz", hash = "sha256:0d7b41d97206a5957ebc95e33f7a865d338c4404535aaa5a1d32cd3fa5d1ea88"},
 ]
 
 [package.dependencies]
@@ -1001,13 +999,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-acm-pca"
-version = "1.34.136"
-description = "Type annotations for boto3.ACMPCA 1.34.136 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.145"
+description = "Type annotations for boto3.ACMPCA 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_acm_pca-1.34.136-py3-none-any.whl", hash = "sha256:fa9331a667f4fdd4cc8c44249681c4a780e1b737f60766b5d3626aca5aa1db84"},
-    {file = "mypy_boto3_acm_pca-1.34.136.tar.gz", hash = "sha256:3376f7e4b55356c018cace6e34ba110e03da2a87e2cff953a98a8cbd6573f4f9"},
+    {file = "mypy_boto3_acm_pca-1.34.145-py3-none-any.whl", hash = "sha256:17f7bb7cfcb2ce0ba80b9e56910a5e8770f3787554a8d7f47314157b751da7b7"},
+    {file = "mypy_boto3_acm_pca-1.34.145.tar.gz", hash = "sha256:eb3414cda1621719ee014e3d8ad3ab4bb018144c72fcd92be5bb9a42057047a9"},
 ]
 
 [package.dependencies]
@@ -1183,13 +1181,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-application-autoscaling"
-version = "1.34.139"
-description = "Type annotations for boto3.ApplicationAutoScaling 1.34.139 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.149"
+description = "Type annotations for boto3.ApplicationAutoScaling 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_application_autoscaling-1.34.139-py3-none-any.whl", hash = "sha256:3a74c6904e692a10fcc11be547a0809d4d356a9394199b47fce137bb8ccd7cad"},
-    {file = "mypy_boto3_application_autoscaling-1.34.139.tar.gz", hash = "sha256:a3dc01cb3e00e421fbcbd453efeb98ab596c48992fa64a237a65fffe5abb041f"},
+    {file = "mypy_boto3_application_autoscaling-1.34.149-py3-none-any.whl", hash = "sha256:f28e17065ec069b914af55335d070b7f5cc70c0011c83f309ce6fe6e53c3c43f"},
+    {file = "mypy_boto3_application_autoscaling-1.34.149.tar.gz", hash = "sha256:783fe17b7ad3cd82b37b8cf50be3106bbb2ceb05f4b74e60238479dd76b1b4f7"},
 ]
 
 [package.dependencies]
@@ -1211,13 +1209,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-application-signals"
-version = "1.34.123"
-description = "Type annotations for boto3.CloudWatchApplicationSignals 1.34.123 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.149"
+description = "Type annotations for boto3.CloudWatchApplicationSignals 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_application_signals-1.34.123-py3-none-any.whl", hash = "sha256:13d056a8491d2c5871a29f6745d946ac347e3882e5cfed4ad0a5350b7ecd7169"},
-    {file = "mypy_boto3_application_signals-1.34.123.tar.gz", hash = "sha256:4ee6bfac101340f1c26ea875895ec530df2d0eb0132ea4b3c9277e4cab99ee7b"},
+    {file = "mypy_boto3_application_signals-1.34.149-py3-none-any.whl", hash = "sha256:2deea30f0422d76380dfcae26927670381edbbb8641238e37e0bb08b05fd3479"},
+    {file = "mypy_boto3_application_signals-1.34.149.tar.gz", hash = "sha256:9819aa714ea3aea863195c39a0c80c3127201c373643e8a6595452dc681d1c64"},
 ]
 
 [package.dependencies]
@@ -1281,13 +1279,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-appsync"
-version = "1.34.92"
-description = "Type annotations for boto3.AppSync 1.34.92 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.147"
+description = "Type annotations for boto3.AppSync 1.34.147 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_appsync-1.34.92-py3-none-any.whl", hash = "sha256:c564fe0849a20e2c3b38b3129bc1b7747c084affdc1e70a94902883eac111a08"},
-    {file = "mypy_boto3_appsync-1.34.92.tar.gz", hash = "sha256:d0b3bda996497e351bd7175d04f13979686b591bf74df0562645740085d2e059"},
+    {file = "mypy_boto3_appsync-1.34.147-py3-none-any.whl", hash = "sha256:4a90170a0f10a7dff6407119fe518a7bbd26b7a17080107e29e0902dd8eaa14e"},
+    {file = "mypy_boto3_appsync-1.34.147.tar.gz", hash = "sha256:82ecc07921226881eb7be489b4e1ae5ac29ccf3e35e5111f6a91612128fddd9a"},
 ]
 
 [package.dependencies]
@@ -1309,13 +1307,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-arc-zonal-shift"
-version = "1.34.0"
-description = "Type annotations for boto3.ARCZonalShift 1.34.0 service generated with mypy-boto3-builder 7.21.0"
+version = "1.34.144"
+description = "Type annotations for boto3.ARCZonalShift 1.34.144 service generated with mypy-boto3-builder 7.25.0"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "mypy-boto3-arc-zonal-shift-1.34.0.tar.gz", hash = "sha256:16141a8aed127381e491a46e86d82f50130e823f340db201cd92c46d9078d42b"},
-    {file = "mypy_boto3_arc_zonal_shift-1.34.0-py3-none-any.whl", hash = "sha256:2708d5dbf5fb007f21c77c1f6b79549ad8463167233f98c5565781981b3d0077"},
+    {file = "mypy_boto3_arc_zonal_shift-1.34.144-py3-none-any.whl", hash = "sha256:24b90bc3504fd1451daa9ba5aee4d7ebc2c7bfc9369a6e0534e34cf957d0d967"},
+    {file = "mypy_boto3_arc_zonal_shift-1.34.144.tar.gz", hash = "sha256:2cdb3670632e6733cfcb972f132eb967d40eabf71e4440765ac8997bc481b928"},
 ]
 
 [package.dependencies]
@@ -1505,13 +1503,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-bedrock-runtime"
-version = "1.34.143"
-description = "Type annotations for boto3.BedrockRuntime 1.34.143 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.149"
+description = "Type annotations for boto3.BedrockRuntime 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_bedrock_runtime-1.34.143-py3-none-any.whl", hash = "sha256:1932ca4778792462530248e2d137e128805f4f4da9e655836a5ba8d14dc0d7e6"},
-    {file = "mypy_boto3_bedrock_runtime-1.34.143.tar.gz", hash = "sha256:d225f54f1e4eae40e22ed97cd2811c2649cb881d972b941e06aef27f5cb79e4e"},
+    {file = "mypy_boto3_bedrock_runtime-1.34.149-py3-none-any.whl", hash = "sha256:66dc8f19c33cf9792a41454caa74ee93c839707767d17030e149fb037a8d915a"},
+    {file = "mypy_boto3_bedrock_runtime-1.34.149.tar.gz", hash = "sha256:b4ea2f201577c662d0c49bc4352abbdcb297d935f4fca11af5e510731f56bda3"},
 ]
 
 [package.dependencies]
@@ -1673,13 +1671,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-cleanrooms"
-version = "1.34.82"
-description = "Type annotations for boto3.CleanRoomsService 1.34.82 service generated with mypy-boto3-builder 7.23.2"
+version = "1.34.148"
+description = "Type annotations for boto3.CleanRoomsService 1.34.148 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy-boto3-cleanrooms-1.34.82.tar.gz", hash = "sha256:29a0acfcfdcd33721e67d57d921230cacc815c11bff11b86141025adb3189f86"},
-    {file = "mypy_boto3_cleanrooms-1.34.82-py3-none-any.whl", hash = "sha256:7b57b46bccdcac125e5f53dfa624053ccea54fb14490278c9775ff19139956c0"},
+    {file = "mypy_boto3_cleanrooms-1.34.148-py3-none-any.whl", hash = "sha256:807bc5902f73bb7011c5f11cc523f50f961efbad5348f5928abd3c4a32d9d9e7"},
+    {file = "mypy_boto3_cleanrooms-1.34.148.tar.gz", hash = "sha256:b1a8c2431346320c77e72dcb4545c47fbfba862b86cd9467cfcc615e868cb561"},
 ]
 
 [package.dependencies]
@@ -1687,13 +1685,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-cleanroomsml"
-version = "1.34.77"
-description = "Type annotations for boto3.CleanRoomsML 1.34.77 service generated with mypy-boto3-builder 7.23.2"
+version = "1.34.147"
+description = "Type annotations for boto3.CleanRoomsML 1.34.147 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy-boto3-cleanroomsml-1.34.77.tar.gz", hash = "sha256:e08721b5c29b3ed8f46183b91b48c7935b4c491944c325eb78d856a4d51942ca"},
-    {file = "mypy_boto3_cleanroomsml-1.34.77-py3-none-any.whl", hash = "sha256:0f7e43325808554c243df940da0029e254402d729f8593b20f0e6e8c3bacc08a"},
+    {file = "mypy_boto3_cleanroomsml-1.34.147-py3-none-any.whl", hash = "sha256:9e1bb383655abe796139d88be85c3e2303dba07eef275235397a90b530c4e16b"},
+    {file = "mypy_boto3_cleanroomsml-1.34.147.tar.gz", hash = "sha256:1807ef263a316e9d605ff536ba9bc6fef718cbb3bce2b23b7e5a7fdade06efd8"},
 ]
 
 [package.dependencies]
@@ -1925,13 +1923,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-codecommit"
-version = "1.34.6"
-description = "Type annotations for boto3.CodeCommit 1.34.6 service generated with mypy-boto3-builder 7.23.0"
+version = "1.34.149"
+description = "Type annotations for boto3.CodeCommit 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy-boto3-codecommit-1.34.6.tar.gz", hash = "sha256:c02c3a7bbcaf32333e03a8d77c1d83e19fa2f6cddefc5f4887f5710fa8a2c30b"},
-    {file = "mypy_boto3_codecommit-1.34.6-py3-none-any.whl", hash = "sha256:63231d88454dc20012bd80ac5bf69ab2095d3c2855655a2ace86d5622a22c699"},
+    {file = "mypy_boto3_codecommit-1.34.149-py3-none-any.whl", hash = "sha256:941e3648bc4c08a944cd6d48873a2e74bc3de45513ca19ef67d1aa8d9e12e93d"},
+    {file = "mypy_boto3_codecommit-1.34.149.tar.gz", hash = "sha256:0a911c6291d25d1e5f0d908b3a202780643226d827a5e936825b78ac203d0f24"},
 ]
 
 [package.dependencies]
@@ -2163,13 +2161,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-connect"
-version = "1.34.137"
-description = "Type annotations for boto3.Connect 1.34.137 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.147"
+description = "Type annotations for boto3.Connect 1.34.147 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_connect-1.34.137-py3-none-any.whl", hash = "sha256:7456bb663af57d83945f5a545d037ccd029f6229a11ecfa15f7a59051a4cd984"},
-    {file = "mypy_boto3_connect-1.34.137.tar.gz", hash = "sha256:95217a7788cda04089e150d3a28dab61c4adbc5263b22d962eecb4f7c20e7966"},
+    {file = "mypy_boto3_connect-1.34.147-py3-none-any.whl", hash = "sha256:37846c3618d2ef2e9a6ec80120c33428fb71f79ce79009c18ab4771a91d35a2b"},
+    {file = "mypy_boto3_connect-1.34.147.tar.gz", hash = "sha256:56972b8e666ce155df9782daf30382710c449d533819e53cddc79538803713c7"},
 ]
 
 [package.dependencies]
@@ -2177,13 +2175,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-connect-contact-lens"
-version = "1.34.0"
-description = "Type annotations for boto3.ConnectContactLens 1.34.0 service generated with mypy-boto3-builder 7.21.0"
+version = "1.34.147"
+description = "Type annotations for boto3.ConnectContactLens 1.34.147 service generated with mypy-boto3-builder 7.25.0"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "mypy-boto3-connect-contact-lens-1.34.0.tar.gz", hash = "sha256:5b1f6f7239605dd599daa3f763f8536362c079377e872c95e49488b8a4392399"},
-    {file = "mypy_boto3_connect_contact_lens-1.34.0-py3-none-any.whl", hash = "sha256:ef026fec68bedcdc913088bc10baef4b5a22b8668fe1265c19f72b847fffcc00"},
+    {file = "mypy_boto3_connect_contact_lens-1.34.147-py3-none-any.whl", hash = "sha256:8ea39e1b01112b59874e156f82db313992fcd323749e1905ef52aeda7d7caa93"},
+    {file = "mypy_boto3_connect_contact_lens-1.34.147.tar.gz", hash = "sha256:630cf5ace7d807e0de81b4581cde94aff4ec6447bdb2db95c6560eb3080de4d6"},
 ]
 
 [package.dependencies]
@@ -2359,13 +2357,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-datazone"
-version = "1.34.142"
-description = "Type annotations for boto3.DataZone 1.34.142 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.149"
+description = "Type annotations for boto3.DataZone 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_datazone-1.34.142-py3-none-any.whl", hash = "sha256:dc1de1f24a519441e201da5f38a6b713994e13734ddf84858653d7108bbcc8fe"},
-    {file = "mypy_boto3_datazone-1.34.142.tar.gz", hash = "sha256:a06b01ddd7538883c96aa5d5c4b259c21bb1f60583ef1b0a7a318e7b99273a29"},
+    {file = "mypy_boto3_datazone-1.34.149-py3-none-any.whl", hash = "sha256:023acbb035f5bd226bf242ab66c399f3742cfd0095b7fa8af45f38975ecbd475"},
+    {file = "mypy_boto3_datazone-1.34.149.tar.gz", hash = "sha256:6f400d5b37274973ad96ffeb8c59997c29229a739e270136475327828b5ceb6f"},
 ]
 
 [package.dependencies]
@@ -2555,13 +2553,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-dynamodb"
-version = "1.34.131"
-description = "Type annotations for boto3.DynamoDB 1.34.131 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.148"
+description = "Type annotations for boto3.DynamoDB 1.34.148 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_dynamodb-1.34.131-py3-none-any.whl", hash = "sha256:62e4fd85c621561f145828de14752a51380182d492cb039043d7f46bef872c34"},
-    {file = "mypy_boto3_dynamodb-1.34.131.tar.gz", hash = "sha256:d23c857568ae7c8c8fc1fbd96709a1dd00c140f917d74e09423fd44677097abf"},
+    {file = "mypy_boto3_dynamodb-1.34.148-py3-none-any.whl", hash = "sha256:f1a7aabff5c6e926b9b272df87251c9d6dfceb4c1fb159fb5a2df52062cd7e87"},
+    {file = "mypy_boto3_dynamodb-1.34.148.tar.gz", hash = "sha256:c85489b92cbbbe4f6997070372022df914d4cb8eb707fdc73aa18ce6ba25c578"},
 ]
 
 [package.dependencies]
@@ -2597,13 +2595,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-ec2"
-version = "1.34.143"
-description = "Type annotations for boto3.EC2 1.34.143 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.149"
+description = "Type annotations for boto3.EC2 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_ec2-1.34.143-py3-none-any.whl", hash = "sha256:3953ba88c08e633a2c671a9d442ddbb4bdcbb05f9aa179aeef42ae2376999a20"},
-    {file = "mypy_boto3_ec2-1.34.143.tar.gz", hash = "sha256:79e5e929947e81f45e711a4059aacfbda0418027d407b3b3c917ac3f163ea9f2"},
+    {file = "mypy_boto3_ec2-1.34.149-py3-none-any.whl", hash = "sha256:9f5b13d7ffcb7fb1d57688a728bcefbeb12ab74f2047ee5a4577b8064f7a3fe3"},
+    {file = "mypy_boto3_ec2-1.34.149.tar.gz", hash = "sha256:034f8d160535f5cf77fe35c95588454790cd2709f656274604bc36f76406211f"},
 ]
 
 [package.dependencies]
@@ -2625,13 +2623,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-ecr"
-version = "1.34.140"
-description = "Type annotations for boto3.ECR 1.34.140 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.149"
+description = "Type annotations for boto3.ECR 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_ecr-1.34.140-py3-none-any.whl", hash = "sha256:7a73c68d8c52b932ab2dc3d16493efa7e5c3796e5b191a8249c2fc9555699762"},
-    {file = "mypy_boto3_ecr-1.34.140.tar.gz", hash = "sha256:5c31b1ba2b08115a4363ebe0280a0a68438827f44bb4abaeb77e5e7b757a6f55"},
+    {file = "mypy_boto3_ecr-1.34.149-py3-none-any.whl", hash = "sha256:feaa4d988274abcd20af6cadc46490abcd93f3cee21a2099963df7b69c322bba"},
+    {file = "mypy_boto3_ecr-1.34.149.tar.gz", hash = "sha256:60679e27cd0a3fcb0af95b5453106d1168158f08fb46ab005b8998b19e43591f"},
 ]
 
 [package.dependencies]
@@ -2681,13 +2679,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-eks"
-version = "1.34.137"
-description = "Type annotations for boto3.EKS 1.34.137 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.149"
+description = "Type annotations for boto3.EKS 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_eks-1.34.137-py3-none-any.whl", hash = "sha256:408ad29f2a8e967b570723a403d7adf3579428097f5e1b8cc5b43519e313c207"},
-    {file = "mypy_boto3_eks-1.34.137.tar.gz", hash = "sha256:5d47d97c77e5129e2325c48b8f9d031d053523d7f2f519392cdb850e061c8d18"},
+    {file = "mypy_boto3_eks-1.34.149-py3-none-any.whl", hash = "sha256:b5d74e649e2168a3d9b2c61d8220c533f37cf0ad07994aef78ce9bc40a9d7b93"},
+    {file = "mypy_boto3_eks-1.34.149.tar.gz", hash = "sha256:17bec08c93d147486dc9c07e96a075ec7e03ac98d63be7a18c0fce4278e9c036"},
 ]
 
 [package.dependencies]
@@ -2779,13 +2777,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-elbv2"
-version = "1.34.108"
-description = "Type annotations for boto3.ElasticLoadBalancingv2 1.34.108 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.149"
+description = "Type annotations for boto3.ElasticLoadBalancingv2 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_elbv2-1.34.108-py3-none-any.whl", hash = "sha256:43ef1c2ed3a5bdfc376a58503260897767eed1e0e5e68f370874f4c01dedf50f"},
-    {file = "mypy_boto3_elbv2-1.34.108.tar.gz", hash = "sha256:6aba7e239eb804c1ec8021d31e3297f9f180792cb378c8d4665a55806d914df7"},
+    {file = "mypy_boto3_elbv2-1.34.149-py3-none-any.whl", hash = "sha256:c305e49a87eb9ae6e7df2c06a27e53a7b47ae1f4882d5f1ab243e5ced9a3a0a3"},
+    {file = "mypy_boto3_elbv2-1.34.149.tar.gz", hash = "sha256:d5b61a2291f6417ba0a750d419d1007d253742f4940e0d4f513a03f71159ae51"},
 ]
 
 [package.dependencies]
@@ -2835,13 +2833,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-entityresolution"
-version = "1.34.91"
-description = "Type annotations for boto3.EntityResolution 1.34.91 service generated with mypy-boto3-builder 7.23.2"
+version = "1.34.147"
+description = "Type annotations for boto3.EntityResolution 1.34.147 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_entityresolution-1.34.91-py3-none-any.whl", hash = "sha256:dca4d23269c2b2dfbd9151c8efd7735484c2a3d4f7ecbc8622c7a34411da62c6"},
-    {file = "mypy_boto3_entityresolution-1.34.91.tar.gz", hash = "sha256:42c870456ae76d887beb87035f1c73705e090f1781cca5ed0c815a1a9800cffd"},
+    {file = "mypy_boto3_entityresolution-1.34.147-py3-none-any.whl", hash = "sha256:6c96fa261c454b4790c7db0fbea7c5310e367138262f1df9c6092beff57774eb"},
+    {file = "mypy_boto3_entityresolution-1.34.147.tar.gz", hash = "sha256:a6c386df01bdba61045f38037072e785c5d04cc2e04d585beddc96ecf2a424f6"},
 ]
 
 [package.dependencies]
@@ -2919,13 +2917,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-firehose"
-version = "1.34.141"
-description = "Type annotations for boto3.Firehose 1.34.141 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.145"
+description = "Type annotations for boto3.Firehose 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_firehose-1.34.141-py3-none-any.whl", hash = "sha256:d317b9c145701a7f64cbabe549efc96a3251640a63b2030631a225a3d91ee3d9"},
-    {file = "mypy_boto3_firehose-1.34.141.tar.gz", hash = "sha256:8fa6594e73ff704d2a66479a2285b6801982ce8da0342a17a7b0827e9c4e51e3"},
+    {file = "mypy_boto3_firehose-1.34.145-py3-none-any.whl", hash = "sha256:109115a339fadf4e28a3426768684498815a4abdda6c29b83e4df586a148699c"},
+    {file = "mypy_boto3_firehose-1.34.145.tar.gz", hash = "sha256:0e4209b131d81b7c849030c465fff2ca75b264cf8596b6fd138ee2b592cf0937"},
 ]
 
 [package.dependencies]
@@ -3059,13 +3057,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-globalaccelerator"
-version = "1.34.120"
-description = "Type annotations for boto3.GlobalAccelerator 1.34.120 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.144"
+description = "Type annotations for boto3.GlobalAccelerator 1.34.144 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_globalaccelerator-1.34.120-py3-none-any.whl", hash = "sha256:472222b9c2dcf6d35d41be8e05882ff701ca815b012b4fa50fa1c45d17f86b72"},
-    {file = "mypy_boto3_globalaccelerator-1.34.120.tar.gz", hash = "sha256:f4943bb1e56c9f1f63b4d73f6edf2ff456e6d1728340f19d7f9f152bb6ad7c7f"},
+    {file = "mypy_boto3_globalaccelerator-1.34.144-py3-none-any.whl", hash = "sha256:2873cd4f5fb68a16fe53d201a9aed972e28daed5cb5686385da48c35d5507a59"},
+    {file = "mypy_boto3_globalaccelerator-1.34.144.tar.gz", hash = "sha256:bd8885723bcf919da867cef997c9de43bf97271015db5af8d0894af861181dc6"},
 ]
 
 [package.dependencies]
@@ -3465,13 +3463,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-iotsitewise"
-version = "1.34.0"
-description = "Type annotations for boto3.IoTSiteWise 1.34.0 service generated with mypy-boto3-builder 7.21.0"
+version = "1.34.148"
+description = "Type annotations for boto3.IoTSiteWise 1.34.148 service generated with mypy-boto3-builder 7.25.0"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "mypy-boto3-iotsitewise-1.34.0.tar.gz", hash = "sha256:fd60c87f95915186ee864ce35eb5f5b7706f1dded95c17a6da8f13cac156610c"},
-    {file = "mypy_boto3_iotsitewise-1.34.0-py3-none-any.whl", hash = "sha256:fca2353bc2bb64007df9f3430a1ee632c9bc5ff627da0042bb69854c8693400f"},
+    {file = "mypy_boto3_iotsitewise-1.34.148-py3-none-any.whl", hash = "sha256:b4f22a7fadd5bb3556326c91ff4b380cc9f8ccfeff658ac8ab981c41e477f51e"},
+    {file = "mypy_boto3_iotsitewise-1.34.148.tar.gz", hash = "sha256:ffe644bc9142df48864fcd853e3176262a1e7a73e952f8406a1055b80cd56d96"},
 ]
 
 [package.dependencies]
@@ -3521,13 +3519,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-ivs"
-version = "1.34.92"
-description = "Type annotations for boto3.IVS 1.34.92 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.146"
+description = "Type annotations for boto3.IVS 1.34.146 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_ivs-1.34.92-py3-none-any.whl", hash = "sha256:18004399adb761347038014a46ab3364095b08aedf2fa6a47c85d34e70cab8b9"},
-    {file = "mypy_boto3_ivs-1.34.92.tar.gz", hash = "sha256:ff16d1b75d2ddb69ffb2fe3f1cc109136fda320ead9663dd436dc6fc13331a97"},
+    {file = "mypy_boto3_ivs-1.34.146-py3-none-any.whl", hash = "sha256:bc5b8526a4ad33a389d504fbfecc1e8026c498ac76b4a9a0fa249913214da636"},
+    {file = "mypy_boto3_ivs-1.34.146.tar.gz", hash = "sha256:d6e0f1b57da0e6ac031e17ed73d2e20e7e1889ad4d31526105a1b1c43b9a3f17"},
 ]
 
 [package.dependencies]
@@ -3549,13 +3547,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-ivschat"
-version = "1.34.76"
-description = "Type annotations for boto3.ivschat 1.34.76 service generated with mypy-boto3-builder 7.23.2"
+version = "1.34.145"
+description = "Type annotations for boto3.Ivschat 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy-boto3-ivschat-1.34.76.tar.gz", hash = "sha256:cb80aaad8328e81400851af769d1f735d6f6abf0e43a379ff10f3d55fcf840fe"},
-    {file = "mypy_boto3_ivschat-1.34.76-py3-none-any.whl", hash = "sha256:371d07b7922b7e745fcf189b7a9c4042572bf1e42b9485fe414256c30cc40927"},
+    {file = "mypy_boto3_ivschat-1.34.145-py3-none-any.whl", hash = "sha256:afdc178980a0be69e3811cf84db7d77faa96a1dad25c7c37c0549a164d07a8c9"},
+    {file = "mypy_boto3_ivschat-1.34.145.tar.gz", hash = "sha256:3d9bdce2b2896434ba6dce2bbfddc7e4965b142b81b1a22b25669af66a4063bb"},
 ]
 
 [package.dependencies]
@@ -4165,13 +4163,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-medialive"
-version = "1.34.99"
-description = "Type annotations for boto3.MediaLive 1.34.99 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.145"
+description = "Type annotations for boto3.MediaLive 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_medialive-1.34.99-py3-none-any.whl", hash = "sha256:34c9c6c77531cb7c74b4b567b08f17a3da5860d978a9bf5192071f66e7ad6adc"},
-    {file = "mypy_boto3_medialive-1.34.99.tar.gz", hash = "sha256:7c66d75f466ed45a9d883ab1d9a77f7ff3bb725850fc29bf04299b5cdc69e3f6"},
+    {file = "mypy_boto3_medialive-1.34.145-py3-none-any.whl", hash = "sha256:5e6f2038b2f5ca072e684098573b849641963ced812db2a8957c7c7cb52967b6"},
+    {file = "mypy_boto3_medialive-1.34.145.tar.gz", hash = "sha256:f9cdcd72d9ae70f1170ff56a7971a9613f938f3a25c1d98d92707c251aa5d8c8"},
 ]
 
 [package.dependencies]
@@ -4207,13 +4205,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-mediapackagev2"
-version = "1.34.126"
-description = "Type annotations for boto3.Mediapackagev2 1.34.126 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.148"
+description = "Type annotations for boto3.Mediapackagev2 1.34.148 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_mediapackagev2-1.34.126-py3-none-any.whl", hash = "sha256:e7ecccafcd23970456693a11c4d3ff6dfbe7dfb1c5cc60d809176b1d11c595de"},
-    {file = "mypy_boto3_mediapackagev2-1.34.126.tar.gz", hash = "sha256:2584e2087e9f2059cc8bacf8047dfa1aef16443971349667d66fdd5795ae406b"},
+    {file = "mypy_boto3_mediapackagev2-1.34.148-py3-none-any.whl", hash = "sha256:59467c052d896221d8917b0f2f645f3e51e3539debb4ab93b6c9e240560410f6"},
+    {file = "mypy_boto3_mediapackagev2-1.34.148.tar.gz", hash = "sha256:808e22a2858ed029e0d6f63450602bb05ab39852dc46520d3327c4f9198cd8fd"},
 ]
 
 [package.dependencies]
@@ -4263,13 +4261,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-medical-imaging"
-version = "1.34.106"
-description = "Type annotations for boto3.HealthImaging 1.34.106 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.148"
+description = "Type annotations for boto3.HealthImaging 1.34.148 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_medical_imaging-1.34.106-py3-none-any.whl", hash = "sha256:8b316fa7dae28a0d851d45fafa7b54ebf7c791f5de65c84861e2f3558150441c"},
-    {file = "mypy_boto3_medical_imaging-1.34.106.tar.gz", hash = "sha256:bd4ae3dd3956c5420e1aea07d3e55c85ce1b97637a49aacf4f1dbb8577867af3"},
+    {file = "mypy_boto3_medical_imaging-1.34.148-py3-none-any.whl", hash = "sha256:564e5e6d2db5685759a769b3ade8e9097e92f8fa8499565b8ca35dae48f9a784"},
+    {file = "mypy_boto3_medical_imaging-1.34.148.tar.gz", hash = "sha256:e07a7101148ca0f40b100b40e2cdd64f1564a968cf4f33784eafdd9188dfebf8"},
 ]
 
 [package.dependencies]
@@ -4388,20 +4386,6 @@ files = [
 typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
-name = "mypy-boto3-mobile"
-version = "1.34.0"
-description = "Type annotations for boto3.Mobile 1.34.0 service generated with mypy-boto3-builder 7.21.0"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "mypy-boto3-mobile-1.34.0.tar.gz", hash = "sha256:7f33fbd0ae92eca3e2e869c48fddac854f83af4ee27aa0e49ab014101c4c55d2"},
-    {file = "mypy_boto3_mobile-1.34.0-py3-none-any.whl", hash = "sha256:419321a75464885e1d9a1d6f9cb8da25093f7f29deb9d82d8f60b5f9cb81b711"},
-]
-
-[package.dependencies]
-typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
-
-[[package]]
 name = "mypy-boto3-mq"
 version = "1.34.135"
 description = "Type annotations for boto3.MQ 1.34.135 service generated with mypy-boto3-builder 7.24.0"
@@ -4459,13 +4443,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-neptune-graph"
-version = "1.34.84"
-description = "Type annotations for boto3.NeptuneGraph 1.34.84 service generated with mypy-boto3-builder 7.23.2"
+version = "1.34.146"
+description = "Type annotations for boto3.NeptuneGraph 1.34.146 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_neptune_graph-1.34.84-py3-none-any.whl", hash = "sha256:b0daa9632551eb505e82317adfd52f11ac034994deb5da147796cf68d7ee8329"},
-    {file = "mypy_boto3_neptune_graph-1.34.84.tar.gz", hash = "sha256:23ccede0e26b49e1bade32259bbbe27692e244d83d721830ce8d5cea9643e6fd"},
+    {file = "mypy_boto3_neptune_graph-1.34.146-py3-none-any.whl", hash = "sha256:e05d4c4791256c284ef5a457d501956c553127be366cdf5a8d82e5a6bfdd00c1"},
+    {file = "mypy_boto3_neptune_graph-1.34.146.tar.gz", hash = "sha256:161b64b5b20e526e1d9f03ba855c57ae007c42f841ea177d2ffc6439f45d6fb7"},
 ]
 
 [package.dependencies]
@@ -4487,13 +4471,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-network-firewall"
-version = "1.34.0"
-description = "Type annotations for boto3.NetworkFirewall 1.34.0 service generated with mypy-boto3-builder 7.21.0"
+version = "1.34.149"
+description = "Type annotations for boto3.NetworkFirewall 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "mypy-boto3-network-firewall-1.34.0.tar.gz", hash = "sha256:23ceb5560df6c9926383dffaab62a6161cac93fcac2d9020dae90d956304a6e6"},
-    {file = "mypy_boto3_network_firewall-1.34.0-py3-none-any.whl", hash = "sha256:ffdc33241b7cf40504224ad2524668931edaf04a90dbccc7c08e973300b51093"},
+    {file = "mypy_boto3_network_firewall-1.34.149-py3-none-any.whl", hash = "sha256:c993c4f00d14020fe56f5f4d90418190e4eb1342b3351ea2f10952d8f059422c"},
+    {file = "mypy_boto3_network_firewall-1.34.149.tar.gz", hash = "sha256:48c2a9ee5aa486d6d5e65dee1fb8d6efaec71e04c942d3dd6c49cc303f491a6e"},
 ]
 
 [package.dependencies]
@@ -4655,13 +4639,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-outposts"
-version = "1.34.85"
-description = "Type annotations for boto3.Outposts 1.34.85 service generated with mypy-boto3-builder 7.23.2"
+version = "1.34.149"
+description = "Type annotations for boto3.Outposts 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_outposts-1.34.85-py3-none-any.whl", hash = "sha256:087d6da6efef3fc01226862510d40d088de298f46ecc634226c353947304ae33"},
-    {file = "mypy_boto3_outposts-1.34.85.tar.gz", hash = "sha256:7a0008d4a8870b51be152c4eaca009da709979941f5f4e20d8105ac0809c568b"},
+    {file = "mypy_boto3_outposts-1.34.149-py3-none-any.whl", hash = "sha256:80ce632f14d0150de5a8c97f4ee13c07943ef0cb1c00efc9ab460d1540fbf988"},
+    {file = "mypy_boto3_outposts-1.34.149.tar.gz", hash = "sha256:a4f1c001df7eb9e6d449b981b58f72b0535e7c2e56923e8d5718bed61e8d59ad"},
 ]
 
 [package.dependencies]
@@ -4795,13 +4779,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-pinpoint"
-version = "1.34.102"
-description = "Type annotations for boto3.Pinpoint 1.34.102 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.144"
+description = "Type annotations for boto3.Pinpoint 1.34.144 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_pinpoint-1.34.102-py3-none-any.whl", hash = "sha256:dcd992181f00c91ab5e384769328047bbe0cddf54d71e2a8196546c1d60f4fd4"},
-    {file = "mypy_boto3_pinpoint-1.34.102.tar.gz", hash = "sha256:473b4eae828b1c4d8f89b0aa97dfa055a5c48384586e49cdcf2d7237da59ea90"},
+    {file = "mypy_boto3_pinpoint-1.34.144-py3-none-any.whl", hash = "sha256:d9a6477e79ae1c73a6054bf8f4567d3d18b138a8e34b060a42e220e76b68f45d"},
+    {file = "mypy_boto3_pinpoint-1.34.144.tar.gz", hash = "sha256:8123f4b36bf217dd083a6e20eb172bfcc160de29f71c2690c89908713af404b1"},
 ]
 
 [package.dependencies]
@@ -4837,13 +4821,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-pinpoint-sms-voice-v2"
-version = "1.34.95"
-description = "Type annotations for boto3.PinpointSMSVoiceV2 1.34.95 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.148"
+description = "Type annotations for boto3.PinpointSMSVoiceV2 1.34.148 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_pinpoint_sms_voice_v2-1.34.95-py3-none-any.whl", hash = "sha256:2e8bc495e1b72138a74ef0476ec38df5ac58eb0e229c56f6b478fcb1bba0f0c7"},
-    {file = "mypy_boto3_pinpoint_sms_voice_v2-1.34.95.tar.gz", hash = "sha256:897930a7b90bfdb64ae0d6637c31f709b0f50eeccf70ced42f08a9e3d4bb8532"},
+    {file = "mypy_boto3_pinpoint_sms_voice_v2-1.34.148-py3-none-any.whl", hash = "sha256:87b9202b56ec1a4b1c3151a0c0f0e59a8a779cbb5a5f6a6c2d5785378948f59b"},
+    {file = "mypy_boto3_pinpoint_sms_voice_v2-1.34.148.tar.gz", hash = "sha256:c0e86ad1ba44a44666dcdc3157ef7de8b052efb688b68f03229c4209643d8da3"},
 ]
 
 [package.dependencies]
@@ -4991,13 +4975,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-quicksight"
-version = "1.34.135"
-description = "Type annotations for boto3.QuickSight 1.34.135 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.144"
+description = "Type annotations for boto3.QuickSight 1.34.144 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_quicksight-1.34.135-py3-none-any.whl", hash = "sha256:c15308d794e21732bdf676ed3af738a0bf82fab442f0ed8d11aa86ccd19ae481"},
-    {file = "mypy_boto3_quicksight-1.34.135.tar.gz", hash = "sha256:08429845e1c6e7908b16bc5b374439616a303893abfcffc28bef27619a9aaedd"},
+    {file = "mypy_boto3_quicksight-1.34.144-py3-none-any.whl", hash = "sha256:da128a7892d10059887d34ac09663d62a1638abc518d06adeab9f168ae62c182"},
+    {file = "mypy_boto3_quicksight-1.34.144.tar.gz", hash = "sha256:0791a7893dd763b1355cafeda0ad54b3e60c69d53c096e58915d5bf335220edd"},
 ]
 
 [package.dependencies]
@@ -5033,13 +5017,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-rds"
-version = "1.34.135"
-description = "Type annotations for boto3.RDS 1.34.135 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.145"
+description = "Type annotations for boto3.RDS 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_rds-1.34.135-py3-none-any.whl", hash = "sha256:ce4872ee69cd10b895e11945b6c3255493b642e0410e48a2cfc6afe689cf6209"},
-    {file = "mypy_boto3_rds-1.34.135.tar.gz", hash = "sha256:66b50037073434eb894b00f1597ba39f1e86789717ff9676c5a099f31bc39c9a"},
+    {file = "mypy_boto3_rds-1.34.145-py3-none-any.whl", hash = "sha256:2c28c05b4269c7dcd2ee0c3350784ad02a4c1764728b3335dd56bdbdd6ebd2f6"},
+    {file = "mypy_boto3_rds-1.34.145.tar.gz", hash = "sha256:091a3605d4c2b010be2e61b306f7c877019344b3949b0bfceaee2db2a57bcc8c"},
 ]
 
 [package.dependencies]
@@ -5089,13 +5073,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-redshift-serverless"
-version = "1.34.97"
-description = "Type annotations for boto3.RedshiftServerless 1.34.97 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.146"
+description = "Type annotations for boto3.RedshiftServerless 1.34.146 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_redshift_serverless-1.34.97-py3-none-any.whl", hash = "sha256:573107d520f204296949c135222c09246d7d13a6ad23aacedf58440fbd165d6b"},
-    {file = "mypy_boto3_redshift_serverless-1.34.97.tar.gz", hash = "sha256:1439970eed92a1dce29d22c7ae044c4acd13a9afe3c000629a99b372ac8c3cbe"},
+    {file = "mypy_boto3_redshift_serverless-1.34.146-py3-none-any.whl", hash = "sha256:980b25f25ef1fc220e253a2955206084eb69142e79c037cf4b5644c749ad295f"},
+    {file = "mypy_boto3_redshift_serverless-1.34.146.tar.gz", hash = "sha256:db113f779b8ec5fe1ee454ad8a810a400e9b1c257a5db824afbcfd9e7552a41b"},
 ]
 
 [package.dependencies]
@@ -5369,13 +5353,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-sagemaker"
-version = "1.34.142"
-description = "Type annotations for boto3.SageMaker 1.34.142 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.145"
+description = "Type annotations for boto3.SageMaker 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_sagemaker-1.34.142-py3-none-any.whl", hash = "sha256:d264b1f00c46ea4ad484a2fd52f739073a6b91cbac2b29b76f1e8a99dd299308"},
-    {file = "mypy_boto3_sagemaker-1.34.142.tar.gz", hash = "sha256:7e0d4fb3c75134a56c857becec83030411931e8ad736446ce15e6895631d71b1"},
+    {file = "mypy_boto3_sagemaker-1.34.145-py3-none-any.whl", hash = "sha256:af9be506bc8788870878f4b332cfd8c2ec27cc2e133977fb7df1df9ac00ae78d"},
+    {file = "mypy_boto3_sagemaker-1.34.145.tar.gz", hash = "sha256:ee2317d9297d1c28479a7c7362421a784c1aabf61c6aad3488140db20254ba85"},
 ]
 
 [package.dependencies]
@@ -5523,13 +5507,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-secretsmanager"
-version = "1.34.128"
-description = "Type annotations for boto3.SecretsManager 1.34.128 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.145"
+description = "Type annotations for boto3.SecretsManager 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_secretsmanager-1.34.128-py3-none-any.whl", hash = "sha256:7ce9815d116fa1749971691355b1e1c8f462d46e7eaa9d84133b8db96dd3515f"},
-    {file = "mypy_boto3_secretsmanager-1.34.128.tar.gz", hash = "sha256:ae2b398efa1a32214c3eddb6901efa67cfc24a893b113f549a06bb70bb43b402"},
+    {file = "mypy_boto3_secretsmanager-1.34.145-py3-none-any.whl", hash = "sha256:986511caa6626edfed7eb11b63c929801e9468c58e15927dc6fc0339c4eb34cb"},
+    {file = "mypy_boto3_secretsmanager-1.34.145.tar.gz", hash = "sha256:e5a82c05cce68168a3709e5f0d35066cf250961db1d8670f0111da66206814c7"},
 ]
 
 [package.dependencies]
@@ -5887,13 +5871,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-stepfunctions"
-version = "1.34.137"
-description = "Type annotations for boto3.SFN 1.34.137 service generated with mypy-boto3-builder 7.25.0"
+version = "1.34.149"
+description = "Type annotations for boto3.SFN 1.34.149 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_stepfunctions-1.34.137-py3-none-any.whl", hash = "sha256:c78a6abaaf6b3c9eaee183b4cc59cb0d6aa838e2f20698be3d6ad46788a64945"},
-    {file = "mypy_boto3_stepfunctions-1.34.137.tar.gz", hash = "sha256:c568275ab1b2d9600352ec26e9915335526d39fc6e7192a664428118f6c7799f"},
+    {file = "mypy_boto3_stepfunctions-1.34.149-py3-none-any.whl", hash = "sha256:dbe3c90af541178826f0992c58ef3699d5f1f42d0f51ff5b761d4c8036768726"},
+    {file = "mypy_boto3_stepfunctions-1.34.149.tar.gz", hash = "sha256:155f6d7aa4b61799166e5beae85386cf5393612e4cbabe7a8426225325e3c12b"},
 ]
 
 [package.dependencies]
@@ -5999,13 +5983,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-taxsettings"
-version = "1.34.119"
-description = "Type annotations for boto3.TaxSettings 1.34.119 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.145"
+description = "Type annotations for boto3.TaxSettings 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_taxsettings-1.34.119-py3-none-any.whl", hash = "sha256:831c0a350639e70dd04e83f3644bfff98b039a92008a10c18e2784c2ba272bcc"},
-    {file = "mypy_boto3_taxsettings-1.34.119.tar.gz", hash = "sha256:8df644d7a3a2a2f09f999a744cbfe6418e811009978e2dcbf0cf068e1a1a2be0"},
+    {file = "mypy_boto3_taxsettings-1.34.145-py3-none-any.whl", hash = "sha256:9d27dbe6f78b4eb4274daf5d5d8740bee12e0eb2a5d5f28a7393773062ab0573"},
+    {file = "mypy_boto3_taxsettings-1.34.145.tar.gz", hash = "sha256:a978fd1a8c74614719f46a50fc6b9c858a67ba6aba132a5344bae65d8c56a62d"},
 ]
 
 [package.dependencies]
@@ -6041,13 +6025,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-timestream-query"
-version = "1.34.94"
-description = "Type annotations for boto3.TimestreamQuery 1.34.94 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.145"
+description = "Type annotations for boto3.TimestreamQuery 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_timestream_query-1.34.94-py3-none-any.whl", hash = "sha256:35ffd83d62b1f91ee368c30a11015ee0b63e60bde40275ad54277315158ad412"},
-    {file = "mypy_boto3_timestream_query-1.34.94.tar.gz", hash = "sha256:f58b6a53fba2b9f85b2e3dd27d2734203b354c0f1a15184f3a62dc5fc9246715"},
+    {file = "mypy_boto3_timestream_query-1.34.145-py3-none-any.whl", hash = "sha256:705d78ec92f8d8b99d4c99a61e972c602baa9ff068809552c51c8c0cbef13a38"},
+    {file = "mypy_boto3_timestream_query-1.34.145.tar.gz", hash = "sha256:fbf77ca3472d37b37a405ac20983ad81ae73d44330a819e4501ac9067dbff204"},
 ]
 
 [package.dependencies]
@@ -6321,13 +6305,13 @@ typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.12\""}
 
 [[package]]
 name = "mypy-boto3-workspaces-thin-client"
-version = "1.34.133"
-description = "Type annotations for boto3.WorkSpacesThinClient 1.34.133 service generated with mypy-boto3-builder 7.24.0"
+version = "1.34.145"
+description = "Type annotations for boto3.WorkSpacesThinClient 1.34.145 service generated with mypy-boto3-builder 7.25.0"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mypy_boto3_workspaces_thin_client-1.34.133-py3-none-any.whl", hash = "sha256:9e8cb3ea06d128fdd04b9fcb8149e610841335c33fd477f98192e32847b09a0a"},
-    {file = "mypy_boto3_workspaces_thin_client-1.34.133.tar.gz", hash = "sha256:75313ce9f9986c6f2baa11225b60020206373d27d3e42eb01eb7212da01c8cab"},
+    {file = "mypy_boto3_workspaces_thin_client-1.34.145-py3-none-any.whl", hash = "sha256:49b96f80284a500b7cd7d4e9da9c9babe96aacfd26773c0721f00676e104fea7"},
+    {file = "mypy_boto3_workspaces_thin_client-1.34.145.tar.gz", hash = "sha256:56e941b8c804500d442e14fccd26677ff78ac3d56bc5bed992c64232d1911083"},
 ]
 
 [package.dependencies]
@@ -6507,13 +6491,13 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "types-awscrt"
-version = "0.21.0"
+version = "0.21.2"
 description = "Type annotations and code completion for awscrt"
 optional = false
 python-versions = "<4.0,>=3.7"
 files = [
-    {file = "types_awscrt-0.21.0-py3-none-any.whl", hash = "sha256:026f882d4d23f04c5b2ab08d6fefd627842537009cd00e9f78dd4960314d51aa"},
-    {file = "types_awscrt-0.21.0.tar.gz", hash = "sha256:06aa247fe5ccf0b86428e5289aeabf67f967e10861f211c16c19e7d2542a70a9"},
+    {file = "types_awscrt-0.21.2-py3-none-any.whl", hash = "sha256:0839fe12f0f914d8f7d63ed777c728cb4eccc2d5d79a26e377d12b0604e7bf0e"},
+    {file = "types_awscrt-0.21.2.tar.gz", hash = "sha256:84a9f4f422ec525c314fdf54c23a1e73edfbcec968560943ca2d41cfae623b38"},
 ]
 
 [[package]]
