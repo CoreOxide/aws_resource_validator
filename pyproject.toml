@@ -11,7 +11,8 @@ license = "Apache License 2.0"
 readme = "README.md"
 packages = [
     {include = "aws_resource_validator/class_definitions.py", from = "."},
-    {include = "aws_resource_validator/models.py", from = "."}
+    {include = "aws_resource_validator/models.py", from = "."},
+    {include = "aws_resource_validator/pydantic_models", from = "."}
 ]
 
 [tool.poetry.dependencies]
