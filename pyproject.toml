@@ -4,20 +4,23 @@ priority = "primary"
 
 [tool.poetry]
 name = "aws-resource-validator"
-version = "0.1.2"
+version = "0.2.0"
 description = "Validate, get validation patterns and generate valid AWS resource names (for testing \\ mocks)"
 authors = ["Alexy Grabov <alexy.grabov@gmail.com>"]
 license = "Apache License 2.0"
 readme = "README.md"
 packages = [
     {include = "aws_resource_validator/class_definitions.py", from = "."},
-    {include = "aws_resource_validator/models.py", from = "."}
+    {include = "aws_resource_validator/models.py", from = "."},
+    {include = "aws_resource_validator/pydantic_models", from = "."}
 ]
 
 [tool.poetry.dependencies]
 python = "^3.8 || ^3.12"
 requests = "^2.31.0"
 exrex = "^0.11.0"
+boto3-stubs = { extras = ["all"], version = "*" }
+pydantic = "^2.8.2"
 
 [build-system]
 requires = ["poetry-core"]
