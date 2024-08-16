@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,12 +11,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sms_constants import *
 
-class LaunchDetailsTypeDef(BaseModel):
+class LaunchDetailsTypeDef(BaseValidatorModel):
     latestLaunchTime: Optional[datetime] = None
     stackName: Optional[str] = None
     stackId: Optional[str] = None
 
-class ConnectorTypeDef(BaseModel):
+class ConnectorTypeDef(BaseValidatorModel):
     connectorId: Optional[str] = None
     version: Optional[str] = None
     status: Optional[ConnectorStatusType] = None
@@ -28,108 +28,108 @@ class ConnectorTypeDef(BaseModel):
     macAddress: Optional[str] = None
     associatedOn: Optional[datetime] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DeleteAppLaunchConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteAppLaunchConfigurationRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
 
-class DeleteAppReplicationConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteAppReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
 
-class DeleteAppRequestRequestTypeDef(BaseModel):
+class DeleteAppRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
     forceStopAppReplication: Optional[bool] = None
     forceTerminateApp: Optional[bool] = None
 
-class DeleteAppValidationConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteAppValidationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     appId: str
 
-class DeleteReplicationJobRequestRequestTypeDef(BaseModel):
+class DeleteReplicationJobRequestRequestTypeDef(BaseValidatorModel):
     replicationJobId: str
 
-class DisassociateConnectorRequestRequestTypeDef(BaseModel):
+class DisassociateConnectorRequestRequestTypeDef(BaseValidatorModel):
     connectorId: str
 
-class GenerateChangeSetRequestRequestTypeDef(BaseModel):
+class GenerateChangeSetRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
     changesetFormat: Optional[OutputFormatType] = None
 
-class S3LocationTypeDef(BaseModel):
+class S3LocationTypeDef(BaseValidatorModel):
     bucket: Optional[str] = None
     key: Optional[str] = None
 
-class GenerateTemplateRequestRequestTypeDef(BaseModel):
+class GenerateTemplateRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
     templateFormat: Optional[OutputFormatType] = None
 
-class GetAppLaunchConfigurationRequestRequestTypeDef(BaseModel):
+class GetAppLaunchConfigurationRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
 
-class GetAppReplicationConfigurationRequestRequestTypeDef(BaseModel):
+class GetAppReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
 
-class GetAppRequestRequestTypeDef(BaseModel):
+class GetAppRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
 
-class GetAppValidationConfigurationRequestRequestTypeDef(BaseModel):
+class GetAppValidationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     appId: str
 
-class GetAppValidationOutputRequestRequestTypeDef(BaseModel):
+class GetAppValidationOutputRequestRequestTypeDef(BaseValidatorModel):
     appId: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetConnectorsRequestRequestTypeDef(BaseModel):
+class GetConnectorsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetReplicationJobsRequestRequestTypeDef(BaseModel):
+class GetReplicationJobsRequestRequestTypeDef(BaseValidatorModel):
     replicationJobId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetReplicationRunsRequestRequestTypeDef(BaseModel):
+class GetReplicationRunsRequestRequestTypeDef(BaseValidatorModel):
     replicationJobId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class VmServerAddressTypeDef(BaseModel):
+class VmServerAddressTypeDef(BaseValidatorModel):
     vmManagerId: Optional[str] = None
     vmId: Optional[str] = None
 
-class ImportAppCatalogRequestRequestTypeDef(BaseModel):
+class ImportAppCatalogRequestRequestTypeDef(BaseValidatorModel):
     roleName: Optional[str] = None
 
-class LaunchAppRequestRequestTypeDef(BaseModel):
+class LaunchAppRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
 
-class ListAppsRequestRequestTypeDef(BaseModel):
+class ListAppsRequestRequestTypeDef(BaseValidatorModel):
     appIds: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class NotificationContextTypeDef(BaseModel):
+class NotificationContextTypeDef(BaseValidatorModel):
     validationId: Optional[str] = None
     status: Optional[ValidationStatusType] = None
     statusMessage: Optional[str] = None
 
-class ReplicationRunStageDetailsTypeDef(BaseModel):
+class ReplicationRunStageDetailsTypeDef(BaseValidatorModel):
     stage: Optional[str] = None
     stageProgress: Optional[str] = None
 
-class ServerReplicationParametersTypeDef(BaseModel):
+class ServerReplicationParametersTypeDef(BaseValidatorModel):
     seedTime: Optional[datetime] = None
     frequency: Optional[int] = None
     runOnce: Optional[bool] = None
@@ -138,24 +138,24 @@ class ServerReplicationParametersTypeDef(BaseModel):
     encrypted: Optional[bool] = None
     kmsKeyId: Optional[str] = None
 
-class StartAppReplicationRequestRequestTypeDef(BaseModel):
+class StartAppReplicationRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
 
-class StartOnDemandAppReplicationRequestRequestTypeDef(BaseModel):
+class StartOnDemandAppReplicationRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     description: Optional[str] = None
 
-class StartOnDemandReplicationRunRequestRequestTypeDef(BaseModel):
+class StartOnDemandReplicationRunRequestRequestTypeDef(BaseValidatorModel):
     replicationJobId: str
     description: Optional[str] = None
 
-class StopAppReplicationRequestRequestTypeDef(BaseModel):
+class StopAppReplicationRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
 
-class TerminateAppRequestRequestTypeDef(BaseModel):
+class TerminateAppRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
 
-class AppSummaryTypeDef(BaseModel):
+class AppSummaryTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
     importedAppId: Optional[str] = None
     name: Optional[str] = None
@@ -176,20 +176,20 @@ class AppSummaryTypeDef(BaseModel):
     totalServerGroups: Optional[int] = None
     totalServers: Optional[int] = None
 
-class CreateReplicationJobResponseTypeDef(BaseModel):
+class CreateReplicationJobResponseTypeDef(BaseValidatorModel):
     replicationJobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetConnectorsResponseTypeDef(BaseModel):
+class GetConnectorsResponseTypeDef(BaseValidatorModel):
     connectorList: List[ConnectorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartOnDemandReplicationRunResponseTypeDef(BaseModel):
+class StartOnDemandReplicationRunResponseTypeDef(BaseValidatorModel):
     replicationRunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateReplicationJobRequestRequestTypeDef(BaseModel):
+class CreateReplicationJobRequestRequestTypeDef(BaseValidatorModel):
     serverId: str
     seedReplicationTime: TimestampTypeDef
     frequency: Optional[int] = None
@@ -201,7 +201,7 @@ class CreateReplicationJobRequestRequestTypeDef(BaseModel):
     encrypted: Optional[bool] = None
     kmsKeyId: Optional[str] = None
 
-class UpdateReplicationJobRequestRequestTypeDef(BaseModel):
+class UpdateReplicationJobRequestRequestTypeDef(BaseValidatorModel):
     replicationJobId: str
     frequency: Optional[int] = None
     nextReplicationRunStartTime: Optional[TimestampTypeDef] = None
@@ -212,59 +212,59 @@ class UpdateReplicationJobRequestRequestTypeDef(BaseModel):
     encrypted: Optional[bool] = None
     kmsKeyId: Optional[str] = None
 
-class GenerateChangeSetResponseTypeDef(BaseModel):
+class GenerateChangeSetResponseTypeDef(BaseValidatorModel):
     s3Location: S3LocationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GenerateTemplateResponseTypeDef(BaseModel):
+class GenerateTemplateResponseTypeDef(BaseValidatorModel):
     s3Location: S3LocationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SSMOutputTypeDef(BaseModel):
+class SSMOutputTypeDef(BaseValidatorModel):
     s3Location: Optional[S3LocationTypeDef] = None
 
-class SourceTypeDef(BaseModel):
+class SourceTypeDef(BaseValidatorModel):
     s3Location: Optional[S3LocationTypeDef] = None
 
-class UserDataTypeDef(BaseModel):
+class UserDataTypeDef(BaseValidatorModel):
     s3Location: Optional[S3LocationTypeDef] = None
 
-class GetConnectorsRequestGetConnectorsPaginateTypeDef(BaseModel):
+class GetConnectorsRequestGetConnectorsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetReplicationJobsRequestGetReplicationJobsPaginateTypeDef(BaseModel):
+class GetReplicationJobsRequestGetReplicationJobsPaginateTypeDef(BaseValidatorModel):
     replicationJobId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetReplicationRunsRequestGetReplicationRunsPaginateTypeDef(BaseModel):
+class GetReplicationRunsRequestGetReplicationRunsPaginateTypeDef(BaseValidatorModel):
     replicationJobId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAppsRequestListAppsPaginateTypeDef(BaseModel):
+class ListAppsRequestListAppsPaginateTypeDef(BaseValidatorModel):
     appIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetServersRequestGetServersPaginateTypeDef(BaseModel):
+class GetServersRequestGetServersPaginateTypeDef(BaseValidatorModel):
     vmServerAddressList: Optional[Sequence[VmServerAddressTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetServersRequestRequestTypeDef(BaseModel):
+class GetServersRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     vmServerAddressList: Optional[Sequence[VmServerAddressTypeDef]] = None
 
-class VmServerTypeDef(BaseModel):
+class VmServerTypeDef(BaseValidatorModel):
     vmServerAddress: Optional[VmServerAddressTypeDef] = None
     vmName: Optional[str] = None
     vmManagerName: Optional[str] = None
     vmManagerType: Optional[VmManagerTypeType] = None
     vmPath: Optional[str] = None
 
-class NotifyAppValidationOutputRequestRequestTypeDef(BaseModel):
+class NotifyAppValidationOutputRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     notificationContext: Optional[NotificationContextTypeDef] = None
 
-class ReplicationRunTypeDef(BaseModel):
+class ReplicationRunTypeDef(BaseValidatorModel):
     replicationRunId: Optional[str] = None
     state: Optional[ReplicationRunStateType] = None
     type: Optional[ReplicationRunTypeType] = None
@@ -277,15 +277,15 @@ class ReplicationRunTypeDef(BaseModel):
     encrypted: Optional[bool] = None
     kmsKeyId: Optional[str] = None
 
-class ListAppsResponseTypeDef(BaseModel):
+class ListAppsResponseTypeDef(BaseValidatorModel):
     apps: List[AppSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AppValidationOutputTypeDef(BaseModel):
+class AppValidationOutputTypeDef(BaseValidatorModel):
     ssmOutput: Optional[SSMOutputTypeDef] = None
 
-class SSMValidationParametersTypeDef(BaseModel):
+class SSMValidationParametersTypeDef(BaseValidatorModel):
     source: Optional[SourceTypeDef] = None
     instanceId: Optional[str] = None
     scriptType: Optional[ScriptTypeType] = None
@@ -293,18 +293,18 @@ class SSMValidationParametersTypeDef(BaseModel):
     executionTimeoutSeconds: Optional[int] = None
     outputS3BucketName: Optional[str] = None
 
-class UserDataValidationParametersTypeDef(BaseModel):
+class UserDataValidationParametersTypeDef(BaseValidatorModel):
     source: Optional[SourceTypeDef] = None
     scriptType: Optional[ScriptTypeType] = None
 
-class ServerTypeDef(BaseModel):
+class ServerTypeDef(BaseValidatorModel):
     serverId: Optional[str] = None
     serverType: Optional[Literal["VIRTUAL_MACHINE"]] = None
     vmServer: Optional[VmServerTypeDef] = None
     replicationJobId: Optional[str] = None
     replicationJobTerminated: Optional[bool] = None
 
-class ReplicationJobTypeDef(BaseModel):
+class ReplicationJobTypeDef(BaseValidatorModel):
     replicationJobId: Optional[str] = None
     serverId: Optional[str] = None
     serverType: Optional[Literal["VIRTUAL_MACHINE"]] = None
@@ -324,25 +324,25 @@ class ReplicationJobTypeDef(BaseModel):
     kmsKeyId: Optional[str] = None
     replicationRunList: Optional[List[ReplicationRunTypeDef]] = None
 
-class AppValidationConfigurationTypeDef(BaseModel):
+class AppValidationConfigurationTypeDef(BaseValidatorModel):
     validationId: Optional[str] = None
     name: Optional[str] = None
     appValidationStrategy: Optional[Literal["SSM"]] = None
     ssmValidationParameters: Optional[SSMValidationParametersTypeDef] = None
 
-class GetServersResponseTypeDef(BaseModel):
+class GetServersResponseTypeDef(BaseValidatorModel):
     lastModifiedOn: datetime
     serverCatalogStatus: ServerCatalogStatusType
     serverList: List[ServerTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ServerGroupTypeDef(BaseModel):
+class ServerGroupTypeDef(BaseValidatorModel):
     serverGroupId: Optional[str] = None
     name: Optional[str] = None
     serverList: Optional[Sequence[ServerTypeDef]] = None
 
-class ServerLaunchConfigurationTypeDef(BaseModel):
+class ServerLaunchConfigurationTypeDef(BaseValidatorModel):
     server: Optional[ServerTypeDef] = None
     logicalId: Optional[str] = None
     vpc: Optional[str] = None
@@ -356,32 +356,32 @@ class ServerLaunchConfigurationTypeDef(BaseModel):
     configureScript: Optional[S3LocationTypeDef] = None
     configureScriptType: Optional[ScriptTypeType] = None
 
-class ServerReplicationConfigurationTypeDef(BaseModel):
+class ServerReplicationConfigurationTypeDef(BaseValidatorModel):
     server: Optional[ServerTypeDef] = None
     serverReplicationParameters: Optional[ServerReplicationParametersTypeDef] = None
 
-class ServerValidationConfigurationTypeDef(BaseModel):
+class ServerValidationConfigurationTypeDef(BaseValidatorModel):
     server: Optional[ServerTypeDef] = None
     validationId: Optional[str] = None
     name: Optional[str] = None
     serverValidationStrategy: Optional[Literal["USERDATA"]] = None
     userDataValidationParameters: Optional[UserDataValidationParametersTypeDef] = None
 
-class ServerValidationOutputTypeDef(BaseModel):
+class ServerValidationOutputTypeDef(BaseValidatorModel):
     server: Optional[ServerTypeDef] = None
 
-class GetReplicationJobsResponseTypeDef(BaseModel):
+class GetReplicationJobsResponseTypeDef(BaseValidatorModel):
     replicationJobList: List[ReplicationJobTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetReplicationRunsResponseTypeDef(BaseModel):
+class GetReplicationRunsResponseTypeDef(BaseValidatorModel):
     replicationJob: ReplicationJobTypeDef
     replicationRunList: List[ReplicationRunTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAppRequestRequestTypeDef(BaseModel):
+class CreateAppRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     roleName: Optional[str] = None
@@ -389,19 +389,19 @@ class CreateAppRequestRequestTypeDef(BaseModel):
     serverGroups: Optional[Sequence[ServerGroupTypeDef]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateAppResponseTypeDef(BaseModel):
+class CreateAppResponseTypeDef(BaseValidatorModel):
     appSummary: AppSummaryTypeDef
     serverGroups: List[ServerGroupTypeDef]
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAppResponseTypeDef(BaseModel):
+class GetAppResponseTypeDef(BaseValidatorModel):
     appSummary: AppSummaryTypeDef
     serverGroups: List[ServerGroupTypeDef]
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAppRequestRequestTypeDef(BaseModel):
+class UpdateAppRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -409,26 +409,26 @@ class UpdateAppRequestRequestTypeDef(BaseModel):
     serverGroups: Optional[Sequence[ServerGroupTypeDef]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateAppResponseTypeDef(BaseModel):
+class UpdateAppResponseTypeDef(BaseValidatorModel):
     appSummary: AppSummaryTypeDef
     serverGroups: List[ServerGroupTypeDef]
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ServerGroupLaunchConfigurationTypeDef(BaseModel):
+class ServerGroupLaunchConfigurationTypeDef(BaseValidatorModel):
     serverGroupId: Optional[str] = None
     launchOrder: Optional[int] = None
     serverLaunchConfigurations: Optional[List[ServerLaunchConfigurationTypeDef]] = None
 
-class ServerGroupReplicationConfigurationTypeDef(BaseModel):
+class ServerGroupReplicationConfigurationTypeDef(BaseValidatorModel):
     serverGroupId: Optional[str] = None
     serverReplicationConfigurations: Optional[List[ServerReplicationConfigurationTypeDef]] = None
 
-class ServerGroupValidationConfigurationTypeDef(BaseModel):
+class ServerGroupValidationConfigurationTypeDef(BaseValidatorModel):
     serverGroupId: Optional[str] = None
     serverValidationConfigurations: Optional[List[ServerValidationConfigurationTypeDef]] = None
 
-class ValidationOutputTypeDef(BaseModel):
+class ValidationOutputTypeDef(BaseValidatorModel):
     validationId: Optional[str] = None
     name: Optional[str] = None
     status: Optional[ValidationStatusType] = None
@@ -437,38 +437,38 @@ class ValidationOutputTypeDef(BaseModel):
     appValidationOutput: Optional[AppValidationOutputTypeDef] = None
     serverValidationOutput: Optional[ServerValidationOutputTypeDef] = None
 
-class GetAppLaunchConfigurationResponseTypeDef(BaseModel):
+class GetAppLaunchConfigurationResponseTypeDef(BaseValidatorModel):
     appId: str
     roleName: str
     autoLaunch: bool
     serverGroupLaunchConfigurations: List[ServerGroupLaunchConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAppLaunchConfigurationRequestRequestTypeDef(BaseModel):
+class PutAppLaunchConfigurationRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
     roleName: Optional[str] = None
     autoLaunch: Optional[bool] = None
     serverGroupLaunchConfigurations: Optional[       Sequence[ServerGroupLaunchConfigurationTypeDef]     ] = None
 
-class GetAppReplicationConfigurationResponseTypeDef(BaseModel):
+class GetAppReplicationConfigurationResponseTypeDef(BaseValidatorModel):
     serverGroupReplicationConfigurations: List[ServerGroupReplicationConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAppReplicationConfigurationRequestRequestTypeDef(BaseModel):
+class PutAppReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     appId: Optional[str] = None
     serverGroupReplicationConfigurations: Optional[       Sequence[ServerGroupReplicationConfigurationTypeDef]     ] = None
 
-class GetAppValidationConfigurationResponseTypeDef(BaseModel):
+class GetAppValidationConfigurationResponseTypeDef(BaseValidatorModel):
     appValidationConfigurations: List[AppValidationConfigurationTypeDef]
     serverGroupValidationConfigurations: List[ServerGroupValidationConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAppValidationConfigurationRequestRequestTypeDef(BaseModel):
+class PutAppValidationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     appValidationConfigurations: Optional[Sequence[AppValidationConfigurationTypeDef]] = None
     serverGroupValidationConfigurations: Optional[       Sequence[ServerGroupValidationConfigurationTypeDef]     ] = None
 
-class GetAppValidationOutputResponseTypeDef(BaseModel):
+class GetAppValidationOutputResponseTypeDef(BaseValidatorModel):
     validationOutputList: List[ValidationOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 

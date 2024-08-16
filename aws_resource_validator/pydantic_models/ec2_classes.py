@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,23 +11,23 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ec2_constants import *
 
-class AcceleratorCountRequestTypeDef(BaseModel):
+class AcceleratorCountRequestTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class AcceleratorCountTypeDef(BaseModel):
+class AcceleratorCountTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class AcceleratorTotalMemoryMiBRequestTypeDef(BaseModel):
+class AcceleratorTotalMemoryMiBRequestTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class AcceleratorTotalMemoryMiBTypeDef(BaseModel):
+class AcceleratorTotalMemoryMiBTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class AddressTransferTypeDef(BaseModel):
+class AddressTransferTypeDef(BaseValidatorModel):
     PublicIp: Optional[str] = None
     AllocationId: Optional[str] = None
     TransferAccountId: Optional[str] = None
@@ -35,94 +35,94 @@ class AddressTransferTypeDef(BaseModel):
     TransferOfferAcceptedTimestamp: Optional[datetime] = None
     AddressTransferStatus: Optional[AddressTransferStatusType] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class TargetConfigurationRequestTypeDef(BaseModel):
+class TargetConfigurationRequestTypeDef(BaseValidatorModel):
     OfferingId: str
     InstanceCount: Optional[int] = None
 
-class AcceptTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef(BaseModel):
+class AcceptTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
     SubnetIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class AcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef(BaseModel):
+class AcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class AcceptTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseModel):
+class AcceptTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class AcceptVpcEndpointConnectionsRequestRequestTypeDef(BaseModel):
+class AcceptVpcEndpointConnectionsRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     VpcEndpointIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class AcceptVpcPeeringConnectionRequestRequestTypeDef(BaseModel):
+class AcceptVpcPeeringConnectionRequestRequestTypeDef(BaseValidatorModel):
     VpcPeeringConnectionId: str
     DryRun: Optional[bool] = None
 
-class AcceptVpcPeeringConnectionRequestVpcPeeringConnectionAcceptTypeDef(BaseModel):
+class AcceptVpcPeeringConnectionRequestVpcPeeringConnectionAcceptTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class AccountAttributeValueTypeDef(BaseModel):
+class AccountAttributeValueTypeDef(BaseValidatorModel):
     AttributeValue: Optional[str] = None
 
-class ActiveInstanceTypeDef(BaseModel):
+class ActiveInstanceTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     InstanceType: Optional[str] = None
     SpotInstanceRequestId: Optional[str] = None
     InstanceHealth: Optional[InstanceHealthStatusType] = None
 
-class AddIpamOperatingRegionTypeDef(BaseModel):
+class AddIpamOperatingRegionTypeDef(BaseValidatorModel):
     RegionName: Optional[str] = None
 
-class AddPrefixListEntryTypeDef(BaseModel):
+class AddPrefixListEntryTypeDef(BaseValidatorModel):
     Cidr: str
     Description: Optional[str] = None
 
-class AddedPrincipalTypeDef(BaseModel):
+class AddedPrincipalTypeDef(BaseValidatorModel):
     PrincipalType: Optional[PrincipalTypeType] = None
     Principal: Optional[str] = None
     ServicePermissionId: Optional[str] = None
     ServiceId: Optional[str] = None
 
-class AnalysisComponentTypeDef(BaseModel):
+class AnalysisComponentTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class RuleGroupTypePairTypeDef(BaseModel):
+class RuleGroupTypePairTypeDef(BaseValidatorModel):
     RuleGroupArn: Optional[str] = None
     RuleGroupType: Optional[str] = None
 
-class RuleOptionTypeDef(BaseModel):
+class RuleOptionTypeDef(BaseValidatorModel):
     Keyword: Optional[str] = None
     Settings: Optional[List[str]] = None
 
-class PtrUpdateStatusTypeDef(BaseModel):
+class PtrUpdateStatusTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     Status: Optional[str] = None
     Reason: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class AdvertiseByoipCidrRequestRequestTypeDef(BaseModel):
+class AdvertiseByoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
     Asn: Optional[str] = None
     DryRun: Optional[bool] = None
     NetworkBorderGroup: Optional[str] = None
 
-class AllocateIpamPoolCidrRequestRequestTypeDef(BaseModel):
+class AllocateIpamPoolCidrRequestRequestTypeDef(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     Cidr: Optional[str] = None
@@ -133,7 +133,7 @@ class AllocateIpamPoolCidrRequestRequestTypeDef(BaseModel):
     AllowedCidrs: Optional[Sequence[str]] = None
     DisallowedCidrs: Optional[Sequence[str]] = None
 
-class IpamPoolAllocationTypeDef(BaseModel):
+class IpamPoolAllocationTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
     IpamPoolAllocationId: Optional[str] = None
     Description: Optional[str] = None
@@ -142,19 +142,19 @@ class IpamPoolAllocationTypeDef(BaseModel):
     ResourceRegion: Optional[str] = None
     ResourceOwner: Optional[str] = None
 
-class AlternatePathHintTypeDef(BaseModel):
+class AlternatePathHintTypeDef(BaseValidatorModel):
     ComponentId: Optional[str] = None
     ComponentArn: Optional[str] = None
 
-class PortRangeTypeDef(BaseModel):
+class PortRangeTypeDef(BaseValidatorModel):
     From: Optional[int] = None
     To: Optional[int] = None
 
-class AnalysisLoadBalancerListenerTypeDef(BaseModel):
+class AnalysisLoadBalancerListenerTypeDef(BaseValidatorModel):
     LoadBalancerPort: Optional[int] = None
     InstancePort: Optional[int] = None
 
-class AnalysisRouteTableRouteTypeDef(BaseModel):
+class AnalysisRouteTableRouteTypeDef(BaseValidatorModel):
     DestinationCidr: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
     EgressOnlyInternetGatewayId: Optional[str] = None
@@ -170,37 +170,37 @@ class AnalysisRouteTableRouteTypeDef(BaseModel):
     CoreNetworkArn: Optional[str] = None
     LocalGatewayId: Optional[str] = None
 
-class ApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef(BaseModel):
+class ApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     VpcId: str
     SecurityGroupIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class AsnAssociationTypeDef(BaseModel):
+class AsnAssociationTypeDef(BaseValidatorModel):
     Asn: Optional[str] = None
     Cidr: Optional[str] = None
     StatusMessage: Optional[str] = None
     State: Optional[AsnAssociationStateType] = None
 
-class AsnAuthorizationContextTypeDef(BaseModel):
+class AsnAuthorizationContextTypeDef(BaseValidatorModel):
     Message: str
     Signature: str
 
-class AssignIpv6AddressesRequestRequestTypeDef(BaseModel):
+class AssignIpv6AddressesRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     Ipv6AddressCount: Optional[int] = None
     Ipv6Addresses: Optional[Sequence[str]] = None
     Ipv6PrefixCount: Optional[int] = None
     Ipv6Prefixes: Optional[Sequence[str]] = None
 
-class AssignPrivateIpAddressesRequestNetworkInterfaceAssignPrivateIpAddressesTypeDef(BaseModel):
+class AssignPrivateIpAddressesRequestNetworkInterfaceAssignPrivateIpAddressesTypeDef(BaseValidatorModel):
     AllowReassignment: Optional[bool] = None
     PrivateIpAddresses: Optional[Sequence[str]] = None
     SecondaryPrivateIpAddressCount: Optional[int] = None
     Ipv4Prefixes: Optional[Sequence[str]] = None
     Ipv4PrefixCount: Optional[int] = None
 
-class AssignPrivateIpAddressesRequestRequestTypeDef(BaseModel):
+class AssignPrivateIpAddressesRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     AllowReassignment: Optional[bool] = None
     PrivateIpAddresses: Optional[Sequence[str]] = None
@@ -208,19 +208,19 @@ class AssignPrivateIpAddressesRequestRequestTypeDef(BaseModel):
     Ipv4Prefixes: Optional[Sequence[str]] = None
     Ipv4PrefixCount: Optional[int] = None
 
-class AssignedPrivateIpAddressTypeDef(BaseModel):
+class AssignedPrivateIpAddressTypeDef(BaseValidatorModel):
     PrivateIpAddress: Optional[str] = None
 
-class Ipv4PrefixSpecificationTypeDef(BaseModel):
+class Ipv4PrefixSpecificationTypeDef(BaseValidatorModel):
     Ipv4Prefix: Optional[str] = None
 
-class AssignPrivateNatGatewayAddressRequestRequestTypeDef(BaseModel):
+class AssignPrivateNatGatewayAddressRequestRequestTypeDef(BaseValidatorModel):
     NatGatewayId: str
     PrivateIpAddresses: Optional[Sequence[str]] = None
     PrivateIpAddressCount: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class NatGatewayAddressTypeDef(BaseModel):
+class NatGatewayAddressTypeDef(BaseValidatorModel):
     AllocationId: Optional[str] = None
     NetworkInterfaceId: Optional[str] = None
     PrivateIp: Optional[str] = None
@@ -230,7 +230,7 @@ class NatGatewayAddressTypeDef(BaseModel):
     FailureMessage: Optional[str] = None
     Status: Optional[NatGatewayAddressStatusType] = None
 
-class AssociateAddressRequestClassicAddressAssociateTypeDef(BaseModel):
+class AssociateAddressRequestClassicAddressAssociateTypeDef(BaseValidatorModel):
     AllocationId: Optional[str] = None
     InstanceId: Optional[str] = None
     AllowReassociation: Optional[bool] = None
@@ -238,7 +238,7 @@ class AssociateAddressRequestClassicAddressAssociateTypeDef(BaseModel):
     NetworkInterfaceId: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
 
-class AssociateAddressRequestRequestTypeDef(BaseModel):
+class AssociateAddressRequestRequestTypeDef(BaseValidatorModel):
     AllocationId: Optional[str] = None
     InstanceId: Optional[str] = None
     PublicIp: Optional[str] = None
@@ -247,7 +247,7 @@ class AssociateAddressRequestRequestTypeDef(BaseModel):
     NetworkInterfaceId: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
 
-class AssociateAddressRequestVpcAddressAssociateTypeDef(BaseModel):
+class AssociateAddressRequestVpcAddressAssociateTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     PublicIp: Optional[str] = None
     AllowReassociation: Optional[bool] = None
@@ -255,101 +255,101 @@ class AssociateAddressRequestVpcAddressAssociateTypeDef(BaseModel):
     NetworkInterfaceId: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
 
-class AssociateClientVpnTargetNetworkRequestRequestTypeDef(BaseModel):
+class AssociateClientVpnTargetNetworkRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     SubnetId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class AssociationStatusTypeDef(BaseModel):
+class AssociationStatusTypeDef(BaseValidatorModel):
     Code: Optional[AssociationStatusCodeType] = None
     Message: Optional[str] = None
 
-class AssociateDhcpOptionsRequestDhcpOptionsAssociateWithVpcTypeDef(BaseModel):
+class AssociateDhcpOptionsRequestDhcpOptionsAssociateWithVpcTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
 
-class AssociateDhcpOptionsRequestRequestTypeDef(BaseModel):
+class AssociateDhcpOptionsRequestRequestTypeDef(BaseValidatorModel):
     DhcpOptionsId: str
     VpcId: str
     DryRun: Optional[bool] = None
 
-class AssociateDhcpOptionsRequestVpcAssociateDhcpOptionsTypeDef(BaseModel):
+class AssociateDhcpOptionsRequestVpcAssociateDhcpOptionsTypeDef(BaseValidatorModel):
     DhcpOptionsId: str
     DryRun: Optional[bool] = None
 
-class AssociateEnclaveCertificateIamRoleRequestRequestTypeDef(BaseModel):
+class AssociateEnclaveCertificateIamRoleRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
     RoleArn: str
     DryRun: Optional[bool] = None
 
-class IamInstanceProfileSpecificationTypeDef(BaseModel):
+class IamInstanceProfileSpecificationTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class AssociateIpamByoasnRequestRequestTypeDef(BaseModel):
+class AssociateIpamByoasnRequestRequestTypeDef(BaseValidatorModel):
     Asn: str
     Cidr: str
     DryRun: Optional[bool] = None
 
-class AssociateNatGatewayAddressRequestRequestTypeDef(BaseModel):
+class AssociateNatGatewayAddressRequestRequestTypeDef(BaseValidatorModel):
     NatGatewayId: str
     AllocationIds: Sequence[str]
     PrivateIpAddresses: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class AssociateRouteTableRequestRequestTypeDef(BaseModel):
+class AssociateRouteTableRequestRequestTypeDef(BaseValidatorModel):
     RouteTableId: str
     DryRun: Optional[bool] = None
     SubnetId: Optional[str] = None
     GatewayId: Optional[str] = None
 
-class AssociateRouteTableRequestRouteTableAssociateWithSubnetTypeDef(BaseModel):
+class AssociateRouteTableRequestRouteTableAssociateWithSubnetTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     SubnetId: Optional[str] = None
     GatewayId: Optional[str] = None
 
-class RouteTableAssociationStateTypeDef(BaseModel):
+class RouteTableAssociationStateTypeDef(BaseValidatorModel):
     State: Optional[RouteTableAssociationStateCodeType] = None
     StatusMessage: Optional[str] = None
 
-class AssociateSubnetCidrBlockRequestRequestTypeDef(BaseModel):
+class AssociateSubnetCidrBlockRequestRequestTypeDef(BaseValidatorModel):
     SubnetId: str
     Ipv6CidrBlock: Optional[str] = None
     Ipv6IpamPoolId: Optional[str] = None
     Ipv6NetmaskLength: Optional[int] = None
 
-class AssociateTransitGatewayMulticastDomainRequestRequestTypeDef(BaseModel):
+class AssociateTransitGatewayMulticastDomainRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     TransitGatewayAttachmentId: str
     SubnetIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class AssociateTransitGatewayPolicyTableRequestRequestTypeDef(BaseModel):
+class AssociateTransitGatewayPolicyTableRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class TransitGatewayPolicyTableAssociationTypeDef(BaseModel):
+class TransitGatewayPolicyTableAssociationTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableId: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
     ResourceId: Optional[str] = None
     ResourceType: Optional[TransitGatewayAttachmentResourceTypeType] = None
     State: Optional[TransitGatewayAssociationStateType] = None
 
-class AssociateTransitGatewayRouteTableRequestRequestTypeDef(BaseModel):
+class AssociateTransitGatewayRouteTableRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class TransitGatewayAssociationTypeDef(BaseModel):
+class TransitGatewayAssociationTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
     ResourceId: Optional[str] = None
     ResourceType: Optional[TransitGatewayAttachmentResourceTypeType] = None
     State: Optional[TransitGatewayAssociationStateType] = None
 
-class AssociateTrunkInterfaceRequestRequestTypeDef(BaseModel):
+class AssociateTrunkInterfaceRequestRequestTypeDef(BaseValidatorModel):
     BranchInterfaceId: str
     TrunkInterfaceId: str
     VlanId: Optional[int] = None
@@ -357,7 +357,7 @@ class AssociateTrunkInterfaceRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class AssociateVpcCidrBlockRequestRequestTypeDef(BaseModel):
+class AssociateVpcCidrBlockRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     AmazonProvidedIpv6CidrBlock: Optional[bool] = None
     CidrBlock: Optional[str] = None
@@ -369,90 +369,90 @@ class AssociateVpcCidrBlockRequestRequestTypeDef(BaseModel):
     Ipv6IpamPoolId: Optional[str] = None
     Ipv6NetmaskLength: Optional[int] = None
 
-class AssociatedRoleTypeDef(BaseModel):
+class AssociatedRoleTypeDef(BaseValidatorModel):
     AssociatedRoleArn: Optional[str] = None
     CertificateS3BucketName: Optional[str] = None
     CertificateS3ObjectKey: Optional[str] = None
     EncryptionKmsKeyId: Optional[str] = None
 
-class AssociatedTargetNetworkTypeDef(BaseModel):
+class AssociatedTargetNetworkTypeDef(BaseValidatorModel):
     NetworkId: Optional[str] = None
     NetworkType: Optional[Literal["vpc"]] = None
 
-class AttachClassicLinkVpcRequestInstanceAttachClassicLinkVpcTypeDef(BaseModel):
+class AttachClassicLinkVpcRequestInstanceAttachClassicLinkVpcTypeDef(BaseValidatorModel):
     Groups: Sequence[str]
     VpcId: str
     DryRun: Optional[bool] = None
 
-class AttachClassicLinkVpcRequestRequestTypeDef(BaseModel):
-    Groups: Sequence[str]
-    InstanceId: str
-    VpcId: str
-    DryRun: Optional[bool] = None
-
-class AttachClassicLinkVpcRequestVpcAttachClassicLinkInstanceTypeDef(BaseModel):
+class AttachClassicLinkVpcRequestRequestTypeDef(BaseValidatorModel):
     Groups: Sequence[str]
     InstanceId: str
-    DryRun: Optional[bool] = None
-
-class AttachInternetGatewayRequestInternetGatewayAttachToVpcTypeDef(BaseModel):
     VpcId: str
     DryRun: Optional[bool] = None
 
-class AttachInternetGatewayRequestRequestTypeDef(BaseModel):
+class AttachClassicLinkVpcRequestVpcAttachClassicLinkInstanceTypeDef(BaseValidatorModel):
+    Groups: Sequence[str]
+    InstanceId: str
+    DryRun: Optional[bool] = None
+
+class AttachInternetGatewayRequestInternetGatewayAttachToVpcTypeDef(BaseValidatorModel):
+    VpcId: str
+    DryRun: Optional[bool] = None
+
+class AttachInternetGatewayRequestRequestTypeDef(BaseValidatorModel):
     InternetGatewayId: str
     VpcId: str
     DryRun: Optional[bool] = None
 
-class AttachInternetGatewayRequestVpcAttachInternetGatewayTypeDef(BaseModel):
+class AttachInternetGatewayRequestVpcAttachInternetGatewayTypeDef(BaseValidatorModel):
     InternetGatewayId: str
     DryRun: Optional[bool] = None
 
-class AttachVerifiedAccessTrustProviderRequestRequestTypeDef(BaseModel):
+class AttachVerifiedAccessTrustProviderRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     VerifiedAccessTrustProviderId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class AttachVolumeRequestInstanceAttachVolumeTypeDef(BaseModel):
+class AttachVolumeRequestInstanceAttachVolumeTypeDef(BaseValidatorModel):
     Device: str
     VolumeId: str
     DryRun: Optional[bool] = None
 
-class AttachVolumeRequestRequestTypeDef(BaseModel):
+class AttachVolumeRequestRequestTypeDef(BaseValidatorModel):
     Device: str
     InstanceId: str
     VolumeId: str
     DryRun: Optional[bool] = None
 
-class AttachVolumeRequestVolumeAttachToInstanceTypeDef(BaseModel):
+class AttachVolumeRequestVolumeAttachToInstanceTypeDef(BaseValidatorModel):
     Device: str
     InstanceId: str
     DryRun: Optional[bool] = None
 
-class AttachVpnGatewayRequestRequestTypeDef(BaseModel):
+class AttachVpnGatewayRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     VpnGatewayId: str
     DryRun: Optional[bool] = None
 
-class VpcAttachmentTypeDef(BaseModel):
+class VpcAttachmentTypeDef(BaseValidatorModel):
     State: Optional[AttachmentStatusType] = None
     VpcId: Optional[str] = None
 
-class AttachmentEnaSrdUdpSpecificationTypeDef(BaseModel):
+class AttachmentEnaSrdUdpSpecificationTypeDef(BaseValidatorModel):
     EnaSrdUdpEnabled: Optional[bool] = None
 
-class AttributeBooleanValueTypeDef(BaseModel):
+class AttributeBooleanValueTypeDef(BaseValidatorModel):
     Value: Optional[bool] = None
 
-class AttributeValueTypeDef(BaseModel):
+class AttributeValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class ClientVpnAuthorizationRuleStatusTypeDef(BaseModel):
+class ClientVpnAuthorizationRuleStatusTypeDef(BaseValidatorModel):
     Code: Optional[ClientVpnAuthorizationRuleStatusCodeType] = None
     Message: Optional[str] = None
 
-class AuthorizeClientVpnIngressRequestRequestTypeDef(BaseModel):
+class AuthorizeClientVpnIngressRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     TargetNetworkCidr: str
     AccessGroupId: Optional[str] = None
@@ -461,23 +461,23 @@ class AuthorizeClientVpnIngressRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class AvailabilityZoneMessageTypeDef(BaseModel):
+class AvailabilityZoneMessageTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
 
-class InstanceCapacityTypeDef(BaseModel):
+class InstanceCapacityTypeDef(BaseValidatorModel):
     AvailableCapacity: Optional[int] = None
     InstanceType: Optional[str] = None
     TotalCapacity: Optional[int] = None
 
-class BaselineEbsBandwidthMbpsRequestTypeDef(BaseModel):
+class BaselineEbsBandwidthMbpsRequestTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class BaselineEbsBandwidthMbpsTypeDef(BaseModel):
+class BaselineEbsBandwidthMbpsTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class EbsBlockDeviceTypeDef(BaseModel):
+class EbsBlockDeviceTypeDef(BaseValidatorModel):
     DeleteOnTermination: Optional[bool] = None
     Iops: Optional[int] = None
     SnapshotId: Optional[str] = None
@@ -488,84 +488,84 @@ class EbsBlockDeviceTypeDef(BaseModel):
     OutpostArn: Optional[str] = None
     Encrypted: Optional[bool] = None
 
-class BundleTaskErrorTypeDef(BaseModel):
+class BundleTaskErrorTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class ByoasnTypeDef(BaseModel):
+class ByoasnTypeDef(BaseValidatorModel):
     Asn: Optional[str] = None
     IpamId: Optional[str] = None
     StatusMessage: Optional[str] = None
     State: Optional[AsnStateType] = None
 
-class CancelBundleTaskRequestRequestTypeDef(BaseModel):
+class CancelBundleTaskRequestRequestTypeDef(BaseValidatorModel):
     BundleId: str
     DryRun: Optional[bool] = None
 
-class CancelCapacityReservationFleetErrorTypeDef(BaseModel):
+class CancelCapacityReservationFleetErrorTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class CancelCapacityReservationFleetsRequestRequestTypeDef(BaseModel):
+class CancelCapacityReservationFleetsRequestRequestTypeDef(BaseValidatorModel):
     CapacityReservationFleetIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class CapacityReservationFleetCancellationStateTypeDef(BaseModel):
+class CapacityReservationFleetCancellationStateTypeDef(BaseValidatorModel):
     CurrentFleetState: Optional[CapacityReservationFleetStateType] = None
     PreviousFleetState: Optional[CapacityReservationFleetStateType] = None
     CapacityReservationFleetId: Optional[str] = None
 
-class CancelCapacityReservationRequestRequestTypeDef(BaseModel):
+class CancelCapacityReservationRequestRequestTypeDef(BaseValidatorModel):
     CapacityReservationId: str
     DryRun: Optional[bool] = None
 
-class CancelConversionRequestRequestTypeDef(BaseModel):
+class CancelConversionRequestRequestTypeDef(BaseValidatorModel):
     ConversionTaskId: str
     DryRun: Optional[bool] = None
     ReasonMessage: Optional[str] = None
 
-class CancelExportTaskRequestRequestTypeDef(BaseModel):
+class CancelExportTaskRequestRequestTypeDef(BaseValidatorModel):
     ExportTaskId: str
 
-class CancelImageLaunchPermissionRequestRequestTypeDef(BaseModel):
+class CancelImageLaunchPermissionRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
-class CancelImportTaskRequestRequestTypeDef(BaseModel):
+class CancelImportTaskRequestRequestTypeDef(BaseValidatorModel):
     CancelReason: Optional[str] = None
     DryRun: Optional[bool] = None
     ImportTaskId: Optional[str] = None
 
-class CancelReservedInstancesListingRequestRequestTypeDef(BaseModel):
+class CancelReservedInstancesListingRequestRequestTypeDef(BaseValidatorModel):
     ReservedInstancesListingId: str
 
-class CancelSpotFleetRequestsErrorTypeDef(BaseModel):
+class CancelSpotFleetRequestsErrorTypeDef(BaseValidatorModel):
     Code: Optional[CancelBatchErrorCodeType] = None
     Message: Optional[str] = None
 
-class CancelSpotFleetRequestsRequestRequestTypeDef(BaseModel):
+class CancelSpotFleetRequestsRequestRequestTypeDef(BaseValidatorModel):
     SpotFleetRequestIds: Sequence[str]
     TerminateInstances: bool
     DryRun: Optional[bool] = None
 
-class CancelSpotFleetRequestsSuccessItemTypeDef(BaseModel):
+class CancelSpotFleetRequestsSuccessItemTypeDef(BaseValidatorModel):
     CurrentSpotFleetRequestState: Optional[BatchStateType] = None
     PreviousSpotFleetRequestState: Optional[BatchStateType] = None
     SpotFleetRequestId: Optional[str] = None
 
-class CancelSpotInstanceRequestsRequestRequestTypeDef(BaseModel):
+class CancelSpotInstanceRequestsRequestRequestTypeDef(BaseValidatorModel):
     SpotInstanceRequestIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class CancelledSpotInstanceRequestTypeDef(BaseModel):
+class CancelledSpotInstanceRequestTypeDef(BaseValidatorModel):
     SpotInstanceRequestId: Optional[str] = None
     State: Optional[CancelSpotInstanceRequestStateType] = None
 
-class CapacityAllocationTypeDef(BaseModel):
+class CapacityAllocationTypeDef(BaseValidatorModel):
     AllocationType: Optional[Literal["used"]] = None
     Count: Optional[int] = None
 
-class CapacityBlockOfferingTypeDef(BaseModel):
+class CapacityBlockOfferingTypeDef(BaseValidatorModel):
     CapacityBlockOfferingId: Optional[str] = None
     InstanceType: Optional[str] = None
     AvailabilityZone: Optional[str] = None
@@ -577,7 +577,7 @@ class CapacityBlockOfferingTypeDef(BaseModel):
     CurrencyCode: Optional[str] = None
     Tenancy: Optional[CapacityReservationTenancyType] = None
 
-class FleetCapacityReservationTypeDef(BaseModel):
+class FleetCapacityReservationTypeDef(BaseValidatorModel):
     CapacityReservationId: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
     InstanceType: Optional[InstanceTypeType] = None
@@ -590,131 +590,131 @@ class FleetCapacityReservationTypeDef(BaseModel):
     Weight: Optional[float] = None
     Priority: Optional[int] = None
 
-class CapacityReservationGroupTypeDef(BaseModel):
+class CapacityReservationGroupTypeDef(BaseValidatorModel):
     GroupArn: Optional[str] = None
     OwnerId: Optional[str] = None
 
-class CapacityReservationOptionsRequestTypeDef(BaseModel):
+class CapacityReservationOptionsRequestTypeDef(BaseValidatorModel):
     UsageStrategy: Optional[Literal["use-capacity-reservations-first"]] = None
 
-class CapacityReservationOptionsTypeDef(BaseModel):
+class CapacityReservationOptionsTypeDef(BaseValidatorModel):
     UsageStrategy: Optional[Literal["use-capacity-reservations-first"]] = None
 
-class CapacityReservationTargetResponseTypeDef(BaseModel):
+class CapacityReservationTargetResponseTypeDef(BaseValidatorModel):
     CapacityReservationId: Optional[str] = None
     CapacityReservationResourceGroupArn: Optional[str] = None
 
-class CapacityReservationTargetTypeDef(BaseModel):
+class CapacityReservationTargetTypeDef(BaseValidatorModel):
     CapacityReservationId: Optional[str] = None
     CapacityReservationResourceGroupArn: Optional[str] = None
 
-class CertificateAuthenticationRequestTypeDef(BaseModel):
+class CertificateAuthenticationRequestTypeDef(BaseValidatorModel):
     ClientRootCertificateChainArn: Optional[str] = None
 
-class CertificateAuthenticationTypeDef(BaseModel):
+class CertificateAuthenticationTypeDef(BaseValidatorModel):
     ClientRootCertificateChain: Optional[str] = None
 
-class CidrAuthorizationContextTypeDef(BaseModel):
+class CidrAuthorizationContextTypeDef(BaseValidatorModel):
     Message: str
     Signature: str
 
-class CidrBlockTypeDef(BaseModel):
+class CidrBlockTypeDef(BaseValidatorModel):
     CidrBlock: Optional[str] = None
 
-class ClassicLinkDnsSupportTypeDef(BaseModel):
+class ClassicLinkDnsSupportTypeDef(BaseValidatorModel):
     ClassicLinkDnsSupported: Optional[bool] = None
     VpcId: Optional[str] = None
 
-class GroupIdentifierTypeDef(BaseModel):
+class GroupIdentifierTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupId: Optional[str] = None
 
-class ClassicLoadBalancerTypeDef(BaseModel):
+class ClassicLoadBalancerTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class ClientCertificateRevocationListStatusTypeDef(BaseModel):
+class ClientCertificateRevocationListStatusTypeDef(BaseValidatorModel):
     Code: Optional[ClientCertificateRevocationListStatusCodeType] = None
     Message: Optional[str] = None
 
-class ClientConnectOptionsTypeDef(BaseModel):
+class ClientConnectOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     LambdaFunctionArn: Optional[str] = None
 
-class ClientVpnEndpointAttributeStatusTypeDef(BaseModel):
+class ClientVpnEndpointAttributeStatusTypeDef(BaseValidatorModel):
     Code: Optional[ClientVpnEndpointAttributeStatusCodeType] = None
     Message: Optional[str] = None
 
-class ClientLoginBannerOptionsTypeDef(BaseModel):
+class ClientLoginBannerOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     BannerText: Optional[str] = None
 
-class ClientLoginBannerResponseOptionsTypeDef(BaseModel):
+class ClientLoginBannerResponseOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     BannerText: Optional[str] = None
 
-class DirectoryServiceAuthenticationRequestTypeDef(BaseModel):
+class DirectoryServiceAuthenticationRequestTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
 
-class FederatedAuthenticationRequestTypeDef(BaseModel):
+class FederatedAuthenticationRequestTypeDef(BaseValidatorModel):
     SAMLProviderArn: Optional[str] = None
     SelfServiceSAMLProviderArn: Optional[str] = None
 
-class DirectoryServiceAuthenticationTypeDef(BaseModel):
+class DirectoryServiceAuthenticationTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
 
-class FederatedAuthenticationTypeDef(BaseModel):
+class FederatedAuthenticationTypeDef(BaseValidatorModel):
     SamlProviderArn: Optional[str] = None
     SelfServiceSamlProviderArn: Optional[str] = None
 
-class ClientVpnConnectionStatusTypeDef(BaseModel):
+class ClientVpnConnectionStatusTypeDef(BaseValidatorModel):
     Code: Optional[ClientVpnConnectionStatusCodeType] = None
     Message: Optional[str] = None
 
-class ClientVpnEndpointStatusTypeDef(BaseModel):
+class ClientVpnEndpointStatusTypeDef(BaseValidatorModel):
     Code: Optional[ClientVpnEndpointStatusCodeType] = None
     Message: Optional[str] = None
 
-class ConnectionLogResponseOptionsTypeDef(BaseModel):
+class ConnectionLogResponseOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     CloudwatchLogGroup: Optional[str] = None
     CloudwatchLogStream: Optional[str] = None
 
-class ClientVpnRouteStatusTypeDef(BaseModel):
+class ClientVpnRouteStatusTypeDef(BaseValidatorModel):
     Code: Optional[ClientVpnRouteStatusCodeType] = None
     Message: Optional[str] = None
 
-class CloudWatchLogOptionsSpecificationTypeDef(BaseModel):
+class CloudWatchLogOptionsSpecificationTypeDef(BaseValidatorModel):
     LogEnabled: Optional[bool] = None
     LogGroupArn: Optional[str] = None
     LogOutputFormat: Optional[str] = None
 
-class CloudWatchLogOptionsTypeDef(BaseModel):
+class CloudWatchLogOptionsTypeDef(BaseValidatorModel):
     LogEnabled: Optional[bool] = None
     LogGroupArn: Optional[str] = None
     LogOutputFormat: Optional[str] = None
 
-class CoipAddressUsageTypeDef(BaseModel):
+class CoipAddressUsageTypeDef(BaseValidatorModel):
     AllocationId: Optional[str] = None
     AwsAccountId: Optional[str] = None
     AwsService: Optional[str] = None
     CoIp: Optional[str] = None
 
-class CoipCidrTypeDef(BaseModel):
+class CoipCidrTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
     CoipPoolId: Optional[str] = None
     LocalGatewayRouteTableId: Optional[str] = None
 
-class ConfirmProductInstanceRequestRequestTypeDef(BaseModel):
+class ConfirmProductInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ProductCode: str
     DryRun: Optional[bool] = None
 
-class ConnectionLogOptionsTypeDef(BaseModel):
+class ConnectionLogOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     CloudwatchLogGroup: Optional[str] = None
     CloudwatchLogStream: Optional[str] = None
 
-class ConnectionNotificationTypeDef(BaseModel):
+class ConnectionNotificationTypeDef(BaseValidatorModel):
     ConnectionNotificationId: Optional[str] = None
     ServiceId: Optional[str] = None
     VpcEndpointId: Optional[str] = None
@@ -723,27 +723,27 @@ class ConnectionNotificationTypeDef(BaseModel):
     ConnectionEvents: Optional[List[str]] = None
     ConnectionNotificationState: Optional[ConnectionNotificationStateType] = None
 
-class ConnectionTrackingConfigurationTypeDef(BaseModel):
+class ConnectionTrackingConfigurationTypeDef(BaseValidatorModel):
     TcpEstablishedTimeout: Optional[int] = None
     UdpStreamTimeout: Optional[int] = None
     UdpTimeout: Optional[int] = None
 
-class ConnectionTrackingSpecificationRequestTypeDef(BaseModel):
+class ConnectionTrackingSpecificationRequestTypeDef(BaseValidatorModel):
     TcpEstablishedTimeout: Optional[int] = None
     UdpStreamTimeout: Optional[int] = None
     UdpTimeout: Optional[int] = None
 
-class ConnectionTrackingSpecificationResponseTypeDef(BaseModel):
+class ConnectionTrackingSpecificationResponseTypeDef(BaseValidatorModel):
     TcpEstablishedTimeout: Optional[int] = None
     UdpStreamTimeout: Optional[int] = None
     UdpTimeout: Optional[int] = None
 
-class ConnectionTrackingSpecificationTypeDef(BaseModel):
+class ConnectionTrackingSpecificationTypeDef(BaseValidatorModel):
     TcpEstablishedTimeout: Optional[int] = None
     UdpTimeout: Optional[int] = None
     UdpStreamTimeout: Optional[int] = None
 
-class CopyFpgaImageRequestRequestTypeDef(BaseModel):
+class CopyFpgaImageRequestRequestTypeDef(BaseValidatorModel):
     SourceFpgaImageId: str
     SourceRegion: str
     DryRun: Optional[bool] = None
@@ -751,17 +751,17 @@ class CopyFpgaImageRequestRequestTypeDef(BaseModel):
     Name: Optional[str] = None
     ClientToken: Optional[str] = None
 
-class CpuOptionsRequestTypeDef(BaseModel):
+class CpuOptionsRequestTypeDef(BaseValidatorModel):
     CoreCount: Optional[int] = None
     ThreadsPerCore: Optional[int] = None
     AmdSevSnp: Optional[AmdSevSnpSpecificationType] = None
 
-class CpuOptionsTypeDef(BaseModel):
+class CpuOptionsTypeDef(BaseValidatorModel):
     CoreCount: Optional[int] = None
     ThreadsPerCore: Optional[int] = None
     AmdSevSnp: Optional[AmdSevSnpSpecificationType] = None
 
-class ReservationFleetInstanceSpecificationTypeDef(BaseModel):
+class ReservationFleetInstanceSpecificationTypeDef(BaseValidatorModel):
     InstanceType: Optional[InstanceTypeType] = None
     InstancePlatform: Optional[CapacityReservationInstancePlatformType] = None
     Weight: Optional[float] = None
@@ -770,7 +770,7 @@ class ReservationFleetInstanceSpecificationTypeDef(BaseModel):
     EbsOptimized: Optional[bool] = None
     Priority: Optional[int] = None
 
-class CreateClientVpnRouteRequestRequestTypeDef(BaseModel):
+class CreateClientVpnRouteRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     DestinationCidrBlock: str
     TargetVpcSubnetId: str
@@ -778,62 +778,62 @@ class CreateClientVpnRouteRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class CreateCoipCidrRequestRequestTypeDef(BaseModel):
+class CreateCoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
     CoipPoolId: str
     DryRun: Optional[bool] = None
 
-class CreateDefaultSubnetRequestRequestTypeDef(BaseModel):
+class CreateDefaultSubnetRequestRequestTypeDef(BaseValidatorModel):
     AvailabilityZone: str
     DryRun: Optional[bool] = None
     Ipv6Native: Optional[bool] = None
 
-class CreateDefaultVpcRequestRequestTypeDef(BaseModel):
+class CreateDefaultVpcRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class NewDhcpConfigurationTypeDef(BaseModel):
+class NewDhcpConfigurationTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
-class TargetCapacitySpecificationRequestTypeDef(BaseModel):
+class TargetCapacitySpecificationRequestTypeDef(BaseValidatorModel):
     TotalTargetCapacity: int
     OnDemandTargetCapacity: Optional[int] = None
     SpotTargetCapacity: Optional[int] = None
     DefaultTargetCapacityType: Optional[DefaultTargetCapacityTypeType] = None
     TargetCapacityUnitType: Optional[TargetCapacityUnitTypeType] = None
 
-class DestinationOptionsRequestTypeDef(BaseModel):
+class DestinationOptionsRequestTypeDef(BaseValidatorModel):
     FileFormat: Optional[DestinationFileFormatType] = None
     HiveCompatiblePartitions: Optional[bool] = None
     PerHourPartition: Optional[bool] = None
 
-class StorageLocationTypeDef(BaseModel):
+class StorageLocationTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     Key: Optional[str] = None
 
-class InstanceEventWindowTimeRangeRequestTypeDef(BaseModel):
+class InstanceEventWindowTimeRangeRequestTypeDef(BaseValidatorModel):
     StartWeekDay: Optional[WeekDayType] = None
     StartHour: Optional[int] = None
     EndWeekDay: Optional[WeekDayType] = None
     EndHour: Optional[int] = None
 
-class ExportToS3TaskSpecificationTypeDef(BaseModel):
+class ExportToS3TaskSpecificationTypeDef(BaseValidatorModel):
     ContainerFormat: Optional[Literal["ova"]] = None
     DiskImageFormat: Optional[DiskImageFormatType] = None
     S3Bucket: Optional[str] = None
     S3Prefix: Optional[str] = None
 
-class IpamPoolSourceResourceRequestTypeDef(BaseModel):
+class IpamPoolSourceResourceRequestTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
     ResourceType: Optional[Literal["vpc"]] = None
     ResourceRegion: Optional[str] = None
     ResourceOwner: Optional[str] = None
 
-class RequestIpamResourceTagTypeDef(BaseModel):
+class RequestIpamResourceTagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class CreateLocalGatewayRouteRequestRequestTypeDef(BaseModel):
+class CreateLocalGatewayRouteRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     DestinationCidrBlock: Optional[str] = None
     LocalGatewayVirtualInterfaceGroupId: Optional[str] = None
@@ -841,7 +841,7 @@ class CreateLocalGatewayRouteRequestRequestTypeDef(BaseModel):
     NetworkInterfaceId: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
 
-class LocalGatewayRouteTypeDef(BaseModel):
+class LocalGatewayRouteTypeDef(BaseValidatorModel):
     DestinationCidrBlock: Optional[str] = None
     LocalGatewayVirtualInterfaceGroupId: Optional[str] = None
     Type: Optional[LocalGatewayRouteTypeType] = None
@@ -854,37 +854,37 @@ class LocalGatewayRouteTypeDef(BaseModel):
     NetworkInterfaceId: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
 
-class IcmpTypeCodeTypeDef(BaseModel):
+class IcmpTypeCodeTypeDef(BaseValidatorModel):
     Code: Optional[int] = None
     Type: Optional[int] = None
 
-class CreateNetworkInterfacePermissionRequestRequestTypeDef(BaseModel):
+class CreateNetworkInterfacePermissionRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     Permission: InterfacePermissionTypeType
     AwsAccountId: Optional[str] = None
     AwsService: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class InstanceIpv6AddressTypeDef(BaseModel):
+class InstanceIpv6AddressTypeDef(BaseValidatorModel):
     Ipv6Address: Optional[str] = None
     IsPrimaryIpv6: Optional[bool] = None
 
-class Ipv4PrefixSpecificationRequestTypeDef(BaseModel):
+class Ipv4PrefixSpecificationRequestTypeDef(BaseValidatorModel):
     Ipv4Prefix: Optional[str] = None
 
-class Ipv6PrefixSpecificationRequestTypeDef(BaseModel):
+class Ipv6PrefixSpecificationRequestTypeDef(BaseValidatorModel):
     Ipv6Prefix: Optional[str] = None
 
-class PrivateIpAddressSpecificationTypeDef(BaseModel):
+class PrivateIpAddressSpecificationTypeDef(BaseValidatorModel):
     Primary: Optional[bool] = None
     PrivateIpAddress: Optional[str] = None
 
-class PriceScheduleSpecificationTypeDef(BaseModel):
+class PriceScheduleSpecificationTypeDef(BaseValidatorModel):
     CurrencyCode: Optional[Literal["USD"]] = None
     Price: Optional[float] = None
     Term: Optional[int] = None
 
-class CreateRouteRequestRequestTypeDef(BaseModel):
+class CreateRouteRequestRequestTypeDef(BaseValidatorModel):
     RouteTableId: str
     DestinationCidrBlock: Optional[str] = None
     DestinationIpv6CidrBlock: Optional[str] = None
@@ -902,7 +902,7 @@ class CreateRouteRequestRequestTypeDef(BaseModel):
     VpcPeeringConnectionId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
 
-class CreateRouteRequestRouteTableCreateRouteTypeDef(BaseModel):
+class CreateRouteRequestRouteTableCreateRouteTypeDef(BaseValidatorModel):
     DestinationCidrBlock: Optional[str] = None
     DestinationIpv6CidrBlock: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
@@ -919,46 +919,46 @@ class CreateRouteRequestRouteTableCreateRouteTypeDef(BaseModel):
     VpcPeeringConnectionId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
 
-class InstanceSpecificationTypeDef(BaseModel):
+class InstanceSpecificationTypeDef(BaseValidatorModel):
     InstanceId: str
     ExcludeBootVolume: Optional[bool] = None
     ExcludeDataVolumeIds: Optional[Sequence[str]] = None
 
-class CreateSpotDatafeedSubscriptionRequestRequestTypeDef(BaseModel):
+class CreateSpotDatafeedSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     DryRun: Optional[bool] = None
     Prefix: Optional[str] = None
 
-class S3ObjectTagTypeDef(BaseModel):
+class S3ObjectTagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class TrafficMirrorPortRangeRequestTypeDef(BaseModel):
+class TrafficMirrorPortRangeRequestTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
 
-class TransitGatewayConnectRequestBgpOptionsTypeDef(BaseModel):
+class TransitGatewayConnectRequestBgpOptionsTypeDef(BaseValidatorModel):
     PeerAsn: Optional[int] = None
 
-class CreateTransitGatewayConnectRequestOptionsTypeDef(BaseModel):
+class CreateTransitGatewayConnectRequestOptionsTypeDef(BaseValidatorModel):
     Protocol: Literal["gre"]
 
-class CreateTransitGatewayMulticastDomainRequestOptionsTypeDef(BaseModel):
+class CreateTransitGatewayMulticastDomainRequestOptionsTypeDef(BaseValidatorModel):
     Igmpv2Support: Optional[Igmpv2SupportValueType] = None
     StaticSourcesSupport: Optional[StaticSourcesSupportValueType] = None
     AutoAcceptSharedAssociations: Optional[AutoAcceptSharedAssociationsValueType] = None
 
-class CreateTransitGatewayPeeringAttachmentRequestOptionsTypeDef(BaseModel):
+class CreateTransitGatewayPeeringAttachmentRequestOptionsTypeDef(BaseValidatorModel):
     DynamicRouting: Optional[DynamicRoutingValueType] = None
 
-class CreateTransitGatewayPrefixListReferenceRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayPrefixListReferenceRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     PrefixListId: str
     TransitGatewayAttachmentId: Optional[str] = None
     Blackhole: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class TransitGatewayRequestOptionsTypeDef(BaseModel):
+class TransitGatewayRequestOptionsTypeDef(BaseValidatorModel):
     AmazonSideAsn: Optional[int] = None
     AutoAcceptSharedAttachments: Optional[AutoAcceptSharedAttachmentsValueType] = None
     DefaultRouteTableAssociation: Optional[DefaultRouteTableAssociationValueType] = None
@@ -969,39 +969,39 @@ class TransitGatewayRequestOptionsTypeDef(BaseModel):
     MulticastSupport: Optional[MulticastSupportValueType] = None
     TransitGatewayCidrBlocks: Optional[Sequence[str]] = None
 
-class CreateTransitGatewayRouteRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayRouteRequestRequestTypeDef(BaseValidatorModel):
     DestinationCidrBlock: str
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: Optional[str] = None
     Blackhole: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef(BaseModel):
+class CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef(BaseValidatorModel):
     DnsSupport: Optional[DnsSupportValueType] = None
     SecurityGroupReferencingSupport: Optional[SecurityGroupReferencingSupportValueType] = None
     Ipv6Support: Optional[Ipv6SupportValueType] = None
     ApplianceModeSupport: Optional[ApplianceModeSupportValueType] = None
 
-class CreateVerifiedAccessEndpointEniOptionsTypeDef(BaseModel):
+class CreateVerifiedAccessEndpointEniOptionsTypeDef(BaseValidatorModel):
     NetworkInterfaceId: Optional[str] = None
     Protocol: Optional[VerifiedAccessEndpointProtocolType] = None
     Port: Optional[int] = None
 
-class CreateVerifiedAccessEndpointLoadBalancerOptionsTypeDef(BaseModel):
+class CreateVerifiedAccessEndpointLoadBalancerOptionsTypeDef(BaseValidatorModel):
     Protocol: Optional[VerifiedAccessEndpointProtocolType] = None
     Port: Optional[int] = None
     LoadBalancerArn: Optional[str] = None
     SubnetIds: Optional[Sequence[str]] = None
 
-class VerifiedAccessSseSpecificationRequestTypeDef(BaseModel):
+class VerifiedAccessSseSpecificationRequestTypeDef(BaseValidatorModel):
     CustomerManagedKeyEnabled: Optional[bool] = None
     KmsKeyArn: Optional[str] = None
 
-class CreateVerifiedAccessTrustProviderDeviceOptionsTypeDef(BaseModel):
+class CreateVerifiedAccessTrustProviderDeviceOptionsTypeDef(BaseValidatorModel):
     TenantId: Optional[str] = None
     PublicSigningKeyUrl: Optional[str] = None
 
-class CreateVerifiedAccessTrustProviderOidcOptionsTypeDef(BaseModel):
+class CreateVerifiedAccessTrustProviderOidcOptionsTypeDef(BaseValidatorModel):
     Issuer: Optional[str] = None
     AuthorizationEndpoint: Optional[str] = None
     TokenEndpoint: Optional[str] = None
@@ -1010,11 +1010,11 @@ class CreateVerifiedAccessTrustProviderOidcOptionsTypeDef(BaseModel):
     ClientSecret: Optional[str] = None
     Scope: Optional[str] = None
 
-class CreateVolumePermissionTypeDef(BaseModel):
+class CreateVolumePermissionTypeDef(BaseValidatorModel):
     Group: Optional[Literal["all"]] = None
     UserId: Optional[str] = None
 
-class CreateVpcEndpointConnectionNotificationRequestRequestTypeDef(BaseModel):
+class CreateVpcEndpointConnectionNotificationRequestRequestTypeDef(BaseValidatorModel):
     ConnectionNotificationArn: str
     ConnectionEvents: Sequence[str]
     DryRun: Optional[bool] = None
@@ -1022,26 +1022,26 @@ class CreateVpcEndpointConnectionNotificationRequestRequestTypeDef(BaseModel):
     VpcEndpointId: Optional[str] = None
     ClientToken: Optional[str] = None
 
-class DnsOptionsSpecificationTypeDef(BaseModel):
+class DnsOptionsSpecificationTypeDef(BaseValidatorModel):
     DnsRecordIpType: Optional[DnsRecordIpTypeType] = None
     PrivateDnsOnlyForInboundResolverEndpoint: Optional[bool] = None
 
-class SubnetConfigurationTypeDef(BaseModel):
+class SubnetConfigurationTypeDef(BaseValidatorModel):
     SubnetId: Optional[str] = None
     Ipv4: Optional[str] = None
     Ipv6: Optional[str] = None
 
-class CreateVpnConnectionRouteRequestRequestTypeDef(BaseModel):
+class CreateVpnConnectionRouteRequestRequestTypeDef(BaseValidatorModel):
     DestinationCidrBlock: str
     VpnConnectionId: str
 
-class CreditSpecificationRequestTypeDef(BaseModel):
+class CreditSpecificationRequestTypeDef(BaseValidatorModel):
     CpuCredits: str
 
-class CreditSpecificationTypeDef(BaseModel):
+class CreditSpecificationTypeDef(BaseValidatorModel):
     CpuCredits: Optional[str] = None
 
-class DataQueryTypeDef(BaseModel):
+class DataQueryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Source: Optional[str] = None
     Destination: Optional[str] = None
@@ -1049,536 +1049,536 @@ class DataQueryTypeDef(BaseModel):
     Statistic: Optional[Literal["p50"]] = None
     Period: Optional[PeriodTypeType] = None
 
-class MetricPointTypeDef(BaseModel):
+class MetricPointTypeDef(BaseValidatorModel):
     StartDate: Optional[datetime] = None
     EndDate: Optional[datetime] = None
     Value: Optional[float] = None
     Status: Optional[str] = None
 
-class DeleteCarrierGatewayRequestRequestTypeDef(BaseModel):
+class DeleteCarrierGatewayRequestRequestTypeDef(BaseValidatorModel):
     CarrierGatewayId: str
     DryRun: Optional[bool] = None
 
-class DeleteClientVpnEndpointRequestRequestTypeDef(BaseModel):
+class DeleteClientVpnEndpointRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     DryRun: Optional[bool] = None
 
-class DeleteClientVpnRouteRequestRequestTypeDef(BaseModel):
+class DeleteClientVpnRouteRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     DestinationCidrBlock: str
     TargetVpcSubnetId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteCoipCidrRequestRequestTypeDef(BaseModel):
+class DeleteCoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
     CoipPoolId: str
     DryRun: Optional[bool] = None
 
-class DeleteCoipPoolRequestRequestTypeDef(BaseModel):
+class DeleteCoipPoolRequestRequestTypeDef(BaseValidatorModel):
     CoipPoolId: str
     DryRun: Optional[bool] = None
 
-class DeleteCustomerGatewayRequestRequestTypeDef(BaseModel):
+class DeleteCustomerGatewayRequestRequestTypeDef(BaseValidatorModel):
     CustomerGatewayId: str
     DryRun: Optional[bool] = None
 
-class DeleteDhcpOptionsRequestDhcpOptionsDeleteTypeDef(BaseModel):
+class DeleteDhcpOptionsRequestDhcpOptionsDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteDhcpOptionsRequestRequestTypeDef(BaseModel):
+class DeleteDhcpOptionsRequestRequestTypeDef(BaseValidatorModel):
     DhcpOptionsId: str
     DryRun: Optional[bool] = None
 
-class DeleteEgressOnlyInternetGatewayRequestRequestTypeDef(BaseModel):
+class DeleteEgressOnlyInternetGatewayRequestRequestTypeDef(BaseValidatorModel):
     EgressOnlyInternetGatewayId: str
     DryRun: Optional[bool] = None
 
-class DeleteFleetErrorTypeDef(BaseModel):
+class DeleteFleetErrorTypeDef(BaseValidatorModel):
     Code: Optional[DeleteFleetErrorCodeType] = None
     Message: Optional[str] = None
 
-class DeleteFleetSuccessItemTypeDef(BaseModel):
+class DeleteFleetSuccessItemTypeDef(BaseValidatorModel):
     CurrentFleetState: Optional[FleetStateCodeType] = None
     PreviousFleetState: Optional[FleetStateCodeType] = None
     FleetId: Optional[str] = None
 
-class DeleteFleetsRequestRequestTypeDef(BaseModel):
+class DeleteFleetsRequestRequestTypeDef(BaseValidatorModel):
     FleetIds: Sequence[str]
     TerminateInstances: bool
     DryRun: Optional[bool] = None
 
-class DeleteFlowLogsRequestRequestTypeDef(BaseModel):
+class DeleteFlowLogsRequestRequestTypeDef(BaseValidatorModel):
     FlowLogIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class DeleteFpgaImageRequestRequestTypeDef(BaseModel):
+class DeleteFpgaImageRequestRequestTypeDef(BaseValidatorModel):
     FpgaImageId: str
     DryRun: Optional[bool] = None
 
-class DeleteInstanceConnectEndpointRequestRequestTypeDef(BaseModel):
+class DeleteInstanceConnectEndpointRequestRequestTypeDef(BaseValidatorModel):
     InstanceConnectEndpointId: str
     DryRun: Optional[bool] = None
 
-class DeleteInstanceEventWindowRequestRequestTypeDef(BaseModel):
+class DeleteInstanceEventWindowRequestRequestTypeDef(BaseValidatorModel):
     InstanceEventWindowId: str
     DryRun: Optional[bool] = None
     ForceDelete: Optional[bool] = None
 
-class InstanceEventWindowStateChangeTypeDef(BaseModel):
+class InstanceEventWindowStateChangeTypeDef(BaseValidatorModel):
     InstanceEventWindowId: Optional[str] = None
     State: Optional[InstanceEventWindowStateType] = None
 
-class DeleteInternetGatewayRequestInternetGatewayDeleteTypeDef(BaseModel):
+class DeleteInternetGatewayRequestInternetGatewayDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteInternetGatewayRequestRequestTypeDef(BaseModel):
+class DeleteInternetGatewayRequestRequestTypeDef(BaseValidatorModel):
     InternetGatewayId: str
     DryRun: Optional[bool] = None
 
-class DeleteIpamPoolRequestRequestTypeDef(BaseModel):
+class DeleteIpamPoolRequestRequestTypeDef(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     Cascade: Optional[bool] = None
 
-class DeleteIpamRequestRequestTypeDef(BaseModel):
+class DeleteIpamRequestRequestTypeDef(BaseValidatorModel):
     IpamId: str
     DryRun: Optional[bool] = None
     Cascade: Optional[bool] = None
 
-class DeleteIpamResourceDiscoveryRequestRequestTypeDef(BaseModel):
+class DeleteIpamResourceDiscoveryRequestRequestTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     DryRun: Optional[bool] = None
 
-class DeleteIpamScopeRequestRequestTypeDef(BaseModel):
+class DeleteIpamScopeRequestRequestTypeDef(BaseValidatorModel):
     IpamScopeId: str
     DryRun: Optional[bool] = None
 
-class DeleteKeyPairRequestKeyPairDeleteTypeDef(BaseModel):
+class DeleteKeyPairRequestKeyPairDeleteTypeDef(BaseValidatorModel):
     KeyPairId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteKeyPairRequestKeyPairInfoDeleteTypeDef(BaseModel):
+class DeleteKeyPairRequestKeyPairInfoDeleteTypeDef(BaseValidatorModel):
     KeyPairId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteKeyPairRequestRequestTypeDef(BaseModel):
+class DeleteKeyPairRequestRequestTypeDef(BaseValidatorModel):
     KeyName: Optional[str] = None
     KeyPairId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteLaunchTemplateRequestRequestTypeDef(BaseModel):
+class DeleteLaunchTemplateRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
 
-class DeleteLaunchTemplateVersionsRequestRequestTypeDef(BaseModel):
+class DeleteLaunchTemplateVersionsRequestRequestTypeDef(BaseValidatorModel):
     Versions: Sequence[str]
     DryRun: Optional[bool] = None
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
 
-class ResponseErrorTypeDef(BaseModel):
+class ResponseErrorTypeDef(BaseValidatorModel):
     Code: Optional[LaunchTemplateErrorCodeType] = None
     Message: Optional[str] = None
 
-class DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef(BaseModel):
+class DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     VersionNumber: Optional[int] = None
 
-class DeleteLocalGatewayRouteRequestRequestTypeDef(BaseModel):
+class DeleteLocalGatewayRouteRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     DestinationCidrBlock: Optional[str] = None
     DryRun: Optional[bool] = None
     DestinationPrefixListId: Optional[str] = None
 
-class DeleteLocalGatewayRouteTableRequestRequestTypeDef(BaseModel):
+class DeleteLocalGatewayRouteTableRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     DryRun: Optional[bool] = None
 
-class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef(BaseModel):
+class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: str
     DryRun: Optional[bool] = None
 
-class DeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef(BaseModel):
+class DeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociationId: str
     DryRun: Optional[bool] = None
 
-class DeleteManagedPrefixListRequestRequestTypeDef(BaseModel):
+class DeleteManagedPrefixListRequestRequestTypeDef(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
 
-class DeleteNatGatewayRequestRequestTypeDef(BaseModel):
+class DeleteNatGatewayRequestRequestTypeDef(BaseValidatorModel):
     NatGatewayId: str
     DryRun: Optional[bool] = None
 
-class DeleteNetworkAclEntryRequestNetworkAclDeleteEntryTypeDef(BaseModel):
+class DeleteNetworkAclEntryRequestNetworkAclDeleteEntryTypeDef(BaseValidatorModel):
     Egress: bool
     RuleNumber: int
     DryRun: Optional[bool] = None
 
-class DeleteNetworkAclEntryRequestRequestTypeDef(BaseModel):
+class DeleteNetworkAclEntryRequestRequestTypeDef(BaseValidatorModel):
     Egress: bool
     NetworkAclId: str
     RuleNumber: int
     DryRun: Optional[bool] = None
 
-class DeleteNetworkAclRequestNetworkAclDeleteTypeDef(BaseModel):
+class DeleteNetworkAclRequestNetworkAclDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteNetworkAclRequestRequestTypeDef(BaseModel):
+class DeleteNetworkAclRequestRequestTypeDef(BaseValidatorModel):
     NetworkAclId: str
     DryRun: Optional[bool] = None
 
-class DeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef(BaseModel):
+class DeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: str
     DryRun: Optional[bool] = None
 
-class DeleteNetworkInsightsAccessScopeRequestRequestTypeDef(BaseModel):
+class DeleteNetworkInsightsAccessScopeRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeId: str
     DryRun: Optional[bool] = None
 
-class DeleteNetworkInsightsAnalysisRequestRequestTypeDef(BaseModel):
+class DeleteNetworkInsightsAnalysisRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsAnalysisId: str
     DryRun: Optional[bool] = None
 
-class DeleteNetworkInsightsPathRequestRequestTypeDef(BaseModel):
+class DeleteNetworkInsightsPathRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsPathId: str
     DryRun: Optional[bool] = None
 
-class DeleteNetworkInterfacePermissionRequestRequestTypeDef(BaseModel):
+class DeleteNetworkInterfacePermissionRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfacePermissionId: str
     Force: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class DeleteNetworkInterfaceRequestNetworkInterfaceDeleteTypeDef(BaseModel):
+class DeleteNetworkInterfaceRequestNetworkInterfaceDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteNetworkInterfaceRequestRequestTypeDef(BaseModel):
+class DeleteNetworkInterfaceRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     DryRun: Optional[bool] = None
 
-class DeletePlacementGroupRequestPlacementGroupDeleteTypeDef(BaseModel):
+class DeletePlacementGroupRequestPlacementGroupDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeletePlacementGroupRequestRequestTypeDef(BaseModel):
+class DeletePlacementGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     DryRun: Optional[bool] = None
 
-class DeletePublicIpv4PoolRequestRequestTypeDef(BaseModel):
+class DeletePublicIpv4PoolRequestRequestTypeDef(BaseValidatorModel):
     PoolId: str
     DryRun: Optional[bool] = None
     NetworkBorderGroup: Optional[str] = None
 
-class DeleteQueuedReservedInstancesErrorTypeDef(BaseModel):
+class DeleteQueuedReservedInstancesErrorTypeDef(BaseValidatorModel):
     Code: Optional[DeleteQueuedReservedInstancesErrorCodeType] = None
     Message: Optional[str] = None
 
-class DeleteQueuedReservedInstancesRequestRequestTypeDef(BaseModel):
+class DeleteQueuedReservedInstancesRequestRequestTypeDef(BaseValidatorModel):
     ReservedInstancesIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class SuccessfulQueuedPurchaseDeletionTypeDef(BaseModel):
+class SuccessfulQueuedPurchaseDeletionTypeDef(BaseValidatorModel):
     ReservedInstancesId: Optional[str] = None
 
-class DeleteRouteRequestRequestTypeDef(BaseModel):
+class DeleteRouteRequestRequestTypeDef(BaseValidatorModel):
     RouteTableId: str
     DestinationCidrBlock: Optional[str] = None
     DestinationIpv6CidrBlock: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteRouteRequestRouteDeleteTypeDef(BaseModel):
+class DeleteRouteRequestRouteDeleteTypeDef(BaseValidatorModel):
     DestinationIpv6CidrBlock: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteRouteTableRequestRequestTypeDef(BaseModel):
+class DeleteRouteTableRequestRequestTypeDef(BaseValidatorModel):
     RouteTableId: str
     DryRun: Optional[bool] = None
 
-class DeleteRouteTableRequestRouteTableDeleteTypeDef(BaseModel):
+class DeleteRouteTableRequestRouteTableDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteSecurityGroupRequestRequestTypeDef(BaseModel):
+class DeleteSecurityGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteSecurityGroupRequestSecurityGroupDeleteTypeDef(BaseModel):
+class DeleteSecurityGroupRequestSecurityGroupDeleteTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteSnapshotRequestRequestTypeDef(BaseModel):
+class DeleteSnapshotRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     DryRun: Optional[bool] = None
 
-class DeleteSnapshotRequestSnapshotDeleteTypeDef(BaseModel):
+class DeleteSnapshotRequestSnapshotDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteSpotDatafeedSubscriptionRequestRequestTypeDef(BaseModel):
+class DeleteSpotDatafeedSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteSubnetCidrReservationRequestRequestTypeDef(BaseModel):
+class DeleteSubnetCidrReservationRequestRequestTypeDef(BaseValidatorModel):
     SubnetCidrReservationId: str
     DryRun: Optional[bool] = None
 
-class DeleteSubnetRequestRequestTypeDef(BaseModel):
+class DeleteSubnetRequestRequestTypeDef(BaseValidatorModel):
     SubnetId: str
     DryRun: Optional[bool] = None
 
-class DeleteSubnetRequestSubnetDeleteTypeDef(BaseModel):
+class DeleteSubnetRequestSubnetDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteTagsRequestTagDeleteTypeDef(BaseModel):
+class DeleteTagsRequestTagDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteTrafficMirrorFilterRequestRequestTypeDef(BaseModel):
+class DeleteTrafficMirrorFilterRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorFilterId: str
     DryRun: Optional[bool] = None
 
-class DeleteTrafficMirrorFilterRuleRequestRequestTypeDef(BaseModel):
+class DeleteTrafficMirrorFilterRuleRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorFilterRuleId: str
     DryRun: Optional[bool] = None
 
-class DeleteTrafficMirrorSessionRequestRequestTypeDef(BaseModel):
+class DeleteTrafficMirrorSessionRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorSessionId: str
     DryRun: Optional[bool] = None
 
-class DeleteTrafficMirrorTargetRequestRequestTypeDef(BaseModel):
+class DeleteTrafficMirrorTargetRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorTargetId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayConnectPeerRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayConnectPeerRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayConnectPeerId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayConnectRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayConnectRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayMulticastDomainRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayMulticastDomainRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayPolicyTableRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayPolicyTableRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     PrefixListId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayRouteRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayRouteRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     DestinationCidrBlock: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayRouteTableAnnouncementRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncementId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayRouteTableRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayRouteTableRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     DryRun: Optional[bool] = None
 
-class DeleteTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseModel):
+class DeleteTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class DeleteVerifiedAccessEndpointRequestRequestTypeDef(BaseModel):
+class DeleteVerifiedAccessEndpointRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessEndpointId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteVerifiedAccessGroupRequestRequestTypeDef(BaseModel):
+class DeleteVerifiedAccessGroupRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessGroupId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DeleteVerifiedAccessInstanceRequestRequestTypeDef(BaseModel):
+class DeleteVerifiedAccessInstanceRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
-class DeleteVerifiedAccessTrustProviderRequestRequestTypeDef(BaseModel):
+class DeleteVerifiedAccessTrustProviderRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProviderId: str
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
-class DeleteVolumeRequestRequestTypeDef(BaseModel):
+class DeleteVolumeRequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
     DryRun: Optional[bool] = None
 
-class DeleteVolumeRequestVolumeDeleteTypeDef(BaseModel):
+class DeleteVolumeRequestVolumeDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef(BaseModel):
+class DeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef(BaseValidatorModel):
     ConnectionNotificationIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class DeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef(BaseModel):
+class DeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     ServiceIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class DeleteVpcEndpointsRequestRequestTypeDef(BaseModel):
+class DeleteVpcEndpointsRequestRequestTypeDef(BaseValidatorModel):
     VpcEndpointIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class DeleteVpcPeeringConnectionRequestRequestTypeDef(BaseModel):
+class DeleteVpcPeeringConnectionRequestRequestTypeDef(BaseValidatorModel):
     VpcPeeringConnectionId: str
     DryRun: Optional[bool] = None
 
-class DeleteVpcPeeringConnectionRequestVpcPeeringConnectionDeleteTypeDef(BaseModel):
+class DeleteVpcPeeringConnectionRequestVpcPeeringConnectionDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteVpcRequestRequestTypeDef(BaseModel):
+class DeleteVpcRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
 
-class DeleteVpcRequestVpcDeleteTypeDef(BaseModel):
+class DeleteVpcRequestVpcDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeleteVpnConnectionRequestRequestTypeDef(BaseModel):
+class DeleteVpnConnectionRequestRequestTypeDef(BaseValidatorModel):
     VpnConnectionId: str
     DryRun: Optional[bool] = None
 
-class DeleteVpnConnectionRouteRequestRequestTypeDef(BaseModel):
+class DeleteVpnConnectionRouteRequestRequestTypeDef(BaseValidatorModel):
     DestinationCidrBlock: str
     VpnConnectionId: str
 
-class DeleteVpnGatewayRequestRequestTypeDef(BaseModel):
+class DeleteVpnGatewayRequestRequestTypeDef(BaseValidatorModel):
     VpnGatewayId: str
     DryRun: Optional[bool] = None
 
-class DeprovisionByoipCidrRequestRequestTypeDef(BaseModel):
+class DeprovisionByoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
     DryRun: Optional[bool] = None
 
-class DeprovisionIpamByoasnRequestRequestTypeDef(BaseModel):
+class DeprovisionIpamByoasnRequestRequestTypeDef(BaseValidatorModel):
     IpamId: str
     Asn: str
     DryRun: Optional[bool] = None
 
-class DeprovisionIpamPoolCidrRequestRequestTypeDef(BaseModel):
+class DeprovisionIpamPoolCidrRequestRequestTypeDef(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     Cidr: Optional[str] = None
 
-class DeprovisionPublicIpv4PoolCidrRequestRequestTypeDef(BaseModel):
+class DeprovisionPublicIpv4PoolCidrRequestRequestTypeDef(BaseValidatorModel):
     PoolId: str
     Cidr: str
     DryRun: Optional[bool] = None
 
-class DeregisterImageRequestImageDeregisterTypeDef(BaseModel):
+class DeregisterImageRequestImageDeregisterTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DeregisterImageRequestRequestTypeDef(BaseModel):
+class DeregisterImageRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
-class DeregisterInstanceTagAttributeRequestTypeDef(BaseModel):
+class DeregisterInstanceTagAttributeRequestTypeDef(BaseValidatorModel):
     IncludeAllTagsOfInstance: Optional[bool] = None
     InstanceTagKeys: Optional[Sequence[str]] = None
 
-class InstanceTagNotificationAttributeTypeDef(BaseModel):
+class InstanceTagNotificationAttributeTypeDef(BaseValidatorModel):
     InstanceTagKeys: Optional[List[str]] = None
     IncludeAllTagsOfInstance: Optional[bool] = None
 
-class DeregisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef(BaseModel):
+class DeregisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     GroupIpAddress: Optional[str] = None
     NetworkInterfaceIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class TransitGatewayMulticastDeregisteredGroupMembersTypeDef(BaseModel):
+class TransitGatewayMulticastDeregisteredGroupMembersTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     DeregisteredNetworkInterfaceIds: Optional[List[str]] = None
     GroupIpAddress: Optional[str] = None
 
-class DeregisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef(BaseModel):
+class DeregisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     GroupIpAddress: Optional[str] = None
     NetworkInterfaceIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class TransitGatewayMulticastDeregisteredGroupSourcesTypeDef(BaseModel):
+class TransitGatewayMulticastDeregisteredGroupSourcesTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     DeregisteredNetworkInterfaceIds: Optional[List[str]] = None
     GroupIpAddress: Optional[str] = None
 
-class DescribeAccountAttributesRequestRequestTypeDef(BaseModel):
+class DescribeAccountAttributesRequestRequestTypeDef(BaseValidatorModel):
     AttributeNames: Optional[Sequence[AccountAttributeNameType]] = None
     DryRun: Optional[bool] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeAddressTransfersRequestRequestTypeDef(BaseModel):
+class DescribeAddressTransfersRequestRequestTypeDef(BaseValidatorModel):
     AllocationIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class DescribeAddressesAttributeRequestRequestTypeDef(BaseModel):
+class DescribeAddressesAttributeRequestRequestTypeDef(BaseValidatorModel):
     AllocationIds: Optional[Sequence[str]] = None
     Attribute: Optional[Literal["domain-name"]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
-class DescribeAggregateIdFormatRequestRequestTypeDef(BaseModel):
+class DescribeAggregateIdFormatRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class IdFormatTypeDef(BaseModel):
+class IdFormatTypeDef(BaseValidatorModel):
     Deadline: Optional[datetime] = None
     Resource: Optional[str] = None
     UseLongIds: Optional[bool] = None
 
-class SubscriptionTypeDef(BaseModel):
+class SubscriptionTypeDef(BaseValidatorModel):
     Source: Optional[str] = None
     Destination: Optional[str] = None
     Metric: Optional[Literal["aggregate-latency"]] = None
     Statistic: Optional[Literal["p50"]] = None
     Period: Optional[PeriodTypeType] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeByoipCidrsRequestRequestTypeDef(BaseModel):
+class DescribeByoipCidrsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: int
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
 
-class DescribeConversionTasksRequestRequestTypeDef(BaseModel):
+class DescribeConversionTasksRequestRequestTypeDef(BaseValidatorModel):
     ConversionTaskIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class FastLaunchLaunchTemplateSpecificationResponseTypeDef(BaseModel):
+class FastLaunchLaunchTemplateSpecificationResponseTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     Version: Optional[str] = None
 
-class FastLaunchSnapshotConfigurationResponseTypeDef(BaseModel):
+class FastLaunchSnapshotConfigurationResponseTypeDef(BaseValidatorModel):
     TargetResourceCount: Optional[int] = None
 
-class DescribeFastSnapshotRestoreSuccessItemTypeDef(BaseModel):
+class DescribeFastSnapshotRestoreSuccessItemTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     State: Optional[FastSnapshotRestoreStateCodeType] = None
@@ -1591,12 +1591,12 @@ class DescribeFastSnapshotRestoreSuccessItemTypeDef(BaseModel):
     DisablingTime: Optional[datetime] = None
     DisabledTime: Optional[datetime] = None
 
-class DescribeFpgaImageAttributeRequestRequestTypeDef(BaseModel):
+class DescribeFpgaImageAttributeRequestRequestTypeDef(BaseValidatorModel):
     FpgaImageId: str
     Attribute: FpgaImageAttributeNameType
     DryRun: Optional[bool] = None
 
-class HostOfferingTypeDef(BaseModel):
+class HostOfferingTypeDef(BaseValidatorModel):
     CurrencyCode: Optional[Literal["USD"]] = None
     Duration: Optional[int] = None
     HourlyPrice: Optional[str] = None
@@ -1605,39 +1605,39 @@ class HostOfferingTypeDef(BaseModel):
     PaymentOption: Optional[PaymentOptionType] = None
     UpfrontPrice: Optional[str] = None
 
-class DescribeIdFormatRequestRequestTypeDef(BaseModel):
+class DescribeIdFormatRequestRequestTypeDef(BaseValidatorModel):
     Resource: Optional[str] = None
 
-class DescribeIdentityIdFormatRequestRequestTypeDef(BaseModel):
+class DescribeIdentityIdFormatRequestRequestTypeDef(BaseValidatorModel):
     PrincipalArn: str
     Resource: Optional[str] = None
 
-class DescribeImageAttributeRequestImageDescribeAttributeTypeDef(BaseModel):
+class DescribeImageAttributeRequestImageDescribeAttributeTypeDef(BaseValidatorModel):
     Attribute: ImageAttributeNameType
     DryRun: Optional[bool] = None
 
-class DescribeImageAttributeRequestRequestTypeDef(BaseModel):
+class DescribeImageAttributeRequestRequestTypeDef(BaseValidatorModel):
     Attribute: ImageAttributeNameType
     ImageId: str
     DryRun: Optional[bool] = None
 
-class DescribeInstanceAttributeRequestInstanceDescribeAttributeTypeDef(BaseModel):
+class DescribeInstanceAttributeRequestInstanceDescribeAttributeTypeDef(BaseValidatorModel):
     Attribute: InstanceAttributeNameType
     DryRun: Optional[bool] = None
 
-class DescribeInstanceAttributeRequestRequestTypeDef(BaseModel):
+class DescribeInstanceAttributeRequestRequestTypeDef(BaseValidatorModel):
     Attribute: InstanceAttributeNameType
     InstanceId: str
     DryRun: Optional[bool] = None
 
-class InstanceCreditSpecificationTypeDef(BaseModel):
+class InstanceCreditSpecificationTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     CpuCredits: Optional[str] = None
 
-class DescribeInstanceEventNotificationAttributesRequestRequestTypeDef(BaseModel):
+class DescribeInstanceEventNotificationAttributesRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class InstanceTopologyTypeDef(BaseModel):
+class InstanceTopologyTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     InstanceType: Optional[str] = None
     GroupName: Optional[str] = None
@@ -1645,17 +1645,17 @@ class InstanceTopologyTypeDef(BaseModel):
     AvailabilityZone: Optional[str] = None
     ZoneId: Optional[str] = None
 
-class InstanceTypeOfferingTypeDef(BaseModel):
+class InstanceTypeOfferingTypeDef(BaseValidatorModel):
     InstanceType: Optional[InstanceTypeType] = None
     LocationType: Optional[LocationTypeType] = None
     Location: Optional[str] = None
 
-class DescribeIpamByoasnRequestRequestTypeDef(BaseModel):
+class DescribeIpamByoasnRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class LockedSnapshotsInfoTypeDef(BaseModel):
+class LockedSnapshotsInfoTypeDef(BaseValidatorModel):
     OwnerId: Optional[str] = None
     SnapshotId: Optional[str] = None
     LockState: Optional[LockStateType] = None
@@ -1666,98 +1666,98 @@ class LockedSnapshotsInfoTypeDef(BaseModel):
     LockDurationStartTime: Optional[datetime] = None
     LockExpiresOn: Optional[datetime] = None
 
-class MacHostTypeDef(BaseModel):
+class MacHostTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
     MacOSLatestSupportedVersions: Optional[List[str]] = None
 
-class MovingAddressStatusTypeDef(BaseModel):
+class MovingAddressStatusTypeDef(BaseValidatorModel):
     MoveStatus: Optional[MoveStatusType] = None
     PublicIp: Optional[str] = None
 
-class DescribeNetworkInterfaceAttributeRequestNetworkInterfaceDescribeAttributeTypeDef(BaseModel):
+class DescribeNetworkInterfaceAttributeRequestNetworkInterfaceDescribeAttributeTypeDef(BaseValidatorModel):
     Attribute: Optional[NetworkInterfaceAttributeType] = None
     DryRun: Optional[bool] = None
 
-class DescribeNetworkInterfaceAttributeRequestRequestTypeDef(BaseModel):
+class DescribeNetworkInterfaceAttributeRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     Attribute: Optional[NetworkInterfaceAttributeType] = None
     DryRun: Optional[bool] = None
 
-class PrefixListTypeDef(BaseModel):
+class PrefixListTypeDef(BaseValidatorModel):
     Cidrs: Optional[List[str]] = None
     PrefixListId: Optional[str] = None
     PrefixListName: Optional[str] = None
 
-class DescribePrincipalIdFormatRequestRequestTypeDef(BaseModel):
+class DescribePrincipalIdFormatRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Resources: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class RegionTypeDef(BaseModel):
+class RegionTypeDef(BaseValidatorModel):
     Endpoint: Optional[str] = None
     RegionName: Optional[str] = None
     OptInStatus: Optional[str] = None
 
-class ScheduledInstanceRecurrenceRequestTypeDef(BaseModel):
+class ScheduledInstanceRecurrenceRequestTypeDef(BaseValidatorModel):
     Frequency: Optional[str] = None
     Interval: Optional[int] = None
     OccurrenceDays: Optional[Sequence[int]] = None
     OccurrenceRelativeToEnd: Optional[bool] = None
     OccurrenceUnit: Optional[str] = None
 
-class DescribeSecurityGroupReferencesRequestRequestTypeDef(BaseModel):
+class DescribeSecurityGroupReferencesRequestRequestTypeDef(BaseValidatorModel):
     GroupId: Sequence[str]
     DryRun: Optional[bool] = None
 
-class SecurityGroupReferenceTypeDef(BaseModel):
+class SecurityGroupReferenceTypeDef(BaseValidatorModel):
     GroupId: Optional[str] = None
     ReferencingVpcId: Optional[str] = None
     VpcPeeringConnectionId: Optional[str] = None
     TransitGatewayId: Optional[str] = None
 
-class DescribeSnapshotAttributeRequestRequestTypeDef(BaseModel):
+class DescribeSnapshotAttributeRequestRequestTypeDef(BaseValidatorModel):
     Attribute: SnapshotAttributeNameType
     SnapshotId: str
     DryRun: Optional[bool] = None
 
-class DescribeSnapshotAttributeRequestSnapshotDescribeAttributeTypeDef(BaseModel):
+class DescribeSnapshotAttributeRequestSnapshotDescribeAttributeTypeDef(BaseValidatorModel):
     Attribute: SnapshotAttributeNameType
     DryRun: Optional[bool] = None
 
-class ProductCodeTypeDef(BaseModel):
+class ProductCodeTypeDef(BaseValidatorModel):
     ProductCodeId: Optional[str] = None
     ProductCodeType: Optional[ProductCodeValuesType] = None
 
-class DescribeSpotDatafeedSubscriptionRequestRequestTypeDef(BaseModel):
+class DescribeSpotDatafeedSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DescribeSpotFleetInstancesRequestRequestTypeDef(BaseModel):
+class DescribeSpotFleetInstancesRequestRequestTypeDef(BaseValidatorModel):
     SpotFleetRequestId: str
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeSpotFleetRequestsRequestRequestTypeDef(BaseModel):
+class DescribeSpotFleetRequestsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SpotFleetRequestIds: Optional[Sequence[str]] = None
 
-class SpotPriceTypeDef(BaseModel):
+class SpotPriceTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     InstanceType: Optional[InstanceTypeType] = None
     ProductDescription: Optional[RIProductDescriptionType] = None
     SpotPrice: Optional[str] = None
     Timestamp: Optional[datetime] = None
 
-class DescribeStaleSecurityGroupsRequestRequestTypeDef(BaseModel):
+class DescribeStaleSecurityGroupsRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class StoreImageTaskResultTypeDef(BaseModel):
+class StoreImageTaskResultTypeDef(BaseValidatorModel):
     AmiId: Optional[str] = None
     TaskStartTime: Optional[datetime] = None
     Bucket: Optional[str] = None
@@ -1766,22 +1766,22 @@ class StoreImageTaskResultTypeDef(BaseModel):
     StoreTaskState: Optional[str] = None
     StoreTaskFailureReason: Optional[str] = None
 
-class TagDescriptionTypeDef(BaseModel):
+class TagDescriptionTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     ResourceId: Optional[str] = None
     ResourceType: Optional[ResourceTypeType] = None
     Value: Optional[str] = None
 
-class DescribeVolumeAttributeRequestRequestTypeDef(BaseModel):
+class DescribeVolumeAttributeRequestRequestTypeDef(BaseValidatorModel):
     Attribute: VolumeAttributeNameType
     VolumeId: str
     DryRun: Optional[bool] = None
 
-class DescribeVolumeAttributeRequestVolumeDescribeAttributeTypeDef(BaseModel):
+class DescribeVolumeAttributeRequestVolumeDescribeAttributeTypeDef(BaseValidatorModel):
     Attribute: VolumeAttributeNameType
     DryRun: Optional[bool] = None
 
-class VolumeModificationTypeDef(BaseModel):
+class VolumeModificationTypeDef(BaseValidatorModel):
     VolumeId: Optional[str] = None
     ModificationState: Optional[VolumeModificationStateType] = None
     StatusMessage: Optional[str] = None
@@ -1799,119 +1799,119 @@ class VolumeModificationTypeDef(BaseModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
-class DescribeVpcAttributeRequestRequestTypeDef(BaseModel):
+class DescribeVpcAttributeRequestRequestTypeDef(BaseValidatorModel):
     Attribute: VpcAttributeNameType
     VpcId: str
     DryRun: Optional[bool] = None
 
-class DescribeVpcAttributeRequestVpcDescribeAttributeTypeDef(BaseModel):
+class DescribeVpcAttributeRequestVpcDescribeAttributeTypeDef(BaseValidatorModel):
     Attribute: VpcAttributeNameType
     DryRun: Optional[bool] = None
 
-class DescribeVpcClassicLinkDnsSupportRequestRequestTypeDef(BaseModel):
+class DescribeVpcClassicLinkDnsSupportRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     VpcIds: Optional[Sequence[str]] = None
 
-class DestinationOptionsResponseTypeDef(BaseModel):
+class DestinationOptionsResponseTypeDef(BaseValidatorModel):
     FileFormat: Optional[DestinationFileFormatType] = None
     HiveCompatiblePartitions: Optional[bool] = None
     PerHourPartition: Optional[bool] = None
 
-class DetachClassicLinkVpcRequestInstanceDetachClassicLinkVpcTypeDef(BaseModel):
+class DetachClassicLinkVpcRequestInstanceDetachClassicLinkVpcTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
 
-class DetachClassicLinkVpcRequestRequestTypeDef(BaseModel):
+class DetachClassicLinkVpcRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     VpcId: str
     DryRun: Optional[bool] = None
 
-class DetachClassicLinkVpcRequestVpcDetachClassicLinkInstanceTypeDef(BaseModel):
+class DetachClassicLinkVpcRequestVpcDetachClassicLinkInstanceTypeDef(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
 
-class DetachInternetGatewayRequestInternetGatewayDetachFromVpcTypeDef(BaseModel):
+class DetachInternetGatewayRequestInternetGatewayDetachFromVpcTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
 
-class DetachInternetGatewayRequestRequestTypeDef(BaseModel):
+class DetachInternetGatewayRequestRequestTypeDef(BaseValidatorModel):
     InternetGatewayId: str
     VpcId: str
     DryRun: Optional[bool] = None
 
-class DetachInternetGatewayRequestVpcDetachInternetGatewayTypeDef(BaseModel):
+class DetachInternetGatewayRequestVpcDetachInternetGatewayTypeDef(BaseValidatorModel):
     InternetGatewayId: str
     DryRun: Optional[bool] = None
 
-class DetachNetworkInterfaceRequestNetworkInterfaceDetachTypeDef(BaseModel):
+class DetachNetworkInterfaceRequestNetworkInterfaceDetachTypeDef(BaseValidatorModel):
     AttachmentId: str
     DryRun: Optional[bool] = None
     Force: Optional[bool] = None
 
-class DetachNetworkInterfaceRequestRequestTypeDef(BaseModel):
+class DetachNetworkInterfaceRequestRequestTypeDef(BaseValidatorModel):
     AttachmentId: str
     DryRun: Optional[bool] = None
     Force: Optional[bool] = None
 
-class DetachVerifiedAccessTrustProviderRequestRequestTypeDef(BaseModel):
+class DetachVerifiedAccessTrustProviderRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     VerifiedAccessTrustProviderId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DetachVolumeRequestInstanceDetachVolumeTypeDef(BaseModel):
+class DetachVolumeRequestInstanceDetachVolumeTypeDef(BaseValidatorModel):
     VolumeId: str
     Device: Optional[str] = None
     Force: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class DetachVolumeRequestRequestTypeDef(BaseModel):
+class DetachVolumeRequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
     Device: Optional[str] = None
     Force: Optional[bool] = None
     InstanceId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DetachVolumeRequestVolumeDetachFromInstanceTypeDef(BaseModel):
+class DetachVolumeRequestVolumeDetachFromInstanceTypeDef(BaseValidatorModel):
     Device: Optional[str] = None
     Force: Optional[bool] = None
     InstanceId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DetachVpnGatewayRequestRequestTypeDef(BaseModel):
+class DetachVpnGatewayRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     VpnGatewayId: str
     DryRun: Optional[bool] = None
 
-class DeviceOptionsTypeDef(BaseModel):
+class DeviceOptionsTypeDef(BaseValidatorModel):
     TenantId: Optional[str] = None
     PublicSigningKeyUrl: Optional[str] = None
 
-class DisableAddressTransferRequestRequestTypeDef(BaseModel):
+class DisableAddressTransferRequestRequestTypeDef(BaseValidatorModel):
     AllocationId: str
     DryRun: Optional[bool] = None
 
-class DisableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef(BaseModel):
+class DisableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     Source: Optional[str] = None
     Destination: Optional[str] = None
     Metric: Optional[Literal["aggregate-latency"]] = None
     Statistic: Optional[Literal["p50"]] = None
     DryRun: Optional[bool] = None
 
-class DisableEbsEncryptionByDefaultRequestRequestTypeDef(BaseModel):
+class DisableEbsEncryptionByDefaultRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DisableFastLaunchRequestRequestTypeDef(BaseModel):
+class DisableFastLaunchRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     Force: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class DisableFastSnapshotRestoreStateErrorTypeDef(BaseModel):
+class DisableFastSnapshotRestoreStateErrorTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class DisableFastSnapshotRestoreSuccessItemTypeDef(BaseModel):
+class DisableFastSnapshotRestoreSuccessItemTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     State: Optional[FastSnapshotRestoreStateCodeType] = None
@@ -1924,43 +1924,43 @@ class DisableFastSnapshotRestoreSuccessItemTypeDef(BaseModel):
     DisablingTime: Optional[datetime] = None
     DisabledTime: Optional[datetime] = None
 
-class DisableFastSnapshotRestoresRequestRequestTypeDef(BaseModel):
+class DisableFastSnapshotRestoresRequestRequestTypeDef(BaseValidatorModel):
     AvailabilityZones: Sequence[str]
     SourceSnapshotIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class DisableImageBlockPublicAccessRequestRequestTypeDef(BaseModel):
+class DisableImageBlockPublicAccessRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DisableImageDeprecationRequestRequestTypeDef(BaseModel):
+class DisableImageDeprecationRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
-class DisableImageDeregistrationProtectionRequestRequestTypeDef(BaseModel):
+class DisableImageDeregistrationProtectionRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
-class DisableImageRequestRequestTypeDef(BaseModel):
+class DisableImageRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
-class DisableIpamOrganizationAdminAccountRequestRequestTypeDef(BaseModel):
+class DisableIpamOrganizationAdminAccountRequestRequestTypeDef(BaseValidatorModel):
     DelegatedAdminAccountId: str
     DryRun: Optional[bool] = None
 
-class DisableSerialConsoleAccessRequestRequestTypeDef(BaseModel):
+class DisableSerialConsoleAccessRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DisableSnapshotBlockPublicAccessRequestRequestTypeDef(BaseModel):
+class DisableSnapshotBlockPublicAccessRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DisableTransitGatewayRouteTablePropagationRequestRequestTypeDef(BaseModel):
+class DisableTransitGatewayRouteTablePropagationRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: Optional[str] = None
     DryRun: Optional[bool] = None
     TransitGatewayRouteTableAnnouncementId: Optional[str] = None
 
-class TransitGatewayPropagationTypeDef(BaseModel):
+class TransitGatewayPropagationTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     ResourceId: Optional[str] = None
     ResourceType: Optional[TransitGatewayAttachmentResourceTypeType] = None
@@ -1968,137 +1968,137 @@ class TransitGatewayPropagationTypeDef(BaseModel):
     State: Optional[TransitGatewayPropagationStateType] = None
     TransitGatewayRouteTableAnnouncementId: Optional[str] = None
 
-class DisableVgwRoutePropagationRequestRequestTypeDef(BaseModel):
+class DisableVgwRoutePropagationRequestRequestTypeDef(BaseValidatorModel):
     GatewayId: str
     RouteTableId: str
     DryRun: Optional[bool] = None
 
-class DisableVpcClassicLinkDnsSupportRequestRequestTypeDef(BaseModel):
+class DisableVpcClassicLinkDnsSupportRequestRequestTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
 
-class DisableVpcClassicLinkRequestRequestTypeDef(BaseModel):
+class DisableVpcClassicLinkRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
 
-class DisableVpcClassicLinkRequestVpcDisableClassicLinkTypeDef(BaseModel):
+class DisableVpcClassicLinkRequestVpcDisableClassicLinkTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DisassociateAddressRequestClassicAddressDisassociateTypeDef(BaseModel):
+class DisassociateAddressRequestClassicAddressDisassociateTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     PublicIp: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DisassociateAddressRequestNetworkInterfaceAssociationDeleteTypeDef(BaseModel):
+class DisassociateAddressRequestNetworkInterfaceAssociationDeleteTypeDef(BaseValidatorModel):
     PublicIp: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DisassociateAddressRequestRequestTypeDef(BaseModel):
+class DisassociateAddressRequestRequestTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     PublicIp: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DisassociateClientVpnTargetNetworkRequestRequestTypeDef(BaseModel):
+class DisassociateClientVpnTargetNetworkRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     AssociationId: str
     DryRun: Optional[bool] = None
 
-class DisassociateEnclaveCertificateIamRoleRequestRequestTypeDef(BaseModel):
+class DisassociateEnclaveCertificateIamRoleRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
     RoleArn: str
     DryRun: Optional[bool] = None
 
-class DisassociateIamInstanceProfileRequestRequestTypeDef(BaseModel):
+class DisassociateIamInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     AssociationId: str
 
-class DisassociateIpamByoasnRequestRequestTypeDef(BaseModel):
+class DisassociateIpamByoasnRequestRequestTypeDef(BaseValidatorModel):
     Asn: str
     Cidr: str
     DryRun: Optional[bool] = None
 
-class DisassociateIpamResourceDiscoveryRequestRequestTypeDef(BaseModel):
+class DisassociateIpamResourceDiscoveryRequestRequestTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryAssociationId: str
     DryRun: Optional[bool] = None
 
-class DisassociateNatGatewayAddressRequestRequestTypeDef(BaseModel):
+class DisassociateNatGatewayAddressRequestRequestTypeDef(BaseValidatorModel):
     NatGatewayId: str
     AssociationIds: Sequence[str]
     MaxDrainDurationSeconds: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class DisassociateRouteTableRequestRequestTypeDef(BaseModel):
+class DisassociateRouteTableRequestRequestTypeDef(BaseValidatorModel):
     AssociationId: str
     DryRun: Optional[bool] = None
 
-class DisassociateRouteTableRequestRouteTableAssociationDeleteTypeDef(BaseModel):
+class DisassociateRouteTableRequestRouteTableAssociationDeleteTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class DisassociateRouteTableRequestServiceResourceDisassociateRouteTableTypeDef(BaseModel):
+class DisassociateRouteTableRequestServiceResourceDisassociateRouteTableTypeDef(BaseValidatorModel):
     AssociationId: str
     DryRun: Optional[bool] = None
 
-class DisassociateSubnetCidrBlockRequestRequestTypeDef(BaseModel):
+class DisassociateSubnetCidrBlockRequestRequestTypeDef(BaseValidatorModel):
     AssociationId: str
 
-class DisassociateTransitGatewayMulticastDomainRequestRequestTypeDef(BaseModel):
+class DisassociateTransitGatewayMulticastDomainRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     TransitGatewayAttachmentId: str
     SubnetIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class DisassociateTransitGatewayPolicyTableRequestRequestTypeDef(BaseModel):
+class DisassociateTransitGatewayPolicyTableRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class DisassociateTransitGatewayRouteTableRequestRequestTypeDef(BaseModel):
+class DisassociateTransitGatewayRouteTableRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class DisassociateTrunkInterfaceRequestRequestTypeDef(BaseModel):
+class DisassociateTrunkInterfaceRequestRequestTypeDef(BaseValidatorModel):
     AssociationId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DisassociateVpcCidrBlockRequestRequestTypeDef(BaseModel):
+class DisassociateVpcCidrBlockRequestRequestTypeDef(BaseValidatorModel):
     AssociationId: str
 
-class DiskImageDescriptionTypeDef(BaseModel):
+class DiskImageDescriptionTypeDef(BaseValidatorModel):
     Checksum: Optional[str] = None
     Format: Optional[DiskImageFormatType] = None
     ImportManifestUrl: Optional[str] = None
     Size: Optional[int] = None
 
-class DiskImageDetailTypeDef(BaseModel):
+class DiskImageDetailTypeDef(BaseValidatorModel):
     Bytes: int
     Format: DiskImageFormatType
     ImportManifestUrl: str
 
-class VolumeDetailTypeDef(BaseModel):
+class VolumeDetailTypeDef(BaseValidatorModel):
     Size: int
 
-class DiskImageVolumeDescriptionTypeDef(BaseModel):
+class DiskImageVolumeDescriptionTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Size: Optional[int] = None
 
-class DiskInfoTypeDef(BaseModel):
+class DiskInfoTypeDef(BaseValidatorModel):
     SizeInGB: Optional[int] = None
     Count: Optional[int] = None
     Type: Optional[DiskTypeType] = None
 
-class DnsEntryTypeDef(BaseModel):
+class DnsEntryTypeDef(BaseValidatorModel):
     DnsName: Optional[str] = None
     HostedZoneId: Optional[str] = None
 
-class DnsOptionsTypeDef(BaseModel):
+class DnsOptionsTypeDef(BaseValidatorModel):
     DnsRecordIpType: Optional[DnsRecordIpTypeType] = None
     PrivateDnsOnlyForInboundResolverEndpoint: Optional[bool] = None
 
-class DnsServersOptionsModifyStructureTypeDef(BaseModel):
+class DnsServersOptionsModifyStructureTypeDef(BaseValidatorModel):
     CustomDnsServers: Optional[Sequence[str]] = None
     Enabled: Optional[bool] = None
 
-class EbsOptimizedInfoTypeDef(BaseModel):
+class EbsOptimizedInfoTypeDef(BaseValidatorModel):
     BaselineBandwidthInMbps: Optional[int] = None
     BaselineThroughputInMBps: Optional[float] = None
     BaselineIops: Optional[int] = None
@@ -2106,11 +2106,11 @@ class EbsOptimizedInfoTypeDef(BaseModel):
     MaximumThroughputInMBps: Optional[float] = None
     MaximumIops: Optional[int] = None
 
-class EbsInstanceBlockDeviceSpecificationTypeDef(BaseModel):
+class EbsInstanceBlockDeviceSpecificationTypeDef(BaseValidatorModel):
     DeleteOnTermination: Optional[bool] = None
     VolumeId: Optional[str] = None
 
-class EbsInstanceBlockDeviceTypeDef(BaseModel):
+class EbsInstanceBlockDeviceTypeDef(BaseValidatorModel):
     AttachTime: Optional[datetime] = None
     DeleteOnTermination: Optional[bool] = None
     Status: Optional[AttachmentStatusType] = None
@@ -2118,72 +2118,72 @@ class EbsInstanceBlockDeviceTypeDef(BaseModel):
     AssociatedResource: Optional[str] = None
     VolumeOwnerId: Optional[str] = None
 
-class EfaInfoTypeDef(BaseModel):
+class EfaInfoTypeDef(BaseValidatorModel):
     MaximumEfaInterfaces: Optional[int] = None
 
-class InternetGatewayAttachmentTypeDef(BaseModel):
+class InternetGatewayAttachmentTypeDef(BaseValidatorModel):
     State: Optional[AttachmentStatusType] = None
     VpcId: Optional[str] = None
 
-class ElasticGpuAssociationTypeDef(BaseModel):
+class ElasticGpuAssociationTypeDef(BaseValidatorModel):
     ElasticGpuId: Optional[str] = None
     ElasticGpuAssociationId: Optional[str] = None
     ElasticGpuAssociationState: Optional[str] = None
     ElasticGpuAssociationTime: Optional[str] = None
 
-class ElasticGpuHealthTypeDef(BaseModel):
+class ElasticGpuHealthTypeDef(BaseValidatorModel):
     Status: Optional[ElasticGpuStatusType] = None
 
-class ElasticGpuSpecificationResponseTypeDef(BaseModel):
+class ElasticGpuSpecificationResponseTypeDef(BaseValidatorModel):
     Type: Optional[str] = None
 
-class ElasticGpuSpecificationTypeDef(BaseModel):
+class ElasticGpuSpecificationTypeDef(BaseValidatorModel):
     Type: str
 
-class ElasticInferenceAcceleratorAssociationTypeDef(BaseModel):
+class ElasticInferenceAcceleratorAssociationTypeDef(BaseValidatorModel):
     ElasticInferenceAcceleratorArn: Optional[str] = None
     ElasticInferenceAcceleratorAssociationId: Optional[str] = None
     ElasticInferenceAcceleratorAssociationState: Optional[str] = None
     ElasticInferenceAcceleratorAssociationTime: Optional[datetime] = None
 
-class ElasticInferenceAcceleratorTypeDef(BaseModel):
+class ElasticInferenceAcceleratorTypeDef(BaseValidatorModel):
     Type: str
     Count: Optional[int] = None
 
-class EnaSrdUdpSpecificationRequestTypeDef(BaseModel):
+class EnaSrdUdpSpecificationRequestTypeDef(BaseValidatorModel):
     EnaSrdUdpEnabled: Optional[bool] = None
 
-class EnaSrdUdpSpecificationTypeDef(BaseModel):
+class EnaSrdUdpSpecificationTypeDef(BaseValidatorModel):
     EnaSrdUdpEnabled: Optional[bool] = None
 
-class EnableAddressTransferRequestRequestTypeDef(BaseModel):
+class EnableAddressTransferRequestRequestTypeDef(BaseValidatorModel):
     AllocationId: str
     TransferAccountId: str
     DryRun: Optional[bool] = None
 
-class EnableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef(BaseModel):
+class EnableAwsNetworkPerformanceMetricSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     Source: Optional[str] = None
     Destination: Optional[str] = None
     Metric: Optional[Literal["aggregate-latency"]] = None
     Statistic: Optional[Literal["p50"]] = None
     DryRun: Optional[bool] = None
 
-class EnableEbsEncryptionByDefaultRequestRequestTypeDef(BaseModel):
+class EnableEbsEncryptionByDefaultRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class FastLaunchLaunchTemplateSpecificationRequestTypeDef(BaseModel):
+class FastLaunchLaunchTemplateSpecificationRequestTypeDef(BaseValidatorModel):
     Version: str
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
 
-class FastLaunchSnapshotConfigurationRequestTypeDef(BaseModel):
+class FastLaunchSnapshotConfigurationRequestTypeDef(BaseValidatorModel):
     TargetResourceCount: Optional[int] = None
 
-class EnableFastSnapshotRestoreStateErrorTypeDef(BaseModel):
+class EnableFastSnapshotRestoreStateErrorTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class EnableFastSnapshotRestoreSuccessItemTypeDef(BaseModel):
+class EnableFastSnapshotRestoreSuccessItemTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     State: Optional[FastSnapshotRestoreStateCodeType] = None
@@ -2196,78 +2196,78 @@ class EnableFastSnapshotRestoreSuccessItemTypeDef(BaseModel):
     DisablingTime: Optional[datetime] = None
     DisabledTime: Optional[datetime] = None
 
-class EnableFastSnapshotRestoresRequestRequestTypeDef(BaseModel):
+class EnableFastSnapshotRestoresRequestRequestTypeDef(BaseValidatorModel):
     AvailabilityZones: Sequence[str]
     SourceSnapshotIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class EnableImageBlockPublicAccessRequestRequestTypeDef(BaseModel):
+class EnableImageBlockPublicAccessRequestRequestTypeDef(BaseValidatorModel):
     ImageBlockPublicAccessState: Literal["block-new-sharing"]
     DryRun: Optional[bool] = None
 
-class EnableImageDeregistrationProtectionRequestRequestTypeDef(BaseModel):
+class EnableImageDeregistrationProtectionRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     WithCooldown: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class EnableImageRequestRequestTypeDef(BaseModel):
+class EnableImageRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
-class EnableIpamOrganizationAdminAccountRequestRequestTypeDef(BaseModel):
+class EnableIpamOrganizationAdminAccountRequestRequestTypeDef(BaseValidatorModel):
     DelegatedAdminAccountId: str
     DryRun: Optional[bool] = None
 
-class EnableReachabilityAnalyzerOrganizationSharingRequestRequestTypeDef(BaseModel):
+class EnableReachabilityAnalyzerOrganizationSharingRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class EnableSerialConsoleAccessRequestRequestTypeDef(BaseModel):
+class EnableSerialConsoleAccessRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class EnableSnapshotBlockPublicAccessRequestRequestTypeDef(BaseModel):
+class EnableSnapshotBlockPublicAccessRequestRequestTypeDef(BaseValidatorModel):
     State: SnapshotBlockPublicAccessStateType
     DryRun: Optional[bool] = None
 
-class EnableTransitGatewayRouteTablePropagationRequestRequestTypeDef(BaseModel):
+class EnableTransitGatewayRouteTablePropagationRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: Optional[str] = None
     DryRun: Optional[bool] = None
     TransitGatewayRouteTableAnnouncementId: Optional[str] = None
 
-class EnableVgwRoutePropagationRequestRequestTypeDef(BaseModel):
+class EnableVgwRoutePropagationRequestRequestTypeDef(BaseValidatorModel):
     GatewayId: str
     RouteTableId: str
     DryRun: Optional[bool] = None
 
-class EnableVolumeIORequestRequestTypeDef(BaseModel):
+class EnableVolumeIORequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
     DryRun: Optional[bool] = None
 
-class EnableVolumeIORequestVolumeEnableIoTypeDef(BaseModel):
+class EnableVolumeIORequestVolumeEnableIoTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class EnableVpcClassicLinkDnsSupportRequestRequestTypeDef(BaseModel):
+class EnableVpcClassicLinkDnsSupportRequestRequestTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
 
-class EnableVpcClassicLinkRequestRequestTypeDef(BaseModel):
+class EnableVpcClassicLinkRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
 
-class EnableVpcClassicLinkRequestVpcEnableClassicLinkTypeDef(BaseModel):
+class EnableVpcClassicLinkRequestVpcEnableClassicLinkTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class EnclaveOptionsRequestTypeDef(BaseModel):
+class EnclaveOptionsRequestTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class EnclaveOptionsTypeDef(BaseModel):
+class EnclaveOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class EventInformationTypeDef(BaseModel):
+class EventInformationTypeDef(BaseValidatorModel):
     EventDescription: Optional[str] = None
     EventSubType: Optional[str] = None
     InstanceId: Optional[str] = None
 
-class TransitGatewayRouteTableRouteTypeDef(BaseModel):
+class TransitGatewayRouteTableRouteTypeDef(BaseValidatorModel):
     DestinationCidr: Optional[str] = None
     State: Optional[str] = None
     RouteOrigin: Optional[str] = None
@@ -2276,54 +2276,54 @@ class TransitGatewayRouteTableRouteTypeDef(BaseModel):
     ResourceId: Optional[str] = None
     ResourceType: Optional[str] = None
 
-class ExportClientVpnClientCertificateRevocationListRequestRequestTypeDef(BaseModel):
+class ExportClientVpnClientCertificateRevocationListRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     DryRun: Optional[bool] = None
 
-class ExportClientVpnClientConfigurationRequestRequestTypeDef(BaseModel):
+class ExportClientVpnClientConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     DryRun: Optional[bool] = None
 
-class ExportTaskS3LocationRequestTypeDef(BaseModel):
+class ExportTaskS3LocationRequestTypeDef(BaseValidatorModel):
     S3Bucket: str
     S3Prefix: Optional[str] = None
 
-class ExportTaskS3LocationTypeDef(BaseModel):
+class ExportTaskS3LocationTypeDef(BaseValidatorModel):
     S3Bucket: Optional[str] = None
     S3Prefix: Optional[str] = None
 
-class ExportToS3TaskTypeDef(BaseModel):
+class ExportToS3TaskTypeDef(BaseValidatorModel):
     ContainerFormat: Optional[Literal["ova"]] = None
     DiskImageFormat: Optional[DiskImageFormatType] = None
     S3Bucket: Optional[str] = None
     S3Key: Optional[str] = None
 
-class InstanceExportDetailsTypeDef(BaseModel):
+class InstanceExportDetailsTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     TargetEnvironment: Optional[ExportEnvironmentType] = None
 
-class FilterPortRangeTypeDef(BaseModel):
+class FilterPortRangeTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
 
-class TargetCapacitySpecificationTypeDef(BaseModel):
+class TargetCapacitySpecificationTypeDef(BaseValidatorModel):
     TotalTargetCapacity: Optional[int] = None
     OnDemandTargetCapacity: Optional[int] = None
     SpotTargetCapacity: Optional[int] = None
     DefaultTargetCapacityType: Optional[DefaultTargetCapacityTypeType] = None
     TargetCapacityUnitType: Optional[TargetCapacityUnitTypeType] = None
 
-class FleetLaunchTemplateSpecificationRequestTypeDef(BaseModel):
+class FleetLaunchTemplateSpecificationRequestTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     Version: Optional[str] = None
 
-class FleetLaunchTemplateSpecificationTypeDef(BaseModel):
+class FleetLaunchTemplateSpecificationTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     Version: Optional[str] = None
 
-class PlacementTypeDef(BaseModel):
+class PlacementTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     Affinity: Optional[str] = None
     GroupName: Optional[str] = None
@@ -2334,97 +2334,97 @@ class PlacementTypeDef(BaseModel):
     HostResourceGroupArn: Optional[str] = None
     GroupId: Optional[str] = None
 
-class PlacementResponseTypeDef(BaseModel):
+class PlacementResponseTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
 
-class FleetSpotCapacityRebalanceRequestTypeDef(BaseModel):
+class FleetSpotCapacityRebalanceRequestTypeDef(BaseValidatorModel):
     ReplacementStrategy: Optional[FleetReplacementStrategyType] = None
     TerminationDelay: Optional[int] = None
 
-class FleetSpotCapacityRebalanceTypeDef(BaseModel):
+class FleetSpotCapacityRebalanceTypeDef(BaseValidatorModel):
     ReplacementStrategy: Optional[FleetReplacementStrategyType] = None
     TerminationDelay: Optional[int] = None
 
-class FpgaDeviceMemoryInfoTypeDef(BaseModel):
+class FpgaDeviceMemoryInfoTypeDef(BaseValidatorModel):
     SizeInMiB: Optional[int] = None
 
-class LoadPermissionTypeDef(BaseModel):
+class LoadPermissionTypeDef(BaseValidatorModel):
     UserId: Optional[str] = None
     Group: Optional[Literal["all"]] = None
 
-class FpgaImageStateTypeDef(BaseModel):
+class FpgaImageStateTypeDef(BaseValidatorModel):
     Code: Optional[FpgaImageStateCodeType] = None
     Message: Optional[str] = None
 
-class PciIdTypeDef(BaseModel):
+class PciIdTypeDef(BaseValidatorModel):
     DeviceId: Optional[str] = None
     VendorId: Optional[str] = None
     SubsystemId: Optional[str] = None
     SubsystemVendorId: Optional[str] = None
 
-class GetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef(BaseModel):
+class GetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
     DryRun: Optional[bool] = None
 
-class GetAssociatedIpv6PoolCidrsRequestRequestTypeDef(BaseModel):
+class GetAssociatedIpv6PoolCidrsRequestRequestTypeDef(BaseValidatorModel):
     PoolId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class Ipv6CidrAssociationTypeDef(BaseModel):
+class Ipv6CidrAssociationTypeDef(BaseValidatorModel):
     Ipv6Cidr: Optional[str] = None
     AssociatedResource: Optional[str] = None
 
-class GetCapacityReservationUsageRequestRequestTypeDef(BaseModel):
+class GetCapacityReservationUsageRequestRequestTypeDef(BaseValidatorModel):
     CapacityReservationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class InstanceUsageTypeDef(BaseModel):
+class InstanceUsageTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     UsedInstanceCount: Optional[int] = None
 
-class GetConsoleOutputRequestInstanceConsoleOutputTypeDef(BaseModel):
+class GetConsoleOutputRequestInstanceConsoleOutputTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Latest: Optional[bool] = None
 
-class GetConsoleOutputRequestRequestTypeDef(BaseModel):
+class GetConsoleOutputRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
     Latest: Optional[bool] = None
 
-class GetConsoleScreenshotRequestRequestTypeDef(BaseModel):
+class GetConsoleScreenshotRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
     WakeUp: Optional[bool] = None
 
-class GetDefaultCreditSpecificationRequestRequestTypeDef(BaseModel):
+class GetDefaultCreditSpecificationRequestRequestTypeDef(BaseValidatorModel):
     InstanceFamily: UnlimitedSupportedInstanceFamilyType
     DryRun: Optional[bool] = None
 
-class InstanceFamilyCreditSpecificationTypeDef(BaseModel):
+class InstanceFamilyCreditSpecificationTypeDef(BaseValidatorModel):
     InstanceFamily: Optional[UnlimitedSupportedInstanceFamilyType] = None
     CpuCredits: Optional[str] = None
 
-class GetEbsDefaultKmsKeyIdRequestRequestTypeDef(BaseModel):
+class GetEbsDefaultKmsKeyIdRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class GetEbsEncryptionByDefaultRequestRequestTypeDef(BaseModel):
+class GetEbsEncryptionByDefaultRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class GetGroupsForCapacityReservationRequestRequestTypeDef(BaseModel):
+class GetGroupsForCapacityReservationRequestRequestTypeDef(BaseValidatorModel):
     CapacityReservationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class GetHostReservationPurchasePreviewRequestRequestTypeDef(BaseModel):
+class GetHostReservationPurchasePreviewRequestRequestTypeDef(BaseValidatorModel):
     HostIdSet: Sequence[str]
     OfferingId: str
 
-class PurchaseTypeDef(BaseModel):
+class PurchaseTypeDef(BaseValidatorModel):
     CurrencyCode: Optional[Literal["USD"]] = None
     Duration: Optional[int] = None
     HostIdSet: Optional[List[str]] = None
@@ -2434,32 +2434,32 @@ class PurchaseTypeDef(BaseModel):
     PaymentOption: Optional[PaymentOptionType] = None
     UpfrontPrice: Optional[str] = None
 
-class GetImageBlockPublicAccessStateRequestRequestTypeDef(BaseModel):
+class GetImageBlockPublicAccessStateRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class GetInstanceMetadataDefaultsRequestRequestTypeDef(BaseModel):
+class GetInstanceMetadataDefaultsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class InstanceMetadataDefaultsResponseTypeDef(BaseModel):
+class InstanceMetadataDefaultsResponseTypeDef(BaseValidatorModel):
     HttpTokens: Optional[HttpTokensStateType] = None
     HttpPutResponseHopLimit: Optional[int] = None
     HttpEndpoint: Optional[InstanceMetadataEndpointStateType] = None
     InstanceMetadataTags: Optional[InstanceMetadataTagsStateType] = None
 
-class GetInstanceTpmEkPubRequestRequestTypeDef(BaseModel):
+class GetInstanceTpmEkPubRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     KeyType: EkPubKeyTypeType
     KeyFormat: EkPubKeyFormatType
     DryRun: Optional[bool] = None
 
-class InstanceTypeInfoFromInstanceRequirementsTypeDef(BaseModel):
+class InstanceTypeInfoFromInstanceRequirementsTypeDef(BaseValidatorModel):
     InstanceType: Optional[str] = None
 
-class GetInstanceUefiDataRequestRequestTypeDef(BaseModel):
+class GetInstanceUefiDataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
 
-class IpamAddressHistoryRecordTypeDef(BaseModel):
+class IpamAddressHistoryRecordTypeDef(BaseValidatorModel):
     ResourceOwnerId: Optional[str] = None
     ResourceRegion: Optional[str] = None
     ResourceType: Optional[IpamAddressHistoryResourceTypeType] = None
@@ -2472,225 +2472,225 @@ class IpamAddressHistoryRecordTypeDef(BaseModel):
     SampledStartTime: Optional[datetime] = None
     SampledEndTime: Optional[datetime] = None
 
-class GetLaunchTemplateDataRequestRequestTypeDef(BaseModel):
+class GetLaunchTemplateDataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
 
-class GetManagedPrefixListAssociationsRequestRequestTypeDef(BaseModel):
+class GetManagedPrefixListAssociationsRequestRequestTypeDef(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class PrefixListAssociationTypeDef(BaseModel):
+class PrefixListAssociationTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
     ResourceOwner: Optional[str] = None
 
-class GetManagedPrefixListEntriesRequestRequestTypeDef(BaseModel):
+class GetManagedPrefixListEntriesRequestRequestTypeDef(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
     TargetVersion: Optional[int] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class PrefixListEntryTypeDef(BaseModel):
+class PrefixListEntryTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
     Description: Optional[str] = None
 
-class GetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef(BaseModel):
+class GetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class GetNetworkInsightsAccessScopeContentRequestRequestTypeDef(BaseModel):
+class GetNetworkInsightsAccessScopeContentRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeId: str
     DryRun: Optional[bool] = None
 
-class GetPasswordDataRequestInstancePasswordDataTypeDef(BaseModel):
+class GetPasswordDataRequestInstancePasswordDataTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class GetPasswordDataRequestRequestTypeDef(BaseModel):
+class GetPasswordDataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
 
-class ReservationValueTypeDef(BaseModel):
+class ReservationValueTypeDef(BaseValidatorModel):
     HourlyPrice: Optional[str] = None
     RemainingTotalValue: Optional[str] = None
     RemainingUpfrontValue: Optional[str] = None
 
-class GetSerialConsoleAccessStatusRequestRequestTypeDef(BaseModel):
+class GetSerialConsoleAccessStatusRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class GetSnapshotBlockPublicAccessStateRequestRequestTypeDef(BaseModel):
+class GetSnapshotBlockPublicAccessStateRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class SpotPlacementScoreTypeDef(BaseModel):
+class SpotPlacementScoreTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
     Score: Optional[int] = None
 
-class TransitGatewayAttachmentPropagationTypeDef(BaseModel):
+class TransitGatewayAttachmentPropagationTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: Optional[str] = None
     State: Optional[TransitGatewayPropagationStateType] = None
 
-class TransitGatewayRouteTableAssociationTypeDef(BaseModel):
+class TransitGatewayRouteTableAssociationTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     ResourceId: Optional[str] = None
     ResourceType: Optional[TransitGatewayAttachmentResourceTypeType] = None
     State: Optional[TransitGatewayAssociationStateType] = None
 
-class TransitGatewayRouteTablePropagationTypeDef(BaseModel):
+class TransitGatewayRouteTablePropagationTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     ResourceId: Optional[str] = None
     ResourceType: Optional[TransitGatewayAttachmentResourceTypeType] = None
     State: Optional[TransitGatewayPropagationStateType] = None
     TransitGatewayRouteTableAnnouncementId: Optional[str] = None
 
-class GetVerifiedAccessEndpointPolicyRequestRequestTypeDef(BaseModel):
+class GetVerifiedAccessEndpointPolicyRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessEndpointId: str
     DryRun: Optional[bool] = None
 
-class GetVerifiedAccessGroupPolicyRequestRequestTypeDef(BaseModel):
+class GetVerifiedAccessGroupPolicyRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessGroupId: str
     DryRun: Optional[bool] = None
 
-class GetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef(BaseModel):
+class GetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef(BaseValidatorModel):
     VpnConnectionId: str
     VpnConnectionDeviceTypeId: str
     InternetKeyExchangeVersion: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class GetVpnConnectionDeviceTypesRequestRequestTypeDef(BaseModel):
+class GetVpnConnectionDeviceTypesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class VpnConnectionDeviceTypeTypeDef(BaseModel):
+class VpnConnectionDeviceTypeTypeDef(BaseValidatorModel):
     VpnConnectionDeviceTypeId: Optional[str] = None
     Vendor: Optional[str] = None
     Platform: Optional[str] = None
     Software: Optional[str] = None
 
-class GetVpnTunnelReplacementStatusRequestRequestTypeDef(BaseModel):
+class GetVpnTunnelReplacementStatusRequestRequestTypeDef(BaseValidatorModel):
     VpnConnectionId: str
     VpnTunnelOutsideIpAddress: str
     DryRun: Optional[bool] = None
 
-class MaintenanceDetailsTypeDef(BaseModel):
+class MaintenanceDetailsTypeDef(BaseValidatorModel):
     PendingMaintenance: Optional[str] = None
     MaintenanceAutoAppliedAfter: Optional[datetime] = None
     LastMaintenanceApplied: Optional[datetime] = None
 
-class GpuDeviceMemoryInfoTypeDef(BaseModel):
+class GpuDeviceMemoryInfoTypeDef(BaseValidatorModel):
     SizeInMiB: Optional[int] = None
 
-class HibernationOptionsRequestTypeDef(BaseModel):
+class HibernationOptionsRequestTypeDef(BaseValidatorModel):
     Configured: Optional[bool] = None
 
-class HibernationOptionsTypeDef(BaseModel):
+class HibernationOptionsTypeDef(BaseValidatorModel):
     Configured: Optional[bool] = None
 
-class HostInstanceTypeDef(BaseModel):
+class HostInstanceTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     InstanceType: Optional[str] = None
     OwnerId: Optional[str] = None
 
-class HostPropertiesTypeDef(BaseModel):
+class HostPropertiesTypeDef(BaseValidatorModel):
     Cores: Optional[int] = None
     InstanceType: Optional[str] = None
     InstanceFamily: Optional[str] = None
     Sockets: Optional[int] = None
     TotalVCpus: Optional[int] = None
 
-class IKEVersionsListValueTypeDef(BaseModel):
+class IKEVersionsListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class IKEVersionsRequestListValueTypeDef(BaseModel):
+class IKEVersionsRequestListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class IamInstanceProfileTypeDef(BaseModel):
+class IamInstanceProfileTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
 
-class LaunchPermissionTypeDef(BaseModel):
+class LaunchPermissionTypeDef(BaseValidatorModel):
     Group: Optional[Literal["all"]] = None
     UserId: Optional[str] = None
     OrganizationArn: Optional[str] = None
     OrganizationalUnitArn: Optional[str] = None
 
-class UserBucketTypeDef(BaseModel):
+class UserBucketTypeDef(BaseValidatorModel):
     S3Bucket: Optional[str] = None
     S3Key: Optional[str] = None
 
-class ImageRecycleBinInfoTypeDef(BaseModel):
+class ImageRecycleBinInfoTypeDef(BaseValidatorModel):
     ImageId: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     RecycleBinEnterTime: Optional[datetime] = None
     RecycleBinExitTime: Optional[datetime] = None
 
-class StateReasonTypeDef(BaseModel):
+class StateReasonTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class ImportClientVpnClientCertificateRevocationListRequestRequestTypeDef(BaseModel):
+class ImportClientVpnClientCertificateRevocationListRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     CertificateRevocationList: str
     DryRun: Optional[bool] = None
 
-class ImportImageLicenseConfigurationRequestTypeDef(BaseModel):
+class ImportImageLicenseConfigurationRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: Optional[str] = None
 
-class ImportImageLicenseConfigurationResponseTypeDef(BaseModel):
+class ImportImageLicenseConfigurationResponseTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: Optional[str] = None
 
-class UserDataTypeDef(BaseModel):
+class UserDataTypeDef(BaseValidatorModel):
     Data: Optional[str] = None
 
-class InferenceDeviceMemoryInfoTypeDef(BaseModel):
+class InferenceDeviceMemoryInfoTypeDef(BaseValidatorModel):
     SizeInMiB: Optional[int] = None
 
-class InstanceAttachmentEnaSrdUdpSpecificationTypeDef(BaseModel):
+class InstanceAttachmentEnaSrdUdpSpecificationTypeDef(BaseValidatorModel):
     EnaSrdUdpEnabled: Optional[bool] = None
 
-class InstanceCountTypeDef(BaseModel):
+class InstanceCountTypeDef(BaseValidatorModel):
     InstanceCount: Optional[int] = None
     State: Optional[ListingStateType] = None
 
-class InstanceCreditSpecificationRequestTypeDef(BaseModel):
+class InstanceCreditSpecificationRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     CpuCredits: Optional[str] = None
 
-class InstanceEventWindowTimeRangeTypeDef(BaseModel):
+class InstanceEventWindowTimeRangeTypeDef(BaseValidatorModel):
     StartWeekDay: Optional[WeekDayType] = None
     StartHour: Optional[int] = None
     EndWeekDay: Optional[WeekDayType] = None
     EndHour: Optional[int] = None
 
-class InstanceIpv4PrefixTypeDef(BaseModel):
+class InstanceIpv4PrefixTypeDef(BaseValidatorModel):
     Ipv4Prefix: Optional[str] = None
 
-class InstanceIpv6AddressRequestTypeDef(BaseModel):
+class InstanceIpv6AddressRequestTypeDef(BaseValidatorModel):
     Ipv6Address: Optional[str] = None
 
-class InstanceIpv6PrefixTypeDef(BaseModel):
+class InstanceIpv6PrefixTypeDef(BaseValidatorModel):
     Ipv6Prefix: Optional[str] = None
 
-class InstanceMaintenanceOptionsRequestTypeDef(BaseModel):
+class InstanceMaintenanceOptionsRequestTypeDef(BaseValidatorModel):
     AutoRecovery: Optional[InstanceAutoRecoveryStateType] = None
 
-class InstanceMaintenanceOptionsTypeDef(BaseModel):
+class InstanceMaintenanceOptionsTypeDef(BaseValidatorModel):
     AutoRecovery: Optional[InstanceAutoRecoveryStateType] = None
 
-class InstanceMetadataOptionsRequestTypeDef(BaseModel):
+class InstanceMetadataOptionsRequestTypeDef(BaseValidatorModel):
     HttpTokens: Optional[HttpTokensStateType] = None
     HttpPutResponseHopLimit: Optional[int] = None
     HttpEndpoint: Optional[InstanceMetadataEndpointStateType] = None
     HttpProtocolIpv6: Optional[InstanceMetadataProtocolStateType] = None
     InstanceMetadataTags: Optional[InstanceMetadataTagsStateType] = None
 
-class InstanceMetadataOptionsResponseTypeDef(BaseModel):
+class InstanceMetadataOptionsResponseTypeDef(BaseValidatorModel):
     State: Optional[InstanceMetadataOptionsStateType] = None
     HttpTokens: Optional[HttpTokensStateType] = None
     HttpPutResponseHopLimit: Optional[int] = None
@@ -2698,74 +2698,74 @@ class InstanceMetadataOptionsResponseTypeDef(BaseModel):
     HttpProtocolIpv6: Optional[InstanceMetadataProtocolStateType] = None
     InstanceMetadataTags: Optional[InstanceMetadataTagsStateType] = None
 
-class MonitoringTypeDef(BaseModel):
+class MonitoringTypeDef(BaseValidatorModel):
     State: Optional[MonitoringStateType] = None
 
-class InstanceNetworkInterfaceAssociationTypeDef(BaseModel):
+class InstanceNetworkInterfaceAssociationTypeDef(BaseValidatorModel):
     CarrierIp: Optional[str] = None
     CustomerOwnedIp: Optional[str] = None
     IpOwnerId: Optional[str] = None
     PublicDnsName: Optional[str] = None
     PublicIp: Optional[str] = None
 
-class MemoryGiBPerVCpuTypeDef(BaseModel):
+class MemoryGiBPerVCpuTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
-class MemoryMiBTypeDef(BaseModel):
+class MemoryMiBTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class NetworkBandwidthGbpsTypeDef(BaseModel):
+class NetworkBandwidthGbpsTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
-class NetworkInterfaceCountTypeDef(BaseModel):
+class NetworkInterfaceCountTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class TotalLocalStorageGBTypeDef(BaseModel):
+class TotalLocalStorageGBTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
-class VCpuCountRangeTypeDef(BaseModel):
+class VCpuCountRangeTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class MemoryGiBPerVCpuRequestTypeDef(BaseModel):
+class MemoryGiBPerVCpuRequestTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
-class MemoryMiBRequestTypeDef(BaseModel):
+class MemoryMiBRequestTypeDef(BaseValidatorModel):
     Min: int
     Max: Optional[int] = None
 
-class NetworkBandwidthGbpsRequestTypeDef(BaseModel):
+class NetworkBandwidthGbpsRequestTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
-class NetworkInterfaceCountRequestTypeDef(BaseModel):
+class NetworkInterfaceCountRequestTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
-class TotalLocalStorageGBRequestTypeDef(BaseModel):
+class TotalLocalStorageGBRequestTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
-class VCpuCountRangeRequestTypeDef(BaseModel):
+class VCpuCountRangeRequestTypeDef(BaseValidatorModel):
     Min: int
     Max: Optional[int] = None
 
-class InstanceStateTypeDef(BaseModel):
+class InstanceStateTypeDef(BaseValidatorModel):
     Code: Optional[int] = None
     Name: Optional[InstanceStateNameType] = None
 
-class InstanceStatusDetailsTypeDef(BaseModel):
+class InstanceStatusDetailsTypeDef(BaseValidatorModel):
     ImpairedSince: Optional[datetime] = None
     Name: Optional[Literal["reachability"]] = None
     Status: Optional[StatusTypeType] = None
 
-class InstanceStatusEventTypeDef(BaseModel):
+class InstanceStatusEventTypeDef(BaseValidatorModel):
     InstanceEventId: Optional[str] = None
     Code: Optional[EventCodeType] = None
     Description: Optional[str] = None
@@ -2773,49 +2773,49 @@ class InstanceStatusEventTypeDef(BaseModel):
     NotBefore: Optional[datetime] = None
     NotBeforeDeadline: Optional[datetime] = None
 
-class LicenseConfigurationTypeDef(BaseModel):
+class LicenseConfigurationTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: Optional[str] = None
 
-class PrivateDnsNameOptionsResponseTypeDef(BaseModel):
+class PrivateDnsNameOptionsResponseTypeDef(BaseValidatorModel):
     HostnameType: Optional[HostnameTypeType] = None
     EnableResourceNameDnsARecord: Optional[bool] = None
     EnableResourceNameDnsAAAARecord: Optional[bool] = None
 
-class MemoryInfoTypeDef(BaseModel):
+class MemoryInfoTypeDef(BaseValidatorModel):
     SizeInMiB: Optional[int] = None
 
-class NitroTpmInfoTypeDef(BaseModel):
+class NitroTpmInfoTypeDef(BaseValidatorModel):
     SupportedVersions: Optional[List[str]] = None
 
-class PlacementGroupInfoTypeDef(BaseModel):
+class PlacementGroupInfoTypeDef(BaseValidatorModel):
     SupportedStrategies: Optional[List[PlacementGroupStrategyType]] = None
 
-class ProcessorInfoTypeDef(BaseModel):
+class ProcessorInfoTypeDef(BaseValidatorModel):
     SupportedArchitectures: Optional[List[ArchitectureTypeType]] = None
     SustainedClockSpeedInGhz: Optional[float] = None
     SupportedFeatures: Optional[List[Literal["amd-sev-snp"]]] = None
     Manufacturer: Optional[str] = None
 
-class VCpuInfoTypeDef(BaseModel):
+class VCpuInfoTypeDef(BaseValidatorModel):
     DefaultVCpus: Optional[int] = None
     DefaultCores: Optional[int] = None
     DefaultThreadsPerCore: Optional[int] = None
     ValidCores: Optional[List[int]] = None
     ValidThreadsPerCore: Optional[List[int]] = None
 
-class IpRangeTypeDef(BaseModel):
+class IpRangeTypeDef(BaseValidatorModel):
     CidrIp: Optional[str] = None
     Description: Optional[str] = None
 
-class Ipv6RangeTypeDef(BaseModel):
+class Ipv6RangeTypeDef(BaseValidatorModel):
     CidrIpv6: Optional[str] = None
     Description: Optional[str] = None
 
-class PrefixListIdTypeDef(BaseModel):
+class PrefixListIdTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     PrefixListId: Optional[str] = None
 
-class UserIdGroupPairTypeDef(BaseModel):
+class UserIdGroupPairTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
@@ -2824,67 +2824,67 @@ class UserIdGroupPairTypeDef(BaseModel):
     VpcId: Optional[str] = None
     VpcPeeringConnectionId: Optional[str] = None
 
-class IpamCidrAuthorizationContextTypeDef(BaseModel):
+class IpamCidrAuthorizationContextTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     Signature: Optional[str] = None
 
-class IpamDiscoveryFailureReasonTypeDef(BaseModel):
+class IpamDiscoveryFailureReasonTypeDef(BaseValidatorModel):
     Code: Optional[IpamDiscoveryFailureCodeType] = None
     Message: Optional[str] = None
 
-class IpamPublicAddressSecurityGroupTypeDef(BaseModel):
+class IpamPublicAddressSecurityGroupTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupId: Optional[str] = None
 
-class IpamResourceTagTypeDef(BaseModel):
+class IpamResourceTagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class IpamOperatingRegionTypeDef(BaseModel):
+class IpamOperatingRegionTypeDef(BaseValidatorModel):
     RegionName: Optional[str] = None
 
-class IpamPoolCidrFailureReasonTypeDef(BaseModel):
+class IpamPoolCidrFailureReasonTypeDef(BaseValidatorModel):
     Code: Optional[IpamPoolCidrFailureCodeType] = None
     Message: Optional[str] = None
 
-class IpamPoolSourceResourceTypeDef(BaseModel):
+class IpamPoolSourceResourceTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
     ResourceType: Optional[Literal["vpc"]] = None
     ResourceRegion: Optional[str] = None
     ResourceOwner: Optional[str] = None
 
-class IpamPublicAddressTagTypeDef(BaseModel):
+class IpamPublicAddressTagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class Ipv4PrefixSpecificationResponseTypeDef(BaseModel):
+class Ipv4PrefixSpecificationResponseTypeDef(BaseValidatorModel):
     Ipv4Prefix: Optional[str] = None
 
-class Ipv6CidrBlockTypeDef(BaseModel):
+class Ipv6CidrBlockTypeDef(BaseValidatorModel):
     Ipv6CidrBlock: Optional[str] = None
 
-class PoolCidrBlockTypeDef(BaseModel):
+class PoolCidrBlockTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
 
-class Ipv6PrefixSpecificationResponseTypeDef(BaseModel):
+class Ipv6PrefixSpecificationResponseTypeDef(BaseValidatorModel):
     Ipv6Prefix: Optional[str] = None
 
-class Ipv6PrefixSpecificationTypeDef(BaseModel):
+class Ipv6PrefixSpecificationTypeDef(BaseValidatorModel):
     Ipv6Prefix: Optional[str] = None
 
-class LastErrorTypeDef(BaseModel):
+class LastErrorTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     Code: Optional[str] = None
 
-class RunInstancesMonitoringEnabledTypeDef(BaseModel):
+class RunInstancesMonitoringEnabledTypeDef(BaseValidatorModel):
     Enabled: bool
 
-class SpotPlacementTypeDef(BaseModel):
+class SpotPlacementTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     GroupName: Optional[str] = None
     Tenancy: Optional[TenancyType] = None
 
-class LaunchTemplateEbsBlockDeviceRequestTypeDef(BaseModel):
+class LaunchTemplateEbsBlockDeviceRequestTypeDef(BaseValidatorModel):
     Encrypted: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
     Iops: Optional[int] = None
@@ -2894,7 +2894,7 @@ class LaunchTemplateEbsBlockDeviceRequestTypeDef(BaseModel):
     VolumeType: Optional[VolumeTypeType] = None
     Throughput: Optional[int] = None
 
-class LaunchTemplateEbsBlockDeviceTypeDef(BaseModel):
+class LaunchTemplateEbsBlockDeviceTypeDef(BaseValidatorModel):
     Encrypted: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
     Iops: Optional[int] = None
@@ -2904,68 +2904,68 @@ class LaunchTemplateEbsBlockDeviceTypeDef(BaseModel):
     VolumeType: Optional[VolumeTypeType] = None
     Throughput: Optional[int] = None
 
-class LaunchTemplateCpuOptionsRequestTypeDef(BaseModel):
+class LaunchTemplateCpuOptionsRequestTypeDef(BaseValidatorModel):
     CoreCount: Optional[int] = None
     ThreadsPerCore: Optional[int] = None
     AmdSevSnp: Optional[AmdSevSnpSpecificationType] = None
 
-class LaunchTemplateCpuOptionsTypeDef(BaseModel):
+class LaunchTemplateCpuOptionsTypeDef(BaseValidatorModel):
     CoreCount: Optional[int] = None
     ThreadsPerCore: Optional[int] = None
     AmdSevSnp: Optional[AmdSevSnpSpecificationType] = None
 
-class LaunchTemplateElasticInferenceAcceleratorResponseTypeDef(BaseModel):
+class LaunchTemplateElasticInferenceAcceleratorResponseTypeDef(BaseValidatorModel):
     Type: Optional[str] = None
     Count: Optional[int] = None
 
-class LaunchTemplateElasticInferenceAcceleratorTypeDef(BaseModel):
+class LaunchTemplateElasticInferenceAcceleratorTypeDef(BaseValidatorModel):
     Type: str
     Count: Optional[int] = None
 
-class LaunchTemplateEnaSrdUdpSpecificationTypeDef(BaseModel):
+class LaunchTemplateEnaSrdUdpSpecificationTypeDef(BaseValidatorModel):
     EnaSrdUdpEnabled: Optional[bool] = None
 
-class LaunchTemplateEnclaveOptionsRequestTypeDef(BaseModel):
+class LaunchTemplateEnclaveOptionsRequestTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class LaunchTemplateEnclaveOptionsTypeDef(BaseModel):
+class LaunchTemplateEnclaveOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class LaunchTemplateHibernationOptionsRequestTypeDef(BaseModel):
+class LaunchTemplateHibernationOptionsRequestTypeDef(BaseValidatorModel):
     Configured: Optional[bool] = None
 
-class LaunchTemplateHibernationOptionsTypeDef(BaseModel):
+class LaunchTemplateHibernationOptionsTypeDef(BaseValidatorModel):
     Configured: Optional[bool] = None
 
-class LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef(BaseModel):
+class LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class LaunchTemplateIamInstanceProfileSpecificationTypeDef(BaseModel):
+class LaunchTemplateIamInstanceProfileSpecificationTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class LaunchTemplateInstanceMaintenanceOptionsRequestTypeDef(BaseModel):
+class LaunchTemplateInstanceMaintenanceOptionsRequestTypeDef(BaseValidatorModel):
     AutoRecovery: Optional[LaunchTemplateAutoRecoveryStateType] = None
 
-class LaunchTemplateInstanceMaintenanceOptionsTypeDef(BaseModel):
+class LaunchTemplateInstanceMaintenanceOptionsTypeDef(BaseValidatorModel):
     AutoRecovery: Optional[LaunchTemplateAutoRecoveryStateType] = None
 
-class LaunchTemplateSpotMarketOptionsTypeDef(BaseModel):
+class LaunchTemplateSpotMarketOptionsTypeDef(BaseValidatorModel):
     MaxPrice: Optional[str] = None
     SpotInstanceType: Optional[SpotInstanceTypeType] = None
     BlockDurationMinutes: Optional[int] = None
     ValidUntil: Optional[datetime] = None
     InstanceInterruptionBehavior: Optional[InstanceInterruptionBehaviorType] = None
 
-class LaunchTemplateInstanceMetadataOptionsRequestTypeDef(BaseModel):
+class LaunchTemplateInstanceMetadataOptionsRequestTypeDef(BaseValidatorModel):
     HttpTokens: Optional[LaunchTemplateHttpTokensStateType] = None
     HttpPutResponseHopLimit: Optional[int] = None
     HttpEndpoint: Optional[LaunchTemplateInstanceMetadataEndpointStateType] = None
     HttpProtocolIpv6: Optional[LaunchTemplateInstanceMetadataProtocolIpv6Type] = None
     InstanceMetadataTags: Optional[LaunchTemplateInstanceMetadataTagsStateType] = None
 
-class LaunchTemplateInstanceMetadataOptionsTypeDef(BaseModel):
+class LaunchTemplateInstanceMetadataOptionsTypeDef(BaseValidatorModel):
     State: Optional[LaunchTemplateInstanceMetadataOptionsStateType] = None
     HttpTokens: Optional[LaunchTemplateHttpTokensStateType] = None
     HttpPutResponseHopLimit: Optional[int] = None
@@ -2973,13 +2973,13 @@ class LaunchTemplateInstanceMetadataOptionsTypeDef(BaseModel):
     HttpProtocolIpv6: Optional[LaunchTemplateInstanceMetadataProtocolIpv6Type] = None
     InstanceMetadataTags: Optional[LaunchTemplateInstanceMetadataTagsStateType] = None
 
-class LaunchTemplateLicenseConfigurationRequestTypeDef(BaseModel):
+class LaunchTemplateLicenseConfigurationRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: Optional[str] = None
 
-class LaunchTemplateLicenseConfigurationTypeDef(BaseModel):
+class LaunchTemplateLicenseConfigurationTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: Optional[str] = None
 
-class LaunchTemplatePlacementRequestTypeDef(BaseModel):
+class LaunchTemplatePlacementRequestTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     Affinity: Optional[str] = None
     GroupName: Optional[str] = None
@@ -2990,7 +2990,7 @@ class LaunchTemplatePlacementRequestTypeDef(BaseModel):
     PartitionNumber: Optional[int] = None
     GroupId: Optional[str] = None
 
-class LaunchTemplatePlacementTypeDef(BaseModel):
+class LaunchTemplatePlacementTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     Affinity: Optional[str] = None
     GroupName: Optional[str] = None
@@ -3001,76 +3001,76 @@ class LaunchTemplatePlacementTypeDef(BaseModel):
     PartitionNumber: Optional[int] = None
     GroupId: Optional[str] = None
 
-class LaunchTemplatePrivateDnsNameOptionsRequestTypeDef(BaseModel):
+class LaunchTemplatePrivateDnsNameOptionsRequestTypeDef(BaseValidatorModel):
     HostnameType: Optional[HostnameTypeType] = None
     EnableResourceNameDnsARecord: Optional[bool] = None
     EnableResourceNameDnsAAAARecord: Optional[bool] = None
 
-class LaunchTemplatePrivateDnsNameOptionsTypeDef(BaseModel):
+class LaunchTemplatePrivateDnsNameOptionsTypeDef(BaseValidatorModel):
     HostnameType: Optional[HostnameTypeType] = None
     EnableResourceNameDnsARecord: Optional[bool] = None
     EnableResourceNameDnsAAAARecord: Optional[bool] = None
 
-class LaunchTemplateSpecificationTypeDef(BaseModel):
+class LaunchTemplateSpecificationTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     Version: Optional[str] = None
 
-class LaunchTemplatesMonitoringRequestTypeDef(BaseModel):
+class LaunchTemplatesMonitoringRequestTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class LaunchTemplatesMonitoringTypeDef(BaseModel):
+class LaunchTemplatesMonitoringTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class LicenseConfigurationRequestTypeDef(BaseModel):
+class LicenseConfigurationRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: Optional[str] = None
 
-class ListImagesInRecycleBinRequestRequestTypeDef(BaseModel):
+class ListImagesInRecycleBinRequestRequestTypeDef(BaseValidatorModel):
     ImageIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class ListSnapshotsInRecycleBinRequestRequestTypeDef(BaseModel):
+class ListSnapshotsInRecycleBinRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SnapshotIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class SnapshotRecycleBinInfoTypeDef(BaseModel):
+class SnapshotRecycleBinInfoTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     RecycleBinEnterTime: Optional[datetime] = None
     RecycleBinExitTime: Optional[datetime] = None
     Description: Optional[str] = None
     VolumeId: Optional[str] = None
 
-class LoadPermissionRequestTypeDef(BaseModel):
+class LoadPermissionRequestTypeDef(BaseValidatorModel):
     Group: Optional[Literal["all"]] = None
     UserId: Optional[str] = None
 
-class MediaDeviceMemoryInfoTypeDef(BaseModel):
+class MediaDeviceMemoryInfoTypeDef(BaseValidatorModel):
     SizeInMiB: Optional[int] = None
 
-class ModifyAddressAttributeRequestRequestTypeDef(BaseModel):
+class ModifyAddressAttributeRequestRequestTypeDef(BaseValidatorModel):
     AllocationId: str
     DomainName: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class ModifyAvailabilityZoneGroupRequestRequestTypeDef(BaseModel):
+class ModifyAvailabilityZoneGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     OptInStatus: ModifyAvailabilityZoneOptInStatusType
     DryRun: Optional[bool] = None
 
-class ModifyDefaultCreditSpecificationRequestRequestTypeDef(BaseModel):
+class ModifyDefaultCreditSpecificationRequestRequestTypeDef(BaseValidatorModel):
     InstanceFamily: UnlimitedSupportedInstanceFamilyType
     CpuCredits: str
     DryRun: Optional[bool] = None
 
-class ModifyEbsDefaultKmsKeyIdRequestRequestTypeDef(BaseModel):
+class ModifyEbsDefaultKmsKeyIdRequestRequestTypeDef(BaseValidatorModel):
     KmsKeyId: str
     DryRun: Optional[bool] = None
 
-class ModifyHostsRequestRequestTypeDef(BaseModel):
+class ModifyHostsRequestRequestTypeDef(BaseValidatorModel):
     HostIds: Sequence[str]
     AutoPlacement: Optional[AutoPlacementType] = None
     HostRecovery: Optional[HostRecoveryType] = None
@@ -3078,31 +3078,31 @@ class ModifyHostsRequestRequestTypeDef(BaseModel):
     InstanceFamily: Optional[str] = None
     HostMaintenance: Optional[HostMaintenanceType] = None
 
-class ModifyIdFormatRequestRequestTypeDef(BaseModel):
+class ModifyIdFormatRequestRequestTypeDef(BaseValidatorModel):
     Resource: str
     UseLongIds: bool
 
-class ModifyIdentityIdFormatRequestRequestTypeDef(BaseModel):
+class ModifyIdentityIdFormatRequestRequestTypeDef(BaseValidatorModel):
     PrincipalArn: str
     Resource: str
     UseLongIds: bool
 
-class SuccessfulInstanceCreditSpecificationItemTypeDef(BaseModel):
+class SuccessfulInstanceCreditSpecificationItemTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
 
-class ModifyInstanceMaintenanceOptionsRequestRequestTypeDef(BaseModel):
+class ModifyInstanceMaintenanceOptionsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AutoRecovery: Optional[InstanceAutoRecoveryStateType] = None
     DryRun: Optional[bool] = None
 
-class ModifyInstanceMetadataDefaultsRequestRequestTypeDef(BaseModel):
+class ModifyInstanceMetadataDefaultsRequestRequestTypeDef(BaseValidatorModel):
     HttpTokens: Optional[MetadataDefaultHttpTokensStateType] = None
     HttpPutResponseHopLimit: Optional[int] = None
     HttpEndpoint: Optional[DefaultInstanceMetadataEndpointStateType] = None
     InstanceMetadataTags: Optional[DefaultInstanceMetadataTagsStateType] = None
     DryRun: Optional[bool] = None
 
-class ModifyInstanceMetadataOptionsRequestRequestTypeDef(BaseModel):
+class ModifyInstanceMetadataOptionsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     HttpTokens: Optional[HttpTokensStateType] = None
     HttpPutResponseHopLimit: Optional[int] = None
@@ -3111,7 +3111,7 @@ class ModifyInstanceMetadataOptionsRequestRequestTypeDef(BaseModel):
     HttpProtocolIpv6: Optional[InstanceMetadataProtocolStateType] = None
     InstanceMetadataTags: Optional[InstanceMetadataTagsStateType] = None
 
-class ModifyInstancePlacementRequestRequestTypeDef(BaseModel):
+class ModifyInstancePlacementRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Affinity: Optional[AffinityType] = None
     GroupName: Optional[str] = None
@@ -3121,10 +3121,10 @@ class ModifyInstancePlacementRequestRequestTypeDef(BaseModel):
     HostResourceGroupArn: Optional[str] = None
     GroupId: Optional[str] = None
 
-class RemoveIpamOperatingRegionTypeDef(BaseModel):
+class RemoveIpamOperatingRegionTypeDef(BaseValidatorModel):
     RegionName: Optional[str] = None
 
-class ModifyIpamResourceCidrRequestRequestTypeDef(BaseModel):
+class ModifyIpamResourceCidrRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     ResourceCidr: str
     ResourceRegion: str
@@ -3133,19 +3133,19 @@ class ModifyIpamResourceCidrRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     DestinationIpamScopeId: Optional[str] = None
 
-class ModifyIpamScopeRequestRequestTypeDef(BaseModel):
+class ModifyIpamScopeRequestRequestTypeDef(BaseValidatorModel):
     IpamScopeId: str
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
 
-class ModifyLaunchTemplateRequestRequestTypeDef(BaseModel):
+class ModifyLaunchTemplateRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     DefaultVersion: Optional[str] = None
 
-class ModifyLocalGatewayRouteRequestRequestTypeDef(BaseModel):
+class ModifyLocalGatewayRouteRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     DestinationCidrBlock: Optional[str] = None
     LocalGatewayVirtualInterfaceGroupId: Optional[str] = None
@@ -3153,39 +3153,39 @@ class ModifyLocalGatewayRouteRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     DestinationPrefixListId: Optional[str] = None
 
-class RemovePrefixListEntryTypeDef(BaseModel):
+class RemovePrefixListEntryTypeDef(BaseValidatorModel):
     Cidr: str
 
-class NetworkInterfaceAttachmentChangesTypeDef(BaseModel):
+class NetworkInterfaceAttachmentChangesTypeDef(BaseValidatorModel):
     AttachmentId: Optional[str] = None
     DeleteOnTermination: Optional[bool] = None
 
-class ModifyPrivateDnsNameOptionsRequestRequestTypeDef(BaseModel):
+class ModifyPrivateDnsNameOptionsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
     PrivateDnsHostnameType: Optional[HostnameTypeType] = None
     EnableResourceNameDnsARecord: Optional[bool] = None
     EnableResourceNameDnsAAAARecord: Optional[bool] = None
 
-class ReservedInstancesConfigurationTypeDef(BaseModel):
+class ReservedInstancesConfigurationTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     InstanceCount: Optional[int] = None
     InstanceType: Optional[InstanceTypeType] = None
     Platform: Optional[str] = None
     Scope: Optional[ScopeType] = None
 
-class ModifySnapshotTierRequestRequestTypeDef(BaseModel):
+class ModifySnapshotTierRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     StorageTier: Optional[Literal["archive"]] = None
     DryRun: Optional[bool] = None
 
-class ModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef(BaseModel):
+class ModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorFilterId: str
     AddNetworkServices: Optional[Sequence[Literal["amazon-dns"]]] = None
     RemoveNetworkServices: Optional[Sequence[Literal["amazon-dns"]]] = None
     DryRun: Optional[bool] = None
 
-class ModifyTrafficMirrorSessionRequestRequestTypeDef(BaseModel):
+class ModifyTrafficMirrorSessionRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorSessionId: str
     TrafficMirrorTargetId: Optional[str] = None
     TrafficMirrorFilterId: Optional[str] = None
@@ -3196,7 +3196,7 @@ class ModifyTrafficMirrorSessionRequestRequestTypeDef(BaseModel):
     RemoveFields: Optional[Sequence[TrafficMirrorSessionFieldType]] = None
     DryRun: Optional[bool] = None
 
-class ModifyTransitGatewayOptionsTypeDef(BaseModel):
+class ModifyTransitGatewayOptionsTypeDef(BaseValidatorModel):
     AddTransitGatewayCidrBlocks: Optional[Sequence[str]] = None
     RemoveTransitGatewayCidrBlocks: Optional[Sequence[str]] = None
     VpnEcmpSupport: Optional[VpnEcmpSupportValueType] = None
@@ -3209,49 +3209,49 @@ class ModifyTransitGatewayOptionsTypeDef(BaseModel):
     PropagationDefaultRouteTableId: Optional[str] = None
     AmazonSideAsn: Optional[int] = None
 
-class ModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef(BaseModel):
+class ModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     PrefixListId: str
     TransitGatewayAttachmentId: Optional[str] = None
     Blackhole: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef(BaseModel):
+class ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef(BaseValidatorModel):
     DnsSupport: Optional[DnsSupportValueType] = None
     SecurityGroupReferencingSupport: Optional[SecurityGroupReferencingSupportValueType] = None
     Ipv6Support: Optional[Ipv6SupportValueType] = None
     ApplianceModeSupport: Optional[ApplianceModeSupportValueType] = None
 
-class ModifyVerifiedAccessEndpointEniOptionsTypeDef(BaseModel):
+class ModifyVerifiedAccessEndpointEniOptionsTypeDef(BaseValidatorModel):
     Protocol: Optional[VerifiedAccessEndpointProtocolType] = None
     Port: Optional[int] = None
 
-class ModifyVerifiedAccessEndpointLoadBalancerOptionsTypeDef(BaseModel):
+class ModifyVerifiedAccessEndpointLoadBalancerOptionsTypeDef(BaseValidatorModel):
     SubnetIds: Optional[Sequence[str]] = None
     Protocol: Optional[VerifiedAccessEndpointProtocolType] = None
     Port: Optional[int] = None
 
-class VerifiedAccessSseSpecificationResponseTypeDef(BaseModel):
+class VerifiedAccessSseSpecificationResponseTypeDef(BaseValidatorModel):
     CustomerManagedKeyEnabled: Optional[bool] = None
     KmsKeyArn: Optional[str] = None
 
-class ModifyVerifiedAccessGroupRequestRequestTypeDef(BaseModel):
+class ModifyVerifiedAccessGroupRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessGroupId: str
     VerifiedAccessInstanceId: Optional[str] = None
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class ModifyVerifiedAccessInstanceRequestRequestTypeDef(BaseModel):
+class ModifyVerifiedAccessInstanceRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     Description: Optional[str] = None
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
-class ModifyVerifiedAccessTrustProviderDeviceOptionsTypeDef(BaseModel):
+class ModifyVerifiedAccessTrustProviderDeviceOptionsTypeDef(BaseValidatorModel):
     PublicSigningKeyUrl: Optional[str] = None
 
-class ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef(BaseModel):
+class ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef(BaseValidatorModel):
     Issuer: Optional[str] = None
     AuthorizationEndpoint: Optional[str] = None
     TokenEndpoint: Optional[str] = None
@@ -3260,7 +3260,7 @@ class ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef(BaseModel):
     ClientSecret: Optional[str] = None
     Scope: Optional[str] = None
 
-class ModifyVolumeRequestRequestTypeDef(BaseModel):
+class ModifyVolumeRequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
     DryRun: Optional[bool] = None
     Size: Optional[int] = None
@@ -3269,13 +3269,13 @@ class ModifyVolumeRequestRequestTypeDef(BaseModel):
     Throughput: Optional[int] = None
     MultiAttachEnabled: Optional[bool] = None
 
-class ModifyVpcEndpointConnectionNotificationRequestRequestTypeDef(BaseModel):
+class ModifyVpcEndpointConnectionNotificationRequestRequestTypeDef(BaseValidatorModel):
     ConnectionNotificationId: str
     DryRun: Optional[bool] = None
     ConnectionNotificationArn: Optional[str] = None
     ConnectionEvents: Optional[Sequence[str]] = None
 
-class ModifyVpcEndpointServiceConfigurationRequestRequestTypeDef(BaseModel):
+class ModifyVpcEndpointServiceConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     DryRun: Optional[bool] = None
     PrivateDnsName: Optional[str] = None
@@ -3288,33 +3288,33 @@ class ModifyVpcEndpointServiceConfigurationRequestRequestTypeDef(BaseModel):
     AddSupportedIpAddressTypes: Optional[Sequence[str]] = None
     RemoveSupportedIpAddressTypes: Optional[Sequence[str]] = None
 
-class ModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef(BaseModel):
+class ModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     PayerResponsibility: Literal["ServiceOwner"]
     DryRun: Optional[bool] = None
 
-class ModifyVpcEndpointServicePermissionsRequestRequestTypeDef(BaseModel):
+class ModifyVpcEndpointServicePermissionsRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     DryRun: Optional[bool] = None
     AddAllowedPrincipals: Optional[Sequence[str]] = None
     RemoveAllowedPrincipals: Optional[Sequence[str]] = None
 
-class PeeringConnectionOptionsRequestTypeDef(BaseModel):
+class PeeringConnectionOptionsRequestTypeDef(BaseValidatorModel):
     AllowDnsResolutionFromRemoteVpc: Optional[bool] = None
     AllowEgressFromLocalClassicLinkToRemoteVpc: Optional[bool] = None
     AllowEgressFromLocalVpcToRemoteClassicLink: Optional[bool] = None
 
-class PeeringConnectionOptionsTypeDef(BaseModel):
+class PeeringConnectionOptionsTypeDef(BaseValidatorModel):
     AllowDnsResolutionFromRemoteVpc: Optional[bool] = None
     AllowEgressFromLocalClassicLinkToRemoteVpc: Optional[bool] = None
     AllowEgressFromLocalVpcToRemoteClassicLink: Optional[bool] = None
 
-class ModifyVpcTenancyRequestRequestTypeDef(BaseModel):
+class ModifyVpcTenancyRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     InstanceTenancy: Literal["default"]
     DryRun: Optional[bool] = None
 
-class ModifyVpnConnectionOptionsRequestRequestTypeDef(BaseModel):
+class ModifyVpnConnectionOptionsRequestRequestTypeDef(BaseValidatorModel):
     VpnConnectionId: str
     LocalIpv4NetworkCidr: Optional[str] = None
     RemoteIpv4NetworkCidr: Optional[str] = None
@@ -3322,73 +3322,73 @@ class ModifyVpnConnectionOptionsRequestRequestTypeDef(BaseModel):
     RemoteIpv6NetworkCidr: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class ModifyVpnConnectionRequestRequestTypeDef(BaseModel):
+class ModifyVpnConnectionRequestRequestTypeDef(BaseValidatorModel):
     VpnConnectionId: str
     TransitGatewayId: Optional[str] = None
     CustomerGatewayId: Optional[str] = None
     VpnGatewayId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class ModifyVpnTunnelCertificateRequestRequestTypeDef(BaseModel):
+class ModifyVpnTunnelCertificateRequestRequestTypeDef(BaseValidatorModel):
     VpnConnectionId: str
     VpnTunnelOutsideIpAddress: str
     DryRun: Optional[bool] = None
 
-class Phase1DHGroupNumbersRequestListValueTypeDef(BaseModel):
+class Phase1DHGroupNumbersRequestListValueTypeDef(BaseValidatorModel):
     Value: Optional[int] = None
 
-class Phase1EncryptionAlgorithmsRequestListValueTypeDef(BaseModel):
+class Phase1EncryptionAlgorithmsRequestListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class Phase1IntegrityAlgorithmsRequestListValueTypeDef(BaseModel):
+class Phase1IntegrityAlgorithmsRequestListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class Phase2DHGroupNumbersRequestListValueTypeDef(BaseModel):
+class Phase2DHGroupNumbersRequestListValueTypeDef(BaseValidatorModel):
     Value: Optional[int] = None
 
-class Phase2EncryptionAlgorithmsRequestListValueTypeDef(BaseModel):
+class Phase2EncryptionAlgorithmsRequestListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class Phase2IntegrityAlgorithmsRequestListValueTypeDef(BaseModel):
+class Phase2IntegrityAlgorithmsRequestListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class MonitorInstancesRequestInstanceMonitorTypeDef(BaseModel):
+class MonitorInstancesRequestInstanceMonitorTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class MonitorInstancesRequestRequestTypeDef(BaseModel):
+class MonitorInstancesRequestRequestTypeDef(BaseValidatorModel):
     InstanceIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class MoveAddressToVpcRequestRequestTypeDef(BaseModel):
+class MoveAddressToVpcRequestRequestTypeDef(BaseValidatorModel):
     PublicIp: str
     DryRun: Optional[bool] = None
 
-class MoveByoipCidrToIpamRequestRequestTypeDef(BaseModel):
+class MoveByoipCidrToIpamRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
     IpamPoolId: str
     IpamPoolOwner: str
     DryRun: Optional[bool] = None
 
-class ProvisionedBandwidthTypeDef(BaseModel):
+class ProvisionedBandwidthTypeDef(BaseValidatorModel):
     ProvisionTime: Optional[datetime] = None
     Provisioned: Optional[str] = None
     RequestTime: Optional[datetime] = None
     Requested: Optional[str] = None
     Status: Optional[str] = None
 
-class NetworkAclAssociationTypeDef(BaseModel):
+class NetworkAclAssociationTypeDef(BaseValidatorModel):
     NetworkAclAssociationId: Optional[str] = None
     NetworkAclId: Optional[str] = None
     SubnetId: Optional[str] = None
 
-class NetworkCardInfoTypeDef(BaseModel):
+class NetworkCardInfoTypeDef(BaseValidatorModel):
     NetworkCardIndex: Optional[int] = None
     NetworkPerformance: Optional[str] = None
     MaximumNetworkInterfaces: Optional[int] = None
     BaselineBandwidthInGbps: Optional[float] = None
     PeakBandwidthInGbps: Optional[float] = None
 
-class NetworkInterfaceAssociationTypeDef(BaseModel):
+class NetworkInterfaceAssociationTypeDef(BaseValidatorModel):
     AllocationId: Optional[str] = None
     AssociationId: Optional[str] = None
     IpOwnerId: Optional[str] = None
@@ -3397,22 +3397,22 @@ class NetworkInterfaceAssociationTypeDef(BaseModel):
     CustomerOwnedIp: Optional[str] = None
     CarrierIp: Optional[str] = None
 
-class NetworkInterfaceIpv6AddressTypeDef(BaseModel):
+class NetworkInterfaceIpv6AddressTypeDef(BaseValidatorModel):
     Ipv6Address: Optional[str] = None
     IsPrimaryIpv6: Optional[bool] = None
 
-class NetworkInterfacePermissionStateTypeDef(BaseModel):
+class NetworkInterfacePermissionStateTypeDef(BaseValidatorModel):
     State: Optional[NetworkInterfacePermissionStateCodeType] = None
     StatusMessage: Optional[str] = None
 
-class NeuronDeviceCoreInfoTypeDef(BaseModel):
+class NeuronDeviceCoreInfoTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     Version: Optional[int] = None
 
-class NeuronDeviceMemoryInfoTypeDef(BaseModel):
+class NeuronDeviceMemoryInfoTypeDef(BaseValidatorModel):
     SizeInMiB: Optional[int] = None
 
-class OidcOptionsTypeDef(BaseModel):
+class OidcOptionsTypeDef(BaseValidatorModel):
     Issuer: Optional[str] = None
     AuthorizationEndpoint: Optional[str] = None
     TokenEndpoint: Optional[str] = None
@@ -3421,7 +3421,7 @@ class OidcOptionsTypeDef(BaseModel):
     ClientSecret: Optional[str] = None
     Scope: Optional[str] = None
 
-class PacketHeaderStatementRequestTypeDef(BaseModel):
+class PacketHeaderStatementRequestTypeDef(BaseValidatorModel):
     SourceAddresses: Optional[Sequence[str]] = None
     DestinationAddresses: Optional[Sequence[str]] = None
     SourcePorts: Optional[Sequence[str]] = None
@@ -3430,7 +3430,7 @@ class PacketHeaderStatementRequestTypeDef(BaseModel):
     DestinationPrefixLists: Optional[Sequence[str]] = None
     Protocols: Optional[Sequence[ProtocolType]] = None
 
-class PacketHeaderStatementTypeDef(BaseModel):
+class PacketHeaderStatementTypeDef(BaseValidatorModel):
     SourceAddresses: Optional[List[str]] = None
     DestinationAddresses: Optional[List[str]] = None
     SourcePorts: Optional[List[str]] = None
@@ -3439,206 +3439,206 @@ class PacketHeaderStatementTypeDef(BaseModel):
     DestinationPrefixLists: Optional[List[str]] = None
     Protocols: Optional[List[ProtocolType]] = None
 
-class RequestFilterPortRangeTypeDef(BaseModel):
+class RequestFilterPortRangeTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
 
-class ResourceStatementRequestTypeDef(BaseModel):
+class ResourceStatementRequestTypeDef(BaseValidatorModel):
     Resources: Optional[Sequence[str]] = None
     ResourceTypes: Optional[Sequence[str]] = None
 
-class ResourceStatementTypeDef(BaseModel):
+class ResourceStatementTypeDef(BaseValidatorModel):
     Resources: Optional[List[str]] = None
     ResourceTypes: Optional[List[str]] = None
 
-class PeeringAttachmentStatusTypeDef(BaseModel):
+class PeeringAttachmentStatusTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class PeeringTgwInfoTypeDef(BaseModel):
+class PeeringTgwInfoTypeDef(BaseValidatorModel):
     TransitGatewayId: Optional[str] = None
     CoreNetworkId: Optional[str] = None
     OwnerId: Optional[str] = None
     Region: Optional[str] = None
 
-class Phase1DHGroupNumbersListValueTypeDef(BaseModel):
+class Phase1DHGroupNumbersListValueTypeDef(BaseValidatorModel):
     Value: Optional[int] = None
 
-class Phase1EncryptionAlgorithmsListValueTypeDef(BaseModel):
+class Phase1EncryptionAlgorithmsListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class Phase1IntegrityAlgorithmsListValueTypeDef(BaseModel):
+class Phase1IntegrityAlgorithmsListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class Phase2DHGroupNumbersListValueTypeDef(BaseModel):
+class Phase2DHGroupNumbersListValueTypeDef(BaseValidatorModel):
     Value: Optional[int] = None
 
-class Phase2EncryptionAlgorithmsListValueTypeDef(BaseModel):
+class Phase2EncryptionAlgorithmsListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class Phase2IntegrityAlgorithmsListValueTypeDef(BaseModel):
+class Phase2IntegrityAlgorithmsListValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class PriceScheduleTypeDef(BaseModel):
+class PriceScheduleTypeDef(BaseValidatorModel):
     Active: Optional[bool] = None
     CurrencyCode: Optional[Literal["USD"]] = None
     Price: Optional[float] = None
     Term: Optional[int] = None
 
-class PricingDetailTypeDef(BaseModel):
+class PricingDetailTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     Price: Optional[float] = None
 
-class PrivateDnsDetailsTypeDef(BaseModel):
+class PrivateDnsDetailsTypeDef(BaseValidatorModel):
     PrivateDnsName: Optional[str] = None
 
-class PrivateDnsNameConfigurationTypeDef(BaseModel):
+class PrivateDnsNameConfigurationTypeDef(BaseValidatorModel):
     State: Optional[DnsNameStateType] = None
     Type: Optional[str] = None
     Value: Optional[str] = None
     Name: Optional[str] = None
 
-class PrivateDnsNameOptionsOnLaunchTypeDef(BaseModel):
+class PrivateDnsNameOptionsOnLaunchTypeDef(BaseValidatorModel):
     HostnameType: Optional[HostnameTypeType] = None
     EnableResourceNameDnsARecord: Optional[bool] = None
     EnableResourceNameDnsAAAARecord: Optional[bool] = None
 
-class PrivateDnsNameOptionsRequestTypeDef(BaseModel):
+class PrivateDnsNameOptionsRequestTypeDef(BaseValidatorModel):
     HostnameType: Optional[HostnameTypeType] = None
     EnableResourceNameDnsARecord: Optional[bool] = None
     EnableResourceNameDnsAAAARecord: Optional[bool] = None
 
-class PropagatingVgwTypeDef(BaseModel):
+class PropagatingVgwTypeDef(BaseValidatorModel):
     GatewayId: Optional[str] = None
 
-class ProvisionPublicIpv4PoolCidrRequestRequestTypeDef(BaseModel):
+class ProvisionPublicIpv4PoolCidrRequestRequestTypeDef(BaseValidatorModel):
     IpamPoolId: str
     PoolId: str
     NetmaskLength: int
     DryRun: Optional[bool] = None
     NetworkBorderGroup: Optional[str] = None
 
-class PublicIpv4PoolRangeTypeDef(BaseModel):
+class PublicIpv4PoolRangeTypeDef(BaseValidatorModel):
     FirstAddress: Optional[str] = None
     LastAddress: Optional[str] = None
     AddressCount: Optional[int] = None
     AvailableAddressCount: Optional[int] = None
 
-class PurchaseRequestTypeDef(BaseModel):
+class PurchaseRequestTypeDef(BaseValidatorModel):
     InstanceCount: int
     PurchaseToken: str
 
-class ReservedInstanceLimitPriceTypeDef(BaseModel):
+class ReservedInstanceLimitPriceTypeDef(BaseValidatorModel):
     Amount: Optional[float] = None
     CurrencyCode: Optional[Literal["USD"]] = None
 
-class RebootInstancesRequestInstanceRebootTypeDef(BaseModel):
+class RebootInstancesRequestInstanceRebootTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class RebootInstancesRequestRequestTypeDef(BaseModel):
+class RebootInstancesRequestRequestTypeDef(BaseValidatorModel):
     InstanceIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class RecurringChargeTypeDef(BaseModel):
+class RecurringChargeTypeDef(BaseValidatorModel):
     Amount: Optional[float] = None
     Frequency: Optional[Literal["Hourly"]] = None
 
-class ReferencedSecurityGroupTypeDef(BaseModel):
+class ReferencedSecurityGroupTypeDef(BaseValidatorModel):
     GroupId: Optional[str] = None
     PeeringStatus: Optional[str] = None
     UserId: Optional[str] = None
     VpcId: Optional[str] = None
     VpcPeeringConnectionId: Optional[str] = None
 
-class RegisterInstanceTagAttributeRequestTypeDef(BaseModel):
+class RegisterInstanceTagAttributeRequestTypeDef(BaseValidatorModel):
     IncludeAllTagsOfInstance: Optional[bool] = None
     InstanceTagKeys: Optional[Sequence[str]] = None
 
-class RegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef(BaseModel):
+class RegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     NetworkInterfaceIds: Sequence[str]
     GroupIpAddress: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class TransitGatewayMulticastRegisteredGroupMembersTypeDef(BaseModel):
+class TransitGatewayMulticastRegisteredGroupMembersTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     RegisteredNetworkInterfaceIds: Optional[List[str]] = None
     GroupIpAddress: Optional[str] = None
 
-class RegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef(BaseModel):
+class RegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     NetworkInterfaceIds: Sequence[str]
     GroupIpAddress: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class TransitGatewayMulticastRegisteredGroupSourcesTypeDef(BaseModel):
+class TransitGatewayMulticastRegisteredGroupSourcesTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     RegisteredNetworkInterfaceIds: Optional[List[str]] = None
     GroupIpAddress: Optional[str] = None
 
-class RejectTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef(BaseModel):
+class RejectTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
     SubnetIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class RejectTransitGatewayPeeringAttachmentRequestRequestTypeDef(BaseModel):
+class RejectTransitGatewayPeeringAttachmentRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class RejectTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseModel):
+class RejectTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
-class RejectVpcEndpointConnectionsRequestRequestTypeDef(BaseModel):
+class RejectVpcEndpointConnectionsRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     VpcEndpointIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class RejectVpcPeeringConnectionRequestRequestTypeDef(BaseModel):
+class RejectVpcPeeringConnectionRequestRequestTypeDef(BaseValidatorModel):
     VpcPeeringConnectionId: str
     DryRun: Optional[bool] = None
 
-class RejectVpcPeeringConnectionRequestVpcPeeringConnectionRejectTypeDef(BaseModel):
+class RejectVpcPeeringConnectionRequestVpcPeeringConnectionRejectTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class ReleaseAddressRequestClassicAddressReleaseTypeDef(BaseModel):
+class ReleaseAddressRequestClassicAddressReleaseTypeDef(BaseValidatorModel):
     AllocationId: Optional[str] = None
     PublicIp: Optional[str] = None
     NetworkBorderGroup: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class ReleaseAddressRequestRequestTypeDef(BaseModel):
+class ReleaseAddressRequestRequestTypeDef(BaseValidatorModel):
     AllocationId: Optional[str] = None
     PublicIp: Optional[str] = None
     NetworkBorderGroup: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class ReleaseAddressRequestVpcAddressReleaseTypeDef(BaseModel):
+class ReleaseAddressRequestVpcAddressReleaseTypeDef(BaseValidatorModel):
     AllocationId: Optional[str] = None
     PublicIp: Optional[str] = None
     NetworkBorderGroup: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class ReleaseHostsRequestRequestTypeDef(BaseModel):
+class ReleaseHostsRequestRequestTypeDef(BaseValidatorModel):
     HostIds: Sequence[str]
 
-class ReleaseIpamPoolAllocationRequestRequestTypeDef(BaseModel):
+class ReleaseIpamPoolAllocationRequestRequestTypeDef(BaseValidatorModel):
     IpamPoolId: str
     Cidr: str
     IpamPoolAllocationId: str
     DryRun: Optional[bool] = None
 
-class ReplaceNetworkAclAssociationRequestNetworkAclReplaceAssociationTypeDef(BaseModel):
+class ReplaceNetworkAclAssociationRequestNetworkAclReplaceAssociationTypeDef(BaseValidatorModel):
     AssociationId: str
     DryRun: Optional[bool] = None
 
-class ReplaceNetworkAclAssociationRequestRequestTypeDef(BaseModel):
+class ReplaceNetworkAclAssociationRequestRequestTypeDef(BaseValidatorModel):
     AssociationId: str
     NetworkAclId: str
     DryRun: Optional[bool] = None
 
-class ReplaceRouteRequestRequestTypeDef(BaseModel):
+class ReplaceRouteRequestRequestTypeDef(BaseValidatorModel):
     RouteTableId: str
     DestinationCidrBlock: Optional[str] = None
     DestinationIpv6CidrBlock: Optional[str] = None
@@ -3657,7 +3657,7 @@ class ReplaceRouteRequestRequestTypeDef(BaseModel):
     VpcPeeringConnectionId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
 
-class ReplaceRouteRequestRouteReplaceTypeDef(BaseModel):
+class ReplaceRouteRequestRouteReplaceTypeDef(BaseValidatorModel):
     DestinationIpv6CidrBlock: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
     DryRun: Optional[bool] = None
@@ -3674,124 +3674,124 @@ class ReplaceRouteRequestRouteReplaceTypeDef(BaseModel):
     VpcPeeringConnectionId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
 
-class ReplaceRouteTableAssociationRequestRequestTypeDef(BaseModel):
+class ReplaceRouteTableAssociationRequestRequestTypeDef(BaseValidatorModel):
     AssociationId: str
     RouteTableId: str
     DryRun: Optional[bool] = None
 
-class ReplaceRouteTableAssociationRequestRouteTableAssociationReplaceSubnetTypeDef(BaseModel):
+class ReplaceRouteTableAssociationRequestRouteTableAssociationReplaceSubnetTypeDef(BaseValidatorModel):
     RouteTableId: str
     DryRun: Optional[bool] = None
 
-class ReplaceTransitGatewayRouteRequestRequestTypeDef(BaseModel):
+class ReplaceTransitGatewayRouteRequestRequestTypeDef(BaseValidatorModel):
     DestinationCidrBlock: str
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: Optional[str] = None
     Blackhole: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class ReplaceVpnTunnelRequestRequestTypeDef(BaseModel):
+class ReplaceVpnTunnelRequestRequestTypeDef(BaseValidatorModel):
     VpnConnectionId: str
     VpnTunnelOutsideIpAddress: str
     ApplyPendingMaintenance: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class ReservedInstancesIdTypeDef(BaseModel):
+class ReservedInstancesIdTypeDef(BaseValidatorModel):
     ReservedInstancesId: Optional[str] = None
 
-class ResetAddressAttributeRequestRequestTypeDef(BaseModel):
+class ResetAddressAttributeRequestRequestTypeDef(BaseValidatorModel):
     AllocationId: str
     Attribute: Literal["domain-name"]
     DryRun: Optional[bool] = None
 
-class ResetEbsDefaultKmsKeyIdRequestRequestTypeDef(BaseModel):
+class ResetEbsDefaultKmsKeyIdRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class ResetFpgaImageAttributeRequestRequestTypeDef(BaseModel):
+class ResetFpgaImageAttributeRequestRequestTypeDef(BaseValidatorModel):
     FpgaImageId: str
     DryRun: Optional[bool] = None
     Attribute: Optional[Literal["loadPermission"]] = None
 
-class ResetImageAttributeRequestImageResetAttributeTypeDef(BaseModel):
+class ResetImageAttributeRequestImageResetAttributeTypeDef(BaseValidatorModel):
     Attribute: Literal["launchPermission"]
     DryRun: Optional[bool] = None
 
-class ResetImageAttributeRequestRequestTypeDef(BaseModel):
+class ResetImageAttributeRequestRequestTypeDef(BaseValidatorModel):
     Attribute: Literal["launchPermission"]
     ImageId: str
     DryRun: Optional[bool] = None
 
-class ResetInstanceAttributeRequestInstanceResetAttributeTypeDef(BaseModel):
+class ResetInstanceAttributeRequestInstanceResetAttributeTypeDef(BaseValidatorModel):
     Attribute: InstanceAttributeNameType
     DryRun: Optional[bool] = None
 
-class ResetInstanceAttributeRequestInstanceResetKernelTypeDef(BaseModel):
+class ResetInstanceAttributeRequestInstanceResetKernelTypeDef(BaseValidatorModel):
     Attribute: Optional[InstanceAttributeNameType] = None
     DryRun: Optional[bool] = None
 
-class ResetInstanceAttributeRequestInstanceResetRamdiskTypeDef(BaseModel):
+class ResetInstanceAttributeRequestInstanceResetRamdiskTypeDef(BaseValidatorModel):
     Attribute: Optional[InstanceAttributeNameType] = None
     DryRun: Optional[bool] = None
 
-class ResetInstanceAttributeRequestInstanceResetSourceDestCheckTypeDef(BaseModel):
+class ResetInstanceAttributeRequestInstanceResetSourceDestCheckTypeDef(BaseValidatorModel):
     Attribute: Optional[InstanceAttributeNameType] = None
     DryRun: Optional[bool] = None
 
-class ResetInstanceAttributeRequestRequestTypeDef(BaseModel):
+class ResetInstanceAttributeRequestRequestTypeDef(BaseValidatorModel):
     Attribute: InstanceAttributeNameType
     InstanceId: str
     DryRun: Optional[bool] = None
 
-class ResetNetworkInterfaceAttributeRequestNetworkInterfaceResetAttributeTypeDef(BaseModel):
+class ResetNetworkInterfaceAttributeRequestNetworkInterfaceResetAttributeTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     SourceDestCheck: Optional[str] = None
 
-class ResetNetworkInterfaceAttributeRequestRequestTypeDef(BaseModel):
+class ResetNetworkInterfaceAttributeRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     DryRun: Optional[bool] = None
     SourceDestCheck: Optional[str] = None
 
-class ResetSnapshotAttributeRequestRequestTypeDef(BaseModel):
+class ResetSnapshotAttributeRequestRequestTypeDef(BaseValidatorModel):
     Attribute: SnapshotAttributeNameType
     SnapshotId: str
     DryRun: Optional[bool] = None
 
-class ResetSnapshotAttributeRequestSnapshotResetAttributeTypeDef(BaseModel):
+class ResetSnapshotAttributeRequestSnapshotResetAttributeTypeDef(BaseValidatorModel):
     Attribute: SnapshotAttributeNameType
     DryRun: Optional[bool] = None
 
-class RestoreAddressToClassicRequestRequestTypeDef(BaseModel):
+class RestoreAddressToClassicRequestRequestTypeDef(BaseValidatorModel):
     PublicIp: str
     DryRun: Optional[bool] = None
 
-class RestoreImageFromRecycleBinRequestRequestTypeDef(BaseModel):
+class RestoreImageFromRecycleBinRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
-class RestoreManagedPrefixListVersionRequestRequestTypeDef(BaseModel):
+class RestoreManagedPrefixListVersionRequestRequestTypeDef(BaseValidatorModel):
     PrefixListId: str
     PreviousVersion: int
     CurrentVersion: int
     DryRun: Optional[bool] = None
 
-class RestoreSnapshotFromRecycleBinRequestRequestTypeDef(BaseModel):
+class RestoreSnapshotFromRecycleBinRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     DryRun: Optional[bool] = None
 
-class RestoreSnapshotTierRequestRequestTypeDef(BaseModel):
+class RestoreSnapshotTierRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     TemporaryRestoreDays: Optional[int] = None
     PermanentRestore: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class RevokeClientVpnIngressRequestRequestTypeDef(BaseModel):
+class RevokeClientVpnIngressRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     TargetNetworkCidr: str
     AccessGroupId: Optional[str] = None
     RevokeAllGroups: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class RouteTypeDef(BaseModel):
+class RouteTypeDef(BaseValidatorModel):
     DestinationCidrBlock: Optional[str] = None
     DestinationIpv6CidrBlock: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
@@ -3809,21 +3809,21 @@ class RouteTypeDef(BaseModel):
     VpcPeeringConnectionId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
 
-class S3StorageOutputTypeDef(BaseModel):
+class S3StorageOutputTypeDef(BaseValidatorModel):
     AWSAccessKeyId: Optional[str] = None
     Bucket: Optional[str] = None
     Prefix: Optional[str] = None
     UploadPolicy: Optional[bytes] = None
     UploadPolicySignature: Optional[str] = None
 
-class ScheduledInstanceRecurrenceTypeDef(BaseModel):
+class ScheduledInstanceRecurrenceTypeDef(BaseValidatorModel):
     Frequency: Optional[str] = None
     Interval: Optional[int] = None
     OccurrenceDaySet: Optional[List[int]] = None
     OccurrenceRelativeToEnd: Optional[bool] = None
     OccurrenceUnit: Optional[str] = None
 
-class ScheduledInstancesEbsTypeDef(BaseModel):
+class ScheduledInstancesEbsTypeDef(BaseValidatorModel):
     DeleteOnTermination: Optional[bool] = None
     Encrypted: Optional[bool] = None
     Iops: Optional[int] = None
@@ -3831,25 +3831,25 @@ class ScheduledInstancesEbsTypeDef(BaseModel):
     VolumeSize: Optional[int] = None
     VolumeType: Optional[str] = None
 
-class ScheduledInstancesIamInstanceProfileTypeDef(BaseModel):
+class ScheduledInstancesIamInstanceProfileTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class ScheduledInstancesIpv6AddressTypeDef(BaseModel):
+class ScheduledInstancesIpv6AddressTypeDef(BaseValidatorModel):
     Ipv6Address: Optional[str] = None
 
-class ScheduledInstancesMonitoringTypeDef(BaseModel):
+class ScheduledInstancesMonitoringTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class ScheduledInstancesPlacementTypeDef(BaseModel):
+class ScheduledInstancesPlacementTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     GroupName: Optional[str] = None
 
-class ScheduledInstancesPrivateIpAddressConfigTypeDef(BaseModel):
+class ScheduledInstancesPrivateIpAddressConfigTypeDef(BaseValidatorModel):
     Primary: Optional[bool] = None
     PrivateIpAddress: Optional[str] = None
 
-class TransitGatewayMulticastGroupTypeDef(BaseModel):
+class TransitGatewayMulticastGroupTypeDef(BaseValidatorModel):
     GroupIpAddress: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
     SubnetId: Optional[str] = None
@@ -3862,15 +3862,15 @@ class TransitGatewayMulticastGroupTypeDef(BaseModel):
     MemberType: Optional[MembershipTypeType] = None
     SourceType: Optional[MembershipTypeType] = None
 
-class SecurityGroupIdentifierTypeDef(BaseModel):
+class SecurityGroupIdentifierTypeDef(BaseValidatorModel):
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
 
-class SecurityGroupRuleDescriptionTypeDef(BaseModel):
+class SecurityGroupRuleDescriptionTypeDef(BaseValidatorModel):
     SecurityGroupRuleId: Optional[str] = None
     Description: Optional[str] = None
 
-class SecurityGroupRuleRequestTypeDef(BaseModel):
+class SecurityGroupRuleRequestTypeDef(BaseValidatorModel):
     IpProtocol: Optional[str] = None
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
@@ -3880,109 +3880,109 @@ class SecurityGroupRuleRequestTypeDef(BaseModel):
     ReferencedGroupId: Optional[str] = None
     Description: Optional[str] = None
 
-class SendDiagnosticInterruptRequestRequestTypeDef(BaseModel):
+class SendDiagnosticInterruptRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
 
-class ServiceTypeDetailTypeDef(BaseModel):
+class ServiceTypeDetailTypeDef(BaseValidatorModel):
     ServiceType: Optional[ServiceTypeType] = None
 
-class UserBucketDetailsTypeDef(BaseModel):
+class UserBucketDetailsTypeDef(BaseValidatorModel):
     S3Bucket: Optional[str] = None
     S3Key: Optional[str] = None
 
-class SpotCapacityRebalanceTypeDef(BaseModel):
+class SpotCapacityRebalanceTypeDef(BaseValidatorModel):
     ReplacementStrategy: Optional[ReplacementStrategyType] = None
     TerminationDelay: Optional[int] = None
 
-class SpotInstanceStateFaultTypeDef(BaseModel):
+class SpotInstanceStateFaultTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class SpotFleetMonitoringTypeDef(BaseModel):
+class SpotFleetMonitoringTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class SpotInstanceStatusTypeDef(BaseModel):
+class SpotInstanceStatusTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
     UpdateTime: Optional[datetime] = None
 
-class StartInstancesRequestInstanceStartTypeDef(BaseModel):
+class StartInstancesRequestInstanceStartTypeDef(BaseValidatorModel):
     AdditionalInfo: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class StartInstancesRequestRequestTypeDef(BaseModel):
+class StartInstancesRequestRequestTypeDef(BaseValidatorModel):
     InstanceIds: Sequence[str]
     AdditionalInfo: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class StartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef(BaseModel):
+class StartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     DryRun: Optional[bool] = None
 
-class StopInstancesRequestInstanceStopTypeDef(BaseModel):
+class StopInstancesRequestInstanceStopTypeDef(BaseValidatorModel):
     Hibernate: Optional[bool] = None
     DryRun: Optional[bool] = None
     Force: Optional[bool] = None
 
-class StopInstancesRequestRequestTypeDef(BaseModel):
+class StopInstancesRequestRequestTypeDef(BaseValidatorModel):
     InstanceIds: Sequence[str]
     Hibernate: Optional[bool] = None
     DryRun: Optional[bool] = None
     Force: Optional[bool] = None
 
-class SubnetAssociationTypeDef(BaseModel):
+class SubnetAssociationTypeDef(BaseValidatorModel):
     SubnetId: Optional[str] = None
     State: Optional[TransitGatewayMulitcastDomainAssociationStateType] = None
 
-class SubnetCidrBlockStateTypeDef(BaseModel):
+class SubnetCidrBlockStateTypeDef(BaseValidatorModel):
     State: Optional[SubnetCidrBlockStateCodeType] = None
     StatusMessage: Optional[str] = None
 
-class TargetConfigurationTypeDef(BaseModel):
+class TargetConfigurationTypeDef(BaseValidatorModel):
     InstanceCount: Optional[int] = None
     OfferingId: Optional[str] = None
 
-class TargetGroupTypeDef(BaseModel):
+class TargetGroupTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
-class TerminateClientVpnConnectionsRequestRequestTypeDef(BaseModel):
+class TerminateClientVpnConnectionsRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     ConnectionId: Optional[str] = None
     Username: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class TerminateInstancesRequestInstanceTerminateTypeDef(BaseModel):
+class TerminateInstancesRequestInstanceTerminateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class TerminateInstancesRequestRequestTypeDef(BaseModel):
+class TerminateInstancesRequestRequestTypeDef(BaseValidatorModel):
     InstanceIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class TrafficMirrorPortRangeTypeDef(BaseModel):
+class TrafficMirrorPortRangeTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
 
-class TransitGatewayAttachmentAssociationTypeDef(BaseModel):
+class TransitGatewayAttachmentAssociationTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: Optional[str] = None
     State: Optional[TransitGatewayAssociationStateType] = None
 
-class TransitGatewayAttachmentBgpConfigurationTypeDef(BaseModel):
+class TransitGatewayAttachmentBgpConfigurationTypeDef(BaseValidatorModel):
     TransitGatewayAsn: Optional[int] = None
     PeerAsn: Optional[int] = None
     TransitGatewayAddress: Optional[str] = None
     PeerAddress: Optional[str] = None
     BgpStatus: Optional[BgpStatusType] = None
 
-class TransitGatewayConnectOptionsTypeDef(BaseModel):
+class TransitGatewayConnectOptionsTypeDef(BaseValidatorModel):
     Protocol: Optional[Literal["gre"]] = None
 
-class TransitGatewayMulticastDomainOptionsTypeDef(BaseModel):
+class TransitGatewayMulticastDomainOptionsTypeDef(BaseValidatorModel):
     Igmpv2Support: Optional[Igmpv2SupportValueType] = None
     StaticSourcesSupport: Optional[StaticSourcesSupportValueType] = None
     AutoAcceptSharedAssociations: Optional[AutoAcceptSharedAssociationsValueType] = None
 
-class TransitGatewayOptionsTypeDef(BaseModel):
+class TransitGatewayOptionsTypeDef(BaseValidatorModel):
     AmazonSideAsn: Optional[int] = None
     TransitGatewayCidrBlocks: Optional[List[str]] = None
     AutoAcceptSharedAttachments: Optional[AutoAcceptSharedAttachmentsValueType] = None
@@ -3995,113 +3995,113 @@ class TransitGatewayOptionsTypeDef(BaseModel):
     SecurityGroupReferencingSupport: Optional[SecurityGroupReferencingSupportValueType] = None
     MulticastSupport: Optional[MulticastSupportValueType] = None
 
-class TransitGatewayPeeringAttachmentOptionsTypeDef(BaseModel):
+class TransitGatewayPeeringAttachmentOptionsTypeDef(BaseValidatorModel):
     DynamicRouting: Optional[DynamicRoutingValueType] = None
 
-class TransitGatewayPolicyRuleMetaDataTypeDef(BaseModel):
+class TransitGatewayPolicyRuleMetaDataTypeDef(BaseValidatorModel):
     MetaDataKey: Optional[str] = None
     MetaDataValue: Optional[str] = None
 
-class TransitGatewayPrefixListAttachmentTypeDef(BaseModel):
+class TransitGatewayPrefixListAttachmentTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     ResourceType: Optional[TransitGatewayAttachmentResourceTypeType] = None
     ResourceId: Optional[str] = None
 
-class TransitGatewayRouteAttachmentTypeDef(BaseModel):
+class TransitGatewayRouteAttachmentTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
     ResourceType: Optional[TransitGatewayAttachmentResourceTypeType] = None
 
-class TransitGatewayVpcAttachmentOptionsTypeDef(BaseModel):
+class TransitGatewayVpcAttachmentOptionsTypeDef(BaseValidatorModel):
     DnsSupport: Optional[DnsSupportValueType] = None
     SecurityGroupReferencingSupport: Optional[SecurityGroupReferencingSupportValueType] = None
     Ipv6Support: Optional[Ipv6SupportValueType] = None
     ApplianceModeSupport: Optional[ApplianceModeSupportValueType] = None
 
-class UnassignIpv6AddressesRequestRequestTypeDef(BaseModel):
+class UnassignIpv6AddressesRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     Ipv6Addresses: Optional[Sequence[str]] = None
     Ipv6Prefixes: Optional[Sequence[str]] = None
 
-class UnassignPrivateIpAddressesRequestNetworkInterfaceUnassignPrivateIpAddressesTypeDef(BaseModel):
+class UnassignPrivateIpAddressesRequestNetworkInterfaceUnassignPrivateIpAddressesTypeDef(BaseValidatorModel):
     PrivateIpAddresses: Optional[Sequence[str]] = None
     Ipv4Prefixes: Optional[Sequence[str]] = None
 
-class UnassignPrivateIpAddressesRequestRequestTypeDef(BaseModel):
+class UnassignPrivateIpAddressesRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     PrivateIpAddresses: Optional[Sequence[str]] = None
     Ipv4Prefixes: Optional[Sequence[str]] = None
 
-class UnassignPrivateNatGatewayAddressRequestRequestTypeDef(BaseModel):
+class UnassignPrivateNatGatewayAddressRequestRequestTypeDef(BaseValidatorModel):
     NatGatewayId: str
     PrivateIpAddresses: Sequence[str]
     MaxDrainDurationSeconds: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class UnlockSnapshotRequestRequestTypeDef(BaseModel):
+class UnlockSnapshotRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     DryRun: Optional[bool] = None
 
-class UnmonitorInstancesRequestInstanceUnmonitorTypeDef(BaseModel):
+class UnmonitorInstancesRequestInstanceUnmonitorTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
-class UnmonitorInstancesRequestRequestTypeDef(BaseModel):
+class UnmonitorInstancesRequestRequestTypeDef(BaseValidatorModel):
     InstanceIds: Sequence[str]
     DryRun: Optional[bool] = None
 
-class UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef(BaseModel):
+class UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef(BaseValidatorModel):
     Code: Optional[UnsuccessfulInstanceCreditSpecificationErrorCodeType] = None
     Message: Optional[str] = None
 
-class UnsuccessfulItemErrorTypeDef(BaseModel):
+class UnsuccessfulItemErrorTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class ValidationErrorTypeDef(BaseModel):
+class ValidationErrorTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class VerifiedAccessEndpointEniOptionsTypeDef(BaseModel):
+class VerifiedAccessEndpointEniOptionsTypeDef(BaseValidatorModel):
     NetworkInterfaceId: Optional[str] = None
     Protocol: Optional[VerifiedAccessEndpointProtocolType] = None
     Port: Optional[int] = None
 
-class VerifiedAccessEndpointLoadBalancerOptionsTypeDef(BaseModel):
+class VerifiedAccessEndpointLoadBalancerOptionsTypeDef(BaseValidatorModel):
     Protocol: Optional[VerifiedAccessEndpointProtocolType] = None
     Port: Optional[int] = None
     LoadBalancerArn: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
 
-class VerifiedAccessEndpointStatusTypeDef(BaseModel):
+class VerifiedAccessEndpointStatusTypeDef(BaseValidatorModel):
     Code: Optional[VerifiedAccessEndpointStatusCodeType] = None
     Message: Optional[str] = None
 
-class VerifiedAccessTrustProviderCondensedTypeDef(BaseModel):
+class VerifiedAccessTrustProviderCondensedTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProviderId: Optional[str] = None
     Description: Optional[str] = None
     TrustProviderType: Optional[TrustProviderTypeType] = None
     UserTrustProviderType: Optional[UserTrustProviderTypeType] = None
     DeviceTrustProviderType: Optional[DeviceTrustProviderTypeType] = None
 
-class VerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef(BaseModel):
+class VerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef(BaseValidatorModel):
     Enabled: bool
     LogGroup: Optional[str] = None
 
-class VerifiedAccessLogDeliveryStatusTypeDef(BaseModel):
+class VerifiedAccessLogDeliveryStatusTypeDef(BaseValidatorModel):
     Code: Optional[VerifiedAccessLogDeliveryStatusCodeType] = None
     Message: Optional[str] = None
 
-class VerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef(BaseModel):
+class VerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef(BaseValidatorModel):
     Enabled: bool
     DeliveryStream: Optional[str] = None
 
-class VerifiedAccessLogS3DestinationOptionsTypeDef(BaseModel):
+class VerifiedAccessLogS3DestinationOptionsTypeDef(BaseValidatorModel):
     Enabled: bool
     BucketName: Optional[str] = None
     Prefix: Optional[str] = None
     BucketOwner: Optional[str] = None
 
-class VgwTelemetryTypeDef(BaseModel):
+class VgwTelemetryTypeDef(BaseValidatorModel):
     AcceptedRouteCount: Optional[int] = None
     LastStatusChange: Optional[datetime] = None
     OutsideIpAddress: Optional[str] = None
@@ -4109,7 +4109,7 @@ class VgwTelemetryTypeDef(BaseModel):
     StatusMessage: Optional[str] = None
     CertificateArn: Optional[str] = None
 
-class VolumeAttachmentTypeDef(BaseModel):
+class VolumeAttachmentTypeDef(BaseValidatorModel):
     AttachTime: Optional[datetime] = None
     Device: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -4119,21 +4119,21 @@ class VolumeAttachmentTypeDef(BaseModel):
     AssociatedResource: Optional[str] = None
     InstanceOwningService: Optional[str] = None
 
-class VolumeStatusActionTypeDef(BaseModel):
+class VolumeStatusActionTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Description: Optional[str] = None
     EventId: Optional[str] = None
     EventType: Optional[str] = None
 
-class VolumeStatusAttachmentStatusTypeDef(BaseModel):
+class VolumeStatusAttachmentStatusTypeDef(BaseValidatorModel):
     IoPerformance: Optional[str] = None
     InstanceId: Optional[str] = None
 
-class VolumeStatusDetailsTypeDef(BaseModel):
+class VolumeStatusDetailsTypeDef(BaseValidatorModel):
     Name: Optional[VolumeStatusNameType] = None
     Status: Optional[str] = None
 
-class VolumeStatusEventTypeDef(BaseModel):
+class VolumeStatusEventTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     EventId: Optional[str] = None
     EventType: Optional[str] = None
@@ -4141,37 +4141,37 @@ class VolumeStatusEventTypeDef(BaseModel):
     NotBefore: Optional[datetime] = None
     InstanceId: Optional[str] = None
 
-class VpcCidrBlockStateTypeDef(BaseModel):
+class VpcCidrBlockStateTypeDef(BaseValidatorModel):
     State: Optional[VpcCidrBlockStateCodeType] = None
     StatusMessage: Optional[str] = None
 
-class VpcPeeringConnectionOptionsDescriptionTypeDef(BaseModel):
+class VpcPeeringConnectionOptionsDescriptionTypeDef(BaseValidatorModel):
     AllowDnsResolutionFromRemoteVpc: Optional[bool] = None
     AllowEgressFromLocalClassicLinkToRemoteVpc: Optional[bool] = None
     AllowEgressFromLocalVpcToRemoteClassicLink: Optional[bool] = None
 
-class VpcPeeringConnectionStateReasonTypeDef(BaseModel):
+class VpcPeeringConnectionStateReasonTypeDef(BaseValidatorModel):
     Code: Optional[VpcPeeringConnectionStateReasonCodeType] = None
     Message: Optional[str] = None
 
-class VpnStaticRouteTypeDef(BaseModel):
+class VpnStaticRouteTypeDef(BaseValidatorModel):
     DestinationCidrBlock: Optional[str] = None
     Source: Optional[Literal["Static"]] = None
     State: Optional[VpnStateType] = None
 
-class WithdrawByoipCidrRequestRequestTypeDef(BaseModel):
+class WithdrawByoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
     DryRun: Optional[bool] = None
 
-class AcceptAddressTransferResultTypeDef(BaseModel):
+class AcceptAddressTransferResultTypeDef(BaseValidatorModel):
     AddressTransfer: AddressTransferTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptReservedInstancesExchangeQuoteResultTypeDef(BaseModel):
+class AcceptReservedInstancesExchangeQuoteResultTypeDef(BaseValidatorModel):
     ExchangeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AllocateAddressResultTypeDef(BaseModel):
+class AllocateAddressResultTypeDef(BaseValidatorModel):
     PublicIp: str
     AllocationId: str
     PublicIpv4Pool: str
@@ -4182,359 +4182,359 @@ class AllocateAddressResultTypeDef(BaseModel):
     CarrierIp: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AllocateHostsResultTypeDef(BaseModel):
+class AllocateHostsResultTypeDef(BaseValidatorModel):
     HostIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef(BaseModel):
+class ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef(BaseValidatorModel):
     SecurityGroupIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssignIpv6AddressesResultTypeDef(BaseModel):
+class AssignIpv6AddressesResultTypeDef(BaseValidatorModel):
     AssignedIpv6Addresses: List[str]
     AssignedIpv6Prefixes: List[str]
     NetworkInterfaceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateAddressResultTypeDef(BaseModel):
+class AssociateAddressResultTypeDef(BaseValidatorModel):
     AssociationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateEnclaveCertificateIamRoleResultTypeDef(BaseModel):
+class AssociateEnclaveCertificateIamRoleResultTypeDef(BaseValidatorModel):
     CertificateS3BucketName: str
     CertificateS3ObjectKey: str
     EncryptionKmsKeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachClassicLinkVpcResultTypeDef(BaseModel):
+class AttachClassicLinkVpcResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachNetworkInterfaceResultTypeDef(BaseModel):
+class AttachNetworkInterfaceResultTypeDef(BaseValidatorModel):
     AttachmentId: str
     NetworkCardIndex: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelCapacityReservationResultTypeDef(BaseModel):
+class CancelCapacityReservationResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelImageLaunchPermissionResultTypeDef(BaseModel):
+class CancelImageLaunchPermissionResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelImportTaskResultTypeDef(BaseModel):
+class CancelImportTaskResultTypeDef(BaseValidatorModel):
     ImportTaskId: str
     PreviousState: str
     State: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfirmProductInstanceResultTypeDef(BaseModel):
+class ConfirmProductInstanceResultTypeDef(BaseValidatorModel):
     OwnerId: str
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CopyFpgaImageResultTypeDef(BaseModel):
+class CopyFpgaImageResultTypeDef(BaseValidatorModel):
     FpgaImageId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CopyImageResultTypeDef(BaseModel):
+class CopyImageResultTypeDef(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFpgaImageResultTypeDef(BaseModel):
+class CreateFpgaImageResultTypeDef(BaseValidatorModel):
     FpgaImageId: str
     FpgaImageGlobalId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateImageResultTypeDef(BaseModel):
+class CreateImageResultTypeDef(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePublicIpv4PoolResultTypeDef(BaseModel):
+class CreatePublicIpv4PoolResultTypeDef(BaseValidatorModel):
     PoolId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRestoreImageTaskResultTypeDef(BaseModel):
+class CreateRestoreImageTaskResultTypeDef(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRouteResultTypeDef(BaseModel):
+class CreateRouteResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStoreImageTaskResultTypeDef(BaseModel):
+class CreateStoreImageTaskResultTypeDef(BaseValidatorModel):
     ObjectKey: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteEgressOnlyInternetGatewayResultTypeDef(BaseModel):
+class DeleteEgressOnlyInternetGatewayResultTypeDef(BaseValidatorModel):
     ReturnCode: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFpgaImageResultTypeDef(BaseModel):
+class DeleteFpgaImageResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteKeyPairResultTypeDef(BaseModel):
+class DeleteKeyPairResultTypeDef(BaseValidatorModel):
     Return: bool
     KeyPairId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteNatGatewayResultTypeDef(BaseModel):
+class DeleteNatGatewayResultTypeDef(BaseValidatorModel):
     NatGatewayId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteNetworkInsightsAccessScopeAnalysisResultTypeDef(BaseModel):
+class DeleteNetworkInsightsAccessScopeAnalysisResultTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteNetworkInsightsAccessScopeResultTypeDef(BaseModel):
+class DeleteNetworkInsightsAccessScopeResultTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteNetworkInsightsAnalysisResultTypeDef(BaseModel):
+class DeleteNetworkInsightsAnalysisResultTypeDef(BaseValidatorModel):
     NetworkInsightsAnalysisId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteNetworkInsightsPathResultTypeDef(BaseModel):
+class DeleteNetworkInsightsPathResultTypeDef(BaseValidatorModel):
     NetworkInsightsPathId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteNetworkInterfacePermissionResultTypeDef(BaseModel):
+class DeleteNetworkInterfacePermissionResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletePublicIpv4PoolResultTypeDef(BaseModel):
+class DeletePublicIpv4PoolResultTypeDef(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTrafficMirrorFilterResultTypeDef(BaseModel):
+class DeleteTrafficMirrorFilterResultTypeDef(BaseValidatorModel):
     TrafficMirrorFilterId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTrafficMirrorFilterRuleResultTypeDef(BaseModel):
+class DeleteTrafficMirrorFilterRuleResultTypeDef(BaseValidatorModel):
     TrafficMirrorFilterRuleId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTrafficMirrorSessionResultTypeDef(BaseModel):
+class DeleteTrafficMirrorSessionResultTypeDef(BaseValidatorModel):
     TrafficMirrorSessionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTrafficMirrorTargetResultTypeDef(BaseModel):
+class DeleteTrafficMirrorTargetResultTypeDef(BaseValidatorModel):
     TrafficMirrorTargetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVpcPeeringConnectionResultTypeDef(BaseModel):
+class DeleteVpcPeeringConnectionResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeprovisionPublicIpv4PoolCidrResultTypeDef(BaseModel):
+class DeprovisionPublicIpv4PoolCidrResultTypeDef(BaseValidatorModel):
     PoolId: str
     DeprovisionedAddresses: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAddressTransfersResultTypeDef(BaseModel):
+class DescribeAddressTransfersResultTypeDef(BaseValidatorModel):
     AddressTransfers: List[AddressTransferTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DetachClassicLinkVpcResultTypeDef(BaseModel):
+class DetachClassicLinkVpcResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableAddressTransferResultTypeDef(BaseModel):
+class DisableAddressTransferResultTypeDef(BaseValidatorModel):
     AddressTransfer: AddressTransferTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableAwsNetworkPerformanceMetricSubscriptionResultTypeDef(BaseModel):
+class DisableAwsNetworkPerformanceMetricSubscriptionResultTypeDef(BaseValidatorModel):
     Output: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableEbsEncryptionByDefaultResultTypeDef(BaseModel):
+class DisableEbsEncryptionByDefaultResultTypeDef(BaseValidatorModel):
     EbsEncryptionByDefault: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableImageBlockPublicAccessResultTypeDef(BaseModel):
+class DisableImageBlockPublicAccessResultTypeDef(BaseValidatorModel):
     ImageBlockPublicAccessState: Literal["unblocked"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableImageDeprecationResultTypeDef(BaseModel):
+class DisableImageDeprecationResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableImageDeregistrationProtectionResultTypeDef(BaseModel):
+class DisableImageDeregistrationProtectionResultTypeDef(BaseValidatorModel):
     Return: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableImageResultTypeDef(BaseModel):
+class DisableImageResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableIpamOrganizationAdminAccountResultTypeDef(BaseModel):
+class DisableIpamOrganizationAdminAccountResultTypeDef(BaseValidatorModel):
     Success: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableSerialConsoleAccessResultTypeDef(BaseModel):
+class DisableSerialConsoleAccessResultTypeDef(BaseValidatorModel):
     SerialConsoleAccessEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableSnapshotBlockPublicAccessResultTypeDef(BaseModel):
+class DisableSnapshotBlockPublicAccessResultTypeDef(BaseValidatorModel):
     State: SnapshotBlockPublicAccessStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableVpcClassicLinkDnsSupportResultTypeDef(BaseModel):
+class DisableVpcClassicLinkDnsSupportResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableVpcClassicLinkResultTypeDef(BaseModel):
+class DisableVpcClassicLinkResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateEnclaveCertificateIamRoleResultTypeDef(BaseModel):
+class DisassociateEnclaveCertificateIamRoleResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateTrunkInterfaceResultTypeDef(BaseModel):
+class DisassociateTrunkInterfaceResultTypeDef(BaseValidatorModel):
     Return: bool
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableAddressTransferResultTypeDef(BaseModel):
+class EnableAddressTransferResultTypeDef(BaseValidatorModel):
     AddressTransfer: AddressTransferTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableAwsNetworkPerformanceMetricSubscriptionResultTypeDef(BaseModel):
+class EnableAwsNetworkPerformanceMetricSubscriptionResultTypeDef(BaseValidatorModel):
     Output: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableEbsEncryptionByDefaultResultTypeDef(BaseModel):
+class EnableEbsEncryptionByDefaultResultTypeDef(BaseValidatorModel):
     EbsEncryptionByDefault: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableImageBlockPublicAccessResultTypeDef(BaseModel):
+class EnableImageBlockPublicAccessResultTypeDef(BaseValidatorModel):
     ImageBlockPublicAccessState: Literal["block-new-sharing"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableImageDeprecationResultTypeDef(BaseModel):
+class EnableImageDeprecationResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableImageDeregistrationProtectionResultTypeDef(BaseModel):
+class EnableImageDeregistrationProtectionResultTypeDef(BaseValidatorModel):
     Return: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableImageResultTypeDef(BaseModel):
+class EnableImageResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableIpamOrganizationAdminAccountResultTypeDef(BaseModel):
+class EnableIpamOrganizationAdminAccountResultTypeDef(BaseValidatorModel):
     Success: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableReachabilityAnalyzerOrganizationSharingResultTypeDef(BaseModel):
+class EnableReachabilityAnalyzerOrganizationSharingResultTypeDef(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableSerialConsoleAccessResultTypeDef(BaseModel):
+class EnableSerialConsoleAccessResultTypeDef(BaseValidatorModel):
     SerialConsoleAccessEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableSnapshotBlockPublicAccessResultTypeDef(BaseModel):
+class EnableSnapshotBlockPublicAccessResultTypeDef(BaseValidatorModel):
     State: SnapshotBlockPublicAccessStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableVpcClassicLinkDnsSupportResultTypeDef(BaseModel):
+class EnableVpcClassicLinkDnsSupportResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableVpcClassicLinkResultTypeDef(BaseModel):
+class EnableVpcClassicLinkResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportClientVpnClientConfigurationResultTypeDef(BaseModel):
+class ExportClientVpnClientConfigurationResultTypeDef(BaseValidatorModel):
     ClientConfiguration: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportTransitGatewayRoutesResultTypeDef(BaseModel):
+class ExportTransitGatewayRoutesResultTypeDef(BaseValidatorModel):
     S3Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetConsoleOutputResultTypeDef(BaseModel):
+class GetConsoleOutputResultTypeDef(BaseValidatorModel):
     InstanceId: str
     Output: str
     Timestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetConsoleScreenshotResultTypeDef(BaseModel):
+class GetConsoleScreenshotResultTypeDef(BaseValidatorModel):
     ImageData: str
     InstanceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEbsDefaultKmsKeyIdResultTypeDef(BaseModel):
+class GetEbsDefaultKmsKeyIdResultTypeDef(BaseValidatorModel):
     KmsKeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEbsEncryptionByDefaultResultTypeDef(BaseModel):
+class GetEbsEncryptionByDefaultResultTypeDef(BaseValidatorModel):
     EbsEncryptionByDefault: bool
     SseType: SSETypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFlowLogsIntegrationTemplateResultTypeDef(BaseModel):
+class GetFlowLogsIntegrationTemplateResultTypeDef(BaseValidatorModel):
     Result: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImageBlockPublicAccessStateResultTypeDef(BaseModel):
+class GetImageBlockPublicAccessStateResultTypeDef(BaseValidatorModel):
     ImageBlockPublicAccessState: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceTpmEkPubResultTypeDef(BaseModel):
+class GetInstanceTpmEkPubResultTypeDef(BaseValidatorModel):
     InstanceId: str
     KeyType: EkPubKeyTypeType
     KeyFormat: EkPubKeyFormatType
     KeyValue: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceUefiDataResultTypeDef(BaseModel):
+class GetInstanceUefiDataResultTypeDef(BaseValidatorModel):
     InstanceId: str
     UefiData: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPasswordDataResultTypeDef(BaseModel):
+class GetPasswordDataResultTypeDef(BaseValidatorModel):
     InstanceId: str
     PasswordData: str
     Timestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSerialConsoleAccessStatusResultTypeDef(BaseModel):
+class GetSerialConsoleAccessStatusResultTypeDef(BaseValidatorModel):
     SerialConsoleAccessEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSnapshotBlockPublicAccessStateResultTypeDef(BaseModel):
+class GetSnapshotBlockPublicAccessStateResultTypeDef(BaseValidatorModel):
     State: SnapshotBlockPublicAccessStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVerifiedAccessEndpointPolicyResultTypeDef(BaseModel):
+class GetVerifiedAccessEndpointPolicyResultTypeDef(BaseValidatorModel):
     PolicyEnabled: bool
     PolicyDocument: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVerifiedAccessGroupPolicyResultTypeDef(BaseModel):
+class GetVerifiedAccessGroupPolicyResultTypeDef(BaseValidatorModel):
     PolicyEnabled: bool
     PolicyDocument: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVpnConnectionDeviceSampleConfigurationResultTypeDef(BaseModel):
+class GetVpnConnectionDeviceSampleConfigurationResultTypeDef(BaseValidatorModel):
     VpnConnectionDeviceSampleConfiguration: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportClientVpnClientCertificateRevocationListResultTypeDef(BaseModel):
+class ImportClientVpnClientCertificateRevocationListResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LockSnapshotResultTypeDef(BaseModel):
+class LockSnapshotResultTypeDef(BaseValidatorModel):
     SnapshotId: str
     LockState: LockStateType
     LockDuration: int
@@ -4545,139 +4545,139 @@ class LockSnapshotResultTypeDef(BaseModel):
     LockDurationStartTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyAvailabilityZoneGroupResultTypeDef(BaseModel):
+class ModifyAvailabilityZoneGroupResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyCapacityReservationFleetResultTypeDef(BaseModel):
+class ModifyCapacityReservationFleetResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyCapacityReservationResultTypeDef(BaseModel):
+class ModifyCapacityReservationResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyClientVpnEndpointResultTypeDef(BaseModel):
+class ModifyClientVpnEndpointResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyEbsDefaultKmsKeyIdResultTypeDef(BaseModel):
+class ModifyEbsDefaultKmsKeyIdResultTypeDef(BaseValidatorModel):
     KmsKeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyFleetResultTypeDef(BaseModel):
+class ModifyFleetResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyInstanceCapacityReservationAttributesResultTypeDef(BaseModel):
+class ModifyInstanceCapacityReservationAttributesResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyInstanceMaintenanceOptionsResultTypeDef(BaseModel):
+class ModifyInstanceMaintenanceOptionsResultTypeDef(BaseValidatorModel):
     InstanceId: str
     AutoRecovery: InstanceAutoRecoveryStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyInstanceMetadataDefaultsResultTypeDef(BaseModel):
+class ModifyInstanceMetadataDefaultsResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyInstancePlacementResultTypeDef(BaseModel):
+class ModifyInstancePlacementResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyPrivateDnsNameOptionsResultTypeDef(BaseModel):
+class ModifyPrivateDnsNameOptionsResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyReservedInstancesResultTypeDef(BaseModel):
+class ModifyReservedInstancesResultTypeDef(BaseValidatorModel):
     ReservedInstancesModificationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifySecurityGroupRulesResultTypeDef(BaseModel):
+class ModifySecurityGroupRulesResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifySnapshotTierResultTypeDef(BaseModel):
+class ModifySnapshotTierResultTypeDef(BaseValidatorModel):
     SnapshotId: str
     TieringStartTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifySpotFleetRequestResponseTypeDef(BaseModel):
+class ModifySpotFleetRequestResponseTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVpcEndpointConnectionNotificationResultTypeDef(BaseModel):
+class ModifyVpcEndpointConnectionNotificationResultTypeDef(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVpcEndpointResultTypeDef(BaseModel):
+class ModifyVpcEndpointResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVpcEndpointServiceConfigurationResultTypeDef(BaseModel):
+class ModifyVpcEndpointServiceConfigurationResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVpcEndpointServicePayerResponsibilityResultTypeDef(BaseModel):
+class ModifyVpcEndpointServicePayerResponsibilityResultTypeDef(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVpcTenancyResultTypeDef(BaseModel):
+class ModifyVpcTenancyResultTypeDef(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MoveAddressToVpcResultTypeDef(BaseModel):
+class MoveAddressToVpcResultTypeDef(BaseValidatorModel):
     AllocationId: str
     Status: StatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PurchaseReservedInstancesOfferingResultTypeDef(BaseModel):
+class PurchaseReservedInstancesOfferingResultTypeDef(BaseValidatorModel):
     ReservedInstancesId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterImageResultTypeDef(BaseModel):
+class RegisterImageResultTypeDef(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RejectVpcPeeringConnectionResultTypeDef(BaseModel):
+class RejectVpcPeeringConnectionResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReleaseIpamPoolAllocationResultTypeDef(BaseModel):
+class ReleaseIpamPoolAllocationResultTypeDef(BaseValidatorModel):
     Success: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplaceNetworkAclAssociationResultTypeDef(BaseModel):
+class ReplaceNetworkAclAssociationResultTypeDef(BaseValidatorModel):
     NewAssociationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplaceVpnTunnelResultTypeDef(BaseModel):
+class ReplaceVpnTunnelResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RequestSpotFleetResponseTypeDef(BaseModel):
+class RequestSpotFleetResponseTypeDef(BaseValidatorModel):
     SpotFleetRequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetEbsDefaultKmsKeyIdResultTypeDef(BaseModel):
+class ResetEbsDefaultKmsKeyIdResultTypeDef(BaseValidatorModel):
     KmsKeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetFpgaImageAttributeResultTypeDef(BaseModel):
+class ResetFpgaImageAttributeResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreAddressToClassicResultTypeDef(BaseModel):
+class RestoreAddressToClassicResultTypeDef(BaseValidatorModel):
     PublicIp: str
     Status: StatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreImageFromRecycleBinResultTypeDef(BaseModel):
+class RestoreImageFromRecycleBinResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreSnapshotFromRecycleBinResultTypeDef(BaseModel):
+class RestoreSnapshotFromRecycleBinResultTypeDef(BaseValidatorModel):
     SnapshotId: str
     OutpostArn: str
     Description: str
@@ -4691,40 +4691,40 @@ class RestoreSnapshotFromRecycleBinResultTypeDef(BaseModel):
     SseType: SSETypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreSnapshotTierResultTypeDef(BaseModel):
+class RestoreSnapshotTierResultTypeDef(BaseValidatorModel):
     SnapshotId: str
     RestoreStartTime: datetime
     RestoreDuration: int
     IsPermanentRestore: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RunScheduledInstancesResultTypeDef(BaseModel):
+class RunScheduledInstancesResultTypeDef(BaseValidatorModel):
     InstanceIdSet: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartVpcEndpointServicePrivateDnsVerificationResultTypeDef(BaseModel):
+class StartVpcEndpointServicePrivateDnsVerificationResultTypeDef(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UnassignIpv6AddressesResultTypeDef(BaseModel):
+class UnassignIpv6AddressesResultTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     UnassignedIpv6Addresses: List[str]
     UnassignedIpv6Prefixes: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UnlockSnapshotResultTypeDef(BaseModel):
+class UnlockSnapshotResultTypeDef(BaseValidatorModel):
     SnapshotId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef(BaseModel):
+class UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef(BaseModel):
+class UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VolumeAttachmentResponseTypeDef(BaseModel):
+class VolumeAttachmentResponseTypeDef(BaseValidatorModel):
     AttachTime: datetime
     Device: str
     InstanceId: str
@@ -4735,54 +4735,54 @@ class VolumeAttachmentResponseTypeDef(BaseModel):
     InstanceOwningService: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef(BaseModel):
+class AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef(BaseValidatorModel):
     ReservedInstanceIds: Sequence[str]
     DryRun: Optional[bool] = None
     TargetConfigurations: Optional[Sequence[TargetConfigurationRequestTypeDef]] = None
 
-class GetReservedInstancesExchangeQuoteRequestRequestTypeDef(BaseModel):
+class GetReservedInstancesExchangeQuoteRequestRequestTypeDef(BaseValidatorModel):
     ReservedInstanceIds: Sequence[str]
     DryRun: Optional[bool] = None
     TargetConfigurations: Optional[Sequence[TargetConfigurationRequestTypeDef]] = None
 
-class AccountAttributeTypeDef(BaseModel):
+class AccountAttributeTypeDef(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeValues: Optional[List[AccountAttributeValueTypeDef]] = None
 
-class DescribeFleetInstancesResultTypeDef(BaseModel):
+class DescribeFleetInstancesResultTypeDef(BaseValidatorModel):
     ActiveInstances: List[ActiveInstanceTypeDef]
     FleetId: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeSpotFleetInstancesResponseTypeDef(BaseModel):
+class DescribeSpotFleetInstancesResponseTypeDef(BaseValidatorModel):
     ActiveInstances: List[ActiveInstanceTypeDef]
     SpotFleetRequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyVpcEndpointServicePermissionsResultTypeDef(BaseModel):
+class ModifyVpcEndpointServicePermissionsResultTypeDef(BaseValidatorModel):
     AddedPrincipals: List[AddedPrincipalTypeDef]
     ReturnValue: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AnalysisLoadBalancerTargetTypeDef(BaseModel):
+class AnalysisLoadBalancerTargetTypeDef(BaseValidatorModel):
     Address: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     Instance: Optional[AnalysisComponentTypeDef] = None
     Port: Optional[int] = None
 
-class RuleGroupRuleOptionsPairTypeDef(BaseModel):
+class RuleGroupRuleOptionsPairTypeDef(BaseValidatorModel):
     RuleGroupArn: Optional[str] = None
     RuleOptions: Optional[List[RuleOptionTypeDef]] = None
 
-class AddressAttributeTypeDef(BaseModel):
+class AddressAttributeTypeDef(BaseValidatorModel):
     PublicIp: Optional[str] = None
     AllocationId: Optional[str] = None
     PtrRecord: Optional[str] = None
     PtrRecordUpdate: Optional[PtrUpdateStatusTypeDef] = None
 
-class AddressTypeDef(BaseModel):
+class AddressTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     PublicIp: Optional[str] = None
     AllocationId: Optional[str] = None
@@ -4798,53 +4798,53 @@ class AddressTypeDef(BaseModel):
     CustomerOwnedIpv4Pool: Optional[str] = None
     CarrierIp: Optional[str] = None
 
-class AllowedPrincipalTypeDef(BaseModel):
+class AllowedPrincipalTypeDef(BaseValidatorModel):
     PrincipalType: Optional[PrincipalTypeType] = None
     Principal: Optional[str] = None
     ServicePermissionId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     ServiceId: Optional[str] = None
 
-class CarrierGatewayTypeDef(BaseModel):
+class CarrierGatewayTypeDef(BaseValidatorModel):
     CarrierGatewayId: Optional[str] = None
     VpcId: Optional[str] = None
     State: Optional[CarrierGatewayStateType] = None
     OwnerId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ClientCreateTagsRequestTypeDef(BaseModel):
+class ClientCreateTagsRequestTypeDef(BaseValidatorModel):
     Resources: Sequence[str]
     Tags: Sequence[TagTypeDef]
     DryRun: Optional[bool] = None
 
-class ClientDeleteTagsRequestTypeDef(BaseModel):
+class ClientDeleteTagsRequestTypeDef(BaseValidatorModel):
     Resources: Sequence[str]
     Tags: Optional[Sequence[TagTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CoipPoolTypeDef(BaseModel):
+class CoipPoolTypeDef(BaseValidatorModel):
     PoolId: Optional[str] = None
     PoolCidrs: Optional[List[str]] = None
     LocalGatewayRouteTableId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     PoolArn: Optional[str] = None
 
-class CopySnapshotResultTypeDef(BaseModel):
+class CopySnapshotResultTypeDef(BaseValidatorModel):
     SnapshotId: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSecurityGroupResultTypeDef(BaseModel):
+class CreateSecurityGroupResultTypeDef(BaseValidatorModel):
     GroupId: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTagsRequestServiceResourceCreateTagsTypeDef(BaseModel):
+class CreateTagsRequestServiceResourceCreateTagsTypeDef(BaseValidatorModel):
     Resources: Sequence[str]
     Tags: Sequence[TagTypeDef]
     DryRun: Optional[bool] = None
 
-class CustomerGatewayTypeDef(BaseModel):
+class CustomerGatewayTypeDef(BaseValidatorModel):
     BgpAsn: Optional[str] = None
     CustomerGatewayId: Optional[str] = None
     IpAddress: Optional[str] = None
@@ -4855,7 +4855,7 @@ class CustomerGatewayTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     BgpAsnExtended: Optional[str] = None
 
-class Ec2InstanceConnectEndpointTypeDef(BaseModel):
+class Ec2InstanceConnectEndpointTypeDef(BaseValidatorModel):
     OwnerId: Optional[str] = None
     InstanceConnectEndpointId: Optional[str] = None
     InstanceConnectEndpointArn: Optional[str] = None
@@ -4872,7 +4872,7 @@ class Ec2InstanceConnectEndpointTypeDef(BaseModel):
     SecurityGroupIds: Optional[List[str]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class HostReservationTypeDef(BaseModel):
+class HostReservationTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     CurrencyCode: Optional[Literal["USD"]] = None
     Duration: Optional[int] = None
@@ -4888,37 +4888,37 @@ class HostReservationTypeDef(BaseModel):
     UpfrontPrice: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ImportKeyPairResultTypeDef(BaseModel):
+class ImportKeyPairResultTypeDef(BaseValidatorModel):
     KeyFingerprint: str
     KeyName: str
     KeyPairId: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InstanceCreateTagsRequestTypeDef(BaseModel):
+class InstanceCreateTagsRequestTypeDef(BaseValidatorModel):
     Tags: Sequence[TagTypeDef]
     DryRun: Optional[bool] = None
 
-class InstanceDeleteTagsRequestTypeDef(BaseModel):
+class InstanceDeleteTagsRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class InstanceEventWindowAssociationRequestTypeDef(BaseModel):
+class InstanceEventWindowAssociationRequestTypeDef(BaseValidatorModel):
     InstanceIds: Optional[Sequence[str]] = None
     InstanceTags: Optional[Sequence[TagTypeDef]] = None
     DedicatedHostIds: Optional[Sequence[str]] = None
 
-class InstanceEventWindowAssociationTargetTypeDef(BaseModel):
+class InstanceEventWindowAssociationTargetTypeDef(BaseValidatorModel):
     InstanceIds: Optional[List[str]] = None
     Tags: Optional[List[TagTypeDef]] = None
     DedicatedHostIds: Optional[List[str]] = None
 
-class InstanceEventWindowDisassociationRequestTypeDef(BaseModel):
+class InstanceEventWindowDisassociationRequestTypeDef(BaseValidatorModel):
     InstanceIds: Optional[Sequence[str]] = None
     InstanceTags: Optional[Sequence[TagTypeDef]] = None
     DedicatedHostIds: Optional[Sequence[str]] = None
 
-class IpamResourceDiscoveryAssociationTypeDef(BaseModel):
+class IpamResourceDiscoveryAssociationTypeDef(BaseValidatorModel):
     OwnerId: Optional[str] = None
     IpamResourceDiscoveryAssociationId: Optional[str] = None
     IpamResourceDiscoveryAssociationArn: Optional[str] = None
@@ -4931,7 +4931,7 @@ class IpamResourceDiscoveryAssociationTypeDef(BaseModel):
     State: Optional[IpamResourceDiscoveryAssociationStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class IpamScopeTypeDef(BaseModel):
+class IpamScopeTypeDef(BaseValidatorModel):
     OwnerId: Optional[str] = None
     IpamScopeId: Optional[str] = None
     IpamScopeArn: Optional[str] = None
@@ -4944,7 +4944,7 @@ class IpamScopeTypeDef(BaseModel):
     State: Optional[IpamScopeStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class KeyPairInfoTypeDef(BaseModel):
+class KeyPairInfoTypeDef(BaseValidatorModel):
     KeyPairId: Optional[str] = None
     KeyFingerprint: Optional[str] = None
     KeyName: Optional[str] = None
@@ -4953,7 +4953,7 @@ class KeyPairInfoTypeDef(BaseModel):
     PublicKey: Optional[str] = None
     CreateTime: Optional[datetime] = None
 
-class KeyPairTypeDef(BaseModel):
+class KeyPairTypeDef(BaseValidatorModel):
     KeyFingerprint: str
     KeyMaterial: str
     KeyName: str
@@ -4961,15 +4961,15 @@ class KeyPairTypeDef(BaseModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LaunchTemplateTagSpecificationRequestTypeDef(BaseModel):
+class LaunchTemplateTagSpecificationRequestTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class LaunchTemplateTagSpecificationTypeDef(BaseModel):
+class LaunchTemplateTagSpecificationTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class LaunchTemplateTypeDef(BaseModel):
+class LaunchTemplateTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     CreateTime: Optional[datetime] = None
@@ -4978,7 +4978,7 @@ class LaunchTemplateTypeDef(BaseModel):
     LatestVersionNumber: Optional[int] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef(BaseModel):
+class LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: Optional[str] = None
     LocalGatewayVirtualInterfaceGroupId: Optional[str] = None
     LocalGatewayId: Optional[str] = None
@@ -4988,7 +4988,7 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef(BaseModel):
     State: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class LocalGatewayRouteTableVpcAssociationTypeDef(BaseModel):
+class LocalGatewayRouteTableVpcAssociationTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociationId: Optional[str] = None
     LocalGatewayRouteTableId: Optional[str] = None
     LocalGatewayRouteTableArn: Optional[str] = None
@@ -4998,21 +4998,21 @@ class LocalGatewayRouteTableVpcAssociationTypeDef(BaseModel):
     State: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class LocalGatewayTypeDef(BaseModel):
+class LocalGatewayTypeDef(BaseValidatorModel):
     LocalGatewayId: Optional[str] = None
     OutpostArn: Optional[str] = None
     OwnerId: Optional[str] = None
     State: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class LocalGatewayVirtualInterfaceGroupTypeDef(BaseModel):
+class LocalGatewayVirtualInterfaceGroupTypeDef(BaseValidatorModel):
     LocalGatewayVirtualInterfaceGroupId: Optional[str] = None
     LocalGatewayVirtualInterfaceIds: Optional[List[str]] = None
     LocalGatewayId: Optional[str] = None
     OwnerId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class LocalGatewayVirtualInterfaceTypeDef(BaseModel):
+class LocalGatewayVirtualInterfaceTypeDef(BaseValidatorModel):
     LocalGatewayVirtualInterfaceId: Optional[str] = None
     LocalGatewayId: Optional[str] = None
     Vlan: Optional[int] = None
@@ -5023,7 +5023,7 @@ class LocalGatewayVirtualInterfaceTypeDef(BaseModel):
     OwnerId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ManagedPrefixListTypeDef(BaseModel):
+class ManagedPrefixListTypeDef(BaseValidatorModel):
     PrefixListId: Optional[str] = None
     AddressFamily: Optional[str] = None
     State: Optional[PrefixListStateType] = None
@@ -5035,7 +5035,7 @@ class ManagedPrefixListTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     OwnerId: Optional[str] = None
 
-class NetworkInsightsAccessScopeAnalysisTypeDef(BaseModel):
+class NetworkInsightsAccessScopeAnalysisTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: Optional[str] = None
     NetworkInsightsAccessScopeAnalysisArn: Optional[str] = None
     NetworkInsightsAccessScopeId: Optional[str] = None
@@ -5048,14 +5048,14 @@ class NetworkInsightsAccessScopeAnalysisTypeDef(BaseModel):
     AnalyzedEniCount: Optional[int] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class NetworkInsightsAccessScopeTypeDef(BaseModel):
+class NetworkInsightsAccessScopeTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeId: Optional[str] = None
     NetworkInsightsAccessScopeArn: Optional[str] = None
     CreatedDate: Optional[datetime] = None
     UpdatedDate: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class PlacementGroupTypeDef(BaseModel):
+class PlacementGroupTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     State: Optional[PlacementGroupStateType] = None
     Strategy: Optional[PlacementStrategyType] = None
@@ -5065,7 +5065,7 @@ class PlacementGroupTypeDef(BaseModel):
     GroupArn: Optional[str] = None
     SpreadLevel: Optional[SpreadLevelType] = None
 
-class ReplaceRootVolumeTaskTypeDef(BaseModel):
+class ReplaceRootVolumeTaskTypeDef(BaseValidatorModel):
     ReplaceRootVolumeTaskId: Optional[str] = None
     InstanceId: Optional[str] = None
     TaskState: Optional[ReplaceRootVolumeTaskStateType] = None
@@ -5076,7 +5076,7 @@ class ReplaceRootVolumeTaskTypeDef(BaseModel):
     SnapshotId: Optional[str] = None
     DeleteReplacedRootVolume: Optional[bool] = None
 
-class SecurityGroupForVpcTypeDef(BaseModel):
+class SecurityGroupForVpcTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     GroupName: Optional[str] = None
     OwnerId: Optional[str] = None
@@ -5084,7 +5084,7 @@ class SecurityGroupForVpcTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     PrimaryVpcId: Optional[str] = None
 
-class SnapshotInfoTypeDef(BaseModel):
+class SnapshotInfoTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     Encrypted: Optional[bool] = None
@@ -5098,7 +5098,7 @@ class SnapshotInfoTypeDef(BaseModel):
     OutpostArn: Optional[str] = None
     SseType: Optional[SSETypeType] = None
 
-class SnapshotResponseTypeDef(BaseModel):
+class SnapshotResponseTypeDef(BaseValidatorModel):
     DataEncryptionKeyId: str
     Description: str
     Encrypted: bool
@@ -5119,7 +5119,7 @@ class SnapshotResponseTypeDef(BaseModel):
     SseType: SSETypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SnapshotTierStatusTypeDef(BaseModel):
+class SnapshotTierStatusTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     VolumeId: Optional[str] = None
     Status: Optional[SnapshotStateType] = None
@@ -5133,7 +5133,7 @@ class SnapshotTierStatusTypeDef(BaseModel):
     ArchivalCompleteTime: Optional[datetime] = None
     RestoreExpiryTime: Optional[datetime] = None
 
-class SnapshotTypeDef(BaseModel):
+class SnapshotTypeDef(BaseValidatorModel):
     DataEncryptionKeyId: Optional[str] = None
     Description: Optional[str] = None
     Encrypted: Optional[bool] = None
@@ -5153,19 +5153,19 @@ class SnapshotTypeDef(BaseModel):
     RestoreExpiryTime: Optional[datetime] = None
     SseType: Optional[SSETypeType] = None
 
-class SpotFleetTagSpecificationExtraOutputTypeDef(BaseModel):
+class SpotFleetTagSpecificationExtraOutputTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class SpotFleetTagSpecificationOutputTypeDef(BaseModel):
+class SpotFleetTagSpecificationOutputTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class SpotFleetTagSpecificationTypeDef(BaseModel):
+class SpotFleetTagSpecificationTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class SubnetCidrReservationTypeDef(BaseModel):
+class SubnetCidrReservationTypeDef(BaseValidatorModel):
     SubnetCidrReservationId: Optional[str] = None
     SubnetId: Optional[str] = None
     Cidr: Optional[str] = None
@@ -5174,19 +5174,19 @@ class SubnetCidrReservationTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TagSpecificationExtraOutputTypeDef(BaseModel):
+class TagSpecificationExtraOutputTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TagSpecificationOutputTypeDef(BaseModel):
+class TagSpecificationOutputTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TagSpecificationTypeDef(BaseModel):
+class TagSpecificationTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TrafficMirrorSessionTypeDef(BaseModel):
+class TrafficMirrorSessionTypeDef(BaseValidatorModel):
     TrafficMirrorSessionId: Optional[str] = None
     TrafficMirrorTargetId: Optional[str] = None
     TrafficMirrorFilterId: Optional[str] = None
@@ -5198,7 +5198,7 @@ class TrafficMirrorSessionTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TrafficMirrorTargetTypeDef(BaseModel):
+class TrafficMirrorTargetTypeDef(BaseValidatorModel):
     TrafficMirrorTargetId: Optional[str] = None
     NetworkInterfaceId: Optional[str] = None
     NetworkLoadBalancerArn: Optional[str] = None
@@ -5208,14 +5208,14 @@ class TrafficMirrorTargetTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     GatewayLoadBalancerEndpointId: Optional[str] = None
 
-class TransitGatewayPolicyTableTypeDef(BaseModel):
+class TransitGatewayPolicyTableTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableId: Optional[str] = None
     TransitGatewayId: Optional[str] = None
     State: Optional[TransitGatewayPolicyTableStateType] = None
     CreationTime: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TransitGatewayRouteTableAnnouncementTypeDef(BaseModel):
+class TransitGatewayRouteTableAnnouncementTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncementId: Optional[str] = None
     TransitGatewayId: Optional[str] = None
     CoreNetworkId: Optional[str] = None
@@ -5228,7 +5228,7 @@ class TransitGatewayRouteTableAnnouncementTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TransitGatewayRouteTableTypeDef(BaseModel):
+class TransitGatewayRouteTableTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: Optional[str] = None
     TransitGatewayId: Optional[str] = None
     State: Optional[TransitGatewayRouteTableStateType] = None
@@ -5237,7 +5237,7 @@ class TransitGatewayRouteTableTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TrunkInterfaceAssociationTypeDef(BaseModel):
+class TrunkInterfaceAssociationTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     BranchInterfaceId: Optional[str] = None
     TrunkInterfaceId: Optional[str] = None
@@ -5246,25 +5246,25 @@ class TrunkInterfaceAssociationTypeDef(BaseModel):
     GreKey: Optional[int] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class VpcClassicLinkTypeDef(BaseModel):
+class VpcClassicLinkTypeDef(BaseValidatorModel):
     ClassicLinkEnabled: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
     VpcId: Optional[str] = None
 
-class VpcCreateTagsRequestTypeDef(BaseModel):
+class VpcCreateTagsRequestTypeDef(BaseValidatorModel):
     Tags: Sequence[TagTypeDef]
     DryRun: Optional[bool] = None
 
-class AllocateIpamPoolCidrResultTypeDef(BaseModel):
+class AllocateIpamPoolCidrResultTypeDef(BaseValidatorModel):
     IpamPoolAllocation: IpamPoolAllocationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIpamPoolAllocationsResultTypeDef(BaseModel):
+class GetIpamPoolAllocationsResultTypeDef(BaseValidatorModel):
     IpamPoolAllocations: List[IpamPoolAllocationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AnalysisAclRuleTypeDef(BaseModel):
+class AnalysisAclRuleTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
     Egress: Optional[bool] = None
     PortRange: Optional[PortRangeTypeDef] = None
@@ -5272,14 +5272,14 @@ class AnalysisAclRuleTypeDef(BaseModel):
     RuleAction: Optional[str] = None
     RuleNumber: Optional[int] = None
 
-class AnalysisPacketHeaderTypeDef(BaseModel):
+class AnalysisPacketHeaderTypeDef(BaseValidatorModel):
     DestinationAddresses: Optional[List[str]] = None
     DestinationPortRanges: Optional[List[PortRangeTypeDef]] = None
     Protocol: Optional[str] = None
     SourceAddresses: Optional[List[str]] = None
     SourcePortRanges: Optional[List[PortRangeTypeDef]] = None
 
-class AnalysisSecurityGroupRuleTypeDef(BaseModel):
+class AnalysisSecurityGroupRuleTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
     Direction: Optional[str] = None
     SecurityGroupId: Optional[str] = None
@@ -5287,7 +5287,7 @@ class AnalysisSecurityGroupRuleTypeDef(BaseModel):
     PrefixListId: Optional[str] = None
     Protocol: Optional[str] = None
 
-class FirewallStatefulRuleTypeDef(BaseModel):
+class FirewallStatefulRuleTypeDef(BaseValidatorModel):
     RuleGroupArn: Optional[str] = None
     Sources: Optional[List[str]] = None
     Destinations: Optional[List[str]] = None
@@ -5297,7 +5297,7 @@ class FirewallStatefulRuleTypeDef(BaseModel):
     RuleAction: Optional[str] = None
     Direction: Optional[str] = None
 
-class FirewallStatelessRuleTypeDef(BaseModel):
+class FirewallStatelessRuleTypeDef(BaseValidatorModel):
     RuleGroupArn: Optional[str] = None
     Sources: Optional[List[str]] = None
     Destinations: Optional[List[str]] = None
@@ -5307,11 +5307,11 @@ class FirewallStatelessRuleTypeDef(BaseModel):
     RuleAction: Optional[str] = None
     Priority: Optional[int] = None
 
-class AssociateIpamByoasnResultTypeDef(BaseModel):
+class AssociateIpamByoasnResultTypeDef(BaseValidatorModel):
     AsnAssociation: AsnAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ByoipCidrTypeDef(BaseModel):
+class ByoipCidrTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
     Description: Optional[str] = None
     AsnAssociations: Optional[List[AsnAssociationTypeDef]] = None
@@ -5319,53 +5319,53 @@ class ByoipCidrTypeDef(BaseModel):
     State: Optional[ByoipCidrStateType] = None
     NetworkBorderGroup: Optional[str] = None
 
-class DisassociateIpamByoasnResultTypeDef(BaseModel):
+class DisassociateIpamByoasnResultTypeDef(BaseValidatorModel):
     AsnAssociation: AsnAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProvisionIpamByoasnRequestRequestTypeDef(BaseModel):
+class ProvisionIpamByoasnRequestRequestTypeDef(BaseValidatorModel):
     IpamId: str
     Asn: str
     AsnAuthorizationContext: AsnAuthorizationContextTypeDef
     DryRun: Optional[bool] = None
 
-class AssignPrivateIpAddressesResultTypeDef(BaseModel):
+class AssignPrivateIpAddressesResultTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     AssignedPrivateIpAddresses: List[AssignedPrivateIpAddressTypeDef]
     AssignedIpv4Prefixes: List[Ipv4PrefixSpecificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssignPrivateNatGatewayAddressResultTypeDef(BaseModel):
+class AssignPrivateNatGatewayAddressResultTypeDef(BaseValidatorModel):
     NatGatewayId: str
     NatGatewayAddresses: List[NatGatewayAddressTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateNatGatewayAddressResultTypeDef(BaseModel):
+class AssociateNatGatewayAddressResultTypeDef(BaseValidatorModel):
     NatGatewayId: str
     NatGatewayAddresses: List[NatGatewayAddressTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateNatGatewayAddressResultTypeDef(BaseModel):
+class DisassociateNatGatewayAddressResultTypeDef(BaseValidatorModel):
     NatGatewayId: str
     NatGatewayAddresses: List[NatGatewayAddressTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UnassignPrivateNatGatewayAddressResultTypeDef(BaseModel):
+class UnassignPrivateNatGatewayAddressResultTypeDef(BaseValidatorModel):
     NatGatewayId: str
     NatGatewayAddresses: List[NatGatewayAddressTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateClientVpnTargetNetworkResultTypeDef(BaseModel):
+class AssociateClientVpnTargetNetworkResultTypeDef(BaseValidatorModel):
     AssociationId: str
     Status: AssociationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateClientVpnTargetNetworkResultTypeDef(BaseModel):
+class DisassociateClientVpnTargetNetworkResultTypeDef(BaseValidatorModel):
     AssociationId: str
     Status: AssociationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TargetNetworkTypeDef(BaseModel):
+class TargetNetworkTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     VpcId: Optional[str] = None
     TargetNetworkId: Optional[str] = None
@@ -5373,25 +5373,25 @@ class TargetNetworkTypeDef(BaseModel):
     Status: Optional[AssociationStatusTypeDef] = None
     SecurityGroups: Optional[List[str]] = None
 
-class AssociateIamInstanceProfileRequestRequestTypeDef(BaseModel):
+class AssociateIamInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     IamInstanceProfile: IamInstanceProfileSpecificationTypeDef
     InstanceId: str
 
-class ReplaceIamInstanceProfileAssociationRequestRequestTypeDef(BaseModel):
+class ReplaceIamInstanceProfileAssociationRequestRequestTypeDef(BaseValidatorModel):
     IamInstanceProfile: IamInstanceProfileSpecificationTypeDef
     AssociationId: str
 
-class AssociateRouteTableResultTypeDef(BaseModel):
+class AssociateRouteTableResultTypeDef(BaseValidatorModel):
     AssociationId: str
     AssociationState: RouteTableAssociationStateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplaceRouteTableAssociationResultTypeDef(BaseModel):
+class ReplaceRouteTableAssociationResultTypeDef(BaseValidatorModel):
     NewAssociationId: str
     AssociationState: RouteTableAssociationStateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RouteTableAssociationTypeDef(BaseModel):
+class RouteTableAssociationTypeDef(BaseValidatorModel):
     Main: Optional[bool] = None
     RouteTableAssociationId: Optional[str] = None
     RouteTableId: Optional[str] = None
@@ -5399,44 +5399,44 @@ class RouteTableAssociationTypeDef(BaseModel):
     GatewayId: Optional[str] = None
     AssociationState: Optional[RouteTableAssociationStateTypeDef] = None
 
-class AssociateTransitGatewayPolicyTableResultTypeDef(BaseModel):
+class AssociateTransitGatewayPolicyTableResultTypeDef(BaseValidatorModel):
     Association: TransitGatewayPolicyTableAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateTransitGatewayPolicyTableResultTypeDef(BaseModel):
+class DisassociateTransitGatewayPolicyTableResultTypeDef(BaseValidatorModel):
     Association: TransitGatewayPolicyTableAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTransitGatewayPolicyTableAssociationsResultTypeDef(BaseModel):
+class GetTransitGatewayPolicyTableAssociationsResultTypeDef(BaseValidatorModel):
     Associations: List[TransitGatewayPolicyTableAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AssociateTransitGatewayRouteTableResultTypeDef(BaseModel):
+class AssociateTransitGatewayRouteTableResultTypeDef(BaseValidatorModel):
     Association: TransitGatewayAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateTransitGatewayRouteTableResultTypeDef(BaseModel):
+class DisassociateTransitGatewayRouteTableResultTypeDef(BaseValidatorModel):
     Association: TransitGatewayAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAssociatedEnclaveCertificateIamRolesResultTypeDef(BaseModel):
+class GetAssociatedEnclaveCertificateIamRolesResultTypeDef(BaseValidatorModel):
     AssociatedRoles: List[AssociatedRoleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AthenaIntegrationTypeDef(BaseModel):
+class AthenaIntegrationTypeDef(BaseValidatorModel):
     IntegrationResultS3DestinationArn: str
     PartitionLoadFrequency: PartitionLoadFrequencyType
     PartitionStartDate: Optional[TimestampTypeDef] = None
     PartitionEndDate: Optional[TimestampTypeDef] = None
 
-class ClientDataTypeDef(BaseModel):
+class ClientDataTypeDef(BaseValidatorModel):
     Comment: Optional[str] = None
     UploadEnd: Optional[TimestampTypeDef] = None
     UploadSize: Optional[float] = None
     UploadStart: Optional[TimestampTypeDef] = None
 
-class DescribeCapacityBlockOfferingsRequestRequestTypeDef(BaseModel):
+class DescribeCapacityBlockOfferingsRequestRequestTypeDef(BaseValidatorModel):
     InstanceType: str
     InstanceCount: int
     CapacityDurationHours: int
@@ -5446,7 +5446,7 @@ class DescribeCapacityBlockOfferingsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeFleetHistoryRequestRequestTypeDef(BaseModel):
+class DescribeFleetHistoryRequestRequestTypeDef(BaseValidatorModel):
     FleetId: str
     StartTime: TimestampTypeDef
     DryRun: Optional[bool] = None
@@ -5454,7 +5454,7 @@ class DescribeFleetHistoryRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeSpotFleetRequestHistoryRequestRequestTypeDef(BaseModel):
+class DescribeSpotFleetRequestHistoryRequestRequestTypeDef(BaseValidatorModel):
     SpotFleetRequestId: str
     StartTime: TimestampTypeDef
     DryRun: Optional[bool] = None
@@ -5462,12 +5462,12 @@ class DescribeSpotFleetRequestHistoryRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class EnableImageDeprecationRequestRequestTypeDef(BaseModel):
+class EnableImageDeprecationRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     DeprecateAt: TimestampTypeDef
     DryRun: Optional[bool] = None
 
-class GetIpamAddressHistoryRequestRequestTypeDef(BaseModel):
+class GetIpamAddressHistoryRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
     IpamScopeId: str
     DryRun: Optional[bool] = None
@@ -5477,14 +5477,14 @@ class GetIpamAddressHistoryRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class LaunchTemplateSpotMarketOptionsRequestTypeDef(BaseModel):
+class LaunchTemplateSpotMarketOptionsRequestTypeDef(BaseValidatorModel):
     MaxPrice: Optional[str] = None
     SpotInstanceType: Optional[SpotInstanceTypeType] = None
     BlockDurationMinutes: Optional[int] = None
     ValidUntil: Optional[TimestampTypeDef] = None
     InstanceInterruptionBehavior: Optional[InstanceInterruptionBehaviorType] = None
 
-class LockSnapshotRequestRequestTypeDef(BaseModel):
+class LockSnapshotRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     LockMode: LockModeType
     DryRun: Optional[bool] = None
@@ -5492,14 +5492,14 @@ class LockSnapshotRequestRequestTypeDef(BaseModel):
     LockDuration: Optional[int] = None
     ExpirationDate: Optional[TimestampTypeDef] = None
 
-class ModifyCapacityReservationFleetRequestRequestTypeDef(BaseModel):
+class ModifyCapacityReservationFleetRequestRequestTypeDef(BaseValidatorModel):
     CapacityReservationFleetId: str
     TotalTargetCapacity: Optional[int] = None
     EndDate: Optional[TimestampTypeDef] = None
     DryRun: Optional[bool] = None
     RemoveEndDate: Optional[bool] = None
 
-class ModifyCapacityReservationRequestRequestTypeDef(BaseModel):
+class ModifyCapacityReservationRequestRequestTypeDef(BaseValidatorModel):
     CapacityReservationId: str
     InstanceCount: Optional[int] = None
     EndDate: Optional[TimestampTypeDef] = None
@@ -5508,13 +5508,13 @@ class ModifyCapacityReservationRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     AdditionalInfo: Optional[str] = None
 
-class ModifyInstanceEventStartTimeRequestRequestTypeDef(BaseModel):
+class ModifyInstanceEventStartTimeRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     InstanceEventId: str
     NotBefore: TimestampTypeDef
     DryRun: Optional[bool] = None
 
-class ReportInstanceStatusRequestInstanceReportStatusTypeDef(BaseModel):
+class ReportInstanceStatusRequestInstanceReportStatusTypeDef(BaseValidatorModel):
     ReasonCodes: Sequence[ReportInstanceReasonCodesType]
     Status: ReportStatusTypeType
     Description: Optional[str] = None
@@ -5522,7 +5522,7 @@ class ReportInstanceStatusRequestInstanceReportStatusTypeDef(BaseModel):
     EndTime: Optional[TimestampTypeDef] = None
     StartTime: Optional[TimestampTypeDef] = None
 
-class ReportInstanceStatusRequestRequestTypeDef(BaseModel):
+class ReportInstanceStatusRequestRequestTypeDef(BaseValidatorModel):
     Instances: Sequence[str]
     ReasonCodes: Sequence[ReportInstanceReasonCodesType]
     Status: ReportStatusTypeType
@@ -5531,26 +5531,26 @@ class ReportInstanceStatusRequestRequestTypeDef(BaseModel):
     EndTime: Optional[TimestampTypeDef] = None
     StartTime: Optional[TimestampTypeDef] = None
 
-class SlotDateTimeRangeRequestTypeDef(BaseModel):
+class SlotDateTimeRangeRequestTypeDef(BaseValidatorModel):
     EarliestTime: TimestampTypeDef
     LatestTime: TimestampTypeDef
 
-class SlotStartTimeRangeRequestTypeDef(BaseModel):
+class SlotStartTimeRangeRequestTypeDef(BaseValidatorModel):
     EarliestTime: Optional[TimestampTypeDef] = None
     LatestTime: Optional[TimestampTypeDef] = None
 
-class SpotMarketOptionsTypeDef(BaseModel):
+class SpotMarketOptionsTypeDef(BaseValidatorModel):
     MaxPrice: Optional[str] = None
     SpotInstanceType: Optional[SpotInstanceTypeType] = None
     BlockDurationMinutes: Optional[int] = None
     ValidUntil: Optional[TimestampTypeDef] = None
     InstanceInterruptionBehavior: Optional[InstanceInterruptionBehaviorType] = None
 
-class AttachVpnGatewayResultTypeDef(BaseModel):
+class AttachVpnGatewayResultTypeDef(BaseValidatorModel):
     VpcAttachment: VpcAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VpnGatewayTypeDef(BaseModel):
+class VpnGatewayTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     State: Optional[VpnStateType] = None
     Type: Optional[Literal["ipsec.1"]] = None
@@ -5559,18 +5559,18 @@ class VpnGatewayTypeDef(BaseModel):
     AmazonSideAsn: Optional[int] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class AttachmentEnaSrdSpecificationTypeDef(BaseModel):
+class AttachmentEnaSrdSpecificationTypeDef(BaseValidatorModel):
     EnaSrdEnabled: Optional[bool] = None
     EnaSrdUdpSpecification: Optional[AttachmentEnaSrdUdpSpecificationTypeDef] = None
 
-class DescribeVpcAttributeResultTypeDef(BaseModel):
+class DescribeVpcAttributeResultTypeDef(BaseValidatorModel):
     VpcId: str
     EnableDnsHostnames: AttributeBooleanValueTypeDef
     EnableDnsSupport: AttributeBooleanValueTypeDef
     EnableNetworkAddressUsageMetrics: AttributeBooleanValueTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifySubnetAttributeRequestRequestTypeDef(BaseModel):
+class ModifySubnetAttributeRequestRequestTypeDef(BaseValidatorModel):
     SubnetId: str
     AssignIpv6AddressOnCreation: Optional[AttributeBooleanValueTypeDef] = None
     MapPublicIpOnLaunch: Optional[AttributeBooleanValueTypeDef] = None
@@ -5583,31 +5583,31 @@ class ModifySubnetAttributeRequestRequestTypeDef(BaseModel):
     EnableLniAtDeviceIndex: Optional[int] = None
     DisableLniAtDeviceIndex: Optional[AttributeBooleanValueTypeDef] = None
 
-class ModifyVolumeAttributeRequestRequestTypeDef(BaseModel):
+class ModifyVolumeAttributeRequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
     AutoEnableIO: Optional[AttributeBooleanValueTypeDef] = None
     DryRun: Optional[bool] = None
 
-class ModifyVolumeAttributeRequestVolumeModifyAttributeTypeDef(BaseModel):
+class ModifyVolumeAttributeRequestVolumeModifyAttributeTypeDef(BaseValidatorModel):
     AutoEnableIO: Optional[AttributeBooleanValueTypeDef] = None
     DryRun: Optional[bool] = None
 
-class ModifyVpcAttributeRequestRequestTypeDef(BaseModel):
+class ModifyVpcAttributeRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     EnableDnsHostnames: Optional[AttributeBooleanValueTypeDef] = None
     EnableDnsSupport: Optional[AttributeBooleanValueTypeDef] = None
     EnableNetworkAddressUsageMetrics: Optional[AttributeBooleanValueTypeDef] = None
 
-class ModifyVpcAttributeRequestVpcModifyAttributeTypeDef(BaseModel):
+class ModifyVpcAttributeRequestVpcModifyAttributeTypeDef(BaseValidatorModel):
     EnableDnsHostnames: Optional[AttributeBooleanValueTypeDef] = None
     EnableDnsSupport: Optional[AttributeBooleanValueTypeDef] = None
     EnableNetworkAddressUsageMetrics: Optional[AttributeBooleanValueTypeDef] = None
 
-class DhcpConfigurationTypeDef(BaseModel):
+class DhcpConfigurationTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[List[AttributeValueTypeDef]] = None
 
-class AuthorizationRuleTypeDef(BaseModel):
+class AuthorizationRuleTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: Optional[str] = None
     Description: Optional[str] = None
     GroupId: Optional[str] = None
@@ -5615,15 +5615,15 @@ class AuthorizationRuleTypeDef(BaseModel):
     DestinationCidr: Optional[str] = None
     Status: Optional[ClientVpnAuthorizationRuleStatusTypeDef] = None
 
-class AuthorizeClientVpnIngressResultTypeDef(BaseModel):
+class AuthorizeClientVpnIngressResultTypeDef(BaseValidatorModel):
     Status: ClientVpnAuthorizationRuleStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RevokeClientVpnIngressResultTypeDef(BaseModel):
+class RevokeClientVpnIngressResultTypeDef(BaseValidatorModel):
     Status: ClientVpnAuthorizationRuleStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AvailabilityZoneTypeDef(BaseModel):
+class AvailabilityZoneTypeDef(BaseValidatorModel):
     State: Optional[AvailabilityZoneStateType] = None
     OptInStatus: Optional[AvailabilityZoneOptInStatusType] = None
     Messages: Optional[List[AvailabilityZoneMessageTypeDef]] = None
@@ -5636,52 +5636,52 @@ class AvailabilityZoneTypeDef(BaseModel):
     ParentZoneName: Optional[str] = None
     ParentZoneId: Optional[str] = None
 
-class AvailableCapacityTypeDef(BaseModel):
+class AvailableCapacityTypeDef(BaseValidatorModel):
     AvailableInstanceCapacity: Optional[List[InstanceCapacityTypeDef]] = None
     AvailableVCpus: Optional[int] = None
 
-class BlobAttributeValueTypeDef(BaseModel):
+class BlobAttributeValueTypeDef(BaseValidatorModel):
     Value: Optional[BlobTypeDef] = None
 
-class S3StorageTypeDef(BaseModel):
+class S3StorageTypeDef(BaseValidatorModel):
     AWSAccessKeyId: Optional[str] = None
     Bucket: Optional[str] = None
     Prefix: Optional[str] = None
     UploadPolicy: Optional[BlobTypeDef] = None
     UploadPolicySignature: Optional[str] = None
 
-class BlockDeviceMappingTypeDef(BaseModel):
+class BlockDeviceMappingTypeDef(BaseValidatorModel):
     DeviceName: Optional[str] = None
     VirtualName: Optional[str] = None
     Ebs: Optional[EbsBlockDeviceTypeDef] = None
     NoDevice: Optional[str] = None
 
-class DeprovisionIpamByoasnResultTypeDef(BaseModel):
+class DeprovisionIpamByoasnResultTypeDef(BaseValidatorModel):
     Byoasn: ByoasnTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIpamByoasnResultTypeDef(BaseModel):
+class DescribeIpamByoasnResultTypeDef(BaseValidatorModel):
     Byoasns: List[ByoasnTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ProvisionIpamByoasnResultTypeDef(BaseModel):
+class ProvisionIpamByoasnResultTypeDef(BaseValidatorModel):
     Byoasn: ByoasnTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FailedCapacityReservationFleetCancellationResultTypeDef(BaseModel):
+class FailedCapacityReservationFleetCancellationResultTypeDef(BaseValidatorModel):
     CapacityReservationFleetId: Optional[str] = None
     CancelCapacityReservationFleetError: Optional[       CancelCapacityReservationFleetErrorTypeDef     ] = None
 
-class CancelSpotFleetRequestsErrorItemTypeDef(BaseModel):
+class CancelSpotFleetRequestsErrorItemTypeDef(BaseValidatorModel):
     Error: Optional[CancelSpotFleetRequestsErrorTypeDef] = None
     SpotFleetRequestId: Optional[str] = None
 
-class CancelSpotInstanceRequestsResultTypeDef(BaseModel):
+class CancelSpotInstanceRequestsResultTypeDef(BaseValidatorModel):
     CancelledSpotInstanceRequests: List[CancelledSpotInstanceRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CapacityReservationTypeDef(BaseModel):
+class CapacityReservationTypeDef(BaseValidatorModel):
     CapacityReservationId: Optional[str] = None
     OwnerId: Optional[str] = None
     CapacityReservationArn: Optional[str] = None
@@ -5707,12 +5707,12 @@ class CapacityReservationTypeDef(BaseModel):
     CapacityAllocations: Optional[List[CapacityAllocationTypeDef]] = None
     ReservationType: Optional[CapacityReservationTypeType] = None
 
-class DescribeCapacityBlockOfferingsResultTypeDef(BaseModel):
+class DescribeCapacityBlockOfferingsResultTypeDef(BaseValidatorModel):
     CapacityBlockOfferings: List[CapacityBlockOfferingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CapacityReservationFleetTypeDef(BaseModel):
+class CapacityReservationFleetTypeDef(BaseValidatorModel):
     CapacityReservationFleetId: Optional[str] = None
     CapacityReservationFleetArn: Optional[str] = None
     State: Optional[CapacityReservationFleetStateType] = None
@@ -5726,7 +5726,7 @@ class CapacityReservationFleetTypeDef(BaseModel):
     InstanceTypeSpecifications: Optional[List[FleetCapacityReservationTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class CreateCapacityReservationFleetResultTypeDef(BaseModel):
+class CreateCapacityReservationFleetResultTypeDef(BaseValidatorModel):
     CapacityReservationFleetId: str
     State: CapacityReservationFleetStateType
     TotalTargetCapacity: int
@@ -5740,12 +5740,12 @@ class CreateCapacityReservationFleetResultTypeDef(BaseModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupsForCapacityReservationResultTypeDef(BaseModel):
+class GetGroupsForCapacityReservationResultTypeDef(BaseValidatorModel):
     CapacityReservationGroups: List[CapacityReservationGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class OnDemandOptionsRequestTypeDef(BaseModel):
+class OnDemandOptionsRequestTypeDef(BaseValidatorModel):
     AllocationStrategy: Optional[FleetOnDemandAllocationStrategyType] = None
     CapacityReservationOptions: Optional[CapacityReservationOptionsRequestTypeDef] = None
     SingleInstanceType: Optional[bool] = None
@@ -5753,7 +5753,7 @@ class OnDemandOptionsRequestTypeDef(BaseModel):
     MinTargetCapacity: Optional[int] = None
     MaxTotalPrice: Optional[str] = None
 
-class OnDemandOptionsTypeDef(BaseModel):
+class OnDemandOptionsTypeDef(BaseValidatorModel):
     AllocationStrategy: Optional[FleetOnDemandAllocationStrategyType] = None
     CapacityReservationOptions: Optional[CapacityReservationOptionsTypeDef] = None
     SingleInstanceType: Optional[bool] = None
@@ -5761,65 +5761,65 @@ class OnDemandOptionsTypeDef(BaseModel):
     MinTargetCapacity: Optional[int] = None
     MaxTotalPrice: Optional[str] = None
 
-class CapacityReservationSpecificationResponseTypeDef(BaseModel):
+class CapacityReservationSpecificationResponseTypeDef(BaseValidatorModel):
     CapacityReservationPreference: Optional[CapacityReservationPreferenceType] = None
     CapacityReservationTarget: Optional[CapacityReservationTargetResponseTypeDef] = None
 
-class LaunchTemplateCapacityReservationSpecificationResponseTypeDef(BaseModel):
+class LaunchTemplateCapacityReservationSpecificationResponseTypeDef(BaseValidatorModel):
     CapacityReservationPreference: Optional[CapacityReservationPreferenceType] = None
     CapacityReservationTarget: Optional[CapacityReservationTargetResponseTypeDef] = None
 
-class CapacityReservationSpecificationTypeDef(BaseModel):
+class CapacityReservationSpecificationTypeDef(BaseValidatorModel):
     CapacityReservationPreference: Optional[CapacityReservationPreferenceType] = None
     CapacityReservationTarget: Optional[CapacityReservationTargetTypeDef] = None
 
-class LaunchTemplateCapacityReservationSpecificationRequestTypeDef(BaseModel):
+class LaunchTemplateCapacityReservationSpecificationRequestTypeDef(BaseValidatorModel):
     CapacityReservationPreference: Optional[CapacityReservationPreferenceType] = None
     CapacityReservationTarget: Optional[CapacityReservationTargetTypeDef] = None
 
-class DescribeVpcClassicLinkDnsSupportResultTypeDef(BaseModel):
+class DescribeVpcClassicLinkDnsSupportResultTypeDef(BaseValidatorModel):
     Vpcs: List[ClassicLinkDnsSupportTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ClassicLinkInstanceTypeDef(BaseModel):
+class ClassicLinkInstanceTypeDef(BaseValidatorModel):
     Groups: Optional[List[GroupIdentifierTypeDef]] = None
     InstanceId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     VpcId: Optional[str] = None
 
-class ClassicLoadBalancersConfigExtraOutputTypeDef(BaseModel):
+class ClassicLoadBalancersConfigExtraOutputTypeDef(BaseValidatorModel):
     ClassicLoadBalancers: Optional[List[ClassicLoadBalancerTypeDef]] = None
 
-class ClassicLoadBalancersConfigOutputTypeDef(BaseModel):
+class ClassicLoadBalancersConfigOutputTypeDef(BaseValidatorModel):
     ClassicLoadBalancers: Optional[List[ClassicLoadBalancerTypeDef]] = None
 
-class ClassicLoadBalancersConfigTypeDef(BaseModel):
+class ClassicLoadBalancersConfigTypeDef(BaseValidatorModel):
     ClassicLoadBalancers: Optional[Sequence[ClassicLoadBalancerTypeDef]] = None
 
-class ExportClientVpnClientCertificateRevocationListResultTypeDef(BaseModel):
+class ExportClientVpnClientCertificateRevocationListResultTypeDef(BaseValidatorModel):
     CertificateRevocationList: str
     Status: ClientCertificateRevocationListStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClientConnectResponseOptionsTypeDef(BaseModel):
+class ClientConnectResponseOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     LambdaFunctionArn: Optional[str] = None
     Status: Optional[ClientVpnEndpointAttributeStatusTypeDef] = None
 
-class ClientVpnAuthenticationRequestTypeDef(BaseModel):
+class ClientVpnAuthenticationRequestTypeDef(BaseValidatorModel):
     Type: Optional[ClientVpnAuthenticationTypeType] = None
     ActiveDirectory: Optional[DirectoryServiceAuthenticationRequestTypeDef] = None
     MutualAuthentication: Optional[CertificateAuthenticationRequestTypeDef] = None
     FederatedAuthentication: Optional[FederatedAuthenticationRequestTypeDef] = None
 
-class ClientVpnAuthenticationTypeDef(BaseModel):
+class ClientVpnAuthenticationTypeDef(BaseValidatorModel):
     Type: Optional[ClientVpnAuthenticationTypeType] = None
     ActiveDirectory: Optional[DirectoryServiceAuthenticationTypeDef] = None
     MutualAuthentication: Optional[CertificateAuthenticationTypeDef] = None
     FederatedAuthentication: Optional[FederatedAuthenticationTypeDef] = None
 
-class ClientVpnConnectionTypeDef(BaseModel):
+class ClientVpnConnectionTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: Optional[str] = None
     Timestamp: Optional[str] = None
     ConnectionId: Optional[str] = None
@@ -5835,22 +5835,22 @@ class ClientVpnConnectionTypeDef(BaseModel):
     ConnectionEndTime: Optional[str] = None
     PostureComplianceStatuses: Optional[List[str]] = None
 
-class TerminateConnectionStatusTypeDef(BaseModel):
+class TerminateConnectionStatusTypeDef(BaseValidatorModel):
     ConnectionId: Optional[str] = None
     PreviousStatus: Optional[ClientVpnConnectionStatusTypeDef] = None
     CurrentStatus: Optional[ClientVpnConnectionStatusTypeDef] = None
 
-class CreateClientVpnEndpointResultTypeDef(BaseModel):
+class CreateClientVpnEndpointResultTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     Status: ClientVpnEndpointStatusTypeDef
     DnsName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteClientVpnEndpointResultTypeDef(BaseModel):
+class DeleteClientVpnEndpointResultTypeDef(BaseValidatorModel):
     Status: ClientVpnEndpointStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClientVpnRouteTypeDef(BaseModel):
+class ClientVpnRouteTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: Optional[str] = None
     DestinationCidr: Optional[str] = None
     TargetSubnet: Optional[str] = None
@@ -5859,53 +5859,53 @@ class ClientVpnRouteTypeDef(BaseModel):
     Status: Optional[ClientVpnRouteStatusTypeDef] = None
     Description: Optional[str] = None
 
-class CreateClientVpnRouteResultTypeDef(BaseModel):
+class CreateClientVpnRouteResultTypeDef(BaseValidatorModel):
     Status: ClientVpnRouteStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteClientVpnRouteResultTypeDef(BaseModel):
+class DeleteClientVpnRouteResultTypeDef(BaseValidatorModel):
     Status: ClientVpnRouteStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VpnTunnelLogOptionsSpecificationTypeDef(BaseModel):
+class VpnTunnelLogOptionsSpecificationTypeDef(BaseValidatorModel):
     CloudWatchLogOptions: Optional[CloudWatchLogOptionsSpecificationTypeDef] = None
 
-class VpnTunnelLogOptionsTypeDef(BaseModel):
+class VpnTunnelLogOptionsTypeDef(BaseValidatorModel):
     CloudWatchLogOptions: Optional[CloudWatchLogOptionsTypeDef] = None
 
-class GetCoipPoolUsageResultTypeDef(BaseModel):
+class GetCoipPoolUsageResultTypeDef(BaseValidatorModel):
     CoipPoolId: str
     CoipAddressUsages: List[CoipAddressUsageTypeDef]
     LocalGatewayRouteTableId: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateCoipCidrResultTypeDef(BaseModel):
+class CreateCoipCidrResultTypeDef(BaseValidatorModel):
     CoipCidr: CoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCoipCidrResultTypeDef(BaseModel):
+class DeleteCoipCidrResultTypeDef(BaseValidatorModel):
     CoipCidr: CoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVpcEndpointConnectionNotificationResultTypeDef(BaseModel):
+class CreateVpcEndpointConnectionNotificationResultTypeDef(BaseValidatorModel):
     ConnectionNotification: ConnectionNotificationTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpcEndpointConnectionNotificationsResultTypeDef(BaseModel):
+class DescribeVpcEndpointConnectionNotificationsResultTypeDef(BaseValidatorModel):
     ConnectionNotificationSet: List[ConnectionNotificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyInstanceEventWindowRequestRequestTypeDef(BaseModel):
+class ModifyInstanceEventWindowRequestRequestTypeDef(BaseValidatorModel):
     InstanceEventWindowId: str
     DryRun: Optional[bool] = None
     Name: Optional[str] = None
     TimeRanges: Optional[Sequence[InstanceEventWindowTimeRangeRequestTypeDef]] = None
     CronExpression: Optional[str] = None
 
-class ModifyIpamPoolRequestRequestTypeDef(BaseModel):
+class ModifyIpamPoolRequestRequestTypeDef(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
@@ -5917,24 +5917,24 @@ class ModifyIpamPoolRequestRequestTypeDef(BaseModel):
     AddAllocationResourceTags: Optional[Sequence[RequestIpamResourceTagTypeDef]] = None
     RemoveAllocationResourceTags: Optional[Sequence[RequestIpamResourceTagTypeDef]] = None
 
-class CreateLocalGatewayRouteResultTypeDef(BaseModel):
+class CreateLocalGatewayRouteResultTypeDef(BaseValidatorModel):
     Route: LocalGatewayRouteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLocalGatewayRouteResultTypeDef(BaseModel):
+class DeleteLocalGatewayRouteResultTypeDef(BaseValidatorModel):
     Route: LocalGatewayRouteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyLocalGatewayRouteResultTypeDef(BaseModel):
+class ModifyLocalGatewayRouteResultTypeDef(BaseValidatorModel):
     Route: LocalGatewayRouteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchLocalGatewayRoutesResultTypeDef(BaseModel):
+class SearchLocalGatewayRoutesResultTypeDef(BaseValidatorModel):
     Routes: List[LocalGatewayRouteTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateNetworkAclEntryRequestNetworkAclCreateEntryTypeDef(BaseModel):
+class CreateNetworkAclEntryRequestNetworkAclCreateEntryTypeDef(BaseValidatorModel):
     Egress: bool
     Protocol: str
     RuleAction: RuleActionType
@@ -5945,7 +5945,7 @@ class CreateNetworkAclEntryRequestNetworkAclCreateEntryTypeDef(BaseModel):
     Ipv6CidrBlock: Optional[str] = None
     PortRange: Optional[PortRangeTypeDef] = None
 
-class CreateNetworkAclEntryRequestRequestTypeDef(BaseModel):
+class CreateNetworkAclEntryRequestRequestTypeDef(BaseValidatorModel):
     Egress: bool
     NetworkAclId: str
     Protocol: str
@@ -5957,7 +5957,7 @@ class CreateNetworkAclEntryRequestRequestTypeDef(BaseModel):
     Ipv6CidrBlock: Optional[str] = None
     PortRange: Optional[PortRangeTypeDef] = None
 
-class NetworkAclEntryTypeDef(BaseModel):
+class NetworkAclEntryTypeDef(BaseValidatorModel):
     CidrBlock: Optional[str] = None
     Egress: Optional[bool] = None
     IcmpTypeCode: Optional[IcmpTypeCodeTypeDef] = None
@@ -5967,7 +5967,7 @@ class NetworkAclEntryTypeDef(BaseModel):
     RuleAction: Optional[RuleActionType] = None
     RuleNumber: Optional[int] = None
 
-class ReplaceNetworkAclEntryRequestNetworkAclReplaceEntryTypeDef(BaseModel):
+class ReplaceNetworkAclEntryRequestNetworkAclReplaceEntryTypeDef(BaseValidatorModel):
     Egress: bool
     Protocol: str
     RuleAction: RuleActionType
@@ -5978,7 +5978,7 @@ class ReplaceNetworkAclEntryRequestNetworkAclReplaceEntryTypeDef(BaseModel):
     Ipv6CidrBlock: Optional[str] = None
     PortRange: Optional[PortRangeTypeDef] = None
 
-class ReplaceNetworkAclEntryRequestRequestTypeDef(BaseModel):
+class ReplaceNetworkAclEntryRequestRequestTypeDef(BaseValidatorModel):
     Egress: bool
     NetworkAclId: str
     Protocol: str
@@ -5990,19 +5990,19 @@ class ReplaceNetworkAclEntryRequestRequestTypeDef(BaseModel):
     Ipv6CidrBlock: Optional[str] = None
     PortRange: Optional[PortRangeTypeDef] = None
 
-class CreateReservedInstancesListingRequestRequestTypeDef(BaseModel):
+class CreateReservedInstancesListingRequestRequestTypeDef(BaseValidatorModel):
     ClientToken: str
     InstanceCount: int
     PriceSchedules: Sequence[PriceScheduleSpecificationTypeDef]
     ReservedInstancesId: str
 
-class CreateStoreImageTaskRequestRequestTypeDef(BaseModel):
+class CreateStoreImageTaskRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     Bucket: str
     S3ObjectTags: Optional[Sequence[S3ObjectTagTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class ModifyTrafficMirrorFilterRuleRequestRequestTypeDef(BaseModel):
+class ModifyTrafficMirrorFilterRuleRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorFilterRuleId: str
     TrafficDirection: Optional[TrafficDirectionType] = None
     RuleNumber: Optional[int] = None
@@ -6016,7 +6016,7 @@ class ModifyTrafficMirrorFilterRuleRequestRequestTypeDef(BaseModel):
     RemoveFields: Optional[Sequence[TrafficMirrorFilterRuleFieldType]] = None
     DryRun: Optional[bool] = None
 
-class ModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef(BaseModel):
+class ModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessEndpointId: str
     PolicyEnabled: Optional[bool] = None
     PolicyDocument: Optional[str] = None
@@ -6024,7 +6024,7 @@ class ModifyVerifiedAccessEndpointPolicyRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     SseSpecification: Optional[VerifiedAccessSseSpecificationRequestTypeDef] = None
 
-class ModifyVerifiedAccessGroupPolicyRequestRequestTypeDef(BaseModel):
+class ModifyVerifiedAccessGroupPolicyRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessGroupId: str
     PolicyEnabled: Optional[bool] = None
     PolicyDocument: Optional[str] = None
@@ -6032,11 +6032,11 @@ class ModifyVerifiedAccessGroupPolicyRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     SseSpecification: Optional[VerifiedAccessSseSpecificationRequestTypeDef] = None
 
-class CreateVolumePermissionModificationsTypeDef(BaseModel):
+class CreateVolumePermissionModificationsTypeDef(BaseValidatorModel):
     Add: Optional[Sequence[CreateVolumePermissionTypeDef]] = None
     Remove: Optional[Sequence[CreateVolumePermissionTypeDef]] = None
 
-class ModifyVpcEndpointRequestRequestTypeDef(BaseModel):
+class ModifyVpcEndpointRequestRequestTypeDef(BaseValidatorModel):
     VpcEndpointId: str
     DryRun: Optional[bool] = None
     ResetPolicy: Optional[bool] = None
@@ -6052,7 +6052,7 @@ class ModifyVpcEndpointRequestRequestTypeDef(BaseModel):
     PrivateDnsEnabled: Optional[bool] = None
     SubnetConfigurations: Optional[Sequence[SubnetConfigurationTypeDef]] = None
 
-class GetAwsNetworkPerformanceDataRequestRequestTypeDef(BaseModel):
+class GetAwsNetworkPerformanceDataRequestRequestTypeDef(BaseValidatorModel):
     DataQueries: Optional[Sequence[DataQueryTypeDef]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
@@ -6060,7 +6060,7 @@ class GetAwsNetworkPerformanceDataRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DataResponseTypeDef(BaseModel):
+class DataResponseTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Source: Optional[str] = None
     Destination: Optional[str] = None
@@ -6069,64 +6069,64 @@ class DataResponseTypeDef(BaseModel):
     Period: Optional[PeriodTypeType] = None
     MetricPoints: Optional[List[MetricPointTypeDef]] = None
 
-class DeleteFleetErrorItemTypeDef(BaseModel):
+class DeleteFleetErrorItemTypeDef(BaseValidatorModel):
     Error: Optional[DeleteFleetErrorTypeDef] = None
     FleetId: Optional[str] = None
 
-class DeleteInstanceEventWindowResultTypeDef(BaseModel):
+class DeleteInstanceEventWindowResultTypeDef(BaseValidatorModel):
     InstanceEventWindowState: InstanceEventWindowStateChangeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLaunchTemplateVersionsResponseErrorItemTypeDef(BaseModel):
+class DeleteLaunchTemplateVersionsResponseErrorItemTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     VersionNumber: Optional[int] = None
     ResponseError: Optional[ResponseErrorTypeDef] = None
 
-class FailedQueuedPurchaseDeletionTypeDef(BaseModel):
+class FailedQueuedPurchaseDeletionTypeDef(BaseValidatorModel):
     Error: Optional[DeleteQueuedReservedInstancesErrorTypeDef] = None
     ReservedInstancesId: Optional[str] = None
 
-class DeregisterInstanceEventNotificationAttributesRequestRequestTypeDef(BaseModel):
+class DeregisterInstanceEventNotificationAttributesRequestRequestTypeDef(BaseValidatorModel):
     InstanceTagAttribute: DeregisterInstanceTagAttributeRequestTypeDef
     DryRun: Optional[bool] = None
 
-class DeregisterInstanceEventNotificationAttributesResultTypeDef(BaseModel):
+class DeregisterInstanceEventNotificationAttributesResultTypeDef(BaseValidatorModel):
     InstanceTagAttribute: InstanceTagNotificationAttributeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeInstanceEventNotificationAttributesResultTypeDef(BaseModel):
+class DescribeInstanceEventNotificationAttributesResultTypeDef(BaseValidatorModel):
     InstanceTagAttribute: InstanceTagNotificationAttributeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterInstanceEventNotificationAttributesResultTypeDef(BaseModel):
+class RegisterInstanceEventNotificationAttributesResultTypeDef(BaseValidatorModel):
     InstanceTagAttribute: InstanceTagNotificationAttributeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeregisterTransitGatewayMulticastGroupMembersResultTypeDef(BaseModel):
+class DeregisterTransitGatewayMulticastGroupMembersResultTypeDef(BaseValidatorModel):
     DeregisteredMulticastGroupMembers: TransitGatewayMulticastDeregisteredGroupMembersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef(BaseModel):
+class DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef(BaseValidatorModel):
     DeregisteredMulticastGroupSources: TransitGatewayMulticastDeregisteredGroupSourcesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAddressTransfersRequestDescribeAddressTransfersPaginateTypeDef(BaseModel):
+class DescribeAddressTransfersRequestDescribeAddressTransfersPaginateTypeDef(BaseValidatorModel):
     AllocationIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAddressesAttributeRequestDescribeAddressesAttributePaginateTypeDef(BaseModel):
+class DescribeAddressesAttributeRequestDescribeAddressesAttributePaginateTypeDef(BaseValidatorModel):
     AllocationIds: Optional[Sequence[str]] = None
     Attribute: Optional[Literal["domain-name"]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeByoipCidrsRequestDescribeByoipCidrsPaginateTypeDef(BaseModel):
+class DescribeByoipCidrsRequestDescribeByoipCidrsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCapacityBlockOfferingsRequestDescribeCapacityBlockOfferingsPaginateTypeDef(BaseModel):
+class DescribeCapacityBlockOfferingsRequestDescribeCapacityBlockOfferingsPaginateTypeDef(BaseValidatorModel):
     InstanceType: str
     InstanceCount: int
     CapacityDurationHours: int
@@ -6135,48 +6135,48 @@ class DescribeCapacityBlockOfferingsRequestDescribeCapacityBlockOfferingsPaginat
     EndDateRange: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribePrincipalIdFormatRequestDescribePrincipalIdFormatPaginateTypeDef(BaseModel):
+class DescribePrincipalIdFormatRequestDescribePrincipalIdFormatPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Resources: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSpotFleetInstancesRequestDescribeSpotFleetInstancesPaginateTypeDef(BaseModel):
+class DescribeSpotFleetInstancesRequestDescribeSpotFleetInstancesPaginateTypeDef(BaseValidatorModel):
     SpotFleetRequestId: str
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSpotFleetRequestsRequestDescribeSpotFleetRequestsPaginateTypeDef(BaseModel):
+class DescribeSpotFleetRequestsRequestDescribeSpotFleetRequestsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     SpotFleetRequestIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeStaleSecurityGroupsRequestDescribeStaleSecurityGroupsPaginateTypeDef(BaseModel):
+class DescribeStaleSecurityGroupsRequestDescribeStaleSecurityGroupsPaginateTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVpcClassicLinkDnsSupportRequestDescribeVpcClassicLinkDnsSupportPaginateTypeDef(BaseModel):
+class DescribeVpcClassicLinkDnsSupportRequestDescribeVpcClassicLinkDnsSupportPaginateTypeDef(BaseValidatorModel):
     VpcIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetAssociatedIpv6PoolCidrsRequestGetAssociatedIpv6PoolCidrsPaginateTypeDef(BaseModel):
+class GetAssociatedIpv6PoolCidrsRequestGetAssociatedIpv6PoolCidrsPaginateTypeDef(BaseValidatorModel):
     PoolId: str
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetAwsNetworkPerformanceDataRequestGetAwsNetworkPerformanceDataPaginateTypeDef(BaseModel):
+class GetAwsNetworkPerformanceDataRequestGetAwsNetworkPerformanceDataPaginateTypeDef(BaseValidatorModel):
     DataQueries: Optional[Sequence[DataQueryTypeDef]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetGroupsForCapacityReservationRequestGetGroupsForCapacityReservationPaginateTypeDef(BaseModel):
+class GetGroupsForCapacityReservationRequestGetGroupsForCapacityReservationPaginateTypeDef(BaseValidatorModel):
     CapacityReservationId: str
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetIpamAddressHistoryRequestGetIpamAddressHistoryPaginateTypeDef(BaseModel):
+class GetIpamAddressHistoryRequestGetIpamAddressHistoryPaginateTypeDef(BaseValidatorModel):
     Cidr: str
     IpamScopeId: str
     DryRun: Optional[bool] = None
@@ -6185,171 +6185,171 @@ class GetIpamAddressHistoryRequestGetIpamAddressHistoryPaginateTypeDef(BaseModel
     EndTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetManagedPrefixListAssociationsRequestGetManagedPrefixListAssociationsPaginateTypeDef(BaseModel):
+class GetManagedPrefixListAssociationsRequestGetManagedPrefixListAssociationsPaginateTypeDef(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetManagedPrefixListEntriesRequestGetManagedPrefixListEntriesPaginateTypeDef(BaseModel):
+class GetManagedPrefixListEntriesRequestGetManagedPrefixListEntriesPaginateTypeDef(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
     TargetVersion: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetNetworkInsightsAccessScopeAnalysisFindingsRequestGetNetworkInsightsAccessScopeAnalysisFindingsPaginateTypeDef(BaseModel):
+class GetNetworkInsightsAccessScopeAnalysisFindingsRequestGetNetworkInsightsAccessScopeAnalysisFindingsPaginateTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: str
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetVpnConnectionDeviceTypesRequestGetVpnConnectionDeviceTypesPaginateTypeDef(BaseModel):
+class GetVpnConnectionDeviceTypesRequestGetVpnConnectionDeviceTypesPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListImagesInRecycleBinRequestListImagesInRecycleBinPaginateTypeDef(BaseModel):
+class ListImagesInRecycleBinRequestListImagesInRecycleBinPaginateTypeDef(BaseValidatorModel):
     ImageIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSnapshotsInRecycleBinRequestListSnapshotsInRecycleBinPaginateTypeDef(BaseModel):
+class ListSnapshotsInRecycleBinRequestListSnapshotsInRecycleBinPaginateTypeDef(BaseValidatorModel):
     SnapshotIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAddressesRequestRequestTypeDef(BaseModel):
+class DescribeAddressesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PublicIps: Optional[Sequence[str]] = None
     AllocationIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class DescribeAvailabilityZonesRequestRequestTypeDef(BaseModel):
+class DescribeAvailabilityZonesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ZoneNames: Optional[Sequence[str]] = None
     ZoneIds: Optional[Sequence[str]] = None
     AllAvailabilityZones: Optional[bool] = None
     DryRun: Optional[bool] = None
 
-class DescribeAwsNetworkPerformanceMetricSubscriptionsRequestDescribeAwsNetworkPerformanceMetricSubscriptionsPaginateTypeDef(BaseModel):
+class DescribeAwsNetworkPerformanceMetricSubscriptionsRequestDescribeAwsNetworkPerformanceMetricSubscriptionsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAwsNetworkPerformanceMetricSubscriptionsRequestRequestTypeDef(BaseModel):
+class DescribeAwsNetworkPerformanceMetricSubscriptionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeBundleTasksRequestRequestTypeDef(BaseModel):
+class DescribeBundleTasksRequestRequestTypeDef(BaseValidatorModel):
     BundleIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeCapacityReservationFleetsRequestRequestTypeDef(BaseModel):
+class DescribeCapacityReservationFleetsRequestRequestTypeDef(BaseValidatorModel):
     CapacityReservationFleetIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeCapacityReservationsRequestDescribeCapacityReservationsPaginateTypeDef(BaseModel):
+class DescribeCapacityReservationsRequestDescribeCapacityReservationsPaginateTypeDef(BaseValidatorModel):
     CapacityReservationIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCapacityReservationsRequestRequestTypeDef(BaseModel):
+class DescribeCapacityReservationsRequestRequestTypeDef(BaseValidatorModel):
     CapacityReservationIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeCarrierGatewaysRequestDescribeCarrierGatewaysPaginateTypeDef(BaseModel):
+class DescribeCarrierGatewaysRequestDescribeCarrierGatewaysPaginateTypeDef(BaseValidatorModel):
     CarrierGatewayIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCarrierGatewaysRequestRequestTypeDef(BaseModel):
+class DescribeCarrierGatewaysRequestRequestTypeDef(BaseValidatorModel):
     CarrierGatewayIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeClassicLinkInstancesRequestDescribeClassicLinkInstancesPaginateTypeDef(BaseModel):
+class DescribeClassicLinkInstancesRequestDescribeClassicLinkInstancesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     InstanceIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClassicLinkInstancesRequestRequestTypeDef(BaseModel):
+class DescribeClassicLinkInstancesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     InstanceIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeClientVpnAuthorizationRulesRequestDescribeClientVpnAuthorizationRulesPaginateTypeDef(BaseModel):
+class DescribeClientVpnAuthorizationRulesRequestDescribeClientVpnAuthorizationRulesPaginateTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClientVpnAuthorizationRulesRequestRequestTypeDef(BaseModel):
+class DescribeClientVpnAuthorizationRulesRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
 
-class DescribeClientVpnConnectionsRequestDescribeClientVpnConnectionsPaginateTypeDef(BaseModel):
+class DescribeClientVpnConnectionsRequestDescribeClientVpnConnectionsPaginateTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClientVpnConnectionsRequestRequestTypeDef(BaseModel):
+class DescribeClientVpnConnectionsRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class DescribeClientVpnEndpointsRequestDescribeClientVpnEndpointsPaginateTypeDef(BaseModel):
+class DescribeClientVpnEndpointsRequestDescribeClientVpnEndpointsPaginateTypeDef(BaseValidatorModel):
     ClientVpnEndpointIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClientVpnEndpointsRequestRequestTypeDef(BaseModel):
+class DescribeClientVpnEndpointsRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeClientVpnRoutesRequestDescribeClientVpnRoutesPaginateTypeDef(BaseModel):
+class DescribeClientVpnRoutesRequestDescribeClientVpnRoutesPaginateTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClientVpnRoutesRequestRequestTypeDef(BaseModel):
+class DescribeClientVpnRoutesRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeClientVpnTargetNetworksRequestDescribeClientVpnTargetNetworksPaginateTypeDef(BaseModel):
+class DescribeClientVpnTargetNetworksRequestDescribeClientVpnTargetNetworksPaginateTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     AssociationIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClientVpnTargetNetworksRequestRequestTypeDef(BaseModel):
+class DescribeClientVpnTargetNetworksRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     AssociationIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
@@ -6357,139 +6357,139 @@ class DescribeClientVpnTargetNetworksRequestRequestTypeDef(BaseModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeCoipPoolsRequestDescribeCoipPoolsPaginateTypeDef(BaseModel):
+class DescribeCoipPoolsRequestDescribeCoipPoolsPaginateTypeDef(BaseValidatorModel):
     PoolIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCoipPoolsRequestRequestTypeDef(BaseModel):
+class DescribeCoipPoolsRequestRequestTypeDef(BaseValidatorModel):
     PoolIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeCustomerGatewaysRequestRequestTypeDef(BaseModel):
+class DescribeCustomerGatewaysRequestRequestTypeDef(BaseValidatorModel):
     CustomerGatewayIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeDhcpOptionsRequestDescribeDhcpOptionsPaginateTypeDef(BaseModel):
+class DescribeDhcpOptionsRequestDescribeDhcpOptionsPaginateTypeDef(BaseValidatorModel):
     DhcpOptionsIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDhcpOptionsRequestRequestTypeDef(BaseModel):
+class DescribeDhcpOptionsRequestRequestTypeDef(BaseValidatorModel):
     DhcpOptionsIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeEgressOnlyInternetGatewaysRequestDescribeEgressOnlyInternetGatewaysPaginateTypeDef(BaseModel):
+class DescribeEgressOnlyInternetGatewaysRequestDescribeEgressOnlyInternetGatewaysPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     EgressOnlyInternetGatewayIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEgressOnlyInternetGatewaysRequestRequestTypeDef(BaseModel):
+class DescribeEgressOnlyInternetGatewaysRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     EgressOnlyInternetGatewayIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeElasticGpusRequestRequestTypeDef(BaseModel):
+class DescribeElasticGpusRequestRequestTypeDef(BaseValidatorModel):
     ElasticGpuIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeExportImageTasksRequestDescribeExportImageTasksPaginateTypeDef(BaseModel):
+class DescribeExportImageTasksRequestDescribeExportImageTasksPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ExportImageTaskIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeExportImageTasksRequestRequestTypeDef(BaseModel):
+class DescribeExportImageTasksRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ExportImageTaskIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeExportTasksRequestRequestTypeDef(BaseModel):
+class DescribeExportTasksRequestRequestTypeDef(BaseValidatorModel):
     ExportTaskIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeFastLaunchImagesRequestDescribeFastLaunchImagesPaginateTypeDef(BaseModel):
+class DescribeFastLaunchImagesRequestDescribeFastLaunchImagesPaginateTypeDef(BaseValidatorModel):
     ImageIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeFastLaunchImagesRequestRequestTypeDef(BaseModel):
+class DescribeFastLaunchImagesRequestRequestTypeDef(BaseValidatorModel):
     ImageIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeFastSnapshotRestoresRequestDescribeFastSnapshotRestoresPaginateTypeDef(BaseModel):
+class DescribeFastSnapshotRestoresRequestDescribeFastSnapshotRestoresPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeFastSnapshotRestoresRequestRequestTypeDef(BaseModel):
+class DescribeFastSnapshotRestoresRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeFleetInstancesRequestRequestTypeDef(BaseModel):
+class DescribeFleetInstancesRequestRequestTypeDef(BaseValidatorModel):
     FleetId: str
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeFleetsRequestDescribeFleetsPaginateTypeDef(BaseModel):
+class DescribeFleetsRequestDescribeFleetsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     FleetIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeFleetsRequestRequestTypeDef(BaseModel):
+class DescribeFleetsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     FleetIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeFlowLogsRequestDescribeFlowLogsPaginateTypeDef(BaseModel):
+class DescribeFlowLogsRequestDescribeFlowLogsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     FlowLogIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeFlowLogsRequestRequestTypeDef(BaseModel):
+class DescribeFlowLogsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     FlowLogIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeFpgaImagesRequestDescribeFpgaImagesPaginateTypeDef(BaseModel):
+class DescribeFpgaImagesRequestDescribeFpgaImagesPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     FpgaImageIds: Optional[Sequence[str]] = None
     Owners: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeFpgaImagesRequestRequestTypeDef(BaseModel):
+class DescribeFpgaImagesRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     FpgaImageIds: Optional[Sequence[str]] = None
     Owners: Optional[Sequence[str]] = None
@@ -6497,14 +6497,14 @@ class DescribeFpgaImagesRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeHostReservationOfferingsRequestDescribeHostReservationOfferingsPaginateTypeDef(BaseModel):
+class DescribeHostReservationOfferingsRequestDescribeHostReservationOfferingsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxDuration: Optional[int] = None
     MinDuration: Optional[int] = None
     OfferingId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeHostReservationOfferingsRequestRequestTypeDef(BaseModel):
+class DescribeHostReservationOfferingsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxDuration: Optional[int] = None
     MaxResults: Optional[int] = None
@@ -6512,40 +6512,40 @@ class DescribeHostReservationOfferingsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     OfferingId: Optional[str] = None
 
-class DescribeHostReservationsRequestDescribeHostReservationsPaginateTypeDef(BaseModel):
+class DescribeHostReservationsRequestDescribeHostReservationsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     HostReservationIdSet: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeHostReservationsRequestRequestTypeDef(BaseModel):
+class DescribeHostReservationsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     HostReservationIdSet: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeHostsRequestDescribeHostsPaginateTypeDef(BaseModel):
+class DescribeHostsRequestDescribeHostsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     HostIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeHostsRequestRequestTypeDef(BaseModel):
+class DescribeHostsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     HostIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeIamInstanceProfileAssociationsRequestDescribeIamInstanceProfileAssociationsPaginateTypeDef(BaseModel):
+class DescribeIamInstanceProfileAssociationsRequestDescribeIamInstanceProfileAssociationsPaginateTypeDef(BaseValidatorModel):
     AssociationIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeIamInstanceProfileAssociationsRequestRequestTypeDef(BaseModel):
+class DescribeIamInstanceProfileAssociationsRequestRequestTypeDef(BaseValidatorModel):
     AssociationIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeImagesRequestDescribeImagesPaginateTypeDef(BaseModel):
+class DescribeImagesRequestDescribeImagesPaginateTypeDef(BaseValidatorModel):
     ExecutableUsers: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ImageIds: Optional[Sequence[str]] = None
@@ -6555,7 +6555,7 @@ class DescribeImagesRequestDescribeImagesPaginateTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeImagesRequestRequestTypeDef(BaseModel):
+class DescribeImagesRequestRequestTypeDef(BaseValidatorModel):
     ExecutableUsers: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ImageIds: Optional[Sequence[str]] = None
@@ -6566,79 +6566,79 @@ class DescribeImagesRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeImportImageTasksRequestDescribeImportImageTasksPaginateTypeDef(BaseModel):
+class DescribeImportImageTasksRequestDescribeImportImageTasksPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ImportTaskIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeImportImageTasksRequestRequestTypeDef(BaseModel):
+class DescribeImportImageTasksRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ImportTaskIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeImportSnapshotTasksRequestDescribeImportSnapshotTasksPaginateTypeDef(BaseModel):
+class DescribeImportSnapshotTasksRequestDescribeImportSnapshotTasksPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ImportTaskIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeImportSnapshotTasksRequestRequestTypeDef(BaseModel):
+class DescribeImportSnapshotTasksRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ImportTaskIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeInstanceConnectEndpointsRequestDescribeInstanceConnectEndpointsPaginateTypeDef(BaseModel):
+class DescribeInstanceConnectEndpointsRequestDescribeInstanceConnectEndpointsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceConnectEndpointIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInstanceConnectEndpointsRequestRequestTypeDef(BaseModel):
+class DescribeInstanceConnectEndpointsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceConnectEndpointIds: Optional[Sequence[str]] = None
 
-class DescribeInstanceCreditSpecificationsRequestDescribeInstanceCreditSpecificationsPaginateTypeDef(BaseModel):
+class DescribeInstanceCreditSpecificationsRequestDescribeInstanceCreditSpecificationsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInstanceCreditSpecificationsRequestRequestTypeDef(BaseModel):
+class DescribeInstanceCreditSpecificationsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeInstanceEventWindowsRequestDescribeInstanceEventWindowsPaginateTypeDef(BaseModel):
+class DescribeInstanceEventWindowsRequestDescribeInstanceEventWindowsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     InstanceEventWindowIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInstanceEventWindowsRequestRequestTypeDef(BaseModel):
+class DescribeInstanceEventWindowsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     InstanceEventWindowIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeInstanceStatusRequestDescribeInstanceStatusPaginateTypeDef(BaseModel):
+class DescribeInstanceStatusRequestDescribeInstanceStatusPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     IncludeAllInstances: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInstanceStatusRequestRequestTypeDef(BaseModel):
+class DescribeInstanceStatusRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
@@ -6646,14 +6646,14 @@ class DescribeInstanceStatusRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     IncludeAllInstances: Optional[bool] = None
 
-class DescribeInstanceTopologyRequestDescribeInstanceTopologyPaginateTypeDef(BaseModel):
+class DescribeInstanceTopologyRequestDescribeInstanceTopologyPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     InstanceIds: Optional[Sequence[str]] = None
     GroupNames: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInstanceTopologyRequestRequestTypeDef(BaseModel):
+class DescribeInstanceTopologyRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -6661,144 +6661,144 @@ class DescribeInstanceTopologyRequestRequestTypeDef(BaseModel):
     GroupNames: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeInstanceTypeOfferingsRequestDescribeInstanceTypeOfferingsPaginateTypeDef(BaseModel):
+class DescribeInstanceTypeOfferingsRequestDescribeInstanceTypeOfferingsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LocationType: Optional[LocationTypeType] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInstanceTypeOfferingsRequestRequestTypeDef(BaseModel):
+class DescribeInstanceTypeOfferingsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LocationType: Optional[LocationTypeType] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeInstanceTypesRequestDescribeInstanceTypesPaginateTypeDef(BaseModel):
+class DescribeInstanceTypesRequestDescribeInstanceTypesPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     InstanceTypes: Optional[Sequence[InstanceTypeType]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInstanceTypesRequestRequestTypeDef(BaseModel):
+class DescribeInstanceTypesRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     InstanceTypes: Optional[Sequence[InstanceTypeType]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeInstancesRequestDescribeInstancesPaginateTypeDef(BaseModel):
+class DescribeInstancesRequestDescribeInstancesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInstancesRequestRequestTypeDef(BaseModel):
+class DescribeInstancesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeInternetGatewaysRequestDescribeInternetGatewaysPaginateTypeDef(BaseModel):
+class DescribeInternetGatewaysRequestDescribeInternetGatewaysPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     InternetGatewayIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInternetGatewaysRequestRequestTypeDef(BaseModel):
+class DescribeInternetGatewaysRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     InternetGatewayIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeIpamPoolsRequestDescribeIpamPoolsPaginateTypeDef(BaseModel):
+class DescribeIpamPoolsRequestDescribeIpamPoolsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     IpamPoolIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeIpamPoolsRequestRequestTypeDef(BaseModel):
+class DescribeIpamPoolsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     IpamPoolIds: Optional[Sequence[str]] = None
 
-class DescribeIpamResourceDiscoveriesRequestDescribeIpamResourceDiscoveriesPaginateTypeDef(BaseModel):
+class DescribeIpamResourceDiscoveriesRequestDescribeIpamResourceDiscoveriesPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     IpamResourceDiscoveryIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeIpamResourceDiscoveriesRequestRequestTypeDef(BaseModel):
+class DescribeIpamResourceDiscoveriesRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     IpamResourceDiscoveryIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeIpamResourceDiscoveryAssociationsRequestDescribeIpamResourceDiscoveryAssociationsPaginateTypeDef(BaseModel):
+class DescribeIpamResourceDiscoveryAssociationsRequestDescribeIpamResourceDiscoveryAssociationsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     IpamResourceDiscoveryAssociationIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeIpamResourceDiscoveryAssociationsRequestRequestTypeDef(BaseModel):
+class DescribeIpamResourceDiscoveryAssociationsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     IpamResourceDiscoveryAssociationIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeIpamScopesRequestDescribeIpamScopesPaginateTypeDef(BaseModel):
+class DescribeIpamScopesRequestDescribeIpamScopesPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     IpamScopeIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeIpamScopesRequestRequestTypeDef(BaseModel):
+class DescribeIpamScopesRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     IpamScopeIds: Optional[Sequence[str]] = None
 
-class DescribeIpamsRequestDescribeIpamsPaginateTypeDef(BaseModel):
+class DescribeIpamsRequestDescribeIpamsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     IpamIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeIpamsRequestRequestTypeDef(BaseModel):
+class DescribeIpamsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     IpamIds: Optional[Sequence[str]] = None
 
-class DescribeIpv6PoolsRequestDescribeIpv6PoolsPaginateTypeDef(BaseModel):
+class DescribeIpv6PoolsRequestDescribeIpv6PoolsPaginateTypeDef(BaseValidatorModel):
     PoolIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeIpv6PoolsRequestRequestTypeDef(BaseModel):
+class DescribeIpv6PoolsRequestRequestTypeDef(BaseValidatorModel):
     PoolIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeKeyPairsRequestRequestTypeDef(BaseModel):
+class DescribeKeyPairsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     KeyNames: Optional[Sequence[str]] = None
     KeyPairIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     IncludePublicKey: Optional[bool] = None
 
-class DescribeLaunchTemplateVersionsRequestDescribeLaunchTemplateVersionsPaginateTypeDef(BaseModel):
+class DescribeLaunchTemplateVersionsRequestDescribeLaunchTemplateVersionsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
@@ -6809,7 +6809,7 @@ class DescribeLaunchTemplateVersionsRequestDescribeLaunchTemplateVersionsPaginat
     ResolveAlias: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLaunchTemplateVersionsRequestRequestTypeDef(BaseModel):
+class DescribeLaunchTemplateVersionsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
@@ -6821,14 +6821,14 @@ class DescribeLaunchTemplateVersionsRequestRequestTypeDef(BaseModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ResolveAlias: Optional[bool] = None
 
-class DescribeLaunchTemplatesRequestDescribeLaunchTemplatesPaginateTypeDef(BaseModel):
+class DescribeLaunchTemplatesRequestDescribeLaunchTemplatesPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateIds: Optional[Sequence[str]] = None
     LaunchTemplateNames: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLaunchTemplatesRequestRequestTypeDef(BaseModel):
+class DescribeLaunchTemplatesRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateIds: Optional[Sequence[str]] = None
     LaunchTemplateNames: Optional[Sequence[str]] = None
@@ -6836,155 +6836,155 @@ class DescribeLaunchTemplatesRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginateTypeDef(BaseModel):
+class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginateTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestRequestTypeDef(BaseModel):
+class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeLocalGatewayRouteTableVpcAssociationsRequestDescribeLocalGatewayRouteTableVpcAssociationsPaginateTypeDef(BaseModel):
+class DescribeLocalGatewayRouteTableVpcAssociationsRequestDescribeLocalGatewayRouteTableVpcAssociationsPaginateTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociationIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLocalGatewayRouteTableVpcAssociationsRequestRequestTypeDef(BaseModel):
+class DescribeLocalGatewayRouteTableVpcAssociationsRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociationIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeLocalGatewayRouteTablesRequestDescribeLocalGatewayRouteTablesPaginateTypeDef(BaseModel):
+class DescribeLocalGatewayRouteTablesRequestDescribeLocalGatewayRouteTablesPaginateTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLocalGatewayRouteTablesRequestRequestTypeDef(BaseModel):
+class DescribeLocalGatewayRouteTablesRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeLocalGatewayVirtualInterfaceGroupsRequestDescribeLocalGatewayVirtualInterfaceGroupsPaginateTypeDef(BaseModel):
+class DescribeLocalGatewayVirtualInterfaceGroupsRequestDescribeLocalGatewayVirtualInterfaceGroupsPaginateTypeDef(BaseValidatorModel):
     LocalGatewayVirtualInterfaceGroupIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLocalGatewayVirtualInterfaceGroupsRequestRequestTypeDef(BaseModel):
+class DescribeLocalGatewayVirtualInterfaceGroupsRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayVirtualInterfaceGroupIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeLocalGatewayVirtualInterfacesRequestDescribeLocalGatewayVirtualInterfacesPaginateTypeDef(BaseModel):
+class DescribeLocalGatewayVirtualInterfacesRequestDescribeLocalGatewayVirtualInterfacesPaginateTypeDef(BaseValidatorModel):
     LocalGatewayVirtualInterfaceIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLocalGatewayVirtualInterfacesRequestRequestTypeDef(BaseModel):
+class DescribeLocalGatewayVirtualInterfacesRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayVirtualInterfaceIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeLocalGatewaysRequestDescribeLocalGatewaysPaginateTypeDef(BaseModel):
+class DescribeLocalGatewaysRequestDescribeLocalGatewaysPaginateTypeDef(BaseValidatorModel):
     LocalGatewayIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLocalGatewaysRequestRequestTypeDef(BaseModel):
+class DescribeLocalGatewaysRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeLockedSnapshotsRequestRequestTypeDef(BaseModel):
+class DescribeLockedSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SnapshotIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class DescribeMacHostsRequestDescribeMacHostsPaginateTypeDef(BaseModel):
+class DescribeMacHostsRequestDescribeMacHostsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     HostIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeMacHostsRequestRequestTypeDef(BaseModel):
+class DescribeMacHostsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     HostIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeManagedPrefixListsRequestDescribeManagedPrefixListsPaginateTypeDef(BaseModel):
+class DescribeManagedPrefixListsRequestDescribeManagedPrefixListsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PrefixListIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeManagedPrefixListsRequestRequestTypeDef(BaseModel):
+class DescribeManagedPrefixListsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     PrefixListIds: Optional[Sequence[str]] = None
 
-class DescribeMovingAddressesRequestDescribeMovingAddressesPaginateTypeDef(BaseModel):
+class DescribeMovingAddressesRequestDescribeMovingAddressesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PublicIps: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeMovingAddressesRequestRequestTypeDef(BaseModel):
+class DescribeMovingAddressesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     PublicIps: Optional[Sequence[str]] = None
 
-class DescribeNatGatewaysRequestDescribeNatGatewaysPaginateTypeDef(BaseModel):
+class DescribeNatGatewaysRequestDescribeNatGatewaysPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NatGatewayIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNatGatewaysRequestRequestTypeDef(BaseModel):
+class DescribeNatGatewaysRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NatGatewayIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
 
-class DescribeNetworkAclsRequestDescribeNetworkAclsPaginateTypeDef(BaseModel):
+class DescribeNetworkAclsRequestDescribeNetworkAclsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     NetworkAclIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNetworkAclsRequestRequestTypeDef(BaseModel):
+class DescribeNetworkAclsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     NetworkAclIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeNetworkInsightsAccessScopeAnalysesRequestDescribeNetworkInsightsAccessScopeAnalysesPaginateTypeDef(BaseModel):
+class DescribeNetworkInsightsAccessScopeAnalysesRequestDescribeNetworkInsightsAccessScopeAnalysesPaginateTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisIds: Optional[Sequence[str]] = None
     NetworkInsightsAccessScopeId: Optional[str] = None
     AnalysisStartTimeBegin: Optional[TimestampTypeDef] = None
@@ -6993,7 +6993,7 @@ class DescribeNetworkInsightsAccessScopeAnalysesRequestDescribeNetworkInsightsAc
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNetworkInsightsAccessScopeAnalysesRequestRequestTypeDef(BaseModel):
+class DescribeNetworkInsightsAccessScopeAnalysesRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisIds: Optional[Sequence[str]] = None
     NetworkInsightsAccessScopeId: Optional[str] = None
     AnalysisStartTimeBegin: Optional[TimestampTypeDef] = None
@@ -7003,20 +7003,20 @@ class DescribeNetworkInsightsAccessScopeAnalysesRequestRequestTypeDef(BaseModel)
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
 
-class DescribeNetworkInsightsAccessScopesRequestDescribeNetworkInsightsAccessScopesPaginateTypeDef(BaseModel):
+class DescribeNetworkInsightsAccessScopesRequestDescribeNetworkInsightsAccessScopesPaginateTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNetworkInsightsAccessScopesRequestRequestTypeDef(BaseModel):
+class DescribeNetworkInsightsAccessScopesRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
 
-class DescribeNetworkInsightsAnalysesRequestDescribeNetworkInsightsAnalysesPaginateTypeDef(BaseModel):
+class DescribeNetworkInsightsAnalysesRequestDescribeNetworkInsightsAnalysesPaginateTypeDef(BaseValidatorModel):
     NetworkInsightsAnalysisIds: Optional[Sequence[str]] = None
     NetworkInsightsPathId: Optional[str] = None
     AnalysisStartTime: Optional[TimestampTypeDef] = None
@@ -7025,7 +7025,7 @@ class DescribeNetworkInsightsAnalysesRequestDescribeNetworkInsightsAnalysesPagin
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNetworkInsightsAnalysesRequestRequestTypeDef(BaseModel):
+class DescribeNetworkInsightsAnalysesRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsAnalysisIds: Optional[Sequence[str]] = None
     NetworkInsightsPathId: Optional[str] = None
     AnalysisStartTime: Optional[TimestampTypeDef] = None
@@ -7035,108 +7035,108 @@ class DescribeNetworkInsightsAnalysesRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
 
-class DescribeNetworkInsightsPathsRequestDescribeNetworkInsightsPathsPaginateTypeDef(BaseModel):
+class DescribeNetworkInsightsPathsRequestDescribeNetworkInsightsPathsPaginateTypeDef(BaseValidatorModel):
     NetworkInsightsPathIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNetworkInsightsPathsRequestRequestTypeDef(BaseModel):
+class DescribeNetworkInsightsPathsRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsPathIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
 
-class DescribeNetworkInterfacePermissionsRequestDescribeNetworkInterfacePermissionsPaginateTypeDef(BaseModel):
+class DescribeNetworkInterfacePermissionsRequestDescribeNetworkInterfacePermissionsPaginateTypeDef(BaseValidatorModel):
     NetworkInterfacePermissionIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNetworkInterfacePermissionsRequestRequestTypeDef(BaseModel):
+class DescribeNetworkInterfacePermissionsRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfacePermissionIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeNetworkInterfacesRequestDescribeNetworkInterfacesPaginateTypeDef(BaseModel):
+class DescribeNetworkInterfacesRequestDescribeNetworkInterfacesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     NetworkInterfaceIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNetworkInterfacesRequestRequestTypeDef(BaseModel):
+class DescribeNetworkInterfacesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     NetworkInterfaceIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribePlacementGroupsRequestRequestTypeDef(BaseModel):
+class DescribePlacementGroupsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     GroupNames: Optional[Sequence[str]] = None
     GroupIds: Optional[Sequence[str]] = None
 
-class DescribePrefixListsRequestDescribePrefixListsPaginateTypeDef(BaseModel):
+class DescribePrefixListsRequestDescribePrefixListsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PrefixListIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribePrefixListsRequestRequestTypeDef(BaseModel):
+class DescribePrefixListsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     PrefixListIds: Optional[Sequence[str]] = None
 
-class DescribePublicIpv4PoolsRequestDescribePublicIpv4PoolsPaginateTypeDef(BaseModel):
+class DescribePublicIpv4PoolsRequestDescribePublicIpv4PoolsPaginateTypeDef(BaseValidatorModel):
     PoolIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribePublicIpv4PoolsRequestRequestTypeDef(BaseModel):
+class DescribePublicIpv4PoolsRequestRequestTypeDef(BaseValidatorModel):
     PoolIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeRegionsRequestRequestTypeDef(BaseModel):
+class DescribeRegionsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     RegionNames: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     AllRegions: Optional[bool] = None
 
-class DescribeReplaceRootVolumeTasksRequestDescribeReplaceRootVolumeTasksPaginateTypeDef(BaseModel):
+class DescribeReplaceRootVolumeTasksRequestDescribeReplaceRootVolumeTasksPaginateTypeDef(BaseValidatorModel):
     ReplaceRootVolumeTaskIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReplaceRootVolumeTasksRequestRequestTypeDef(BaseModel):
+class DescribeReplaceRootVolumeTasksRequestRequestTypeDef(BaseValidatorModel):
     ReplaceRootVolumeTaskIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeReservedInstancesListingsRequestRequestTypeDef(BaseModel):
+class DescribeReservedInstancesListingsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ReservedInstancesId: Optional[str] = None
     ReservedInstancesListingId: Optional[str] = None
 
-class DescribeReservedInstancesModificationsRequestDescribeReservedInstancesModificationsPaginateTypeDef(BaseModel):
+class DescribeReservedInstancesModificationsRequestDescribeReservedInstancesModificationsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ReservedInstancesModificationIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReservedInstancesModificationsRequestRequestTypeDef(BaseModel):
+class DescribeReservedInstancesModificationsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ReservedInstancesModificationIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
 
-class DescribeReservedInstancesOfferingsRequestDescribeReservedInstancesOfferingsPaginateTypeDef(BaseModel):
+class DescribeReservedInstancesOfferingsRequestDescribeReservedInstancesOfferingsPaginateTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     IncludeMarketplace: Optional[bool] = None
@@ -7152,7 +7152,7 @@ class DescribeReservedInstancesOfferingsRequestDescribeReservedInstancesOffering
     OfferingType: Optional[OfferingTypeValuesType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReservedInstancesOfferingsRequestRequestTypeDef(BaseModel):
+class DescribeReservedInstancesOfferingsRequestRequestTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     IncludeMarketplace: Optional[bool] = None
@@ -7169,47 +7169,47 @@ class DescribeReservedInstancesOfferingsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     OfferingType: Optional[OfferingTypeValuesType] = None
 
-class DescribeReservedInstancesRequestRequestTypeDef(BaseModel):
+class DescribeReservedInstancesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     OfferingClass: Optional[OfferingClassTypeType] = None
     ReservedInstancesIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     OfferingType: Optional[OfferingTypeValuesType] = None
 
-class DescribeRouteTablesRequestDescribeRouteTablesPaginateTypeDef(BaseModel):
+class DescribeRouteTablesRequestDescribeRouteTablesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     RouteTableIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRouteTablesRequestRequestTypeDef(BaseModel):
+class DescribeRouteTablesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     RouteTableIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeSecurityGroupRulesRequestDescribeSecurityGroupRulesPaginateTypeDef(BaseModel):
+class DescribeSecurityGroupRulesRequestDescribeSecurityGroupRulesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     SecurityGroupRuleIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSecurityGroupRulesRequestRequestTypeDef(BaseModel):
+class DescribeSecurityGroupRulesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     SecurityGroupRuleIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeSecurityGroupsRequestDescribeSecurityGroupsPaginateTypeDef(BaseModel):
+class DescribeSecurityGroupsRequestDescribeSecurityGroupsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     GroupIds: Optional[Sequence[str]] = None
     GroupNames: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSecurityGroupsRequestRequestTypeDef(BaseModel):
+class DescribeSecurityGroupsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     GroupIds: Optional[Sequence[str]] = None
     GroupNames: Optional[Sequence[str]] = None
@@ -7217,18 +7217,18 @@ class DescribeSecurityGroupsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeSnapshotTierStatusRequestDescribeSnapshotTierStatusPaginateTypeDef(BaseModel):
+class DescribeSnapshotTierStatusRequestDescribeSnapshotTierStatusPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSnapshotTierStatusRequestRequestTypeDef(BaseModel):
+class DescribeSnapshotTierStatusRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeSnapshotsRequestDescribeSnapshotsPaginateTypeDef(BaseModel):
+class DescribeSnapshotsRequestDescribeSnapshotsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     OwnerIds: Optional[Sequence[str]] = None
     RestorableByUserIds: Optional[Sequence[str]] = None
@@ -7236,7 +7236,7 @@ class DescribeSnapshotsRequestDescribeSnapshotsPaginateTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSnapshotsRequestRequestTypeDef(BaseModel):
+class DescribeSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -7245,20 +7245,20 @@ class DescribeSnapshotsRequestRequestTypeDef(BaseModel):
     SnapshotIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class DescribeSpotInstanceRequestsRequestDescribeSpotInstanceRequestsPaginateTypeDef(BaseModel):
+class DescribeSpotInstanceRequestsRequestDescribeSpotInstanceRequestsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     SpotInstanceRequestIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSpotInstanceRequestsRequestRequestTypeDef(BaseModel):
+class DescribeSpotInstanceRequestsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     SpotInstanceRequestIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeSpotPriceHistoryRequestDescribeSpotPriceHistoryPaginateTypeDef(BaseModel):
+class DescribeSpotPriceHistoryRequestDescribeSpotPriceHistoryPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     AvailabilityZone: Optional[str] = None
     DryRun: Optional[bool] = None
@@ -7268,7 +7268,7 @@ class DescribeSpotPriceHistoryRequestDescribeSpotPriceHistoryPaginateTypeDef(Bas
     StartTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSpotPriceHistoryRequestRequestTypeDef(BaseModel):
+class DescribeSpotPriceHistoryRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     AvailabilityZone: Optional[str] = None
     DryRun: Optional[bool] = None
@@ -7279,44 +7279,44 @@ class DescribeSpotPriceHistoryRequestRequestTypeDef(BaseModel):
     ProductDescriptions: Optional[Sequence[str]] = None
     StartTime: Optional[TimestampTypeDef] = None
 
-class DescribeStoreImageTasksRequestDescribeStoreImageTasksPaginateTypeDef(BaseModel):
+class DescribeStoreImageTasksRequestDescribeStoreImageTasksPaginateTypeDef(BaseValidatorModel):
     ImageIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeStoreImageTasksRequestRequestTypeDef(BaseModel):
+class DescribeStoreImageTasksRequestRequestTypeDef(BaseValidatorModel):
     ImageIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeSubnetsRequestDescribeSubnetsPaginateTypeDef(BaseModel):
+class DescribeSubnetsRequestDescribeSubnetsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     SubnetIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSubnetsRequestRequestTypeDef(BaseModel):
+class DescribeSubnetsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     SubnetIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeTagsRequestDescribeTagsPaginateTypeDef(BaseModel):
+class DescribeTagsRequestDescribeTagsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTagsRequestRequestTypeDef(BaseModel):
+class DescribeTagsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeTrafficMirrorFilterRulesRequestRequestTypeDef(BaseModel):
+class DescribeTrafficMirrorFilterRulesRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorFilterRuleIds: Optional[Sequence[str]] = None
     TrafficMirrorFilterId: Optional[str] = None
     DryRun: Optional[bool] = None
@@ -7324,177 +7324,177 @@ class DescribeTrafficMirrorFilterRulesRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeTrafficMirrorFiltersRequestDescribeTrafficMirrorFiltersPaginateTypeDef(BaseModel):
+class DescribeTrafficMirrorFiltersRequestDescribeTrafficMirrorFiltersPaginateTypeDef(BaseValidatorModel):
     TrafficMirrorFilterIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTrafficMirrorFiltersRequestRequestTypeDef(BaseModel):
+class DescribeTrafficMirrorFiltersRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorFilterIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeTrafficMirrorSessionsRequestDescribeTrafficMirrorSessionsPaginateTypeDef(BaseModel):
+class DescribeTrafficMirrorSessionsRequestDescribeTrafficMirrorSessionsPaginateTypeDef(BaseValidatorModel):
     TrafficMirrorSessionIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTrafficMirrorSessionsRequestRequestTypeDef(BaseModel):
+class DescribeTrafficMirrorSessionsRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorSessionIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeTrafficMirrorTargetsRequestDescribeTrafficMirrorTargetsPaginateTypeDef(BaseModel):
+class DescribeTrafficMirrorTargetsRequestDescribeTrafficMirrorTargetsPaginateTypeDef(BaseValidatorModel):
     TrafficMirrorTargetIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTrafficMirrorTargetsRequestRequestTypeDef(BaseModel):
+class DescribeTrafficMirrorTargetsRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorTargetIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeTransitGatewayAttachmentsRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewayAttachmentsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTransitGatewayConnectPeersRequestDescribeTransitGatewayConnectPeersPaginateTypeDef(BaseModel):
+class DescribeTransitGatewayConnectPeersRequestDescribeTransitGatewayConnectPeersPaginateTypeDef(BaseValidatorModel):
     TransitGatewayConnectPeerIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTransitGatewayConnectPeersRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewayConnectPeersRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayConnectPeerIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTransitGatewayConnectsRequestDescribeTransitGatewayConnectsPaginateTypeDef(BaseModel):
+class DescribeTransitGatewayConnectsRequestDescribeTransitGatewayConnectsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTransitGatewayConnectsRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewayConnectsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTransitGatewayMulticastDomainsRequestDescribeTransitGatewayMulticastDomainsPaginateTypeDef(BaseModel):
+class DescribeTransitGatewayMulticastDomainsRequestDescribeTransitGatewayMulticastDomainsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTransitGatewayMulticastDomainsRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewayMulticastDomainsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTransitGatewayPeeringAttachmentsRequestDescribeTransitGatewayPeeringAttachmentsPaginateTypeDef(BaseModel):
+class DescribeTransitGatewayPeeringAttachmentsRequestDescribeTransitGatewayPeeringAttachmentsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTransitGatewayPeeringAttachmentsRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewayPeeringAttachmentsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTransitGatewayPolicyTablesRequestDescribeTransitGatewayPolicyTablesPaginateTypeDef(BaseModel):
+class DescribeTransitGatewayPolicyTablesRequestDescribeTransitGatewayPolicyTablesPaginateTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTransitGatewayPolicyTablesRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewayPolicyTablesRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTransitGatewayRouteTableAnnouncementsRequestDescribeTransitGatewayRouteTableAnnouncementsPaginateTypeDef(BaseModel):
+class DescribeTransitGatewayRouteTableAnnouncementsRequestDescribeTransitGatewayRouteTableAnnouncementsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncementIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTransitGatewayRouteTableAnnouncementsRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewayRouteTableAnnouncementsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncementIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTransitGatewayRouteTablesRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewayRouteTablesRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTransitGatewayVpcAttachmentsRequestDescribeTransitGatewayVpcAttachmentsPaginateTypeDef(BaseModel):
+class DescribeTransitGatewayVpcAttachmentsRequestDescribeTransitGatewayVpcAttachmentsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTransitGatewayVpcAttachmentsRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewayVpcAttachmentsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTransitGatewaysRequestDescribeTransitGatewaysPaginateTypeDef(BaseModel):
+class DescribeTransitGatewaysRequestDescribeTransitGatewaysPaginateTypeDef(BaseValidatorModel):
     TransitGatewayIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTransitGatewaysRequestRequestTypeDef(BaseModel):
+class DescribeTransitGatewaysRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeTrunkInterfaceAssociationsRequestDescribeTrunkInterfaceAssociationsPaginateTypeDef(BaseModel):
+class DescribeTrunkInterfaceAssociationsRequestDescribeTrunkInterfaceAssociationsPaginateTypeDef(BaseValidatorModel):
     AssociationIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTrunkInterfaceAssociationsRequestRequestTypeDef(BaseModel):
+class DescribeTrunkInterfaceAssociationsRequestRequestTypeDef(BaseValidatorModel):
     AssociationIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeVerifiedAccessEndpointsRequestDescribeVerifiedAccessEndpointsPaginateTypeDef(BaseModel):
+class DescribeVerifiedAccessEndpointsRequestDescribeVerifiedAccessEndpointsPaginateTypeDef(BaseValidatorModel):
     VerifiedAccessEndpointIds: Optional[Sequence[str]] = None
     VerifiedAccessInstanceId: Optional[str] = None
     VerifiedAccessGroupId: Optional[str] = None
@@ -7502,7 +7502,7 @@ class DescribeVerifiedAccessEndpointsRequestDescribeVerifiedAccessEndpointsPagin
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVerifiedAccessEndpointsRequestRequestTypeDef(BaseModel):
+class DescribeVerifiedAccessEndpointsRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessEndpointIds: Optional[Sequence[str]] = None
     VerifiedAccessInstanceId: Optional[str] = None
     VerifiedAccessGroupId: Optional[str] = None
@@ -7511,14 +7511,14 @@ class DescribeVerifiedAccessEndpointsRequestRequestTypeDef(BaseModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeVerifiedAccessGroupsRequestDescribeVerifiedAccessGroupsPaginateTypeDef(BaseModel):
+class DescribeVerifiedAccessGroupsRequestDescribeVerifiedAccessGroupsPaginateTypeDef(BaseValidatorModel):
     VerifiedAccessGroupIds: Optional[Sequence[str]] = None
     VerifiedAccessInstanceId: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVerifiedAccessGroupsRequestRequestTypeDef(BaseModel):
+class DescribeVerifiedAccessGroupsRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessGroupIds: Optional[Sequence[str]] = None
     VerifiedAccessInstanceId: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -7526,228 +7526,228 @@ class DescribeVerifiedAccessGroupsRequestRequestTypeDef(BaseModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeVerifiedAccessInstanceLoggingConfigurationsRequestDescribeVerifiedAccessInstanceLoggingConfigurationsPaginateTypeDef(BaseModel):
+class DescribeVerifiedAccessInstanceLoggingConfigurationsRequestDescribeVerifiedAccessInstanceLoggingConfigurationsPaginateTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVerifiedAccessInstanceLoggingConfigurationsRequestRequestTypeDef(BaseModel):
+class DescribeVerifiedAccessInstanceLoggingConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeVerifiedAccessInstancesRequestDescribeVerifiedAccessInstancesPaginateTypeDef(BaseModel):
+class DescribeVerifiedAccessInstancesRequestDescribeVerifiedAccessInstancesPaginateTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVerifiedAccessInstancesRequestRequestTypeDef(BaseModel):
+class DescribeVerifiedAccessInstancesRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeVerifiedAccessTrustProvidersRequestDescribeVerifiedAccessTrustProvidersPaginateTypeDef(BaseModel):
+class DescribeVerifiedAccessTrustProvidersRequestDescribeVerifiedAccessTrustProvidersPaginateTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProviderIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVerifiedAccessTrustProvidersRequestRequestTypeDef(BaseModel):
+class DescribeVerifiedAccessTrustProvidersRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProviderIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class DescribeVolumeStatusRequestDescribeVolumeStatusPaginateTypeDef(BaseModel):
+class DescribeVolumeStatusRequestDescribeVolumeStatusPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VolumeIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVolumeStatusRequestRequestTypeDef(BaseModel):
+class DescribeVolumeStatusRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     VolumeIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class DescribeVolumeStatusRequestVolumeDescribeStatusTypeDef(BaseModel):
+class DescribeVolumeStatusRequestVolumeDescribeStatusTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class DescribeVolumesModificationsRequestDescribeVolumesModificationsPaginateTypeDef(BaseModel):
+class DescribeVolumesModificationsRequestDescribeVolumesModificationsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     VolumeIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVolumesModificationsRequestRequestTypeDef(BaseModel):
+class DescribeVolumesModificationsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     VolumeIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeVolumesRequestDescribeVolumesPaginateTypeDef(BaseModel):
+class DescribeVolumesRequestDescribeVolumesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VolumeIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVolumesRequestRequestTypeDef(BaseModel):
+class DescribeVolumesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VolumeIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeVpcClassicLinkRequestRequestTypeDef(BaseModel):
+class DescribeVpcClassicLinkRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     VpcIds: Optional[Sequence[str]] = None
 
-class DescribeVpcEndpointConnectionNotificationsRequestDescribeVpcEndpointConnectionNotificationsPaginateTypeDef(BaseModel):
+class DescribeVpcEndpointConnectionNotificationsRequestDescribeVpcEndpointConnectionNotificationsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ConnectionNotificationId: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVpcEndpointConnectionNotificationsRequestRequestTypeDef(BaseModel):
+class DescribeVpcEndpointConnectionNotificationsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ConnectionNotificationId: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeVpcEndpointConnectionsRequestDescribeVpcEndpointConnectionsPaginateTypeDef(BaseModel):
+class DescribeVpcEndpointConnectionsRequestDescribeVpcEndpointConnectionsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVpcEndpointConnectionsRequestRequestTypeDef(BaseModel):
+class DescribeVpcEndpointConnectionsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeVpcEndpointServiceConfigurationsRequestDescribeVpcEndpointServiceConfigurationsPaginateTypeDef(BaseModel):
+class DescribeVpcEndpointServiceConfigurationsRequestDescribeVpcEndpointServiceConfigurationsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ServiceIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVpcEndpointServiceConfigurationsRequestRequestTypeDef(BaseModel):
+class DescribeVpcEndpointServiceConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ServiceIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeVpcEndpointServicePermissionsRequestDescribeVpcEndpointServicePermissionsPaginateTypeDef(BaseModel):
+class DescribeVpcEndpointServicePermissionsRequestDescribeVpcEndpointServicePermissionsPaginateTypeDef(BaseValidatorModel):
     ServiceId: str
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVpcEndpointServicePermissionsRequestRequestTypeDef(BaseModel):
+class DescribeVpcEndpointServicePermissionsRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeVpcEndpointServicesRequestDescribeVpcEndpointServicesPaginateTypeDef(BaseModel):
+class DescribeVpcEndpointServicesRequestDescribeVpcEndpointServicesPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ServiceNames: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVpcEndpointServicesRequestRequestTypeDef(BaseModel):
+class DescribeVpcEndpointServicesRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ServiceNames: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeVpcEndpointsRequestDescribeVpcEndpointsPaginateTypeDef(BaseModel):
+class DescribeVpcEndpointsRequestDescribeVpcEndpointsPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     VpcEndpointIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVpcEndpointsRequestRequestTypeDef(BaseModel):
+class DescribeVpcEndpointsRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     VpcEndpointIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeVpcPeeringConnectionsRequestDescribeVpcPeeringConnectionsPaginateTypeDef(BaseModel):
+class DescribeVpcPeeringConnectionsRequestDescribeVpcPeeringConnectionsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     VpcPeeringConnectionIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVpcPeeringConnectionsRequestRequestTypeDef(BaseModel):
+class DescribeVpcPeeringConnectionsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     VpcPeeringConnectionIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeVpcsRequestDescribeVpcsPaginateTypeDef(BaseModel):
+class DescribeVpcsRequestDescribeVpcsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VpcIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeVpcsRequestRequestTypeDef(BaseModel):
+class DescribeVpcsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VpcIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeVpnConnectionsRequestRequestTypeDef(BaseModel):
+class DescribeVpnConnectionsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VpnConnectionIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class DescribeVpnGatewaysRequestRequestTypeDef(BaseModel):
+class DescribeVpnGatewaysRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VpnGatewayIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class ExportTransitGatewayRoutesRequestRequestTypeDef(BaseModel):
+class ExportTransitGatewayRoutesRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     S3Bucket: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class GetCoipPoolUsageRequestRequestTypeDef(BaseModel):
+class GetCoipPoolUsageRequestRequestTypeDef(BaseValidatorModel):
     PoolId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class GetIpamDiscoveredAccountsRequestGetIpamDiscoveredAccountsPaginateTypeDef(BaseModel):
+class GetIpamDiscoveredAccountsRequestGetIpamDiscoveredAccountsPaginateTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     DiscoveryRegion: str
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetIpamDiscoveredAccountsRequestRequestTypeDef(BaseModel):
+class GetIpamDiscoveredAccountsRequestRequestTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     DiscoveryRegion: str
     DryRun: Optional[bool] = None
@@ -7755,7 +7755,7 @@ class GetIpamDiscoveredAccountsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetIpamDiscoveredPublicAddressesRequestRequestTypeDef(BaseModel):
+class GetIpamDiscoveredPublicAddressesRequestRequestTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     AddressRegion: str
     DryRun: Optional[bool] = None
@@ -7763,14 +7763,14 @@ class GetIpamDiscoveredPublicAddressesRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetIpamDiscoveredResourceCidrsRequestGetIpamDiscoveredResourceCidrsPaginateTypeDef(BaseModel):
+class GetIpamDiscoveredResourceCidrsRequestGetIpamDiscoveredResourceCidrsPaginateTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     ResourceRegion: str
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetIpamDiscoveredResourceCidrsRequestRequestTypeDef(BaseModel):
+class GetIpamDiscoveredResourceCidrsRequestRequestTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     ResourceRegion: str
     DryRun: Optional[bool] = None
@@ -7778,14 +7778,14 @@ class GetIpamDiscoveredResourceCidrsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetIpamPoolAllocationsRequestGetIpamPoolAllocationsPaginateTypeDef(BaseModel):
+class GetIpamPoolAllocationsRequestGetIpamPoolAllocationsPaginateTypeDef(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     IpamPoolAllocationId: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetIpamPoolAllocationsRequestRequestTypeDef(BaseModel):
+class GetIpamPoolAllocationsRequestRequestTypeDef(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     IpamPoolAllocationId: Optional[str] = None
@@ -7793,20 +7793,20 @@ class GetIpamPoolAllocationsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetIpamPoolCidrsRequestGetIpamPoolCidrsPaginateTypeDef(BaseModel):
+class GetIpamPoolCidrsRequestGetIpamPoolCidrsPaginateTypeDef(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetIpamPoolCidrsRequestRequestTypeDef(BaseModel):
+class GetIpamPoolCidrsRequestRequestTypeDef(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetIpamResourceCidrsRequestGetIpamResourceCidrsPaginateTypeDef(BaseModel):
+class GetIpamResourceCidrsRequestGetIpamResourceCidrsPaginateTypeDef(BaseValidatorModel):
     IpamScopeId: str
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
@@ -7817,7 +7817,7 @@ class GetIpamResourceCidrsRequestGetIpamResourceCidrsPaginateTypeDef(BaseModel):
     ResourceOwner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetIpamResourceCidrsRequestRequestTypeDef(BaseModel):
+class GetIpamResourceCidrsRequestRequestTypeDef(BaseValidatorModel):
     IpamScopeId: str
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
@@ -7829,203 +7829,203 @@ class GetIpamResourceCidrsRequestRequestTypeDef(BaseModel):
     ResourceTag: Optional[RequestIpamResourceTagTypeDef] = None
     ResourceOwner: Optional[str] = None
 
-class GetSecurityGroupsForVpcRequestGetSecurityGroupsForVpcPaginateTypeDef(BaseModel):
+class GetSecurityGroupsForVpcRequestGetSecurityGroupsForVpcPaginateTypeDef(BaseValidatorModel):
     VpcId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetSecurityGroupsForVpcRequestRequestTypeDef(BaseModel):
+class GetSecurityGroupsForVpcRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class GetSubnetCidrReservationsRequestRequestTypeDef(BaseModel):
+class GetSubnetCidrReservationsRequestRequestTypeDef(BaseValidatorModel):
     SubnetId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetTransitGatewayAttachmentPropagationsRequestGetTransitGatewayAttachmentPropagationsPaginateTypeDef(BaseModel):
+class GetTransitGatewayAttachmentPropagationsRequestGetTransitGatewayAttachmentPropagationsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTransitGatewayAttachmentPropagationsRequestRequestTypeDef(BaseModel):
+class GetTransitGatewayAttachmentPropagationsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class GetTransitGatewayMulticastDomainAssociationsRequestGetTransitGatewayMulticastDomainAssociationsPaginateTypeDef(BaseModel):
+class GetTransitGatewayMulticastDomainAssociationsRequestGetTransitGatewayMulticastDomainAssociationsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef(BaseModel):
+class GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class GetTransitGatewayPolicyTableAssociationsRequestGetTransitGatewayPolicyTableAssociationsPaginateTypeDef(BaseModel):
+class GetTransitGatewayPolicyTableAssociationsRequestGetTransitGatewayPolicyTableAssociationsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef(BaseModel):
-    TransitGatewayPolicyTableId: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    DryRun: Optional[bool] = None
-
-class GetTransitGatewayPolicyTableEntriesRequestRequestTypeDef(BaseModel):
+class GetTransitGatewayPolicyTableAssociationsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class GetTransitGatewayPrefixListReferencesRequestGetTransitGatewayPrefixListReferencesPaginateTypeDef(BaseModel):
+class GetTransitGatewayPolicyTableEntriesRequestRequestTypeDef(BaseValidatorModel):
+    TransitGatewayPolicyTableId: str
+    Filters: Optional[Sequence[FilterTypeDef]] = None
+    MaxResults: Optional[int] = None
+    NextToken: Optional[str] = None
+    DryRun: Optional[bool] = None
+
+class GetTransitGatewayPrefixListReferencesRequestGetTransitGatewayPrefixListReferencesPaginateTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTransitGatewayPrefixListReferencesRequestRequestTypeDef(BaseModel):
+class GetTransitGatewayPrefixListReferencesRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class GetTransitGatewayRouteTableAssociationsRequestGetTransitGatewayRouteTableAssociationsPaginateTypeDef(BaseModel):
+class GetTransitGatewayRouteTableAssociationsRequestGetTransitGatewayRouteTableAssociationsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTransitGatewayRouteTableAssociationsRequestRequestTypeDef(BaseModel):
+class GetTransitGatewayRouteTableAssociationsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class GetTransitGatewayRouteTablePropagationsRequestGetTransitGatewayRouteTablePropagationsPaginateTypeDef(BaseModel):
+class GetTransitGatewayRouteTablePropagationsRequestGetTransitGatewayRouteTablePropagationsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTransitGatewayRouteTablePropagationsRequestRequestTypeDef(BaseModel):
+class GetTransitGatewayRouteTablePropagationsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class SearchLocalGatewayRoutesRequestRequestTypeDef(BaseModel):
+class SearchLocalGatewayRoutesRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class SearchLocalGatewayRoutesRequestSearchLocalGatewayRoutesPaginateTypeDef(BaseModel):
+class SearchLocalGatewayRoutesRequestSearchLocalGatewayRoutesPaginateTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchTransitGatewayMulticastGroupsRequestRequestTypeDef(BaseModel):
+class SearchTransitGatewayMulticastGroupsRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class SearchTransitGatewayMulticastGroupsRequestSearchTransitGatewayMulticastGroupsPaginateTypeDef(BaseModel):
+class SearchTransitGatewayMulticastGroupsRequestSearchTransitGatewayMulticastGroupsPaginateTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchTransitGatewayRoutesRequestRequestTypeDef(BaseModel):
+class SearchTransitGatewayRoutesRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Sequence[FilterTypeDef]
     MaxResults: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class DescribeAggregateIdFormatResultTypeDef(BaseModel):
+class DescribeAggregateIdFormatResultTypeDef(BaseValidatorModel):
     UseLongIdsAggregated: bool
     Statuses: List[IdFormatTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIdFormatResultTypeDef(BaseModel):
+class DescribeIdFormatResultTypeDef(BaseValidatorModel):
     Statuses: List[IdFormatTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIdentityIdFormatResultTypeDef(BaseModel):
+class DescribeIdentityIdFormatResultTypeDef(BaseValidatorModel):
     Statuses: List[IdFormatTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PrincipalIdFormatTypeDef(BaseModel):
+class PrincipalIdFormatTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Statuses: Optional[List[IdFormatTypeDef]] = None
 
-class DescribeAwsNetworkPerformanceMetricSubscriptionsResultTypeDef(BaseModel):
+class DescribeAwsNetworkPerformanceMetricSubscriptionsResultTypeDef(BaseValidatorModel):
     Subscriptions: List[SubscriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeBundleTasksRequestBundleTaskCompleteWaitTypeDef(BaseModel):
+class DescribeBundleTasksRequestBundleTaskCompleteWaitTypeDef(BaseValidatorModel):
     BundleIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeConversionTasksRequestConversionTaskCancelledWaitTypeDef(BaseModel):
+class DescribeConversionTasksRequestConversionTaskCancelledWaitTypeDef(BaseValidatorModel):
     ConversionTaskIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeConversionTasksRequestConversionTaskCompletedWaitTypeDef(BaseModel):
+class DescribeConversionTasksRequestConversionTaskCompletedWaitTypeDef(BaseValidatorModel):
     ConversionTaskIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeConversionTasksRequestConversionTaskDeletedWaitTypeDef(BaseModel):
+class DescribeConversionTasksRequestConversionTaskDeletedWaitTypeDef(BaseValidatorModel):
     ConversionTaskIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeCustomerGatewaysRequestCustomerGatewayAvailableWaitTypeDef(BaseModel):
+class DescribeCustomerGatewaysRequestCustomerGatewayAvailableWaitTypeDef(BaseValidatorModel):
     CustomerGatewayIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeExportTasksRequestExportTaskCancelledWaitTypeDef(BaseModel):
+class DescribeExportTasksRequestExportTaskCancelledWaitTypeDef(BaseValidatorModel):
     ExportTaskIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeExportTasksRequestExportTaskCompletedWaitTypeDef(BaseModel):
+class DescribeExportTasksRequestExportTaskCompletedWaitTypeDef(BaseValidatorModel):
     ExportTaskIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeImagesRequestImageAvailableWaitTypeDef(BaseModel):
+class DescribeImagesRequestImageAvailableWaitTypeDef(BaseValidatorModel):
     ExecutableUsers: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ImageIds: Optional[Sequence[str]] = None
@@ -8037,7 +8037,7 @@ class DescribeImagesRequestImageAvailableWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeImagesRequestImageExistsWaitTypeDef(BaseModel):
+class DescribeImagesRequestImageExistsWaitTypeDef(BaseValidatorModel):
     ExecutableUsers: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ImageIds: Optional[Sequence[str]] = None
@@ -8049,7 +8049,7 @@ class DescribeImagesRequestImageExistsWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeImportSnapshotTasksRequestSnapshotImportedWaitTypeDef(BaseModel):
+class DescribeImportSnapshotTasksRequestSnapshotImportedWaitTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ImportTaskIds: Optional[Sequence[str]] = None
@@ -8057,7 +8057,7 @@ class DescribeImportSnapshotTasksRequestSnapshotImportedWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstanceStatusRequestInstanceStatusOkWaitTypeDef(BaseModel):
+class DescribeInstanceStatusRequestInstanceStatusOkWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
@@ -8066,7 +8066,7 @@ class DescribeInstanceStatusRequestInstanceStatusOkWaitTypeDef(BaseModel):
     IncludeAllInstances: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstanceStatusRequestSystemStatusOkWaitTypeDef(BaseModel):
+class DescribeInstanceStatusRequestSystemStatusOkWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
@@ -8075,7 +8075,7 @@ class DescribeInstanceStatusRequestSystemStatusOkWaitTypeDef(BaseModel):
     IncludeAllInstances: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstancesRequestInstanceExistsWaitTypeDef(BaseModel):
+class DescribeInstancesRequestInstanceExistsWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8083,7 +8083,7 @@ class DescribeInstancesRequestInstanceExistsWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstancesRequestInstanceRunningWaitTypeDef(BaseModel):
+class DescribeInstancesRequestInstanceRunningWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8091,7 +8091,7 @@ class DescribeInstancesRequestInstanceRunningWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstancesRequestInstanceStoppedWaitTypeDef(BaseModel):
+class DescribeInstancesRequestInstanceStoppedWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8099,7 +8099,7 @@ class DescribeInstancesRequestInstanceStoppedWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstancesRequestInstanceTerminatedWaitTypeDef(BaseModel):
+class DescribeInstancesRequestInstanceTerminatedWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     InstanceIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8107,7 +8107,7 @@ class DescribeInstancesRequestInstanceTerminatedWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInternetGatewaysRequestInternetGatewayExistsWaitTypeDef(BaseModel):
+class DescribeInternetGatewaysRequestInternetGatewayExistsWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     InternetGatewayIds: Optional[Sequence[str]] = None
@@ -8115,7 +8115,7 @@ class DescribeInternetGatewaysRequestInternetGatewayExistsWaitTypeDef(BaseModel)
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeKeyPairsRequestKeyPairExistsWaitTypeDef(BaseModel):
+class DescribeKeyPairsRequestKeyPairExistsWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     KeyNames: Optional[Sequence[str]] = None
     KeyPairIds: Optional[Sequence[str]] = None
@@ -8123,7 +8123,7 @@ class DescribeKeyPairsRequestKeyPairExistsWaitTypeDef(BaseModel):
     IncludePublicKey: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeNatGatewaysRequestNatGatewayAvailableWaitTypeDef(BaseModel):
+class DescribeNatGatewaysRequestNatGatewayAvailableWaitTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
@@ -8131,7 +8131,7 @@ class DescribeNatGatewaysRequestNatGatewayAvailableWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeNatGatewaysRequestNatGatewayDeletedWaitTypeDef(BaseModel):
+class DescribeNatGatewaysRequestNatGatewayDeletedWaitTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
@@ -8139,7 +8139,7 @@ class DescribeNatGatewaysRequestNatGatewayDeletedWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeNetworkInterfacesRequestNetworkInterfaceAvailableWaitTypeDef(BaseModel):
+class DescribeNetworkInterfacesRequestNetworkInterfaceAvailableWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     NetworkInterfaceIds: Optional[Sequence[str]] = None
@@ -8147,7 +8147,7 @@ class DescribeNetworkInterfacesRequestNetworkInterfaceAvailableWaitTypeDef(BaseM
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeSecurityGroupsRequestSecurityGroupExistsWaitTypeDef(BaseModel):
+class DescribeSecurityGroupsRequestSecurityGroupExistsWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     GroupIds: Optional[Sequence[str]] = None
     GroupNames: Optional[Sequence[str]] = None
@@ -8156,7 +8156,7 @@ class DescribeSecurityGroupsRequestSecurityGroupExistsWaitTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeSnapshotsRequestSnapshotCompletedWaitTypeDef(BaseModel):
+class DescribeSnapshotsRequestSnapshotCompletedWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -8166,7 +8166,7 @@ class DescribeSnapshotsRequestSnapshotCompletedWaitTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeSpotInstanceRequestsRequestSpotInstanceRequestFulfilledWaitTypeDef(BaseModel):
+class DescribeSpotInstanceRequestsRequestSpotInstanceRequestFulfilledWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     SpotInstanceRequestIds: Optional[Sequence[str]] = None
@@ -8174,7 +8174,7 @@ class DescribeSpotInstanceRequestsRequestSpotInstanceRequestFulfilledWaitTypeDef
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeStoreImageTasksRequestStoreImageTaskCompleteWaitTypeDef(BaseModel):
+class DescribeStoreImageTasksRequestStoreImageTaskCompleteWaitTypeDef(BaseValidatorModel):
     ImageIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
@@ -8182,7 +8182,7 @@ class DescribeStoreImageTasksRequestStoreImageTaskCompleteWaitTypeDef(BaseModel)
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeSubnetsRequestSubnetAvailableWaitTypeDef(BaseModel):
+class DescribeSubnetsRequestSubnetAvailableWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     SubnetIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8190,7 +8190,7 @@ class DescribeSubnetsRequestSubnetAvailableWaitTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVolumesRequestVolumeAvailableWaitTypeDef(BaseModel):
+class DescribeVolumesRequestVolumeAvailableWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VolumeIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8198,7 +8198,7 @@ class DescribeVolumesRequestVolumeAvailableWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVolumesRequestVolumeDeletedWaitTypeDef(BaseModel):
+class DescribeVolumesRequestVolumeDeletedWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VolumeIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8206,7 +8206,7 @@ class DescribeVolumesRequestVolumeDeletedWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVolumesRequestVolumeInUseWaitTypeDef(BaseModel):
+class DescribeVolumesRequestVolumeInUseWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VolumeIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8214,7 +8214,7 @@ class DescribeVolumesRequestVolumeInUseWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVpcPeeringConnectionsRequestVpcPeeringConnectionDeletedWaitTypeDef(BaseModel):
+class DescribeVpcPeeringConnectionsRequestVpcPeeringConnectionDeletedWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     VpcPeeringConnectionIds: Optional[Sequence[str]] = None
@@ -8222,7 +8222,7 @@ class DescribeVpcPeeringConnectionsRequestVpcPeeringConnectionDeletedWaitTypeDef
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVpcPeeringConnectionsRequestVpcPeeringConnectionExistsWaitTypeDef(BaseModel):
+class DescribeVpcPeeringConnectionsRequestVpcPeeringConnectionExistsWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     DryRun: Optional[bool] = None
     VpcPeeringConnectionIds: Optional[Sequence[str]] = None
@@ -8230,7 +8230,7 @@ class DescribeVpcPeeringConnectionsRequestVpcPeeringConnectionExistsWaitTypeDef(
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVpcsRequestVpcAvailableWaitTypeDef(BaseModel):
+class DescribeVpcsRequestVpcAvailableWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VpcIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8238,7 +8238,7 @@ class DescribeVpcsRequestVpcAvailableWaitTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVpcsRequestVpcExistsWaitTypeDef(BaseModel):
+class DescribeVpcsRequestVpcExistsWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VpcIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
@@ -8246,24 +8246,24 @@ class DescribeVpcsRequestVpcExistsWaitTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVpnConnectionsRequestVpnConnectionAvailableWaitTypeDef(BaseModel):
+class DescribeVpnConnectionsRequestVpnConnectionAvailableWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VpnConnectionIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVpnConnectionsRequestVpnConnectionDeletedWaitTypeDef(BaseModel):
+class DescribeVpnConnectionsRequestVpnConnectionDeletedWaitTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     VpnConnectionIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetPasswordDataRequestPasswordDataAvailableWaitTypeDef(BaseModel):
+class GetPasswordDataRequestPasswordDataAvailableWaitTypeDef(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeFastLaunchImagesSuccessItemTypeDef(BaseModel):
+class DescribeFastLaunchImagesSuccessItemTypeDef(BaseValidatorModel):
     ImageId: Optional[str] = None
     ResourceType: Optional[Literal["snapshot"]] = None
     SnapshotConfiguration: Optional[FastLaunchSnapshotConfigurationResponseTypeDef] = None
@@ -8274,7 +8274,7 @@ class DescribeFastLaunchImagesSuccessItemTypeDef(BaseModel):
     StateTransitionReason: Optional[str] = None
     StateTransitionTime: Optional[datetime] = None
 
-class DisableFastLaunchResultTypeDef(BaseModel):
+class DisableFastLaunchResultTypeDef(BaseValidatorModel):
     ImageId: str
     ResourceType: Literal["snapshot"]
     SnapshotConfiguration: FastLaunchSnapshotConfigurationResponseTypeDef
@@ -8286,7 +8286,7 @@ class DisableFastLaunchResultTypeDef(BaseModel):
     StateTransitionTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableFastLaunchResultTypeDef(BaseModel):
+class EnableFastLaunchResultTypeDef(BaseValidatorModel):
     ImageId: str
     ResourceType: Literal["snapshot"]
     SnapshotConfiguration: FastLaunchSnapshotConfigurationResponseTypeDef
@@ -8298,96 +8298,96 @@ class EnableFastLaunchResultTypeDef(BaseModel):
     StateTransitionTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeFastSnapshotRestoresResultTypeDef(BaseModel):
+class DescribeFastSnapshotRestoresResultTypeDef(BaseValidatorModel):
     FastSnapshotRestores: List[DescribeFastSnapshotRestoreSuccessItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeHostReservationOfferingsResultTypeDef(BaseModel):
+class DescribeHostReservationOfferingsResultTypeDef(BaseValidatorModel):
     OfferingSet: List[HostOfferingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeInstanceCreditSpecificationsResultTypeDef(BaseModel):
+class DescribeInstanceCreditSpecificationsResultTypeDef(BaseValidatorModel):
     InstanceCreditSpecifications: List[InstanceCreditSpecificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeInstanceTopologyResultTypeDef(BaseModel):
+class DescribeInstanceTopologyResultTypeDef(BaseValidatorModel):
     Instances: List[InstanceTopologyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeInstanceTypeOfferingsResultTypeDef(BaseModel):
+class DescribeInstanceTypeOfferingsResultTypeDef(BaseValidatorModel):
     InstanceTypeOfferings: List[InstanceTypeOfferingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeLockedSnapshotsResultTypeDef(BaseModel):
+class DescribeLockedSnapshotsResultTypeDef(BaseValidatorModel):
     Snapshots: List[LockedSnapshotsInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeMacHostsResultTypeDef(BaseModel):
+class DescribeMacHostsResultTypeDef(BaseValidatorModel):
     MacHosts: List[MacHostTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeMovingAddressesResultTypeDef(BaseModel):
+class DescribeMovingAddressesResultTypeDef(BaseValidatorModel):
     MovingAddressStatuses: List[MovingAddressStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribePrefixListsResultTypeDef(BaseModel):
+class DescribePrefixListsResultTypeDef(BaseValidatorModel):
     PrefixLists: List[PrefixListTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeRegionsResultTypeDef(BaseModel):
+class DescribeRegionsResultTypeDef(BaseValidatorModel):
     Regions: List[RegionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSecurityGroupReferencesResultTypeDef(BaseModel):
+class DescribeSecurityGroupReferencesResultTypeDef(BaseValidatorModel):
     SecurityGroupReferenceSet: List[SecurityGroupReferenceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSnapshotAttributeResultTypeDef(BaseModel):
+class DescribeSnapshotAttributeResultTypeDef(BaseValidatorModel):
     CreateVolumePermissions: List[CreateVolumePermissionTypeDef]
     ProductCodes: List[ProductCodeTypeDef]
     SnapshotId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVolumeAttributeResultTypeDef(BaseModel):
+class DescribeVolumeAttributeResultTypeDef(BaseValidatorModel):
     AutoEnableIO: AttributeBooleanValueTypeDef
     ProductCodes: List[ProductCodeTypeDef]
     VolumeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSpotPriceHistoryResultTypeDef(BaseModel):
+class DescribeSpotPriceHistoryResultTypeDef(BaseValidatorModel):
     SpotPriceHistory: List[SpotPriceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeStoreImageTasksResultTypeDef(BaseModel):
+class DescribeStoreImageTasksResultTypeDef(BaseValidatorModel):
     StoreImageTaskResults: List[StoreImageTaskResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeTagsResultTypeDef(BaseModel):
+class DescribeTagsResultTypeDef(BaseValidatorModel):
     Tags: List[TagDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeVolumesModificationsResultTypeDef(BaseModel):
+class DescribeVolumesModificationsResultTypeDef(BaseValidatorModel):
     VolumesModifications: List[VolumeModificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyVolumeResultTypeDef(BaseModel):
+class ModifyVolumeResultTypeDef(BaseValidatorModel):
     VolumeModification: VolumeModificationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FlowLogTypeDef(BaseModel):
+class FlowLogTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     DeliverLogsErrorMessage: Optional[str] = None
     DeliverLogsPermissionArn: Optional[str] = None
@@ -8405,31 +8405,31 @@ class FlowLogTypeDef(BaseModel):
     MaxAggregationInterval: Optional[int] = None
     DestinationOptions: Optional[DestinationOptionsResponseTypeDef] = None
 
-class DisableFastSnapshotRestoreStateErrorItemTypeDef(BaseModel):
+class DisableFastSnapshotRestoreStateErrorItemTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     Error: Optional[DisableFastSnapshotRestoreStateErrorTypeDef] = None
 
-class DisableTransitGatewayRouteTablePropagationResultTypeDef(BaseModel):
+class DisableTransitGatewayRouteTablePropagationResultTypeDef(BaseValidatorModel):
     Propagation: TransitGatewayPropagationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableTransitGatewayRouteTablePropagationResultTypeDef(BaseModel):
+class EnableTransitGatewayRouteTablePropagationResultTypeDef(BaseValidatorModel):
     Propagation: TransitGatewayPropagationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DiskImageTypeDef(BaseModel):
+class DiskImageTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Image: Optional[DiskImageDetailTypeDef] = None
     Volume: Optional[VolumeDetailTypeDef] = None
 
-class ImportVolumeRequestRequestTypeDef(BaseModel):
+class ImportVolumeRequestRequestTypeDef(BaseValidatorModel):
     AvailabilityZone: str
     Image: DiskImageDetailTypeDef
     Volume: VolumeDetailTypeDef
     Description: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class ImportInstanceVolumeDetailItemTypeDef(BaseModel):
+class ImportInstanceVolumeDetailItemTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     BytesConverted: Optional[int] = None
     Description: Optional[str] = None
@@ -8438,20 +8438,20 @@ class ImportInstanceVolumeDetailItemTypeDef(BaseModel):
     StatusMessage: Optional[str] = None
     Volume: Optional[DiskImageVolumeDescriptionTypeDef] = None
 
-class ImportVolumeTaskDetailsTypeDef(BaseModel):
+class ImportVolumeTaskDetailsTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     BytesConverted: Optional[int] = None
     Description: Optional[str] = None
     Image: Optional[DiskImageDescriptionTypeDef] = None
     Volume: Optional[DiskImageVolumeDescriptionTypeDef] = None
 
-class InstanceStorageInfoTypeDef(BaseModel):
+class InstanceStorageInfoTypeDef(BaseValidatorModel):
     TotalSizeInGB: Optional[int] = None
     Disks: Optional[List[DiskInfoTypeDef]] = None
     NvmeSupport: Optional[EphemeralNvmeSupportType] = None
     EncryptionSupport: Optional[InstanceStorageEncryptionSupportType] = None
 
-class VpcEndpointConnectionTypeDef(BaseModel):
+class VpcEndpointConnectionTypeDef(BaseValidatorModel):
     ServiceId: Optional[str] = None
     VpcEndpointId: Optional[str] = None
     VpcEndpointOwner: Optional[str] = None
@@ -8464,7 +8464,7 @@ class VpcEndpointConnectionTypeDef(BaseModel):
     VpcEndpointConnectionId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ModifyClientVpnEndpointRequestRequestTypeDef(BaseModel):
+class ModifyClientVpnEndpointRequestRequestTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     ServerCertificateArn: Optional[str] = None
     ConnectionLogOptions: Optional[ConnectionLogOptionsTypeDef] = None
@@ -8480,34 +8480,34 @@ class ModifyClientVpnEndpointRequestRequestTypeDef(BaseModel):
     SessionTimeoutHours: Optional[int] = None
     ClientLoginBannerOptions: Optional[ClientLoginBannerOptionsTypeDef] = None
 
-class EbsInfoTypeDef(BaseModel):
+class EbsInfoTypeDef(BaseValidatorModel):
     EbsOptimizedSupport: Optional[EbsOptimizedSupportType] = None
     EncryptionSupport: Optional[EbsEncryptionSupportType] = None
     EbsOptimizedInfo: Optional[EbsOptimizedInfoTypeDef] = None
     NvmeSupport: Optional[EbsNvmeSupportType] = None
 
-class InstanceBlockDeviceMappingSpecificationTypeDef(BaseModel):
+class InstanceBlockDeviceMappingSpecificationTypeDef(BaseValidatorModel):
     DeviceName: Optional[str] = None
     Ebs: Optional[EbsInstanceBlockDeviceSpecificationTypeDef] = None
     NoDevice: Optional[str] = None
     VirtualName: Optional[str] = None
 
-class InstanceBlockDeviceMappingTypeDef(BaseModel):
+class InstanceBlockDeviceMappingTypeDef(BaseValidatorModel):
     DeviceName: Optional[str] = None
     Ebs: Optional[EbsInstanceBlockDeviceTypeDef] = None
 
-class EgressOnlyInternetGatewayTypeDef(BaseModel):
+class EgressOnlyInternetGatewayTypeDef(BaseValidatorModel):
     Attachments: Optional[List[InternetGatewayAttachmentTypeDef]] = None
     EgressOnlyInternetGatewayId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class InternetGatewayTypeDef(BaseModel):
+class InternetGatewayTypeDef(BaseValidatorModel):
     Attachments: Optional[List[InternetGatewayAttachmentTypeDef]] = None
     InternetGatewayId: Optional[str] = None
     OwnerId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ElasticGpusTypeDef(BaseModel):
+class ElasticGpusTypeDef(BaseValidatorModel):
     ElasticGpuId: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     ElasticGpuType: Optional[str] = None
@@ -8516,15 +8516,15 @@ class ElasticGpusTypeDef(BaseModel):
     InstanceId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class EnaSrdSpecificationRequestTypeDef(BaseModel):
+class EnaSrdSpecificationRequestTypeDef(BaseValidatorModel):
     EnaSrdEnabled: Optional[bool] = None
     EnaSrdUdpSpecification: Optional[EnaSrdUdpSpecificationRequestTypeDef] = None
 
-class EnaSrdSpecificationTypeDef(BaseModel):
+class EnaSrdSpecificationTypeDef(BaseValidatorModel):
     EnaSrdEnabled: Optional[bool] = None
     EnaSrdUdpSpecification: Optional[EnaSrdUdpSpecificationTypeDef] = None
 
-class EnableFastLaunchRequestRequestTypeDef(BaseModel):
+class EnableFastLaunchRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     ResourceType: Optional[str] = None
     SnapshotConfiguration: Optional[FastLaunchSnapshotConfigurationRequestTypeDef] = None
@@ -8532,21 +8532,21 @@ class EnableFastLaunchRequestRequestTypeDef(BaseModel):
     MaxParallelLaunches: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class EnableFastSnapshotRestoreStateErrorItemTypeDef(BaseModel):
+class EnableFastSnapshotRestoreStateErrorItemTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     Error: Optional[EnableFastSnapshotRestoreStateErrorTypeDef] = None
 
-class HistoryRecordEntryTypeDef(BaseModel):
+class HistoryRecordEntryTypeDef(BaseValidatorModel):
     EventInformation: Optional[EventInformationTypeDef] = None
     EventType: Optional[FleetEventTypeType] = None
     Timestamp: Optional[datetime] = None
 
-class HistoryRecordTypeDef(BaseModel):
+class HistoryRecordTypeDef(BaseValidatorModel):
     EventInformation: Optional[EventInformationTypeDef] = None
     EventType: Optional[EventTypeType] = None
     Timestamp: Optional[datetime] = None
 
-class ExportImageResultTypeDef(BaseModel):
+class ExportImageResultTypeDef(BaseValidatorModel):
     Description: str
     DiskImageFormat: DiskImageFormatType
     ExportImageTaskId: str
@@ -8559,7 +8559,7 @@ class ExportImageResultTypeDef(BaseModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportImageTaskTypeDef(BaseModel):
+class ExportImageTaskTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     ExportImageTaskId: Optional[str] = None
     ImageId: Optional[str] = None
@@ -8569,7 +8569,7 @@ class ExportImageTaskTypeDef(BaseModel):
     StatusMessage: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ExportTaskTypeDef(BaseModel):
+class ExportTaskTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     ExportTaskId: Optional[str] = None
     ExportToS3Task: Optional[ExportToS3TaskTypeDef] = None
@@ -8578,32 +8578,32 @@ class ExportTaskTypeDef(BaseModel):
     StatusMessage: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class PathFilterTypeDef(BaseModel):
+class PathFilterTypeDef(BaseValidatorModel):
     SourceAddress: Optional[str] = None
     SourcePortRange: Optional[FilterPortRangeTypeDef] = None
     DestinationAddress: Optional[str] = None
     DestinationPortRange: Optional[FilterPortRangeTypeDef] = None
 
-class FleetSpotMaintenanceStrategiesRequestTypeDef(BaseModel):
+class FleetSpotMaintenanceStrategiesRequestTypeDef(BaseValidatorModel):
     CapacityRebalance: Optional[FleetSpotCapacityRebalanceRequestTypeDef] = None
 
-class FleetSpotMaintenanceStrategiesTypeDef(BaseModel):
+class FleetSpotMaintenanceStrategiesTypeDef(BaseValidatorModel):
     CapacityRebalance: Optional[FleetSpotCapacityRebalanceTypeDef] = None
 
-class FpgaDeviceInfoTypeDef(BaseModel):
+class FpgaDeviceInfoTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Manufacturer: Optional[str] = None
     Count: Optional[int] = None
     MemoryInfo: Optional[FpgaDeviceMemoryInfoTypeDef] = None
 
-class FpgaImageAttributeTypeDef(BaseModel):
+class FpgaImageAttributeTypeDef(BaseValidatorModel):
     FpgaImageId: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     LoadPermissions: Optional[List[LoadPermissionTypeDef]] = None
     ProductCodes: Optional[List[ProductCodeTypeDef]] = None
 
-class FpgaImageTypeDef(BaseModel):
+class FpgaImageTypeDef(BaseValidatorModel):
     FpgaImageId: Optional[str] = None
     FpgaImageGlobalId: Optional[str] = None
     Name: Optional[str] = None
@@ -8621,12 +8621,12 @@ class FpgaImageTypeDef(BaseModel):
     DataRetentionSupport: Optional[bool] = None
     InstanceTypes: Optional[List[str]] = None
 
-class GetAssociatedIpv6PoolCidrsResultTypeDef(BaseModel):
+class GetAssociatedIpv6PoolCidrsResultTypeDef(BaseValidatorModel):
     Ipv6CidrAssociations: List[Ipv6CidrAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetCapacityReservationUsageResultTypeDef(BaseModel):
+class GetCapacityReservationUsageResultTypeDef(BaseValidatorModel):
     CapacityReservationId: str
     InstanceType: str
     TotalInstanceCount: int
@@ -8636,22 +8636,22 @@ class GetCapacityReservationUsageResultTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetDefaultCreditSpecificationResultTypeDef(BaseModel):
+class GetDefaultCreditSpecificationResultTypeDef(BaseValidatorModel):
     InstanceFamilyCreditSpecification: InstanceFamilyCreditSpecificationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyDefaultCreditSpecificationResultTypeDef(BaseModel):
+class ModifyDefaultCreditSpecificationResultTypeDef(BaseValidatorModel):
     InstanceFamilyCreditSpecification: InstanceFamilyCreditSpecificationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetHostReservationPurchasePreviewResultTypeDef(BaseModel):
+class GetHostReservationPurchasePreviewResultTypeDef(BaseValidatorModel):
     CurrencyCode: Literal["USD"]
     Purchase: List[PurchaseTypeDef]
     TotalHourlyPrice: str
     TotalUpfrontPrice: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PurchaseHostReservationResultTypeDef(BaseModel):
+class PurchaseHostReservationResultTypeDef(BaseValidatorModel):
     ClientToken: str
     CurrencyCode: Literal["USD"]
     Purchase: List[PurchaseTypeDef]
@@ -8659,60 +8659,60 @@ class PurchaseHostReservationResultTypeDef(BaseModel):
     TotalUpfrontPrice: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceMetadataDefaultsResultTypeDef(BaseModel):
+class GetInstanceMetadataDefaultsResultTypeDef(BaseValidatorModel):
     AccountLevel: InstanceMetadataDefaultsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceTypesFromInstanceRequirementsResultTypeDef(BaseModel):
+class GetInstanceTypesFromInstanceRequirementsResultTypeDef(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeInfoFromInstanceRequirementsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetIpamAddressHistoryResultTypeDef(BaseModel):
+class GetIpamAddressHistoryResultTypeDef(BaseValidatorModel):
     HistoryRecords: List[IpamAddressHistoryRecordTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetManagedPrefixListAssociationsResultTypeDef(BaseModel):
+class GetManagedPrefixListAssociationsResultTypeDef(BaseValidatorModel):
     PrefixListAssociations: List[PrefixListAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetManagedPrefixListEntriesResultTypeDef(BaseModel):
+class GetManagedPrefixListEntriesResultTypeDef(BaseValidatorModel):
     Entries: List[PrefixListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ReservedInstanceReservationValueTypeDef(BaseModel):
+class ReservedInstanceReservationValueTypeDef(BaseValidatorModel):
     ReservationValue: Optional[ReservationValueTypeDef] = None
     ReservedInstanceId: Optional[str] = None
 
-class GetSpotPlacementScoresResultTypeDef(BaseModel):
+class GetSpotPlacementScoresResultTypeDef(BaseValidatorModel):
     SpotPlacementScores: List[SpotPlacementScoreTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetTransitGatewayAttachmentPropagationsResultTypeDef(BaseModel):
+class GetTransitGatewayAttachmentPropagationsResultTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentPropagations: List[TransitGatewayAttachmentPropagationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetTransitGatewayRouteTableAssociationsResultTypeDef(BaseModel):
+class GetTransitGatewayRouteTableAssociationsResultTypeDef(BaseValidatorModel):
     Associations: List[TransitGatewayRouteTableAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetTransitGatewayRouteTablePropagationsResultTypeDef(BaseModel):
+class GetTransitGatewayRouteTablePropagationsResultTypeDef(BaseValidatorModel):
     TransitGatewayRouteTablePropagations: List[TransitGatewayRouteTablePropagationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetVpnConnectionDeviceTypesResultTypeDef(BaseModel):
+class GetVpnConnectionDeviceTypesResultTypeDef(BaseValidatorModel):
     VpnConnectionDeviceTypes: List[VpnConnectionDeviceTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetVpnTunnelReplacementStatusResultTypeDef(BaseModel):
+class GetVpnTunnelReplacementStatusResultTypeDef(BaseValidatorModel):
     VpnConnectionId: str
     TransitGatewayId: str
     CustomerGatewayId: str
@@ -8721,24 +8721,24 @@ class GetVpnTunnelReplacementStatusResultTypeDef(BaseModel):
     MaintenanceDetails: MaintenanceDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GpuDeviceInfoTypeDef(BaseModel):
+class GpuDeviceInfoTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Manufacturer: Optional[str] = None
     Count: Optional[int] = None
     MemoryInfo: Optional[GpuDeviceMemoryInfoTypeDef] = None
 
-class IamInstanceProfileAssociationTypeDef(BaseModel):
+class IamInstanceProfileAssociationTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     InstanceId: Optional[str] = None
     IamInstanceProfile: Optional[IamInstanceProfileTypeDef] = None
     State: Optional[IamInstanceProfileAssociationStateType] = None
     Timestamp: Optional[datetime] = None
 
-class LaunchPermissionModificationsTypeDef(BaseModel):
+class LaunchPermissionModificationsTypeDef(BaseValidatorModel):
     Add: Optional[Sequence[LaunchPermissionTypeDef]] = None
     Remove: Optional[Sequence[LaunchPermissionTypeDef]] = None
 
-class ImageDiskContainerTypeDef(BaseModel):
+class ImageDiskContainerTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     DeviceName: Optional[str] = None
     Format: Optional[str] = None
@@ -8746,18 +8746,18 @@ class ImageDiskContainerTypeDef(BaseModel):
     Url: Optional[str] = None
     UserBucket: Optional[UserBucketTypeDef] = None
 
-class SnapshotDiskContainerTypeDef(BaseModel):
+class SnapshotDiskContainerTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Format: Optional[str] = None
     Url: Optional[str] = None
     UserBucket: Optional[UserBucketTypeDef] = None
 
-class ListImagesInRecycleBinResultTypeDef(BaseModel):
+class ListImagesInRecycleBinResultTypeDef(BaseValidatorModel):
     Images: List[ImageRecycleBinInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LocalGatewayRouteTableTypeDef(BaseModel):
+class LocalGatewayRouteTableTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: Optional[str] = None
     LocalGatewayRouteTableArn: Optional[str] = None
     LocalGatewayId: Optional[str] = None
@@ -8768,7 +8768,7 @@ class LocalGatewayRouteTableTypeDef(BaseModel):
     Mode: Optional[LocalGatewayRouteTableModeType] = None
     StateReason: Optional[StateReasonTypeDef] = None
 
-class ImportInstanceLaunchSpecificationTypeDef(BaseModel):
+class ImportInstanceLaunchSpecificationTypeDef(BaseValidatorModel):
     AdditionalInfo: Optional[str] = None
     Architecture: Optional[ArchitectureValuesType] = None
     GroupIds: Optional[Sequence[str]] = None
@@ -8781,37 +8781,37 @@ class ImportInstanceLaunchSpecificationTypeDef(BaseModel):
     SubnetId: Optional[str] = None
     UserData: Optional[UserDataTypeDef] = None
 
-class InferenceDeviceInfoTypeDef(BaseModel):
+class InferenceDeviceInfoTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     Name: Optional[str] = None
     Manufacturer: Optional[str] = None
     MemoryInfo: Optional[InferenceDeviceMemoryInfoTypeDef] = None
 
-class InstanceAttachmentEnaSrdSpecificationTypeDef(BaseModel):
+class InstanceAttachmentEnaSrdSpecificationTypeDef(BaseValidatorModel):
     EnaSrdEnabled: Optional[bool] = None
     EnaSrdUdpSpecification: Optional[InstanceAttachmentEnaSrdUdpSpecificationTypeDef] = None
 
-class ModifyInstanceCreditSpecificationRequestRequestTypeDef(BaseModel):
+class ModifyInstanceCreditSpecificationRequestRequestTypeDef(BaseValidatorModel):
     InstanceCreditSpecifications: Sequence[InstanceCreditSpecificationRequestTypeDef]
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
-class ModifyInstanceMetadataOptionsResultTypeDef(BaseModel):
+class ModifyInstanceMetadataOptionsResultTypeDef(BaseValidatorModel):
     InstanceId: str
     InstanceMetadataOptions: InstanceMetadataOptionsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InstanceMonitoringTypeDef(BaseModel):
+class InstanceMonitoringTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     Monitoring: Optional[MonitoringTypeDef] = None
 
-class InstancePrivateIpAddressTypeDef(BaseModel):
+class InstancePrivateIpAddressTypeDef(BaseValidatorModel):
     Association: Optional[InstanceNetworkInterfaceAssociationTypeDef] = None
     Primary: Optional[bool] = None
     PrivateDnsName: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
 
-class InstanceRequirementsExtraOutputTypeDef(BaseModel):
+class InstanceRequirementsExtraOutputTypeDef(BaseValidatorModel):
     VCpuCount: Optional[VCpuCountRangeTypeDef] = None
     MemoryMiB: Optional[MemoryMiBTypeDef] = None
     CpuManufacturers: Optional[List[CpuManufacturerType]] = None
@@ -8837,7 +8837,7 @@ class InstanceRequirementsExtraOutputTypeDef(BaseModel):
     AllowedInstanceTypes: Optional[List[str]] = None
     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Optional[int] = None
 
-class InstanceRequirementsOutputTypeDef(BaseModel):
+class InstanceRequirementsOutputTypeDef(BaseValidatorModel):
     VCpuCount: Optional[VCpuCountRangeTypeDef] = None
     MemoryMiB: Optional[MemoryMiBTypeDef] = None
     CpuManufacturers: Optional[List[CpuManufacturerType]] = None
@@ -8863,7 +8863,7 @@ class InstanceRequirementsOutputTypeDef(BaseModel):
     AllowedInstanceTypes: Optional[List[str]] = None
     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Optional[int] = None
 
-class InstanceRequirementsTypeDef(BaseModel):
+class InstanceRequirementsTypeDef(BaseValidatorModel):
     VCpuCount: Optional[VCpuCountRangeTypeDef] = None
     MemoryMiB: Optional[MemoryMiBTypeDef] = None
     CpuManufacturers: Optional[Sequence[CpuManufacturerType]] = None
@@ -8889,7 +8889,7 @@ class InstanceRequirementsTypeDef(BaseModel):
     AllowedInstanceTypes: Optional[Sequence[str]] = None
     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Optional[int] = None
 
-class InstanceRequirementsRequestTypeDef(BaseModel):
+class InstanceRequirementsRequestTypeDef(BaseValidatorModel):
     VCpuCount: VCpuCountRangeRequestTypeDef
     MemoryMiB: MemoryMiBRequestTypeDef
     CpuManufacturers: Optional[Sequence[CpuManufacturerType]] = None
@@ -8915,20 +8915,20 @@ class InstanceRequirementsRequestTypeDef(BaseModel):
     AllowedInstanceTypes: Optional[Sequence[str]] = None
     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Optional[int] = None
 
-class InstanceStateChangeTypeDef(BaseModel):
+class InstanceStateChangeTypeDef(BaseValidatorModel):
     CurrentState: Optional[InstanceStateTypeDef] = None
     InstanceId: Optional[str] = None
     PreviousState: Optional[InstanceStateTypeDef] = None
 
-class InstanceStatusSummaryTypeDef(BaseModel):
+class InstanceStatusSummaryTypeDef(BaseValidatorModel):
     Details: Optional[List[InstanceStatusDetailsTypeDef]] = None
     Status: Optional[SummaryStatusType] = None
 
-class ModifyInstanceEventStartTimeResultTypeDef(BaseModel):
+class ModifyInstanceEventStartTimeResultTypeDef(BaseValidatorModel):
     Event: InstanceStatusEventTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IpPermissionExtraExtraOutputTypeDef(BaseModel):
+class IpPermissionExtraExtraOutputTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     IpProtocol: Optional[str] = None
     IpRanges: Optional[List[IpRangeTypeDef]] = None
@@ -8937,7 +8937,7 @@ class IpPermissionExtraExtraOutputTypeDef(BaseModel):
     ToPort: Optional[int] = None
     UserIdGroupPairs: Optional[List[UserIdGroupPairTypeDef]] = None
 
-class IpPermissionOutputTypeDef(BaseModel):
+class IpPermissionOutputTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     IpProtocol: Optional[str] = None
     IpRanges: Optional[List[IpRangeTypeDef]] = None
@@ -8946,7 +8946,7 @@ class IpPermissionOutputTypeDef(BaseModel):
     ToPort: Optional[int] = None
     UserIdGroupPairs: Optional[List[UserIdGroupPairTypeDef]] = None
 
-class IpPermissionTypeDef(BaseModel):
+class IpPermissionTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     IpProtocol: Optional[str] = None
     IpRanges: Optional[Sequence[IpRangeTypeDef]] = None
@@ -8955,7 +8955,7 @@ class IpPermissionTypeDef(BaseModel):
     ToPort: Optional[int] = None
     UserIdGroupPairs: Optional[Sequence[UserIdGroupPairTypeDef]] = None
 
-class StaleIpPermissionTypeDef(BaseModel):
+class StaleIpPermissionTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     IpProtocol: Optional[str] = None
     IpRanges: Optional[List[str]] = None
@@ -8963,7 +8963,7 @@ class StaleIpPermissionTypeDef(BaseModel):
     ToPort: Optional[int] = None
     UserIdGroupPairs: Optional[List[UserIdGroupPairTypeDef]] = None
 
-class ProvisionIpamPoolCidrRequestRequestTypeDef(BaseModel):
+class ProvisionIpamPoolCidrRequestRequestTypeDef(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     Cidr: Optional[str] = None
@@ -8971,14 +8971,14 @@ class ProvisionIpamPoolCidrRequestRequestTypeDef(BaseModel):
     NetmaskLength: Optional[int] = None
     ClientToken: Optional[str] = None
 
-class IpamDiscoveredAccountTypeDef(BaseModel):
+class IpamDiscoveredAccountTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     DiscoveryRegion: Optional[str] = None
     FailureReason: Optional[IpamDiscoveryFailureReasonTypeDef] = None
     LastAttemptedDiscoveryTime: Optional[datetime] = None
     LastSuccessfulDiscoveryTime: Optional[datetime] = None
 
-class IpamDiscoveredResourceCidrTypeDef(BaseModel):
+class IpamDiscoveredResourceCidrTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryId: Optional[str] = None
     ResourceRegion: Optional[str] = None
     ResourceId: Optional[str] = None
@@ -8992,7 +8992,7 @@ class IpamDiscoveredResourceCidrTypeDef(BaseModel):
     SampleTime: Optional[datetime] = None
     AvailabilityZoneId: Optional[str] = None
 
-class IpamResourceCidrTypeDef(BaseModel):
+class IpamResourceCidrTypeDef(BaseValidatorModel):
     IpamId: Optional[str] = None
     IpamScopeId: Optional[str] = None
     IpamPoolId: Optional[str] = None
@@ -9010,7 +9010,7 @@ class IpamResourceCidrTypeDef(BaseModel):
     VpcId: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
 
-class IpamResourceDiscoveryTypeDef(BaseModel):
+class IpamResourceDiscoveryTypeDef(BaseValidatorModel):
     OwnerId: Optional[str] = None
     IpamResourceDiscoveryId: Optional[str] = None
     IpamResourceDiscoveryArn: Optional[str] = None
@@ -9021,7 +9021,7 @@ class IpamResourceDiscoveryTypeDef(BaseModel):
     State: Optional[IpamResourceDiscoveryStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class IpamTypeDef(BaseModel):
+class IpamTypeDef(BaseValidatorModel):
     OwnerId: Optional[str] = None
     IpamId: Optional[str] = None
     IpamArn: Optional[str] = None
@@ -9039,14 +9039,14 @@ class IpamTypeDef(BaseModel):
     StateMessage: Optional[str] = None
     Tier: Optional[IpamTierType] = None
 
-class IpamPoolCidrTypeDef(BaseModel):
+class IpamPoolCidrTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
     State: Optional[IpamPoolCidrStateType] = None
     FailureReason: Optional[IpamPoolCidrFailureReasonTypeDef] = None
     IpamPoolCidrId: Optional[str] = None
     NetmaskLength: Optional[int] = None
 
-class IpamPoolTypeDef(BaseModel):
+class IpamPoolTypeDef(BaseValidatorModel):
     OwnerId: Optional[str] = None
     IpamPoolId: Optional[str] = None
     SourceIpamPoolId: Optional[str] = None
@@ -9072,51 +9072,51 @@ class IpamPoolTypeDef(BaseModel):
     PublicIpSource: Optional[IpamPoolPublicIpSourceType] = None
     SourceResource: Optional[IpamPoolSourceResourceTypeDef] = None
 
-class IpamPublicAddressTagsTypeDef(BaseModel):
+class IpamPublicAddressTagsTypeDef(BaseValidatorModel):
     EipTags: Optional[List[IpamPublicAddressTagTypeDef]] = None
 
-class Ipv6PoolTypeDef(BaseModel):
+class Ipv6PoolTypeDef(BaseValidatorModel):
     PoolId: Optional[str] = None
     Description: Optional[str] = None
     PoolCidrBlocks: Optional[List[PoolCidrBlockTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class LaunchTemplateBlockDeviceMappingRequestTypeDef(BaseModel):
+class LaunchTemplateBlockDeviceMappingRequestTypeDef(BaseValidatorModel):
     DeviceName: Optional[str] = None
     VirtualName: Optional[str] = None
     Ebs: Optional[LaunchTemplateEbsBlockDeviceRequestTypeDef] = None
     NoDevice: Optional[str] = None
 
-class LaunchTemplateBlockDeviceMappingTypeDef(BaseModel):
+class LaunchTemplateBlockDeviceMappingTypeDef(BaseValidatorModel):
     DeviceName: Optional[str] = None
     VirtualName: Optional[str] = None
     Ebs: Optional[LaunchTemplateEbsBlockDeviceTypeDef] = None
     NoDevice: Optional[str] = None
 
-class LaunchTemplateEnaSrdSpecificationTypeDef(BaseModel):
+class LaunchTemplateEnaSrdSpecificationTypeDef(BaseValidatorModel):
     EnaSrdEnabled: Optional[bool] = None
     EnaSrdUdpSpecification: Optional[LaunchTemplateEnaSrdUdpSpecificationTypeDef] = None
 
-class LaunchTemplateInstanceMarketOptionsTypeDef(BaseModel):
+class LaunchTemplateInstanceMarketOptionsTypeDef(BaseValidatorModel):
     MarketType: Optional[MarketTypeType] = None
     SpotOptions: Optional[LaunchTemplateSpotMarketOptionsTypeDef] = None
 
-class ListSnapshotsInRecycleBinResultTypeDef(BaseModel):
+class ListSnapshotsInRecycleBinResultTypeDef(BaseValidatorModel):
     Snapshots: List[SnapshotRecycleBinInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LoadPermissionModificationsTypeDef(BaseModel):
+class LoadPermissionModificationsTypeDef(BaseValidatorModel):
     Add: Optional[Sequence[LoadPermissionRequestTypeDef]] = None
     Remove: Optional[Sequence[LoadPermissionRequestTypeDef]] = None
 
-class MediaDeviceInfoTypeDef(BaseModel):
+class MediaDeviceInfoTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     Name: Optional[str] = None
     Manufacturer: Optional[str] = None
     MemoryInfo: Optional[MediaDeviceMemoryInfoTypeDef] = None
 
-class ModifyIpamRequestRequestTypeDef(BaseModel):
+class ModifyIpamRequestRequestTypeDef(BaseValidatorModel):
     IpamId: str
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
@@ -9124,14 +9124,14 @@ class ModifyIpamRequestRequestTypeDef(BaseModel):
     RemoveOperatingRegions: Optional[Sequence[RemoveIpamOperatingRegionTypeDef]] = None
     Tier: Optional[IpamTierType] = None
 
-class ModifyIpamResourceDiscoveryRequestRequestTypeDef(BaseModel):
+class ModifyIpamResourceDiscoveryRequestRequestTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
     AddOperatingRegions: Optional[Sequence[AddIpamOperatingRegionTypeDef]] = None
     RemoveOperatingRegions: Optional[Sequence[RemoveIpamOperatingRegionTypeDef]] = None
 
-class ModifyManagedPrefixListRequestRequestTypeDef(BaseModel):
+class ModifyManagedPrefixListRequestRequestTypeDef(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
     CurrentVersion: Optional[int] = None
@@ -9140,29 +9140,29 @@ class ModifyManagedPrefixListRequestRequestTypeDef(BaseModel):
     RemoveEntries: Optional[Sequence[RemovePrefixListEntryTypeDef]] = None
     MaxEntries: Optional[int] = None
 
-class ModifyReservedInstancesRequestRequestTypeDef(BaseModel):
+class ModifyReservedInstancesRequestRequestTypeDef(BaseValidatorModel):
     ReservedInstancesIds: Sequence[str]
     TargetConfigurations: Sequence[ReservedInstancesConfigurationTypeDef]
     ClientToken: Optional[str] = None
 
-class ReservedInstancesModificationResultTypeDef(BaseModel):
+class ReservedInstancesModificationResultTypeDef(BaseValidatorModel):
     ReservedInstancesId: Optional[str] = None
     TargetConfiguration: Optional[ReservedInstancesConfigurationTypeDef] = None
 
-class ModifyTransitGatewayRequestRequestTypeDef(BaseModel):
+class ModifyTransitGatewayRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayId: str
     Description: Optional[str] = None
     Options: Optional[ModifyTransitGatewayOptionsTypeDef] = None
     DryRun: Optional[bool] = None
 
-class ModifyTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseModel):
+class ModifyTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     AddSubnetIds: Optional[Sequence[str]] = None
     RemoveSubnetIds: Optional[Sequence[str]] = None
     Options: Optional[ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef] = None
     DryRun: Optional[bool] = None
 
-class ModifyVerifiedAccessEndpointRequestRequestTypeDef(BaseModel):
+class ModifyVerifiedAccessEndpointRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessEndpointId: str
     VerifiedAccessGroupId: Optional[str] = None
     LoadBalancerOptions: Optional[ModifyVerifiedAccessEndpointLoadBalancerOptionsTypeDef] = None
@@ -9171,19 +9171,19 @@ class ModifyVerifiedAccessEndpointRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class ModifyVerifiedAccessEndpointPolicyResultTypeDef(BaseModel):
+class ModifyVerifiedAccessEndpointPolicyResultTypeDef(BaseValidatorModel):
     PolicyEnabled: bool
     PolicyDocument: str
     SseSpecification: VerifiedAccessSseSpecificationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVerifiedAccessGroupPolicyResultTypeDef(BaseModel):
+class ModifyVerifiedAccessGroupPolicyResultTypeDef(BaseValidatorModel):
     PolicyEnabled: bool
     PolicyDocument: str
     SseSpecification: VerifiedAccessSseSpecificationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifiedAccessGroupTypeDef(BaseModel):
+class VerifiedAccessGroupTypeDef(BaseValidatorModel):
     VerifiedAccessGroupId: Optional[str] = None
     VerifiedAccessInstanceId: Optional[str] = None
     Description: Optional[str] = None
@@ -9195,7 +9195,7 @@ class VerifiedAccessGroupTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     SseSpecification: Optional[VerifiedAccessSseSpecificationResponseTypeDef] = None
 
-class ModifyVerifiedAccessTrustProviderRequestRequestTypeDef(BaseModel):
+class ModifyVerifiedAccessTrustProviderRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProviderId: str
     OidcOptions: Optional[ModifyVerifiedAccessTrustProviderOidcOptionsTypeDef] = None
     DeviceOptions: Optional[ModifyVerifiedAccessTrustProviderDeviceOptionsTypeDef] = None
@@ -9204,18 +9204,18 @@ class ModifyVerifiedAccessTrustProviderRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     SseSpecification: Optional[VerifiedAccessSseSpecificationRequestTypeDef] = None
 
-class ModifyVpcPeeringConnectionOptionsRequestRequestTypeDef(BaseModel):
+class ModifyVpcPeeringConnectionOptionsRequestRequestTypeDef(BaseValidatorModel):
     VpcPeeringConnectionId: str
     AccepterPeeringConnectionOptions: Optional[PeeringConnectionOptionsRequestTypeDef] = None
     DryRun: Optional[bool] = None
     RequesterPeeringConnectionOptions: Optional[PeeringConnectionOptionsRequestTypeDef] = None
 
-class ModifyVpcPeeringConnectionOptionsResultTypeDef(BaseModel):
+class ModifyVpcPeeringConnectionOptionsResultTypeDef(BaseValidatorModel):
     AccepterPeeringConnectionOptions: PeeringConnectionOptionsTypeDef
     RequesterPeeringConnectionOptions: PeeringConnectionOptionsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NatGatewayTypeDef(BaseModel):
+class NatGatewayTypeDef(BaseValidatorModel):
     CreateTime: Optional[datetime] = None
     DeleteTime: Optional[datetime] = None
     FailureCode: Optional[str] = None
@@ -9229,7 +9229,7 @@ class NatGatewayTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     ConnectivityType: Optional[ConnectivityTypeType] = None
 
-class NetworkInfoTypeDef(BaseModel):
+class NetworkInfoTypeDef(BaseValidatorModel):
     NetworkPerformance: Optional[str] = None
     MaximumNetworkInterfaces: Optional[int] = None
     MaximumNetworkCards: Optional[int] = None
@@ -9244,13 +9244,13 @@ class NetworkInfoTypeDef(BaseModel):
     EncryptionInTransitSupported: Optional[bool] = None
     EnaSrdSupported: Optional[bool] = None
 
-class NetworkInterfacePrivateIpAddressTypeDef(BaseModel):
+class NetworkInterfacePrivateIpAddressTypeDef(BaseValidatorModel):
     Association: Optional[NetworkInterfaceAssociationTypeDef] = None
     Primary: Optional[bool] = None
     PrivateDnsName: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
 
-class NetworkInterfacePermissionTypeDef(BaseModel):
+class NetworkInterfacePermissionTypeDef(BaseValidatorModel):
     NetworkInterfacePermissionId: Optional[str] = None
     NetworkInterfaceId: Optional[str] = None
     AwsAccountId: Optional[str] = None
@@ -9258,13 +9258,13 @@ class NetworkInterfacePermissionTypeDef(BaseModel):
     Permission: Optional[InterfacePermissionTypeType] = None
     PermissionState: Optional[NetworkInterfacePermissionStateTypeDef] = None
 
-class NeuronDeviceInfoTypeDef(BaseModel):
+class NeuronDeviceInfoTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     Name: Optional[str] = None
     CoreInfo: Optional[NeuronDeviceCoreInfoTypeDef] = None
     MemoryInfo: Optional[NeuronDeviceMemoryInfoTypeDef] = None
 
-class VerifiedAccessTrustProviderTypeDef(BaseModel):
+class VerifiedAccessTrustProviderTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProviderId: Optional[str] = None
     Description: Optional[str] = None
     TrustProviderType: Optional[TrustProviderTypeType] = None
@@ -9278,27 +9278,27 @@ class VerifiedAccessTrustProviderTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     SseSpecification: Optional[VerifiedAccessSseSpecificationResponseTypeDef] = None
 
-class PathRequestFilterTypeDef(BaseModel):
+class PathRequestFilterTypeDef(BaseValidatorModel):
     SourceAddress: Optional[str] = None
     SourcePortRange: Optional[RequestFilterPortRangeTypeDef] = None
     DestinationAddress: Optional[str] = None
     DestinationPortRange: Optional[RequestFilterPortRangeTypeDef] = None
 
-class PathStatementRequestTypeDef(BaseModel):
+class PathStatementRequestTypeDef(BaseValidatorModel):
     PacketHeaderStatement: Optional[PacketHeaderStatementRequestTypeDef] = None
     ResourceStatement: Optional[ResourceStatementRequestTypeDef] = None
 
-class ThroughResourcesStatementRequestTypeDef(BaseModel):
+class ThroughResourcesStatementRequestTypeDef(BaseValidatorModel):
     ResourceStatement: Optional[ResourceStatementRequestTypeDef] = None
 
-class PathStatementTypeDef(BaseModel):
+class PathStatementTypeDef(BaseValidatorModel):
     PacketHeaderStatement: Optional[PacketHeaderStatementTypeDef] = None
     ResourceStatement: Optional[ResourceStatementTypeDef] = None
 
-class ThroughResourcesStatementTypeDef(BaseModel):
+class ThroughResourcesStatementTypeDef(BaseValidatorModel):
     ResourceStatement: Optional[ResourceStatementTypeDef] = None
 
-class ReservedInstancesListingTypeDef(BaseModel):
+class ReservedInstancesListingTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
     CreateDate: Optional[datetime] = None
     InstanceCounts: Optional[List[InstanceCountTypeDef]] = None
@@ -9310,12 +9310,12 @@ class ReservedInstancesListingTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     UpdateDate: Optional[datetime] = None
 
-class ProvisionPublicIpv4PoolCidrResultTypeDef(BaseModel):
+class ProvisionPublicIpv4PoolCidrResultTypeDef(BaseValidatorModel):
     PoolId: str
     PoolAddressRange: PublicIpv4PoolRangeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PublicIpv4PoolTypeDef(BaseModel):
+class PublicIpv4PoolTypeDef(BaseValidatorModel):
     PoolId: Optional[str] = None
     Description: Optional[str] = None
     PoolAddressRanges: Optional[List[PublicIpv4PoolRangeTypeDef]] = None
@@ -9324,19 +9324,19 @@ class PublicIpv4PoolTypeDef(BaseModel):
     NetworkBorderGroup: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class PurchaseScheduledInstancesRequestRequestTypeDef(BaseModel):
+class PurchaseScheduledInstancesRequestRequestTypeDef(BaseValidatorModel):
     PurchaseRequests: Sequence[PurchaseRequestTypeDef]
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class PurchaseReservedInstancesOfferingRequestRequestTypeDef(BaseModel):
+class PurchaseReservedInstancesOfferingRequestRequestTypeDef(BaseValidatorModel):
     InstanceCount: int
     ReservedInstancesOfferingId: str
     DryRun: Optional[bool] = None
     LimitPrice: Optional[ReservedInstanceLimitPriceTypeDef] = None
     PurchaseTime: Optional[TimestampTypeDef] = None
 
-class ReservedInstancesOfferingTypeDef(BaseModel):
+class ReservedInstancesOfferingTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     Duration: Optional[int] = None
     FixedPrice: Optional[float] = None
@@ -9353,7 +9353,7 @@ class ReservedInstancesOfferingTypeDef(BaseModel):
     RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
     Scope: Optional[ScopeType] = None
 
-class ReservedInstancesTypeDef(BaseModel):
+class ReservedInstancesTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     Duration: Optional[int] = None
     End: Optional[datetime] = None
@@ -9373,7 +9373,7 @@ class ReservedInstancesTypeDef(BaseModel):
     Scope: Optional[ScopeType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class SecurityGroupRuleTypeDef(BaseModel):
+class SecurityGroupRuleTypeDef(BaseValidatorModel):
     SecurityGroupRuleId: Optional[str] = None
     GroupId: Optional[str] = None
     GroupOwnerId: Optional[str] = None
@@ -9388,22 +9388,22 @@ class SecurityGroupRuleTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class RegisterInstanceEventNotificationAttributesRequestRequestTypeDef(BaseModel):
+class RegisterInstanceEventNotificationAttributesRequestRequestTypeDef(BaseValidatorModel):
     InstanceTagAttribute: RegisterInstanceTagAttributeRequestTypeDef
     DryRun: Optional[bool] = None
 
-class RegisterTransitGatewayMulticastGroupMembersResultTypeDef(BaseModel):
+class RegisterTransitGatewayMulticastGroupMembersResultTypeDef(BaseValidatorModel):
     RegisteredMulticastGroupMembers: TransitGatewayMulticastRegisteredGroupMembersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterTransitGatewayMulticastGroupSourcesResultTypeDef(BaseModel):
+class RegisterTransitGatewayMulticastGroupSourcesResultTypeDef(BaseValidatorModel):
     RegisteredMulticastGroupSources: TransitGatewayMulticastRegisteredGroupSourcesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StorageOutputTypeDef(BaseModel):
+class StorageOutputTypeDef(BaseValidatorModel):
     S3: Optional[S3StorageOutputTypeDef] = None
 
-class ScheduledInstanceAvailabilityTypeDef(BaseModel):
+class ScheduledInstanceAvailabilityTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     AvailableInstanceCount: Optional[int] = None
     FirstSlotStartTime: Optional[datetime] = None
@@ -9418,7 +9418,7 @@ class ScheduledInstanceAvailabilityTypeDef(BaseModel):
     SlotDurationInHours: Optional[int] = None
     TotalScheduledInstanceHours: Optional[int] = None
 
-class ScheduledInstanceTypeDef(BaseModel):
+class ScheduledInstanceTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     CreateDate: Optional[datetime] = None
     HourlyPrice: Optional[str] = None
@@ -9435,13 +9435,13 @@ class ScheduledInstanceTypeDef(BaseModel):
     TermStartDate: Optional[datetime] = None
     TotalScheduledInstanceHours: Optional[int] = None
 
-class ScheduledInstancesBlockDeviceMappingTypeDef(BaseModel):
+class ScheduledInstancesBlockDeviceMappingTypeDef(BaseValidatorModel):
     DeviceName: Optional[str] = None
     Ebs: Optional[ScheduledInstancesEbsTypeDef] = None
     NoDevice: Optional[str] = None
     VirtualName: Optional[str] = None
 
-class ScheduledInstancesNetworkInterfaceTypeDef(BaseModel):
+class ScheduledInstancesNetworkInterfaceTypeDef(BaseValidatorModel):
     AssociatePublicIpAddress: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
     Description: Optional[str] = None
@@ -9455,12 +9455,12 @@ class ScheduledInstancesNetworkInterfaceTypeDef(BaseModel):
     SecondaryPrivateIpAddressCount: Optional[int] = None
     SubnetId: Optional[str] = None
 
-class SearchTransitGatewayMulticastGroupsResultTypeDef(BaseModel):
+class SearchTransitGatewayMulticastGroupsResultTypeDef(BaseValidatorModel):
     MulticastGroups: List[TransitGatewayMulticastGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class VpcEndpointTypeDef(BaseModel):
+class VpcEndpointTypeDef(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
     VpcEndpointType: Optional[VpcEndpointTypeType] = None
     VpcId: Optional[str] = None
@@ -9481,11 +9481,11 @@ class VpcEndpointTypeDef(BaseModel):
     OwnerId: Optional[str] = None
     LastError: Optional[LastErrorTypeDef] = None
 
-class SecurityGroupRuleUpdateTypeDef(BaseModel):
+class SecurityGroupRuleUpdateTypeDef(BaseValidatorModel):
     SecurityGroupRuleId: str
     SecurityGroupRule: Optional[SecurityGroupRuleRequestTypeDef] = None
 
-class ServiceConfigurationTypeDef(BaseModel):
+class ServiceConfigurationTypeDef(BaseValidatorModel):
     ServiceType: Optional[List[ServiceTypeDetailTypeDef]] = None
     ServiceId: Optional[str] = None
     ServiceName: Optional[str] = None
@@ -9502,7 +9502,7 @@ class ServiceConfigurationTypeDef(BaseModel):
     PayerResponsibility: Optional[Literal["ServiceOwner"]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ServiceDetailTypeDef(BaseModel):
+class ServiceDetailTypeDef(BaseValidatorModel):
     ServiceName: Optional[str] = None
     ServiceId: Optional[str] = None
     ServiceType: Optional[List[ServiceTypeDetailTypeDef]] = None
@@ -9519,7 +9519,7 @@ class ServiceDetailTypeDef(BaseModel):
     PrivateDnsNameVerificationState: Optional[DnsNameStateType] = None
     SupportedIpAddressTypes: Optional[List[ServiceConnectivityTypeType]] = None
 
-class SnapshotDetailTypeDef(BaseModel):
+class SnapshotDetailTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     DeviceName: Optional[str] = None
     DiskImageSize: Optional[float] = None
@@ -9531,7 +9531,7 @@ class SnapshotDetailTypeDef(BaseModel):
     Url: Optional[str] = None
     UserBucket: Optional[UserBucketDetailsTypeDef] = None
 
-class SnapshotTaskDetailTypeDef(BaseModel):
+class SnapshotTaskDetailTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     DiskImageSize: Optional[float] = None
     Encrypted: Optional[bool] = None
@@ -9544,24 +9544,24 @@ class SnapshotTaskDetailTypeDef(BaseModel):
     Url: Optional[str] = None
     UserBucket: Optional[UserBucketDetailsTypeDef] = None
 
-class SpotMaintenanceStrategiesTypeDef(BaseModel):
+class SpotMaintenanceStrategiesTypeDef(BaseValidatorModel):
     CapacityRebalance: Optional[SpotCapacityRebalanceTypeDef] = None
 
-class SpotDatafeedSubscriptionTypeDef(BaseModel):
+class SpotDatafeedSubscriptionTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     Fault: Optional[SpotInstanceStateFaultTypeDef] = None
     OwnerId: Optional[str] = None
     Prefix: Optional[str] = None
     State: Optional[DatafeedSubscriptionStateType] = None
 
-class TransitGatewayMulticastDomainAssociationTypeDef(BaseModel):
+class TransitGatewayMulticastDomainAssociationTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     ResourceId: Optional[str] = None
     ResourceType: Optional[TransitGatewayAttachmentResourceTypeType] = None
     ResourceOwnerId: Optional[str] = None
     Subnet: Optional[SubnetAssociationTypeDef] = None
 
-class TransitGatewayMulticastDomainAssociationsTypeDef(BaseModel):
+class TransitGatewayMulticastDomainAssociationsTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
     ResourceId: Optional[str] = None
@@ -9569,25 +9569,25 @@ class TransitGatewayMulticastDomainAssociationsTypeDef(BaseModel):
     ResourceOwnerId: Optional[str] = None
     Subnets: Optional[List[SubnetAssociationTypeDef]] = None
 
-class SubnetIpv6CidrBlockAssociationTypeDef(BaseModel):
+class SubnetIpv6CidrBlockAssociationTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     Ipv6CidrBlock: Optional[str] = None
     Ipv6CidrBlockState: Optional[SubnetCidrBlockStateTypeDef] = None
 
-class TargetReservationValueTypeDef(BaseModel):
+class TargetReservationValueTypeDef(BaseValidatorModel):
     ReservationValue: Optional[ReservationValueTypeDef] = None
     TargetConfiguration: Optional[TargetConfigurationTypeDef] = None
 
-class TargetGroupsConfigExtraOutputTypeDef(BaseModel):
+class TargetGroupsConfigExtraOutputTypeDef(BaseValidatorModel):
     TargetGroups: Optional[List[TargetGroupTypeDef]] = None
 
-class TargetGroupsConfigOutputTypeDef(BaseModel):
+class TargetGroupsConfigOutputTypeDef(BaseValidatorModel):
     TargetGroups: Optional[List[TargetGroupTypeDef]] = None
 
-class TargetGroupsConfigTypeDef(BaseModel):
+class TargetGroupsConfigTypeDef(BaseValidatorModel):
     TargetGroups: Optional[Sequence[TargetGroupTypeDef]] = None
 
-class TrafficMirrorFilterRuleTypeDef(BaseModel):
+class TrafficMirrorFilterRuleTypeDef(BaseValidatorModel):
     TrafficMirrorFilterRuleId: Optional[str] = None
     TrafficMirrorFilterId: Optional[str] = None
     TrafficDirection: Optional[TrafficDirectionType] = None
@@ -9601,7 +9601,7 @@ class TrafficMirrorFilterRuleTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TransitGatewayAttachmentTypeDef(BaseModel):
+class TransitGatewayAttachmentTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     TransitGatewayId: Optional[str] = None
     TransitGatewayOwnerId: Optional[str] = None
@@ -9613,14 +9613,14 @@ class TransitGatewayAttachmentTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TransitGatewayConnectPeerConfigurationTypeDef(BaseModel):
+class TransitGatewayConnectPeerConfigurationTypeDef(BaseValidatorModel):
     TransitGatewayAddress: Optional[str] = None
     PeerAddress: Optional[str] = None
     InsideCidrBlocks: Optional[List[str]] = None
     Protocol: Optional[Literal["gre"]] = None
     BgpConfigurations: Optional[List[TransitGatewayAttachmentBgpConfigurationTypeDef]] = None
 
-class TransitGatewayConnectTypeDef(BaseModel):
+class TransitGatewayConnectTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     TransportTransitGatewayAttachmentId: Optional[str] = None
     TransitGatewayId: Optional[str] = None
@@ -9629,7 +9629,7 @@ class TransitGatewayConnectTypeDef(BaseModel):
     Options: Optional[TransitGatewayConnectOptionsTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TransitGatewayMulticastDomainTypeDef(BaseModel):
+class TransitGatewayMulticastDomainTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     TransitGatewayId: Optional[str] = None
     TransitGatewayMulticastDomainArn: Optional[str] = None
@@ -9639,7 +9639,7 @@ class TransitGatewayMulticastDomainTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TransitGatewayTypeDef(BaseModel):
+class TransitGatewayTypeDef(BaseValidatorModel):
     TransitGatewayId: Optional[str] = None
     TransitGatewayArn: Optional[str] = None
     State: Optional[TransitGatewayStateType] = None
@@ -9649,7 +9649,7 @@ class TransitGatewayTypeDef(BaseModel):
     Options: Optional[TransitGatewayOptionsTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TransitGatewayPeeringAttachmentTypeDef(BaseModel):
+class TransitGatewayPeeringAttachmentTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     AccepterTransitGatewayAttachmentId: Optional[str] = None
     RequesterTgwInfo: Optional[PeeringTgwInfoTypeDef] = None
@@ -9660,7 +9660,7 @@ class TransitGatewayPeeringAttachmentTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TransitGatewayPolicyRuleTypeDef(BaseModel):
+class TransitGatewayPolicyRuleTypeDef(BaseValidatorModel):
     SourceCidrBlock: Optional[str] = None
     SourcePortRange: Optional[str] = None
     DestinationCidrBlock: Optional[str] = None
@@ -9668,7 +9668,7 @@ class TransitGatewayPolicyRuleTypeDef(BaseModel):
     Protocol: Optional[str] = None
     MetaData: Optional[TransitGatewayPolicyRuleMetaDataTypeDef] = None
 
-class TransitGatewayPrefixListReferenceTypeDef(BaseModel):
+class TransitGatewayPrefixListReferenceTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: Optional[str] = None
     PrefixListId: Optional[str] = None
     PrefixListOwnerId: Optional[str] = None
@@ -9676,7 +9676,7 @@ class TransitGatewayPrefixListReferenceTypeDef(BaseModel):
     Blackhole: Optional[bool] = None
     TransitGatewayAttachment: Optional[TransitGatewayPrefixListAttachmentTypeDef] = None
 
-class TransitGatewayRouteTypeDef(BaseModel):
+class TransitGatewayRouteTypeDef(BaseValidatorModel):
     DestinationCidrBlock: Optional[str] = None
     PrefixListId: Optional[str] = None
     TransitGatewayRouteTableAnnouncementId: Optional[str] = None
@@ -9684,7 +9684,7 @@ class TransitGatewayRouteTypeDef(BaseModel):
     Type: Optional[TransitGatewayRouteTypeType] = None
     State: Optional[TransitGatewayRouteStateType] = None
 
-class TransitGatewayVpcAttachmentTypeDef(BaseModel):
+class TransitGatewayVpcAttachmentTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     TransitGatewayId: Optional[str] = None
     VpcId: Optional[str] = None
@@ -9695,18 +9695,18 @@ class TransitGatewayVpcAttachmentTypeDef(BaseModel):
     Options: Optional[TransitGatewayVpcAttachmentOptionsTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class UnsuccessfulInstanceCreditSpecificationItemTypeDef(BaseModel):
+class UnsuccessfulInstanceCreditSpecificationItemTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     Error: Optional[UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef] = None
 
-class UnsuccessfulItemTypeDef(BaseModel):
+class UnsuccessfulItemTypeDef(BaseValidatorModel):
     Error: Optional[UnsuccessfulItemErrorTypeDef] = None
     ResourceId: Optional[str] = None
 
-class ValidationWarningTypeDef(BaseModel):
+class ValidationWarningTypeDef(BaseValidatorModel):
     Errors: Optional[List[ValidationErrorTypeDef]] = None
 
-class VerifiedAccessEndpointTypeDef(BaseModel):
+class VerifiedAccessEndpointTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceId: Optional[str] = None
     VerifiedAccessGroupId: Optional[str] = None
     VerifiedAccessEndpointId: Optional[str] = None
@@ -9727,7 +9727,7 @@ class VerifiedAccessEndpointTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     SseSpecification: Optional[VerifiedAccessSseSpecificationResponseTypeDef] = None
 
-class VerifiedAccessInstanceTypeDef(BaseModel):
+class VerifiedAccessInstanceTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceId: Optional[str] = None
     Description: Optional[str] = None
     VerifiedAccessTrustProviders: Optional[       List[VerifiedAccessTrustProviderCondensedTypeDef]     ] = None
@@ -9736,31 +9736,31 @@ class VerifiedAccessInstanceTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     FipsEnabled: Optional[bool] = None
 
-class VerifiedAccessLogCloudWatchLogsDestinationTypeDef(BaseModel):
+class VerifiedAccessLogCloudWatchLogsDestinationTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     DeliveryStatus: Optional[VerifiedAccessLogDeliveryStatusTypeDef] = None
     LogGroup: Optional[str] = None
 
-class VerifiedAccessLogKinesisDataFirehoseDestinationTypeDef(BaseModel):
+class VerifiedAccessLogKinesisDataFirehoseDestinationTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     DeliveryStatus: Optional[VerifiedAccessLogDeliveryStatusTypeDef] = None
     DeliveryStream: Optional[str] = None
 
-class VerifiedAccessLogS3DestinationTypeDef(BaseModel):
+class VerifiedAccessLogS3DestinationTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     DeliveryStatus: Optional[VerifiedAccessLogDeliveryStatusTypeDef] = None
     BucketName: Optional[str] = None
     Prefix: Optional[str] = None
     BucketOwner: Optional[str] = None
 
-class VerifiedAccessLogOptionsTypeDef(BaseModel):
+class VerifiedAccessLogOptionsTypeDef(BaseValidatorModel):
     S3: Optional[VerifiedAccessLogS3DestinationOptionsTypeDef] = None
     CloudWatchLogs: Optional[VerifiedAccessLogCloudWatchLogsDestinationOptionsTypeDef] = None
     KinesisDataFirehose: Optional[       VerifiedAccessLogKinesisDataFirehoseDestinationOptionsTypeDef     ] = None
     LogVersion: Optional[str] = None
     IncludeTrustContext: Optional[bool] = None
 
-class VolumeResponseTypeDef(BaseModel):
+class VolumeResponseTypeDef(BaseValidatorModel):
     Attachments: List[VolumeAttachmentTypeDef]
     AvailabilityZone: str
     CreateTime: datetime
@@ -9780,7 +9780,7 @@ class VolumeResponseTypeDef(BaseModel):
     SseType: SSETypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VolumeTypeDef(BaseModel):
+class VolumeTypeDef(BaseValidatorModel):
     Attachments: Optional[List[VolumeAttachmentTypeDef]] = None
     AvailabilityZone: Optional[str] = None
     CreateTime: Optional[datetime] = None
@@ -9799,23 +9799,23 @@ class VolumeTypeDef(BaseModel):
     Throughput: Optional[int] = None
     SseType: Optional[SSETypeType] = None
 
-class VolumeStatusInfoTypeDef(BaseModel):
+class VolumeStatusInfoTypeDef(BaseValidatorModel):
     Details: Optional[List[VolumeStatusDetailsTypeDef]] = None
     Status: Optional[VolumeStatusInfoStatusType] = None
 
-class VpcCidrBlockAssociationTypeDef(BaseModel):
+class VpcCidrBlockAssociationTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     CidrBlock: Optional[str] = None
     CidrBlockState: Optional[VpcCidrBlockStateTypeDef] = None
 
-class VpcIpv6CidrBlockAssociationTypeDef(BaseModel):
+class VpcIpv6CidrBlockAssociationTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     Ipv6CidrBlock: Optional[str] = None
     Ipv6CidrBlockState: Optional[VpcCidrBlockStateTypeDef] = None
     NetworkBorderGroup: Optional[str] = None
     Ipv6Pool: Optional[str] = None
 
-class VpcPeeringConnectionVpcInfoTypeDef(BaseModel):
+class VpcPeeringConnectionVpcInfoTypeDef(BaseValidatorModel):
     CidrBlock: Optional[str] = None
     Ipv6CidrBlockSet: Optional[List[Ipv6CidrBlockTypeDef]] = None
     CidrBlockSet: Optional[List[CidrBlockTypeDef]] = None
@@ -9824,11 +9824,11 @@ class VpcPeeringConnectionVpcInfoTypeDef(BaseModel):
     VpcId: Optional[str] = None
     Region: Optional[str] = None
 
-class DescribeAccountAttributesResultTypeDef(BaseModel):
+class DescribeAccountAttributesResultTypeDef(BaseValidatorModel):
     AccountAttributes: List[AccountAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AdditionalDetailTypeDef(BaseModel):
+class AdditionalDetailTypeDef(BaseValidatorModel):
     AdditionalDetailType: Optional[str] = None
     Component: Optional[AnalysisComponentTypeDef] = None
     VpcEndpointService: Optional[AnalysisComponentTypeDef] = None
@@ -9838,87 +9838,87 @@ class AdditionalDetailTypeDef(BaseModel):
     ServiceName: Optional[str] = None
     LoadBalancers: Optional[List[AnalysisComponentTypeDef]] = None
 
-class DescribeAddressesAttributeResultTypeDef(BaseModel):
+class DescribeAddressesAttributeResultTypeDef(BaseValidatorModel):
     Addresses: List[AddressAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyAddressAttributeResultTypeDef(BaseModel):
+class ModifyAddressAttributeResultTypeDef(BaseValidatorModel):
     Address: AddressAttributeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetAddressAttributeResultTypeDef(BaseModel):
+class ResetAddressAttributeResultTypeDef(BaseValidatorModel):
     Address: AddressAttributeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAddressesResultTypeDef(BaseModel):
+class DescribeAddressesResultTypeDef(BaseValidatorModel):
     Addresses: List[AddressTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpcEndpointServicePermissionsResultTypeDef(BaseModel):
+class DescribeVpcEndpointServicePermissionsResultTypeDef(BaseValidatorModel):
     AllowedPrincipals: List[AllowedPrincipalTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateCarrierGatewayResultTypeDef(BaseModel):
+class CreateCarrierGatewayResultTypeDef(BaseValidatorModel):
     CarrierGateway: CarrierGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCarrierGatewayResultTypeDef(BaseModel):
+class DeleteCarrierGatewayResultTypeDef(BaseValidatorModel):
     CarrierGateway: CarrierGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCarrierGatewaysResultTypeDef(BaseModel):
+class DescribeCarrierGatewaysResultTypeDef(BaseValidatorModel):
     CarrierGateways: List[CarrierGatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateCoipPoolResultTypeDef(BaseModel):
+class CreateCoipPoolResultTypeDef(BaseValidatorModel):
     CoipPool: CoipPoolTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCoipPoolResultTypeDef(BaseModel):
+class DeleteCoipPoolResultTypeDef(BaseValidatorModel):
     CoipPool: CoipPoolTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCoipPoolsResultTypeDef(BaseModel):
+class DescribeCoipPoolsResultTypeDef(BaseValidatorModel):
     CoipPools: List[CoipPoolTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateCustomerGatewayResultTypeDef(BaseModel):
+class CreateCustomerGatewayResultTypeDef(BaseValidatorModel):
     CustomerGateway: CustomerGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCustomerGatewaysResultTypeDef(BaseModel):
+class DescribeCustomerGatewaysResultTypeDef(BaseValidatorModel):
     CustomerGateways: List[CustomerGatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceConnectEndpointResultTypeDef(BaseModel):
+class CreateInstanceConnectEndpointResultTypeDef(BaseValidatorModel):
     InstanceConnectEndpoint: Ec2InstanceConnectEndpointTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteInstanceConnectEndpointResultTypeDef(BaseModel):
+class DeleteInstanceConnectEndpointResultTypeDef(BaseValidatorModel):
     InstanceConnectEndpoint: Ec2InstanceConnectEndpointTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeInstanceConnectEndpointsResultTypeDef(BaseModel):
+class DescribeInstanceConnectEndpointsResultTypeDef(BaseValidatorModel):
     InstanceConnectEndpoints: List[Ec2InstanceConnectEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeHostReservationsResultTypeDef(BaseModel):
+class DescribeHostReservationsResultTypeDef(BaseValidatorModel):
     HostReservationSet: List[HostReservationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AssociateInstanceEventWindowRequestRequestTypeDef(BaseModel):
+class AssociateInstanceEventWindowRequestRequestTypeDef(BaseValidatorModel):
     InstanceEventWindowId: str
     AssociationTarget: InstanceEventWindowAssociationRequestTypeDef
     DryRun: Optional[bool] = None
 
-class InstanceEventWindowTypeDef(BaseModel):
+class InstanceEventWindowTypeDef(BaseValidatorModel):
     InstanceEventWindowId: Optional[str] = None
     TimeRanges: Optional[List[InstanceEventWindowTimeRangeTypeDef]] = None
     Name: Optional[str] = None
@@ -9927,185 +9927,185 @@ class InstanceEventWindowTypeDef(BaseModel):
     State: Optional[InstanceEventWindowStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class DisassociateInstanceEventWindowRequestRequestTypeDef(BaseModel):
+class DisassociateInstanceEventWindowRequestRequestTypeDef(BaseValidatorModel):
     InstanceEventWindowId: str
     AssociationTarget: InstanceEventWindowDisassociationRequestTypeDef
     DryRun: Optional[bool] = None
 
-class AssociateIpamResourceDiscoveryResultTypeDef(BaseModel):
+class AssociateIpamResourceDiscoveryResultTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryAssociation: IpamResourceDiscoveryAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIpamResourceDiscoveryAssociationsResultTypeDef(BaseModel):
+class DescribeIpamResourceDiscoveryAssociationsResultTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryAssociations: List[IpamResourceDiscoveryAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DisassociateIpamResourceDiscoveryResultTypeDef(BaseModel):
+class DisassociateIpamResourceDiscoveryResultTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryAssociation: IpamResourceDiscoveryAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateIpamScopeResultTypeDef(BaseModel):
+class CreateIpamScopeResultTypeDef(BaseValidatorModel):
     IpamScope: IpamScopeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteIpamScopeResultTypeDef(BaseModel):
+class DeleteIpamScopeResultTypeDef(BaseValidatorModel):
     IpamScope: IpamScopeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIpamScopesResultTypeDef(BaseModel):
+class DescribeIpamScopesResultTypeDef(BaseValidatorModel):
     IpamScopes: List[IpamScopeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyIpamScopeResultTypeDef(BaseModel):
+class ModifyIpamScopeResultTypeDef(BaseValidatorModel):
     IpamScope: IpamScopeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeKeyPairsResultTypeDef(BaseModel):
+class DescribeKeyPairsResultTypeDef(BaseValidatorModel):
     KeyPairs: List[KeyPairInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLaunchTemplateResultTypeDef(BaseModel):
+class DeleteLaunchTemplateResultTypeDef(BaseValidatorModel):
     LaunchTemplate: LaunchTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLaunchTemplatesResultTypeDef(BaseModel):
+class DescribeLaunchTemplatesResultTypeDef(BaseValidatorModel):
     LaunchTemplates: List[LaunchTemplateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyLaunchTemplateResultTypeDef(BaseModel):
+class ModifyLaunchTemplateResultTypeDef(BaseValidatorModel):
     LaunchTemplate: LaunchTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef(BaseModel):
+class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation: LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef(BaseModel):
+class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation: LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef(BaseModel):
+class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVirtualInterfaceGroupAssociations: List[       LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef     ]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateLocalGatewayRouteTableVpcAssociationResultTypeDef(BaseModel):
+class CreateLocalGatewayRouteTableVpcAssociationResultTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociation: LocalGatewayRouteTableVpcAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef(BaseModel):
+class DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociation: LocalGatewayRouteTableVpcAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef(BaseModel):
+class DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociations: List[LocalGatewayRouteTableVpcAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeLocalGatewaysResultTypeDef(BaseModel):
+class DescribeLocalGatewaysResultTypeDef(BaseValidatorModel):
     LocalGateways: List[LocalGatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef(BaseModel):
+class DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef(BaseValidatorModel):
     LocalGatewayVirtualInterfaceGroups: List[LocalGatewayVirtualInterfaceGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeLocalGatewayVirtualInterfacesResultTypeDef(BaseModel):
+class DescribeLocalGatewayVirtualInterfacesResultTypeDef(BaseValidatorModel):
     LocalGatewayVirtualInterfaces: List[LocalGatewayVirtualInterfaceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateManagedPrefixListResultTypeDef(BaseModel):
+class CreateManagedPrefixListResultTypeDef(BaseValidatorModel):
     PrefixList: ManagedPrefixListTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteManagedPrefixListResultTypeDef(BaseModel):
+class DeleteManagedPrefixListResultTypeDef(BaseValidatorModel):
     PrefixList: ManagedPrefixListTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeManagedPrefixListsResultTypeDef(BaseModel):
+class DescribeManagedPrefixListsResultTypeDef(BaseValidatorModel):
     PrefixLists: List[ManagedPrefixListTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyManagedPrefixListResultTypeDef(BaseModel):
+class ModifyManagedPrefixListResultTypeDef(BaseValidatorModel):
     PrefixList: ManagedPrefixListTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreManagedPrefixListVersionResultTypeDef(BaseModel):
+class RestoreManagedPrefixListVersionResultTypeDef(BaseValidatorModel):
     PrefixList: ManagedPrefixListTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeNetworkInsightsAccessScopeAnalysesResultTypeDef(BaseModel):
+class DescribeNetworkInsightsAccessScopeAnalysesResultTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalyses: List[NetworkInsightsAccessScopeAnalysisTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class StartNetworkInsightsAccessScopeAnalysisResultTypeDef(BaseModel):
+class StartNetworkInsightsAccessScopeAnalysisResultTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysis: NetworkInsightsAccessScopeAnalysisTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeNetworkInsightsAccessScopesResultTypeDef(BaseModel):
+class DescribeNetworkInsightsAccessScopesResultTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopes: List[NetworkInsightsAccessScopeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreatePlacementGroupResultTypeDef(BaseModel):
+class CreatePlacementGroupResultTypeDef(BaseValidatorModel):
     PlacementGroup: PlacementGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePlacementGroupsResultTypeDef(BaseModel):
+class DescribePlacementGroupsResultTypeDef(BaseValidatorModel):
     PlacementGroups: List[PlacementGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateReplaceRootVolumeTaskResultTypeDef(BaseModel):
+class CreateReplaceRootVolumeTaskResultTypeDef(BaseValidatorModel):
     ReplaceRootVolumeTask: ReplaceRootVolumeTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeReplaceRootVolumeTasksResultTypeDef(BaseModel):
+class DescribeReplaceRootVolumeTasksResultTypeDef(BaseValidatorModel):
     ReplaceRootVolumeTasks: List[ReplaceRootVolumeTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetSecurityGroupsForVpcResultTypeDef(BaseModel):
+class GetSecurityGroupsForVpcResultTypeDef(BaseValidatorModel):
     SecurityGroupForVpcs: List[SecurityGroupForVpcTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateSnapshotsResultTypeDef(BaseModel):
+class CreateSnapshotsResultTypeDef(BaseValidatorModel):
     Snapshots: List[SnapshotInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSnapshotTierStatusResultTypeDef(BaseModel):
+class DescribeSnapshotTierStatusResultTypeDef(BaseValidatorModel):
     SnapshotTierStatuses: List[SnapshotTierStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeSnapshotsResultTypeDef(BaseModel):
+class DescribeSnapshotsResultTypeDef(BaseValidatorModel):
     Snapshots: List[SnapshotTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateSubnetCidrReservationResultTypeDef(BaseModel):
+class CreateSubnetCidrReservationResultTypeDef(BaseValidatorModel):
     SubnetCidrReservation: SubnetCidrReservationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSubnetCidrReservationResultTypeDef(BaseModel):
+class DeleteSubnetCidrReservationResultTypeDef(BaseValidatorModel):
     DeletedSubnetCidrReservation: SubnetCidrReservationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSubnetCidrReservationsResultTypeDef(BaseModel):
+class GetSubnetCidrReservationsResultTypeDef(BaseValidatorModel):
     SubnetIpv4CidrReservations: List[SubnetCidrReservationTypeDef]
     SubnetIpv6CidrReservations: List[SubnetCidrReservationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CopySnapshotRequestSnapshotCopyTypeDef(BaseModel):
+class CopySnapshotRequestSnapshotCopyTypeDef(BaseValidatorModel):
     SourceRegion: str
     Description: Optional[str] = None
     DestinationOutpostArn: Optional[str] = None
@@ -10116,12 +10116,12 @@ class CopySnapshotRequestSnapshotCopyTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateNetworkAclRequestVpcCreateNetworkAclTypeDef(BaseModel):
+class CreateNetworkAclRequestVpcCreateNetworkAclTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CreateNetworkInterfaceRequestSubnetCreateNetworkInterfaceTypeDef(BaseModel):
+class CreateNetworkInterfaceRequestSubnetCreateNetworkInterfaceTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     DryRun: Optional[bool] = None
     Groups: Optional[Sequence[str]] = None
@@ -10140,24 +10140,24 @@ class CreateNetworkInterfaceRequestSubnetCreateNetworkInterfaceTypeDef(BaseModel
     EnablePrimaryIpv6: Optional[bool] = None
     ConnectionTrackingSpecification: Optional[       ConnectionTrackingSpecificationRequestTypeDef     ] = None
 
-class CreateRouteTableRequestVpcCreateRouteTableTypeDef(BaseModel):
+class CreateRouteTableRequestVpcCreateRouteTableTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CreateSecurityGroupRequestVpcCreateSecurityGroupTypeDef(BaseModel):
+class CreateSecurityGroupRequestVpcCreateSecurityGroupTypeDef(BaseValidatorModel):
     Description: str
     GroupName: str
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateSnapshotRequestVolumeCreateSnapshotTypeDef(BaseModel):
+class CreateSnapshotRequestVolumeCreateSnapshotTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     OutpostArn: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateSubnetRequestVpcCreateSubnetTypeDef(BaseModel):
+class CreateSubnetRequestVpcCreateSubnetTypeDef(BaseValidatorModel):
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
     AvailabilityZone: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
@@ -10171,91 +10171,91 @@ class CreateSubnetRequestVpcCreateSubnetTypeDef(BaseModel):
     Ipv6IpamPoolId: Optional[str] = None
     Ipv6NetmaskLength: Optional[int] = None
 
-class CreateVpcPeeringConnectionRequestVpcRequestVpcPeeringConnectionTypeDef(BaseModel):
+class CreateVpcPeeringConnectionRequestVpcRequestVpcPeeringConnectionTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     PeerOwnerId: Optional[str] = None
     PeerVpcId: Optional[str] = None
     PeerRegion: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
 
-class CreateTrafficMirrorSessionResultTypeDef(BaseModel):
+class CreateTrafficMirrorSessionResultTypeDef(BaseValidatorModel):
     TrafficMirrorSession: TrafficMirrorSessionTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTrafficMirrorSessionsResultTypeDef(BaseModel):
+class DescribeTrafficMirrorSessionsResultTypeDef(BaseValidatorModel):
     TrafficMirrorSessions: List[TrafficMirrorSessionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyTrafficMirrorSessionResultTypeDef(BaseModel):
+class ModifyTrafficMirrorSessionResultTypeDef(BaseValidatorModel):
     TrafficMirrorSession: TrafficMirrorSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrafficMirrorTargetResultTypeDef(BaseModel):
+class CreateTrafficMirrorTargetResultTypeDef(BaseValidatorModel):
     TrafficMirrorTarget: TrafficMirrorTargetTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTrafficMirrorTargetsResultTypeDef(BaseModel):
+class DescribeTrafficMirrorTargetsResultTypeDef(BaseValidatorModel):
     TrafficMirrorTargets: List[TrafficMirrorTargetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateTransitGatewayPolicyTableResultTypeDef(BaseModel):
+class CreateTransitGatewayPolicyTableResultTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTable: TransitGatewayPolicyTableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayPolicyTableResultTypeDef(BaseModel):
+class DeleteTransitGatewayPolicyTableResultTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTable: TransitGatewayPolicyTableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTransitGatewayPolicyTablesResultTypeDef(BaseModel):
+class DescribeTransitGatewayPolicyTablesResultTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTables: List[TransitGatewayPolicyTableTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateTransitGatewayRouteTableAnnouncementResultTypeDef(BaseModel):
+class CreateTransitGatewayRouteTableAnnouncementResultTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncement: TransitGatewayRouteTableAnnouncementTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayRouteTableAnnouncementResultTypeDef(BaseModel):
+class DeleteTransitGatewayRouteTableAnnouncementResultTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncement: TransitGatewayRouteTableAnnouncementTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTransitGatewayRouteTableAnnouncementsResultTypeDef(BaseModel):
+class DescribeTransitGatewayRouteTableAnnouncementsResultTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncements: List[TransitGatewayRouteTableAnnouncementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateTransitGatewayRouteTableResultTypeDef(BaseModel):
+class CreateTransitGatewayRouteTableResultTypeDef(BaseValidatorModel):
     TransitGatewayRouteTable: TransitGatewayRouteTableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayRouteTableResultTypeDef(BaseModel):
+class DeleteTransitGatewayRouteTableResultTypeDef(BaseValidatorModel):
     TransitGatewayRouteTable: TransitGatewayRouteTableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTransitGatewayRouteTablesResultTypeDef(BaseModel):
+class DescribeTransitGatewayRouteTablesResultTypeDef(BaseValidatorModel):
     TransitGatewayRouteTables: List[TransitGatewayRouteTableTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AssociateTrunkInterfaceResultTypeDef(BaseModel):
+class AssociateTrunkInterfaceResultTypeDef(BaseValidatorModel):
     InterfaceAssociation: TrunkInterfaceAssociationTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTrunkInterfaceAssociationsResultTypeDef(BaseModel):
+class DescribeTrunkInterfaceAssociationsResultTypeDef(BaseValidatorModel):
     InterfaceAssociations: List[TrunkInterfaceAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeVpcClassicLinkResultTypeDef(BaseModel):
+class DescribeVpcClassicLinkResultTypeDef(BaseValidatorModel):
     Vpcs: List[VpcClassicLinkTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExplanationTypeDef(BaseModel):
+class ExplanationTypeDef(BaseValidatorModel):
     Acl: Optional[AnalysisComponentTypeDef] = None
     AclRule: Optional[AnalysisAclRuleTypeDef] = None
     Address: Optional[str] = None
@@ -10310,37 +10310,37 @@ class ExplanationTypeDef(BaseModel):
     FirewallStatelessRule: Optional[FirewallStatelessRuleTypeDef] = None
     FirewallStatefulRule: Optional[FirewallStatefulRuleTypeDef] = None
 
-class AdvertiseByoipCidrResultTypeDef(BaseModel):
+class AdvertiseByoipCidrResultTypeDef(BaseValidatorModel):
     ByoipCidr: ByoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeprovisionByoipCidrResultTypeDef(BaseModel):
+class DeprovisionByoipCidrResultTypeDef(BaseValidatorModel):
     ByoipCidr: ByoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeByoipCidrsResultTypeDef(BaseModel):
+class DescribeByoipCidrsResultTypeDef(BaseValidatorModel):
     ByoipCidrs: List[ByoipCidrTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class MoveByoipCidrToIpamResultTypeDef(BaseModel):
+class MoveByoipCidrToIpamResultTypeDef(BaseValidatorModel):
     ByoipCidr: ByoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProvisionByoipCidrResultTypeDef(BaseModel):
+class ProvisionByoipCidrResultTypeDef(BaseValidatorModel):
     ByoipCidr: ByoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WithdrawByoipCidrResultTypeDef(BaseModel):
+class WithdrawByoipCidrResultTypeDef(BaseValidatorModel):
     ByoipCidr: ByoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeClientVpnTargetNetworksResultTypeDef(BaseModel):
+class DescribeClientVpnTargetNetworksResultTypeDef(BaseValidatorModel):
     ClientVpnTargetNetworks: List[TargetNetworkTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class RouteTableTypeDef(BaseModel):
+class RouteTableTypeDef(BaseValidatorModel):
     Associations: Optional[List[RouteTableAssociationTypeDef]] = None
     PropagatingVgws: Optional[List[PropagatingVgwTypeDef]] = None
     RouteTableId: Optional[str] = None
@@ -10349,14 +10349,14 @@ class RouteTableTypeDef(BaseModel):
     VpcId: Optional[str] = None
     OwnerId: Optional[str] = None
 
-class IntegrateServicesTypeDef(BaseModel):
+class IntegrateServicesTypeDef(BaseValidatorModel):
     AthenaIntegrations: Optional[Sequence[AthenaIntegrationTypeDef]] = None
 
-class LaunchTemplateInstanceMarketOptionsRequestTypeDef(BaseModel):
+class LaunchTemplateInstanceMarketOptionsRequestTypeDef(BaseValidatorModel):
     MarketType: Optional[MarketTypeType] = None
     SpotOptions: Optional[LaunchTemplateSpotMarketOptionsRequestTypeDef] = None
 
-class DescribeScheduledInstanceAvailabilityRequestDescribeScheduledInstanceAvailabilityPaginateTypeDef(BaseModel):
+class DescribeScheduledInstanceAvailabilityRequestDescribeScheduledInstanceAvailabilityPaginateTypeDef(BaseValidatorModel):
     FirstSlotStartTimeRange: SlotDateTimeRangeRequestTypeDef
     Recurrence: ScheduledInstanceRecurrenceRequestTypeDef
     DryRun: Optional[bool] = None
@@ -10365,7 +10365,7 @@ class DescribeScheduledInstanceAvailabilityRequestDescribeScheduledInstanceAvail
     MinSlotDurationInHours: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeScheduledInstanceAvailabilityRequestRequestTypeDef(BaseModel):
+class DescribeScheduledInstanceAvailabilityRequestRequestTypeDef(BaseValidatorModel):
     FirstSlotStartTimeRange: SlotDateTimeRangeRequestTypeDef
     Recurrence: ScheduledInstanceRecurrenceRequestTypeDef
     DryRun: Optional[bool] = None
@@ -10375,14 +10375,14 @@ class DescribeScheduledInstanceAvailabilityRequestRequestTypeDef(BaseModel):
     MinSlotDurationInHours: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeScheduledInstancesRequestDescribeScheduledInstancesPaginateTypeDef(BaseModel):
+class DescribeScheduledInstancesRequestDescribeScheduledInstancesPaginateTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     ScheduledInstanceIds: Optional[Sequence[str]] = None
     SlotStartTimeRange: Optional[SlotStartTimeRangeRequestTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeScheduledInstancesRequestRequestTypeDef(BaseModel):
+class DescribeScheduledInstancesRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
@@ -10390,19 +10390,19 @@ class DescribeScheduledInstancesRequestRequestTypeDef(BaseModel):
     ScheduledInstanceIds: Optional[Sequence[str]] = None
     SlotStartTimeRange: Optional[SlotStartTimeRangeRequestTypeDef] = None
 
-class InstanceMarketOptionsRequestTypeDef(BaseModel):
+class InstanceMarketOptionsRequestTypeDef(BaseValidatorModel):
     MarketType: Optional[MarketTypeType] = None
     SpotOptions: Optional[SpotMarketOptionsTypeDef] = None
 
-class CreateVpnGatewayResultTypeDef(BaseModel):
+class CreateVpnGatewayResultTypeDef(BaseValidatorModel):
     VpnGateway: VpnGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpnGatewaysResultTypeDef(BaseModel):
+class DescribeVpnGatewaysResultTypeDef(BaseValidatorModel):
     VpnGateways: List[VpnGatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NetworkInterfaceAttachmentTypeDef(BaseModel):
+class NetworkInterfaceAttachmentTypeDef(BaseValidatorModel):
     AttachTime: Optional[datetime] = None
     AttachmentId: Optional[str] = None
     DeleteOnTermination: Optional[bool] = None
@@ -10413,22 +10413,22 @@ class NetworkInterfaceAttachmentTypeDef(BaseModel):
     Status: Optional[AttachmentStatusType] = None
     EnaSrdSpecification: Optional[AttachmentEnaSrdSpecificationTypeDef] = None
 
-class DhcpOptionsTypeDef(BaseModel):
+class DhcpOptionsTypeDef(BaseValidatorModel):
     DhcpConfigurations: Optional[List[DhcpConfigurationTypeDef]] = None
     DhcpOptionsId: Optional[str] = None
     OwnerId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class DescribeClientVpnAuthorizationRulesResultTypeDef(BaseModel):
+class DescribeClientVpnAuthorizationRulesResultTypeDef(BaseValidatorModel):
     AuthorizationRules: List[AuthorizationRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeAvailabilityZonesResultTypeDef(BaseModel):
+class DescribeAvailabilityZonesResultTypeDef(BaseValidatorModel):
     AvailabilityZones: List[AvailabilityZoneTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HostTypeDef(BaseModel):
+class HostTypeDef(BaseValidatorModel):
     AutoPlacement: Optional[AutoPlacementType] = None
     AvailabilityZone: Optional[str] = None
     AvailableCapacity: Optional[AvailableCapacityTypeDef] = None
@@ -10450,10 +10450,10 @@ class HostTypeDef(BaseModel):
     HostMaintenance: Optional[HostMaintenanceType] = None
     AssetId: Optional[str] = None
 
-class StorageTypeDef(BaseModel):
+class StorageTypeDef(BaseValidatorModel):
     S3: Optional[S3StorageTypeDef] = None
 
-class CreateImageRequestInstanceCreateImageTypeDef(BaseModel):
+class CreateImageRequestInstanceCreateImageTypeDef(BaseValidatorModel):
     Name: str
     BlockDeviceMappings: Optional[Sequence[BlockDeviceMappingTypeDef]] = None
     Description: Optional[str] = None
@@ -10461,7 +10461,7 @@ class CreateImageRequestInstanceCreateImageTypeDef(BaseModel):
     NoReboot: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
 
-class ImageAttributeTypeDef(BaseModel):
+class ImageAttributeTypeDef(BaseValidatorModel):
     BlockDeviceMappings: List[BlockDeviceMappingTypeDef]
     ImageId: str
     LaunchPermissions: List[LaunchPermissionTypeDef]
@@ -10478,7 +10478,7 @@ class ImageAttributeTypeDef(BaseModel):
     DeregistrationProtection: AttributeValueTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImageTypeDef(BaseModel):
+class ImageTypeDef(BaseValidatorModel):
     Architecture: Optional[ArchitectureValuesType] = None
     CreationDate: Optional[str] = None
     ImageId: Optional[str] = None
@@ -10513,45 +10513,45 @@ class ImageTypeDef(BaseModel):
     DeregistrationProtection: Optional[str] = None
     LastLaunchedTime: Optional[str] = None
 
-class CancelCapacityReservationFleetsResultTypeDef(BaseModel):
+class CancelCapacityReservationFleetsResultTypeDef(BaseValidatorModel):
     SuccessfulFleetCancellations: List[CapacityReservationFleetCancellationStateTypeDef]
     FailedFleetCancellations: List[FailedCapacityReservationFleetCancellationResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelSpotFleetRequestsResponseTypeDef(BaseModel):
+class CancelSpotFleetRequestsResponseTypeDef(BaseValidatorModel):
     SuccessfulFleetRequests: List[CancelSpotFleetRequestsSuccessItemTypeDef]
     UnsuccessfulFleetRequests: List[CancelSpotFleetRequestsErrorItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCapacityReservationResultTypeDef(BaseModel):
+class CreateCapacityReservationResultTypeDef(BaseValidatorModel):
     CapacityReservation: CapacityReservationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCapacityReservationsResultTypeDef(BaseModel):
+class DescribeCapacityReservationsResultTypeDef(BaseValidatorModel):
     CapacityReservations: List[CapacityReservationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PurchaseCapacityBlockResultTypeDef(BaseModel):
+class PurchaseCapacityBlockResultTypeDef(BaseValidatorModel):
     CapacityReservation: CapacityReservationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCapacityReservationFleetsResultTypeDef(BaseModel):
+class DescribeCapacityReservationFleetsResultTypeDef(BaseValidatorModel):
     CapacityReservationFleets: List[CapacityReservationFleetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyInstanceCapacityReservationAttributesRequestRequestTypeDef(BaseModel):
+class ModifyInstanceCapacityReservationAttributesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     CapacityReservationSpecification: CapacityReservationSpecificationTypeDef
     DryRun: Optional[bool] = None
 
-class DescribeClassicLinkInstancesResultTypeDef(BaseModel):
+class DescribeClassicLinkInstancesResultTypeDef(BaseValidatorModel):
     Instances: List[ClassicLinkInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ClientVpnEndpointTypeDef(BaseModel):
+class ClientVpnEndpointTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[ClientVpnEndpointStatusTypeDef] = None
@@ -10576,23 +10576,23 @@ class ClientVpnEndpointTypeDef(BaseModel):
     SessionTimeoutHours: Optional[int] = None
     ClientLoginBannerOptions: Optional[ClientLoginBannerResponseOptionsTypeDef] = None
 
-class DescribeClientVpnConnectionsResultTypeDef(BaseModel):
+class DescribeClientVpnConnectionsResultTypeDef(BaseValidatorModel):
     Connections: List[ClientVpnConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TerminateClientVpnConnectionsResultTypeDef(BaseModel):
+class TerminateClientVpnConnectionsResultTypeDef(BaseValidatorModel):
     ClientVpnEndpointId: str
     Username: str
     ConnectionStatuses: List[TerminateConnectionStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeClientVpnRoutesResultTypeDef(BaseModel):
+class DescribeClientVpnRoutesResultTypeDef(BaseValidatorModel):
     Routes: List[ClientVpnRouteTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyVpnTunnelOptionsSpecificationTypeDef(BaseModel):
+class ModifyVpnTunnelOptionsSpecificationTypeDef(BaseValidatorModel):
     TunnelInsideCidr: Optional[str] = None
     TunnelInsideIpv6Cidr: Optional[str] = None
     PreSharedKey: Optional[str] = None
@@ -10614,7 +10614,7 @@ class ModifyVpnTunnelOptionsSpecificationTypeDef(BaseModel):
     LogOptions: Optional[VpnTunnelLogOptionsSpecificationTypeDef] = None
     EnableTunnelLifecycleControl: Optional[bool] = None
 
-class VpnTunnelOptionsSpecificationTypeDef(BaseModel):
+class VpnTunnelOptionsSpecificationTypeDef(BaseValidatorModel):
     TunnelInsideCidr: Optional[str] = None
     TunnelInsideIpv6Cidr: Optional[str] = None
     PreSharedKey: Optional[str] = None
@@ -10636,7 +10636,7 @@ class VpnTunnelOptionsSpecificationTypeDef(BaseModel):
     LogOptions: Optional[VpnTunnelLogOptionsSpecificationTypeDef] = None
     EnableTunnelLifecycleControl: Optional[bool] = None
 
-class TunnelOptionTypeDef(BaseModel):
+class TunnelOptionTypeDef(BaseValidatorModel):
     OutsideIpAddress: Optional[str] = None
     TunnelInsideCidr: Optional[str] = None
     TunnelInsideIpv6Cidr: Optional[str] = None
@@ -10659,7 +10659,7 @@ class TunnelOptionTypeDef(BaseModel):
     LogOptions: Optional[VpnTunnelLogOptionsTypeDef] = None
     EnableTunnelLifecycleControl: Optional[bool] = None
 
-class NetworkAclTypeDef(BaseModel):
+class NetworkAclTypeDef(BaseValidatorModel):
     Associations: Optional[List[NetworkAclAssociationTypeDef]] = None
     Entries: Optional[List[NetworkAclEntryTypeDef]] = None
     IsDefault: Optional[bool] = None
@@ -10668,7 +10668,7 @@ class NetworkAclTypeDef(BaseModel):
     VpcId: Optional[str] = None
     OwnerId: Optional[str] = None
 
-class ModifySnapshotAttributeRequestRequestTypeDef(BaseModel):
+class ModifySnapshotAttributeRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     Attribute: Optional[SnapshotAttributeNameType] = None
     CreateVolumePermission: Optional[CreateVolumePermissionModificationsTypeDef] = None
@@ -10677,7 +10677,7 @@ class ModifySnapshotAttributeRequestRequestTypeDef(BaseModel):
     UserIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class ModifySnapshotAttributeRequestSnapshotModifyAttributeTypeDef(BaseModel):
+class ModifySnapshotAttributeRequestSnapshotModifyAttributeTypeDef(BaseValidatorModel):
     Attribute: Optional[SnapshotAttributeNameType] = None
     CreateVolumePermission: Optional[CreateVolumePermissionModificationsTypeDef] = None
     GroupNames: Optional[Sequence[str]] = None
@@ -10685,57 +10685,57 @@ class ModifySnapshotAttributeRequestSnapshotModifyAttributeTypeDef(BaseModel):
     UserIds: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class GetAwsNetworkPerformanceDataResultTypeDef(BaseModel):
+class GetAwsNetworkPerformanceDataResultTypeDef(BaseValidatorModel):
     DataResponses: List[DataResponseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DeleteFleetsResultTypeDef(BaseModel):
+class DeleteFleetsResultTypeDef(BaseValidatorModel):
     SuccessfulFleetDeletions: List[DeleteFleetSuccessItemTypeDef]
     UnsuccessfulFleetDeletions: List[DeleteFleetErrorItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLaunchTemplateVersionsResultTypeDef(BaseModel):
+class DeleteLaunchTemplateVersionsResultTypeDef(BaseValidatorModel):
     SuccessfullyDeletedLaunchTemplateVersions: List[       DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef     ]
     UnsuccessfullyDeletedLaunchTemplateVersions: List[       DeleteLaunchTemplateVersionsResponseErrorItemTypeDef     ]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteQueuedReservedInstancesResultTypeDef(BaseModel):
+class DeleteQueuedReservedInstancesResultTypeDef(BaseValidatorModel):
     SuccessfulQueuedPurchaseDeletions: List[SuccessfulQueuedPurchaseDeletionTypeDef]
     FailedQueuedPurchaseDeletions: List[FailedQueuedPurchaseDeletionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePrincipalIdFormatResultTypeDef(BaseModel):
+class DescribePrincipalIdFormatResultTypeDef(BaseValidatorModel):
     Principals: List[PrincipalIdFormatTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeFastLaunchImagesResultTypeDef(BaseModel):
+class DescribeFastLaunchImagesResultTypeDef(BaseValidatorModel):
     FastLaunchImages: List[DescribeFastLaunchImagesSuccessItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeFlowLogsResultTypeDef(BaseModel):
+class DescribeFlowLogsResultTypeDef(BaseValidatorModel):
     FlowLogs: List[FlowLogTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DisableFastSnapshotRestoreErrorItemTypeDef(BaseModel):
+class DisableFastSnapshotRestoreErrorItemTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     FastSnapshotRestoreStateErrors: Optional[       List[DisableFastSnapshotRestoreStateErrorItemTypeDef]     ] = None
 
-class ImportInstanceTaskDetailsTypeDef(BaseModel):
+class ImportInstanceTaskDetailsTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     InstanceId: Optional[str] = None
     Platform: Optional[Literal["windows"]] = None
     Volumes: Optional[List[ImportInstanceVolumeDetailItemTypeDef]] = None
 
-class DescribeVpcEndpointConnectionsResultTypeDef(BaseModel):
+class DescribeVpcEndpointConnectionsResultTypeDef(BaseValidatorModel):
     VpcEndpointConnections: List[VpcEndpointConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyInstanceAttributeRequestInstanceModifyAttributeTypeDef(BaseModel):
+class ModifyInstanceAttributeRequestInstanceModifyAttributeTypeDef(BaseValidatorModel):
     SourceDestCheck: Optional[AttributeBooleanValueTypeDef] = None
     Attribute: Optional[InstanceAttributeNameType] = None
     BlockDeviceMappings: Optional[       Sequence[InstanceBlockDeviceMappingSpecificationTypeDef]     ] = None
@@ -10753,7 +10753,7 @@ class ModifyInstanceAttributeRequestInstanceModifyAttributeTypeDef(BaseModel):
     Value: Optional[str] = None
     DisableApiStop: Optional[AttributeBooleanValueTypeDef] = None
 
-class ModifyInstanceAttributeRequestRequestTypeDef(BaseModel):
+class ModifyInstanceAttributeRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     SourceDestCheck: Optional[AttributeBooleanValueTypeDef] = None
     Attribute: Optional[InstanceAttributeNameType] = None
@@ -10772,7 +10772,7 @@ class ModifyInstanceAttributeRequestRequestTypeDef(BaseModel):
     Value: Optional[str] = None
     DisableApiStop: Optional[AttributeBooleanValueTypeDef] = None
 
-class InstanceAttributeTypeDef(BaseModel):
+class InstanceAttributeTypeDef(BaseValidatorModel):
     Groups: List[GroupIdentifierTypeDef]
     BlockDeviceMappings: List[InstanceBlockDeviceMappingTypeDef]
     DisableApiTermination: AttributeBooleanValueTypeDef
@@ -10792,32 +10792,32 @@ class InstanceAttributeTypeDef(BaseModel):
     DisableApiStop: AttributeBooleanValueTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEgressOnlyInternetGatewayResultTypeDef(BaseModel):
+class CreateEgressOnlyInternetGatewayResultTypeDef(BaseValidatorModel):
     ClientToken: str
     EgressOnlyInternetGateway: EgressOnlyInternetGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEgressOnlyInternetGatewaysResultTypeDef(BaseModel):
+class DescribeEgressOnlyInternetGatewaysResultTypeDef(BaseValidatorModel):
     EgressOnlyInternetGateways: List[EgressOnlyInternetGatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateInternetGatewayResultTypeDef(BaseModel):
+class CreateInternetGatewayResultTypeDef(BaseValidatorModel):
     InternetGateway: InternetGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeInternetGatewaysResultTypeDef(BaseModel):
+class DescribeInternetGatewaysResultTypeDef(BaseValidatorModel):
     InternetGateways: List[InternetGatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeElasticGpusResultTypeDef(BaseModel):
+class DescribeElasticGpusResultTypeDef(BaseValidatorModel):
     ElasticGpuSet: List[ElasticGpusTypeDef]
     MaxResults: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class InstanceNetworkInterfaceSpecificationExtraOutputTypeDef(BaseModel):
+class InstanceNetworkInterfaceSpecificationExtraOutputTypeDef(BaseValidatorModel):
     AssociatePublicIpAddress: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
     Description: Optional[str] = None
@@ -10841,7 +10841,7 @@ class InstanceNetworkInterfaceSpecificationExtraOutputTypeDef(BaseModel):
     EnaSrdSpecification: Optional[EnaSrdSpecificationRequestTypeDef] = None
     ConnectionTrackingSpecification: Optional[       ConnectionTrackingSpecificationRequestTypeDef     ] = None
 
-class InstanceNetworkInterfaceSpecificationOutputTypeDef(BaseModel):
+class InstanceNetworkInterfaceSpecificationOutputTypeDef(BaseValidatorModel):
     AssociatePublicIpAddress: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
     Description: Optional[str] = None
@@ -10865,7 +10865,7 @@ class InstanceNetworkInterfaceSpecificationOutputTypeDef(BaseModel):
     EnaSrdSpecification: Optional[EnaSrdSpecificationRequestTypeDef] = None
     ConnectionTrackingSpecification: Optional[       ConnectionTrackingSpecificationRequestTypeDef     ] = None
 
-class InstanceNetworkInterfaceSpecificationTypeDef(BaseModel):
+class InstanceNetworkInterfaceSpecificationTypeDef(BaseValidatorModel):
     AssociatePublicIpAddress: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
     Description: Optional[str] = None
@@ -10889,7 +10889,7 @@ class InstanceNetworkInterfaceSpecificationTypeDef(BaseModel):
     EnaSrdSpecification: Optional[EnaSrdSpecificationRequestTypeDef] = None
     ConnectionTrackingSpecification: Optional[       ConnectionTrackingSpecificationRequestTypeDef     ] = None
 
-class LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef(BaseModel):
+class LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef(BaseValidatorModel):
     AssociateCarrierIpAddress: Optional[bool] = None
     AssociatePublicIpAddress: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
@@ -10913,14 +10913,14 @@ class LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef(BaseMode
     EnaSrdSpecification: Optional[EnaSrdSpecificationRequestTypeDef] = None
     ConnectionTrackingSpecification: Optional[       ConnectionTrackingSpecificationRequestTypeDef     ] = None
 
-class AttachNetworkInterfaceRequestNetworkInterfaceAttachTypeDef(BaseModel):
+class AttachNetworkInterfaceRequestNetworkInterfaceAttachTypeDef(BaseValidatorModel):
     DeviceIndex: int
     InstanceId: str
     DryRun: Optional[bool] = None
     NetworkCardIndex: Optional[int] = None
     EnaSrdSpecification: Optional[EnaSrdSpecificationTypeDef] = None
 
-class AttachNetworkInterfaceRequestRequestTypeDef(BaseModel):
+class AttachNetworkInterfaceRequestRequestTypeDef(BaseValidatorModel):
     DeviceIndex: int
     InstanceId: str
     NetworkInterfaceId: str
@@ -10928,7 +10928,7 @@ class AttachNetworkInterfaceRequestRequestTypeDef(BaseModel):
     NetworkCardIndex: Optional[int] = None
     EnaSrdSpecification: Optional[EnaSrdSpecificationTypeDef] = None
 
-class ModifyNetworkInterfaceAttributeRequestNetworkInterfaceModifyAttributeTypeDef(BaseModel):
+class ModifyNetworkInterfaceAttributeRequestNetworkInterfaceModifyAttributeTypeDef(BaseValidatorModel):
     Attachment: Optional[NetworkInterfaceAttachmentChangesTypeDef] = None
     Description: Optional[AttributeValueTypeDef] = None
     DryRun: Optional[bool] = None
@@ -10939,7 +10939,7 @@ class ModifyNetworkInterfaceAttributeRequestNetworkInterfaceModifyAttributeTypeD
     ConnectionTrackingSpecification: Optional[       ConnectionTrackingSpecificationRequestTypeDef     ] = None
     AssociatePublicIpAddress: Optional[bool] = None
 
-class ModifyNetworkInterfaceAttributeRequestRequestTypeDef(BaseModel):
+class ModifyNetworkInterfaceAttributeRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     Attachment: Optional[NetworkInterfaceAttachmentChangesTypeDef] = None
     Description: Optional[AttributeValueTypeDef] = None
@@ -10951,11 +10951,11 @@ class ModifyNetworkInterfaceAttributeRequestRequestTypeDef(BaseModel):
     ConnectionTrackingSpecification: Optional[       ConnectionTrackingSpecificationRequestTypeDef     ] = None
     AssociatePublicIpAddress: Optional[bool] = None
 
-class EnableFastSnapshotRestoreErrorItemTypeDef(BaseModel):
+class EnableFastSnapshotRestoreErrorItemTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     FastSnapshotRestoreStateErrors: Optional[       List[EnableFastSnapshotRestoreStateErrorItemTypeDef]     ] = None
 
-class DescribeFleetHistoryResultTypeDef(BaseModel):
+class DescribeFleetHistoryResultTypeDef(BaseValidatorModel):
     HistoryRecords: List[HistoryRecordEntryTypeDef]
     LastEvaluatedTime: datetime
     FleetId: str
@@ -10963,7 +10963,7 @@ class DescribeFleetHistoryResultTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeSpotFleetRequestHistoryResponseTypeDef(BaseModel):
+class DescribeSpotFleetRequestHistoryResponseTypeDef(BaseValidatorModel):
     HistoryRecords: List[HistoryRecordTypeDef]
     LastEvaluatedTime: datetime
     SpotFleetRequestId: str
@@ -10971,20 +10971,20 @@ class DescribeSpotFleetRequestHistoryResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeExportImageTasksResultTypeDef(BaseModel):
+class DescribeExportImageTasksResultTypeDef(BaseValidatorModel):
     ExportImageTasks: List[ExportImageTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateInstanceExportTaskResultTypeDef(BaseModel):
+class CreateInstanceExportTaskResultTypeDef(BaseValidatorModel):
     ExportTask: ExportTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeExportTasksResultTypeDef(BaseModel):
+class DescribeExportTasksResultTypeDef(BaseValidatorModel):
     ExportTasks: List[ExportTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NetworkInsightsPathTypeDef(BaseModel):
+class NetworkInsightsPathTypeDef(BaseValidatorModel):
     NetworkInsightsPathId: Optional[str] = None
     NetworkInsightsPathArn: Optional[str] = None
     CreatedDate: Optional[datetime] = None
@@ -11000,7 +11000,7 @@ class NetworkInsightsPathTypeDef(BaseModel):
     FilterAtSource: Optional[PathFilterTypeDef] = None
     FilterAtDestination: Optional[PathFilterTypeDef] = None
 
-class SpotOptionsRequestTypeDef(BaseModel):
+class SpotOptionsRequestTypeDef(BaseValidatorModel):
     AllocationStrategy: Optional[SpotAllocationStrategyType] = None
     MaintenanceStrategies: Optional[FleetSpotMaintenanceStrategiesRequestTypeDef] = None
     InstanceInterruptionBehavior: Optional[SpotInstanceInterruptionBehaviorType] = None
@@ -11010,7 +11010,7 @@ class SpotOptionsRequestTypeDef(BaseModel):
     MinTargetCapacity: Optional[int] = None
     MaxTotalPrice: Optional[str] = None
 
-class SpotOptionsTypeDef(BaseModel):
+class SpotOptionsTypeDef(BaseValidatorModel):
     AllocationStrategy: Optional[SpotAllocationStrategyType] = None
     MaintenanceStrategies: Optional[FleetSpotMaintenanceStrategiesTypeDef] = None
     InstanceInterruptionBehavior: Optional[SpotInstanceInterruptionBehaviorType] = None
@@ -11020,45 +11020,45 @@ class SpotOptionsTypeDef(BaseModel):
     MinTargetCapacity: Optional[int] = None
     MaxTotalPrice: Optional[str] = None
 
-class FpgaInfoTypeDef(BaseModel):
+class FpgaInfoTypeDef(BaseValidatorModel):
     Fpgas: Optional[List[FpgaDeviceInfoTypeDef]] = None
     TotalFpgaMemoryInMiB: Optional[int] = None
 
-class DescribeFpgaImageAttributeResultTypeDef(BaseModel):
+class DescribeFpgaImageAttributeResultTypeDef(BaseValidatorModel):
     FpgaImageAttribute: FpgaImageAttributeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyFpgaImageAttributeResultTypeDef(BaseModel):
+class ModifyFpgaImageAttributeResultTypeDef(BaseValidatorModel):
     FpgaImageAttribute: FpgaImageAttributeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeFpgaImagesResultTypeDef(BaseModel):
+class DescribeFpgaImagesResultTypeDef(BaseValidatorModel):
     FpgaImages: List[FpgaImageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GpuInfoTypeDef(BaseModel):
+class GpuInfoTypeDef(BaseValidatorModel):
     Gpus: Optional[List[GpuDeviceInfoTypeDef]] = None
     TotalGpuMemoryInMiB: Optional[int] = None
 
-class AssociateIamInstanceProfileResultTypeDef(BaseModel):
+class AssociateIamInstanceProfileResultTypeDef(BaseValidatorModel):
     IamInstanceProfileAssociation: IamInstanceProfileAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIamInstanceProfileAssociationsResultTypeDef(BaseModel):
+class DescribeIamInstanceProfileAssociationsResultTypeDef(BaseValidatorModel):
     IamInstanceProfileAssociations: List[IamInstanceProfileAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DisassociateIamInstanceProfileResultTypeDef(BaseModel):
+class DisassociateIamInstanceProfileResultTypeDef(BaseValidatorModel):
     IamInstanceProfileAssociation: IamInstanceProfileAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplaceIamInstanceProfileAssociationResultTypeDef(BaseModel):
+class ReplaceIamInstanceProfileAssociationResultTypeDef(BaseValidatorModel):
     IamInstanceProfileAssociation: IamInstanceProfileAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyImageAttributeRequestImageModifyAttributeTypeDef(BaseModel):
+class ModifyImageAttributeRequestImageModifyAttributeTypeDef(BaseValidatorModel):
     Attribute: Optional[str] = None
     Description: Optional[AttributeValueTypeDef] = None
     LaunchPermission: Optional[LaunchPermissionModificationsTypeDef] = None
@@ -11072,7 +11072,7 @@ class ModifyImageAttributeRequestImageModifyAttributeTypeDef(BaseModel):
     OrganizationalUnitArns: Optional[Sequence[str]] = None
     ImdsSupport: Optional[AttributeValueTypeDef] = None
 
-class ModifyImageAttributeRequestRequestTypeDef(BaseModel):
+class ModifyImageAttributeRequestRequestTypeDef(BaseValidatorModel):
     ImageId: str
     Attribute: Optional[str] = None
     Description: Optional[AttributeValueTypeDef] = None
@@ -11087,31 +11087,31 @@ class ModifyImageAttributeRequestRequestTypeDef(BaseModel):
     OrganizationalUnitArns: Optional[Sequence[str]] = None
     ImdsSupport: Optional[AttributeValueTypeDef] = None
 
-class CreateLocalGatewayRouteTableResultTypeDef(BaseModel):
+class CreateLocalGatewayRouteTableResultTypeDef(BaseValidatorModel):
     LocalGatewayRouteTable: LocalGatewayRouteTableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLocalGatewayRouteTableResultTypeDef(BaseModel):
+class DeleteLocalGatewayRouteTableResultTypeDef(BaseValidatorModel):
     LocalGatewayRouteTable: LocalGatewayRouteTableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocalGatewayRouteTablesResultTypeDef(BaseModel):
+class DescribeLocalGatewayRouteTablesResultTypeDef(BaseValidatorModel):
     LocalGatewayRouteTables: List[LocalGatewayRouteTableTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ImportInstanceRequestRequestTypeDef(BaseModel):
+class ImportInstanceRequestRequestTypeDef(BaseValidatorModel):
     Platform: Literal["windows"]
     Description: Optional[str] = None
     DiskImages: Optional[Sequence[DiskImageTypeDef]] = None
     DryRun: Optional[bool] = None
     LaunchSpecification: Optional[ImportInstanceLaunchSpecificationTypeDef] = None
 
-class InferenceAcceleratorInfoTypeDef(BaseModel):
+class InferenceAcceleratorInfoTypeDef(BaseValidatorModel):
     Accelerators: Optional[List[InferenceDeviceInfoTypeDef]] = None
     TotalInferenceMemoryInMiB: Optional[int] = None
 
-class InstanceNetworkInterfaceAttachmentTypeDef(BaseModel):
+class InstanceNetworkInterfaceAttachmentTypeDef(BaseValidatorModel):
     AttachTime: Optional[datetime] = None
     AttachmentId: Optional[str] = None
     DeleteOnTermination: Optional[bool] = None
@@ -11120,15 +11120,15 @@ class InstanceNetworkInterfaceAttachmentTypeDef(BaseModel):
     NetworkCardIndex: Optional[int] = None
     EnaSrdSpecification: Optional[InstanceAttachmentEnaSrdSpecificationTypeDef] = None
 
-class MonitorInstancesResultTypeDef(BaseModel):
+class MonitorInstancesResultTypeDef(BaseValidatorModel):
     InstanceMonitorings: List[InstanceMonitoringTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UnmonitorInstancesResultTypeDef(BaseModel):
+class UnmonitorInstancesResultTypeDef(BaseValidatorModel):
     InstanceMonitorings: List[InstanceMonitoringTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LaunchTemplateOverridesExtraOutputTypeDef(BaseModel):
+class LaunchTemplateOverridesExtraOutputTypeDef(BaseValidatorModel):
     InstanceType: Optional[InstanceTypeType] = None
     SpotPrice: Optional[str] = None
     SubnetId: Optional[str] = None
@@ -11137,7 +11137,7 @@ class LaunchTemplateOverridesExtraOutputTypeDef(BaseModel):
     Priority: Optional[float] = None
     InstanceRequirements: Optional[InstanceRequirementsExtraOutputTypeDef] = None
 
-class FleetLaunchTemplateOverridesTypeDef(BaseModel):
+class FleetLaunchTemplateOverridesTypeDef(BaseValidatorModel):
     InstanceType: Optional[InstanceTypeType] = None
     MaxPrice: Optional[str] = None
     SubnetId: Optional[str] = None
@@ -11148,7 +11148,7 @@ class FleetLaunchTemplateOverridesTypeDef(BaseModel):
     InstanceRequirements: Optional[InstanceRequirementsOutputTypeDef] = None
     ImageId: Optional[str] = None
 
-class LaunchTemplateOverridesOutputTypeDef(BaseModel):
+class LaunchTemplateOverridesOutputTypeDef(BaseValidatorModel):
     InstanceType: Optional[InstanceTypeType] = None
     SpotPrice: Optional[str] = None
     SubnetId: Optional[str] = None
@@ -11157,7 +11157,7 @@ class LaunchTemplateOverridesOutputTypeDef(BaseModel):
     Priority: Optional[float] = None
     InstanceRequirements: Optional[InstanceRequirementsOutputTypeDef] = None
 
-class LaunchTemplateOverridesTypeDef(BaseModel):
+class LaunchTemplateOverridesTypeDef(BaseValidatorModel):
     InstanceType: Optional[InstanceTypeType] = None
     SpotPrice: Optional[str] = None
     SubnetId: Optional[str] = None
@@ -11166,7 +11166,7 @@ class LaunchTemplateOverridesTypeDef(BaseModel):
     Priority: Optional[float] = None
     InstanceRequirements: Optional[InstanceRequirementsTypeDef] = None
 
-class FleetLaunchTemplateOverridesRequestTypeDef(BaseModel):
+class FleetLaunchTemplateOverridesRequestTypeDef(BaseValidatorModel):
     InstanceType: Optional[InstanceTypeType] = None
     MaxPrice: Optional[str] = None
     SubnetId: Optional[str] = None
@@ -11177,14 +11177,14 @@ class FleetLaunchTemplateOverridesRequestTypeDef(BaseModel):
     InstanceRequirements: Optional[InstanceRequirementsRequestTypeDef] = None
     ImageId: Optional[str] = None
 
-class GetInstanceTypesFromInstanceRequirementsRequestGetInstanceTypesFromInstanceRequirementsPaginateTypeDef(BaseModel):
+class GetInstanceTypesFromInstanceRequirementsRequestGetInstanceTypesFromInstanceRequirementsPaginateTypeDef(BaseValidatorModel):
     ArchitectureTypes: Sequence[ArchitectureTypeType]
     VirtualizationTypes: Sequence[VirtualizationTypeType]
     InstanceRequirements: InstanceRequirementsRequestTypeDef
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef(BaseModel):
+class GetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef(BaseValidatorModel):
     ArchitectureTypes: Sequence[ArchitectureTypeType]
     VirtualizationTypes: Sequence[VirtualizationTypeType]
     InstanceRequirements: InstanceRequirementsRequestTypeDef
@@ -11192,24 +11192,24 @@ class GetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class InstanceRequirementsWithMetadataRequestTypeDef(BaseModel):
+class InstanceRequirementsWithMetadataRequestTypeDef(BaseValidatorModel):
     ArchitectureTypes: Optional[Sequence[ArchitectureTypeType]] = None
     VirtualizationTypes: Optional[Sequence[VirtualizationTypeType]] = None
     InstanceRequirements: Optional[InstanceRequirementsRequestTypeDef] = None
 
-class StartInstancesResultTypeDef(BaseModel):
+class StartInstancesResultTypeDef(BaseValidatorModel):
     StartingInstances: List[InstanceStateChangeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopInstancesResultTypeDef(BaseModel):
+class StopInstancesResultTypeDef(BaseValidatorModel):
     StoppingInstances: List[InstanceStateChangeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TerminateInstancesResultTypeDef(BaseModel):
+class TerminateInstancesResultTypeDef(BaseValidatorModel):
     TerminatingInstances: List[InstanceStateChangeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InstanceStatusTypeDef(BaseModel):
+class InstanceStatusTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     OutpostArn: Optional[str] = None
     Events: Optional[List[InstanceStatusEventTypeDef]] = None
@@ -11218,17 +11218,17 @@ class InstanceStatusTypeDef(BaseModel):
     InstanceStatus: Optional[InstanceStatusSummaryTypeDef] = None
     SystemStatus: Optional[InstanceStatusSummaryTypeDef] = None
 
-class RevokeSecurityGroupEgressResultTypeDef(BaseModel):
+class RevokeSecurityGroupEgressResultTypeDef(BaseValidatorModel):
     Return: bool
     UnknownIpPermissions: List[IpPermissionExtraExtraOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RevokeSecurityGroupIngressResultTypeDef(BaseModel):
+class RevokeSecurityGroupIngressResultTypeDef(BaseValidatorModel):
     Return: bool
     UnknownIpPermissions: List[IpPermissionExtraExtraOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SecurityGroupTypeDef(BaseModel):
+class SecurityGroupTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     GroupName: Optional[str] = None
     IpPermissions: Optional[List[IpPermissionOutputTypeDef]] = None
@@ -11238,7 +11238,7 @@ class SecurityGroupTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     VpcId: Optional[str] = None
 
-class AuthorizeSecurityGroupEgressRequestSecurityGroupAuthorizeEgressTypeDef(BaseModel):
+class AuthorizeSecurityGroupEgressRequestSecurityGroupAuthorizeEgressTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     IpPermissions: Optional[Sequence[IpPermissionTypeDef]] = None
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
@@ -11249,7 +11249,7 @@ class AuthorizeSecurityGroupEgressRequestSecurityGroupAuthorizeEgressTypeDef(Bas
     SourceSecurityGroupName: Optional[str] = None
     SourceSecurityGroupOwnerId: Optional[str] = None
 
-class AuthorizeSecurityGroupIngressRequestSecurityGroupAuthorizeIngressTypeDef(BaseModel):
+class AuthorizeSecurityGroupIngressRequestSecurityGroupAuthorizeIngressTypeDef(BaseValidatorModel):
     CidrIp: Optional[str] = None
     FromPort: Optional[int] = None
     GroupName: Optional[str] = None
@@ -11261,7 +11261,7 @@ class AuthorizeSecurityGroupIngressRequestSecurityGroupAuthorizeIngressTypeDef(B
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
 
-class RevokeSecurityGroupEgressRequestSecurityGroupRevokeEgressTypeDef(BaseModel):
+class RevokeSecurityGroupEgressRequestSecurityGroupRevokeEgressTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     IpPermissions: Optional[Sequence[IpPermissionTypeDef]] = None
     SecurityGroupRuleIds: Optional[Sequence[str]] = None
@@ -11272,7 +11272,7 @@ class RevokeSecurityGroupEgressRequestSecurityGroupRevokeEgressTypeDef(BaseModel
     SourceSecurityGroupName: Optional[str] = None
     SourceSecurityGroupOwnerId: Optional[str] = None
 
-class RevokeSecurityGroupIngressRequestSecurityGroupRevokeIngressTypeDef(BaseModel):
+class RevokeSecurityGroupIngressRequestSecurityGroupRevokeIngressTypeDef(BaseValidatorModel):
     CidrIp: Optional[str] = None
     FromPort: Optional[int] = None
     GroupName: Optional[str] = None
@@ -11284,7 +11284,7 @@ class RevokeSecurityGroupIngressRequestSecurityGroupRevokeIngressTypeDef(BaseMod
     DryRun: Optional[bool] = None
     SecurityGroupRuleIds: Optional[Sequence[str]] = None
 
-class StaleSecurityGroupTypeDef(BaseModel):
+class StaleSecurityGroupTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
@@ -11292,90 +11292,90 @@ class StaleSecurityGroupTypeDef(BaseModel):
     StaleIpPermissionsEgress: Optional[List[StaleIpPermissionTypeDef]] = None
     VpcId: Optional[str] = None
 
-class GetIpamDiscoveredAccountsResultTypeDef(BaseModel):
+class GetIpamDiscoveredAccountsResultTypeDef(BaseValidatorModel):
     IpamDiscoveredAccounts: List[IpamDiscoveredAccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetIpamDiscoveredResourceCidrsResultTypeDef(BaseModel):
+class GetIpamDiscoveredResourceCidrsResultTypeDef(BaseValidatorModel):
     IpamDiscoveredResourceCidrs: List[IpamDiscoveredResourceCidrTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetIpamResourceCidrsResultTypeDef(BaseModel):
+class GetIpamResourceCidrsResultTypeDef(BaseValidatorModel):
     IpamResourceCidrs: List[IpamResourceCidrTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyIpamResourceCidrResultTypeDef(BaseModel):
+class ModifyIpamResourceCidrResultTypeDef(BaseValidatorModel):
     IpamResourceCidr: IpamResourceCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateIpamResourceDiscoveryResultTypeDef(BaseModel):
+class CreateIpamResourceDiscoveryResultTypeDef(BaseValidatorModel):
     IpamResourceDiscovery: IpamResourceDiscoveryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteIpamResourceDiscoveryResultTypeDef(BaseModel):
+class DeleteIpamResourceDiscoveryResultTypeDef(BaseValidatorModel):
     IpamResourceDiscovery: IpamResourceDiscoveryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIpamResourceDiscoveriesResultTypeDef(BaseModel):
+class DescribeIpamResourceDiscoveriesResultTypeDef(BaseValidatorModel):
     IpamResourceDiscoveries: List[IpamResourceDiscoveryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyIpamResourceDiscoveryResultTypeDef(BaseModel):
+class ModifyIpamResourceDiscoveryResultTypeDef(BaseValidatorModel):
     IpamResourceDiscovery: IpamResourceDiscoveryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateIpamResultTypeDef(BaseModel):
+class CreateIpamResultTypeDef(BaseValidatorModel):
     Ipam: IpamTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteIpamResultTypeDef(BaseModel):
+class DeleteIpamResultTypeDef(BaseValidatorModel):
     Ipam: IpamTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIpamsResultTypeDef(BaseModel):
+class DescribeIpamsResultTypeDef(BaseValidatorModel):
     Ipams: List[IpamTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyIpamResultTypeDef(BaseModel):
+class ModifyIpamResultTypeDef(BaseValidatorModel):
     Ipam: IpamTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeprovisionIpamPoolCidrResultTypeDef(BaseModel):
+class DeprovisionIpamPoolCidrResultTypeDef(BaseValidatorModel):
     IpamPoolCidr: IpamPoolCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIpamPoolCidrsResultTypeDef(BaseModel):
+class GetIpamPoolCidrsResultTypeDef(BaseValidatorModel):
     IpamPoolCidrs: List[IpamPoolCidrTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ProvisionIpamPoolCidrResultTypeDef(BaseModel):
+class ProvisionIpamPoolCidrResultTypeDef(BaseValidatorModel):
     IpamPoolCidr: IpamPoolCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateIpamPoolResultTypeDef(BaseModel):
+class CreateIpamPoolResultTypeDef(BaseValidatorModel):
     IpamPool: IpamPoolTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteIpamPoolResultTypeDef(BaseModel):
+class DeleteIpamPoolResultTypeDef(BaseValidatorModel):
     IpamPool: IpamPoolTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIpamPoolsResultTypeDef(BaseModel):
+class DescribeIpamPoolsResultTypeDef(BaseValidatorModel):
     IpamPools: List[IpamPoolTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyIpamPoolResultTypeDef(BaseModel):
+class ModifyIpamPoolResultTypeDef(BaseValidatorModel):
     IpamPool: IpamPoolTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IpamDiscoveredPublicAddressTypeDef(BaseModel):
+class IpamDiscoveredPublicAddressTypeDef(BaseValidatorModel):
     IpamResourceDiscoveryId: Optional[str] = None
     AddressRegion: Optional[str] = None
     Address: Optional[str] = None
@@ -11396,12 +11396,12 @@ class IpamDiscoveredPublicAddressTypeDef(BaseModel):
     SecurityGroups: Optional[List[IpamPublicAddressSecurityGroupTypeDef]] = None
     SampleTime: Optional[datetime] = None
 
-class DescribeIpv6PoolsResultTypeDef(BaseModel):
+class DescribeIpv6PoolsResultTypeDef(BaseValidatorModel):
     Ipv6Pools: List[Ipv6PoolTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef(BaseModel):
+class LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef(BaseValidatorModel):
     AssociateCarrierIpAddress: Optional[bool] = None
     AssociatePublicIpAddress: Optional[bool] = None
     DeleteOnTermination: Optional[bool] = None
@@ -11425,7 +11425,7 @@ class LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef(BaseModel):
     EnaSrdSpecification: Optional[LaunchTemplateEnaSrdSpecificationTypeDef] = None
     ConnectionTrackingSpecification: Optional[ConnectionTrackingSpecificationTypeDef] = None
 
-class ModifyFpgaImageAttributeRequestRequestTypeDef(BaseModel):
+class ModifyFpgaImageAttributeRequestRequestTypeDef(BaseValidatorModel):
     FpgaImageId: str
     DryRun: Optional[bool] = None
     Attribute: Optional[FpgaImageAttributeNameType] = None
@@ -11437,11 +11437,11 @@ class ModifyFpgaImageAttributeRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     Name: Optional[str] = None
 
-class MediaAcceleratorInfoTypeDef(BaseModel):
+class MediaAcceleratorInfoTypeDef(BaseValidatorModel):
     Accelerators: Optional[List[MediaDeviceInfoTypeDef]] = None
     TotalMediaMemoryInMiB: Optional[int] = None
 
-class ReservedInstancesModificationTypeDef(BaseModel):
+class ReservedInstancesModificationTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
     CreateDate: Optional[datetime] = None
     EffectiveDate: Optional[datetime] = None
@@ -11452,115 +11452,115 @@ class ReservedInstancesModificationTypeDef(BaseModel):
     StatusMessage: Optional[str] = None
     UpdateDate: Optional[datetime] = None
 
-class CreateVerifiedAccessGroupResultTypeDef(BaseModel):
+class CreateVerifiedAccessGroupResultTypeDef(BaseValidatorModel):
     VerifiedAccessGroup: VerifiedAccessGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVerifiedAccessGroupResultTypeDef(BaseModel):
+class DeleteVerifiedAccessGroupResultTypeDef(BaseValidatorModel):
     VerifiedAccessGroup: VerifiedAccessGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVerifiedAccessGroupsResultTypeDef(BaseModel):
+class DescribeVerifiedAccessGroupsResultTypeDef(BaseValidatorModel):
     VerifiedAccessGroups: List[VerifiedAccessGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyVerifiedAccessGroupResultTypeDef(BaseModel):
+class ModifyVerifiedAccessGroupResultTypeDef(BaseValidatorModel):
     VerifiedAccessGroup: VerifiedAccessGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateNatGatewayResultTypeDef(BaseModel):
+class CreateNatGatewayResultTypeDef(BaseValidatorModel):
     ClientToken: str
     NatGateway: NatGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeNatGatewaysResultTypeDef(BaseModel):
+class DescribeNatGatewaysResultTypeDef(BaseValidatorModel):
     NatGateways: List[NatGatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateNetworkInterfacePermissionResultTypeDef(BaseModel):
+class CreateNetworkInterfacePermissionResultTypeDef(BaseValidatorModel):
     InterfacePermission: NetworkInterfacePermissionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeNetworkInterfacePermissionsResultTypeDef(BaseModel):
+class DescribeNetworkInterfacePermissionsResultTypeDef(BaseValidatorModel):
     NetworkInterfacePermissions: List[NetworkInterfacePermissionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class NeuronInfoTypeDef(BaseModel):
+class NeuronInfoTypeDef(BaseValidatorModel):
     NeuronDevices: Optional[List[NeuronDeviceInfoTypeDef]] = None
     TotalNeuronDeviceMemoryInMiB: Optional[int] = None
 
-class CreateVerifiedAccessTrustProviderResultTypeDef(BaseModel):
+class CreateVerifiedAccessTrustProviderResultTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVerifiedAccessTrustProviderResultTypeDef(BaseModel):
+class DeleteVerifiedAccessTrustProviderResultTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVerifiedAccessTrustProvidersResultTypeDef(BaseModel):
+class DescribeVerifiedAccessTrustProvidersResultTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProviders: List[VerifiedAccessTrustProviderTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyVerifiedAccessTrustProviderResultTypeDef(BaseModel):
+class ModifyVerifiedAccessTrustProviderResultTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AccessScopePathRequestTypeDef(BaseModel):
+class AccessScopePathRequestTypeDef(BaseValidatorModel):
     Source: Optional[PathStatementRequestTypeDef] = None
     Destination: Optional[PathStatementRequestTypeDef] = None
     ThroughResources: Optional[Sequence[ThroughResourcesStatementRequestTypeDef]] = None
 
-class AccessScopePathTypeDef(BaseModel):
+class AccessScopePathTypeDef(BaseValidatorModel):
     Source: Optional[PathStatementTypeDef] = None
     Destination: Optional[PathStatementTypeDef] = None
     ThroughResources: Optional[List[ThroughResourcesStatementTypeDef]] = None
 
-class CancelReservedInstancesListingResultTypeDef(BaseModel):
+class CancelReservedInstancesListingResultTypeDef(BaseValidatorModel):
     ReservedInstancesListings: List[ReservedInstancesListingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateReservedInstancesListingResultTypeDef(BaseModel):
+class CreateReservedInstancesListingResultTypeDef(BaseValidatorModel):
     ReservedInstancesListings: List[ReservedInstancesListingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeReservedInstancesListingsResultTypeDef(BaseModel):
+class DescribeReservedInstancesListingsResultTypeDef(BaseValidatorModel):
     ReservedInstancesListings: List[ReservedInstancesListingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePublicIpv4PoolsResultTypeDef(BaseModel):
+class DescribePublicIpv4PoolsResultTypeDef(BaseValidatorModel):
     PublicIpv4Pools: List[PublicIpv4PoolTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeReservedInstancesOfferingsResultTypeDef(BaseModel):
+class DescribeReservedInstancesOfferingsResultTypeDef(BaseValidatorModel):
     ReservedInstancesOfferings: List[ReservedInstancesOfferingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeReservedInstancesResultTypeDef(BaseModel):
+class DescribeReservedInstancesResultTypeDef(BaseValidatorModel):
     ReservedInstances: List[ReservedInstancesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AuthorizeSecurityGroupEgressResultTypeDef(BaseModel):
+class AuthorizeSecurityGroupEgressResultTypeDef(BaseValidatorModel):
     Return: bool
     SecurityGroupRules: List[SecurityGroupRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AuthorizeSecurityGroupIngressResultTypeDef(BaseModel):
+class AuthorizeSecurityGroupIngressResultTypeDef(BaseValidatorModel):
     Return: bool
     SecurityGroupRules: List[SecurityGroupRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSecurityGroupRulesResultTypeDef(BaseModel):
+class DescribeSecurityGroupRulesResultTypeDef(BaseValidatorModel):
     SecurityGroupRules: List[SecurityGroupRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BundleTaskTypeDef(BaseModel):
+class BundleTaskTypeDef(BaseValidatorModel):
     BundleId: Optional[str] = None
     BundleTaskError: Optional[BundleTaskErrorTypeDef] = None
     InstanceId: Optional[str] = None
@@ -11570,21 +11570,21 @@ class BundleTaskTypeDef(BaseModel):
     Storage: Optional[StorageOutputTypeDef] = None
     UpdateTime: Optional[datetime] = None
 
-class DescribeScheduledInstanceAvailabilityResultTypeDef(BaseModel):
+class DescribeScheduledInstanceAvailabilityResultTypeDef(BaseValidatorModel):
     ScheduledInstanceAvailabilitySet: List[ScheduledInstanceAvailabilityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeScheduledInstancesResultTypeDef(BaseModel):
+class DescribeScheduledInstancesResultTypeDef(BaseValidatorModel):
     ScheduledInstanceSet: List[ScheduledInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PurchaseScheduledInstancesResultTypeDef(BaseModel):
+class PurchaseScheduledInstancesResultTypeDef(BaseValidatorModel):
     ScheduledInstanceSet: List[ScheduledInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ScheduledInstancesLaunchSpecificationTypeDef(BaseModel):
+class ScheduledInstancesLaunchSpecificationTypeDef(BaseValidatorModel):
     ImageId: str
     BlockDeviceMappings: Optional[Sequence[ScheduledInstancesBlockDeviceMappingTypeDef]] = None
     EbsOptimized: Optional[bool] = None
@@ -11600,38 +11600,38 @@ class ScheduledInstancesLaunchSpecificationTypeDef(BaseModel):
     SubnetId: Optional[str] = None
     UserData: Optional[str] = None
 
-class CreateVpcEndpointResultTypeDef(BaseModel):
+class CreateVpcEndpointResultTypeDef(BaseValidatorModel):
     VpcEndpoint: VpcEndpointTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpcEndpointsResultTypeDef(BaseModel):
+class DescribeVpcEndpointsResultTypeDef(BaseValidatorModel):
     VpcEndpoints: List[VpcEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifySecurityGroupRulesRequestRequestTypeDef(BaseModel):
+class ModifySecurityGroupRulesRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     SecurityGroupRules: Sequence[SecurityGroupRuleUpdateTypeDef]
     DryRun: Optional[bool] = None
 
-class CreateVpcEndpointServiceConfigurationResultTypeDef(BaseModel):
+class CreateVpcEndpointServiceConfigurationResultTypeDef(BaseValidatorModel):
     ServiceConfiguration: ServiceConfigurationTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpcEndpointServiceConfigurationsResultTypeDef(BaseModel):
+class DescribeVpcEndpointServiceConfigurationsResultTypeDef(BaseValidatorModel):
     ServiceConfigurations: List[ServiceConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeVpcEndpointServicesResultTypeDef(BaseModel):
+class DescribeVpcEndpointServicesResultTypeDef(BaseValidatorModel):
     ServiceNames: List[str]
     ServiceDetails: List[ServiceDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ImportImageResultTypeDef(BaseModel):
+class ImportImageResultTypeDef(BaseValidatorModel):
     Architecture: str
     Description: str
     Encrypted: bool
@@ -11650,7 +11650,7 @@ class ImportImageResultTypeDef(BaseModel):
     UsageOperation: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportImageTaskTypeDef(BaseModel):
+class ImportImageTaskTypeDef(BaseValidatorModel):
     Architecture: Optional[str] = None
     Description: Optional[str] = None
     Encrypted: Optional[bool] = None
@@ -11669,59 +11669,59 @@ class ImportImageTaskTypeDef(BaseModel):
     UsageOperation: Optional[str] = None
     BootMode: Optional[BootModeValuesType] = None
 
-class ImportSnapshotResultTypeDef(BaseModel):
+class ImportSnapshotResultTypeDef(BaseValidatorModel):
     Description: str
     ImportTaskId: str
     SnapshotTaskDetail: SnapshotTaskDetailTypeDef
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportSnapshotTaskTypeDef(BaseModel):
+class ImportSnapshotTaskTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     ImportTaskId: Optional[str] = None
     SnapshotTaskDetail: Optional[SnapshotTaskDetailTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class CreateSpotDatafeedSubscriptionResultTypeDef(BaseModel):
+class CreateSpotDatafeedSubscriptionResultTypeDef(BaseValidatorModel):
     SpotDatafeedSubscription: SpotDatafeedSubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSpotDatafeedSubscriptionResultTypeDef(BaseModel):
+class DescribeSpotDatafeedSubscriptionResultTypeDef(BaseValidatorModel):
     SpotDatafeedSubscription: SpotDatafeedSubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTransitGatewayMulticastDomainAssociationsResultTypeDef(BaseModel):
+class GetTransitGatewayMulticastDomainAssociationsResultTypeDef(BaseValidatorModel):
     MulticastDomainAssociations: List[TransitGatewayMulticastDomainAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef(BaseModel):
+class AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef(BaseValidatorModel):
     Associations: TransitGatewayMulticastDomainAssociationsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateTransitGatewayMulticastDomainResultTypeDef(BaseModel):
+class AssociateTransitGatewayMulticastDomainResultTypeDef(BaseValidatorModel):
     Associations: TransitGatewayMulticastDomainAssociationsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateTransitGatewayMulticastDomainResultTypeDef(BaseModel):
+class DisassociateTransitGatewayMulticastDomainResultTypeDef(BaseValidatorModel):
     Associations: TransitGatewayMulticastDomainAssociationsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RejectTransitGatewayMulticastDomainAssociationsResultTypeDef(BaseModel):
+class RejectTransitGatewayMulticastDomainAssociationsResultTypeDef(BaseValidatorModel):
     Associations: TransitGatewayMulticastDomainAssociationsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateSubnetCidrBlockResultTypeDef(BaseModel):
+class AssociateSubnetCidrBlockResultTypeDef(BaseValidatorModel):
     Ipv6CidrBlockAssociation: SubnetIpv6CidrBlockAssociationTypeDef
     SubnetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateSubnetCidrBlockResultTypeDef(BaseModel):
+class DisassociateSubnetCidrBlockResultTypeDef(BaseValidatorModel):
     Ipv6CidrBlockAssociation: SubnetIpv6CidrBlockAssociationTypeDef
     SubnetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubnetTypeDef(BaseModel):
+class SubnetTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
     AvailableIpAddressCount: Optional[int] = None
@@ -11744,7 +11744,7 @@ class SubnetTypeDef(BaseModel):
     Ipv6Native: Optional[bool] = None
     PrivateDnsNameOptionsOnLaunch: Optional[PrivateDnsNameOptionsOnLaunchTypeDef] = None
 
-class GetReservedInstancesExchangeQuoteResultTypeDef(BaseModel):
+class GetReservedInstancesExchangeQuoteResultTypeDef(BaseValidatorModel):
     CurrencyCode: str
     IsValidExchange: bool
     OutputReservedInstancesWillExpireAt: datetime
@@ -11756,33 +11756,33 @@ class GetReservedInstancesExchangeQuoteResultTypeDef(BaseModel):
     ValidationFailureReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoadBalancersConfigExtraOutputTypeDef(BaseModel):
+class LoadBalancersConfigExtraOutputTypeDef(BaseValidatorModel):
     ClassicLoadBalancersConfig: Optional[ClassicLoadBalancersConfigExtraOutputTypeDef] = None
     TargetGroupsConfig: Optional[TargetGroupsConfigExtraOutputTypeDef] = None
 
-class LoadBalancersConfigOutputTypeDef(BaseModel):
+class LoadBalancersConfigOutputTypeDef(BaseValidatorModel):
     ClassicLoadBalancersConfig: Optional[ClassicLoadBalancersConfigOutputTypeDef] = None
     TargetGroupsConfig: Optional[TargetGroupsConfigOutputTypeDef] = None
 
-class LoadBalancersConfigTypeDef(BaseModel):
+class LoadBalancersConfigTypeDef(BaseValidatorModel):
     ClassicLoadBalancersConfig: Optional[ClassicLoadBalancersConfigTypeDef] = None
     TargetGroupsConfig: Optional[TargetGroupsConfigTypeDef] = None
 
-class CreateTrafficMirrorFilterRuleResultTypeDef(BaseModel):
+class CreateTrafficMirrorFilterRuleResultTypeDef(BaseValidatorModel):
     TrafficMirrorFilterRule: TrafficMirrorFilterRuleTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTrafficMirrorFilterRulesResultTypeDef(BaseModel):
+class DescribeTrafficMirrorFilterRulesResultTypeDef(BaseValidatorModel):
     TrafficMirrorFilterRules: List[TrafficMirrorFilterRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyTrafficMirrorFilterRuleResultTypeDef(BaseModel):
+class ModifyTrafficMirrorFilterRuleResultTypeDef(BaseValidatorModel):
     TrafficMirrorFilterRule: TrafficMirrorFilterRuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TrafficMirrorFilterTypeDef(BaseModel):
+class TrafficMirrorFilterTypeDef(BaseValidatorModel):
     TrafficMirrorFilterId: Optional[str] = None
     IngressFilterRules: Optional[List[TrafficMirrorFilterRuleTypeDef]] = None
     EgressFilterRules: Optional[List[TrafficMirrorFilterRuleTypeDef]] = None
@@ -11790,12 +11790,12 @@ class TrafficMirrorFilterTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class DescribeTransitGatewayAttachmentsResultTypeDef(BaseModel):
+class DescribeTransitGatewayAttachmentsResultTypeDef(BaseValidatorModel):
     TransitGatewayAttachments: List[TransitGatewayAttachmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TransitGatewayConnectPeerTypeDef(BaseModel):
+class TransitGatewayConnectPeerTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: Optional[str] = None
     TransitGatewayConnectPeerId: Optional[str] = None
     State: Optional[TransitGatewayConnectPeerStateType] = None
@@ -11803,247 +11803,247 @@ class TransitGatewayConnectPeerTypeDef(BaseModel):
     ConnectPeerConfiguration: Optional[TransitGatewayConnectPeerConfigurationTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class CreateTransitGatewayConnectResultTypeDef(BaseModel):
+class CreateTransitGatewayConnectResultTypeDef(BaseValidatorModel):
     TransitGatewayConnect: TransitGatewayConnectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayConnectResultTypeDef(BaseModel):
+class DeleteTransitGatewayConnectResultTypeDef(BaseValidatorModel):
     TransitGatewayConnect: TransitGatewayConnectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTransitGatewayConnectsResultTypeDef(BaseModel):
+class DescribeTransitGatewayConnectsResultTypeDef(BaseValidatorModel):
     TransitGatewayConnects: List[TransitGatewayConnectTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateTransitGatewayMulticastDomainResultTypeDef(BaseModel):
+class CreateTransitGatewayMulticastDomainResultTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomain: TransitGatewayMulticastDomainTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayMulticastDomainResultTypeDef(BaseModel):
+class DeleteTransitGatewayMulticastDomainResultTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomain: TransitGatewayMulticastDomainTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTransitGatewayMulticastDomainsResultTypeDef(BaseModel):
+class DescribeTransitGatewayMulticastDomainsResultTypeDef(BaseValidatorModel):
     TransitGatewayMulticastDomains: List[TransitGatewayMulticastDomainTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateTransitGatewayResultTypeDef(BaseModel):
+class CreateTransitGatewayResultTypeDef(BaseValidatorModel):
     TransitGateway: TransitGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayResultTypeDef(BaseModel):
+class DeleteTransitGatewayResultTypeDef(BaseValidatorModel):
     TransitGateway: TransitGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTransitGatewaysResultTypeDef(BaseModel):
+class DescribeTransitGatewaysResultTypeDef(BaseValidatorModel):
     TransitGateways: List[TransitGatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyTransitGatewayResultTypeDef(BaseModel):
+class ModifyTransitGatewayResultTypeDef(BaseValidatorModel):
     TransitGateway: TransitGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptTransitGatewayPeeringAttachmentResultTypeDef(BaseModel):
+class AcceptTransitGatewayPeeringAttachmentResultTypeDef(BaseValidatorModel):
     TransitGatewayPeeringAttachment: TransitGatewayPeeringAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTransitGatewayPeeringAttachmentResultTypeDef(BaseModel):
+class CreateTransitGatewayPeeringAttachmentResultTypeDef(BaseValidatorModel):
     TransitGatewayPeeringAttachment: TransitGatewayPeeringAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayPeeringAttachmentResultTypeDef(BaseModel):
+class DeleteTransitGatewayPeeringAttachmentResultTypeDef(BaseValidatorModel):
     TransitGatewayPeeringAttachment: TransitGatewayPeeringAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTransitGatewayPeeringAttachmentsResultTypeDef(BaseModel):
+class DescribeTransitGatewayPeeringAttachmentsResultTypeDef(BaseValidatorModel):
     TransitGatewayPeeringAttachments: List[TransitGatewayPeeringAttachmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class RejectTransitGatewayPeeringAttachmentResultTypeDef(BaseModel):
+class RejectTransitGatewayPeeringAttachmentResultTypeDef(BaseValidatorModel):
     TransitGatewayPeeringAttachment: TransitGatewayPeeringAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TransitGatewayPolicyTableEntryTypeDef(BaseModel):
+class TransitGatewayPolicyTableEntryTypeDef(BaseValidatorModel):
     PolicyRuleNumber: Optional[str] = None
     PolicyRule: Optional[TransitGatewayPolicyRuleTypeDef] = None
     TargetRouteTableId: Optional[str] = None
 
-class CreateTransitGatewayPrefixListReferenceResultTypeDef(BaseModel):
+class CreateTransitGatewayPrefixListReferenceResultTypeDef(BaseValidatorModel):
     TransitGatewayPrefixListReference: TransitGatewayPrefixListReferenceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayPrefixListReferenceResultTypeDef(BaseModel):
+class DeleteTransitGatewayPrefixListReferenceResultTypeDef(BaseValidatorModel):
     TransitGatewayPrefixListReference: TransitGatewayPrefixListReferenceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTransitGatewayPrefixListReferencesResultTypeDef(BaseModel):
+class GetTransitGatewayPrefixListReferencesResultTypeDef(BaseValidatorModel):
     TransitGatewayPrefixListReferences: List[TransitGatewayPrefixListReferenceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyTransitGatewayPrefixListReferenceResultTypeDef(BaseModel):
+class ModifyTransitGatewayPrefixListReferenceResultTypeDef(BaseValidatorModel):
     TransitGatewayPrefixListReference: TransitGatewayPrefixListReferenceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTransitGatewayRouteResultTypeDef(BaseModel):
+class CreateTransitGatewayRouteResultTypeDef(BaseValidatorModel):
     Route: TransitGatewayRouteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayRouteResultTypeDef(BaseModel):
+class DeleteTransitGatewayRouteResultTypeDef(BaseValidatorModel):
     Route: TransitGatewayRouteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplaceTransitGatewayRouteResultTypeDef(BaseModel):
+class ReplaceTransitGatewayRouteResultTypeDef(BaseValidatorModel):
     Route: TransitGatewayRouteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchTransitGatewayRoutesResultTypeDef(BaseModel):
+class SearchTransitGatewayRoutesResultTypeDef(BaseValidatorModel):
     Routes: List[TransitGatewayRouteTypeDef]
     AdditionalRoutesAvailable: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptTransitGatewayVpcAttachmentResultTypeDef(BaseModel):
+class AcceptTransitGatewayVpcAttachmentResultTypeDef(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTransitGatewayVpcAttachmentResultTypeDef(BaseModel):
+class CreateTransitGatewayVpcAttachmentResultTypeDef(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayVpcAttachmentResultTypeDef(BaseModel):
+class DeleteTransitGatewayVpcAttachmentResultTypeDef(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTransitGatewayVpcAttachmentsResultTypeDef(BaseModel):
+class DescribeTransitGatewayVpcAttachmentsResultTypeDef(BaseValidatorModel):
     TransitGatewayVpcAttachments: List[TransitGatewayVpcAttachmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyTransitGatewayVpcAttachmentResultTypeDef(BaseModel):
+class ModifyTransitGatewayVpcAttachmentResultTypeDef(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RejectTransitGatewayVpcAttachmentResultTypeDef(BaseModel):
+class RejectTransitGatewayVpcAttachmentResultTypeDef(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyInstanceCreditSpecificationResultTypeDef(BaseModel):
+class ModifyInstanceCreditSpecificationResultTypeDef(BaseValidatorModel):
     SuccessfulInstanceCreditSpecifications: List[       SuccessfulInstanceCreditSpecificationItemTypeDef     ]
     UnsuccessfulInstanceCreditSpecifications: List[       UnsuccessfulInstanceCreditSpecificationItemTypeDef     ]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptVpcEndpointConnectionsResultTypeDef(BaseModel):
+class AcceptVpcEndpointConnectionsResultTypeDef(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFlowLogsResultTypeDef(BaseModel):
+class CreateFlowLogsResultTypeDef(BaseValidatorModel):
     ClientToken: str
     FlowLogIds: List[str]
     Unsuccessful: List[UnsuccessfulItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFlowLogsResultTypeDef(BaseModel):
+class DeleteFlowLogsResultTypeDef(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVpcEndpointConnectionNotificationsResultTypeDef(BaseModel):
+class DeleteVpcEndpointConnectionNotificationsResultTypeDef(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVpcEndpointServiceConfigurationsResultTypeDef(BaseModel):
+class DeleteVpcEndpointServiceConfigurationsResultTypeDef(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVpcEndpointsResultTypeDef(BaseModel):
+class DeleteVpcEndpointsResultTypeDef(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyHostsResultTypeDef(BaseModel):
+class ModifyHostsResultTypeDef(BaseValidatorModel):
     Successful: List[str]
     Unsuccessful: List[UnsuccessfulItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RejectVpcEndpointConnectionsResultTypeDef(BaseModel):
+class RejectVpcEndpointConnectionsResultTypeDef(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReleaseHostsResultTypeDef(BaseModel):
+class ReleaseHostsResultTypeDef(BaseValidatorModel):
     Successful: List[str]
     Unsuccessful: List[UnsuccessfulItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLaunchTemplateResultTypeDef(BaseModel):
+class CreateLaunchTemplateResultTypeDef(BaseValidatorModel):
     LaunchTemplate: LaunchTemplateTypeDef
     Warning: ValidationWarningTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVerifiedAccessEndpointResultTypeDef(BaseModel):
+class CreateVerifiedAccessEndpointResultTypeDef(BaseValidatorModel):
     VerifiedAccessEndpoint: VerifiedAccessEndpointTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVerifiedAccessEndpointResultTypeDef(BaseModel):
+class DeleteVerifiedAccessEndpointResultTypeDef(BaseValidatorModel):
     VerifiedAccessEndpoint: VerifiedAccessEndpointTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVerifiedAccessEndpointsResultTypeDef(BaseModel):
+class DescribeVerifiedAccessEndpointsResultTypeDef(BaseValidatorModel):
     VerifiedAccessEndpoints: List[VerifiedAccessEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyVerifiedAccessEndpointResultTypeDef(BaseModel):
+class ModifyVerifiedAccessEndpointResultTypeDef(BaseValidatorModel):
     VerifiedAccessEndpoint: VerifiedAccessEndpointTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachVerifiedAccessTrustProviderResultTypeDef(BaseModel):
+class AttachVerifiedAccessTrustProviderResultTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderTypeDef
     VerifiedAccessInstance: VerifiedAccessInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVerifiedAccessInstanceResultTypeDef(BaseModel):
+class CreateVerifiedAccessInstanceResultTypeDef(BaseValidatorModel):
     VerifiedAccessInstance: VerifiedAccessInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVerifiedAccessInstanceResultTypeDef(BaseModel):
+class DeleteVerifiedAccessInstanceResultTypeDef(BaseValidatorModel):
     VerifiedAccessInstance: VerifiedAccessInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVerifiedAccessInstancesResultTypeDef(BaseModel):
+class DescribeVerifiedAccessInstancesResultTypeDef(BaseValidatorModel):
     VerifiedAccessInstances: List[VerifiedAccessInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DetachVerifiedAccessTrustProviderResultTypeDef(BaseModel):
+class DetachVerifiedAccessTrustProviderResultTypeDef(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderTypeDef
     VerifiedAccessInstance: VerifiedAccessInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVerifiedAccessInstanceResultTypeDef(BaseModel):
+class ModifyVerifiedAccessInstanceResultTypeDef(BaseValidatorModel):
     VerifiedAccessInstance: VerifiedAccessInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifiedAccessLogsTypeDef(BaseModel):
+class VerifiedAccessLogsTypeDef(BaseValidatorModel):
     S3: Optional[VerifiedAccessLogS3DestinationTypeDef] = None
     CloudWatchLogs: Optional[VerifiedAccessLogCloudWatchLogsDestinationTypeDef] = None
     KinesisDataFirehose: Optional[VerifiedAccessLogKinesisDataFirehoseDestinationTypeDef] = None
     LogVersion: Optional[str] = None
     IncludeTrustContext: Optional[bool] = None
 
-class ModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class ModifyVerifiedAccessInstanceLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     AccessLogs: VerifiedAccessLogOptionsTypeDef
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
-class DescribeVolumesResultTypeDef(BaseModel):
+class DescribeVolumesResultTypeDef(BaseValidatorModel):
     Volumes: List[VolumeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class VolumeStatusItemTypeDef(BaseModel):
+class VolumeStatusItemTypeDef(BaseValidatorModel):
     Actions: Optional[List[VolumeStatusActionTypeDef]] = None
     AvailabilityZone: Optional[str] = None
     OutpostArn: Optional[str] = None
@@ -12052,19 +12052,19 @@ class VolumeStatusItemTypeDef(BaseModel):
     VolumeStatus: Optional[VolumeStatusInfoTypeDef] = None
     AttachmentStatuses: Optional[List[VolumeStatusAttachmentStatusTypeDef]] = None
 
-class AssociateVpcCidrBlockResultTypeDef(BaseModel):
+class AssociateVpcCidrBlockResultTypeDef(BaseValidatorModel):
     Ipv6CidrBlockAssociation: VpcIpv6CidrBlockAssociationTypeDef
     CidrBlockAssociation: VpcCidrBlockAssociationTypeDef
     VpcId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateVpcCidrBlockResultTypeDef(BaseModel):
+class DisassociateVpcCidrBlockResultTypeDef(BaseValidatorModel):
     Ipv6CidrBlockAssociation: VpcIpv6CidrBlockAssociationTypeDef
     CidrBlockAssociation: VpcCidrBlockAssociationTypeDef
     VpcId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VpcTypeDef(BaseModel):
+class VpcTypeDef(BaseValidatorModel):
     CidrBlock: Optional[str] = None
     DhcpOptionsId: Optional[str] = None
     State: Optional[VpcStateType] = None
@@ -12076,7 +12076,7 @@ class VpcTypeDef(BaseModel):
     IsDefault: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class VpcPeeringConnectionTypeDef(BaseModel):
+class VpcPeeringConnectionTypeDef(BaseValidatorModel):
     AccepterVpcInfo: Optional[VpcPeeringConnectionVpcInfoTypeDef] = None
     ExpirationTime: Optional[datetime] = None
     RequesterVpcInfo: Optional[VpcPeeringConnectionVpcInfoTypeDef] = None
@@ -12084,33 +12084,33 @@ class VpcPeeringConnectionTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     VpcPeeringConnectionId: Optional[str] = None
 
-class AssociateInstanceEventWindowResultTypeDef(BaseModel):
+class AssociateInstanceEventWindowResultTypeDef(BaseValidatorModel):
     InstanceEventWindow: InstanceEventWindowTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceEventWindowResultTypeDef(BaseModel):
+class CreateInstanceEventWindowResultTypeDef(BaseValidatorModel):
     InstanceEventWindow: InstanceEventWindowTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeInstanceEventWindowsResultTypeDef(BaseModel):
+class DescribeInstanceEventWindowsResultTypeDef(BaseValidatorModel):
     InstanceEventWindows: List[InstanceEventWindowTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DisassociateInstanceEventWindowResultTypeDef(BaseModel):
+class DisassociateInstanceEventWindowResultTypeDef(BaseValidatorModel):
     InstanceEventWindow: InstanceEventWindowTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyInstanceEventWindowResultTypeDef(BaseModel):
+class ModifyInstanceEventWindowResultTypeDef(BaseValidatorModel):
     InstanceEventWindow: InstanceEventWindowTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptAddressTransferRequestRequestTypeDef(BaseModel):
+class AcceptAddressTransferRequestRequestTypeDef(BaseValidatorModel):
     Address: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class AllocateAddressRequestRequestTypeDef(BaseModel):
+class AllocateAddressRequestRequestTypeDef(BaseValidatorModel):
     Domain: Optional[DomainTypeType] = None
     Address: Optional[str] = None
     PublicIpv4Pool: Optional[str] = None
@@ -12119,7 +12119,7 @@ class AllocateAddressRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class AllocateHostsRequestRequestTypeDef(BaseModel):
+class AllocateHostsRequestRequestTypeDef(BaseValidatorModel):
     AvailabilityZone: str
     AutoPlacement: Optional[AutoPlacementType] = None
     ClientToken: Optional[str] = None
@@ -12132,14 +12132,14 @@ class AllocateHostsRequestRequestTypeDef(BaseModel):
     HostMaintenance: Optional[HostMaintenanceType] = None
     AssetIds: Optional[Sequence[str]] = None
 
-class AssociateIpamResourceDiscoveryRequestRequestTypeDef(BaseModel):
+class AssociateIpamResourceDiscoveryRequestRequestTypeDef(BaseValidatorModel):
     IpamId: str
     IpamResourceDiscoveryId: str
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CopyImageRequestRequestTypeDef(BaseModel):
+class CopyImageRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     SourceImageId: str
     SourceRegion: str
@@ -12152,7 +12152,7 @@ class CopyImageRequestRequestTypeDef(BaseModel):
     CopyImageTags: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CopySnapshotRequestRequestTypeDef(BaseModel):
+class CopySnapshotRequestRequestTypeDef(BaseValidatorModel):
     SourceRegion: str
     SourceSnapshotId: str
     Description: Optional[str] = None
@@ -12164,7 +12164,7 @@ class CopySnapshotRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateCapacityReservationFleetRequestRequestTypeDef(BaseModel):
+class CreateCapacityReservationFleetRequestRequestTypeDef(BaseValidatorModel):
     InstanceTypeSpecifications: Sequence[ReservationFleetInstanceSpecificationTypeDef]
     TotalTargetCapacity: int
     AllocationStrategy: Optional[str] = None
@@ -12175,7 +12175,7 @@ class CreateCapacityReservationFleetRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateCapacityReservationRequestRequestTypeDef(BaseModel):
+class CreateCapacityReservationRequestRequestTypeDef(BaseValidatorModel):
     InstanceType: str
     InstancePlatform: CapacityReservationInstancePlatformType
     InstanceCount: int
@@ -12193,13 +12193,13 @@ class CreateCapacityReservationRequestRequestTypeDef(BaseModel):
     OutpostArn: Optional[str] = None
     PlacementGroupArn: Optional[str] = None
 
-class CreateCarrierGatewayRequestRequestTypeDef(BaseModel):
+class CreateCarrierGatewayRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
-class CreateClientVpnEndpointRequestRequestTypeDef(BaseModel):
+class CreateClientVpnEndpointRequestRequestTypeDef(BaseValidatorModel):
     ClientCidrBlock: str
     ServerCertificateArn: str
     AuthenticationOptions: Sequence[ClientVpnAuthenticationRequestTypeDef]
@@ -12219,12 +12219,12 @@ class CreateClientVpnEndpointRequestRequestTypeDef(BaseModel):
     SessionTimeoutHours: Optional[int] = None
     ClientLoginBannerOptions: Optional[ClientLoginBannerOptionsTypeDef] = None
 
-class CreateCoipPoolRequestRequestTypeDef(BaseModel):
+class CreateCoipPoolRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateCustomerGatewayRequestRequestTypeDef(BaseModel):
+class CreateCustomerGatewayRequestRequestTypeDef(BaseValidatorModel):
     Type: Literal["ipsec.1"]
     BgpAsn: Optional[int] = None
     PublicIp: Optional[str] = None
@@ -12235,23 +12235,23 @@ class CreateCustomerGatewayRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     BgpAsnExtended: Optional[int] = None
 
-class CreateDhcpOptionsRequestRequestTypeDef(BaseModel):
+class CreateDhcpOptionsRequestRequestTypeDef(BaseValidatorModel):
     DhcpConfigurations: Sequence[NewDhcpConfigurationTypeDef]
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateDhcpOptionsRequestServiceResourceCreateDhcpOptionsTypeDef(BaseModel):
+class CreateDhcpOptionsRequestServiceResourceCreateDhcpOptionsTypeDef(BaseValidatorModel):
     DhcpConfigurations: Sequence[NewDhcpConfigurationTypeDef]
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateEgressOnlyInternetGatewayRequestRequestTypeDef(BaseModel):
+class CreateEgressOnlyInternetGatewayRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateFlowLogsRequestRequestTypeDef(BaseModel):
+class CreateFlowLogsRequestRequestTypeDef(BaseValidatorModel):
     ResourceIds: Sequence[str]
     ResourceType: FlowLogsResourceTypeType
     DryRun: Optional[bool] = None
@@ -12267,7 +12267,7 @@ class CreateFlowLogsRequestRequestTypeDef(BaseModel):
     MaxAggregationInterval: Optional[int] = None
     DestinationOptions: Optional[DestinationOptionsRequestTypeDef] = None
 
-class CreateFpgaImageRequestRequestTypeDef(BaseModel):
+class CreateFpgaImageRequestRequestTypeDef(BaseValidatorModel):
     InputStorageLocation: StorageLocationTypeDef
     DryRun: Optional[bool] = None
     LogsStorageLocation: Optional[StorageLocationTypeDef] = None
@@ -12276,7 +12276,7 @@ class CreateFpgaImageRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateImageRequestRequestTypeDef(BaseModel):
+class CreateImageRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     BlockDeviceMappings: Optional[Sequence[BlockDeviceMappingTypeDef]] = None
@@ -12285,7 +12285,7 @@ class CreateImageRequestRequestTypeDef(BaseModel):
     NoReboot: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateInstanceConnectEndpointRequestRequestTypeDef(BaseModel):
+class CreateInstanceConnectEndpointRequestRequestTypeDef(BaseValidatorModel):
     SubnetId: str
     DryRun: Optional[bool] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
@@ -12293,29 +12293,29 @@ class CreateInstanceConnectEndpointRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateInstanceEventWindowRequestRequestTypeDef(BaseModel):
+class CreateInstanceEventWindowRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Name: Optional[str] = None
     TimeRanges: Optional[Sequence[InstanceEventWindowTimeRangeRequestTypeDef]] = None
     CronExpression: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateInstanceExportTaskRequestRequestTypeDef(BaseModel):
+class CreateInstanceExportTaskRequestRequestTypeDef(BaseValidatorModel):
     ExportToS3Task: ExportToS3TaskSpecificationTypeDef
     InstanceId: str
     TargetEnvironment: ExportEnvironmentType
     Description: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateInternetGatewayRequestRequestTypeDef(BaseModel):
+class CreateInternetGatewayRequestRequestTypeDef(BaseValidatorModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateInternetGatewayRequestServiceResourceCreateInternetGatewayTypeDef(BaseModel):
+class CreateInternetGatewayRequestServiceResourceCreateInternetGatewayTypeDef(BaseValidatorModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateIpamPoolRequestRequestTypeDef(BaseModel):
+class CreateIpamPoolRequestRequestTypeDef(BaseValidatorModel):
     IpamScopeId: str
     AddressFamily: AddressFamilyType
     DryRun: Optional[bool] = None
@@ -12334,7 +12334,7 @@ class CreateIpamPoolRequestRequestTypeDef(BaseModel):
     PublicIpSource: Optional[IpamPoolPublicIpSourceType] = None
     SourceResource: Optional[IpamPoolSourceResourceRequestTypeDef] = None
 
-class CreateIpamRequestRequestTypeDef(BaseModel):
+class CreateIpamRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
     OperatingRegions: Optional[Sequence[AddIpamOperatingRegionTypeDef]] = None
@@ -12342,53 +12342,53 @@ class CreateIpamRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     Tier: Optional[IpamTierType] = None
 
-class CreateIpamResourceDiscoveryRequestRequestTypeDef(BaseModel):
+class CreateIpamResourceDiscoveryRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
     OperatingRegions: Optional[Sequence[AddIpamOperatingRegionTypeDef]] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CreateIpamScopeRequestRequestTypeDef(BaseModel):
+class CreateIpamScopeRequestRequestTypeDef(BaseValidatorModel):
     IpamId: str
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CreateKeyPairRequestRequestTypeDef(BaseModel):
+class CreateKeyPairRequestRequestTypeDef(BaseValidatorModel):
     KeyName: str
     DryRun: Optional[bool] = None
     KeyType: Optional[KeyTypeType] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     KeyFormat: Optional[KeyFormatType] = None
 
-class CreateKeyPairRequestServiceResourceCreateKeyPairTypeDef(BaseModel):
+class CreateKeyPairRequestServiceResourceCreateKeyPairTypeDef(BaseValidatorModel):
     KeyName: str
     DryRun: Optional[bool] = None
     KeyType: Optional[KeyTypeType] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     KeyFormat: Optional[KeyFormatType] = None
 
-class CreateLocalGatewayRouteTableRequestRequestTypeDef(BaseModel):
+class CreateLocalGatewayRouteTableRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayId: str
     Mode: Optional[LocalGatewayRouteTableModeType] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef(BaseModel):
+class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     LocalGatewayVirtualInterfaceGroupId: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef(BaseModel):
+class CreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     VpcId: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateManagedPrefixListRequestRequestTypeDef(BaseModel):
+class CreateManagedPrefixListRequestRequestTypeDef(BaseValidatorModel):
     PrefixListName: str
     MaxEntries: int
     AddressFamily: str
@@ -12397,7 +12397,7 @@ class CreateManagedPrefixListRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CreateNatGatewayRequestRequestTypeDef(BaseModel):
+class CreateNatGatewayRequestRequestTypeDef(BaseValidatorModel):
     SubnetId: str
     AllocationId: Optional[str] = None
     ClientToken: Optional[str] = None
@@ -12409,19 +12409,19 @@ class CreateNatGatewayRequestRequestTypeDef(BaseModel):
     SecondaryPrivateIpAddresses: Optional[Sequence[str]] = None
     SecondaryPrivateIpAddressCount: Optional[int] = None
 
-class CreateNetworkAclRequestRequestTypeDef(BaseModel):
+class CreateNetworkAclRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CreateNetworkAclRequestServiceResourceCreateNetworkAclTypeDef(BaseModel):
+class CreateNetworkAclRequestServiceResourceCreateNetworkAclTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CreateNetworkInsightsPathRequestRequestTypeDef(BaseModel):
+class CreateNetworkInsightsPathRequestRequestTypeDef(BaseValidatorModel):
     Source: str
     Protocol: ProtocolType
     ClientToken: str
@@ -12434,7 +12434,7 @@ class CreateNetworkInsightsPathRequestRequestTypeDef(BaseModel):
     FilterAtSource: Optional[PathRequestFilterTypeDef] = None
     FilterAtDestination: Optional[PathRequestFilterTypeDef] = None
 
-class CreateNetworkInterfaceRequestRequestTypeDef(BaseModel):
+class CreateNetworkInterfaceRequestRequestTypeDef(BaseValidatorModel):
     SubnetId: str
     Description: Optional[str] = None
     DryRun: Optional[bool] = None
@@ -12454,7 +12454,7 @@ class CreateNetworkInterfaceRequestRequestTypeDef(BaseModel):
     EnablePrimaryIpv6: Optional[bool] = None
     ConnectionTrackingSpecification: Optional[       ConnectionTrackingSpecificationRequestTypeDef     ] = None
 
-class CreateNetworkInterfaceRequestServiceResourceCreateNetworkInterfaceTypeDef(BaseModel):
+class CreateNetworkInterfaceRequestServiceResourceCreateNetworkInterfaceTypeDef(BaseValidatorModel):
     SubnetId: str
     Description: Optional[str] = None
     DryRun: Optional[bool] = None
@@ -12474,7 +12474,7 @@ class CreateNetworkInterfaceRequestServiceResourceCreateNetworkInterfaceTypeDef(
     EnablePrimaryIpv6: Optional[bool] = None
     ConnectionTrackingSpecification: Optional[       ConnectionTrackingSpecificationRequestTypeDef     ] = None
 
-class CreatePlacementGroupRequestRequestTypeDef(BaseModel):
+class CreatePlacementGroupRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     GroupName: Optional[str] = None
     Strategy: Optional[PlacementStrategyType] = None
@@ -12482,7 +12482,7 @@ class CreatePlacementGroupRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     SpreadLevel: Optional[SpreadLevelType] = None
 
-class CreatePlacementGroupRequestServiceResourceCreatePlacementGroupTypeDef(BaseModel):
+class CreatePlacementGroupRequestServiceResourceCreatePlacementGroupTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     GroupName: Optional[str] = None
     Strategy: Optional[PlacementStrategyType] = None
@@ -12490,12 +12490,12 @@ class CreatePlacementGroupRequestServiceResourceCreatePlacementGroupTypeDef(Base
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     SpreadLevel: Optional[SpreadLevelType] = None
 
-class CreatePublicIpv4PoolRequestRequestTypeDef(BaseModel):
+class CreatePublicIpv4PoolRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     NetworkBorderGroup: Optional[str] = None
 
-class CreateReplaceRootVolumeTaskRequestRequestTypeDef(BaseModel):
+class CreateReplaceRootVolumeTaskRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     SnapshotId: Optional[str] = None
     ClientToken: Optional[str] = None
@@ -12504,54 +12504,54 @@ class CreateReplaceRootVolumeTaskRequestRequestTypeDef(BaseModel):
     ImageId: Optional[str] = None
     DeleteReplacedRootVolume: Optional[bool] = None
 
-class CreateRestoreImageTaskRequestRequestTypeDef(BaseModel):
+class CreateRestoreImageTaskRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ObjectKey: str
     Name: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateRouteTableRequestRequestTypeDef(BaseModel):
+class CreateRouteTableRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CreateRouteTableRequestServiceResourceCreateRouteTableTypeDef(BaseModel):
+class CreateRouteTableRequestServiceResourceCreateRouteTableTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class CreateSecurityGroupRequestRequestTypeDef(BaseModel):
+class CreateSecurityGroupRequestRequestTypeDef(BaseValidatorModel):
     Description: str
     GroupName: str
     VpcId: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateSecurityGroupRequestServiceResourceCreateSecurityGroupTypeDef(BaseModel):
+class CreateSecurityGroupRequestServiceResourceCreateSecurityGroupTypeDef(BaseValidatorModel):
     Description: str
     GroupName: str
     VpcId: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateSnapshotRequestRequestTypeDef(BaseModel):
+class CreateSnapshotRequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
     Description: Optional[str] = None
     OutpostArn: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateSnapshotRequestServiceResourceCreateSnapshotTypeDef(BaseModel):
+class CreateSnapshotRequestServiceResourceCreateSnapshotTypeDef(BaseValidatorModel):
     VolumeId: str
     Description: Optional[str] = None
     OutpostArn: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateSnapshotsRequestRequestTypeDef(BaseModel):
+class CreateSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     InstanceSpecification: InstanceSpecificationTypeDef
     Description: Optional[str] = None
     OutpostArn: Optional[str] = None
@@ -12559,7 +12559,7 @@ class CreateSnapshotsRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     CopyTagsFromSource: Optional[Literal["volume"]] = None
 
-class CreateSubnetCidrReservationRequestRequestTypeDef(BaseModel):
+class CreateSubnetCidrReservationRequestRequestTypeDef(BaseValidatorModel):
     SubnetId: str
     Cidr: str
     ReservationType: SubnetCidrReservationTypeType
@@ -12567,7 +12567,7 @@ class CreateSubnetCidrReservationRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateSubnetRequestRequestTypeDef(BaseModel):
+class CreateSubnetRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     AvailabilityZone: Optional[str] = None
@@ -12582,7 +12582,7 @@ class CreateSubnetRequestRequestTypeDef(BaseModel):
     Ipv6IpamPoolId: Optional[str] = None
     Ipv6NetmaskLength: Optional[int] = None
 
-class CreateSubnetRequestServiceResourceCreateSubnetTypeDef(BaseModel):
+class CreateSubnetRequestServiceResourceCreateSubnetTypeDef(BaseValidatorModel):
     VpcId: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     AvailabilityZone: Optional[str] = None
@@ -12597,13 +12597,13 @@ class CreateSubnetRequestServiceResourceCreateSubnetTypeDef(BaseModel):
     Ipv6IpamPoolId: Optional[str] = None
     Ipv6NetmaskLength: Optional[int] = None
 
-class CreateTrafficMirrorFilterRequestRequestTypeDef(BaseModel):
+class CreateTrafficMirrorFilterRequestRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
-class CreateTrafficMirrorFilterRuleRequestRequestTypeDef(BaseModel):
+class CreateTrafficMirrorFilterRuleRequestRequestTypeDef(BaseValidatorModel):
     TrafficMirrorFilterId: str
     TrafficDirection: TrafficDirectionType
     RuleNumber: int
@@ -12618,7 +12618,7 @@ class CreateTrafficMirrorFilterRuleRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateTrafficMirrorSessionRequestRequestTypeDef(BaseModel):
+class CreateTrafficMirrorSessionRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: str
     TrafficMirrorTargetId: str
     TrafficMirrorFilterId: str
@@ -12630,7 +12630,7 @@ class CreateTrafficMirrorSessionRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
-class CreateTrafficMirrorTargetRequestRequestTypeDef(BaseModel):
+class CreateTrafficMirrorTargetRequestRequestTypeDef(BaseValidatorModel):
     NetworkInterfaceId: Optional[str] = None
     NetworkLoadBalancerArn: Optional[str] = None
     Description: Optional[str] = None
@@ -12639,7 +12639,7 @@ class CreateTrafficMirrorTargetRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     GatewayLoadBalancerEndpointId: Optional[str] = None
 
-class CreateTransitGatewayConnectPeerRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayConnectPeerRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     PeerAddress: str
     InsideCidrBlocks: Sequence[str]
@@ -12648,19 +12648,19 @@ class CreateTransitGatewayConnectPeerRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateTransitGatewayConnectRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayConnectRequestRequestTypeDef(BaseValidatorModel):
     TransportTransitGatewayAttachmentId: str
     Options: CreateTransitGatewayConnectRequestOptionsTypeDef
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateTransitGatewayMulticastDomainRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayMulticastDomainRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayId: str
     Options: Optional[CreateTransitGatewayMulticastDomainRequestOptionsTypeDef] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateTransitGatewayPeeringAttachmentRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayPeeringAttachmentRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayId: str
     PeerTransitGatewayId: str
     PeerAccountId: str
@@ -12669,29 +12669,29 @@ class CreateTransitGatewayPeeringAttachmentRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateTransitGatewayPolicyTableRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayPolicyTableRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayId: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateTransitGatewayRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayRequestRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Options: Optional[TransitGatewayRequestOptionsTypeDef] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayRouteTableAnnouncementRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     PeeringAttachmentId: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateTransitGatewayRouteTableRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayRouteTableRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayId: str
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseModel):
+class CreateTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseValidatorModel):
     TransitGatewayId: str
     VpcId: str
     SubnetIds: Sequence[str]
@@ -12699,7 +12699,7 @@ class CreateTransitGatewayVpcAttachmentRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class CreateVerifiedAccessEndpointRequestRequestTypeDef(BaseModel):
+class CreateVerifiedAccessEndpointRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessGroupId: str
     EndpointType: VerifiedAccessEndpointTypeType
     AttachmentType: Literal["vpc"]
@@ -12716,7 +12716,7 @@ class CreateVerifiedAccessEndpointRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     SseSpecification: Optional[VerifiedAccessSseSpecificationRequestTypeDef] = None
 
-class CreateVerifiedAccessGroupRequestRequestTypeDef(BaseModel):
+class CreateVerifiedAccessGroupRequestRequestTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     Description: Optional[str] = None
     PolicyDocument: Optional[str] = None
@@ -12725,14 +12725,14 @@ class CreateVerifiedAccessGroupRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     SseSpecification: Optional[VerifiedAccessSseSpecificationRequestTypeDef] = None
 
-class CreateVerifiedAccessInstanceRequestRequestTypeDef(BaseModel):
+class CreateVerifiedAccessInstanceRequestRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
     FIPSEnabled: Optional[bool] = None
 
-class CreateVerifiedAccessTrustProviderRequestRequestTypeDef(BaseModel):
+class CreateVerifiedAccessTrustProviderRequestRequestTypeDef(BaseValidatorModel):
     TrustProviderType: TrustProviderTypeType
     PolicyReferenceName: str
     UserTrustProviderType: Optional[UserTrustProviderTypeType] = None
@@ -12745,7 +12745,7 @@ class CreateVerifiedAccessTrustProviderRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     SseSpecification: Optional[VerifiedAccessSseSpecificationRequestTypeDef] = None
 
-class CreateVolumeRequestRequestTypeDef(BaseModel):
+class CreateVolumeRequestRequestTypeDef(BaseValidatorModel):
     AvailabilityZone: str
     Encrypted: Optional[bool] = None
     Iops: Optional[int] = None
@@ -12760,7 +12760,7 @@ class CreateVolumeRequestRequestTypeDef(BaseModel):
     Throughput: Optional[int] = None
     ClientToken: Optional[str] = None
 
-class CreateVolumeRequestServiceResourceCreateVolumeTypeDef(BaseModel):
+class CreateVolumeRequestServiceResourceCreateVolumeTypeDef(BaseValidatorModel):
     AvailabilityZone: str
     Encrypted: Optional[bool] = None
     Iops: Optional[int] = None
@@ -12775,7 +12775,7 @@ class CreateVolumeRequestServiceResourceCreateVolumeTypeDef(BaseModel):
     Throughput: Optional[int] = None
     ClientToken: Optional[str] = None
 
-class CreateVpcEndpointRequestRequestTypeDef(BaseModel):
+class CreateVpcEndpointRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     ServiceName: str
     DryRun: Optional[bool] = None
@@ -12791,7 +12791,7 @@ class CreateVpcEndpointRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     SubnetConfigurations: Optional[Sequence[SubnetConfigurationTypeDef]] = None
 
-class CreateVpcEndpointServiceConfigurationRequestRequestTypeDef(BaseModel):
+class CreateVpcEndpointServiceConfigurationRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     AcceptanceRequired: Optional[bool] = None
     PrivateDnsName: Optional[str] = None
@@ -12801,7 +12801,7 @@ class CreateVpcEndpointServiceConfigurationRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateVpcPeeringConnectionRequestRequestTypeDef(BaseModel):
+class CreateVpcPeeringConnectionRequestRequestTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
     PeerOwnerId: Optional[str] = None
@@ -12809,7 +12809,7 @@ class CreateVpcPeeringConnectionRequestRequestTypeDef(BaseModel):
     PeerRegion: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateVpcPeeringConnectionRequestServiceResourceCreateVpcPeeringConnectionTypeDef(BaseModel):
+class CreateVpcPeeringConnectionRequestServiceResourceCreateVpcPeeringConnectionTypeDef(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
     PeerOwnerId: Optional[str] = None
@@ -12817,7 +12817,7 @@ class CreateVpcPeeringConnectionRequestServiceResourceCreateVpcPeeringConnection
     PeerRegion: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateVpcRequestRequestTypeDef(BaseModel):
+class CreateVpcRequestRequestTypeDef(BaseValidatorModel):
     CidrBlock: Optional[str] = None
     AmazonProvidedIpv6CidrBlock: Optional[bool] = None
     Ipv6Pool: Optional[str] = None
@@ -12831,7 +12831,7 @@ class CreateVpcRequestRequestTypeDef(BaseModel):
     Ipv6CidrBlockNetworkBorderGroup: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateVpcRequestServiceResourceCreateVpcTypeDef(BaseModel):
+class CreateVpcRequestServiceResourceCreateVpcTypeDef(BaseValidatorModel):
     CidrBlock: Optional[str] = None
     AmazonProvidedIpv6CidrBlock: Optional[bool] = None
     Ipv6Pool: Optional[str] = None
@@ -12845,14 +12845,14 @@ class CreateVpcRequestServiceResourceCreateVpcTypeDef(BaseModel):
     Ipv6CidrBlockNetworkBorderGroup: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateVpnGatewayRequestRequestTypeDef(BaseModel):
+class CreateVpnGatewayRequestRequestTypeDef(BaseValidatorModel):
     Type: Literal["ipsec.1"]
     AvailabilityZone: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     AmazonSideAsn: Optional[int] = None
     DryRun: Optional[bool] = None
 
-class ExportImageRequestRequestTypeDef(BaseModel):
+class ExportImageRequestRequestTypeDef(BaseValidatorModel):
     DiskImageFormat: DiskImageFormatType
     ImageId: str
     S3ExportLocation: ExportTaskS3LocationRequestTypeDef
@@ -12862,7 +12862,7 @@ class ExportImageRequestRequestTypeDef(BaseModel):
     RoleName: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class ImportImageRequestRequestTypeDef(BaseModel):
+class ImportImageRequestRequestTypeDef(BaseValidatorModel):
     Architecture: Optional[str] = None
     ClientData: Optional[ClientDataTypeDef] = None
     ClientToken: Optional[str] = None
@@ -12880,19 +12880,19 @@ class ImportImageRequestRequestTypeDef(BaseModel):
     UsageOperation: Optional[str] = None
     BootMode: Optional[BootModeValuesType] = None
 
-class ImportKeyPairRequestRequestTypeDef(BaseModel):
+class ImportKeyPairRequestRequestTypeDef(BaseValidatorModel):
     KeyName: str
     PublicKeyMaterial: BlobTypeDef
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class ImportKeyPairRequestServiceResourceImportKeyPairTypeDef(BaseModel):
+class ImportKeyPairRequestServiceResourceImportKeyPairTypeDef(BaseValidatorModel):
     KeyName: str
     PublicKeyMaterial: BlobTypeDef
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class ImportSnapshotRequestRequestTypeDef(BaseModel):
+class ImportSnapshotRequestRequestTypeDef(BaseValidatorModel):
     ClientData: Optional[ClientDataTypeDef] = None
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
@@ -12903,7 +12903,7 @@ class ImportSnapshotRequestRequestTypeDef(BaseModel):
     RoleName: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class ProvisionByoipCidrRequestRequestTypeDef(BaseModel):
+class ProvisionByoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
     CidrAuthorizationContext: Optional[CidrAuthorizationContextTypeDef] = None
     PubliclyAdvertisable: Optional[bool] = None
@@ -12913,13 +12913,13 @@ class ProvisionByoipCidrRequestRequestTypeDef(BaseModel):
     MultiRegion: Optional[bool] = None
     NetworkBorderGroup: Optional[str] = None
 
-class PurchaseCapacityBlockRequestRequestTypeDef(BaseModel):
+class PurchaseCapacityBlockRequestRequestTypeDef(BaseValidatorModel):
     CapacityBlockOfferingId: str
     InstancePlatform: CapacityReservationInstancePlatformType
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class PurchaseHostReservationRequestRequestTypeDef(BaseModel):
+class PurchaseHostReservationRequestRequestTypeDef(BaseValidatorModel):
     HostIdSet: Sequence[str]
     OfferingId: str
     ClientToken: Optional[str] = None
@@ -12927,7 +12927,7 @@ class PurchaseHostReservationRequestRequestTypeDef(BaseModel):
     LimitPrice: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class RegisterImageRequestRequestTypeDef(BaseModel):
+class RegisterImageRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     ImageLocation: Optional[str] = None
     Architecture: Optional[ArchitectureValuesType] = None
@@ -12947,7 +12947,7 @@ class RegisterImageRequestRequestTypeDef(BaseModel):
     ImdsSupport: Optional[Literal["v2.0"]] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class RegisterImageRequestServiceResourceRegisterImageTypeDef(BaseModel):
+class RegisterImageRequestServiceResourceRegisterImageTypeDef(BaseValidatorModel):
     Name: str
     ImageLocation: Optional[str] = None
     Architecture: Optional[ArchitectureValuesType] = None
@@ -12967,13 +12967,13 @@ class RegisterImageRequestServiceResourceRegisterImageTypeDef(BaseModel):
     ImdsSupport: Optional[Literal["v2.0"]] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class StartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef(BaseModel):
+class StartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeId: str
     ClientToken: str
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class StartNetworkInsightsAnalysisRequestRequestTypeDef(BaseModel):
+class StartNetworkInsightsAnalysisRequestRequestTypeDef(BaseValidatorModel):
     NetworkInsightsPathId: str
     ClientToken: str
     AdditionalAccounts: Optional[Sequence[str]] = None
@@ -12981,7 +12981,7 @@ class StartNetworkInsightsAnalysisRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class PathComponentTypeDef(BaseModel):
+class PathComponentTypeDef(BaseValidatorModel):
     SequenceNumber: Optional[int] = None
     AclRule: Optional[AnalysisAclRuleTypeDef] = None
     AttachedTo: Optional[AnalysisComponentTypeDef] = None
@@ -13003,23 +13003,23 @@ class PathComponentTypeDef(BaseModel):
     FirewallStatefulRule: Optional[FirewallStatefulRuleTypeDef] = None
     ServiceName: Optional[str] = None
 
-class CreateRouteTableResultTypeDef(BaseModel):
+class CreateRouteTableResultTypeDef(BaseValidatorModel):
     RouteTable: RouteTableTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRouteTablesResultTypeDef(BaseModel):
+class DescribeRouteTablesResultTypeDef(BaseValidatorModel):
     RouteTables: List[RouteTableTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetFlowLogsIntegrationTemplateRequestRequestTypeDef(BaseModel):
+class GetFlowLogsIntegrationTemplateRequestRequestTypeDef(BaseValidatorModel):
     FlowLogId: str
     ConfigDeliveryS3DestinationArn: str
     IntegrateServices: IntegrateServicesTypeDef
     DryRun: Optional[bool] = None
 
-class DescribeNetworkInterfaceAttributeResultTypeDef(BaseModel):
+class DescribeNetworkInterfaceAttributeResultTypeDef(BaseValidatorModel):
     Attachment: NetworkInterfaceAttachmentTypeDef
     Description: AttributeValueTypeDef
     Groups: List[GroupIdentifierTypeDef]
@@ -13028,7 +13028,7 @@ class DescribeNetworkInterfaceAttributeResultTypeDef(BaseModel):
     AssociatePublicIpAddress: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NetworkInterfaceTypeDef(BaseModel):
+class NetworkInterfaceTypeDef(BaseValidatorModel):
     Association: Optional[NetworkInterfaceAssociationTypeDef] = None
     Attachment: Optional[NetworkInterfaceAttachmentTypeDef] = None
     AvailabilityZone: Optional[str] = None
@@ -13057,43 +13057,43 @@ class NetworkInterfaceTypeDef(BaseModel):
     Ipv6Native: Optional[bool] = None
     Ipv6Address: Optional[str] = None
 
-class CreateDhcpOptionsResultTypeDef(BaseModel):
+class CreateDhcpOptionsResultTypeDef(BaseValidatorModel):
     DhcpOptions: DhcpOptionsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDhcpOptionsResultTypeDef(BaseModel):
+class DescribeDhcpOptionsResultTypeDef(BaseValidatorModel):
     DhcpOptions: List[DhcpOptionsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeHostsResultTypeDef(BaseModel):
+class DescribeHostsResultTypeDef(BaseValidatorModel):
     Hosts: List[HostTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BundleInstanceRequestRequestTypeDef(BaseModel):
+class BundleInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Storage: StorageTypeDef
     DryRun: Optional[bool] = None
 
-class DescribeImagesResultTypeDef(BaseModel):
+class DescribeImagesResultTypeDef(BaseValidatorModel):
     Images: List[ImageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeClientVpnEndpointsResultTypeDef(BaseModel):
+class DescribeClientVpnEndpointsResultTypeDef(BaseValidatorModel):
     ClientVpnEndpoints: List[ClientVpnEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyVpnTunnelOptionsRequestRequestTypeDef(BaseModel):
+class ModifyVpnTunnelOptionsRequestRequestTypeDef(BaseValidatorModel):
     VpnConnectionId: str
     VpnTunnelOutsideIpAddress: str
     TunnelOptions: ModifyVpnTunnelOptionsSpecificationTypeDef
     DryRun: Optional[bool] = None
     SkipTunnelReplacement: Optional[bool] = None
 
-class VpnConnectionOptionsSpecificationTypeDef(BaseModel):
+class VpnConnectionOptionsSpecificationTypeDef(BaseValidatorModel):
     EnableAcceleration: Optional[bool] = None
     StaticRoutesOnly: Optional[bool] = None
     TunnelInsideIpVersion: Optional[TunnelInsideIpVersionType] = None
@@ -13105,7 +13105,7 @@ class VpnConnectionOptionsSpecificationTypeDef(BaseModel):
     OutsideIpAddressType: Optional[str] = None
     TransportTransitGatewayAttachmentId: Optional[str] = None
 
-class VpnConnectionOptionsTypeDef(BaseModel):
+class VpnConnectionOptionsTypeDef(BaseValidatorModel):
     EnableAcceleration: Optional[bool] = None
     StaticRoutesOnly: Optional[bool] = None
     LocalIpv4NetworkCidr: Optional[str] = None
@@ -13117,22 +13117,22 @@ class VpnConnectionOptionsTypeDef(BaseModel):
     TunnelInsideIpVersion: Optional[TunnelInsideIpVersionType] = None
     TunnelOptions: Optional[List[TunnelOptionTypeDef]] = None
 
-class CreateNetworkAclResultTypeDef(BaseModel):
+class CreateNetworkAclResultTypeDef(BaseValidatorModel):
     NetworkAcl: NetworkAclTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeNetworkAclsResultTypeDef(BaseModel):
+class DescribeNetworkAclsResultTypeDef(BaseValidatorModel):
     NetworkAcls: List[NetworkAclTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DisableFastSnapshotRestoresResultTypeDef(BaseModel):
+class DisableFastSnapshotRestoresResultTypeDef(BaseValidatorModel):
     Successful: List[DisableFastSnapshotRestoreSuccessItemTypeDef]
     Unsuccessful: List[DisableFastSnapshotRestoreErrorItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConversionTaskTypeDef(BaseModel):
+class ConversionTaskTypeDef(BaseValidatorModel):
     ConversionTaskId: Optional[str] = None
     ExpirationTime: Optional[str] = None
     ImportInstance: Optional[ImportInstanceTaskDetailsTypeDef] = None
@@ -13141,7 +13141,7 @@ class ConversionTaskTypeDef(BaseModel):
     StatusMessage: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class SpotFleetLaunchSpecificationExtraOutputTypeDef(BaseModel):
+class SpotFleetLaunchSpecificationExtraOutputTypeDef(BaseValidatorModel):
     SecurityGroups: Optional[List[GroupIdentifierTypeDef]] = None
     AddressingType: Optional[str] = None
     BlockDeviceMappings: Optional[List[BlockDeviceMappingTypeDef]] = None
@@ -13162,7 +13162,7 @@ class SpotFleetLaunchSpecificationExtraOutputTypeDef(BaseModel):
     TagSpecifications: Optional[List[SpotFleetTagSpecificationExtraOutputTypeDef]] = None
     InstanceRequirements: Optional[InstanceRequirementsExtraOutputTypeDef] = None
 
-class LaunchSpecificationTypeDef(BaseModel):
+class LaunchSpecificationTypeDef(BaseValidatorModel):
     UserData: Optional[str] = None
     SecurityGroups: Optional[List[GroupIdentifierTypeDef]] = None
     AddressingType: Optional[str] = None
@@ -13179,7 +13179,7 @@ class LaunchSpecificationTypeDef(BaseModel):
     SubnetId: Optional[str] = None
     Monitoring: Optional[RunInstancesMonitoringEnabledTypeDef] = None
 
-class SpotFleetLaunchSpecificationOutputTypeDef(BaseModel):
+class SpotFleetLaunchSpecificationOutputTypeDef(BaseValidatorModel):
     SecurityGroups: Optional[List[GroupIdentifierTypeDef]] = None
     AddressingType: Optional[str] = None
     BlockDeviceMappings: Optional[List[BlockDeviceMappingTypeDef]] = None
@@ -13200,7 +13200,7 @@ class SpotFleetLaunchSpecificationOutputTypeDef(BaseModel):
     TagSpecifications: Optional[List[SpotFleetTagSpecificationOutputTypeDef]] = None
     InstanceRequirements: Optional[InstanceRequirementsOutputTypeDef] = None
 
-class RequestSpotLaunchSpecificationTypeDef(BaseModel):
+class RequestSpotLaunchSpecificationTypeDef(BaseValidatorModel):
     SecurityGroupIds: Optional[Sequence[str]] = None
     SecurityGroups: Optional[Sequence[str]] = None
     AddressingType: Optional[str] = None
@@ -13218,7 +13218,7 @@ class RequestSpotLaunchSpecificationTypeDef(BaseModel):
     SubnetId: Optional[str] = None
     UserData: Optional[str] = None
 
-class RunInstancesRequestSubnetCreateInstancesTypeDef(BaseModel):
+class RunInstancesRequestSubnetCreateInstancesTypeDef(BaseValidatorModel):
     MaxCount: int
     MinCount: int
     BlockDeviceMappings: Optional[Sequence[BlockDeviceMappingTypeDef]] = None
@@ -13260,7 +13260,7 @@ class RunInstancesRequestSubnetCreateInstancesTypeDef(BaseModel):
     DisableApiStop: Optional[bool] = None
     EnablePrimaryIpv6: Optional[bool] = None
 
-class SpotFleetLaunchSpecificationTypeDef(BaseModel):
+class SpotFleetLaunchSpecificationTypeDef(BaseValidatorModel):
     SecurityGroups: Optional[Sequence[GroupIdentifierTypeDef]] = None
     AddressingType: Optional[str] = None
     BlockDeviceMappings: Optional[Sequence[BlockDeviceMappingTypeDef]] = None
@@ -13281,7 +13281,7 @@ class SpotFleetLaunchSpecificationTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[SpotFleetTagSpecificationTypeDef]] = None
     InstanceRequirements: Optional[InstanceRequirementsTypeDef] = None
 
-class RequestLaunchTemplateDataTypeDef(BaseModel):
+class RequestLaunchTemplateDataTypeDef(BaseValidatorModel):
     KernelId: Optional[str] = None
     EbsOptimized: Optional[bool] = None
     IamInstanceProfile: Optional[       LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef     ] = None
@@ -13314,21 +13314,21 @@ class RequestLaunchTemplateDataTypeDef(BaseModel):
     MaintenanceOptions: Optional[LaunchTemplateInstanceMaintenanceOptionsRequestTypeDef] = None
     DisableApiStop: Optional[bool] = None
 
-class EnableFastSnapshotRestoresResultTypeDef(BaseModel):
+class EnableFastSnapshotRestoresResultTypeDef(BaseValidatorModel):
     Successful: List[EnableFastSnapshotRestoreSuccessItemTypeDef]
     Unsuccessful: List[EnableFastSnapshotRestoreErrorItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateNetworkInsightsPathResultTypeDef(BaseModel):
+class CreateNetworkInsightsPathResultTypeDef(BaseValidatorModel):
     NetworkInsightsPath: NetworkInsightsPathTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeNetworkInsightsPathsResultTypeDef(BaseModel):
+class DescribeNetworkInsightsPathsResultTypeDef(BaseValidatorModel):
     NetworkInsightsPaths: List[NetworkInsightsPathTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class InstanceNetworkInterfaceTypeDef(BaseModel):
+class InstanceNetworkInterfaceTypeDef(BaseValidatorModel):
     Association: Optional[InstanceNetworkInterfaceAssociationTypeDef] = None
     Attachment: Optional[InstanceNetworkInterfaceAttachmentTypeDef] = None
     Description: Optional[str] = None
@@ -13349,31 +13349,31 @@ class InstanceNetworkInterfaceTypeDef(BaseModel):
     Ipv6Prefixes: Optional[List[InstanceIpv6PrefixTypeDef]] = None
     ConnectionTrackingConfiguration: Optional[       ConnectionTrackingSpecificationResponseTypeDef     ] = None
 
-class LaunchTemplateConfigExtraOutputTypeDef(BaseModel):
+class LaunchTemplateConfigExtraOutputTypeDef(BaseValidatorModel):
     LaunchTemplateSpecification: Optional[FleetLaunchTemplateSpecificationTypeDef] = None
     Overrides: Optional[List[LaunchTemplateOverridesExtraOutputTypeDef]] = None
 
-class FleetLaunchTemplateConfigTypeDef(BaseModel):
+class FleetLaunchTemplateConfigTypeDef(BaseValidatorModel):
     LaunchTemplateSpecification: Optional[FleetLaunchTemplateSpecificationTypeDef] = None
     Overrides: Optional[List[FleetLaunchTemplateOverridesTypeDef]] = None
 
-class LaunchTemplateAndOverridesResponseTypeDef(BaseModel):
+class LaunchTemplateAndOverridesResponseTypeDef(BaseValidatorModel):
     LaunchTemplateSpecification: Optional[FleetLaunchTemplateSpecificationTypeDef] = None
     Overrides: Optional[FleetLaunchTemplateOverridesTypeDef] = None
 
-class LaunchTemplateConfigOutputTypeDef(BaseModel):
+class LaunchTemplateConfigOutputTypeDef(BaseValidatorModel):
     LaunchTemplateSpecification: Optional[FleetLaunchTemplateSpecificationTypeDef] = None
     Overrides: Optional[List[LaunchTemplateOverridesOutputTypeDef]] = None
 
-class LaunchTemplateConfigTypeDef(BaseModel):
+class LaunchTemplateConfigTypeDef(BaseValidatorModel):
     LaunchTemplateSpecification: Optional[FleetLaunchTemplateSpecificationTypeDef] = None
     Overrides: Optional[Sequence[LaunchTemplateOverridesTypeDef]] = None
 
-class FleetLaunchTemplateConfigRequestTypeDef(BaseModel):
+class FleetLaunchTemplateConfigRequestTypeDef(BaseValidatorModel):
     LaunchTemplateSpecification: Optional[FleetLaunchTemplateSpecificationRequestTypeDef] = None
     Overrides: Optional[Sequence[FleetLaunchTemplateOverridesRequestTypeDef]] = None
 
-class GetSpotPlacementScoresRequestGetSpotPlacementScoresPaginateTypeDef(BaseModel):
+class GetSpotPlacementScoresRequestGetSpotPlacementScoresPaginateTypeDef(BaseValidatorModel):
     TargetCapacity: int
     InstanceTypes: Optional[Sequence[str]] = None
     TargetCapacityUnitType: Optional[TargetCapacityUnitTypeType] = None
@@ -13383,7 +13383,7 @@ class GetSpotPlacementScoresRequestGetSpotPlacementScoresPaginateTypeDef(BaseMod
     DryRun: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetSpotPlacementScoresRequestRequestTypeDef(BaseModel):
+class GetSpotPlacementScoresRequestRequestTypeDef(BaseValidatorModel):
     TargetCapacity: int
     InstanceTypes: Optional[Sequence[str]] = None
     TargetCapacityUnitType: Optional[TargetCapacityUnitTypeType] = None
@@ -13394,17 +13394,17 @@ class GetSpotPlacementScoresRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeInstanceStatusResultTypeDef(BaseModel):
+class DescribeInstanceStatusResultTypeDef(BaseValidatorModel):
     InstanceStatuses: List[InstanceStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeSecurityGroupsResultTypeDef(BaseModel):
+class DescribeSecurityGroupsResultTypeDef(BaseValidatorModel):
     SecurityGroups: List[SecurityGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AuthorizeSecurityGroupEgressRequestRequestTypeDef(BaseModel):
+class AuthorizeSecurityGroupEgressRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     DryRun: Optional[bool] = None
     IpPermissions: Optional[Sequence[IpPermissionUnionTypeDef]] = None
@@ -13416,7 +13416,7 @@ class AuthorizeSecurityGroupEgressRequestRequestTypeDef(BaseModel):
     SourceSecurityGroupName: Optional[str] = None
     SourceSecurityGroupOwnerId: Optional[str] = None
 
-class AuthorizeSecurityGroupIngressRequestRequestTypeDef(BaseModel):
+class AuthorizeSecurityGroupIngressRequestRequestTypeDef(BaseValidatorModel):
     CidrIp: Optional[str] = None
     FromPort: Optional[int] = None
     GroupId: Optional[str] = None
@@ -13429,7 +13429,7 @@ class AuthorizeSecurityGroupIngressRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class RevokeSecurityGroupEgressRequestRequestTypeDef(BaseModel):
+class RevokeSecurityGroupEgressRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     DryRun: Optional[bool] = None
     IpPermissions: Optional[Sequence[IpPermissionUnionTypeDef]] = None
@@ -13441,7 +13441,7 @@ class RevokeSecurityGroupEgressRequestRequestTypeDef(BaseModel):
     SourceSecurityGroupName: Optional[str] = None
     SourceSecurityGroupOwnerId: Optional[str] = None
 
-class RevokeSecurityGroupIngressRequestRequestTypeDef(BaseModel):
+class RevokeSecurityGroupIngressRequestRequestTypeDef(BaseValidatorModel):
     CidrIp: Optional[str] = None
     FromPort: Optional[int] = None
     GroupId: Optional[str] = None
@@ -13454,32 +13454,32 @@ class RevokeSecurityGroupIngressRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     SecurityGroupRuleIds: Optional[Sequence[str]] = None
 
-class UpdateSecurityGroupRuleDescriptionsEgressRequestRequestTypeDef(BaseModel):
+class UpdateSecurityGroupRuleDescriptionsEgressRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
     IpPermissions: Optional[Sequence[IpPermissionUnionTypeDef]] = None
     SecurityGroupRuleDescriptions: Optional[Sequence[SecurityGroupRuleDescriptionTypeDef]] = None
 
-class UpdateSecurityGroupRuleDescriptionsIngressRequestRequestTypeDef(BaseModel):
+class UpdateSecurityGroupRuleDescriptionsIngressRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
     IpPermissions: Optional[Sequence[IpPermissionUnionTypeDef]] = None
     SecurityGroupRuleDescriptions: Optional[Sequence[SecurityGroupRuleDescriptionTypeDef]] = None
 
-class DescribeStaleSecurityGroupsResultTypeDef(BaseModel):
+class DescribeStaleSecurityGroupsResultTypeDef(BaseValidatorModel):
     StaleSecurityGroupSet: List[StaleSecurityGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetIpamDiscoveredPublicAddressesResultTypeDef(BaseModel):
+class GetIpamDiscoveredPublicAddressesResultTypeDef(BaseValidatorModel):
     IpamDiscoveredPublicAddresses: List[IpamDiscoveredPublicAddressTypeDef]
     OldestSampleTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ResponseLaunchTemplateDataTypeDef(BaseModel):
+class ResponseLaunchTemplateDataTypeDef(BaseValidatorModel):
     KernelId: Optional[str] = None
     EbsOptimized: Optional[bool] = None
     IamInstanceProfile: Optional[LaunchTemplateIamInstanceProfileSpecificationTypeDef] = None
@@ -13512,12 +13512,12 @@ class ResponseLaunchTemplateDataTypeDef(BaseModel):
     MaintenanceOptions: Optional[LaunchTemplateInstanceMaintenanceOptionsTypeDef] = None
     DisableApiStop: Optional[bool] = None
 
-class DescribeReservedInstancesModificationsResultTypeDef(BaseModel):
+class DescribeReservedInstancesModificationsResultTypeDef(BaseValidatorModel):
     ReservedInstancesModifications: List[ReservedInstancesModificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class InstanceTypeInfoTypeDef(BaseModel):
+class InstanceTypeInfoTypeDef(BaseValidatorModel):
     InstanceType: Optional[InstanceTypeType] = None
     CurrentGeneration: Optional[bool] = None
     FreeTierEligible: Optional[bool] = None
@@ -13549,133 +13549,133 @@ class InstanceTypeInfoTypeDef(BaseModel):
     NeuronInfo: Optional[NeuronInfoTypeDef] = None
     PhcSupport: Optional[PhcSupportType] = None
 
-class CreateNetworkInsightsAccessScopeRequestRequestTypeDef(BaseModel):
+class CreateNetworkInsightsAccessScopeRequestRequestTypeDef(BaseValidatorModel):
     ClientToken: str
     MatchPaths: Optional[Sequence[AccessScopePathRequestTypeDef]] = None
     ExcludePaths: Optional[Sequence[AccessScopePathRequestTypeDef]] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
 
-class NetworkInsightsAccessScopeContentTypeDef(BaseModel):
+class NetworkInsightsAccessScopeContentTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeId: Optional[str] = None
     MatchPaths: Optional[List[AccessScopePathTypeDef]] = None
     ExcludePaths: Optional[List[AccessScopePathTypeDef]] = None
 
-class BundleInstanceResultTypeDef(BaseModel):
+class BundleInstanceResultTypeDef(BaseValidatorModel):
     BundleTask: BundleTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelBundleTaskResultTypeDef(BaseModel):
+class CancelBundleTaskResultTypeDef(BaseValidatorModel):
     BundleTask: BundleTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeBundleTasksResultTypeDef(BaseModel):
+class DescribeBundleTasksResultTypeDef(BaseValidatorModel):
     BundleTasks: List[BundleTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RunScheduledInstancesRequestRequestTypeDef(BaseModel):
+class RunScheduledInstancesRequestRequestTypeDef(BaseValidatorModel):
     LaunchSpecification: ScheduledInstancesLaunchSpecificationTypeDef
     ScheduledInstanceId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
     InstanceCount: Optional[int] = None
 
-class DescribeImportImageTasksResultTypeDef(BaseModel):
+class DescribeImportImageTasksResultTypeDef(BaseValidatorModel):
     ImportImageTasks: List[ImportImageTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeImportSnapshotTasksResultTypeDef(BaseModel):
+class DescribeImportSnapshotTasksResultTypeDef(BaseValidatorModel):
     ImportSnapshotTasks: List[ImportSnapshotTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateDefaultSubnetResultTypeDef(BaseModel):
+class CreateDefaultSubnetResultTypeDef(BaseValidatorModel):
     Subnet: SubnetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSubnetResultTypeDef(BaseModel):
+class CreateSubnetResultTypeDef(BaseValidatorModel):
     Subnet: SubnetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSubnetsResultTypeDef(BaseModel):
+class DescribeSubnetsResultTypeDef(BaseValidatorModel):
     Subnets: List[SubnetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateTrafficMirrorFilterResultTypeDef(BaseModel):
+class CreateTrafficMirrorFilterResultTypeDef(BaseValidatorModel):
     TrafficMirrorFilter: TrafficMirrorFilterTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTrafficMirrorFiltersResultTypeDef(BaseModel):
+class DescribeTrafficMirrorFiltersResultTypeDef(BaseValidatorModel):
     TrafficMirrorFilters: List[TrafficMirrorFilterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyTrafficMirrorFilterNetworkServicesResultTypeDef(BaseModel):
+class ModifyTrafficMirrorFilterNetworkServicesResultTypeDef(BaseValidatorModel):
     TrafficMirrorFilter: TrafficMirrorFilterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTransitGatewayConnectPeerResultTypeDef(BaseModel):
+class CreateTransitGatewayConnectPeerResultTypeDef(BaseValidatorModel):
     TransitGatewayConnectPeer: TransitGatewayConnectPeerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTransitGatewayConnectPeerResultTypeDef(BaseModel):
+class DeleteTransitGatewayConnectPeerResultTypeDef(BaseValidatorModel):
     TransitGatewayConnectPeer: TransitGatewayConnectPeerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTransitGatewayConnectPeersResultTypeDef(BaseModel):
+class DescribeTransitGatewayConnectPeersResultTypeDef(BaseValidatorModel):
     TransitGatewayConnectPeers: List[TransitGatewayConnectPeerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetTransitGatewayPolicyTableEntriesResultTypeDef(BaseModel):
+class GetTransitGatewayPolicyTableEntriesResultTypeDef(BaseValidatorModel):
     TransitGatewayPolicyTableEntries: List[TransitGatewayPolicyTableEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifiedAccessInstanceLoggingConfigurationTypeDef(BaseModel):
+class VerifiedAccessInstanceLoggingConfigurationTypeDef(BaseValidatorModel):
     VerifiedAccessInstanceId: Optional[str] = None
     AccessLogs: Optional[VerifiedAccessLogsTypeDef] = None
 
-class DescribeVolumeStatusResultTypeDef(BaseModel):
+class DescribeVolumeStatusResultTypeDef(BaseValidatorModel):
     VolumeStatuses: List[VolumeStatusItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateDefaultVpcResultTypeDef(BaseModel):
+class CreateDefaultVpcResultTypeDef(BaseValidatorModel):
     Vpc: VpcTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVpcResultTypeDef(BaseModel):
+class CreateVpcResultTypeDef(BaseValidatorModel):
     Vpc: VpcTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpcsResultTypeDef(BaseModel):
+class DescribeVpcsResultTypeDef(BaseValidatorModel):
     Vpcs: List[VpcTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AcceptVpcPeeringConnectionResultTypeDef(BaseModel):
+class AcceptVpcPeeringConnectionResultTypeDef(BaseValidatorModel):
     VpcPeeringConnection: VpcPeeringConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVpcPeeringConnectionResultTypeDef(BaseModel):
+class CreateVpcPeeringConnectionResultTypeDef(BaseValidatorModel):
     VpcPeeringConnection: VpcPeeringConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpcPeeringConnectionsResultTypeDef(BaseModel):
+class DescribeVpcPeeringConnectionsResultTypeDef(BaseValidatorModel):
     VpcPeeringConnections: List[VpcPeeringConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AccessScopeAnalysisFindingTypeDef(BaseModel):
+class AccessScopeAnalysisFindingTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: Optional[str] = None
     NetworkInsightsAccessScopeId: Optional[str] = None
     FindingId: Optional[str] = None
     FindingComponents: Optional[List[PathComponentTypeDef]] = None
 
-class NetworkInsightsAnalysisTypeDef(BaseModel):
+class NetworkInsightsAnalysisTypeDef(BaseValidatorModel):
     NetworkInsightsAnalysisId: Optional[str] = None
     NetworkInsightsAnalysisArn: Optional[str] = None
     NetworkInsightsPathId: Optional[str] = None
@@ -13693,17 +13693,17 @@ class NetworkInsightsAnalysisTypeDef(BaseModel):
     SuggestedAccounts: Optional[List[str]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class CreateNetworkInterfaceResultTypeDef(BaseModel):
+class CreateNetworkInterfaceResultTypeDef(BaseValidatorModel):
     NetworkInterface: NetworkInterfaceTypeDef
     ClientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeNetworkInterfacesResultTypeDef(BaseModel):
+class DescribeNetworkInterfacesResultTypeDef(BaseValidatorModel):
     NetworkInterfaces: List[NetworkInterfaceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateVpnConnectionRequestRequestTypeDef(BaseModel):
+class CreateVpnConnectionRequestRequestTypeDef(BaseValidatorModel):
     CustomerGatewayId: str
     Type: str
     VpnGatewayId: Optional[str] = None
@@ -13712,7 +13712,7 @@ class CreateVpnConnectionRequestRequestTypeDef(BaseModel):
     Options: Optional[VpnConnectionOptionsSpecificationTypeDef] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class VpnConnectionTypeDef(BaseModel):
+class VpnConnectionTypeDef(BaseValidatorModel):
     CustomerGatewayConfiguration: Optional[str] = None
     CustomerGatewayId: Optional[str] = None
     Category: Optional[str] = None
@@ -13729,19 +13729,19 @@ class VpnConnectionTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     VgwTelemetry: Optional[List[VgwTelemetryTypeDef]] = None
 
-class DescribeConversionTasksResultTypeDef(BaseModel):
+class DescribeConversionTasksResultTypeDef(BaseValidatorModel):
     ConversionTasks: List[ConversionTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportInstanceResultTypeDef(BaseModel):
+class ImportInstanceResultTypeDef(BaseValidatorModel):
     ConversionTask: ConversionTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportVolumeResultTypeDef(BaseModel):
+class ImportVolumeResultTypeDef(BaseValidatorModel):
     ConversionTask: ConversionTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SpotInstanceRequestTypeDef(BaseModel):
+class SpotInstanceRequestTypeDef(BaseValidatorModel):
     ActualBlockHourlyPrice: Optional[str] = None
     AvailabilityZoneGroup: Optional[str] = None
     BlockDurationMinutes: Optional[int] = None
@@ -13762,7 +13762,7 @@ class SpotInstanceRequestTypeDef(BaseModel):
     ValidUntil: Optional[datetime] = None
     InstanceInterruptionBehavior: Optional[InstanceInterruptionBehaviorType] = None
 
-class RunInstancesRequestRequestTypeDef(BaseModel):
+class RunInstancesRequestRequestTypeDef(BaseValidatorModel):
     MaxCount: int
     MinCount: int
     BlockDeviceMappings: Optional[Sequence[BlockDeviceMappingTypeDef]] = None
@@ -13805,7 +13805,7 @@ class RunInstancesRequestRequestTypeDef(BaseModel):
     DisableApiStop: Optional[bool] = None
     EnablePrimaryIpv6: Optional[bool] = None
 
-class RunInstancesRequestServiceResourceCreateInstancesTypeDef(BaseModel):
+class RunInstancesRequestServiceResourceCreateInstancesTypeDef(BaseValidatorModel):
     MaxCount: int
     MinCount: int
     BlockDeviceMappings: Optional[Sequence[BlockDeviceMappingTypeDef]] = None
@@ -13848,7 +13848,7 @@ class RunInstancesRequestServiceResourceCreateInstancesTypeDef(BaseModel):
     DisableApiStop: Optional[bool] = None
     EnablePrimaryIpv6: Optional[bool] = None
 
-class RequestSpotInstancesRequestRequestTypeDef(BaseModel):
+class RequestSpotInstancesRequestRequestTypeDef(BaseValidatorModel):
     AvailabilityZoneGroup: Optional[str] = None
     BlockDurationMinutes: Optional[int] = None
     ClientToken: Optional[str] = None
@@ -13863,7 +13863,7 @@ class RequestSpotInstancesRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     InstanceInterruptionBehavior: Optional[InstanceInterruptionBehaviorType] = None
 
-class CreateLaunchTemplateRequestRequestTypeDef(BaseModel):
+class CreateLaunchTemplateRequestRequestTypeDef(BaseValidatorModel):
     LaunchTemplateName: str
     LaunchTemplateData: RequestLaunchTemplateDataTypeDef
     DryRun: Optional[bool] = None
@@ -13871,7 +13871,7 @@ class CreateLaunchTemplateRequestRequestTypeDef(BaseModel):
     VersionDescription: Optional[str] = None
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
 
-class CreateLaunchTemplateVersionRequestRequestTypeDef(BaseModel):
+class CreateLaunchTemplateVersionRequestRequestTypeDef(BaseValidatorModel):
     LaunchTemplateData: RequestLaunchTemplateDataTypeDef
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
@@ -13881,7 +13881,7 @@ class CreateLaunchTemplateVersionRequestRequestTypeDef(BaseModel):
     VersionDescription: Optional[str] = None
     ResolveAlias: Optional[bool] = None
 
-class InstanceTypeDef(BaseModel):
+class InstanceTypeDef(BaseValidatorModel):
     AmiLaunchIndex: Optional[int] = None
     ImageId: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -13940,7 +13940,7 @@ class InstanceTypeDef(BaseModel):
     MaintenanceOptions: Optional[InstanceMaintenanceOptionsTypeDef] = None
     CurrentInstanceBootMode: Optional[InstanceBootModeValuesType] = None
 
-class SpotFleetRequestConfigDataExtraOutputTypeDef(BaseModel):
+class SpotFleetRequestConfigDataExtraOutputTypeDef(BaseValidatorModel):
     IamFleetRole: str
     TargetCapacity: int
     AllocationStrategy: Optional[AllocationStrategyType] = None
@@ -13968,33 +13968,33 @@ class SpotFleetRequestConfigDataExtraOutputTypeDef(BaseModel):
     TargetCapacityUnitType: Optional[TargetCapacityUnitTypeType] = None
     TagSpecifications: Optional[List[TagSpecificationExtraOutputTypeDef]] = None
 
-class CreateFleetErrorTypeDef(BaseModel):
+class CreateFleetErrorTypeDef(BaseValidatorModel):
     LaunchTemplateAndOverrides: Optional[LaunchTemplateAndOverridesResponseTypeDef] = None
     Lifecycle: Optional[InstanceLifecycleType] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class CreateFleetInstanceTypeDef(BaseModel):
+class CreateFleetInstanceTypeDef(BaseValidatorModel):
     LaunchTemplateAndOverrides: Optional[LaunchTemplateAndOverridesResponseTypeDef] = None
     Lifecycle: Optional[InstanceLifecycleType] = None
     InstanceIds: Optional[List[str]] = None
     InstanceType: Optional[InstanceTypeType] = None
     Platform: Optional[Literal["windows"]] = None
 
-class DescribeFleetErrorTypeDef(BaseModel):
+class DescribeFleetErrorTypeDef(BaseValidatorModel):
     LaunchTemplateAndOverrides: Optional[LaunchTemplateAndOverridesResponseTypeDef] = None
     Lifecycle: Optional[InstanceLifecycleType] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class DescribeFleetsInstancesTypeDef(BaseModel):
+class DescribeFleetsInstancesTypeDef(BaseValidatorModel):
     LaunchTemplateAndOverrides: Optional[LaunchTemplateAndOverridesResponseTypeDef] = None
     Lifecycle: Optional[InstanceLifecycleType] = None
     InstanceIds: Optional[List[str]] = None
     InstanceType: Optional[InstanceTypeType] = None
     Platform: Optional[Literal["windows"]] = None
 
-class SpotFleetRequestConfigDataOutputTypeDef(BaseModel):
+class SpotFleetRequestConfigDataOutputTypeDef(BaseValidatorModel):
     IamFleetRole: str
     TargetCapacity: int
     AllocationStrategy: Optional[AllocationStrategyType] = None
@@ -14022,7 +14022,7 @@ class SpotFleetRequestConfigDataOutputTypeDef(BaseModel):
     TargetCapacityUnitType: Optional[TargetCapacityUnitTypeType] = None
     TagSpecifications: Optional[List[TagSpecificationOutputTypeDef]] = None
 
-class SpotFleetRequestConfigDataTypeDef(BaseModel):
+class SpotFleetRequestConfigDataTypeDef(BaseValidatorModel):
     IamFleetRole: str
     TargetCapacity: int
     AllocationStrategy: Optional[AllocationStrategyType] = None
@@ -14050,7 +14050,7 @@ class SpotFleetRequestConfigDataTypeDef(BaseModel):
     TargetCapacityUnitType: Optional[TargetCapacityUnitTypeType] = None
     TagSpecifications: Optional[Sequence[TagSpecificationTypeDef]] = None
 
-class CreateFleetRequestRequestTypeDef(BaseModel):
+class CreateFleetRequestRequestTypeDef(BaseValidatorModel):
     LaunchTemplateConfigs: Sequence[FleetLaunchTemplateConfigRequestTypeDef]
     TargetCapacitySpecification: TargetCapacitySpecificationRequestTypeDef
     DryRun: Optional[bool] = None
@@ -14066,7 +14066,7 @@ class CreateFleetRequestRequestTypeDef(BaseModel):
     TagSpecifications: Optional[Sequence[TagSpecificationUnionTypeDef]] = None
     Context: Optional[str] = None
 
-class ModifyFleetRequestRequestTypeDef(BaseModel):
+class ModifyFleetRequestRequestTypeDef(BaseValidatorModel):
     FleetId: str
     DryRun: Optional[bool] = None
     ExcessCapacityTerminationPolicy: Optional[FleetExcessCapacityTerminationPolicyType] = None
@@ -14074,11 +14074,11 @@ class ModifyFleetRequestRequestTypeDef(BaseModel):
     TargetCapacitySpecification: Optional[TargetCapacitySpecificationRequestTypeDef] = None
     Context: Optional[str] = None
 
-class GetLaunchTemplateDataResultTypeDef(BaseModel):
+class GetLaunchTemplateDataResultTypeDef(BaseValidatorModel):
     LaunchTemplateData: ResponseLaunchTemplateDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LaunchTemplateVersionTypeDef(BaseModel):
+class LaunchTemplateVersionTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     VersionNumber: Optional[int] = None
@@ -14088,79 +14088,79 @@ class LaunchTemplateVersionTypeDef(BaseModel):
     DefaultVersion: Optional[bool] = None
     LaunchTemplateData: Optional[ResponseLaunchTemplateDataTypeDef] = None
 
-class DescribeInstanceTypesResultTypeDef(BaseModel):
+class DescribeInstanceTypesResultTypeDef(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateNetworkInsightsAccessScopeResultTypeDef(BaseModel):
+class CreateNetworkInsightsAccessScopeResultTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScope: NetworkInsightsAccessScopeTypeDef
     NetworkInsightsAccessScopeContent: NetworkInsightsAccessScopeContentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetNetworkInsightsAccessScopeContentResultTypeDef(BaseModel):
+class GetNetworkInsightsAccessScopeContentResultTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeContent: NetworkInsightsAccessScopeContentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVerifiedAccessInstanceLoggingConfigurationsResultTypeDef(BaseModel):
+class DescribeVerifiedAccessInstanceLoggingConfigurationsResultTypeDef(BaseValidatorModel):
     LoggingConfigurations: List[VerifiedAccessInstanceLoggingConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ModifyVerifiedAccessInstanceLoggingConfigurationResultTypeDef(BaseModel):
+class ModifyVerifiedAccessInstanceLoggingConfigurationResultTypeDef(BaseValidatorModel):
     LoggingConfiguration: VerifiedAccessInstanceLoggingConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetNetworkInsightsAccessScopeAnalysisFindingsResultTypeDef(BaseModel):
+class GetNetworkInsightsAccessScopeAnalysisFindingsResultTypeDef(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: str
     AnalysisStatus: AnalysisStatusType
     AnalysisFindings: List[AccessScopeAnalysisFindingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeNetworkInsightsAnalysesResultTypeDef(BaseModel):
+class DescribeNetworkInsightsAnalysesResultTypeDef(BaseValidatorModel):
     NetworkInsightsAnalyses: List[NetworkInsightsAnalysisTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class StartNetworkInsightsAnalysisResultTypeDef(BaseModel):
+class StartNetworkInsightsAnalysisResultTypeDef(BaseValidatorModel):
     NetworkInsightsAnalysis: NetworkInsightsAnalysisTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVpnConnectionResultTypeDef(BaseModel):
+class CreateVpnConnectionResultTypeDef(BaseValidatorModel):
     VpnConnection: VpnConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpnConnectionsResultTypeDef(BaseModel):
+class DescribeVpnConnectionsResultTypeDef(BaseValidatorModel):
     VpnConnections: List[VpnConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVpnConnectionOptionsResultTypeDef(BaseModel):
+class ModifyVpnConnectionOptionsResultTypeDef(BaseValidatorModel):
     VpnConnection: VpnConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVpnConnectionResultTypeDef(BaseModel):
+class ModifyVpnConnectionResultTypeDef(BaseValidatorModel):
     VpnConnection: VpnConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVpnTunnelCertificateResultTypeDef(BaseModel):
+class ModifyVpnTunnelCertificateResultTypeDef(BaseValidatorModel):
     VpnConnection: VpnConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyVpnTunnelOptionsResultTypeDef(BaseModel):
+class ModifyVpnTunnelOptionsResultTypeDef(BaseValidatorModel):
     VpnConnection: VpnConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSpotInstanceRequestsResultTypeDef(BaseModel):
+class DescribeSpotInstanceRequestsResultTypeDef(BaseValidatorModel):
     SpotInstanceRequests: List[SpotInstanceRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class RequestSpotInstancesResultTypeDef(BaseModel):
+class RequestSpotInstancesResultTypeDef(BaseValidatorModel):
     SpotInstanceRequests: List[SpotInstanceRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReservationResponseTypeDef(BaseModel):
+class ReservationResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupIdentifierTypeDef]
     Instances: List[InstanceTypeDef]
     OwnerId: str
@@ -14168,20 +14168,20 @@ class ReservationResponseTypeDef(BaseModel):
     ReservationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReservationTypeDef(BaseModel):
+class ReservationTypeDef(BaseValidatorModel):
     Groups: Optional[List[GroupIdentifierTypeDef]] = None
     Instances: Optional[List[InstanceTypeDef]] = None
     OwnerId: Optional[str] = None
     RequesterId: Optional[str] = None
     ReservationId: Optional[str] = None
 
-class CreateFleetResultTypeDef(BaseModel):
+class CreateFleetResultTypeDef(BaseValidatorModel):
     FleetId: str
     Errors: List[CreateFleetErrorTypeDef]
     Instances: List[CreateFleetInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FleetDataTypeDef(BaseModel):
+class FleetDataTypeDef(BaseValidatorModel):
     ActivityStatus: Optional[FleetActivityStatusType] = None
     CreateTime: Optional[datetime] = None
     FleetId: Optional[str] = None
@@ -14204,7 +14204,7 @@ class FleetDataTypeDef(BaseModel):
     Instances: Optional[List[DescribeFleetsInstancesTypeDef]] = None
     Context: Optional[str] = None
 
-class SpotFleetRequestConfigTypeDef(BaseModel):
+class SpotFleetRequestConfigTypeDef(BaseValidatorModel):
     ActivityStatus: Optional[ActivityStatusType] = None
     CreateTime: Optional[datetime] = None
     SpotFleetRequestConfig: Optional[SpotFleetRequestConfigDataOutputTypeDef] = None
@@ -14212,7 +14212,7 @@ class SpotFleetRequestConfigTypeDef(BaseModel):
     SpotFleetRequestState: Optional[BatchStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ModifySpotFleetRequestRequestRequestTypeDef(BaseModel):
+class ModifySpotFleetRequestRequestRequestTypeDef(BaseValidatorModel):
     SpotFleetRequestId: str
     ExcessCapacityTerminationPolicy: Optional[ExcessCapacityTerminationPolicyType] = None
     LaunchTemplateConfigs: Optional[Sequence[LaunchTemplateConfigUnionTypeDef]] = None
@@ -14220,31 +14220,31 @@ class ModifySpotFleetRequestRequestRequestTypeDef(BaseModel):
     OnDemandTargetCapacity: Optional[int] = None
     Context: Optional[str] = None
 
-class RequestSpotFleetRequestRequestTypeDef(BaseModel):
+class RequestSpotFleetRequestRequestTypeDef(BaseValidatorModel):
     SpotFleetRequestConfig: SpotFleetRequestConfigDataTypeDef
     DryRun: Optional[bool] = None
 
-class CreateLaunchTemplateVersionResultTypeDef(BaseModel):
+class CreateLaunchTemplateVersionResultTypeDef(BaseValidatorModel):
     LaunchTemplateVersion: LaunchTemplateVersionTypeDef
     Warning: ValidationWarningTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLaunchTemplateVersionsResultTypeDef(BaseModel):
+class DescribeLaunchTemplateVersionsResultTypeDef(BaseValidatorModel):
     LaunchTemplateVersions: List[LaunchTemplateVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeInstancesResultTypeDef(BaseModel):
+class DescribeInstancesResultTypeDef(BaseValidatorModel):
     Reservations: List[ReservationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeFleetsResultTypeDef(BaseModel):
+class DescribeFleetsResultTypeDef(BaseValidatorModel):
     Fleets: List[FleetDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeSpotFleetRequestsResponseTypeDef(BaseModel):
+class DescribeSpotFleetRequestsResponseTypeDef(BaseValidatorModel):
     SpotFleetRequestConfigs: List[SpotFleetRequestConfigTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

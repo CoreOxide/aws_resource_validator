@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,52 +11,52 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.chime_sdk_meetings_constants import *
 
-class AttendeeCapabilitiesTypeDef(BaseModel):
+class AttendeeCapabilitiesTypeDef(BaseValidatorModel):
     Audio: MediaCapabilitiesType
     Video: MediaCapabilitiesType
     Content: MediaCapabilitiesType
 
-class AttendeeFeaturesTypeDef(BaseModel):
+class AttendeeFeaturesTypeDef(BaseValidatorModel):
     MaxCount: Optional[int] = None
 
-class AttendeeIdItemTypeDef(BaseModel):
+class AttendeeIdItemTypeDef(BaseValidatorModel):
     AttendeeId: str
 
-class AudioFeaturesTypeDef(BaseModel):
+class AudioFeaturesTypeDef(BaseValidatorModel):
     EchoReduction: Optional[MeetingFeatureStatusType] = None
 
-class CreateAttendeeErrorTypeDef(BaseModel):
+class CreateAttendeeErrorTypeDef(BaseValidatorModel):
     ExternalUserId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class ContentFeaturesTypeDef(BaseModel):
+class ContentFeaturesTypeDef(BaseValidatorModel):
     MaxResolution: Optional[ContentResolutionType] = None
 
-class NotificationsConfigurationTypeDef(BaseModel):
+class NotificationsConfigurationTypeDef(BaseValidatorModel):
     LambdaFunctionArn: Optional[str] = None
     SnsTopicArn: Optional[str] = None
     SqsQueueArn: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class DeleteAttendeeRequestRequestTypeDef(BaseModel):
+class DeleteAttendeeRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
 
-class DeleteMeetingRequestRequestTypeDef(BaseModel):
+class DeleteMeetingRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
 
-class EngineTranscribeMedicalSettingsTypeDef(BaseModel):
+class EngineTranscribeMedicalSettingsTypeDef(BaseValidatorModel):
     LanguageCode: Literal["en-US"]
     Specialty: TranscribeMedicalSpecialtyType
     Type: TranscribeMedicalTypeType
@@ -64,7 +64,7 @@ class EngineTranscribeMedicalSettingsTypeDef(BaseModel):
     Region: Optional[TranscribeMedicalRegionType] = None
     ContentIdentificationType: Optional[Literal["PHI"]] = None
 
-class EngineTranscribeSettingsTypeDef(BaseModel):
+class EngineTranscribeSettingsTypeDef(BaseValidatorModel):
     LanguageCode: Optional[TranscribeLanguageCodeType] = None
     VocabularyFilterMethod: Optional[TranscribeVocabularyFilterMethodType] = None
     VocabularyFilterName: Optional[str] = None
@@ -82,22 +82,22 @@ class EngineTranscribeSettingsTypeDef(BaseModel):
     VocabularyNames: Optional[str] = None
     VocabularyFilterNames: Optional[str] = None
 
-class GetAttendeeRequestRequestTypeDef(BaseModel):
+class GetAttendeeRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
 
-class GetMeetingRequestRequestTypeDef(BaseModel):
+class GetMeetingRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
 
-class ListAttendeesRequestRequestTypeDef(BaseModel):
+class ListAttendeesRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class MediaPlacementTypeDef(BaseModel):
+class MediaPlacementTypeDef(BaseValidatorModel):
     AudioHostUrl: Optional[str] = None
     AudioFallbackUrl: Optional[str] = None
     SignalingUrl: Optional[str] = None
@@ -107,93 +107,93 @@ class MediaPlacementTypeDef(BaseModel):
     ScreenSharingUrl: Optional[str] = None
     EventIngestionUrl: Optional[str] = None
 
-class VideoFeaturesTypeDef(BaseModel):
+class VideoFeaturesTypeDef(BaseValidatorModel):
     MaxResolution: Optional[VideoResolutionType] = None
 
-class StopMeetingTranscriptionRequestRequestTypeDef(BaseModel):
+class StopMeetingTranscriptionRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class AttendeeTypeDef(BaseModel):
+class AttendeeTypeDef(BaseValidatorModel):
     ExternalUserId: Optional[str] = None
     AttendeeId: Optional[str] = None
     JoinToken: Optional[str] = None
     Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
 
-class CreateAttendeeRequestItemTypeDef(BaseModel):
+class CreateAttendeeRequestItemTypeDef(BaseValidatorModel):
     ExternalUserId: str
     Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
 
-class CreateAttendeeRequestRequestTypeDef(BaseModel):
+class CreateAttendeeRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     ExternalUserId: str
     Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
 
-class UpdateAttendeeCapabilitiesRequestRequestTypeDef(BaseModel):
+class UpdateAttendeeCapabilitiesRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
     Capabilities: AttendeeCapabilitiesTypeDef
 
-class BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef(BaseModel):
+class BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     ExcludedAttendeeIds: Sequence[AttendeeIdItemTypeDef]
     Capabilities: AttendeeCapabilitiesTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class TranscriptionConfigurationTypeDef(BaseModel):
+class TranscriptionConfigurationTypeDef(BaseValidatorModel):
     EngineTranscribeSettings: Optional[EngineTranscribeSettingsTypeDef] = None
     EngineTranscribeMedicalSettings: Optional[EngineTranscribeMedicalSettingsTypeDef] = None
 
-class MeetingFeaturesConfigurationTypeDef(BaseModel):
+class MeetingFeaturesConfigurationTypeDef(BaseValidatorModel):
     Audio: Optional[AudioFeaturesTypeDef] = None
     Video: Optional[VideoFeaturesTypeDef] = None
     Content: Optional[ContentFeaturesTypeDef] = None
     Attendee: Optional[AttendeeFeaturesTypeDef] = None
 
-class BatchCreateAttendeeResponseTypeDef(BaseModel):
+class BatchCreateAttendeeResponseTypeDef(BaseValidatorModel):
     Attendees: List[AttendeeTypeDef]
     Errors: List[CreateAttendeeErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAttendeeResponseTypeDef(BaseModel):
+class CreateAttendeeResponseTypeDef(BaseValidatorModel):
     Attendee: AttendeeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAttendeeResponseTypeDef(BaseModel):
+class GetAttendeeResponseTypeDef(BaseValidatorModel):
     Attendee: AttendeeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAttendeesResponseTypeDef(BaseModel):
+class ListAttendeesResponseTypeDef(BaseValidatorModel):
     Attendees: List[AttendeeTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAttendeeCapabilitiesResponseTypeDef(BaseModel):
+class UpdateAttendeeCapabilitiesResponseTypeDef(BaseValidatorModel):
     Attendee: AttendeeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchCreateAttendeeRequestRequestTypeDef(BaseModel):
+class BatchCreateAttendeeRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     Attendees: Sequence[CreateAttendeeRequestItemTypeDef]
 
-class StartMeetingTranscriptionRequestRequestTypeDef(BaseModel):
+class StartMeetingTranscriptionRequestRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     TranscriptionConfiguration: TranscriptionConfigurationTypeDef
 
-class CreateMeetingRequestRequestTypeDef(BaseModel):
+class CreateMeetingRequestRequestTypeDef(BaseValidatorModel):
     ClientRequestToken: str
     MediaRegion: str
     ExternalMeetingId: str
@@ -204,7 +204,7 @@ class CreateMeetingRequestRequestTypeDef(BaseModel):
     TenantIds: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateMeetingWithAttendeesRequestRequestTypeDef(BaseModel):
+class CreateMeetingWithAttendeesRequestRequestTypeDef(BaseValidatorModel):
     ClientRequestToken: str
     MediaRegion: str
     ExternalMeetingId: str
@@ -216,7 +216,7 @@ class CreateMeetingWithAttendeesRequestRequestTypeDef(BaseModel):
     TenantIds: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class MeetingTypeDef(BaseModel):
+class MeetingTypeDef(BaseValidatorModel):
     MeetingId: Optional[str] = None
     MeetingHostId: Optional[str] = None
     ExternalMeetingId: Optional[str] = None
@@ -227,17 +227,17 @@ class MeetingTypeDef(BaseModel):
     TenantIds: Optional[List[str]] = None
     MeetingArn: Optional[str] = None
 
-class CreateMeetingResponseTypeDef(BaseModel):
+class CreateMeetingResponseTypeDef(BaseValidatorModel):
     Meeting: MeetingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMeetingWithAttendeesResponseTypeDef(BaseModel):
+class CreateMeetingWithAttendeesResponseTypeDef(BaseValidatorModel):
     Meeting: MeetingTypeDef
     Attendees: List[AttendeeTypeDef]
     Errors: List[CreateAttendeeErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMeetingResponseTypeDef(BaseModel):
+class GetMeetingResponseTypeDef(BaseValidatorModel):
     Meeting: MeetingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

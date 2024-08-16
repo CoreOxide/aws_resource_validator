@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,75 +11,75 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.s3_constants import *
 
-class AbortIncompleteMultipartUploadTypeDef(BaseModel):
+class AbortIncompleteMultipartUploadTypeDef(BaseValidatorModel):
     DaysAfterInitiation: Optional[int] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AbortMultipartUploadRequestMultipartUploadAbortTypeDef(BaseModel):
+class AbortMultipartUploadRequestMultipartUploadAbortTypeDef(BaseValidatorModel):
     RequestPayer: Optional[Literal["requester"]] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class AbortMultipartUploadRequestRequestTypeDef(BaseModel):
+class AbortMultipartUploadRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     UploadId: str
     RequestPayer: Optional[Literal["requester"]] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class AccelerateConfigurationTypeDef(BaseModel):
+class AccelerateConfigurationTypeDef(BaseValidatorModel):
     Status: Optional[BucketAccelerateStatusType] = None
 
-class OwnerTypeDef(BaseModel):
+class OwnerTypeDef(BaseValidatorModel):
     DisplayName: Optional[str] = None
     ID: Optional[str] = None
 
-class AccessControlTranslationTypeDef(BaseModel):
+class AccessControlTranslationTypeDef(BaseValidatorModel):
     Owner: Literal["Destination"]
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class AnalyticsS3BucketDestinationTypeDef(BaseModel):
+class AnalyticsS3BucketDestinationTypeDef(BaseValidatorModel):
     Format: Literal["CSV"]
     Bucket: str
     BucketAccountId: Optional[str] = None
     Prefix: Optional[str] = None
 
-class CopySourceTypeDef(BaseModel):
+class CopySourceTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     VersionId: Optional[str] = None
 
-class BucketDownloadFileRequestTypeDef(BaseModel):
+class BucketDownloadFileRequestTypeDef(BaseValidatorModel):
     Key: str
     Filename: str
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class BucketInfoTypeDef(BaseModel):
+class BucketInfoTypeDef(BaseValidatorModel):
     DataRedundancy: Optional[Literal["SingleAvailabilityZone"]] = None
     Type: Optional[Literal["Directory"]] = None
 
-class BucketTypeDef(BaseModel):
+class BucketTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     CreationDate: Optional[datetime] = None
 
-class BucketUploadFileRequestTypeDef(BaseModel):
+class BucketUploadFileRequestTypeDef(BaseValidatorModel):
     Filename: str
     Key: str
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class CORSRuleTypeDef(BaseModel):
+class CORSRuleTypeDef(BaseValidatorModel):
     AllowedMethods: Sequence[str]
     AllowedOrigins: Sequence[str]
     ID: Optional[str] = None
@@ -87,7 +87,7 @@ class CORSRuleTypeDef(BaseModel):
     ExposeHeaders: Optional[Sequence[str]] = None
     MaxAgeSeconds: Optional[int] = None
 
-class CORSRuleExtraOutputTypeDef(BaseModel):
+class CORSRuleExtraOutputTypeDef(BaseValidatorModel):
     AllowedMethods: List[str]
     AllowedOrigins: List[str]
     ID: Optional[str] = None
@@ -95,7 +95,7 @@ class CORSRuleExtraOutputTypeDef(BaseModel):
     ExposeHeaders: Optional[List[str]] = None
     MaxAgeSeconds: Optional[int] = None
 
-class CORSRuleOutputTypeDef(BaseModel):
+class CORSRuleOutputTypeDef(BaseValidatorModel):
     AllowedMethods: List[str]
     AllowedOrigins: List[str]
     ID: Optional[str] = None
@@ -103,7 +103,7 @@ class CORSRuleOutputTypeDef(BaseModel):
     ExposeHeaders: Optional[List[str]] = None
     MaxAgeSeconds: Optional[int] = None
 
-class CSVInputTypeDef(BaseModel):
+class CSVInputTypeDef(BaseValidatorModel):
     FileHeaderInfo: Optional[FileHeaderInfoType] = None
     Comments: Optional[str] = None
     QuoteEscapeCharacter: Optional[str] = None
@@ -112,20 +112,20 @@ class CSVInputTypeDef(BaseModel):
     QuoteCharacter: Optional[str] = None
     AllowQuotedRecordDelimiter: Optional[bool] = None
 
-class CSVOutputTypeDef(BaseModel):
+class CSVOutputTypeDef(BaseValidatorModel):
     QuoteFields: Optional[QuoteFieldsType] = None
     QuoteEscapeCharacter: Optional[str] = None
     RecordDelimiter: Optional[str] = None
     FieldDelimiter: Optional[str] = None
     QuoteCharacter: Optional[str] = None
 
-class ChecksumTypeDef(BaseModel):
+class ChecksumTypeDef(BaseValidatorModel):
     ChecksumCRC32: Optional[str] = None
     ChecksumCRC32C: Optional[str] = None
     ChecksumSHA1: Optional[str] = None
     ChecksumSHA256: Optional[str] = None
 
-class ClientDownloadFileRequestTypeDef(BaseModel):
+class ClientDownloadFileRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     Filename: str
@@ -133,14 +133,14 @@ class ClientDownloadFileRequestTypeDef(BaseModel):
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class ClientGeneratePresignedPostRequestTypeDef(BaseModel):
+class ClientGeneratePresignedPostRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     Fields: Optional[Optional[Dict[str, Any]]] = None
     Conditions: Optional[Union[List[Any], Dict[str, Any], None]] = None
     ExpiresIn: Optional[int] = None
 
-class ClientUploadFileRequestTypeDef(BaseModel):
+class ClientUploadFileRequestTypeDef(BaseValidatorModel):
     Filename: str
     Bucket: str
     Key: str
@@ -148,24 +148,24 @@ class ClientUploadFileRequestTypeDef(BaseModel):
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class CloudFunctionConfigurationOutputTypeDef(BaseModel):
+class CloudFunctionConfigurationOutputTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Event: Optional[EventType] = None
     Events: Optional[List[EventType]] = None
     CloudFunction: Optional[str] = None
     InvocationRole: Optional[str] = None
 
-class CloudFunctionConfigurationTypeDef(BaseModel):
+class CloudFunctionConfigurationTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Event: Optional[EventType] = None
     Events: Optional[Sequence[EventType]] = None
     CloudFunction: Optional[str] = None
     InvocationRole: Optional[str] = None
 
-class CommonPrefixTypeDef(BaseModel):
+class CommonPrefixTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
 
-class CompletedPartTypeDef(BaseModel):
+class CompletedPartTypeDef(BaseValidatorModel):
     ETag: Optional[str] = None
     ChecksumCRC32: Optional[str] = None
     ChecksumCRC32C: Optional[str] = None
@@ -173,11 +173,11 @@ class CompletedPartTypeDef(BaseModel):
     ChecksumSHA256: Optional[str] = None
     PartNumber: Optional[int] = None
 
-class ConditionTypeDef(BaseModel):
+class ConditionTypeDef(BaseValidatorModel):
     HttpErrorCodeReturnedEquals: Optional[str] = None
     KeyPrefixEquals: Optional[str] = None
 
-class CopyObjectResultTypeDef(BaseModel):
+class CopyObjectResultTypeDef(BaseValidatorModel):
     ETag: Optional[str] = None
     LastModified: Optional[datetime] = None
     ChecksumCRC32: Optional[str] = None
@@ -185,7 +185,7 @@ class CopyObjectResultTypeDef(BaseModel):
     ChecksumSHA1: Optional[str] = None
     ChecksumSHA256: Optional[str] = None
 
-class CopyPartResultTypeDef(BaseModel):
+class CopyPartResultTypeDef(BaseValidatorModel):
     ETag: Optional[str] = None
     LastModified: Optional[datetime] = None
     ChecksumCRC32: Optional[str] = None
@@ -193,125 +193,125 @@ class CopyPartResultTypeDef(BaseModel):
     ChecksumSHA1: Optional[str] = None
     ChecksumSHA256: Optional[str] = None
 
-class LocationInfoTypeDef(BaseModel):
+class LocationInfoTypeDef(BaseValidatorModel):
     Type: Optional[Literal["AvailabilityZone"]] = None
     Name: Optional[str] = None
 
-class SessionCredentialsTypeDef(BaseModel):
+class SessionCredentialsTypeDef(BaseValidatorModel):
     AccessKeyId: str
     SecretAccessKey: str
     SessionToken: str
     Expiration: datetime
 
-class CreateSessionRequestRequestTypeDef(BaseModel):
+class CreateSessionRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     SessionMode: Optional[SessionModeType] = None
 
-class DefaultRetentionTypeDef(BaseModel):
+class DefaultRetentionTypeDef(BaseValidatorModel):
     Mode: Optional[ObjectLockRetentionModeType] = None
     Days: Optional[int] = None
     Years: Optional[int] = None
 
-class DeleteBucketAnalyticsConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteBucketAnalyticsConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketCorsRequestBucketCorsDeleteTypeDef(BaseModel):
+class DeleteBucketCorsRequestBucketCorsDeleteTypeDef(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketCorsRequestRequestTypeDef(BaseModel):
+class DeleteBucketCorsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketEncryptionRequestRequestTypeDef(BaseModel):
+class DeleteBucketEncryptionRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketIntelligentTieringConfigurationRequestRequestTypeDef(BaseModel):
-    Bucket: str
-    Id: str
-
-class DeleteBucketInventoryConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteBucketIntelligentTieringConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
-    ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketLifecycleRequestBucketLifecycleConfigurationDeleteTypeDef(BaseModel):
-    ExpectedBucketOwner: Optional[str] = None
-
-class DeleteBucketLifecycleRequestBucketLifecycleDeleteTypeDef(BaseModel):
-    ExpectedBucketOwner: Optional[str] = None
-
-class DeleteBucketLifecycleRequestRequestTypeDef(BaseModel):
-    Bucket: str
-    ExpectedBucketOwner: Optional[str] = None
-
-class DeleteBucketMetricsConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteBucketInventoryConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketOwnershipControlsRequestRequestTypeDef(BaseModel):
+class DeleteBucketLifecycleRequestBucketLifecycleConfigurationDeleteTypeDef(BaseValidatorModel):
+    ExpectedBucketOwner: Optional[str] = None
+
+class DeleteBucketLifecycleRequestBucketLifecycleDeleteTypeDef(BaseValidatorModel):
+    ExpectedBucketOwner: Optional[str] = None
+
+class DeleteBucketLifecycleRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketPolicyRequestBucketPolicyDeleteTypeDef(BaseModel):
+class DeleteBucketMetricsConfigurationRequestRequestTypeDef(BaseValidatorModel):
+    Bucket: str
+    Id: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketPolicyRequestRequestTypeDef(BaseModel):
+class DeleteBucketOwnershipControlsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketReplicationRequestRequestTypeDef(BaseModel):
+class DeleteBucketPolicyRequestBucketPolicyDeleteTypeDef(BaseValidatorModel):
+    ExpectedBucketOwner: Optional[str] = None
+
+class DeleteBucketPolicyRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketRequestBucketDeleteTypeDef(BaseModel):
-    ExpectedBucketOwner: Optional[str] = None
-
-class DeleteBucketRequestRequestTypeDef(BaseModel):
+class DeleteBucketReplicationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketTaggingRequestBucketTaggingDeleteTypeDef(BaseModel):
+class DeleteBucketRequestBucketDeleteTypeDef(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketTaggingRequestRequestTypeDef(BaseModel):
+class DeleteBucketRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketWebsiteRequestBucketWebsiteDeleteTypeDef(BaseModel):
+class DeleteBucketTaggingRequestBucketTaggingDeleteTypeDef(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteBucketWebsiteRequestRequestTypeDef(BaseModel):
+class DeleteBucketTaggingRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteMarkerReplicationTypeDef(BaseModel):
+class DeleteBucketWebsiteRequestBucketWebsiteDeleteTypeDef(BaseValidatorModel):
+    ExpectedBucketOwner: Optional[str] = None
+
+class DeleteBucketWebsiteRequestRequestTypeDef(BaseValidatorModel):
+    Bucket: str
+    ExpectedBucketOwner: Optional[str] = None
+
+class DeleteMarkerReplicationTypeDef(BaseValidatorModel):
     Status: Optional[DeleteMarkerReplicationStatusType] = None
 
-class DeleteObjectRequestObjectDeleteTypeDef(BaseModel):
+class DeleteObjectRequestObjectDeleteTypeDef(BaseValidatorModel):
     MFA: Optional[str] = None
     VersionId: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
     BypassGovernanceRetention: Optional[bool] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteObjectRequestObjectSummaryDeleteTypeDef(BaseModel):
+class DeleteObjectRequestObjectSummaryDeleteTypeDef(BaseValidatorModel):
     MFA: Optional[str] = None
     VersionId: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
     BypassGovernanceRetention: Optional[bool] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteObjectRequestObjectVersionDeleteTypeDef(BaseModel):
+class DeleteObjectRequestObjectVersionDeleteTypeDef(BaseValidatorModel):
     MFA: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
     BypassGovernanceRetention: Optional[bool] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteObjectRequestRequestTypeDef(BaseModel):
+class DeleteObjectRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     MFA: Optional[str] = None
@@ -320,156 +320,156 @@ class DeleteObjectRequestRequestTypeDef(BaseModel):
     BypassGovernanceRetention: Optional[bool] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class DeleteObjectTaggingRequestRequestTypeDef(BaseModel):
+class DeleteObjectTaggingRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     VersionId: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class DeletedObjectTypeDef(BaseModel):
+class DeletedObjectTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     VersionId: Optional[str] = None
     DeleteMarker: Optional[bool] = None
     DeleteMarkerVersionId: Optional[str] = None
 
-class ErrorTypeDef(BaseModel):
+class ErrorTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     VersionId: Optional[str] = None
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class DeletePublicAccessBlockRequestRequestTypeDef(BaseModel):
+class DeletePublicAccessBlockRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class ObjectIdentifierTypeDef(BaseModel):
+class ObjectIdentifierTypeDef(BaseValidatorModel):
     Key: str
     VersionId: Optional[str] = None
 
-class EncryptionConfigurationTypeDef(BaseModel):
+class EncryptionConfigurationTypeDef(BaseValidatorModel):
     ReplicaKmsKeyID: Optional[str] = None
 
-class EncryptionTypeDef(BaseModel):
+class EncryptionTypeDef(BaseValidatorModel):
     EncryptionType: ServerSideEncryptionType
     KMSKeyId: Optional[str] = None
     KMSContext: Optional[str] = None
 
-class ErrorDocumentTypeDef(BaseModel):
+class ErrorDocumentTypeDef(BaseValidatorModel):
     Key: str
 
-class ExistingObjectReplicationTypeDef(BaseModel):
+class ExistingObjectReplicationTypeDef(BaseValidatorModel):
     Status: ExistingObjectReplicationStatusType
 
-class FilterRuleTypeDef(BaseModel):
+class FilterRuleTypeDef(BaseValidatorModel):
     Name: Optional[FilterRuleNameType] = None
     Value: Optional[str] = None
 
-class GetBucketAccelerateConfigurationRequestRequestTypeDef(BaseModel):
+class GetBucketAccelerateConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
 
-class GetBucketAclRequestRequestTypeDef(BaseModel):
+class GetBucketAclRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketAnalyticsConfigurationRequestRequestTypeDef(BaseModel):
+class GetBucketAnalyticsConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketCorsRequestRequestTypeDef(BaseModel):
+class GetBucketCorsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketEncryptionRequestRequestTypeDef(BaseModel):
+class GetBucketEncryptionRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketIntelligentTieringConfigurationRequestRequestTypeDef(BaseModel):
+class GetBucketIntelligentTieringConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
 
-class GetBucketInventoryConfigurationRequestRequestTypeDef(BaseModel):
-    Bucket: str
-    Id: str
-    ExpectedBucketOwner: Optional[str] = None
-
-class GetBucketLifecycleConfigurationRequestRequestTypeDef(BaseModel):
-    Bucket: str
-    ExpectedBucketOwner: Optional[str] = None
-
-class GetBucketLifecycleRequestRequestTypeDef(BaseModel):
-    Bucket: str
-    ExpectedBucketOwner: Optional[str] = None
-
-class GetBucketLocationRequestRequestTypeDef(BaseModel):
-    Bucket: str
-    ExpectedBucketOwner: Optional[str] = None
-
-class GetBucketLoggingRequestRequestTypeDef(BaseModel):
-    Bucket: str
-    ExpectedBucketOwner: Optional[str] = None
-
-class GetBucketMetricsConfigurationRequestRequestTypeDef(BaseModel):
+class GetBucketInventoryConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketNotificationConfigurationRequestRequestTypeDef(BaseModel):
+class GetBucketLifecycleConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketOwnershipControlsRequestRequestTypeDef(BaseModel):
+class GetBucketLifecycleRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketPolicyRequestRequestTypeDef(BaseModel):
+class GetBucketLocationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class PolicyStatusTypeDef(BaseModel):
+class GetBucketLoggingRequestRequestTypeDef(BaseValidatorModel):
+    Bucket: str
+    ExpectedBucketOwner: Optional[str] = None
+
+class GetBucketMetricsConfigurationRequestRequestTypeDef(BaseValidatorModel):
+    Bucket: str
+    Id: str
+    ExpectedBucketOwner: Optional[str] = None
+
+class GetBucketNotificationConfigurationRequestRequestTypeDef(BaseValidatorModel):
+    Bucket: str
+    ExpectedBucketOwner: Optional[str] = None
+
+class GetBucketOwnershipControlsRequestRequestTypeDef(BaseValidatorModel):
+    Bucket: str
+    ExpectedBucketOwner: Optional[str] = None
+
+class GetBucketPolicyRequestRequestTypeDef(BaseValidatorModel):
+    Bucket: str
+    ExpectedBucketOwner: Optional[str] = None
+
+class PolicyStatusTypeDef(BaseValidatorModel):
     IsPublic: Optional[bool] = None
 
-class GetBucketPolicyStatusRequestRequestTypeDef(BaseModel):
+class GetBucketPolicyStatusRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketReplicationRequestRequestTypeDef(BaseModel):
+class GetBucketReplicationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketRequestPaymentRequestRequestTypeDef(BaseModel):
+class GetBucketRequestPaymentRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketTaggingRequestRequestTypeDef(BaseModel):
+class GetBucketTaggingRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketVersioningRequestRequestTypeDef(BaseModel):
+class GetBucketVersioningRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class IndexDocumentTypeDef(BaseModel):
+class IndexDocumentTypeDef(BaseValidatorModel):
     Suffix: str
 
-class RedirectAllRequestsToTypeDef(BaseModel):
+class RedirectAllRequestsToTypeDef(BaseValidatorModel):
     HostName: str
     Protocol: Optional[ProtocolType] = None
 
-class GetBucketWebsiteRequestRequestTypeDef(BaseModel):
+class GetBucketWebsiteRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GetObjectAclRequestRequestTypeDef(BaseModel):
+class GetObjectAclRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     VersionId: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class ObjectPartTypeDef(BaseModel):
+class ObjectPartTypeDef(BaseValidatorModel):
     PartNumber: Optional[int] = None
     Size: Optional[int] = None
     ChecksumCRC32: Optional[str] = None
@@ -477,7 +477,7 @@ class ObjectPartTypeDef(BaseModel):
     ChecksumSHA1: Optional[str] = None
     ChecksumSHA256: Optional[str] = None
 
-class GetObjectAttributesRequestRequestTypeDef(BaseModel):
+class GetObjectAttributesRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     ObjectAttributes: Sequence[ObjectAttributesType]
@@ -490,158 +490,158 @@ class GetObjectAttributesRequestRequestTypeDef(BaseModel):
     RequestPayer: Optional[Literal["requester"]] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class ObjectLockLegalHoldTypeDef(BaseModel):
+class ObjectLockLegalHoldTypeDef(BaseValidatorModel):
     Status: Optional[ObjectLockLegalHoldStatusType] = None
 
-class GetObjectLegalHoldRequestRequestTypeDef(BaseModel):
+class GetObjectLegalHoldRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     VersionId: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class GetObjectLockConfigurationRequestRequestTypeDef(BaseModel):
+class GetObjectLockConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class ObjectLockRetentionOutputTypeDef(BaseModel):
+class ObjectLockRetentionOutputTypeDef(BaseValidatorModel):
     Mode: Optional[ObjectLockRetentionModeType] = None
     RetainUntilDate: Optional[datetime] = None
 
-class GetObjectRetentionRequestRequestTypeDef(BaseModel):
+class GetObjectRetentionRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     VersionId: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class GetObjectTaggingRequestRequestTypeDef(BaseModel):
+class GetObjectTaggingRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     VersionId: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
 
-class GetObjectTorrentRequestRequestTypeDef(BaseModel):
+class GetObjectTorrentRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     RequestPayer: Optional[Literal["requester"]] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PublicAccessBlockConfigurationTypeDef(BaseModel):
+class PublicAccessBlockConfigurationTypeDef(BaseValidatorModel):
     BlockPublicAcls: Optional[bool] = None
     IgnorePublicAcls: Optional[bool] = None
     BlockPublicPolicy: Optional[bool] = None
     RestrictPublicBuckets: Optional[bool] = None
 
-class GetPublicAccessBlockRequestRequestTypeDef(BaseModel):
+class GetPublicAccessBlockRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class GlacierJobParametersTypeDef(BaseModel):
+class GlacierJobParametersTypeDef(BaseValidatorModel):
     Tier: TierType
 
-class GranteeTypeDef(BaseModel):
+class GranteeTypeDef(BaseValidatorModel):
     Type: TypeType
     DisplayName: Optional[str] = None
     EmailAddress: Optional[str] = None
     ID: Optional[str] = None
     URI: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class HeadBucketRequestRequestTypeDef(BaseModel):
+class HeadBucketRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
-class InitiatorTypeDef(BaseModel):
+class InitiatorTypeDef(BaseValidatorModel):
     ID: Optional[str] = None
     DisplayName: Optional[str] = None
 
-class JSONInputTypeDef(BaseModel):
+class JSONInputTypeDef(BaseValidatorModel):
     Type: Optional[JSONTypeType] = None
 
-class TieringTypeDef(BaseModel):
+class TieringTypeDef(BaseValidatorModel):
     Days: int
     AccessTier: IntelligentTieringAccessTierType
 
-class InventoryFilterTypeDef(BaseModel):
+class InventoryFilterTypeDef(BaseValidatorModel):
     Prefix: str
 
-class InventoryScheduleTypeDef(BaseModel):
+class InventoryScheduleTypeDef(BaseValidatorModel):
     Frequency: InventoryFrequencyType
 
-class SSEKMSTypeDef(BaseModel):
+class SSEKMSTypeDef(BaseValidatorModel):
     KeyId: str
 
-class JSONOutputTypeDef(BaseModel):
+class JSONOutputTypeDef(BaseValidatorModel):
     RecordDelimiter: Optional[str] = None
 
-class LifecycleExpirationExtraExtraOutputTypeDef(BaseModel):
+class LifecycleExpirationExtraExtraOutputTypeDef(BaseValidatorModel):
     Date: Optional[datetime] = None
     Days: Optional[int] = None
     ExpiredObjectDeleteMarker: Optional[bool] = None
 
-class LifecycleExpirationExtraOutputTypeDef(BaseModel):
+class LifecycleExpirationExtraOutputTypeDef(BaseValidatorModel):
     Date: Optional[datetime] = None
     Days: Optional[int] = None
     ExpiredObjectDeleteMarker: Optional[bool] = None
 
-class LifecycleExpirationOutputTypeDef(BaseModel):
+class LifecycleExpirationOutputTypeDef(BaseValidatorModel):
     Date: Optional[datetime] = None
     Days: Optional[int] = None
     ExpiredObjectDeleteMarker: Optional[bool] = None
 
-class NoncurrentVersionExpirationTypeDef(BaseModel):
+class NoncurrentVersionExpirationTypeDef(BaseValidatorModel):
     NoncurrentDays: Optional[int] = None
     NewerNoncurrentVersions: Optional[int] = None
 
-class NoncurrentVersionTransitionTypeDef(BaseModel):
+class NoncurrentVersionTransitionTypeDef(BaseValidatorModel):
     NoncurrentDays: Optional[int] = None
     StorageClass: Optional[TransitionStorageClassType] = None
     NewerNoncurrentVersions: Optional[int] = None
 
-class TransitionExtraOutputTypeDef(BaseModel):
+class TransitionExtraOutputTypeDef(BaseValidatorModel):
     Date: Optional[datetime] = None
     Days: Optional[int] = None
     StorageClass: Optional[TransitionStorageClassType] = None
 
-class TransitionOutputTypeDef(BaseModel):
+class TransitionOutputTypeDef(BaseValidatorModel):
     Date: Optional[datetime] = None
     Days: Optional[int] = None
     StorageClass: Optional[TransitionStorageClassType] = None
 
-class ListBucketAnalyticsConfigurationsRequestRequestTypeDef(BaseModel):
+class ListBucketAnalyticsConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ContinuationToken: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class ListBucketIntelligentTieringConfigurationsRequestRequestTypeDef(BaseModel):
+class ListBucketIntelligentTieringConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ContinuationToken: Optional[str] = None
 
-class ListBucketInventoryConfigurationsRequestRequestTypeDef(BaseModel):
-    Bucket: str
-    ContinuationToken: Optional[str] = None
-    ExpectedBucketOwner: Optional[str] = None
-
-class ListBucketMetricsConfigurationsRequestRequestTypeDef(BaseModel):
+class ListBucketInventoryConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ContinuationToken: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class ListBucketMetricsConfigurationsRequestRequestTypeDef(BaseValidatorModel):
+    Bucket: str
+    ContinuationToken: Optional[str] = None
+    ExpectedBucketOwner: Optional[str] = None
+
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListDirectoryBucketsRequestRequestTypeDef(BaseModel):
+class ListDirectoryBucketsRequestRequestTypeDef(BaseValidatorModel):
     ContinuationToken: Optional[str] = None
     MaxDirectoryBuckets: Optional[int] = None
 
-class ListMultipartUploadsRequestRequestTypeDef(BaseModel):
+class ListMultipartUploadsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
     EncodingType: Optional[Literal["url"]] = None
@@ -652,7 +652,7 @@ class ListMultipartUploadsRequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
 
-class ListObjectVersionsRequestRequestTypeDef(BaseModel):
+class ListObjectVersionsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
     EncodingType: Optional[Literal["url"]] = None
@@ -664,7 +664,7 @@ class ListObjectVersionsRequestRequestTypeDef(BaseModel):
     RequestPayer: Optional[Literal["requester"]] = None
     OptionalObjectAttributes: Optional[Sequence[Literal["RestoreStatus"]]] = None
 
-class ListObjectsRequestRequestTypeDef(BaseModel):
+class ListObjectsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
     EncodingType: Optional[Literal["url"]] = None
@@ -675,7 +675,7 @@ class ListObjectsRequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     OptionalObjectAttributes: Optional[Sequence[Literal["RestoreStatus"]]] = None
 
-class ListObjectsV2RequestRequestTypeDef(BaseModel):
+class ListObjectsV2RequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
     EncodingType: Optional[Literal["url"]] = None
@@ -688,7 +688,7 @@ class ListObjectsV2RequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     OptionalObjectAttributes: Optional[Sequence[Literal["RestoreStatus"]]] = None
 
-class PartTypeDef(BaseModel):
+class PartTypeDef(BaseValidatorModel):
     PartNumber: Optional[int] = None
     LastModified: Optional[datetime] = None
     ETag: Optional[str] = None
@@ -698,7 +698,7 @@ class PartTypeDef(BaseModel):
     ChecksumSHA1: Optional[str] = None
     ChecksumSHA256: Optional[str] = None
 
-class ListPartsRequestRequestTypeDef(BaseModel):
+class ListPartsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     UploadId: str
@@ -710,136 +710,136 @@ class ListPartsRequestRequestTypeDef(BaseModel):
     SSECustomerKey: Optional[str] = None
     SSECustomerKeyMD5: Optional[str] = None
 
-class MetadataEntryTypeDef(BaseModel):
+class MetadataEntryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class ReplicationTimeValueTypeDef(BaseModel):
+class ReplicationTimeValueTypeDef(BaseValidatorModel):
     Minutes: Optional[int] = None
 
-class QueueConfigurationDeprecatedOutputTypeDef(BaseModel):
+class QueueConfigurationDeprecatedOutputTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Event: Optional[EventType] = None
     Events: Optional[List[EventType]] = None
     Queue: Optional[str] = None
 
-class TopicConfigurationDeprecatedOutputTypeDef(BaseModel):
+class TopicConfigurationDeprecatedOutputTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Events: Optional[List[EventType]] = None
     Event: Optional[EventType] = None
     Topic: Optional[str] = None
 
-class QueueConfigurationDeprecatedTypeDef(BaseModel):
+class QueueConfigurationDeprecatedTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Event: Optional[EventType] = None
     Events: Optional[Sequence[EventType]] = None
     Queue: Optional[str] = None
 
-class TopicConfigurationDeprecatedTypeDef(BaseModel):
+class TopicConfigurationDeprecatedTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Events: Optional[Sequence[EventType]] = None
     Event: Optional[EventType] = None
     Topic: Optional[str] = None
 
-class ObjectDownloadFileRequestTypeDef(BaseModel):
+class ObjectDownloadFileRequestTypeDef(BaseValidatorModel):
     Filename: str
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class RestoreStatusTypeDef(BaseModel):
+class RestoreStatusTypeDef(BaseValidatorModel):
     IsRestoreInProgress: Optional[bool] = None
     RestoreExpiryDate: Optional[datetime] = None
 
-class ObjectUploadFileRequestTypeDef(BaseModel):
+class ObjectUploadFileRequestTypeDef(BaseValidatorModel):
     Filename: str
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class OwnershipControlsRuleTypeDef(BaseModel):
+class OwnershipControlsRuleTypeDef(BaseValidatorModel):
     ObjectOwnership: ObjectOwnershipType
 
-class PartitionedPrefixTypeDef(BaseModel):
+class PartitionedPrefixTypeDef(BaseValidatorModel):
     PartitionDateSource: Optional[PartitionDateSourceType] = None
 
-class ProgressTypeDef(BaseModel):
+class ProgressTypeDef(BaseValidatorModel):
     BytesScanned: Optional[int] = None
     BytesProcessed: Optional[int] = None
     BytesReturned: Optional[int] = None
 
-class PutBucketPolicyRequestBucketPolicyPutTypeDef(BaseModel):
+class PutBucketPolicyRequestBucketPolicyPutTypeDef(BaseValidatorModel):
     Policy: str
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ConfirmRemoveSelfBucketAccess: Optional[bool] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketPolicyRequestRequestTypeDef(BaseModel):
+class PutBucketPolicyRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Policy: str
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ConfirmRemoveSelfBucketAccess: Optional[bool] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class RequestPaymentConfigurationTypeDef(BaseModel):
+class RequestPaymentConfigurationTypeDef(BaseValidatorModel):
     Payer: PayerType
 
-class PutBucketVersioningRequestBucketVersioningEnableTypeDef(BaseModel):
+class PutBucketVersioningRequestBucketVersioningEnableTypeDef(BaseValidatorModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     MFA: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class VersioningConfigurationTypeDef(BaseModel):
+class VersioningConfigurationTypeDef(BaseValidatorModel):
     MFADelete: Optional[MFADeleteType] = None
     Status: Optional[BucketVersioningStatusType] = None
 
-class PutBucketVersioningRequestBucketVersioningSuspendTypeDef(BaseModel):
+class PutBucketVersioningRequestBucketVersioningSuspendTypeDef(BaseValidatorModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     MFA: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class RecordsEventTypeDef(BaseModel):
+class RecordsEventTypeDef(BaseValidatorModel):
     Payload: Optional[bytes] = None
 
-class RedirectTypeDef(BaseModel):
+class RedirectTypeDef(BaseValidatorModel):
     HostName: Optional[str] = None
     HttpRedirectCode: Optional[str] = None
     Protocol: Optional[ProtocolType] = None
     ReplaceKeyPrefixWith: Optional[str] = None
     ReplaceKeyWith: Optional[str] = None
 
-class ReplicaModificationsTypeDef(BaseModel):
+class ReplicaModificationsTypeDef(BaseValidatorModel):
     Status: ReplicaModificationsStatusType
 
-class RequestProgressTypeDef(BaseModel):
+class RequestProgressTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class TransitionExtraExtraOutputTypeDef(BaseModel):
+class TransitionExtraExtraOutputTypeDef(BaseValidatorModel):
     Date: Optional[datetime] = None
     Days: Optional[int] = None
     StorageClass: Optional[TransitionStorageClassType] = None
 
-class ScanRangeTypeDef(BaseModel):
+class ScanRangeTypeDef(BaseValidatorModel):
     Start: Optional[int] = None
     End: Optional[int] = None
 
-class ServerSideEncryptionByDefaultTypeDef(BaseModel):
+class ServerSideEncryptionByDefaultTypeDef(BaseValidatorModel):
     SSEAlgorithm: ServerSideEncryptionType
     KMSMasterKeyID: Optional[str] = None
 
-class SseKmsEncryptedObjectsTypeDef(BaseModel):
+class SseKmsEncryptedObjectsTypeDef(BaseValidatorModel):
     Status: SseKmsEncryptedObjectsStatusType
 
-class StatsTypeDef(BaseModel):
+class StatsTypeDef(BaseValidatorModel):
     BytesScanned: Optional[int] = None
     BytesProcessed: Optional[int] = None
     BytesReturned: Optional[int] = None
 
-class AbortMultipartUploadOutputTypeDef(BaseModel):
+class AbortMultipartUploadOutputTypeDef(BaseValidatorModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CompleteMultipartUploadOutputTypeDef(BaseModel):
+class CompleteMultipartUploadOutputTypeDef(BaseValidatorModel):
     Location: str
     Bucket: str
     Key: str
@@ -856,11 +856,11 @@ class CompleteMultipartUploadOutputTypeDef(BaseModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBucketOutputTypeDef(BaseModel):
+class CreateBucketOutputTypeDef(BaseValidatorModel):
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMultipartUploadOutputTypeDef(BaseModel):
+class CreateMultipartUploadOutputTypeDef(BaseValidatorModel):
     AbortDate: datetime
     AbortRuleId: str
     Bucket: str
@@ -876,42 +876,42 @@ class CreateMultipartUploadOutputTypeDef(BaseModel):
     ChecksumAlgorithm: ChecksumAlgorithmType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteObjectOutputTypeDef(BaseModel):
+class DeleteObjectOutputTypeDef(BaseValidatorModel):
     DeleteMarker: bool
     VersionId: str
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteObjectTaggingOutputTypeDef(BaseModel):
+class DeleteObjectTaggingOutputTypeDef(BaseValidatorModel):
     VersionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketAccelerateConfigurationOutputTypeDef(BaseModel):
+class GetBucketAccelerateConfigurationOutputTypeDef(BaseValidatorModel):
     Status: BucketAccelerateStatusType
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketLocationOutputTypeDef(BaseModel):
+class GetBucketLocationOutputTypeDef(BaseValidatorModel):
     LocationConstraint: BucketLocationConstraintType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketPolicyOutputTypeDef(BaseModel):
+class GetBucketPolicyOutputTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketRequestPaymentOutputTypeDef(BaseModel):
+class GetBucketRequestPaymentOutputTypeDef(BaseValidatorModel):
     Payer: PayerType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketVersioningOutputTypeDef(BaseModel):
+class GetBucketVersioningOutputTypeDef(BaseValidatorModel):
     Status: BucketVersioningStatusType
     MFADelete: MFADeleteStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetObjectOutputTypeDef(BaseModel):
+class GetObjectOutputTypeDef(BaseValidatorModel):
     Body: StreamingBody
     DeleteMarker: bool
     AcceptRanges: str
@@ -950,19 +950,19 @@ class GetObjectOutputTypeDef(BaseModel):
     ObjectLockLegalHoldStatus: ObjectLockLegalHoldStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetObjectTorrentOutputTypeDef(BaseModel):
+class GetObjectTorrentOutputTypeDef(BaseValidatorModel):
     Body: StreamingBody
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HeadBucketOutputTypeDef(BaseModel):
+class HeadBucketOutputTypeDef(BaseValidatorModel):
     BucketLocationType: Literal["AvailabilityZone"]
     BucketLocationName: str
     BucketRegion: str
     AccessPointAlias: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HeadObjectOutputTypeDef(BaseModel):
+class HeadObjectOutputTypeDef(BaseValidatorModel):
     DeleteMarker: bool
     AcceptRanges: str
     Expiration: str
@@ -999,19 +999,19 @@ class HeadObjectOutputTypeDef(BaseModel):
     ObjectLockLegalHoldStatus: ObjectLockLegalHoldStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutObjectAclOutputTypeDef(BaseModel):
+class PutObjectAclOutputTypeDef(BaseValidatorModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutObjectLegalHoldOutputTypeDef(BaseModel):
+class PutObjectLegalHoldOutputTypeDef(BaseValidatorModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutObjectLockConfigurationOutputTypeDef(BaseModel):
+class PutObjectLockConfigurationOutputTypeDef(BaseValidatorModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutObjectOutputTypeDef(BaseModel):
+class PutObjectOutputTypeDef(BaseValidatorModel):
     Expiration: str
     ETag: str
     ChecksumCRC32: str
@@ -1028,20 +1028,20 @@ class PutObjectOutputTypeDef(BaseModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutObjectRetentionOutputTypeDef(BaseModel):
+class PutObjectRetentionOutputTypeDef(BaseValidatorModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutObjectTaggingOutputTypeDef(BaseModel):
+class PutObjectTaggingOutputTypeDef(BaseValidatorModel):
     VersionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreObjectOutputTypeDef(BaseModel):
+class RestoreObjectOutputTypeDef(BaseValidatorModel):
     RequestCharged: Literal["requester"]
     RestoreOutputPath: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UploadPartOutputTypeDef(BaseModel):
+class UploadPartOutputTypeDef(BaseValidatorModel):
     ServerSideEncryption: ServerSideEncryptionType
     ETag: str
     ChecksumCRC32: str
@@ -1055,87 +1055,87 @@ class UploadPartOutputTypeDef(BaseModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBucketAccelerateConfigurationRequestRequestTypeDef(BaseModel):
+class PutBucketAccelerateConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     AccelerateConfiguration: AccelerateConfigurationTypeDef
     ExpectedBucketOwner: Optional[str] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
 
-class DeleteMarkerEntryTypeDef(BaseModel):
+class DeleteMarkerEntryTypeDef(BaseValidatorModel):
     Owner: Optional[OwnerTypeDef] = None
     Key: Optional[str] = None
     VersionId: Optional[str] = None
     IsLatest: Optional[bool] = None
     LastModified: Optional[datetime] = None
 
-class AnalyticsAndOperatorOutputTypeDef(BaseModel):
+class AnalyticsAndOperatorOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class AnalyticsAndOperatorTypeDef(BaseModel):
+class AnalyticsAndOperatorTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class GetBucketTaggingOutputTypeDef(BaseModel):
+class GetBucketTaggingOutputTypeDef(BaseValidatorModel):
     TagSet: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetObjectTaggingOutputTypeDef(BaseModel):
+class GetObjectTaggingOutputTypeDef(BaseValidatorModel):
     VersionId: str
     TagSet: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IntelligentTieringAndOperatorOutputTypeDef(BaseModel):
+class IntelligentTieringAndOperatorOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class IntelligentTieringAndOperatorTypeDef(BaseModel):
+class IntelligentTieringAndOperatorTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class LifecycleRuleAndOperatorExtraOutputTypeDef(BaseModel):
+class LifecycleRuleAndOperatorExtraOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     ObjectSizeGreaterThan: Optional[int] = None
     ObjectSizeLessThan: Optional[int] = None
 
-class LifecycleRuleAndOperatorOutputTypeDef(BaseModel):
+class LifecycleRuleAndOperatorOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     ObjectSizeGreaterThan: Optional[int] = None
     ObjectSizeLessThan: Optional[int] = None
 
-class LifecycleRuleAndOperatorTypeDef(BaseModel):
+class LifecycleRuleAndOperatorTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     ObjectSizeGreaterThan: Optional[int] = None
     ObjectSizeLessThan: Optional[int] = None
 
-class MetricsAndOperatorOutputTypeDef(BaseModel):
+class MetricsAndOperatorOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     AccessPointArn: Optional[str] = None
 
-class MetricsAndOperatorTypeDef(BaseModel):
+class MetricsAndOperatorTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     AccessPointArn: Optional[str] = None
 
-class ReplicationRuleAndOperatorOutputTypeDef(BaseModel):
+class ReplicationRuleAndOperatorOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ReplicationRuleAndOperatorTypeDef(BaseModel):
+class ReplicationRuleAndOperatorTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TaggingTypeDef(BaseModel):
+class TaggingTypeDef(BaseValidatorModel):
     TagSet: Sequence[TagTypeDef]
 
-class AnalyticsExportDestinationTypeDef(BaseModel):
+class AnalyticsExportDestinationTypeDef(BaseValidatorModel):
     S3BucketDestination: AnalyticsS3BucketDestinationTypeDef
 
-class UploadPartRequestMultipartUploadPartUploadTypeDef(BaseModel):
+class UploadPartRequestMultipartUploadPartUploadTypeDef(BaseValidatorModel):
     Body: Optional[BlobTypeDef] = None
     ContentLength: Optional[int] = None
     ContentMD5: Optional[str] = None
@@ -1150,7 +1150,7 @@ class UploadPartRequestMultipartUploadPartUploadTypeDef(BaseModel):
     RequestPayer: Optional[Literal["requester"]] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class UploadPartRequestRequestTypeDef(BaseModel):
+class UploadPartRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     PartNumber: int
@@ -1169,7 +1169,7 @@ class UploadPartRequestRequestTypeDef(BaseModel):
     RequestPayer: Optional[Literal["requester"]] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class BucketCopyRequestTypeDef(BaseModel):
+class BucketCopyRequestTypeDef(BaseValidatorModel):
     CopySource: CopySourceTypeDef
     Key: str
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
@@ -1177,7 +1177,7 @@ class BucketCopyRequestTypeDef(BaseModel):
     SourceClient: Optional[Optional[BaseClient]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class ClientCopyRequestTypeDef(BaseModel):
+class ClientCopyRequestTypeDef(BaseValidatorModel):
     CopySource: CopySourceTypeDef
     Bucket: str
     Key: str
@@ -1186,28 +1186,28 @@ class ClientCopyRequestTypeDef(BaseModel):
     SourceClient: Optional[Optional[BaseClient]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class ObjectCopyRequestTypeDef(BaseModel):
+class ObjectCopyRequestTypeDef(BaseValidatorModel):
     CopySource: CopySourceTypeDef
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
     Callback: Optional[Optional[Callable[..., Any]]] = None
     SourceClient: Optional[Optional[BaseClient]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class BucketDownloadFileobjRequestTypeDef(BaseModel):
+class BucketDownloadFileobjRequestTypeDef(BaseValidatorModel):
     Key: str
     Fileobj: FileobjTypeDef
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class BucketUploadFileobjRequestTypeDef(BaseModel):
+class BucketUploadFileobjRequestTypeDef(BaseValidatorModel):
     Fileobj: FileobjTypeDef
     Key: str
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class ClientDownloadFileobjRequestTypeDef(BaseModel):
+class ClientDownloadFileobjRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     Fileobj: FileobjTypeDef
@@ -1215,7 +1215,7 @@ class ClientDownloadFileobjRequestTypeDef(BaseModel):
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class ClientUploadFileobjRequestTypeDef(BaseModel):
+class ClientUploadFileobjRequestTypeDef(BaseValidatorModel):
     Fileobj: FileobjTypeDef
     Bucket: str
     Key: str
@@ -1223,39 +1223,39 @@ class ClientUploadFileobjRequestTypeDef(BaseModel):
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class ObjectDownloadFileobjRequestTypeDef(BaseModel):
+class ObjectDownloadFileobjRequestTypeDef(BaseValidatorModel):
     Fileobj: FileobjTypeDef
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class ObjectUploadFileobjRequestTypeDef(BaseModel):
+class ObjectUploadFileobjRequestTypeDef(BaseValidatorModel):
     Fileobj: FileobjTypeDef
     ExtraArgs: Optional[Optional[Dict[str, Any]]] = None
     Callback: Optional[Optional[Callable[..., Any]]] = None
     Config: Optional[Optional[TransferConfig]] = None
 
-class ListBucketsOutputTypeDef(BaseModel):
+class ListBucketsOutputTypeDef(BaseValidatorModel):
     Buckets: List[BucketTypeDef]
     Owner: OwnerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDirectoryBucketsOutputTypeDef(BaseModel):
+class ListDirectoryBucketsOutputTypeDef(BaseValidatorModel):
     Buckets: List[BucketTypeDef]
     ContinuationToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CORSConfigurationTypeDef(BaseModel):
+class CORSConfigurationTypeDef(BaseValidatorModel):
     CORSRules: Sequence[CORSRuleTypeDef]
 
-class GetBucketCorsOutputTypeDef(BaseModel):
+class GetBucketCorsOutputTypeDef(BaseValidatorModel):
     CORSRules: List[CORSRuleOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CompletedMultipartUploadTypeDef(BaseModel):
+class CompletedMultipartUploadTypeDef(BaseValidatorModel):
     Parts: Optional[Sequence[CompletedPartTypeDef]] = None
 
-class CopyObjectOutputTypeDef(BaseModel):
+class CopyObjectOutputTypeDef(BaseValidatorModel):
     CopyObjectResult: CopyObjectResultTypeDef
     Expiration: str
     CopySourceVersionId: str
@@ -1269,7 +1269,7 @@ class CopyObjectOutputTypeDef(BaseModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CopyObjectRequestObjectCopyFromTypeDef(BaseModel):
+class CopyObjectRequestObjectCopyFromTypeDef(BaseValidatorModel):
     CopySource: str
     ACL: Optional[ObjectCannedACLType] = None
     CacheControl: Optional[str] = None
@@ -1310,7 +1310,7 @@ class CopyObjectRequestObjectCopyFromTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ExpectedSourceBucketOwner: Optional[str] = None
 
-class CopyObjectRequestObjectSummaryCopyFromTypeDef(BaseModel):
+class CopyObjectRequestObjectSummaryCopyFromTypeDef(BaseValidatorModel):
     CopySource: str
     ACL: Optional[ObjectCannedACLType] = None
     CacheControl: Optional[str] = None
@@ -1351,7 +1351,7 @@ class CopyObjectRequestObjectSummaryCopyFromTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ExpectedSourceBucketOwner: Optional[str] = None
 
-class CreateMultipartUploadRequestObjectInitiateMultipartUploadTypeDef(BaseModel):
+class CreateMultipartUploadRequestObjectInitiateMultipartUploadTypeDef(BaseValidatorModel):
     ACL: Optional[ObjectCannedACLType] = None
     CacheControl: Optional[str] = None
     ContentDisposition: Optional[str] = None
@@ -1381,7 +1381,7 @@ class CreateMultipartUploadRequestObjectInitiateMultipartUploadTypeDef(BaseModel
     ExpectedBucketOwner: Optional[str] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
 
-class CreateMultipartUploadRequestObjectSummaryInitiateMultipartUploadTypeDef(BaseModel):
+class CreateMultipartUploadRequestObjectSummaryInitiateMultipartUploadTypeDef(BaseValidatorModel):
     ACL: Optional[ObjectCannedACLType] = None
     CacheControl: Optional[str] = None
     ContentDisposition: Optional[str] = None
@@ -1411,7 +1411,7 @@ class CreateMultipartUploadRequestObjectSummaryInitiateMultipartUploadTypeDef(Ba
     ExpectedBucketOwner: Optional[str] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
 
-class CreateMultipartUploadRequestRequestTypeDef(BaseModel):
+class CreateMultipartUploadRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     ACL: Optional[ObjectCannedACLType] = None
@@ -1443,7 +1443,7 @@ class CreateMultipartUploadRequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
 
-class GetObjectRequestObjectGetTypeDef(BaseModel):
+class GetObjectRequestObjectGetTypeDef(BaseValidatorModel):
     IfMatch: Optional[str] = None
     IfModifiedSince: Optional[TimestampTypeDef] = None
     IfNoneMatch: Optional[str] = None
@@ -1464,7 +1464,7 @@ class GetObjectRequestObjectGetTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ChecksumMode: Optional[Literal["ENABLED"]] = None
 
-class GetObjectRequestObjectSummaryGetTypeDef(BaseModel):
+class GetObjectRequestObjectSummaryGetTypeDef(BaseValidatorModel):
     IfMatch: Optional[str] = None
     IfModifiedSince: Optional[TimestampTypeDef] = None
     IfNoneMatch: Optional[str] = None
@@ -1485,7 +1485,7 @@ class GetObjectRequestObjectSummaryGetTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ChecksumMode: Optional[Literal["ENABLED"]] = None
 
-class GetObjectRequestObjectVersionGetTypeDef(BaseModel):
+class GetObjectRequestObjectVersionGetTypeDef(BaseValidatorModel):
     IfMatch: Optional[str] = None
     IfModifiedSince: Optional[TimestampTypeDef] = None
     IfNoneMatch: Optional[str] = None
@@ -1505,7 +1505,7 @@ class GetObjectRequestObjectVersionGetTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ChecksumMode: Optional[Literal["ENABLED"]] = None
 
-class GetObjectRequestRequestTypeDef(BaseModel):
+class GetObjectRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     IfMatch: Optional[str] = None
@@ -1528,7 +1528,7 @@ class GetObjectRequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ChecksumMode: Optional[Literal["ENABLED"]] = None
 
-class HeadObjectRequestObjectVersionHeadTypeDef(BaseModel):
+class HeadObjectRequestObjectVersionHeadTypeDef(BaseValidatorModel):
     IfMatch: Optional[str] = None
     IfModifiedSince: Optional[TimestampTypeDef] = None
     IfNoneMatch: Optional[str] = None
@@ -1548,7 +1548,7 @@ class HeadObjectRequestObjectVersionHeadTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ChecksumMode: Optional[Literal["ENABLED"]] = None
 
-class HeadObjectRequestRequestTypeDef(BaseModel):
+class HeadObjectRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     IfMatch: Optional[str] = None
@@ -1571,16 +1571,16 @@ class HeadObjectRequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ChecksumMode: Optional[Literal["ENABLED"]] = None
 
-class LifecycleExpirationTypeDef(BaseModel):
+class LifecycleExpirationTypeDef(BaseValidatorModel):
     Date: Optional[TimestampTypeDef] = None
     Days: Optional[int] = None
     ExpiredObjectDeleteMarker: Optional[bool] = None
 
-class ObjectLockRetentionTypeDef(BaseModel):
+class ObjectLockRetentionTypeDef(BaseValidatorModel):
     Mode: Optional[ObjectLockRetentionModeType] = None
     RetainUntilDate: Optional[TimestampTypeDef] = None
 
-class PutObjectRequestBucketPutObjectTypeDef(BaseModel):
+class PutObjectRequestBucketPutObjectTypeDef(BaseValidatorModel):
     Key: str
     ACL: Optional[ObjectCannedACLType] = None
     Body: Optional[BlobTypeDef] = None
@@ -1618,7 +1618,7 @@ class PutObjectRequestBucketPutObjectTypeDef(BaseModel):
     ObjectLockLegalHoldStatus: Optional[ObjectLockLegalHoldStatusType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutObjectRequestObjectPutTypeDef(BaseModel):
+class PutObjectRequestObjectPutTypeDef(BaseValidatorModel):
     ACL: Optional[ObjectCannedACLType] = None
     Body: Optional[BlobTypeDef] = None
     CacheControl: Optional[str] = None
@@ -1655,7 +1655,7 @@ class PutObjectRequestObjectPutTypeDef(BaseModel):
     ObjectLockLegalHoldStatus: Optional[ObjectLockLegalHoldStatusType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutObjectRequestObjectSummaryPutTypeDef(BaseModel):
+class PutObjectRequestObjectSummaryPutTypeDef(BaseValidatorModel):
     ACL: Optional[ObjectCannedACLType] = None
     Body: Optional[BlobTypeDef] = None
     CacheControl: Optional[str] = None
@@ -1692,7 +1692,7 @@ class PutObjectRequestObjectSummaryPutTypeDef(BaseModel):
     ObjectLockLegalHoldStatus: Optional[ObjectLockLegalHoldStatusType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutObjectRequestRequestTypeDef(BaseModel):
+class PutObjectRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     ACL: Optional[ObjectCannedACLType] = None
@@ -1731,12 +1731,12 @@ class PutObjectRequestRequestTypeDef(BaseModel):
     ObjectLockLegalHoldStatus: Optional[ObjectLockLegalHoldStatusType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class TransitionTypeDef(BaseModel):
+class TransitionTypeDef(BaseValidatorModel):
     Date: Optional[TimestampTypeDef] = None
     Days: Optional[int] = None
     StorageClass: Optional[TransitionStorageClassType] = None
 
-class WriteGetObjectResponseRequestRequestTypeDef(BaseModel):
+class WriteGetObjectResponseRequestRequestTypeDef(BaseValidatorModel):
     RequestRoute: str
     RequestToken: str
     Body: Optional[BlobTypeDef] = None
@@ -1778,7 +1778,7 @@ class WriteGetObjectResponseRequestRequestTypeDef(BaseModel):
     VersionId: Optional[str] = None
     BucketKeyEnabled: Optional[bool] = None
 
-class UploadPartCopyOutputTypeDef(BaseModel):
+class UploadPartCopyOutputTypeDef(BaseValidatorModel):
     CopySourceVersionId: str
     CopyPartResult: CopyPartResultTypeDef
     ServerSideEncryption: ServerSideEncryptionType
@@ -1789,42 +1789,42 @@ class UploadPartCopyOutputTypeDef(BaseModel):
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBucketConfigurationTypeDef(BaseModel):
+class CreateBucketConfigurationTypeDef(BaseValidatorModel):
     LocationConstraint: Optional[BucketLocationConstraintType] = None
     Location: Optional[LocationInfoTypeDef] = None
     Bucket: Optional[BucketInfoTypeDef] = None
 
-class CreateSessionOutputTypeDef(BaseModel):
+class CreateSessionOutputTypeDef(BaseValidatorModel):
     Credentials: SessionCredentialsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ObjectLockRuleTypeDef(BaseModel):
+class ObjectLockRuleTypeDef(BaseValidatorModel):
     DefaultRetention: Optional[DefaultRetentionTypeDef] = None
 
-class DeleteObjectsOutputTypeDef(BaseModel):
+class DeleteObjectsOutputTypeDef(BaseValidatorModel):
     Deleted: List[DeletedObjectTypeDef]
     RequestCharged: Literal["requester"]
     Errors: List[ErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTypeDef(BaseModel):
+class DeleteTypeDef(BaseValidatorModel):
     Objects: Sequence[ObjectIdentifierTypeDef]
     Quiet: Optional[bool] = None
 
-class S3KeyFilterExtraOutputTypeDef(BaseModel):
+class S3KeyFilterExtraOutputTypeDef(BaseValidatorModel):
     FilterRules: Optional[List[FilterRuleTypeDef]] = None
 
-class S3KeyFilterOutputTypeDef(BaseModel):
+class S3KeyFilterOutputTypeDef(BaseValidatorModel):
     FilterRules: Optional[List[FilterRuleTypeDef]] = None
 
-class S3KeyFilterTypeDef(BaseModel):
+class S3KeyFilterTypeDef(BaseValidatorModel):
     FilterRules: Optional[Sequence[FilterRuleTypeDef]] = None
 
-class GetBucketPolicyStatusOutputTypeDef(BaseModel):
+class GetBucketPolicyStatusOutputTypeDef(BaseValidatorModel):
     PolicyStatus: PolicyStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetObjectAttributesPartsTypeDef(BaseModel):
+class GetObjectAttributesPartsTypeDef(BaseValidatorModel):
     TotalPartsCount: Optional[int] = None
     PartNumberMarker: Optional[int] = None
     NextPartNumberMarker: Optional[int] = None
@@ -1832,11 +1832,11 @@ class GetObjectAttributesPartsTypeDef(BaseModel):
     IsTruncated: Optional[bool] = None
     Parts: Optional[List[ObjectPartTypeDef]] = None
 
-class GetObjectLegalHoldOutputTypeDef(BaseModel):
+class GetObjectLegalHoldOutputTypeDef(BaseValidatorModel):
     LegalHold: ObjectLockLegalHoldTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutObjectLegalHoldRequestRequestTypeDef(BaseModel):
+class PutObjectLegalHoldRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     LegalHold: Optional[ObjectLockLegalHoldTypeDef] = None
@@ -1846,64 +1846,40 @@ class PutObjectLegalHoldRequestRequestTypeDef(BaseModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class GetObjectRetentionOutputTypeDef(BaseModel):
+class GetObjectRetentionOutputTypeDef(BaseValidatorModel):
     Retention: ObjectLockRetentionOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPublicAccessBlockOutputTypeDef(BaseModel):
+class GetPublicAccessBlockOutputTypeDef(BaseValidatorModel):
     PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutPublicAccessBlockRequestRequestTypeDef(BaseModel):
+class PutPublicAccessBlockRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
     ContentMD5: Optional[str] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class GrantTypeDef(BaseModel):
+class GrantTypeDef(BaseValidatorModel):
     Grantee: Optional[GranteeTypeDef] = None
     Permission: Optional[PermissionType] = None
 
-class TargetGrantTypeDef(BaseModel):
+class TargetGrantTypeDef(BaseValidatorModel):
     Grantee: Optional[GranteeTypeDef] = None
     Permission: Optional[BucketLogsPermissionType] = None
 
-class HeadBucketRequestBucketExistsWaitTypeDef(BaseModel):
+class HeadBucketRequestBucketExistsWaitTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class HeadBucketRequestBucketNotExistsWaitTypeDef(BaseModel):
+class HeadBucketRequestBucketNotExistsWaitTypeDef(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class HeadObjectRequestObjectExistsWaitTypeDef(BaseModel):
-    Bucket: str
-    Key: str
-    IfMatch: Optional[str] = None
-    IfModifiedSince: Optional[TimestampTypeDef] = None
-    IfNoneMatch: Optional[str] = None
-    IfUnmodifiedSince: Optional[TimestampTypeDef] = None
-    Range: Optional[str] = None
-    ResponseCacheControl: Optional[str] = None
-    ResponseContentDisposition: Optional[str] = None
-    ResponseContentEncoding: Optional[str] = None
-    ResponseContentLanguage: Optional[str] = None
-    ResponseContentType: Optional[str] = None
-    ResponseExpires: Optional[TimestampTypeDef] = None
-    VersionId: Optional[str] = None
-    SSECustomerAlgorithm: Optional[str] = None
-    SSECustomerKey: Optional[str] = None
-    SSECustomerKeyMD5: Optional[str] = None
-    RequestPayer: Optional[Literal["requester"]] = None
-    PartNumber: Optional[int] = None
-    ExpectedBucketOwner: Optional[str] = None
-    ChecksumMode: Optional[Literal["ENABLED"]] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
-
-class HeadObjectRequestObjectNotExistsWaitTypeDef(BaseModel):
+class HeadObjectRequestObjectExistsWaitTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     IfMatch: Optional[str] = None
@@ -1927,7 +1903,31 @@ class HeadObjectRequestObjectNotExistsWaitTypeDef(BaseModel):
     ChecksumMode: Optional[Literal["ENABLED"]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class MultipartUploadTypeDef(BaseModel):
+class HeadObjectRequestObjectNotExistsWaitTypeDef(BaseValidatorModel):
+    Bucket: str
+    Key: str
+    IfMatch: Optional[str] = None
+    IfModifiedSince: Optional[TimestampTypeDef] = None
+    IfNoneMatch: Optional[str] = None
+    IfUnmodifiedSince: Optional[TimestampTypeDef] = None
+    Range: Optional[str] = None
+    ResponseCacheControl: Optional[str] = None
+    ResponseContentDisposition: Optional[str] = None
+    ResponseContentEncoding: Optional[str] = None
+    ResponseContentLanguage: Optional[str] = None
+    ResponseContentType: Optional[str] = None
+    ResponseExpires: Optional[TimestampTypeDef] = None
+    VersionId: Optional[str] = None
+    SSECustomerAlgorithm: Optional[str] = None
+    SSECustomerKey: Optional[str] = None
+    SSECustomerKeyMD5: Optional[str] = None
+    RequestPayer: Optional[Literal["requester"]] = None
+    PartNumber: Optional[int] = None
+    ExpectedBucketOwner: Optional[str] = None
+    ChecksumMode: Optional[Literal["ENABLED"]] = None
+    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
+class MultipartUploadTypeDef(BaseValidatorModel):
     UploadId: Optional[str] = None
     Key: Optional[str] = None
     Initiated: Optional[datetime] = None
@@ -1936,25 +1936,25 @@ class MultipartUploadTypeDef(BaseModel):
     Initiator: Optional[InitiatorTypeDef] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
 
-class InputSerializationTypeDef(BaseModel):
+class InputSerializationTypeDef(BaseValidatorModel):
     CSV: Optional[CSVInputTypeDef] = None
     CompressionType: Optional[CompressionTypeType] = None
     JSON: Optional[JSONInputTypeDef] = None
     Parquet: Optional[Mapping[str, Any]] = None
 
-class InventoryEncryptionOutputTypeDef(BaseModel):
+class InventoryEncryptionOutputTypeDef(BaseValidatorModel):
     SSES3: Optional[Dict[str, Any]] = None
     SSEKMS: Optional[SSEKMSTypeDef] = None
 
-class InventoryEncryptionTypeDef(BaseModel):
+class InventoryEncryptionTypeDef(BaseValidatorModel):
     SSES3: Optional[Mapping[str, Any]] = None
     SSEKMS: Optional[SSEKMSTypeDef] = None
 
-class OutputSerializationTypeDef(BaseModel):
+class OutputSerializationTypeDef(BaseValidatorModel):
     CSV: Optional[CSVOutputTypeDef] = None
     JSON: Optional[JSONOutputTypeDef] = None
 
-class RuleOutputTypeDef(BaseModel):
+class RuleOutputTypeDef(BaseValidatorModel):
     Prefix: str
     Status: ExpirationStatusType
     Expiration: Optional[LifecycleExpirationOutputTypeDef] = None
@@ -1964,10 +1964,10 @@ class RuleOutputTypeDef(BaseModel):
     NoncurrentVersionExpiration: Optional[NoncurrentVersionExpirationTypeDef] = None
     AbortIncompleteMultipartUpload: Optional[AbortIncompleteMultipartUploadTypeDef] = None
 
-class ListDirectoryBucketsRequestListDirectoryBucketsPaginateTypeDef(BaseModel):
+class ListDirectoryBucketsRequestListDirectoryBucketsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMultipartUploadsRequestListMultipartUploadsPaginateTypeDef(BaseModel):
+class ListMultipartUploadsRequestListMultipartUploadsPaginateTypeDef(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
     EncodingType: Optional[Literal["url"]] = None
@@ -1976,7 +1976,7 @@ class ListMultipartUploadsRequestListMultipartUploadsPaginateTypeDef(BaseModel):
     RequestPayer: Optional[Literal["requester"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListObjectVersionsRequestListObjectVersionsPaginateTypeDef(BaseModel):
+class ListObjectVersionsRequestListObjectVersionsPaginateTypeDef(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
     EncodingType: Optional[Literal["url"]] = None
@@ -1986,7 +1986,7 @@ class ListObjectVersionsRequestListObjectVersionsPaginateTypeDef(BaseModel):
     OptionalObjectAttributes: Optional[Sequence[Literal["RestoreStatus"]]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListObjectsRequestListObjectsPaginateTypeDef(BaseModel):
+class ListObjectsRequestListObjectsPaginateTypeDef(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
     EncodingType: Optional[Literal["url"]] = None
@@ -1996,7 +1996,7 @@ class ListObjectsRequestListObjectsPaginateTypeDef(BaseModel):
     OptionalObjectAttributes: Optional[Sequence[Literal["RestoreStatus"]]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListObjectsV2RequestListObjectsV2PaginateTypeDef(BaseModel):
+class ListObjectsV2RequestListObjectsV2PaginateTypeDef(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
     EncodingType: Optional[Literal["url"]] = None
@@ -2008,7 +2008,7 @@ class ListObjectsV2RequestListObjectsV2PaginateTypeDef(BaseModel):
     OptionalObjectAttributes: Optional[Sequence[Literal["RestoreStatus"]]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPartsRequestListPartsPaginateTypeDef(BaseModel):
+class ListPartsRequestListPartsPaginateTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     UploadId: str
@@ -2019,7 +2019,7 @@ class ListPartsRequestListPartsPaginateTypeDef(BaseModel):
     SSECustomerKeyMD5: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPartsOutputTypeDef(BaseModel):
+class ListPartsOutputTypeDef(BaseValidatorModel):
     AbortDate: datetime
     AbortRuleId: str
     Bucket: str
@@ -2037,26 +2037,26 @@ class ListPartsOutputTypeDef(BaseModel):
     ChecksumAlgorithm: ChecksumAlgorithmType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricsTypeDef(BaseModel):
+class MetricsTypeDef(BaseValidatorModel):
     Status: MetricsStatusType
     EventThreshold: Optional[ReplicationTimeValueTypeDef] = None
 
-class ReplicationTimeTypeDef(BaseModel):
+class ReplicationTimeTypeDef(BaseValidatorModel):
     Status: ReplicationTimeStatusType
     Time: ReplicationTimeValueTypeDef
 
-class NotificationConfigurationDeprecatedResponseTypeDef(BaseModel):
+class NotificationConfigurationDeprecatedResponseTypeDef(BaseValidatorModel):
     TopicConfiguration: TopicConfigurationDeprecatedOutputTypeDef
     QueueConfiguration: QueueConfigurationDeprecatedOutputTypeDef
     CloudFunctionConfiguration: CloudFunctionConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NotificationConfigurationDeprecatedTypeDef(BaseModel):
+class NotificationConfigurationDeprecatedTypeDef(BaseValidatorModel):
     TopicConfiguration: Optional[TopicConfigurationDeprecatedTypeDef] = None
     QueueConfiguration: Optional[QueueConfigurationDeprecatedTypeDef] = None
     CloudFunctionConfiguration: Optional[CloudFunctionConfigurationTypeDef] = None
 
-class ObjectTypeDef(BaseModel):
+class ObjectTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     LastModified: Optional[datetime] = None
     ETag: Optional[str] = None
@@ -2066,7 +2066,7 @@ class ObjectTypeDef(BaseModel):
     Owner: Optional[OwnerTypeDef] = None
     RestoreStatus: Optional[RestoreStatusTypeDef] = None
 
-class ObjectVersionTypeDef(BaseModel):
+class ObjectVersionTypeDef(BaseValidatorModel):
     ETag: Optional[str] = None
     ChecksumAlgorithm: Optional[List[ChecksumAlgorithmType]] = None
     Size: Optional[int] = None
@@ -2078,56 +2078,56 @@ class ObjectVersionTypeDef(BaseModel):
     Owner: Optional[OwnerTypeDef] = None
     RestoreStatus: Optional[RestoreStatusTypeDef] = None
 
-class OwnershipControlsOutputTypeDef(BaseModel):
+class OwnershipControlsOutputTypeDef(BaseValidatorModel):
     Rules: List[OwnershipControlsRuleTypeDef]
 
-class OwnershipControlsTypeDef(BaseModel):
+class OwnershipControlsTypeDef(BaseValidatorModel):
     Rules: Sequence[OwnershipControlsRuleTypeDef]
 
-class TargetObjectKeyFormatExtraOutputTypeDef(BaseModel):
+class TargetObjectKeyFormatExtraOutputTypeDef(BaseValidatorModel):
     SimplePrefix: Optional[Dict[str, Any]] = None
     PartitionedPrefix: Optional[PartitionedPrefixTypeDef] = None
 
-class TargetObjectKeyFormatOutputTypeDef(BaseModel):
+class TargetObjectKeyFormatOutputTypeDef(BaseValidatorModel):
     SimplePrefix: Optional[Dict[str, Any]] = None
     PartitionedPrefix: Optional[PartitionedPrefixTypeDef] = None
 
-class TargetObjectKeyFormatTypeDef(BaseModel):
+class TargetObjectKeyFormatTypeDef(BaseValidatorModel):
     SimplePrefix: Optional[Mapping[str, Any]] = None
     PartitionedPrefix: Optional[PartitionedPrefixTypeDef] = None
 
-class ProgressEventTypeDef(BaseModel):
+class ProgressEventTypeDef(BaseValidatorModel):
     Details: Optional[ProgressTypeDef] = None
 
-class PutBucketRequestPaymentRequestBucketRequestPaymentPutTypeDef(BaseModel):
+class PutBucketRequestPaymentRequestBucketRequestPaymentPutTypeDef(BaseValidatorModel):
     RequestPaymentConfiguration: RequestPaymentConfigurationTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketRequestPaymentRequestRequestTypeDef(BaseModel):
+class PutBucketRequestPaymentRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     RequestPaymentConfiguration: RequestPaymentConfigurationTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketVersioningRequestBucketVersioningPutTypeDef(BaseModel):
+class PutBucketVersioningRequestBucketVersioningPutTypeDef(BaseValidatorModel):
     VersioningConfiguration: VersioningConfigurationTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     MFA: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketVersioningRequestRequestTypeDef(BaseModel):
+class PutBucketVersioningRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     VersioningConfiguration: VersioningConfigurationTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     MFA: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class RoutingRuleTypeDef(BaseModel):
+class RoutingRuleTypeDef(BaseValidatorModel):
     Redirect: RedirectTypeDef
     Condition: Optional[ConditionTypeDef] = None
 
-class RuleExtraOutputTypeDef(BaseModel):
+class RuleExtraOutputTypeDef(BaseValidatorModel):
     Prefix: str
     Status: ExpirationStatusType
     Expiration: Optional[LifecycleExpirationExtraExtraOutputTypeDef] = None
@@ -2137,92 +2137,92 @@ class RuleExtraOutputTypeDef(BaseModel):
     NoncurrentVersionExpiration: Optional[NoncurrentVersionExpirationTypeDef] = None
     AbortIncompleteMultipartUpload: Optional[AbortIncompleteMultipartUploadTypeDef] = None
 
-class ServerSideEncryptionRuleTypeDef(BaseModel):
+class ServerSideEncryptionRuleTypeDef(BaseValidatorModel):
     ApplyServerSideEncryptionByDefault: Optional[ServerSideEncryptionByDefaultTypeDef] = None
     BucketKeyEnabled: Optional[bool] = None
 
-class SourceSelectionCriteriaTypeDef(BaseModel):
+class SourceSelectionCriteriaTypeDef(BaseValidatorModel):
     SseKmsEncryptedObjects: Optional[SseKmsEncryptedObjectsTypeDef] = None
     ReplicaModifications: Optional[ReplicaModificationsTypeDef] = None
 
-class StatsEventTypeDef(BaseModel):
+class StatsEventTypeDef(BaseValidatorModel):
     Details: Optional[StatsTypeDef] = None
 
-class AnalyticsFilterOutputTypeDef(BaseModel):
+class AnalyticsFilterOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     And: Optional[AnalyticsAndOperatorOutputTypeDef] = None
 
-class AnalyticsFilterTypeDef(BaseModel):
+class AnalyticsFilterTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     And: Optional[AnalyticsAndOperatorTypeDef] = None
 
-class IntelligentTieringFilterOutputTypeDef(BaseModel):
+class IntelligentTieringFilterOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     And: Optional[IntelligentTieringAndOperatorOutputTypeDef] = None
 
-class IntelligentTieringFilterTypeDef(BaseModel):
+class IntelligentTieringFilterTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     And: Optional[IntelligentTieringAndOperatorTypeDef] = None
 
-class LifecycleRuleFilterExtraOutputTypeDef(BaseModel):
+class LifecycleRuleFilterExtraOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     ObjectSizeGreaterThan: Optional[int] = None
     ObjectSizeLessThan: Optional[int] = None
     And: Optional[LifecycleRuleAndOperatorExtraOutputTypeDef] = None
 
-class LifecycleRuleFilterOutputTypeDef(BaseModel):
+class LifecycleRuleFilterOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     ObjectSizeGreaterThan: Optional[int] = None
     ObjectSizeLessThan: Optional[int] = None
     And: Optional[LifecycleRuleAndOperatorOutputTypeDef] = None
 
-class LifecycleRuleFilterTypeDef(BaseModel):
+class LifecycleRuleFilterTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     ObjectSizeGreaterThan: Optional[int] = None
     ObjectSizeLessThan: Optional[int] = None
     And: Optional[LifecycleRuleAndOperatorTypeDef] = None
 
-class MetricsFilterOutputTypeDef(BaseModel):
+class MetricsFilterOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     AccessPointArn: Optional[str] = None
     And: Optional[MetricsAndOperatorOutputTypeDef] = None
 
-class MetricsFilterTypeDef(BaseModel):
+class MetricsFilterTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     AccessPointArn: Optional[str] = None
     And: Optional[MetricsAndOperatorTypeDef] = None
 
-class ReplicationRuleFilterOutputTypeDef(BaseModel):
+class ReplicationRuleFilterOutputTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     And: Optional[ReplicationRuleAndOperatorOutputTypeDef] = None
 
-class ReplicationRuleFilterTypeDef(BaseModel):
+class ReplicationRuleFilterTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[TagTypeDef] = None
     And: Optional[ReplicationRuleAndOperatorTypeDef] = None
 
-class PutBucketTaggingRequestBucketTaggingPutTypeDef(BaseModel):
+class PutBucketTaggingRequestBucketTaggingPutTypeDef(BaseValidatorModel):
     Tagging: TaggingTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketTaggingRequestRequestTypeDef(BaseModel):
+class PutBucketTaggingRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Tagging: TaggingTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutObjectTaggingRequestRequestTypeDef(BaseModel):
+class PutObjectTaggingRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     Tagging: TaggingTypeDef
@@ -2232,11 +2232,11 @@ class PutObjectTaggingRequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
 
-class StorageClassAnalysisDataExportTypeDef(BaseModel):
+class StorageClassAnalysisDataExportTypeDef(BaseValidatorModel):
     OutputSchemaVersion: Literal["V_1"]
     Destination: AnalyticsExportDestinationTypeDef
 
-class CopyObjectRequestRequestTypeDef(BaseModel):
+class CopyObjectRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     CopySource: CopySourceOrStrTypeDef
     Key: str
@@ -2279,7 +2279,7 @@ class CopyObjectRequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ExpectedSourceBucketOwner: Optional[str] = None
 
-class UploadPartCopyRequestMultipartUploadPartCopyFromTypeDef(BaseModel):
+class UploadPartCopyRequestMultipartUploadPartCopyFromTypeDef(BaseValidatorModel):
     CopySource: CopySourceOrStrTypeDef
     CopySourceIfMatch: Optional[str] = None
     CopySourceIfModifiedSince: Optional[TimestampTypeDef] = None
@@ -2296,7 +2296,7 @@ class UploadPartCopyRequestMultipartUploadPartCopyFromTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ExpectedSourceBucketOwner: Optional[str] = None
 
-class UploadPartCopyRequestRequestTypeDef(BaseModel):
+class UploadPartCopyRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     CopySource: CopySourceOrStrTypeDef
     Key: str
@@ -2317,18 +2317,18 @@ class UploadPartCopyRequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ExpectedSourceBucketOwner: Optional[str] = None
 
-class PutBucketCorsRequestBucketCorsPutTypeDef(BaseModel):
+class PutBucketCorsRequestBucketCorsPutTypeDef(BaseValidatorModel):
     CORSConfiguration: CORSConfigurationTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketCorsRequestRequestTypeDef(BaseModel):
+class PutBucketCorsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     CORSConfiguration: CORSConfigurationTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class CompleteMultipartUploadRequestMultipartUploadCompleteTypeDef(BaseModel):
+class CompleteMultipartUploadRequestMultipartUploadCompleteTypeDef(BaseValidatorModel):
     MultipartUpload: Optional[CompletedMultipartUploadTypeDef] = None
     ChecksumCRC32: Optional[str] = None
     ChecksumCRC32C: Optional[str] = None
@@ -2340,7 +2340,7 @@ class CompleteMultipartUploadRequestMultipartUploadCompleteTypeDef(BaseModel):
     SSECustomerKey: Optional[str] = None
     SSECustomerKeyMD5: Optional[str] = None
 
-class CompleteMultipartUploadRequestRequestTypeDef(BaseModel):
+class CompleteMultipartUploadRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     UploadId: str
@@ -2355,7 +2355,7 @@ class CompleteMultipartUploadRequestRequestTypeDef(BaseModel):
     SSECustomerKey: Optional[str] = None
     SSECustomerKeyMD5: Optional[str] = None
 
-class PutObjectRetentionRequestRequestTypeDef(BaseModel):
+class PutObjectRetentionRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     Retention: Optional[ObjectLockRetentionTypeDef] = None
@@ -2366,7 +2366,7 @@ class PutObjectRetentionRequestRequestTypeDef(BaseModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class RuleTypeDef(BaseModel):
+class RuleTypeDef(BaseValidatorModel):
     Prefix: str
     Status: ExpirationStatusType
     Expiration: Optional[LifecycleExpirationTypeDef] = None
@@ -2376,7 +2376,7 @@ class RuleTypeDef(BaseModel):
     NoncurrentVersionExpiration: Optional[NoncurrentVersionExpirationTypeDef] = None
     AbortIncompleteMultipartUpload: Optional[AbortIncompleteMultipartUploadTypeDef] = None
 
-class CreateBucketRequestBucketCreateTypeDef(BaseModel):
+class CreateBucketRequestBucketCreateTypeDef(BaseValidatorModel):
     ACL: Optional[BucketCannedACLType] = None
     CreateBucketConfiguration: Optional[CreateBucketConfigurationTypeDef] = None
     GrantFullControl: Optional[str] = None
@@ -2387,7 +2387,7 @@ class CreateBucketRequestBucketCreateTypeDef(BaseModel):
     ObjectLockEnabledForBucket: Optional[bool] = None
     ObjectOwnership: Optional[ObjectOwnershipType] = None
 
-class CreateBucketRequestRequestTypeDef(BaseModel):
+class CreateBucketRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ACL: Optional[BucketCannedACLType] = None
     CreateBucketConfiguration: Optional[CreateBucketConfigurationTypeDef] = None
@@ -2399,7 +2399,7 @@ class CreateBucketRequestRequestTypeDef(BaseModel):
     ObjectLockEnabledForBucket: Optional[bool] = None
     ObjectOwnership: Optional[ObjectOwnershipType] = None
 
-class CreateBucketRequestServiceResourceCreateBucketTypeDef(BaseModel):
+class CreateBucketRequestServiceResourceCreateBucketTypeDef(BaseValidatorModel):
     Bucket: str
     ACL: Optional[BucketCannedACLType] = None
     CreateBucketConfiguration: Optional[CreateBucketConfigurationTypeDef] = None
@@ -2411,11 +2411,11 @@ class CreateBucketRequestServiceResourceCreateBucketTypeDef(BaseModel):
     ObjectLockEnabledForBucket: Optional[bool] = None
     ObjectOwnership: Optional[ObjectOwnershipType] = None
 
-class ObjectLockConfigurationTypeDef(BaseModel):
+class ObjectLockConfigurationTypeDef(BaseValidatorModel):
     ObjectLockEnabled: Optional[Literal["Enabled"]] = None
     Rule: Optional[ObjectLockRuleTypeDef] = None
 
-class DeleteObjectsRequestBucketDeleteObjectsTypeDef(BaseModel):
+class DeleteObjectsRequestBucketDeleteObjectsTypeDef(BaseValidatorModel):
     Delete: DeleteTypeDef
     MFA: Optional[str] = None
     RequestPayer: Optional[Literal["requester"]] = None
@@ -2423,7 +2423,7 @@ class DeleteObjectsRequestBucketDeleteObjectsTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
 
-class DeleteObjectsRequestRequestTypeDef(BaseModel):
+class DeleteObjectsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Delete: DeleteTypeDef
     MFA: Optional[str] = None
@@ -2432,16 +2432,16 @@ class DeleteObjectsRequestRequestTypeDef(BaseModel):
     ExpectedBucketOwner: Optional[str] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
 
-class NotificationConfigurationFilterExtraOutputTypeDef(BaseModel):
+class NotificationConfigurationFilterExtraOutputTypeDef(BaseValidatorModel):
     Key: Optional[S3KeyFilterExtraOutputTypeDef] = None
 
-class NotificationConfigurationFilterOutputTypeDef(BaseModel):
+class NotificationConfigurationFilterOutputTypeDef(BaseValidatorModel):
     Key: Optional[S3KeyFilterOutputTypeDef] = None
 
-class NotificationConfigurationFilterTypeDef(BaseModel):
+class NotificationConfigurationFilterTypeDef(BaseValidatorModel):
     Key: Optional[S3KeyFilterTypeDef] = None
 
-class GetObjectAttributesOutputTypeDef(BaseModel):
+class GetObjectAttributesOutputTypeDef(BaseValidatorModel):
     DeleteMarker: bool
     LastModified: datetime
     VersionId: str
@@ -2453,22 +2453,22 @@ class GetObjectAttributesOutputTypeDef(BaseModel):
     ObjectSize: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AccessControlPolicyTypeDef(BaseModel):
+class AccessControlPolicyTypeDef(BaseValidatorModel):
     Grants: Optional[Sequence[GrantTypeDef]] = None
     Owner: Optional[OwnerTypeDef] = None
 
-class GetBucketAclOutputTypeDef(BaseModel):
+class GetBucketAclOutputTypeDef(BaseValidatorModel):
     Owner: OwnerTypeDef
     Grants: List[GrantTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetObjectAclOutputTypeDef(BaseModel):
+class GetObjectAclOutputTypeDef(BaseValidatorModel):
     Owner: OwnerTypeDef
     Grants: List[GrantTypeDef]
     RequestCharged: Literal["requester"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class S3LocationTypeDef(BaseModel):
+class S3LocationTypeDef(BaseValidatorModel):
     BucketName: str
     Prefix: str
     Encryption: Optional[EncryptionTypeDef] = None
@@ -2478,7 +2478,7 @@ class S3LocationTypeDef(BaseModel):
     UserMetadata: Optional[Sequence[MetadataEntryTypeDef]] = None
     StorageClass: Optional[StorageClassType] = None
 
-class ListMultipartUploadsOutputTypeDef(BaseModel):
+class ListMultipartUploadsOutputTypeDef(BaseValidatorModel):
     Bucket: str
     KeyMarker: str
     UploadIdMarker: str
@@ -2494,21 +2494,21 @@ class ListMultipartUploadsOutputTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     CommonPrefixes: Optional[List[CommonPrefixTypeDef]] = None
 
-class InventoryS3BucketDestinationOutputTypeDef(BaseModel):
+class InventoryS3BucketDestinationOutputTypeDef(BaseValidatorModel):
     Bucket: str
     Format: InventoryFormatType
     AccountId: Optional[str] = None
     Prefix: Optional[str] = None
     Encryption: Optional[InventoryEncryptionOutputTypeDef] = None
 
-class InventoryS3BucketDestinationTypeDef(BaseModel):
+class InventoryS3BucketDestinationTypeDef(BaseValidatorModel):
     Bucket: str
     Format: InventoryFormatType
     AccountId: Optional[str] = None
     Prefix: Optional[str] = None
     Encryption: Optional[InventoryEncryptionTypeDef] = None
 
-class SelectObjectContentRequestRequestTypeDef(BaseModel):
+class SelectObjectContentRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     Expression: str
@@ -2522,17 +2522,17 @@ class SelectObjectContentRequestRequestTypeDef(BaseModel):
     ScanRange: Optional[ScanRangeTypeDef] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class SelectParametersTypeDef(BaseModel):
+class SelectParametersTypeDef(BaseValidatorModel):
     InputSerialization: InputSerializationTypeDef
     ExpressionType: Literal["SQL"]
     Expression: str
     OutputSerialization: OutputSerializationTypeDef
 
-class GetBucketLifecycleOutputTypeDef(BaseModel):
+class GetBucketLifecycleOutputTypeDef(BaseValidatorModel):
     Rules: List[RuleOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DestinationTypeDef(BaseModel):
+class DestinationTypeDef(BaseValidatorModel):
     Bucket: str
     Account: Optional[str] = None
     StorageClass: Optional[StorageClassType] = None
@@ -2541,13 +2541,13 @@ class DestinationTypeDef(BaseModel):
     ReplicationTime: Optional[ReplicationTimeTypeDef] = None
     Metrics: Optional[MetricsTypeDef] = None
 
-class PutBucketNotificationRequestRequestTypeDef(BaseModel):
+class PutBucketNotificationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     NotificationConfiguration: NotificationConfigurationDeprecatedTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class ListObjectsOutputTypeDef(BaseModel):
+class ListObjectsOutputTypeDef(BaseValidatorModel):
     IsTruncated: bool
     Marker: str
     NextMarker: str
@@ -2561,7 +2561,7 @@ class ListObjectsOutputTypeDef(BaseModel):
     Contents: Optional[List[ObjectTypeDef]] = None
     CommonPrefixes: Optional[List[CommonPrefixTypeDef]] = None
 
-class ListObjectsV2OutputTypeDef(BaseModel):
+class ListObjectsV2OutputTypeDef(BaseValidatorModel):
     IsTruncated: bool
     Name: str
     Prefix: str
@@ -2577,7 +2577,7 @@ class ListObjectsV2OutputTypeDef(BaseModel):
     Contents: Optional[List[ObjectTypeDef]] = None
     CommonPrefixes: Optional[List[CommonPrefixTypeDef]] = None
 
-class ListObjectVersionsOutputTypeDef(BaseModel):
+class ListObjectVersionsOutputTypeDef(BaseValidatorModel):
     IsTruncated: bool
     KeyMarker: str
     VersionIdMarker: str
@@ -2594,73 +2594,73 @@ class ListObjectVersionsOutputTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     CommonPrefixes: Optional[List[CommonPrefixTypeDef]] = None
 
-class GetBucketOwnershipControlsOutputTypeDef(BaseModel):
+class GetBucketOwnershipControlsOutputTypeDef(BaseValidatorModel):
     OwnershipControls: OwnershipControlsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBucketOwnershipControlsRequestRequestTypeDef(BaseModel):
+class PutBucketOwnershipControlsRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     OwnershipControls: OwnershipControlsTypeDef
     ContentMD5: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class LoggingEnabledExtraOutputTypeDef(BaseModel):
+class LoggingEnabledExtraOutputTypeDef(BaseValidatorModel):
     TargetBucket: str
     TargetPrefix: str
     TargetGrants: Optional[List[TargetGrantTypeDef]] = None
     TargetObjectKeyFormat: Optional[TargetObjectKeyFormatExtraOutputTypeDef] = None
 
-class LoggingEnabledOutputTypeDef(BaseModel):
+class LoggingEnabledOutputTypeDef(BaseValidatorModel):
     TargetBucket: str
     TargetPrefix: str
     TargetGrants: Optional[List[TargetGrantTypeDef]] = None
     TargetObjectKeyFormat: Optional[TargetObjectKeyFormatOutputTypeDef] = None
 
-class LoggingEnabledTypeDef(BaseModel):
+class LoggingEnabledTypeDef(BaseValidatorModel):
     TargetBucket: str
     TargetPrefix: str
     TargetGrants: Optional[Sequence[TargetGrantTypeDef]] = None
     TargetObjectKeyFormat: Optional[TargetObjectKeyFormatTypeDef] = None
 
-class GetBucketWebsiteOutputTypeDef(BaseModel):
+class GetBucketWebsiteOutputTypeDef(BaseValidatorModel):
     RedirectAllRequestsTo: RedirectAllRequestsToTypeDef
     IndexDocument: IndexDocumentTypeDef
     ErrorDocument: ErrorDocumentTypeDef
     RoutingRules: List[RoutingRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WebsiteConfigurationTypeDef(BaseModel):
+class WebsiteConfigurationTypeDef(BaseValidatorModel):
     ErrorDocument: Optional[ErrorDocumentTypeDef] = None
     IndexDocument: Optional[IndexDocumentTypeDef] = None
     RedirectAllRequestsTo: Optional[RedirectAllRequestsToTypeDef] = None
     RoutingRules: Optional[Sequence[RoutingRuleTypeDef]] = None
 
-class ServerSideEncryptionConfigurationOutputTypeDef(BaseModel):
+class ServerSideEncryptionConfigurationOutputTypeDef(BaseValidatorModel):
     Rules: List[ServerSideEncryptionRuleTypeDef]
 
-class ServerSideEncryptionConfigurationTypeDef(BaseModel):
+class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
     Rules: Sequence[ServerSideEncryptionRuleTypeDef]
 
-class SelectObjectContentEventStreamTypeDef(BaseModel):
+class SelectObjectContentEventStreamTypeDef(BaseValidatorModel):
     Records: Optional[RecordsEventTypeDef] = None
     Stats: Optional[StatsEventTypeDef] = None
     Progress: Optional[ProgressEventTypeDef] = None
     Cont: Optional[Dict[str, Any]] = None
     End: Optional[Dict[str, Any]] = None
 
-class IntelligentTieringConfigurationOutputTypeDef(BaseModel):
+class IntelligentTieringConfigurationOutputTypeDef(BaseValidatorModel):
     Id: str
     Status: IntelligentTieringStatusType
     Tierings: List[TieringTypeDef]
     Filter: Optional[IntelligentTieringFilterOutputTypeDef] = None
 
-class IntelligentTieringConfigurationTypeDef(BaseModel):
+class IntelligentTieringConfigurationTypeDef(BaseValidatorModel):
     Id: str
     Status: IntelligentTieringStatusType
     Tierings: Sequence[TieringTypeDef]
     Filter: Optional[IntelligentTieringFilterTypeDef] = None
 
-class LifecycleRuleExtraOutputTypeDef(BaseModel):
+class LifecycleRuleExtraOutputTypeDef(BaseValidatorModel):
     Status: ExpirationStatusType
     Expiration: Optional[LifecycleExpirationExtraOutputTypeDef] = None
     ID: Optional[str] = None
@@ -2671,7 +2671,7 @@ class LifecycleRuleExtraOutputTypeDef(BaseModel):
     NoncurrentVersionExpiration: Optional[NoncurrentVersionExpirationTypeDef] = None
     AbortIncompleteMultipartUpload: Optional[AbortIncompleteMultipartUploadTypeDef] = None
 
-class LifecycleRuleOutputTypeDef(BaseModel):
+class LifecycleRuleOutputTypeDef(BaseValidatorModel):
     Status: ExpirationStatusType
     Expiration: Optional[LifecycleExpirationOutputTypeDef] = None
     ID: Optional[str] = None
@@ -2682,7 +2682,7 @@ class LifecycleRuleOutputTypeDef(BaseModel):
     NoncurrentVersionExpiration: Optional[NoncurrentVersionExpirationTypeDef] = None
     AbortIncompleteMultipartUpload: Optional[AbortIncompleteMultipartUploadTypeDef] = None
 
-class LifecycleRuleTypeDef(BaseModel):
+class LifecycleRuleTypeDef(BaseValidatorModel):
     Status: ExpirationStatusType
     Expiration: Optional[LifecycleExpirationTypeDef] = None
     ID: Optional[str] = None
@@ -2693,25 +2693,25 @@ class LifecycleRuleTypeDef(BaseModel):
     NoncurrentVersionExpiration: Optional[NoncurrentVersionExpirationTypeDef] = None
     AbortIncompleteMultipartUpload: Optional[AbortIncompleteMultipartUploadTypeDef] = None
 
-class MetricsConfigurationOutputTypeDef(BaseModel):
+class MetricsConfigurationOutputTypeDef(BaseValidatorModel):
     Id: str
     Filter: Optional[MetricsFilterOutputTypeDef] = None
 
-class MetricsConfigurationTypeDef(BaseModel):
+class MetricsConfigurationTypeDef(BaseValidatorModel):
     Id: str
     Filter: Optional[MetricsFilterTypeDef] = None
 
-class StorageClassAnalysisTypeDef(BaseModel):
+class StorageClassAnalysisTypeDef(BaseValidatorModel):
     DataExport: Optional[StorageClassAnalysisDataExportTypeDef] = None
 
-class LifecycleConfigurationTypeDef(BaseModel):
+class LifecycleConfigurationTypeDef(BaseValidatorModel):
     Rules: Sequence[RuleTypeDef]
 
-class GetObjectLockConfigurationOutputTypeDef(BaseModel):
+class GetObjectLockConfigurationOutputTypeDef(BaseValidatorModel):
     ObjectLockConfiguration: ObjectLockConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutObjectLockConfigurationRequestRequestTypeDef(BaseModel):
+class PutObjectLockConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ObjectLockConfiguration: Optional[ObjectLockConfigurationTypeDef] = None
     RequestPayer: Optional[Literal["requester"]] = None
@@ -2720,61 +2720,61 @@ class PutObjectLockConfigurationRequestRequestTypeDef(BaseModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class LambdaFunctionConfigurationExtraOutputTypeDef(BaseModel):
+class LambdaFunctionConfigurationExtraOutputTypeDef(BaseValidatorModel):
     LambdaFunctionArn: str
     Events: List[EventType]
     Id: Optional[str] = None
     Filter: Optional[NotificationConfigurationFilterExtraOutputTypeDef] = None
 
-class QueueConfigurationExtraOutputTypeDef(BaseModel):
+class QueueConfigurationExtraOutputTypeDef(BaseValidatorModel):
     QueueArn: str
     Events: List[EventType]
     Id: Optional[str] = None
     Filter: Optional[NotificationConfigurationFilterExtraOutputTypeDef] = None
 
-class TopicConfigurationExtraOutputTypeDef(BaseModel):
+class TopicConfigurationExtraOutputTypeDef(BaseValidatorModel):
     TopicArn: str
     Events: List[EventType]
     Id: Optional[str] = None
     Filter: Optional[NotificationConfigurationFilterExtraOutputTypeDef] = None
 
-class LambdaFunctionConfigurationOutputTypeDef(BaseModel):
+class LambdaFunctionConfigurationOutputTypeDef(BaseValidatorModel):
     LambdaFunctionArn: str
     Events: List[EventType]
     Id: Optional[str] = None
     Filter: Optional[NotificationConfigurationFilterOutputTypeDef] = None
 
-class QueueConfigurationOutputTypeDef(BaseModel):
+class QueueConfigurationOutputTypeDef(BaseValidatorModel):
     QueueArn: str
     Events: List[EventType]
     Id: Optional[str] = None
     Filter: Optional[NotificationConfigurationFilterOutputTypeDef] = None
 
-class TopicConfigurationOutputTypeDef(BaseModel):
+class TopicConfigurationOutputTypeDef(BaseValidatorModel):
     TopicArn: str
     Events: List[EventType]
     Id: Optional[str] = None
     Filter: Optional[NotificationConfigurationFilterOutputTypeDef] = None
 
-class LambdaFunctionConfigurationTypeDef(BaseModel):
+class LambdaFunctionConfigurationTypeDef(BaseValidatorModel):
     LambdaFunctionArn: str
     Events: Sequence[EventType]
     Id: Optional[str] = None
     Filter: Optional[NotificationConfigurationFilterTypeDef] = None
 
-class QueueConfigurationTypeDef(BaseModel):
+class QueueConfigurationTypeDef(BaseValidatorModel):
     QueueArn: str
     Events: Sequence[EventType]
     Id: Optional[str] = None
     Filter: Optional[NotificationConfigurationFilterTypeDef] = None
 
-class TopicConfigurationTypeDef(BaseModel):
+class TopicConfigurationTypeDef(BaseValidatorModel):
     TopicArn: str
     Events: Sequence[EventType]
     Id: Optional[str] = None
     Filter: Optional[NotificationConfigurationFilterTypeDef] = None
 
-class PutBucketAclRequestBucketAclPutTypeDef(BaseModel):
+class PutBucketAclRequestBucketAclPutTypeDef(BaseValidatorModel):
     ACL: Optional[BucketCannedACLType] = None
     AccessControlPolicy: Optional[AccessControlPolicyTypeDef] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
@@ -2785,7 +2785,7 @@ class PutBucketAclRequestBucketAclPutTypeDef(BaseModel):
     GrantWriteACP: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketAclRequestRequestTypeDef(BaseModel):
+class PutBucketAclRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ACL: Optional[BucketCannedACLType] = None
     AccessControlPolicy: Optional[AccessControlPolicyTypeDef] = None
@@ -2797,7 +2797,7 @@ class PutBucketAclRequestRequestTypeDef(BaseModel):
     GrantWriteACP: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutObjectAclRequestObjectAclPutTypeDef(BaseModel):
+class PutObjectAclRequestObjectAclPutTypeDef(BaseValidatorModel):
     ACL: Optional[ObjectCannedACLType] = None
     AccessControlPolicy: Optional[AccessControlPolicyTypeDef] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
@@ -2810,7 +2810,7 @@ class PutObjectAclRequestObjectAclPutTypeDef(BaseModel):
     VersionId: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutObjectAclRequestRequestTypeDef(BaseModel):
+class PutObjectAclRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     ACL: Optional[ObjectCannedACLType] = None
@@ -2825,16 +2825,16 @@ class PutObjectAclRequestRequestTypeDef(BaseModel):
     VersionId: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class OutputLocationTypeDef(BaseModel):
+class OutputLocationTypeDef(BaseValidatorModel):
     S3: Optional[S3LocationTypeDef] = None
 
-class InventoryDestinationOutputTypeDef(BaseModel):
+class InventoryDestinationOutputTypeDef(BaseValidatorModel):
     S3BucketDestination: InventoryS3BucketDestinationOutputTypeDef
 
-class InventoryDestinationTypeDef(BaseModel):
+class InventoryDestinationTypeDef(BaseValidatorModel):
     S3BucketDestination: InventoryS3BucketDestinationTypeDef
 
-class ReplicationRuleOutputTypeDef(BaseModel):
+class ReplicationRuleOutputTypeDef(BaseValidatorModel):
     Status: ReplicationRuleStatusType
     Destination: DestinationTypeDef
     ID: Optional[str] = None
@@ -2845,7 +2845,7 @@ class ReplicationRuleOutputTypeDef(BaseModel):
     ExistingObjectReplication: Optional[ExistingObjectReplicationTypeDef] = None
     DeleteMarkerReplication: Optional[DeleteMarkerReplicationTypeDef] = None
 
-class ReplicationRuleTypeDef(BaseModel):
+class ReplicationRuleTypeDef(BaseValidatorModel):
     Status: ReplicationRuleStatusType
     Destination: DestinationTypeDef
     ID: Optional[str] = None
@@ -2856,114 +2856,114 @@ class ReplicationRuleTypeDef(BaseModel):
     ExistingObjectReplication: Optional[ExistingObjectReplicationTypeDef] = None
     DeleteMarkerReplication: Optional[DeleteMarkerReplicationTypeDef] = None
 
-class GetBucketLoggingOutputTypeDef(BaseModel):
+class GetBucketLoggingOutputTypeDef(BaseValidatorModel):
     LoggingEnabled: LoggingEnabledOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BucketLoggingStatusTypeDef(BaseModel):
+class BucketLoggingStatusTypeDef(BaseValidatorModel):
     LoggingEnabled: Optional[LoggingEnabledTypeDef] = None
 
-class PutBucketWebsiteRequestBucketWebsitePutTypeDef(BaseModel):
+class PutBucketWebsiteRequestBucketWebsitePutTypeDef(BaseValidatorModel):
     WebsiteConfiguration: WebsiteConfigurationTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketWebsiteRequestRequestTypeDef(BaseModel):
+class PutBucketWebsiteRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     WebsiteConfiguration: WebsiteConfigurationTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketEncryptionOutputTypeDef(BaseModel):
+class GetBucketEncryptionOutputTypeDef(BaseValidatorModel):
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBucketEncryptionRequestRequestTypeDef(BaseModel):
+class PutBucketEncryptionRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
     ContentMD5: Optional[str] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class SelectObjectContentOutputTypeDef(BaseModel):
+class SelectObjectContentOutputTypeDef(BaseValidatorModel):
     Payload: "EventStream[SelectObjectContentEventStreamTypeDef]"
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketIntelligentTieringConfigurationOutputTypeDef(BaseModel):
+class GetBucketIntelligentTieringConfigurationOutputTypeDef(BaseValidatorModel):
     IntelligentTieringConfiguration: IntelligentTieringConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBucketIntelligentTieringConfigurationsOutputTypeDef(BaseModel):
+class ListBucketIntelligentTieringConfigurationsOutputTypeDef(BaseValidatorModel):
     IsTruncated: bool
     ContinuationToken: str
     NextContinuationToken: str
     IntelligentTieringConfigurationList: List[IntelligentTieringConfigurationOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBucketIntelligentTieringConfigurationRequestRequestTypeDef(BaseModel):
+class PutBucketIntelligentTieringConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
     IntelligentTieringConfiguration: IntelligentTieringConfigurationTypeDef
 
-class GetBucketLifecycleConfigurationOutputTypeDef(BaseModel):
+class GetBucketLifecycleConfigurationOutputTypeDef(BaseValidatorModel):
     Rules: List[LifecycleRuleOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BucketLifecycleConfigurationTypeDef(BaseModel):
+class BucketLifecycleConfigurationTypeDef(BaseValidatorModel):
     Rules: Sequence[LifecycleRuleTypeDef]
 
-class GetBucketMetricsConfigurationOutputTypeDef(BaseModel):
+class GetBucketMetricsConfigurationOutputTypeDef(BaseValidatorModel):
     MetricsConfiguration: MetricsConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBucketMetricsConfigurationsOutputTypeDef(BaseModel):
+class ListBucketMetricsConfigurationsOutputTypeDef(BaseValidatorModel):
     IsTruncated: bool
     ContinuationToken: str
     NextContinuationToken: str
     MetricsConfigurationList: List[MetricsConfigurationOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBucketMetricsConfigurationRequestRequestTypeDef(BaseModel):
+class PutBucketMetricsConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
     MetricsConfiguration: MetricsConfigurationTypeDef
     ExpectedBucketOwner: Optional[str] = None
 
-class AnalyticsConfigurationOutputTypeDef(BaseModel):
+class AnalyticsConfigurationOutputTypeDef(BaseValidatorModel):
     Id: str
     StorageClassAnalysis: StorageClassAnalysisTypeDef
     Filter: Optional[AnalyticsFilterOutputTypeDef] = None
 
-class AnalyticsConfigurationTypeDef(BaseModel):
+class AnalyticsConfigurationTypeDef(BaseValidatorModel):
     Id: str
     StorageClassAnalysis: StorageClassAnalysisTypeDef
     Filter: Optional[AnalyticsFilterTypeDef] = None
 
-class PutBucketLifecycleRequestBucketLifecyclePutTypeDef(BaseModel):
+class PutBucketLifecycleRequestBucketLifecyclePutTypeDef(BaseValidatorModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     LifecycleConfiguration: Optional[LifecycleConfigurationTypeDef] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketLifecycleRequestRequestTypeDef(BaseModel):
+class PutBucketLifecycleRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     LifecycleConfiguration: Optional[LifecycleConfigurationTypeDef] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class NotificationConfigurationResponseTypeDef(BaseModel):
+class NotificationConfigurationResponseTypeDef(BaseValidatorModel):
     TopicConfigurations: List[TopicConfigurationOutputTypeDef]
     QueueConfigurations: List[QueueConfigurationOutputTypeDef]
     LambdaFunctionConfigurations: List[LambdaFunctionConfigurationOutputTypeDef]
     EventBridgeConfiguration: Dict[str, Any]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NotificationConfigurationTypeDef(BaseModel):
+class NotificationConfigurationTypeDef(BaseValidatorModel):
     TopicConfigurations: Optional[Sequence[TopicConfigurationTypeDef]] = None
     QueueConfigurations: Optional[Sequence[QueueConfigurationTypeDef]] = None
     LambdaFunctionConfigurations: Optional[Sequence[LambdaFunctionConfigurationTypeDef]] = None
     EventBridgeConfiguration: Optional[Mapping[str, Any]] = None
 
-class RestoreRequestTypeDef(BaseModel):
+class RestoreRequestTypeDef(BaseValidatorModel):
     Days: Optional[int] = None
     GlacierJobParameters: Optional[GlacierJobParametersTypeDef] = None
     Type: Optional[Literal["SELECT"]] = None
@@ -2972,7 +2972,7 @@ class RestoreRequestTypeDef(BaseModel):
     SelectParameters: Optional[SelectParametersTypeDef] = None
     OutputLocation: Optional[OutputLocationTypeDef] = None
 
-class InventoryConfigurationOutputTypeDef(BaseModel):
+class InventoryConfigurationOutputTypeDef(BaseValidatorModel):
     Destination: InventoryDestinationOutputTypeDef
     IsEnabled: bool
     Id: str
@@ -2981,7 +2981,7 @@ class InventoryConfigurationOutputTypeDef(BaseModel):
     Filter: Optional[InventoryFilterTypeDef] = None
     OptionalFields: Optional[List[InventoryOptionalFieldType]] = None
 
-class InventoryConfigurationTypeDef(BaseModel):
+class InventoryConfigurationTypeDef(BaseValidatorModel):
     Destination: InventoryDestinationTypeDef
     IsEnabled: bool
     Id: str
@@ -2990,79 +2990,79 @@ class InventoryConfigurationTypeDef(BaseModel):
     Filter: Optional[InventoryFilterTypeDef] = None
     OptionalFields: Optional[Sequence[InventoryOptionalFieldType]] = None
 
-class ReplicationConfigurationOutputTypeDef(BaseModel):
+class ReplicationConfigurationOutputTypeDef(BaseValidatorModel):
     Role: str
     Rules: List[ReplicationRuleOutputTypeDef]
 
-class ReplicationConfigurationTypeDef(BaseModel):
+class ReplicationConfigurationTypeDef(BaseValidatorModel):
     Role: str
     Rules: Sequence[ReplicationRuleTypeDef]
 
-class PutBucketLoggingRequestBucketLoggingPutTypeDef(BaseModel):
+class PutBucketLoggingRequestBucketLoggingPutTypeDef(BaseValidatorModel):
     BucketLoggingStatus: BucketLoggingStatusTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketLoggingRequestRequestTypeDef(BaseModel):
+class PutBucketLoggingRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     BucketLoggingStatus: BucketLoggingStatusTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationPutTypeDef(BaseModel):
+class PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationPutTypeDef(BaseValidatorModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     LifecycleConfiguration: Optional[BucketLifecycleConfigurationTypeDef] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketLifecycleConfigurationRequestRequestTypeDef(BaseModel):
+class PutBucketLifecycleConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     LifecycleConfiguration: Optional[BucketLifecycleConfigurationTypeDef] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketAnalyticsConfigurationOutputTypeDef(BaseModel):
+class GetBucketAnalyticsConfigurationOutputTypeDef(BaseValidatorModel):
     AnalyticsConfiguration: AnalyticsConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBucketAnalyticsConfigurationsOutputTypeDef(BaseModel):
+class ListBucketAnalyticsConfigurationsOutputTypeDef(BaseValidatorModel):
     IsTruncated: bool
     ContinuationToken: str
     NextContinuationToken: str
     AnalyticsConfigurationList: List[AnalyticsConfigurationOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBucketAnalyticsConfigurationRequestRequestTypeDef(BaseModel):
+class PutBucketAnalyticsConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
     AnalyticsConfiguration: AnalyticsConfigurationTypeDef
     ExpectedBucketOwner: Optional[str] = None
 
-class PutBucketNotificationConfigurationRequestBucketNotificationPutTypeDef(BaseModel):
+class PutBucketNotificationConfigurationRequestBucketNotificationPutTypeDef(BaseValidatorModel):
     NotificationConfiguration: NotificationConfigurationTypeDef
     ExpectedBucketOwner: Optional[str] = None
     SkipDestinationValidation: Optional[bool] = None
 
-class PutBucketNotificationConfigurationRequestRequestTypeDef(BaseModel):
+class PutBucketNotificationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     NotificationConfiguration: NotificationConfigurationTypeDef
     ExpectedBucketOwner: Optional[str] = None
     SkipDestinationValidation: Optional[bool] = None
 
-class RestoreObjectRequestObjectRestoreObjectTypeDef(BaseModel):
+class RestoreObjectRequestObjectRestoreObjectTypeDef(BaseValidatorModel):
     VersionId: Optional[str] = None
     RestoreRequest: Optional[RestoreRequestTypeDef] = None
     RequestPayer: Optional[Literal["requester"]] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class RestoreObjectRequestObjectSummaryRestoreObjectTypeDef(BaseModel):
+class RestoreObjectRequestObjectSummaryRestoreObjectTypeDef(BaseValidatorModel):
     VersionId: Optional[str] = None
     RestoreRequest: Optional[RestoreRequestTypeDef] = None
     RequestPayer: Optional[Literal["requester"]] = None
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class RestoreObjectRequestRequestTypeDef(BaseModel):
+class RestoreObjectRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
     VersionId: Optional[str] = None
@@ -3071,28 +3071,28 @@ class RestoreObjectRequestRequestTypeDef(BaseModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketInventoryConfigurationOutputTypeDef(BaseModel):
+class GetBucketInventoryConfigurationOutputTypeDef(BaseValidatorModel):
     InventoryConfiguration: InventoryConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBucketInventoryConfigurationsOutputTypeDef(BaseModel):
+class ListBucketInventoryConfigurationsOutputTypeDef(BaseValidatorModel):
     ContinuationToken: str
     InventoryConfigurationList: List[InventoryConfigurationOutputTypeDef]
     IsTruncated: bool
     NextContinuationToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBucketInventoryConfigurationRequestRequestTypeDef(BaseModel):
+class PutBucketInventoryConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Id: str
     InventoryConfiguration: InventoryConfigurationTypeDef
     ExpectedBucketOwner: Optional[str] = None
 
-class GetBucketReplicationOutputTypeDef(BaseModel):
+class GetBucketReplicationOutputTypeDef(BaseValidatorModel):
     ReplicationConfiguration: ReplicationConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBucketReplicationRequestRequestTypeDef(BaseModel):
+class PutBucketReplicationRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ReplicationConfiguration: ReplicationConfigurationTypeDef
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None

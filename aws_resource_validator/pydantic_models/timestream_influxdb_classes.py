@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,14 +11,14 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.timestream_influxdb_constants import *
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DbInstanceSummaryTypeDef(BaseModel):
+class DbInstanceSummaryTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -29,22 +29,22 @@ class DbInstanceSummaryTypeDef(BaseModel):
     allocatedStorage: Optional[int] = None
     deploymentType: Optional[DeploymentTypeType] = None
 
-class DbParameterGroupSummaryTypeDef(BaseModel):
+class DbParameterGroupSummaryTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
     description: Optional[str] = None
 
-class DeleteDbInstanceInputRequestTypeDef(BaseModel):
+class DeleteDbInstanceInputRequestTypeDef(BaseValidatorModel):
     identifier: str
 
-class GetDbInstanceInputRequestTypeDef(BaseModel):
+class GetDbInstanceInputRequestTypeDef(BaseValidatorModel):
     identifier: str
 
-class GetDbParameterGroupInputRequestTypeDef(BaseModel):
+class GetDbParameterGroupInputRequestTypeDef(BaseValidatorModel):
     identifier: str
 
-class InfluxDBv2ParametersTypeDef(BaseModel):
+class InfluxDBv2ParametersTypeDef(BaseValidatorModel):
     fluxLogEnabled: Optional[bool] = None
     logLevel: Optional[LogLevelType] = None
     noTasks: Optional[bool] = None
@@ -53,70 +53,70 @@ class InfluxDBv2ParametersTypeDef(BaseModel):
     tracingType: Optional[TracingTypeType] = None
     metricsDisabled: Optional[bool] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListDbInstancesInputRequestTypeDef(BaseModel):
+class ListDbInstancesInputRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDbParameterGroupsInputRequestTypeDef(BaseModel):
+class ListDbParameterGroupsInputRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class S3ConfigurationTypeDef(BaseModel):
+class S3ConfigurationTypeDef(BaseValidatorModel):
     bucketName: str
     enabled: bool
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDbInstancesOutputTypeDef(BaseModel):
+class ListDbInstancesOutputTypeDef(BaseValidatorModel):
     items: List[DbInstanceSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDbParameterGroupsOutputTypeDef(BaseModel):
+class ListDbParameterGroupsOutputTypeDef(BaseValidatorModel):
     items: List[DbParameterGroupSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ParametersTypeDef(BaseModel):
+class ParametersTypeDef(BaseValidatorModel):
     InfluxDBv2: Optional[InfluxDBv2ParametersTypeDef] = None
 
-class ListDbInstancesInputListDbInstancesPaginateTypeDef(BaseModel):
+class ListDbInstancesInputListDbInstancesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDbParameterGroupsInputListDbParameterGroupsPaginateTypeDef(BaseModel):
+class ListDbParameterGroupsInputListDbParameterGroupsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class LogDeliveryConfigurationTypeDef(BaseModel):
+class LogDeliveryConfigurationTypeDef(BaseValidatorModel):
     s3Configuration: S3ConfigurationTypeDef
 
-class CreateDbParameterGroupInputRequestTypeDef(BaseModel):
+class CreateDbParameterGroupInputRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     parameters: Optional[ParametersTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateDbParameterGroupOutputTypeDef(BaseModel):
+class CreateDbParameterGroupOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -124,7 +124,7 @@ class CreateDbParameterGroupOutputTypeDef(BaseModel):
     parameters: ParametersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDbParameterGroupOutputTypeDef(BaseModel):
+class GetDbParameterGroupOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -132,7 +132,7 @@ class GetDbParameterGroupOutputTypeDef(BaseModel):
     parameters: ParametersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDbInstanceInputRequestTypeDef(BaseModel):
+class CreateDbInstanceInputRequestTypeDef(BaseValidatorModel):
     name: str
     password: str
     dbInstanceType: DbInstanceTypeType
@@ -149,7 +149,7 @@ class CreateDbInstanceInputRequestTypeDef(BaseModel):
     logDeliveryConfiguration: Optional[LogDeliveryConfigurationTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateDbInstanceOutputTypeDef(BaseModel):
+class CreateDbInstanceOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -169,7 +169,7 @@ class CreateDbInstanceOutputTypeDef(BaseModel):
     influxAuthParametersSecretArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDbInstanceOutputTypeDef(BaseModel):
+class DeleteDbInstanceOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -189,7 +189,7 @@ class DeleteDbInstanceOutputTypeDef(BaseModel):
     influxAuthParametersSecretArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDbInstanceOutputTypeDef(BaseModel):
+class GetDbInstanceOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -209,12 +209,12 @@ class GetDbInstanceOutputTypeDef(BaseModel):
     influxAuthParametersSecretArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDbInstanceInputRequestTypeDef(BaseModel):
+class UpdateDbInstanceInputRequestTypeDef(BaseValidatorModel):
     identifier: str
     logDeliveryConfiguration: Optional[LogDeliveryConfigurationTypeDef] = None
     dbParameterGroupIdentifier: Optional[str] = None
 
-class UpdateDbInstanceOutputTypeDef(BaseModel):
+class UpdateDbInstanceOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str

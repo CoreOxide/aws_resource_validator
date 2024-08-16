@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,90 +11,90 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.license_manager_user_subscriptions_constants import *
 
-class ActiveDirectoryIdentityProviderTypeDef(BaseModel):
+class ActiveDirectoryIdentityProviderTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     Attribute: Optional[str] = None
     Operation: Optional[str] = None
     Value: Optional[str] = None
 
-class SettingsTypeDef(BaseModel):
+class SettingsTypeDef(BaseValidatorModel):
     SecurityGroupId: str
     Subnets: List[str]
 
-class InstanceSummaryTypeDef(BaseModel):
+class InstanceSummaryTypeDef(BaseValidatorModel):
     InstanceId: str
     Products: List[str]
     Status: str
     LastStatusCheckDate: Optional[str] = None
     StatusMessage: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListIdentityProvidersRequestRequestTypeDef(BaseModel):
+class ListIdentityProvidersRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class UpdateSettingsTypeDef(BaseModel):
+class UpdateSettingsTypeDef(BaseValidatorModel):
     AddSubnets: Sequence[str]
     RemoveSubnets: Sequence[str]
     SecurityGroupId: Optional[str] = None
 
-class IdentityProviderTypeDef(BaseModel):
+class IdentityProviderTypeDef(BaseValidatorModel):
     ActiveDirectoryIdentityProvider: Optional[ActiveDirectoryIdentityProviderTypeDef] = None
 
-class ListInstancesRequestRequestTypeDef(BaseModel):
+class ListInstancesRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListInstancesResponseTypeDef(BaseModel):
+class ListInstancesResponseTypeDef(BaseValidatorModel):
     InstanceSummaries: List[InstanceSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIdentityProvidersRequestListIdentityProvidersPaginateTypeDef(BaseModel):
+class ListIdentityProvidersRequestListIdentityProvidersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInstancesRequestListInstancesPaginateTypeDef(BaseModel):
+class ListInstancesRequestListInstancesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class AssociateUserRequestRequestTypeDef(BaseModel):
+class AssociateUserRequestRequestTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     InstanceId: str
     Username: str
     Domain: Optional[str] = None
 
-class DeregisterIdentityProviderRequestRequestTypeDef(BaseModel):
+class DeregisterIdentityProviderRequestRequestTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     Product: str
 
-class DisassociateUserRequestRequestTypeDef(BaseModel):
+class DisassociateUserRequestRequestTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     InstanceId: str
     Username: str
     Domain: Optional[str] = None
 
-class IdentityProviderSummaryTypeDef(BaseModel):
+class IdentityProviderSummaryTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     Product: str
     Settings: SettingsTypeDef
     Status: str
     FailureMessage: Optional[str] = None
 
-class InstanceUserSummaryTypeDef(BaseModel):
+class InstanceUserSummaryTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     InstanceId: str
     Status: str
@@ -104,33 +104,33 @@ class InstanceUserSummaryTypeDef(BaseModel):
     Domain: Optional[str] = None
     StatusMessage: Optional[str] = None
 
-class ListProductSubscriptionsRequestListProductSubscriptionsPaginateTypeDef(BaseModel):
+class ListProductSubscriptionsRequestListProductSubscriptionsPaginateTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     Product: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProductSubscriptionsRequestRequestTypeDef(BaseModel):
+class ListProductSubscriptionsRequestRequestTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     Product: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListUserAssociationsRequestListUserAssociationsPaginateTypeDef(BaseModel):
+class ListUserAssociationsRequestListUserAssociationsPaginateTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     InstanceId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUserAssociationsRequestRequestTypeDef(BaseModel):
+class ListUserAssociationsRequestRequestTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     InstanceId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ProductUserSummaryTypeDef(BaseModel):
+class ProductUserSummaryTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     Product: str
     Status: str
@@ -140,68 +140,68 @@ class ProductUserSummaryTypeDef(BaseModel):
     SubscriptionEndDate: Optional[str] = None
     SubscriptionStartDate: Optional[str] = None
 
-class RegisterIdentityProviderRequestRequestTypeDef(BaseModel):
+class RegisterIdentityProviderRequestRequestTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     Product: str
     Settings: Optional[SettingsTypeDef] = None
 
-class StartProductSubscriptionRequestRequestTypeDef(BaseModel):
+class StartProductSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     Product: str
     Username: str
     Domain: Optional[str] = None
 
-class StopProductSubscriptionRequestRequestTypeDef(BaseModel):
+class StopProductSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     Product: str
     Username: str
     Domain: Optional[str] = None
 
-class UpdateIdentityProviderSettingsRequestRequestTypeDef(BaseModel):
+class UpdateIdentityProviderSettingsRequestRequestTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeDef
     Product: str
     UpdateSettings: UpdateSettingsTypeDef
 
-class DeregisterIdentityProviderResponseTypeDef(BaseModel):
+class DeregisterIdentityProviderResponseTypeDef(BaseValidatorModel):
     IdentityProviderSummary: IdentityProviderSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIdentityProvidersResponseTypeDef(BaseModel):
+class ListIdentityProvidersResponseTypeDef(BaseValidatorModel):
     IdentityProviderSummaries: List[IdentityProviderSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterIdentityProviderResponseTypeDef(BaseModel):
+class RegisterIdentityProviderResponseTypeDef(BaseValidatorModel):
     IdentityProviderSummary: IdentityProviderSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateIdentityProviderSettingsResponseTypeDef(BaseModel):
+class UpdateIdentityProviderSettingsResponseTypeDef(BaseValidatorModel):
     IdentityProviderSummary: IdentityProviderSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateUserResponseTypeDef(BaseModel):
+class AssociateUserResponseTypeDef(BaseValidatorModel):
     InstanceUserSummary: InstanceUserSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateUserResponseTypeDef(BaseModel):
+class DisassociateUserResponseTypeDef(BaseValidatorModel):
     InstanceUserSummary: InstanceUserSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUserAssociationsResponseTypeDef(BaseModel):
+class ListUserAssociationsResponseTypeDef(BaseValidatorModel):
     InstanceUserSummaries: List[InstanceUserSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProductSubscriptionsResponseTypeDef(BaseModel):
+class ListProductSubscriptionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     ProductUserSummaries: List[ProductUserSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartProductSubscriptionResponseTypeDef(BaseModel):
+class StartProductSubscriptionResponseTypeDef(BaseValidatorModel):
     ProductUserSummary: ProductUserSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopProductSubscriptionResponseTypeDef(BaseModel):
+class StopProductSubscriptionResponseTypeDef(BaseValidatorModel):
     ProductUserSummary: ProductUserSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

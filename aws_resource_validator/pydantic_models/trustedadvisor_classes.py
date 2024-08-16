@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.trustedadvisor_constants import *
 
-class AccountRecommendationLifecycleSummaryTypeDef(BaseModel):
+class AccountRecommendationLifecycleSummaryTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
     accountRecommendationArn: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
@@ -21,23 +21,23 @@ class AccountRecommendationLifecycleSummaryTypeDef(BaseModel):
     updatedOnBehalfOf: Optional[str] = None
     updatedOnBehalfOfJobTitle: Optional[str] = None
 
-class RecommendationResourceExclusionTypeDef(BaseModel):
+class RecommendationResourceExclusionTypeDef(BaseValidatorModel):
     arn: str
     isExcluded: bool
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class UpdateRecommendationResourceExclusionErrorTypeDef(BaseModel):
+class UpdateRecommendationResourceExclusionErrorTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
-class CheckSummaryTypeDef(BaseModel):
+class CheckSummaryTypeDef(BaseValidatorModel):
     arn: str
     awsServices: List[str]
     description: str
@@ -47,18 +47,18 @@ class CheckSummaryTypeDef(BaseModel):
     pillars: List[RecommendationPillarType]
     source: RecommendationSourceType
 
-class GetOrganizationRecommendationRequestRequestTypeDef(BaseModel):
+class GetOrganizationRecommendationRequestRequestTypeDef(BaseValidatorModel):
     organizationRecommendationIdentifier: str
 
-class GetRecommendationRequestRequestTypeDef(BaseModel):
+class GetRecommendationRequestRequestTypeDef(BaseValidatorModel):
     recommendationIdentifier: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListChecksRequestRequestTypeDef(BaseModel):
+class ListChecksRequestRequestTypeDef(BaseValidatorModel):
     awsService: Optional[str] = None
     language: Optional[RecommendationLanguageType] = None
     maxResults: Optional[int] = None
@@ -66,13 +66,13 @@ class ListChecksRequestRequestTypeDef(BaseModel):
     pillar: Optional[RecommendationPillarType] = None
     source: Optional[RecommendationSourceType] = None
 
-class ListOrganizationRecommendationAccountsRequestRequestTypeDef(BaseModel):
+class ListOrganizationRecommendationAccountsRequestRequestTypeDef(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListOrganizationRecommendationResourcesRequestRequestTypeDef(BaseModel):
+class ListOrganizationRecommendationResourcesRequestRequestTypeDef(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
     exclusionStatus: Optional[ExclusionStatusType] = None
@@ -81,7 +81,7 @@ class ListOrganizationRecommendationResourcesRequestRequestTypeDef(BaseModel):
     regionCode: Optional[str] = None
     status: Optional[ResourceStatusType] = None
 
-class OrganizationRecommendationResourceSummaryTypeDef(BaseModel):
+class OrganizationRecommendationResourceSummaryTypeDef(BaseValidatorModel):
     arn: str
     awsResourceId: str
     id: str
@@ -93,7 +93,7 @@ class OrganizationRecommendationResourceSummaryTypeDef(BaseModel):
     accountId: Optional[str] = None
     exclusionStatus: Optional[ExclusionStatusType] = None
 
-class ListRecommendationResourcesRequestRequestTypeDef(BaseModel):
+class ListRecommendationResourcesRequestRequestTypeDef(BaseValidatorModel):
     recommendationIdentifier: str
     exclusionStatus: Optional[ExclusionStatusType] = None
     maxResults: Optional[int] = None
@@ -101,7 +101,7 @@ class ListRecommendationResourcesRequestRequestTypeDef(BaseModel):
     regionCode: Optional[str] = None
     status: Optional[ResourceStatusType] = None
 
-class RecommendationResourceSummaryTypeDef(BaseModel):
+class RecommendationResourceSummaryTypeDef(BaseValidatorModel):
     arn: str
     awsResourceId: str
     id: str
@@ -112,60 +112,60 @@ class RecommendationResourceSummaryTypeDef(BaseModel):
     status: ResourceStatusType
     exclusionStatus: Optional[ExclusionStatusType] = None
 
-class RecommendationResourcesAggregatesTypeDef(BaseModel):
+class RecommendationResourcesAggregatesTypeDef(BaseValidatorModel):
     errorCount: int
     okCount: int
     warningCount: int
 
-class RecommendationCostOptimizingAggregatesTypeDef(BaseModel):
+class RecommendationCostOptimizingAggregatesTypeDef(BaseValidatorModel):
     estimatedMonthlySavings: float
     estimatedPercentMonthlySavings: float
 
-class UpdateOrganizationRecommendationLifecycleRequestRequestTypeDef(BaseModel):
+class UpdateOrganizationRecommendationLifecycleRequestRequestTypeDef(BaseValidatorModel):
     lifecycleStage: UpdateRecommendationLifecycleStageType
     organizationRecommendationIdentifier: str
     updateReason: Optional[str] = None
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
 
-class UpdateRecommendationLifecycleRequestRequestTypeDef(BaseModel):
+class UpdateRecommendationLifecycleRequestRequestTypeDef(BaseValidatorModel):
     lifecycleStage: UpdateRecommendationLifecycleStageType
     recommendationIdentifier: str
     updateReason: Optional[str] = None
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
 
-class BatchUpdateRecommendationResourceExclusionRequestRequestTypeDef(BaseModel):
+class BatchUpdateRecommendationResourceExclusionRequestRequestTypeDef(BaseValidatorModel):
     recommendationResourceExclusions: Sequence[RecommendationResourceExclusionTypeDef]
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOrganizationRecommendationAccountsResponseTypeDef(BaseModel):
+class ListOrganizationRecommendationAccountsResponseTypeDef(BaseValidatorModel):
     accountRecommendationLifecycleSummaries: List[       AccountRecommendationLifecycleSummaryTypeDef     ]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchUpdateRecommendationResourceExclusionResponseTypeDef(BaseModel):
+class BatchUpdateRecommendationResourceExclusionResponseTypeDef(BaseValidatorModel):
     batchUpdateRecommendationResourceExclusionErrors: List[       UpdateRecommendationResourceExclusionErrorTypeDef     ]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListChecksResponseTypeDef(BaseModel):
+class ListChecksResponseTypeDef(BaseValidatorModel):
     checkSummaries: List[CheckSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListChecksRequestListChecksPaginateTypeDef(BaseModel):
+class ListChecksRequestListChecksPaginateTypeDef(BaseValidatorModel):
     awsService: Optional[str] = None
     language: Optional[RecommendationLanguageType] = None
     pillar: Optional[RecommendationPillarType] = None
     source: Optional[RecommendationSourceType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOrganizationRecommendationAccountsRequestListOrganizationRecommendationAccountsPaginateTypeDef(BaseModel):
+class ListOrganizationRecommendationAccountsRequestListOrganizationRecommendationAccountsPaginateTypeDef(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOrganizationRecommendationResourcesRequestListOrganizationRecommendationResourcesPaginateTypeDef(BaseModel):
+class ListOrganizationRecommendationResourcesRequestListOrganizationRecommendationResourcesPaginateTypeDef(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
     exclusionStatus: Optional[ExclusionStatusType] = None
@@ -173,19 +173,19 @@ class ListOrganizationRecommendationResourcesRequestListOrganizationRecommendati
     status: Optional[ResourceStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRecommendationResourcesRequestListRecommendationResourcesPaginateTypeDef(BaseModel):
+class ListRecommendationResourcesRequestListRecommendationResourcesPaginateTypeDef(BaseValidatorModel):
     recommendationIdentifier: str
     exclusionStatus: Optional[ExclusionStatusType] = None
     regionCode: Optional[str] = None
     status: Optional[ResourceStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOrganizationRecommendationResourcesResponseTypeDef(BaseModel):
+class ListOrganizationRecommendationResourcesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     organizationRecommendationResourceSummaries: List[       OrganizationRecommendationResourceSummaryTypeDef     ]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOrganizationRecommendationsRequestListOrganizationRecommendationsPaginateTypeDef(BaseModel):
+class ListOrganizationRecommendationsRequestListOrganizationRecommendationsPaginateTypeDef(BaseValidatorModel):
     afterLastUpdatedAt: Optional[TimestampTypeDef] = None
     awsService: Optional[str] = None
     beforeLastUpdatedAt: Optional[TimestampTypeDef] = None
@@ -196,7 +196,7 @@ class ListOrganizationRecommendationsRequestListOrganizationRecommendationsPagin
     type: Optional[RecommendationTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOrganizationRecommendationsRequestRequestTypeDef(BaseModel):
+class ListOrganizationRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     afterLastUpdatedAt: Optional[TimestampTypeDef] = None
     awsService: Optional[str] = None
     beforeLastUpdatedAt: Optional[TimestampTypeDef] = None
@@ -208,7 +208,7 @@ class ListOrganizationRecommendationsRequestRequestTypeDef(BaseModel):
     status: Optional[RecommendationStatusType] = None
     type: Optional[RecommendationTypeType] = None
 
-class ListRecommendationsRequestListRecommendationsPaginateTypeDef(BaseModel):
+class ListRecommendationsRequestListRecommendationsPaginateTypeDef(BaseValidatorModel):
     afterLastUpdatedAt: Optional[TimestampTypeDef] = None
     awsService: Optional[str] = None
     beforeLastUpdatedAt: Optional[TimestampTypeDef] = None
@@ -219,7 +219,7 @@ class ListRecommendationsRequestListRecommendationsPaginateTypeDef(BaseModel):
     type: Optional[RecommendationTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRecommendationsRequestRequestTypeDef(BaseModel):
+class ListRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     afterLastUpdatedAt: Optional[TimestampTypeDef] = None
     awsService: Optional[str] = None
     beforeLastUpdatedAt: Optional[TimestampTypeDef] = None
@@ -231,15 +231,15 @@ class ListRecommendationsRequestRequestTypeDef(BaseModel):
     status: Optional[RecommendationStatusType] = None
     type: Optional[RecommendationTypeType] = None
 
-class ListRecommendationResourcesResponseTypeDef(BaseModel):
+class ListRecommendationResourcesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     recommendationResourceSummaries: List[RecommendationResourceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RecommendationPillarSpecificAggregatesTypeDef(BaseModel):
+class RecommendationPillarSpecificAggregatesTypeDef(BaseValidatorModel):
     costOptimizing: Optional[RecommendationCostOptimizingAggregatesTypeDef] = None
 
-class OrganizationRecommendationSummaryTypeDef(BaseModel):
+class OrganizationRecommendationSummaryTypeDef(BaseValidatorModel):
     arn: str
     id: str
     name: str
@@ -255,46 +255,7 @@ class OrganizationRecommendationSummaryTypeDef(BaseModel):
     lifecycleStage: Optional[RecommendationLifecycleStageType] = None
     pillarSpecificAggregates: Optional[RecommendationPillarSpecificAggregatesTypeDef] = None
 
-class OrganizationRecommendationTypeDef(BaseModel):
-    arn: str
-    description: str
-    id: str
-    name: str
-    pillars: List[RecommendationPillarType]
-    resourcesAggregates: RecommendationResourcesAggregatesTypeDef
-    source: RecommendationSourceType
-    status: RecommendationStatusType
-    type: RecommendationTypeType
-    awsServices: Optional[List[str]] = None
-    checkArn: Optional[str] = None
-    createdAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
-    lastUpdatedAt: Optional[datetime] = None
-    lifecycleStage: Optional[RecommendationLifecycleStageType] = None
-    pillarSpecificAggregates: Optional[RecommendationPillarSpecificAggregatesTypeDef] = None
-    resolvedAt: Optional[datetime] = None
-    updateReason: Optional[str] = None
-    updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
-    updatedOnBehalfOf: Optional[str] = None
-    updatedOnBehalfOfJobTitle: Optional[str] = None
-
-class RecommendationSummaryTypeDef(BaseModel):
-    arn: str
-    id: str
-    name: str
-    pillars: List[RecommendationPillarType]
-    resourcesAggregates: RecommendationResourcesAggregatesTypeDef
-    source: RecommendationSourceType
-    status: RecommendationStatusType
-    type: RecommendationTypeType
-    awsServices: Optional[List[str]] = None
-    checkArn: Optional[str] = None
-    createdAt: Optional[datetime] = None
-    lastUpdatedAt: Optional[datetime] = None
-    lifecycleStage: Optional[RecommendationLifecycleStageType] = None
-    pillarSpecificAggregates: Optional[RecommendationPillarSpecificAggregatesTypeDef] = None
-
-class RecommendationTypeDef(BaseModel):
+class OrganizationRecommendationTypeDef(BaseValidatorModel):
     arn: str
     description: str
     id: str
@@ -317,21 +278,60 @@ class RecommendationTypeDef(BaseModel):
     updatedOnBehalfOf: Optional[str] = None
     updatedOnBehalfOfJobTitle: Optional[str] = None
 
-class ListOrganizationRecommendationsResponseTypeDef(BaseModel):
+class RecommendationSummaryTypeDef(BaseValidatorModel):
+    arn: str
+    id: str
+    name: str
+    pillars: List[RecommendationPillarType]
+    resourcesAggregates: RecommendationResourcesAggregatesTypeDef
+    source: RecommendationSourceType
+    status: RecommendationStatusType
+    type: RecommendationTypeType
+    awsServices: Optional[List[str]] = None
+    checkArn: Optional[str] = None
+    createdAt: Optional[datetime] = None
+    lastUpdatedAt: Optional[datetime] = None
+    lifecycleStage: Optional[RecommendationLifecycleStageType] = None
+    pillarSpecificAggregates: Optional[RecommendationPillarSpecificAggregatesTypeDef] = None
+
+class RecommendationTypeDef(BaseValidatorModel):
+    arn: str
+    description: str
+    id: str
+    name: str
+    pillars: List[RecommendationPillarType]
+    resourcesAggregates: RecommendationResourcesAggregatesTypeDef
+    source: RecommendationSourceType
+    status: RecommendationStatusType
+    type: RecommendationTypeType
+    awsServices: Optional[List[str]] = None
+    checkArn: Optional[str] = None
+    createdAt: Optional[datetime] = None
+    createdBy: Optional[str] = None
+    lastUpdatedAt: Optional[datetime] = None
+    lifecycleStage: Optional[RecommendationLifecycleStageType] = None
+    pillarSpecificAggregates: Optional[RecommendationPillarSpecificAggregatesTypeDef] = None
+    resolvedAt: Optional[datetime] = None
+    updateReason: Optional[str] = None
+    updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
+    updatedOnBehalfOf: Optional[str] = None
+    updatedOnBehalfOfJobTitle: Optional[str] = None
+
+class ListOrganizationRecommendationsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     organizationRecommendationSummaries: List[OrganizationRecommendationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOrganizationRecommendationResponseTypeDef(BaseModel):
+class GetOrganizationRecommendationResponseTypeDef(BaseValidatorModel):
     organizationRecommendation: OrganizationRecommendationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRecommendationsResponseTypeDef(BaseModel):
+class ListRecommendationsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     recommendationSummaries: List[RecommendationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRecommendationResponseTypeDef(BaseModel):
+class GetRecommendationResponseTypeDef(BaseValidatorModel):
     recommendation: RecommendationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

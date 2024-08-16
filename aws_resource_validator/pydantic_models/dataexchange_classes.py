@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.dataexchange_constants import *
 
-class ApiGatewayApiAssetTypeDef(BaseModel):
+class ApiGatewayApiAssetTypeDef(BaseValidatorModel):
     ApiDescription: Optional[str] = None
     ApiEndpoint: Optional[str] = None
     ApiId: Optional[str] = None
@@ -22,118 +22,118 @@ class ApiGatewayApiAssetTypeDef(BaseModel):
     ProtocolType: Optional[Literal["REST"]] = None
     Stage: Optional[str] = None
 
-class AssetDestinationEntryTypeDef(BaseModel):
+class AssetDestinationEntryTypeDef(BaseValidatorModel):
     AssetId: str
     Bucket: str
     Key: Optional[str] = None
 
-class RedshiftDataShareAssetTypeDef(BaseModel):
+class RedshiftDataShareAssetTypeDef(BaseValidatorModel):
     Arn: str
 
-class S3SnapshotAssetTypeDef(BaseModel):
+class S3SnapshotAssetTypeDef(BaseValidatorModel):
     Size: float
 
-class AssetSourceEntryTypeDef(BaseModel):
+class AssetSourceEntryTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
 
-class AutoExportRevisionDestinationEntryTypeDef(BaseModel):
+class AutoExportRevisionDestinationEntryTypeDef(BaseValidatorModel):
     Bucket: str
     KeyPattern: Optional[str] = None
 
-class ExportServerSideEncryptionTypeDef(BaseModel):
+class ExportServerSideEncryptionTypeDef(BaseValidatorModel):
     Type: ServerSideEncryptionTypesType
     KmsKeyArn: Optional[str] = None
 
-class CancelJobRequestRequestTypeDef(BaseModel):
+class CancelJobRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
 
-class CreateDataSetRequestRequestTypeDef(BaseModel):
+class CreateDataSetRequestRequestTypeDef(BaseValidatorModel):
     AssetType: AssetTypeType
     Description: str
     Name: str
     Tags: Optional[Mapping[str, str]] = None
 
-class OriginDetailsTypeDef(BaseModel):
+class OriginDetailsTypeDef(BaseValidatorModel):
     ProductId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateRevisionRequestRequestTypeDef(BaseModel):
+class CreateRevisionRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
     Comment: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class LFTagPaginatorTypeDef(BaseModel):
+class LFTagPaginatorTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: List[str]
 
-class LFTagTypeDef(BaseModel):
+class LFTagTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: Sequence[str]
 
-class DeleteAssetRequestRequestTypeDef(BaseModel):
+class DeleteAssetRequestRequestTypeDef(BaseValidatorModel):
     AssetId: str
     DataSetId: str
     RevisionId: str
 
-class DeleteDataSetRequestRequestTypeDef(BaseModel):
+class DeleteDataSetRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
 
-class DeleteEventActionRequestRequestTypeDef(BaseModel):
+class DeleteEventActionRequestRequestTypeDef(BaseValidatorModel):
     EventActionId: str
 
-class DeleteRevisionRequestRequestTypeDef(BaseModel):
+class DeleteRevisionRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
 
-class ImportAssetFromSignedUrlJobErrorDetailsTypeDef(BaseModel):
+class ImportAssetFromSignedUrlJobErrorDetailsTypeDef(BaseValidatorModel):
     AssetName: str
 
-class RevisionPublishedTypeDef(BaseModel):
+class RevisionPublishedTypeDef(BaseValidatorModel):
     DataSetId: str
 
-class ExportAssetToSignedUrlRequestDetailsTypeDef(BaseModel):
+class ExportAssetToSignedUrlRequestDetailsTypeDef(BaseValidatorModel):
     AssetId: str
     DataSetId: str
     RevisionId: str
 
-class ExportAssetToSignedUrlResponseDetailsTypeDef(BaseModel):
+class ExportAssetToSignedUrlResponseDetailsTypeDef(BaseValidatorModel):
     AssetId: str
     DataSetId: str
     RevisionId: str
     SignedUrl: Optional[str] = None
     SignedUrlExpiresAt: Optional[datetime] = None
 
-class RevisionDestinationEntryTypeDef(BaseModel):
+class RevisionDestinationEntryTypeDef(BaseValidatorModel):
     Bucket: str
     RevisionId: str
     KeyPattern: Optional[str] = None
 
-class GetAssetRequestRequestTypeDef(BaseModel):
+class GetAssetRequestRequestTypeDef(BaseValidatorModel):
     AssetId: str
     DataSetId: str
     RevisionId: str
 
-class GetDataSetRequestRequestTypeDef(BaseModel):
+class GetDataSetRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
 
-class GetEventActionRequestRequestTypeDef(BaseModel):
+class GetEventActionRequestRequestTypeDef(BaseValidatorModel):
     EventActionId: str
 
-class GetJobRequestRequestTypeDef(BaseModel):
+class GetJobRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
 
-class GetRevisionRequestRequestTypeDef(BaseModel):
+class GetRevisionRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
 
-class ImportAssetFromApiGatewayApiRequestDetailsTypeDef(BaseModel):
+class ImportAssetFromApiGatewayApiRequestDetailsTypeDef(BaseValidatorModel):
     ApiId: str
     ApiName: str
     ApiSpecificationMd5Hash: str
@@ -144,7 +144,7 @@ class ImportAssetFromApiGatewayApiRequestDetailsTypeDef(BaseModel):
     ApiDescription: Optional[str] = None
     ApiKey: Optional[str] = None
 
-class ImportAssetFromApiGatewayApiResponseDetailsTypeDef(BaseModel):
+class ImportAssetFromApiGatewayApiResponseDetailsTypeDef(BaseValidatorModel):
     ApiId: str
     ApiName: str
     ApiSpecificationMd5Hash: str
@@ -157,13 +157,13 @@ class ImportAssetFromApiGatewayApiResponseDetailsTypeDef(BaseModel):
     ApiDescription: Optional[str] = None
     ApiKey: Optional[str] = None
 
-class ImportAssetFromSignedUrlRequestDetailsTypeDef(BaseModel):
+class ImportAssetFromSignedUrlRequestDetailsTypeDef(BaseValidatorModel):
     AssetName: str
     DataSetId: str
     Md5Hash: str
     RevisionId: str
 
-class ImportAssetFromSignedUrlResponseDetailsTypeDef(BaseModel):
+class ImportAssetFromSignedUrlResponseDetailsTypeDef(BaseValidatorModel):
     AssetName: str
     DataSetId: str
     RevisionId: str
@@ -171,27 +171,27 @@ class ImportAssetFromSignedUrlResponseDetailsTypeDef(BaseModel):
     SignedUrl: Optional[str] = None
     SignedUrlExpiresAt: Optional[datetime] = None
 
-class RedshiftDataShareAssetSourceEntryTypeDef(BaseModel):
+class RedshiftDataShareAssetSourceEntryTypeDef(BaseValidatorModel):
     DataShareArn: str
 
-class KmsKeyToGrantTypeDef(BaseModel):
+class KmsKeyToGrantTypeDef(BaseValidatorModel):
     KmsKeyArn: str
 
-class LakeFormationTagPolicyDetailsTypeDef(BaseModel):
+class LakeFormationTagPolicyDetailsTypeDef(BaseValidatorModel):
     Database: Optional[str] = None
     Table: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListDataSetRevisionsRequestRequestTypeDef(BaseModel):
+class ListDataSetRevisionsRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class RevisionEntryTypeDef(BaseModel):
+class RevisionEntryTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     DataSetId: str
@@ -204,32 +204,32 @@ class RevisionEntryTypeDef(BaseModel):
     Revoked: Optional[bool] = None
     RevokedAt: Optional[datetime] = None
 
-class ListDataSetsRequestRequestTypeDef(BaseModel):
+class ListDataSetsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Origin: Optional[str] = None
 
-class ListEventActionsRequestRequestTypeDef(BaseModel):
+class ListEventActionsRequestRequestTypeDef(BaseValidatorModel):
     EventSourceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListJobsRequestRequestTypeDef(BaseModel):
+class ListJobsRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     RevisionId: Optional[str] = None
 
-class ListRevisionAssetsRequestRequestTypeDef(BaseModel):
+class ListRevisionAssetsRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class RedshiftDataShareDetailsTypeDef(BaseModel):
+class RedshiftDataShareDetailsTypeDef(BaseValidatorModel):
     Arn: str
     Database: str
     Function: Optional[str] = None
@@ -237,21 +237,21 @@ class RedshiftDataShareDetailsTypeDef(BaseModel):
     Schema: Optional[str] = None
     View: Optional[str] = None
 
-class RevokeRevisionRequestRequestTypeDef(BaseModel):
+class RevokeRevisionRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
     RevocationComment: str
 
-class S3DataAccessDetailsTypeDef(BaseModel):
+class S3DataAccessDetailsTypeDef(BaseValidatorModel):
     KeyPrefixes: Optional[Sequence[str]] = None
     Keys: Optional[Sequence[str]] = None
 
-class SchemaChangeDetailsTypeDef(BaseModel):
+class SchemaChangeDetailsTypeDef(BaseValidatorModel):
     Name: str
     Type: SchemaChangeTypeType
     Description: Optional[str] = None
 
-class SendApiAssetRequestRequestTypeDef(BaseModel):
+class SendApiAssetRequestRequestTypeDef(BaseValidatorModel):
     AssetId: str
     DataSetId: str
     RevisionId: str
@@ -261,61 +261,61 @@ class SendApiAssetRequestRequestTypeDef(BaseModel):
     Method: Optional[str] = None
     Path: Optional[str] = None
 
-class StartJobRequestRequestTypeDef(BaseModel):
+class StartJobRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateAssetRequestRequestTypeDef(BaseModel):
+class UpdateAssetRequestRequestTypeDef(BaseValidatorModel):
     AssetId: str
     DataSetId: str
     Name: str
     RevisionId: str
 
-class UpdateDataSetRequestRequestTypeDef(BaseModel):
+class UpdateDataSetRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
     Description: Optional[str] = None
     Name: Optional[str] = None
 
-class UpdateRevisionRequestRequestTypeDef(BaseModel):
+class UpdateRevisionRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
     Comment: Optional[str] = None
     Finalized: Optional[bool] = None
 
-class ImportAssetsFromS3RequestDetailsTypeDef(BaseModel):
+class ImportAssetsFromS3RequestDetailsTypeDef(BaseValidatorModel):
     AssetSources: Sequence[AssetSourceEntryTypeDef]
     DataSetId: str
     RevisionId: str
 
-class ImportAssetsFromS3ResponseDetailsTypeDef(BaseModel):
+class ImportAssetsFromS3ResponseDetailsTypeDef(BaseValidatorModel):
     AssetSources: List[AssetSourceEntryTypeDef]
     DataSetId: str
     RevisionId: str
 
-class AutoExportRevisionToS3RequestDetailsTypeDef(BaseModel):
+class AutoExportRevisionToS3RequestDetailsTypeDef(BaseValidatorModel):
     RevisionDestination: AutoExportRevisionDestinationEntryTypeDef
     Encryption: Optional[ExportServerSideEncryptionTypeDef] = None
 
-class ExportAssetsToS3RequestDetailsTypeDef(BaseModel):
+class ExportAssetsToS3RequestDetailsTypeDef(BaseValidatorModel):
     AssetDestinations: Sequence[AssetDestinationEntryTypeDef]
     DataSetId: str
     RevisionId: str
     Encryption: Optional[ExportServerSideEncryptionTypeDef] = None
 
-class ExportAssetsToS3ResponseDetailsTypeDef(BaseModel):
+class ExportAssetsToS3ResponseDetailsTypeDef(BaseValidatorModel):
     AssetDestinations: List[AssetDestinationEntryTypeDef]
     DataSetId: str
     RevisionId: str
     Encryption: Optional[ExportServerSideEncryptionTypeDef] = None
 
-class DataSetEntryTypeDef(BaseModel):
+class DataSetEntryTypeDef(BaseValidatorModel):
     Arn: str
     AssetType: AssetTypeType
     CreatedAt: datetime
@@ -327,7 +327,7 @@ class DataSetEntryTypeDef(BaseModel):
     OriginDetails: Optional[OriginDetailsTypeDef] = None
     SourceId: Optional[str] = None
 
-class CreateDataSetResponseTypeDef(BaseModel):
+class CreateDataSetResponseTypeDef(BaseValidatorModel):
     Arn: str
     AssetType: AssetTypeType
     CreatedAt: datetime
@@ -341,7 +341,7 @@ class CreateDataSetResponseTypeDef(BaseModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRevisionResponseTypeDef(BaseModel):
+class CreateRevisionResponseTypeDef(BaseValidatorModel):
     Arn: str
     Comment: str
     CreatedAt: datetime
@@ -356,10 +356,10 @@ class CreateRevisionResponseTypeDef(BaseModel):
     RevokedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDataSetResponseTypeDef(BaseModel):
+class GetDataSetResponseTypeDef(BaseValidatorModel):
     Arn: str
     AssetType: AssetTypeType
     CreatedAt: datetime
@@ -373,7 +373,7 @@ class GetDataSetResponseTypeDef(BaseModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRevisionResponseTypeDef(BaseModel):
+class GetRevisionResponseTypeDef(BaseValidatorModel):
     Arn: str
     Comment: str
     CreatedAt: datetime
@@ -388,11 +388,11 @@ class GetRevisionResponseTypeDef(BaseModel):
     RevokedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RevokeRevisionResponseTypeDef(BaseModel):
+class RevokeRevisionResponseTypeDef(BaseValidatorModel):
     Arn: str
     Comment: str
     CreatedAt: datetime
@@ -406,12 +406,12 @@ class RevokeRevisionResponseTypeDef(BaseModel):
     RevokedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendApiAssetResponseTypeDef(BaseModel):
+class SendApiAssetResponseTypeDef(BaseValidatorModel):
     Body: str
     ResponseHeaders: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDataSetResponseTypeDef(BaseModel):
+class UpdateDataSetResponseTypeDef(BaseValidatorModel):
     Arn: str
     AssetType: AssetTypeType
     CreatedAt: datetime
@@ -424,7 +424,7 @@ class UpdateDataSetResponseTypeDef(BaseModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRevisionResponseTypeDef(BaseModel):
+class UpdateRevisionResponseTypeDef(BaseValidatorModel):
     Arn: str
     Comment: str
     CreatedAt: datetime
@@ -438,81 +438,81 @@ class UpdateRevisionResponseTypeDef(BaseModel):
     RevokedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataUpdateRequestDetailsTypeDef(BaseModel):
+class DataUpdateRequestDetailsTypeDef(BaseValidatorModel):
     DataUpdatedAt: Optional[TimestampTypeDef] = None
 
-class DeprecationRequestDetailsTypeDef(BaseModel):
+class DeprecationRequestDetailsTypeDef(BaseValidatorModel):
     DeprecationAt: TimestampTypeDef
 
-class DatabaseLFTagPolicyAndPermissionsPaginatorTypeDef(BaseModel):
+class DatabaseLFTagPolicyAndPermissionsPaginatorTypeDef(BaseValidatorModel):
     Expression: List[LFTagPaginatorTypeDef]
     Permissions: List[Literal["DESCRIBE"]]
 
-class DatabaseLFTagPolicyPaginatorTypeDef(BaseModel):
+class DatabaseLFTagPolicyPaginatorTypeDef(BaseValidatorModel):
     Expression: List[LFTagPaginatorTypeDef]
 
-class TableLFTagPolicyAndPermissionsPaginatorTypeDef(BaseModel):
+class TableLFTagPolicyAndPermissionsPaginatorTypeDef(BaseValidatorModel):
     Expression: List[LFTagPaginatorTypeDef]
     Permissions: List[TableTagPolicyLFPermissionType]
 
-class TableLFTagPolicyPaginatorTypeDef(BaseModel):
+class TableLFTagPolicyPaginatorTypeDef(BaseValidatorModel):
     Expression: List[LFTagPaginatorTypeDef]
 
-class DatabaseLFTagPolicyAndPermissionsTypeDef(BaseModel):
+class DatabaseLFTagPolicyAndPermissionsTypeDef(BaseValidatorModel):
     Expression: Sequence[LFTagTypeDef]
     Permissions: Sequence[Literal["DESCRIBE"]]
 
-class DatabaseLFTagPolicyTypeDef(BaseModel):
+class DatabaseLFTagPolicyTypeDef(BaseValidatorModel):
     Expression: List[LFTagTypeDef]
 
-class TableLFTagPolicyAndPermissionsTypeDef(BaseModel):
+class TableLFTagPolicyAndPermissionsTypeDef(BaseValidatorModel):
     Expression: Sequence[LFTagTypeDef]
     Permissions: Sequence[TableTagPolicyLFPermissionType]
 
-class TableLFTagPolicyTypeDef(BaseModel):
+class TableLFTagPolicyTypeDef(BaseValidatorModel):
     Expression: List[LFTagTypeDef]
 
-class DetailsTypeDef(BaseModel):
+class DetailsTypeDef(BaseValidatorModel):
     ImportAssetFromSignedUrlJobErrorDetails: Optional[       ImportAssetFromSignedUrlJobErrorDetailsTypeDef     ] = None
     ImportAssetsFromS3JobErrorDetails: Optional[List[AssetSourceEntryTypeDef]] = None
 
-class EventTypeDef(BaseModel):
+class EventTypeDef(BaseValidatorModel):
     RevisionPublished: Optional[RevisionPublishedTypeDef] = None
 
-class ExportRevisionsToS3RequestDetailsTypeDef(BaseModel):
+class ExportRevisionsToS3RequestDetailsTypeDef(BaseValidatorModel):
     DataSetId: str
     RevisionDestinations: Sequence[RevisionDestinationEntryTypeDef]
     Encryption: Optional[ExportServerSideEncryptionTypeDef] = None
 
-class ExportRevisionsToS3ResponseDetailsTypeDef(BaseModel):
+class ExportRevisionsToS3ResponseDetailsTypeDef(BaseValidatorModel):
     DataSetId: str
     RevisionDestinations: List[RevisionDestinationEntryTypeDef]
     Encryption: Optional[ExportServerSideEncryptionTypeDef] = None
     EventActionArn: Optional[str] = None
 
-class ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef(BaseModel):
+class ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef(BaseValidatorModel):
     AssetSources: Sequence[RedshiftDataShareAssetSourceEntryTypeDef]
     DataSetId: str
     RevisionId: str
 
-class ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef(BaseModel):
+class ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef(BaseValidatorModel):
     AssetSources: List[RedshiftDataShareAssetSourceEntryTypeDef]
     DataSetId: str
     RevisionId: str
 
-class S3DataAccessAssetSourceEntryPaginatorTypeDef(BaseModel):
+class S3DataAccessAssetSourceEntryPaginatorTypeDef(BaseValidatorModel):
     Bucket: str
     KeyPrefixes: Optional[List[str]] = None
     Keys: Optional[List[str]] = None
     KmsKeysToGrant: Optional[List[KmsKeyToGrantTypeDef]] = None
 
-class S3DataAccessAssetSourceEntryTypeDef(BaseModel):
+class S3DataAccessAssetSourceEntryTypeDef(BaseValidatorModel):
     Bucket: str
     KeyPrefixes: Optional[Sequence[str]] = None
     Keys: Optional[Sequence[str]] = None
     KmsKeysToGrant: Optional[Sequence[KmsKeyToGrantTypeDef]] = None
 
-class S3DataAccessAssetTypeDef(BaseModel):
+class S3DataAccessAssetTypeDef(BaseValidatorModel):
     Bucket: str
     KeyPrefixes: Optional[List[str]] = None
     Keys: Optional[List[str]] = None
@@ -520,51 +520,51 @@ class S3DataAccessAssetTypeDef(BaseModel):
     S3AccessPointArn: Optional[str] = None
     KmsKeysToGrant: Optional[List[KmsKeyToGrantTypeDef]] = None
 
-class ListDataSetRevisionsRequestListDataSetRevisionsPaginateTypeDef(BaseModel):
+class ListDataSetRevisionsRequestListDataSetRevisionsPaginateTypeDef(BaseValidatorModel):
     DataSetId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDataSetsRequestListDataSetsPaginateTypeDef(BaseModel):
+class ListDataSetsRequestListDataSetsPaginateTypeDef(BaseValidatorModel):
     Origin: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEventActionsRequestListEventActionsPaginateTypeDef(BaseModel):
+class ListEventActionsRequestListEventActionsPaginateTypeDef(BaseValidatorModel):
     EventSourceId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobsRequestListJobsPaginateTypeDef(BaseModel):
+class ListJobsRequestListJobsPaginateTypeDef(BaseValidatorModel):
     DataSetId: Optional[str] = None
     RevisionId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRevisionAssetsRequestListRevisionAssetsPaginateTypeDef(BaseModel):
+class ListRevisionAssetsRequestListRevisionAssetsPaginateTypeDef(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDataSetRevisionsResponseTypeDef(BaseModel):
+class ListDataSetRevisionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Revisions: List[RevisionEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ScopeDetailsTypeDef(BaseModel):
+class ScopeDetailsTypeDef(BaseValidatorModel):
     LakeFormationTagPolicies: Optional[Sequence[LakeFormationTagPolicyDetailsTypeDef]] = None
     RedshiftDataShares: Optional[Sequence[RedshiftDataShareDetailsTypeDef]] = None
     S3DataAccesses: Optional[Sequence[S3DataAccessDetailsTypeDef]] = None
 
-class SchemaChangeRequestDetailsTypeDef(BaseModel):
+class SchemaChangeRequestDetailsTypeDef(BaseValidatorModel):
     SchemaChangeAt: TimestampTypeDef
     Changes: Optional[Sequence[SchemaChangeDetailsTypeDef]] = None
 
-class ActionTypeDef(BaseModel):
+class ActionTypeDef(BaseValidatorModel):
     ExportRevisionToS3: Optional[AutoExportRevisionToS3RequestDetailsTypeDef] = None
 
-class ListDataSetsResponseTypeDef(BaseModel):
+class ListDataSetsResponseTypeDef(BaseValidatorModel):
     DataSets: List[DataSetEntryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportAssetsFromLakeFormationTagPolicyResponseDetailsPaginatorTypeDef(BaseModel):
+class ImportAssetsFromLakeFormationTagPolicyResponseDetailsPaginatorTypeDef(BaseValidatorModel):
     CatalogId: str
     RoleArn: str
     DataSetId: str
@@ -572,11 +572,11 @@ class ImportAssetsFromLakeFormationTagPolicyResponseDetailsPaginatorTypeDef(Base
     Database: Optional[DatabaseLFTagPolicyAndPermissionsPaginatorTypeDef] = None
     Table: Optional[TableLFTagPolicyAndPermissionsPaginatorTypeDef] = None
 
-class LFResourceDetailsPaginatorTypeDef(BaseModel):
+class LFResourceDetailsPaginatorTypeDef(BaseValidatorModel):
     Database: Optional[DatabaseLFTagPolicyPaginatorTypeDef] = None
     Table: Optional[TableLFTagPolicyPaginatorTypeDef] = None
 
-class ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef(BaseModel):
+class ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef(BaseValidatorModel):
     CatalogId: str
     RoleArn: str
     DataSetId: str
@@ -584,7 +584,7 @@ class ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef(BaseModel):
     Database: Optional[DatabaseLFTagPolicyAndPermissionsTypeDef] = None
     Table: Optional[TableLFTagPolicyAndPermissionsTypeDef] = None
 
-class ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef(BaseModel):
+class ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef(BaseValidatorModel):
     CatalogId: str
     RoleArn: str
     DataSetId: str
@@ -592,11 +592,11 @@ class ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef(BaseModel):
     Database: Optional[DatabaseLFTagPolicyAndPermissionsTypeDef] = None
     Table: Optional[TableLFTagPolicyAndPermissionsTypeDef] = None
 
-class LFResourceDetailsTypeDef(BaseModel):
+class LFResourceDetailsTypeDef(BaseValidatorModel):
     Database: Optional[DatabaseLFTagPolicyTypeDef] = None
     Table: Optional[TableLFTagPolicyTypeDef] = None
 
-class JobErrorTypeDef(BaseModel):
+class JobErrorTypeDef(BaseValidatorModel):
     Code: CodeType
     Message: str
     Details: Optional[DetailsTypeDef] = None
@@ -605,48 +605,31 @@ class JobErrorTypeDef(BaseModel):
     ResourceId: Optional[str] = None
     ResourceType: Optional[JobErrorResourceTypesType] = None
 
-class CreateS3DataAccessFromS3BucketResponseDetailsPaginatorTypeDef(BaseModel):
+class CreateS3DataAccessFromS3BucketResponseDetailsPaginatorTypeDef(BaseValidatorModel):
     AssetSource: S3DataAccessAssetSourceEntryPaginatorTypeDef
     DataSetId: str
     RevisionId: str
 
-class CreateS3DataAccessFromS3BucketRequestDetailsTypeDef(BaseModel):
+class CreateS3DataAccessFromS3BucketRequestDetailsTypeDef(BaseValidatorModel):
     AssetSource: S3DataAccessAssetSourceEntryTypeDef
     DataSetId: str
     RevisionId: str
 
-class CreateS3DataAccessFromS3BucketResponseDetailsTypeDef(BaseModel):
+class CreateS3DataAccessFromS3BucketResponseDetailsTypeDef(BaseValidatorModel):
     AssetSource: S3DataAccessAssetSourceEntryTypeDef
     DataSetId: str
     RevisionId: str
 
-class NotificationDetailsTypeDef(BaseModel):
+class NotificationDetailsTypeDef(BaseValidatorModel):
     DataUpdate: Optional[DataUpdateRequestDetailsTypeDef] = None
     Deprecation: Optional[DeprecationRequestDetailsTypeDef] = None
     SchemaChange: Optional[SchemaChangeRequestDetailsTypeDef] = None
 
-class CreateEventActionRequestRequestTypeDef(BaseModel):
+class CreateEventActionRequestRequestTypeDef(BaseValidatorModel):
     Action: ActionTypeDef
     Event: EventTypeDef
 
-class CreateEventActionResponseTypeDef(BaseModel):
-    Action: ActionTypeDef
-    Arn: str
-    CreatedAt: datetime
-    Event: EventTypeDef
-    Id: str
-    UpdatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class EventActionEntryTypeDef(BaseModel):
-    Action: ActionTypeDef
-    Arn: str
-    CreatedAt: datetime
-    Event: EventTypeDef
-    Id: str
-    UpdatedAt: datetime
-
-class GetEventActionResponseTypeDef(BaseModel):
+class CreateEventActionResponseTypeDef(BaseValidatorModel):
     Action: ActionTypeDef
     Arn: str
     CreatedAt: datetime
@@ -655,11 +638,28 @@ class GetEventActionResponseTypeDef(BaseModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEventActionRequestRequestTypeDef(BaseModel):
+class EventActionEntryTypeDef(BaseValidatorModel):
+    Action: ActionTypeDef
+    Arn: str
+    CreatedAt: datetime
+    Event: EventTypeDef
+    Id: str
+    UpdatedAt: datetime
+
+class GetEventActionResponseTypeDef(BaseValidatorModel):
+    Action: ActionTypeDef
+    Arn: str
+    CreatedAt: datetime
+    Event: EventTypeDef
+    Id: str
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEventActionRequestRequestTypeDef(BaseValidatorModel):
     EventActionId: str
     Action: Optional[ActionTypeDef] = None
 
-class UpdateEventActionResponseTypeDef(BaseModel):
+class UpdateEventActionResponseTypeDef(BaseValidatorModel):
     Action: ActionTypeDef
     Arn: str
     CreatedAt: datetime
@@ -668,17 +668,17 @@ class UpdateEventActionResponseTypeDef(BaseModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LFTagPolicyDetailsPaginatorTypeDef(BaseModel):
+class LFTagPolicyDetailsPaginatorTypeDef(BaseValidatorModel):
     CatalogId: str
     ResourceType: LFResourceTypeType
     ResourceDetails: LFResourceDetailsPaginatorTypeDef
 
-class LFTagPolicyDetailsTypeDef(BaseModel):
+class LFTagPolicyDetailsTypeDef(BaseValidatorModel):
     CatalogId: str
     ResourceType: LFResourceTypeType
     ResourceDetails: LFResourceDetailsTypeDef
 
-class ResponseDetailsPaginatorTypeDef(BaseModel):
+class ResponseDetailsPaginatorTypeDef(BaseValidatorModel):
     ExportAssetToSignedUrl: Optional[ExportAssetToSignedUrlResponseDetailsTypeDef] = None
     ExportAssetsToS3: Optional[ExportAssetsToS3ResponseDetailsTypeDef] = None
     ExportRevisionsToS3: Optional[ExportRevisionsToS3ResponseDetailsTypeDef] = None
@@ -689,7 +689,7 @@ class ResponseDetailsPaginatorTypeDef(BaseModel):
     CreateS3DataAccessFromS3Bucket: Optional[       CreateS3DataAccessFromS3BucketResponseDetailsPaginatorTypeDef     ] = None
     ImportAssetsFromLakeFormationTagPolicy: Optional[       ImportAssetsFromLakeFormationTagPolicyResponseDetailsPaginatorTypeDef     ] = None
 
-class RequestDetailsTypeDef(BaseModel):
+class RequestDetailsTypeDef(BaseValidatorModel):
     ExportAssetToSignedUrl: Optional[ExportAssetToSignedUrlRequestDetailsTypeDef] = None
     ExportAssetsToS3: Optional[ExportAssetsToS3RequestDetailsTypeDef] = None
     ExportRevisionsToS3: Optional[ExportRevisionsToS3RequestDetailsTypeDef] = None
@@ -700,7 +700,7 @@ class RequestDetailsTypeDef(BaseModel):
     CreateS3DataAccessFromS3Bucket: Optional[       CreateS3DataAccessFromS3BucketRequestDetailsTypeDef     ] = None
     ImportAssetsFromLakeFormationTagPolicy: Optional[       ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef     ] = None
 
-class ResponseDetailsTypeDef(BaseModel):
+class ResponseDetailsTypeDef(BaseValidatorModel):
     ExportAssetToSignedUrl: Optional[ExportAssetToSignedUrlResponseDetailsTypeDef] = None
     ExportAssetsToS3: Optional[ExportAssetsToS3ResponseDetailsTypeDef] = None
     ExportRevisionsToS3: Optional[ExportRevisionsToS3ResponseDetailsTypeDef] = None
@@ -711,7 +711,7 @@ class ResponseDetailsTypeDef(BaseModel):
     CreateS3DataAccessFromS3Bucket: Optional[       CreateS3DataAccessFromS3BucketResponseDetailsTypeDef     ] = None
     ImportAssetsFromLakeFormationTagPolicy: Optional[       ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef     ] = None
 
-class SendDataSetNotificationRequestRequestTypeDef(BaseModel):
+class SendDataSetNotificationRequestRequestTypeDef(BaseValidatorModel):
     DataSetId: str
     Type: NotificationTypeType
     Scope: Optional[ScopeDetailsTypeDef] = None
@@ -719,18 +719,18 @@ class SendDataSetNotificationRequestRequestTypeDef(BaseModel):
     Comment: Optional[str] = None
     Details: Optional[NotificationDetailsTypeDef] = None
 
-class ListEventActionsResponseTypeDef(BaseModel):
+class ListEventActionsResponseTypeDef(BaseValidatorModel):
     EventActions: List[EventActionEntryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LakeFormationDataPermissionDetailsPaginatorTypeDef(BaseModel):
+class LakeFormationDataPermissionDetailsPaginatorTypeDef(BaseValidatorModel):
     LFTagPolicy: Optional[LFTagPolicyDetailsPaginatorTypeDef] = None
 
-class LakeFormationDataPermissionDetailsTypeDef(BaseModel):
+class LakeFormationDataPermissionDetailsTypeDef(BaseValidatorModel):
     LFTagPolicy: Optional[LFTagPolicyDetailsTypeDef] = None
 
-class JobEntryPaginatorTypeDef(BaseModel):
+class JobEntryPaginatorTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     Details: ResponseDetailsPaginatorTypeDef
@@ -740,11 +740,11 @@ class JobEntryPaginatorTypeDef(BaseModel):
     UpdatedAt: datetime
     Errors: Optional[List[JobErrorTypeDef]] = None
 
-class CreateJobRequestRequestTypeDef(BaseModel):
+class CreateJobRequestRequestTypeDef(BaseValidatorModel):
     Details: RequestDetailsTypeDef
     Type: TypeType
 
-class CreateJobResponseTypeDef(BaseModel):
+class CreateJobResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     Details: ResponseDetailsTypeDef
@@ -755,7 +755,7 @@ class CreateJobResponseTypeDef(BaseModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobResponseTypeDef(BaseModel):
+class GetJobResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     Details: ResponseDetailsTypeDef
@@ -766,7 +766,7 @@ class GetJobResponseTypeDef(BaseModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JobEntryTypeDef(BaseModel):
+class JobEntryTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     Details: ResponseDetailsTypeDef
@@ -776,43 +776,43 @@ class JobEntryTypeDef(BaseModel):
     UpdatedAt: datetime
     Errors: Optional[List[JobErrorTypeDef]] = None
 
-class LakeFormationDataPermissionAssetPaginatorTypeDef(BaseModel):
+class LakeFormationDataPermissionAssetPaginatorTypeDef(BaseValidatorModel):
     LakeFormationDataPermissionDetails: LakeFormationDataPermissionDetailsPaginatorTypeDef
     LakeFormationDataPermissionType: Literal["LFTagPolicy"]
     Permissions: List[LFPermissionType]
     RoleArn: Optional[str] = None
 
-class LakeFormationDataPermissionAssetTypeDef(BaseModel):
+class LakeFormationDataPermissionAssetTypeDef(BaseValidatorModel):
     LakeFormationDataPermissionDetails: LakeFormationDataPermissionDetailsTypeDef
     LakeFormationDataPermissionType: Literal["LFTagPolicy"]
     Permissions: List[LFPermissionType]
     RoleArn: Optional[str] = None
 
-class ListJobsResponsePaginatorTypeDef(BaseModel):
+class ListJobsResponsePaginatorTypeDef(BaseValidatorModel):
     Jobs: List[JobEntryPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobsResponseTypeDef(BaseModel):
+class ListJobsResponseTypeDef(BaseValidatorModel):
     Jobs: List[JobEntryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssetDetailsPaginatorTypeDef(BaseModel):
+class AssetDetailsPaginatorTypeDef(BaseValidatorModel):
     S3SnapshotAsset: Optional[S3SnapshotAssetTypeDef] = None
     RedshiftDataShareAsset: Optional[RedshiftDataShareAssetTypeDef] = None
     ApiGatewayApiAsset: Optional[ApiGatewayApiAssetTypeDef] = None
     S3DataAccessAsset: Optional[S3DataAccessAssetTypeDef] = None
     LakeFormationDataPermissionAsset: Optional[       LakeFormationDataPermissionAssetPaginatorTypeDef     ] = None
 
-class AssetDetailsTypeDef(BaseModel):
+class AssetDetailsTypeDef(BaseValidatorModel):
     S3SnapshotAsset: Optional[S3SnapshotAssetTypeDef] = None
     RedshiftDataShareAsset: Optional[RedshiftDataShareAssetTypeDef] = None
     ApiGatewayApiAsset: Optional[ApiGatewayApiAssetTypeDef] = None
     S3DataAccessAsset: Optional[S3DataAccessAssetTypeDef] = None
     LakeFormationDataPermissionAsset: Optional[LakeFormationDataPermissionAssetTypeDef] = None
 
-class AssetEntryPaginatorTypeDef(BaseModel):
+class AssetEntryPaginatorTypeDef(BaseValidatorModel):
     Arn: str
     AssetDetails: AssetDetailsPaginatorTypeDef
     AssetType: AssetTypeType
@@ -824,7 +824,7 @@ class AssetEntryPaginatorTypeDef(BaseModel):
     UpdatedAt: datetime
     SourceId: Optional[str] = None
 
-class AssetEntryTypeDef(BaseModel):
+class AssetEntryTypeDef(BaseValidatorModel):
     Arn: str
     AssetDetails: AssetDetailsTypeDef
     AssetType: AssetTypeType
@@ -836,7 +836,7 @@ class AssetEntryTypeDef(BaseModel):
     UpdatedAt: datetime
     SourceId: Optional[str] = None
 
-class GetAssetResponseTypeDef(BaseModel):
+class GetAssetResponseTypeDef(BaseValidatorModel):
     Arn: str
     AssetDetails: AssetDetailsTypeDef
     AssetType: AssetTypeType
@@ -849,7 +849,7 @@ class GetAssetResponseTypeDef(BaseModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAssetResponseTypeDef(BaseModel):
+class UpdateAssetResponseTypeDef(BaseValidatorModel):
     Arn: str
     AssetDetails: AssetDetailsTypeDef
     AssetType: AssetTypeType
@@ -862,12 +862,12 @@ class UpdateAssetResponseTypeDef(BaseModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRevisionAssetsResponsePaginatorTypeDef(BaseModel):
+class ListRevisionAssetsResponsePaginatorTypeDef(BaseValidatorModel):
     Assets: List[AssetEntryPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRevisionAssetsResponseTypeDef(BaseModel):
+class ListRevisionAssetsResponseTypeDef(BaseValidatorModel):
     Assets: List[AssetEntryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

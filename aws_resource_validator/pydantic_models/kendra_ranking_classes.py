@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,27 +11,27 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kendra_ranking_constants import *
 
-class CapacityUnitsConfigurationTypeDef(BaseModel):
+class CapacityUnitsConfigurationTypeDef(BaseValidatorModel):
     RescoreCapacityUnits: int
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DeleteRescoreExecutionPlanRequestRequestTypeDef(BaseModel):
+class DeleteRescoreExecutionPlanRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DescribeRescoreExecutionPlanRequestRequestTypeDef(BaseModel):
+class DescribeRescoreExecutionPlanRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DocumentTypeDef(BaseModel):
+class DocumentTypeDef(BaseValidatorModel):
     Id: str
     OriginalScore: float
     GroupId: Optional[str] = None
@@ -40,51 +40,51 @@ class DocumentTypeDef(BaseModel):
     TokenizedTitle: Optional[Sequence[str]] = None
     TokenizedBody: Optional[Sequence[str]] = None
 
-class ListRescoreExecutionPlansRequestRequestTypeDef(BaseModel):
+class ListRescoreExecutionPlansRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class RescoreExecutionPlanSummaryTypeDef(BaseModel):
+class RescoreExecutionPlanSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Id: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     Status: Optional[RescoreExecutionPlanStatusType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class RescoreResultItemTypeDef(BaseModel):
+class RescoreResultItemTypeDef(BaseValidatorModel):
     DocumentId: Optional[str] = None
     Score: Optional[float] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateRescoreExecutionPlanRequestRequestTypeDef(BaseModel):
+class UpdateRescoreExecutionPlanRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     CapacityUnits: Optional[CapacityUnitsConfigurationTypeDef] = None
 
-class CreateRescoreExecutionPlanRequestRequestTypeDef(BaseModel):
+class CreateRescoreExecutionPlanRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     CapacityUnits: Optional[CapacityUnitsConfigurationTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     ClientToken: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class CreateRescoreExecutionPlanResponseTypeDef(BaseModel):
+class CreateRescoreExecutionPlanResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRescoreExecutionPlanResponseTypeDef(BaseModel):
+class DescribeRescoreExecutionPlanResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     Name: str
@@ -96,24 +96,24 @@ class DescribeRescoreExecutionPlanResponseTypeDef(BaseModel):
     ErrorMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RescoreRequestRequestTypeDef(BaseModel):
+class RescoreRequestRequestTypeDef(BaseValidatorModel):
     RescoreExecutionPlanId: str
     SearchQuery: str
     Documents: Sequence[DocumentTypeDef]
 
-class ListRescoreExecutionPlansResponseTypeDef(BaseModel):
+class ListRescoreExecutionPlansResponseTypeDef(BaseValidatorModel):
     SummaryItems: List[RescoreExecutionPlanSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RescoreResultTypeDef(BaseModel):
+class RescoreResultTypeDef(BaseValidatorModel):
     RescoreId: str
     ResultItems: List[RescoreResultItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

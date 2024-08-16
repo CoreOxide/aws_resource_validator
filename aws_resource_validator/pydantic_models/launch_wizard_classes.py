@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.launch_wizard_constants import *
 
-class CreateDeploymentInputRequestTypeDef(BaseModel):
+class CreateDeploymentInputRequestTypeDef(BaseValidatorModel):
     deploymentPatternName: str
     name: str
     specifications: Mapping[str, str]
@@ -19,22 +19,22 @@ class CreateDeploymentInputRequestTypeDef(BaseModel):
     dryRun: Optional[bool] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DeleteDeploymentInputRequestTypeDef(BaseModel):
+class DeleteDeploymentInputRequestTypeDef(BaseValidatorModel):
     deploymentId: str
 
-class DeploymentConditionalFieldTypeDef(BaseModel):
+class DeploymentConditionalFieldTypeDef(BaseValidatorModel):
     comparator: Optional[str] = None
     name: Optional[str] = None
     value: Optional[str] = None
 
-class DeploymentDataSummaryTypeDef(BaseModel):
+class DeploymentDataSummaryTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     id: Optional[str] = None
     name: Optional[str] = None
@@ -42,7 +42,7 @@ class DeploymentDataSummaryTypeDef(BaseModel):
     status: Optional[DeploymentStatusType] = None
     workloadName: Optional[str] = None
 
-class DeploymentDataTypeDef(BaseModel):
+class DeploymentDataTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     deletedAt: Optional[datetime] = None
     deploymentArn: Optional[str] = None
@@ -55,28 +55,28 @@ class DeploymentDataTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     workloadName: Optional[str] = None
 
-class DeploymentEventDataSummaryTypeDef(BaseModel):
+class DeploymentEventDataSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     name: Optional[str] = None
     status: Optional[EventStatusType] = None
     statusReason: Optional[str] = None
     timestamp: Optional[datetime] = None
 
-class DeploymentFilterTypeDef(BaseModel):
+class DeploymentFilterTypeDef(BaseValidatorModel):
     name: Optional[DeploymentFilterKeyType] = None
     values: Optional[Sequence[str]] = None
 
-class GetDeploymentInputRequestTypeDef(BaseModel):
+class GetDeploymentInputRequestTypeDef(BaseValidatorModel):
     deploymentId: str
 
-class GetWorkloadDeploymentPatternInputRequestTypeDef(BaseModel):
+class GetWorkloadDeploymentPatternInputRequestTypeDef(BaseValidatorModel):
     deploymentPatternName: str
     workloadName: str
 
-class GetWorkloadInputRequestTypeDef(BaseModel):
+class GetWorkloadInputRequestTypeDef(BaseValidatorModel):
     workloadName: str
 
-class WorkloadDataTypeDef(BaseModel):
+class WorkloadDataTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     displayName: Optional[str] = None
     documentationUrl: Optional[str] = None
@@ -85,25 +85,25 @@ class WorkloadDataTypeDef(BaseModel):
     statusMessage: Optional[str] = None
     workloadName: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListDeploymentEventsInputRequestTypeDef(BaseModel):
+class ListDeploymentEventsInputRequestTypeDef(BaseValidatorModel):
     deploymentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListWorkloadDeploymentPatternsInputRequestTypeDef(BaseModel):
+class ListWorkloadDeploymentPatternsInputRequestTypeDef(BaseValidatorModel):
     workloadName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class WorkloadDeploymentPatternDataSummaryTypeDef(BaseModel):
+class WorkloadDeploymentPatternDataSummaryTypeDef(BaseValidatorModel):
     deploymentPatternName: Optional[str] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
@@ -112,91 +112,91 @@ class WorkloadDeploymentPatternDataSummaryTypeDef(BaseModel):
     workloadName: Optional[str] = None
     workloadVersionName: Optional[str] = None
 
-class ListWorkloadsInputRequestTypeDef(BaseModel):
+class ListWorkloadsInputRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class WorkloadDataSummaryTypeDef(BaseModel):
+class WorkloadDataSummaryTypeDef(BaseValidatorModel):
     displayName: Optional[str] = None
     workloadName: Optional[str] = None
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class CreateDeploymentOutputTypeDef(BaseModel):
+class CreateDeploymentOutputTypeDef(BaseValidatorModel):
     deploymentId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDeploymentOutputTypeDef(BaseModel):
+class DeleteDeploymentOutputTypeDef(BaseValidatorModel):
     status: DeploymentStatusType
     statusReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeploymentSpecificationsFieldTypeDef(BaseModel):
+class DeploymentSpecificationsFieldTypeDef(BaseValidatorModel):
     allowedValues: Optional[List[str]] = None
     conditionals: Optional[List[DeploymentConditionalFieldTypeDef]] = None
     description: Optional[str] = None
     name: Optional[str] = None
     required: Optional[str] = None
 
-class ListDeploymentsOutputTypeDef(BaseModel):
+class ListDeploymentsOutputTypeDef(BaseValidatorModel):
     deployments: List[DeploymentDataSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDeploymentOutputTypeDef(BaseModel):
+class GetDeploymentOutputTypeDef(BaseValidatorModel):
     deployment: DeploymentDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeploymentEventsOutputTypeDef(BaseModel):
+class ListDeploymentEventsOutputTypeDef(BaseValidatorModel):
     deploymentEvents: List[DeploymentEventDataSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeploymentsInputRequestTypeDef(BaseModel):
+class ListDeploymentsInputRequestTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[DeploymentFilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class GetWorkloadOutputTypeDef(BaseModel):
+class GetWorkloadOutputTypeDef(BaseValidatorModel):
     workload: WorkloadDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeploymentEventsInputListDeploymentEventsPaginateTypeDef(BaseModel):
+class ListDeploymentEventsInputListDeploymentEventsPaginateTypeDef(BaseValidatorModel):
     deploymentId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDeploymentsInputListDeploymentsPaginateTypeDef(BaseModel):
+class ListDeploymentsInputListDeploymentsPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[DeploymentFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkloadDeploymentPatternsInputListWorkloadDeploymentPatternsPaginateTypeDef(BaseModel):
+class ListWorkloadDeploymentPatternsInputListWorkloadDeploymentPatternsPaginateTypeDef(BaseValidatorModel):
     workloadName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkloadsInputListWorkloadsPaginateTypeDef(BaseModel):
+class ListWorkloadsInputListWorkloadsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkloadDeploymentPatternsOutputTypeDef(BaseModel):
+class ListWorkloadDeploymentPatternsOutputTypeDef(BaseValidatorModel):
     nextToken: str
     workloadDeploymentPatterns: List[WorkloadDeploymentPatternDataSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorkloadsOutputTypeDef(BaseModel):
+class ListWorkloadsOutputTypeDef(BaseValidatorModel):
     nextToken: str
     workloads: List[WorkloadDataSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WorkloadDeploymentPatternDataTypeDef(BaseModel):
+class WorkloadDeploymentPatternDataTypeDef(BaseValidatorModel):
     deploymentPatternName: Optional[str] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
@@ -206,7 +206,7 @@ class WorkloadDeploymentPatternDataTypeDef(BaseModel):
     workloadName: Optional[str] = None
     workloadVersionName: Optional[str] = None
 
-class GetWorkloadDeploymentPatternOutputTypeDef(BaseModel):
+class GetWorkloadDeploymentPatternOutputTypeDef(BaseValidatorModel):
     workloadDeploymentPattern: WorkloadDeploymentPatternDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

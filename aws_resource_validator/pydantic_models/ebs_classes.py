@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,52 +11,52 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ebs_constants import *
 
-class BlockTypeDef(BaseModel):
+class BlockTypeDef(BaseValidatorModel):
     BlockIndex: Optional[int] = None
     BlockToken: Optional[str] = None
 
-class ChangedBlockTypeDef(BaseModel):
+class ChangedBlockTypeDef(BaseValidatorModel):
     BlockIndex: Optional[int] = None
     FirstBlockToken: Optional[str] = None
     SecondBlockToken: Optional[str] = None
 
-class CompleteSnapshotRequestRequestTypeDef(BaseModel):
+class CompleteSnapshotRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     ChangedBlocksCount: int
     Checksum: Optional[str] = None
     ChecksumAlgorithm: Optional[Literal["SHA256"]] = None
     ChecksumAggregationMethod: Optional[Literal["LINEAR"]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class GetSnapshotBlockRequestRequestTypeDef(BaseModel):
+class GetSnapshotBlockRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     BlockIndex: int
     BlockToken: str
 
-class ListChangedBlocksRequestRequestTypeDef(BaseModel):
+class ListChangedBlocksRequestRequestTypeDef(BaseValidatorModel):
     SecondSnapshotId: str
     FirstSnapshotId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     StartingBlockIndex: Optional[int] = None
 
-class ListSnapshotBlocksRequestRequestTypeDef(BaseModel):
+class ListSnapshotBlocksRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     StartingBlockIndex: Optional[int] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class PutSnapshotBlockRequestRequestTypeDef(BaseModel):
+class PutSnapshotBlockRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
     BlockIndex: int
     BlockData: BlobTypeDef
@@ -65,18 +65,18 @@ class PutSnapshotBlockRequestRequestTypeDef(BaseModel):
     ChecksumAlgorithm: Literal["SHA256"]
     Progress: Optional[int] = None
 
-class CompleteSnapshotResponseTypeDef(BaseModel):
+class CompleteSnapshotResponseTypeDef(BaseValidatorModel):
     Status: StatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSnapshotBlockResponseTypeDef(BaseModel):
+class GetSnapshotBlockResponseTypeDef(BaseValidatorModel):
     DataLength: int
     BlockData: StreamingBody
     Checksum: str
     ChecksumAlgorithm: Literal["SHA256"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListChangedBlocksResponseTypeDef(BaseModel):
+class ListChangedBlocksResponseTypeDef(BaseValidatorModel):
     ChangedBlocks: List[ChangedBlockTypeDef]
     ExpiryTime: datetime
     VolumeSize: int
@@ -84,7 +84,7 @@ class ListChangedBlocksResponseTypeDef(BaseModel):
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSnapshotBlocksResponseTypeDef(BaseModel):
+class ListSnapshotBlocksResponseTypeDef(BaseValidatorModel):
     Blocks: List[BlockTypeDef]
     ExpiryTime: datetime
     VolumeSize: int
@@ -92,12 +92,12 @@ class ListSnapshotBlocksResponseTypeDef(BaseModel):
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSnapshotBlockResponseTypeDef(BaseModel):
+class PutSnapshotBlockResponseTypeDef(BaseValidatorModel):
     Checksum: str
     ChecksumAlgorithm: Literal["SHA256"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSnapshotRequestRequestTypeDef(BaseModel):
+class StartSnapshotRequestRequestTypeDef(BaseValidatorModel):
     VolumeSize: int
     ParentSnapshotId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
@@ -107,7 +107,7 @@ class StartSnapshotRequestRequestTypeDef(BaseModel):
     KmsKeyArn: Optional[str] = None
     Timeout: Optional[int] = None
 
-class StartSnapshotResponseTypeDef(BaseModel):
+class StartSnapshotResponseTypeDef(BaseValidatorModel):
     Description: str
     SnapshotId: str
     OwnerId: str

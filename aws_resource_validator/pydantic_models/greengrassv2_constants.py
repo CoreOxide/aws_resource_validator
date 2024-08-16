@@ -442,7 +442,7 @@ RegionName = Literal["ap-northeast-1",
     "us-east-1",
     "us-east-2",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 ComponentPlatformUnionTypeDef = Union['ComponentPlatformTypeDef', 'ComponentPlatformExtraOutputTypeDef']
 ComponentDeploymentSpecificationUnionTypeDef = Union[   'ComponentDeploymentSpecificationTypeDef', 'ComponentDeploymentSpecificationOutputTypeDef' ]
 DeploymentIoTJobConfigurationUnionTypeDef = Union[   'DeploymentIoTJobConfigurationTypeDef', 'DeploymentIoTJobConfigurationOutputTypeDef' ]

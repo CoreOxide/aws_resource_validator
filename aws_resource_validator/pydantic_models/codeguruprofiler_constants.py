@@ -410,4 +410,4 @@ ResourceServiceName = Literal["cloudformation",
     "sqs",]
 PaginatorName = Literal["list_profile_times"]
 TimestampTypeDef = Union[datetime, str]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]

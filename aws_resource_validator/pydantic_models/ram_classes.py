@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,32 +11,32 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ram_constants import *
 
-class AcceptResourceShareInvitationRequestRequestTypeDef(BaseModel):
+class AcceptResourceShareInvitationRequestRequestTypeDef(BaseValidatorModel):
     resourceShareInvitationArn: str
     clientToken: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class AssociateResourceSharePermissionRequestRequestTypeDef(BaseModel):
+class AssociateResourceSharePermissionRequestRequestTypeDef(BaseValidatorModel):
     resourceShareArn: str
     permissionArn: str
     replace: Optional[bool] = None
     clientToken: Optional[str] = None
     permissionVersion: Optional[int] = None
 
-class AssociateResourceShareRequestRequestTypeDef(BaseModel):
+class AssociateResourceShareRequestRequestTypeDef(BaseValidatorModel):
     resourceShareArn: str
     resourceArns: Optional[Sequence[str]] = None
     principals: Optional[Sequence[str]] = None
     clientToken: Optional[str] = None
     sources: Optional[Sequence[str]] = None
 
-class ResourceShareAssociationTypeDef(BaseModel):
+class ResourceShareAssociationTypeDef(BaseValidatorModel):
     resourceShareArn: Optional[str] = None
     resourceShareName: Optional[str] = None
     associatedEntity: Optional[str] = None
@@ -47,7 +47,7 @@ class ResourceShareAssociationTypeDef(BaseModel):
     lastUpdatedTime: Optional[datetime] = None
     external: Optional[bool] = None
 
-class AssociatedPermissionTypeDef(BaseModel):
+class AssociatedPermissionTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     permissionVersion: Optional[str] = None
     defaultVersion: Optional[bool] = None
@@ -57,56 +57,56 @@ class AssociatedPermissionTypeDef(BaseModel):
     lastUpdatedTime: Optional[datetime] = None
     resourceShareArn: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
-class CreatePermissionVersionRequestRequestTypeDef(BaseModel):
+class CreatePermissionVersionRequestRequestTypeDef(BaseValidatorModel):
     permissionArn: str
     policyTemplate: str
     clientToken: Optional[str] = None
 
-class DeletePermissionRequestRequestTypeDef(BaseModel):
+class DeletePermissionRequestRequestTypeDef(BaseValidatorModel):
     permissionArn: str
     clientToken: Optional[str] = None
 
-class DeletePermissionVersionRequestRequestTypeDef(BaseModel):
+class DeletePermissionVersionRequestRequestTypeDef(BaseValidatorModel):
     permissionArn: str
     permissionVersion: int
     clientToken: Optional[str] = None
 
-class DeleteResourceShareRequestRequestTypeDef(BaseModel):
+class DeleteResourceShareRequestRequestTypeDef(BaseValidatorModel):
     resourceShareArn: str
     clientToken: Optional[str] = None
 
-class DisassociateResourceSharePermissionRequestRequestTypeDef(BaseModel):
+class DisassociateResourceSharePermissionRequestRequestTypeDef(BaseValidatorModel):
     resourceShareArn: str
     permissionArn: str
     clientToken: Optional[str] = None
 
-class DisassociateResourceShareRequestRequestTypeDef(BaseModel):
+class DisassociateResourceShareRequestRequestTypeDef(BaseValidatorModel):
     resourceShareArn: str
     resourceArns: Optional[Sequence[str]] = None
     principals: Optional[Sequence[str]] = None
     clientToken: Optional[str] = None
     sources: Optional[Sequence[str]] = None
 
-class GetPermissionRequestRequestTypeDef(BaseModel):
+class GetPermissionRequestRequestTypeDef(BaseValidatorModel):
     permissionArn: str
     permissionVersion: Optional[int] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetResourcePoliciesRequestRequestTypeDef(BaseModel):
+class GetResourcePoliciesRequestRequestTypeDef(BaseValidatorModel):
     resourceArns: Sequence[str]
     principal: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetResourceShareAssociationsRequestRequestTypeDef(BaseModel):
+class GetResourceShareAssociationsRequestRequestTypeDef(BaseValidatorModel):
     associationType: ResourceShareAssociationTypeType
     resourceShareArns: Optional[Sequence[str]] = None
     resourceArn: Optional[str] = None
@@ -115,23 +115,23 @@ class GetResourceShareAssociationsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetResourceShareInvitationsRequestRequestTypeDef(BaseModel):
+class GetResourceShareInvitationsRequestRequestTypeDef(BaseValidatorModel):
     resourceShareInvitationArns: Optional[Sequence[str]] = None
     resourceShareArns: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TagFilterTypeDef(BaseModel):
+class TagFilterTypeDef(BaseValidatorModel):
     tagKey: Optional[str] = None
     tagValues: Optional[Sequence[str]] = None
 
-class ListPendingInvitationResourcesRequestRequestTypeDef(BaseModel):
+class ListPendingInvitationResourcesRequestRequestTypeDef(BaseValidatorModel):
     resourceShareInvitationArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     resourceRegionScope: Optional[ResourceRegionScopeFilterType] = None
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     type: Optional[str] = None
     resourceShareArn: Optional[str] = None
@@ -142,7 +142,7 @@ class ResourceTypeDef(BaseModel):
     lastUpdatedTime: Optional[datetime] = None
     resourceRegionScope: Optional[ResourceRegionScopeType] = None
 
-class ListPermissionAssociationsRequestRequestTypeDef(BaseModel):
+class ListPermissionAssociationsRequestRequestTypeDef(BaseValidatorModel):
     permissionArn: Optional[str] = None
     permissionVersion: Optional[int] = None
     associationStatus: Optional[ResourceShareAssociationStatusType] = None
@@ -152,18 +152,18 @@ class ListPermissionAssociationsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListPermissionVersionsRequestRequestTypeDef(BaseModel):
+class ListPermissionVersionsRequestRequestTypeDef(BaseValidatorModel):
     permissionArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListPermissionsRequestRequestTypeDef(BaseModel):
+class ListPermissionsRequestRequestTypeDef(BaseValidatorModel):
     resourceType: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     permissionType: Optional[PermissionTypeFilterType] = None
 
-class ListPrincipalsRequestRequestTypeDef(BaseModel):
+class ListPrincipalsRequestRequestTypeDef(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     resourceArn: Optional[str] = None
     principals: Optional[Sequence[str]] = None
@@ -172,20 +172,20 @@ class ListPrincipalsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class PrincipalTypeDef(BaseModel):
+class PrincipalTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     resourceShareArn: Optional[str] = None
     creationTime: Optional[datetime] = None
     lastUpdatedTime: Optional[datetime] = None
     external: Optional[bool] = None
 
-class ListReplacePermissionAssociationsWorkRequestRequestTypeDef(BaseModel):
+class ListReplacePermissionAssociationsWorkRequestRequestTypeDef(BaseValidatorModel):
     workIds: Optional[Sequence[str]] = None
     status: Optional[ReplacePermissionAssociationsWorkStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ReplacePermissionAssociationsWorkTypeDef(BaseModel):
+class ReplacePermissionAssociationsWorkTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     fromPermissionArn: Optional[str] = None
     fromPermissionVersion: Optional[str] = None
@@ -196,22 +196,22 @@ class ReplacePermissionAssociationsWorkTypeDef(BaseModel):
     creationTime: Optional[datetime] = None
     lastUpdatedTime: Optional[datetime] = None
 
-class ListResourceSharePermissionsRequestRequestTypeDef(BaseModel):
+class ListResourceSharePermissionsRequestRequestTypeDef(BaseValidatorModel):
     resourceShareArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListResourceTypesRequestRequestTypeDef(BaseModel):
+class ListResourceTypesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     resourceRegionScope: Optional[ResourceRegionScopeFilterType] = None
 
-class ServiceNameAndResourceTypeTypeDef(BaseModel):
+class ServiceNameAndResourceTypeTypeDef(BaseValidatorModel):
     resourceType: Optional[str] = None
     serviceName: Optional[str] = None
     resourceRegionScope: Optional[ResourceRegionScopeType] = None
 
-class ListResourcesRequestRequestTypeDef(BaseModel):
+class ListResourcesRequestRequestTypeDef(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     principal: Optional[str] = None
     resourceType: Optional[str] = None
@@ -221,101 +221,101 @@ class ListResourcesRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     resourceRegionScope: Optional[ResourceRegionScopeFilterType] = None
 
-class PromotePermissionCreatedFromPolicyRequestRequestTypeDef(BaseModel):
+class PromotePermissionCreatedFromPolicyRequestRequestTypeDef(BaseValidatorModel):
     permissionArn: str
     name: str
     clientToken: Optional[str] = None
 
-class PromoteResourceShareCreatedFromPolicyRequestRequestTypeDef(BaseModel):
+class PromoteResourceShareCreatedFromPolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceShareArn: str
 
-class RejectResourceShareInvitationRequestRequestTypeDef(BaseModel):
+class RejectResourceShareInvitationRequestRequestTypeDef(BaseValidatorModel):
     resourceShareInvitationArn: str
     clientToken: Optional[str] = None
 
-class ReplacePermissionAssociationsRequestRequestTypeDef(BaseModel):
+class ReplacePermissionAssociationsRequestRequestTypeDef(BaseValidatorModel):
     fromPermissionArn: str
     toPermissionArn: str
     fromPermissionVersion: Optional[int] = None
     clientToken: Optional[str] = None
 
-class SetDefaultPermissionVersionRequestRequestTypeDef(BaseModel):
+class SetDefaultPermissionVersionRequestRequestTypeDef(BaseValidatorModel):
     permissionArn: str
     permissionVersion: int
     clientToken: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     tagKeys: Sequence[str]
     resourceShareArn: Optional[str] = None
     resourceArn: Optional[str] = None
 
-class UpdateResourceShareRequestRequestTypeDef(BaseModel):
+class UpdateResourceShareRequestRequestTypeDef(BaseValidatorModel):
     resourceShareArn: str
     name: Optional[str] = None
     allowExternalPrincipals: Optional[bool] = None
     clientToken: Optional[str] = None
 
-class AssociateResourceSharePermissionResponseTypeDef(BaseModel):
+class AssociateResourceSharePermissionResponseTypeDef(BaseValidatorModel):
     returnValue: bool
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletePermissionResponseTypeDef(BaseModel):
-    returnValue: bool
-    clientToken: str
-    permissionStatus: PermissionStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class DeletePermissionVersionResponseTypeDef(BaseModel):
+class DeletePermissionResponseTypeDef(BaseValidatorModel):
     returnValue: bool
     clientToken: str
     permissionStatus: PermissionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteResourceShareResponseTypeDef(BaseModel):
+class DeletePermissionVersionResponseTypeDef(BaseValidatorModel):
+    returnValue: bool
+    clientToken: str
+    permissionStatus: PermissionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteResourceShareResponseTypeDef(BaseValidatorModel):
     returnValue: bool
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateResourceSharePermissionResponseTypeDef(BaseModel):
+class DisassociateResourceSharePermissionResponseTypeDef(BaseValidatorModel):
     returnValue: bool
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableSharingWithAwsOrganizationResponseTypeDef(BaseModel):
+class EnableSharingWithAwsOrganizationResponseTypeDef(BaseValidatorModel):
     returnValue: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourcePoliciesResponseTypeDef(BaseModel):
+class GetResourcePoliciesResponseTypeDef(BaseValidatorModel):
     policies: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PromoteResourceShareCreatedFromPolicyResponseTypeDef(BaseModel):
+class PromoteResourceShareCreatedFromPolicyResponseTypeDef(BaseValidatorModel):
     returnValue: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetDefaultPermissionVersionResponseTypeDef(BaseModel):
+class SetDefaultPermissionVersionResponseTypeDef(BaseValidatorModel):
     returnValue: bool
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateResourceShareResponseTypeDef(BaseModel):
+class AssociateResourceShareResponseTypeDef(BaseValidatorModel):
     resourceShareAssociations: List[ResourceShareAssociationTypeDef]
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateResourceShareResponseTypeDef(BaseModel):
+class DisassociateResourceShareResponseTypeDef(BaseValidatorModel):
     resourceShareAssociations: List[ResourceShareAssociationTypeDef]
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourceShareAssociationsResponseTypeDef(BaseModel):
+class GetResourceShareAssociationsResponseTypeDef(BaseValidatorModel):
     resourceShareAssociations: List[ResourceShareAssociationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResourceShareInvitationTypeDef(BaseModel):
+class ResourceShareInvitationTypeDef(BaseValidatorModel):
     resourceShareInvitationArn: Optional[str] = None
     resourceShareName: Optional[str] = None
     resourceShareArn: Optional[str] = None
@@ -326,19 +326,19 @@ class ResourceShareInvitationTypeDef(BaseModel):
     resourceShareAssociations: Optional[List[ResourceShareAssociationTypeDef]] = None
     receiverArn: Optional[str] = None
 
-class ListPermissionAssociationsResponseTypeDef(BaseModel):
+class ListPermissionAssociationsResponseTypeDef(BaseValidatorModel):
     permissions: List[AssociatedPermissionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePermissionRequestRequestTypeDef(BaseModel):
+class CreatePermissionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     resourceType: str
     policyTemplate: str
     clientToken: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateResourceShareRequestRequestTypeDef(BaseModel):
+class CreateResourceShareRequestRequestTypeDef(BaseValidatorModel):
     name: str
     resourceArns: Optional[Sequence[str]] = None
     principals: Optional[Sequence[str]] = None
@@ -348,7 +348,7 @@ class CreateResourceShareRequestRequestTypeDef(BaseModel):
     permissionArns: Optional[Sequence[str]] = None
     sources: Optional[Sequence[str]] = None
 
-class ResourceSharePermissionDetailTypeDef(BaseModel):
+class ResourceSharePermissionDetailTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     version: Optional[str] = None
     defaultVersion: Optional[bool] = None
@@ -363,7 +363,7 @@ class ResourceSharePermissionDetailTypeDef(BaseModel):
     status: Optional[PermissionStatusType] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class ResourceSharePermissionSummaryTypeDef(BaseModel):
+class ResourceSharePermissionSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     version: Optional[str] = None
     defaultVersion: Optional[bool] = None
@@ -377,7 +377,7 @@ class ResourceSharePermissionSummaryTypeDef(BaseModel):
     featureSet: Optional[PermissionFeatureSetType] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class ResourceShareTypeDef(BaseModel):
+class ResourceShareTypeDef(BaseValidatorModel):
     resourceShareArn: Optional[str] = None
     name: Optional[str] = None
     owningAccountId: Optional[str] = None
@@ -389,17 +389,17 @@ class ResourceShareTypeDef(BaseModel):
     lastUpdatedTime: Optional[datetime] = None
     featureSet: Optional[ResourceShareFeatureSetType] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     tags: Sequence[TagTypeDef]
     resourceShareArn: Optional[str] = None
     resourceArn: Optional[str] = None
 
-class GetResourcePoliciesRequestGetResourcePoliciesPaginateTypeDef(BaseModel):
+class GetResourcePoliciesRequestGetResourcePoliciesPaginateTypeDef(BaseValidatorModel):
     resourceArns: Sequence[str]
     principal: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetResourceShareAssociationsRequestGetResourceShareAssociationsPaginateTypeDef(BaseModel):
+class GetResourceShareAssociationsRequestGetResourceShareAssociationsPaginateTypeDef(BaseValidatorModel):
     associationType: ResourceShareAssociationTypeType
     resourceShareArns: Optional[Sequence[str]] = None
     resourceArn: Optional[str] = None
@@ -407,12 +407,12 @@ class GetResourceShareAssociationsRequestGetResourceShareAssociationsPaginateTyp
     associationStatus: Optional[ResourceShareAssociationStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetResourceShareInvitationsRequestGetResourceShareInvitationsPaginateTypeDef(BaseModel):
+class GetResourceShareInvitationsRequestGetResourceShareInvitationsPaginateTypeDef(BaseValidatorModel):
     resourceShareInvitationArns: Optional[Sequence[str]] = None
     resourceShareArns: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPrincipalsRequestListPrincipalsPaginateTypeDef(BaseModel):
+class ListPrincipalsRequestListPrincipalsPaginateTypeDef(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     resourceArn: Optional[str] = None
     principals: Optional[Sequence[str]] = None
@@ -420,7 +420,7 @@ class ListPrincipalsRequestListPrincipalsPaginateTypeDef(BaseModel):
     resourceShareArns: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourcesRequestListResourcesPaginateTypeDef(BaseModel):
+class ListResourcesRequestListResourcesPaginateTypeDef(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     principal: Optional[str] = None
     resourceType: Optional[str] = None
@@ -429,7 +429,7 @@ class ListResourcesRequestListResourcesPaginateTypeDef(BaseModel):
     resourceRegionScope: Optional[ResourceRegionScopeFilterType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetResourceSharesRequestGetResourceSharesPaginateTypeDef(BaseModel):
+class GetResourceSharesRequestGetResourceSharesPaginateTypeDef(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     resourceShareArns: Optional[Sequence[str]] = None
     resourceShareStatus: Optional[ResourceShareStatusType] = None
@@ -439,7 +439,7 @@ class GetResourceSharesRequestGetResourceSharesPaginateTypeDef(BaseModel):
     permissionVersion: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetResourceSharesRequestRequestTypeDef(BaseModel):
+class GetResourceSharesRequestRequestTypeDef(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     resourceShareArns: Optional[Sequence[str]] = None
     resourceShareStatus: Optional[ResourceShareStatusType] = None
@@ -450,96 +450,96 @@ class GetResourceSharesRequestRequestTypeDef(BaseModel):
     permissionArn: Optional[str] = None
     permissionVersion: Optional[int] = None
 
-class ListPendingInvitationResourcesResponseTypeDef(BaseModel):
+class ListPendingInvitationResourcesResponseTypeDef(BaseValidatorModel):
     resources: List[ResourceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourcesResponseTypeDef(BaseModel):
+class ListResourcesResponseTypeDef(BaseValidatorModel):
     resources: List[ResourceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPrincipalsResponseTypeDef(BaseModel):
+class ListPrincipalsResponseTypeDef(BaseValidatorModel):
     principals: List[PrincipalTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReplacePermissionAssociationsWorkResponseTypeDef(BaseModel):
+class ListReplacePermissionAssociationsWorkResponseTypeDef(BaseValidatorModel):
     replacePermissionAssociationsWorks: List[ReplacePermissionAssociationsWorkTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplacePermissionAssociationsResponseTypeDef(BaseModel):
+class ReplacePermissionAssociationsResponseTypeDef(BaseValidatorModel):
     replacePermissionAssociationsWork: ReplacePermissionAssociationsWorkTypeDef
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourceTypesResponseTypeDef(BaseModel):
+class ListResourceTypesResponseTypeDef(BaseValidatorModel):
     resourceTypes: List[ServiceNameAndResourceTypeTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptResourceShareInvitationResponseTypeDef(BaseModel):
+class AcceptResourceShareInvitationResponseTypeDef(BaseValidatorModel):
     resourceShareInvitation: ResourceShareInvitationTypeDef
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourceShareInvitationsResponseTypeDef(BaseModel):
+class GetResourceShareInvitationsResponseTypeDef(BaseValidatorModel):
     resourceShareInvitations: List[ResourceShareInvitationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RejectResourceShareInvitationResponseTypeDef(BaseModel):
+class RejectResourceShareInvitationResponseTypeDef(BaseValidatorModel):
     resourceShareInvitation: ResourceShareInvitationTypeDef
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePermissionVersionResponseTypeDef(BaseModel):
+class CreatePermissionVersionResponseTypeDef(BaseValidatorModel):
     permission: ResourceSharePermissionDetailTypeDef
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPermissionResponseTypeDef(BaseModel):
+class GetPermissionResponseTypeDef(BaseValidatorModel):
     permission: ResourceSharePermissionDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePermissionResponseTypeDef(BaseModel):
+class CreatePermissionResponseTypeDef(BaseValidatorModel):
     permission: ResourceSharePermissionSummaryTypeDef
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPermissionVersionsResponseTypeDef(BaseModel):
+class ListPermissionVersionsResponseTypeDef(BaseValidatorModel):
     permissions: List[ResourceSharePermissionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPermissionsResponseTypeDef(BaseModel):
+class ListPermissionsResponseTypeDef(BaseValidatorModel):
     permissions: List[ResourceSharePermissionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourceSharePermissionsResponseTypeDef(BaseModel):
+class ListResourceSharePermissionsResponseTypeDef(BaseValidatorModel):
     permissions: List[ResourceSharePermissionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PromotePermissionCreatedFromPolicyResponseTypeDef(BaseModel):
+class PromotePermissionCreatedFromPolicyResponseTypeDef(BaseValidatorModel):
     permission: ResourceSharePermissionSummaryTypeDef
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateResourceShareResponseTypeDef(BaseModel):
+class CreateResourceShareResponseTypeDef(BaseValidatorModel):
     resourceShare: ResourceShareTypeDef
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourceSharesResponseTypeDef(BaseModel):
+class GetResourceSharesResponseTypeDef(BaseValidatorModel):
     resourceShares: List[ResourceShareTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateResourceShareResponseTypeDef(BaseModel):
+class UpdateResourceShareResponseTypeDef(BaseValidatorModel):
     resourceShare: ResourceShareTypeDef
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef

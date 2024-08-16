@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,41 +11,41 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.voice_id_constants import *
 
-class AssociateFraudsterRequestRequestTypeDef(BaseModel):
+class AssociateFraudsterRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     FraudsterId: str
     WatchlistId: str
 
-class FraudsterTypeDef(BaseModel):
+class FraudsterTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DomainId: Optional[str] = None
     GeneratedFraudsterId: Optional[str] = None
     WatchlistIds: Optional[List[str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class AuthenticationConfigurationTypeDef(BaseModel):
+class AuthenticationConfigurationTypeDef(BaseValidatorModel):
     AcceptanceThreshold: int
 
-class ServerSideEncryptionConfigurationTypeDef(BaseModel):
+class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
     KmsKeyId: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class CreateWatchlistRequestRequestTypeDef(BaseModel):
+class CreateWatchlistRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     Name: str
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
 
-class WatchlistTypeDef(BaseModel):
+class WatchlistTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DefaultWatchlist: Optional[bool] = None
     Description: Optional[str] = None
@@ -54,41 +54,41 @@ class WatchlistTypeDef(BaseModel):
     UpdatedAt: Optional[datetime] = None
     WatchlistId: Optional[str] = None
 
-class DeleteDomainRequestRequestTypeDef(BaseModel):
+class DeleteDomainRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
 
-class DeleteFraudsterRequestRequestTypeDef(BaseModel):
+class DeleteFraudsterRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     FraudsterId: str
 
-class DeleteSpeakerRequestRequestTypeDef(BaseModel):
+class DeleteSpeakerRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     SpeakerId: str
 
-class DeleteWatchlistRequestRequestTypeDef(BaseModel):
+class DeleteWatchlistRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     WatchlistId: str
 
-class DescribeDomainRequestRequestTypeDef(BaseModel):
+class DescribeDomainRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
 
-class DescribeFraudsterRegistrationJobRequestRequestTypeDef(BaseModel):
+class DescribeFraudsterRegistrationJobRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     JobId: str
 
-class DescribeFraudsterRequestRequestTypeDef(BaseModel):
+class DescribeFraudsterRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     FraudsterId: str
 
-class DescribeSpeakerEnrollmentJobRequestRequestTypeDef(BaseModel):
+class DescribeSpeakerEnrollmentJobRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     JobId: str
 
-class DescribeSpeakerRequestRequestTypeDef(BaseModel):
+class DescribeSpeakerRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     SpeakerId: str
 
-class SpeakerTypeDef(BaseModel):
+class SpeakerTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     CustomerSpeakerId: Optional[str] = None
     DomainId: Optional[str] = None
@@ -97,101 +97,101 @@ class SpeakerTypeDef(BaseModel):
     Status: Optional[SpeakerStatusType] = None
     UpdatedAt: Optional[datetime] = None
 
-class DescribeWatchlistRequestRequestTypeDef(BaseModel):
+class DescribeWatchlistRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     WatchlistId: str
 
-class DisassociateFraudsterRequestRequestTypeDef(BaseModel):
+class DisassociateFraudsterRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     FraudsterId: str
     WatchlistId: str
 
-class ServerSideEncryptionUpdateDetailsTypeDef(BaseModel):
+class ServerSideEncryptionUpdateDetailsTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     OldKmsKeyId: Optional[str] = None
     UpdateStatus: Optional[ServerSideEncryptionUpdateStatusType] = None
 
-class WatchlistDetailsTypeDef(BaseModel):
+class WatchlistDetailsTypeDef(BaseValidatorModel):
     DefaultWatchlistId: str
 
-class EnrollmentJobFraudDetectionConfigTypeDef(BaseModel):
+class EnrollmentJobFraudDetectionConfigTypeDef(BaseValidatorModel):
     FraudDetectionAction: Optional[FraudDetectionActionType] = None
     RiskThreshold: Optional[int] = None
     WatchlistIds: Optional[List[str]] = None
 
-class EvaluateSessionRequestRequestTypeDef(BaseModel):
+class EvaluateSessionRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     SessionNameOrId: str
 
-class FailureDetailsTypeDef(BaseModel):
+class FailureDetailsTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     StatusCode: Optional[int] = None
 
-class FraudDetectionConfigurationTypeDef(BaseModel):
+class FraudDetectionConfigurationTypeDef(BaseValidatorModel):
     RiskThreshold: Optional[int] = None
     WatchlistId: Optional[str] = None
 
-class KnownFraudsterRiskTypeDef(BaseModel):
+class KnownFraudsterRiskTypeDef(BaseValidatorModel):
     RiskScore: int
     GeneratedFraudsterId: Optional[str] = None
 
-class VoiceSpoofingRiskTypeDef(BaseModel):
+class VoiceSpoofingRiskTypeDef(BaseValidatorModel):
     RiskScore: int
 
-class JobProgressTypeDef(BaseModel):
+class JobProgressTypeDef(BaseValidatorModel):
     PercentComplete: Optional[int] = None
 
-class InputDataConfigTypeDef(BaseModel):
+class InputDataConfigTypeDef(BaseValidatorModel):
     S3Uri: str
 
-class OutputDataConfigTypeDef(BaseModel):
+class OutputDataConfigTypeDef(BaseValidatorModel):
     S3Uri: str
     KmsKeyId: Optional[str] = None
 
-class RegistrationConfigTypeDef(BaseModel):
+class RegistrationConfigTypeDef(BaseValidatorModel):
     DuplicateRegistrationAction: Optional[DuplicateRegistrationActionType] = None
     FraudsterSimilarityThreshold: Optional[int] = None
     WatchlistIds: Optional[List[str]] = None
 
-class FraudsterSummaryTypeDef(BaseModel):
+class FraudsterSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DomainId: Optional[str] = None
     GeneratedFraudsterId: Optional[str] = None
     WatchlistIds: Optional[List[str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListDomainsRequestRequestTypeDef(BaseModel):
+class ListDomainsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListFraudsterRegistrationJobsRequestRequestTypeDef(BaseModel):
+class ListFraudsterRegistrationJobsRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     JobStatus: Optional[FraudsterRegistrationJobStatusType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListFraudstersRequestRequestTypeDef(BaseModel):
+class ListFraudstersRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     WatchlistId: Optional[str] = None
 
-class ListSpeakerEnrollmentJobsRequestRequestTypeDef(BaseModel):
+class ListSpeakerEnrollmentJobsRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     JobStatus: Optional[SpeakerEnrollmentJobStatusType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListSpeakersRequestRequestTypeDef(BaseModel):
+class ListSpeakersRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class SpeakerSummaryTypeDef(BaseModel):
+class SpeakerSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     CustomerSpeakerId: Optional[str] = None
     DomainId: Optional[str] = None
@@ -200,15 +200,15 @@ class SpeakerSummaryTypeDef(BaseModel):
     Status: Optional[SpeakerStatusType] = None
     UpdatedAt: Optional[datetime] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListWatchlistsRequestRequestTypeDef(BaseModel):
+class ListWatchlistsRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class WatchlistSummaryTypeDef(BaseModel):
+class WatchlistSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DefaultWatchlist: Optional[bool] = None
     Description: Optional[str] = None
@@ -217,36 +217,36 @@ class WatchlistSummaryTypeDef(BaseModel):
     UpdatedAt: Optional[datetime] = None
     WatchlistId: Optional[str] = None
 
-class OptOutSpeakerRequestRequestTypeDef(BaseModel):
+class OptOutSpeakerRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     SpeakerId: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateWatchlistRequestRequestTypeDef(BaseModel):
+class UpdateWatchlistRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     WatchlistId: str
     Description: Optional[str] = None
     Name: Optional[str] = None
 
-class AssociateFraudsterResponseTypeDef(BaseModel):
+class AssociateFraudsterResponseTypeDef(BaseValidatorModel):
     Fraudster: FraudsterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeFraudsterResponseTypeDef(BaseModel):
+class DescribeFraudsterResponseTypeDef(BaseValidatorModel):
     Fraudster: FraudsterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateFraudsterResponseTypeDef(BaseModel):
+class DisassociateFraudsterResponseTypeDef(BaseValidatorModel):
     Fraudster: FraudsterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AuthenticationResultTypeDef(BaseModel):
+class AuthenticationResultTypeDef(BaseValidatorModel):
     AudioAggregationEndedAt: Optional[datetime] = None
     AudioAggregationStartedAt: Optional[datetime] = None
     AuthenticationResultId: Optional[str] = None
@@ -256,48 +256,48 @@ class AuthenticationResultTypeDef(BaseModel):
     GeneratedSpeakerId: Optional[str] = None
     Score: Optional[int] = None
 
-class UpdateDomainRequestRequestTypeDef(BaseModel):
+class UpdateDomainRequestRequestTypeDef(BaseValidatorModel):
     DomainId: str
     Name: str
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
     Description: Optional[str] = None
 
-class CreateDomainRequestRequestTypeDef(BaseModel):
+class CreateDomainRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class CreateWatchlistResponseTypeDef(BaseModel):
+class CreateWatchlistResponseTypeDef(BaseValidatorModel):
     Watchlist: WatchlistTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWatchlistResponseTypeDef(BaseModel):
+class DescribeWatchlistResponseTypeDef(BaseValidatorModel):
     Watchlist: WatchlistTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateWatchlistResponseTypeDef(BaseModel):
+class UpdateWatchlistResponseTypeDef(BaseValidatorModel):
     Watchlist: WatchlistTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSpeakerResponseTypeDef(BaseModel):
+class DescribeSpeakerResponseTypeDef(BaseValidatorModel):
     Speaker: SpeakerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OptOutSpeakerResponseTypeDef(BaseModel):
+class OptOutSpeakerResponseTypeDef(BaseValidatorModel):
     Speaker: SpeakerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DomainSummaryTypeDef(BaseModel):
+class DomainSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     Description: Optional[str] = None
@@ -309,7 +309,7 @@ class DomainSummaryTypeDef(BaseModel):
     UpdatedAt: Optional[datetime] = None
     WatchlistDetails: Optional[WatchlistDetailsTypeDef] = None
 
-class DomainTypeDef(BaseModel):
+class DomainTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     Description: Optional[str] = None
@@ -321,15 +321,15 @@ class DomainTypeDef(BaseModel):
     UpdatedAt: Optional[datetime] = None
     WatchlistDetails: Optional[WatchlistDetailsTypeDef] = None
 
-class EnrollmentConfigTypeDef(BaseModel):
+class EnrollmentConfigTypeDef(BaseValidatorModel):
     ExistingEnrollmentAction: Optional[ExistingEnrollmentActionType] = None
     FraudDetectionConfig: Optional[EnrollmentJobFraudDetectionConfigTypeDef] = None
 
-class FraudRiskDetailsTypeDef(BaseModel):
+class FraudRiskDetailsTypeDef(BaseValidatorModel):
     KnownFraudsterRisk: KnownFraudsterRiskTypeDef
     VoiceSpoofingRisk: VoiceSpoofingRiskTypeDef
 
-class FraudsterRegistrationJobSummaryTypeDef(BaseModel):
+class FraudsterRegistrationJobSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DomainId: Optional[str] = None
     EndedAt: Optional[datetime] = None
@@ -339,7 +339,7 @@ class FraudsterRegistrationJobSummaryTypeDef(BaseModel):
     JobProgress: Optional[JobProgressTypeDef] = None
     JobStatus: Optional[FraudsterRegistrationJobStatusType] = None
 
-class SpeakerEnrollmentJobSummaryTypeDef(BaseModel):
+class SpeakerEnrollmentJobSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DomainId: Optional[str] = None
     EndedAt: Optional[datetime] = None
@@ -349,7 +349,7 @@ class SpeakerEnrollmentJobSummaryTypeDef(BaseModel):
     JobProgress: Optional[JobProgressTypeDef] = None
     JobStatus: Optional[SpeakerEnrollmentJobStatusType] = None
 
-class FraudsterRegistrationJobTypeDef(BaseModel):
+class FraudsterRegistrationJobTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DataAccessRoleArn: Optional[str] = None
     DomainId: Optional[str] = None
@@ -363,7 +363,7 @@ class FraudsterRegistrationJobTypeDef(BaseModel):
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     RegistrationConfig: Optional[RegistrationConfigTypeDef] = None
 
-class StartFraudsterRegistrationJobRequestRequestTypeDef(BaseModel):
+class StartFraudsterRegistrationJobRequestRequestTypeDef(BaseValidatorModel):
     DataAccessRoleArn: str
     DomainId: str
     InputDataConfig: InputDataConfigTypeDef
@@ -372,65 +372,65 @@ class StartFraudsterRegistrationJobRequestRequestTypeDef(BaseModel):
     JobName: Optional[str] = None
     RegistrationConfig: Optional[RegistrationConfigTypeDef] = None
 
-class ListFraudstersResponseTypeDef(BaseModel):
+class ListFraudstersResponseTypeDef(BaseValidatorModel):
     FraudsterSummaries: List[FraudsterSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDomainsRequestListDomainsPaginateTypeDef(BaseModel):
+class ListDomainsRequestListDomainsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFraudsterRegistrationJobsRequestListFraudsterRegistrationJobsPaginateTypeDef(BaseModel):
+class ListFraudsterRegistrationJobsRequestListFraudsterRegistrationJobsPaginateTypeDef(BaseValidatorModel):
     DomainId: str
     JobStatus: Optional[FraudsterRegistrationJobStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFraudstersRequestListFraudstersPaginateTypeDef(BaseModel):
+class ListFraudstersRequestListFraudstersPaginateTypeDef(BaseValidatorModel):
     DomainId: str
     WatchlistId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSpeakerEnrollmentJobsRequestListSpeakerEnrollmentJobsPaginateTypeDef(BaseModel):
+class ListSpeakerEnrollmentJobsRequestListSpeakerEnrollmentJobsPaginateTypeDef(BaseValidatorModel):
     DomainId: str
     JobStatus: Optional[SpeakerEnrollmentJobStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSpeakersRequestListSpeakersPaginateTypeDef(BaseModel):
+class ListSpeakersRequestListSpeakersPaginateTypeDef(BaseValidatorModel):
     DomainId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWatchlistsRequestListWatchlistsPaginateTypeDef(BaseModel):
+class ListWatchlistsRequestListWatchlistsPaginateTypeDef(BaseValidatorModel):
     DomainId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSpeakersResponseTypeDef(BaseModel):
+class ListSpeakersResponseTypeDef(BaseValidatorModel):
     NextToken: str
     SpeakerSummaries: List[SpeakerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWatchlistsResponseTypeDef(BaseModel):
+class ListWatchlistsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     WatchlistSummaries: List[WatchlistSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDomainsResponseTypeDef(BaseModel):
+class ListDomainsResponseTypeDef(BaseValidatorModel):
     DomainSummaries: List[DomainSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDomainResponseTypeDef(BaseModel):
+class CreateDomainResponseTypeDef(BaseValidatorModel):
     Domain: DomainTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDomainResponseTypeDef(BaseModel):
+class DescribeDomainResponseTypeDef(BaseValidatorModel):
     Domain: DomainTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDomainResponseTypeDef(BaseModel):
+class UpdateDomainResponseTypeDef(BaseValidatorModel):
     Domain: DomainTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SpeakerEnrollmentJobTypeDef(BaseModel):
+class SpeakerEnrollmentJobTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     DataAccessRoleArn: Optional[str] = None
     DomainId: Optional[str] = None
@@ -444,7 +444,7 @@ class SpeakerEnrollmentJobTypeDef(BaseModel):
     JobStatus: Optional[SpeakerEnrollmentJobStatusType] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
 
-class StartSpeakerEnrollmentJobRequestRequestTypeDef(BaseModel):
+class StartSpeakerEnrollmentJobRequestRequestTypeDef(BaseValidatorModel):
     DataAccessRoleArn: str
     DomainId: str
     InputDataConfig: InputDataConfigTypeDef
@@ -453,7 +453,7 @@ class StartSpeakerEnrollmentJobRequestRequestTypeDef(BaseModel):
     EnrollmentConfig: Optional[EnrollmentConfigTypeDef] = None
     JobName: Optional[str] = None
 
-class FraudDetectionResultTypeDef(BaseModel):
+class FraudDetectionResultTypeDef(BaseValidatorModel):
     AudioAggregationEndedAt: Optional[datetime] = None
     AudioAggregationStartedAt: Optional[datetime] = None
     Configuration: Optional[FraudDetectionConfigurationTypeDef] = None
@@ -462,33 +462,33 @@ class FraudDetectionResultTypeDef(BaseModel):
     Reasons: Optional[List[FraudDetectionReasonType]] = None
     RiskDetails: Optional[FraudRiskDetailsTypeDef] = None
 
-class ListFraudsterRegistrationJobsResponseTypeDef(BaseModel):
+class ListFraudsterRegistrationJobsResponseTypeDef(BaseValidatorModel):
     JobSummaries: List[FraudsterRegistrationJobSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSpeakerEnrollmentJobsResponseTypeDef(BaseModel):
+class ListSpeakerEnrollmentJobsResponseTypeDef(BaseValidatorModel):
     JobSummaries: List[SpeakerEnrollmentJobSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeFraudsterRegistrationJobResponseTypeDef(BaseModel):
+class DescribeFraudsterRegistrationJobResponseTypeDef(BaseValidatorModel):
     Job: FraudsterRegistrationJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartFraudsterRegistrationJobResponseTypeDef(BaseModel):
+class StartFraudsterRegistrationJobResponseTypeDef(BaseValidatorModel):
     Job: FraudsterRegistrationJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSpeakerEnrollmentJobResponseTypeDef(BaseModel):
+class DescribeSpeakerEnrollmentJobResponseTypeDef(BaseValidatorModel):
     Job: SpeakerEnrollmentJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSpeakerEnrollmentJobResponseTypeDef(BaseModel):
+class StartSpeakerEnrollmentJobResponseTypeDef(BaseValidatorModel):
     Job: SpeakerEnrollmentJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EvaluateSessionResponseTypeDef(BaseModel):
+class EvaluateSessionResponseTypeDef(BaseValidatorModel):
     AuthenticationResult: AuthenticationResultTypeDef
     DomainId: str
     FraudDetectionResult: FraudDetectionResultTypeDef

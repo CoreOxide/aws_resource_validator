@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,21 +11,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sso_admin_constants import *
 
-class AccessControlAttributeValueTypeDef(BaseModel):
+class AccessControlAttributeValueTypeDef(BaseValidatorModel):
     Source: Sequence[str]
 
-class AccountAssignmentForPrincipalTypeDef(BaseModel):
+class AccountAssignmentForPrincipalTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     PermissionSetArn: Optional[str] = None
     PrincipalId: Optional[str] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
-class AccountAssignmentOperationStatusMetadataTypeDef(BaseModel):
+class AccountAssignmentOperationStatusMetadataTypeDef(BaseValidatorModel):
     CreatedDate: Optional[datetime] = None
     RequestId: Optional[str] = None
     Status: Optional[StatusValuesType] = None
 
-class AccountAssignmentOperationStatusTypeDef(BaseModel):
+class AccountAssignmentOperationStatusTypeDef(BaseValidatorModel):
     CreatedDate: Optional[datetime] = None
     FailureReason: Optional[str] = None
     PermissionSetArn: Optional[str] = None
@@ -36,51 +36,51 @@ class AccountAssignmentOperationStatusTypeDef(BaseModel):
     TargetId: Optional[str] = None
     TargetType: Optional[Literal["AWS_ACCOUNT"]] = None
 
-class AccountAssignmentTypeDef(BaseModel):
+class AccountAssignmentTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     PermissionSetArn: Optional[str] = None
     PrincipalId: Optional[str] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
-class ApplicationAssignmentForPrincipalTypeDef(BaseModel):
+class ApplicationAssignmentForPrincipalTypeDef(BaseValidatorModel):
     ApplicationArn: Optional[str] = None
     PrincipalId: Optional[str] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
-class ApplicationAssignmentTypeDef(BaseModel):
+class ApplicationAssignmentTypeDef(BaseValidatorModel):
     ApplicationArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
 
-class DisplayDataTypeDef(BaseModel):
+class DisplayDataTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     IconUrl: Optional[str] = None
 
-class CustomerManagedPolicyReferenceTypeDef(BaseModel):
+class CustomerManagedPolicyReferenceTypeDef(BaseValidatorModel):
     Name: str
     Path: Optional[str] = None
 
-class AttachManagedPolicyToPermissionSetRequestRequestTypeDef(BaseModel):
+class AttachManagedPolicyToPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     ManagedPolicyArn: str
     PermissionSetArn: str
 
-class AttachedManagedPolicyTypeDef(BaseModel):
+class AttachedManagedPolicyTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class IamAuthenticationMethodTypeDef(BaseModel):
+class IamAuthenticationMethodTypeDef(BaseValidatorModel):
     ActorPolicy: Dict[str, Any]
 
-class AuthorizationCodeGrantTypeDef(BaseModel):
+class AuthorizationCodeGrantTypeDef(BaseValidatorModel):
     RedirectUris: Optional[List[str]] = None
 
-class AuthorizedTokenIssuerTypeDef(BaseModel):
+class AuthorizedTokenIssuerTypeDef(BaseValidatorModel):
     AuthorizedAudiences: Optional[List[str]] = None
     TrustedTokenIssuerArn: Optional[str] = None
 
-class CreateAccountAssignmentRequestRequestTypeDef(BaseModel):
+class CreateAccountAssignmentRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     PrincipalId: str
@@ -88,23 +88,23 @@ class CreateAccountAssignmentRequestRequestTypeDef(BaseModel):
     TargetId: str
     TargetType: Literal["AWS_ACCOUNT"]
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateApplicationAssignmentRequestRequestTypeDef(BaseModel):
+class CreateApplicationAssignmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class PermissionSetTypeDef(BaseModel):
+class PermissionSetTypeDef(BaseValidatorModel):
     CreatedDate: Optional[datetime] = None
     Description: Optional[str] = None
     Name: Optional[str] = None
@@ -112,7 +112,7 @@ class PermissionSetTypeDef(BaseModel):
     RelayState: Optional[str] = None
     SessionDuration: Optional[str] = None
 
-class DeleteAccountAssignmentRequestRequestTypeDef(BaseModel):
+class DeleteAccountAssignmentRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     PrincipalId: str
@@ -120,77 +120,77 @@ class DeleteAccountAssignmentRequestRequestTypeDef(BaseModel):
     TargetId: str
     TargetType: Literal["AWS_ACCOUNT"]
 
-class DeleteApplicationAccessScopeRequestRequestTypeDef(BaseModel):
+class DeleteApplicationAccessScopeRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     Scope: str
 
-class DeleteApplicationAssignmentRequestRequestTypeDef(BaseModel):
+class DeleteApplicationAssignmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
 
-class DeleteApplicationAuthenticationMethodRequestRequestTypeDef(BaseModel):
+class DeleteApplicationAuthenticationMethodRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     AuthenticationMethodType: Literal["IAM"]
 
-class DeleteApplicationGrantRequestRequestTypeDef(BaseModel):
+class DeleteApplicationGrantRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     GrantType: GrantTypeType
 
-class DeleteApplicationRequestRequestTypeDef(BaseModel):
+class DeleteApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
 
-class DeleteInlinePolicyFromPermissionSetRequestRequestTypeDef(BaseModel):
+class DeleteInlinePolicyFromPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
 
-class DeleteInstanceAccessControlAttributeConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteInstanceAccessControlAttributeConfigurationRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
 
-class DeleteInstanceRequestRequestTypeDef(BaseModel):
+class DeleteInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
 
-class DeletePermissionSetRequestRequestTypeDef(BaseModel):
-    InstanceArn: str
-    PermissionSetArn: str
-
-class DeletePermissionsBoundaryFromPermissionSetRequestRequestTypeDef(BaseModel):
+class DeletePermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
 
-class DeleteTrustedTokenIssuerRequestRequestTypeDef(BaseModel):
+class DeletePermissionsBoundaryFromPermissionSetRequestRequestTypeDef(BaseValidatorModel):
+    InstanceArn: str
+    PermissionSetArn: str
+
+class DeleteTrustedTokenIssuerRequestRequestTypeDef(BaseValidatorModel):
     TrustedTokenIssuerArn: str
 
-class DescribeAccountAssignmentCreationStatusRequestRequestTypeDef(BaseModel):
+class DescribeAccountAssignmentCreationStatusRequestRequestTypeDef(BaseValidatorModel):
     AccountAssignmentCreationRequestId: str
     InstanceArn: str
 
-class DescribeAccountAssignmentDeletionStatusRequestRequestTypeDef(BaseModel):
+class DescribeAccountAssignmentDeletionStatusRequestRequestTypeDef(BaseValidatorModel):
     AccountAssignmentDeletionRequestId: str
     InstanceArn: str
 
-class DescribeApplicationAssignmentRequestRequestTypeDef(BaseModel):
+class DescribeApplicationAssignmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
 
-class DescribeApplicationProviderRequestRequestTypeDef(BaseModel):
+class DescribeApplicationProviderRequestRequestTypeDef(BaseValidatorModel):
     ApplicationProviderArn: str
 
-class DescribeApplicationRequestRequestTypeDef(BaseModel):
+class DescribeApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
 
-class DescribeInstanceAccessControlAttributeConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeInstanceAccessControlAttributeConfigurationRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
 
-class DescribeInstanceRequestRequestTypeDef(BaseModel):
+class DescribeInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
 
-class DescribePermissionSetProvisioningStatusRequestRequestTypeDef(BaseModel):
+class DescribePermissionSetProvisioningStatusRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     ProvisionPermissionSetRequestId: str
 
-class PermissionSetProvisioningStatusTypeDef(BaseModel):
+class PermissionSetProvisioningStatusTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     CreatedDate: Optional[datetime] = None
     FailureReason: Optional[str] = None
@@ -198,42 +198,42 @@ class PermissionSetProvisioningStatusTypeDef(BaseModel):
     RequestId: Optional[str] = None
     Status: Optional[StatusValuesType] = None
 
-class DescribePermissionSetRequestRequestTypeDef(BaseModel):
+class DescribePermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
 
-class DescribeTrustedTokenIssuerRequestRequestTypeDef(BaseModel):
+class DescribeTrustedTokenIssuerRequestRequestTypeDef(BaseValidatorModel):
     TrustedTokenIssuerArn: str
 
-class DetachManagedPolicyFromPermissionSetRequestRequestTypeDef(BaseModel):
+class DetachManagedPolicyFromPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     ManagedPolicyArn: str
     PermissionSetArn: str
 
-class GetApplicationAccessScopeRequestRequestTypeDef(BaseModel):
+class GetApplicationAccessScopeRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     Scope: str
 
-class GetApplicationAssignmentConfigurationRequestRequestTypeDef(BaseModel):
+class GetApplicationAssignmentConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
 
-class GetApplicationAuthenticationMethodRequestRequestTypeDef(BaseModel):
+class GetApplicationAuthenticationMethodRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     AuthenticationMethodType: Literal["IAM"]
 
-class GetApplicationGrantRequestRequestTypeDef(BaseModel):
+class GetApplicationGrantRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     GrantType: GrantTypeType
 
-class GetInlinePolicyForPermissionSetRequestRequestTypeDef(BaseModel):
+class GetInlinePolicyForPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
 
-class GetPermissionsBoundaryForPermissionSetRequestRequestTypeDef(BaseModel):
+class GetPermissionsBoundaryForPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
 
-class InstanceMetadataTypeDef(BaseModel):
+class InstanceMetadataTypeDef(BaseValidatorModel):
     CreatedDate: Optional[datetime] = None
     IdentityStoreId: Optional[str] = None
     InstanceArn: Optional[str] = None
@@ -241,226 +241,226 @@ class InstanceMetadataTypeDef(BaseModel):
     OwnerAccountId: Optional[str] = None
     Status: Optional[InstanceStatusType] = None
 
-class OperationStatusFilterTypeDef(BaseModel):
+class OperationStatusFilterTypeDef(BaseValidatorModel):
     Status: Optional[StatusValuesType] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAccountAssignmentsFilterTypeDef(BaseModel):
+class ListAccountAssignmentsFilterTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
-class ListAccountAssignmentsRequestRequestTypeDef(BaseModel):
+class ListAccountAssignmentsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     InstanceArn: str
     PermissionSetArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListAccountsForProvisionedPermissionSetRequestRequestTypeDef(BaseModel):
+class ListAccountsForProvisionedPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ProvisioningStatus: Optional[ProvisioningStatusType] = None
 
-class ListApplicationAccessScopesRequestRequestTypeDef(BaseModel):
+class ListApplicationAccessScopesRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ScopeDetailsTypeDef(BaseModel):
+class ScopeDetailsTypeDef(BaseValidatorModel):
     Scope: str
     AuthorizedTargets: Optional[List[str]] = None
 
-class ListApplicationAssignmentsFilterTypeDef(BaseModel):
+class ListApplicationAssignmentsFilterTypeDef(BaseValidatorModel):
     ApplicationArn: Optional[str] = None
 
-class ListApplicationAssignmentsRequestRequestTypeDef(BaseModel):
+class ListApplicationAssignmentsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListApplicationAuthenticationMethodsRequestRequestTypeDef(BaseModel):
+class ListApplicationAuthenticationMethodsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     NextToken: Optional[str] = None
 
-class ListApplicationGrantsRequestRequestTypeDef(BaseModel):
+class ListApplicationGrantsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     NextToken: Optional[str] = None
 
-class ListApplicationProvidersRequestRequestTypeDef(BaseModel):
+class ListApplicationProvidersRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListApplicationsFilterTypeDef(BaseModel):
+class ListApplicationsFilterTypeDef(BaseValidatorModel):
     ApplicationAccount: Optional[str] = None
     ApplicationProvider: Optional[str] = None
 
-class ListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef(BaseModel):
+class ListCustomerManagedPolicyReferencesInPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListInstancesRequestRequestTypeDef(BaseModel):
+class ListInstancesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListManagedPoliciesInPermissionSetRequestRequestTypeDef(BaseModel):
+class ListManagedPoliciesInPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class PermissionSetProvisioningStatusMetadataTypeDef(BaseModel):
+class PermissionSetProvisioningStatusMetadataTypeDef(BaseValidatorModel):
     CreatedDate: Optional[datetime] = None
     RequestId: Optional[str] = None
     Status: Optional[StatusValuesType] = None
 
-class ListPermissionSetsProvisionedToAccountRequestRequestTypeDef(BaseModel):
+class ListPermissionSetsProvisionedToAccountRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     InstanceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ProvisioningStatus: Optional[ProvisioningStatusType] = None
 
-class ListPermissionSetsRequestRequestTypeDef(BaseModel):
+class ListPermissionSetsRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     InstanceArn: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListTrustedTokenIssuersRequestRequestTypeDef(BaseModel):
+class ListTrustedTokenIssuersRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class TrustedTokenIssuerMetadataTypeDef(BaseModel):
+class TrustedTokenIssuerMetadataTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     TrustedTokenIssuerArn: Optional[str] = None
     TrustedTokenIssuerType: Optional[Literal["OIDC_JWT"]] = None
 
-class OidcJwtConfigurationTypeDef(BaseModel):
+class OidcJwtConfigurationTypeDef(BaseValidatorModel):
     ClaimAttributePath: str
     IdentityStoreAttributePath: str
     IssuerUrl: str
     JwksRetrievalOption: Literal["OPEN_ID_DISCOVERY"]
 
-class OidcJwtUpdateConfigurationTypeDef(BaseModel):
+class OidcJwtUpdateConfigurationTypeDef(BaseValidatorModel):
     ClaimAttributePath: Optional[str] = None
     IdentityStoreAttributePath: Optional[str] = None
     JwksRetrievalOption: Optional[Literal["OPEN_ID_DISCOVERY"]] = None
 
-class SignInOptionsTypeDef(BaseModel):
+class SignInOptionsTypeDef(BaseValidatorModel):
     Origin: SignInOriginType
     ApplicationUrl: Optional[str] = None
 
-class ProvisionPermissionSetRequestRequestTypeDef(BaseModel):
+class ProvisionPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     TargetType: ProvisionTargetTypeType
     TargetId: Optional[str] = None
 
-class PutApplicationAccessScopeRequestRequestTypeDef(BaseModel):
+class PutApplicationAccessScopeRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     Scope: str
     AuthorizedTargets: Optional[Sequence[str]] = None
 
-class PutApplicationAssignmentConfigurationRequestRequestTypeDef(BaseModel):
+class PutApplicationAssignmentConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     AssignmentRequired: bool
 
-class PutInlinePolicyToPermissionSetRequestRequestTypeDef(BaseModel):
+class PutInlinePolicyToPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InlinePolicy: str
     InstanceArn: str
     PermissionSetArn: str
 
-class ResourceServerScopeDetailsTypeDef(BaseModel):
+class ResourceServerScopeDetailsTypeDef(BaseValidatorModel):
     DetailedTitle: Optional[str] = None
     LongDescription: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
     InstanceArn: Optional[str] = None
 
-class UpdateInstanceRequestRequestTypeDef(BaseModel):
+class UpdateInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     Name: str
 
-class UpdatePermissionSetRequestRequestTypeDef(BaseModel):
+class UpdatePermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     Description: Optional[str] = None
     RelayState: Optional[str] = None
     SessionDuration: Optional[str] = None
 
-class AccessControlAttributeTypeDef(BaseModel):
+class AccessControlAttributeTypeDef(BaseValidatorModel):
     Key: str
     Value: AccessControlAttributeValueTypeDef
 
-class AttachCustomerManagedPolicyReferenceToPermissionSetRequestRequestTypeDef(BaseModel):
+class AttachCustomerManagedPolicyReferenceToPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     CustomerManagedPolicyReference: CustomerManagedPolicyReferenceTypeDef
     InstanceArn: str
     PermissionSetArn: str
 
-class DetachCustomerManagedPolicyReferenceFromPermissionSetRequestRequestTypeDef(BaseModel):
+class DetachCustomerManagedPolicyReferenceFromPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     CustomerManagedPolicyReference: CustomerManagedPolicyReferenceTypeDef
     InstanceArn: str
     PermissionSetArn: str
 
-class PermissionsBoundaryTypeDef(BaseModel):
+class PermissionsBoundaryTypeDef(BaseValidatorModel):
     CustomerManagedPolicyReference: Optional[CustomerManagedPolicyReferenceTypeDef] = None
     ManagedPolicyArn: Optional[str] = None
 
-class AuthenticationMethodTypeDef(BaseModel):
+class AuthenticationMethodTypeDef(BaseValidatorModel):
     Iam: Optional[IamAuthenticationMethodTypeDef] = None
 
-class JwtBearerGrantTypeDef(BaseModel):
+class JwtBearerGrantTypeDef(BaseValidatorModel):
     AuthorizedTokenIssuers: Optional[List[AuthorizedTokenIssuerTypeDef]] = None
 
-class CreateAccountAssignmentResponseTypeDef(BaseModel):
+class CreateAccountAssignmentResponseTypeDef(BaseValidatorModel):
     AccountAssignmentCreationStatus: AccountAssignmentOperationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateApplicationResponseTypeDef(BaseModel):
+class CreateApplicationResponseTypeDef(BaseValidatorModel):
     ApplicationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceResponseTypeDef(BaseModel):
+class CreateInstanceResponseTypeDef(BaseValidatorModel):
     InstanceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrustedTokenIssuerResponseTypeDef(BaseModel):
+class CreateTrustedTokenIssuerResponseTypeDef(BaseValidatorModel):
     TrustedTokenIssuerArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAccountAssignmentResponseTypeDef(BaseModel):
+class DeleteAccountAssignmentResponseTypeDef(BaseValidatorModel):
     AccountAssignmentDeletionStatus: AccountAssignmentOperationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAccountAssignmentCreationStatusResponseTypeDef(BaseModel):
+class DescribeAccountAssignmentCreationStatusResponseTypeDef(BaseValidatorModel):
     AccountAssignmentCreationStatus: AccountAssignmentOperationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAccountAssignmentDeletionStatusResponseTypeDef(BaseModel):
+class DescribeAccountAssignmentDeletionStatusResponseTypeDef(BaseValidatorModel):
     AccountAssignmentDeletionStatus: AccountAssignmentOperationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeApplicationAssignmentResponseTypeDef(BaseModel):
+class DescribeApplicationAssignmentResponseTypeDef(BaseValidatorModel):
     ApplicationArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeInstanceResponseTypeDef(BaseModel):
+class DescribeInstanceResponseTypeDef(BaseValidatorModel):
     CreatedDate: datetime
     IdentityStoreId: str
     InstanceArn: str
@@ -469,83 +469,83 @@ class DescribeInstanceResponseTypeDef(BaseModel):
     Status: InstanceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApplicationAccessScopeResponseTypeDef(BaseModel):
+class GetApplicationAccessScopeResponseTypeDef(BaseValidatorModel):
     AuthorizedTargets: List[str]
     Scope: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApplicationAssignmentConfigurationResponseTypeDef(BaseModel):
+class GetApplicationAssignmentConfigurationResponseTypeDef(BaseValidatorModel):
     AssignmentRequired: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInlinePolicyForPermissionSetResponseTypeDef(BaseModel):
+class GetInlinePolicyForPermissionSetResponseTypeDef(BaseValidatorModel):
     InlinePolicy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccountAssignmentCreationStatusResponseTypeDef(BaseModel):
+class ListAccountAssignmentCreationStatusResponseTypeDef(BaseValidatorModel):
     AccountAssignmentsCreationStatus: List[AccountAssignmentOperationStatusMetadataTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccountAssignmentDeletionStatusResponseTypeDef(BaseModel):
+class ListAccountAssignmentDeletionStatusResponseTypeDef(BaseValidatorModel):
     AccountAssignmentsDeletionStatus: List[AccountAssignmentOperationStatusMetadataTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccountAssignmentsForPrincipalResponseTypeDef(BaseModel):
+class ListAccountAssignmentsForPrincipalResponseTypeDef(BaseValidatorModel):
     AccountAssignments: List[AccountAssignmentForPrincipalTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccountAssignmentsResponseTypeDef(BaseModel):
+class ListAccountAssignmentsResponseTypeDef(BaseValidatorModel):
     AccountAssignments: List[AccountAssignmentTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccountsForProvisionedPermissionSetResponseTypeDef(BaseModel):
+class ListAccountsForProvisionedPermissionSetResponseTypeDef(BaseValidatorModel):
     AccountIds: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationAssignmentsForPrincipalResponseTypeDef(BaseModel):
+class ListApplicationAssignmentsForPrincipalResponseTypeDef(BaseValidatorModel):
     ApplicationAssignments: List[ApplicationAssignmentForPrincipalTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationAssignmentsResponseTypeDef(BaseModel):
+class ListApplicationAssignmentsResponseTypeDef(BaseValidatorModel):
     ApplicationAssignments: List[ApplicationAssignmentTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCustomerManagedPolicyReferencesInPermissionSetResponseTypeDef(BaseModel):
+class ListCustomerManagedPolicyReferencesInPermissionSetResponseTypeDef(BaseValidatorModel):
     CustomerManagedPolicyReferences: List[CustomerManagedPolicyReferenceTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListManagedPoliciesInPermissionSetResponseTypeDef(BaseModel):
+class ListManagedPoliciesInPermissionSetResponseTypeDef(BaseValidatorModel):
     AttachedManagedPolicies: List[AttachedManagedPolicyTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPermissionSetsProvisionedToAccountResponseTypeDef(BaseModel):
+class ListPermissionSetsProvisionedToAccountResponseTypeDef(BaseValidatorModel):
     NextToken: str
     PermissionSets: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPermissionSetsResponseTypeDef(BaseModel):
+class ListPermissionSetsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     PermissionSets: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceRequestRequestTypeDef(BaseModel):
+class CreateInstanceRequestRequestTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
     Name: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreatePermissionSetRequestRequestTypeDef(BaseModel):
+class CreatePermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     Name: str
     Description: Optional[str] = None
@@ -553,141 +553,141 @@ class CreatePermissionSetRequestRequestTypeDef(BaseModel):
     SessionDuration: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
     InstanceArn: Optional[str] = None
 
-class CreatePermissionSetResponseTypeDef(BaseModel):
+class CreatePermissionSetResponseTypeDef(BaseValidatorModel):
     PermissionSet: PermissionSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePermissionSetResponseTypeDef(BaseModel):
+class DescribePermissionSetResponseTypeDef(BaseValidatorModel):
     PermissionSet: PermissionSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePermissionSetProvisioningStatusResponseTypeDef(BaseModel):
+class DescribePermissionSetProvisioningStatusResponseTypeDef(BaseValidatorModel):
     PermissionSetProvisioningStatus: PermissionSetProvisioningStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProvisionPermissionSetResponseTypeDef(BaseModel):
+class ProvisionPermissionSetResponseTypeDef(BaseValidatorModel):
     PermissionSetProvisioningStatus: PermissionSetProvisioningStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInstancesResponseTypeDef(BaseModel):
+class ListInstancesResponseTypeDef(BaseValidatorModel):
     Instances: List[InstanceMetadataTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccountAssignmentCreationStatusRequestRequestTypeDef(BaseModel):
+class ListAccountAssignmentCreationStatusRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[OperationStatusFilterTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListAccountAssignmentDeletionStatusRequestRequestTypeDef(BaseModel):
+class ListAccountAssignmentDeletionStatusRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[OperationStatusFilterTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListPermissionSetProvisioningStatusRequestRequestTypeDef(BaseModel):
+class ListPermissionSetProvisioningStatusRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[OperationStatusFilterTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListAccountAssignmentCreationStatusRequestListAccountAssignmentCreationStatusPaginateTypeDef(BaseModel):
+class ListAccountAssignmentCreationStatusRequestListAccountAssignmentCreationStatusPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[OperationStatusFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccountAssignmentDeletionStatusRequestListAccountAssignmentDeletionStatusPaginateTypeDef(BaseModel):
+class ListAccountAssignmentDeletionStatusRequestListAccountAssignmentDeletionStatusPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[OperationStatusFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccountAssignmentsRequestListAccountAssignmentsPaginateTypeDef(BaseModel):
+class ListAccountAssignmentsRequestListAccountAssignmentsPaginateTypeDef(BaseValidatorModel):
     AccountId: str
     InstanceArn: str
     PermissionSetArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccountsForProvisionedPermissionSetRequestListAccountsForProvisionedPermissionSetPaginateTypeDef(BaseModel):
+class ListAccountsForProvisionedPermissionSetRequestListAccountsForProvisionedPermissionSetPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     ProvisioningStatus: Optional[ProvisioningStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApplicationAccessScopesRequestListApplicationAccessScopesPaginateTypeDef(BaseModel):
+class ListApplicationAccessScopesRequestListApplicationAccessScopesPaginateTypeDef(BaseValidatorModel):
     ApplicationArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApplicationAssignmentsRequestListApplicationAssignmentsPaginateTypeDef(BaseModel):
+class ListApplicationAssignmentsRequestListApplicationAssignmentsPaginateTypeDef(BaseValidatorModel):
     ApplicationArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApplicationAuthenticationMethodsRequestListApplicationAuthenticationMethodsPaginateTypeDef(BaseModel):
+class ListApplicationAuthenticationMethodsRequestListApplicationAuthenticationMethodsPaginateTypeDef(BaseValidatorModel):
     ApplicationArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApplicationGrantsRequestListApplicationGrantsPaginateTypeDef(BaseModel):
+class ListApplicationGrantsRequestListApplicationGrantsPaginateTypeDef(BaseValidatorModel):
     ApplicationArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApplicationProvidersRequestListApplicationProvidersPaginateTypeDef(BaseModel):
+class ListApplicationProvidersRequestListApplicationProvidersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCustomerManagedPolicyReferencesInPermissionSetRequestListCustomerManagedPolicyReferencesInPermissionSetPaginateTypeDef(BaseModel):
+class ListCustomerManagedPolicyReferencesInPermissionSetRequestListCustomerManagedPolicyReferencesInPermissionSetPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInstancesRequestListInstancesPaginateTypeDef(BaseModel):
+class ListInstancesRequestListInstancesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListManagedPoliciesInPermissionSetRequestListManagedPoliciesInPermissionSetPaginateTypeDef(BaseModel):
+class ListManagedPoliciesInPermissionSetRequestListManagedPoliciesInPermissionSetPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPermissionSetProvisioningStatusRequestListPermissionSetProvisioningStatusPaginateTypeDef(BaseModel):
+class ListPermissionSetProvisioningStatusRequestListPermissionSetProvisioningStatusPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[OperationStatusFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPermissionSetsProvisionedToAccountRequestListPermissionSetsProvisionedToAccountPaginateTypeDef(BaseModel):
+class ListPermissionSetsProvisionedToAccountRequestListPermissionSetsProvisionedToAccountPaginateTypeDef(BaseValidatorModel):
     AccountId: str
     InstanceArn: str
     ProvisioningStatus: Optional[ProvisioningStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPermissionSetsRequestListPermissionSetsPaginateTypeDef(BaseModel):
+class ListPermissionSetsRequestListPermissionSetsPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     ResourceArn: str
     InstanceArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTrustedTokenIssuersRequestListTrustedTokenIssuersPaginateTypeDef(BaseModel):
+class ListTrustedTokenIssuersRequestListTrustedTokenIssuersPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccountAssignmentsForPrincipalRequestListAccountAssignmentsForPrincipalPaginateTypeDef(BaseModel):
+class ListAccountAssignmentsForPrincipalRequestListAccountAssignmentsForPrincipalPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
     Filter: Optional[ListAccountAssignmentsFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccountAssignmentsForPrincipalRequestRequestTypeDef(BaseModel):
+class ListAccountAssignmentsForPrincipalRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
@@ -695,19 +695,19 @@ class ListAccountAssignmentsForPrincipalRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListApplicationAccessScopesResponseTypeDef(BaseModel):
+class ListApplicationAccessScopesResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Scopes: List[ScopeDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationAssignmentsForPrincipalRequestListApplicationAssignmentsForPrincipalPaginateTypeDef(BaseModel):
+class ListApplicationAssignmentsForPrincipalRequestListApplicationAssignmentsForPrincipalPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
     Filter: Optional[ListApplicationAssignmentsFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApplicationAssignmentsForPrincipalRequestRequestTypeDef(BaseModel):
+class ListApplicationAssignmentsForPrincipalRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
@@ -715,75 +715,75 @@ class ListApplicationAssignmentsForPrincipalRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListApplicationsRequestListApplicationsPaginateTypeDef(BaseModel):
+class ListApplicationsRequestListApplicationsPaginateTypeDef(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[ListApplicationsFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApplicationsRequestRequestTypeDef(BaseModel):
+class ListApplicationsRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[ListApplicationsFilterTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListPermissionSetProvisioningStatusResponseTypeDef(BaseModel):
+class ListPermissionSetProvisioningStatusResponseTypeDef(BaseValidatorModel):
     NextToken: str
     PermissionSetsProvisioningStatus: List[PermissionSetProvisioningStatusMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTrustedTokenIssuersResponseTypeDef(BaseModel):
+class ListTrustedTokenIssuersResponseTypeDef(BaseValidatorModel):
     NextToken: str
     TrustedTokenIssuers: List[TrustedTokenIssuerMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TrustedTokenIssuerConfigurationTypeDef(BaseModel):
+class TrustedTokenIssuerConfigurationTypeDef(BaseValidatorModel):
     OidcJwtConfiguration: Optional[OidcJwtConfigurationTypeDef] = None
 
-class TrustedTokenIssuerUpdateConfigurationTypeDef(BaseModel):
+class TrustedTokenIssuerUpdateConfigurationTypeDef(BaseValidatorModel):
     OidcJwtConfiguration: Optional[OidcJwtUpdateConfigurationTypeDef] = None
 
-class PortalOptionsTypeDef(BaseModel):
+class PortalOptionsTypeDef(BaseValidatorModel):
     SignInOptions: Optional[SignInOptionsTypeDef] = None
     Visibility: Optional[ApplicationVisibilityType] = None
 
-class UpdateApplicationPortalOptionsTypeDef(BaseModel):
+class UpdateApplicationPortalOptionsTypeDef(BaseValidatorModel):
     SignInOptions: Optional[SignInOptionsTypeDef] = None
 
-class ResourceServerConfigTypeDef(BaseModel):
+class ResourceServerConfigTypeDef(BaseValidatorModel):
     Scopes: Optional[Dict[str, ResourceServerScopeDetailsTypeDef]] = None
 
-class InstanceAccessControlAttributeConfigurationTypeDef(BaseModel):
+class InstanceAccessControlAttributeConfigurationTypeDef(BaseValidatorModel):
     AccessControlAttributes: Sequence[AccessControlAttributeTypeDef]
 
-class GetPermissionsBoundaryForPermissionSetResponseTypeDef(BaseModel):
+class GetPermissionsBoundaryForPermissionSetResponseTypeDef(BaseValidatorModel):
     PermissionsBoundary: PermissionsBoundaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutPermissionsBoundaryToPermissionSetRequestRequestTypeDef(BaseModel):
+class PutPermissionsBoundaryToPermissionSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
     PermissionsBoundary: PermissionsBoundaryTypeDef
 
-class AuthenticationMethodItemTypeDef(BaseModel):
+class AuthenticationMethodItemTypeDef(BaseValidatorModel):
     AuthenticationMethod: Optional[AuthenticationMethodTypeDef] = None
     AuthenticationMethodType: Optional[Literal["IAM"]] = None
 
-class GetApplicationAuthenticationMethodResponseTypeDef(BaseModel):
+class GetApplicationAuthenticationMethodResponseTypeDef(BaseValidatorModel):
     AuthenticationMethod: AuthenticationMethodTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutApplicationAuthenticationMethodRequestRequestTypeDef(BaseModel):
+class PutApplicationAuthenticationMethodRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     AuthenticationMethod: AuthenticationMethodTypeDef
     AuthenticationMethodType: Literal["IAM"]
 
-class GrantTypeDef(BaseModel):
+class GrantTypeDef(BaseValidatorModel):
     AuthorizationCode: Optional[AuthorizationCodeGrantTypeDef] = None
     JwtBearer: Optional[JwtBearerGrantTypeDef] = None
     RefreshToken: Optional[Dict[str, Any]] = None
     TokenExchange: Optional[Dict[str, Any]] = None
 
-class CreateTrustedTokenIssuerRequestRequestTypeDef(BaseModel):
+class CreateTrustedTokenIssuerRequestRequestTypeDef(BaseValidatorModel):
     InstanceArn: str
     Name: str
     TrustedTokenIssuerConfiguration: TrustedTokenIssuerConfigurationTypeDef
@@ -791,19 +791,19 @@ class CreateTrustedTokenIssuerRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribeTrustedTokenIssuerResponseTypeDef(BaseModel):
+class DescribeTrustedTokenIssuerResponseTypeDef(BaseValidatorModel):
     Name: str
     TrustedTokenIssuerArn: str
     TrustedTokenIssuerConfiguration: TrustedTokenIssuerConfigurationTypeDef
     TrustedTokenIssuerType: Literal["OIDC_JWT"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTrustedTokenIssuerRequestRequestTypeDef(BaseModel):
+class UpdateTrustedTokenIssuerRequestRequestTypeDef(BaseValidatorModel):
     TrustedTokenIssuerArn: str
     Name: Optional[str] = None
     TrustedTokenIssuerConfiguration: Optional[       TrustedTokenIssuerUpdateConfigurationTypeDef     ] = None
 
-class ApplicationTypeDef(BaseModel):
+class ApplicationTypeDef(BaseValidatorModel):
     ApplicationAccount: Optional[str] = None
     ApplicationArn: Optional[str] = None
     ApplicationProviderArn: Optional[str] = None
@@ -814,7 +814,7 @@ class ApplicationTypeDef(BaseModel):
     PortalOptions: Optional[PortalOptionsTypeDef] = None
     Status: Optional[ApplicationStatusType] = None
 
-class CreateApplicationRequestRequestTypeDef(BaseModel):
+class CreateApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationProviderArn: str
     InstanceArn: str
     Name: str
@@ -824,7 +824,7 @@ class CreateApplicationRequestRequestTypeDef(BaseModel):
     Status: Optional[ApplicationStatusType] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribeApplicationResponseTypeDef(BaseModel):
+class DescribeApplicationResponseTypeDef(BaseValidatorModel):
     ApplicationAccount: str
     ApplicationArn: str
     ApplicationProviderArn: str
@@ -836,69 +836,69 @@ class DescribeApplicationResponseTypeDef(BaseModel):
     Status: ApplicationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApplicationRequestRequestTypeDef(BaseModel):
+class UpdateApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     Description: Optional[str] = None
     Name: Optional[str] = None
     PortalOptions: Optional[UpdateApplicationPortalOptionsTypeDef] = None
     Status: Optional[ApplicationStatusType] = None
 
-class ApplicationProviderTypeDef(BaseModel):
+class ApplicationProviderTypeDef(BaseValidatorModel):
     ApplicationProviderArn: str
     DisplayData: Optional[DisplayDataTypeDef] = None
     FederationProtocol: Optional[FederationProtocolType] = None
     ResourceServerConfig: Optional[ResourceServerConfigTypeDef] = None
 
-class DescribeApplicationProviderResponseTypeDef(BaseModel):
+class DescribeApplicationProviderResponseTypeDef(BaseValidatorModel):
     ApplicationProviderArn: str
     DisplayData: DisplayDataTypeDef
     FederationProtocol: FederationProtocolType
     ResourceServerConfig: ResourceServerConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef(BaseModel):
+class CreateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef(BaseValidatorModel):
     InstanceAccessControlAttributeConfiguration: (       InstanceAccessControlAttributeConfigurationTypeDef     )
     InstanceArn: str
 
-class DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef(BaseModel):
+class DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef(BaseValidatorModel):
     InstanceAccessControlAttributeConfiguration: (       InstanceAccessControlAttributeConfigurationTypeDef     )
     Status: InstanceAccessControlAttributeConfigurationStatusType
     StatusReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateInstanceAccessControlAttributeConfigurationRequestRequestTypeDef(BaseValidatorModel):
     InstanceAccessControlAttributeConfiguration: (       InstanceAccessControlAttributeConfigurationTypeDef     )
     InstanceArn: str
 
-class ListApplicationAuthenticationMethodsResponseTypeDef(BaseModel):
+class ListApplicationAuthenticationMethodsResponseTypeDef(BaseValidatorModel):
     AuthenticationMethods: List[AuthenticationMethodItemTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApplicationGrantResponseTypeDef(BaseModel):
+class GetApplicationGrantResponseTypeDef(BaseValidatorModel):
     Grant: GrantTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GrantItemTypeDef(BaseModel):
+class GrantItemTypeDef(BaseValidatorModel):
     Grant: GrantTypeDef
     GrantType: GrantTypeType
 
-class PutApplicationGrantRequestRequestTypeDef(BaseModel):
+class PutApplicationGrantRequestRequestTypeDef(BaseValidatorModel):
     ApplicationArn: str
     Grant: GrantTypeDef
     GrantType: GrantTypeType
 
-class ListApplicationsResponseTypeDef(BaseModel):
+class ListApplicationsResponseTypeDef(BaseValidatorModel):
     Applications: List[ApplicationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationProvidersResponseTypeDef(BaseModel):
+class ListApplicationProvidersResponseTypeDef(BaseValidatorModel):
     ApplicationProviders: List[ApplicationProviderTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationGrantsResponseTypeDef(BaseModel):
+class ListApplicationGrantsResponseTypeDef(BaseValidatorModel):
     Grants: List[GrantItemTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

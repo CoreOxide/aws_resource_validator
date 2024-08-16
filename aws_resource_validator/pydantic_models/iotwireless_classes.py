@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,96 +11,96 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iotwireless_constants import *
 
-class SessionKeysAbpV10XTypeDef(BaseModel):
+class SessionKeysAbpV10XTypeDef(BaseValidatorModel):
     NwkSKey: Optional[str] = None
     AppSKey: Optional[str] = None
 
-class SessionKeysAbpV11TypeDef(BaseModel):
+class SessionKeysAbpV11TypeDef(BaseValidatorModel):
     FNwkSIntKey: Optional[str] = None
     SNwkSIntKey: Optional[str] = None
     NwkSEncKey: Optional[str] = None
     AppSKey: Optional[str] = None
 
-class AccuracyTypeDef(BaseModel):
+class AccuracyTypeDef(BaseValidatorModel):
     HorizontalAccuracy: Optional[float] = None
     VerticalAccuracy: Optional[float] = None
 
-class ApplicationConfigTypeDef(BaseModel):
+class ApplicationConfigTypeDef(BaseValidatorModel):
     FPort: Optional[int] = None
     Type: Optional[Literal["SemtechGeolocation"]] = None
     DestinationName: Optional[str] = None
 
-class SidewalkAccountInfoTypeDef(BaseModel):
+class SidewalkAccountInfoTypeDef(BaseValidatorModel):
     AmazonId: Optional[str] = None
     AppServerPrivateKey: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AssociateMulticastGroupWithFuotaTaskRequestRequestTypeDef(BaseModel):
+class AssociateMulticastGroupWithFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     MulticastGroupId: str
 
-class AssociateWirelessDeviceWithFuotaTaskRequestRequestTypeDef(BaseModel):
+class AssociateWirelessDeviceWithFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     WirelessDeviceId: str
 
-class AssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef(BaseModel):
+class AssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     WirelessDeviceId: str
 
-class AssociateWirelessDeviceWithThingRequestRequestTypeDef(BaseModel):
+class AssociateWirelessDeviceWithThingRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     ThingArn: str
 
-class AssociateWirelessGatewayWithCertificateRequestRequestTypeDef(BaseModel):
+class AssociateWirelessGatewayWithCertificateRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     IotCertificateId: str
 
-class AssociateWirelessGatewayWithThingRequestRequestTypeDef(BaseModel):
+class AssociateWirelessGatewayWithThingRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     ThingArn: str
 
-class BeaconingOutputTypeDef(BaseModel):
+class BeaconingOutputTypeDef(BaseValidatorModel):
     DataRate: Optional[int] = None
     Frequencies: Optional[List[int]] = None
 
-class BeaconingTypeDef(BaseModel):
+class BeaconingTypeDef(BaseValidatorModel):
     DataRate: Optional[int] = None
     Frequencies: Optional[Sequence[int]] = None
 
-class CancelMulticastGroupSessionRequestRequestTypeDef(BaseModel):
+class CancelMulticastGroupSessionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class CdmaLocalIdTypeDef(BaseModel):
+class CdmaLocalIdTypeDef(BaseValidatorModel):
     PnOffset: int
     CdmaChannel: int
 
-class CdmaNmrObjTypeDef(BaseModel):
+class CdmaNmrObjTypeDef(BaseValidatorModel):
     PnOffset: int
     CdmaChannel: int
     PilotPower: Optional[int] = None
     BaseStationId: Optional[int] = None
 
-class CertificateListTypeDef(BaseModel):
+class CertificateListTypeDef(BaseValidatorModel):
     SigningAlg: SigningAlgType
     Value: str
 
-class LoRaWANConnectionStatusEventNotificationConfigurationsTypeDef(BaseModel):
+class LoRaWANConnectionStatusEventNotificationConfigurationsTypeDef(BaseValidatorModel):
     GatewayEuiEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class LoRaWANConnectionStatusResourceTypeEventConfigurationTypeDef(BaseModel):
+class LoRaWANConnectionStatusResourceTypeEventConfigurationTypeDef(BaseValidatorModel):
     WirelessGatewayEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class LoRaWANDeviceProfileTypeDef(BaseModel):
+class LoRaWANDeviceProfileTypeDef(BaseValidatorModel):
     SupportsClassB: Optional[bool] = None
     ClassBTimeout: Optional[int] = None
     PingSlotPeriod: Optional[int] = None
@@ -121,82 +121,82 @@ class LoRaWANDeviceProfileTypeDef(BaseModel):
     SupportsJoin: Optional[bool] = None
     Supports32BitFCnt: Optional[bool] = None
 
-class LoRaWANFuotaTaskTypeDef(BaseModel):
+class LoRaWANFuotaTaskTypeDef(BaseValidatorModel):
     RfRegion: Optional[SupportedRfRegionType] = None
 
-class LoRaWANMulticastTypeDef(BaseModel):
+class LoRaWANMulticastTypeDef(BaseValidatorModel):
     RfRegion: Optional[SupportedRfRegionType] = None
     DlClass: Optional[DlClassType] = None
 
-class TraceContentTypeDef(BaseModel):
+class TraceContentTypeDef(BaseValidatorModel):
     WirelessDeviceFrameInfo: Optional[WirelessDeviceFrameInfoType] = None
     LogLevel: Optional[LogLevelType] = None
     MulticastFrameInfo: Optional[MulticastFrameInfoType] = None
 
-class LoRaWANServiceProfileTypeDef(BaseModel):
+class LoRaWANServiceProfileTypeDef(BaseValidatorModel):
     AddGwMetadata: Optional[bool] = None
     DrMin: Optional[int] = None
     DrMax: Optional[int] = None
     PrAllowed: Optional[bool] = None
     RaAllowed: Optional[bool] = None
 
-class SidewalkCreateWirelessDeviceTypeDef(BaseModel):
+class SidewalkCreateWirelessDeviceTypeDef(BaseValidatorModel):
     DeviceProfileId: Optional[str] = None
 
-class CreateWirelessGatewayTaskRequestRequestTypeDef(BaseModel):
+class CreateWirelessGatewayTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     WirelessGatewayTaskDefinitionId: str
 
-class DakCertificateMetadataTypeDef(BaseModel):
+class DakCertificateMetadataTypeDef(BaseValidatorModel):
     CertificateId: str
     MaxAllowedSignature: Optional[int] = None
     FactorySupport: Optional[bool] = None
     ApId: Optional[str] = None
     DeviceTypeId: Optional[str] = None
 
-class DeleteDestinationRequestRequestTypeDef(BaseModel):
+class DeleteDestinationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteDeviceProfileRequestRequestTypeDef(BaseModel):
+class DeleteDeviceProfileRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteFuotaTaskRequestRequestTypeDef(BaseModel):
+class DeleteFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteMulticastGroupRequestRequestTypeDef(BaseModel):
+class DeleteMulticastGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationName: str
 
-class DeleteQueuedMessagesRequestRequestTypeDef(BaseModel):
+class DeleteQueuedMessagesRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     MessageId: str
     WirelessDeviceType: Optional[WirelessDeviceTypeType] = None
 
-class DeleteServiceProfileRequestRequestTypeDef(BaseModel):
+class DeleteServiceProfileRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteWirelessDeviceImportTaskRequestRequestTypeDef(BaseModel):
+class DeleteWirelessDeviceImportTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteWirelessDeviceRequestRequestTypeDef(BaseModel):
+class DeleteWirelessDeviceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteWirelessGatewayRequestRequestTypeDef(BaseModel):
+class DeleteWirelessGatewayRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteWirelessGatewayTaskDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteWirelessGatewayTaskDefinitionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteWirelessGatewayTaskRequestRequestTypeDef(BaseModel):
+class DeleteWirelessGatewayTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeregisterWirelessDeviceRequestRequestTypeDef(BaseModel):
+class DeregisterWirelessDeviceRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     WirelessDeviceType: Optional[WirelessDeviceTypeType] = None
 
-class DestinationsTypeDef(BaseModel):
+class DestinationsTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     ExpressionType: Optional[ExpressionTypeType] = None
@@ -204,67 +204,67 @@ class DestinationsTypeDef(BaseModel):
     Description: Optional[str] = None
     RoleArn: Optional[str] = None
 
-class DeviceProfileTypeDef(BaseModel):
+class DeviceProfileTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Id: Optional[str] = None
 
-class SidewalkEventNotificationConfigurationsTypeDef(BaseModel):
+class SidewalkEventNotificationConfigurationsTypeDef(BaseValidatorModel):
     AmazonIdEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class SidewalkResourceTypeEventConfigurationTypeDef(BaseModel):
+class SidewalkResourceTypeEventConfigurationTypeDef(BaseValidatorModel):
     WirelessDeviceEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class DimensionTypeDef(BaseModel):
+class DimensionTypeDef(BaseValidatorModel):
     name: Optional[DimensionNameType] = None
     value: Optional[str] = None
 
-class DisassociateAwsAccountFromPartnerAccountRequestRequestTypeDef(BaseModel):
+class DisassociateAwsAccountFromPartnerAccountRequestRequestTypeDef(BaseValidatorModel):
     PartnerAccountId: str
     PartnerType: Literal["Sidewalk"]
 
-class DisassociateMulticastGroupFromFuotaTaskRequestRequestTypeDef(BaseModel):
+class DisassociateMulticastGroupFromFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     MulticastGroupId: str
 
-class DisassociateWirelessDeviceFromFuotaTaskRequestRequestTypeDef(BaseModel):
+class DisassociateWirelessDeviceFromFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     WirelessDeviceId: str
 
-class DisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef(BaseModel):
+class DisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     WirelessDeviceId: str
 
-class DisassociateWirelessDeviceFromThingRequestRequestTypeDef(BaseModel):
+class DisassociateWirelessDeviceFromThingRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DisassociateWirelessGatewayFromCertificateRequestRequestTypeDef(BaseModel):
+class DisassociateWirelessGatewayFromCertificateRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DisassociateWirelessGatewayFromThingRequestRequestTypeDef(BaseModel):
+class DisassociateWirelessGatewayFromThingRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class PositioningTypeDef(BaseModel):
+class PositioningTypeDef(BaseValidatorModel):
     ClockSync: Optional[int] = None
     Stream: Optional[int] = None
     Gnss: Optional[int] = None
 
-class FuotaTaskTypeDef(BaseModel):
+class FuotaTaskTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class GatewayListItemTypeDef(BaseModel):
+class GatewayListItemTypeDef(BaseValidatorModel):
     GatewayId: str
     DownlinkFrequency: int
 
-class GetDestinationRequestRequestTypeDef(BaseModel):
+class GetDestinationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetDeviceProfileRequestRequestTypeDef(BaseModel):
+class GetDeviceProfileRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class LoRaWANDeviceProfileOutputTypeDef(BaseModel):
+class LoRaWANDeviceProfileOutputTypeDef(BaseValidatorModel):
     SupportsClassB: Optional[bool] = None
     ClassBTimeout: Optional[int] = None
     PingSlotPeriod: Optional[int] = None
@@ -285,52 +285,52 @@ class LoRaWANDeviceProfileOutputTypeDef(BaseModel):
     SupportsJoin: Optional[bool] = None
     Supports32BitFCnt: Optional[bool] = None
 
-class GetFuotaTaskRequestRequestTypeDef(BaseModel):
+class GetFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class LoRaWANFuotaTaskGetInfoTypeDef(BaseModel):
+class LoRaWANFuotaTaskGetInfoTypeDef(BaseValidatorModel):
     RfRegion: Optional[str] = None
     StartTime: Optional[datetime] = None
 
-class SummaryMetricConfigurationTypeDef(BaseModel):
+class SummaryMetricConfigurationTypeDef(BaseValidatorModel):
     Status: Optional[SummaryMetricConfigurationStatusType] = None
 
-class GetMulticastGroupRequestRequestTypeDef(BaseModel):
+class GetMulticastGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class LoRaWANMulticastGetTypeDef(BaseModel):
+class LoRaWANMulticastGetTypeDef(BaseValidatorModel):
     RfRegion: Optional[SupportedRfRegionType] = None
     DlClass: Optional[DlClassType] = None
     NumberOfDevicesRequested: Optional[int] = None
     NumberOfDevicesInGroup: Optional[int] = None
 
-class GetMulticastGroupSessionRequestRequestTypeDef(BaseModel):
+class GetMulticastGroupSessionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class LoRaWANMulticastSessionOutputTypeDef(BaseModel):
+class LoRaWANMulticastSessionOutputTypeDef(BaseValidatorModel):
     DlDr: Optional[int] = None
     DlFreq: Optional[int] = None
     SessionStartTime: Optional[datetime] = None
     SessionTimeout: Optional[int] = None
     PingSlotPeriod: Optional[int] = None
 
-class GetNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseModel):
+class GetNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationName: str
 
-class GetPartnerAccountRequestRequestTypeDef(BaseModel):
+class GetPartnerAccountRequestRequestTypeDef(BaseValidatorModel):
     PartnerAccountId: str
     PartnerType: Literal["Sidewalk"]
 
-class SidewalkAccountInfoWithFingerprintTypeDef(BaseModel):
+class SidewalkAccountInfoWithFingerprintTypeDef(BaseValidatorModel):
     AmazonId: Optional[str] = None
     Fingerprint: Optional[str] = None
     Arn: Optional[str] = None
 
-class GetPositionConfigurationRequestRequestTypeDef(BaseModel):
+class GetPositionConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: PositionResourceTypeType
 
-class GnssTypeDef(BaseModel):
+class GnssTypeDef(BaseValidatorModel):
     Payload: str
     CaptureTime: Optional[float] = None
     CaptureTimeAccuracy: Optional[float] = None
@@ -338,37 +338,37 @@ class GnssTypeDef(BaseModel):
     AssistAltitude: Optional[float] = None
     Use2DSolver: Optional[bool] = None
 
-class IpTypeDef(BaseModel):
+class IpTypeDef(BaseValidatorModel):
     IpAddress: str
 
-class WiFiAccessPointTypeDef(BaseModel):
+class WiFiAccessPointTypeDef(BaseValidatorModel):
     MacAddress: str
     Rss: int
 
-class GetPositionRequestRequestTypeDef(BaseModel):
+class GetPositionRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: PositionResourceTypeType
 
-class GetResourceEventConfigurationRequestRequestTypeDef(BaseModel):
+class GetResourceEventConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     IdentifierType: IdentifierTypeType
     PartnerType: Optional[Literal["Sidewalk"]] = None
 
-class GetResourceLogLevelRequestRequestTypeDef(BaseModel):
+class GetResourceLogLevelRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: str
 
-class GetResourcePositionRequestRequestTypeDef(BaseModel):
+class GetResourcePositionRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: PositionResourceTypeType
 
-class GetServiceEndpointRequestRequestTypeDef(BaseModel):
+class GetServiceEndpointRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: Optional[WirelessGatewayServiceTypeType] = None
 
-class GetServiceProfileRequestRequestTypeDef(BaseModel):
+class GetServiceProfileRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class LoRaWANGetServiceProfileInfoTypeDef(BaseModel):
+class LoRaWANGetServiceProfileInfoTypeDef(BaseValidatorModel):
     UlRate: Optional[int] = None
     UlBucketSize: Optional[int] = None
     UlRatePolicy: Optional[str] = None
@@ -389,146 +389,146 @@ class LoRaWANGetServiceProfileInfoTypeDef(BaseModel):
     TargetPer: Optional[int] = None
     MinGwDiversity: Optional[int] = None
 
-class GetWirelessDeviceImportTaskRequestRequestTypeDef(BaseModel):
+class GetWirelessDeviceImportTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class SidewalkGetStartImportInfoTypeDef(BaseModel):
+class SidewalkGetStartImportInfoTypeDef(BaseValidatorModel):
     DeviceCreationFileList: Optional[List[str]] = None
     Role: Optional[str] = None
 
-class GetWirelessDeviceRequestRequestTypeDef(BaseModel):
+class GetWirelessDeviceRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     IdentifierType: WirelessDeviceIdTypeType
 
-class GetWirelessDeviceStatisticsRequestRequestTypeDef(BaseModel):
+class GetWirelessDeviceStatisticsRequestRequestTypeDef(BaseValidatorModel):
     WirelessDeviceId: str
 
-class SidewalkDeviceMetadataTypeDef(BaseModel):
+class SidewalkDeviceMetadataTypeDef(BaseValidatorModel):
     Rssi: Optional[int] = None
     BatteryLevel: Optional[BatteryLevelType] = None
     Event: Optional[EventType] = None
     DeviceState: Optional[DeviceStateType] = None
 
-class GetWirelessGatewayCertificateRequestRequestTypeDef(BaseModel):
+class GetWirelessGatewayCertificateRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetWirelessGatewayFirmwareInformationRequestRequestTypeDef(BaseModel):
+class GetWirelessGatewayFirmwareInformationRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetWirelessGatewayRequestRequestTypeDef(BaseModel):
+class GetWirelessGatewayRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     IdentifierType: WirelessGatewayIdTypeType
 
-class GetWirelessGatewayStatisticsRequestRequestTypeDef(BaseModel):
+class GetWirelessGatewayStatisticsRequestRequestTypeDef(BaseValidatorModel):
     WirelessGatewayId: str
 
-class GetWirelessGatewayTaskDefinitionRequestRequestTypeDef(BaseModel):
+class GetWirelessGatewayTaskDefinitionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetWirelessGatewayTaskRequestRequestTypeDef(BaseModel):
+class GetWirelessGatewayTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GlobalIdentityTypeDef(BaseModel):
+class GlobalIdentityTypeDef(BaseValidatorModel):
     Lac: int
     GeranCid: int
 
-class GsmLocalIdTypeDef(BaseModel):
+class GsmLocalIdTypeDef(BaseValidatorModel):
     Bsic: int
     Bcch: int
 
-class ImportedSidewalkDeviceTypeDef(BaseModel):
+class ImportedSidewalkDeviceTypeDef(BaseValidatorModel):
     SidewalkManufacturingSn: Optional[str] = None
     OnboardingStatus: Optional[OnboardStatusType] = None
     OnboardingStatusReason: Optional[str] = None
     LastUpdateTime: Optional[datetime] = None
 
-class LoRaWANJoinEventNotificationConfigurationsTypeDef(BaseModel):
+class LoRaWANJoinEventNotificationConfigurationsTypeDef(BaseValidatorModel):
     DevEuiEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class LoRaWANJoinResourceTypeEventConfigurationTypeDef(BaseModel):
+class LoRaWANJoinResourceTypeEventConfigurationTypeDef(BaseValidatorModel):
     WirelessDeviceEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class ListDestinationsRequestRequestTypeDef(BaseModel):
+class ListDestinationsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListDeviceProfilesRequestRequestTypeDef(BaseModel):
+class ListDeviceProfilesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DeviceProfileType: Optional[DeviceProfileTypeType] = None
 
-class ListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef(BaseModel):
+class ListDevicesForWirelessDeviceImportTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Status: Optional[OnboardStatusType] = None
 
-class ListEventConfigurationsRequestRequestTypeDef(BaseModel):
+class ListEventConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: EventNotificationResourceTypeType
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListFuotaTasksRequestRequestTypeDef(BaseModel):
+class ListFuotaTasksRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListMulticastGroupsByFuotaTaskRequestRequestTypeDef(BaseModel):
+class ListMulticastGroupsByFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MulticastGroupByFuotaTaskTypeDef(BaseModel):
+class MulticastGroupByFuotaTaskTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
 
-class ListMulticastGroupsRequestRequestTypeDef(BaseModel):
+class ListMulticastGroupsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MulticastGroupTypeDef(BaseModel):
+class MulticastGroupTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class ListNetworkAnalyzerConfigurationsRequestRequestTypeDef(BaseModel):
+class ListNetworkAnalyzerConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class NetworkAnalyzerConfigurationsTypeDef(BaseModel):
+class NetworkAnalyzerConfigurationsTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class ListPartnerAccountsRequestRequestTypeDef(BaseModel):
+class ListPartnerAccountsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListPositionConfigurationsRequestRequestTypeDef(BaseModel):
+class ListPositionConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: Optional[PositionResourceTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListQueuedMessagesRequestRequestTypeDef(BaseModel):
+class ListQueuedMessagesRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WirelessDeviceType: Optional[WirelessDeviceTypeType] = None
 
-class ListServiceProfilesRequestRequestTypeDef(BaseModel):
+class ListServiceProfilesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ServiceProfileTypeDef(BaseModel):
+class ServiceProfileTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Id: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListWirelessDeviceImportTasksRequestRequestTypeDef(BaseModel):
+class ListWirelessDeviceImportTasksRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListWirelessDevicesRequestRequestTypeDef(BaseModel):
+class ListWirelessDevicesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     DestinationName: Optional[str] = None
@@ -538,21 +538,21 @@ class ListWirelessDevicesRequestRequestTypeDef(BaseModel):
     FuotaTaskId: Optional[str] = None
     MulticastGroupId: Optional[str] = None
 
-class ListWirelessGatewayTaskDefinitionsRequestRequestTypeDef(BaseModel):
+class ListWirelessGatewayTaskDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     TaskDefinitionType: Optional[Literal["UPDATE"]] = None
 
-class ListWirelessGatewaysRequestRequestTypeDef(BaseModel):
+class ListWirelessGatewaysRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class LoRaWANGatewayMetadataTypeDef(BaseModel):
+class LoRaWANGatewayMetadataTypeDef(BaseValidatorModel):
     GatewayEui: Optional[str] = None
     Snr: Optional[float] = None
     Rssi: Optional[float] = None
 
-class LoRaWANPublicGatewayMetadataTypeDef(BaseModel):
+class LoRaWANPublicGatewayMetadataTypeDef(BaseValidatorModel):
     ProviderNetId: Optional[str] = None
     Id: Optional[str] = None
     Rssi: Optional[float] = None
@@ -560,46 +560,46 @@ class LoRaWANPublicGatewayMetadataTypeDef(BaseModel):
     RfRegion: Optional[str] = None
     DlAllowed: Optional[bool] = None
 
-class OtaaV10XTypeDef(BaseModel):
+class OtaaV10XTypeDef(BaseValidatorModel):
     AppKey: Optional[str] = None
     AppEui: Optional[str] = None
     JoinEui: Optional[str] = None
     GenAppKey: Optional[str] = None
 
-class OtaaV11TypeDef(BaseModel):
+class OtaaV11TypeDef(BaseValidatorModel):
     AppKey: Optional[str] = None
     NwkKey: Optional[str] = None
     JoinEui: Optional[str] = None
 
-class LoRaWANGatewayVersionTypeDef(BaseModel):
+class LoRaWANGatewayVersionTypeDef(BaseValidatorModel):
     PackageVersion: Optional[str] = None
     Model: Optional[str] = None
     Station: Optional[str] = None
 
-class LoRaWANListDeviceTypeDef(BaseModel):
+class LoRaWANListDeviceTypeDef(BaseValidatorModel):
     DevEui: Optional[str] = None
 
-class LoRaWANMulticastMetadataTypeDef(BaseModel):
+class LoRaWANMulticastMetadataTypeDef(BaseValidatorModel):
     FPort: Optional[int] = None
 
-class UpdateAbpV10XTypeDef(BaseModel):
+class UpdateAbpV10XTypeDef(BaseValidatorModel):
     FCntStart: Optional[int] = None
 
-class UpdateAbpV11TypeDef(BaseModel):
+class UpdateAbpV11TypeDef(BaseValidatorModel):
     FCntStart: Optional[int] = None
 
-class LteLocalIdTypeDef(BaseModel):
+class LteLocalIdTypeDef(BaseValidatorModel):
     Pci: int
     Earfcn: int
 
-class LteNmrObjTypeDef(BaseModel):
+class LteNmrObjTypeDef(BaseValidatorModel):
     Pci: int
     Earfcn: int
     EutranCid: int
     Rsrp: Optional[int] = None
     Rsrq: Optional[float] = None
 
-class MetricQueryValueTypeDef(BaseModel):
+class MetricQueryValueTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
     Sum: Optional[float] = None
@@ -607,74 +607,74 @@ class MetricQueryValueTypeDef(BaseModel):
     Std: Optional[float] = None
     P90: Optional[float] = None
 
-class SemtechGnssConfigurationTypeDef(BaseModel):
+class SemtechGnssConfigurationTypeDef(BaseValidatorModel):
     Status: PositionConfigurationStatusType
     Fec: PositionConfigurationFecType
 
-class SemtechGnssDetailTypeDef(BaseModel):
+class SemtechGnssDetailTypeDef(BaseValidatorModel):
     Provider: Optional[Literal["Semtech"]] = None
     Type: Optional[Literal["GNSS"]] = None
     Status: Optional[PositionConfigurationStatusType] = None
     Fec: Optional[PositionConfigurationFecType] = None
 
-class PutResourceLogLevelRequestRequestTypeDef(BaseModel):
+class PutResourceLogLevelRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: str
     LogLevel: LogLevelType
 
-class ResetResourceLogLevelRequestRequestTypeDef(BaseModel):
+class ResetResourceLogLevelRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: str
 
-class SidewalkSendDataToDeviceTypeDef(BaseModel):
+class SidewalkSendDataToDeviceTypeDef(BaseValidatorModel):
     Seq: Optional[int] = None
     MessageType: Optional[MessageTypeType] = None
     AckModeRetryDurationSecs: Optional[int] = None
 
-class SidewalkSingleStartImportInfoTypeDef(BaseModel):
+class SidewalkSingleStartImportInfoTypeDef(BaseValidatorModel):
     SidewalkManufacturingSn: Optional[str] = None
 
-class SidewalkStartImportInfoTypeDef(BaseModel):
+class SidewalkStartImportInfoTypeDef(BaseValidatorModel):
     DeviceCreationFile: Optional[str] = None
     Role: Optional[str] = None
 
-class SidewalkUpdateAccountTypeDef(BaseModel):
+class SidewalkUpdateAccountTypeDef(BaseValidatorModel):
     AppServerPrivateKey: Optional[str] = None
 
-class SidewalkUpdateImportInfoTypeDef(BaseModel):
+class SidewalkUpdateImportInfoTypeDef(BaseValidatorModel):
     DeviceCreationFile: Optional[str] = None
 
-class TdscdmaLocalIdTypeDef(BaseModel):
+class TdscdmaLocalIdTypeDef(BaseValidatorModel):
     Uarfcn: int
     CellParams: int
 
-class TdscdmaNmrObjTypeDef(BaseModel):
+class TdscdmaNmrObjTypeDef(BaseValidatorModel):
     Uarfcn: int
     CellParams: int
     UtranCid: Optional[int] = None
     Rscp: Optional[int] = None
     PathLoss: Optional[int] = None
 
-class TestWirelessDeviceRequestRequestTypeDef(BaseModel):
+class TestWirelessDeviceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateDestinationRequestRequestTypeDef(BaseModel):
+class UpdateDestinationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     ExpressionType: Optional[ExpressionTypeType] = None
     Expression: Optional[str] = None
     Description: Optional[str] = None
     RoleArn: Optional[str] = None
 
-class UpdatePositionRequestRequestTypeDef(BaseModel):
+class UpdatePositionRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: PositionResourceTypeType
     Position: Sequence[float]
 
-class UpdateWirelessGatewayRequestRequestTypeDef(BaseModel):
+class UpdateWirelessGatewayRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -682,41 +682,41 @@ class UpdateWirelessGatewayRequestRequestTypeDef(BaseModel):
     NetIdFilters: Optional[Sequence[str]] = None
     MaxEirp: Optional[float] = None
 
-class WcdmaLocalIdTypeDef(BaseModel):
+class WcdmaLocalIdTypeDef(BaseValidatorModel):
     Uarfcndl: int
     Psc: int
 
-class WcdmaNmrObjTypeDef(BaseModel):
+class WcdmaNmrObjTypeDef(BaseValidatorModel):
     Uarfcndl: int
     Psc: int
     UtranCid: int
     Rscp: Optional[int] = None
     PathLoss: Optional[int] = None
 
-class WirelessDeviceEventLogOptionTypeDef(BaseModel):
+class WirelessDeviceEventLogOptionTypeDef(BaseValidatorModel):
     Event: WirelessDeviceEventType
     LogLevel: LogLevelType
 
-class WirelessGatewayEventLogOptionTypeDef(BaseModel):
+class WirelessGatewayEventLogOptionTypeDef(BaseValidatorModel):
     Event: WirelessGatewayEventType
     LogLevel: LogLevelType
 
-class AbpV10XTypeDef(BaseModel):
+class AbpV10XTypeDef(BaseValidatorModel):
     DevAddr: Optional[str] = None
     SessionKeys: Optional[SessionKeysAbpV10XTypeDef] = None
     FCntStart: Optional[int] = None
 
-class AbpV11TypeDef(BaseModel):
+class AbpV11TypeDef(BaseValidatorModel):
     DevAddr: Optional[str] = None
     SessionKeys: Optional[SessionKeysAbpV11TypeDef] = None
     FCntStart: Optional[int] = None
 
-class AssociateAwsAccountWithPartnerAccountRequestRequestTypeDef(BaseModel):
+class AssociateAwsAccountWithPartnerAccountRequestRequestTypeDef(BaseValidatorModel):
     Sidewalk: SidewalkAccountInfoTypeDef
     ClientRequestToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateDestinationRequestRequestTypeDef(BaseModel):
+class CreateDestinationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     ExpressionType: ExpressionTypeType
     Expression: str
@@ -725,80 +725,80 @@ class CreateDestinationRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     ClientRequestToken: Optional[str] = None
 
-class StartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef(BaseModel):
+class StartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     QueryString: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef(BaseModel):
+class StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     QueryString: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class AssociateAwsAccountWithPartnerAccountResponseTypeDef(BaseModel):
+class AssociateAwsAccountWithPartnerAccountResponseTypeDef(BaseValidatorModel):
     Sidewalk: SidewalkAccountInfoTypeDef
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateWirelessGatewayWithCertificateResponseTypeDef(BaseModel):
+class AssociateWirelessGatewayWithCertificateResponseTypeDef(BaseValidatorModel):
     IotCertificateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDestinationResponseTypeDef(BaseModel):
+class CreateDestinationResponseTypeDef(BaseValidatorModel):
     Arn: str
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDeviceProfileResponseTypeDef(BaseModel):
+class CreateDeviceProfileResponseTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFuotaTaskResponseTypeDef(BaseModel):
+class CreateFuotaTaskResponseTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMulticastGroupResponseTypeDef(BaseModel):
+class CreateMulticastGroupResponseTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateNetworkAnalyzerConfigurationResponseTypeDef(BaseModel):
+class CreateNetworkAnalyzerConfigurationResponseTypeDef(BaseValidatorModel):
     Arn: str
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServiceProfileResponseTypeDef(BaseModel):
+class CreateServiceProfileResponseTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWirelessDeviceResponseTypeDef(BaseModel):
+class CreateWirelessDeviceResponseTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWirelessGatewayResponseTypeDef(BaseModel):
+class CreateWirelessGatewayResponseTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWirelessGatewayTaskDefinitionResponseTypeDef(BaseModel):
+class CreateWirelessGatewayTaskDefinitionResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWirelessGatewayTaskResponseTypeDef(BaseModel):
+class CreateWirelessGatewayTaskResponseTypeDef(BaseValidatorModel):
     WirelessGatewayTaskDefinitionId: str
     Status: WirelessGatewayTaskStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDestinationResponseTypeDef(BaseModel):
+class GetDestinationResponseTypeDef(BaseValidatorModel):
     Arn: str
     Name: str
     Expression: str
@@ -807,11 +807,11 @@ class GetDestinationResponseTypeDef(BaseModel):
     RoleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPositionEstimateResponseTypeDef(BaseModel):
+class GetPositionEstimateResponseTypeDef(BaseValidatorModel):
     GeoJsonPayload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPositionResponseTypeDef(BaseModel):
+class GetPositionResponseTypeDef(BaseValidatorModel):
     Position: List[float]
     Accuracy: AccuracyTypeDef
     SolverType: Literal["GNSS"]
@@ -820,32 +820,32 @@ class GetPositionResponseTypeDef(BaseModel):
     Timestamp: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourceLogLevelResponseTypeDef(BaseModel):
+class GetResourceLogLevelResponseTypeDef(BaseValidatorModel):
     LogLevel: LogLevelType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourcePositionResponseTypeDef(BaseModel):
+class GetResourcePositionResponseTypeDef(BaseValidatorModel):
     GeoJsonPayload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServiceEndpointResponseTypeDef(BaseModel):
+class GetServiceEndpointResponseTypeDef(BaseValidatorModel):
     ServiceType: WirelessGatewayServiceTypeType
     ServiceEndpoint: str
     ServerTrust: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWirelessGatewayCertificateResponseTypeDef(BaseModel):
+class GetWirelessGatewayCertificateResponseTypeDef(BaseValidatorModel):
     IotCertificateId: str
     LoRaWANNetworkServerCertificateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWirelessGatewayStatisticsResponseTypeDef(BaseModel):
+class GetWirelessGatewayStatisticsResponseTypeDef(BaseValidatorModel):
     WirelessGatewayId: str
     LastUplinkReceivedAt: str
     ConnectionStatus: ConnectionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWirelessGatewayTaskResponseTypeDef(BaseModel):
+class GetWirelessGatewayTaskResponseTypeDef(BaseValidatorModel):
     WirelessGatewayId: str
     WirelessGatewayTaskDefinitionId: str
     LastUplinkReceivedAt: str
@@ -853,33 +853,33 @@ class GetWirelessGatewayTaskResponseTypeDef(BaseModel):
     Status: WirelessGatewayTaskStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendDataToMulticastGroupResponseTypeDef(BaseModel):
+class SendDataToMulticastGroupResponseTypeDef(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendDataToWirelessDeviceResponseTypeDef(BaseModel):
+class SendDataToWirelessDeviceResponseTypeDef(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSingleWirelessDeviceImportTaskResponseTypeDef(BaseModel):
+class StartSingleWirelessDeviceImportTaskResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartWirelessDeviceImportTaskResponseTypeDef(BaseModel):
+class StartWirelessDeviceImportTaskResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestWirelessDeviceResponseTypeDef(BaseModel):
+class TestWirelessDeviceResponseTypeDef(BaseValidatorModel):
     Result: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoRaWANGatewayOutputTypeDef(BaseModel):
+class LoRaWANGatewayOutputTypeDef(BaseValidatorModel):
     GatewayEui: Optional[str] = None
     RfRegion: Optional[str] = None
     JoinEuiFilters: Optional[List[List[str]]] = None
@@ -888,7 +888,7 @@ class LoRaWANGatewayOutputTypeDef(BaseModel):
     Beaconing: Optional[BeaconingOutputTypeDef] = None
     MaxEirp: Optional[float] = None
 
-class LoRaWANGatewayTypeDef(BaseModel):
+class LoRaWANGatewayTypeDef(BaseValidatorModel):
     GatewayEui: Optional[str] = None
     RfRegion: Optional[str] = None
     JoinEuiFilters: Optional[Sequence[Sequence[str]]] = None
@@ -897,12 +897,12 @@ class LoRaWANGatewayTypeDef(BaseModel):
     Beaconing: Optional[BeaconingTypeDef] = None
     MaxEirp: Optional[float] = None
 
-class UpdateResourcePositionRequestRequestTypeDef(BaseModel):
+class UpdateResourcePositionRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: PositionResourceTypeType
     GeoJsonPayload: Optional[BlobTypeDef] = None
 
-class CdmaObjTypeDef(BaseModel):
+class CdmaObjTypeDef(BaseValidatorModel):
     SystemId: int
     NetworkId: int
     BaseStationId: int
@@ -913,7 +913,7 @@ class CdmaObjTypeDef(BaseModel):
     BaseLng: Optional[float] = None
     CdmaNmr: Optional[Sequence[CdmaNmrObjTypeDef]] = None
 
-class SidewalkDeviceTypeDef(BaseModel):
+class SidewalkDeviceTypeDef(BaseValidatorModel):
     AmazonId: Optional[str] = None
     SidewalkId: Optional[str] = None
     SidewalkManufacturingSn: Optional[str] = None
@@ -923,7 +923,7 @@ class SidewalkDeviceTypeDef(BaseModel):
     CertificateId: Optional[str] = None
     Status: Optional[WirelessDeviceSidewalkStatusType] = None
 
-class SidewalkListDeviceTypeDef(BaseModel):
+class SidewalkListDeviceTypeDef(BaseValidatorModel):
     AmazonId: Optional[str] = None
     SidewalkId: Optional[str] = None
     SidewalkManufacturingSn: Optional[str] = None
@@ -931,21 +931,21 @@ class SidewalkListDeviceTypeDef(BaseModel):
     DeviceProfileId: Optional[str] = None
     Status: Optional[WirelessDeviceSidewalkStatusType] = None
 
-class ConnectionStatusEventConfigurationTypeDef(BaseModel):
+class ConnectionStatusEventConfigurationTypeDef(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANConnectionStatusEventNotificationConfigurationsTypeDef] = None
     WirelessGatewayIdEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class ConnectionStatusResourceTypeEventConfigurationTypeDef(BaseModel):
+class ConnectionStatusResourceTypeEventConfigurationTypeDef(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANConnectionStatusResourceTypeEventConfigurationTypeDef] = None
 
-class CreateDeviceProfileRequestRequestTypeDef(BaseModel):
+class CreateDeviceProfileRequestRequestTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     LoRaWAN: Optional[LoRaWANDeviceProfileTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     ClientRequestToken: Optional[str] = None
     Sidewalk: Optional[Mapping[str, Any]] = None
 
-class CreateFuotaTaskRequestRequestTypeDef(BaseModel):
+class CreateFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     FirmwareUpdateImage: str
     FirmwareUpdateRole: str
     Name: Optional[str] = None
@@ -957,7 +957,7 @@ class CreateFuotaTaskRequestRequestTypeDef(BaseModel):
     FragmentSizeBytes: Optional[int] = None
     FragmentIntervalMS: Optional[int] = None
 
-class UpdateFuotaTaskRequestRequestTypeDef(BaseModel):
+class UpdateFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -968,20 +968,20 @@ class UpdateFuotaTaskRequestRequestTypeDef(BaseModel):
     FragmentSizeBytes: Optional[int] = None
     FragmentIntervalMS: Optional[int] = None
 
-class CreateMulticastGroupRequestRequestTypeDef(BaseModel):
+class CreateMulticastGroupRequestRequestTypeDef(BaseValidatorModel):
     LoRaWAN: LoRaWANMulticastTypeDef
     Name: Optional[str] = None
     Description: Optional[str] = None
     ClientRequestToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateMulticastGroupRequestRequestTypeDef(BaseModel):
+class UpdateMulticastGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     LoRaWAN: Optional[LoRaWANMulticastTypeDef] = None
 
-class CreateNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseModel):
+class CreateNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     TraceContent: Optional[TraceContentTypeDef] = None
     WirelessDevices: Optional[Sequence[str]] = None
@@ -991,7 +991,7 @@ class CreateNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseModel):
     ClientRequestToken: Optional[str] = None
     MulticastGroups: Optional[Sequence[str]] = None
 
-class GetNetworkAnalyzerConfigurationResponseTypeDef(BaseModel):
+class GetNetworkAnalyzerConfigurationResponseTypeDef(BaseValidatorModel):
     TraceContent: TraceContentTypeDef
     WirelessDevices: List[str]
     WirelessGateways: List[str]
@@ -1001,7 +1001,7 @@ class GetNetworkAnalyzerConfigurationResponseTypeDef(BaseModel):
     MulticastGroups: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationName: str
     TraceContent: Optional[TraceContentTypeDef] = None
     WirelessDevicesToAdd: Optional[Sequence[str]] = None
@@ -1012,82 +1012,82 @@ class UpdateNetworkAnalyzerConfigurationRequestRequestTypeDef(BaseModel):
     MulticastGroupsToAdd: Optional[Sequence[str]] = None
     MulticastGroupsToRemove: Optional[Sequence[str]] = None
 
-class CreateServiceProfileRequestRequestTypeDef(BaseModel):
+class CreateServiceProfileRequestRequestTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     LoRaWAN: Optional[LoRaWANServiceProfileTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     ClientRequestToken: Optional[str] = None
 
-class SidewalkGetDeviceProfileTypeDef(BaseModel):
+class SidewalkGetDeviceProfileTypeDef(BaseValidatorModel):
     ApplicationServerPublicKey: Optional[str] = None
     QualificationStatus: Optional[bool] = None
     DakCertificateMetadata: Optional[List[DakCertificateMetadataTypeDef]] = None
 
-class ListDestinationsResponseTypeDef(BaseModel):
+class ListDestinationsResponseTypeDef(BaseValidatorModel):
     DestinationList: List[DestinationsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListDeviceProfilesResponseTypeDef(BaseModel):
+class ListDeviceProfilesResponseTypeDef(BaseValidatorModel):
     DeviceProfileList: List[DeviceProfileTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DeviceRegistrationStateEventConfigurationTypeDef(BaseModel):
+class DeviceRegistrationStateEventConfigurationTypeDef(BaseValidatorModel):
     Sidewalk: Optional[SidewalkEventNotificationConfigurationsTypeDef] = None
     WirelessDeviceIdEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class MessageDeliveryStatusEventConfigurationTypeDef(BaseModel):
+class MessageDeliveryStatusEventConfigurationTypeDef(BaseValidatorModel):
     Sidewalk: Optional[SidewalkEventNotificationConfigurationsTypeDef] = None
     WirelessDeviceIdEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class ProximityEventConfigurationTypeDef(BaseModel):
+class ProximityEventConfigurationTypeDef(BaseValidatorModel):
     Sidewalk: Optional[SidewalkEventNotificationConfigurationsTypeDef] = None
     WirelessDeviceIdEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class DeviceRegistrationStateResourceTypeEventConfigurationTypeDef(BaseModel):
+class DeviceRegistrationStateResourceTypeEventConfigurationTypeDef(BaseValidatorModel):
     Sidewalk: Optional[SidewalkResourceTypeEventConfigurationTypeDef] = None
 
-class MessageDeliveryStatusResourceTypeEventConfigurationTypeDef(BaseModel):
+class MessageDeliveryStatusResourceTypeEventConfigurationTypeDef(BaseValidatorModel):
     Sidewalk: Optional[SidewalkResourceTypeEventConfigurationTypeDef] = None
 
-class ProximityResourceTypeEventConfigurationTypeDef(BaseModel):
+class ProximityResourceTypeEventConfigurationTypeDef(BaseValidatorModel):
     Sidewalk: Optional[SidewalkResourceTypeEventConfigurationTypeDef] = None
 
-class FPortsOutputTypeDef(BaseModel):
+class FPortsOutputTypeDef(BaseValidatorModel):
     Fuota: Optional[int] = None
     Multicast: Optional[int] = None
     ClockSync: Optional[int] = None
     Positioning: Optional[PositioningTypeDef] = None
     Applications: Optional[List[ApplicationConfigTypeDef]] = None
 
-class FPortsTypeDef(BaseModel):
+class FPortsTypeDef(BaseValidatorModel):
     Fuota: Optional[int] = None
     Multicast: Optional[int] = None
     ClockSync: Optional[int] = None
     Positioning: Optional[PositioningTypeDef] = None
     Applications: Optional[Sequence[ApplicationConfigTypeDef]] = None
 
-class UpdateFPortsTypeDef(BaseModel):
+class UpdateFPortsTypeDef(BaseValidatorModel):
     Positioning: Optional[PositioningTypeDef] = None
     Applications: Optional[Sequence[ApplicationConfigTypeDef]] = None
 
-class ListFuotaTasksResponseTypeDef(BaseModel):
+class ListFuotaTasksResponseTypeDef(BaseValidatorModel):
     FuotaTaskList: List[FuotaTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ParticipatingGatewaysOutputTypeDef(BaseModel):
+class ParticipatingGatewaysOutputTypeDef(BaseValidatorModel):
     DownlinkMode: DownlinkModeType
     GatewayList: List[GatewayListItemTypeDef]
     TransmissionInterval: int
 
-class ParticipatingGatewaysTypeDef(BaseModel):
+class ParticipatingGatewaysTypeDef(BaseValidatorModel):
     DownlinkMode: DownlinkModeType
     GatewayList: Sequence[GatewayListItemTypeDef]
     TransmissionInterval: int
 
-class GetFuotaTaskResponseTypeDef(BaseModel):
+class GetFuotaTaskResponseTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     Status: FuotaTaskStatusType
@@ -1102,14 +1102,14 @@ class GetFuotaTaskResponseTypeDef(BaseModel):
     FragmentIntervalMS: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMetricConfigurationResponseTypeDef(BaseModel):
+class GetMetricConfigurationResponseTypeDef(BaseValidatorModel):
     SummaryMetric: SummaryMetricConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMetricConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateMetricConfigurationRequestRequestTypeDef(BaseValidatorModel):
     SummaryMetric: Optional[SummaryMetricConfigurationTypeDef] = None
 
-class GetMulticastGroupResponseTypeDef(BaseModel):
+class GetMulticastGroupResponseTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
@@ -1119,31 +1119,31 @@ class GetMulticastGroupResponseTypeDef(BaseModel):
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMulticastGroupSessionResponseTypeDef(BaseModel):
+class GetMulticastGroupSessionResponseTypeDef(BaseValidatorModel):
     LoRaWAN: LoRaWANMulticastSessionOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPartnerAccountResponseTypeDef(BaseModel):
+class GetPartnerAccountResponseTypeDef(BaseValidatorModel):
     Sidewalk: SidewalkAccountInfoWithFingerprintTypeDef
     AccountLinked: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPartnerAccountsResponseTypeDef(BaseModel):
+class ListPartnerAccountsResponseTypeDef(BaseValidatorModel):
     Sidewalk: List[SidewalkAccountInfoWithFingerprintTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LoRaWANMulticastSessionTypeDef(BaseModel):
+class LoRaWANMulticastSessionTypeDef(BaseValidatorModel):
     DlDr: Optional[int] = None
     DlFreq: Optional[int] = None
     SessionStartTime: Optional[TimestampTypeDef] = None
     SessionTimeout: Optional[int] = None
     PingSlotPeriod: Optional[int] = None
 
-class LoRaWANStartFuotaTaskTypeDef(BaseModel):
+class LoRaWANStartFuotaTaskTypeDef(BaseValidatorModel):
     StartTime: Optional[TimestampTypeDef] = None
 
-class SummaryMetricQueryTypeDef(BaseModel):
+class SummaryMetricQueryTypeDef(BaseValidatorModel):
     QueryId: Optional[str] = None
     MetricName: Optional[MetricNameType] = None
     Dimensions: Optional[Sequence[DimensionTypeDef]] = None
@@ -1151,14 +1151,14 @@ class SummaryMetricQueryTypeDef(BaseModel):
     StartTimestamp: Optional[TimestampTypeDef] = None
     EndTimestamp: Optional[TimestampTypeDef] = None
 
-class GetServiceProfileResponseTypeDef(BaseModel):
+class GetServiceProfileResponseTypeDef(BaseValidatorModel):
     Arn: str
     Name: str
     Id: str
     LoRaWAN: LoRaWANGetServiceProfileInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWirelessDeviceImportTaskResponseTypeDef(BaseModel):
+class GetWirelessDeviceImportTaskResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     DestinationName: str
@@ -1172,7 +1172,7 @@ class GetWirelessDeviceImportTaskResponseTypeDef(BaseModel):
     FailedImportedDeviceCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WirelessDeviceImportTaskTypeDef(BaseModel):
+class WirelessDeviceImportTaskTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     DestinationName: Optional[str] = None
@@ -1185,43 +1185,43 @@ class WirelessDeviceImportTaskTypeDef(BaseModel):
     OnboardedImportedDeviceCount: Optional[int] = None
     FailedImportedDeviceCount: Optional[int] = None
 
-class GsmNmrObjTypeDef(BaseModel):
+class GsmNmrObjTypeDef(BaseValidatorModel):
     Bsic: int
     Bcch: int
     RxLevel: Optional[int] = None
     GlobalIdentity: Optional[GlobalIdentityTypeDef] = None
 
-class ImportedWirelessDeviceTypeDef(BaseModel):
+class ImportedWirelessDeviceTypeDef(BaseValidatorModel):
     Sidewalk: Optional[ImportedSidewalkDeviceTypeDef] = None
 
-class JoinEventConfigurationTypeDef(BaseModel):
+class JoinEventConfigurationTypeDef(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANJoinEventNotificationConfigurationsTypeDef] = None
     WirelessDeviceIdEventTopic: Optional[EventNotificationTopicStatusType] = None
 
-class JoinResourceTypeEventConfigurationTypeDef(BaseModel):
+class JoinResourceTypeEventConfigurationTypeDef(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANJoinResourceTypeEventConfigurationTypeDef] = None
 
-class ListMulticastGroupsByFuotaTaskResponseTypeDef(BaseModel):
+class ListMulticastGroupsByFuotaTaskResponseTypeDef(BaseValidatorModel):
     MulticastGroupList: List[MulticastGroupByFuotaTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListMulticastGroupsResponseTypeDef(BaseModel):
+class ListMulticastGroupsResponseTypeDef(BaseValidatorModel):
     MulticastGroupList: List[MulticastGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListNetworkAnalyzerConfigurationsResponseTypeDef(BaseModel):
+class ListNetworkAnalyzerConfigurationsResponseTypeDef(BaseValidatorModel):
     NetworkAnalyzerConfigurationList: List[NetworkAnalyzerConfigurationsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListServiceProfilesResponseTypeDef(BaseModel):
+class ListServiceProfilesResponseTypeDef(BaseValidatorModel):
     ServiceProfileList: List[ServiceProfileTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LoRaWANDeviceMetadataTypeDef(BaseModel):
+class LoRaWANDeviceMetadataTypeDef(BaseValidatorModel):
     DevEui: Optional[str] = None
     FPort: Optional[int] = None
     DataRate: Optional[int] = None
@@ -1230,23 +1230,23 @@ class LoRaWANDeviceMetadataTypeDef(BaseModel):
     Gateways: Optional[List[LoRaWANGatewayMetadataTypeDef]] = None
     PublicGateways: Optional[List[LoRaWANPublicGatewayMetadataTypeDef]] = None
 
-class LoRaWANGatewayCurrentVersionTypeDef(BaseModel):
+class LoRaWANGatewayCurrentVersionTypeDef(BaseValidatorModel):
     CurrentVersion: Optional[LoRaWANGatewayVersionTypeDef] = None
 
-class LoRaWANUpdateGatewayTaskCreateTypeDef(BaseModel):
+class LoRaWANUpdateGatewayTaskCreateTypeDef(BaseValidatorModel):
     UpdateSignature: Optional[str] = None
     SigKeyCrc: Optional[int] = None
     CurrentVersion: Optional[LoRaWANGatewayVersionTypeDef] = None
     UpdateVersion: Optional[LoRaWANGatewayVersionTypeDef] = None
 
-class LoRaWANUpdateGatewayTaskEntryTypeDef(BaseModel):
+class LoRaWANUpdateGatewayTaskEntryTypeDef(BaseValidatorModel):
     CurrentVersion: Optional[LoRaWANGatewayVersionTypeDef] = None
     UpdateVersion: Optional[LoRaWANGatewayVersionTypeDef] = None
 
-class MulticastWirelessMetadataTypeDef(BaseModel):
+class MulticastWirelessMetadataTypeDef(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANMulticastMetadataTypeDef] = None
 
-class LteObjTypeDef(BaseModel):
+class LteObjTypeDef(BaseValidatorModel):
     Mcc: int
     Mnc: int
     EutranCid: int
@@ -1258,7 +1258,7 @@ class LteObjTypeDef(BaseModel):
     NrCapable: Optional[bool] = None
     LteNmr: Optional[Sequence[LteNmrObjTypeDef]] = None
 
-class SummaryMetricQueryResultTypeDef(BaseModel):
+class SummaryMetricQueryResultTypeDef(BaseValidatorModel):
     QueryId: Optional[str] = None
     QueryStatus: Optional[MetricQueryStatusType] = None
     Error: Optional[str] = None
@@ -1271,35 +1271,35 @@ class SummaryMetricQueryResultTypeDef(BaseModel):
     Values: Optional[List[MetricQueryValueTypeDef]] = None
     Unit: Optional[str] = None
 
-class PositionSolverConfigurationsTypeDef(BaseModel):
+class PositionSolverConfigurationsTypeDef(BaseValidatorModel):
     SemtechGnss: Optional[SemtechGnssConfigurationTypeDef] = None
 
-class PositionSolverDetailsTypeDef(BaseModel):
+class PositionSolverDetailsTypeDef(BaseValidatorModel):
     SemtechGnss: Optional[SemtechGnssDetailTypeDef] = None
 
-class StartSingleWirelessDeviceImportTaskRequestRequestTypeDef(BaseModel):
+class StartSingleWirelessDeviceImportTaskRequestRequestTypeDef(BaseValidatorModel):
     DestinationName: str
     Sidewalk: SidewalkSingleStartImportInfoTypeDef
     ClientRequestToken: Optional[str] = None
     DeviceName: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class StartWirelessDeviceImportTaskRequestRequestTypeDef(BaseModel):
+class StartWirelessDeviceImportTaskRequestRequestTypeDef(BaseValidatorModel):
     DestinationName: str
     Sidewalk: SidewalkStartImportInfoTypeDef
     ClientRequestToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdatePartnerAccountRequestRequestTypeDef(BaseModel):
+class UpdatePartnerAccountRequestRequestTypeDef(BaseValidatorModel):
     Sidewalk: SidewalkUpdateAccountTypeDef
     PartnerAccountId: str
     PartnerType: Literal["Sidewalk"]
 
-class UpdateWirelessDeviceImportTaskRequestRequestTypeDef(BaseModel):
+class UpdateWirelessDeviceImportTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Sidewalk: SidewalkUpdateImportInfoTypeDef
 
-class TdscdmaObjTypeDef(BaseModel):
+class TdscdmaObjTypeDef(BaseValidatorModel):
     Mcc: int
     Mnc: int
     UtranCid: int
@@ -1310,7 +1310,7 @@ class TdscdmaObjTypeDef(BaseModel):
     PathLoss: Optional[int] = None
     TdscdmaNmr: Optional[Sequence[TdscdmaNmrObjTypeDef]] = None
 
-class WcdmaObjTypeDef(BaseModel):
+class WcdmaObjTypeDef(BaseValidatorModel):
     Mcc: int
     Mnc: int
     UtranCid: int
@@ -1320,27 +1320,27 @@ class WcdmaObjTypeDef(BaseModel):
     PathLoss: Optional[int] = None
     WcdmaNmr: Optional[Sequence[WcdmaNmrObjTypeDef]] = None
 
-class WirelessDeviceLogOptionOutputTypeDef(BaseModel):
+class WirelessDeviceLogOptionOutputTypeDef(BaseValidatorModel):
     Type: WirelessDeviceTypeType
     LogLevel: LogLevelType
     Events: Optional[List[WirelessDeviceEventLogOptionTypeDef]] = None
 
-class WirelessDeviceLogOptionTypeDef(BaseModel):
+class WirelessDeviceLogOptionTypeDef(BaseValidatorModel):
     Type: WirelessDeviceTypeType
     LogLevel: LogLevelType
     Events: Optional[Sequence[WirelessDeviceEventLogOptionTypeDef]] = None
 
-class WirelessGatewayLogOptionOutputTypeDef(BaseModel):
+class WirelessGatewayLogOptionOutputTypeDef(BaseValidatorModel):
     Type: Literal["LoRaWAN"]
     LogLevel: LogLevelType
     Events: Optional[List[WirelessGatewayEventLogOptionTypeDef]] = None
 
-class WirelessGatewayLogOptionTypeDef(BaseModel):
+class WirelessGatewayLogOptionTypeDef(BaseValidatorModel):
     Type: Literal["LoRaWAN"]
     LogLevel: LogLevelType
     Events: Optional[Sequence[WirelessGatewayEventLogOptionTypeDef]] = None
 
-class GetWirelessGatewayResponseTypeDef(BaseModel):
+class GetWirelessGatewayResponseTypeDef(BaseValidatorModel):
     Name: str
     Id: str
     Description: str
@@ -1350,7 +1350,7 @@ class GetWirelessGatewayResponseTypeDef(BaseModel):
     ThingArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WirelessGatewayStatisticsTypeDef(BaseModel):
+class WirelessGatewayStatisticsTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -1358,14 +1358,14 @@ class WirelessGatewayStatisticsTypeDef(BaseModel):
     LoRaWAN: Optional[LoRaWANGatewayOutputTypeDef] = None
     LastUplinkReceivedAt: Optional[str] = None
 
-class CreateWirelessGatewayRequestRequestTypeDef(BaseModel):
+class CreateWirelessGatewayRequestRequestTypeDef(BaseValidatorModel):
     LoRaWAN: LoRaWANGatewayTypeDef
     Name: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     ClientRequestToken: Optional[str] = None
 
-class WirelessDeviceStatisticsTypeDef(BaseModel):
+class WirelessDeviceStatisticsTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Type: Optional[WirelessDeviceTypeType] = None
@@ -1378,7 +1378,7 @@ class WirelessDeviceStatisticsTypeDef(BaseModel):
     MulticastDeviceStatus: Optional[str] = None
     McGroupId: Optional[int] = None
 
-class GetDeviceProfileResponseTypeDef(BaseModel):
+class GetDeviceProfileResponseTypeDef(BaseValidatorModel):
     Arn: str
     Name: str
     Id: str
@@ -1386,7 +1386,7 @@ class GetDeviceProfileResponseTypeDef(BaseModel):
     Sidewalk: SidewalkGetDeviceProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoRaWANDeviceOutputTypeDef(BaseModel):
+class LoRaWANDeviceOutputTypeDef(BaseValidatorModel):
     DevEui: Optional[str] = None
     DeviceProfileId: Optional[str] = None
     ServiceProfileId: Optional[str] = None
@@ -1396,7 +1396,7 @@ class LoRaWANDeviceOutputTypeDef(BaseModel):
     AbpV1_0_x: Optional[AbpV10XTypeDef] = None
     FPorts: Optional[FPortsOutputTypeDef] = None
 
-class LoRaWANDeviceTypeDef(BaseModel):
+class LoRaWANDeviceTypeDef(BaseValidatorModel):
     DevEui: Optional[str] = None
     DeviceProfileId: Optional[str] = None
     ServiceProfileId: Optional[str] = None
@@ -1406,38 +1406,38 @@ class LoRaWANDeviceTypeDef(BaseModel):
     AbpV1_0_x: Optional[AbpV10XTypeDef] = None
     FPorts: Optional[FPortsTypeDef] = None
 
-class LoRaWANUpdateDeviceTypeDef(BaseModel):
+class LoRaWANUpdateDeviceTypeDef(BaseValidatorModel):
     DeviceProfileId: Optional[str] = None
     ServiceProfileId: Optional[str] = None
     AbpV1_1: Optional[UpdateAbpV11TypeDef] = None
     AbpV1_0_x: Optional[UpdateAbpV10XTypeDef] = None
     FPorts: Optional[UpdateFPortsTypeDef] = None
 
-class LoRaWANSendDataToDeviceOutputTypeDef(BaseModel):
+class LoRaWANSendDataToDeviceOutputTypeDef(BaseValidatorModel):
     FPort: Optional[int] = None
     ParticipatingGateways: Optional[ParticipatingGatewaysOutputTypeDef] = None
 
-class LoRaWANSendDataToDeviceTypeDef(BaseModel):
+class LoRaWANSendDataToDeviceTypeDef(BaseValidatorModel):
     FPort: Optional[int] = None
     ParticipatingGateways: Optional[ParticipatingGatewaysTypeDef] = None
 
-class StartMulticastGroupSessionRequestRequestTypeDef(BaseModel):
+class StartMulticastGroupSessionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     LoRaWAN: LoRaWANMulticastSessionTypeDef
 
-class StartFuotaTaskRequestRequestTypeDef(BaseModel):
+class StartFuotaTaskRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     LoRaWAN: Optional[LoRaWANStartFuotaTaskTypeDef] = None
 
-class GetMetricsRequestRequestTypeDef(BaseModel):
+class GetMetricsRequestRequestTypeDef(BaseValidatorModel):
     SummaryMetricQueries: Optional[Sequence[SummaryMetricQueryTypeDef]] = None
 
-class ListWirelessDeviceImportTasksResponseTypeDef(BaseModel):
+class ListWirelessDeviceImportTasksResponseTypeDef(BaseValidatorModel):
     WirelessDeviceImportTaskList: List[WirelessDeviceImportTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GsmObjTypeDef(BaseModel):
+class GsmObjTypeDef(BaseValidatorModel):
     Mcc: int
     Mnc: int
     Lac: int
@@ -1447,20 +1447,20 @@ class GsmObjTypeDef(BaseModel):
     RxLevel: Optional[int] = None
     GsmNmr: Optional[Sequence[GsmNmrObjTypeDef]] = None
 
-class ListDevicesForWirelessDeviceImportTaskResponseTypeDef(BaseModel):
+class ListDevicesForWirelessDeviceImportTaskResponseTypeDef(BaseValidatorModel):
     DestinationName: str
     ImportedWirelessDeviceList: List[ImportedWirelessDeviceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class EventNotificationItemConfigurationsTypeDef(BaseModel):
+class EventNotificationItemConfigurationsTypeDef(BaseValidatorModel):
     DeviceRegistrationState: Optional[DeviceRegistrationStateEventConfigurationTypeDef] = None
     Proximity: Optional[ProximityEventConfigurationTypeDef] = None
     Join: Optional[JoinEventConfigurationTypeDef] = None
     ConnectionStatus: Optional[ConnectionStatusEventConfigurationTypeDef] = None
     MessageDeliveryStatus: Optional[MessageDeliveryStatusEventConfigurationTypeDef] = None
 
-class GetResourceEventConfigurationResponseTypeDef(BaseModel):
+class GetResourceEventConfigurationResponseTypeDef(BaseValidatorModel):
     DeviceRegistrationState: DeviceRegistrationStateEventConfigurationTypeDef
     Proximity: ProximityEventConfigurationTypeDef
     Join: JoinEventConfigurationTypeDef
@@ -1468,7 +1468,7 @@ class GetResourceEventConfigurationResponseTypeDef(BaseModel):
     MessageDeliveryStatus: MessageDeliveryStatusEventConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateResourceEventConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateResourceEventConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     IdentifierType: IdentifierTypeType
     PartnerType: Optional[Literal["Sidewalk"]] = None
@@ -1478,7 +1478,7 @@ class UpdateResourceEventConfigurationRequestRequestTypeDef(BaseModel):
     ConnectionStatus: Optional[ConnectionStatusEventConfigurationTypeDef] = None
     MessageDeliveryStatus: Optional[MessageDeliveryStatusEventConfigurationTypeDef] = None
 
-class GetEventConfigurationByResourceTypesResponseTypeDef(BaseModel):
+class GetEventConfigurationByResourceTypesResponseTypeDef(BaseValidatorModel):
     DeviceRegistrationState: DeviceRegistrationStateResourceTypeEventConfigurationTypeDef
     Proximity: ProximityResourceTypeEventConfigurationTypeDef
     Join: JoinResourceTypeEventConfigurationTypeDef
@@ -1486,77 +1486,77 @@ class GetEventConfigurationByResourceTypesResponseTypeDef(BaseModel):
     MessageDeliveryStatus: MessageDeliveryStatusResourceTypeEventConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEventConfigurationByResourceTypesRequestRequestTypeDef(BaseModel):
+class UpdateEventConfigurationByResourceTypesRequestRequestTypeDef(BaseValidatorModel):
     DeviceRegistrationState: Optional[       DeviceRegistrationStateResourceTypeEventConfigurationTypeDef     ] = None
     Proximity: Optional[ProximityResourceTypeEventConfigurationTypeDef] = None
     Join: Optional[JoinResourceTypeEventConfigurationTypeDef] = None
     ConnectionStatus: Optional[ConnectionStatusResourceTypeEventConfigurationTypeDef] = None
     MessageDeliveryStatus: Optional[       MessageDeliveryStatusResourceTypeEventConfigurationTypeDef     ] = None
 
-class GetWirelessDeviceStatisticsResponseTypeDef(BaseModel):
+class GetWirelessDeviceStatisticsResponseTypeDef(BaseValidatorModel):
     WirelessDeviceId: str
     LastUplinkReceivedAt: str
     LoRaWAN: LoRaWANDeviceMetadataTypeDef
     Sidewalk: SidewalkDeviceMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWirelessGatewayFirmwareInformationResponseTypeDef(BaseModel):
+class GetWirelessGatewayFirmwareInformationResponseTypeDef(BaseValidatorModel):
     LoRaWAN: LoRaWANGatewayCurrentVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateWirelessGatewayTaskCreateTypeDef(BaseModel):
+class UpdateWirelessGatewayTaskCreateTypeDef(BaseValidatorModel):
     UpdateDataSource: Optional[str] = None
     UpdateDataRole: Optional[str] = None
     LoRaWAN: Optional[LoRaWANUpdateGatewayTaskCreateTypeDef] = None
 
-class UpdateWirelessGatewayTaskEntryTypeDef(BaseModel):
+class UpdateWirelessGatewayTaskEntryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     LoRaWAN: Optional[LoRaWANUpdateGatewayTaskEntryTypeDef] = None
     Arn: Optional[str] = None
 
-class SendDataToMulticastGroupRequestRequestTypeDef(BaseModel):
+class SendDataToMulticastGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     PayloadData: str
     WirelessMetadata: MulticastWirelessMetadataTypeDef
 
-class GetMetricsResponseTypeDef(BaseModel):
+class GetMetricsResponseTypeDef(BaseValidatorModel):
     SummaryMetricQueryResults: List[SummaryMetricQueryResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutPositionConfigurationRequestRequestTypeDef(BaseModel):
+class PutPositionConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: PositionResourceTypeType
     Solvers: Optional[PositionSolverConfigurationsTypeDef] = None
     Destination: Optional[str] = None
 
-class GetPositionConfigurationResponseTypeDef(BaseModel):
+class GetPositionConfigurationResponseTypeDef(BaseValidatorModel):
     Solvers: PositionSolverDetailsTypeDef
     Destination: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PositionConfigurationItemTypeDef(BaseModel):
+class PositionConfigurationItemTypeDef(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
     ResourceType: Optional[PositionResourceTypeType] = None
     Solvers: Optional[PositionSolverDetailsTypeDef] = None
     Destination: Optional[str] = None
 
-class GetLogLevelsByResourceTypesResponseTypeDef(BaseModel):
+class GetLogLevelsByResourceTypesResponseTypeDef(BaseValidatorModel):
     DefaultLogLevel: LogLevelType
     WirelessGatewayLogOptions: List[WirelessGatewayLogOptionOutputTypeDef]
     WirelessDeviceLogOptions: List[WirelessDeviceLogOptionOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWirelessGatewaysResponseTypeDef(BaseModel):
+class ListWirelessGatewaysResponseTypeDef(BaseValidatorModel):
     WirelessGatewayList: List[WirelessGatewayStatisticsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListWirelessDevicesResponseTypeDef(BaseModel):
+class ListWirelessDevicesResponseTypeDef(BaseValidatorModel):
     WirelessDeviceList: List[WirelessDeviceStatisticsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetWirelessDeviceResponseTypeDef(BaseModel):
+class GetWirelessDeviceResponseTypeDef(BaseValidatorModel):
     Type: WirelessDeviceTypeType
     Name: str
     Description: str
@@ -1570,7 +1570,7 @@ class GetWirelessDeviceResponseTypeDef(BaseModel):
     Positioning: PositioningConfigStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWirelessDeviceRequestRequestTypeDef(BaseModel):
+class CreateWirelessDeviceRequestRequestTypeDef(BaseValidatorModel):
     Type: WirelessDeviceTypeType
     DestinationName: str
     Name: Optional[str] = None
@@ -1581,7 +1581,7 @@ class CreateWirelessDeviceRequestRequestTypeDef(BaseModel):
     Positioning: Optional[PositioningConfigStatusType] = None
     Sidewalk: Optional[SidewalkCreateWirelessDeviceTypeDef] = None
 
-class UpdateWirelessDeviceRequestRequestTypeDef(BaseModel):
+class UpdateWirelessDeviceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     DestinationName: Optional[str] = None
     Name: Optional[str] = None
@@ -1589,77 +1589,77 @@ class UpdateWirelessDeviceRequestRequestTypeDef(BaseModel):
     LoRaWAN: Optional[LoRaWANUpdateDeviceTypeDef] = None
     Positioning: Optional[PositioningConfigStatusType] = None
 
-class DownlinkQueueMessageTypeDef(BaseModel):
+class DownlinkQueueMessageTypeDef(BaseValidatorModel):
     MessageId: Optional[str] = None
     TransmitMode: Optional[int] = None
     ReceivedAt: Optional[str] = None
     LoRaWAN: Optional[LoRaWANSendDataToDeviceOutputTypeDef] = None
 
-class WirelessMetadataTypeDef(BaseModel):
+class WirelessMetadataTypeDef(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANSendDataToDeviceTypeDef] = None
     Sidewalk: Optional[SidewalkSendDataToDeviceTypeDef] = None
 
-class CellTowersTypeDef(BaseModel):
+class CellTowersTypeDef(BaseValidatorModel):
     Gsm: Optional[Sequence[GsmObjTypeDef]] = None
     Wcdma: Optional[Sequence[WcdmaObjTypeDef]] = None
     Tdscdma: Optional[Sequence[TdscdmaObjTypeDef]] = None
     Lte: Optional[Sequence[LteObjTypeDef]] = None
     Cdma: Optional[Sequence[CdmaObjTypeDef]] = None
 
-class EventConfigurationItemTypeDef(BaseModel):
+class EventConfigurationItemTypeDef(BaseValidatorModel):
     Identifier: Optional[str] = None
     IdentifierType: Optional[IdentifierTypeType] = None
     PartnerType: Optional[Literal["Sidewalk"]] = None
     Events: Optional[EventNotificationItemConfigurationsTypeDef] = None
 
-class CreateWirelessGatewayTaskDefinitionRequestRequestTypeDef(BaseModel):
+class CreateWirelessGatewayTaskDefinitionRequestRequestTypeDef(BaseValidatorModel):
     AutoCreateTasks: bool
     Name: Optional[str] = None
     Update: Optional[UpdateWirelessGatewayTaskCreateTypeDef] = None
     ClientRequestToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class GetWirelessGatewayTaskDefinitionResponseTypeDef(BaseModel):
+class GetWirelessGatewayTaskDefinitionResponseTypeDef(BaseValidatorModel):
     AutoCreateTasks: bool
     Name: str
     Update: UpdateWirelessGatewayTaskCreateTypeDef
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWirelessGatewayTaskDefinitionsResponseTypeDef(BaseModel):
+class ListWirelessGatewayTaskDefinitionsResponseTypeDef(BaseValidatorModel):
     TaskDefinitions: List[UpdateWirelessGatewayTaskEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPositionConfigurationsResponseTypeDef(BaseModel):
+class ListPositionConfigurationsResponseTypeDef(BaseValidatorModel):
     PositionConfigurationList: List[PositionConfigurationItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateLogLevelsByResourceTypesRequestRequestTypeDef(BaseModel):
+class UpdateLogLevelsByResourceTypesRequestRequestTypeDef(BaseValidatorModel):
     DefaultLogLevel: Optional[LogLevelType] = None
     WirelessDeviceLogOptions: Optional[Sequence[WirelessDeviceLogOptionUnionTypeDef]] = None
     WirelessGatewayLogOptions: Optional[Sequence[WirelessGatewayLogOptionUnionTypeDef]] = None
 
-class ListQueuedMessagesResponseTypeDef(BaseModel):
+class ListQueuedMessagesResponseTypeDef(BaseValidatorModel):
     DownlinkQueueMessagesList: List[DownlinkQueueMessageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SendDataToWirelessDeviceRequestRequestTypeDef(BaseModel):
+class SendDataToWirelessDeviceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     TransmitMode: int
     PayloadData: str
     WirelessMetadata: Optional[WirelessMetadataTypeDef] = None
 
-class GetPositionEstimateRequestRequestTypeDef(BaseModel):
+class GetPositionEstimateRequestRequestTypeDef(BaseValidatorModel):
     WiFiAccessPoints: Optional[Sequence[WiFiAccessPointTypeDef]] = None
     CellTowers: Optional[CellTowersTypeDef] = None
     Ip: Optional[IpTypeDef] = None
     Gnss: Optional[GnssTypeDef] = None
     Timestamp: Optional[TimestampTypeDef] = None
 
-class ListEventConfigurationsResponseTypeDef(BaseModel):
+class ListEventConfigurationsResponseTypeDef(BaseValidatorModel):
     EventConfigurationsList: List[EventConfigurationItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

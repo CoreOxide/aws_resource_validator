@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,14 +11,14 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mediapackagev2_constants import *
 
-class ChannelGroupListConfigurationTypeDef(BaseModel):
+class ChannelGroupListConfigurationTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     Arn: str
     CreatedAt: datetime
     ModifiedAt: datetime
     Description: Optional[str] = None
 
-class ChannelListConfigurationTypeDef(BaseModel):
+class ChannelListConfigurationTypeDef(BaseValidatorModel):
     Arn: str
     ChannelName: str
     ChannelGroupName: str
@@ -27,20 +27,20 @@ class ChannelListConfigurationTypeDef(BaseModel):
     Description: Optional[str] = None
     InputType: Optional[InputTypeType] = None
 
-class CreateChannelGroupRequestRequestTypeDef(BaseModel):
+class CreateChannelGroupRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateChannelRequestRequestTypeDef(BaseModel):
+class CreateChannelRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     ClientToken: Optional[str] = None
@@ -48,159 +48,159 @@ class CreateChannelRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class IngestEndpointTypeDef(BaseModel):
+class IngestEndpointTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Url: Optional[str] = None
 
-class DashUtcTimingTypeDef(BaseModel):
+class DashUtcTimingTypeDef(BaseValidatorModel):
     TimingMode: Optional[DashUtcTimingModeType] = None
     TimingSource: Optional[str] = None
 
-class ScteDashTypeDef(BaseModel):
+class ScteDashTypeDef(BaseValidatorModel):
     AdMarkerDash: Optional[AdMarkerDashType] = None
 
-class ScteHlsTypeDef(BaseModel):
+class ScteHlsTypeDef(BaseValidatorModel):
     AdMarkerHls: Optional[Literal["DATERANGE"]] = None
 
-class ForceEndpointErrorConfigurationTypeDef(BaseModel):
+class ForceEndpointErrorConfigurationTypeDef(BaseValidatorModel):
     EndpointErrorConditions: Optional[Sequence[EndpointErrorConditionType]] = None
 
-class ForceEndpointErrorConfigurationOutputTypeDef(BaseModel):
+class ForceEndpointErrorConfigurationOutputTypeDef(BaseValidatorModel):
     EndpointErrorConditions: Optional[List[EndpointErrorConditionType]] = None
 
-class DeleteChannelGroupRequestRequestTypeDef(BaseModel):
+class DeleteChannelGroupRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
 
-class DeleteChannelPolicyRequestRequestTypeDef(BaseModel):
-    ChannelGroupName: str
-    ChannelName: str
-
-class DeleteChannelRequestRequestTypeDef(BaseModel):
+class DeleteChannelPolicyRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
 
-class DeleteOriginEndpointPolicyRequestRequestTypeDef(BaseModel):
+class DeleteChannelRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
-    OriginEndpointName: str
 
-class DeleteOriginEndpointRequestRequestTypeDef(BaseModel):
+class DeleteOriginEndpointPolicyRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
 
-class EncryptionContractConfigurationTypeDef(BaseModel):
+class DeleteOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+
+class EncryptionContractConfigurationTypeDef(BaseValidatorModel):
     PresetSpeke20Audio: PresetSpeke20AudioType
     PresetSpeke20Video: PresetSpeke20VideoType
 
-class EncryptionMethodTypeDef(BaseModel):
+class EncryptionMethodTypeDef(BaseValidatorModel):
     TsEncryptionMethod: Optional[TsEncryptionMethodType] = None
     CmafEncryptionMethod: Optional[CmafEncryptionMethodType] = None
 
-class FilterConfigurationOutputTypeDef(BaseModel):
+class FilterConfigurationOutputTypeDef(BaseValidatorModel):
     ManifestFilter: Optional[str] = None
     Start: Optional[datetime] = None
     End: Optional[datetime] = None
     TimeDelaySeconds: Optional[int] = None
 
-class ForceEndpointErrorConfigurationExtraOutputTypeDef(BaseModel):
+class ForceEndpointErrorConfigurationExtraOutputTypeDef(BaseValidatorModel):
     EndpointErrorConditions: Optional[List[EndpointErrorConditionType]] = None
 
-class GetChannelGroupRequestRequestTypeDef(BaseModel):
+class GetChannelGroupRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
 
-class GetChannelPolicyRequestRequestTypeDef(BaseModel):
-    ChannelGroupName: str
-    ChannelName: str
-
-class GetChannelRequestRequestTypeDef(BaseModel):
+class GetChannelPolicyRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
 
-class GetOriginEndpointPolicyRequestRequestTypeDef(BaseModel):
+class GetChannelRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
-    OriginEndpointName: str
 
-class GetOriginEndpointRequestRequestTypeDef(BaseModel):
+class GetOriginEndpointPolicyRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class GetOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListChannelGroupsRequestRequestTypeDef(BaseModel):
+class ListChannelGroupsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListChannelsRequestRequestTypeDef(BaseModel):
+class ListChannelsRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListDashManifestConfigurationTypeDef(BaseModel):
+class ListDashManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     Url: Optional[str] = None
 
-class ListHlsManifestConfigurationTypeDef(BaseModel):
-    ManifestName: str
-    ChildManifestName: Optional[str] = None
-    Url: Optional[str] = None
-
-class ListLowLatencyHlsManifestConfigurationTypeDef(BaseModel):
+class ListHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     ChildManifestName: Optional[str] = None
     Url: Optional[str] = None
 
-class ListOriginEndpointsRequestRequestTypeDef(BaseModel):
+class ListLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
+    ManifestName: str
+    ChildManifestName: Optional[str] = None
+    Url: Optional[str] = None
+
+class ListOriginEndpointsRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class PutChannelPolicyRequestRequestTypeDef(BaseModel):
+class PutChannelPolicyRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     Policy: str
 
-class PutOriginEndpointPolicyRequestRequestTypeDef(BaseModel):
+class PutOriginEndpointPolicyRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
     Policy: str
 
-class ScteOutputTypeDef(BaseModel):
+class ScteOutputTypeDef(BaseValidatorModel):
     ScteFilter: Optional[List[ScteFilterType]] = None
 
-class ScteTypeDef(BaseModel):
+class ScteTypeDef(BaseValidatorModel):
     ScteFilter: Optional[Sequence[ScteFilterType]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateChannelGroupRequestRequestTypeDef(BaseModel):
+class UpdateChannelGroupRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ETag: Optional[str] = None
     Description: Optional[str] = None
 
-class UpdateChannelRequestRequestTypeDef(BaseModel):
+class UpdateChannelRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     ETag: Optional[str] = None
     Description: Optional[str] = None
 
-class CreateChannelGroupResponseTypeDef(BaseModel):
+class CreateChannelGroupResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     Arn: str
     EgressDomain: str
@@ -211,10 +211,10 @@ class CreateChannelGroupResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetChannelGroupResponseTypeDef(BaseModel):
+class GetChannelGroupResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     Arn: str
     EgressDomain: str
@@ -225,34 +225,34 @@ class GetChannelGroupResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetChannelPolicyResponseTypeDef(BaseModel):
+class GetChannelPolicyResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOriginEndpointPolicyResponseTypeDef(BaseModel):
+class GetOriginEndpointPolicyResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListChannelGroupsResponseTypeDef(BaseModel):
+class ListChannelGroupsResponseTypeDef(BaseValidatorModel):
     Items: List[ChannelGroupListConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListChannelsResponseTypeDef(BaseModel):
+class ListChannelsResponseTypeDef(BaseValidatorModel):
     Items: List[ChannelListConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateChannelGroupResponseTypeDef(BaseModel):
+class UpdateChannelGroupResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     Arn: str
     EgressDomain: str
@@ -263,7 +263,7 @@ class UpdateChannelGroupResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateChannelResponseTypeDef(BaseModel):
+class CreateChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelName: str
     ChannelGroupName: str
@@ -276,7 +276,7 @@ class CreateChannelResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetChannelResponseTypeDef(BaseModel):
+class GetChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelName: str
     ChannelGroupName: str
@@ -289,7 +289,7 @@ class GetChannelResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateChannelResponseTypeDef(BaseModel):
+class UpdateChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelName: str
     ChannelGroupName: str
@@ -302,21 +302,21 @@ class UpdateChannelResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SpekeKeyProviderOutputTypeDef(BaseModel):
+class SpekeKeyProviderOutputTypeDef(BaseValidatorModel):
     EncryptionContractConfiguration: EncryptionContractConfigurationTypeDef
     ResourceId: str
     DrmSystems: List[DrmSystemType]
     RoleArn: str
     Url: str
 
-class SpekeKeyProviderTypeDef(BaseModel):
+class SpekeKeyProviderTypeDef(BaseValidatorModel):
     EncryptionContractConfiguration: EncryptionContractConfigurationTypeDef
     ResourceId: str
     DrmSystems: Sequence[DrmSystemType]
     RoleArn: str
     Url: str
 
-class GetDashManifestConfigurationTypeDef(BaseModel):
+class GetDashManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     Url: str
     ManifestWindowSeconds: Optional[int] = None
@@ -330,7 +330,7 @@ class GetDashManifestConfigurationTypeDef(BaseModel):
     DrmSignaling: Optional[DashDrmSignalingType] = None
     UtcTiming: Optional[DashUtcTimingTypeDef] = None
 
-class GetHlsManifestConfigurationTypeDef(BaseModel):
+class GetHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     Url: str
     ChildManifestName: Optional[str] = None
@@ -339,7 +339,7 @@ class GetHlsManifestConfigurationTypeDef(BaseModel):
     ScteHls: Optional[ScteHlsTypeDef] = None
     FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
 
-class GetLowLatencyHlsManifestConfigurationTypeDef(BaseModel):
+class GetLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     Url: str
     ChildManifestName: Optional[str] = None
@@ -348,25 +348,25 @@ class GetLowLatencyHlsManifestConfigurationTypeDef(BaseModel):
     ScteHls: Optional[ScteHlsTypeDef] = None
     FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
 
-class FilterConfigurationTypeDef(BaseModel):
+class FilterConfigurationTypeDef(BaseValidatorModel):
     ManifestFilter: Optional[str] = None
     Start: Optional[TimestampTypeDef] = None
     End: Optional[TimestampTypeDef] = None
     TimeDelaySeconds: Optional[int] = None
 
-class ListChannelGroupsRequestListChannelGroupsPaginateTypeDef(BaseModel):
+class ListChannelGroupsRequestListChannelGroupsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListChannelsRequestListChannelsPaginateTypeDef(BaseModel):
+class ListChannelsRequestListChannelsPaginateTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOriginEndpointsRequestListOriginEndpointsPaginateTypeDef(BaseModel):
+class ListOriginEndpointsRequestListOriginEndpointsPaginateTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class OriginEndpointListConfigurationTypeDef(BaseModel):
+class OriginEndpointListConfigurationTypeDef(BaseValidatorModel):
     Arn: str
     ChannelGroupName: str
     ChannelName: str
@@ -380,19 +380,19 @@ class OriginEndpointListConfigurationTypeDef(BaseModel):
     DashManifests: Optional[List[ListDashManifestConfigurationTypeDef]] = None
     ForceEndpointErrorConfiguration: Optional[       ForceEndpointErrorConfigurationOutputTypeDef     ] = None
 
-class EncryptionOutputTypeDef(BaseModel):
+class EncryptionOutputTypeDef(BaseValidatorModel):
     EncryptionMethod: EncryptionMethodTypeDef
     SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
     ConstantInitializationVector: Optional[str] = None
     KeyRotationIntervalSeconds: Optional[int] = None
 
-class EncryptionTypeDef(BaseModel):
+class EncryptionTypeDef(BaseValidatorModel):
     EncryptionMethod: EncryptionMethodTypeDef
     SpekeKeyProvider: SpekeKeyProviderTypeDef
     ConstantInitializationVector: Optional[str] = None
     KeyRotationIntervalSeconds: Optional[int] = None
 
-class CreateDashManifestConfigurationTypeDef(BaseModel):
+class CreateDashManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     ManifestWindowSeconds: Optional[int] = None
     FilterConfiguration: Optional[FilterConfigurationTypeDef] = None
@@ -405,7 +405,7 @@ class CreateDashManifestConfigurationTypeDef(BaseModel):
     DrmSignaling: Optional[DashDrmSignalingType] = None
     UtcTiming: Optional[DashUtcTimingTypeDef] = None
 
-class CreateHlsManifestConfigurationTypeDef(BaseModel):
+class CreateHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     ChildManifestName: Optional[str] = None
     ScteHls: Optional[ScteHlsTypeDef] = None
@@ -413,7 +413,7 @@ class CreateHlsManifestConfigurationTypeDef(BaseModel):
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     FilterConfiguration: Optional[FilterConfigurationTypeDef] = None
 
-class CreateLowLatencyHlsManifestConfigurationTypeDef(BaseModel):
+class CreateLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     ChildManifestName: Optional[str] = None
     ScteHls: Optional[ScteHlsTypeDef] = None
@@ -421,12 +421,12 @@ class CreateLowLatencyHlsManifestConfigurationTypeDef(BaseModel):
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     FilterConfiguration: Optional[FilterConfigurationTypeDef] = None
 
-class ListOriginEndpointsResponseTypeDef(BaseModel):
+class ListOriginEndpointsResponseTypeDef(BaseValidatorModel):
     Items: List[OriginEndpointListConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SegmentOutputTypeDef(BaseModel):
+class SegmentOutputTypeDef(BaseValidatorModel):
     SegmentDurationSeconds: Optional[int] = None
     SegmentName: Optional[str] = None
     TsUseAudioRenditionGroup: Optional[bool] = None
@@ -435,7 +435,7 @@ class SegmentOutputTypeDef(BaseModel):
     Scte: Optional[ScteOutputTypeDef] = None
     Encryption: Optional[EncryptionOutputTypeDef] = None
 
-class SegmentTypeDef(BaseModel):
+class SegmentTypeDef(BaseValidatorModel):
     SegmentDurationSeconds: Optional[int] = None
     SegmentName: Optional[str] = None
     TsUseAudioRenditionGroup: Optional[bool] = None
@@ -444,7 +444,7 @@ class SegmentTypeDef(BaseModel):
     Scte: Optional[ScteTypeDef] = None
     Encryption: Optional[EncryptionTypeDef] = None
 
-class CreateOriginEndpointResponseTypeDef(BaseModel):
+class CreateOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelGroupName: str
     ChannelName: str
@@ -463,7 +463,7 @@ class CreateOriginEndpointResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOriginEndpointResponseTypeDef(BaseModel):
+class GetOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelGroupName: str
     ChannelName: str
@@ -482,7 +482,7 @@ class GetOriginEndpointResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateOriginEndpointResponseTypeDef(BaseModel):
+class UpdateOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelGroupName: str
     ChannelName: str
@@ -501,7 +501,7 @@ class UpdateOriginEndpointResponseTypeDef(BaseModel):
     DashManifests: List[GetDashManifestConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateOriginEndpointRequestRequestTypeDef(BaseModel):
+class CreateOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
@@ -516,7 +516,7 @@ class CreateOriginEndpointRequestRequestTypeDef(BaseModel):
     ForceEndpointErrorConfiguration: Optional[ForceEndpointErrorConfigurationTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateOriginEndpointRequestRequestTypeDef(BaseModel):
+class UpdateOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,25 +11,25 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.schemas_constants import *
 
-class CreateDiscovererRequestRequestTypeDef(BaseModel):
+class CreateDiscovererRequestRequestTypeDef(BaseValidatorModel):
     SourceArn: str
     Description: Optional[str] = None
     CrossAccount: Optional[bool] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateRegistryRequestRequestTypeDef(BaseModel):
+class CreateRegistryRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateSchemaRequestRequestTypeDef(BaseModel):
+class CreateSchemaRequestRequestTypeDef(BaseValidatorModel):
     Content: str
     RegistryName: str
     SchemaName: str
@@ -37,46 +37,46 @@ class CreateSchemaRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class DeleteDiscovererRequestRequestTypeDef(BaseModel):
+class DeleteDiscovererRequestRequestTypeDef(BaseValidatorModel):
     DiscovererId: str
 
-class DeleteRegistryRequestRequestTypeDef(BaseModel):
+class DeleteRegistryRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseModel):
+class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: Optional[str] = None
 
-class DeleteSchemaRequestRequestTypeDef(BaseModel):
+class DeleteSchemaRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
 
-class DeleteSchemaVersionRequestRequestTypeDef(BaseModel):
+class DeleteSchemaVersionRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
     SchemaVersion: str
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeCodeBindingRequestRequestTypeDef(BaseModel):
+class DescribeCodeBindingRequestRequestTypeDef(BaseValidatorModel):
     Language: str
     RegistryName: str
     SchemaName: str
     SchemaVersion: Optional[str] = None
 
-class DescribeDiscovererRequestRequestTypeDef(BaseModel):
+class DescribeDiscovererRequestRequestTypeDef(BaseValidatorModel):
     DiscovererId: str
 
-class DescribeRegistryRequestRequestTypeDef(BaseModel):
+class DescribeRegistryRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
 
-class DescribeSchemaRequestRequestTypeDef(BaseModel):
+class DescribeSchemaRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
     SchemaVersion: Optional[str] = None
 
-class DiscovererSummaryTypeDef(BaseModel):
+class DiscovererSummaryTypeDef(BaseValidatorModel):
     DiscovererArn: Optional[str] = None
     DiscovererId: Optional[str] = None
     SourceArn: Optional[str] = None
@@ -84,121 +84,121 @@ class DiscovererSummaryTypeDef(BaseModel):
     CrossAccount: Optional[bool] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ExportSchemaRequestRequestTypeDef(BaseModel):
+class ExportSchemaRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
     Type: str
     SchemaVersion: Optional[str] = None
 
-class GetCodeBindingSourceRequestRequestTypeDef(BaseModel):
+class GetCodeBindingSourceRequestRequestTypeDef(BaseValidatorModel):
     Language: str
     RegistryName: str
     SchemaName: str
     SchemaVersion: Optional[str] = None
 
-class GetDiscoveredSchemaRequestRequestTypeDef(BaseModel):
+class GetDiscoveredSchemaRequestRequestTypeDef(BaseValidatorModel):
     Events: Sequence[str]
     Type: TypeType
 
-class GetResourcePolicyRequestRequestTypeDef(BaseModel):
+class GetResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListDiscoverersRequestRequestTypeDef(BaseModel):
+class ListDiscoverersRequestRequestTypeDef(BaseValidatorModel):
     DiscovererIdPrefix: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
     SourceArnPrefix: Optional[str] = None
 
-class ListRegistriesRequestRequestTypeDef(BaseModel):
+class ListRegistriesRequestRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
     RegistryNamePrefix: Optional[str] = None
     Scope: Optional[str] = None
 
-class RegistrySummaryTypeDef(BaseModel):
+class RegistrySummaryTypeDef(BaseValidatorModel):
     RegistryArn: Optional[str] = None
     RegistryName: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ListSchemaVersionsRequestRequestTypeDef(BaseModel):
+class ListSchemaVersionsRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class SchemaVersionSummaryTypeDef(BaseModel):
+class SchemaVersionSummaryTypeDef(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     SchemaName: Optional[str] = None
     SchemaVersion: Optional[str] = None
     Type: Optional[TypeType] = None
 
-class ListSchemasRequestRequestTypeDef(BaseModel):
+class ListSchemasRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
     SchemaNamePrefix: Optional[str] = None
 
-class SchemaSummaryTypeDef(BaseModel):
+class SchemaSummaryTypeDef(BaseValidatorModel):
     LastModified: Optional[datetime] = None
     SchemaArn: Optional[str] = None
     SchemaName: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
     VersionCount: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class PutCodeBindingRequestRequestTypeDef(BaseModel):
+class PutCodeBindingRequestRequestTypeDef(BaseValidatorModel):
     Language: str
     RegistryName: str
     SchemaName: str
     SchemaVersion: Optional[str] = None
 
-class PutResourcePolicyRequestRequestTypeDef(BaseModel):
+class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     Policy: str
     RegistryName: Optional[str] = None
     RevisionId: Optional[str] = None
 
-class SearchSchemaVersionSummaryTypeDef(BaseModel):
+class SearchSchemaVersionSummaryTypeDef(BaseValidatorModel):
     CreatedDate: Optional[datetime] = None
     SchemaVersion: Optional[str] = None
     Type: Optional[TypeType] = None
 
-class SearchSchemasRequestRequestTypeDef(BaseModel):
+class SearchSchemasRequestRequestTypeDef(BaseValidatorModel):
     Keywords: str
     RegistryName: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class StartDiscovererRequestRequestTypeDef(BaseModel):
+class StartDiscovererRequestRequestTypeDef(BaseValidatorModel):
     DiscovererId: str
 
-class StopDiscovererRequestRequestTypeDef(BaseModel):
+class StopDiscovererRequestRequestTypeDef(BaseValidatorModel):
     DiscovererId: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateDiscovererRequestRequestTypeDef(BaseModel):
+class UpdateDiscovererRequestRequestTypeDef(BaseValidatorModel):
     DiscovererId: str
     Description: Optional[str] = None
     CrossAccount: Optional[bool] = None
 
-class UpdateRegistryRequestRequestTypeDef(BaseModel):
+class UpdateRegistryRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     Description: Optional[str] = None
 
-class UpdateSchemaRequestRequestTypeDef(BaseModel):
+class UpdateSchemaRequestRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
     ClientTokenId: Optional[str] = None
@@ -206,7 +206,7 @@ class UpdateSchemaRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     Type: Optional[TypeType] = None
 
-class CreateDiscovererResponseTypeDef(BaseModel):
+class CreateDiscovererResponseTypeDef(BaseValidatorModel):
     Description: str
     DiscovererArn: str
     DiscovererId: str
@@ -216,14 +216,14 @@ class CreateDiscovererResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRegistryResponseTypeDef(BaseModel):
+class CreateRegistryResponseTypeDef(BaseValidatorModel):
     Description: str
     RegistryArn: str
     RegistryName: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSchemaResponseTypeDef(BaseModel):
+class CreateSchemaResponseTypeDef(BaseValidatorModel):
     Description: str
     LastModified: datetime
     SchemaArn: str
@@ -234,14 +234,14 @@ class CreateSchemaResponseTypeDef(BaseModel):
     VersionCreatedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCodeBindingResponseTypeDef(BaseModel):
+class DescribeCodeBindingResponseTypeDef(BaseValidatorModel):
     CreationDate: datetime
     LastModified: datetime
     SchemaVersion: str
     Status: CodeGenerationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDiscovererResponseTypeDef(BaseModel):
+class DescribeDiscovererResponseTypeDef(BaseValidatorModel):
     Description: str
     DiscovererArn: str
     DiscovererId: str
@@ -251,14 +251,14 @@ class DescribeDiscovererResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRegistryResponseTypeDef(BaseModel):
+class DescribeRegistryResponseTypeDef(BaseValidatorModel):
     Description: str
     RegistryArn: str
     RegistryName: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSchemaResponseTypeDef(BaseModel):
+class DescribeSchemaResponseTypeDef(BaseValidatorModel):
     Content: str
     Description: str
     LastModified: datetime
@@ -270,10 +270,10 @@ class DescribeSchemaResponseTypeDef(BaseModel):
     VersionCreatedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportSchemaResponseTypeDef(BaseModel):
+class ExportSchemaResponseTypeDef(BaseValidatorModel):
     Content: str
     SchemaArn: str
     SchemaName: str
@@ -281,46 +281,46 @@ class ExportSchemaResponseTypeDef(BaseModel):
     Type: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCodeBindingSourceResponseTypeDef(BaseModel):
+class GetCodeBindingSourceResponseTypeDef(BaseValidatorModel):
     Body: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDiscoveredSchemaResponseTypeDef(BaseModel):
+class GetDiscoveredSchemaResponseTypeDef(BaseValidatorModel):
     Content: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourcePolicyResponseTypeDef(BaseModel):
+class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     RevisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutCodeBindingResponseTypeDef(BaseModel):
+class PutCodeBindingResponseTypeDef(BaseValidatorModel):
     CreationDate: datetime
     LastModified: datetime
     SchemaVersion: str
     Status: CodeGenerationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutResourcePolicyResponseTypeDef(BaseModel):
+class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     RevisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartDiscovererResponseTypeDef(BaseModel):
+class StartDiscovererResponseTypeDef(BaseValidatorModel):
     DiscovererId: str
     State: DiscovererStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopDiscovererResponseTypeDef(BaseModel):
+class StopDiscovererResponseTypeDef(BaseValidatorModel):
     DiscovererId: str
     State: DiscovererStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDiscovererResponseTypeDef(BaseModel):
+class UpdateDiscovererResponseTypeDef(BaseValidatorModel):
     Description: str
     DiscovererArn: str
     DiscovererId: str
@@ -330,14 +330,14 @@ class UpdateDiscovererResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRegistryResponseTypeDef(BaseModel):
+class UpdateRegistryResponseTypeDef(BaseValidatorModel):
     Description: str
     RegistryArn: str
     RegistryName: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSchemaResponseTypeDef(BaseModel):
+class UpdateSchemaResponseTypeDef(BaseValidatorModel):
     Description: str
     LastModified: datetime
     SchemaArn: str
@@ -348,65 +348,65 @@ class UpdateSchemaResponseTypeDef(BaseModel):
     VersionCreatedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCodeBindingRequestCodeBindingExistsWaitTypeDef(BaseModel):
+class DescribeCodeBindingRequestCodeBindingExistsWaitTypeDef(BaseValidatorModel):
     Language: str
     RegistryName: str
     SchemaName: str
     SchemaVersion: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class ListDiscoverersResponseTypeDef(BaseModel):
+class ListDiscoverersResponseTypeDef(BaseValidatorModel):
     Discoverers: List[DiscovererSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDiscoverersRequestListDiscoverersPaginateTypeDef(BaseModel):
+class ListDiscoverersRequestListDiscoverersPaginateTypeDef(BaseValidatorModel):
     DiscovererIdPrefix: Optional[str] = None
     SourceArnPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRegistriesRequestListRegistriesPaginateTypeDef(BaseModel):
+class ListRegistriesRequestListRegistriesPaginateTypeDef(BaseValidatorModel):
     RegistryNamePrefix: Optional[str] = None
     Scope: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSchemaVersionsRequestListSchemaVersionsPaginateTypeDef(BaseModel):
+class ListSchemaVersionsRequestListSchemaVersionsPaginateTypeDef(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSchemasRequestListSchemasPaginateTypeDef(BaseModel):
+class ListSchemasRequestListSchemasPaginateTypeDef(BaseValidatorModel):
     RegistryName: str
     SchemaNamePrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchSchemasRequestSearchSchemasPaginateTypeDef(BaseModel):
+class SearchSchemasRequestSearchSchemasPaginateTypeDef(BaseValidatorModel):
     Keywords: str
     RegistryName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRegistriesResponseTypeDef(BaseModel):
+class ListRegistriesResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Registries: List[RegistrySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSchemaVersionsResponseTypeDef(BaseModel):
+class ListSchemaVersionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     SchemaVersions: List[SchemaVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSchemasResponseTypeDef(BaseModel):
+class ListSchemasResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Schemas: List[SchemaSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchSchemaSummaryTypeDef(BaseModel):
+class SearchSchemaSummaryTypeDef(BaseValidatorModel):
     RegistryName: Optional[str] = None
     SchemaArn: Optional[str] = None
     SchemaName: Optional[str] = None
     SchemaVersions: Optional[List[SearchSchemaVersionSummaryTypeDef]] = None
 
-class SearchSchemasResponseTypeDef(BaseModel):
+class SearchSchemasResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Schemas: List[SearchSchemaSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

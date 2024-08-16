@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,88 +11,88 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.elastic_inference_constants import *
 
-class AcceleratorTypeOfferingTypeDef(BaseModel):
+class AcceleratorTypeOfferingTypeDef(BaseValidatorModel):
     acceleratorType: Optional[str] = None
     locationType: Optional[LocationTypeType] = None
     location: Optional[str] = None
 
-class KeyValuePairTypeDef(BaseModel):
+class KeyValuePairTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[int] = None
 
-class MemoryInfoTypeDef(BaseModel):
+class MemoryInfoTypeDef(BaseValidatorModel):
     sizeInMiB: Optional[int] = None
 
-class DescribeAcceleratorOfferingsRequestRequestTypeDef(BaseModel):
+class DescribeAcceleratorOfferingsRequestRequestTypeDef(BaseValidatorModel):
     locationType: LocationTypeType
     acceleratorTypes: Optional[Sequence[str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     values: Optional[Sequence[str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ElasticInferenceAcceleratorHealthTypeDef(BaseModel):
+class ElasticInferenceAcceleratorHealthTypeDef(BaseValidatorModel):
     status: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class AcceleratorTypeTypeDef(BaseModel):
+class AcceleratorTypeTypeDef(BaseValidatorModel):
     acceleratorTypeName: Optional[str] = None
     memoryInfo: Optional[MemoryInfoTypeDef] = None
     throughputInfo: Optional[List[KeyValuePairTypeDef]] = None
 
-class DescribeAcceleratorOfferingsResponseTypeDef(BaseModel):
+class DescribeAcceleratorOfferingsResponseTypeDef(BaseValidatorModel):
     acceleratorTypeOfferings: List[AcceleratorTypeOfferingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResultTypeDef(BaseModel):
+class ListTagsForResourceResultTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAcceleratorsRequestRequestTypeDef(BaseModel):
+class DescribeAcceleratorsRequestRequestTypeDef(BaseValidatorModel):
     acceleratorIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeAcceleratorsRequestDescribeAcceleratorsPaginateTypeDef(BaseModel):
+class DescribeAcceleratorsRequestDescribeAcceleratorsPaginateTypeDef(BaseValidatorModel):
     acceleratorIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ElasticInferenceAcceleratorTypeDef(BaseModel):
+class ElasticInferenceAcceleratorTypeDef(BaseValidatorModel):
     acceleratorHealth: Optional[ElasticInferenceAcceleratorHealthTypeDef] = None
     acceleratorType: Optional[str] = None
     acceleratorId: Optional[str] = None
     availabilityZone: Optional[str] = None
     attachedResource: Optional[str] = None
 
-class DescribeAcceleratorTypesResponseTypeDef(BaseModel):
+class DescribeAcceleratorTypesResponseTypeDef(BaseValidatorModel):
     acceleratorTypes: List[AcceleratorTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAcceleratorsResponseTypeDef(BaseModel):
+class DescribeAcceleratorsResponseTypeDef(BaseValidatorModel):
     acceleratorSet: List[ElasticInferenceAcceleratorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

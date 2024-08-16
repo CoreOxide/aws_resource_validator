@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,45 +11,45 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.qconnect_constants import *
 
-class AmazonConnectGuideAssociationDataTypeDef(BaseModel):
+class AmazonConnectGuideAssociationDataTypeDef(BaseValidatorModel):
     flowId: Optional[str] = None
 
-class AppIntegrationsConfigurationExtraOutputTypeDef(BaseModel):
+class AppIntegrationsConfigurationExtraOutputTypeDef(BaseValidatorModel):
     appIntegrationArn: str
     objectFields: Optional[List[str]] = None
 
-class AppIntegrationsConfigurationOutputTypeDef(BaseModel):
+class AppIntegrationsConfigurationOutputTypeDef(BaseValidatorModel):
     appIntegrationArn: str
     objectFields: Optional[List[str]] = None
 
-class AppIntegrationsConfigurationTypeDef(BaseModel):
+class AppIntegrationsConfigurationTypeDef(BaseValidatorModel):
     appIntegrationArn: str
     objectFields: Optional[Sequence[str]] = None
 
-class AssistantAssociationInputDataTypeDef(BaseModel):
+class AssistantAssociationInputDataTypeDef(BaseValidatorModel):
     knowledgeBaseId: Optional[str] = None
 
-class KnowledgeBaseAssociationDataTypeDef(BaseModel):
+class KnowledgeBaseAssociationDataTypeDef(BaseValidatorModel):
     knowledgeBaseArn: Optional[str] = None
     knowledgeBaseId: Optional[str] = None
 
-class AssistantCapabilityConfigurationTypeDef(BaseModel):
+class AssistantCapabilityConfigurationTypeDef(BaseValidatorModel):
     type: Optional[AssistantCapabilityTypeType] = None
 
-class AssistantIntegrationConfigurationTypeDef(BaseModel):
+class AssistantIntegrationConfigurationTypeDef(BaseValidatorModel):
     topicIntegrationArn: Optional[str] = None
 
-class ServerSideEncryptionConfigurationTypeDef(BaseModel):
+class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
-class ConnectConfigurationTypeDef(BaseModel):
+class ConnectConfigurationTypeDef(BaseValidatorModel):
     instanceId: Optional[str] = None
 
-class RankingDataTypeDef(BaseModel):
+class RankingDataTypeDef(BaseValidatorModel):
     relevanceLevel: Optional[RelevanceLevelType] = None
     relevanceScore: Optional[float] = None
 
-class ContentDataTypeDef(BaseModel):
+class ContentDataTypeDef(BaseValidatorModel):
     contentArn: str
     contentId: str
     contentType: str
@@ -65,16 +65,16 @@ class ContentDataTypeDef(BaseModel):
     linkOutUri: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class GenerativeContentFeedbackDataTypeDef(BaseModel):
+class GenerativeContentFeedbackDataTypeDef(BaseValidatorModel):
     relevance: RelevanceType
 
-class ContentReferenceTypeDef(BaseModel):
+class ContentReferenceTypeDef(BaseValidatorModel):
     contentArn: Optional[str] = None
     contentId: Optional[str] = None
     knowledgeBaseArn: Optional[str] = None
     knowledgeBaseId: Optional[str] = None
 
-class ContentSummaryTypeDef(BaseModel):
+class ContentSummaryTypeDef(BaseValidatorModel):
     contentArn: str
     contentId: str
     contentType: str
@@ -87,14 +87,14 @@ class ContentSummaryTypeDef(BaseModel):
     title: str
     tags: Optional[Dict[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateContentRequestRequestTypeDef(BaseModel):
+class CreateContentRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     name: str
     uploadId: str
@@ -104,145 +104,145 @@ class CreateContentRequestRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     title: Optional[str] = None
 
-class RenderingConfigurationTypeDef(BaseModel):
+class RenderingConfigurationTypeDef(BaseValidatorModel):
     templateUri: Optional[str] = None
 
-class GroupingConfigurationTypeDef(BaseModel):
+class GroupingConfigurationTypeDef(BaseValidatorModel):
     criteria: Optional[str] = None
     values: Optional[Sequence[str]] = None
 
-class QuickResponseDataProviderTypeDef(BaseModel):
+class QuickResponseDataProviderTypeDef(BaseValidatorModel):
     content: Optional[str] = None
 
-class GenerativeReferenceTypeDef(BaseModel):
+class GenerativeReferenceTypeDef(BaseValidatorModel):
     generationId: Optional[str] = None
     modelId: Optional[str] = None
 
-class DeleteAssistantAssociationRequestRequestTypeDef(BaseModel):
+class DeleteAssistantAssociationRequestRequestTypeDef(BaseValidatorModel):
     assistantAssociationId: str
     assistantId: str
 
-class DeleteAssistantRequestRequestTypeDef(BaseModel):
+class DeleteAssistantRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
 
-class DeleteContentAssociationRequestRequestTypeDef(BaseModel):
+class DeleteContentAssociationRequestRequestTypeDef(BaseValidatorModel):
     contentAssociationId: str
     contentId: str
     knowledgeBaseId: str
 
-class DeleteContentRequestRequestTypeDef(BaseModel):
+class DeleteContentRequestRequestTypeDef(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
-class DeleteImportJobRequestRequestTypeDef(BaseModel):
+class DeleteImportJobRequestRequestTypeDef(BaseValidatorModel):
     importJobId: str
     knowledgeBaseId: str
 
-class DeleteKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class DeleteKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
 
-class DeleteQuickResponseRequestRequestTypeDef(BaseModel):
+class DeleteQuickResponseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
 
-class HighlightTypeDef(BaseModel):
+class HighlightTypeDef(BaseValidatorModel):
     beginOffsetInclusive: Optional[int] = None
     endOffsetExclusive: Optional[int] = None
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     field: Literal["NAME"]
     operator: Literal["EQUALS"]
     value: str
 
-class GetAssistantAssociationRequestRequestTypeDef(BaseModel):
+class GetAssistantAssociationRequestRequestTypeDef(BaseValidatorModel):
     assistantAssociationId: str
     assistantId: str
 
-class GetAssistantRequestRequestTypeDef(BaseModel):
+class GetAssistantRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
 
-class GetContentAssociationRequestRequestTypeDef(BaseModel):
+class GetContentAssociationRequestRequestTypeDef(BaseValidatorModel):
     contentAssociationId: str
     contentId: str
     knowledgeBaseId: str
 
-class GetContentRequestRequestTypeDef(BaseModel):
+class GetContentRequestRequestTypeDef(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
-class GetContentSummaryRequestRequestTypeDef(BaseModel):
+class GetContentSummaryRequestRequestTypeDef(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
-class GetImportJobRequestRequestTypeDef(BaseModel):
+class GetImportJobRequestRequestTypeDef(BaseValidatorModel):
     importJobId: str
     knowledgeBaseId: str
 
-class GetKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class GetKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
 
-class GetQuickResponseRequestRequestTypeDef(BaseModel):
+class GetQuickResponseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
 
-class GetRecommendationsRequestRequestTypeDef(BaseModel):
+class GetRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     sessionId: str
     maxResults: Optional[int] = None
     waitTimeSeconds: Optional[int] = None
 
-class GetSessionRequestRequestTypeDef(BaseModel):
+class GetSessionRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     sessionId: str
 
-class GroupingConfigurationExtraOutputTypeDef(BaseModel):
+class GroupingConfigurationExtraOutputTypeDef(BaseValidatorModel):
     criteria: Optional[str] = None
     values: Optional[List[str]] = None
 
-class GroupingConfigurationOutputTypeDef(BaseModel):
+class GroupingConfigurationOutputTypeDef(BaseValidatorModel):
     criteria: Optional[str] = None
     values: Optional[List[str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAssistantAssociationsRequestRequestTypeDef(BaseModel):
+class ListAssistantAssociationsRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAssistantsRequestRequestTypeDef(BaseModel):
+class ListAssistantsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListContentAssociationsRequestRequestTypeDef(BaseModel):
+class ListContentAssociationsRequestRequestTypeDef(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListContentsRequestRequestTypeDef(BaseModel):
+class ListContentsRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListImportJobsRequestRequestTypeDef(BaseModel):
+class ListImportJobsRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListKnowledgeBasesRequestRequestTypeDef(BaseModel):
+class ListKnowledgeBasesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListQuickResponsesRequestRequestTypeDef(BaseModel):
+class ListQuickResponsesRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class QuickResponseSummaryTypeDef(BaseModel):
+class QuickResponseSummaryTypeDef(BaseValidatorModel):
     contentType: str
     createdTime: datetime
     knowledgeBaseArn: str
@@ -258,76 +258,76 @@ class QuickResponseSummaryTypeDef(BaseModel):
     lastModifiedBy: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class NotifyRecommendationsReceivedErrorTypeDef(BaseModel):
+class NotifyRecommendationsReceivedErrorTypeDef(BaseValidatorModel):
     message: Optional[str] = None
     recommendationId: Optional[str] = None
 
-class NotifyRecommendationsReceivedRequestRequestTypeDef(BaseModel):
+class NotifyRecommendationsReceivedRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     recommendationIds: Sequence[str]
     sessionId: str
 
-class TagConditionTypeDef(BaseModel):
+class TagConditionTypeDef(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
-class QueryConditionItemTypeDef(BaseModel):
+class QueryConditionItemTypeDef(BaseValidatorModel):
     comparator: Literal["EQUALS"]
     field: Literal["RESULT_TYPE"]
     value: str
 
-class QueryRecommendationTriggerDataTypeDef(BaseModel):
+class QueryRecommendationTriggerDataTypeDef(BaseValidatorModel):
     text: Optional[str] = None
 
-class QuickResponseContentProviderTypeDef(BaseModel):
+class QuickResponseContentProviderTypeDef(BaseValidatorModel):
     content: Optional[str] = None
 
-class QuickResponseFilterFieldTypeDef(BaseModel):
+class QuickResponseFilterFieldTypeDef(BaseValidatorModel):
     name: str
     operator: QuickResponseFilterOperatorType
     includeNoExistence: Optional[bool] = None
     values: Optional[Sequence[str]] = None
 
-class QuickResponseOrderFieldTypeDef(BaseModel):
+class QuickResponseOrderFieldTypeDef(BaseValidatorModel):
     name: str
     order: Optional[OrderType] = None
 
-class QuickResponseQueryFieldTypeDef(BaseModel):
+class QuickResponseQueryFieldTypeDef(BaseValidatorModel):
     name: str
     operator: QuickResponseQueryOperatorType
     values: Sequence[str]
     allowFuzziness: Optional[bool] = None
     priority: Optional[PriorityType] = None
 
-class RemoveKnowledgeBaseTemplateUriRequestRequestTypeDef(BaseModel):
+class RemoveKnowledgeBaseTemplateUriRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
 
-class SessionSummaryTypeDef(BaseModel):
+class SessionSummaryTypeDef(BaseValidatorModel):
     assistantArn: str
     assistantId: str
     sessionArn: str
     sessionId: str
 
-class SessionIntegrationConfigurationTypeDef(BaseModel):
+class SessionIntegrationConfigurationTypeDef(BaseValidatorModel):
     topicIntegrationArn: Optional[str] = None
 
-class StartContentUploadRequestRequestTypeDef(BaseModel):
+class StartContentUploadRequestRequestTypeDef(BaseValidatorModel):
     contentType: str
     knowledgeBaseId: str
     presignedUrlTimeToLive: Optional[int] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateContentRequestRequestTypeDef(BaseModel):
+class UpdateContentRequestRequestTypeDef(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
     metadata: Optional[Mapping[str, str]] = None
@@ -337,33 +337,33 @@ class UpdateContentRequestRequestTypeDef(BaseModel):
     title: Optional[str] = None
     uploadId: Optional[str] = None
 
-class UpdateKnowledgeBaseTemplateUriRequestRequestTypeDef(BaseModel):
+class UpdateKnowledgeBaseTemplateUriRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     templateUri: str
 
-class ContentAssociationContentsTypeDef(BaseModel):
+class ContentAssociationContentsTypeDef(BaseValidatorModel):
     amazonConnectGuideAssociation: Optional[AmazonConnectGuideAssociationDataTypeDef] = None
 
-class SourceConfigurationExtraOutputTypeDef(BaseModel):
+class SourceConfigurationExtraOutputTypeDef(BaseValidatorModel):
     appIntegrations: Optional[AppIntegrationsConfigurationExtraOutputTypeDef] = None
 
-class SourceConfigurationOutputTypeDef(BaseModel):
+class SourceConfigurationOutputTypeDef(BaseValidatorModel):
     appIntegrations: Optional[AppIntegrationsConfigurationOutputTypeDef] = None
 
-class SourceConfigurationTypeDef(BaseModel):
+class SourceConfigurationTypeDef(BaseValidatorModel):
     appIntegrations: Optional[AppIntegrationsConfigurationTypeDef] = None
 
-class CreateAssistantAssociationRequestRequestTypeDef(BaseModel):
+class CreateAssistantAssociationRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     association: AssistantAssociationInputDataTypeDef
     associationType: Literal["KNOWLEDGE_BASE"]
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class AssistantAssociationOutputDataTypeDef(BaseModel):
+class AssistantAssociationOutputDataTypeDef(BaseValidatorModel):
     knowledgeBaseAssociation: Optional[KnowledgeBaseAssociationDataTypeDef] = None
 
-class AssistantDataTypeDef(BaseModel):
+class AssistantDataTypeDef(BaseValidatorModel):
     assistantArn: str
     assistantId: str
     name: str
@@ -375,7 +375,7 @@ class AssistantDataTypeDef(BaseModel):
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class AssistantSummaryTypeDef(BaseModel):
+class AssistantSummaryTypeDef(BaseValidatorModel):
     assistantArn: str
     assistantId: str
     name: str
@@ -387,7 +387,7 @@ class AssistantSummaryTypeDef(BaseModel):
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class CreateAssistantRequestRequestTypeDef(BaseModel):
+class CreateAssistantRequestRequestTypeDef(BaseValidatorModel):
     name: str
     type: Literal["AGENT"]
     clientToken: Optional[str] = None
@@ -395,55 +395,55 @@ class CreateAssistantRequestRequestTypeDef(BaseModel):
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ConfigurationTypeDef(BaseModel):
+class ConfigurationTypeDef(BaseValidatorModel):
     connectConfiguration: Optional[ConnectConfigurationTypeDef] = None
 
-class GenerativeDataDetailsTypeDef(BaseModel):
+class GenerativeDataDetailsTypeDef(BaseValidatorModel):
     completion: str
     rankingData: RankingDataTypeDef
     references: List["DataSummaryTypeDef"]
 
-class ContentFeedbackDataTypeDef(BaseModel):
+class ContentFeedbackDataTypeDef(BaseValidatorModel):
     generativeContentFeedbackData: Optional[GenerativeContentFeedbackDataTypeDef] = None
 
-class CreateContentResponseTypeDef(BaseModel):
+class CreateContentResponseTypeDef(BaseValidatorModel):
     content: ContentDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContentResponseTypeDef(BaseModel):
+class GetContentResponseTypeDef(BaseValidatorModel):
     content: ContentDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContentSummaryResponseTypeDef(BaseModel):
+class GetContentSummaryResponseTypeDef(BaseValidatorModel):
     contentSummary: ContentSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListContentsResponseTypeDef(BaseModel):
+class ListContentsResponseTypeDef(BaseValidatorModel):
     contentSummaries: List[ContentSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchContentResponseTypeDef(BaseModel):
+class SearchContentResponseTypeDef(BaseValidatorModel):
     contentSummaries: List[ContentSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartContentUploadResponseTypeDef(BaseModel):
+class StartContentUploadResponseTypeDef(BaseValidatorModel):
     headersToInclude: Dict[str, str]
     uploadId: str
     url: str
     urlExpiry: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateContentResponseTypeDef(BaseModel):
+class UpdateContentResponseTypeDef(BaseValidatorModel):
     content: ContentDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateQuickResponseRequestRequestTypeDef(BaseModel):
+class CreateQuickResponseRequestRequestTypeDef(BaseValidatorModel):
     content: QuickResponseDataProviderTypeDef
     knowledgeBaseId: str
     name: str
@@ -457,7 +457,7 @@ class CreateQuickResponseRequestRequestTypeDef(BaseModel):
     shortcutKey: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateQuickResponseRequestRequestTypeDef(BaseModel):
+class UpdateQuickResponseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
     channels: Optional[Sequence[str]] = None
@@ -473,83 +473,83 @@ class UpdateQuickResponseRequestRequestTypeDef(BaseModel):
     removeShortcutKey: Optional[bool] = None
     shortcutKey: Optional[str] = None
 
-class DataReferenceTypeDef(BaseModel):
+class DataReferenceTypeDef(BaseValidatorModel):
     contentReference: Optional[ContentReferenceTypeDef] = None
     generativeReference: Optional[GenerativeReferenceTypeDef] = None
 
-class DocumentTextTypeDef(BaseModel):
+class DocumentTextTypeDef(BaseValidatorModel):
     highlights: Optional[List[HighlightTypeDef]] = None
     text: Optional[str] = None
 
-class SearchExpressionTypeDef(BaseModel):
+class SearchExpressionTypeDef(BaseValidatorModel):
     filters: Sequence[FilterTypeDef]
 
-class ListAssistantAssociationsRequestListAssistantAssociationsPaginateTypeDef(BaseModel):
+class ListAssistantAssociationsRequestListAssistantAssociationsPaginateTypeDef(BaseValidatorModel):
     assistantId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAssistantsRequestListAssistantsPaginateTypeDef(BaseModel):
+class ListAssistantsRequestListAssistantsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListContentAssociationsRequestListContentAssociationsPaginateTypeDef(BaseModel):
+class ListContentAssociationsRequestListContentAssociationsPaginateTypeDef(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListContentsRequestListContentsPaginateTypeDef(BaseModel):
+class ListContentsRequestListContentsPaginateTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListImportJobsRequestListImportJobsPaginateTypeDef(BaseModel):
+class ListImportJobsRequestListImportJobsPaginateTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListKnowledgeBasesRequestListKnowledgeBasesPaginateTypeDef(BaseModel):
+class ListKnowledgeBasesRequestListKnowledgeBasesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQuickResponsesRequestListQuickResponsesPaginateTypeDef(BaseModel):
+class ListQuickResponsesRequestListQuickResponsesPaginateTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQuickResponsesResponseTypeDef(BaseModel):
+class ListQuickResponsesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     quickResponseSummaries: List[QuickResponseSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NotifyRecommendationsReceivedResponseTypeDef(BaseModel):
+class NotifyRecommendationsReceivedResponseTypeDef(BaseValidatorModel):
     errors: List[NotifyRecommendationsReceivedErrorTypeDef]
     recommendationIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OrConditionOutputTypeDef(BaseModel):
+class OrConditionOutputTypeDef(BaseValidatorModel):
     andConditions: Optional[List[TagConditionTypeDef]] = None
     tagCondition: Optional[TagConditionTypeDef] = None
 
-class OrConditionTypeDef(BaseModel):
+class OrConditionTypeDef(BaseValidatorModel):
     andConditions: Optional[Sequence[TagConditionTypeDef]] = None
     tagCondition: Optional[TagConditionTypeDef] = None
 
-class QueryConditionTypeDef(BaseModel):
+class QueryConditionTypeDef(BaseValidatorModel):
     single: Optional[QueryConditionItemTypeDef] = None
 
-class RecommendationTriggerDataTypeDef(BaseModel):
+class RecommendationTriggerDataTypeDef(BaseValidatorModel):
     query: Optional[QueryRecommendationTriggerDataTypeDef] = None
 
-class QuickResponseContentsTypeDef(BaseModel):
+class QuickResponseContentsTypeDef(BaseValidatorModel):
     markdown: Optional[QuickResponseContentProviderTypeDef] = None
     plainText: Optional[QuickResponseContentProviderTypeDef] = None
 
-class QuickResponseSearchExpressionTypeDef(BaseModel):
+class QuickResponseSearchExpressionTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[QuickResponseFilterFieldTypeDef]] = None
     orderOnField: Optional[QuickResponseOrderFieldTypeDef] = None
     queries: Optional[Sequence[QuickResponseQueryFieldTypeDef]] = None
 
-class SearchSessionsResponseTypeDef(BaseModel):
+class SearchSessionsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     sessionSummaries: List[SessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ContentAssociationDataTypeDef(BaseModel):
+class ContentAssociationDataTypeDef(BaseValidatorModel):
     associationData: ContentAssociationContentsTypeDef
     associationType: Literal["AMAZON_CONNECT_GUIDE"]
     contentArn: str
@@ -560,7 +560,7 @@ class ContentAssociationDataTypeDef(BaseModel):
     knowledgeBaseId: str
     tags: Optional[Dict[str, str]] = None
 
-class ContentAssociationSummaryTypeDef(BaseModel):
+class ContentAssociationSummaryTypeDef(BaseValidatorModel):
     associationData: ContentAssociationContentsTypeDef
     associationType: Literal["AMAZON_CONNECT_GUIDE"]
     contentArn: str
@@ -571,7 +571,7 @@ class ContentAssociationSummaryTypeDef(BaseModel):
     knowledgeBaseId: str
     tags: Optional[Dict[str, str]] = None
 
-class CreateContentAssociationRequestRequestTypeDef(BaseModel):
+class CreateContentAssociationRequestRequestTypeDef(BaseValidatorModel):
     association: ContentAssociationContentsTypeDef
     associationType: Literal["AMAZON_CONNECT_GUIDE"]
     contentId: str
@@ -579,7 +579,7 @@ class CreateContentAssociationRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class KnowledgeBaseDataTypeDef(BaseModel):
+class KnowledgeBaseDataTypeDef(BaseValidatorModel):
     knowledgeBaseArn: str
     knowledgeBaseId: str
     knowledgeBaseType: KnowledgeBaseTypeType
@@ -592,7 +592,7 @@ class KnowledgeBaseDataTypeDef(BaseModel):
     sourceConfiguration: Optional[SourceConfigurationOutputTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class KnowledgeBaseSummaryTypeDef(BaseModel):
+class KnowledgeBaseSummaryTypeDef(BaseValidatorModel):
     knowledgeBaseArn: str
     knowledgeBaseId: str
     knowledgeBaseType: KnowledgeBaseTypeType
@@ -604,7 +604,7 @@ class KnowledgeBaseSummaryTypeDef(BaseModel):
     sourceConfiguration: Optional[SourceConfigurationOutputTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class CreateKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class CreateKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseType: KnowledgeBaseTypeType
     name: str
     clientToken: Optional[str] = None
@@ -614,7 +614,7 @@ class CreateKnowledgeBaseRequestRequestTypeDef(BaseModel):
     sourceConfiguration: Optional[SourceConfigurationTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class AssistantAssociationDataTypeDef(BaseModel):
+class AssistantAssociationDataTypeDef(BaseValidatorModel):
     assistantArn: str
     assistantAssociationArn: str
     assistantAssociationId: str
@@ -623,7 +623,7 @@ class AssistantAssociationDataTypeDef(BaseModel):
     associationType: Literal["KNOWLEDGE_BASE"]
     tags: Optional[Dict[str, str]] = None
 
-class AssistantAssociationSummaryTypeDef(BaseModel):
+class AssistantAssociationSummaryTypeDef(BaseValidatorModel):
     assistantArn: str
     assistantAssociationArn: str
     assistantAssociationId: str
@@ -632,30 +632,30 @@ class AssistantAssociationSummaryTypeDef(BaseModel):
     associationType: Literal["KNOWLEDGE_BASE"]
     tags: Optional[Dict[str, str]] = None
 
-class CreateAssistantResponseTypeDef(BaseModel):
+class CreateAssistantResponseTypeDef(BaseValidatorModel):
     assistant: AssistantDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAssistantResponseTypeDef(BaseModel):
+class GetAssistantResponseTypeDef(BaseValidatorModel):
     assistant: AssistantDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssistantsResponseTypeDef(BaseModel):
+class ListAssistantsResponseTypeDef(BaseValidatorModel):
     assistantSummaries: List[AssistantSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExternalSourceConfigurationTypeDef(BaseModel):
+class ExternalSourceConfigurationTypeDef(BaseValidatorModel):
     configuration: ConfigurationTypeDef
     source: Literal["AMAZON_CONNECT"]
 
-class PutFeedbackRequestRequestTypeDef(BaseModel):
+class PutFeedbackRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     contentFeedback: ContentFeedbackDataTypeDef
     targetId: str
     targetType: TargetTypeType
 
-class PutFeedbackResponseTypeDef(BaseModel):
+class PutFeedbackResponseTypeDef(BaseValidatorModel):
     assistantArn: str
     assistantId: str
     contentFeedback: ContentFeedbackDataTypeDef
@@ -663,59 +663,59 @@ class PutFeedbackResponseTypeDef(BaseModel):
     targetType: TargetTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataSummaryTypeDef(BaseModel):
+class DataSummaryTypeDef(BaseValidatorModel):
     details: "DataDetailsTypeDef"
     reference: DataReferenceTypeDef
 
-class DocumentTypeDef(BaseModel):
+class DocumentTypeDef(BaseValidatorModel):
     contentReference: ContentReferenceTypeDef
     excerpt: Optional[DocumentTextTypeDef] = None
     title: Optional[DocumentTextTypeDef] = None
 
-class TextDataTypeDef(BaseModel):
+class TextDataTypeDef(BaseValidatorModel):
     excerpt: Optional[DocumentTextTypeDef] = None
     title: Optional[DocumentTextTypeDef] = None
 
-class SearchContentRequestRequestTypeDef(BaseModel):
+class SearchContentRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     searchExpression: SearchExpressionTypeDef
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class SearchContentRequestSearchContentPaginateTypeDef(BaseModel):
+class SearchContentRequestSearchContentPaginateTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     searchExpression: SearchExpressionTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchSessionsRequestRequestTypeDef(BaseModel):
+class SearchSessionsRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     searchExpression: SearchExpressionTypeDef
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class SearchSessionsRequestSearchSessionsPaginateTypeDef(BaseModel):
+class SearchSessionsRequestSearchSessionsPaginateTypeDef(BaseValidatorModel):
     assistantId: str
     searchExpression: SearchExpressionTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class TagFilterOutputTypeDef(BaseModel):
+class TagFilterOutputTypeDef(BaseValidatorModel):
     andConditions: Optional[List[TagConditionTypeDef]] = None
     orConditions: Optional[List[OrConditionOutputTypeDef]] = None
     tagCondition: Optional[TagConditionTypeDef] = None
 
-class TagFilterTypeDef(BaseModel):
+class TagFilterTypeDef(BaseValidatorModel):
     andConditions: Optional[Sequence[TagConditionTypeDef]] = None
     orConditions: Optional[Sequence[OrConditionTypeDef]] = None
     tagCondition: Optional[TagConditionTypeDef] = None
 
-class QueryAssistantRequestQueryAssistantPaginateTypeDef(BaseModel):
+class QueryAssistantRequestQueryAssistantPaginateTypeDef(BaseValidatorModel):
     assistantId: str
     queryText: str
     queryCondition: Optional[Sequence[QueryConditionTypeDef]] = None
     sessionId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class QueryAssistantRequestRequestTypeDef(BaseModel):
+class QueryAssistantRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     queryText: str
     maxResults: Optional[int] = None
@@ -723,14 +723,14 @@ class QueryAssistantRequestRequestTypeDef(BaseModel):
     queryCondition: Optional[Sequence[QueryConditionTypeDef]] = None
     sessionId: Optional[str] = None
 
-class RecommendationTriggerTypeDef(BaseModel):
+class RecommendationTriggerTypeDef(BaseValidatorModel):
     data: RecommendationTriggerDataTypeDef
     id: str
     recommendationIds: List[str]
     source: RecommendationSourceTypeType
     type: RecommendationTriggerTypeType
 
-class QuickResponseDataTypeDef(BaseModel):
+class QuickResponseDataTypeDef(BaseValidatorModel):
     contentType: str
     createdTime: datetime
     knowledgeBaseArn: str
@@ -750,7 +750,7 @@ class QuickResponseDataTypeDef(BaseModel):
     shortcutKey: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class QuickResponseSearchResultDataTypeDef(BaseModel):
+class QuickResponseSearchResultDataTypeDef(BaseValidatorModel):
     contentType: str
     contents: QuickResponseContentsTypeDef
     createdTime: datetime
@@ -772,63 +772,63 @@ class QuickResponseSearchResultDataTypeDef(BaseModel):
     shortcutKey: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class SearchQuickResponsesRequestRequestTypeDef(BaseModel):
+class SearchQuickResponsesRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     searchExpression: QuickResponseSearchExpressionTypeDef
     attributes: Optional[Mapping[str, str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class SearchQuickResponsesRequestSearchQuickResponsesPaginateTypeDef(BaseModel):
+class SearchQuickResponsesRequestSearchQuickResponsesPaginateTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     searchExpression: QuickResponseSearchExpressionTypeDef
     attributes: Optional[Mapping[str, str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class CreateContentAssociationResponseTypeDef(BaseModel):
+class CreateContentAssociationResponseTypeDef(BaseValidatorModel):
     contentAssociation: ContentAssociationDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContentAssociationResponseTypeDef(BaseModel):
+class GetContentAssociationResponseTypeDef(BaseValidatorModel):
     contentAssociation: ContentAssociationDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListContentAssociationsResponseTypeDef(BaseModel):
+class ListContentAssociationsResponseTypeDef(BaseValidatorModel):
     contentAssociationSummaries: List[ContentAssociationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateKnowledgeBaseResponseTypeDef(BaseModel):
+class CreateKnowledgeBaseResponseTypeDef(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetKnowledgeBaseResponseTypeDef(BaseModel):
+class GetKnowledgeBaseResponseTypeDef(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateKnowledgeBaseTemplateUriResponseTypeDef(BaseModel):
+class UpdateKnowledgeBaseTemplateUriResponseTypeDef(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListKnowledgeBasesResponseTypeDef(BaseModel):
+class ListKnowledgeBasesResponseTypeDef(BaseValidatorModel):
     knowledgeBaseSummaries: List[KnowledgeBaseSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAssistantAssociationResponseTypeDef(BaseModel):
+class CreateAssistantAssociationResponseTypeDef(BaseValidatorModel):
     assistantAssociation: AssistantAssociationDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAssistantAssociationResponseTypeDef(BaseModel):
+class GetAssistantAssociationResponseTypeDef(BaseValidatorModel):
     assistantAssociation: AssistantAssociationDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssistantAssociationsResponseTypeDef(BaseModel):
+class ListAssistantAssociationsResponseTypeDef(BaseValidatorModel):
     assistantAssociationSummaries: List[AssistantAssociationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportJobDataTypeDef(BaseModel):
+class ImportJobDataTypeDef(BaseValidatorModel):
     createdTime: datetime
     importJobId: str
     importJobType: Literal["QUICK_RESPONSES"]
@@ -843,7 +843,7 @@ class ImportJobDataTypeDef(BaseModel):
     failedRecordReport: Optional[str] = None
     metadata: Optional[Dict[str, str]] = None
 
-class ImportJobSummaryTypeDef(BaseModel):
+class ImportJobSummaryTypeDef(BaseValidatorModel):
     createdTime: datetime
     importJobId: str
     importJobType: Literal["QUICK_RESPONSES"]
@@ -855,7 +855,7 @@ class ImportJobSummaryTypeDef(BaseModel):
     externalSourceConfiguration: Optional[ExternalSourceConfigurationTypeDef] = None
     metadata: Optional[Dict[str, str]] = None
 
-class StartImportJobRequestRequestTypeDef(BaseModel):
+class StartImportJobRequestRequestTypeDef(BaseValidatorModel):
     importJobType: Literal["QUICK_RESPONSES"]
     knowledgeBaseId: str
     uploadId: str
@@ -863,7 +863,7 @@ class StartImportJobRequestRequestTypeDef(BaseModel):
     externalSourceConfiguration: Optional[ExternalSourceConfigurationTypeDef] = None
     metadata: Optional[Mapping[str, str]] = None
 
-class RecommendationDataTypeDef(BaseModel):
+class RecommendationDataTypeDef(BaseValidatorModel):
     recommendationId: str
     data: Optional["DataSummaryTypeDef"] = None
     document: Optional[DocumentTypeDef] = None
@@ -871,24 +871,24 @@ class RecommendationDataTypeDef(BaseModel):
     relevanceScore: Optional[float] = None
     type: Optional[RecommendationTypeType] = None
 
-class ResultDataTypeDef(BaseModel):
+class ResultDataTypeDef(BaseValidatorModel):
     resultId: str
     data: Optional["DataSummaryTypeDef"] = None
     document: Optional[DocumentTypeDef] = None
     relevanceScore: Optional[float] = None
     type: Optional[QueryResultTypeType] = None
 
-class ContentDataDetailsTypeDef(BaseModel):
+class ContentDataDetailsTypeDef(BaseValidatorModel):
     rankingData: RankingDataTypeDef
     textData: TextDataTypeDef
 
-class SourceContentDataDetailsTypeDef(BaseModel):
+class SourceContentDataDetailsTypeDef(BaseValidatorModel):
     id: str
     rankingData: RankingDataTypeDef
     textData: TextDataTypeDef
     type: Literal["KNOWLEDGE_CONTENT"]
 
-class SessionDataTypeDef(BaseModel):
+class SessionDataTypeDef(BaseValidatorModel):
     name: str
     sessionArn: str
     sessionId: str
@@ -897,7 +897,7 @@ class SessionDataTypeDef(BaseModel):
     tagFilter: Optional[TagFilterOutputTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class CreateSessionRequestRequestTypeDef(BaseModel):
+class CreateSessionRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     name: str
     clientToken: Optional[str] = None
@@ -905,66 +905,66 @@ class CreateSessionRequestRequestTypeDef(BaseModel):
     tagFilter: Optional[TagFilterTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateSessionRequestRequestTypeDef(BaseModel):
+class UpdateSessionRequestRequestTypeDef(BaseValidatorModel):
     assistantId: str
     sessionId: str
     description: Optional[str] = None
     tagFilter: Optional[TagFilterTypeDef] = None
 
-class CreateQuickResponseResponseTypeDef(BaseModel):
+class CreateQuickResponseResponseTypeDef(BaseValidatorModel):
     quickResponse: QuickResponseDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetQuickResponseResponseTypeDef(BaseModel):
+class GetQuickResponseResponseTypeDef(BaseValidatorModel):
     quickResponse: QuickResponseDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateQuickResponseResponseTypeDef(BaseModel):
+class UpdateQuickResponseResponseTypeDef(BaseValidatorModel):
     quickResponse: QuickResponseDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchQuickResponsesResponseTypeDef(BaseModel):
+class SearchQuickResponsesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     results: List[QuickResponseSearchResultDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImportJobResponseTypeDef(BaseModel):
+class GetImportJobResponseTypeDef(BaseValidatorModel):
     importJob: ImportJobDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartImportJobResponseTypeDef(BaseModel):
+class StartImportJobResponseTypeDef(BaseValidatorModel):
     importJob: ImportJobDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListImportJobsResponseTypeDef(BaseModel):
+class ListImportJobsResponseTypeDef(BaseValidatorModel):
     importJobSummaries: List[ImportJobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRecommendationsResponseTypeDef(BaseModel):
+class GetRecommendationsResponseTypeDef(BaseValidatorModel):
     recommendations: List[RecommendationDataTypeDef]
     triggers: List[RecommendationTriggerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class QueryAssistantResponseTypeDef(BaseModel):
+class QueryAssistantResponseTypeDef(BaseValidatorModel):
     nextToken: str
     results: List[ResultDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataDetailsTypeDef(BaseModel):
+class DataDetailsTypeDef(BaseValidatorModel):
     contentData: Optional[ContentDataDetailsTypeDef] = None
     generativeData: Optional["GenerativeDataDetailsTypeDef"] = None
     sourceContentData: Optional[SourceContentDataDetailsTypeDef] = None
 
-class CreateSessionResponseTypeDef(BaseModel):
+class CreateSessionResponseTypeDef(BaseValidatorModel):
     session: SessionDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSessionResponseTypeDef(BaseModel):
+class GetSessionResponseTypeDef(BaseValidatorModel):
     session: SessionDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSessionResponseTypeDef(BaseModel):
+class UpdateSessionResponseTypeDef(BaseValidatorModel):
     session: SessionDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

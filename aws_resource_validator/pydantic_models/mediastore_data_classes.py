@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,24 +11,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mediastore_data_constants import *
 
-class DeleteObjectRequestRequestTypeDef(BaseModel):
+class DeleteObjectRequestRequestTypeDef(BaseValidatorModel):
     Path: str
 
-class DescribeObjectRequestRequestTypeDef(BaseModel):
+class DescribeObjectRequestRequestTypeDef(BaseValidatorModel):
     Path: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class GetObjectRequestRequestTypeDef(BaseModel):
+class GetObjectRequestRequestTypeDef(BaseValidatorModel):
     Path: str
     Range: Optional[str] = None
 
-class ItemTypeDef(BaseModel):
+class ItemTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Type: Optional[ItemTypeType] = None
     ETag: Optional[str] = None
@@ -36,17 +36,17 @@ class ItemTypeDef(BaseModel):
     ContentType: Optional[str] = None
     ContentLength: Optional[int] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListItemsRequestRequestTypeDef(BaseModel):
+class ListItemsRequestRequestTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class PutObjectRequestRequestTypeDef(BaseModel):
+class PutObjectRequestRequestTypeDef(BaseValidatorModel):
     Body: BlobTypeDef
     Path: str
     ContentType: Optional[str] = None
@@ -54,7 +54,7 @@ class PutObjectRequestRequestTypeDef(BaseModel):
     StorageClass: Optional[Literal["TEMPORAL"]] = None
     UploadAvailability: Optional[UploadAvailabilityType] = None
 
-class DescribeObjectResponseTypeDef(BaseModel):
+class DescribeObjectResponseTypeDef(BaseValidatorModel):
     ETag: str
     ContentType: str
     ContentLength: int
@@ -62,7 +62,7 @@ class DescribeObjectResponseTypeDef(BaseModel):
     LastModified: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetObjectResponseTypeDef(BaseModel):
+class GetObjectResponseTypeDef(BaseValidatorModel):
     Body: StreamingBody
     CacheControl: str
     ContentRange: str
@@ -73,18 +73,18 @@ class GetObjectResponseTypeDef(BaseModel):
     StatusCode: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutObjectResponseTypeDef(BaseModel):
+class PutObjectResponseTypeDef(BaseValidatorModel):
     ContentSHA256: str
     ETag: str
     StorageClass: Literal["TEMPORAL"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListItemsResponseTypeDef(BaseModel):
+class ListItemsResponseTypeDef(BaseValidatorModel):
     Items: List[ItemTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListItemsRequestListItemsPaginateTypeDef(BaseModel):
+class ListItemsRequestListItemsPaginateTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,17 +11,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.organizations_constants import *
 
-class AcceptHandshakeRequestRequestTypeDef(BaseModel):
+class AcceptHandshakeRequestRequestTypeDef(BaseValidatorModel):
     HandshakeId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AccountTypeDef(BaseModel):
+class AccountTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Email: Optional[str] = None
@@ -30,25 +30,25 @@ class AccountTypeDef(BaseModel):
     JoinedMethod: Optional[AccountJoinedMethodType] = None
     JoinedTimestamp: Optional[datetime] = None
 
-class AttachPolicyRequestRequestTypeDef(BaseModel):
+class AttachPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyId: str
     TargetId: str
 
-class CancelHandshakeRequestRequestTypeDef(BaseModel):
+class CancelHandshakeRequestRequestTypeDef(BaseValidatorModel):
     HandshakeId: str
 
-class ChildTypeDef(BaseModel):
+class ChildTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Type: Optional[ChildTypeType] = None
 
-class CloseAccountRequestRequestTypeDef(BaseModel):
+class CloseAccountRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class CreateAccountStatusTypeDef(BaseModel):
+class CreateAccountStatusTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     AccountName: Optional[str] = None
     State: Optional[CreateAccountStateType] = None
@@ -58,18 +58,18 @@ class CreateAccountStatusTypeDef(BaseModel):
     GovCloudAccountId: Optional[str] = None
     FailureReason: Optional[CreateAccountFailureReasonType] = None
 
-class CreateOrganizationRequestRequestTypeDef(BaseModel):
+class CreateOrganizationRequestRequestTypeDef(BaseValidatorModel):
     FeatureSet: Optional[OrganizationFeatureSetType] = None
 
-class OrganizationalUnitTypeDef(BaseModel):
+class OrganizationalUnitTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class DeclineHandshakeRequestRequestTypeDef(BaseModel):
+class DeclineHandshakeRequestRequestTypeDef(BaseValidatorModel):
     HandshakeId: str
 
-class DelegatedAdministratorTypeDef(BaseModel):
+class DelegatedAdministratorTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Email: Optional[str] = None
@@ -79,140 +79,140 @@ class DelegatedAdministratorTypeDef(BaseModel):
     JoinedTimestamp: Optional[datetime] = None
     DelegationEnabledDate: Optional[datetime] = None
 
-class DelegatedServiceTypeDef(BaseModel):
+class DelegatedServiceTypeDef(BaseValidatorModel):
     ServicePrincipal: Optional[str] = None
     DelegationEnabledDate: Optional[datetime] = None
 
-class DeleteOrganizationalUnitRequestRequestTypeDef(BaseModel):
+class DeleteOrganizationalUnitRequestRequestTypeDef(BaseValidatorModel):
     OrganizationalUnitId: str
 
-class DeletePolicyRequestRequestTypeDef(BaseModel):
+class DeletePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyId: str
 
-class DeregisterDelegatedAdministratorRequestRequestTypeDef(BaseModel):
+class DeregisterDelegatedAdministratorRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ServicePrincipal: str
 
-class DescribeAccountRequestRequestTypeDef(BaseModel):
+class DescribeAccountRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class DescribeCreateAccountStatusRequestRequestTypeDef(BaseModel):
+class DescribeCreateAccountStatusRequestRequestTypeDef(BaseValidatorModel):
     CreateAccountRequestId: str
 
-class DescribeEffectivePolicyRequestRequestTypeDef(BaseModel):
+class DescribeEffectivePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyType: EffectivePolicyTypeType
     TargetId: Optional[str] = None
 
-class EffectivePolicyTypeDef(BaseModel):
+class EffectivePolicyTypeDef(BaseValidatorModel):
     PolicyContent: Optional[str] = None
     LastUpdatedTimestamp: Optional[datetime] = None
     TargetId: Optional[str] = None
     PolicyType: Optional[EffectivePolicyTypeType] = None
 
-class DescribeHandshakeRequestRequestTypeDef(BaseModel):
+class DescribeHandshakeRequestRequestTypeDef(BaseValidatorModel):
     HandshakeId: str
 
-class DescribeOrganizationalUnitRequestRequestTypeDef(BaseModel):
+class DescribeOrganizationalUnitRequestRequestTypeDef(BaseValidatorModel):
     OrganizationalUnitId: str
 
-class DescribePolicyRequestRequestTypeDef(BaseModel):
+class DescribePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyId: str
 
-class DetachPolicyRequestRequestTypeDef(BaseModel):
+class DetachPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyId: str
     TargetId: str
 
-class DisableAWSServiceAccessRequestRequestTypeDef(BaseModel):
+class DisableAWSServiceAccessRequestRequestTypeDef(BaseValidatorModel):
     ServicePrincipal: str
 
-class DisablePolicyTypeRequestRequestTypeDef(BaseModel):
+class DisablePolicyTypeRequestRequestTypeDef(BaseValidatorModel):
     RootId: str
     PolicyType: PolicyTypeType
 
-class EnableAWSServiceAccessRequestRequestTypeDef(BaseModel):
+class EnableAWSServiceAccessRequestRequestTypeDef(BaseValidatorModel):
     ServicePrincipal: str
 
-class EnablePolicyTypeRequestRequestTypeDef(BaseModel):
+class EnablePolicyTypeRequestRequestTypeDef(BaseValidatorModel):
     RootId: str
     PolicyType: PolicyTypeType
 
-class EnabledServicePrincipalTypeDef(BaseModel):
+class EnabledServicePrincipalTypeDef(BaseValidatorModel):
     ServicePrincipal: Optional[str] = None
     DateEnabled: Optional[datetime] = None
 
-class HandshakeFilterTypeDef(BaseModel):
+class HandshakeFilterTypeDef(BaseValidatorModel):
     ActionType: Optional[ActionTypeType] = None
     ParentHandshakeId: Optional[str] = None
 
-class HandshakePartyTypeDef(BaseModel):
+class HandshakePartyTypeDef(BaseValidatorModel):
     Id: str
     Type: HandshakePartyTypeType
 
-class HandshakeResourceTypeDef(BaseModel):
+class HandshakeResourceTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     Type: Optional[HandshakeResourceTypeType] = None
     Resources: Optional[List[Dict[str, Any]]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAWSServiceAccessForOrganizationRequestRequestTypeDef(BaseModel):
+class ListAWSServiceAccessForOrganizationRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListAccountsForParentRequestRequestTypeDef(BaseModel):
+class ListAccountsForParentRequestRequestTypeDef(BaseValidatorModel):
     ParentId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListAccountsRequestRequestTypeDef(BaseModel):
+class ListAccountsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListChildrenRequestRequestTypeDef(BaseModel):
+class ListChildrenRequestRequestTypeDef(BaseValidatorModel):
     ParentId: str
     ChildType: ChildTypeType
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListCreateAccountStatusRequestRequestTypeDef(BaseModel):
+class ListCreateAccountStatusRequestRequestTypeDef(BaseValidatorModel):
     States: Optional[Sequence[CreateAccountStateType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDelegatedAdministratorsRequestRequestTypeDef(BaseModel):
+class ListDelegatedAdministratorsRequestRequestTypeDef(BaseValidatorModel):
     ServicePrincipal: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDelegatedServicesForAccountRequestRequestTypeDef(BaseModel):
+class ListDelegatedServicesForAccountRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListOrganizationalUnitsForParentRequestRequestTypeDef(BaseModel):
+class ListOrganizationalUnitsForParentRequestRequestTypeDef(BaseValidatorModel):
     ParentId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListParentsRequestRequestTypeDef(BaseModel):
+class ListParentsRequestRequestTypeDef(BaseValidatorModel):
     ChildId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ParentTypeDef(BaseModel):
+class ParentTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Type: Optional[ParentTypeType] = None
 
-class ListPoliciesForTargetRequestRequestTypeDef(BaseModel):
+class ListPoliciesForTargetRequestRequestTypeDef(BaseValidatorModel):
     TargetId: str
     Filter: PolicyTypeType
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PolicySummaryTypeDef(BaseModel):
+class PolicySummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -220,189 +220,189 @@ class PolicySummaryTypeDef(BaseModel):
     Type: Optional[PolicyTypeType] = None
     AwsManaged: Optional[bool] = None
 
-class ListPoliciesRequestRequestTypeDef(BaseModel):
+class ListPoliciesRequestRequestTypeDef(BaseValidatorModel):
     Filter: PolicyTypeType
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListRootsRequestRequestTypeDef(BaseModel):
+class ListRootsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     NextToken: Optional[str] = None
 
-class ListTargetsForPolicyRequestRequestTypeDef(BaseModel):
+class ListTargetsForPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PolicyTargetSummaryTypeDef(BaseModel):
+class PolicyTargetSummaryTypeDef(BaseValidatorModel):
     TargetId: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Type: Optional[TargetTypeType] = None
 
-class MoveAccountRequestRequestTypeDef(BaseModel):
+class MoveAccountRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     SourceParentId: str
     DestinationParentId: str
 
-class PolicyTypeSummaryTypeDef(BaseModel):
+class PolicyTypeSummaryTypeDef(BaseValidatorModel):
     Type: Optional[PolicyTypeType] = None
     Status: Optional[PolicyTypeStatusType] = None
 
-class RegisterDelegatedAdministratorRequestRequestTypeDef(BaseModel):
+class RegisterDelegatedAdministratorRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ServicePrincipal: str
 
-class RemoveAccountFromOrganizationRequestRequestTypeDef(BaseModel):
+class RemoveAccountFromOrganizationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class ResourcePolicySummaryTypeDef(BaseModel):
+class ResourcePolicySummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     TagKeys: Sequence[str]
 
-class UpdateOrganizationalUnitRequestRequestTypeDef(BaseModel):
+class UpdateOrganizationalUnitRequestRequestTypeDef(BaseValidatorModel):
     OrganizationalUnitId: str
     Name: Optional[str] = None
 
-class UpdatePolicyRequestRequestTypeDef(BaseModel):
+class UpdatePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     Content: Optional[str] = None
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAccountResponseTypeDef(BaseModel):
+class DescribeAccountResponseTypeDef(BaseValidatorModel):
     Account: AccountTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccountsForParentResponseTypeDef(BaseModel):
+class ListAccountsForParentResponseTypeDef(BaseValidatorModel):
     Accounts: List[AccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListAccountsResponseTypeDef(BaseModel):
+class ListAccountsResponseTypeDef(BaseValidatorModel):
     Accounts: List[AccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListChildrenResponseTypeDef(BaseModel):
+class ListChildrenResponseTypeDef(BaseValidatorModel):
     Children: List[ChildTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateAccountRequestRequestTypeDef(BaseModel):
+class CreateAccountRequestRequestTypeDef(BaseValidatorModel):
     Email: str
     AccountName: str
     RoleName: Optional[str] = None
     IamUserAccessToBilling: Optional[IAMUserAccessToBillingType] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateGovCloudAccountRequestRequestTypeDef(BaseModel):
+class CreateGovCloudAccountRequestRequestTypeDef(BaseValidatorModel):
     Email: str
     AccountName: str
     RoleName: Optional[str] = None
     IamUserAccessToBilling: Optional[IAMUserAccessToBillingType] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateOrganizationalUnitRequestRequestTypeDef(BaseModel):
+class CreateOrganizationalUnitRequestRequestTypeDef(BaseValidatorModel):
     ParentId: str
     Name: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreatePolicyRequestRequestTypeDef(BaseModel):
+class CreatePolicyRequestRequestTypeDef(BaseValidatorModel):
     Content: str
     Description: str
     Name: str
     Type: PolicyTypeType
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutResourcePolicyRequestRequestTypeDef(BaseModel):
+class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     Content: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     Tags: Sequence[TagTypeDef]
 
-class CreateAccountResponseTypeDef(BaseModel):
+class CreateAccountResponseTypeDef(BaseValidatorModel):
     CreateAccountStatus: CreateAccountStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGovCloudAccountResponseTypeDef(BaseModel):
+class CreateGovCloudAccountResponseTypeDef(BaseValidatorModel):
     CreateAccountStatus: CreateAccountStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCreateAccountStatusResponseTypeDef(BaseModel):
+class DescribeCreateAccountStatusResponseTypeDef(BaseValidatorModel):
     CreateAccountStatus: CreateAccountStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCreateAccountStatusResponseTypeDef(BaseModel):
+class ListCreateAccountStatusResponseTypeDef(BaseValidatorModel):
     CreateAccountStatuses: List[CreateAccountStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateOrganizationalUnitResponseTypeDef(BaseModel):
+class CreateOrganizationalUnitResponseTypeDef(BaseValidatorModel):
     OrganizationalUnit: OrganizationalUnitTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeOrganizationalUnitResponseTypeDef(BaseModel):
+class DescribeOrganizationalUnitResponseTypeDef(BaseValidatorModel):
     OrganizationalUnit: OrganizationalUnitTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOrganizationalUnitsForParentResponseTypeDef(BaseModel):
+class ListOrganizationalUnitsForParentResponseTypeDef(BaseValidatorModel):
     OrganizationalUnits: List[OrganizationalUnitTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateOrganizationalUnitResponseTypeDef(BaseModel):
+class UpdateOrganizationalUnitResponseTypeDef(BaseValidatorModel):
     OrganizationalUnit: OrganizationalUnitTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDelegatedAdministratorsResponseTypeDef(BaseModel):
+class ListDelegatedAdministratorsResponseTypeDef(BaseValidatorModel):
     DelegatedAdministrators: List[DelegatedAdministratorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListDelegatedServicesForAccountResponseTypeDef(BaseModel):
+class ListDelegatedServicesForAccountResponseTypeDef(BaseValidatorModel):
     DelegatedServices: List[DelegatedServiceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeEffectivePolicyResponseTypeDef(BaseModel):
+class DescribeEffectivePolicyResponseTypeDef(BaseValidatorModel):
     EffectivePolicy: EffectivePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAWSServiceAccessForOrganizationResponseTypeDef(BaseModel):
+class ListAWSServiceAccessForOrganizationResponseTypeDef(BaseValidatorModel):
     EnabledServicePrincipals: List[EnabledServicePrincipalTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListHandshakesForAccountRequestRequestTypeDef(BaseModel):
+class ListHandshakesForAccountRequestRequestTypeDef(BaseValidatorModel):
     Filter: Optional[HandshakeFilterTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListHandshakesForOrganizationRequestRequestTypeDef(BaseModel):
+class ListHandshakesForOrganizationRequestRequestTypeDef(BaseValidatorModel):
     Filter: Optional[HandshakeFilterTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class HandshakeTypeDef(BaseModel):
+class HandshakeTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Parties: Optional[List[HandshakePartyTypeDef]] = None
@@ -412,99 +412,99 @@ class HandshakeTypeDef(BaseModel):
     Action: Optional[ActionTypeType] = None
     Resources: Optional[List["HandshakeResourceTypeDef"]] = None
 
-class InviteAccountToOrganizationRequestRequestTypeDef(BaseModel):
+class InviteAccountToOrganizationRequestRequestTypeDef(BaseValidatorModel):
     Target: HandshakePartyTypeDef
     Notes: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListAWSServiceAccessForOrganizationRequestListAWSServiceAccessForOrganizationPaginateTypeDef(BaseModel):
+class ListAWSServiceAccessForOrganizationRequestListAWSServiceAccessForOrganizationPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccountsForParentRequestListAccountsForParentPaginateTypeDef(BaseModel):
+class ListAccountsForParentRequestListAccountsForParentPaginateTypeDef(BaseValidatorModel):
     ParentId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccountsRequestListAccountsPaginateTypeDef(BaseModel):
+class ListAccountsRequestListAccountsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListChildrenRequestListChildrenPaginateTypeDef(BaseModel):
+class ListChildrenRequestListChildrenPaginateTypeDef(BaseValidatorModel):
     ParentId: str
     ChildType: ChildTypeType
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCreateAccountStatusRequestListCreateAccountStatusPaginateTypeDef(BaseModel):
+class ListCreateAccountStatusRequestListCreateAccountStatusPaginateTypeDef(BaseValidatorModel):
     States: Optional[Sequence[CreateAccountStateType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDelegatedAdministratorsRequestListDelegatedAdministratorsPaginateTypeDef(BaseModel):
+class ListDelegatedAdministratorsRequestListDelegatedAdministratorsPaginateTypeDef(BaseValidatorModel):
     ServicePrincipal: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDelegatedServicesForAccountRequestListDelegatedServicesForAccountPaginateTypeDef(BaseModel):
+class ListDelegatedServicesForAccountRequestListDelegatedServicesForAccountPaginateTypeDef(BaseValidatorModel):
     AccountId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHandshakesForAccountRequestListHandshakesForAccountPaginateTypeDef(BaseModel):
+class ListHandshakesForAccountRequestListHandshakesForAccountPaginateTypeDef(BaseValidatorModel):
     Filter: Optional[HandshakeFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHandshakesForOrganizationRequestListHandshakesForOrganizationPaginateTypeDef(BaseModel):
+class ListHandshakesForOrganizationRequestListHandshakesForOrganizationPaginateTypeDef(BaseValidatorModel):
     Filter: Optional[HandshakeFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOrganizationalUnitsForParentRequestListOrganizationalUnitsForParentPaginateTypeDef(BaseModel):
+class ListOrganizationalUnitsForParentRequestListOrganizationalUnitsForParentPaginateTypeDef(BaseValidatorModel):
     ParentId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListParentsRequestListParentsPaginateTypeDef(BaseModel):
+class ListParentsRequestListParentsPaginateTypeDef(BaseValidatorModel):
     ChildId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPoliciesForTargetRequestListPoliciesForTargetPaginateTypeDef(BaseModel):
+class ListPoliciesForTargetRequestListPoliciesForTargetPaginateTypeDef(BaseValidatorModel):
     TargetId: str
     Filter: PolicyTypeType
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPoliciesRequestListPoliciesPaginateTypeDef(BaseModel):
+class ListPoliciesRequestListPoliciesPaginateTypeDef(BaseValidatorModel):
     Filter: PolicyTypeType
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRootsRequestListRootsPaginateTypeDef(BaseModel):
+class ListRootsRequestListRootsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     ResourceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTargetsForPolicyRequestListTargetsForPolicyPaginateTypeDef(BaseModel):
+class ListTargetsForPolicyRequestListTargetsForPolicyPaginateTypeDef(BaseValidatorModel):
     PolicyId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListParentsResponseTypeDef(BaseModel):
+class ListParentsResponseTypeDef(BaseValidatorModel):
     Parents: List[ParentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPoliciesForTargetResponseTypeDef(BaseModel):
+class ListPoliciesForTargetResponseTypeDef(BaseValidatorModel):
     Policies: List[PolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPoliciesResponseTypeDef(BaseModel):
+class ListPoliciesResponseTypeDef(BaseValidatorModel):
     Policies: List[PolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PolicyTypeDef(BaseModel):
+class PolicyTypeDef(BaseValidatorModel):
     PolicySummary: Optional[PolicySummaryTypeDef] = None
     Content: Optional[str] = None
 
-class ListTargetsForPolicyResponseTypeDef(BaseModel):
+class ListTargetsForPolicyResponseTypeDef(BaseValidatorModel):
     Targets: List[PolicyTargetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class OrganizationTypeDef(BaseModel):
+class OrganizationTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     FeatureSet: Optional[OrganizationFeatureSetType] = None
@@ -513,88 +513,88 @@ class OrganizationTypeDef(BaseModel):
     MasterAccountEmail: Optional[str] = None
     AvailablePolicyTypes: Optional[List[PolicyTypeSummaryTypeDef]] = None
 
-class RootTypeDef(BaseModel):
+class RootTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     PolicyTypes: Optional[List[PolicyTypeSummaryTypeDef]] = None
 
-class ResourcePolicyTypeDef(BaseModel):
+class ResourcePolicyTypeDef(BaseValidatorModel):
     ResourcePolicySummary: Optional[ResourcePolicySummaryTypeDef] = None
     Content: Optional[str] = None
 
-class AcceptHandshakeResponseTypeDef(BaseModel):
+class AcceptHandshakeResponseTypeDef(BaseValidatorModel):
     Handshake: HandshakeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelHandshakeResponseTypeDef(BaseModel):
+class CancelHandshakeResponseTypeDef(BaseValidatorModel):
     Handshake: HandshakeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeclineHandshakeResponseTypeDef(BaseModel):
+class DeclineHandshakeResponseTypeDef(BaseValidatorModel):
     Handshake: HandshakeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeHandshakeResponseTypeDef(BaseModel):
+class DescribeHandshakeResponseTypeDef(BaseValidatorModel):
     Handshake: HandshakeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableAllFeaturesResponseTypeDef(BaseModel):
+class EnableAllFeaturesResponseTypeDef(BaseValidatorModel):
     Handshake: HandshakeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InviteAccountToOrganizationResponseTypeDef(BaseModel):
+class InviteAccountToOrganizationResponseTypeDef(BaseValidatorModel):
     Handshake: HandshakeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHandshakesForAccountResponseTypeDef(BaseModel):
+class ListHandshakesForAccountResponseTypeDef(BaseValidatorModel):
     Handshakes: List[HandshakeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListHandshakesForOrganizationResponseTypeDef(BaseModel):
+class ListHandshakesForOrganizationResponseTypeDef(BaseValidatorModel):
     Handshakes: List[HandshakeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreatePolicyResponseTypeDef(BaseModel):
+class CreatePolicyResponseTypeDef(BaseValidatorModel):
     Policy: PolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePolicyResponseTypeDef(BaseModel):
+class DescribePolicyResponseTypeDef(BaseValidatorModel):
     Policy: PolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePolicyResponseTypeDef(BaseModel):
+class UpdatePolicyResponseTypeDef(BaseValidatorModel):
     Policy: PolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateOrganizationResponseTypeDef(BaseModel):
+class CreateOrganizationResponseTypeDef(BaseValidatorModel):
     Organization: OrganizationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeOrganizationResponseTypeDef(BaseModel):
+class DescribeOrganizationResponseTypeDef(BaseValidatorModel):
     Organization: OrganizationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisablePolicyTypeResponseTypeDef(BaseModel):
+class DisablePolicyTypeResponseTypeDef(BaseValidatorModel):
     Root: RootTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnablePolicyTypeResponseTypeDef(BaseModel):
+class EnablePolicyTypeResponseTypeDef(BaseValidatorModel):
     Root: RootTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRootsResponseTypeDef(BaseModel):
+class ListRootsResponseTypeDef(BaseValidatorModel):
     Roots: List[RootTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeResourcePolicyResponseTypeDef(BaseModel):
+class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
     ResourcePolicy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutResourcePolicyResponseTypeDef(BaseModel):
+class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
     ResourcePolicy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

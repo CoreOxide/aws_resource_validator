@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,94 +11,94 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.autoscaling_plans_constants import *
 
-class TagFilterTypeDef(BaseModel):
+class TagFilterTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class MetricDimensionTypeDef(BaseModel):
+class MetricDimensionTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class DatapointTypeDef(BaseModel):
+class DatapointTypeDef(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
     Value: Optional[float] = None
 
-class DeleteScalingPlanRequestRequestTypeDef(BaseModel):
+class DeleteScalingPlanRequestRequestTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeScalingPlanResourcesRequestRequestTypeDef(BaseModel):
+class DescribeScalingPlanResourcesRequestRequestTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class PredefinedLoadMetricSpecificationTypeDef(BaseModel):
+class PredefinedLoadMetricSpecificationTypeDef(BaseValidatorModel):
     PredefinedLoadMetricType: LoadMetricTypeType
     ResourceLabel: Optional[str] = None
 
-class PredefinedScalingMetricSpecificationTypeDef(BaseModel):
+class PredefinedScalingMetricSpecificationTypeDef(BaseValidatorModel):
     PredefinedScalingMetricType: ScalingMetricTypeType
     ResourceLabel: Optional[str] = None
 
-class ApplicationSourceTypeDef(BaseModel):
+class ApplicationSourceTypeDef(BaseValidatorModel):
     CloudFormationStackARN: Optional[str] = None
     TagFilters: Optional[Sequence[TagFilterTypeDef]] = None
 
-class CreateScalingPlanResponseTypeDef(BaseModel):
+class CreateScalingPlanResponseTypeDef(BaseValidatorModel):
     ScalingPlanVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CustomizedLoadMetricSpecificationPaginatorTypeDef(BaseModel):
+class CustomizedLoadMetricSpecificationPaginatorTypeDef(BaseValidatorModel):
     MetricName: str
     Namespace: str
     Statistic: MetricStatisticType
     Dimensions: Optional[List[MetricDimensionTypeDef]] = None
     Unit: Optional[str] = None
 
-class CustomizedLoadMetricSpecificationTypeDef(BaseModel):
+class CustomizedLoadMetricSpecificationTypeDef(BaseValidatorModel):
     MetricName: str
     Namespace: str
     Statistic: MetricStatisticType
     Dimensions: Optional[Sequence[MetricDimensionTypeDef]] = None
     Unit: Optional[str] = None
 
-class CustomizedScalingMetricSpecificationPaginatorTypeDef(BaseModel):
+class CustomizedScalingMetricSpecificationPaginatorTypeDef(BaseValidatorModel):
     MetricName: str
     Namespace: str
     Statistic: MetricStatisticType
     Dimensions: Optional[List[MetricDimensionTypeDef]] = None
     Unit: Optional[str] = None
 
-class CustomizedScalingMetricSpecificationTypeDef(BaseModel):
+class CustomizedScalingMetricSpecificationTypeDef(BaseValidatorModel):
     MetricName: str
     Namespace: str
     Statistic: MetricStatisticType
     Dimensions: Optional[Sequence[MetricDimensionTypeDef]] = None
     Unit: Optional[str] = None
 
-class GetScalingPlanResourceForecastDataResponseTypeDef(BaseModel):
+class GetScalingPlanResourceForecastDataResponseTypeDef(BaseValidatorModel):
     Datapoints: List[DatapointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeScalingPlanResourcesRequestDescribeScalingPlanResourcesPaginateTypeDef(BaseModel):
+class DescribeScalingPlanResourcesRequestDescribeScalingPlanResourcesPaginateTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetScalingPlanResourceForecastDataRequestRequestTypeDef(BaseModel):
+class GetScalingPlanResourceForecastDataRequestRequestTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
     ServiceNamespace: ServiceNamespaceType
@@ -108,20 +108,20 @@ class GetScalingPlanResourceForecastDataRequestRequestTypeDef(BaseModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
 
-class DescribeScalingPlansRequestDescribeScalingPlansPaginateTypeDef(BaseModel):
+class DescribeScalingPlansRequestDescribeScalingPlansPaginateTypeDef(BaseValidatorModel):
     ScalingPlanNames: Optional[Sequence[str]] = None
     ScalingPlanVersion: Optional[int] = None
     ApplicationSources: Optional[Sequence[ApplicationSourceTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeScalingPlansRequestRequestTypeDef(BaseModel):
+class DescribeScalingPlansRequestRequestTypeDef(BaseValidatorModel):
     ScalingPlanNames: Optional[Sequence[str]] = None
     ScalingPlanVersion: Optional[int] = None
     ApplicationSources: Optional[Sequence[ApplicationSourceTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class TargetTrackingConfigurationPaginatorTypeDef(BaseModel):
+class TargetTrackingConfigurationPaginatorTypeDef(BaseValidatorModel):
     TargetValue: float
     PredefinedScalingMetricSpecification: Optional[       PredefinedScalingMetricSpecificationTypeDef     ] = None
     CustomizedScalingMetricSpecification: Optional[       CustomizedScalingMetricSpecificationPaginatorTypeDef     ] = None
@@ -130,7 +130,7 @@ class TargetTrackingConfigurationPaginatorTypeDef(BaseModel):
     ScaleInCooldown: Optional[int] = None
     EstimatedInstanceWarmup: Optional[int] = None
 
-class TargetTrackingConfigurationTypeDef(BaseModel):
+class TargetTrackingConfigurationTypeDef(BaseValidatorModel):
     TargetValue: float
     PredefinedScalingMetricSpecification: Optional[       PredefinedScalingMetricSpecificationTypeDef     ] = None
     CustomizedScalingMetricSpecification: Optional[       CustomizedScalingMetricSpecificationTypeDef     ] = None
@@ -139,7 +139,7 @@ class TargetTrackingConfigurationTypeDef(BaseModel):
     ScaleInCooldown: Optional[int] = None
     EstimatedInstanceWarmup: Optional[int] = None
 
-class ScalingInstructionPaginatorTypeDef(BaseModel):
+class ScalingInstructionPaginatorTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
     ScalableDimension: ScalableDimensionType
@@ -155,12 +155,12 @@ class ScalingInstructionPaginatorTypeDef(BaseModel):
     ScalingPolicyUpdateBehavior: Optional[ScalingPolicyUpdateBehaviorType] = None
     DisableDynamicScaling: Optional[bool] = None
 
-class ScalingPolicyPaginatorTypeDef(BaseModel):
+class ScalingPolicyPaginatorTypeDef(BaseValidatorModel):
     PolicyName: str
     PolicyType: Literal["TargetTrackingScaling"]
     TargetTrackingConfiguration: Optional[TargetTrackingConfigurationPaginatorTypeDef] = None
 
-class ScalingInstructionTypeDef(BaseModel):
+class ScalingInstructionTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
     ScalableDimension: ScalableDimensionType
@@ -176,12 +176,12 @@ class ScalingInstructionTypeDef(BaseModel):
     ScalingPolicyUpdateBehavior: Optional[ScalingPolicyUpdateBehaviorType] = None
     DisableDynamicScaling: Optional[bool] = None
 
-class ScalingPolicyTypeDef(BaseModel):
+class ScalingPolicyTypeDef(BaseValidatorModel):
     PolicyName: str
     PolicyType: Literal["TargetTrackingScaling"]
     TargetTrackingConfiguration: Optional[TargetTrackingConfigurationTypeDef] = None
 
-class ScalingPlanPaginatorTypeDef(BaseModel):
+class ScalingPlanPaginatorTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
     ApplicationSource: ApplicationSourceTypeDef
@@ -191,7 +191,7 @@ class ScalingPlanPaginatorTypeDef(BaseModel):
     StatusStartTime: Optional[datetime] = None
     CreationTime: Optional[datetime] = None
 
-class ScalingPlanResourcePaginatorTypeDef(BaseModel):
+class ScalingPlanResourcePaginatorTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
     ServiceNamespace: ServiceNamespaceType
@@ -201,12 +201,12 @@ class ScalingPlanResourcePaginatorTypeDef(BaseModel):
     ScalingPolicies: Optional[List[ScalingPolicyPaginatorTypeDef]] = None
     ScalingStatusMessage: Optional[str] = None
 
-class CreateScalingPlanRequestRequestTypeDef(BaseModel):
+class CreateScalingPlanRequestRequestTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ApplicationSource: ApplicationSourceTypeDef
     ScalingInstructions: Sequence[ScalingInstructionTypeDef]
 
-class ScalingPlanTypeDef(BaseModel):
+class ScalingPlanTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
     ApplicationSource: ApplicationSourceTypeDef
@@ -216,13 +216,13 @@ class ScalingPlanTypeDef(BaseModel):
     StatusStartTime: Optional[datetime] = None
     CreationTime: Optional[datetime] = None
 
-class UpdateScalingPlanRequestRequestTypeDef(BaseModel):
+class UpdateScalingPlanRequestRequestTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
     ApplicationSource: Optional[ApplicationSourceTypeDef] = None
     ScalingInstructions: Optional[Sequence[ScalingInstructionTypeDef]] = None
 
-class ScalingPlanResourceTypeDef(BaseModel):
+class ScalingPlanResourceTypeDef(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
     ServiceNamespace: ServiceNamespaceType
@@ -232,22 +232,22 @@ class ScalingPlanResourceTypeDef(BaseModel):
     ScalingPolicies: Optional[List[ScalingPolicyTypeDef]] = None
     ScalingStatusMessage: Optional[str] = None
 
-class DescribeScalingPlansResponsePaginatorTypeDef(BaseModel):
+class DescribeScalingPlansResponsePaginatorTypeDef(BaseValidatorModel):
     ScalingPlans: List[ScalingPlanPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeScalingPlanResourcesResponsePaginatorTypeDef(BaseModel):
+class DescribeScalingPlanResourcesResponsePaginatorTypeDef(BaseValidatorModel):
     ScalingPlanResources: List[ScalingPlanResourcePaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeScalingPlansResponseTypeDef(BaseModel):
+class DescribeScalingPlansResponseTypeDef(BaseValidatorModel):
     ScalingPlans: List[ScalingPlanTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeScalingPlanResourcesResponseTypeDef(BaseModel):
+class DescribeScalingPlanResourcesResponseTypeDef(BaseValidatorModel):
     ScalingPlanResources: List[ScalingPlanResourceTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

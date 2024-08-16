@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,51 +11,51 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.evidently_constants import *
 
-class EvaluationRequestTypeDef(BaseModel):
+class EvaluationRequestTypeDef(BaseValidatorModel):
     entityId: str
     feature: str
     evaluationContext: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CloudWatchLogsDestinationConfigTypeDef(BaseModel):
+class CloudWatchLogsDestinationConfigTypeDef(BaseValidatorModel):
     logGroup: Optional[str] = None
 
-class CloudWatchLogsDestinationTypeDef(BaseModel):
+class CloudWatchLogsDestinationTypeDef(BaseValidatorModel):
     logGroup: Optional[str] = None
 
-class OnlineAbConfigTypeDef(BaseModel):
+class OnlineAbConfigTypeDef(BaseValidatorModel):
     controlTreatmentName: Optional[str] = None
     treatmentWeights: Optional[Mapping[str, int]] = None
 
-class TreatmentConfigTypeDef(BaseModel):
+class TreatmentConfigTypeDef(BaseValidatorModel):
     feature: str
     name: str
     variation: str
     description: Optional[str] = None
 
-class LaunchGroupConfigTypeDef(BaseModel):
+class LaunchGroupConfigTypeDef(BaseValidatorModel):
     feature: str
     name: str
     variation: str
     description: Optional[str] = None
 
-class ProjectAppConfigResourceConfigTypeDef(BaseModel):
+class ProjectAppConfigResourceConfigTypeDef(BaseValidatorModel):
     applicationId: Optional[str] = None
     environmentId: Optional[str] = None
 
-class CreateSegmentRequestRequestTypeDef(BaseModel):
+class CreateSegmentRequestRequestTypeDef(BaseValidatorModel):
     name: str
     pattern: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class SegmentTypeDef(BaseModel):
+class SegmentTypeDef(BaseValidatorModel):
     arn: str
     createdTime: datetime
     lastUpdatedTime: datetime
@@ -66,122 +66,122 @@ class SegmentTypeDef(BaseModel):
     launchCount: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
 
-class DeleteExperimentRequestRequestTypeDef(BaseModel):
+class DeleteExperimentRequestRequestTypeDef(BaseValidatorModel):
     experiment: str
     project: str
 
-class DeleteFeatureRequestRequestTypeDef(BaseModel):
+class DeleteFeatureRequestRequestTypeDef(BaseValidatorModel):
     feature: str
     project: str
 
-class DeleteLaunchRequestRequestTypeDef(BaseModel):
+class DeleteLaunchRequestRequestTypeDef(BaseValidatorModel):
     launch: str
     project: str
 
-class DeleteProjectRequestRequestTypeDef(BaseModel):
+class DeleteProjectRequestRequestTypeDef(BaseValidatorModel):
     project: str
 
-class DeleteSegmentRequestRequestTypeDef(BaseModel):
+class DeleteSegmentRequestRequestTypeDef(BaseValidatorModel):
     segment: str
 
-class EvaluateFeatureRequestRequestTypeDef(BaseModel):
+class EvaluateFeatureRequestRequestTypeDef(BaseValidatorModel):
     entityId: str
     feature: str
     project: str
     evaluationContext: Optional[str] = None
 
-class VariableValueTypeDef(BaseModel):
+class VariableValueTypeDef(BaseValidatorModel):
     boolValue: Optional[bool] = None
     doubleValue: Optional[float] = None
     longValue: Optional[int] = None
     stringValue: Optional[str] = None
 
-class EvaluationRuleTypeDef(BaseModel):
+class EvaluationRuleTypeDef(BaseValidatorModel):
     type: str
     name: Optional[str] = None
 
-class ExperimentExecutionTypeDef(BaseModel):
+class ExperimentExecutionTypeDef(BaseValidatorModel):
     endedTime: Optional[datetime] = None
     startedTime: Optional[datetime] = None
 
-class ExperimentReportTypeDef(BaseModel):
+class ExperimentReportTypeDef(BaseValidatorModel):
     content: Optional[str] = None
     metricName: Optional[str] = None
     reportName: Optional[Literal["BayesianInference"]] = None
     treatmentName: Optional[str] = None
 
-class ExperimentResultsDataTypeDef(BaseModel):
+class ExperimentResultsDataTypeDef(BaseValidatorModel):
     metricName: Optional[str] = None
     resultStat: Optional[ExperimentResultResponseTypeType] = None
     treatmentName: Optional[str] = None
     values: Optional[List[float]] = None
 
-class ExperimentScheduleTypeDef(BaseModel):
+class ExperimentScheduleTypeDef(BaseValidatorModel):
     analysisCompleteTime: Optional[datetime] = None
 
-class OnlineAbDefinitionTypeDef(BaseModel):
+class OnlineAbDefinitionTypeDef(BaseValidatorModel):
     controlTreatmentName: Optional[str] = None
     treatmentWeights: Optional[Dict[str, int]] = None
 
-class TreatmentTypeDef(BaseModel):
+class TreatmentTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     featureVariations: Optional[Dict[str, str]] = None
 
-class GetExperimentRequestRequestTypeDef(BaseModel):
+class GetExperimentRequestRequestTypeDef(BaseValidatorModel):
     experiment: str
     project: str
 
-class GetFeatureRequestRequestTypeDef(BaseModel):
+class GetFeatureRequestRequestTypeDef(BaseValidatorModel):
     feature: str
     project: str
 
-class GetLaunchRequestRequestTypeDef(BaseModel):
+class GetLaunchRequestRequestTypeDef(BaseValidatorModel):
     launch: str
     project: str
 
-class GetProjectRequestRequestTypeDef(BaseModel):
+class GetProjectRequestRequestTypeDef(BaseValidatorModel):
     project: str
 
-class GetSegmentRequestRequestTypeDef(BaseModel):
+class GetSegmentRequestRequestTypeDef(BaseValidatorModel):
     segment: str
 
-class LaunchExecutionTypeDef(BaseModel):
+class LaunchExecutionTypeDef(BaseValidatorModel):
     endedTime: Optional[datetime] = None
     startedTime: Optional[datetime] = None
 
-class LaunchGroupTypeDef(BaseModel):
+class LaunchGroupTypeDef(BaseValidatorModel):
     featureVariations: Dict[str, str]
     name: str
     description: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListExperimentsRequestRequestTypeDef(BaseModel):
+class ListExperimentsRequestRequestTypeDef(BaseValidatorModel):
     project: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[ExperimentStatusType] = None
 
-class ListFeaturesRequestRequestTypeDef(BaseModel):
+class ListFeaturesRequestRequestTypeDef(BaseValidatorModel):
     project: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListLaunchesRequestRequestTypeDef(BaseModel):
+class ListLaunchesRequestRequestTypeDef(BaseValidatorModel):
     project: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[LaunchStatusType] = None
 
-class ListProjectsRequestRequestTypeDef(BaseModel):
+class ListProjectsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ProjectSummaryTypeDef(BaseModel):
+class ProjectSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdTime: datetime
     lastUpdatedTime: datetime
@@ -195,13 +195,13 @@ class ProjectSummaryTypeDef(BaseModel):
     launchCount: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListSegmentReferencesRequestRequestTypeDef(BaseModel):
+class ListSegmentReferencesRequestRequestTypeDef(BaseValidatorModel):
     segment: str
     type: SegmentReferenceResourceTypeType
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class RefResourceTypeDef(BaseModel):
+class RefResourceTypeDef(BaseValidatorModel):
     name: str
     type: str
     arn: Optional[str] = None
@@ -210,133 +210,133 @@ class RefResourceTypeDef(BaseModel):
     startTime: Optional[str] = None
     status: Optional[str] = None
 
-class ListSegmentsRequestRequestTypeDef(BaseModel):
+class ListSegmentsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class MetricDefinitionConfigTypeDef(BaseModel):
+class MetricDefinitionConfigTypeDef(BaseValidatorModel):
     entityIdKey: str
     name: str
     valueKey: str
     eventPattern: Optional[str] = None
     unitLabel: Optional[str] = None
 
-class MetricDefinitionTypeDef(BaseModel):
+class MetricDefinitionTypeDef(BaseValidatorModel):
     entityIdKey: Optional[str] = None
     eventPattern: Optional[str] = None
     name: Optional[str] = None
     unitLabel: Optional[str] = None
     valueKey: Optional[str] = None
 
-class ProjectAppConfigResourceTypeDef(BaseModel):
+class ProjectAppConfigResourceTypeDef(BaseValidatorModel):
     applicationId: str
     configurationProfileId: str
     environmentId: str
 
-class S3DestinationConfigTypeDef(BaseModel):
+class S3DestinationConfigTypeDef(BaseValidatorModel):
     bucket: Optional[str] = None
     prefix: Optional[str] = None
 
-class S3DestinationTypeDef(BaseModel):
+class S3DestinationTypeDef(BaseValidatorModel):
     bucket: Optional[str] = None
     prefix: Optional[str] = None
 
-class PutProjectEventsResultEntryTypeDef(BaseModel):
+class PutProjectEventsResultEntryTypeDef(BaseValidatorModel):
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
     eventId: Optional[str] = None
 
-class SegmentOverrideTypeDef(BaseModel):
+class SegmentOverrideTypeDef(BaseValidatorModel):
     evaluationOrder: int
     segment: str
     weights: Mapping[str, int]
 
-class SegmentOverridePaginatorTypeDef(BaseModel):
+class SegmentOverridePaginatorTypeDef(BaseValidatorModel):
     evaluationOrder: int
     segment: str
     weights: Dict[str, int]
 
-class StartLaunchRequestRequestTypeDef(BaseModel):
+class StartLaunchRequestRequestTypeDef(BaseValidatorModel):
     launch: str
     project: str
 
-class StopExperimentRequestRequestTypeDef(BaseModel):
+class StopExperimentRequestRequestTypeDef(BaseValidatorModel):
     experiment: str
     project: str
     desiredState: Optional[ExperimentStopDesiredStateType] = None
     reason: Optional[str] = None
 
-class StopLaunchRequestRequestTypeDef(BaseModel):
+class StopLaunchRequestRequestTypeDef(BaseValidatorModel):
     launch: str
     project: str
     desiredState: Optional[LaunchStopDesiredStateType] = None
     reason: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TestSegmentPatternRequestRequestTypeDef(BaseModel):
+class TestSegmentPatternRequestRequestTypeDef(BaseValidatorModel):
     pattern: str
     payload: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class BatchEvaluateFeatureRequestRequestTypeDef(BaseModel):
+class BatchEvaluateFeatureRequestRequestTypeDef(BaseValidatorModel):
     project: str
     requests: Sequence[EvaluationRequestTypeDef]
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartExperimentResponseTypeDef(BaseModel):
+class StartExperimentResponseTypeDef(BaseValidatorModel):
     startedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopExperimentResponseTypeDef(BaseModel):
+class StopExperimentResponseTypeDef(BaseValidatorModel):
     endedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopLaunchResponseTypeDef(BaseModel):
+class StopLaunchResponseTypeDef(BaseValidatorModel):
     endedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestSegmentPatternResponseTypeDef(BaseModel):
+class TestSegmentPatternResponseTypeDef(BaseValidatorModel):
     match: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProjectRequestRequestTypeDef(BaseModel):
+class UpdateProjectRequestRequestTypeDef(BaseValidatorModel):
     project: str
     appConfigResource: Optional[ProjectAppConfigResourceConfigTypeDef] = None
     description: Optional[str] = None
 
-class CreateSegmentResponseTypeDef(BaseModel):
+class CreateSegmentResponseTypeDef(BaseValidatorModel):
     segment: SegmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSegmentResponseTypeDef(BaseModel):
+class GetSegmentResponseTypeDef(BaseValidatorModel):
     segment: SegmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSegmentsResponseTypeDef(BaseModel):
+class ListSegmentsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     segments: List[SegmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EvaluateFeatureResponseTypeDef(BaseModel):
+class EvaluateFeatureResponseTypeDef(BaseValidatorModel):
     details: str
     reason: str
     value: VariableValueTypeDef
     variation: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EvaluationResultTypeDef(BaseModel):
+class EvaluationResultTypeDef(BaseValidatorModel):
     entityId: str
     feature: str
     details: Optional[str] = None
@@ -345,15 +345,15 @@ class EvaluationResultTypeDef(BaseModel):
     value: Optional[VariableValueTypeDef] = None
     variation: Optional[str] = None
 
-class VariationConfigTypeDef(BaseModel):
+class VariationConfigTypeDef(BaseValidatorModel):
     name: str
     value: VariableValueTypeDef
 
-class VariationTypeDef(BaseModel):
+class VariationTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[VariableValueTypeDef] = None
 
-class FeatureSummaryTypeDef(BaseModel):
+class FeatureSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdTime: datetime
     evaluationStrategy: FeatureEvaluationStrategyType
@@ -365,12 +365,12 @@ class FeatureSummaryTypeDef(BaseModel):
     project: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class EventTypeDef(BaseModel):
+class EventTypeDef(BaseValidatorModel):
     data: str
     timestamp: TimestampTypeDef
     type: EventTypeType
 
-class GetExperimentResultsRequestRequestTypeDef(BaseModel):
+class GetExperimentResultsRequestRequestTypeDef(BaseValidatorModel):
     experiment: str
     metricNames: Sequence[str]
     project: str
@@ -382,105 +382,105 @@ class GetExperimentResultsRequestRequestTypeDef(BaseModel):
     resultStats: Optional[Sequence[ExperimentResultRequestTypeType]] = None
     startTime: Optional[TimestampTypeDef] = None
 
-class StartExperimentRequestRequestTypeDef(BaseModel):
+class StartExperimentRequestRequestTypeDef(BaseValidatorModel):
     analysisCompleteTime: TimestampTypeDef
     experiment: str
     project: str
 
-class GetExperimentResultsResponseTypeDef(BaseModel):
+class GetExperimentResultsResponseTypeDef(BaseValidatorModel):
     details: str
     reports: List[ExperimentReportTypeDef]
     resultsData: List[ExperimentResultsDataTypeDef]
     timestamps: List[datetime]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListExperimentsRequestListExperimentsPaginateTypeDef(BaseModel):
+class ListExperimentsRequestListExperimentsPaginateTypeDef(BaseValidatorModel):
     project: str
     status: Optional[ExperimentStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFeaturesRequestListFeaturesPaginateTypeDef(BaseModel):
+class ListFeaturesRequestListFeaturesPaginateTypeDef(BaseValidatorModel):
     project: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLaunchesRequestListLaunchesPaginateTypeDef(BaseModel):
+class ListLaunchesRequestListLaunchesPaginateTypeDef(BaseValidatorModel):
     project: str
     status: Optional[LaunchStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectsRequestListProjectsPaginateTypeDef(BaseModel):
+class ListProjectsRequestListProjectsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSegmentReferencesRequestListSegmentReferencesPaginateTypeDef(BaseModel):
+class ListSegmentReferencesRequestListSegmentReferencesPaginateTypeDef(BaseValidatorModel):
     segment: str
     type: SegmentReferenceResourceTypeType
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSegmentsRequestListSegmentsPaginateTypeDef(BaseModel):
+class ListSegmentsRequestListSegmentsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectsResponseTypeDef(BaseModel):
+class ListProjectsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     projects: List[ProjectSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSegmentReferencesResponseTypeDef(BaseModel):
+class ListSegmentReferencesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     referencedBy: List[RefResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricGoalConfigTypeDef(BaseModel):
+class MetricGoalConfigTypeDef(BaseValidatorModel):
     metricDefinition: MetricDefinitionConfigTypeDef
     desiredChange: Optional[ChangeDirectionEnumType] = None
 
-class MetricMonitorConfigTypeDef(BaseModel):
+class MetricMonitorConfigTypeDef(BaseValidatorModel):
     metricDefinition: MetricDefinitionConfigTypeDef
 
-class MetricGoalTypeDef(BaseModel):
+class MetricGoalTypeDef(BaseValidatorModel):
     metricDefinition: MetricDefinitionTypeDef
     desiredChange: Optional[ChangeDirectionEnumType] = None
 
-class MetricMonitorTypeDef(BaseModel):
+class MetricMonitorTypeDef(BaseValidatorModel):
     metricDefinition: MetricDefinitionTypeDef
 
-class ProjectDataDeliveryConfigTypeDef(BaseModel):
+class ProjectDataDeliveryConfigTypeDef(BaseValidatorModel):
     cloudWatchLogs: Optional[CloudWatchLogsDestinationConfigTypeDef] = None
     s3Destination: Optional[S3DestinationConfigTypeDef] = None
 
-class UpdateProjectDataDeliveryRequestRequestTypeDef(BaseModel):
+class UpdateProjectDataDeliveryRequestRequestTypeDef(BaseValidatorModel):
     project: str
     cloudWatchLogs: Optional[CloudWatchLogsDestinationConfigTypeDef] = None
     s3Destination: Optional[S3DestinationConfigTypeDef] = None
 
-class ProjectDataDeliveryTypeDef(BaseModel):
+class ProjectDataDeliveryTypeDef(BaseValidatorModel):
     cloudWatchLogs: Optional[CloudWatchLogsDestinationTypeDef] = None
     s3Destination: Optional[S3DestinationTypeDef] = None
 
-class PutProjectEventsResponseTypeDef(BaseModel):
+class PutProjectEventsResponseTypeDef(BaseValidatorModel):
     eventResults: List[PutProjectEventsResultEntryTypeDef]
     failedEventCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ScheduledSplitConfigTypeDef(BaseModel):
+class ScheduledSplitConfigTypeDef(BaseValidatorModel):
     groupWeights: Mapping[str, int]
     startTime: TimestampTypeDef
     segmentOverrides: Optional[Sequence[SegmentOverrideTypeDef]] = None
 
-class ScheduledSplitTypeDef(BaseModel):
+class ScheduledSplitTypeDef(BaseValidatorModel):
     startTime: datetime
     groupWeights: Optional[Dict[str, int]] = None
     segmentOverrides: Optional[List[SegmentOverrideTypeDef]] = None
 
-class ScheduledSplitPaginatorTypeDef(BaseModel):
+class ScheduledSplitPaginatorTypeDef(BaseValidatorModel):
     startTime: datetime
     groupWeights: Optional[Dict[str, int]] = None
     segmentOverrides: Optional[List[SegmentOverridePaginatorTypeDef]] = None
 
-class BatchEvaluateFeatureResponseTypeDef(BaseModel):
+class BatchEvaluateFeatureResponseTypeDef(BaseValidatorModel):
     results: List[EvaluationResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFeatureRequestRequestTypeDef(BaseModel):
+class CreateFeatureRequestRequestTypeDef(BaseValidatorModel):
     name: str
     project: str
     variations: Sequence[VariationConfigTypeDef]
@@ -490,7 +490,7 @@ class CreateFeatureRequestRequestTypeDef(BaseModel):
     evaluationStrategy: Optional[FeatureEvaluationStrategyType] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateFeatureRequestRequestTypeDef(BaseModel):
+class UpdateFeatureRequestRequestTypeDef(BaseValidatorModel):
     feature: str
     project: str
     addOrUpdateVariations: Optional[Sequence[VariationConfigTypeDef]] = None
@@ -500,7 +500,7 @@ class UpdateFeatureRequestRequestTypeDef(BaseModel):
     evaluationStrategy: Optional[FeatureEvaluationStrategyType] = None
     removeVariations: Optional[Sequence[str]] = None
 
-class FeatureTypeDef(BaseModel):
+class FeatureTypeDef(BaseValidatorModel):
     arn: str
     createdTime: datetime
     evaluationStrategy: FeatureEvaluationStrategyType
@@ -516,16 +516,16 @@ class FeatureTypeDef(BaseModel):
     project: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListFeaturesResponseTypeDef(BaseModel):
+class ListFeaturesResponseTypeDef(BaseValidatorModel):
     features: List[FeatureSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutProjectEventsRequestRequestTypeDef(BaseModel):
+class PutProjectEventsRequestRequestTypeDef(BaseValidatorModel):
     events: Sequence[EventTypeDef]
     project: str
 
-class CreateExperimentRequestRequestTypeDef(BaseModel):
+class CreateExperimentRequestRequestTypeDef(BaseValidatorModel):
     metricGoals: Sequence[MetricGoalConfigTypeDef]
     name: str
     project: str
@@ -537,7 +537,7 @@ class CreateExperimentRequestRequestTypeDef(BaseModel):
     segment: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateExperimentRequestRequestTypeDef(BaseModel):
+class UpdateExperimentRequestRequestTypeDef(BaseValidatorModel):
     experiment: str
     project: str
     description: Optional[str] = None
@@ -549,7 +549,7 @@ class UpdateExperimentRequestRequestTypeDef(BaseModel):
     segment: Optional[str] = None
     treatments: Optional[Sequence[TreatmentConfigTypeDef]] = None
 
-class ExperimentTypeDef(BaseModel):
+class ExperimentTypeDef(BaseValidatorModel):
     arn: str
     createdTime: datetime
     lastUpdatedTime: datetime
@@ -569,14 +569,14 @@ class ExperimentTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     treatments: Optional[List[TreatmentTypeDef]] = None
 
-class CreateProjectRequestRequestTypeDef(BaseModel):
+class CreateProjectRequestRequestTypeDef(BaseValidatorModel):
     name: str
     appConfigResource: Optional[ProjectAppConfigResourceConfigTypeDef] = None
     dataDelivery: Optional[ProjectDataDeliveryConfigTypeDef] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ProjectTypeDef(BaseModel):
+class ProjectTypeDef(BaseValidatorModel):
     arn: str
     createdTime: datetime
     lastUpdatedTime: datetime
@@ -592,61 +592,61 @@ class ProjectTypeDef(BaseModel):
     launchCount: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
 
-class ScheduledSplitsLaunchConfigTypeDef(BaseModel):
+class ScheduledSplitsLaunchConfigTypeDef(BaseValidatorModel):
     steps: Sequence[ScheduledSplitConfigTypeDef]
 
-class ScheduledSplitsLaunchDefinitionTypeDef(BaseModel):
+class ScheduledSplitsLaunchDefinitionTypeDef(BaseValidatorModel):
     steps: Optional[List[ScheduledSplitTypeDef]] = None
 
-class ScheduledSplitsLaunchDefinitionPaginatorTypeDef(BaseModel):
+class ScheduledSplitsLaunchDefinitionPaginatorTypeDef(BaseValidatorModel):
     steps: Optional[List[ScheduledSplitPaginatorTypeDef]] = None
 
-class CreateFeatureResponseTypeDef(BaseModel):
+class CreateFeatureResponseTypeDef(BaseValidatorModel):
     feature: FeatureTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFeatureResponseTypeDef(BaseModel):
+class GetFeatureResponseTypeDef(BaseValidatorModel):
     feature: FeatureTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFeatureResponseTypeDef(BaseModel):
+class UpdateFeatureResponseTypeDef(BaseValidatorModel):
     feature: FeatureTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateExperimentResponseTypeDef(BaseModel):
+class CreateExperimentResponseTypeDef(BaseValidatorModel):
     experiment: ExperimentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetExperimentResponseTypeDef(BaseModel):
+class GetExperimentResponseTypeDef(BaseValidatorModel):
     experiment: ExperimentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListExperimentsResponseTypeDef(BaseModel):
+class ListExperimentsResponseTypeDef(BaseValidatorModel):
     experiments: List[ExperimentTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateExperimentResponseTypeDef(BaseModel):
+class UpdateExperimentResponseTypeDef(BaseValidatorModel):
     experiment: ExperimentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProjectResponseTypeDef(BaseModel):
+class CreateProjectResponseTypeDef(BaseValidatorModel):
     project: ProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetProjectResponseTypeDef(BaseModel):
+class GetProjectResponseTypeDef(BaseValidatorModel):
     project: ProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProjectDataDeliveryResponseTypeDef(BaseModel):
+class UpdateProjectDataDeliveryResponseTypeDef(BaseValidatorModel):
     project: ProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProjectResponseTypeDef(BaseModel):
+class UpdateProjectResponseTypeDef(BaseValidatorModel):
     project: ProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLaunchRequestRequestTypeDef(BaseModel):
+class CreateLaunchRequestRequestTypeDef(BaseValidatorModel):
     groups: Sequence[LaunchGroupConfigTypeDef]
     name: str
     project: str
@@ -656,7 +656,7 @@ class CreateLaunchRequestRequestTypeDef(BaseModel):
     scheduledSplitsConfig: Optional[ScheduledSplitsLaunchConfigTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateLaunchRequestRequestTypeDef(BaseModel):
+class UpdateLaunchRequestRequestTypeDef(BaseValidatorModel):
     launch: str
     project: str
     description: Optional[str] = None
@@ -665,7 +665,7 @@ class UpdateLaunchRequestRequestTypeDef(BaseModel):
     randomizationSalt: Optional[str] = None
     scheduledSplitsConfig: Optional[ScheduledSplitsLaunchConfigTypeDef] = None
 
-class LaunchTypeDef(BaseModel):
+class LaunchTypeDef(BaseValidatorModel):
     arn: str
     createdTime: datetime
     lastUpdatedTime: datetime
@@ -682,7 +682,7 @@ class LaunchTypeDef(BaseModel):
     statusReason: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class LaunchPaginatorTypeDef(BaseModel):
+class LaunchPaginatorTypeDef(BaseValidatorModel):
     arn: str
     createdTime: datetime
     lastUpdatedTime: datetime
@@ -699,28 +699,28 @@ class LaunchPaginatorTypeDef(BaseModel):
     statusReason: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class CreateLaunchResponseTypeDef(BaseModel):
+class CreateLaunchResponseTypeDef(BaseValidatorModel):
     launch: LaunchTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLaunchResponseTypeDef(BaseModel):
+class GetLaunchResponseTypeDef(BaseValidatorModel):
     launch: LaunchTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLaunchesResponseTypeDef(BaseModel):
+class ListLaunchesResponseTypeDef(BaseValidatorModel):
     launches: List[LaunchTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartLaunchResponseTypeDef(BaseModel):
+class StartLaunchResponseTypeDef(BaseValidatorModel):
     launch: LaunchTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLaunchResponseTypeDef(BaseModel):
+class UpdateLaunchResponseTypeDef(BaseValidatorModel):
     launch: LaunchTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLaunchesResponsePaginatorTypeDef(BaseModel):
+class ListLaunchesResponsePaginatorTypeDef(BaseValidatorModel):
     launches: List[LaunchPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

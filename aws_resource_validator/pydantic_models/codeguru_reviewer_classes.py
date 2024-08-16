@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,56 +11,56 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codeguru_reviewer_constants import *
 
-class KMSKeyDetailsTypeDef(BaseModel):
+class KMSKeyDetailsTypeDef(BaseValidatorModel):
     KMSKeyId: Optional[str] = None
     EncryptionOption: Optional[EncryptionOptionType] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class BranchDiffSourceCodeTypeTypeDef(BaseModel):
+class BranchDiffSourceCodeTypeTypeDef(BaseValidatorModel):
     SourceBranchName: str
     DestinationBranchName: str
 
-class CodeArtifactsTypeDef(BaseModel):
+class CodeArtifactsTypeDef(BaseValidatorModel):
     SourceCodeArtifactsObjectKey: str
     BuildArtifactsObjectKey: Optional[str] = None
 
-class CodeCommitRepositoryTypeDef(BaseModel):
+class CodeCommitRepositoryTypeDef(BaseValidatorModel):
     Name: str
 
-class MetricsSummaryTypeDef(BaseModel):
+class MetricsSummaryTypeDef(BaseValidatorModel):
     MeteredLinesOfCodeCount: Optional[int] = None
     SuppressedLinesOfCodeCount: Optional[int] = None
     FindingsCount: Optional[int] = None
 
-class MetricsTypeDef(BaseModel):
+class MetricsTypeDef(BaseValidatorModel):
     MeteredLinesOfCodeCount: Optional[int] = None
     SuppressedLinesOfCodeCount: Optional[int] = None
     FindingsCount: Optional[int] = None
 
-class CommitDiffSourceCodeTypeTypeDef(BaseModel):
+class CommitDiffSourceCodeTypeTypeDef(BaseValidatorModel):
     SourceCommit: Optional[str] = None
     DestinationCommit: Optional[str] = None
     MergeBaseCommit: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeCodeReviewRequestRequestTypeDef(BaseModel):
+class DescribeCodeReviewRequestRequestTypeDef(BaseValidatorModel):
     CodeReviewArn: str
 
-class DescribeRecommendationFeedbackRequestRequestTypeDef(BaseModel):
+class DescribeRecommendationFeedbackRequestRequestTypeDef(BaseValidatorModel):
     CodeReviewArn: str
     RecommendationId: str
     UserId: Optional[str] = None
 
-class RecommendationFeedbackTypeDef(BaseModel):
+class RecommendationFeedbackTypeDef(BaseValidatorModel):
     CodeReviewArn: Optional[str] = None
     RecommendationId: Optional[str] = None
     Reactions: Optional[List[ReactionType]] = None
@@ -68,17 +68,17 @@ class RecommendationFeedbackTypeDef(BaseModel):
     CreatedTimeStamp: Optional[datetime] = None
     LastUpdatedTimeStamp: Optional[datetime] = None
 
-class DescribeRepositoryAssociationRequestRequestTypeDef(BaseModel):
+class DescribeRepositoryAssociationRequestRequestTypeDef(BaseValidatorModel):
     AssociationArn: str
 
-class DisassociateRepositoryRequestRequestTypeDef(BaseModel):
+class DisassociateRepositoryRequestRequestTypeDef(BaseValidatorModel):
     AssociationArn: str
 
-class EventInfoTypeDef(BaseModel):
+class EventInfoTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     State: Optional[str] = None
 
-class ListCodeReviewsRequestRequestTypeDef(BaseModel):
+class ListCodeReviewsRequestRequestTypeDef(BaseValidatorModel):
     Type: TypeType
     ProviderTypes: Optional[Sequence[ProviderTypeType]] = None
     States: Optional[Sequence[JobStateType]] = None
@@ -86,29 +86,29 @@ class ListCodeReviewsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListRecommendationFeedbackRequestRequestTypeDef(BaseModel):
+class ListRecommendationFeedbackRequestRequestTypeDef(BaseValidatorModel):
     CodeReviewArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     UserIds: Optional[Sequence[str]] = None
     RecommendationIds: Optional[Sequence[str]] = None
 
-class RecommendationFeedbackSummaryTypeDef(BaseModel):
+class RecommendationFeedbackSummaryTypeDef(BaseValidatorModel):
     RecommendationId: Optional[str] = None
     Reactions: Optional[List[ReactionType]] = None
     UserId: Optional[str] = None
 
-class ListRecommendationsRequestRequestTypeDef(BaseModel):
+class ListRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     CodeReviewArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListRepositoryAssociationsRequestRequestTypeDef(BaseModel):
+class ListRepositoryAssociationsRequestRequestTypeDef(BaseValidatorModel):
     ProviderTypes: Optional[Sequence[ProviderTypeType]] = None
     States: Optional[Sequence[RepositoryAssociationStateType]] = None
     Names: Optional[Sequence[str]] = None
@@ -116,7 +116,7 @@ class ListRepositoryAssociationsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class RepositoryAssociationSummaryTypeDef(BaseModel):
+class RepositoryAssociationSummaryTypeDef(BaseValidatorModel):
     AssociationArn: Optional[str] = None
     ConnectionArn: Optional[str] = None
     LastUpdatedTimeStamp: Optional[datetime] = None
@@ -126,85 +126,85 @@ class RepositoryAssociationSummaryTypeDef(BaseModel):
     ProviderType: Optional[ProviderTypeType] = None
     State: Optional[RepositoryAssociationStateType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class PutRecommendationFeedbackRequestRequestTypeDef(BaseModel):
+class PutRecommendationFeedbackRequestRequestTypeDef(BaseValidatorModel):
     CodeReviewArn: str
     RecommendationId: str
     Reactions: Sequence[ReactionType]
 
-class RuleMetadataTypeDef(BaseModel):
+class RuleMetadataTypeDef(BaseValidatorModel):
     RuleId: Optional[str] = None
     RuleName: Optional[str] = None
     ShortDescription: Optional[str] = None
     LongDescription: Optional[str] = None
     RuleTags: Optional[List[str]] = None
 
-class RepositoryHeadSourceCodeTypeTypeDef(BaseModel):
+class RepositoryHeadSourceCodeTypeTypeDef(BaseValidatorModel):
     BranchName: str
 
-class S3RepositoryTypeDef(BaseModel):
+class S3RepositoryTypeDef(BaseValidatorModel):
     Name: str
     BucketName: str
 
-class ThirdPartySourceRepositoryTypeDef(BaseModel):
+class ThirdPartySourceRepositoryTypeDef(BaseValidatorModel):
     Name: str
     ConnectionArn: str
     Owner: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     TagKeys: Sequence[str]
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class S3RepositoryDetailsTypeDef(BaseModel):
+class S3RepositoryDetailsTypeDef(BaseValidatorModel):
     BucketName: Optional[str] = None
     CodeArtifacts: Optional[CodeArtifactsTypeDef] = None
 
-class DescribeCodeReviewRequestCodeReviewCompletedWaitTypeDef(BaseModel):
+class DescribeCodeReviewRequestCodeReviewCompletedWaitTypeDef(BaseValidatorModel):
     CodeReviewArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeRepositoryAssociationRequestRepositoryAssociationSucceededWaitTypeDef(BaseModel):
+class DescribeRepositoryAssociationRequestRepositoryAssociationSucceededWaitTypeDef(BaseValidatorModel):
     AssociationArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeRecommendationFeedbackResponseTypeDef(BaseModel):
+class DescribeRecommendationFeedbackResponseTypeDef(BaseValidatorModel):
     RecommendationFeedback: RecommendationFeedbackTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RequestMetadataTypeDef(BaseModel):
+class RequestMetadataTypeDef(BaseValidatorModel):
     RequestId: Optional[str] = None
     Requester: Optional[str] = None
     EventInfo: Optional[EventInfoTypeDef] = None
     VendorName: Optional[VendorNameType] = None
 
-class ListRecommendationFeedbackResponseTypeDef(BaseModel):
+class ListRecommendationFeedbackResponseTypeDef(BaseValidatorModel):
     RecommendationFeedbackSummaries: List[RecommendationFeedbackSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRepositoryAssociationsRequestListRepositoryAssociationsPaginateTypeDef(BaseModel):
+class ListRepositoryAssociationsRequestListRepositoryAssociationsPaginateTypeDef(BaseValidatorModel):
     ProviderTypes: Optional[Sequence[ProviderTypeType]] = None
     States: Optional[Sequence[RepositoryAssociationStateType]] = None
     Names: Optional[Sequence[str]] = None
     Owners: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRepositoryAssociationsResponseTypeDef(BaseModel):
+class ListRepositoryAssociationsResponseTypeDef(BaseValidatorModel):
     RepositoryAssociationSummaries: List[RepositoryAssociationSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RecommendationSummaryTypeDef(BaseModel):
+class RecommendationSummaryTypeDef(BaseValidatorModel):
     FilePath: Optional[str] = None
     RecommendationId: Optional[str] = None
     StartLine: Optional[int] = None
@@ -214,13 +214,13 @@ class RecommendationSummaryTypeDef(BaseModel):
     RuleMetadata: Optional[RuleMetadataTypeDef] = None
     Severity: Optional[SeverityType] = None
 
-class RepositoryTypeDef(BaseModel):
+class RepositoryTypeDef(BaseValidatorModel):
     CodeCommit: Optional[CodeCommitRepositoryTypeDef] = None
     Bitbucket: Optional[ThirdPartySourceRepositoryTypeDef] = None
     GitHubEnterpriseServer: Optional[ThirdPartySourceRepositoryTypeDef] = None
     S3Bucket: Optional[S3RepositoryTypeDef] = None
 
-class RepositoryAssociationTypeDef(BaseModel):
+class RepositoryAssociationTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     AssociationArn: Optional[str] = None
     ConnectionArn: Optional[str] = None
@@ -234,44 +234,44 @@ class RepositoryAssociationTypeDef(BaseModel):
     KMSKeyDetails: Optional[KMSKeyDetailsTypeDef] = None
     S3RepositoryDetails: Optional[S3RepositoryDetailsTypeDef] = None
 
-class S3BucketRepositoryTypeDef(BaseModel):
+class S3BucketRepositoryTypeDef(BaseValidatorModel):
     Name: str
     Details: Optional[S3RepositoryDetailsTypeDef] = None
 
-class ListRecommendationsResponseTypeDef(BaseModel):
+class ListRecommendationsResponseTypeDef(BaseValidatorModel):
     RecommendationSummaries: List[RecommendationSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateRepositoryRequestRequestTypeDef(BaseModel):
+class AssociateRepositoryRequestRequestTypeDef(BaseValidatorModel):
     Repository: RepositoryTypeDef
     ClientRequestToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
     KMSKeyDetails: Optional[KMSKeyDetailsTypeDef] = None
 
-class AssociateRepositoryResponseTypeDef(BaseModel):
+class AssociateRepositoryResponseTypeDef(BaseValidatorModel):
     RepositoryAssociation: RepositoryAssociationTypeDef
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRepositoryAssociationResponseTypeDef(BaseModel):
+class DescribeRepositoryAssociationResponseTypeDef(BaseValidatorModel):
     RepositoryAssociation: RepositoryAssociationTypeDef
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateRepositoryResponseTypeDef(BaseModel):
+class DisassociateRepositoryResponseTypeDef(BaseValidatorModel):
     RepositoryAssociation: RepositoryAssociationTypeDef
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SourceCodeTypeTypeDef(BaseModel):
+class SourceCodeTypeTypeDef(BaseValidatorModel):
     CommitDiff: Optional[CommitDiffSourceCodeTypeTypeDef] = None
     RepositoryHead: Optional[RepositoryHeadSourceCodeTypeTypeDef] = None
     BranchDiff: Optional[BranchDiffSourceCodeTypeTypeDef] = None
     S3BucketRepository: Optional[S3BucketRepositoryTypeDef] = None
     RequestMetadata: Optional[RequestMetadataTypeDef] = None
 
-class CodeReviewSummaryTypeDef(BaseModel):
+class CodeReviewSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     CodeReviewArn: Optional[str] = None
     RepositoryName: Optional[str] = None
@@ -285,7 +285,7 @@ class CodeReviewSummaryTypeDef(BaseModel):
     MetricsSummary: Optional[MetricsSummaryTypeDef] = None
     SourceCodeType: Optional[SourceCodeTypeTypeDef] = None
 
-class CodeReviewTypeDef(BaseModel):
+class CodeReviewTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     CodeReviewArn: Optional[str] = None
     RepositoryName: Optional[str] = None
@@ -303,28 +303,28 @@ class CodeReviewTypeDef(BaseModel):
     AnalysisTypes: Optional[List[AnalysisTypeType]] = None
     ConfigFileState: Optional[ConfigFileStateType] = None
 
-class RepositoryAnalysisTypeDef(BaseModel):
+class RepositoryAnalysisTypeDef(BaseValidatorModel):
     RepositoryHead: Optional[RepositoryHeadSourceCodeTypeTypeDef] = None
     SourceCodeType: Optional[SourceCodeTypeTypeDef] = None
 
-class ListCodeReviewsResponseTypeDef(BaseModel):
+class ListCodeReviewsResponseTypeDef(BaseValidatorModel):
     CodeReviewSummaries: List[CodeReviewSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCodeReviewResponseTypeDef(BaseModel):
+class CreateCodeReviewResponseTypeDef(BaseValidatorModel):
     CodeReview: CodeReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCodeReviewResponseTypeDef(BaseModel):
+class DescribeCodeReviewResponseTypeDef(BaseValidatorModel):
     CodeReview: CodeReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CodeReviewTypeTypeDef(BaseModel):
+class CodeReviewTypeTypeDef(BaseValidatorModel):
     RepositoryAnalysis: RepositoryAnalysisTypeDef
     AnalysisTypes: Optional[Sequence[AnalysisTypeType]] = None
 
-class CreateCodeReviewRequestRequestTypeDef(BaseModel):
+class CreateCodeReviewRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     RepositoryAssociationArn: str
     Type: CodeReviewTypeTypeDef

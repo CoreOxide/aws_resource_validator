@@ -1,7 +1,7 @@
 from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO
 from datetime import datetime
 
-BaseModelNameType = Literal["NarrowBand", "WideBand"]
+BaseValidatorModelNameType = Literal["NarrowBand", "WideBand"]
 CLMLanguageCodeType = Literal["de-DE", "en-AU", "en-GB", "en-US", "es-US", "hi-IN", "ja-JP"]
 CallAnalyticsFeatureType = Literal["GENERATIVE_SUMMARIZATION"]
 CallAnalyticsJobStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "QUEUED"]

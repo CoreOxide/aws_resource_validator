@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,49 +11,49 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.config_constants import *
 
-class AccountAggregationSourceExtraOutputTypeDef(BaseModel):
+class AccountAggregationSourceExtraOutputTypeDef(BaseValidatorModel):
     AccountIds: List[str]
     AllAwsRegions: Optional[bool] = None
     AwsRegions: Optional[List[str]] = None
 
-class AccountAggregationSourceOutputTypeDef(BaseModel):
+class AccountAggregationSourceOutputTypeDef(BaseValidatorModel):
     AccountIds: List[str]
     AllAwsRegions: Optional[bool] = None
     AwsRegions: Optional[List[str]] = None
 
-class AccountAggregationSourceTypeDef(BaseModel):
+class AccountAggregationSourceTypeDef(BaseValidatorModel):
     AccountIds: Sequence[str]
     AllAwsRegions: Optional[bool] = None
     AwsRegions: Optional[Sequence[str]] = None
 
-class AggregateConformancePackComplianceTypeDef(BaseModel):
+class AggregateConformancePackComplianceTypeDef(BaseValidatorModel):
     ComplianceType: Optional[ConformancePackComplianceTypeType] = None
     CompliantRuleCount: Optional[int] = None
     NonCompliantRuleCount: Optional[int] = None
     TotalRuleCount: Optional[int] = None
 
-class AggregateConformancePackComplianceCountTypeDef(BaseModel):
+class AggregateConformancePackComplianceCountTypeDef(BaseValidatorModel):
     CompliantConformancePackCount: Optional[int] = None
     NonCompliantConformancePackCount: Optional[int] = None
 
-class AggregateConformancePackComplianceFiltersTypeDef(BaseModel):
+class AggregateConformancePackComplianceFiltersTypeDef(BaseValidatorModel):
     ConformancePackName: Optional[str] = None
     ComplianceType: Optional[ConformancePackComplianceTypeType] = None
     AccountId: Optional[str] = None
     AwsRegion: Optional[str] = None
 
-class AggregateConformancePackComplianceSummaryFiltersTypeDef(BaseModel):
+class AggregateConformancePackComplianceSummaryFiltersTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     AwsRegion: Optional[str] = None
 
-class AggregateResourceIdentifierTypeDef(BaseModel):
+class AggregateResourceIdentifierTypeDef(BaseValidatorModel):
     SourceAccountId: str
     SourceRegion: str
     ResourceId: str
     ResourceType: ResourceTypeType
     ResourceName: Optional[str] = None
 
-class AggregatedSourceStatusTypeDef(BaseModel):
+class AggregatedSourceStatusTypeDef(BaseValidatorModel):
     SourceId: Optional[str] = None
     SourceType: Optional[AggregatedSourceTypeType] = None
     AwsRegion: Optional[str] = None
@@ -62,13 +62,13 @@ class AggregatedSourceStatusTypeDef(BaseModel):
     LastErrorCode: Optional[str] = None
     LastErrorMessage: Optional[str] = None
 
-class AggregationAuthorizationTypeDef(BaseModel):
+class AggregationAuthorizationTypeDef(BaseValidatorModel):
     AggregationAuthorizationArn: Optional[str] = None
     AuthorizedAccountId: Optional[str] = None
     AuthorizedAwsRegion: Optional[str] = None
     CreationTime: Optional[datetime] = None
 
-class BaseConfigurationItemTypeDef(BaseModel):
+class BaseConfigurationItemTypeDef(BaseValidatorModel):
     version: Optional[str] = None
     accountId: Optional[str] = None
     configurationItemCaptureTime: Optional[datetime] = None
@@ -86,22 +86,22 @@ class BaseConfigurationItemTypeDef(BaseModel):
     recordingFrequency: Optional[RecordingFrequencyType] = None
     configurationItemDeliveryTime: Optional[datetime] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ResourceKeyTypeDef(BaseModel):
+class ResourceKeyTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     resourceId: str
 
-class ComplianceContributorCountTypeDef(BaseModel):
+class ComplianceContributorCountTypeDef(BaseValidatorModel):
     CappedCount: Optional[int] = None
     CapExceeded: Optional[bool] = None
 
-class ConfigExportDeliveryInfoTypeDef(BaseModel):
+class ConfigExportDeliveryInfoTypeDef(BaseValidatorModel):
     lastStatus: Optional[DeliveryStatusType] = None
     lastErrorCode: Optional[str] = None
     lastErrorMessage: Optional[str] = None
@@ -109,17 +109,17 @@ class ConfigExportDeliveryInfoTypeDef(BaseModel):
     lastSuccessfulTime: Optional[datetime] = None
     nextDeliveryTime: Optional[datetime] = None
 
-class ConfigRuleComplianceFiltersTypeDef(BaseModel):
+class ConfigRuleComplianceFiltersTypeDef(BaseValidatorModel):
     ConfigRuleName: Optional[str] = None
     ComplianceType: Optional[ComplianceTypeType] = None
     AccountId: Optional[str] = None
     AwsRegion: Optional[str] = None
 
-class ConfigRuleComplianceSummaryFiltersTypeDef(BaseModel):
+class ConfigRuleComplianceSummaryFiltersTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     AwsRegion: Optional[str] = None
 
-class ConfigRuleEvaluationStatusTypeDef(BaseModel):
+class ConfigRuleEvaluationStatusTypeDef(BaseValidatorModel):
     ConfigRuleName: Optional[str] = None
     ConfigRuleArn: Optional[str] = None
     ConfigRuleId: Optional[str] = None
@@ -136,48 +136,48 @@ class ConfigRuleEvaluationStatusTypeDef(BaseModel):
     LastDebugLogDeliveryStatusReason: Optional[str] = None
     LastDebugLogDeliveryTime: Optional[datetime] = None
 
-class EvaluationModeConfigurationTypeDef(BaseModel):
+class EvaluationModeConfigurationTypeDef(BaseValidatorModel):
     Mode: Optional[EvaluationModeType] = None
 
-class ScopeExtraOutputTypeDef(BaseModel):
+class ScopeExtraOutputTypeDef(BaseValidatorModel):
     ComplianceResourceTypes: Optional[List[str]] = None
     TagKey: Optional[str] = None
     TagValue: Optional[str] = None
     ComplianceResourceId: Optional[str] = None
 
-class ScopeOutputTypeDef(BaseModel):
+class ScopeOutputTypeDef(BaseValidatorModel):
     ComplianceResourceTypes: Optional[List[str]] = None
     TagKey: Optional[str] = None
     TagValue: Optional[str] = None
     ComplianceResourceId: Optional[str] = None
 
-class ScopeTypeDef(BaseModel):
+class ScopeTypeDef(BaseValidatorModel):
     ComplianceResourceTypes: Optional[Sequence[str]] = None
     TagKey: Optional[str] = None
     TagValue: Optional[str] = None
     ComplianceResourceId: Optional[str] = None
 
-class ConfigSnapshotDeliveryPropertiesTypeDef(BaseModel):
+class ConfigSnapshotDeliveryPropertiesTypeDef(BaseValidatorModel):
     deliveryFrequency: Optional[MaximumExecutionFrequencyType] = None
 
-class ConfigStreamDeliveryInfoTypeDef(BaseModel):
+class ConfigStreamDeliveryInfoTypeDef(BaseValidatorModel):
     lastStatus: Optional[DeliveryStatusType] = None
     lastErrorCode: Optional[str] = None
     lastErrorMessage: Optional[str] = None
     lastStatusChangeTime: Optional[datetime] = None
 
-class OrganizationAggregationSourceOutputTypeDef(BaseModel):
+class OrganizationAggregationSourceOutputTypeDef(BaseValidatorModel):
     RoleArn: str
     AwsRegions: Optional[List[str]] = None
     AllAwsRegions: Optional[bool] = None
 
-class RelationshipTypeDef(BaseModel):
+class RelationshipTypeDef(BaseValidatorModel):
     resourceType: Optional[ResourceTypeType] = None
     resourceId: Optional[str] = None
     resourceName: Optional[str] = None
     relationshipName: Optional[str] = None
 
-class ConfigurationRecorderStatusTypeDef(BaseModel):
+class ConfigurationRecorderStatusTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     lastStartTime: Optional[datetime] = None
     lastStopTime: Optional[datetime] = None
@@ -187,42 +187,42 @@ class ConfigurationRecorderStatusTypeDef(BaseModel):
     lastErrorMessage: Optional[str] = None
     lastStatusChangeTime: Optional[datetime] = None
 
-class ConformancePackComplianceFiltersTypeDef(BaseModel):
+class ConformancePackComplianceFiltersTypeDef(BaseValidatorModel):
     ConfigRuleNames: Optional[Sequence[str]] = None
     ComplianceType: Optional[ConformancePackComplianceTypeType] = None
 
-class ConformancePackComplianceScoreTypeDef(BaseModel):
+class ConformancePackComplianceScoreTypeDef(BaseValidatorModel):
     Score: Optional[str] = None
     ConformancePackName: Optional[str] = None
     LastUpdatedTime: Optional[datetime] = None
 
-class ConformancePackComplianceScoresFiltersTypeDef(BaseModel):
+class ConformancePackComplianceScoresFiltersTypeDef(BaseValidatorModel):
     ConformancePackNames: Sequence[str]
 
-class ConformancePackComplianceSummaryTypeDef(BaseModel):
+class ConformancePackComplianceSummaryTypeDef(BaseValidatorModel):
     ConformancePackName: str
     ConformancePackComplianceStatus: ConformancePackComplianceTypeType
 
-class ConformancePackInputParameterTypeDef(BaseModel):
+class ConformancePackInputParameterTypeDef(BaseValidatorModel):
     ParameterName: str
     ParameterValue: str
 
-class TemplateSSMDocumentDetailsTypeDef(BaseModel):
+class TemplateSSMDocumentDetailsTypeDef(BaseValidatorModel):
     DocumentName: str
     DocumentVersion: Optional[str] = None
 
-class ConformancePackEvaluationFiltersTypeDef(BaseModel):
+class ConformancePackEvaluationFiltersTypeDef(BaseValidatorModel):
     ConfigRuleNames: Optional[Sequence[str]] = None
     ComplianceType: Optional[ConformancePackComplianceTypeType] = None
     ResourceType: Optional[str] = None
     ResourceIds: Optional[Sequence[str]] = None
 
-class ConformancePackRuleComplianceTypeDef(BaseModel):
+class ConformancePackRuleComplianceTypeDef(BaseValidatorModel):
     ConfigRuleName: Optional[str] = None
     ComplianceType: Optional[ConformancePackComplianceTypeType] = None
     Controls: Optional[List[str]] = None
 
-class ConformancePackStatusDetailTypeDef(BaseModel):
+class ConformancePackStatusDetailTypeDef(BaseValidatorModel):
     ConformancePackName: str
     ConformancePackId: str
     ConformancePackArn: str
@@ -232,220 +232,220 @@ class ConformancePackStatusDetailTypeDef(BaseModel):
     ConformancePackStatusReason: Optional[str] = None
     LastUpdateCompletedTime: Optional[datetime] = None
 
-class CustomPolicyDetailsTypeDef(BaseModel):
+class CustomPolicyDetailsTypeDef(BaseValidatorModel):
     PolicyRuntime: str
     PolicyText: str
     EnableDebugLogDelivery: Optional[bool] = None
 
-class DeleteAggregationAuthorizationRequestRequestTypeDef(BaseModel):
+class DeleteAggregationAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     AuthorizedAccountId: str
     AuthorizedAwsRegion: str
 
-class DeleteConfigRuleRequestRequestTypeDef(BaseModel):
+class DeleteConfigRuleRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
 
-class DeleteConfigurationAggregatorRequestRequestTypeDef(BaseModel):
+class DeleteConfigurationAggregatorRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
 
-class DeleteConfigurationRecorderRequestRequestTypeDef(BaseModel):
+class DeleteConfigurationRecorderRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationRecorderName: str
 
-class DeleteConformancePackRequestRequestTypeDef(BaseModel):
+class DeleteConformancePackRequestRequestTypeDef(BaseValidatorModel):
     ConformancePackName: str
 
-class DeleteDeliveryChannelRequestRequestTypeDef(BaseModel):
+class DeleteDeliveryChannelRequestRequestTypeDef(BaseValidatorModel):
     DeliveryChannelName: str
 
-class DeleteEvaluationResultsRequestRequestTypeDef(BaseModel):
+class DeleteEvaluationResultsRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
 
-class DeleteOrganizationConfigRuleRequestRequestTypeDef(BaseModel):
+class DeleteOrganizationConfigRuleRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConfigRuleName: str
 
-class DeleteOrganizationConformancePackRequestRequestTypeDef(BaseModel):
+class DeleteOrganizationConformancePackRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConformancePackName: str
 
-class DeletePendingAggregationRequestRequestRequestTypeDef(BaseModel):
+class DeletePendingAggregationRequestRequestRequestTypeDef(BaseValidatorModel):
     RequesterAccountId: str
     RequesterAwsRegion: str
 
-class DeleteRemediationConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteRemediationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ResourceType: Optional[str] = None
 
-class RemediationExceptionResourceKeyTypeDef(BaseModel):
+class RemediationExceptionResourceKeyTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
 
-class DeleteResourceConfigRequestRequestTypeDef(BaseModel):
+class DeleteResourceConfigRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: str
     ResourceId: str
 
-class DeleteRetentionConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteRetentionConfigurationRequestRequestTypeDef(BaseValidatorModel):
     RetentionConfigurationName: str
 
-class DeleteStoredQueryRequestRequestTypeDef(BaseModel):
+class DeleteStoredQueryRequestRequestTypeDef(BaseValidatorModel):
     QueryName: str
 
-class DeliverConfigSnapshotRequestRequestTypeDef(BaseModel):
+class DeliverConfigSnapshotRequestRequestTypeDef(BaseValidatorModel):
     deliveryChannelName: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeAggregationAuthorizationsRequestRequestTypeDef(BaseModel):
+class DescribeAggregationAuthorizationsRequestRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeComplianceByConfigRuleRequestRequestTypeDef(BaseModel):
+class DescribeComplianceByConfigRuleRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleNames: Optional[Sequence[str]] = None
     ComplianceTypes: Optional[Sequence[ComplianceTypeType]] = None
     NextToken: Optional[str] = None
 
-class DescribeComplianceByResourceRequestRequestTypeDef(BaseModel):
+class DescribeComplianceByResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     ComplianceTypes: Optional[Sequence[ComplianceTypeType]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeConfigRuleEvaluationStatusRequestRequestTypeDef(BaseModel):
+class DescribeConfigRuleEvaluationStatusRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeConfigRulesFiltersTypeDef(BaseModel):
+class DescribeConfigRulesFiltersTypeDef(BaseValidatorModel):
     EvaluationMode: Optional[EvaluationModeType] = None
 
-class DescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef(BaseModel):
+class DescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     UpdateStatus: Optional[Sequence[AggregatedSourceStatusTypeType]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeConfigurationAggregatorsRequestRequestTypeDef(BaseModel):
+class DescribeConfigurationAggregatorsRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeConfigurationRecorderStatusRequestRequestTypeDef(BaseModel):
+class DescribeConfigurationRecorderStatusRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationRecorderNames: Optional[Sequence[str]] = None
 
-class DescribeConfigurationRecordersRequestRequestTypeDef(BaseModel):
+class DescribeConfigurationRecordersRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationRecorderNames: Optional[Sequence[str]] = None
 
-class DescribeConformancePackStatusRequestRequestTypeDef(BaseModel):
+class DescribeConformancePackStatusRequestRequestTypeDef(BaseValidatorModel):
     ConformancePackNames: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeConformancePacksRequestRequestTypeDef(BaseModel):
+class DescribeConformancePacksRequestRequestTypeDef(BaseValidatorModel):
     ConformancePackNames: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeDeliveryChannelStatusRequestRequestTypeDef(BaseModel):
+class DescribeDeliveryChannelStatusRequestRequestTypeDef(BaseValidatorModel):
     DeliveryChannelNames: Optional[Sequence[str]] = None
 
-class DescribeDeliveryChannelsRequestRequestTypeDef(BaseModel):
+class DescribeDeliveryChannelsRequestRequestTypeDef(BaseValidatorModel):
     DeliveryChannelNames: Optional[Sequence[str]] = None
 
-class DescribeOrganizationConfigRuleStatusesRequestRequestTypeDef(BaseModel):
+class DescribeOrganizationConfigRuleStatusesRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConfigRuleNames: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class OrganizationConfigRuleStatusTypeDef(BaseModel):
+class OrganizationConfigRuleStatusTypeDef(BaseValidatorModel):
     OrganizationConfigRuleName: str
     OrganizationRuleStatus: OrganizationRuleStatusType
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
     LastUpdateTime: Optional[datetime] = None
 
-class DescribeOrganizationConfigRulesRequestRequestTypeDef(BaseModel):
+class DescribeOrganizationConfigRulesRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConfigRuleNames: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeOrganizationConformancePackStatusesRequestRequestTypeDef(BaseModel):
+class DescribeOrganizationConformancePackStatusesRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConformancePackNames: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class OrganizationConformancePackStatusTypeDef(BaseModel):
+class OrganizationConformancePackStatusTypeDef(BaseValidatorModel):
     OrganizationConformancePackName: str
     Status: OrganizationResourceStatusType
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
     LastUpdateTime: Optional[datetime] = None
 
-class DescribeOrganizationConformancePacksRequestRequestTypeDef(BaseModel):
+class DescribeOrganizationConformancePacksRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConformancePackNames: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribePendingAggregationRequestsRequestRequestTypeDef(BaseModel):
+class DescribePendingAggregationRequestsRequestRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class PendingAggregationRequestTypeDef(BaseModel):
+class PendingAggregationRequestTypeDef(BaseValidatorModel):
     RequesterAccountId: Optional[str] = None
     RequesterAwsRegion: Optional[str] = None
 
-class DescribeRemediationConfigurationsRequestRequestTypeDef(BaseModel):
+class DescribeRemediationConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleNames: Sequence[str]
 
-class RemediationExceptionTypeDef(BaseModel):
+class RemediationExceptionTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ResourceType: str
     ResourceId: str
     Message: Optional[str] = None
     ExpirationTime: Optional[datetime] = None
 
-class DescribeRetentionConfigurationsRequestRequestTypeDef(BaseModel):
+class DescribeRetentionConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     RetentionConfigurationNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
 
-class RetentionConfigurationTypeDef(BaseModel):
+class RetentionConfigurationTypeDef(BaseValidatorModel):
     Name: str
     RetentionPeriodInDays: int
 
-class EvaluationContextTypeDef(BaseModel):
+class EvaluationContextTypeDef(BaseValidatorModel):
     EvaluationContextIdentifier: Optional[str] = None
 
-class EvaluationOutputTypeDef(BaseModel):
+class EvaluationOutputTypeDef(BaseValidatorModel):
     ComplianceResourceType: str
     ComplianceResourceId: str
     ComplianceType: ComplianceTypeType
     OrderingTimestamp: datetime
     Annotation: Optional[str] = None
 
-class EvaluationResultQualifierTypeDef(BaseModel):
+class EvaluationResultQualifierTypeDef(BaseValidatorModel):
     ConfigRuleName: Optional[str] = None
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     EvaluationMode: Optional[EvaluationModeType] = None
 
-class EvaluationStatusTypeDef(BaseModel):
+class EvaluationStatusTypeDef(BaseValidatorModel):
     Status: ResourceEvaluationStatusType
     FailureReason: Optional[str] = None
 
-class ExclusionByResourceTypesOutputTypeDef(BaseModel):
+class ExclusionByResourceTypesOutputTypeDef(BaseValidatorModel):
     resourceTypes: Optional[List[ResourceTypeType]] = None
 
-class ExclusionByResourceTypesTypeDef(BaseModel):
+class ExclusionByResourceTypesTypeDef(BaseValidatorModel):
     resourceTypes: Optional[Sequence[ResourceTypeType]] = None
 
-class SsmControlsTypeDef(BaseModel):
+class SsmControlsTypeDef(BaseValidatorModel):
     ConcurrentExecutionRatePercentage: Optional[int] = None
     ErrorPercentage: Optional[int] = None
 
-class FieldInfoTypeDef(BaseModel):
+class FieldInfoTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class GetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef(BaseModel):
+class GetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ConfigRuleName: str
     AccountId: str
@@ -454,53 +454,53 @@ class GetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef(BaseModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ResourceCountFiltersTypeDef(BaseModel):
+class ResourceCountFiltersTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     AccountId: Optional[str] = None
     Region: Optional[str] = None
 
-class GroupedResourceCountTypeDef(BaseModel):
+class GroupedResourceCountTypeDef(BaseValidatorModel):
     GroupName: str
     ResourceCount: int
 
-class GetComplianceDetailsByConfigRuleRequestRequestTypeDef(BaseModel):
+class GetComplianceDetailsByConfigRuleRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ComplianceTypes: Optional[Sequence[ComplianceTypeType]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetComplianceDetailsByResourceRequestRequestTypeDef(BaseModel):
+class GetComplianceDetailsByResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     ComplianceTypes: Optional[Sequence[ComplianceTypeType]] = None
     NextToken: Optional[str] = None
     ResourceEvaluationId: Optional[str] = None
 
-class GetComplianceSummaryByResourceTypeRequestRequestTypeDef(BaseModel):
+class GetComplianceSummaryByResourceTypeRequestRequestTypeDef(BaseValidatorModel):
     ResourceTypes: Optional[Sequence[str]] = None
 
-class GetConformancePackComplianceSummaryRequestRequestTypeDef(BaseModel):
+class GetConformancePackComplianceSummaryRequestRequestTypeDef(BaseValidatorModel):
     ConformancePackNames: Sequence[str]
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetCustomRulePolicyRequestRequestTypeDef(BaseModel):
+class GetCustomRulePolicyRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: Optional[str] = None
 
-class GetDiscoveredResourceCountsRequestRequestTypeDef(BaseModel):
+class GetDiscoveredResourceCountsRequestRequestTypeDef(BaseValidatorModel):
     resourceTypes: Optional[Sequence[str]] = None
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ResourceCountTypeDef(BaseModel):
+class ResourceCountTypeDef(BaseValidatorModel):
     resourceType: Optional[ResourceTypeType] = None
     count: Optional[int] = None
 
-class StatusDetailFiltersTypeDef(BaseModel):
+class StatusDetailFiltersTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     MemberAccountRuleStatus: Optional[MemberAccountRuleStatusType] = None
 
-class MemberAccountStatusTypeDef(BaseModel):
+class MemberAccountStatusTypeDef(BaseValidatorModel):
     AccountId: str
     ConfigRuleName: str
     MemberAccountRuleStatus: MemberAccountRuleStatusType
@@ -508,11 +508,11 @@ class MemberAccountStatusTypeDef(BaseModel):
     ErrorMessage: Optional[str] = None
     LastUpdateTime: Optional[datetime] = None
 
-class OrganizationResourceDetailedStatusFiltersTypeDef(BaseModel):
+class OrganizationResourceDetailedStatusFiltersTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     Status: Optional[OrganizationResourceDetailedStatusType] = None
 
-class OrganizationConformancePackDetailedStatusTypeDef(BaseModel):
+class OrganizationConformancePackDetailedStatusTypeDef(BaseValidatorModel):
     AccountId: str
     ConformancePackName: str
     Status: OrganizationResourceDetailedStatusType
@@ -520,35 +520,35 @@ class OrganizationConformancePackDetailedStatusTypeDef(BaseModel):
     ErrorMessage: Optional[str] = None
     LastUpdateTime: Optional[datetime] = None
 
-class GetOrganizationCustomRulePolicyRequestRequestTypeDef(BaseModel):
+class GetOrganizationCustomRulePolicyRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConfigRuleName: str
 
-class GetResourceEvaluationSummaryRequestRequestTypeDef(BaseModel):
+class GetResourceEvaluationSummaryRequestRequestTypeDef(BaseValidatorModel):
     ResourceEvaluationId: str
 
-class ResourceDetailsTypeDef(BaseModel):
+class ResourceDetailsTypeDef(BaseValidatorModel):
     ResourceId: str
     ResourceType: str
     ResourceConfiguration: str
     ResourceConfigurationSchemaType: Optional[Literal["CFN_RESOURCE_SCHEMA"]] = None
 
-class GetStoredQueryRequestRequestTypeDef(BaseModel):
+class GetStoredQueryRequestRequestTypeDef(BaseValidatorModel):
     QueryName: str
 
-class StoredQueryTypeDef(BaseModel):
+class StoredQueryTypeDef(BaseValidatorModel):
     QueryName: str
     QueryId: Optional[str] = None
     QueryArn: Optional[str] = None
     Description: Optional[str] = None
     Expression: Optional[str] = None
 
-class ResourceFiltersTypeDef(BaseModel):
+class ResourceFiltersTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     ResourceId: Optional[str] = None
     ResourceName: Optional[str] = None
     Region: Optional[str] = None
 
-class ListDiscoveredResourcesRequestRequestTypeDef(BaseModel):
+class ListDiscoveredResourcesRequestRequestTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     resourceIds: Optional[Sequence[str]] = None
     resourceName: Optional[str] = None
@@ -556,47 +556,47 @@ class ListDiscoveredResourcesRequestRequestTypeDef(BaseModel):
     includeDeletedResources: Optional[bool] = None
     nextToken: Optional[str] = None
 
-class ResourceIdentifierTypeDef(BaseModel):
+class ResourceIdentifierTypeDef(BaseValidatorModel):
     resourceType: Optional[ResourceTypeType] = None
     resourceId: Optional[str] = None
     resourceName: Optional[str] = None
     resourceDeletionTime: Optional[datetime] = None
 
-class ResourceEvaluationTypeDef(BaseModel):
+class ResourceEvaluationTypeDef(BaseValidatorModel):
     ResourceEvaluationId: Optional[str] = None
     EvaluationMode: Optional[EvaluationModeType] = None
     EvaluationStartTimestamp: Optional[datetime] = None
 
-class ListStoredQueriesRequestRequestTypeDef(BaseModel):
+class ListStoredQueriesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class StoredQueryMetadataTypeDef(BaseModel):
+class StoredQueryMetadataTypeDef(BaseValidatorModel):
     QueryId: str
     QueryArn: str
     QueryName: str
     Description: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class OrganizationAggregationSourceExtraOutputTypeDef(BaseModel):
+class OrganizationAggregationSourceExtraOutputTypeDef(BaseValidatorModel):
     RoleArn: str
     AwsRegions: Optional[List[str]] = None
     AllAwsRegions: Optional[bool] = None
 
-class OrganizationAggregationSourceTypeDef(BaseModel):
+class OrganizationAggregationSourceTypeDef(BaseValidatorModel):
     RoleArn: str
     AwsRegions: Optional[Sequence[str]] = None
     AllAwsRegions: Optional[bool] = None
 
-class OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef(BaseModel):
+class OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     OrganizationConfigRuleTriggerTypes: Optional[       List[OrganizationConfigRuleTriggerTypeNoSNType]     ] = None
     InputParameters: Optional[str] = None
@@ -608,7 +608,7 @@ class OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef(BaseModel):
     PolicyRuntime: Optional[str] = None
     DebugLogDeliveryAccounts: Optional[List[str]] = None
 
-class OrganizationCustomRuleMetadataOutputTypeDef(BaseModel):
+class OrganizationCustomRuleMetadataOutputTypeDef(BaseValidatorModel):
     LambdaFunctionArn: str
     OrganizationConfigRuleTriggerTypes: List[OrganizationConfigRuleTriggerTypeType]
     Description: Optional[str] = None
@@ -619,7 +619,7 @@ class OrganizationCustomRuleMetadataOutputTypeDef(BaseModel):
     TagKeyScope: Optional[str] = None
     TagValueScope: Optional[str] = None
 
-class OrganizationManagedRuleMetadataOutputTypeDef(BaseModel):
+class OrganizationManagedRuleMetadataOutputTypeDef(BaseValidatorModel):
     RuleIdentifier: str
     Description: Optional[str] = None
     InputParameters: Optional[str] = None
@@ -629,7 +629,7 @@ class OrganizationManagedRuleMetadataOutputTypeDef(BaseModel):
     TagKeyScope: Optional[str] = None
     TagValueScope: Optional[str] = None
 
-class OrganizationCustomPolicyRuleMetadataTypeDef(BaseModel):
+class OrganizationCustomPolicyRuleMetadataTypeDef(BaseValidatorModel):
     PolicyRuntime: str
     PolicyText: str
     Description: Optional[str] = None
@@ -642,7 +642,7 @@ class OrganizationCustomPolicyRuleMetadataTypeDef(BaseModel):
     TagValueScope: Optional[str] = None
     DebugLogDeliveryAccounts: Optional[Sequence[str]] = None
 
-class OrganizationCustomRuleMetadataExtraOutputTypeDef(BaseModel):
+class OrganizationCustomRuleMetadataExtraOutputTypeDef(BaseValidatorModel):
     LambdaFunctionArn: str
     OrganizationConfigRuleTriggerTypes: List[OrganizationConfigRuleTriggerTypeType]
     Description: Optional[str] = None
@@ -653,7 +653,7 @@ class OrganizationCustomRuleMetadataExtraOutputTypeDef(BaseModel):
     TagKeyScope: Optional[str] = None
     TagValueScope: Optional[str] = None
 
-class OrganizationCustomRuleMetadataTypeDef(BaseModel):
+class OrganizationCustomRuleMetadataTypeDef(BaseValidatorModel):
     LambdaFunctionArn: str
     OrganizationConfigRuleTriggerTypes: Sequence[OrganizationConfigRuleTriggerTypeType]
     Description: Optional[str] = None
@@ -664,7 +664,7 @@ class OrganizationCustomRuleMetadataTypeDef(BaseModel):
     TagKeyScope: Optional[str] = None
     TagValueScope: Optional[str] = None
 
-class OrganizationManagedRuleMetadataExtraOutputTypeDef(BaseModel):
+class OrganizationManagedRuleMetadataExtraOutputTypeDef(BaseValidatorModel):
     RuleIdentifier: str
     Description: Optional[str] = None
     InputParameters: Optional[str] = None
@@ -674,7 +674,7 @@ class OrganizationManagedRuleMetadataExtraOutputTypeDef(BaseModel):
     TagKeyScope: Optional[str] = None
     TagValueScope: Optional[str] = None
 
-class OrganizationManagedRuleMetadataTypeDef(BaseModel):
+class OrganizationManagedRuleMetadataTypeDef(BaseValidatorModel):
     RuleIdentifier: str
     Description: Optional[str] = None
     InputParameters: Optional[str] = None
@@ -684,7 +684,7 @@ class OrganizationManagedRuleMetadataTypeDef(BaseModel):
     TagKeyScope: Optional[str] = None
     TagValueScope: Optional[str] = None
 
-class PutResourceConfigRequestRequestTypeDef(BaseModel):
+class PutResourceConfigRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: str
     SchemaVersionId: str
     ResourceId: str
@@ -692,209 +692,209 @@ class PutResourceConfigRequestRequestTypeDef(BaseModel):
     ResourceName: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class PutRetentionConfigurationRequestRequestTypeDef(BaseModel):
+class PutRetentionConfigurationRequestRequestTypeDef(BaseValidatorModel):
     RetentionPeriodInDays: int
 
-class RecordingStrategyTypeDef(BaseModel):
+class RecordingStrategyTypeDef(BaseValidatorModel):
     useOnly: Optional[RecordingStrategyTypeType] = None
 
-class RecordingModeOverrideOutputTypeDef(BaseModel):
+class RecordingModeOverrideOutputTypeDef(BaseValidatorModel):
     resourceTypes: List[ResourceTypeType]
     recordingFrequency: RecordingFrequencyType
     description: Optional[str] = None
 
-class RecordingModeOverrideTypeDef(BaseModel):
+class RecordingModeOverrideTypeDef(BaseValidatorModel):
     resourceTypes: Sequence[ResourceTypeType]
     recordingFrequency: RecordingFrequencyType
     description: Optional[str] = None
 
-class RemediationExecutionStepTypeDef(BaseModel):
+class RemediationExecutionStepTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     State: Optional[RemediationExecutionStepStateType] = None
     ErrorMessage: Optional[str] = None
     StartTime: Optional[datetime] = None
     StopTime: Optional[datetime] = None
 
-class ResourceValueTypeDef(BaseModel):
+class ResourceValueTypeDef(BaseValidatorModel):
     Value: Literal["RESOURCE_ID"]
 
-class StaticValueOutputTypeDef(BaseModel):
+class StaticValueOutputTypeDef(BaseValidatorModel):
     Values: List[str]
 
-class StaticValueTypeDef(BaseModel):
+class StaticValueTypeDef(BaseValidatorModel):
     Values: Sequence[str]
 
-class SelectAggregateResourceConfigRequestRequestTypeDef(BaseModel):
+class SelectAggregateResourceConfigRequestRequestTypeDef(BaseValidatorModel):
     Expression: str
     ConfigurationAggregatorName: str
     Limit: Optional[int] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class SelectResourceConfigRequestRequestTypeDef(BaseModel):
+class SelectResourceConfigRequestRequestTypeDef(BaseValidatorModel):
     Expression: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class SourceDetailTypeDef(BaseModel):
+class SourceDetailTypeDef(BaseValidatorModel):
     EventSource: Optional[Literal["aws.config"]] = None
     MessageType: Optional[MessageTypeType] = None
     MaximumExecutionFrequency: Optional[MaximumExecutionFrequencyType] = None
 
-class StartConfigRulesEvaluationRequestRequestTypeDef(BaseModel):
+class StartConfigRulesEvaluationRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleNames: Optional[Sequence[str]] = None
 
-class StartConfigurationRecorderRequestRequestTypeDef(BaseModel):
+class StartConfigurationRecorderRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationRecorderName: str
 
-class StopConfigurationRecorderRequestRequestTypeDef(BaseModel):
+class StopConfigurationRecorderRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationRecorderName: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class AggregateComplianceByConformancePackTypeDef(BaseModel):
+class AggregateComplianceByConformancePackTypeDef(BaseValidatorModel):
     ConformancePackName: Optional[str] = None
     Compliance: Optional[AggregateConformancePackComplianceTypeDef] = None
     AccountId: Optional[str] = None
     AwsRegion: Optional[str] = None
 
-class AggregateConformancePackComplianceSummaryTypeDef(BaseModel):
+class AggregateConformancePackComplianceSummaryTypeDef(BaseValidatorModel):
     ComplianceSummary: Optional[AggregateConformancePackComplianceCountTypeDef] = None
     GroupName: Optional[str] = None
 
-class DescribeAggregateComplianceByConformancePacksRequestRequestTypeDef(BaseModel):
+class DescribeAggregateComplianceByConformancePacksRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[AggregateConformancePackComplianceFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetAggregateConformancePackComplianceSummaryRequestRequestTypeDef(BaseModel):
+class GetAggregateConformancePackComplianceSummaryRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[AggregateConformancePackComplianceSummaryFiltersTypeDef] = None
     GroupByKey: Optional[AggregateConformancePackComplianceSummaryGroupKeyType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class BatchGetAggregateResourceConfigRequestRequestTypeDef(BaseModel):
+class BatchGetAggregateResourceConfigRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ResourceIdentifiers: Sequence[AggregateResourceIdentifierTypeDef]
 
-class GetAggregateResourceConfigRequestRequestTypeDef(BaseModel):
+class GetAggregateResourceConfigRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ResourceIdentifier: AggregateResourceIdentifierTypeDef
 
-class BatchGetAggregateResourceConfigResponseTypeDef(BaseModel):
+class BatchGetAggregateResourceConfigResponseTypeDef(BaseValidatorModel):
     BaseConfigurationItems: List[BaseConfigurationItemTypeDef]
     UnprocessedResourceIdentifiers: List[AggregateResourceIdentifierTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeliverConfigSnapshotResponseTypeDef(BaseModel):
+class DeliverConfigSnapshotResponseTypeDef(BaseValidatorModel):
     configSnapshotId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAggregationAuthorizationsResponseTypeDef(BaseModel):
+class DescribeAggregationAuthorizationsResponseTypeDef(BaseValidatorModel):
     AggregationAuthorizations: List[AggregationAuthorizationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeConfigurationAggregatorSourcesStatusResponseTypeDef(BaseModel):
+class DescribeConfigurationAggregatorSourcesStatusResponseTypeDef(BaseValidatorModel):
     AggregatedSourceStatusList: List[AggregatedSourceStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCustomRulePolicyResponseTypeDef(BaseModel):
+class GetCustomRulePolicyResponseTypeDef(BaseValidatorModel):
     PolicyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOrganizationCustomRulePolicyResponseTypeDef(BaseModel):
+class GetOrganizationCustomRulePolicyResponseTypeDef(BaseValidatorModel):
     PolicyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAggregateDiscoveredResourcesResponseTypeDef(BaseModel):
+class ListAggregateDiscoveredResourcesResponseTypeDef(BaseValidatorModel):
     ResourceIdentifiers: List[AggregateResourceIdentifierTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutAggregationAuthorizationResponseTypeDef(BaseModel):
+class PutAggregationAuthorizationResponseTypeDef(BaseValidatorModel):
     AggregationAuthorization: AggregationAuthorizationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutConformancePackResponseTypeDef(BaseModel):
+class PutConformancePackResponseTypeDef(BaseValidatorModel):
     ConformancePackArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutOrganizationConfigRuleResponseTypeDef(BaseModel):
+class PutOrganizationConfigRuleResponseTypeDef(BaseValidatorModel):
     OrganizationConfigRuleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutOrganizationConformancePackResponseTypeDef(BaseModel):
+class PutOrganizationConformancePackResponseTypeDef(BaseValidatorModel):
     OrganizationConformancePackArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutStoredQueryResponseTypeDef(BaseModel):
+class PutStoredQueryResponseTypeDef(BaseValidatorModel):
     QueryArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartResourceEvaluationResponseTypeDef(BaseModel):
+class StartResourceEvaluationResponseTypeDef(BaseValidatorModel):
     ResourceEvaluationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetResourceConfigRequestRequestTypeDef(BaseModel):
+class BatchGetResourceConfigRequestRequestTypeDef(BaseValidatorModel):
     resourceKeys: Sequence[ResourceKeyTypeDef]
 
-class BatchGetResourceConfigResponseTypeDef(BaseModel):
+class BatchGetResourceConfigResponseTypeDef(BaseValidatorModel):
     baseConfigurationItems: List[BaseConfigurationItemTypeDef]
     unprocessedResourceKeys: List[ResourceKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRemediationExecutionStatusRequestRequestTypeDef(BaseModel):
+class DescribeRemediationExecutionStatusRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: Optional[Sequence[ResourceKeyTypeDef]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class StartRemediationExecutionRequestRequestTypeDef(BaseModel):
+class StartRemediationExecutionRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: Sequence[ResourceKeyTypeDef]
 
-class StartRemediationExecutionResponseTypeDef(BaseModel):
+class StartRemediationExecutionResponseTypeDef(BaseValidatorModel):
     FailureMessage: str
     FailedItems: List[ResourceKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ComplianceSummaryTypeDef(BaseModel):
+class ComplianceSummaryTypeDef(BaseValidatorModel):
     CompliantResourceCount: Optional[ComplianceContributorCountTypeDef] = None
     NonCompliantResourceCount: Optional[ComplianceContributorCountTypeDef] = None
     ComplianceSummaryTimestamp: Optional[datetime] = None
 
-class ComplianceTypeDef(BaseModel):
+class ComplianceTypeDef(BaseValidatorModel):
     ComplianceType: Optional[ComplianceTypeType] = None
     ComplianceContributorCount: Optional[ComplianceContributorCountTypeDef] = None
 
-class DescribeAggregateComplianceByConfigRulesRequestRequestTypeDef(BaseModel):
+class DescribeAggregateComplianceByConfigRulesRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[ConfigRuleComplianceFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef(BaseModel):
+class GetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[ConfigRuleComplianceSummaryFiltersTypeDef] = None
     GroupByKey: Optional[ConfigRuleComplianceSummaryGroupKeyType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeConfigRuleEvaluationStatusResponseTypeDef(BaseModel):
+class DescribeConfigRuleEvaluationStatusResponseTypeDef(BaseValidatorModel):
     ConfigRulesEvaluationStatus: List[ConfigRuleEvaluationStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DeliveryChannelTypeDef(BaseModel):
+class DeliveryChannelTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     s3BucketName: Optional[str] = None
     s3KeyPrefix: Optional[str] = None
@@ -902,13 +902,13 @@ class DeliveryChannelTypeDef(BaseModel):
     snsTopicARN: Optional[str] = None
     configSnapshotDeliveryProperties: Optional[ConfigSnapshotDeliveryPropertiesTypeDef] = None
 
-class DeliveryChannelStatusTypeDef(BaseModel):
+class DeliveryChannelStatusTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     configSnapshotDeliveryInfo: Optional[ConfigExportDeliveryInfoTypeDef] = None
     configHistoryDeliveryInfo: Optional[ConfigExportDeliveryInfoTypeDef] = None
     configStreamDeliveryInfo: Optional[ConfigStreamDeliveryInfoTypeDef] = None
 
-class ConfigurationAggregatorTypeDef(BaseModel):
+class ConfigurationAggregatorTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: Optional[str] = None
     ConfigurationAggregatorArn: Optional[str] = None
     AccountAggregationSources: Optional[List[AccountAggregationSourceOutputTypeDef]] = None
@@ -917,7 +917,7 @@ class ConfigurationAggregatorTypeDef(BaseModel):
     LastUpdatedTime: Optional[datetime] = None
     CreatedBy: Optional[str] = None
 
-class ConfigurationItemTypeDef(BaseModel):
+class ConfigurationItemTypeDef(BaseValidatorModel):
     version: Optional[str] = None
     accountId: Optional[str] = None
     configurationItemCaptureTime: Optional[datetime] = None
@@ -939,34 +939,34 @@ class ConfigurationItemTypeDef(BaseModel):
     recordingFrequency: Optional[RecordingFrequencyType] = None
     configurationItemDeliveryTime: Optional[datetime] = None
 
-class DescribeConfigurationRecorderStatusResponseTypeDef(BaseModel):
+class DescribeConfigurationRecorderStatusResponseTypeDef(BaseValidatorModel):
     ConfigurationRecordersStatus: List[ConfigurationRecorderStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeConformancePackComplianceRequestRequestTypeDef(BaseModel):
+class DescribeConformancePackComplianceRequestRequestTypeDef(BaseValidatorModel):
     ConformancePackName: str
     Filters: Optional[ConformancePackComplianceFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListConformancePackComplianceScoresResponseTypeDef(BaseModel):
+class ListConformancePackComplianceScoresResponseTypeDef(BaseValidatorModel):
     ConformancePackComplianceScores: List[ConformancePackComplianceScoreTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListConformancePackComplianceScoresRequestRequestTypeDef(BaseModel):
+class ListConformancePackComplianceScoresRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[ConformancePackComplianceScoresFiltersTypeDef] = None
     SortOrder: Optional[SortOrderType] = None
     SortBy: Optional[Literal["SCORE"]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetConformancePackComplianceSummaryResponseTypeDef(BaseModel):
+class GetConformancePackComplianceSummaryResponseTypeDef(BaseValidatorModel):
     ConformancePackComplianceSummaryList: List[ConformancePackComplianceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class OrganizationConformancePackTypeDef(BaseModel):
+class OrganizationConformancePackTypeDef(BaseValidatorModel):
     OrganizationConformancePackName: str
     OrganizationConformancePackArn: str
     LastUpdateTime: datetime
@@ -975,7 +975,7 @@ class OrganizationConformancePackTypeDef(BaseModel):
     ConformancePackInputParameters: Optional[List[ConformancePackInputParameterTypeDef]] = None
     ExcludedAccounts: Optional[List[str]] = None
 
-class PutOrganizationConformancePackRequestRequestTypeDef(BaseModel):
+class PutOrganizationConformancePackRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConformancePackName: str
     TemplateS3Uri: Optional[str] = None
     TemplateBody: Optional[str] = None
@@ -984,7 +984,7 @@ class PutOrganizationConformancePackRequestRequestTypeDef(BaseModel):
     ConformancePackInputParameters: Optional[       Sequence[ConformancePackInputParameterTypeDef]     ] = None
     ExcludedAccounts: Optional[Sequence[str]] = None
 
-class ConformancePackDetailTypeDef(BaseModel):
+class ConformancePackDetailTypeDef(BaseValidatorModel):
     ConformancePackName: str
     ConformancePackArn: str
     ConformancePackId: str
@@ -995,7 +995,7 @@ class ConformancePackDetailTypeDef(BaseModel):
     CreatedBy: Optional[str] = None
     TemplateSSMDocumentDetails: Optional[TemplateSSMDocumentDetailsTypeDef] = None
 
-class PutConformancePackRequestRequestTypeDef(BaseModel):
+class PutConformancePackRequestRequestTypeDef(BaseValidatorModel):
     ConformancePackName: str
     TemplateS3Uri: Optional[str] = None
     TemplateBody: Optional[str] = None
@@ -1004,108 +1004,108 @@ class PutConformancePackRequestRequestTypeDef(BaseModel):
     ConformancePackInputParameters: Optional[       Sequence[ConformancePackInputParameterTypeDef]     ] = None
     TemplateSSMDocumentDetails: Optional[TemplateSSMDocumentDetailsTypeDef] = None
 
-class GetConformancePackComplianceDetailsRequestRequestTypeDef(BaseModel):
+class GetConformancePackComplianceDetailsRequestRequestTypeDef(BaseValidatorModel):
     ConformancePackName: str
     Filters: Optional[ConformancePackEvaluationFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeConformancePackComplianceResponseTypeDef(BaseModel):
+class DescribeConformancePackComplianceResponseTypeDef(BaseValidatorModel):
     ConformancePackName: str
     ConformancePackRuleComplianceList: List[ConformancePackRuleComplianceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeConformancePackStatusResponseTypeDef(BaseModel):
+class DescribeConformancePackStatusResponseTypeDef(BaseValidatorModel):
     ConformancePackStatusDetails: List[ConformancePackStatusDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DeleteRemediationExceptionsRequestRequestTypeDef(BaseModel):
+class DeleteRemediationExceptionsRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: Sequence[RemediationExceptionResourceKeyTypeDef]
 
-class DescribeRemediationExceptionsRequestRequestTypeDef(BaseModel):
+class DescribeRemediationExceptionsRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: Optional[Sequence[RemediationExceptionResourceKeyTypeDef]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class FailedDeleteRemediationExceptionsBatchTypeDef(BaseModel):
+class FailedDeleteRemediationExceptionsBatchTypeDef(BaseValidatorModel):
     FailureMessage: Optional[str] = None
     FailedItems: Optional[List[RemediationExceptionResourceKeyTypeDef]] = None
 
-class DescribeAggregateComplianceByConfigRulesRequestDescribeAggregateComplianceByConfigRulesPaginateTypeDef(BaseModel):
+class DescribeAggregateComplianceByConfigRulesRequestDescribeAggregateComplianceByConfigRulesPaginateTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[ConfigRuleComplianceFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAggregateComplianceByConformancePacksRequestDescribeAggregateComplianceByConformancePacksPaginateTypeDef(BaseModel):
+class DescribeAggregateComplianceByConformancePacksRequestDescribeAggregateComplianceByConformancePacksPaginateTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[AggregateConformancePackComplianceFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeComplianceByConfigRuleRequestDescribeComplianceByConfigRulePaginateTypeDef(BaseModel):
+class DescribeComplianceByConfigRuleRequestDescribeComplianceByConfigRulePaginateTypeDef(BaseValidatorModel):
     ConfigRuleNames: Optional[Sequence[str]] = None
     ComplianceTypes: Optional[Sequence[ComplianceTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeComplianceByResourceRequestDescribeComplianceByResourcePaginateTypeDef(BaseModel):
+class DescribeComplianceByResourceRequestDescribeComplianceByResourcePaginateTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     ComplianceTypes: Optional[Sequence[ComplianceTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeConfigRuleEvaluationStatusRequestDescribeConfigRuleEvaluationStatusPaginateTypeDef(BaseModel):
+class DescribeConfigRuleEvaluationStatusRequestDescribeConfigRuleEvaluationStatusPaginateTypeDef(BaseValidatorModel):
     ConfigRuleNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeConfigurationAggregatorSourcesStatusRequestDescribeConfigurationAggregatorSourcesStatusPaginateTypeDef(BaseModel):
+class DescribeConfigurationAggregatorSourcesStatusRequestDescribeConfigurationAggregatorSourcesStatusPaginateTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     UpdateStatus: Optional[Sequence[AggregatedSourceStatusTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeConfigurationAggregatorsRequestDescribeConfigurationAggregatorsPaginateTypeDef(BaseModel):
+class DescribeConfigurationAggregatorsRequestDescribeConfigurationAggregatorsPaginateTypeDef(BaseValidatorModel):
     ConfigurationAggregatorNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeConformancePackStatusRequestDescribeConformancePackStatusPaginateTypeDef(BaseModel):
+class DescribeConformancePackStatusRequestDescribeConformancePackStatusPaginateTypeDef(BaseValidatorModel):
     ConformancePackNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeConformancePacksRequestDescribeConformancePacksPaginateTypeDef(BaseModel):
+class DescribeConformancePacksRequestDescribeConformancePacksPaginateTypeDef(BaseValidatorModel):
     ConformancePackNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeOrganizationConfigRuleStatusesRequestDescribeOrganizationConfigRuleStatusesPaginateTypeDef(BaseModel):
+class DescribeOrganizationConfigRuleStatusesRequestDescribeOrganizationConfigRuleStatusesPaginateTypeDef(BaseValidatorModel):
     OrganizationConfigRuleNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeOrganizationConfigRulesRequestDescribeOrganizationConfigRulesPaginateTypeDef(BaseModel):
+class DescribeOrganizationConfigRulesRequestDescribeOrganizationConfigRulesPaginateTypeDef(BaseValidatorModel):
     OrganizationConfigRuleNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeOrganizationConformancePackStatusesRequestDescribeOrganizationConformancePackStatusesPaginateTypeDef(BaseModel):
+class DescribeOrganizationConformancePackStatusesRequestDescribeOrganizationConformancePackStatusesPaginateTypeDef(BaseValidatorModel):
     OrganizationConformancePackNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeOrganizationConformancePacksRequestDescribeOrganizationConformancePacksPaginateTypeDef(BaseModel):
+class DescribeOrganizationConformancePacksRequestDescribeOrganizationConformancePacksPaginateTypeDef(BaseValidatorModel):
     OrganizationConformancePackNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribePendingAggregationRequestsRequestDescribePendingAggregationRequestsPaginateTypeDef(BaseModel):
+class DescribePendingAggregationRequestsRequestDescribePendingAggregationRequestsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRemediationExecutionStatusRequestDescribeRemediationExecutionStatusPaginateTypeDef(BaseModel):
+class DescribeRemediationExecutionStatusRequestDescribeRemediationExecutionStatusPaginateTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: Optional[Sequence[ResourceKeyTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRetentionConfigurationsRequestDescribeRetentionConfigurationsPaginateTypeDef(BaseModel):
+class DescribeRetentionConfigurationsRequestDescribeRetentionConfigurationsPaginateTypeDef(BaseValidatorModel):
     RetentionConfigurationNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetAggregateComplianceDetailsByConfigRuleRequestGetAggregateComplianceDetailsByConfigRulePaginateTypeDef(BaseModel):
+class GetAggregateComplianceDetailsByConfigRuleRequestGetAggregateComplianceDetailsByConfigRulePaginateTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ConfigRuleName: str
     AccountId: str
@@ -1113,110 +1113,110 @@ class GetAggregateComplianceDetailsByConfigRuleRequestGetAggregateComplianceDeta
     ComplianceType: Optional[ComplianceTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetComplianceDetailsByConfigRuleRequestGetComplianceDetailsByConfigRulePaginateTypeDef(BaseModel):
+class GetComplianceDetailsByConfigRuleRequestGetComplianceDetailsByConfigRulePaginateTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ComplianceTypes: Optional[Sequence[ComplianceTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetComplianceDetailsByResourceRequestGetComplianceDetailsByResourcePaginateTypeDef(BaseModel):
+class GetComplianceDetailsByResourceRequestGetComplianceDetailsByResourcePaginateTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     ComplianceTypes: Optional[Sequence[ComplianceTypeType]] = None
     ResourceEvaluationId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetConformancePackComplianceSummaryRequestGetConformancePackComplianceSummaryPaginateTypeDef(BaseModel):
+class GetConformancePackComplianceSummaryRequestGetConformancePackComplianceSummaryPaginateTypeDef(BaseValidatorModel):
     ConformancePackNames: Sequence[str]
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDiscoveredResourcesRequestListDiscoveredResourcesPaginateTypeDef(BaseModel):
+class ListDiscoveredResourcesRequestListDiscoveredResourcesPaginateTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     resourceIds: Optional[Sequence[str]] = None
     resourceName: Optional[str] = None
     includeDeletedResources: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     ResourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SelectAggregateResourceConfigRequestSelectAggregateResourceConfigPaginateTypeDef(BaseModel):
+class SelectAggregateResourceConfigRequestSelectAggregateResourceConfigPaginateTypeDef(BaseValidatorModel):
     Expression: str
     ConfigurationAggregatorName: str
     MaxResults: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SelectResourceConfigRequestSelectResourceConfigPaginateTypeDef(BaseModel):
+class SelectResourceConfigRequestSelectResourceConfigPaginateTypeDef(BaseValidatorModel):
     Expression: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeConfigRulesRequestDescribeConfigRulesPaginateTypeDef(BaseModel):
+class DescribeConfigRulesRequestDescribeConfigRulesPaginateTypeDef(BaseValidatorModel):
     ConfigRuleNames: Optional[Sequence[str]] = None
     Filters: Optional[DescribeConfigRulesFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeConfigRulesRequestRequestTypeDef(BaseModel):
+class DescribeConfigRulesRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     Filters: Optional[DescribeConfigRulesFiltersTypeDef] = None
 
-class DescribeOrganizationConfigRuleStatusesResponseTypeDef(BaseModel):
+class DescribeOrganizationConfigRuleStatusesResponseTypeDef(BaseValidatorModel):
     OrganizationConfigRuleStatuses: List[OrganizationConfigRuleStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeOrganizationConformancePackStatusesResponseTypeDef(BaseModel):
+class DescribeOrganizationConformancePackStatusesResponseTypeDef(BaseValidatorModel):
     OrganizationConformancePackStatuses: List[OrganizationConformancePackStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribePendingAggregationRequestsResponseTypeDef(BaseModel):
+class DescribePendingAggregationRequestsResponseTypeDef(BaseValidatorModel):
     PendingAggregationRequests: List[PendingAggregationRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeRemediationExceptionsResponseTypeDef(BaseModel):
+class DescribeRemediationExceptionsResponseTypeDef(BaseValidatorModel):
     RemediationExceptions: List[RemediationExceptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class FailedRemediationExceptionBatchTypeDef(BaseModel):
+class FailedRemediationExceptionBatchTypeDef(BaseValidatorModel):
     FailureMessage: Optional[str] = None
     FailedItems: Optional[List[RemediationExceptionTypeDef]] = None
 
-class DescribeRetentionConfigurationsResponseTypeDef(BaseModel):
+class DescribeRetentionConfigurationsResponseTypeDef(BaseValidatorModel):
     RetentionConfigurations: List[RetentionConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutRetentionConfigurationResponseTypeDef(BaseModel):
+class PutRetentionConfigurationResponseTypeDef(BaseValidatorModel):
     RetentionConfiguration: RetentionConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutEvaluationsResponseTypeDef(BaseModel):
+class PutEvaluationsResponseTypeDef(BaseValidatorModel):
     FailedEvaluations: List[EvaluationOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EvaluationResultIdentifierTypeDef(BaseModel):
+class EvaluationResultIdentifierTypeDef(BaseValidatorModel):
     EvaluationResultQualifier: Optional[EvaluationResultQualifierTypeDef] = None
     OrderingTimestamp: Optional[datetime] = None
     ResourceEvaluationId: Optional[str] = None
 
-class EvaluationTypeDef(BaseModel):
+class EvaluationTypeDef(BaseValidatorModel):
     ComplianceResourceType: str
     ComplianceResourceId: str
     ComplianceType: ComplianceTypeType
     OrderingTimestamp: TimestampTypeDef
     Annotation: Optional[str] = None
 
-class ExternalEvaluationTypeDef(BaseModel):
+class ExternalEvaluationTypeDef(BaseValidatorModel):
     ComplianceResourceType: str
     ComplianceResourceId: str
     ComplianceType: ComplianceTypeType
     OrderingTimestamp: TimestampTypeDef
     Annotation: Optional[str] = None
 
-class GetResourceConfigHistoryRequestGetResourceConfigHistoryPaginateTypeDef(BaseModel):
+class GetResourceConfigHistoryRequestGetResourceConfigHistoryPaginateTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     resourceId: str
     laterTime: Optional[TimestampTypeDef] = None
@@ -1224,7 +1224,7 @@ class GetResourceConfigHistoryRequestGetResourceConfigHistoryPaginateTypeDef(Bas
     chronologicalOrder: Optional[ChronologicalOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetResourceConfigHistoryRequestRequestTypeDef(BaseModel):
+class GetResourceConfigHistoryRequestRequestTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     resourceId: str
     laterTime: Optional[TimestampTypeDef] = None
@@ -1233,75 +1233,75 @@ class GetResourceConfigHistoryRequestRequestTypeDef(BaseModel):
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
-class PutRemediationExceptionsRequestRequestTypeDef(BaseModel):
+class PutRemediationExceptionsRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: Sequence[RemediationExceptionResourceKeyTypeDef]
     Message: Optional[str] = None
     ExpirationTime: Optional[TimestampTypeDef] = None
 
-class TimeWindowTypeDef(BaseModel):
+class TimeWindowTypeDef(BaseValidatorModel):
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
 
-class ExecutionControlsTypeDef(BaseModel):
+class ExecutionControlsTypeDef(BaseValidatorModel):
     SsmControls: Optional[SsmControlsTypeDef] = None
 
-class QueryInfoTypeDef(BaseModel):
+class QueryInfoTypeDef(BaseValidatorModel):
     SelectFields: Optional[List[FieldInfoTypeDef]] = None
 
-class GetAggregateDiscoveredResourceCountsRequestRequestTypeDef(BaseModel):
+class GetAggregateDiscoveredResourceCountsRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[ResourceCountFiltersTypeDef] = None
     GroupByKey: Optional[ResourceCountGroupKeyType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetAggregateDiscoveredResourceCountsResponseTypeDef(BaseModel):
+class GetAggregateDiscoveredResourceCountsResponseTypeDef(BaseValidatorModel):
     TotalDiscoveredResources: int
     GroupByKey: str
     GroupedResourceCounts: List[GroupedResourceCountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetDiscoveredResourceCountsResponseTypeDef(BaseModel):
+class GetDiscoveredResourceCountsResponseTypeDef(BaseValidatorModel):
     totalDiscoveredResources: int
     resourceCounts: List[ResourceCountTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOrganizationConfigRuleDetailedStatusRequestGetOrganizationConfigRuleDetailedStatusPaginateTypeDef(BaseModel):
+class GetOrganizationConfigRuleDetailedStatusRequestGetOrganizationConfigRuleDetailedStatusPaginateTypeDef(BaseValidatorModel):
     OrganizationConfigRuleName: str
     Filters: Optional[StatusDetailFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef(BaseModel):
+class GetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConfigRuleName: str
     Filters: Optional[StatusDetailFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetOrganizationConfigRuleDetailedStatusResponseTypeDef(BaseModel):
+class GetOrganizationConfigRuleDetailedStatusResponseTypeDef(BaseValidatorModel):
     OrganizationConfigRuleDetailedStatus: List[MemberAccountStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetOrganizationConformancePackDetailedStatusRequestGetOrganizationConformancePackDetailedStatusPaginateTypeDef(BaseModel):
+class GetOrganizationConformancePackDetailedStatusRequestGetOrganizationConformancePackDetailedStatusPaginateTypeDef(BaseValidatorModel):
     OrganizationConformancePackName: str
     Filters: Optional[OrganizationResourceDetailedStatusFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetOrganizationConformancePackDetailedStatusRequestRequestTypeDef(BaseModel):
+class GetOrganizationConformancePackDetailedStatusRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConformancePackName: str
     Filters: Optional[OrganizationResourceDetailedStatusFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetOrganizationConformancePackDetailedStatusResponseTypeDef(BaseModel):
+class GetOrganizationConformancePackDetailedStatusResponseTypeDef(BaseValidatorModel):
     OrganizationConformancePackDetailedStatuses: List[       OrganizationConformancePackDetailedStatusTypeDef     ]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetResourceEvaluationSummaryResponseTypeDef(BaseModel):
+class GetResourceEvaluationSummaryResponseTypeDef(BaseValidatorModel):
     ResourceEvaluationId: str
     EvaluationMode: EvaluationModeType
     EvaluationStatus: EvaluationStatusTypeDef
@@ -1311,64 +1311,64 @@ class GetResourceEvaluationSummaryResponseTypeDef(BaseModel):
     ResourceDetails: ResourceDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartResourceEvaluationRequestRequestTypeDef(BaseModel):
+class StartResourceEvaluationRequestRequestTypeDef(BaseValidatorModel):
     ResourceDetails: ResourceDetailsTypeDef
     EvaluationMode: EvaluationModeType
     EvaluationContext: Optional[EvaluationContextTypeDef] = None
     EvaluationTimeout: Optional[int] = None
     ClientToken: Optional[str] = None
 
-class GetStoredQueryResponseTypeDef(BaseModel):
+class GetStoredQueryResponseTypeDef(BaseValidatorModel):
     StoredQuery: StoredQueryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAggregateDiscoveredResourcesRequestListAggregateDiscoveredResourcesPaginateTypeDef(BaseModel):
+class ListAggregateDiscoveredResourcesRequestListAggregateDiscoveredResourcesPaginateTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ResourceType: ResourceTypeType
     Filters: Optional[ResourceFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAggregateDiscoveredResourcesRequestRequestTypeDef(BaseModel):
+class ListAggregateDiscoveredResourcesRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ResourceType: ResourceTypeType
     Filters: Optional[ResourceFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListDiscoveredResourcesResponseTypeDef(BaseModel):
+class ListDiscoveredResourcesResponseTypeDef(BaseValidatorModel):
     resourceIdentifiers: List[ResourceIdentifierTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourceEvaluationsResponseTypeDef(BaseModel):
+class ListResourceEvaluationsResponseTypeDef(BaseValidatorModel):
     ResourceEvaluations: List[ResourceEvaluationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListStoredQueriesResponseTypeDef(BaseModel):
+class ListStoredQueriesResponseTypeDef(BaseValidatorModel):
     StoredQueryMetadata: List[StoredQueryMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutAggregationAuthorizationRequestRequestTypeDef(BaseModel):
+class PutAggregationAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     AuthorizedAccountId: str
     AuthorizedAwsRegion: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class PutStoredQueryRequestRequestTypeDef(BaseModel):
+class PutStoredQueryRequestRequestTypeDef(BaseValidatorModel):
     StoredQuery: StoredQueryTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class OrganizationConfigRuleTypeDef(BaseModel):
+class OrganizationConfigRuleTypeDef(BaseValidatorModel):
     OrganizationConfigRuleName: str
     OrganizationConfigRuleArn: str
     OrganizationManagedRuleMetadata: Optional[       OrganizationManagedRuleMetadataOutputTypeDef     ] = None
@@ -1377,160 +1377,160 @@ class OrganizationConfigRuleTypeDef(BaseModel):
     LastUpdateTime: Optional[datetime] = None
     OrganizationCustomPolicyRuleMetadata: Optional[       OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef     ] = None
 
-class PutOrganizationConfigRuleRequestRequestTypeDef(BaseModel):
+class PutOrganizationConfigRuleRequestRequestTypeDef(BaseValidatorModel):
     OrganizationConfigRuleName: str
     OrganizationManagedRuleMetadata: Optional[OrganizationManagedRuleMetadataTypeDef] = None
     OrganizationCustomRuleMetadata: Optional[OrganizationCustomRuleMetadataTypeDef] = None
     ExcludedAccounts: Optional[Sequence[str]] = None
     OrganizationCustomPolicyRuleMetadata: Optional[       OrganizationCustomPolicyRuleMetadataTypeDef     ] = None
 
-class RecordingGroupOutputTypeDef(BaseModel):
+class RecordingGroupOutputTypeDef(BaseValidatorModel):
     allSupported: Optional[bool] = None
     includeGlobalResourceTypes: Optional[bool] = None
     resourceTypes: Optional[List[ResourceTypeType]] = None
     exclusionByResourceTypes: Optional[ExclusionByResourceTypesOutputTypeDef] = None
     recordingStrategy: Optional[RecordingStrategyTypeDef] = None
 
-class RecordingGroupTypeDef(BaseModel):
+class RecordingGroupTypeDef(BaseValidatorModel):
     allSupported: Optional[bool] = None
     includeGlobalResourceTypes: Optional[bool] = None
     resourceTypes: Optional[Sequence[ResourceTypeType]] = None
     exclusionByResourceTypes: Optional[ExclusionByResourceTypesTypeDef] = None
     recordingStrategy: Optional[RecordingStrategyTypeDef] = None
 
-class RecordingModeOutputTypeDef(BaseModel):
+class RecordingModeOutputTypeDef(BaseValidatorModel):
     recordingFrequency: RecordingFrequencyType
     recordingModeOverrides: Optional[List[RecordingModeOverrideOutputTypeDef]] = None
 
-class RecordingModeTypeDef(BaseModel):
+class RecordingModeTypeDef(BaseValidatorModel):
     recordingFrequency: RecordingFrequencyType
     recordingModeOverrides: Optional[Sequence[RecordingModeOverrideTypeDef]] = None
 
-class RemediationExecutionStatusTypeDef(BaseModel):
+class RemediationExecutionStatusTypeDef(BaseValidatorModel):
     ResourceKey: Optional[ResourceKeyTypeDef] = None
     State: Optional[RemediationExecutionStateType] = None
     StepDetails: Optional[List[RemediationExecutionStepTypeDef]] = None
     InvocationTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
 
-class RemediationParameterValueOutputTypeDef(BaseModel):
+class RemediationParameterValueOutputTypeDef(BaseValidatorModel):
     ResourceValue: Optional[ResourceValueTypeDef] = None
     StaticValue: Optional[StaticValueOutputTypeDef] = None
 
-class RemediationParameterValueTypeDef(BaseModel):
+class RemediationParameterValueTypeDef(BaseValidatorModel):
     ResourceValue: Optional[ResourceValueTypeDef] = None
     StaticValue: Optional[StaticValueTypeDef] = None
 
-class SourceExtraOutputTypeDef(BaseModel):
+class SourceExtraOutputTypeDef(BaseValidatorModel):
     Owner: OwnerType
     SourceIdentifier: Optional[str] = None
     SourceDetails: Optional[List[SourceDetailTypeDef]] = None
     CustomPolicyDetails: Optional[CustomPolicyDetailsTypeDef] = None
 
-class SourceOutputTypeDef(BaseModel):
+class SourceOutputTypeDef(BaseValidatorModel):
     Owner: OwnerType
     SourceIdentifier: Optional[str] = None
     SourceDetails: Optional[List[SourceDetailTypeDef]] = None
     CustomPolicyDetails: Optional[CustomPolicyDetailsTypeDef] = None
 
-class SourceTypeDef(BaseModel):
+class SourceTypeDef(BaseValidatorModel):
     Owner: OwnerType
     SourceIdentifier: Optional[str] = None
     SourceDetails: Optional[Sequence[SourceDetailTypeDef]] = None
     CustomPolicyDetails: Optional[CustomPolicyDetailsTypeDef] = None
 
-class PutConfigurationAggregatorRequestRequestTypeDef(BaseModel):
+class PutConfigurationAggregatorRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationAggregatorName: str
     AccountAggregationSources: Optional[Sequence[AccountAggregationSourceUnionTypeDef]] = None
     OrganizationAggregationSource: Optional[OrganizationAggregationSourceTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribeAggregateComplianceByConformancePacksResponseTypeDef(BaseModel):
+class DescribeAggregateComplianceByConformancePacksResponseTypeDef(BaseValidatorModel):
     AggregateComplianceByConformancePacks: List[AggregateComplianceByConformancePackTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetAggregateConformancePackComplianceSummaryResponseTypeDef(BaseModel):
+class GetAggregateConformancePackComplianceSummaryResponseTypeDef(BaseValidatorModel):
     AggregateConformancePackComplianceSummaries: List[       AggregateConformancePackComplianceSummaryTypeDef     ]
     GroupByKey: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AggregateComplianceCountTypeDef(BaseModel):
+class AggregateComplianceCountTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     ComplianceSummary: Optional[ComplianceSummaryTypeDef] = None
 
-class ComplianceSummaryByResourceTypeTypeDef(BaseModel):
+class ComplianceSummaryByResourceTypeTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ComplianceSummary: Optional[ComplianceSummaryTypeDef] = None
 
-class GetComplianceSummaryByConfigRuleResponseTypeDef(BaseModel):
+class GetComplianceSummaryByConfigRuleResponseTypeDef(BaseValidatorModel):
     ComplianceSummary: ComplianceSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AggregateComplianceByConfigRuleTypeDef(BaseModel):
+class AggregateComplianceByConfigRuleTypeDef(BaseValidatorModel):
     ConfigRuleName: Optional[str] = None
     Compliance: Optional[ComplianceTypeDef] = None
     AccountId: Optional[str] = None
     AwsRegion: Optional[str] = None
 
-class ComplianceByConfigRuleTypeDef(BaseModel):
+class ComplianceByConfigRuleTypeDef(BaseValidatorModel):
     ConfigRuleName: Optional[str] = None
     Compliance: Optional[ComplianceTypeDef] = None
 
-class ComplianceByResourceTypeDef(BaseModel):
+class ComplianceByResourceTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     Compliance: Optional[ComplianceTypeDef] = None
 
-class DescribeDeliveryChannelsResponseTypeDef(BaseModel):
+class DescribeDeliveryChannelsResponseTypeDef(BaseValidatorModel):
     DeliveryChannels: List[DeliveryChannelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDeliveryChannelRequestRequestTypeDef(BaseModel):
+class PutDeliveryChannelRequestRequestTypeDef(BaseValidatorModel):
     DeliveryChannel: DeliveryChannelTypeDef
 
-class DescribeDeliveryChannelStatusResponseTypeDef(BaseModel):
+class DescribeDeliveryChannelStatusResponseTypeDef(BaseValidatorModel):
     DeliveryChannelsStatus: List[DeliveryChannelStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeConfigurationAggregatorsResponseTypeDef(BaseModel):
+class DescribeConfigurationAggregatorsResponseTypeDef(BaseValidatorModel):
     ConfigurationAggregators: List[ConfigurationAggregatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutConfigurationAggregatorResponseTypeDef(BaseModel):
+class PutConfigurationAggregatorResponseTypeDef(BaseValidatorModel):
     ConfigurationAggregator: ConfigurationAggregatorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAggregateResourceConfigResponseTypeDef(BaseModel):
+class GetAggregateResourceConfigResponseTypeDef(BaseValidatorModel):
     ConfigurationItem: ConfigurationItemTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourceConfigHistoryResponseTypeDef(BaseModel):
+class GetResourceConfigHistoryResponseTypeDef(BaseValidatorModel):
     configurationItems: List[ConfigurationItemTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeOrganizationConformancePacksResponseTypeDef(BaseModel):
+class DescribeOrganizationConformancePacksResponseTypeDef(BaseValidatorModel):
     OrganizationConformancePacks: List[OrganizationConformancePackTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeConformancePacksResponseTypeDef(BaseModel):
+class DescribeConformancePacksResponseTypeDef(BaseValidatorModel):
     ConformancePackDetails: List[ConformancePackDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DeleteRemediationExceptionsResponseTypeDef(BaseModel):
+class DeleteRemediationExceptionsResponseTypeDef(BaseValidatorModel):
     FailedBatches: List[FailedDeleteRemediationExceptionsBatchTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRemediationExceptionsResponseTypeDef(BaseModel):
+class PutRemediationExceptionsResponseTypeDef(BaseValidatorModel):
     FailedBatches: List[FailedRemediationExceptionBatchTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AggregateEvaluationResultTypeDef(BaseModel):
+class AggregateEvaluationResultTypeDef(BaseValidatorModel):
     EvaluationResultIdentifier: Optional[EvaluationResultIdentifierTypeDef] = None
     ComplianceType: Optional[ComplianceTypeType] = None
     ResultRecordedTime: Optional[datetime] = None
@@ -1539,14 +1539,14 @@ class AggregateEvaluationResultTypeDef(BaseModel):
     AccountId: Optional[str] = None
     AwsRegion: Optional[str] = None
 
-class ConformancePackEvaluationResultTypeDef(BaseModel):
+class ConformancePackEvaluationResultTypeDef(BaseValidatorModel):
     ComplianceType: ConformancePackComplianceTypeType
     EvaluationResultIdentifier: EvaluationResultIdentifierTypeDef
     ConfigRuleInvokedTime: datetime
     ResultRecordedTime: datetime
     Annotation: Optional[str] = None
 
-class EvaluationResultTypeDef(BaseModel):
+class EvaluationResultTypeDef(BaseValidatorModel):
     EvaluationResultIdentifier: Optional[EvaluationResultIdentifierTypeDef] = None
     ComplianceType: Optional[ComplianceTypeType] = None
     ResultRecordedTime: Optional[datetime] = None
@@ -1554,50 +1554,50 @@ class EvaluationResultTypeDef(BaseModel):
     Annotation: Optional[str] = None
     ResultToken: Optional[str] = None
 
-class PutExternalEvaluationRequestRequestTypeDef(BaseModel):
+class PutExternalEvaluationRequestRequestTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     ExternalEvaluation: ExternalEvaluationTypeDef
 
-class ResourceEvaluationFiltersTypeDef(BaseModel):
+class ResourceEvaluationFiltersTypeDef(BaseValidatorModel):
     EvaluationMode: Optional[EvaluationModeType] = None
     TimeWindow: Optional[TimeWindowTypeDef] = None
     EvaluationContextIdentifier: Optional[str] = None
 
-class SelectAggregateResourceConfigResponseTypeDef(BaseModel):
+class SelectAggregateResourceConfigResponseTypeDef(BaseValidatorModel):
     Results: List[str]
     QueryInfo: QueryInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SelectResourceConfigResponseTypeDef(BaseModel):
+class SelectResourceConfigResponseTypeDef(BaseValidatorModel):
     Results: List[str]
     QueryInfo: QueryInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeOrganizationConfigRulesResponseTypeDef(BaseModel):
+class DescribeOrganizationConfigRulesResponseTypeDef(BaseValidatorModel):
     OrganizationConfigRules: List[OrganizationConfigRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ConfigurationRecorderOutputTypeDef(BaseModel):
+class ConfigurationRecorderOutputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     roleARN: Optional[str] = None
     recordingGroup: Optional[RecordingGroupOutputTypeDef] = None
     recordingMode: Optional[RecordingModeOutputTypeDef] = None
 
-class ConfigurationRecorderTypeDef(BaseModel):
+class ConfigurationRecorderTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     roleARN: Optional[str] = None
     recordingGroup: Optional[RecordingGroupTypeDef] = None
     recordingMode: Optional[RecordingModeTypeDef] = None
 
-class DescribeRemediationExecutionStatusResponseTypeDef(BaseModel):
+class DescribeRemediationExecutionStatusResponseTypeDef(BaseValidatorModel):
     RemediationExecutionStatuses: List[RemediationExecutionStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class RemediationConfigurationOutputTypeDef(BaseModel):
+class RemediationConfigurationOutputTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     TargetType: Literal["SSM_DOCUMENT"]
     TargetId: str
@@ -1611,7 +1611,7 @@ class RemediationConfigurationOutputTypeDef(BaseModel):
     Arn: Optional[str] = None
     CreatedByService: Optional[str] = None
 
-class RemediationConfigurationTypeDef(BaseModel):
+class RemediationConfigurationTypeDef(BaseValidatorModel):
     ConfigRuleName: str
     TargetType: Literal["SSM_DOCUMENT"]
     TargetId: str
@@ -1625,7 +1625,7 @@ class RemediationConfigurationTypeDef(BaseModel):
     Arn: Optional[str] = None
     CreatedByService: Optional[str] = None
 
-class ConfigRuleExtraOutputTypeDef(BaseModel):
+class ConfigRuleExtraOutputTypeDef(BaseValidatorModel):
     Source: SourceExtraOutputTypeDef
     ConfigRuleName: Optional[str] = None
     ConfigRuleArn: Optional[str] = None
@@ -1638,7 +1638,7 @@ class ConfigRuleExtraOutputTypeDef(BaseModel):
     CreatedBy: Optional[str] = None
     EvaluationModes: Optional[List[EvaluationModeConfigurationTypeDef]] = None
 
-class ConfigRuleOutputTypeDef(BaseModel):
+class ConfigRuleOutputTypeDef(BaseValidatorModel):
     Source: SourceOutputTypeDef
     ConfigRuleName: Optional[str] = None
     ConfigRuleArn: Optional[str] = None
@@ -1651,7 +1651,7 @@ class ConfigRuleOutputTypeDef(BaseModel):
     CreatedBy: Optional[str] = None
     EvaluationModes: Optional[List[EvaluationModeConfigurationTypeDef]] = None
 
-class ConfigRuleTypeDef(BaseModel):
+class ConfigRuleTypeDef(BaseValidatorModel):
     Source: SourceTypeDef
     ConfigRuleName: Optional[str] = None
     ConfigRuleArn: Optional[str] = None
@@ -1664,94 +1664,94 @@ class ConfigRuleTypeDef(BaseModel):
     CreatedBy: Optional[str] = None
     EvaluationModes: Optional[Sequence[EvaluationModeConfigurationTypeDef]] = None
 
-class GetAggregateConfigRuleComplianceSummaryResponseTypeDef(BaseModel):
+class GetAggregateConfigRuleComplianceSummaryResponseTypeDef(BaseValidatorModel):
     GroupByKey: str
     AggregateComplianceCounts: List[AggregateComplianceCountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetComplianceSummaryByResourceTypeResponseTypeDef(BaseModel):
+class GetComplianceSummaryByResourceTypeResponseTypeDef(BaseValidatorModel):
     ComplianceSummariesByResourceType: List[ComplianceSummaryByResourceTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAggregateComplianceByConfigRulesResponseTypeDef(BaseModel):
+class DescribeAggregateComplianceByConfigRulesResponseTypeDef(BaseValidatorModel):
     AggregateComplianceByConfigRules: List[AggregateComplianceByConfigRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeComplianceByConfigRuleResponseTypeDef(BaseModel):
+class DescribeComplianceByConfigRuleResponseTypeDef(BaseValidatorModel):
     ComplianceByConfigRules: List[ComplianceByConfigRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeComplianceByResourceResponseTypeDef(BaseModel):
+class DescribeComplianceByResourceResponseTypeDef(BaseValidatorModel):
     ComplianceByResources: List[ComplianceByResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetAggregateComplianceDetailsByConfigRuleResponseTypeDef(BaseModel):
+class GetAggregateComplianceDetailsByConfigRuleResponseTypeDef(BaseValidatorModel):
     AggregateEvaluationResults: List[AggregateEvaluationResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetConformancePackComplianceDetailsResponseTypeDef(BaseModel):
+class GetConformancePackComplianceDetailsResponseTypeDef(BaseValidatorModel):
     ConformancePackName: str
     ConformancePackRuleEvaluationResults: List[ConformancePackEvaluationResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetComplianceDetailsByConfigRuleResponseTypeDef(BaseModel):
+class GetComplianceDetailsByConfigRuleResponseTypeDef(BaseValidatorModel):
     EvaluationResults: List[EvaluationResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetComplianceDetailsByResourceResponseTypeDef(BaseModel):
+class GetComplianceDetailsByResourceResponseTypeDef(BaseValidatorModel):
     EvaluationResults: List[EvaluationResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutEvaluationsRequestRequestTypeDef(BaseModel):
+class PutEvaluationsRequestRequestTypeDef(BaseValidatorModel):
     ResultToken: str
     Evaluations: Optional[Sequence[EvaluationUnionTypeDef]] = None
     TestMode: Optional[bool] = None
 
-class ListResourceEvaluationsRequestListResourceEvaluationsPaginateTypeDef(BaseModel):
+class ListResourceEvaluationsRequestListResourceEvaluationsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[ResourceEvaluationFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourceEvaluationsRequestRequestTypeDef(BaseModel):
+class ListResourceEvaluationsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[ResourceEvaluationFiltersTypeDef] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeConfigurationRecordersResponseTypeDef(BaseModel):
+class DescribeConfigurationRecordersResponseTypeDef(BaseValidatorModel):
     ConfigurationRecorders: List[ConfigurationRecorderOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutConfigurationRecorderRequestRequestTypeDef(BaseModel):
+class PutConfigurationRecorderRequestRequestTypeDef(BaseValidatorModel):
     ConfigurationRecorder: ConfigurationRecorderTypeDef
 
-class DescribeRemediationConfigurationsResponseTypeDef(BaseModel):
+class DescribeRemediationConfigurationsResponseTypeDef(BaseValidatorModel):
     RemediationConfigurations: List[RemediationConfigurationOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FailedRemediationBatchTypeDef(BaseModel):
+class FailedRemediationBatchTypeDef(BaseValidatorModel):
     FailureMessage: Optional[str] = None
     FailedItems: Optional[List[RemediationConfigurationOutputTypeDef]] = None
 
-class DescribeConfigRulesResponseTypeDef(BaseModel):
+class DescribeConfigRulesResponseTypeDef(BaseValidatorModel):
     ConfigRules: List[ConfigRuleOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutConfigRuleRequestRequestTypeDef(BaseModel):
+class PutConfigRuleRequestRequestTypeDef(BaseValidatorModel):
     ConfigRule: ConfigRuleTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class PutRemediationConfigurationsResponseTypeDef(BaseModel):
+class PutRemediationConfigurationsResponseTypeDef(BaseValidatorModel):
     FailedBatches: List[FailedRemediationBatchTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRemediationConfigurationsRequestRequestTypeDef(BaseModel):
+class PutRemediationConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     RemediationConfigurations: Sequence[RemediationConfigurationUnionTypeDef]
 

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,28 +11,28 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.apprunner_constants import *
 
-class AssociateCustomDomainRequestRequestTypeDef(BaseModel):
+class AssociateCustomDomainRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
     DomainName: str
     EnableWWWSubdomain: Optional[bool] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class VpcDNSTargetTypeDef(BaseModel):
+class VpcDNSTargetTypeDef(BaseValidatorModel):
     VpcIngressConnectionArn: Optional[str] = None
     VpcId: Optional[str] = None
     DomainName: Optional[str] = None
 
-class AuthenticationConfigurationTypeDef(BaseModel):
+class AuthenticationConfigurationTypeDef(BaseValidatorModel):
     ConnectionArn: Optional[str] = None
     AccessRoleArn: Optional[str] = None
 
-class AutoScalingConfigurationSummaryTypeDef(BaseModel):
+class AutoScalingConfigurationSummaryTypeDef(BaseValidatorModel):
     AutoScalingConfigurationArn: Optional[str] = None
     AutoScalingConfigurationName: Optional[str] = None
     AutoScalingConfigurationRevision: Optional[int] = None
@@ -41,7 +41,7 @@ class AutoScalingConfigurationSummaryTypeDef(BaseModel):
     HasAssociatedService: Optional[bool] = None
     IsDefault: Optional[bool] = None
 
-class AutoScalingConfigurationTypeDef(BaseModel):
+class AutoScalingConfigurationTypeDef(BaseValidatorModel):
     AutoScalingConfigurationArn: Optional[str] = None
     AutoScalingConfigurationName: Optional[str] = None
     AutoScalingConfigurationRevision: Optional[int] = None
@@ -55,13 +55,13 @@ class AutoScalingConfigurationTypeDef(BaseModel):
     HasAssociatedService: Optional[bool] = None
     IsDefault: Optional[bool] = None
 
-class CertificateValidationRecordTypeDef(BaseModel):
+class CertificateValidationRecordTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Type: Optional[str] = None
     Value: Optional[str] = None
     Status: Optional[CertificateValidationRecordStatusType] = None
 
-class CodeConfigurationValuesTypeDef(BaseModel):
+class CodeConfigurationValuesTypeDef(BaseValidatorModel):
     Runtime: RuntimeType
     BuildCommand: Optional[str] = None
     StartCommand: Optional[str] = None
@@ -69,35 +69,35 @@ class CodeConfigurationValuesTypeDef(BaseModel):
     RuntimeEnvironmentVariables: Optional[Mapping[str, str]] = None
     RuntimeEnvironmentSecrets: Optional[Mapping[str, str]] = None
 
-class SourceCodeVersionTypeDef(BaseModel):
+class SourceCodeVersionTypeDef(BaseValidatorModel):
     Type: Literal["BRANCH"]
     Value: str
 
-class ConnectionSummaryTypeDef(BaseModel):
+class ConnectionSummaryTypeDef(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     ConnectionArn: Optional[str] = None
     ProviderType: Optional[ProviderTypeType] = None
     Status: Optional[ConnectionStatusType] = None
     CreatedAt: Optional[datetime] = None
 
-class ConnectionTypeDef(BaseModel):
+class ConnectionTypeDef(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     ConnectionArn: Optional[str] = None
     ProviderType: Optional[ProviderTypeType] = None
     Status: Optional[ConnectionStatusType] = None
     CreatedAt: Optional[datetime] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class TraceConfigurationTypeDef(BaseModel):
+class TraceConfigurationTypeDef(BaseValidatorModel):
     Vendor: Literal["AWSXRAY"]
 
-class EncryptionConfigurationTypeDef(BaseModel):
+class EncryptionConfigurationTypeDef(BaseValidatorModel):
     KmsKey: str
 
-class HealthCheckConfigurationTypeDef(BaseModel):
+class HealthCheckConfigurationTypeDef(BaseValidatorModel):
     Protocol: Optional[HealthCheckProtocolType] = None
     Path: Optional[str] = None
     Interval: Optional[int] = None
@@ -105,16 +105,16 @@ class HealthCheckConfigurationTypeDef(BaseModel):
     HealthyThreshold: Optional[int] = None
     UnhealthyThreshold: Optional[int] = None
 
-class InstanceConfigurationTypeDef(BaseModel):
+class InstanceConfigurationTypeDef(BaseValidatorModel):
     Cpu: Optional[str] = None
     Memory: Optional[str] = None
     InstanceRoleArn: Optional[str] = None
 
-class ServiceObservabilityConfigurationTypeDef(BaseModel):
+class ServiceObservabilityConfigurationTypeDef(BaseValidatorModel):
     ObservabilityEnabled: bool
     ObservabilityConfigurationArn: Optional[str] = None
 
-class VpcConnectorTypeDef(BaseModel):
+class VpcConnectorTypeDef(BaseValidatorModel):
     VpcConnectorName: Optional[str] = None
     VpcConnectorArn: Optional[str] = None
     VpcConnectorRevision: Optional[int] = None
@@ -124,94 +124,94 @@ class VpcConnectorTypeDef(BaseModel):
     CreatedAt: Optional[datetime] = None
     DeletedAt: Optional[datetime] = None
 
-class IngressVpcConfigurationTypeDef(BaseModel):
+class IngressVpcConfigurationTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
     VpcEndpointId: Optional[str] = None
 
-class DeleteAutoScalingConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteAutoScalingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     AutoScalingConfigurationArn: str
     DeleteAllRevisions: Optional[bool] = None
 
-class DeleteConnectionRequestRequestTypeDef(BaseModel):
+class DeleteConnectionRequestRequestTypeDef(BaseValidatorModel):
     ConnectionArn: str
 
-class DeleteObservabilityConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteObservabilityConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ObservabilityConfigurationArn: str
 
-class DeleteServiceRequestRequestTypeDef(BaseModel):
+class DeleteServiceRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
 
-class DeleteVpcConnectorRequestRequestTypeDef(BaseModel):
+class DeleteVpcConnectorRequestRequestTypeDef(BaseValidatorModel):
     VpcConnectorArn: str
 
-class DeleteVpcIngressConnectionRequestRequestTypeDef(BaseModel):
+class DeleteVpcIngressConnectionRequestRequestTypeDef(BaseValidatorModel):
     VpcIngressConnectionArn: str
 
-class DescribeAutoScalingConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeAutoScalingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     AutoScalingConfigurationArn: str
 
-class DescribeCustomDomainsRequestRequestTypeDef(BaseModel):
+class DescribeCustomDomainsRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeObservabilityConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeObservabilityConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ObservabilityConfigurationArn: str
 
-class DescribeServiceRequestRequestTypeDef(BaseModel):
+class DescribeServiceRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
 
-class DescribeVpcConnectorRequestRequestTypeDef(BaseModel):
+class DescribeVpcConnectorRequestRequestTypeDef(BaseValidatorModel):
     VpcConnectorArn: str
 
-class DescribeVpcIngressConnectionRequestRequestTypeDef(BaseModel):
+class DescribeVpcIngressConnectionRequestRequestTypeDef(BaseValidatorModel):
     VpcIngressConnectionArn: str
 
-class DisassociateCustomDomainRequestRequestTypeDef(BaseModel):
+class DisassociateCustomDomainRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
     DomainName: str
 
-class EgressConfigurationTypeDef(BaseModel):
+class EgressConfigurationTypeDef(BaseValidatorModel):
     EgressType: Optional[EgressTypeType] = None
     VpcConnectorArn: Optional[str] = None
 
-class ImageConfigurationTypeDef(BaseModel):
+class ImageConfigurationTypeDef(BaseValidatorModel):
     RuntimeEnvironmentVariables: Optional[Mapping[str, str]] = None
     StartCommand: Optional[str] = None
     Port: Optional[str] = None
     RuntimeEnvironmentSecrets: Optional[Mapping[str, str]] = None
 
-class IngressConfigurationTypeDef(BaseModel):
+class IngressConfigurationTypeDef(BaseValidatorModel):
     IsPubliclyAccessible: Optional[bool] = None
 
-class ListAutoScalingConfigurationsRequestRequestTypeDef(BaseModel):
+class ListAutoScalingConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     AutoScalingConfigurationName: Optional[str] = None
     LatestOnly: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListConnectionsRequestRequestTypeDef(BaseModel):
+class ListConnectionsRequestRequestTypeDef(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListObservabilityConfigurationsRequestRequestTypeDef(BaseModel):
+class ListObservabilityConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     ObservabilityConfigurationName: Optional[str] = None
     LatestOnly: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ObservabilityConfigurationSummaryTypeDef(BaseModel):
+class ObservabilityConfigurationSummaryTypeDef(BaseValidatorModel):
     ObservabilityConfigurationArn: Optional[str] = None
     ObservabilityConfigurationName: Optional[str] = None
     ObservabilityConfigurationRevision: Optional[int] = None
 
-class ListOperationsRequestRequestTypeDef(BaseModel):
+class ListOperationsRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class OperationSummaryTypeDef(BaseModel):
+class OperationSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Type: Optional[OperationTypeType] = None
     Status: Optional[OperationStatusType] = None
@@ -220,16 +220,16 @@ class OperationSummaryTypeDef(BaseModel):
     EndedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
-class ListServicesForAutoScalingConfigurationRequestRequestTypeDef(BaseModel):
+class ListServicesForAutoScalingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     AutoScalingConfigurationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListServicesRequestRequestTypeDef(BaseModel):
+class ListServicesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ServiceSummaryTypeDef(BaseModel):
+class ServiceSummaryTypeDef(BaseValidatorModel):
     ServiceName: Optional[str] = None
     ServiceId: Optional[str] = None
     ServiceArn: Optional[str] = None
@@ -238,122 +238,122 @@ class ServiceSummaryTypeDef(BaseModel):
     UpdatedAt: Optional[datetime] = None
     Status: Optional[ServiceStatusType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListVpcConnectorsRequestRequestTypeDef(BaseModel):
+class ListVpcConnectorsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListVpcIngressConnectionsFilterTypeDef(BaseModel):
+class ListVpcIngressConnectionsFilterTypeDef(BaseValidatorModel):
     ServiceArn: Optional[str] = None
     VpcEndpointId: Optional[str] = None
 
-class VpcIngressConnectionSummaryTypeDef(BaseModel):
+class VpcIngressConnectionSummaryTypeDef(BaseValidatorModel):
     VpcIngressConnectionArn: Optional[str] = None
     ServiceArn: Optional[str] = None
 
-class PauseServiceRequestRequestTypeDef(BaseModel):
+class PauseServiceRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
 
-class ResumeServiceRequestRequestTypeDef(BaseModel):
+class ResumeServiceRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
 
-class StartDeploymentRequestRequestTypeDef(BaseModel):
+class StartDeploymentRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateDefaultAutoScalingConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateDefaultAutoScalingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     AutoScalingConfigurationArn: str
 
-class ListServicesForAutoScalingConfigurationResponseTypeDef(BaseModel):
+class ListServicesForAutoScalingConfigurationResponseTypeDef(BaseValidatorModel):
     ServiceArnList: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartDeploymentResponseTypeDef(BaseModel):
+class StartDeploymentResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAutoScalingConfigurationsResponseTypeDef(BaseModel):
+class ListAutoScalingConfigurationsResponseTypeDef(BaseValidatorModel):
     AutoScalingConfigurationSummaryList: List[AutoScalingConfigurationSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAutoScalingConfigurationResponseTypeDef(BaseModel):
+class CreateAutoScalingConfigurationResponseTypeDef(BaseValidatorModel):
     AutoScalingConfiguration: AutoScalingConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAutoScalingConfigurationResponseTypeDef(BaseModel):
+class DeleteAutoScalingConfigurationResponseTypeDef(BaseValidatorModel):
     AutoScalingConfiguration: AutoScalingConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAutoScalingConfigurationResponseTypeDef(BaseModel):
+class DescribeAutoScalingConfigurationResponseTypeDef(BaseValidatorModel):
     AutoScalingConfiguration: AutoScalingConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDefaultAutoScalingConfigurationResponseTypeDef(BaseModel):
+class UpdateDefaultAutoScalingConfigurationResponseTypeDef(BaseValidatorModel):
     AutoScalingConfiguration: AutoScalingConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CustomDomainTypeDef(BaseModel):
+class CustomDomainTypeDef(BaseValidatorModel):
     DomainName: str
     EnableWWWSubdomain: bool
     Status: CustomDomainAssociationStatusType
     CertificateValidationRecords: Optional[List[CertificateValidationRecordTypeDef]] = None
 
-class CodeConfigurationTypeDef(BaseModel):
+class CodeConfigurationTypeDef(BaseValidatorModel):
     ConfigurationSource: ConfigurationSourceType
     CodeConfigurationValues: Optional[CodeConfigurationValuesTypeDef] = None
 
-class ListConnectionsResponseTypeDef(BaseModel):
+class ListConnectionsResponseTypeDef(BaseValidatorModel):
     ConnectionSummaryList: List[ConnectionSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConnectionResponseTypeDef(BaseModel):
+class CreateConnectionResponseTypeDef(BaseValidatorModel):
     Connection: ConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteConnectionResponseTypeDef(BaseModel):
+class DeleteConnectionResponseTypeDef(BaseValidatorModel):
     Connection: ConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAutoScalingConfigurationRequestRequestTypeDef(BaseModel):
+class CreateAutoScalingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     AutoScalingConfigurationName: str
     MaxConcurrency: Optional[int] = None
     MinSize: Optional[int] = None
     MaxSize: Optional[int] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateConnectionRequestRequestTypeDef(BaseModel):
+class CreateConnectionRequestRequestTypeDef(BaseValidatorModel):
     ConnectionName: str
     ProviderType: ProviderTypeType
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateVpcConnectorRequestRequestTypeDef(BaseModel):
+class CreateVpcConnectorRequestRequestTypeDef(BaseValidatorModel):
     VpcConnectorName: str
     Subnets: Sequence[str]
     SecurityGroups: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class CreateObservabilityConfigurationRequestRequestTypeDef(BaseModel):
+class CreateObservabilityConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ObservabilityConfigurationName: str
     TraceConfiguration: Optional[TraceConfigurationTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ObservabilityConfigurationTypeDef(BaseModel):
+class ObservabilityConfigurationTypeDef(BaseValidatorModel):
     ObservabilityConfigurationArn: Optional[str] = None
     ObservabilityConfigurationName: Optional[str] = None
     TraceConfiguration: Optional[TraceConfigurationTypeDef] = None
@@ -363,34 +363,34 @@ class ObservabilityConfigurationTypeDef(BaseModel):
     CreatedAt: Optional[datetime] = None
     DeletedAt: Optional[datetime] = None
 
-class CreateVpcConnectorResponseTypeDef(BaseModel):
+class CreateVpcConnectorResponseTypeDef(BaseValidatorModel):
     VpcConnector: VpcConnectorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVpcConnectorResponseTypeDef(BaseModel):
+class DeleteVpcConnectorResponseTypeDef(BaseValidatorModel):
     VpcConnector: VpcConnectorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpcConnectorResponseTypeDef(BaseModel):
+class DescribeVpcConnectorResponseTypeDef(BaseValidatorModel):
     VpcConnector: VpcConnectorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVpcConnectorsResponseTypeDef(BaseModel):
+class ListVpcConnectorsResponseTypeDef(BaseValidatorModel):
     VpcConnectors: List[VpcConnectorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVpcIngressConnectionRequestRequestTypeDef(BaseModel):
+class CreateVpcIngressConnectionRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
     VpcIngressConnectionName: str
     IngressVpcConfiguration: IngressVpcConfigurationTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateVpcIngressConnectionRequestRequestTypeDef(BaseModel):
+class UpdateVpcIngressConnectionRequestRequestTypeDef(BaseValidatorModel):
     VpcIngressConnectionArn: str
     IngressVpcConfiguration: IngressVpcConfigurationTypeDef
 
-class VpcIngressConnectionTypeDef(BaseModel):
+class VpcIngressConnectionTypeDef(BaseValidatorModel):
     VpcIngressConnectionArn: Optional[str] = None
     VpcIngressConnectionName: Optional[str] = None
     ServiceArn: Optional[str] = None
@@ -401,49 +401,49 @@ class VpcIngressConnectionTypeDef(BaseModel):
     CreatedAt: Optional[datetime] = None
     DeletedAt: Optional[datetime] = None
 
-class ImageRepositoryTypeDef(BaseModel):
+class ImageRepositoryTypeDef(BaseValidatorModel):
     ImageIdentifier: str
     ImageRepositoryType: ImageRepositoryTypeType
     ImageConfiguration: Optional[ImageConfigurationTypeDef] = None
 
-class NetworkConfigurationTypeDef(BaseModel):
+class NetworkConfigurationTypeDef(BaseValidatorModel):
     EgressConfiguration: Optional[EgressConfigurationTypeDef] = None
     IngressConfiguration: Optional[IngressConfigurationTypeDef] = None
     IpAddressType: Optional[IpAddressTypeType] = None
 
-class ListObservabilityConfigurationsResponseTypeDef(BaseModel):
+class ListObservabilityConfigurationsResponseTypeDef(BaseValidatorModel):
     ObservabilityConfigurationSummaryList: List[ObservabilityConfigurationSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOperationsResponseTypeDef(BaseModel):
+class ListOperationsResponseTypeDef(BaseValidatorModel):
     OperationSummaryList: List[OperationSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServicesResponseTypeDef(BaseModel):
+class ListServicesResponseTypeDef(BaseValidatorModel):
     ServiceSummaryList: List[ServiceSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVpcIngressConnectionsRequestRequestTypeDef(BaseModel):
+class ListVpcIngressConnectionsRequestRequestTypeDef(BaseValidatorModel):
     Filter: Optional[ListVpcIngressConnectionsFilterTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListVpcIngressConnectionsResponseTypeDef(BaseModel):
+class ListVpcIngressConnectionsResponseTypeDef(BaseValidatorModel):
     VpcIngressConnectionSummaryList: List[VpcIngressConnectionSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateCustomDomainResponseTypeDef(BaseModel):
+class AssociateCustomDomainResponseTypeDef(BaseValidatorModel):
     DNSTarget: str
     ServiceArn: str
     CustomDomain: CustomDomainTypeDef
     VpcDNSTargets: List[VpcDNSTargetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCustomDomainsResponseTypeDef(BaseModel):
+class DescribeCustomDomainsResponseTypeDef(BaseValidatorModel):
     DNSTarget: str
     ServiceArn: str
     CustomDomains: List[CustomDomainTypeDef]
@@ -451,54 +451,54 @@ class DescribeCustomDomainsResponseTypeDef(BaseModel):
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateCustomDomainResponseTypeDef(BaseModel):
+class DisassociateCustomDomainResponseTypeDef(BaseValidatorModel):
     DNSTarget: str
     ServiceArn: str
     CustomDomain: CustomDomainTypeDef
     VpcDNSTargets: List[VpcDNSTargetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CodeRepositoryTypeDef(BaseModel):
+class CodeRepositoryTypeDef(BaseValidatorModel):
     RepositoryUrl: str
     SourceCodeVersion: SourceCodeVersionTypeDef
     CodeConfiguration: Optional[CodeConfigurationTypeDef] = None
     SourceDirectory: Optional[str] = None
 
-class CreateObservabilityConfigurationResponseTypeDef(BaseModel):
+class CreateObservabilityConfigurationResponseTypeDef(BaseValidatorModel):
     ObservabilityConfiguration: ObservabilityConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteObservabilityConfigurationResponseTypeDef(BaseModel):
+class DeleteObservabilityConfigurationResponseTypeDef(BaseValidatorModel):
     ObservabilityConfiguration: ObservabilityConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeObservabilityConfigurationResponseTypeDef(BaseModel):
+class DescribeObservabilityConfigurationResponseTypeDef(BaseValidatorModel):
     ObservabilityConfiguration: ObservabilityConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVpcIngressConnectionResponseTypeDef(BaseModel):
+class CreateVpcIngressConnectionResponseTypeDef(BaseValidatorModel):
     VpcIngressConnection: VpcIngressConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVpcIngressConnectionResponseTypeDef(BaseModel):
+class DeleteVpcIngressConnectionResponseTypeDef(BaseValidatorModel):
     VpcIngressConnection: VpcIngressConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVpcIngressConnectionResponseTypeDef(BaseModel):
+class DescribeVpcIngressConnectionResponseTypeDef(BaseValidatorModel):
     VpcIngressConnection: VpcIngressConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVpcIngressConnectionResponseTypeDef(BaseModel):
+class UpdateVpcIngressConnectionResponseTypeDef(BaseValidatorModel):
     VpcIngressConnection: VpcIngressConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SourceConfigurationTypeDef(BaseModel):
+class SourceConfigurationTypeDef(BaseValidatorModel):
     CodeRepository: Optional[CodeRepositoryTypeDef] = None
     ImageRepository: Optional[ImageRepositoryTypeDef] = None
     AutoDeploymentsEnabled: Optional[bool] = None
     AuthenticationConfiguration: Optional[AuthenticationConfigurationTypeDef] = None
 
-class CreateServiceRequestRequestTypeDef(BaseModel):
+class CreateServiceRequestRequestTypeDef(BaseValidatorModel):
     ServiceName: str
     SourceConfiguration: SourceConfigurationTypeDef
     InstanceConfiguration: Optional[InstanceConfigurationTypeDef] = None
@@ -509,7 +509,7 @@ class CreateServiceRequestRequestTypeDef(BaseModel):
     NetworkConfiguration: Optional[NetworkConfigurationTypeDef] = None
     ObservabilityConfiguration: Optional[ServiceObservabilityConfigurationTypeDef] = None
 
-class ServiceTypeDef(BaseModel):
+class ServiceTypeDef(BaseValidatorModel):
     ServiceName: str
     ServiceId: str
     ServiceArn: str
@@ -526,7 +526,7 @@ class ServiceTypeDef(BaseModel):
     HealthCheckConfiguration: Optional[HealthCheckConfigurationTypeDef] = None
     ObservabilityConfiguration: Optional[ServiceObservabilityConfigurationTypeDef] = None
 
-class UpdateServiceRequestRequestTypeDef(BaseModel):
+class UpdateServiceRequestRequestTypeDef(BaseValidatorModel):
     ServiceArn: str
     SourceConfiguration: Optional[SourceConfigurationTypeDef] = None
     InstanceConfiguration: Optional[InstanceConfigurationTypeDef] = None
@@ -535,31 +535,31 @@ class UpdateServiceRequestRequestTypeDef(BaseModel):
     NetworkConfiguration: Optional[NetworkConfigurationTypeDef] = None
     ObservabilityConfiguration: Optional[ServiceObservabilityConfigurationTypeDef] = None
 
-class CreateServiceResponseTypeDef(BaseModel):
+class CreateServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteServiceResponseTypeDef(BaseModel):
+class DeleteServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeServiceResponseTypeDef(BaseModel):
+class DescribeServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PauseServiceResponseTypeDef(BaseModel):
-    Service: ServiceTypeDef
-    OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ResumeServiceResponseTypeDef(BaseModel):
+class PauseServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServiceResponseTypeDef(BaseModel):
+class ResumeServiceResponseTypeDef(BaseValidatorModel):
+    Service: ServiceTypeDef
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef

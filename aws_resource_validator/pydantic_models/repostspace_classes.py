@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.repostspace_constants import *
 
-class CreateSpaceInputRequestTypeDef(BaseModel):
+class CreateSpaceInputRequestTypeDef(BaseValidatorModel):
     name: str
     subdomain: str
     tier: TierLevelType
@@ -20,33 +20,33 @@ class CreateSpaceInputRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     userKMSKey: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DeleteSpaceInputRequestTypeDef(BaseModel):
+class DeleteSpaceInputRequestTypeDef(BaseValidatorModel):
     spaceId: str
 
-class DeregisterAdminInputRequestTypeDef(BaseModel):
+class DeregisterAdminInputRequestTypeDef(BaseValidatorModel):
     adminId: str
     spaceId: str
 
-class GetSpaceInputRequestTypeDef(BaseModel):
+class GetSpaceInputRequestTypeDef(BaseValidatorModel):
     spaceId: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListSpacesInputRequestTypeDef(BaseModel):
+class ListSpacesInputRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class SpaceDataTypeDef(BaseModel):
+class SpaceDataTypeDef(BaseValidatorModel):
     arn: str
     configurationStatus: ConfigurationStatusType
     createDateTime: datetime
@@ -64,41 +64,41 @@ class SpaceDataTypeDef(BaseModel):
     userCount: Optional[int] = None
     userKMSKey: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class RegisterAdminInputRequestTypeDef(BaseModel):
+class RegisterAdminInputRequestTypeDef(BaseValidatorModel):
     adminId: str
     spaceId: str
 
-class SendInvitesInputRequestTypeDef(BaseModel):
+class SendInvitesInputRequestTypeDef(BaseValidatorModel):
     accessorIds: Sequence[str]
     body: str
     spaceId: str
     title: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateSpaceInputRequestTypeDef(BaseModel):
+class UpdateSpaceInputRequestTypeDef(BaseValidatorModel):
     spaceId: str
     description: Optional[str] = None
     roleArn: Optional[str] = None
     tier: Optional[TierLevelType] = None
 
-class CreateSpaceOutputTypeDef(BaseModel):
+class CreateSpaceOutputTypeDef(BaseValidatorModel):
     spaceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSpaceOutputTypeDef(BaseModel):
+class GetSpaceOutputTypeDef(BaseValidatorModel):
     arn: str
     clientId: str
     configurationStatus: ConfigurationStatusType
@@ -121,14 +121,14 @@ class GetSpaceOutputTypeDef(BaseModel):
     vanityDomainStatus: VanityDomainStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSpacesInputListSpacesPaginateTypeDef(BaseModel):
+class ListSpacesInputListSpacesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSpacesOutputTypeDef(BaseModel):
+class ListSpacesOutputTypeDef(BaseValidatorModel):
     nextToken: str
     spaces: List[SpaceDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

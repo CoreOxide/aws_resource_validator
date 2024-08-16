@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,25 +11,25 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kinesisvideo_constants import *
 
-class SingleMasterConfigurationTypeDef(BaseModel):
+class SingleMasterConfigurationTypeDef(BaseValidatorModel):
     MessageTtlSeconds: Optional[int] = None
 
-class ChannelNameConditionTypeDef(BaseModel):
+class ChannelNameConditionTypeDef(BaseValidatorModel):
     ComparisonOperator: Optional[Literal["BEGINS_WITH"]] = None
     ComparisonValue: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateStreamInputRequestTypeDef(BaseModel):
+class CreateStreamInputRequestTypeDef(BaseValidatorModel):
     StreamName: str
     DeviceName: Optional[str] = None
     MediaType: Optional[str] = None
@@ -37,66 +37,66 @@ class CreateStreamInputRequestTypeDef(BaseModel):
     DataRetentionInHours: Optional[int] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class DeleteEdgeConfigurationInputRequestTypeDef(BaseModel):
+class DeleteEdgeConfigurationInputRequestTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class DeleteSignalingChannelInputRequestTypeDef(BaseModel):
+class DeleteSignalingChannelInputRequestTypeDef(BaseValidatorModel):
     ChannelARN: str
     CurrentVersion: Optional[str] = None
 
-class DeleteStreamInputRequestTypeDef(BaseModel):
+class DeleteStreamInputRequestTypeDef(BaseValidatorModel):
     StreamARN: str
     CurrentVersion: Optional[str] = None
 
-class LocalSizeConfigTypeDef(BaseModel):
+class LocalSizeConfigTypeDef(BaseValidatorModel):
     MaxLocalMediaSizeInMB: Optional[int] = None
     StrategyOnFullSize: Optional[StrategyOnFullSizeType] = None
 
-class DescribeEdgeConfigurationInputRequestTypeDef(BaseModel):
+class DescribeEdgeConfigurationInputRequestTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class DescribeImageGenerationConfigurationInputRequestTypeDef(BaseModel):
+class DescribeImageGenerationConfigurationInputRequestTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeMappedResourceConfigurationInputRequestTypeDef(BaseModel):
+class DescribeMappedResourceConfigurationInputRequestTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class MappedResourceConfigurationListItemTypeDef(BaseModel):
+class MappedResourceConfigurationListItemTypeDef(BaseValidatorModel):
     Type: Optional[str] = None
     ARN: Optional[str] = None
 
-class DescribeMediaStorageConfigurationInputRequestTypeDef(BaseModel):
+class DescribeMediaStorageConfigurationInputRequestTypeDef(BaseValidatorModel):
     ChannelName: Optional[str] = None
     ChannelARN: Optional[str] = None
 
-class MediaStorageConfigurationTypeDef(BaseModel):
+class MediaStorageConfigurationTypeDef(BaseValidatorModel):
     Status: MediaStorageConfigurationStatusType
     StreamARN: Optional[str] = None
 
-class DescribeNotificationConfigurationInputRequestTypeDef(BaseModel):
+class DescribeNotificationConfigurationInputRequestTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class DescribeSignalingChannelInputRequestTypeDef(BaseModel):
+class DescribeSignalingChannelInputRequestTypeDef(BaseValidatorModel):
     ChannelName: Optional[str] = None
     ChannelARN: Optional[str] = None
 
-class DescribeStreamInputRequestTypeDef(BaseModel):
+class DescribeStreamInputRequestTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class StreamInfoTypeDef(BaseModel):
+class StreamInfoTypeDef(BaseValidatorModel):
     DeviceName: Optional[str] = None
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
@@ -107,93 +107,93 @@ class StreamInfoTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     DataRetentionInHours: Optional[int] = None
 
-class LastRecorderStatusTypeDef(BaseModel):
+class LastRecorderStatusTypeDef(BaseValidatorModel):
     JobStatusDetails: Optional[str] = None
     LastCollectedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     RecorderStatus: Optional[RecorderStatusType] = None
 
-class LastUploaderStatusTypeDef(BaseModel):
+class LastUploaderStatusTypeDef(BaseValidatorModel):
     JobStatusDetails: Optional[str] = None
     LastCollectedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     UploaderStatus: Optional[UploaderStatusType] = None
 
-class GetDataEndpointInputRequestTypeDef(BaseModel):
+class GetDataEndpointInputRequestTypeDef(BaseValidatorModel):
     APIName: APINameType
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class SingleMasterChannelEndpointConfigurationTypeDef(BaseModel):
+class SingleMasterChannelEndpointConfigurationTypeDef(BaseValidatorModel):
     Protocols: Optional[Sequence[ChannelProtocolType]] = None
     Role: Optional[ChannelRoleType] = None
 
-class ResourceEndpointListItemTypeDef(BaseModel):
+class ResourceEndpointListItemTypeDef(BaseValidatorModel):
     Protocol: Optional[ChannelProtocolType] = None
     ResourceEndpoint: Optional[str] = None
 
-class ImageGenerationDestinationConfigTypeDef(BaseModel):
+class ImageGenerationDestinationConfigTypeDef(BaseValidatorModel):
     Uri: str
     DestinationRegion: str
 
-class ListEdgeAgentConfigurationsInputRequestTypeDef(BaseModel):
+class ListEdgeAgentConfigurationsInputRequestTypeDef(BaseValidatorModel):
     HubDeviceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class StreamNameConditionTypeDef(BaseModel):
+class StreamNameConditionTypeDef(BaseValidatorModel):
     ComparisonOperator: Optional[Literal["BEGINS_WITH"]] = None
     ComparisonValue: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     NextToken: Optional[str] = None
 
-class ListTagsForStreamInputRequestTypeDef(BaseModel):
+class ListTagsForStreamInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     StreamARN: Optional[str] = None
     StreamName: Optional[str] = None
 
-class MediaSourceConfigTypeDef(BaseModel):
+class MediaSourceConfigTypeDef(BaseValidatorModel):
     MediaUriSecretArn: str
     MediaUriType: MediaUriTypeType
 
-class NotificationDestinationConfigTypeDef(BaseModel):
+class NotificationDestinationConfigTypeDef(BaseValidatorModel):
     Uri: str
 
-class ScheduleConfigTypeDef(BaseModel):
+class ScheduleConfigTypeDef(BaseValidatorModel):
     ScheduleExpression: str
     DurationInSeconds: int
 
-class TagStreamInputRequestTypeDef(BaseModel):
+class TagStreamInputRequestTypeDef(BaseValidatorModel):
     Tags: Mapping[str, str]
     StreamARN: Optional[str] = None
     StreamName: Optional[str] = None
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeyList: Sequence[str]
 
-class UntagStreamInputRequestTypeDef(BaseModel):
+class UntagStreamInputRequestTypeDef(BaseValidatorModel):
     TagKeyList: Sequence[str]
     StreamARN: Optional[str] = None
     StreamName: Optional[str] = None
 
-class UpdateDataRetentionInputRequestTypeDef(BaseModel):
+class UpdateDataRetentionInputRequestTypeDef(BaseValidatorModel):
     CurrentVersion: str
     Operation: UpdateDataRetentionOperationType
     DataRetentionChangeInHours: int
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class UpdateStreamInputRequestTypeDef(BaseModel):
+class UpdateStreamInputRequestTypeDef(BaseValidatorModel):
     CurrentVersion: str
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     DeviceName: Optional[str] = None
     MediaType: Optional[str] = None
 
-class ChannelInfoTypeDef(BaseModel):
+class ChannelInfoTypeDef(BaseValidatorModel):
     ChannelName: Optional[str] = None
     ChannelARN: Optional[str] = None
     ChannelType: Optional[ChannelTypeType] = None
@@ -202,101 +202,101 @@ class ChannelInfoTypeDef(BaseModel):
     SingleMasterConfiguration: Optional[SingleMasterConfigurationTypeDef] = None
     Version: Optional[str] = None
 
-class UpdateSignalingChannelInputRequestTypeDef(BaseModel):
+class UpdateSignalingChannelInputRequestTypeDef(BaseValidatorModel):
     ChannelARN: str
     CurrentVersion: str
     SingleMasterConfiguration: Optional[SingleMasterConfigurationTypeDef] = None
 
-class ListSignalingChannelsInputRequestTypeDef(BaseModel):
+class ListSignalingChannelsInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ChannelNameCondition: Optional[ChannelNameConditionTypeDef] = None
 
-class CreateSignalingChannelInputRequestTypeDef(BaseModel):
+class CreateSignalingChannelInputRequestTypeDef(BaseValidatorModel):
     ChannelName: str
     ChannelType: Optional[ChannelTypeType] = None
     SingleMasterConfiguration: Optional[SingleMasterConfigurationTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class CreateSignalingChannelOutputTypeDef(BaseModel):
+class CreateSignalingChannelOutputTypeDef(BaseValidatorModel):
     ChannelARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStreamOutputTypeDef(BaseModel):
+class CreateStreamOutputTypeDef(BaseValidatorModel):
     StreamARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDataEndpointOutputTypeDef(BaseModel):
+class GetDataEndpointOutputTypeDef(BaseValidatorModel):
     DataEndpoint: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     NextToken: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForStreamOutputTypeDef(BaseModel):
+class ListTagsForStreamOutputTypeDef(BaseValidatorModel):
     NextToken: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletionConfigTypeDef(BaseModel):
+class DeletionConfigTypeDef(BaseValidatorModel):
     EdgeRetentionInHours: Optional[int] = None
     LocalSizeConfig: Optional[LocalSizeConfigTypeDef] = None
     DeleteAfterUpload: Optional[bool] = None
 
-class DescribeMappedResourceConfigurationInputDescribeMappedResourceConfigurationPaginateTypeDef(BaseModel):
+class DescribeMappedResourceConfigurationInputDescribeMappedResourceConfigurationPaginateTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEdgeAgentConfigurationsInputListEdgeAgentConfigurationsPaginateTypeDef(BaseModel):
+class ListEdgeAgentConfigurationsInputListEdgeAgentConfigurationsPaginateTypeDef(BaseValidatorModel):
     HubDeviceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSignalingChannelsInputListSignalingChannelsPaginateTypeDef(BaseModel):
+class ListSignalingChannelsInputListSignalingChannelsPaginateTypeDef(BaseValidatorModel):
     ChannelNameCondition: Optional[ChannelNameConditionTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeMappedResourceConfigurationOutputTypeDef(BaseModel):
+class DescribeMappedResourceConfigurationOutputTypeDef(BaseValidatorModel):
     MappedResourceConfigurationList: List[MappedResourceConfigurationListItemTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeMediaStorageConfigurationOutputTypeDef(BaseModel):
+class DescribeMediaStorageConfigurationOutputTypeDef(BaseValidatorModel):
     MediaStorageConfiguration: MediaStorageConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMediaStorageConfigurationInputRequestTypeDef(BaseModel):
+class UpdateMediaStorageConfigurationInputRequestTypeDef(BaseValidatorModel):
     ChannelARN: str
     MediaStorageConfiguration: MediaStorageConfigurationTypeDef
 
-class DescribeStreamOutputTypeDef(BaseModel):
+class DescribeStreamOutputTypeDef(BaseValidatorModel):
     StreamInfo: StreamInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStreamsOutputTypeDef(BaseModel):
+class ListStreamsOutputTypeDef(BaseValidatorModel):
     StreamInfoList: List[StreamInfoTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EdgeAgentStatusTypeDef(BaseModel):
+class EdgeAgentStatusTypeDef(BaseValidatorModel):
     LastRecorderStatus: Optional[LastRecorderStatusTypeDef] = None
     LastUploaderStatus: Optional[LastUploaderStatusTypeDef] = None
 
-class GetSignalingChannelEndpointInputRequestTypeDef(BaseModel):
+class GetSignalingChannelEndpointInputRequestTypeDef(BaseValidatorModel):
     ChannelARN: str
     SingleMasterChannelEndpointConfiguration: Optional[       SingleMasterChannelEndpointConfigurationTypeDef     ] = None
 
-class GetSignalingChannelEndpointOutputTypeDef(BaseModel):
+class GetSignalingChannelEndpointOutputTypeDef(BaseValidatorModel):
     ResourceEndpointList: List[ResourceEndpointListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImageGenerationConfigurationTypeDef(BaseModel):
+class ImageGenerationConfigurationTypeDef(BaseValidatorModel):
     Status: ConfigurationStatusType
     ImageSelectorType: ImageSelectorTypeType
     DestinationConfig: ImageGenerationDestinationConfigTypeDef
@@ -306,60 +306,60 @@ class ImageGenerationConfigurationTypeDef(BaseModel):
     WidthPixels: Optional[int] = None
     HeightPixels: Optional[int] = None
 
-class ListStreamsInputListStreamsPaginateTypeDef(BaseModel):
+class ListStreamsInputListStreamsPaginateTypeDef(BaseValidatorModel):
     StreamNameCondition: Optional[StreamNameConditionTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStreamsInputRequestTypeDef(BaseModel):
+class ListStreamsInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     StreamNameCondition: Optional[StreamNameConditionTypeDef] = None
 
-class NotificationConfigurationTypeDef(BaseModel):
+class NotificationConfigurationTypeDef(BaseValidatorModel):
     Status: ConfigurationStatusType
     DestinationConfig: NotificationDestinationConfigTypeDef
 
-class RecorderConfigTypeDef(BaseModel):
+class RecorderConfigTypeDef(BaseValidatorModel):
     MediaSourceConfig: MediaSourceConfigTypeDef
     ScheduleConfig: Optional[ScheduleConfigTypeDef] = None
 
-class UploaderConfigTypeDef(BaseModel):
+class UploaderConfigTypeDef(BaseValidatorModel):
     ScheduleConfig: ScheduleConfigTypeDef
 
-class DescribeSignalingChannelOutputTypeDef(BaseModel):
+class DescribeSignalingChannelOutputTypeDef(BaseValidatorModel):
     ChannelInfo: ChannelInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSignalingChannelsOutputTypeDef(BaseModel):
+class ListSignalingChannelsOutputTypeDef(BaseValidatorModel):
     ChannelInfoList: List[ChannelInfoTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeImageGenerationConfigurationOutputTypeDef(BaseModel):
+class DescribeImageGenerationConfigurationOutputTypeDef(BaseValidatorModel):
     ImageGenerationConfiguration: ImageGenerationConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateImageGenerationConfigurationInputRequestTypeDef(BaseModel):
+class UpdateImageGenerationConfigurationInputRequestTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     ImageGenerationConfiguration: Optional[ImageGenerationConfigurationTypeDef] = None
 
-class DescribeNotificationConfigurationOutputTypeDef(BaseModel):
+class DescribeNotificationConfigurationOutputTypeDef(BaseValidatorModel):
     NotificationConfiguration: NotificationConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateNotificationConfigurationInputRequestTypeDef(BaseModel):
+class UpdateNotificationConfigurationInputRequestTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     NotificationConfiguration: Optional[NotificationConfigurationTypeDef] = None
 
-class EdgeConfigTypeDef(BaseModel):
+class EdgeConfigTypeDef(BaseValidatorModel):
     HubDeviceArn: str
     RecorderConfig: RecorderConfigTypeDef
     UploaderConfig: Optional[UploaderConfigTypeDef] = None
     DeletionConfig: Optional[DeletionConfigTypeDef] = None
 
-class DescribeEdgeConfigurationOutputTypeDef(BaseModel):
+class DescribeEdgeConfigurationOutputTypeDef(BaseValidatorModel):
     StreamName: str
     StreamARN: str
     CreationTime: datetime
@@ -370,7 +370,7 @@ class DescribeEdgeConfigurationOutputTypeDef(BaseModel):
     EdgeAgentStatus: EdgeAgentStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEdgeAgentConfigurationsEdgeConfigTypeDef(BaseModel):
+class ListEdgeAgentConfigurationsEdgeConfigTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -379,12 +379,12 @@ class ListEdgeAgentConfigurationsEdgeConfigTypeDef(BaseModel):
     FailedStatusDetails: Optional[str] = None
     EdgeConfig: Optional[EdgeConfigTypeDef] = None
 
-class StartEdgeConfigurationUpdateInputRequestTypeDef(BaseModel):
+class StartEdgeConfigurationUpdateInputRequestTypeDef(BaseValidatorModel):
     EdgeConfig: EdgeConfigTypeDef
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class StartEdgeConfigurationUpdateOutputTypeDef(BaseModel):
+class StartEdgeConfigurationUpdateOutputTypeDef(BaseValidatorModel):
     StreamName: str
     StreamARN: str
     CreationTime: datetime
@@ -394,7 +394,7 @@ class StartEdgeConfigurationUpdateOutputTypeDef(BaseModel):
     EdgeConfig: EdgeConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEdgeAgentConfigurationsOutputTypeDef(BaseModel):
+class ListEdgeAgentConfigurationsOutputTypeDef(BaseValidatorModel):
     EdgeConfigs: List[ListEdgeAgentConfigurationsEdgeConfigTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

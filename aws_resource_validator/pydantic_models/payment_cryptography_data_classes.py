@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,76 +11,76 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.payment_cryptography_data_constants import *
 
-class AmexCardSecurityCodeVersion1TypeDef(BaseModel):
+class AmexCardSecurityCodeVersion1TypeDef(BaseValidatorModel):
     CardExpiryDate: str
 
-class AmexCardSecurityCodeVersion2TypeDef(BaseModel):
+class AmexCardSecurityCodeVersion2TypeDef(BaseValidatorModel):
     CardExpiryDate: str
     ServiceCode: str
 
-class AsymmetricEncryptionAttributesTypeDef(BaseModel):
+class AsymmetricEncryptionAttributesTypeDef(BaseValidatorModel):
     PaddingType: Optional[PaddingTypeType] = None
 
-class CardHolderVerificationValueTypeDef(BaseModel):
+class CardHolderVerificationValueTypeDef(BaseValidatorModel):
     UnpredictableNumber: str
     PanSequenceNumber: str
     ApplicationTransactionCounter: str
 
-class CardVerificationValue1TypeDef(BaseModel):
+class CardVerificationValue1TypeDef(BaseValidatorModel):
     CardExpiryDate: str
     ServiceCode: str
 
-class CardVerificationValue2TypeDef(BaseModel):
+class CardVerificationValue2TypeDef(BaseValidatorModel):
     CardExpiryDate: str
 
-class DynamicCardVerificationCodeTypeDef(BaseModel):
+class DynamicCardVerificationCodeTypeDef(BaseValidatorModel):
     UnpredictableNumber: str
     PanSequenceNumber: str
     ApplicationTransactionCounter: str
     TrackData: str
 
-class DynamicCardVerificationValueTypeDef(BaseModel):
+class DynamicCardVerificationValueTypeDef(BaseValidatorModel):
     PanSequenceNumber: str
     CardExpiryDate: str
     ServiceCode: str
     ApplicationTransactionCounter: str
 
-class DiscoverDynamicCardVerificationCodeTypeDef(BaseModel):
+class DiscoverDynamicCardVerificationCodeTypeDef(BaseValidatorModel):
     CardExpiryDate: str
     UnpredictableNumber: str
     ApplicationTransactionCounter: str
 
-class CryptogramVerificationArpcMethod1TypeDef(BaseModel):
+class CryptogramVerificationArpcMethod1TypeDef(BaseValidatorModel):
     AuthResponseCode: str
 
-class CryptogramVerificationArpcMethod2TypeDef(BaseModel):
+class CryptogramVerificationArpcMethod2TypeDef(BaseValidatorModel):
     CardStatusUpdate: str
     ProprietaryAuthenticationData: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DukptAttributesTypeDef(BaseModel):
+class DukptAttributesTypeDef(BaseValidatorModel):
     KeySerialNumber: str
     DukptDerivationType: DukptDerivationTypeType
 
-class DukptDerivationAttributesTypeDef(BaseModel):
+class DukptDerivationAttributesTypeDef(BaseValidatorModel):
     KeySerialNumber: str
     DukptKeyDerivationType: Optional[DukptDerivationTypeType] = None
     DukptKeyVariant: Optional[DukptKeyVariantType] = None
 
-class DukptEncryptionAttributesTypeDef(BaseModel):
+class DukptEncryptionAttributesTypeDef(BaseValidatorModel):
     KeySerialNumber: str
     Mode: Optional[DukptEncryptionModeType] = None
     DukptKeyDerivationType: Optional[DukptDerivationTypeType] = None
     DukptKeyVariant: Optional[DukptKeyVariantType] = None
     InitializationVector: Optional[str] = None
 
-class EmvEncryptionAttributesTypeDef(BaseModel):
+class EmvEncryptionAttributesTypeDef(BaseValidatorModel):
     MajorKeyDerivationMode: EmvMajorKeyDerivationModeType
     PrimaryAccountNumber: str
     PanSequenceNumber: str
@@ -88,94 +88,94 @@ class EmvEncryptionAttributesTypeDef(BaseModel):
     Mode: Optional[EmvEncryptionModeType] = None
     InitializationVector: Optional[str] = None
 
-class SymmetricEncryptionAttributesTypeDef(BaseModel):
+class SymmetricEncryptionAttributesTypeDef(BaseValidatorModel):
     Mode: EncryptionModeType
     InitializationVector: Optional[str] = None
     PaddingType: Optional[PaddingTypeType] = None
 
-class PinDataTypeDef(BaseModel):
+class PinDataTypeDef(BaseValidatorModel):
     PinOffset: Optional[str] = None
     VerificationValue: Optional[str] = None
 
-class Ibm3624NaturalPinTypeDef(BaseModel):
+class Ibm3624NaturalPinTypeDef(BaseValidatorModel):
     DecimalizationTable: str
     PinValidationDataPadCharacter: str
     PinValidationData: str
 
-class Ibm3624PinFromOffsetTypeDef(BaseModel):
+class Ibm3624PinFromOffsetTypeDef(BaseValidatorModel):
     DecimalizationTable: str
     PinValidationDataPadCharacter: str
     PinValidationData: str
     PinOffset: str
 
-class Ibm3624PinOffsetTypeDef(BaseModel):
+class Ibm3624PinOffsetTypeDef(BaseValidatorModel):
     EncryptedPinBlock: str
     DecimalizationTable: str
     PinValidationDataPadCharacter: str
     PinValidationData: str
 
-class Ibm3624PinVerificationTypeDef(BaseModel):
+class Ibm3624PinVerificationTypeDef(BaseValidatorModel):
     DecimalizationTable: str
     PinValidationDataPadCharacter: str
     PinValidationData: str
     PinOffset: str
 
-class Ibm3624RandomPinTypeDef(BaseModel):
+class Ibm3624RandomPinTypeDef(BaseValidatorModel):
     DecimalizationTable: str
     PinValidationDataPadCharacter: str
     PinValidationData: str
 
-class MacAlgorithmDukptTypeDef(BaseModel):
+class MacAlgorithmDukptTypeDef(BaseValidatorModel):
     KeySerialNumber: str
     DukptKeyVariant: DukptKeyVariantType
     DukptDerivationType: Optional[DukptDerivationTypeType] = None
 
-class SessionKeyDerivationValueTypeDef(BaseModel):
+class SessionKeyDerivationValueTypeDef(BaseValidatorModel):
     ApplicationCryptogram: Optional[str] = None
     ApplicationTransactionCounter: Optional[str] = None
 
-class VisaPinTypeDef(BaseModel):
+class VisaPinTypeDef(BaseValidatorModel):
     PinVerificationKeyIndex: int
 
-class VisaPinVerificationValueTypeDef(BaseModel):
+class VisaPinVerificationValueTypeDef(BaseValidatorModel):
     EncryptedPinBlock: str
     PinVerificationKeyIndex: int
 
-class VisaPinVerificationTypeDef(BaseModel):
+class VisaPinVerificationTypeDef(BaseValidatorModel):
     PinVerificationKeyIndex: int
     VerificationValue: str
 
-class SessionKeyAmexTypeDef(BaseModel):
+class SessionKeyAmexTypeDef(BaseValidatorModel):
     PrimaryAccountNumber: str
     PanSequenceNumber: str
 
-class SessionKeyEmv2000TypeDef(BaseModel):
-    PrimaryAccountNumber: str
-    PanSequenceNumber: str
-    ApplicationTransactionCounter: str
-
-class SessionKeyEmvCommonTypeDef(BaseModel):
+class SessionKeyEmv2000TypeDef(BaseValidatorModel):
     PrimaryAccountNumber: str
     PanSequenceNumber: str
     ApplicationTransactionCounter: str
 
-class SessionKeyMastercardTypeDef(BaseModel):
+class SessionKeyEmvCommonTypeDef(BaseValidatorModel):
+    PrimaryAccountNumber: str
+    PanSequenceNumber: str
+    ApplicationTransactionCounter: str
+
+class SessionKeyMastercardTypeDef(BaseValidatorModel):
     PrimaryAccountNumber: str
     PanSequenceNumber: str
     ApplicationTransactionCounter: str
     UnpredictableNumber: str
 
-class SessionKeyVisaTypeDef(BaseModel):
+class SessionKeyVisaTypeDef(BaseValidatorModel):
     PrimaryAccountNumber: str
     PanSequenceNumber: str
 
-class TranslationPinDataIsoFormat034TypeDef(BaseModel):
+class TranslationPinDataIsoFormat034TypeDef(BaseValidatorModel):
     PrimaryAccountNumber: str
 
-class WrappedKeyMaterialTypeDef(BaseModel):
+class WrappedKeyMaterialTypeDef(BaseValidatorModel):
     Tr31KeyBlock: Optional[str] = None
 
-class CardGenerationAttributesTypeDef(BaseModel):
+class CardGenerationAttributesTypeDef(BaseValidatorModel):
     AmexCardSecurityCodeVersion1: Optional[AmexCardSecurityCodeVersion1TypeDef] = None
     AmexCardSecurityCodeVersion2: Optional[AmexCardSecurityCodeVersion2TypeDef] = None
     CardVerificationValue1: Optional[CardVerificationValue1TypeDef] = None
@@ -184,7 +184,7 @@ class CardGenerationAttributesTypeDef(BaseModel):
     DynamicCardVerificationCode: Optional[DynamicCardVerificationCodeTypeDef] = None
     DynamicCardVerificationValue: Optional[DynamicCardVerificationValueTypeDef] = None
 
-class CardVerificationAttributesTypeDef(BaseModel):
+class CardVerificationAttributesTypeDef(BaseValidatorModel):
     AmexCardSecurityCodeVersion1: Optional[AmexCardSecurityCodeVersion1TypeDef] = None
     AmexCardSecurityCodeVersion2: Optional[AmexCardSecurityCodeVersion2TypeDef] = None
     CardVerificationValue1: Optional[CardVerificationValue1TypeDef] = None
@@ -194,80 +194,80 @@ class CardVerificationAttributesTypeDef(BaseModel):
     DynamicCardVerificationValue: Optional[DynamicCardVerificationValueTypeDef] = None
     DiscoverDynamicCardVerificationCode: Optional[       DiscoverDynamicCardVerificationCodeTypeDef     ] = None
 
-class CryptogramAuthResponseTypeDef(BaseModel):
+class CryptogramAuthResponseTypeDef(BaseValidatorModel):
     ArpcMethod1: Optional[CryptogramVerificationArpcMethod1TypeDef] = None
     ArpcMethod2: Optional[CryptogramVerificationArpcMethod2TypeDef] = None
 
-class DecryptDataOutputTypeDef(BaseModel):
+class DecryptDataOutputTypeDef(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     PlainText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EncryptDataOutputTypeDef(BaseModel):
+class EncryptDataOutputTypeDef(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     CipherText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GenerateCardValidationDataOutputTypeDef(BaseModel):
+class GenerateCardValidationDataOutputTypeDef(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     ValidationData: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GenerateMacOutputTypeDef(BaseModel):
+class GenerateMacOutputTypeDef(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     Mac: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReEncryptDataOutputTypeDef(BaseModel):
+class ReEncryptDataOutputTypeDef(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     CipherText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TranslatePinDataOutputTypeDef(BaseModel):
+class TranslatePinDataOutputTypeDef(BaseValidatorModel):
     PinBlock: str
     KeyArn: str
     KeyCheckValue: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifyAuthRequestCryptogramOutputTypeDef(BaseModel):
+class VerifyAuthRequestCryptogramOutputTypeDef(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     AuthResponseValue: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifyCardValidationDataOutputTypeDef(BaseModel):
+class VerifyCardValidationDataOutputTypeDef(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifyMacOutputTypeDef(BaseModel):
+class VerifyMacOutputTypeDef(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifyPinDataOutputTypeDef(BaseModel):
+class VerifyPinDataOutputTypeDef(BaseValidatorModel):
     VerificationKeyArn: str
     VerificationKeyCheckValue: str
     EncryptionKeyArn: str
     EncryptionKeyCheckValue: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EncryptionDecryptionAttributesTypeDef(BaseModel):
+class EncryptionDecryptionAttributesTypeDef(BaseValidatorModel):
     Symmetric: Optional[SymmetricEncryptionAttributesTypeDef] = None
     Asymmetric: Optional[AsymmetricEncryptionAttributesTypeDef] = None
     Dukpt: Optional[DukptEncryptionAttributesTypeDef] = None
     Emv: Optional[EmvEncryptionAttributesTypeDef] = None
 
-class ReEncryptionAttributesTypeDef(BaseModel):
+class ReEncryptionAttributesTypeDef(BaseValidatorModel):
     Symmetric: Optional[SymmetricEncryptionAttributesTypeDef] = None
     Dukpt: Optional[DukptEncryptionAttributesTypeDef] = None
 
-class GeneratePinDataOutputTypeDef(BaseModel):
+class GeneratePinDataOutputTypeDef(BaseValidatorModel):
     GenerationKeyArn: str
     GenerationKeyCheckValue: str
     EncryptionKeyArn: str
@@ -276,14 +276,14 @@ class GeneratePinDataOutputTypeDef(BaseModel):
     PinData: PinDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MacAlgorithmEmvTypeDef(BaseModel):
+class MacAlgorithmEmvTypeDef(BaseValidatorModel):
     MajorKeyDerivationMode: MajorKeyDerivationModeType
     PrimaryAccountNumber: str
     PanSequenceNumber: str
     SessionKeyDerivationMode: SessionKeyDerivationModeType
     SessionKeyDerivationValue: SessionKeyDerivationValueTypeDef
 
-class PinGenerationAttributesTypeDef(BaseModel):
+class PinGenerationAttributesTypeDef(BaseValidatorModel):
     VisaPin: Optional[VisaPinTypeDef] = None
     VisaPinVerificationValue: Optional[VisaPinVerificationValueTypeDef] = None
     Ibm3624PinOffset: Optional[Ibm3624PinOffsetTypeDef] = None
@@ -291,47 +291,47 @@ class PinGenerationAttributesTypeDef(BaseModel):
     Ibm3624RandomPin: Optional[Ibm3624RandomPinTypeDef] = None
     Ibm3624PinFromOffset: Optional[Ibm3624PinFromOffsetTypeDef] = None
 
-class PinVerificationAttributesTypeDef(BaseModel):
+class PinVerificationAttributesTypeDef(BaseValidatorModel):
     VisaPin: Optional[VisaPinVerificationTypeDef] = None
     Ibm3624Pin: Optional[Ibm3624PinVerificationTypeDef] = None
 
-class SessionKeyDerivationTypeDef(BaseModel):
+class SessionKeyDerivationTypeDef(BaseValidatorModel):
     EmvCommon: Optional[SessionKeyEmvCommonTypeDef] = None
     Mastercard: Optional[SessionKeyMastercardTypeDef] = None
     Emv2000: Optional[SessionKeyEmv2000TypeDef] = None
     Amex: Optional[SessionKeyAmexTypeDef] = None
     Visa: Optional[SessionKeyVisaTypeDef] = None
 
-class TranslationIsoFormatsTypeDef(BaseModel):
+class TranslationIsoFormatsTypeDef(BaseValidatorModel):
     IsoFormat0: Optional[TranslationPinDataIsoFormat034TypeDef] = None
     IsoFormat1: Optional[Mapping[str, Any]] = None
     IsoFormat3: Optional[TranslationPinDataIsoFormat034TypeDef] = None
     IsoFormat4: Optional[TranslationPinDataIsoFormat034TypeDef] = None
 
-class WrappedKeyTypeDef(BaseModel):
+class WrappedKeyTypeDef(BaseValidatorModel):
     WrappedKeyMaterial: WrappedKeyMaterialTypeDef
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
 
-class GenerateCardValidationDataInputRequestTypeDef(BaseModel):
+class GenerateCardValidationDataInputRequestTypeDef(BaseValidatorModel):
     KeyIdentifier: str
     PrimaryAccountNumber: str
     GenerationAttributes: CardGenerationAttributesTypeDef
     ValidationDataLength: Optional[int] = None
 
-class VerifyCardValidationDataInputRequestTypeDef(BaseModel):
+class VerifyCardValidationDataInputRequestTypeDef(BaseValidatorModel):
     KeyIdentifier: str
     PrimaryAccountNumber: str
     VerificationAttributes: CardVerificationAttributesTypeDef
     ValidationData: str
 
-class MacAttributesTypeDef(BaseModel):
+class MacAttributesTypeDef(BaseValidatorModel):
     Algorithm: Optional[MacAlgorithmType] = None
     EmvMac: Optional[MacAlgorithmEmvTypeDef] = None
     DukptIso9797Algorithm1: Optional[MacAlgorithmDukptTypeDef] = None
     DukptIso9797Algorithm3: Optional[MacAlgorithmDukptTypeDef] = None
     DukptCmac: Optional[MacAlgorithmDukptTypeDef] = None
 
-class GeneratePinDataInputRequestTypeDef(BaseModel):
+class GeneratePinDataInputRequestTypeDef(BaseValidatorModel):
     GenerationKeyIdentifier: str
     EncryptionKeyIdentifier: str
     GenerationAttributes: PinGenerationAttributesTypeDef
@@ -339,7 +339,7 @@ class GeneratePinDataInputRequestTypeDef(BaseModel):
     PinBlockFormat: PinBlockFormatForPinDataType
     PinDataLength: Optional[int] = None
 
-class VerifyPinDataInputRequestTypeDef(BaseModel):
+class VerifyPinDataInputRequestTypeDef(BaseValidatorModel):
     VerificationKeyIdentifier: str
     EncryptionKeyIdentifier: str
     VerificationAttributes: PinVerificationAttributesTypeDef
@@ -349,7 +349,7 @@ class VerifyPinDataInputRequestTypeDef(BaseModel):
     PinDataLength: Optional[int] = None
     DukptAttributes: Optional[DukptAttributesTypeDef] = None
 
-class VerifyAuthRequestCryptogramInputRequestTypeDef(BaseModel):
+class VerifyAuthRequestCryptogramInputRequestTypeDef(BaseValidatorModel):
     KeyIdentifier: str
     TransactionData: str
     AuthRequestCryptogram: str
@@ -357,19 +357,19 @@ class VerifyAuthRequestCryptogramInputRequestTypeDef(BaseModel):
     SessionKeyDerivationAttributes: SessionKeyDerivationTypeDef
     AuthResponseAttributes: Optional[CryptogramAuthResponseTypeDef] = None
 
-class DecryptDataInputRequestTypeDef(BaseModel):
+class DecryptDataInputRequestTypeDef(BaseValidatorModel):
     KeyIdentifier: str
     CipherText: str
     DecryptionAttributes: EncryptionDecryptionAttributesTypeDef
     WrappedKey: Optional[WrappedKeyTypeDef] = None
 
-class EncryptDataInputRequestTypeDef(BaseModel):
+class EncryptDataInputRequestTypeDef(BaseValidatorModel):
     KeyIdentifier: str
     PlainText: str
     EncryptionAttributes: EncryptionDecryptionAttributesTypeDef
     WrappedKey: Optional[WrappedKeyTypeDef] = None
 
-class ReEncryptDataInputRequestTypeDef(BaseModel):
+class ReEncryptDataInputRequestTypeDef(BaseValidatorModel):
     IncomingKeyIdentifier: str
     OutgoingKeyIdentifier: str
     CipherText: str
@@ -378,7 +378,7 @@ class ReEncryptDataInputRequestTypeDef(BaseModel):
     IncomingWrappedKey: Optional[WrappedKeyTypeDef] = None
     OutgoingWrappedKey: Optional[WrappedKeyTypeDef] = None
 
-class TranslatePinDataInputRequestTypeDef(BaseModel):
+class TranslatePinDataInputRequestTypeDef(BaseValidatorModel):
     IncomingKeyIdentifier: str
     OutgoingKeyIdentifier: str
     IncomingTranslationAttributes: TranslationIsoFormatsTypeDef
@@ -389,13 +389,13 @@ class TranslatePinDataInputRequestTypeDef(BaseModel):
     IncomingWrappedKey: Optional[WrappedKeyTypeDef] = None
     OutgoingWrappedKey: Optional[WrappedKeyTypeDef] = None
 
-class GenerateMacInputRequestTypeDef(BaseModel):
+class GenerateMacInputRequestTypeDef(BaseValidatorModel):
     KeyIdentifier: str
     MessageData: str
     GenerationAttributes: MacAttributesTypeDef
     MacLength: Optional[int] = None
 
-class VerifyMacInputRequestTypeDef(BaseModel):
+class VerifyMacInputRequestTypeDef(BaseValidatorModel):
     KeyIdentifier: str
     MessageData: str
     Mac: str

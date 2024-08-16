@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,33 +11,33 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iotevents_constants import *
 
-class AcknowledgeFlowTypeDef(BaseModel):
+class AcknowledgeFlowTypeDef(BaseValidatorModel):
     enabled: bool
 
-class ClearTimerActionTypeDef(BaseModel):
+class ClearTimerActionTypeDef(BaseValidatorModel):
     timerName: str
 
-class ResetTimerActionTypeDef(BaseModel):
+class ResetTimerActionTypeDef(BaseValidatorModel):
     timerName: str
 
-class SetTimerActionTypeDef(BaseModel):
+class SetTimerActionTypeDef(BaseValidatorModel):
     timerName: str
     seconds: Optional[int] = None
     durationExpression: Optional[str] = None
 
-class SetVariableActionTypeDef(BaseModel):
+class SetVariableActionTypeDef(BaseValidatorModel):
     variableName: str
     value: str
 
-class InitializationConfigurationTypeDef(BaseModel):
+class InitializationConfigurationTypeDef(BaseValidatorModel):
     disabledOnInitialization: bool
 
-class AlarmModelSummaryTypeDef(BaseModel):
+class AlarmModelSummaryTypeDef(BaseValidatorModel):
     creationTime: Optional[datetime] = None
     alarmModelDescription: Optional[str] = None
     alarmModelName: Optional[str] = None
 
-class AlarmModelVersionSummaryTypeDef(BaseModel):
+class AlarmModelVersionSummaryTypeDef(BaseValidatorModel):
     alarmModelName: Optional[str] = None
     alarmModelArn: Optional[str] = None
     alarmModelVersion: Optional[str] = None
@@ -47,39 +47,39 @@ class AlarmModelVersionSummaryTypeDef(BaseModel):
     status: Optional[AlarmModelVersionStatusType] = None
     statusMessage: Optional[str] = None
 
-class SimpleRuleTypeDef(BaseModel):
+class SimpleRuleTypeDef(BaseValidatorModel):
     inputProperty: str
     comparisonOperator: ComparisonOperatorType
     threshold: str
 
-class AnalysisResultLocationTypeDef(BaseModel):
+class AnalysisResultLocationTypeDef(BaseValidatorModel):
     path: Optional[str] = None
 
-class AssetPropertyTimestampTypeDef(BaseModel):
+class AssetPropertyTimestampTypeDef(BaseValidatorModel):
     timeInSeconds: str
     offsetInNanos: Optional[str] = None
 
-class AssetPropertyVariantTypeDef(BaseModel):
+class AssetPropertyVariantTypeDef(BaseValidatorModel):
     stringValue: Optional[str] = None
     integerValue: Optional[str] = None
     doubleValue: Optional[str] = None
     booleanValue: Optional[str] = None
 
-class AttributeTypeDef(BaseModel):
+class AttributeTypeDef(BaseValidatorModel):
     jsonPath: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DetectorModelConfigurationTypeDef(BaseModel):
+class DetectorModelConfigurationTypeDef(BaseValidatorModel):
     detectorModelName: Optional[str] = None
     detectorModelVersion: Optional[str] = None
     detectorModelDescription: Optional[str] = None
@@ -91,7 +91,7 @@ class DetectorModelConfigurationTypeDef(BaseModel):
     key: Optional[str] = None
     evaluationMethod: Optional[EvaluationMethodType] = None
 
-class InputConfigurationTypeDef(BaseModel):
+class InputConfigurationTypeDef(BaseValidatorModel):
     inputName: str
     inputArn: str
     creationTime: datetime
@@ -99,39 +99,39 @@ class InputConfigurationTypeDef(BaseModel):
     status: InputStatusType
     inputDescription: Optional[str] = None
 
-class DeleteAlarmModelRequestRequestTypeDef(BaseModel):
+class DeleteAlarmModelRequestRequestTypeDef(BaseValidatorModel):
     alarmModelName: str
 
-class DeleteDetectorModelRequestRequestTypeDef(BaseModel):
+class DeleteDetectorModelRequestRequestTypeDef(BaseValidatorModel):
     detectorModelName: str
 
-class DeleteInputRequestRequestTypeDef(BaseModel):
+class DeleteInputRequestRequestTypeDef(BaseValidatorModel):
     inputName: str
 
-class DescribeAlarmModelRequestRequestTypeDef(BaseModel):
+class DescribeAlarmModelRequestRequestTypeDef(BaseValidatorModel):
     alarmModelName: str
     alarmModelVersion: Optional[str] = None
 
-class DescribeDetectorModelAnalysisRequestRequestTypeDef(BaseModel):
+class DescribeDetectorModelAnalysisRequestRequestTypeDef(BaseValidatorModel):
     analysisId: str
 
-class DescribeDetectorModelRequestRequestTypeDef(BaseModel):
+class DescribeDetectorModelRequestRequestTypeDef(BaseValidatorModel):
     detectorModelName: str
     detectorModelVersion: Optional[str] = None
 
-class DescribeInputRequestRequestTypeDef(BaseModel):
+class DescribeInputRequestRequestTypeDef(BaseValidatorModel):
     inputName: str
 
-class DetectorDebugOptionTypeDef(BaseModel):
+class DetectorDebugOptionTypeDef(BaseValidatorModel):
     detectorModelName: str
     keyValue: Optional[str] = None
 
-class DetectorModelSummaryTypeDef(BaseModel):
+class DetectorModelSummaryTypeDef(BaseValidatorModel):
     detectorModelName: Optional[str] = None
     detectorModelDescription: Optional[str] = None
     creationTime: Optional[datetime] = None
 
-class DetectorModelVersionSummaryTypeDef(BaseModel):
+class DetectorModelVersionSummaryTypeDef(BaseValidatorModel):
     detectorModelName: Optional[str] = None
     detectorModelVersion: Optional[str] = None
     detectorModelArn: Optional[str] = None
@@ -141,23 +141,23 @@ class DetectorModelVersionSummaryTypeDef(BaseModel):
     status: Optional[DetectorModelVersionStatusType] = None
     evaluationMethod: Optional[EvaluationMethodType] = None
 
-class PayloadTypeDef(BaseModel):
+class PayloadTypeDef(BaseValidatorModel):
     contentExpression: str
     type: PayloadTypeType
 
-class EmailContentTypeDef(BaseModel):
+class EmailContentTypeDef(BaseValidatorModel):
     subject: Optional[str] = None
     additionalMessage: Optional[str] = None
 
-class GetDetectorModelAnalysisResultsRequestRequestTypeDef(BaseModel):
+class GetDetectorModelAnalysisResultsRequestRequestTypeDef(BaseValidatorModel):
     analysisId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class IotEventsInputIdentifierTypeDef(BaseModel):
+class IotEventsInputIdentifierTypeDef(BaseValidatorModel):
     inputName: str
 
-class InputSummaryTypeDef(BaseModel):
+class InputSummaryTypeDef(BaseValidatorModel):
     inputName: Optional[str] = None
     inputDescription: Optional[str] = None
     inputArn: Optional[str] = None
@@ -165,73 +165,73 @@ class InputSummaryTypeDef(BaseModel):
     lastUpdateTime: Optional[datetime] = None
     status: Optional[InputStatusType] = None
 
-class IotSiteWiseAssetModelPropertyIdentifierTypeDef(BaseModel):
+class IotSiteWiseAssetModelPropertyIdentifierTypeDef(BaseValidatorModel):
     assetModelId: str
     propertyId: str
 
-class ListAlarmModelVersionsRequestRequestTypeDef(BaseModel):
+class ListAlarmModelVersionsRequestRequestTypeDef(BaseValidatorModel):
     alarmModelName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListAlarmModelsRequestRequestTypeDef(BaseModel):
+class ListAlarmModelsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDetectorModelVersionsRequestRequestTypeDef(BaseModel):
+class ListDetectorModelVersionsRequestRequestTypeDef(BaseValidatorModel):
     detectorModelName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDetectorModelsRequestRequestTypeDef(BaseModel):
+class ListDetectorModelsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class RoutedResourceTypeDef(BaseModel):
+class RoutedResourceTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
 
-class ListInputsRequestRequestTypeDef(BaseModel):
+class ListInputsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class SSOIdentityTypeDef(BaseModel):
+class SSOIdentityTypeDef(BaseValidatorModel):
     identityStoreId: str
     userId: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class AlarmCapabilitiesTypeDef(BaseModel):
+class AlarmCapabilitiesTypeDef(BaseValidatorModel):
     initializationConfiguration: Optional[InitializationConfigurationTypeDef] = None
     acknowledgeFlow: Optional[AcknowledgeFlowTypeDef] = None
 
-class AlarmRuleTypeDef(BaseModel):
+class AlarmRuleTypeDef(BaseValidatorModel):
     simpleRule: Optional[SimpleRuleTypeDef] = None
 
-class AnalysisResultTypeDef(BaseModel):
+class AnalysisResultTypeDef(BaseValidatorModel):
     type: Optional[str] = None
     level: Optional[AnalysisResultLevelType] = None
     message: Optional[str] = None
     locations: Optional[List[AnalysisResultLocationTypeDef]] = None
 
-class AssetPropertyValueTypeDef(BaseModel):
+class AssetPropertyValueTypeDef(BaseValidatorModel):
     value: Optional[AssetPropertyVariantTypeDef] = None
     timestamp: Optional[AssetPropertyTimestampTypeDef] = None
     quality: Optional[str] = None
 
-class InputDefinitionTypeDef(BaseModel):
+class InputDefinitionTypeDef(BaseValidatorModel):
     attributes: Sequence[AttributeTypeDef]
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class CreateAlarmModelResponseTypeDef(BaseModel):
+class CreateAlarmModelResponseTypeDef(BaseValidatorModel):
     creationTime: datetime
     alarmModelArn: str
     alarmModelVersion: str
@@ -239,32 +239,32 @@ class CreateAlarmModelResponseTypeDef(BaseModel):
     status: AlarmModelVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDetectorModelAnalysisResponseTypeDef(BaseModel):
+class DescribeDetectorModelAnalysisResponseTypeDef(BaseValidatorModel):
     status: AnalysisStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAlarmModelVersionsResponseTypeDef(BaseModel):
+class ListAlarmModelVersionsResponseTypeDef(BaseValidatorModel):
     alarmModelVersionSummaries: List[AlarmModelVersionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAlarmModelsResponseTypeDef(BaseModel):
+class ListAlarmModelsResponseTypeDef(BaseValidatorModel):
     alarmModelSummaries: List[AlarmModelSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartDetectorModelAnalysisResponseTypeDef(BaseModel):
+class StartDetectorModelAnalysisResponseTypeDef(BaseValidatorModel):
     analysisId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAlarmModelResponseTypeDef(BaseModel):
+class UpdateAlarmModelResponseTypeDef(BaseValidatorModel):
     creationTime: datetime
     alarmModelArn: str
     alarmModelVersion: str
@@ -272,39 +272,39 @@ class UpdateAlarmModelResponseTypeDef(BaseModel):
     status: AlarmModelVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDetectorModelResponseTypeDef(BaseModel):
+class CreateDetectorModelResponseTypeDef(BaseValidatorModel):
     detectorModelConfiguration: DetectorModelConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDetectorModelResponseTypeDef(BaseModel):
+class UpdateDetectorModelResponseTypeDef(BaseValidatorModel):
     detectorModelConfiguration: DetectorModelConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInputResponseTypeDef(BaseModel):
+class CreateInputResponseTypeDef(BaseValidatorModel):
     inputConfiguration: InputConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateInputResponseTypeDef(BaseModel):
+class UpdateInputResponseTypeDef(BaseValidatorModel):
     inputConfiguration: InputConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoggingOptionsTypeDef(BaseModel):
+class LoggingOptionsTypeDef(BaseValidatorModel):
     roleArn: str
     level: LoggingLevelType
     enabled: bool
     detectorDebugOptions: Optional[List[DetectorDebugOptionTypeDef]] = None
 
-class ListDetectorModelsResponseTypeDef(BaseModel):
+class ListDetectorModelsResponseTypeDef(BaseValidatorModel):
     detectorModelSummaries: List[DetectorModelSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDetectorModelVersionsResponseTypeDef(BaseModel):
+class ListDetectorModelVersionsResponseTypeDef(BaseValidatorModel):
     detectorModelVersionSummaries: List[DetectorModelVersionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DynamoDBActionTypeDef(BaseModel):
+class DynamoDBActionTypeDef(BaseValidatorModel):
     hashKeyField: str
     hashKeyValue: str
     tableName: str
@@ -316,102 +316,102 @@ class DynamoDBActionTypeDef(BaseModel):
     payloadField: Optional[str] = None
     payload: Optional[PayloadTypeDef] = None
 
-class DynamoDBv2ActionTypeDef(BaseModel):
+class DynamoDBv2ActionTypeDef(BaseValidatorModel):
     tableName: str
     payload: Optional[PayloadTypeDef] = None
 
-class FirehoseActionTypeDef(BaseModel):
+class FirehoseActionTypeDef(BaseValidatorModel):
     deliveryStreamName: str
     separator: Optional[str] = None
     payload: Optional[PayloadTypeDef] = None
 
-class IotEventsActionTypeDef(BaseModel):
+class IotEventsActionTypeDef(BaseValidatorModel):
     inputName: str
     payload: Optional[PayloadTypeDef] = None
 
-class IotTopicPublishActionTypeDef(BaseModel):
+class IotTopicPublishActionTypeDef(BaseValidatorModel):
     mqttTopic: str
     payload: Optional[PayloadTypeDef] = None
 
-class LambdaActionTypeDef(BaseModel):
+class LambdaActionTypeDef(BaseValidatorModel):
     functionArn: str
     payload: Optional[PayloadTypeDef] = None
 
-class SNSTopicPublishActionTypeDef(BaseModel):
+class SNSTopicPublishActionTypeDef(BaseValidatorModel):
     targetArn: str
     payload: Optional[PayloadTypeDef] = None
 
-class SqsActionTypeDef(BaseModel):
+class SqsActionTypeDef(BaseValidatorModel):
     queueUrl: str
     useBase64: Optional[bool] = None
     payload: Optional[PayloadTypeDef] = None
 
-class ListInputsResponseTypeDef(BaseModel):
+class ListInputsResponseTypeDef(BaseValidatorModel):
     inputSummaries: List[InputSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IotSiteWiseInputIdentifierTypeDef(BaseModel):
+class IotSiteWiseInputIdentifierTypeDef(BaseValidatorModel):
     iotSiteWiseAssetModelPropertyIdentifier: Optional[       IotSiteWiseAssetModelPropertyIdentifierTypeDef     ] = None
 
-class ListInputRoutingsResponseTypeDef(BaseModel):
+class ListInputRoutingsResponseTypeDef(BaseValidatorModel):
     routedResources: List[RoutedResourceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RecipientDetailTypeDef(BaseModel):
+class RecipientDetailTypeDef(BaseValidatorModel):
     ssoIdentity: Optional[SSOIdentityTypeDef] = None
 
-class GetDetectorModelAnalysisResultsResponseTypeDef(BaseModel):
+class GetDetectorModelAnalysisResultsResponseTypeDef(BaseValidatorModel):
     analysisResults: List[AnalysisResultTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IotSiteWiseActionTypeDef(BaseModel):
+class IotSiteWiseActionTypeDef(BaseValidatorModel):
     entryId: Optional[str] = None
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
     propertyValue: Optional[AssetPropertyValueTypeDef] = None
 
-class CreateInputRequestRequestTypeDef(BaseModel):
+class CreateInputRequestRequestTypeDef(BaseValidatorModel):
     inputName: str
     inputDefinition: InputDefinitionTypeDef
     inputDescription: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class InputTypeDef(BaseModel):
+class InputTypeDef(BaseValidatorModel):
     inputConfiguration: Optional[InputConfigurationTypeDef] = None
     inputDefinition: Optional[InputDefinitionTypeDef] = None
 
-class UpdateInputRequestRequestTypeDef(BaseModel):
+class UpdateInputRequestRequestTypeDef(BaseValidatorModel):
     inputName: str
     inputDefinition: InputDefinitionTypeDef
     inputDescription: Optional[str] = None
 
-class DescribeLoggingOptionsResponseTypeDef(BaseModel):
+class DescribeLoggingOptionsResponseTypeDef(BaseValidatorModel):
     loggingOptions: LoggingOptionsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutLoggingOptionsRequestRequestTypeDef(BaseModel):
+class PutLoggingOptionsRequestRequestTypeDef(BaseValidatorModel):
     loggingOptions: LoggingOptionsTypeDef
 
-class NotificationTargetActionsTypeDef(BaseModel):
+class NotificationTargetActionsTypeDef(BaseValidatorModel):
     lambdaAction: Optional[LambdaActionTypeDef] = None
 
-class InputIdentifierTypeDef(BaseModel):
+class InputIdentifierTypeDef(BaseValidatorModel):
     iotEventsInputIdentifier: Optional[IotEventsInputIdentifierTypeDef] = None
     iotSiteWiseInputIdentifier: Optional[IotSiteWiseInputIdentifierTypeDef] = None
 
-class EmailRecipientsTypeDef(BaseModel):
+class EmailRecipientsTypeDef(BaseValidatorModel):
     to: Optional[Sequence[RecipientDetailTypeDef]] = None
 
-class SMSConfigurationTypeDef(BaseModel):
+class SMSConfigurationTypeDef(BaseValidatorModel):
     recipients: Sequence[RecipientDetailTypeDef]
     senderId: Optional[str] = None
     additionalMessage: Optional[str] = None
 
-class ActionTypeDef(BaseModel):
+class ActionTypeDef(BaseValidatorModel):
     setVariable: Optional[SetVariableActionTypeDef] = None
     sns: Optional[SNSTopicPublishActionTypeDef] = None
     iotTopicPublish: Optional[IotTopicPublishActionTypeDef] = None
@@ -426,7 +426,7 @@ class ActionTypeDef(BaseModel):
     dynamoDBv2: Optional[DynamoDBv2ActionTypeDef] = None
     iotSiteWise: Optional[IotSiteWiseActionTypeDef] = None
 
-class AlarmActionTypeDef(BaseModel):
+class AlarmActionTypeDef(BaseValidatorModel):
     sns: Optional[SNSTopicPublishActionTypeDef] = None
     iotTopicPublish: Optional[IotTopicPublishActionTypeDef] = None
     lambda: Optional[LambdaActionTypeDef] = None
@@ -437,59 +437,59 @@ class AlarmActionTypeDef(BaseModel):
     dynamoDBv2: Optional[DynamoDBv2ActionTypeDef] = None
     iotSiteWise: Optional[IotSiteWiseActionTypeDef] = None
 
-class DescribeInputResponseTypeDef(BaseModel):
+class DescribeInputResponseTypeDef(BaseValidatorModel):
     input: InputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInputRoutingsRequestRequestTypeDef(BaseModel):
+class ListInputRoutingsRequestRequestTypeDef(BaseValidatorModel):
     inputIdentifier: InputIdentifierTypeDef
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class EmailConfigurationTypeDef(BaseModel):
+class EmailConfigurationTypeDef(BaseValidatorModel):
     from: str
     recipients: EmailRecipientsTypeDef
     content: Optional[EmailContentTypeDef] = None
 
-class EventTypeDef(BaseModel):
+class EventTypeDef(BaseValidatorModel):
     eventName: str
     condition: Optional[str] = None
     actions: Optional[Sequence[ActionTypeDef]] = None
 
-class TransitionEventTypeDef(BaseModel):
+class TransitionEventTypeDef(BaseValidatorModel):
     eventName: str
     condition: str
     nextState: str
     actions: Optional[Sequence[ActionTypeDef]] = None
 
-class AlarmEventActionsTypeDef(BaseModel):
+class AlarmEventActionsTypeDef(BaseValidatorModel):
     alarmActions: Optional[Sequence[AlarmActionTypeDef]] = None
 
-class NotificationActionTypeDef(BaseModel):
+class NotificationActionTypeDef(BaseValidatorModel):
     action: NotificationTargetActionsTypeDef
     smsConfigurations: Optional[Sequence[SMSConfigurationTypeDef]] = None
     emailConfigurations: Optional[Sequence[EmailConfigurationTypeDef]] = None
 
-class OnEnterLifecycleTypeDef(BaseModel):
+class OnEnterLifecycleTypeDef(BaseValidatorModel):
     events: Optional[Sequence[EventTypeDef]] = None
 
-class OnExitLifecycleTypeDef(BaseModel):
+class OnExitLifecycleTypeDef(BaseValidatorModel):
     events: Optional[Sequence[EventTypeDef]] = None
 
-class OnInputLifecycleTypeDef(BaseModel):
+class OnInputLifecycleTypeDef(BaseValidatorModel):
     events: Optional[Sequence[EventTypeDef]] = None
     transitionEvents: Optional[Sequence[TransitionEventTypeDef]] = None
 
-class AlarmNotificationTypeDef(BaseModel):
+class AlarmNotificationTypeDef(BaseValidatorModel):
     notificationActions: Optional[Sequence[NotificationActionTypeDef]] = None
 
-class StateTypeDef(BaseModel):
+class StateTypeDef(BaseValidatorModel):
     stateName: str
     onInput: Optional[OnInputLifecycleTypeDef] = None
     onEnter: Optional[OnEnterLifecycleTypeDef] = None
     onExit: Optional[OnExitLifecycleTypeDef] = None
 
-class CreateAlarmModelRequestRequestTypeDef(BaseModel):
+class CreateAlarmModelRequestRequestTypeDef(BaseValidatorModel):
     alarmModelName: str
     roleArn: str
     alarmRule: AlarmRuleTypeDef
@@ -501,7 +501,7 @@ class CreateAlarmModelRequestRequestTypeDef(BaseModel):
     alarmEventActions: Optional[AlarmEventActionsTypeDef] = None
     alarmCapabilities: Optional[AlarmCapabilitiesTypeDef] = None
 
-class DescribeAlarmModelResponseTypeDef(BaseModel):
+class DescribeAlarmModelResponseTypeDef(BaseValidatorModel):
     creationTime: datetime
     alarmModelArn: str
     alarmModelVersion: str
@@ -519,7 +519,7 @@ class DescribeAlarmModelResponseTypeDef(BaseModel):
     alarmCapabilities: AlarmCapabilitiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAlarmModelRequestRequestTypeDef(BaseModel):
+class UpdateAlarmModelRequestRequestTypeDef(BaseValidatorModel):
     alarmModelName: str
     roleArn: str
     alarmRule: AlarmRuleTypeDef
@@ -529,11 +529,11 @@ class UpdateAlarmModelRequestRequestTypeDef(BaseModel):
     alarmEventActions: Optional[AlarmEventActionsTypeDef] = None
     alarmCapabilities: Optional[AlarmCapabilitiesTypeDef] = None
 
-class DetectorModelDefinitionTypeDef(BaseModel):
+class DetectorModelDefinitionTypeDef(BaseValidatorModel):
     states: Sequence[StateTypeDef]
     initialStateName: str
 
-class CreateDetectorModelRequestRequestTypeDef(BaseModel):
+class CreateDetectorModelRequestRequestTypeDef(BaseValidatorModel):
     detectorModelName: str
     detectorModelDefinition: DetectorModelDefinitionTypeDef
     roleArn: str
@@ -542,21 +542,21 @@ class CreateDetectorModelRequestRequestTypeDef(BaseModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     evaluationMethod: Optional[EvaluationMethodType] = None
 
-class DetectorModelTypeDef(BaseModel):
+class DetectorModelTypeDef(BaseValidatorModel):
     detectorModelDefinition: Optional[DetectorModelDefinitionTypeDef] = None
     detectorModelConfiguration: Optional[DetectorModelConfigurationTypeDef] = None
 
-class StartDetectorModelAnalysisRequestRequestTypeDef(BaseModel):
+class StartDetectorModelAnalysisRequestRequestTypeDef(BaseValidatorModel):
     detectorModelDefinition: DetectorModelDefinitionTypeDef
 
-class UpdateDetectorModelRequestRequestTypeDef(BaseModel):
+class UpdateDetectorModelRequestRequestTypeDef(BaseValidatorModel):
     detectorModelName: str
     detectorModelDefinition: DetectorModelDefinitionTypeDef
     roleArn: str
     detectorModelDescription: Optional[str] = None
     evaluationMethod: Optional[EvaluationMethodType] = None
 
-class DescribeDetectorModelResponseTypeDef(BaseModel):
+class DescribeDetectorModelResponseTypeDef(BaseValidatorModel):
     detectorModel: DetectorModelTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

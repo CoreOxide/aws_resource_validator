@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,14 +11,14 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudsearchdomain_constants import *
 
-class BucketTypeDef(BaseModel):
+class BucketTypeDef(BaseValidatorModel):
     value: Optional[str] = None
     count: Optional[int] = None
 
-class DocumentServiceWarningTypeDef(BaseModel):
+class DocumentServiceWarningTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class FieldStatsTypeDef(BaseModel):
+class FieldStatsTypeDef(BaseValidatorModel):
     min: Optional[str] = None
     max: Optional[str] = None
     count: Optional[int] = None
@@ -28,20 +28,20 @@ class FieldStatsTypeDef(BaseModel):
     mean: Optional[str] = None
     stddev: Optional[float] = None
 
-class HitTypeDef(BaseModel):
+class HitTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     fields: Optional[Dict[str, List[str]]] = None
     exprs: Optional[Dict[str, str]] = None
     highlights: Optional[Dict[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class SearchRequestRequestTypeDef(BaseModel):
+class SearchRequestRequestTypeDef(BaseValidatorModel):
     query: str
     cursor: Optional[str] = None
     expr: Optional[str] = None
@@ -57,57 +57,57 @@ class SearchRequestRequestTypeDef(BaseModel):
     start: Optional[int] = None
     stats: Optional[str] = None
 
-class SearchStatusTypeDef(BaseModel):
+class SearchStatusTypeDef(BaseValidatorModel):
     timems: Optional[int] = None
     rid: Optional[str] = None
 
-class SuggestionMatchTypeDef(BaseModel):
+class SuggestionMatchTypeDef(BaseValidatorModel):
     suggestion: Optional[str] = None
     score: Optional[int] = None
     id: Optional[str] = None
 
-class SuggestRequestRequestTypeDef(BaseModel):
+class SuggestRequestRequestTypeDef(BaseValidatorModel):
     query: str
     suggester: str
     size: Optional[int] = None
 
-class SuggestStatusTypeDef(BaseModel):
+class SuggestStatusTypeDef(BaseValidatorModel):
     timems: Optional[int] = None
     rid: Optional[str] = None
 
-class UploadDocumentsRequestRequestTypeDef(BaseModel):
+class UploadDocumentsRequestRequestTypeDef(BaseValidatorModel):
     documents: BlobTypeDef
     contentType: ContentTypeType
 
-class BucketInfoTypeDef(BaseModel):
+class BucketInfoTypeDef(BaseValidatorModel):
     buckets: Optional[List[BucketTypeDef]] = None
 
-class HitsTypeDef(BaseModel):
+class HitsTypeDef(BaseValidatorModel):
     found: Optional[int] = None
     start: Optional[int] = None
     cursor: Optional[str] = None
     hit: Optional[List[HitTypeDef]] = None
 
-class UploadDocumentsResponseTypeDef(BaseModel):
+class UploadDocumentsResponseTypeDef(BaseValidatorModel):
     status: str
     adds: int
     deletes: int
     warnings: List[DocumentServiceWarningTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SuggestModelTypeDef(BaseModel):
+class SuggestModelTypeDef(BaseValidatorModel):
     query: Optional[str] = None
     found: Optional[int] = None
     suggestions: Optional[List[SuggestionMatchTypeDef]] = None
 
-class SearchResponseTypeDef(BaseModel):
+class SearchResponseTypeDef(BaseValidatorModel):
     status: SearchStatusTypeDef
     hits: HitsTypeDef
     facets: Dict[str, BucketInfoTypeDef]
     stats: Dict[str, FieldStatsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SuggestResponseTypeDef(BaseModel):
+class SuggestResponseTypeDef(BaseValidatorModel):
     status: SuggestStatusTypeDef
     suggest: SuggestModelTypeDef
     ResponseMetadata: ResponseMetadataTypeDef

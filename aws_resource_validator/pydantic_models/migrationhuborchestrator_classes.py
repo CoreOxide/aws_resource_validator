@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,99 +11,99 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.migrationhuborchestrator_constants import *
 
-class StepInputTypeDef(BaseModel):
+class StepInputTypeDef(BaseValidatorModel):
     integerValue: Optional[int] = None
     stringValue: Optional[str] = None
     listOfStringsValue: Optional[Sequence[str]] = None
     mapOfStringValue: Optional[Mapping[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class TemplateSourceTypeDef(BaseModel):
+class TemplateSourceTypeDef(BaseValidatorModel):
     workflowId: Optional[str] = None
 
-class CreateWorkflowStepGroupRequestRequestTypeDef(BaseModel):
+class CreateWorkflowStepGroupRequestRequestTypeDef(BaseValidatorModel):
     workflowId: str
     name: str
     description: Optional[str] = None
     next: Optional[Sequence[str]] = None
     previous: Optional[Sequence[str]] = None
 
-class ToolTypeDef(BaseModel):
+class ToolTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     url: Optional[str] = None
 
-class DeleteMigrationWorkflowRequestRequestTypeDef(BaseModel):
+class DeleteMigrationWorkflowRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class DeleteTemplateRequestRequestTypeDef(BaseModel):
+class DeleteTemplateRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class DeleteWorkflowStepGroupRequestRequestTypeDef(BaseModel):
+class DeleteWorkflowStepGroupRequestRequestTypeDef(BaseValidatorModel):
     workflowId: str
     id: str
 
-class DeleteWorkflowStepRequestRequestTypeDef(BaseModel):
+class DeleteWorkflowStepRequestRequestTypeDef(BaseValidatorModel):
     id: str
     stepGroupId: str
     workflowId: str
 
-class GetMigrationWorkflowRequestRequestTypeDef(BaseModel):
+class GetMigrationWorkflowRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class GetMigrationWorkflowTemplateRequestRequestTypeDef(BaseModel):
+class GetMigrationWorkflowTemplateRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class TemplateInputTypeDef(BaseModel):
+class TemplateInputTypeDef(BaseValidatorModel):
     inputName: Optional[str] = None
     dataType: Optional[DataTypeType] = None
     required: Optional[bool] = None
 
-class GetTemplateStepGroupRequestRequestTypeDef(BaseModel):
+class GetTemplateStepGroupRequestRequestTypeDef(BaseValidatorModel):
     templateId: str
     id: str
 
-class GetTemplateStepRequestRequestTypeDef(BaseModel):
+class GetTemplateStepRequestRequestTypeDef(BaseValidatorModel):
     id: str
     templateId: str
     stepGroupId: str
 
-class StepOutputTypeDef(BaseModel):
+class StepOutputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     dataType: Optional[DataTypeType] = None
     required: Optional[bool] = None
 
-class GetWorkflowStepGroupRequestRequestTypeDef(BaseModel):
+class GetWorkflowStepGroupRequestRequestTypeDef(BaseValidatorModel):
     id: str
     workflowId: str
 
-class GetWorkflowStepRequestRequestTypeDef(BaseModel):
+class GetWorkflowStepRequestRequestTypeDef(BaseValidatorModel):
     workflowId: str
     stepGroupId: str
     id: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListMigrationWorkflowTemplatesRequestRequestTypeDef(BaseModel):
+class ListMigrationWorkflowTemplatesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     name: Optional[str] = None
 
-class TemplateSummaryTypeDef(BaseModel):
+class TemplateSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     arn: Optional[str] = None
     description: Optional[str] = None
 
-class ListMigrationWorkflowsRequestRequestTypeDef(BaseModel):
+class ListMigrationWorkflowsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     templateId: Optional[str] = None
@@ -111,7 +111,7 @@ class ListMigrationWorkflowsRequestRequestTypeDef(BaseModel):
     status: Optional[MigrationWorkflowStatusEnumType] = None
     name: Optional[str] = None
 
-class MigrationWorkflowSummaryTypeDef(BaseModel):
+class MigrationWorkflowSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     templateId: Optional[str] = None
@@ -123,11 +123,11 @@ class MigrationWorkflowSummaryTypeDef(BaseModel):
     completedSteps: Optional[int] = None
     totalSteps: Optional[int] = None
 
-class ListPluginsRequestRequestTypeDef(BaseModel):
+class ListPluginsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class PluginSummaryTypeDef(BaseModel):
+class PluginSummaryTypeDef(BaseValidatorModel):
     pluginId: Optional[str] = None
     hostname: Optional[str] = None
     status: Optional[PluginHealthType] = None
@@ -135,27 +135,27 @@ class PluginSummaryTypeDef(BaseModel):
     version: Optional[str] = None
     registeredTime: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListTemplateStepGroupsRequestRequestTypeDef(BaseModel):
+class ListTemplateStepGroupsRequestRequestTypeDef(BaseValidatorModel):
     templateId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TemplateStepGroupSummaryTypeDef(BaseModel):
+class TemplateStepGroupSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     previous: Optional[List[str]] = None
     next: Optional[List[str]] = None
 
-class ListTemplateStepsRequestRequestTypeDef(BaseModel):
+class ListTemplateStepsRequestRequestTypeDef(BaseValidatorModel):
     templateId: str
     stepGroupId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TemplateStepSummaryTypeDef(BaseModel):
+class TemplateStepSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     stepGroupId: Optional[str] = None
     templateId: Optional[str] = None
@@ -166,12 +166,12 @@ class TemplateStepSummaryTypeDef(BaseModel):
     previous: Optional[List[str]] = None
     next: Optional[List[str]] = None
 
-class ListWorkflowStepGroupsRequestRequestTypeDef(BaseModel):
+class ListWorkflowStepGroupsRequestRequestTypeDef(BaseValidatorModel):
     workflowId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class WorkflowStepGroupSummaryTypeDef(BaseModel):
+class WorkflowStepGroupSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     owner: Optional[OwnerType] = None
@@ -179,13 +179,13 @@ class WorkflowStepGroupSummaryTypeDef(BaseModel):
     previous: Optional[List[str]] = None
     next: Optional[List[str]] = None
 
-class ListWorkflowStepsRequestRequestTypeDef(BaseModel):
+class ListWorkflowStepsRequestRequestTypeDef(BaseValidatorModel):
     workflowId: str
     stepGroupId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class WorkflowStepSummaryTypeDef(BaseModel):
+class WorkflowStepSummaryTypeDef(BaseValidatorModel):
     stepId: Optional[str] = None
     name: Optional[str] = None
     stepActionType: Optional[StepActionTypeType] = None
@@ -200,40 +200,40 @@ class WorkflowStepSummaryTypeDef(BaseModel):
     description: Optional[str] = None
     scriptLocation: Optional[str] = None
 
-class PlatformCommandTypeDef(BaseModel):
+class PlatformCommandTypeDef(BaseValidatorModel):
     linux: Optional[str] = None
     windows: Optional[str] = None
 
-class PlatformScriptKeyTypeDef(BaseModel):
+class PlatformScriptKeyTypeDef(BaseValidatorModel):
     linux: Optional[str] = None
     windows: Optional[str] = None
 
-class RetryWorkflowStepRequestRequestTypeDef(BaseModel):
+class RetryWorkflowStepRequestRequestTypeDef(BaseValidatorModel):
     workflowId: str
     stepGroupId: str
     id: str
 
-class StartMigrationWorkflowRequestRequestTypeDef(BaseModel):
+class StartMigrationWorkflowRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class StopMigrationWorkflowRequestRequestTypeDef(BaseModel):
+class StopMigrationWorkflowRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateTemplateRequestRequestTypeDef(BaseModel):
+class UpdateTemplateRequestRequestTypeDef(BaseValidatorModel):
     id: str
     templateName: Optional[str] = None
     templateDescription: Optional[str] = None
     clientToken: Optional[str] = None
 
-class UpdateWorkflowStepGroupRequestRequestTypeDef(BaseModel):
+class UpdateWorkflowStepGroupRequestRequestTypeDef(BaseValidatorModel):
     workflowId: str
     id: str
     name: Optional[str] = None
@@ -241,12 +241,12 @@ class UpdateWorkflowStepGroupRequestRequestTypeDef(BaseModel):
     next: Optional[Sequence[str]] = None
     previous: Optional[Sequence[str]] = None
 
-class WorkflowStepOutputUnionTypeDef(BaseModel):
+class WorkflowStepOutputUnionTypeDef(BaseValidatorModel):
     integerValue: Optional[int] = None
     stringValue: Optional[str] = None
     listOfStringValue: Optional[Sequence[str]] = None
 
-class CreateMigrationWorkflowRequestRequestTypeDef(BaseModel):
+class CreateMigrationWorkflowRequestRequestTypeDef(BaseValidatorModel):
     name: str
     templateId: str
     inputParameters: Mapping[str, StepInputTypeDef]
@@ -255,14 +255,14 @@ class CreateMigrationWorkflowRequestRequestTypeDef(BaseModel):
     stepTargets: Optional[Sequence[str]] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateMigrationWorkflowRequestRequestTypeDef(BaseModel):
+class UpdateMigrationWorkflowRequestRequestTypeDef(BaseValidatorModel):
     id: str
     name: Optional[str] = None
     description: Optional[str] = None
     inputParameters: Optional[Mapping[str, StepInputTypeDef]] = None
     stepTargets: Optional[Sequence[str]] = None
 
-class CreateMigrationWorkflowResponseTypeDef(BaseModel):
+class CreateMigrationWorkflowResponseTypeDef(BaseValidatorModel):
     id: str
     arn: str
     name: str
@@ -276,37 +276,37 @@ class CreateMigrationWorkflowResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTemplateResponseTypeDef(BaseModel):
+class CreateTemplateResponseTypeDef(BaseValidatorModel):
     templateId: str
     templateArn: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWorkflowStepResponseTypeDef(BaseModel):
+class CreateWorkflowStepResponseTypeDef(BaseValidatorModel):
     id: str
     stepGroupId: str
     workflowId: str
     name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteMigrationWorkflowResponseTypeDef(BaseModel):
+class DeleteMigrationWorkflowResponseTypeDef(BaseValidatorModel):
     id: str
     arn: str
     status: MigrationWorkflowStatusEnumType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RetryWorkflowStepResponseTypeDef(BaseModel):
+class RetryWorkflowStepResponseTypeDef(BaseValidatorModel):
     stepGroupId: str
     workflowId: str
     id: str
     status: StepStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMigrationWorkflowResponseTypeDef(BaseModel):
+class StartMigrationWorkflowResponseTypeDef(BaseValidatorModel):
     id: str
     arn: str
     status: MigrationWorkflowStatusEnumType
@@ -314,7 +314,7 @@ class StartMigrationWorkflowResponseTypeDef(BaseModel):
     lastStartTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopMigrationWorkflowResponseTypeDef(BaseModel):
+class StopMigrationWorkflowResponseTypeDef(BaseValidatorModel):
     id: str
     arn: str
     status: MigrationWorkflowStatusEnumType
@@ -322,7 +322,7 @@ class StopMigrationWorkflowResponseTypeDef(BaseModel):
     lastStopTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMigrationWorkflowResponseTypeDef(BaseModel):
+class UpdateMigrationWorkflowResponseTypeDef(BaseValidatorModel):
     id: str
     arn: str
     name: str
@@ -337,27 +337,27 @@ class UpdateMigrationWorkflowResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTemplateResponseTypeDef(BaseModel):
+class UpdateTemplateResponseTypeDef(BaseValidatorModel):
     templateId: str
     templateArn: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateWorkflowStepResponseTypeDef(BaseModel):
+class UpdateWorkflowStepResponseTypeDef(BaseValidatorModel):
     id: str
     stepGroupId: str
     workflowId: str
     name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTemplateRequestRequestTypeDef(BaseModel):
+class CreateTemplateRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
     templateSource: TemplateSourceTypeDef
     templateDescription: Optional[str] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateWorkflowStepGroupResponseTypeDef(BaseModel):
+class CreateWorkflowStepGroupResponseTypeDef(BaseValidatorModel):
     workflowId: str
     name: str
     id: str
@@ -368,7 +368,7 @@ class CreateWorkflowStepGroupResponseTypeDef(BaseModel):
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMigrationWorkflowResponseTypeDef(BaseModel):
+class GetMigrationWorkflowResponseTypeDef(BaseValidatorModel):
     id: str
     arn: str
     name: str
@@ -391,7 +391,7 @@ class GetMigrationWorkflowResponseTypeDef(BaseModel):
     workflowBucket: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTemplateStepGroupResponseTypeDef(BaseModel):
+class GetTemplateStepGroupResponseTypeDef(BaseValidatorModel):
     templateId: str
     id: str
     name: str
@@ -404,7 +404,7 @@ class GetTemplateStepGroupResponseTypeDef(BaseModel):
     next: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWorkflowStepGroupResponseTypeDef(BaseModel):
+class GetWorkflowStepGroupResponseTypeDef(BaseValidatorModel):
     id: str
     workflowId: str
     name: str
@@ -419,7 +419,7 @@ class GetWorkflowStepGroupResponseTypeDef(BaseModel):
     next: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateWorkflowStepGroupResponseTypeDef(BaseModel):
+class UpdateWorkflowStepGroupResponseTypeDef(BaseValidatorModel):
     workflowId: str
     name: str
     id: str
@@ -430,7 +430,7 @@ class UpdateWorkflowStepGroupResponseTypeDef(BaseModel):
     lastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMigrationWorkflowTemplateResponseTypeDef(BaseModel):
+class GetMigrationWorkflowTemplateResponseTypeDef(BaseValidatorModel):
     id: str
     templateArn: str
     name: str
@@ -445,94 +445,94 @@ class GetMigrationWorkflowTemplateResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMigrationWorkflowTemplatesRequestListTemplatesPaginateTypeDef(BaseModel):
+class ListMigrationWorkflowTemplatesRequestListTemplatesPaginateTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMigrationWorkflowsRequestListWorkflowsPaginateTypeDef(BaseModel):
+class ListMigrationWorkflowsRequestListWorkflowsPaginateTypeDef(BaseValidatorModel):
     templateId: Optional[str] = None
     adsApplicationConfigurationName: Optional[str] = None
     status: Optional[MigrationWorkflowStatusEnumType] = None
     name: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPluginsRequestListPluginsPaginateTypeDef(BaseModel):
+class ListPluginsRequestListPluginsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTemplateStepGroupsRequestListTemplateStepGroupsPaginateTypeDef(BaseModel):
+class ListTemplateStepGroupsRequestListTemplateStepGroupsPaginateTypeDef(BaseValidatorModel):
     templateId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTemplateStepsRequestListTemplateStepsPaginateTypeDef(BaseModel):
+class ListTemplateStepsRequestListTemplateStepsPaginateTypeDef(BaseValidatorModel):
     templateId: str
     stepGroupId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkflowStepGroupsRequestListWorkflowStepGroupsPaginateTypeDef(BaseModel):
+class ListWorkflowStepGroupsRequestListWorkflowStepGroupsPaginateTypeDef(BaseValidatorModel):
     workflowId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkflowStepsRequestListWorkflowStepsPaginateTypeDef(BaseModel):
+class ListWorkflowStepsRequestListWorkflowStepsPaginateTypeDef(BaseValidatorModel):
     workflowId: str
     stepGroupId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMigrationWorkflowTemplatesResponseTypeDef(BaseModel):
+class ListMigrationWorkflowTemplatesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     templateSummary: List[TemplateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMigrationWorkflowsResponseTypeDef(BaseModel):
+class ListMigrationWorkflowsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     migrationWorkflowSummary: List[MigrationWorkflowSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPluginsResponseTypeDef(BaseModel):
+class ListPluginsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     plugins: List[PluginSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTemplateStepGroupsResponseTypeDef(BaseModel):
+class ListTemplateStepGroupsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     templateStepGroupSummary: List[TemplateStepGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTemplateStepsResponseTypeDef(BaseModel):
+class ListTemplateStepsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     templateStepSummaryList: List[TemplateStepSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorkflowStepGroupsResponseTypeDef(BaseModel):
+class ListWorkflowStepGroupsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     workflowStepGroupsSummary: List[WorkflowStepGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorkflowStepsResponseTypeDef(BaseModel):
+class ListWorkflowStepsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     workflowStepsSummary: List[WorkflowStepSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StepAutomationConfigurationTypeDef(BaseModel):
+class StepAutomationConfigurationTypeDef(BaseValidatorModel):
     scriptLocationS3Bucket: Optional[str] = None
     scriptLocationS3Key: Optional[PlatformScriptKeyTypeDef] = None
     command: Optional[PlatformCommandTypeDef] = None
     runEnvironment: Optional[RunEnvironmentType] = None
     targetType: Optional[TargetTypeType] = None
 
-class WorkflowStepAutomationConfigurationTypeDef(BaseModel):
+class WorkflowStepAutomationConfigurationTypeDef(BaseValidatorModel):
     scriptLocationS3Bucket: Optional[str] = None
     scriptLocationS3Key: Optional[PlatformScriptKeyTypeDef] = None
     command: Optional[PlatformCommandTypeDef] = None
     runEnvironment: Optional[RunEnvironmentType] = None
     targetType: Optional[TargetTypeType] = None
 
-class WorkflowStepOutputTypeDef(BaseModel):
+class WorkflowStepOutputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     dataType: Optional[DataTypeType] = None
     required: Optional[bool] = None
     value: Optional[WorkflowStepOutputUnionTypeDef] = None
 
-class GetTemplateStepResponseTypeDef(BaseModel):
+class GetTemplateStepResponseTypeDef(BaseValidatorModel):
     id: str
     stepGroupId: str
     templateId: str
@@ -546,7 +546,7 @@ class GetTemplateStepResponseTypeDef(BaseModel):
     stepAutomationConfiguration: StepAutomationConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWorkflowStepRequestRequestTypeDef(BaseModel):
+class CreateWorkflowStepRequestRequestTypeDef(BaseValidatorModel):
     name: str
     stepGroupId: str
     workflowId: str
@@ -558,7 +558,7 @@ class CreateWorkflowStepRequestRequestTypeDef(BaseModel):
     previous: Optional[Sequence[str]] = None
     next: Optional[Sequence[str]] = None
 
-class GetWorkflowStepResponseTypeDef(BaseModel):
+class GetWorkflowStepResponseTypeDef(BaseValidatorModel):
     name: str
     stepGroupId: str
     workflowId: str
@@ -582,7 +582,7 @@ class GetWorkflowStepResponseTypeDef(BaseModel):
     totalNoOfSrv: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateWorkflowStepRequestRequestTypeDef(BaseModel):
+class UpdateWorkflowStepRequestRequestTypeDef(BaseValidatorModel):
     id: str
     stepGroupId: str
     workflowId: str

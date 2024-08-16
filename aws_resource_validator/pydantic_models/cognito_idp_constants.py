@@ -511,7 +511,7 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 RiskExceptionConfigurationTypeUnionTypeDef = Union[   'RiskExceptionConfigurationTypeTypeDef', 'RiskExceptionConfigurationTypeOutputTypeDef' ]
 UserAttributeUpdateSettingsTypeUnionTypeDef = Union[   'UserAttributeUpdateSettingsTypeTypeDef', 'UserAttributeUpdateSettingsTypeOutputTypeDef' ]
 AccountRecoverySettingTypeUnionTypeDef = Union[   'AccountRecoverySettingTypeTypeDef', 'AccountRecoverySettingTypeOutputTypeDef' ]

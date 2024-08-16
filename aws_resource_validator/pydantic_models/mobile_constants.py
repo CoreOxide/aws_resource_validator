@@ -391,4 +391,4 @@ ResourceServiceName = Literal["cloudformation",
     "sns",
     "sqs",]
 PaginatorName = Literal["list_bundles", "list_projects"]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]

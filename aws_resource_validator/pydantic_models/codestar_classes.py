@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,24 +11,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codestar_constants import *
 
-class AssociateTeamMemberRequestRequestTypeDef(BaseModel):
+class AssociateTeamMemberRequestRequestTypeDef(BaseValidatorModel):
     projectId: str
     userArn: str
     projectRole: str
     clientRequestToken: Optional[str] = None
     remoteAccessAllowed: Optional[bool] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CodeCommitCodeDestinationTypeDef(BaseModel):
+class CodeCommitCodeDestinationTypeDef(BaseValidatorModel):
     name: str
 
-class GitHubCodeDestinationTypeDef(BaseModel):
+class GitHubCodeDestinationTypeDef(BaseValidatorModel):
     name: str
     type: str
     owner: str
@@ -37,121 +37,121 @@ class GitHubCodeDestinationTypeDef(BaseModel):
     token: str
     description: Optional[str] = None
 
-class S3LocationTypeDef(BaseModel):
+class S3LocationTypeDef(BaseValidatorModel):
     bucketName: Optional[str] = None
     bucketKey: Optional[str] = None
 
-class CreateUserProfileRequestRequestTypeDef(BaseModel):
+class CreateUserProfileRequestRequestTypeDef(BaseValidatorModel):
     userArn: str
     displayName: str
     emailAddress: str
     sshPublicKey: Optional[str] = None
 
-class DeleteProjectRequestRequestTypeDef(BaseModel):
+class DeleteProjectRequestRequestTypeDef(BaseValidatorModel):
     id: str
     clientRequestToken: Optional[str] = None
     deleteStack: Optional[bool] = None
 
-class DeleteUserProfileRequestRequestTypeDef(BaseModel):
+class DeleteUserProfileRequestRequestTypeDef(BaseValidatorModel):
     userArn: str
 
-class DescribeProjectRequestRequestTypeDef(BaseModel):
+class DescribeProjectRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class ProjectStatusTypeDef(BaseModel):
+class ProjectStatusTypeDef(BaseValidatorModel):
     state: str
     reason: Optional[str] = None
 
-class DescribeUserProfileRequestRequestTypeDef(BaseModel):
+class DescribeUserProfileRequestRequestTypeDef(BaseValidatorModel):
     userArn: str
 
-class DisassociateTeamMemberRequestRequestTypeDef(BaseModel):
+class DisassociateTeamMemberRequestRequestTypeDef(BaseValidatorModel):
     projectId: str
     userArn: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListProjectsRequestRequestTypeDef(BaseModel):
+class ListProjectsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ProjectSummaryTypeDef(BaseModel):
+class ProjectSummaryTypeDef(BaseValidatorModel):
     projectId: Optional[str] = None
     projectArn: Optional[str] = None
 
-class ListResourcesRequestRequestTypeDef(BaseModel):
+class ListResourcesRequestRequestTypeDef(BaseValidatorModel):
     projectId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     id: str
 
-class ListTagsForProjectRequestRequestTypeDef(BaseModel):
+class ListTagsForProjectRequestRequestTypeDef(BaseValidatorModel):
     id: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTeamMembersRequestRequestTypeDef(BaseModel):
+class ListTeamMembersRequestRequestTypeDef(BaseValidatorModel):
     projectId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TeamMemberTypeDef(BaseModel):
+class TeamMemberTypeDef(BaseValidatorModel):
     userArn: str
     projectRole: str
     remoteAccessAllowed: Optional[bool] = None
 
-class ListUserProfilesRequestRequestTypeDef(BaseModel):
+class ListUserProfilesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class UserProfileSummaryTypeDef(BaseModel):
+class UserProfileSummaryTypeDef(BaseValidatorModel):
     userArn: Optional[str] = None
     displayName: Optional[str] = None
     emailAddress: Optional[str] = None
     sshPublicKey: Optional[str] = None
 
-class TagProjectRequestRequestTypeDef(BaseModel):
+class TagProjectRequestRequestTypeDef(BaseValidatorModel):
     id: str
     tags: Mapping[str, str]
 
-class UntagProjectRequestRequestTypeDef(BaseModel):
+class UntagProjectRequestRequestTypeDef(BaseValidatorModel):
     id: str
     tags: Sequence[str]
 
-class UpdateProjectRequestRequestTypeDef(BaseModel):
+class UpdateProjectRequestRequestTypeDef(BaseValidatorModel):
     id: str
     name: Optional[str] = None
     description: Optional[str] = None
 
-class UpdateTeamMemberRequestRequestTypeDef(BaseModel):
+class UpdateTeamMemberRequestRequestTypeDef(BaseValidatorModel):
     projectId: str
     userArn: str
     projectRole: Optional[str] = None
     remoteAccessAllowed: Optional[bool] = None
 
-class UpdateUserProfileRequestRequestTypeDef(BaseModel):
+class UpdateUserProfileRequestRequestTypeDef(BaseValidatorModel):
     userArn: str
     displayName: Optional[str] = None
     emailAddress: Optional[str] = None
     sshPublicKey: Optional[str] = None
 
-class AssociateTeamMemberResultTypeDef(BaseModel):
+class AssociateTeamMemberResultTypeDef(BaseValidatorModel):
     clientRequestToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProjectResultTypeDef(BaseModel):
+class CreateProjectResultTypeDef(BaseValidatorModel):
     id: str
     arn: str
     clientRequestToken: str
     projectTemplateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserProfileResultTypeDef(BaseModel):
+class CreateUserProfileResultTypeDef(BaseValidatorModel):
     userArn: str
     displayName: str
     emailAddress: str
@@ -160,16 +160,16 @@ class CreateUserProfileResultTypeDef(BaseModel):
     lastModifiedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteProjectResultTypeDef(BaseModel):
+class DeleteProjectResultTypeDef(BaseValidatorModel):
     stackId: str
     projectArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteUserProfileResultTypeDef(BaseModel):
+class DeleteUserProfileResultTypeDef(BaseValidatorModel):
     userArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeUserProfileResultTypeDef(BaseModel):
+class DescribeUserProfileResultTypeDef(BaseValidatorModel):
     userArn: str
     displayName: str
     emailAddress: str
@@ -178,22 +178,22 @@ class DescribeUserProfileResultTypeDef(BaseModel):
     lastModifiedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForProjectResultTypeDef(BaseModel):
+class ListTagsForProjectResultTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagProjectResultTypeDef(BaseModel):
+class TagProjectResultTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTeamMemberResultTypeDef(BaseModel):
+class UpdateTeamMemberResultTypeDef(BaseValidatorModel):
     userArn: str
     projectRole: str
     remoteAccessAllowed: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUserProfileResultTypeDef(BaseModel):
+class UpdateUserProfileResultTypeDef(BaseValidatorModel):
     userArn: str
     displayName: str
     emailAddress: str
@@ -202,17 +202,17 @@ class UpdateUserProfileResultTypeDef(BaseModel):
     lastModifiedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CodeDestinationTypeDef(BaseModel):
+class CodeDestinationTypeDef(BaseValidatorModel):
     codeCommit: Optional[CodeCommitCodeDestinationTypeDef] = None
     gitHub: Optional[GitHubCodeDestinationTypeDef] = None
 
-class CodeSourceTypeDef(BaseModel):
+class CodeSourceTypeDef(BaseValidatorModel):
     s3: S3LocationTypeDef
 
-class ToolchainSourceTypeDef(BaseModel):
+class ToolchainSourceTypeDef(BaseValidatorModel):
     s3: S3LocationTypeDef
 
-class DescribeProjectResultTypeDef(BaseModel):
+class DescribeProjectResultTypeDef(BaseValidatorModel):
     name: str
     id: str
     arn: str
@@ -224,50 +224,50 @@ class DescribeProjectResultTypeDef(BaseModel):
     status: ProjectStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProjectsRequestListProjectsPaginateTypeDef(BaseModel):
+class ListProjectsRequestListProjectsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourcesRequestListResourcesPaginateTypeDef(BaseModel):
+class ListResourcesRequestListResourcesPaginateTypeDef(BaseValidatorModel):
     projectId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTeamMembersRequestListTeamMembersPaginateTypeDef(BaseModel):
+class ListTeamMembersRequestListTeamMembersPaginateTypeDef(BaseValidatorModel):
     projectId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUserProfilesRequestListUserProfilesPaginateTypeDef(BaseModel):
+class ListUserProfilesRequestListUserProfilesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectsResultTypeDef(BaseModel):
+class ListProjectsResultTypeDef(BaseValidatorModel):
     projects: List[ProjectSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourcesResultTypeDef(BaseModel):
+class ListResourcesResultTypeDef(BaseValidatorModel):
     resources: List[ResourceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTeamMembersResultTypeDef(BaseModel):
+class ListTeamMembersResultTypeDef(BaseValidatorModel):
     teamMembers: List[TeamMemberTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUserProfilesResultTypeDef(BaseModel):
+class ListUserProfilesResultTypeDef(BaseValidatorModel):
     userProfiles: List[UserProfileSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CodeTypeDef(BaseModel):
+class CodeTypeDef(BaseValidatorModel):
     source: CodeSourceTypeDef
     destination: CodeDestinationTypeDef
 
-class ToolchainTypeDef(BaseModel):
+class ToolchainTypeDef(BaseValidatorModel):
     source: ToolchainSourceTypeDef
     roleArn: Optional[str] = None
     stackParameters: Optional[Mapping[str, str]] = None
 
-class CreateProjectRequestRequestTypeDef(BaseModel):
+class CreateProjectRequestRequestTypeDef(BaseValidatorModel):
     name: str
     id: str
     description: Optional[str] = None

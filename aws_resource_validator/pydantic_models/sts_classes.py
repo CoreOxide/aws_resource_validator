@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,50 +11,50 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sts_constants import *
 
-class PolicyDescriptorTypeTypeDef(BaseModel):
+class PolicyDescriptorTypeTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
 
-class ProvidedContextTypeDef(BaseModel):
+class ProvidedContextTypeDef(BaseValidatorModel):
     ProviderArn: Optional[str] = None
     ContextAssertion: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class AssumedRoleUserTypeDef(BaseModel):
+class AssumedRoleUserTypeDef(BaseValidatorModel):
     AssumedRoleId: str
     Arn: str
 
-class CredentialsTypeDef(BaseModel):
+class CredentialsTypeDef(BaseValidatorModel):
     AccessKeyId: str
     SecretAccessKey: str
     SessionToken: str
     Expiration: datetime
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DecodeAuthorizationMessageRequestRequestTypeDef(BaseModel):
+class DecodeAuthorizationMessageRequestRequestTypeDef(BaseValidatorModel):
     EncodedMessage: str
 
-class FederatedUserTypeDef(BaseModel):
+class FederatedUserTypeDef(BaseValidatorModel):
     FederatedUserId: str
     Arn: str
 
-class GetAccessKeyInfoRequestRequestTypeDef(BaseModel):
+class GetAccessKeyInfoRequestRequestTypeDef(BaseValidatorModel):
     AccessKeyId: str
 
-class GetSessionTokenRequestRequestTypeDef(BaseModel):
+class GetSessionTokenRequestRequestTypeDef(BaseValidatorModel):
     DurationSeconds: Optional[int] = None
     SerialNumber: Optional[str] = None
     TokenCode: Optional[str] = None
 
-class AssumeRoleWithSAMLRequestRequestTypeDef(BaseModel):
+class AssumeRoleWithSAMLRequestRequestTypeDef(BaseValidatorModel):
     RoleArn: str
     PrincipalArn: str
     SAMLAssertion: str
@@ -62,7 +62,7 @@ class AssumeRoleWithSAMLRequestRequestTypeDef(BaseModel):
     Policy: Optional[str] = None
     DurationSeconds: Optional[int] = None
 
-class AssumeRoleWithWebIdentityRequestRequestTypeDef(BaseModel):
+class AssumeRoleWithWebIdentityRequestRequestTypeDef(BaseValidatorModel):
     RoleArn: str
     RoleSessionName: str
     WebIdentityToken: str
@@ -71,7 +71,7 @@ class AssumeRoleWithWebIdentityRequestRequestTypeDef(BaseModel):
     Policy: Optional[str] = None
     DurationSeconds: Optional[int] = None
 
-class AssumeRoleRequestRequestTypeDef(BaseModel):
+class AssumeRoleRequestRequestTypeDef(BaseValidatorModel):
     RoleArn: str
     RoleSessionName: str
     PolicyArns: Optional[Sequence[PolicyDescriptorTypeTypeDef]] = None
@@ -85,21 +85,21 @@ class AssumeRoleRequestRequestTypeDef(BaseModel):
     SourceIdentity: Optional[str] = None
     ProvidedContexts: Optional[Sequence[ProvidedContextTypeDef]] = None
 
-class GetFederationTokenRequestRequestTypeDef(BaseModel):
+class GetFederationTokenRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Policy: Optional[str] = None
     PolicyArns: Optional[Sequence[PolicyDescriptorTypeTypeDef]] = None
     DurationSeconds: Optional[int] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class AssumeRoleResponseTypeDef(BaseModel):
+class AssumeRoleResponseTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
     AssumedRoleUser: AssumedRoleUserTypeDef
     PackedPolicySize: int
     SourceIdentity: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssumeRoleWithSAMLResponseTypeDef(BaseModel):
+class AssumeRoleWithSAMLResponseTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
     AssumedRoleUser: AssumedRoleUserTypeDef
     PackedPolicySize: int
@@ -111,7 +111,7 @@ class AssumeRoleWithSAMLResponseTypeDef(BaseModel):
     SourceIdentity: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssumeRoleWithWebIdentityResponseTypeDef(BaseModel):
+class AssumeRoleWithWebIdentityResponseTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
     SubjectFromWebIdentityToken: str
     AssumedRoleUser: AssumedRoleUserTypeDef
@@ -121,25 +121,25 @@ class AssumeRoleWithWebIdentityResponseTypeDef(BaseModel):
     SourceIdentity: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DecodeAuthorizationMessageResponseTypeDef(BaseModel):
+class DecodeAuthorizationMessageResponseTypeDef(BaseValidatorModel):
     DecodedMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessKeyInfoResponseTypeDef(BaseModel):
+class GetAccessKeyInfoResponseTypeDef(BaseValidatorModel):
     Account: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCallerIdentityResponseTypeDef(BaseModel):
+class GetCallerIdentityResponseTypeDef(BaseValidatorModel):
     UserId: str
     Account: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSessionTokenResponseTypeDef(BaseModel):
+class GetSessionTokenResponseTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFederationTokenResponseTypeDef(BaseModel):
+class GetFederationTokenResponseTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
     FederatedUser: FederatedUserTypeDef
     PackedPolicySize: int

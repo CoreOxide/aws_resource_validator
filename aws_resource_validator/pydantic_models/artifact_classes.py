@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,21 +11,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.artifact_constants import *
 
-class AccountSettingsTypeDef(BaseModel):
+class AccountSettingsTypeDef(BaseValidatorModel):
     notificationSubscriptionStatus: Optional[NotificationSubscriptionStatusType] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class GetReportMetadataRequestRequestTypeDef(BaseModel):
+class GetReportMetadataRequestRequestTypeDef(BaseValidatorModel):
     reportId: str
     reportVersion: Optional[int] = None
 
-class ReportDetailTypeDef(BaseModel):
+class ReportDetailTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -47,25 +47,25 @@ class ReportDetailTypeDef(BaseModel):
     uploadState: Optional[UploadStateType] = None
     statusMessage: Optional[str] = None
 
-class GetReportRequestRequestTypeDef(BaseModel):
+class GetReportRequestRequestTypeDef(BaseValidatorModel):
     reportId: str
     termToken: str
     reportVersion: Optional[int] = None
 
-class GetTermForReportRequestRequestTypeDef(BaseModel):
+class GetTermForReportRequestRequestTypeDef(BaseValidatorModel):
     reportId: str
     reportVersion: Optional[int] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListReportsRequestRequestTypeDef(BaseModel):
+class ListReportsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ReportSummaryTypeDef(BaseModel):
+class ReportSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     state: Optional[PublishedStateType] = None
@@ -82,34 +82,34 @@ class ReportSummaryTypeDef(BaseModel):
     statusMessage: Optional[str] = None
     acceptanceType: Optional[AcceptanceTypeType] = None
 
-class PutAccountSettingsRequestRequestTypeDef(BaseModel):
+class PutAccountSettingsRequestRequestTypeDef(BaseValidatorModel):
     notificationSubscriptionStatus: Optional[NotificationSubscriptionStatusType] = None
 
-class GetAccountSettingsResponseTypeDef(BaseModel):
+class GetAccountSettingsResponseTypeDef(BaseValidatorModel):
     accountSettings: AccountSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetReportResponseTypeDef(BaseModel):
+class GetReportResponseTypeDef(BaseValidatorModel):
     documentPresignedUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTermForReportResponseTypeDef(BaseModel):
+class GetTermForReportResponseTypeDef(BaseValidatorModel):
     documentPresignedUrl: str
     termToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAccountSettingsResponseTypeDef(BaseModel):
+class PutAccountSettingsResponseTypeDef(BaseValidatorModel):
     accountSettings: AccountSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetReportMetadataResponseTypeDef(BaseModel):
+class GetReportMetadataResponseTypeDef(BaseValidatorModel):
     reportDetails: ReportDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReportsRequestListReportsPaginateTypeDef(BaseModel):
+class ListReportsRequestListReportsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListReportsResponseTypeDef(BaseModel):
+class ListReportsResponseTypeDef(BaseValidatorModel):
     reports: List[ReportSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

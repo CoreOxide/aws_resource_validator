@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,11 +11,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.taxsettings_constants import *
 
-class TaxInheritanceDetailsTypeDef(BaseModel):
+class TaxInheritanceDetailsTypeDef(BaseValidatorModel):
     inheritanceObtainedReason: Optional[str] = None
     parentEntityId: Optional[str] = None
 
-class AddressTypeDef(BaseModel):
+class AddressTypeDef(BaseValidatorModel):
     addressLine1: str
     city: str
     countryCode: str
@@ -25,130 +25,130 @@ class AddressTypeDef(BaseModel):
     districtOrCounty: Optional[str] = None
     stateOrRegion: Optional[str] = None
 
-class JurisdictionTypeDef(BaseModel):
+class JurisdictionTypeDef(BaseValidatorModel):
     countryCode: str
     stateOrRegion: Optional[str] = None
 
-class CanadaAdditionalInfoTypeDef(BaseModel):
+class CanadaAdditionalInfoTypeDef(BaseValidatorModel):
     canadaQuebecSalesTaxNumber: Optional[str] = None
     canadaRetailSalesTaxNumber: Optional[str] = None
     isResellerAccount: Optional[bool] = None
     provincialSalesTaxId: Optional[str] = None
 
-class EstoniaAdditionalInfoTypeDef(BaseModel):
+class EstoniaAdditionalInfoTypeDef(BaseValidatorModel):
     registryCommercialCode: str
 
-class GeorgiaAdditionalInfoTypeDef(BaseModel):
+class GeorgiaAdditionalInfoTypeDef(BaseValidatorModel):
     personType: PersonTypeType
 
-class IsraelAdditionalInfoTypeDef(BaseModel):
+class IsraelAdditionalInfoTypeDef(BaseValidatorModel):
     customerType: IsraelCustomerTypeType
     dealerType: IsraelDealerTypeType
 
-class ItalyAdditionalInfoTypeDef(BaseModel):
+class ItalyAdditionalInfoTypeDef(BaseValidatorModel):
     cigNumber: Optional[str] = None
     cupNumber: Optional[str] = None
     sdiAccountId: Optional[str] = None
     taxCode: Optional[str] = None
 
-class KenyaAdditionalInfoTypeDef(BaseModel):
+class KenyaAdditionalInfoTypeDef(BaseValidatorModel):
     personType: PersonTypeType
 
-class MalaysiaAdditionalInfoTypeDef(BaseModel):
+class MalaysiaAdditionalInfoTypeDef(BaseValidatorModel):
     serviceTaxCodes: Sequence[MalaysiaServiceTaxCodeType]
 
-class PolandAdditionalInfoTypeDef(BaseModel):
+class PolandAdditionalInfoTypeDef(BaseValidatorModel):
     individualRegistrationNumber: Optional[str] = None
     isGroupVatEnabled: Optional[bool] = None
 
-class RomaniaAdditionalInfoTypeDef(BaseModel):
+class RomaniaAdditionalInfoTypeDef(BaseValidatorModel):
     taxRegistrationNumberType: TaxRegistrationNumberTypeType
 
-class SaudiArabiaAdditionalInfoTypeDef(BaseModel):
+class SaudiArabiaAdditionalInfoTypeDef(BaseValidatorModel):
     taxRegistrationNumberType: Optional[SaudiArabiaTaxRegistrationNumberTypeType] = None
 
-class SouthKoreaAdditionalInfoTypeDef(BaseModel):
+class SouthKoreaAdditionalInfoTypeDef(BaseValidatorModel):
     businessRepresentativeName: str
     itemOfBusiness: str
     lineOfBusiness: str
 
-class SpainAdditionalInfoTypeDef(BaseModel):
+class SpainAdditionalInfoTypeDef(BaseValidatorModel):
     registrationType: RegistrationTypeType
 
-class TurkeyAdditionalInfoTypeDef(BaseModel):
+class TurkeyAdditionalInfoTypeDef(BaseValidatorModel):
     industries: Optional[IndustriesType] = None
     kepEmailId: Optional[str] = None
     secondaryTaxId: Optional[str] = None
     taxOffice: Optional[str] = None
 
-class UkraineAdditionalInfoTypeDef(BaseModel):
+class UkraineAdditionalInfoTypeDef(BaseValidatorModel):
     ukraineTrnType: UkraineTrnTypeType
 
-class BrazilAdditionalInfoTypeDef(BaseModel):
+class BrazilAdditionalInfoTypeDef(BaseValidatorModel):
     ccmCode: Optional[str] = None
     legalNatureCode: Optional[str] = None
 
-class IndiaAdditionalInfoTypeDef(BaseModel):
+class IndiaAdditionalInfoTypeDef(BaseValidatorModel):
     pan: Optional[str] = None
 
-class MalaysiaAdditionalInfoOutputTypeDef(BaseModel):
+class MalaysiaAdditionalInfoOutputTypeDef(BaseValidatorModel):
     serviceTaxCodes: List[MalaysiaServiceTaxCodeType]
 
-class BatchDeleteTaxRegistrationErrorTypeDef(BaseModel):
+class BatchDeleteTaxRegistrationErrorTypeDef(BaseValidatorModel):
     accountId: str
     message: str
     code: Optional[str] = None
 
-class BatchDeleteTaxRegistrationRequestRequestTypeDef(BaseModel):
+class BatchDeleteTaxRegistrationRequestRequestTypeDef(BaseValidatorModel):
     accountIds: Sequence[str]
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class BatchPutTaxRegistrationErrorTypeDef(BaseModel):
+class BatchPutTaxRegistrationErrorTypeDef(BaseValidatorModel):
     accountId: str
     message: str
     code: Optional[str] = None
 
-class DeleteTaxRegistrationRequestRequestTypeDef(BaseModel):
+class DeleteTaxRegistrationRequestRequestTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
 
-class DestinationS3LocationTypeDef(BaseModel):
+class DestinationS3LocationTypeDef(BaseValidatorModel):
     bucket: str
     prefix: Optional[str] = None
 
-class TaxDocumentMetadataTypeDef(BaseModel):
+class TaxDocumentMetadataTypeDef(BaseValidatorModel):
     taxDocumentAccessToken: str
     taxDocumentName: str
 
-class GetTaxRegistrationRequestRequestTypeDef(BaseModel):
+class GetTaxRegistrationRequestRequestTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListTaxRegistrationsRequestRequestTypeDef(BaseModel):
+class ListTaxRegistrationsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class SourceS3LocationTypeDef(BaseModel):
+class SourceS3LocationTypeDef(BaseValidatorModel):
     bucket: str
     key: str
 
-class AccountMetaDataTypeDef(BaseModel):
+class AccountMetaDataTypeDef(BaseValidatorModel):
     accountName: Optional[str] = None
     address: Optional[AddressTypeDef] = None
     addressRoleMap: Optional[Dict[AddressRoleTypeType, JurisdictionTypeDef]] = None
     addressType: Optional[AddressRoleTypeType] = None
     seller: Optional[str] = None
 
-class AdditionalInfoRequestTypeDef(BaseModel):
+class AdditionalInfoRequestTypeDef(BaseValidatorModel):
     canadaAdditionalInfo: Optional[CanadaAdditionalInfoTypeDef] = None
     estoniaAdditionalInfo: Optional[EstoniaAdditionalInfoTypeDef] = None
     georgiaAdditionalInfo: Optional[GeorgiaAdditionalInfoTypeDef] = None
@@ -164,7 +164,7 @@ class AdditionalInfoRequestTypeDef(BaseModel):
     turkeyAdditionalInfo: Optional[TurkeyAdditionalInfoTypeDef] = None
     ukraineAdditionalInfo: Optional[UkraineAdditionalInfoTypeDef] = None
 
-class AdditionalInfoResponseTypeDef(BaseModel):
+class AdditionalInfoResponseTypeDef(BaseValidatorModel):
     brazilAdditionalInfo: Optional[BrazilAdditionalInfoTypeDef] = None
     canadaAdditionalInfo: Optional[CanadaAdditionalInfoTypeDef] = None
     estoniaAdditionalInfo: Optional[EstoniaAdditionalInfoTypeDef] = None
@@ -182,34 +182,34 @@ class AdditionalInfoResponseTypeDef(BaseModel):
     turkeyAdditionalInfo: Optional[TurkeyAdditionalInfoTypeDef] = None
     ukraineAdditionalInfo: Optional[UkraineAdditionalInfoTypeDef] = None
 
-class BatchDeleteTaxRegistrationResponseTypeDef(BaseModel):
+class BatchDeleteTaxRegistrationResponseTypeDef(BaseValidatorModel):
     errors: List[BatchDeleteTaxRegistrationErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTaxRegistrationDocumentResponseTypeDef(BaseModel):
+class GetTaxRegistrationDocumentResponseTypeDef(BaseValidatorModel):
     destinationFilePath: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutTaxRegistrationResponseTypeDef(BaseModel):
+class PutTaxRegistrationResponseTypeDef(BaseValidatorModel):
     status: TaxRegistrationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchPutTaxRegistrationResponseTypeDef(BaseModel):
+class BatchPutTaxRegistrationResponseTypeDef(BaseValidatorModel):
     errors: List[BatchPutTaxRegistrationErrorTypeDef]
     status: TaxRegistrationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTaxRegistrationDocumentRequestRequestTypeDef(BaseModel):
+class GetTaxRegistrationDocumentRequestRequestTypeDef(BaseValidatorModel):
     destinationS3Location: DestinationS3LocationTypeDef
     taxDocumentMetadata: TaxDocumentMetadataTypeDef
 
-class ListTaxRegistrationsRequestListTaxRegistrationsPaginateTypeDef(BaseModel):
+class ListTaxRegistrationsRequestListTaxRegistrationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class TaxRegistrationDocumentTypeDef(BaseModel):
+class TaxRegistrationDocumentTypeDef(BaseValidatorModel):
     s3Location: SourceS3LocationTypeDef
 
-class TaxRegistrationTypeDef(BaseModel):
+class TaxRegistrationTypeDef(BaseValidatorModel):
     legalAddress: AddressTypeDef
     legalName: str
     registrationId: str
@@ -220,7 +220,7 @@ class TaxRegistrationTypeDef(BaseModel):
     sector: Optional[SectorType] = None
     taxDocumentMetadatas: Optional[List[TaxDocumentMetadataTypeDef]] = None
 
-class TaxRegistrationWithJurisdictionTypeDef(BaseModel):
+class TaxRegistrationWithJurisdictionTypeDef(BaseValidatorModel):
     jurisdiction: JurisdictionTypeDef
     legalName: str
     registrationId: str
@@ -231,21 +231,21 @@ class TaxRegistrationWithJurisdictionTypeDef(BaseModel):
     sector: Optional[SectorType] = None
     taxDocumentMetadatas: Optional[List[TaxDocumentMetadataTypeDef]] = None
 
-class VerificationDetailsTypeDef(BaseModel):
+class VerificationDetailsTypeDef(BaseValidatorModel):
     dateOfBirth: Optional[str] = None
     taxRegistrationDocuments: Optional[Sequence[TaxRegistrationDocumentTypeDef]] = None
 
-class GetTaxRegistrationResponseTypeDef(BaseModel):
+class GetTaxRegistrationResponseTypeDef(BaseValidatorModel):
     taxRegistration: TaxRegistrationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AccountDetailsTypeDef(BaseModel):
+class AccountDetailsTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
     accountMetaData: Optional[AccountMetaDataTypeDef] = None
     taxInheritanceDetails: Optional[TaxInheritanceDetailsTypeDef] = None
     taxRegistration: Optional[TaxRegistrationWithJurisdictionTypeDef] = None
 
-class TaxRegistrationEntryTypeDef(BaseModel):
+class TaxRegistrationEntryTypeDef(BaseValidatorModel):
     registrationId: str
     registrationType: TaxRegistrationTypeType
     additionalTaxInformation: Optional[AdditionalInfoRequestTypeDef] = None
@@ -255,16 +255,16 @@ class TaxRegistrationEntryTypeDef(BaseModel):
     sector: Optional[SectorType] = None
     verificationDetails: Optional[VerificationDetailsTypeDef] = None
 
-class ListTaxRegistrationsResponseTypeDef(BaseModel):
+class ListTaxRegistrationsResponseTypeDef(BaseValidatorModel):
     accountDetails: List[AccountDetailsTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchPutTaxRegistrationRequestRequestTypeDef(BaseModel):
+class BatchPutTaxRegistrationRequestRequestTypeDef(BaseValidatorModel):
     accountIds: Sequence[str]
     taxRegistrationEntry: TaxRegistrationEntryTypeDef
 
-class PutTaxRegistrationRequestRequestTypeDef(BaseModel):
+class PutTaxRegistrationRequestRequestTypeDef(BaseValidatorModel):
     taxRegistrationEntry: TaxRegistrationEntryTypeDef
     accountId: Optional[str] = None
 

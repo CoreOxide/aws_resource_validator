@@ -452,7 +452,7 @@ PaginatorName = Literal["list_cloud_front_origin_access_identities",
     "list_key_value_stores",
     "list_streaming_distributions",]
 WaiterName = Literal["distribution_deployed", "invalidation_completed", "streaming_distribution_deployed"]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 KeyGroupConfigUnionTypeDef = Union['KeyGroupConfigTypeDef', 'KeyGroupConfigOutputTypeDef']
 InvalidationBatchUnionTypeDef = Union['InvalidationBatchTypeDef', 'InvalidationBatchOutputTypeDef']
 StreamingDistributionConfigUnionTypeDef = Union[   'StreamingDistributionConfigTypeDef', 'StreamingDistributionConfigOutputTypeDef' ]

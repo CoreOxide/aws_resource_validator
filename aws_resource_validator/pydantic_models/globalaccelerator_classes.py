@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,268 +11,268 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.globalaccelerator_constants import *
 
-class AcceleratorAttributesTypeDef(BaseModel):
+class AcceleratorAttributesTypeDef(BaseValidatorModel):
     FlowLogsEnabled: Optional[bool] = None
     FlowLogsS3Bucket: Optional[str] = None
     FlowLogsS3Prefix: Optional[str] = None
 
-class AcceleratorEventTypeDef(BaseModel):
+class AcceleratorEventTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     Timestamp: Optional[datetime] = None
 
-class IpSetTypeDef(BaseModel):
+class IpSetTypeDef(BaseValidatorModel):
     IpFamily: Optional[str] = None
     IpAddresses: Optional[List[str]] = None
     IpAddressFamily: Optional[IpAddressFamilyType] = None
 
-class CustomRoutingEndpointConfigurationTypeDef(BaseModel):
+class CustomRoutingEndpointConfigurationTypeDef(BaseValidatorModel):
     EndpointId: Optional[str] = None
     AttachmentArn: Optional[str] = None
 
-class CustomRoutingEndpointDescriptionTypeDef(BaseModel):
+class CustomRoutingEndpointDescriptionTypeDef(BaseValidatorModel):
     EndpointId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class EndpointConfigurationTypeDef(BaseModel):
+class EndpointConfigurationTypeDef(BaseValidatorModel):
     EndpointId: Optional[str] = None
     Weight: Optional[int] = None
     ClientIPPreservationEnabled: Optional[bool] = None
     AttachmentArn: Optional[str] = None
 
-class EndpointDescriptionTypeDef(BaseModel):
+class EndpointDescriptionTypeDef(BaseValidatorModel):
     EndpointId: Optional[str] = None
     Weight: Optional[int] = None
     HealthState: Optional[HealthStateType] = None
     HealthReason: Optional[str] = None
     ClientIPPreservationEnabled: Optional[bool] = None
 
-class AdvertiseByoipCidrRequestRequestTypeDef(BaseModel):
+class AdvertiseByoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
 
-class AllowCustomRoutingTrafficRequestRequestTypeDef(BaseModel):
+class AllowCustomRoutingTrafficRequestRequestTypeDef(BaseValidatorModel):
     EndpointGroupArn: str
     EndpointId: str
     DestinationAddresses: Optional[Sequence[str]] = None
     DestinationPorts: Optional[Sequence[int]] = None
     AllowAllTrafficToEndpoint: Optional[bool] = None
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     EndpointId: Optional[str] = None
     Cidr: Optional[str] = None
     Region: Optional[str] = None
 
-class ByoipCidrEventTypeDef(BaseModel):
+class ByoipCidrEventTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     Timestamp: Optional[datetime] = None
 
-class CidrAuthorizationContextTypeDef(BaseModel):
+class CidrAuthorizationContextTypeDef(BaseValidatorModel):
     Message: str
     Signature: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class CustomRoutingDestinationConfigurationTypeDef(BaseModel):
+class CustomRoutingDestinationConfigurationTypeDef(BaseValidatorModel):
     FromPort: int
     ToPort: int
     Protocols: Sequence[CustomRoutingProtocolType]
 
-class PortRangeTypeDef(BaseModel):
+class PortRangeTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
 
-class PortOverrideTypeDef(BaseModel):
+class PortOverrideTypeDef(BaseValidatorModel):
     ListenerPort: Optional[int] = None
     EndpointPort: Optional[int] = None
 
-class CrossAccountResourceTypeDef(BaseModel):
+class CrossAccountResourceTypeDef(BaseValidatorModel):
     EndpointId: Optional[str] = None
     Cidr: Optional[str] = None
     AttachmentArn: Optional[str] = None
 
-class CustomRoutingAcceleratorAttributesTypeDef(BaseModel):
+class CustomRoutingAcceleratorAttributesTypeDef(BaseValidatorModel):
     FlowLogsEnabled: Optional[bool] = None
     FlowLogsS3Bucket: Optional[str] = None
     FlowLogsS3Prefix: Optional[str] = None
 
-class CustomRoutingDestinationDescriptionTypeDef(BaseModel):
+class CustomRoutingDestinationDescriptionTypeDef(BaseValidatorModel):
     FromPort: Optional[int] = None
     ToPort: Optional[int] = None
     Protocols: Optional[List[ProtocolType]] = None
 
-class DeleteAcceleratorRequestRequestTypeDef(BaseModel):
+class DeleteAcceleratorRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
 
-class DeleteCrossAccountAttachmentRequestRequestTypeDef(BaseModel):
+class DeleteCrossAccountAttachmentRequestRequestTypeDef(BaseValidatorModel):
     AttachmentArn: str
 
-class DeleteCustomRoutingAcceleratorRequestRequestTypeDef(BaseModel):
+class DeleteCustomRoutingAcceleratorRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
 
-class DeleteCustomRoutingEndpointGroupRequestRequestTypeDef(BaseModel):
+class DeleteCustomRoutingEndpointGroupRequestRequestTypeDef(BaseValidatorModel):
     EndpointGroupArn: str
 
-class DeleteCustomRoutingListenerRequestRequestTypeDef(BaseModel):
+class DeleteCustomRoutingListenerRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
 
-class DeleteEndpointGroupRequestRequestTypeDef(BaseModel):
+class DeleteEndpointGroupRequestRequestTypeDef(BaseValidatorModel):
     EndpointGroupArn: str
 
-class DeleteListenerRequestRequestTypeDef(BaseModel):
+class DeleteListenerRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
 
-class DenyCustomRoutingTrafficRequestRequestTypeDef(BaseModel):
+class DenyCustomRoutingTrafficRequestRequestTypeDef(BaseValidatorModel):
     EndpointGroupArn: str
     EndpointId: str
     DestinationAddresses: Optional[Sequence[str]] = None
     DestinationPorts: Optional[Sequence[int]] = None
     DenyAllTrafficToEndpoint: Optional[bool] = None
 
-class DeprovisionByoipCidrRequestRequestTypeDef(BaseModel):
+class DeprovisionByoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
 
-class DescribeAcceleratorAttributesRequestRequestTypeDef(BaseModel):
+class DescribeAcceleratorAttributesRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
 
-class DescribeAcceleratorRequestRequestTypeDef(BaseModel):
+class DescribeAcceleratorRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
 
-class DescribeCrossAccountAttachmentRequestRequestTypeDef(BaseModel):
+class DescribeCrossAccountAttachmentRequestRequestTypeDef(BaseValidatorModel):
     AttachmentArn: str
 
-class DescribeCustomRoutingAcceleratorAttributesRequestRequestTypeDef(BaseModel):
+class DescribeCustomRoutingAcceleratorAttributesRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
 
-class DescribeCustomRoutingAcceleratorRequestRequestTypeDef(BaseModel):
+class DescribeCustomRoutingAcceleratorRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
 
-class DescribeCustomRoutingEndpointGroupRequestRequestTypeDef(BaseModel):
+class DescribeCustomRoutingEndpointGroupRequestRequestTypeDef(BaseValidatorModel):
     EndpointGroupArn: str
 
-class DescribeCustomRoutingListenerRequestRequestTypeDef(BaseModel):
+class DescribeCustomRoutingListenerRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
 
-class DescribeEndpointGroupRequestRequestTypeDef(BaseModel):
+class DescribeEndpointGroupRequestRequestTypeDef(BaseValidatorModel):
     EndpointGroupArn: str
 
-class DescribeListenerRequestRequestTypeDef(BaseModel):
+class DescribeListenerRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
 
-class SocketAddressTypeDef(BaseModel):
+class SocketAddressTypeDef(BaseValidatorModel):
     IpAddress: Optional[str] = None
     Port: Optional[int] = None
 
-class EndpointIdentifierTypeDef(BaseModel):
+class EndpointIdentifierTypeDef(BaseValidatorModel):
     EndpointId: str
     ClientIPPreservationEnabled: Optional[bool] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAcceleratorsRequestRequestTypeDef(BaseModel):
+class ListAcceleratorsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListByoipCidrsRequestRequestTypeDef(BaseModel):
+class ListByoipCidrsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCrossAccountAttachmentsRequestRequestTypeDef(BaseModel):
+class ListCrossAccountAttachmentsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCrossAccountResourcesRequestRequestTypeDef(BaseModel):
+class ListCrossAccountResourcesRequestRequestTypeDef(BaseValidatorModel):
     ResourceOwnerAwsAccountId: str
     AcceleratorArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCustomRoutingAcceleratorsRequestRequestTypeDef(BaseModel):
+class ListCustomRoutingAcceleratorsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCustomRoutingEndpointGroupsRequestRequestTypeDef(BaseModel):
+class ListCustomRoutingEndpointGroupsRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCustomRoutingListenersRequestRequestTypeDef(BaseModel):
+class ListCustomRoutingListenersRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef(BaseModel):
+class ListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef(BaseValidatorModel):
     EndpointId: str
     DestinationAddress: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCustomRoutingPortMappingsRequestRequestTypeDef(BaseModel):
+class ListCustomRoutingPortMappingsRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     EndpointGroupArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListEndpointGroupsRequestRequestTypeDef(BaseModel):
+class ListEndpointGroupsRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListListenersRequestRequestTypeDef(BaseModel):
+class ListListenersRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class RemoveCustomRoutingEndpointsRequestRequestTypeDef(BaseModel):
+class RemoveCustomRoutingEndpointsRequestRequestTypeDef(BaseValidatorModel):
     EndpointIds: Sequence[str]
     EndpointGroupArn: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateAcceleratorAttributesRequestRequestTypeDef(BaseModel):
+class UpdateAcceleratorAttributesRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     FlowLogsEnabled: Optional[bool] = None
     FlowLogsS3Bucket: Optional[str] = None
     FlowLogsS3Prefix: Optional[str] = None
 
-class UpdateAcceleratorRequestRequestTypeDef(BaseModel):
+class UpdateAcceleratorRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     Name: Optional[str] = None
     IpAddressType: Optional[IpAddressTypeType] = None
     IpAddresses: Optional[Sequence[str]] = None
     Enabled: Optional[bool] = None
 
-class UpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef(BaseModel):
+class UpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     FlowLogsEnabled: Optional[bool] = None
     FlowLogsS3Bucket: Optional[str] = None
     FlowLogsS3Prefix: Optional[str] = None
 
-class UpdateCustomRoutingAcceleratorRequestRequestTypeDef(BaseModel):
+class UpdateCustomRoutingAcceleratorRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     Name: Optional[str] = None
     IpAddressType: Optional[IpAddressTypeType] = None
     IpAddresses: Optional[Sequence[str]] = None
     Enabled: Optional[bool] = None
 
-class WithdrawByoipCidrRequestRequestTypeDef(BaseModel):
+class WithdrawByoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
 
-class AcceleratorTypeDef(BaseModel):
+class AcceleratorTypeDef(BaseValidatorModel):
     AcceleratorArn: Optional[str] = None
     Name: Optional[str] = None
     IpAddressType: Optional[IpAddressTypeType] = None
@@ -285,7 +285,7 @@ class AcceleratorTypeDef(BaseModel):
     DualStackDnsName: Optional[str] = None
     Events: Optional[List[AcceleratorEventTypeDef]] = None
 
-class CustomRoutingAcceleratorTypeDef(BaseModel):
+class CustomRoutingAcceleratorTypeDef(BaseValidatorModel):
     AcceleratorArn: Optional[str] = None
     Name: Optional[str] = None
     IpAddressType: Optional[IpAddressTypeType] = None
@@ -296,40 +296,40 @@ class CustomRoutingAcceleratorTypeDef(BaseModel):
     CreatedTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
-class AddCustomRoutingEndpointsRequestRequestTypeDef(BaseModel):
+class AddCustomRoutingEndpointsRequestRequestTypeDef(BaseValidatorModel):
     EndpointConfigurations: Sequence[CustomRoutingEndpointConfigurationTypeDef]
     EndpointGroupArn: str
 
-class AddCustomRoutingEndpointsResponseTypeDef(BaseModel):
+class AddCustomRoutingEndpointsResponseTypeDef(BaseValidatorModel):
     EndpointDescriptions: List[CustomRoutingEndpointDescriptionTypeDef]
     EndpointGroupArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAcceleratorAttributesResponseTypeDef(BaseModel):
+class DescribeAcceleratorAttributesResponseTypeDef(BaseValidatorModel):
     AcceleratorAttributes: AcceleratorAttributesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCrossAccountResourceAccountsResponseTypeDef(BaseModel):
+class ListCrossAccountResourceAccountsResponseTypeDef(BaseValidatorModel):
     ResourceOwnerAwsAccountIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAcceleratorAttributesResponseTypeDef(BaseModel):
+class UpdateAcceleratorAttributesResponseTypeDef(BaseValidatorModel):
     AcceleratorAttributes: AcceleratorAttributesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AddEndpointsRequestRequestTypeDef(BaseModel):
+class AddEndpointsRequestRequestTypeDef(BaseValidatorModel):
     EndpointConfigurations: Sequence[EndpointConfigurationTypeDef]
     EndpointGroupArn: str
 
-class AddEndpointsResponseTypeDef(BaseModel):
+class AddEndpointsResponseTypeDef(BaseValidatorModel):
     EndpointDescriptions: List[EndpointDescriptionTypeDef]
     EndpointGroupArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachmentTypeDef(BaseModel):
+class AttachmentTypeDef(BaseValidatorModel):
     AttachmentArn: Optional[str] = None
     Name: Optional[str] = None
     Principals: Optional[List[str]] = None
@@ -337,7 +337,7 @@ class AttachmentTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     CreatedTime: Optional[datetime] = None
 
-class UpdateCrossAccountAttachmentRequestRequestTypeDef(BaseModel):
+class UpdateCrossAccountAttachmentRequestRequestTypeDef(BaseValidatorModel):
     AttachmentArn: str
     Name: Optional[str] = None
     AddPrincipals: Optional[Sequence[str]] = None
@@ -345,16 +345,16 @@ class UpdateCrossAccountAttachmentRequestRequestTypeDef(BaseModel):
     AddResources: Optional[Sequence[ResourceTypeDef]] = None
     RemoveResources: Optional[Sequence[ResourceTypeDef]] = None
 
-class ByoipCidrTypeDef(BaseModel):
+class ByoipCidrTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
     State: Optional[ByoipCidrStateType] = None
     Events: Optional[List[ByoipCidrEventTypeDef]] = None
 
-class ProvisionByoipCidrRequestRequestTypeDef(BaseModel):
+class ProvisionByoipCidrRequestRequestTypeDef(BaseValidatorModel):
     Cidr: str
     CidrAuthorizationContext: CidrAuthorizationContextTypeDef
 
-class CreateAcceleratorRequestRequestTypeDef(BaseModel):
+class CreateAcceleratorRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     IdempotencyToken: str
     IpAddressType: Optional[IpAddressTypeType] = None
@@ -362,14 +362,14 @@ class CreateAcceleratorRequestRequestTypeDef(BaseModel):
     Enabled: Optional[bool] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateCrossAccountAttachmentRequestRequestTypeDef(BaseModel):
+class CreateCrossAccountAttachmentRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     IdempotencyToken: str
     Principals: Optional[Sequence[str]] = None
     Resources: Optional[Sequence[ResourceTypeDef]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateCustomRoutingAcceleratorRequestRequestTypeDef(BaseModel):
+class CreateCustomRoutingAcceleratorRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     IdempotencyToken: str
     IpAddressType: Optional[IpAddressTypeType] = None
@@ -377,53 +377,53 @@ class CreateCustomRoutingAcceleratorRequestRequestTypeDef(BaseModel):
     Enabled: Optional[bool] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class CreateCustomRoutingEndpointGroupRequestRequestTypeDef(BaseModel):
+class CreateCustomRoutingEndpointGroupRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
     EndpointGroupRegion: str
     DestinationConfigurations: Sequence[CustomRoutingDestinationConfigurationTypeDef]
     IdempotencyToken: str
 
-class CreateCustomRoutingListenerRequestRequestTypeDef(BaseModel):
+class CreateCustomRoutingListenerRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     PortRanges: Sequence[PortRangeTypeDef]
     IdempotencyToken: str
 
-class CreateListenerRequestRequestTypeDef(BaseModel):
+class CreateListenerRequestRequestTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     PortRanges: Sequence[PortRangeTypeDef]
     Protocol: ProtocolType
     IdempotencyToken: str
     ClientAffinity: Optional[ClientAffinityType] = None
 
-class CustomRoutingListenerTypeDef(BaseModel):
+class CustomRoutingListenerTypeDef(BaseValidatorModel):
     ListenerArn: Optional[str] = None
     PortRanges: Optional[List[PortRangeTypeDef]] = None
 
-class ListenerTypeDef(BaseModel):
+class ListenerTypeDef(BaseValidatorModel):
     ListenerArn: Optional[str] = None
     PortRanges: Optional[List[PortRangeTypeDef]] = None
     Protocol: Optional[ProtocolType] = None
     ClientAffinity: Optional[ClientAffinityType] = None
 
-class UpdateCustomRoutingListenerRequestRequestTypeDef(BaseModel):
+class UpdateCustomRoutingListenerRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
     PortRanges: Sequence[PortRangeTypeDef]
 
-class UpdateListenerRequestRequestTypeDef(BaseModel):
+class UpdateListenerRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
     PortRanges: Optional[Sequence[PortRangeTypeDef]] = None
     Protocol: Optional[ProtocolType] = None
     ClientAffinity: Optional[ClientAffinityType] = None
 
-class CreateEndpointGroupRequestRequestTypeDef(BaseModel):
+class CreateEndpointGroupRequestRequestTypeDef(BaseValidatorModel):
     ListenerArn: str
     EndpointGroupRegion: str
     IdempotencyToken: str
@@ -436,7 +436,7 @@ class CreateEndpointGroupRequestRequestTypeDef(BaseModel):
     ThresholdCount: Optional[int] = None
     PortOverrides: Optional[Sequence[PortOverrideTypeDef]] = None
 
-class EndpointGroupTypeDef(BaseModel):
+class EndpointGroupTypeDef(BaseValidatorModel):
     EndpointGroupArn: Optional[str] = None
     EndpointGroupRegion: Optional[str] = None
     EndpointDescriptions: Optional[List[EndpointDescriptionTypeDef]] = None
@@ -448,7 +448,7 @@ class EndpointGroupTypeDef(BaseModel):
     ThresholdCount: Optional[int] = None
     PortOverrides: Optional[List[PortOverrideTypeDef]] = None
 
-class UpdateEndpointGroupRequestRequestTypeDef(BaseModel):
+class UpdateEndpointGroupRequestRequestTypeDef(BaseValidatorModel):
     EndpointGroupArn: str
     EndpointConfigurations: Optional[Sequence[EndpointConfigurationTypeDef]] = None
     TrafficDialPercentage: Optional[float] = None
@@ -459,26 +459,26 @@ class UpdateEndpointGroupRequestRequestTypeDef(BaseModel):
     ThresholdCount: Optional[int] = None
     PortOverrides: Optional[Sequence[PortOverrideTypeDef]] = None
 
-class ListCrossAccountResourcesResponseTypeDef(BaseModel):
+class ListCrossAccountResourcesResponseTypeDef(BaseValidatorModel):
     CrossAccountResources: List[CrossAccountResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeCustomRoutingAcceleratorAttributesResponseTypeDef(BaseModel):
+class DescribeCustomRoutingAcceleratorAttributesResponseTypeDef(BaseValidatorModel):
     AcceleratorAttributes: CustomRoutingAcceleratorAttributesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateCustomRoutingAcceleratorAttributesResponseTypeDef(BaseModel):
+class UpdateCustomRoutingAcceleratorAttributesResponseTypeDef(BaseValidatorModel):
     AcceleratorAttributes: CustomRoutingAcceleratorAttributesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CustomRoutingEndpointGroupTypeDef(BaseModel):
+class CustomRoutingEndpointGroupTypeDef(BaseValidatorModel):
     EndpointGroupArn: Optional[str] = None
     EndpointGroupRegion: Optional[str] = None
     DestinationDescriptions: Optional[List[CustomRoutingDestinationDescriptionTypeDef]] = None
     EndpointDescriptions: Optional[List[CustomRoutingEndpointDescriptionTypeDef]] = None
 
-class DestinationPortMappingTypeDef(BaseModel):
+class DestinationPortMappingTypeDef(BaseValidatorModel):
     AcceleratorArn: Optional[str] = None
     AcceleratorSocketAddresses: Optional[List[SocketAddressTypeDef]] = None
     EndpointGroupArn: Optional[str] = None
@@ -488,7 +488,7 @@ class DestinationPortMappingTypeDef(BaseModel):
     IpAddressType: Optional[IpAddressTypeType] = None
     DestinationTrafficState: Optional[CustomRoutingDestinationTrafficStateType] = None
 
-class PortMappingTypeDef(BaseModel):
+class PortMappingTypeDef(BaseValidatorModel):
     AcceleratorPort: Optional[int] = None
     EndpointGroupArn: Optional[str] = None
     EndpointId: Optional[str] = None
@@ -496,195 +496,195 @@ class PortMappingTypeDef(BaseModel):
     Protocols: Optional[List[CustomRoutingProtocolType]] = None
     DestinationTrafficState: Optional[CustomRoutingDestinationTrafficStateType] = None
 
-class RemoveEndpointsRequestRequestTypeDef(BaseModel):
+class RemoveEndpointsRequestRequestTypeDef(BaseValidatorModel):
     EndpointIdentifiers: Sequence[EndpointIdentifierTypeDef]
     EndpointGroupArn: str
 
-class ListAcceleratorsRequestListAcceleratorsPaginateTypeDef(BaseModel):
+class ListAcceleratorsRequestListAcceleratorsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListByoipCidrsRequestListByoipCidrsPaginateTypeDef(BaseModel):
+class ListByoipCidrsRequestListByoipCidrsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCrossAccountAttachmentsRequestListCrossAccountAttachmentsPaginateTypeDef(BaseModel):
+class ListCrossAccountAttachmentsRequestListCrossAccountAttachmentsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCrossAccountResourcesRequestListCrossAccountResourcesPaginateTypeDef(BaseModel):
+class ListCrossAccountResourcesRequestListCrossAccountResourcesPaginateTypeDef(BaseValidatorModel):
     ResourceOwnerAwsAccountId: str
     AcceleratorArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCustomRoutingAcceleratorsRequestListCustomRoutingAcceleratorsPaginateTypeDef(BaseModel):
+class ListCustomRoutingAcceleratorsRequestListCustomRoutingAcceleratorsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCustomRoutingEndpointGroupsRequestListCustomRoutingEndpointGroupsPaginateTypeDef(BaseModel):
+class ListCustomRoutingEndpointGroupsRequestListCustomRoutingEndpointGroupsPaginateTypeDef(BaseValidatorModel):
     ListenerArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCustomRoutingListenersRequestListCustomRoutingListenersPaginateTypeDef(BaseModel):
+class ListCustomRoutingListenersRequestListCustomRoutingListenersPaginateTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCustomRoutingPortMappingsByDestinationRequestListCustomRoutingPortMappingsByDestinationPaginateTypeDef(BaseModel):
+class ListCustomRoutingPortMappingsByDestinationRequestListCustomRoutingPortMappingsByDestinationPaginateTypeDef(BaseValidatorModel):
     EndpointId: str
     DestinationAddress: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCustomRoutingPortMappingsRequestListCustomRoutingPortMappingsPaginateTypeDef(BaseModel):
+class ListCustomRoutingPortMappingsRequestListCustomRoutingPortMappingsPaginateTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     EndpointGroupArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEndpointGroupsRequestListEndpointGroupsPaginateTypeDef(BaseModel):
+class ListEndpointGroupsRequestListEndpointGroupsPaginateTypeDef(BaseValidatorModel):
     ListenerArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListListenersRequestListListenersPaginateTypeDef(BaseModel):
+class ListListenersRequestListListenersPaginateTypeDef(BaseValidatorModel):
     AcceleratorArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class CreateAcceleratorResponseTypeDef(BaseModel):
+class CreateAcceleratorResponseTypeDef(BaseValidatorModel):
     Accelerator: AcceleratorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAcceleratorResponseTypeDef(BaseModel):
+class DescribeAcceleratorResponseTypeDef(BaseValidatorModel):
     Accelerator: AcceleratorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAcceleratorsResponseTypeDef(BaseModel):
+class ListAcceleratorsResponseTypeDef(BaseValidatorModel):
     Accelerators: List[AcceleratorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateAcceleratorResponseTypeDef(BaseModel):
+class UpdateAcceleratorResponseTypeDef(BaseValidatorModel):
     Accelerator: AcceleratorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCustomRoutingAcceleratorResponseTypeDef(BaseModel):
+class CreateCustomRoutingAcceleratorResponseTypeDef(BaseValidatorModel):
     Accelerator: CustomRoutingAcceleratorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCustomRoutingAcceleratorResponseTypeDef(BaseModel):
+class DescribeCustomRoutingAcceleratorResponseTypeDef(BaseValidatorModel):
     Accelerator: CustomRoutingAcceleratorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCustomRoutingAcceleratorsResponseTypeDef(BaseModel):
+class ListCustomRoutingAcceleratorsResponseTypeDef(BaseValidatorModel):
     Accelerators: List[CustomRoutingAcceleratorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateCustomRoutingAcceleratorResponseTypeDef(BaseModel):
+class UpdateCustomRoutingAcceleratorResponseTypeDef(BaseValidatorModel):
     Accelerator: CustomRoutingAcceleratorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCrossAccountAttachmentResponseTypeDef(BaseModel):
+class CreateCrossAccountAttachmentResponseTypeDef(BaseValidatorModel):
     CrossAccountAttachment: AttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCrossAccountAttachmentResponseTypeDef(BaseModel):
+class DescribeCrossAccountAttachmentResponseTypeDef(BaseValidatorModel):
     CrossAccountAttachment: AttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCrossAccountAttachmentsResponseTypeDef(BaseModel):
+class ListCrossAccountAttachmentsResponseTypeDef(BaseValidatorModel):
     CrossAccountAttachments: List[AttachmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateCrossAccountAttachmentResponseTypeDef(BaseModel):
+class UpdateCrossAccountAttachmentResponseTypeDef(BaseValidatorModel):
     CrossAccountAttachment: AttachmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AdvertiseByoipCidrResponseTypeDef(BaseModel):
+class AdvertiseByoipCidrResponseTypeDef(BaseValidatorModel):
     ByoipCidr: ByoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeprovisionByoipCidrResponseTypeDef(BaseModel):
+class DeprovisionByoipCidrResponseTypeDef(BaseValidatorModel):
     ByoipCidr: ByoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListByoipCidrsResponseTypeDef(BaseModel):
+class ListByoipCidrsResponseTypeDef(BaseValidatorModel):
     ByoipCidrs: List[ByoipCidrTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ProvisionByoipCidrResponseTypeDef(BaseModel):
+class ProvisionByoipCidrResponseTypeDef(BaseValidatorModel):
     ByoipCidr: ByoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WithdrawByoipCidrResponseTypeDef(BaseModel):
+class WithdrawByoipCidrResponseTypeDef(BaseValidatorModel):
     ByoipCidr: ByoipCidrTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCustomRoutingListenerResponseTypeDef(BaseModel):
+class CreateCustomRoutingListenerResponseTypeDef(BaseValidatorModel):
     Listener: CustomRoutingListenerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCustomRoutingListenerResponseTypeDef(BaseModel):
+class DescribeCustomRoutingListenerResponseTypeDef(BaseValidatorModel):
     Listener: CustomRoutingListenerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCustomRoutingListenersResponseTypeDef(BaseModel):
+class ListCustomRoutingListenersResponseTypeDef(BaseValidatorModel):
     Listeners: List[CustomRoutingListenerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateCustomRoutingListenerResponseTypeDef(BaseModel):
+class UpdateCustomRoutingListenerResponseTypeDef(BaseValidatorModel):
     Listener: CustomRoutingListenerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateListenerResponseTypeDef(BaseModel):
+class CreateListenerResponseTypeDef(BaseValidatorModel):
     Listener: ListenerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeListenerResponseTypeDef(BaseModel):
+class DescribeListenerResponseTypeDef(BaseValidatorModel):
     Listener: ListenerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListListenersResponseTypeDef(BaseModel):
+class ListListenersResponseTypeDef(BaseValidatorModel):
     Listeners: List[ListenerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateListenerResponseTypeDef(BaseModel):
+class UpdateListenerResponseTypeDef(BaseValidatorModel):
     Listener: ListenerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEndpointGroupResponseTypeDef(BaseModel):
+class CreateEndpointGroupResponseTypeDef(BaseValidatorModel):
     EndpointGroup: EndpointGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEndpointGroupResponseTypeDef(BaseModel):
+class DescribeEndpointGroupResponseTypeDef(BaseValidatorModel):
     EndpointGroup: EndpointGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEndpointGroupsResponseTypeDef(BaseModel):
+class ListEndpointGroupsResponseTypeDef(BaseValidatorModel):
     EndpointGroups: List[EndpointGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateEndpointGroupResponseTypeDef(BaseModel):
+class UpdateEndpointGroupResponseTypeDef(BaseValidatorModel):
     EndpointGroup: EndpointGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCustomRoutingEndpointGroupResponseTypeDef(BaseModel):
+class CreateCustomRoutingEndpointGroupResponseTypeDef(BaseValidatorModel):
     EndpointGroup: CustomRoutingEndpointGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCustomRoutingEndpointGroupResponseTypeDef(BaseModel):
+class DescribeCustomRoutingEndpointGroupResponseTypeDef(BaseValidatorModel):
     EndpointGroup: CustomRoutingEndpointGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCustomRoutingEndpointGroupsResponseTypeDef(BaseModel):
+class ListCustomRoutingEndpointGroupsResponseTypeDef(BaseValidatorModel):
     EndpointGroups: List[CustomRoutingEndpointGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListCustomRoutingPortMappingsByDestinationResponseTypeDef(BaseModel):
+class ListCustomRoutingPortMappingsByDestinationResponseTypeDef(BaseValidatorModel):
     DestinationPortMappings: List[DestinationPortMappingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListCustomRoutingPortMappingsResponseTypeDef(BaseModel):
+class ListCustomRoutingPortMappingsResponseTypeDef(BaseValidatorModel):
     PortMappings: List[PortMappingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

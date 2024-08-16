@@ -414,5 +414,5 @@ RegionName = Literal["ap-northeast-1",
     "eu-west-2",
     "us-east-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 CookieSynchronizationConfigurationUnionTypeDef = Union[   'CookieSynchronizationConfigurationTypeDef', 'CookieSynchronizationConfigurationOutputTypeDef' ]

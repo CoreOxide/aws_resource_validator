@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,114 +11,114 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.detective_constants import *
 
-class AcceptInvitationRequestRequestTypeDef(BaseModel):
+class AcceptInvitationRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
 
-class AccountTypeDef(BaseModel):
+class AccountTypeDef(BaseValidatorModel):
     AccountId: str
     EmailAddress: str
 
-class AdministratorTypeDef(BaseModel):
+class AdministratorTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     GraphArn: Optional[str] = None
     DelegationTime: Optional[datetime] = None
 
-class BatchGetGraphMemberDatasourcesRequestRequestTypeDef(BaseModel):
+class BatchGetGraphMemberDatasourcesRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     AccountIds: Sequence[str]
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class UnprocessedAccountTypeDef(BaseModel):
+class UnprocessedAccountTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     Reason: Optional[str] = None
 
-class BatchGetMembershipDatasourcesRequestRequestTypeDef(BaseModel):
+class BatchGetMembershipDatasourcesRequestRequestTypeDef(BaseValidatorModel):
     GraphArns: Sequence[str]
 
-class UnprocessedGraphTypeDef(BaseModel):
+class UnprocessedGraphTypeDef(BaseValidatorModel):
     GraphArn: Optional[str] = None
     Reason: Optional[str] = None
 
-class CreateGraphRequestRequestTypeDef(BaseModel):
+class CreateGraphRequestRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
-class TimestampForCollectionTypeDef(BaseModel):
+class TimestampForCollectionTypeDef(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
 
-class DatasourcePackageUsageInfoTypeDef(BaseModel):
+class DatasourcePackageUsageInfoTypeDef(BaseValidatorModel):
     VolumeUsageInBytes: Optional[int] = None
     VolumeUsageUpdateTime: Optional[datetime] = None
 
-class DeleteGraphRequestRequestTypeDef(BaseModel):
+class DeleteGraphRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
 
-class DeleteMembersRequestRequestTypeDef(BaseModel):
+class DeleteMembersRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     AccountIds: Sequence[str]
 
-class DescribeOrganizationConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeOrganizationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
 
-class DisassociateMembershipRequestRequestTypeDef(BaseModel):
+class DisassociateMembershipRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
 
-class EnableOrganizationAdminAccountRequestRequestTypeDef(BaseModel):
+class EnableOrganizationAdminAccountRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class StringFilterTypeDef(BaseModel):
+class StringFilterTypeDef(BaseValidatorModel):
     Value: str
 
-class FlaggedIpAddressDetailTypeDef(BaseModel):
+class FlaggedIpAddressDetailTypeDef(BaseValidatorModel):
     IpAddress: Optional[str] = None
     Reason: Optional[Literal["AWS_THREAT_INTELLIGENCE"]] = None
 
-class GetInvestigationRequestRequestTypeDef(BaseModel):
+class GetInvestigationRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str
 
-class GetMembersRequestRequestTypeDef(BaseModel):
+class GetMembersRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     AccountIds: Sequence[str]
 
-class GraphTypeDef(BaseModel):
+class GraphTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
 
-class ImpossibleTravelDetailTypeDef(BaseModel):
+class ImpossibleTravelDetailTypeDef(BaseValidatorModel):
     StartingIpAddress: Optional[str] = None
     EndingIpAddress: Optional[str] = None
     StartingLocation: Optional[str] = None
     EndingLocation: Optional[str] = None
     HourlyTimeDelta: Optional[int] = None
 
-class NewAsoDetailTypeDef(BaseModel):
+class NewAsoDetailTypeDef(BaseValidatorModel):
     Aso: Optional[str] = None
     IsNewForEntireAccount: Optional[bool] = None
 
-class NewGeolocationDetailTypeDef(BaseModel):
+class NewGeolocationDetailTypeDef(BaseValidatorModel):
     Location: Optional[str] = None
     IpAddress: Optional[str] = None
     IsNewForEntireAccount: Optional[bool] = None
 
-class NewUserAgentDetailTypeDef(BaseModel):
+class NewUserAgentDetailTypeDef(BaseValidatorModel):
     UserAgent: Optional[str] = None
     IsNewForEntireAccount: Optional[bool] = None
 
-class RelatedFindingDetailTypeDef(BaseModel):
+class RelatedFindingDetailTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Type: Optional[str] = None
     IpAddress: Optional[str] = None
 
-class RelatedFindingGroupDetailTypeDef(BaseModel):
+class RelatedFindingGroupDetailTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
 
-class TTPsObservedDetailTypeDef(BaseModel):
+class TTPsObservedDetailTypeDef(BaseValidatorModel):
     Tactic: Optional[str] = None
     Technique: Optional[str] = None
     Procedure: Optional[str] = None
@@ -127,7 +127,7 @@ class TTPsObservedDetailTypeDef(BaseModel):
     APISuccessCount: Optional[int] = None
     APIFailureCount: Optional[int] = None
 
-class InvestigationDetailTypeDef(BaseModel):
+class InvestigationDetailTypeDef(BaseValidatorModel):
     InvestigationId: Optional[str] = None
     Severity: Optional[SeverityType] = None
     Status: Optional[StatusType] = None
@@ -136,88 +136,88 @@ class InvestigationDetailTypeDef(BaseModel):
     EntityArn: Optional[str] = None
     EntityType: Optional[EntityTypeType] = None
 
-class ListDatasourcePackagesRequestRequestTypeDef(BaseModel):
+class ListDatasourcePackagesRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListGraphsRequestRequestTypeDef(BaseModel):
+class ListGraphsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListIndicatorsRequestRequestTypeDef(BaseModel):
+class ListIndicatorsRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str
     IndicatorType: Optional[IndicatorTypeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class SortCriteriaTypeDef(BaseModel):
+class SortCriteriaTypeDef(BaseValidatorModel):
     Field: Optional[FieldType] = None
     SortOrder: Optional[SortOrderType] = None
 
-class ListInvitationsRequestRequestTypeDef(BaseModel):
+class ListInvitationsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListMembersRequestRequestTypeDef(BaseModel):
+class ListMembersRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListOrganizationAdminAccountsRequestRequestTypeDef(BaseModel):
+class ListOrganizationAdminAccountsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class RejectInvitationRequestRequestTypeDef(BaseModel):
+class RejectInvitationRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
 
-class StartMonitoringMemberRequestRequestTypeDef(BaseModel):
+class StartMonitoringMemberRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     AccountId: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateDatasourcePackagesRequestRequestTypeDef(BaseModel):
+class UpdateDatasourcePackagesRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     DatasourcePackages: Sequence[DatasourcePackageType]
 
-class UpdateInvestigationStateRequestRequestTypeDef(BaseModel):
+class UpdateInvestigationStateRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str
     State: StateType
 
-class UpdateOrganizationConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateOrganizationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     AutoEnable: Optional[bool] = None
 
-class CreateMembersRequestRequestTypeDef(BaseModel):
+class CreateMembersRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     Accounts: Sequence[AccountTypeDef]
     Message: Optional[str] = None
     DisableEmailNotification: Optional[bool] = None
 
-class CreateGraphResponseTypeDef(BaseModel):
+class CreateGraphResponseTypeDef(BaseValidatorModel):
     GraphArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeOrganizationConfigurationResponseTypeDef(BaseModel):
+class DescribeOrganizationConfigurationResponseTypeDef(BaseValidatorModel):
     AutoEnable: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInvestigationResponseTypeDef(BaseModel):
+class GetInvestigationResponseTypeDef(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str
     EntityArn: str
@@ -230,34 +230,34 @@ class GetInvestigationResponseTypeDef(BaseModel):
     State: StateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOrganizationAdminAccountsResponseTypeDef(BaseModel):
+class ListOrganizationAdminAccountsResponseTypeDef(BaseValidatorModel):
     Administrators: List[AdministratorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartInvestigationResponseTypeDef(BaseModel):
+class StartInvestigationResponseTypeDef(BaseValidatorModel):
     InvestigationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteMembersResponseTypeDef(BaseModel):
+class DeleteMembersResponseTypeDef(BaseValidatorModel):
     AccountIds: List[str]
     UnprocessedAccounts: List[UnprocessedAccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DatasourcePackageIngestDetailTypeDef(BaseModel):
+class DatasourcePackageIngestDetailTypeDef(BaseValidatorModel):
     DatasourcePackageIngestState: Optional[DatasourcePackageIngestStateType] = None
     LastIngestStateChange: Optional[       Dict[DatasourcePackageIngestStateType, TimestampForCollectionTypeDef] = None
 
-class MembershipDatasourcesTypeDef(BaseModel):
+class MembershipDatasourcesTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     GraphArn: Optional[str] = None
     DatasourcePackageIngestHistory: Optional[       Dict[         DatasourcePackageType = None
 
-class MemberDetailTypeDef(BaseModel):
+class MemberDetailTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     EmailAddress: Optional[str] = None
     GraphArn: Optional[str] = None
@@ -275,22 +275,22 @@ class MemberDetailTypeDef(BaseModel):
     VolumeUsageByDatasourcePackage: Optional[       Dict[DatasourcePackageType, DatasourcePackageUsageInfoTypeDef] = None
     DatasourcePackageIngestStates: Optional[       Dict[DatasourcePackageType, DatasourcePackageIngestStateType] = None
 
-class DateFilterTypeDef(BaseModel):
+class DateFilterTypeDef(BaseValidatorModel):
     StartInclusive: TimestampTypeDef
     EndInclusive: TimestampTypeDef
 
-class StartInvestigationRequestRequestTypeDef(BaseModel):
+class StartInvestigationRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     EntityArn: str
     ScopeStartTime: TimestampTypeDef
     ScopeEndTime: TimestampTypeDef
 
-class ListGraphsResponseTypeDef(BaseModel):
+class ListGraphsResponseTypeDef(BaseValidatorModel):
     GraphList: List[GraphTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IndicatorDetailTypeDef(BaseModel):
+class IndicatorDetailTypeDef(BaseValidatorModel):
     TTPsObservedDetail: Optional[TTPsObservedDetailTypeDef] = None
     ImpossibleTravelDetail: Optional[ImpossibleTravelDetailTypeDef] = None
     FlaggedIpAddressDetail: Optional[FlaggedIpAddressDetailTypeDef] = None
@@ -300,65 +300,65 @@ class IndicatorDetailTypeDef(BaseModel):
     RelatedFindingDetail: Optional[RelatedFindingDetailTypeDef] = None
     RelatedFindingGroupDetail: Optional[RelatedFindingGroupDetailTypeDef] = None
 
-class ListInvestigationsResponseTypeDef(BaseModel):
+class ListInvestigationsResponseTypeDef(BaseValidatorModel):
     InvestigationDetails: List[InvestigationDetailTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDatasourcePackagesResponseTypeDef(BaseModel):
+class ListDatasourcePackagesResponseTypeDef(BaseValidatorModel):
     DatasourcePackages: Dict[DatasourcePackageType, DatasourcePackageIngestDetailTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetGraphMemberDatasourcesResponseTypeDef(BaseModel):
+class BatchGetGraphMemberDatasourcesResponseTypeDef(BaseValidatorModel):
     MemberDatasources: List[MembershipDatasourcesTypeDef]
     UnprocessedAccounts: List[UnprocessedAccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetMembershipDatasourcesResponseTypeDef(BaseModel):
+class BatchGetMembershipDatasourcesResponseTypeDef(BaseValidatorModel):
     MembershipDatasources: List[MembershipDatasourcesTypeDef]
     UnprocessedGraphs: List[UnprocessedGraphTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMembersResponseTypeDef(BaseModel):
+class CreateMembersResponseTypeDef(BaseValidatorModel):
     Members: List[MemberDetailTypeDef]
     UnprocessedAccounts: List[UnprocessedAccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMembersResponseTypeDef(BaseModel):
+class GetMembersResponseTypeDef(BaseValidatorModel):
     MemberDetails: List[MemberDetailTypeDef]
     UnprocessedAccounts: List[UnprocessedAccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInvitationsResponseTypeDef(BaseModel):
+class ListInvitationsResponseTypeDef(BaseValidatorModel):
     Invitations: List[MemberDetailTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMembersResponseTypeDef(BaseModel):
+class ListMembersResponseTypeDef(BaseValidatorModel):
     MemberDetails: List[MemberDetailTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FilterCriteriaTypeDef(BaseModel):
+class FilterCriteriaTypeDef(BaseValidatorModel):
     Severity: Optional[StringFilterTypeDef] = None
     Status: Optional[StringFilterTypeDef] = None
     State: Optional[StringFilterTypeDef] = None
     EntityArn: Optional[StringFilterTypeDef] = None
     CreatedTime: Optional[DateFilterTypeDef] = None
 
-class IndicatorTypeDef(BaseModel):
+class IndicatorTypeDef(BaseValidatorModel):
     IndicatorType: Optional[IndicatorTypeType] = None
     IndicatorDetail: Optional[IndicatorDetailTypeDef] = None
 
-class ListInvestigationsRequestRequestTypeDef(BaseModel):
+class ListInvestigationsRequestRequestTypeDef(BaseValidatorModel):
     GraphArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     FilterCriteria: Optional[FilterCriteriaTypeDef] = None
     SortCriteria: Optional[SortCriteriaTypeDef] = None
 
-class ListIndicatorsResponseTypeDef(BaseModel):
+class ListIndicatorsResponseTypeDef(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str
     NextToken: str

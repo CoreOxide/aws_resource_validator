@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,64 +11,64 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.s3outposts_constants import *
 
-class CreateEndpointRequestRequestTypeDef(BaseModel):
+class CreateEndpointRequestRequestTypeDef(BaseValidatorModel):
     OutpostId: str
     SubnetId: str
     SecurityGroupId: str
     AccessType: Optional[EndpointAccessTypeType] = None
     CustomerOwnedIpv4Pool: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DeleteEndpointRequestRequestTypeDef(BaseModel):
+class DeleteEndpointRequestRequestTypeDef(BaseValidatorModel):
     EndpointId: str
     OutpostId: str
 
-class FailedReasonTypeDef(BaseModel):
+class FailedReasonTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     Message: Optional[str] = None
 
-class NetworkInterfaceTypeDef(BaseModel):
+class NetworkInterfaceTypeDef(BaseValidatorModel):
     NetworkInterfaceId: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListEndpointsRequestRequestTypeDef(BaseModel):
+class ListEndpointsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListOutpostsWithS3RequestRequestTypeDef(BaseModel):
+class ListOutpostsWithS3RequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class OutpostTypeDef(BaseModel):
+class OutpostTypeDef(BaseValidatorModel):
     OutpostArn: Optional[str] = None
     S3OutpostArn: Optional[str] = None
     OutpostId: Optional[str] = None
     OwnerId: Optional[str] = None
     CapacityInBytes: Optional[int] = None
 
-class ListSharedEndpointsRequestRequestTypeDef(BaseModel):
+class ListSharedEndpointsRequestRequestTypeDef(BaseValidatorModel):
     OutpostId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class CreateEndpointResultTypeDef(BaseModel):
+class CreateEndpointResultTypeDef(BaseValidatorModel):
     EndpointArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EndpointTypeDef(BaseModel):
+class EndpointTypeDef(BaseValidatorModel):
     EndpointArn: Optional[str] = None
     OutpostsId: Optional[str] = None
     CidrBlock: Optional[str] = None
@@ -82,27 +82,27 @@ class EndpointTypeDef(BaseModel):
     CustomerOwnedIpv4Pool: Optional[str] = None
     FailedReason: Optional[FailedReasonTypeDef] = None
 
-class ListEndpointsRequestListEndpointsPaginateTypeDef(BaseModel):
+class ListEndpointsRequestListEndpointsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOutpostsWithS3RequestListOutpostsWithS3PaginateTypeDef(BaseModel):
+class ListOutpostsWithS3RequestListOutpostsWithS3PaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSharedEndpointsRequestListSharedEndpointsPaginateTypeDef(BaseModel):
+class ListSharedEndpointsRequestListSharedEndpointsPaginateTypeDef(BaseValidatorModel):
     OutpostId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOutpostsWithS3ResultTypeDef(BaseModel):
+class ListOutpostsWithS3ResultTypeDef(BaseValidatorModel):
     Outposts: List[OutpostTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEndpointsResultTypeDef(BaseModel):
+class ListEndpointsResultTypeDef(BaseValidatorModel):
     Endpoints: List[EndpointTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSharedEndpointsResultTypeDef(BaseModel):
+class ListSharedEndpointsResultTypeDef(BaseValidatorModel):
     Endpoints: List[EndpointTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

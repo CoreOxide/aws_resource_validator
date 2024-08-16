@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,126 +11,126 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.fis_constants import *
 
-class ActionParameterTypeDef(BaseModel):
+class ActionParameterTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     required: Optional[bool] = None
 
-class ActionTargetTypeDef(BaseModel):
+class ActionTargetTypeDef(BaseValidatorModel):
     resourceType: Optional[str] = None
 
-class CreateExperimentTemplateActionInputTypeDef(BaseModel):
+class CreateExperimentTemplateActionInputTypeDef(BaseValidatorModel):
     actionId: str
     description: Optional[str] = None
     parameters: Optional[Mapping[str, str]] = None
     targets: Optional[Mapping[str, str]] = None
     startAfter: Optional[Sequence[str]] = None
 
-class CreateExperimentTemplateExperimentOptionsInputTypeDef(BaseModel):
+class CreateExperimentTemplateExperimentOptionsInputTypeDef(BaseValidatorModel):
     accountTargeting: Optional[AccountTargetingType] = None
     emptyTargetResolutionMode: Optional[EmptyTargetResolutionModeType] = None
 
-class ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef(BaseModel):
+class ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef(BaseValidatorModel):
     logGroupArn: str
 
-class ExperimentTemplateS3LogConfigurationInputTypeDef(BaseModel):
+class ExperimentTemplateS3LogConfigurationInputTypeDef(BaseValidatorModel):
     bucketName: str
     prefix: Optional[str] = None
 
-class CreateExperimentTemplateStopConditionInputTypeDef(BaseModel):
+class CreateExperimentTemplateStopConditionInputTypeDef(BaseValidatorModel):
     source: str
     value: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ExperimentTemplateTargetInputFilterTypeDef(BaseModel):
+class ExperimentTemplateTargetInputFilterTypeDef(BaseValidatorModel):
     path: str
     values: Sequence[str]
 
-class CreateTargetAccountConfigurationRequestRequestTypeDef(BaseModel):
+class CreateTargetAccountConfigurationRequestRequestTypeDef(BaseValidatorModel):
     experimentTemplateId: str
     accountId: str
     roleArn: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
-class TargetAccountConfigurationTypeDef(BaseModel):
+class TargetAccountConfigurationTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
     accountId: Optional[str] = None
     description: Optional[str] = None
 
-class DeleteExperimentTemplateRequestRequestTypeDef(BaseModel):
+class DeleteExperimentTemplateRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class DeleteTargetAccountConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteTargetAccountConfigurationRequestRequestTypeDef(BaseValidatorModel):
     experimentTemplateId: str
     accountId: str
 
-class ExperimentActionStateTypeDef(BaseModel):
+class ExperimentActionStateTypeDef(BaseValidatorModel):
     status: Optional[ExperimentActionStatusType] = None
     reason: Optional[str] = None
 
-class ExperimentCloudWatchLogsLogConfigurationTypeDef(BaseModel):
+class ExperimentCloudWatchLogsLogConfigurationTypeDef(BaseValidatorModel):
     logGroupArn: Optional[str] = None
 
-class ExperimentS3LogConfigurationTypeDef(BaseModel):
+class ExperimentS3LogConfigurationTypeDef(BaseValidatorModel):
     bucketName: Optional[str] = None
     prefix: Optional[str] = None
 
-class ExperimentOptionsTypeDef(BaseModel):
+class ExperimentOptionsTypeDef(BaseValidatorModel):
     accountTargeting: Optional[AccountTargetingType] = None
     emptyTargetResolutionMode: Optional[EmptyTargetResolutionModeType] = None
     actionsMode: Optional[ActionsModeType] = None
 
-class ExperimentStateTypeDef(BaseModel):
+class ExperimentStateTypeDef(BaseValidatorModel):
     status: Optional[ExperimentStatusType] = None
     reason: Optional[str] = None
 
-class ExperimentStopConditionTypeDef(BaseModel):
+class ExperimentStopConditionTypeDef(BaseValidatorModel):
     source: Optional[str] = None
     value: Optional[str] = None
 
-class ExperimentTargetAccountConfigurationSummaryTypeDef(BaseModel):
+class ExperimentTargetAccountConfigurationSummaryTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
     accountId: Optional[str] = None
     description: Optional[str] = None
 
-class ExperimentTargetAccountConfigurationTypeDef(BaseModel):
+class ExperimentTargetAccountConfigurationTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
     accountId: Optional[str] = None
     description: Optional[str] = None
 
-class ExperimentTargetFilterTypeDef(BaseModel):
+class ExperimentTargetFilterTypeDef(BaseValidatorModel):
     path: Optional[str] = None
     values: Optional[List[str]] = None
 
-class ExperimentTemplateActionTypeDef(BaseModel):
+class ExperimentTemplateActionTypeDef(BaseValidatorModel):
     actionId: Optional[str] = None
     description: Optional[str] = None
     parameters: Optional[Dict[str, str]] = None
     targets: Optional[Dict[str, str]] = None
     startAfter: Optional[List[str]] = None
 
-class ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef(BaseModel):
+class ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef(BaseValidatorModel):
     logGroupArn: Optional[str] = None
 
-class ExperimentTemplateExperimentOptionsTypeDef(BaseModel):
+class ExperimentTemplateExperimentOptionsTypeDef(BaseValidatorModel):
     accountTargeting: Optional[AccountTargetingType] = None
     emptyTargetResolutionMode: Optional[EmptyTargetResolutionModeType] = None
 
-class ExperimentTemplateS3LogConfigurationTypeDef(BaseModel):
+class ExperimentTemplateS3LogConfigurationTypeDef(BaseValidatorModel):
     bucketName: Optional[str] = None
     prefix: Optional[str] = None
 
-class ExperimentTemplateStopConditionTypeDef(BaseModel):
+class ExperimentTemplateStopConditionTypeDef(BaseValidatorModel):
     source: Optional[str] = None
     value: Optional[str] = None
 
-class ExperimentTemplateSummaryTypeDef(BaseModel):
+class ExperimentTemplateSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     arn: Optional[str] = None
     description: Optional[str] = None
@@ -138,125 +138,125 @@ class ExperimentTemplateSummaryTypeDef(BaseModel):
     lastUpdateTime: Optional[datetime] = None
     tags: Optional[Dict[str, str]] = None
 
-class ExperimentTemplateTargetFilterTypeDef(BaseModel):
+class ExperimentTemplateTargetFilterTypeDef(BaseValidatorModel):
     path: Optional[str] = None
     values: Optional[List[str]] = None
 
-class GetActionRequestRequestTypeDef(BaseModel):
+class GetActionRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class GetExperimentRequestRequestTypeDef(BaseModel):
+class GetExperimentRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class GetExperimentTargetAccountConfigurationRequestRequestTypeDef(BaseModel):
+class GetExperimentTargetAccountConfigurationRequestRequestTypeDef(BaseValidatorModel):
     experimentId: str
     accountId: str
 
-class GetExperimentTemplateRequestRequestTypeDef(BaseModel):
+class GetExperimentTemplateRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class GetTargetAccountConfigurationRequestRequestTypeDef(BaseModel):
+class GetTargetAccountConfigurationRequestRequestTypeDef(BaseValidatorModel):
     experimentTemplateId: str
     accountId: str
 
-class GetTargetResourceTypeRequestRequestTypeDef(BaseModel):
+class GetTargetResourceTypeRequestRequestTypeDef(BaseValidatorModel):
     resourceType: str
 
-class ListActionsRequestRequestTypeDef(BaseModel):
+class ListActionsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListExperimentResolvedTargetsRequestRequestTypeDef(BaseModel):
+class ListExperimentResolvedTargetsRequestRequestTypeDef(BaseValidatorModel):
     experimentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     targetName: Optional[str] = None
 
-class ResolvedTargetTypeDef(BaseModel):
+class ResolvedTargetTypeDef(BaseValidatorModel):
     resourceType: Optional[str] = None
     targetName: Optional[str] = None
     targetInformation: Optional[Dict[str, str]] = None
 
-class ListExperimentTargetAccountConfigurationsRequestRequestTypeDef(BaseModel):
+class ListExperimentTargetAccountConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     experimentId: str
     nextToken: Optional[str] = None
 
-class ListExperimentTemplatesRequestRequestTypeDef(BaseModel):
+class ListExperimentTemplatesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListExperimentsRequestRequestTypeDef(BaseModel):
+class ListExperimentsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     experimentTemplateId: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListTargetAccountConfigurationsRequestRequestTypeDef(BaseModel):
+class ListTargetAccountConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     experimentTemplateId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TargetAccountConfigurationSummaryTypeDef(BaseModel):
+class TargetAccountConfigurationSummaryTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
     accountId: Optional[str] = None
     description: Optional[str] = None
 
-class ListTargetResourceTypesRequestRequestTypeDef(BaseModel):
+class ListTargetResourceTypesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TargetResourceTypeSummaryTypeDef(BaseModel):
+class TargetResourceTypeSummaryTypeDef(BaseValidatorModel):
     resourceType: Optional[str] = None
     description: Optional[str] = None
 
-class StartExperimentExperimentOptionsInputTypeDef(BaseModel):
+class StartExperimentExperimentOptionsInputTypeDef(BaseValidatorModel):
     actionsMode: Optional[ActionsModeType] = None
 
-class StopExperimentRequestRequestTypeDef(BaseModel):
+class StopExperimentRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TargetResourceTypeParameterTypeDef(BaseModel):
+class TargetResourceTypeParameterTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     required: Optional[bool] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Optional[Sequence[str]] = None
 
-class UpdateExperimentTemplateActionInputItemTypeDef(BaseModel):
+class UpdateExperimentTemplateActionInputItemTypeDef(BaseValidatorModel):
     actionId: Optional[str] = None
     description: Optional[str] = None
     parameters: Optional[Mapping[str, str]] = None
     targets: Optional[Mapping[str, str]] = None
     startAfter: Optional[Sequence[str]] = None
 
-class UpdateExperimentTemplateExperimentOptionsInputTypeDef(BaseModel):
+class UpdateExperimentTemplateExperimentOptionsInputTypeDef(BaseValidatorModel):
     emptyTargetResolutionMode: Optional[EmptyTargetResolutionModeType] = None
 
-class UpdateExperimentTemplateStopConditionInputTypeDef(BaseModel):
+class UpdateExperimentTemplateStopConditionInputTypeDef(BaseValidatorModel):
     source: str
     value: Optional[str] = None
 
-class UpdateTargetAccountConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateTargetAccountConfigurationRequestRequestTypeDef(BaseValidatorModel):
     experimentTemplateId: str
     accountId: str
     roleArn: Optional[str] = None
     description: Optional[str] = None
 
-class ActionSummaryTypeDef(BaseModel):
+class ActionSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     arn: Optional[str] = None
     description: Optional[str] = None
     targets: Optional[Dict[str, ActionTargetTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
 
-class ActionTypeDef(BaseModel):
+class ActionTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     arn: Optional[str] = None
     description: Optional[str] = None
@@ -264,21 +264,21 @@ class ActionTypeDef(BaseModel):
     targets: Optional[Dict[str, ActionTargetTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
 
-class CreateExperimentTemplateLogConfigurationInputTypeDef(BaseModel):
+class CreateExperimentTemplateLogConfigurationInputTypeDef(BaseValidatorModel):
     logSchemaVersion: int
     cloudWatchLogsConfiguration: Optional[       ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef     ] = None
     s3Configuration: Optional[ExperimentTemplateS3LogConfigurationInputTypeDef] = None
 
-class UpdateExperimentTemplateLogConfigurationInputTypeDef(BaseModel):
+class UpdateExperimentTemplateLogConfigurationInputTypeDef(BaseValidatorModel):
     cloudWatchLogsConfiguration: Optional[       ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef     ] = None
     s3Configuration: Optional[ExperimentTemplateS3LogConfigurationInputTypeDef] = None
     logSchemaVersion: Optional[int] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateExperimentTemplateTargetInputTypeDef(BaseModel):
+class CreateExperimentTemplateTargetInputTypeDef(BaseValidatorModel):
     resourceType: str
     selectionMode: str
     resourceArns: Optional[Sequence[str]] = None
@@ -286,7 +286,7 @@ class CreateExperimentTemplateTargetInputTypeDef(BaseModel):
     filters: Optional[Sequence[ExperimentTemplateTargetInputFilterTypeDef]] = None
     parameters: Optional[Mapping[str, str]] = None
 
-class UpdateExperimentTemplateTargetInputTypeDef(BaseModel):
+class UpdateExperimentTemplateTargetInputTypeDef(BaseValidatorModel):
     resourceType: str
     selectionMode: str
     resourceArns: Optional[Sequence[str]] = None
@@ -294,23 +294,23 @@ class UpdateExperimentTemplateTargetInputTypeDef(BaseModel):
     filters: Optional[Sequence[ExperimentTemplateTargetInputFilterTypeDef]] = None
     parameters: Optional[Mapping[str, str]] = None
 
-class CreateTargetAccountConfigurationResponseTypeDef(BaseModel):
+class CreateTargetAccountConfigurationResponseTypeDef(BaseValidatorModel):
     targetAccountConfiguration: TargetAccountConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTargetAccountConfigurationResponseTypeDef(BaseModel):
+class DeleteTargetAccountConfigurationResponseTypeDef(BaseValidatorModel):
     targetAccountConfiguration: TargetAccountConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTargetAccountConfigurationResponseTypeDef(BaseModel):
+class GetTargetAccountConfigurationResponseTypeDef(BaseValidatorModel):
     targetAccountConfiguration: TargetAccountConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTargetAccountConfigurationResponseTypeDef(BaseModel):
+class UpdateTargetAccountConfigurationResponseTypeDef(BaseValidatorModel):
     targetAccountConfiguration: TargetAccountConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExperimentActionTypeDef(BaseModel):
+class ExperimentActionTypeDef(BaseValidatorModel):
     actionId: Optional[str] = None
     description: Optional[str] = None
     parameters: Optional[Dict[str, str]] = None
@@ -320,12 +320,12 @@ class ExperimentActionTypeDef(BaseModel):
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
-class ExperimentLogConfigurationTypeDef(BaseModel):
+class ExperimentLogConfigurationTypeDef(BaseValidatorModel):
     cloudWatchLogsConfiguration: Optional[ExperimentCloudWatchLogsLogConfigurationTypeDef] = None
     s3Configuration: Optional[ExperimentS3LogConfigurationTypeDef] = None
     logSchemaVersion: Optional[int] = None
 
-class ExperimentSummaryTypeDef(BaseModel):
+class ExperimentSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     arn: Optional[str] = None
     experimentTemplateId: Optional[str] = None
@@ -334,16 +334,16 @@ class ExperimentSummaryTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     experimentOptions: Optional[ExperimentOptionsTypeDef] = None
 
-class ListExperimentTargetAccountConfigurationsResponseTypeDef(BaseModel):
+class ListExperimentTargetAccountConfigurationsResponseTypeDef(BaseValidatorModel):
     targetAccountConfigurations: List[ExperimentTargetAccountConfigurationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetExperimentTargetAccountConfigurationResponseTypeDef(BaseModel):
+class GetExperimentTargetAccountConfigurationResponseTypeDef(BaseValidatorModel):
     targetAccountConfiguration: ExperimentTargetAccountConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExperimentTargetTypeDef(BaseModel):
+class ExperimentTargetTypeDef(BaseValidatorModel):
     resourceType: Optional[str] = None
     resourceArns: Optional[List[str]] = None
     resourceTags: Optional[Dict[str, str]] = None
@@ -351,17 +351,17 @@ class ExperimentTargetTypeDef(BaseModel):
     selectionMode: Optional[str] = None
     parameters: Optional[Dict[str, str]] = None
 
-class ExperimentTemplateLogConfigurationTypeDef(BaseModel):
+class ExperimentTemplateLogConfigurationTypeDef(BaseValidatorModel):
     cloudWatchLogsConfiguration: Optional[       ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef     ] = None
     s3Configuration: Optional[ExperimentTemplateS3LogConfigurationTypeDef] = None
     logSchemaVersion: Optional[int] = None
 
-class ListExperimentTemplatesResponseTypeDef(BaseModel):
+class ListExperimentTemplatesResponseTypeDef(BaseValidatorModel):
     experimentTemplates: List[ExperimentTemplateSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExperimentTemplateTargetTypeDef(BaseModel):
+class ExperimentTemplateTargetTypeDef(BaseValidatorModel):
     resourceType: Optional[str] = None
     resourceArns: Optional[List[str]] = None
     resourceTags: Optional[Dict[str, str]] = None
@@ -369,42 +369,42 @@ class ExperimentTemplateTargetTypeDef(BaseModel):
     selectionMode: Optional[str] = None
     parameters: Optional[Dict[str, str]] = None
 
-class ListExperimentResolvedTargetsResponseTypeDef(BaseModel):
+class ListExperimentResolvedTargetsResponseTypeDef(BaseValidatorModel):
     resolvedTargets: List[ResolvedTargetTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTargetAccountConfigurationsResponseTypeDef(BaseModel):
+class ListTargetAccountConfigurationsResponseTypeDef(BaseValidatorModel):
     targetAccountConfigurations: List[TargetAccountConfigurationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTargetResourceTypesResponseTypeDef(BaseModel):
+class ListTargetResourceTypesResponseTypeDef(BaseValidatorModel):
     targetResourceTypes: List[TargetResourceTypeSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartExperimentRequestRequestTypeDef(BaseModel):
+class StartExperimentRequestRequestTypeDef(BaseValidatorModel):
     clientToken: str
     experimentTemplateId: str
     experimentOptions: Optional[StartExperimentExperimentOptionsInputTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class TargetResourceTypeTypeDef(BaseModel):
+class TargetResourceTypeTypeDef(BaseValidatorModel):
     resourceType: Optional[str] = None
     description: Optional[str] = None
     parameters: Optional[Dict[str, TargetResourceTypeParameterTypeDef]] = None
 
-class ListActionsResponseTypeDef(BaseModel):
+class ListActionsResponseTypeDef(BaseValidatorModel):
     actions: List[ActionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetActionResponseTypeDef(BaseModel):
+class GetActionResponseTypeDef(BaseValidatorModel):
     action: ActionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateExperimentTemplateRequestRequestTypeDef(BaseModel):
+class CreateExperimentTemplateRequestRequestTypeDef(BaseValidatorModel):
     clientToken: str
     description: str
     stopConditions: Sequence[CreateExperimentTemplateStopConditionInputTypeDef]
@@ -415,7 +415,7 @@ class CreateExperimentTemplateRequestRequestTypeDef(BaseModel):
     logConfiguration: Optional[CreateExperimentTemplateLogConfigurationInputTypeDef] = None
     experimentOptions: Optional[CreateExperimentTemplateExperimentOptionsInputTypeDef] = None
 
-class UpdateExperimentTemplateRequestRequestTypeDef(BaseModel):
+class UpdateExperimentTemplateRequestRequestTypeDef(BaseValidatorModel):
     id: str
     description: Optional[str] = None
     stopConditions: Optional[Sequence[UpdateExperimentTemplateStopConditionInputTypeDef]] = None
@@ -425,12 +425,12 @@ class UpdateExperimentTemplateRequestRequestTypeDef(BaseModel):
     logConfiguration: Optional[UpdateExperimentTemplateLogConfigurationInputTypeDef] = None
     experimentOptions: Optional[UpdateExperimentTemplateExperimentOptionsInputTypeDef] = None
 
-class ListExperimentsResponseTypeDef(BaseModel):
+class ListExperimentsResponseTypeDef(BaseValidatorModel):
     experiments: List[ExperimentSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExperimentTypeDef(BaseModel):
+class ExperimentTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     arn: Optional[str] = None
     experimentTemplateId: Optional[str] = None
@@ -447,7 +447,7 @@ class ExperimentTypeDef(BaseModel):
     experimentOptions: Optional[ExperimentOptionsTypeDef] = None
     targetAccountConfigurationsCount: Optional[int] = None
 
-class ExperimentTemplateTypeDef(BaseModel):
+class ExperimentTemplateTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     arn: Optional[str] = None
     description: Optional[str] = None
@@ -462,35 +462,35 @@ class ExperimentTemplateTypeDef(BaseModel):
     experimentOptions: Optional[ExperimentTemplateExperimentOptionsTypeDef] = None
     targetAccountConfigurationsCount: Optional[int] = None
 
-class GetTargetResourceTypeResponseTypeDef(BaseModel):
+class GetTargetResourceTypeResponseTypeDef(BaseValidatorModel):
     targetResourceType: TargetResourceTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetExperimentResponseTypeDef(BaseModel):
+class GetExperimentResponseTypeDef(BaseValidatorModel):
     experiment: ExperimentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartExperimentResponseTypeDef(BaseModel):
+class StartExperimentResponseTypeDef(BaseValidatorModel):
     experiment: ExperimentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopExperimentResponseTypeDef(BaseModel):
+class StopExperimentResponseTypeDef(BaseValidatorModel):
     experiment: ExperimentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateExperimentTemplateResponseTypeDef(BaseModel):
+class CreateExperimentTemplateResponseTypeDef(BaseValidatorModel):
     experimentTemplate: ExperimentTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteExperimentTemplateResponseTypeDef(BaseModel):
+class DeleteExperimentTemplateResponseTypeDef(BaseValidatorModel):
     experimentTemplate: ExperimentTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetExperimentTemplateResponseTypeDef(BaseModel):
+class GetExperimentTemplateResponseTypeDef(BaseValidatorModel):
     experimentTemplate: ExperimentTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateExperimentTemplateResponseTypeDef(BaseModel):
+class UpdateExperimentTemplateResponseTypeDef(BaseValidatorModel):
     experimentTemplate: ExperimentTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

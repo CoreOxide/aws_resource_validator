@@ -402,4 +402,4 @@ ResourceServiceName = Literal["cloudformation",
     "sqs",]
 PaginatorName = Literal["describe_image_tags", "describe_images", "describe_registries", "describe_repositories"]
 RegionName = Literal["us-east-1", "us-west-2"]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]

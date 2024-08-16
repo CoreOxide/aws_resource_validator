@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,48 +11,48 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ecr_public_constants import *
 
-class AuthorizationDataTypeDef(BaseModel):
+class AuthorizationDataTypeDef(BaseValidatorModel):
     authorizationToken: Optional[str] = None
     expiresAt: Optional[datetime] = None
 
-class BatchCheckLayerAvailabilityRequestRequestTypeDef(BaseModel):
+class BatchCheckLayerAvailabilityRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     layerDigests: Sequence[str]
     registryId: Optional[str] = None
 
-class LayerFailureTypeDef(BaseModel):
+class LayerFailureTypeDef(BaseValidatorModel):
     layerDigest: Optional[str] = None
     failureCode: Optional[LayerFailureCodeType] = None
     failureReason: Optional[str] = None
 
-class LayerTypeDef(BaseModel):
+class LayerTypeDef(BaseValidatorModel):
     layerDigest: Optional[str] = None
     layerAvailability: Optional[LayerAvailabilityType] = None
     layerSize: Optional[int] = None
     mediaType: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class ImageIdentifierTypeDef(BaseModel):
+class ImageIdentifierTypeDef(BaseValidatorModel):
     imageDigest: Optional[str] = None
     imageTag: Optional[str] = None
 
-class CompleteLayerUploadRequestRequestTypeDef(BaseModel):
+class CompleteLayerUploadRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     uploadId: str
     layerDigests: Sequence[str]
     registryId: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class RepositoryCatalogDataTypeDef(BaseModel):
+class RepositoryCatalogDataTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     architectures: Optional[List[str]] = None
     operatingSystems: Optional[List[str]] = None
@@ -61,34 +61,34 @@ class RepositoryCatalogDataTypeDef(BaseModel):
     usageText: Optional[str] = None
     marketplaceCertified: Optional[bool] = None
 
-class RepositoryTypeDef(BaseModel):
+class RepositoryTypeDef(BaseValidatorModel):
     repositoryArn: Optional[str] = None
     registryId: Optional[str] = None
     repositoryName: Optional[str] = None
     repositoryUri: Optional[str] = None
     createdAt: Optional[datetime] = None
 
-class DeleteRepositoryPolicyRequestRequestTypeDef(BaseModel):
+class DeleteRepositoryPolicyRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
-class DeleteRepositoryRequestRequestTypeDef(BaseModel):
+class DeleteRepositoryRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
     force: Optional[bool] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeImageTagsRequestRequestTypeDef(BaseModel):
+class DescribeImageTagsRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ImageDetailTypeDef(BaseModel):
+class ImageDetailTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
     repositoryName: Optional[str] = None
     imageDigest: Optional[str] = None
@@ -98,42 +98,42 @@ class ImageDetailTypeDef(BaseModel):
     imageManifestMediaType: Optional[str] = None
     artifactMediaType: Optional[str] = None
 
-class DescribeRegistriesRequestRequestTypeDef(BaseModel):
+class DescribeRegistriesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class DescribeRepositoriesRequestRequestTypeDef(BaseModel):
+class DescribeRepositoriesRequestRequestTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
     repositoryNames: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class RegistryCatalogDataTypeDef(BaseModel):
+class RegistryCatalogDataTypeDef(BaseValidatorModel):
     displayName: Optional[str] = None
 
-class GetRepositoryCatalogDataRequestRequestTypeDef(BaseModel):
+class GetRepositoryCatalogDataRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
-class GetRepositoryPolicyRequestRequestTypeDef(BaseModel):
+class GetRepositoryPolicyRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
-class ReferencedImageDetailTypeDef(BaseModel):
+class ReferencedImageDetailTypeDef(BaseValidatorModel):
     imageDigest: Optional[str] = None
     imageSizeInBytes: Optional[int] = None
     imagePushedAt: Optional[datetime] = None
     imageManifestMediaType: Optional[str] = None
     artifactMediaType: Optional[str] = None
 
-class InitiateLayerUploadRequestRequestTypeDef(BaseModel):
+class InitiateLayerUploadRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class PutImageRequestRequestTypeDef(BaseModel):
+class PutImageRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageManifest: str
     registryId: Optional[str] = None
@@ -141,96 +141,96 @@ class PutImageRequestRequestTypeDef(BaseModel):
     imageTag: Optional[str] = None
     imageDigest: Optional[str] = None
 
-class PutRegistryCatalogDataRequestRequestTypeDef(BaseModel):
+class PutRegistryCatalogDataRequestRequestTypeDef(BaseValidatorModel):
     displayName: Optional[str] = None
 
-class RegistryAliasTypeDef(BaseModel):
+class RegistryAliasTypeDef(BaseValidatorModel):
     name: str
     status: RegistryAliasStatusType
     primaryRegistryAlias: bool
     defaultRegistryAlias: bool
 
-class SetRepositoryPolicyRequestRequestTypeDef(BaseModel):
+class SetRepositoryPolicyRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     policyText: str
     registryId: Optional[str] = None
     force: Optional[bool] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class BatchCheckLayerAvailabilityResponseTypeDef(BaseModel):
+class BatchCheckLayerAvailabilityResponseTypeDef(BaseValidatorModel):
     layers: List[LayerTypeDef]
     failures: List[LayerFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CompleteLayerUploadResponseTypeDef(BaseModel):
+class CompleteLayerUploadResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     uploadId: str
     layerDigest: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRepositoryPolicyResponseTypeDef(BaseModel):
+class DeleteRepositoryPolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAuthorizationTokenResponseTypeDef(BaseModel):
+class GetAuthorizationTokenResponseTypeDef(BaseValidatorModel):
     authorizationData: AuthorizationDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRepositoryPolicyResponseTypeDef(BaseModel):
+class GetRepositoryPolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InitiateLayerUploadResponseTypeDef(BaseModel):
+class InitiateLayerUploadResponseTypeDef(BaseValidatorModel):
     uploadId: str
     partSize: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetRepositoryPolicyResponseTypeDef(BaseModel):
+class SetRepositoryPolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UploadLayerPartResponseTypeDef(BaseModel):
+class UploadLayerPartResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     uploadId: str
     lastByteReceived: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDeleteImageRequestRequestTypeDef(BaseModel):
+class BatchDeleteImageRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageIds: Sequence[ImageIdentifierTypeDef]
     registryId: Optional[str] = None
 
-class DescribeImagesRequestRequestTypeDef(BaseModel):
+class DescribeImagesRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
     imageIds: Optional[Sequence[ImageIdentifierTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ImageFailureTypeDef(BaseModel):
+class ImageFailureTypeDef(BaseValidatorModel):
     imageId: Optional[ImageIdentifierTypeDef] = None
     failureCode: Optional[ImageFailureCodeType] = None
     failureReason: Optional[str] = None
 
-class ImageTypeDef(BaseModel):
+class ImageTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
     repositoryName: Optional[str] = None
     imageId: Optional[ImageIdentifierTypeDef] = None
     imageManifest: Optional[str] = None
     imageManifestMediaType: Optional[str] = None
 
-class RepositoryCatalogDataInputTypeDef(BaseModel):
+class RepositoryCatalogDataInputTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     architectures: Optional[Sequence[str]] = None
     operatingSystems: Optional[Sequence[str]] = None
@@ -238,7 +238,7 @@ class RepositoryCatalogDataInputTypeDef(BaseModel):
     aboutText: Optional[str] = None
     usageText: Optional[str] = None
 
-class UploadLayerPartRequestRequestTypeDef(BaseModel):
+class UploadLayerPartRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     uploadId: str
     partFirstByte: int
@@ -246,105 +246,105 @@ class UploadLayerPartRequestRequestTypeDef(BaseModel):
     layerPartBlob: BlobTypeDef
     registryId: Optional[str] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class GetRepositoryCatalogDataResponseTypeDef(BaseModel):
+class GetRepositoryCatalogDataResponseTypeDef(BaseValidatorModel):
     catalogData: RepositoryCatalogDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRepositoryCatalogDataResponseTypeDef(BaseModel):
+class PutRepositoryCatalogDataResponseTypeDef(BaseValidatorModel):
     catalogData: RepositoryCatalogDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRepositoryResponseTypeDef(BaseModel):
+class CreateRepositoryResponseTypeDef(BaseValidatorModel):
     repository: RepositoryTypeDef
     catalogData: RepositoryCatalogDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRepositoryResponseTypeDef(BaseModel):
+class DeleteRepositoryResponseTypeDef(BaseValidatorModel):
     repository: RepositoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRepositoriesResponseTypeDef(BaseModel):
+class DescribeRepositoriesResponseTypeDef(BaseValidatorModel):
     repositories: List[RepositoryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeImageTagsRequestDescribeImageTagsPaginateTypeDef(BaseModel):
+class DescribeImageTagsRequestDescribeImageTagsPaginateTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeImagesRequestDescribeImagesPaginateTypeDef(BaseModel):
+class DescribeImagesRequestDescribeImagesPaginateTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
     imageIds: Optional[Sequence[ImageIdentifierTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRegistriesRequestDescribeRegistriesPaginateTypeDef(BaseModel):
+class DescribeRegistriesRequestDescribeRegistriesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRepositoriesRequestDescribeRepositoriesPaginateTypeDef(BaseModel):
+class DescribeRepositoriesRequestDescribeRepositoriesPaginateTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
     repositoryNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeImagesResponseTypeDef(BaseModel):
+class DescribeImagesResponseTypeDef(BaseValidatorModel):
     imageDetails: List[ImageDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRegistryCatalogDataResponseTypeDef(BaseModel):
+class GetRegistryCatalogDataResponseTypeDef(BaseValidatorModel):
     registryCatalogData: RegistryCatalogDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRegistryCatalogDataResponseTypeDef(BaseModel):
+class PutRegistryCatalogDataResponseTypeDef(BaseValidatorModel):
     registryCatalogData: RegistryCatalogDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImageTagDetailTypeDef(BaseModel):
+class ImageTagDetailTypeDef(BaseValidatorModel):
     imageTag: Optional[str] = None
     createdAt: Optional[datetime] = None
     imageDetail: Optional[ReferencedImageDetailTypeDef] = None
 
-class RegistryTypeDef(BaseModel):
+class RegistryTypeDef(BaseValidatorModel):
     registryId: str
     registryArn: str
     registryUri: str
     verified: bool
     aliases: List[RegistryAliasTypeDef]
 
-class BatchDeleteImageResponseTypeDef(BaseModel):
+class BatchDeleteImageResponseTypeDef(BaseValidatorModel):
     imageIds: List[ImageIdentifierTypeDef]
     failures: List[ImageFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutImageResponseTypeDef(BaseModel):
+class PutImageResponseTypeDef(BaseValidatorModel):
     image: ImageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRepositoryRequestRequestTypeDef(BaseModel):
+class CreateRepositoryRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     catalogData: Optional[RepositoryCatalogDataInputTypeDef] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class PutRepositoryCatalogDataRequestRequestTypeDef(BaseModel):
+class PutRepositoryCatalogDataRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     catalogData: RepositoryCatalogDataInputTypeDef
     registryId: Optional[str] = None
 
-class DescribeImageTagsResponseTypeDef(BaseModel):
+class DescribeImageTagsResponseTypeDef(BaseValidatorModel):
     imageTagDetails: List[ImageTagDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRegistriesResponseTypeDef(BaseModel):
+class DescribeRegistriesResponseTypeDef(BaseValidatorModel):
     registries: List[RegistryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

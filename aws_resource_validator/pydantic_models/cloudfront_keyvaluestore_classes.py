@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,59 +11,59 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_constants import *
 
-class DeleteKeyRequestListItemTypeDef(BaseModel):
+class DeleteKeyRequestListItemTypeDef(BaseValidatorModel):
     Key: str
 
-class DeleteKeyRequestRequestTypeDef(BaseModel):
+class DeleteKeyRequestRequestTypeDef(BaseValidatorModel):
     KvsARN: str
     Key: str
     IfMatch: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DescribeKeyValueStoreRequestRequestTypeDef(BaseModel):
+class DescribeKeyValueStoreRequestRequestTypeDef(BaseValidatorModel):
     KvsARN: str
 
-class GetKeyRequestRequestTypeDef(BaseModel):
+class GetKeyRequestRequestTypeDef(BaseValidatorModel):
     KvsARN: str
     Key: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListKeysRequestRequestTypeDef(BaseModel):
+class ListKeysRequestRequestTypeDef(BaseValidatorModel):
     KvsARN: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListKeysResponseListItemTypeDef(BaseModel):
+class ListKeysResponseListItemTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class PutKeyRequestListItemTypeDef(BaseModel):
+class PutKeyRequestListItemTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class PutKeyRequestRequestTypeDef(BaseModel):
+class PutKeyRequestRequestTypeDef(BaseValidatorModel):
     Key: str
     Value: str
     KvsARN: str
     IfMatch: str
 
-class DeleteKeyResponseTypeDef(BaseModel):
+class DeleteKeyResponseTypeDef(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
     ETag: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeKeyValueStoreResponseTypeDef(BaseModel):
+class DescribeKeyValueStoreResponseTypeDef(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
     KvsARN: str
@@ -74,35 +74,35 @@ class DescribeKeyValueStoreResponseTypeDef(BaseModel):
     FailureReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetKeyResponseTypeDef(BaseModel):
+class GetKeyResponseTypeDef(BaseValidatorModel):
     Key: str
     Value: str
     ItemCount: int
     TotalSizeInBytes: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutKeyResponseTypeDef(BaseModel):
+class PutKeyResponseTypeDef(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
     ETag: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateKeysResponseTypeDef(BaseModel):
+class UpdateKeysResponseTypeDef(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
     ETag: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListKeysRequestListKeysPaginateTypeDef(BaseModel):
+class ListKeysRequestListKeysPaginateTypeDef(BaseValidatorModel):
     KvsARN: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListKeysResponseTypeDef(BaseModel):
+class ListKeysResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Items: List[ListKeysResponseListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateKeysRequestRequestTypeDef(BaseModel):
+class UpdateKeysRequestRequestTypeDef(BaseValidatorModel):
     KvsARN: str
     IfMatch: str
     Puts: Optional[Sequence[PutKeyRequestListItemTypeDef]] = None

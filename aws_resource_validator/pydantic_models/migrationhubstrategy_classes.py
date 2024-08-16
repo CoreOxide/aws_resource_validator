@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,100 +11,100 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.migrationhubstrategy_constants import *
 
-class AnalysisStatusUnionTypeDef(BaseModel):
+class AnalysisStatusUnionTypeDef(BaseValidatorModel):
     runtimeAnalysisStatus: Optional[RuntimeAnalysisStatusType] = None
     srcCodeOrDbAnalysisStatus: Optional[SrcCodeOrDbAnalysisStatusType] = None
 
-class AnalyzableServerSummaryTypeDef(BaseModel):
+class AnalyzableServerSummaryTypeDef(BaseValidatorModel):
     hostname: Optional[str] = None
     ipAddress: Optional[str] = None
     source: Optional[str] = None
     vmId: Optional[str] = None
 
-class AnalyzerNameUnionTypeDef(BaseModel):
+class AnalyzerNameUnionTypeDef(BaseValidatorModel):
     binaryAnalyzerName: Optional[BinaryAnalyzerNameType] = None
     runTimeAnalyzerName: Optional[RunTimeAnalyzerNameType] = None
     sourceCodeAnalyzerName: Optional[SourceCodeAnalyzerNameType] = None
 
-class S3ObjectTypeDef(BaseModel):
+class S3ObjectTypeDef(BaseValidatorModel):
     s3Bucket: Optional[str] = None
     s3key: Optional[str] = None
 
-class AntipatternSeveritySummaryTypeDef(BaseModel):
+class AntipatternSeveritySummaryTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     severity: Optional[SeverityType] = None
 
-class AppUnitErrorTypeDef(BaseModel):
+class AppUnitErrorTypeDef(BaseValidatorModel):
     appUnitErrorCategory: Optional[AppUnitErrorCategoryType] = None
 
-class DatabaseConfigDetailTypeDef(BaseModel):
+class DatabaseConfigDetailTypeDef(BaseValidatorModel):
     secretName: Optional[str] = None
 
-class SourceCodeRepositoryTypeDef(BaseModel):
+class SourceCodeRepositoryTypeDef(BaseValidatorModel):
     branch: Optional[str] = None
     projectName: Optional[str] = None
     repository: Optional[str] = None
     versionControlType: Optional[str] = None
 
-class ApplicationComponentStatusSummaryTypeDef(BaseModel):
+class ApplicationComponentStatusSummaryTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     srcCodeOrDbAnalysisStatus: Optional[SrcCodeOrDbAnalysisStatusType] = None
 
-class ApplicationComponentSummaryTypeDef(BaseModel):
+class ApplicationComponentSummaryTypeDef(BaseValidatorModel):
     appType: Optional[AppTypeType] = None
     count: Optional[int] = None
 
-class ServerStatusSummaryTypeDef(BaseModel):
+class ServerStatusSummaryTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     runTimeAssessmentStatus: Optional[RunTimeAssessmentStatusType] = None
 
-class ServerSummaryTypeDef(BaseModel):
+class ServerSummaryTypeDef(BaseValidatorModel):
     ServerOsType: Optional[ServerOsTypeType] = None
     count: Optional[int] = None
 
-class StrategySummaryTypeDef(BaseModel):
+class StrategySummaryTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     strategy: Optional[StrategyType] = None
 
-class AssessmentTargetTypeDef(BaseModel):
+class AssessmentTargetTypeDef(BaseValidatorModel):
     condition: ConditionType
     name: str
     values: List[str]
 
-class AssociatedApplicationTypeDef(BaseModel):
+class AssociatedApplicationTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
 
-class AwsManagedResourcesTypeDef(BaseModel):
+class AwsManagedResourcesTypeDef(BaseValidatorModel):
     targetDestination: List[AwsManagedTargetDestinationType]
 
-class BusinessGoalsTypeDef(BaseModel):
+class BusinessGoalsTypeDef(BaseValidatorModel):
     licenseCostReduction: Optional[int] = None
     modernizeInfrastructureWithCloudNativeTechnologies: Optional[int] = None
     reduceOperationalOverheadWithManagedServices: Optional[int] = None
     speedOfMigration: Optional[int] = None
 
-class IPAddressBasedRemoteInfoTypeDef(BaseModel):
+class IPAddressBasedRemoteInfoTypeDef(BaseValidatorModel):
     authType: Optional[AuthTypeType] = None
     ipAddressConfigurationTimeStamp: Optional[str] = None
     osType: Optional[OSTypeType] = None
 
-class PipelineInfoTypeDef(BaseModel):
+class PipelineInfoTypeDef(BaseValidatorModel):
     pipelineConfigurationTimeStamp: Optional[str] = None
     pipelineType: Optional[Literal["AZURE_DEVOPS"]] = None
 
-class RemoteSourceCodeAnalysisServerInfoTypeDef(BaseModel):
+class RemoteSourceCodeAnalysisServerInfoTypeDef(BaseValidatorModel):
     remoteSourceCodeAnalysisServerConfigurationTimestamp: Optional[str] = None
 
-class VcenterBasedRemoteInfoTypeDef(BaseModel):
+class VcenterBasedRemoteInfoTypeDef(BaseValidatorModel):
     osType: Optional[OSTypeType] = None
     vcenterConfigurationTimeStamp: Optional[str] = None
 
-class VersionControlInfoTypeDef(BaseModel):
+class VersionControlInfoTypeDef(BaseValidatorModel):
     versionControlConfigurationTimeStamp: Optional[str] = None
     versionControlType: Optional[VersionControlTypeType] = None
 
-class DataCollectionDetailsTypeDef(BaseModel):
+class DataCollectionDetailsTypeDef(BaseValidatorModel):
     completionTime: Optional[datetime] = None
     failed: Optional[int] = None
     inProgress: Optional[int] = None
@@ -114,38 +114,38 @@ class DataCollectionDetailsTypeDef(BaseModel):
     statusMessage: Optional[str] = None
     success: Optional[int] = None
 
-class HeterogeneousTypeDef(BaseModel):
+class HeterogeneousTypeDef(BaseValidatorModel):
     targetDatabaseEngine: List[HeterogeneousTargetDatabaseEngineType]
 
-class HomogeneousTypeDef(BaseModel):
+class HomogeneousTypeDef(BaseValidatorModel):
     targetDatabaseEngine: Optional[List[Literal["None specified"]]] = None
 
-class NoDatabaseMigrationPreferenceTypeDef(BaseModel):
+class NoDatabaseMigrationPreferenceTypeDef(BaseValidatorModel):
     targetDatabaseEngine: List[TargetDatabaseEngineType]
 
-class GetApplicationComponentDetailsRequestRequestTypeDef(BaseModel):
+class GetApplicationComponentDetailsRequestRequestTypeDef(BaseValidatorModel):
     applicationComponentId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class GetApplicationComponentStrategiesRequestRequestTypeDef(BaseModel):
+class GetApplicationComponentStrategiesRequestRequestTypeDef(BaseValidatorModel):
     applicationComponentId: str
 
-class GetAssessmentRequestRequestTypeDef(BaseModel):
+class GetAssessmentRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class GetImportFileTaskRequestRequestTypeDef(BaseModel):
+class GetImportFileTaskRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class GetRecommendationReportDetailsRequestRequestTypeDef(BaseModel):
+class GetRecommendationReportDetailsRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class RecommendationReportDetailsTypeDef(BaseModel):
+class RecommendationReportDetailsTypeDef(BaseValidatorModel):
     completionTime: Optional[datetime] = None
     s3Bucket: Optional[str] = None
     s3Keys: Optional[List[str]] = None
@@ -153,24 +153,24 @@ class RecommendationReportDetailsTypeDef(BaseModel):
     status: Optional[RecommendationReportStatusType] = None
     statusMessage: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetServerDetailsRequestRequestTypeDef(BaseModel):
+class GetServerDetailsRequestRequestTypeDef(BaseValidatorModel):
     serverId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class GetServerStrategiesRequestRequestTypeDef(BaseModel):
+class GetServerStrategiesRequestRequestTypeDef(BaseValidatorModel):
     serverId: str
 
-class GroupTypeDef(BaseModel):
+class GroupTypeDef(BaseValidatorModel):
     name: Optional[GroupNameType] = None
     value: Optional[str] = None
 
-class ImportFileTaskInformationTypeDef(BaseModel):
+class ImportFileTaskInformationTypeDef(BaseValidatorModel):
     completionTime: Optional[datetime] = None
     id: Optional[str] = None
     importName: Optional[str] = None
@@ -183,65 +183,65 @@ class ImportFileTaskInformationTypeDef(BaseModel):
     statusReportS3Bucket: Optional[str] = None
     statusReportS3Key: Optional[str] = None
 
-class ListAnalyzableServersRequestRequestTypeDef(BaseModel):
+class ListAnalyzableServersRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sort: Optional[SortOrderType] = None
 
-class ListCollectorsRequestRequestTypeDef(BaseModel):
+class ListCollectorsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListImportFileTaskRequestRequestTypeDef(BaseModel):
+class ListImportFileTaskRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class NoManagementPreferenceTypeDef(BaseModel):
+class NoManagementPreferenceTypeDef(BaseValidatorModel):
     targetDestination: List[NoPreferenceTargetDestinationType]
 
-class SelfManageResourcesTypeDef(BaseModel):
+class SelfManageResourcesTypeDef(BaseValidatorModel):
     targetDestination: List[SelfManageTargetDestinationType]
 
-class NetworkInfoTypeDef(BaseModel):
+class NetworkInfoTypeDef(BaseValidatorModel):
     interfaceName: str
     ipAddress: str
     macAddress: str
     netMask: str
 
-class OSInfoTypeDef(BaseModel):
+class OSInfoTypeDef(BaseValidatorModel):
     type: Optional[OSTypeType] = None
     version: Optional[str] = None
 
-class TransformationToolTypeDef(BaseModel):
+class TransformationToolTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     name: Optional[TransformationToolNameType] = None
     tranformationToolInstallationLink: Optional[str] = None
 
-class ServerErrorTypeDef(BaseModel):
+class ServerErrorTypeDef(BaseValidatorModel):
     serverErrorCategory: Optional[ServerErrorCategoryType] = None
 
-class SourceCodeTypeDef(BaseModel):
+class SourceCodeTypeDef(BaseValidatorModel):
     location: Optional[str] = None
     projectName: Optional[str] = None
     sourceVersion: Optional[str] = None
     versionControl: Optional[VersionControlType] = None
 
-class StopAssessmentRequestRequestTypeDef(BaseModel):
+class StopAssessmentRequestRequestTypeDef(BaseValidatorModel):
     assessmentId: str
 
-class StrategyOptionTypeDef(BaseModel):
+class StrategyOptionTypeDef(BaseValidatorModel):
     isPreferred: Optional[bool] = None
     strategy: Optional[StrategyType] = None
     targetDestination: Optional[TargetDestinationType] = None
     toolName: Optional[TransformationToolNameType] = None
 
-class AntipatternReportResultTypeDef(BaseModel):
+class AntipatternReportResultTypeDef(BaseValidatorModel):
     analyzerName: Optional[AnalyzerNameUnionTypeDef] = None
     antiPatternReportS3Object: Optional[S3ObjectTypeDef] = None
     antipatternReportStatus: Optional[AntipatternReportStatusType] = None
     antipatternReportStatusMessage: Optional[str] = None
 
-class AssessmentSummaryTypeDef(BaseModel):
+class AssessmentSummaryTypeDef(BaseValidatorModel):
     antipatternReportS3Object: Optional[S3ObjectTypeDef] = None
     antipatternReportStatus: Optional[AntipatternReportStatusType] = None
     antipatternReportStatusMessage: Optional[str] = None
@@ -254,34 +254,34 @@ class AssessmentSummaryTypeDef(BaseModel):
     listServerStrategySummary: Optional[List[StrategySummaryTypeDef]] = None
     listServerSummary: Optional[List[ServerSummaryTypeDef]] = None
 
-class StartAssessmentRequestRequestTypeDef(BaseModel):
+class StartAssessmentRequestRequestTypeDef(BaseValidatorModel):
     assessmentDataSourceType: Optional[AssessmentDataSourceTypeType] = None
     assessmentTargets: Optional[Sequence[AssessmentTargetTypeDef]] = None
     s3bucketForAnalysisData: Optional[str] = None
     s3bucketForReportData: Optional[str] = None
 
-class PrioritizeBusinessGoalsTypeDef(BaseModel):
+class PrioritizeBusinessGoalsTypeDef(BaseValidatorModel):
     businessGoals: Optional[BusinessGoalsTypeDef] = None
 
-class ConfigurationSummaryTypeDef(BaseModel):
+class ConfigurationSummaryTypeDef(BaseValidatorModel):
     ipAddressBasedRemoteInfoList: Optional[List[IPAddressBasedRemoteInfoTypeDef]] = None
     pipelineInfoList: Optional[List[PipelineInfoTypeDef]] = None
     remoteSourceCodeAnalysisServerInfo: Optional[       RemoteSourceCodeAnalysisServerInfoTypeDef     ] = None
     vcenterBasedRemoteInfoList: Optional[List[VcenterBasedRemoteInfoTypeDef]] = None
     versionControlInfoList: Optional[List[VersionControlInfoTypeDef]] = None
 
-class DatabaseMigrationPreferenceTypeDef(BaseModel):
+class DatabaseMigrationPreferenceTypeDef(BaseValidatorModel):
     heterogeneous: Optional[HeterogeneousTypeDef] = None
     homogeneous: Optional[HomogeneousTypeDef] = None
     noPreference: Optional[NoDatabaseMigrationPreferenceTypeDef] = None
 
-class GetAssessmentResponseTypeDef(BaseModel):
+class GetAssessmentResponseTypeDef(BaseValidatorModel):
     assessmentTargets: List[AssessmentTargetTypeDef]
     dataCollectionDetails: DataCollectionDetailsTypeDef
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImportFileTaskResponseTypeDef(BaseModel):
+class GetImportFileTaskResponseTypeDef(BaseValidatorModel):
     completionTime: datetime
     id: str
     importName: str
@@ -295,54 +295,54 @@ class GetImportFileTaskResponseTypeDef(BaseModel):
     statusReportS3Key: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLatestAssessmentIdResponseTypeDef(BaseModel):
+class GetLatestAssessmentIdResponseTypeDef(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAnalyzableServersResponseTypeDef(BaseModel):
+class ListAnalyzableServersResponseTypeDef(BaseValidatorModel):
     analyzableServers: List[AnalyzableServerSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartAssessmentResponseTypeDef(BaseModel):
+class StartAssessmentResponseTypeDef(BaseValidatorModel):
     assessmentId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartImportFileTaskResponseTypeDef(BaseModel):
+class StartImportFileTaskResponseTypeDef(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartRecommendationReportGenerationResponseTypeDef(BaseModel):
+class StartRecommendationReportGenerationResponseTypeDef(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRecommendationReportDetailsResponseTypeDef(BaseModel):
+class GetRecommendationReportDetailsResponseTypeDef(BaseValidatorModel):
     id: str
     recommendationReportDetails: RecommendationReportDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServerDetailsRequestGetServerDetailsPaginateTypeDef(BaseModel):
+class GetServerDetailsRequestGetServerDetailsPaginateTypeDef(BaseValidatorModel):
     serverId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAnalyzableServersRequestListAnalyzableServersPaginateTypeDef(BaseModel):
+class ListAnalyzableServersRequestListAnalyzableServersPaginateTypeDef(BaseValidatorModel):
     sort: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCollectorsRequestListCollectorsPaginateTypeDef(BaseModel):
+class ListCollectorsRequestListCollectorsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListImportFileTaskRequestListImportFileTaskPaginateTypeDef(BaseModel):
+class ListImportFileTaskRequestListImportFileTaskPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApplicationComponentsRequestListApplicationComponentsPaginateTypeDef(BaseModel):
+class ListApplicationComponentsRequestListApplicationComponentsPaginateTypeDef(BaseValidatorModel):
     applicationComponentCriteria: Optional[ApplicationComponentCriteriaType] = None
     filterValue: Optional[str] = None
     groupIdFilter: Optional[Sequence[GroupTypeDef]] = None
     sort: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApplicationComponentsRequestRequestTypeDef(BaseModel):
+class ListApplicationComponentsRequestRequestTypeDef(BaseValidatorModel):
     applicationComponentCriteria: Optional[ApplicationComponentCriteriaType] = None
     filterValue: Optional[str] = None
     groupIdFilter: Optional[Sequence[GroupTypeDef]] = None
@@ -350,14 +350,14 @@ class ListApplicationComponentsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     sort: Optional[SortOrderType] = None
 
-class ListServersRequestListServersPaginateTypeDef(BaseModel):
+class ListServersRequestListServersPaginateTypeDef(BaseValidatorModel):
     filterValue: Optional[str] = None
     groupIdFilter: Optional[Sequence[GroupTypeDef]] = None
     serverCriteria: Optional[ServerCriteriaType] = None
     sort: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServersRequestRequestTypeDef(BaseModel):
+class ListServersRequestRequestTypeDef(BaseValidatorModel):
     filterValue: Optional[str] = None
     groupIdFilter: Optional[Sequence[GroupTypeDef]] = None
     maxResults: Optional[int] = None
@@ -365,7 +365,7 @@ class ListServersRequestRequestTypeDef(BaseModel):
     serverCriteria: Optional[ServerCriteriaType] = None
     sort: Optional[SortOrderType] = None
 
-class StartImportFileTaskRequestRequestTypeDef(BaseModel):
+class StartImportFileTaskRequestRequestTypeDef(BaseValidatorModel):
     S3Bucket: str
     name: str
     s3key: str
@@ -373,32 +373,32 @@ class StartImportFileTaskRequestRequestTypeDef(BaseModel):
     groupId: Optional[Sequence[GroupTypeDef]] = None
     s3bucketForReportData: Optional[str] = None
 
-class StartRecommendationReportGenerationRequestRequestTypeDef(BaseModel):
+class StartRecommendationReportGenerationRequestRequestTypeDef(BaseValidatorModel):
     groupIdFilter: Optional[Sequence[GroupTypeDef]] = None
     outputFormat: Optional[OutputFormatType] = None
 
-class ListImportFileTaskResponseTypeDef(BaseModel):
+class ListImportFileTaskResponseTypeDef(BaseValidatorModel):
     nextToken: str
     taskInfos: List[ImportFileTaskInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ManagementPreferenceTypeDef(BaseModel):
+class ManagementPreferenceTypeDef(BaseValidatorModel):
     awsManagedResources: Optional[AwsManagedResourcesTypeDef] = None
     noPreference: Optional[NoManagementPreferenceTypeDef] = None
     selfManageResources: Optional[SelfManageResourcesTypeDef] = None
 
-class SystemInfoTypeDef(BaseModel):
+class SystemInfoTypeDef(BaseValidatorModel):
     cpuArchitecture: Optional[str] = None
     fileSystemType: Optional[str] = None
     networkInfoList: Optional[List[NetworkInfoTypeDef]] = None
     osInfo: Optional[OSInfoTypeDef] = None
 
-class RecommendationSetTypeDef(BaseModel):
+class RecommendationSetTypeDef(BaseValidatorModel):
     strategy: Optional[StrategyType] = None
     targetDestination: Optional[TargetDestinationType] = None
     transformationTool: Optional[TransformationToolTypeDef] = None
 
-class UpdateApplicationComponentConfigRequestRequestTypeDef(BaseModel):
+class UpdateApplicationComponentConfigRequestRequestTypeDef(BaseValidatorModel):
     applicationComponentId: str
     appType: Optional[AppTypeType] = None
     configureOnly: Optional[bool] = None
@@ -407,21 +407,21 @@ class UpdateApplicationComponentConfigRequestRequestTypeDef(BaseModel):
     sourceCodeList: Optional[Sequence[SourceCodeTypeDef]] = None
     strategyOption: Optional[StrategyOptionTypeDef] = None
 
-class UpdateServerConfigRequestRequestTypeDef(BaseModel):
+class UpdateServerConfigRequestRequestTypeDef(BaseValidatorModel):
     serverId: str
     strategyOption: Optional[StrategyOptionTypeDef] = None
 
-class ResultTypeDef(BaseModel):
+class ResultTypeDef(BaseValidatorModel):
     analysisStatus: Optional[AnalysisStatusUnionTypeDef] = None
     analysisType: Optional[AnalysisTypeType] = None
     antipatternReportResultList: Optional[List[AntipatternReportResultTypeDef]] = None
     statusMessage: Optional[str] = None
 
-class GetPortfolioSummaryResponseTypeDef(BaseModel):
+class GetPortfolioSummaryResponseTypeDef(BaseValidatorModel):
     assessmentSummary: AssessmentSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CollectorTypeDef(BaseModel):
+class CollectorTypeDef(BaseValidatorModel):
     collectorHealth: Optional[CollectorHealthType] = None
     collectorId: Optional[str] = None
     collectorVersion: Optional[str] = None
@@ -431,19 +431,19 @@ class CollectorTypeDef(BaseModel):
     lastActivityTimeStamp: Optional[str] = None
     registeredTimeStamp: Optional[str] = None
 
-class DatabasePreferencesTypeDef(BaseModel):
+class DatabasePreferencesTypeDef(BaseValidatorModel):
     databaseManagementPreference: Optional[DatabaseManagementPreferenceType] = None
     databaseMigrationPreference: Optional[DatabaseMigrationPreferenceTypeDef] = None
 
-class ApplicationPreferencesTypeDef(BaseModel):
+class ApplicationPreferencesTypeDef(BaseValidatorModel):
     managementPreference: Optional[ManagementPreferenceTypeDef] = None
 
-class ApplicationComponentStrategyTypeDef(BaseModel):
+class ApplicationComponentStrategyTypeDef(BaseValidatorModel):
     isPreferred: Optional[bool] = None
     recommendation: Optional[RecommendationSetTypeDef] = None
     status: Optional[StrategyRecommendationType] = None
 
-class ServerDetailTypeDef(BaseModel):
+class ServerDetailTypeDef(BaseValidatorModel):
     antipatternReportS3Object: Optional[S3ObjectTypeDef] = None
     antipatternReportStatus: Optional[AntipatternReportStatusType] = None
     antipatternReportStatusMessage: Optional[str] = None
@@ -459,13 +459,13 @@ class ServerDetailTypeDef(BaseModel):
     statusMessage: Optional[str] = None
     systemInfo: Optional[SystemInfoTypeDef] = None
 
-class ServerStrategyTypeDef(BaseModel):
+class ServerStrategyTypeDef(BaseValidatorModel):
     isPreferred: Optional[bool] = None
     numberOfApplicationComponents: Optional[int] = None
     recommendation: Optional[RecommendationSetTypeDef] = None
     status: Optional[StrategyRecommendationType] = None
 
-class ApplicationComponentDetailTypeDef(BaseModel):
+class ApplicationComponentDetailTypeDef(BaseValidatorModel):
     analysisStatus: Optional[SrcCodeOrDbAnalysisStatusType] = None
     antipatternReportS3Object: Optional[S3ObjectTypeDef] = None
     antipatternReportStatus: Optional[AntipatternReportStatusType] = None
@@ -490,51 +490,51 @@ class ApplicationComponentDetailTypeDef(BaseModel):
     sourceCodeRepositories: Optional[List[SourceCodeRepositoryTypeDef]] = None
     statusMessage: Optional[str] = None
 
-class ListCollectorsResponseTypeDef(BaseModel):
+class ListCollectorsResponseTypeDef(BaseValidatorModel):
     Collectors: List[CollectorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPortfolioPreferencesResponseTypeDef(BaseModel):
+class GetPortfolioPreferencesResponseTypeDef(BaseValidatorModel):
     applicationMode: ApplicationModeType
     applicationPreferences: ApplicationPreferencesTypeDef
     databasePreferences: DatabasePreferencesTypeDef
     prioritizeBusinessGoals: PrioritizeBusinessGoalsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutPortfolioPreferencesRequestRequestTypeDef(BaseModel):
+class PutPortfolioPreferencesRequestRequestTypeDef(BaseValidatorModel):
     applicationMode: Optional[ApplicationModeType] = None
     applicationPreferences: Optional[ApplicationPreferencesTypeDef] = None
     databasePreferences: Optional[DatabasePreferencesTypeDef] = None
     prioritizeBusinessGoals: Optional[PrioritizeBusinessGoalsTypeDef] = None
 
-class GetApplicationComponentStrategiesResponseTypeDef(BaseModel):
+class GetApplicationComponentStrategiesResponseTypeDef(BaseValidatorModel):
     applicationComponentStrategies: List[ApplicationComponentStrategyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServerDetailsResponseTypeDef(BaseModel):
+class GetServerDetailsResponseTypeDef(BaseValidatorModel):
     associatedApplications: List[AssociatedApplicationTypeDef]
     nextToken: str
     serverDetail: ServerDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServersResponseTypeDef(BaseModel):
+class ListServersResponseTypeDef(BaseValidatorModel):
     nextToken: str
     serverInfos: List[ServerDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServerStrategiesResponseTypeDef(BaseModel):
+class GetServerStrategiesResponseTypeDef(BaseValidatorModel):
     serverStrategies: List[ServerStrategyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApplicationComponentDetailsResponseTypeDef(BaseModel):
+class GetApplicationComponentDetailsResponseTypeDef(BaseValidatorModel):
     applicationComponentDetail: ApplicationComponentDetailTypeDef
     associatedApplications: List[AssociatedApplicationTypeDef]
     associatedServerIds: List[str]
     moreApplicationResource: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationComponentsResponseTypeDef(BaseModel):
+class ListApplicationComponentsResponseTypeDef(BaseValidatorModel):
     applicationComponentInfos: List[ApplicationComponentDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,22 +11,22 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.dlm_constants import *
 
-class RetentionArchiveTierTypeDef(BaseModel):
+class RetentionArchiveTierTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     Interval: Optional[int] = None
     IntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
 
-class CrossRegionCopyTargetTypeDef(BaseModel):
+class CrossRegionCopyTargetTypeDef(BaseValidatorModel):
     TargetRegion: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class ScriptTypeDef(BaseModel):
+class ScriptTypeDef(BaseValidatorModel):
     ExecutionHandler: str
     Stages: Optional[Sequence[StageValuesType]] = None
     ExecutionHandlerService: Optional[Literal["AWS_SYSTEMS_MANAGER"]] = None
@@ -34,42 +34,42 @@ class ScriptTypeDef(BaseModel):
     ExecutionTimeout: Optional[int] = None
     MaximumRetryCount: Optional[int] = None
 
-class CrossRegionCopyRetainRuleTypeDef(BaseModel):
+class CrossRegionCopyRetainRuleTypeDef(BaseValidatorModel):
     Interval: Optional[int] = None
     IntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
 
-class EncryptionConfigurationTypeDef(BaseModel):
+class EncryptionConfigurationTypeDef(BaseValidatorModel):
     Encrypted: bool
     CmkArn: Optional[str] = None
 
-class CrossRegionCopyDeprecateRuleTypeDef(BaseModel):
+class CrossRegionCopyDeprecateRuleTypeDef(BaseValidatorModel):
     Interval: Optional[int] = None
     IntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
 
-class DeleteLifecyclePolicyRequestRequestTypeDef(BaseModel):
+class DeleteLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyId: str
 
-class DeprecateRuleTypeDef(BaseModel):
+class DeprecateRuleTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     Interval: Optional[int] = None
     IntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
 
-class EventParametersTypeDef(BaseModel):
+class EventParametersTypeDef(BaseValidatorModel):
     EventType: Literal["shareSnapshot"]
     SnapshotOwner: Sequence[str]
     DescriptionRegex: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class FastRestoreRuleTypeDef(BaseModel):
+class FastRestoreRuleTypeDef(BaseValidatorModel):
     AvailabilityZones: Sequence[str]
     Count: Optional[int] = None
     Interval: Optional[int] = None
     IntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
 
-class GetLifecyclePoliciesRequestRequestTypeDef(BaseModel):
+class GetLifecyclePoliciesRequestRequestTypeDef(BaseValidatorModel):
     PolicyIds: Optional[Sequence[str]] = None
     State: Optional[GettablePolicyStateValuesType] = None
     ResourceTypes: Optional[Sequence[ResourceTypeValuesType]] = None
@@ -77,7 +77,7 @@ class GetLifecyclePoliciesRequestRequestTypeDef(BaseModel):
     TagsToAdd: Optional[Sequence[str]] = None
     DefaultPolicyType: Optional[DefaultPoliciesTypeValuesType] = None
 
-class LifecyclePolicySummaryTypeDef(BaseModel):
+class LifecyclePolicySummaryTypeDef(BaseValidatorModel):
     PolicyId: Optional[str] = None
     Description: Optional[str] = None
     State: Optional[GettablePolicyStateValuesType] = None
@@ -85,42 +85,42 @@ class LifecyclePolicySummaryTypeDef(BaseModel):
     PolicyType: Optional[PolicyTypeValuesType] = None
     DefaultPolicy: Optional[bool] = None
 
-class GetLifecyclePolicyRequestRequestTypeDef(BaseModel):
+class GetLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyId: str
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class RetainRuleTypeDef(BaseModel):
+class RetainRuleTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     Interval: Optional[int] = None
     IntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
 
-class ShareRuleTypeDef(BaseModel):
+class ShareRuleTypeDef(BaseValidatorModel):
     TargetAccounts: Sequence[str]
     UnshareInterval: Optional[int] = None
     UnshareIntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class ArchiveRetainRuleTypeDef(BaseModel):
+class ArchiveRetainRuleTypeDef(BaseValidatorModel):
     RetentionArchiveTier: RetentionArchiveTierTypeDef
 
-class CreateLifecyclePolicyResponseTypeDef(BaseModel):
+class CreateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     PolicyId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRuleTypeDef(BaseModel):
+class CreateRuleTypeDef(BaseValidatorModel):
     Location: Optional[LocationValuesType] = None
     Interval: Optional[int] = None
     IntervalUnit: Optional[Literal["HOURS"]] = None
@@ -128,12 +128,12 @@ class CreateRuleTypeDef(BaseModel):
     CronExpression: Optional[str] = None
     Scripts: Optional[Sequence[ScriptTypeDef]] = None
 
-class CrossRegionCopyActionTypeDef(BaseModel):
+class CrossRegionCopyActionTypeDef(BaseValidatorModel):
     Target: str
     EncryptionConfiguration: EncryptionConfigurationTypeDef
     RetainRule: Optional[CrossRegionCopyRetainRuleTypeDef] = None
 
-class CrossRegionCopyRuleTypeDef(BaseModel):
+class CrossRegionCopyRuleTypeDef(BaseValidatorModel):
     Encrypted: bool
     TargetRegion: Optional[str] = None
     Target: Optional[str] = None
@@ -142,32 +142,32 @@ class CrossRegionCopyRuleTypeDef(BaseModel):
     RetainRule: Optional[CrossRegionCopyRetainRuleTypeDef] = None
     DeprecateRule: Optional[CrossRegionCopyDeprecateRuleTypeDef] = None
 
-class EventSourceTypeDef(BaseModel):
+class EventSourceTypeDef(BaseValidatorModel):
     Type: Literal["MANAGED_CWE"]
     Parameters: Optional[EventParametersTypeDef] = None
 
-class ExclusionsTypeDef(BaseModel):
+class ExclusionsTypeDef(BaseValidatorModel):
     ExcludeBootVolumes: Optional[bool] = None
     ExcludeVolumeTypes: Optional[Sequence[str]] = None
     ExcludeTags: Optional[Sequence[TagTypeDef]] = None
 
-class ParametersTypeDef(BaseModel):
+class ParametersTypeDef(BaseValidatorModel):
     ExcludeBootVolume: Optional[bool] = None
     NoReboot: Optional[bool] = None
     ExcludeDataVolumeTags: Optional[Sequence[TagTypeDef]] = None
 
-class GetLifecyclePoliciesResponseTypeDef(BaseModel):
+class GetLifecyclePoliciesResponseTypeDef(BaseValidatorModel):
     Policies: List[LifecyclePolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ArchiveRuleTypeDef(BaseModel):
+class ArchiveRuleTypeDef(BaseValidatorModel):
     RetainRule: ArchiveRetainRuleTypeDef
 
-class ActionTypeDef(BaseModel):
+class ActionTypeDef(BaseValidatorModel):
     Name: str
     CrossRegionCopy: Sequence[CrossRegionCopyActionTypeDef]
 
-class ScheduleTypeDef(BaseModel):
+class ScheduleTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     CopyTags: Optional[bool] = None
     TagsToAdd: Optional[Sequence[TagTypeDef]] = None
@@ -180,7 +180,7 @@ class ScheduleTypeDef(BaseModel):
     DeprecateRule: Optional[DeprecateRuleTypeDef] = None
     ArchiveRule: Optional[ArchiveRuleTypeDef] = None
 
-class PolicyDetailsTypeDef(BaseModel):
+class PolicyDetailsTypeDef(BaseValidatorModel):
     PolicyType: Optional[PolicyTypeValuesType] = None
     ResourceTypes: Optional[Sequence[ResourceTypeValuesType]] = None
     ResourceLocations: Optional[Sequence[ResourceLocationValuesType]] = None
@@ -198,7 +198,7 @@ class PolicyDetailsTypeDef(BaseModel):
     ExtendDeletion: Optional[bool] = None
     Exclusions: Optional[ExclusionsTypeDef] = None
 
-class CreateLifecyclePolicyRequestRequestTypeDef(BaseModel):
+class CreateLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
     ExecutionRoleArn: str
     Description: str
     State: SettablePolicyStateValuesType
@@ -212,7 +212,7 @@ class CreateLifecyclePolicyRequestRequestTypeDef(BaseModel):
     CrossRegionCopyTargets: Optional[Sequence[CrossRegionCopyTargetTypeDef]] = None
     Exclusions: Optional[ExclusionsTypeDef] = None
 
-class LifecyclePolicyTypeDef(BaseModel):
+class LifecyclePolicyTypeDef(BaseValidatorModel):
     PolicyId: Optional[str] = None
     Description: Optional[str] = None
     State: Optional[GettablePolicyStateValuesType] = None
@@ -225,7 +225,7 @@ class LifecyclePolicyTypeDef(BaseModel):
     PolicyArn: Optional[str] = None
     DefaultPolicy: Optional[bool] = None
 
-class UpdateLifecyclePolicyRequestRequestTypeDef(BaseModel):
+class UpdateLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyId: str
     ExecutionRoleArn: Optional[str] = None
     State: Optional[SettablePolicyStateValuesType] = None
@@ -238,7 +238,7 @@ class UpdateLifecyclePolicyRequestRequestTypeDef(BaseModel):
     CrossRegionCopyTargets: Optional[Sequence[CrossRegionCopyTargetTypeDef]] = None
     Exclusions: Optional[ExclusionsTypeDef] = None
 
-class GetLifecyclePolicyResponseTypeDef(BaseModel):
+class GetLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     Policy: LifecyclePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

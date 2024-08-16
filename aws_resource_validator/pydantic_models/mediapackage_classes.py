@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,17 +11,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mediapackage_constants import *
 
-class AuthorizationTypeDef(BaseModel):
+class AuthorizationTypeDef(BaseValidatorModel):
     CdnIdentifierSecret: str
     SecretsRoleArn: str
 
-class EgressAccessLogsTypeDef(BaseModel):
+class EgressAccessLogsTypeDef(BaseValidatorModel):
     LogGroupName: Optional[str] = None
 
-class IngressAccessLogsTypeDef(BaseModel):
+class IngressAccessLogsTypeDef(BaseValidatorModel):
     LogGroupName: Optional[str] = None
 
-class HlsManifestCreateOrUpdateParametersTypeDef(BaseModel):
+class HlsManifestCreateOrUpdateParametersTypeDef(BaseValidatorModel):
     Id: str
     AdMarkers: Optional[AdMarkersType] = None
     AdTriggers: Optional[Sequence[AdTriggersElementType]] = None
@@ -32,12 +32,12 @@ class HlsManifestCreateOrUpdateParametersTypeDef(BaseModel):
     PlaylistWindowSeconds: Optional[int] = None
     ProgramDateTimeIntervalSeconds: Optional[int] = None
 
-class StreamSelectionTypeDef(BaseModel):
+class StreamSelectionTypeDef(BaseValidatorModel):
     MaxVideoBitsPerSecond: Optional[int] = None
     MinVideoBitsPerSecond: Optional[int] = None
     StreamOrder: Optional[StreamOrderType] = None
 
-class HlsManifestTypeDef(BaseModel):
+class HlsManifestTypeDef(BaseValidatorModel):
     Id: str
     AdMarkers: Optional[AdMarkersType] = None
     IncludeIframeOnlyStream: Optional[bool] = None
@@ -49,110 +49,110 @@ class HlsManifestTypeDef(BaseModel):
     AdTriggers: Optional[List[AdTriggersElementType]] = None
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateChannelRequestRequestTypeDef(BaseModel):
+class CreateChannelRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class S3DestinationTypeDef(BaseModel):
+class S3DestinationTypeDef(BaseValidatorModel):
     BucketName: str
     ManifestKey: str
     RoleArn: str
 
-class DeleteChannelRequestRequestTypeDef(BaseModel):
+class DeleteChannelRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteOriginEndpointRequestRequestTypeDef(BaseModel):
+class DeleteOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DescribeChannelRequestRequestTypeDef(BaseModel):
+class DescribeChannelRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DescribeHarvestJobRequestRequestTypeDef(BaseModel):
+class DescribeHarvestJobRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DescribeOriginEndpointRequestRequestTypeDef(BaseModel):
+class DescribeOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class EncryptionContractConfigurationTypeDef(BaseModel):
+class EncryptionContractConfigurationTypeDef(BaseValidatorModel):
     PresetSpeke20Audio: PresetSpeke20AudioType
     PresetSpeke20Video: PresetSpeke20VideoType
 
-class IngestEndpointTypeDef(BaseModel):
+class IngestEndpointTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Password: Optional[str] = None
     Url: Optional[str] = None
     Username: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListChannelsRequestRequestTypeDef(BaseModel):
+class ListChannelsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListHarvestJobsRequestRequestTypeDef(BaseModel):
+class ListHarvestJobsRequestRequestTypeDef(BaseValidatorModel):
     IncludeChannelId: Optional[str] = None
     IncludeStatus: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListOriginEndpointsRequestRequestTypeDef(BaseModel):
+class ListOriginEndpointsRequestRequestTypeDef(BaseValidatorModel):
     ChannelId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class RotateChannelCredentialsRequestRequestTypeDef(BaseModel):
+class RotateChannelCredentialsRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class RotateIngestEndpointCredentialsRequestRequestTypeDef(BaseModel):
+class RotateIngestEndpointCredentialsRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     IngestEndpointId: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateChannelRequestRequestTypeDef(BaseModel):
+class UpdateChannelRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Description: Optional[str] = None
 
-class ConfigureLogsRequestRequestTypeDef(BaseModel):
+class ConfigureLogsRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     EgressAccessLogs: Optional[EgressAccessLogsTypeDef] = None
     IngressAccessLogs: Optional[IngressAccessLogsTypeDef] = None
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHarvestJobRequestRequestTypeDef(BaseModel):
+class CreateHarvestJobRequestRequestTypeDef(BaseValidatorModel):
     EndTime: str
     Id: str
     OriginEndpointId: str
     S3Destination: S3DestinationTypeDef
     StartTime: str
 
-class CreateHarvestJobResponseTypeDef(BaseModel):
+class CreateHarvestJobResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelId: str
     CreatedAt: str
@@ -164,7 +164,7 @@ class CreateHarvestJobResponseTypeDef(BaseModel):
     Status: StatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeHarvestJobResponseTypeDef(BaseModel):
+class DescribeHarvestJobResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelId: str
     CreatedAt: str
@@ -176,7 +176,7 @@ class DescribeHarvestJobResponseTypeDef(BaseModel):
     Status: StatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HarvestJobTypeDef(BaseModel):
+class HarvestJobTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     ChannelId: Optional[str] = None
     CreatedAt: Optional[str] = None
@@ -187,7 +187,7 @@ class HarvestJobTypeDef(BaseModel):
     StartTime: Optional[str] = None
     Status: Optional[StatusType] = None
 
-class SpekeKeyProviderPaginatorTypeDef(BaseModel):
+class SpekeKeyProviderPaginatorTypeDef(BaseValidatorModel):
     ResourceId: str
     RoleArn: str
     SystemIds: List[str]
@@ -195,7 +195,7 @@ class SpekeKeyProviderPaginatorTypeDef(BaseModel):
     CertificateArn: Optional[str] = None
     EncryptionContractConfiguration: Optional[EncryptionContractConfigurationTypeDef] = None
 
-class SpekeKeyProviderTypeDef(BaseModel):
+class SpekeKeyProviderTypeDef(BaseValidatorModel):
     ResourceId: str
     RoleArn: str
     SystemIds: Sequence[str]
@@ -203,67 +203,67 @@ class SpekeKeyProviderTypeDef(BaseModel):
     CertificateArn: Optional[str] = None
     EncryptionContractConfiguration: Optional[EncryptionContractConfigurationTypeDef] = None
 
-class HlsIngestTypeDef(BaseModel):
+class HlsIngestTypeDef(BaseValidatorModel):
     IngestEndpoints: Optional[List[IngestEndpointTypeDef]] = None
 
-class ListChannelsRequestListChannelsPaginateTypeDef(BaseModel):
+class ListChannelsRequestListChannelsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHarvestJobsRequestListHarvestJobsPaginateTypeDef(BaseModel):
+class ListHarvestJobsRequestListHarvestJobsPaginateTypeDef(BaseValidatorModel):
     IncludeChannelId: Optional[str] = None
     IncludeStatus: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOriginEndpointsRequestListOriginEndpointsPaginateTypeDef(BaseModel):
+class ListOriginEndpointsRequestListOriginEndpointsPaginateTypeDef(BaseValidatorModel):
     ChannelId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHarvestJobsResponseTypeDef(BaseModel):
+class ListHarvestJobsResponseTypeDef(BaseValidatorModel):
     HarvestJobs: List[HarvestJobTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CmafEncryptionPaginatorTypeDef(BaseModel):
+class CmafEncryptionPaginatorTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderPaginatorTypeDef
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[CmafEncryptionMethodType] = None
     KeyRotationIntervalSeconds: Optional[int] = None
 
-class DashEncryptionPaginatorTypeDef(BaseModel):
+class DashEncryptionPaginatorTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderPaginatorTypeDef
     KeyRotationIntervalSeconds: Optional[int] = None
 
-class HlsEncryptionPaginatorTypeDef(BaseModel):
+class HlsEncryptionPaginatorTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderPaginatorTypeDef
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[EncryptionMethodType] = None
     KeyRotationIntervalSeconds: Optional[int] = None
     RepeatExtXKey: Optional[bool] = None
 
-class MssEncryptionPaginatorTypeDef(BaseModel):
+class MssEncryptionPaginatorTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderPaginatorTypeDef
 
-class CmafEncryptionTypeDef(BaseModel):
+class CmafEncryptionTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderTypeDef
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[CmafEncryptionMethodType] = None
     KeyRotationIntervalSeconds: Optional[int] = None
 
-class DashEncryptionTypeDef(BaseModel):
+class DashEncryptionTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderTypeDef
     KeyRotationIntervalSeconds: Optional[int] = None
 
-class HlsEncryptionTypeDef(BaseModel):
+class HlsEncryptionTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderTypeDef
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[EncryptionMethodType] = None
     KeyRotationIntervalSeconds: Optional[int] = None
     RepeatExtXKey: Optional[bool] = None
 
-class MssEncryptionTypeDef(BaseModel):
+class MssEncryptionTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderTypeDef
 
-class ChannelTypeDef(BaseModel):
+class ChannelTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedAt: Optional[str] = None
     Description: Optional[str] = None
@@ -273,7 +273,7 @@ class ChannelTypeDef(BaseModel):
     IngressAccessLogs: Optional[IngressAccessLogsTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ConfigureLogsResponseTypeDef(BaseModel):
+class ConfigureLogsResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
@@ -284,7 +284,7 @@ class ConfigureLogsResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateChannelResponseTypeDef(BaseModel):
+class CreateChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
@@ -295,7 +295,7 @@ class CreateChannelResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeChannelResponseTypeDef(BaseModel):
+class DescribeChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
@@ -306,7 +306,7 @@ class DescribeChannelResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RotateChannelCredentialsResponseTypeDef(BaseModel):
+class RotateChannelCredentialsResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
@@ -317,7 +317,7 @@ class RotateChannelCredentialsResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RotateIngestEndpointCredentialsResponseTypeDef(BaseModel):
+class RotateIngestEndpointCredentialsResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
@@ -328,7 +328,7 @@ class RotateIngestEndpointCredentialsResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateChannelResponseTypeDef(BaseModel):
+class UpdateChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
@@ -339,14 +339,14 @@ class UpdateChannelResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CmafPackagePaginatorTypeDef(BaseModel):
+class CmafPackagePaginatorTypeDef(BaseValidatorModel):
     Encryption: Optional[CmafEncryptionPaginatorTypeDef] = None
     HlsManifests: Optional[List[HlsManifestTypeDef]] = None
     SegmentDurationSeconds: Optional[int] = None
     SegmentPrefix: Optional[str] = None
     StreamSelection: Optional[StreamSelectionTypeDef] = None
 
-class DashPackagePaginatorTypeDef(BaseModel):
+class DashPackagePaginatorTypeDef(BaseValidatorModel):
     AdTriggers: Optional[List[AdTriggersElementType]] = None
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
     Encryption: Optional[DashEncryptionPaginatorTypeDef] = None
@@ -364,7 +364,7 @@ class DashPackagePaginatorTypeDef(BaseModel):
     UtcTiming: Optional[UtcTimingType] = None
     UtcTimingUri: Optional[str] = None
 
-class HlsPackagePaginatorTypeDef(BaseModel):
+class HlsPackagePaginatorTypeDef(BaseValidatorModel):
     AdMarkers: Optional[AdMarkersType] = None
     AdTriggers: Optional[List[AdTriggersElementType]] = None
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
@@ -378,27 +378,27 @@ class HlsPackagePaginatorTypeDef(BaseModel):
     StreamSelection: Optional[StreamSelectionTypeDef] = None
     UseAudioRenditionGroup: Optional[bool] = None
 
-class MssPackagePaginatorTypeDef(BaseModel):
+class MssPackagePaginatorTypeDef(BaseValidatorModel):
     Encryption: Optional[MssEncryptionPaginatorTypeDef] = None
     ManifestWindowSeconds: Optional[int] = None
     SegmentDurationSeconds: Optional[int] = None
     StreamSelection: Optional[StreamSelectionTypeDef] = None
 
-class CmafPackageCreateOrUpdateParametersTypeDef(BaseModel):
+class CmafPackageCreateOrUpdateParametersTypeDef(BaseValidatorModel):
     Encryption: Optional[CmafEncryptionTypeDef] = None
     HlsManifests: Optional[Sequence[HlsManifestCreateOrUpdateParametersTypeDef]] = None
     SegmentDurationSeconds: Optional[int] = None
     SegmentPrefix: Optional[str] = None
     StreamSelection: Optional[StreamSelectionTypeDef] = None
 
-class CmafPackageTypeDef(BaseModel):
+class CmafPackageTypeDef(BaseValidatorModel):
     Encryption: Optional[CmafEncryptionTypeDef] = None
     HlsManifests: Optional[List[HlsManifestTypeDef]] = None
     SegmentDurationSeconds: Optional[int] = None
     SegmentPrefix: Optional[str] = None
     StreamSelection: Optional[StreamSelectionTypeDef] = None
 
-class DashPackageTypeDef(BaseModel):
+class DashPackageTypeDef(BaseValidatorModel):
     AdTriggers: Optional[Sequence[AdTriggersElementType]] = None
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
     Encryption: Optional[DashEncryptionTypeDef] = None
@@ -416,7 +416,7 @@ class DashPackageTypeDef(BaseModel):
     UtcTiming: Optional[UtcTimingType] = None
     UtcTimingUri: Optional[str] = None
 
-class HlsPackageTypeDef(BaseModel):
+class HlsPackageTypeDef(BaseValidatorModel):
     AdMarkers: Optional[AdMarkersType] = None
     AdTriggers: Optional[Sequence[AdTriggersElementType]] = None
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
@@ -430,18 +430,18 @@ class HlsPackageTypeDef(BaseModel):
     StreamSelection: Optional[StreamSelectionTypeDef] = None
     UseAudioRenditionGroup: Optional[bool] = None
 
-class MssPackageTypeDef(BaseModel):
+class MssPackageTypeDef(BaseValidatorModel):
     Encryption: Optional[MssEncryptionTypeDef] = None
     ManifestWindowSeconds: Optional[int] = None
     SegmentDurationSeconds: Optional[int] = None
     StreamSelection: Optional[StreamSelectionTypeDef] = None
 
-class ListChannelsResponseTypeDef(BaseModel):
+class ListChannelsResponseTypeDef(BaseValidatorModel):
     Channels: List[ChannelTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OriginEndpointPaginatorTypeDef(BaseModel):
+class OriginEndpointPaginatorTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Authorization: Optional[AuthorizationTypeDef] = None
     ChannelId: Optional[str] = None
@@ -460,7 +460,7 @@ class OriginEndpointPaginatorTypeDef(BaseModel):
     Url: Optional[str] = None
     Whitelist: Optional[List[str]] = None
 
-class CreateOriginEndpointRequestRequestTypeDef(BaseModel):
+class CreateOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
     ChannelId: str
     Id: str
     Authorization: Optional[AuthorizationTypeDef] = None
@@ -476,7 +476,7 @@ class CreateOriginEndpointRequestRequestTypeDef(BaseModel):
     TimeDelaySeconds: Optional[int] = None
     Whitelist: Optional[Sequence[str]] = None
 
-class CreateOriginEndpointResponseTypeDef(BaseModel):
+class CreateOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
     Authorization: AuthorizationTypeDef
     ChannelId: str
@@ -496,7 +496,7 @@ class CreateOriginEndpointResponseTypeDef(BaseModel):
     Whitelist: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeOriginEndpointResponseTypeDef(BaseModel):
+class DescribeOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
     Authorization: AuthorizationTypeDef
     ChannelId: str
@@ -516,7 +516,7 @@ class DescribeOriginEndpointResponseTypeDef(BaseModel):
     Whitelist: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OriginEndpointTypeDef(BaseModel):
+class OriginEndpointTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Authorization: Optional[AuthorizationTypeDef] = None
     ChannelId: Optional[str] = None
@@ -535,7 +535,7 @@ class OriginEndpointTypeDef(BaseModel):
     Url: Optional[str] = None
     Whitelist: Optional[List[str]] = None
 
-class UpdateOriginEndpointRequestRequestTypeDef(BaseModel):
+class UpdateOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Authorization: Optional[AuthorizationTypeDef] = None
     CmafPackage: Optional[CmafPackageCreateOrUpdateParametersTypeDef] = None
@@ -549,7 +549,7 @@ class UpdateOriginEndpointRequestRequestTypeDef(BaseModel):
     TimeDelaySeconds: Optional[int] = None
     Whitelist: Optional[Sequence[str]] = None
 
-class UpdateOriginEndpointResponseTypeDef(BaseModel):
+class UpdateOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
     Authorization: AuthorizationTypeDef
     ChannelId: str
@@ -569,12 +569,12 @@ class UpdateOriginEndpointResponseTypeDef(BaseModel):
     Whitelist: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOriginEndpointsResponsePaginatorTypeDef(BaseModel):
+class ListOriginEndpointsResponsePaginatorTypeDef(BaseValidatorModel):
     NextToken: str
     OriginEndpoints: List[OriginEndpointPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOriginEndpointsResponseTypeDef(BaseModel):
+class ListOriginEndpointsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     OriginEndpoints: List[OriginEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

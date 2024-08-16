@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,143 +11,143 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.resource_explorer_2_constants import *
 
-class AssociateDefaultViewInputRequestTypeDef(BaseModel):
+class AssociateDefaultViewInputRequestTypeDef(BaseValidatorModel):
     ViewArn: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class BatchGetViewErrorTypeDef(BaseModel):
+class BatchGetViewErrorTypeDef(BaseValidatorModel):
     ErrorMessage: str
     ViewArn: str
 
-class BatchGetViewInputRequestTypeDef(BaseModel):
+class BatchGetViewInputRequestTypeDef(BaseValidatorModel):
     ViewArns: Optional[Sequence[str]] = None
 
-class CreateIndexInputRequestTypeDef(BaseModel):
+class CreateIndexInputRequestTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class IncludedPropertyTypeDef(BaseModel):
+class IncludedPropertyTypeDef(BaseValidatorModel):
     Name: str
 
-class SearchFilterTypeDef(BaseModel):
+class SearchFilterTypeDef(BaseValidatorModel):
     FilterString: str
 
-class DeleteIndexInputRequestTypeDef(BaseModel):
+class DeleteIndexInputRequestTypeDef(BaseValidatorModel):
     Arn: str
 
-class DeleteViewInputRequestTypeDef(BaseModel):
+class DeleteViewInputRequestTypeDef(BaseValidatorModel):
     ViewArn: str
 
-class OrgConfigurationTypeDef(BaseModel):
+class OrgConfigurationTypeDef(BaseValidatorModel):
     AWSServiceAccessStatus: AWSServiceAccessStatusType
     ServiceLinkedRole: Optional[str] = None
 
-class GetViewInputRequestTypeDef(BaseModel):
+class GetViewInputRequestTypeDef(BaseValidatorModel):
     ViewArn: str
 
-class IndexTypeDef(BaseModel):
+class IndexTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Region: Optional[str] = None
     Type: Optional[IndexTypeType] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListIndexesForMembersInputRequestTypeDef(BaseModel):
+class ListIndexesForMembersInputRequestTypeDef(BaseValidatorModel):
     AccountIdList: Sequence[str]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class MemberIndexTypeDef(BaseModel):
+class MemberIndexTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     Arn: Optional[str] = None
     Region: Optional[str] = None
     Type: Optional[IndexTypeType] = None
 
-class ListIndexesInputRequestTypeDef(BaseModel):
+class ListIndexesInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Regions: Optional[Sequence[str]] = None
     Type: Optional[IndexTypeType] = None
 
-class ListSupportedResourceTypesInputRequestTypeDef(BaseModel):
+class ListSupportedResourceTypesInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class SupportedResourceTypeTypeDef(BaseModel):
+class SupportedResourceTypeTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     Service: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListViewsInputRequestTypeDef(BaseModel):
+class ListViewsInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ResourceCountTypeDef(BaseModel):
+class ResourceCountTypeDef(BaseValidatorModel):
     Complete: Optional[bool] = None
     TotalResources: Optional[int] = None
 
-class ResourcePropertyTypeDef(BaseModel):
+class ResourcePropertyTypeDef(BaseValidatorModel):
     Data: Optional[Dict[str, Any]] = None
     LastReportedAt: Optional[datetime] = None
     Name: Optional[str] = None
 
-class SearchInputRequestTypeDef(BaseModel):
+class SearchInputRequestTypeDef(BaseValidatorModel):
     QueryString: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ViewArn: Optional[str] = None
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     Tags: Optional[Mapping[str, str]] = None
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateIndexTypeInputRequestTypeDef(BaseModel):
+class UpdateIndexTypeInputRequestTypeDef(BaseValidatorModel):
     Arn: str
     Type: IndexTypeType
 
-class AssociateDefaultViewOutputTypeDef(BaseModel):
+class AssociateDefaultViewOutputTypeDef(BaseValidatorModel):
     ViewArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateIndexOutputTypeDef(BaseModel):
+class CreateIndexOutputTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     State: IndexStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteIndexOutputTypeDef(BaseModel):
+class DeleteIndexOutputTypeDef(BaseValidatorModel):
     Arn: str
     LastUpdatedAt: datetime
     State: IndexStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteViewOutputTypeDef(BaseModel):
+class DeleteViewOutputTypeDef(BaseValidatorModel):
     ViewArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDefaultViewOutputTypeDef(BaseModel):
+class GetDefaultViewOutputTypeDef(BaseValidatorModel):
     ViewArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIndexOutputTypeDef(BaseModel):
+class GetIndexOutputTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     LastUpdatedAt: datetime
@@ -158,23 +158,23 @@ class GetIndexOutputTypeDef(BaseModel):
     Type: IndexTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListViewsOutputTypeDef(BaseModel):
+class ListViewsOutputTypeDef(BaseValidatorModel):
     NextToken: str
     Views: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateIndexTypeOutputTypeDef(BaseModel):
+class UpdateIndexTypeOutputTypeDef(BaseValidatorModel):
     Arn: str
     LastUpdatedAt: datetime
     State: IndexStateType
     Type: IndexTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateViewInputRequestTypeDef(BaseModel):
+class CreateViewInputRequestTypeDef(BaseValidatorModel):
     ViewName: str
     ClientToken: Optional[str] = None
     Filters: Optional[SearchFilterTypeDef] = None
@@ -182,12 +182,12 @@ class CreateViewInputRequestTypeDef(BaseModel):
     Scope: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateViewInputRequestTypeDef(BaseModel):
+class UpdateViewInputRequestTypeDef(BaseValidatorModel):
     ViewArn: str
     Filters: Optional[SearchFilterTypeDef] = None
     IncludedProperties: Optional[Sequence[IncludedPropertyTypeDef]] = None
 
-class ViewTypeDef(BaseModel):
+class ViewTypeDef(BaseValidatorModel):
     Filters: Optional[SearchFilterTypeDef] = None
     IncludedProperties: Optional[List[IncludedPropertyTypeDef]] = None
     LastUpdatedAt: Optional[datetime] = None
@@ -195,46 +195,46 @@ class ViewTypeDef(BaseModel):
     Scope: Optional[str] = None
     ViewArn: Optional[str] = None
 
-class GetAccountLevelServiceConfigurationOutputTypeDef(BaseModel):
+class GetAccountLevelServiceConfigurationOutputTypeDef(BaseValidatorModel):
     OrgConfiguration: OrgConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIndexesOutputTypeDef(BaseModel):
+class ListIndexesOutputTypeDef(BaseValidatorModel):
     Indexes: List[IndexTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIndexesForMembersInputListIndexesForMembersPaginateTypeDef(BaseModel):
+class ListIndexesForMembersInputListIndexesForMembersPaginateTypeDef(BaseValidatorModel):
     AccountIdList: Sequence[str]
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIndexesInputListIndexesPaginateTypeDef(BaseModel):
+class ListIndexesInputListIndexesPaginateTypeDef(BaseValidatorModel):
     Regions: Optional[Sequence[str]] = None
     Type: Optional[IndexTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSupportedResourceTypesInputListSupportedResourceTypesPaginateTypeDef(BaseModel):
+class ListSupportedResourceTypesInputListSupportedResourceTypesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListViewsInputListViewsPaginateTypeDef(BaseModel):
+class ListViewsInputListViewsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchInputSearchPaginateTypeDef(BaseModel):
+class SearchInputSearchPaginateTypeDef(BaseValidatorModel):
     QueryString: str
     ViewArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIndexesForMembersOutputTypeDef(BaseModel):
+class ListIndexesForMembersOutputTypeDef(BaseValidatorModel):
     Indexes: List[MemberIndexTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSupportedResourceTypesOutputTypeDef(BaseModel):
+class ListSupportedResourceTypesOutputTypeDef(BaseValidatorModel):
     NextToken: str
     ResourceTypes: List[SupportedResourceTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     LastReportedAt: Optional[datetime] = None
     OwningAccountId: Optional[str] = None
@@ -243,25 +243,25 @@ class ResourceTypeDef(BaseModel):
     ResourceType: Optional[str] = None
     Service: Optional[str] = None
 
-class BatchGetViewOutputTypeDef(BaseModel):
+class BatchGetViewOutputTypeDef(BaseValidatorModel):
     Errors: List[BatchGetViewErrorTypeDef]
     Views: List[ViewTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateViewOutputTypeDef(BaseModel):
+class CreateViewOutputTypeDef(BaseValidatorModel):
     View: ViewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetViewOutputTypeDef(BaseModel):
+class GetViewOutputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     View: ViewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateViewOutputTypeDef(BaseModel):
+class UpdateViewOutputTypeDef(BaseValidatorModel):
     View: ViewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchOutputTypeDef(BaseModel):
+class SearchOutputTypeDef(BaseValidatorModel):
     Count: ResourceCountTypeDef
     NextToken: str
     Resources: List[ResourceTypeDef]

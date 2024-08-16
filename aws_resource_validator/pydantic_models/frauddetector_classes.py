@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,25 +11,25 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.frauddetector_constants import *
 
-class ATIMetricDataPointTypeDef(BaseModel):
+class ATIMetricDataPointTypeDef(BaseValidatorModel):
     cr: Optional[float] = None
     adr: Optional[float] = None
     threshold: Optional[float] = None
     atodr: Optional[float] = None
 
-class ATIModelPerformanceTypeDef(BaseModel):
+class ATIModelPerformanceTypeDef(BaseValidatorModel):
     asi: Optional[float] = None
 
-class AggregatedLogOddsMetricTypeDef(BaseModel):
+class AggregatedLogOddsMetricTypeDef(BaseValidatorModel):
     variableNames: List[str]
     aggregatedVariablesImportance: float
 
-class AggregatedVariablesImpactExplanationTypeDef(BaseModel):
+class AggregatedVariablesImpactExplanationTypeDef(BaseValidatorModel):
     eventVariableNames: Optional[List[str]] = None
     relativeImpact: Optional[str] = None
     logOddsImpact: Optional[float] = None
 
-class AllowDenyListTypeDef(BaseModel):
+class AllowDenyListTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     variableType: Optional[str] = None
@@ -37,16 +37,16 @@ class AllowDenyListTypeDef(BaseModel):
     updatedTime: Optional[str] = None
     arn: Optional[str] = None
 
-class BatchCreateVariableErrorTypeDef(BaseModel):
+class BatchCreateVariableErrorTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     code: Optional[int] = None
     message: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class VariableEntryTypeDef(BaseModel):
+class VariableEntryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     dataType: Optional[str] = None
     dataSource: Optional[str] = None
@@ -54,22 +54,22 @@ class VariableEntryTypeDef(BaseModel):
     description: Optional[str] = None
     variableType: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class BatchGetVariableErrorTypeDef(BaseModel):
+class BatchGetVariableErrorTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     code: Optional[int] = None
     message: Optional[str] = None
 
-class BatchGetVariableRequestRequestTypeDef(BaseModel):
+class BatchGetVariableRequestRequestTypeDef(BaseValidatorModel):
     names: Sequence[str]
 
-class VariableTypeDef(BaseModel):
+class VariableTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     dataType: Optional[DataTypeType] = None
     dataSource: Optional[DataSourceType] = None
@@ -80,7 +80,7 @@ class VariableTypeDef(BaseModel):
     createdTime: Optional[str] = None
     arn: Optional[str] = None
 
-class BatchImportTypeDef(BaseModel):
+class BatchImportTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     status: Optional[AsyncJobStatusType] = None
     failureReason: Optional[str] = None
@@ -95,7 +95,7 @@ class BatchImportTypeDef(BaseModel):
     failedRecordsCount: Optional[int] = None
     totalRecordsCount: Optional[int] = None
 
-class BatchPredictionTypeDef(BaseModel):
+class BatchPredictionTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     status: Optional[AsyncJobStatusType] = None
     failureReason: Optional[str] = None
@@ -112,109 +112,109 @@ class BatchPredictionTypeDef(BaseModel):
     processedRecordsCount: Optional[int] = None
     totalRecordsCount: Optional[int] = None
 
-class CancelBatchImportJobRequestRequestTypeDef(BaseModel):
+class CancelBatchImportJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
 
-class CancelBatchPredictionJobRequestRequestTypeDef(BaseModel):
+class CancelBatchPredictionJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
 
-class ModelVersionTypeDef(BaseModel):
+class ModelVersionTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     modelVersionNumber: str
     arn: Optional[str] = None
 
-class RuleTypeDef(BaseModel):
+class RuleTypeDef(BaseValidatorModel):
     detectorId: str
     ruleId: str
     ruleVersion: str
 
-class ExternalEventsDetailTypeDef(BaseModel):
+class ExternalEventsDetailTypeDef(BaseValidatorModel):
     dataLocation: str
     dataAccessRoleArn: str
 
-class FieldValidationMessageTypeDef(BaseModel):
+class FieldValidationMessageTypeDef(BaseValidatorModel):
     fieldName: Optional[str] = None
     identifier: Optional[str] = None
     title: Optional[str] = None
     content: Optional[str] = None
     type: Optional[str] = None
 
-class FileValidationMessageTypeDef(BaseModel):
+class FileValidationMessageTypeDef(BaseValidatorModel):
     title: Optional[str] = None
     content: Optional[str] = None
     type: Optional[str] = None
 
-class DeleteBatchImportJobRequestRequestTypeDef(BaseModel):
+class DeleteBatchImportJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
 
-class DeleteBatchPredictionJobRequestRequestTypeDef(BaseModel):
+class DeleteBatchPredictionJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
 
-class DeleteDetectorRequestRequestTypeDef(BaseModel):
+class DeleteDetectorRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
 
-class DeleteDetectorVersionRequestRequestTypeDef(BaseModel):
+class DeleteDetectorVersionRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
 
-class DeleteEntityTypeRequestRequestTypeDef(BaseModel):
+class DeleteEntityTypeRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteEventRequestRequestTypeDef(BaseModel):
+class DeleteEventRequestRequestTypeDef(BaseValidatorModel):
     eventId: str
     eventTypeName: str
     deleteAuditHistory: Optional[bool] = None
 
-class DeleteEventTypeRequestRequestTypeDef(BaseModel):
+class DeleteEventTypeRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteEventsByEventTypeRequestRequestTypeDef(BaseModel):
+class DeleteEventsByEventTypeRequestRequestTypeDef(BaseValidatorModel):
     eventTypeName: str
 
-class DeleteExternalModelRequestRequestTypeDef(BaseModel):
+class DeleteExternalModelRequestRequestTypeDef(BaseValidatorModel):
     modelEndpoint: str
 
-class DeleteLabelRequestRequestTypeDef(BaseModel):
+class DeleteLabelRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteListRequestRequestTypeDef(BaseModel):
+class DeleteListRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteModelRequestRequestTypeDef(BaseModel):
+class DeleteModelRequestRequestTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
 
-class DeleteModelVersionRequestRequestTypeDef(BaseModel):
+class DeleteModelVersionRequestRequestTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     modelVersionNumber: str
 
-class DeleteOutcomeRequestRequestTypeDef(BaseModel):
+class DeleteOutcomeRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteVariableRequestRequestTypeDef(BaseModel):
+class DeleteVariableRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DescribeDetectorRequestRequestTypeDef(BaseModel):
+class DescribeDetectorRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class DetectorVersionSummaryTypeDef(BaseModel):
+class DetectorVersionSummaryTypeDef(BaseValidatorModel):
     detectorVersionId: Optional[str] = None
     status: Optional[DetectorVersionStatusType] = None
     description: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
 
-class DescribeModelVersionsRequestRequestTypeDef(BaseModel):
+class DescribeModelVersionsRequestRequestTypeDef(BaseValidatorModel):
     modelId: Optional[str] = None
     modelVersionNumber: Optional[str] = None
     modelType: Optional[ModelTypeEnumType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class DetectorTypeDef(BaseModel):
+class DetectorTypeDef(BaseValidatorModel):
     detectorId: Optional[str] = None
     description: Optional[str] = None
     eventTypeName: Optional[str] = None
@@ -222,24 +222,24 @@ class DetectorTypeDef(BaseModel):
     createdTime: Optional[str] = None
     arn: Optional[str] = None
 
-class EntityTypeDef(BaseModel):
+class EntityTypeDef(BaseValidatorModel):
     entityType: str
     entityId: str
 
-class EntityTypeTypeDef(BaseModel):
+class EntityTypeTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
     arn: Optional[str] = None
 
-class EvaluatedExternalModelTypeDef(BaseModel):
+class EvaluatedExternalModelTypeDef(BaseValidatorModel):
     modelEndpoint: Optional[str] = None
     useEventVariables: Optional[bool] = None
     inputVariables: Optional[Dict[str, str]] = None
     outputVariables: Optional[Dict[str, str]] = None
 
-class EvaluatedRuleTypeDef(BaseModel):
+class EvaluatedRuleTypeDef(BaseValidatorModel):
     ruleId: Optional[str] = None
     ruleVersion: Optional[str] = None
     expression: Optional[str] = None
@@ -248,10 +248,10 @@ class EvaluatedRuleTypeDef(BaseModel):
     evaluated: Optional[bool] = None
     matched: Optional[bool] = None
 
-class EventOrchestrationTypeDef(BaseModel):
+class EventOrchestrationTypeDef(BaseValidatorModel):
     eventBridgeEnabled: bool
 
-class EventPredictionSummaryTypeDef(BaseModel):
+class EventPredictionSummaryTypeDef(BaseValidatorModel):
     eventId: Optional[str] = None
     eventTypeName: Optional[str] = None
     eventTimestamp: Optional[str] = None
@@ -259,126 +259,126 @@ class EventPredictionSummaryTypeDef(BaseModel):
     detectorId: Optional[str] = None
     detectorVersionId: Optional[str] = None
 
-class IngestedEventStatisticsTypeDef(BaseModel):
+class IngestedEventStatisticsTypeDef(BaseValidatorModel):
     numberOfEvents: Optional[int] = None
     eventDataSizeInBytes: Optional[int] = None
     leastRecentEvent: Optional[str] = None
     mostRecentEvent: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
 
-class EventVariableSummaryTypeDef(BaseModel):
+class EventVariableSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
     source: Optional[str] = None
 
-class ExternalModelSummaryTypeDef(BaseModel):
+class ExternalModelSummaryTypeDef(BaseValidatorModel):
     modelEndpoint: Optional[str] = None
     modelSource: Optional[Literal["SAGEMAKER"]] = None
 
-class ModelInputConfigurationTypeDef(BaseModel):
+class ModelInputConfigurationTypeDef(BaseValidatorModel):
     useEventVariables: bool
     eventTypeName: Optional[str] = None
     format: Optional[ModelInputDataFormatType] = None
     jsonInputTemplate: Optional[str] = None
     csvInputTemplate: Optional[str] = None
 
-class ModelOutputConfigurationTypeDef(BaseModel):
+class ModelOutputConfigurationTypeDef(BaseValidatorModel):
     format: ModelOutputDataFormatType
     jsonKeyToVariableMap: Optional[Dict[str, str]] = None
     csvIndexToVariableMap: Optional[Dict[str, str]] = None
 
-class FilterConditionTypeDef(BaseModel):
+class FilterConditionTypeDef(BaseValidatorModel):
     value: Optional[str] = None
 
-class GetBatchImportJobsRequestRequestTypeDef(BaseModel):
+class GetBatchImportJobsRequestRequestTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class GetBatchPredictionJobsRequestRequestTypeDef(BaseModel):
+class GetBatchPredictionJobsRequestRequestTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class GetDeleteEventsByEventTypeStatusRequestRequestTypeDef(BaseModel):
+class GetDeleteEventsByEventTypeStatusRequestRequestTypeDef(BaseValidatorModel):
     eventTypeName: str
 
-class GetDetectorVersionRequestRequestTypeDef(BaseModel):
+class GetDetectorVersionRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
 
-class GetDetectorsRequestRequestTypeDef(BaseModel):
+class GetDetectorsRequestRequestTypeDef(BaseValidatorModel):
     detectorId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetEntityTypesRequestRequestTypeDef(BaseModel):
+class GetEntityTypesRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetEventPredictionMetadataRequestRequestTypeDef(BaseModel):
+class GetEventPredictionMetadataRequestRequestTypeDef(BaseValidatorModel):
     eventId: str
     eventTypeName: str
     detectorId: str
     detectorVersionId: str
     predictionTimestamp: str
 
-class RuleResultTypeDef(BaseModel):
+class RuleResultTypeDef(BaseValidatorModel):
     ruleId: Optional[str] = None
     outcomes: Optional[List[str]] = None
 
-class GetEventRequestRequestTypeDef(BaseModel):
+class GetEventRequestRequestTypeDef(BaseValidatorModel):
     eventId: str
     eventTypeName: str
 
-class GetEventTypesRequestRequestTypeDef(BaseModel):
+class GetEventTypesRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetExternalModelsRequestRequestTypeDef(BaseModel):
+class GetExternalModelsRequestRequestTypeDef(BaseValidatorModel):
     modelEndpoint: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class KMSKeyTypeDef(BaseModel):
+class KMSKeyTypeDef(BaseValidatorModel):
     kmsEncryptionKeyArn: Optional[str] = None
 
-class GetLabelsRequestRequestTypeDef(BaseModel):
+class GetLabelsRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class LabelTypeDef(BaseModel):
+class LabelTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
     arn: Optional[str] = None
 
-class GetListElementsRequestRequestTypeDef(BaseModel):
+class GetListElementsRequestRequestTypeDef(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetListsMetadataRequestRequestTypeDef(BaseModel):
+class GetListsMetadataRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetModelVersionRequestRequestTypeDef(BaseModel):
+class GetModelVersionRequestRequestTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     modelVersionNumber: str
 
-class GetModelsRequestRequestTypeDef(BaseModel):
+class GetModelsRequestRequestTypeDef(BaseValidatorModel):
     modelId: Optional[str] = None
     modelType: Optional[ModelTypeEnumType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ModelTypeDef(BaseModel):
+class ModelTypeDef(BaseValidatorModel):
     modelId: Optional[str] = None
     modelType: Optional[ModelTypeEnumType] = None
     description: Optional[str] = None
@@ -387,26 +387,26 @@ class ModelTypeDef(BaseModel):
     lastUpdatedTime: Optional[str] = None
     arn: Optional[str] = None
 
-class GetOutcomesRequestRequestTypeDef(BaseModel):
+class GetOutcomesRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class OutcomeTypeDef(BaseModel):
+class OutcomeTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
     arn: Optional[str] = None
 
-class GetRulesRequestRequestTypeDef(BaseModel):
+class GetRulesRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     ruleId: Optional[str] = None
     ruleVersion: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class RuleDetailTypeDef(BaseModel):
+class RuleDetailTypeDef(BaseValidatorModel):
     ruleId: Optional[str] = None
     description: Optional[str] = None
     detectorId: Optional[str] = None
@@ -418,115 +418,115 @@ class RuleDetailTypeDef(BaseModel):
     createdTime: Optional[str] = None
     arn: Optional[str] = None
 
-class GetVariablesRequestRequestTypeDef(BaseModel):
+class GetVariablesRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class IngestedEventsTimeWindowTypeDef(BaseModel):
+class IngestedEventsTimeWindowTypeDef(BaseValidatorModel):
     startTime: str
     endTime: str
 
-class LabelSchemaTypeDef(BaseModel):
+class LabelSchemaTypeDef(BaseValidatorModel):
     labelMapper: Optional[Mapping[str, Sequence[str]]] = None
     unlabeledEventsTreatment: Optional[UnlabeledEventsTreatmentType] = None
 
-class PredictionTimeRangeTypeDef(BaseModel):
+class PredictionTimeRangeTypeDef(BaseValidatorModel):
     startTime: str
     endTime: str
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceARN: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class LogOddsMetricTypeDef(BaseModel):
+class LogOddsMetricTypeDef(BaseValidatorModel):
     variableName: str
     variableType: str
     variableImportance: float
 
-class MetricDataPointTypeDef(BaseModel):
+class MetricDataPointTypeDef(BaseValidatorModel):
     fpr: Optional[float] = None
     precision: Optional[float] = None
     tpr: Optional[float] = None
     threshold: Optional[float] = None
 
-class OFIMetricDataPointTypeDef(BaseModel):
+class OFIMetricDataPointTypeDef(BaseValidatorModel):
     fpr: Optional[float] = None
     precision: Optional[float] = None
     tpr: Optional[float] = None
     threshold: Optional[float] = None
 
-class UncertaintyRangeTypeDef(BaseModel):
+class UncertaintyRangeTypeDef(BaseValidatorModel):
     lowerBoundValue: float
     upperBoundValue: float
 
-class VariableImpactExplanationTypeDef(BaseModel):
+class VariableImpactExplanationTypeDef(BaseValidatorModel):
     eventVariableName: Optional[str] = None
     relativeImpact: Optional[str] = None
     logOddsImpact: Optional[float] = None
 
-class PutKMSEncryptionKeyRequestRequestTypeDef(BaseModel):
+class PutKMSEncryptionKeyRequestRequestTypeDef(BaseValidatorModel):
     kmsEncryptionKeyArn: str
 
-class TFIMetricDataPointTypeDef(BaseModel):
+class TFIMetricDataPointTypeDef(BaseValidatorModel):
     fpr: Optional[float] = None
     precision: Optional[float] = None
     tpr: Optional[float] = None
     threshold: Optional[float] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceARN: str
     tagKeys: Sequence[str]
 
-class UpdateDetectorVersionMetadataRequestRequestTypeDef(BaseModel):
+class UpdateDetectorVersionMetadataRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
     description: str
 
-class UpdateDetectorVersionStatusRequestRequestTypeDef(BaseModel):
+class UpdateDetectorVersionStatusRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
     status: DetectorVersionStatusType
 
-class UpdateEventLabelRequestRequestTypeDef(BaseModel):
+class UpdateEventLabelRequestRequestTypeDef(BaseValidatorModel):
     eventId: str
     eventTypeName: str
     assignedLabel: str
     labelTimestamp: str
 
-class UpdateListRequestRequestTypeDef(BaseModel):
+class UpdateListRequestRequestTypeDef(BaseValidatorModel):
     name: str
     elements: Optional[Sequence[str]] = None
     description: Optional[str] = None
     updateMode: Optional[ListUpdateModeType] = None
     variableType: Optional[str] = None
 
-class UpdateModelRequestRequestTypeDef(BaseModel):
+class UpdateModelRequestRequestTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     description: Optional[str] = None
 
-class UpdateModelVersionStatusRequestRequestTypeDef(BaseModel):
+class UpdateModelVersionStatusRequestRequestTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     modelVersionNumber: str
     status: ModelVersionStatusType
 
-class UpdateVariableRequestRequestTypeDef(BaseModel):
+class UpdateVariableRequestRequestTypeDef(BaseValidatorModel):
     name: str
     defaultValue: Optional[str] = None
     description: Optional[str] = None
     variableType: Optional[str] = None
 
-class ATITrainingMetricsValueTypeDef(BaseModel):
+class ATITrainingMetricsValueTypeDef(BaseValidatorModel):
     metricDataPoints: Optional[List[ATIMetricDataPointTypeDef]] = None
     modelPerformance: Optional[ATIModelPerformanceTypeDef] = None
 
-class AggregatedVariablesImportanceMetricsTypeDef(BaseModel):
+class AggregatedVariablesImportanceMetricsTypeDef(BaseValidatorModel):
     logOddsMetrics: Optional[List[AggregatedLogOddsMetricTypeDef]] = None
 
-class CreateBatchImportJobRequestRequestTypeDef(BaseModel):
+class CreateBatchImportJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     inputPath: str
     outputPath: str
@@ -534,7 +534,7 @@ class CreateBatchImportJobRequestRequestTypeDef(BaseModel):
     iamRoleArn: str
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateBatchPredictionJobRequestRequestTypeDef(BaseModel):
+class CreateBatchPredictionJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     inputPath: str
     outputPath: str
@@ -544,21 +544,21 @@ class CreateBatchPredictionJobRequestRequestTypeDef(BaseModel):
     detectorVersion: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateListRequestRequestTypeDef(BaseModel):
+class CreateListRequestRequestTypeDef(BaseValidatorModel):
     name: str
     elements: Optional[Sequence[str]] = None
     variableType: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateModelRequestRequestTypeDef(BaseModel):
+class CreateModelRequestRequestTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     eventTypeName: str
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRuleRequestRequestTypeDef(BaseModel):
+class CreateRuleRequestRequestTypeDef(BaseValidatorModel):
     ruleId: str
     detectorId: str
     expression: str
@@ -567,7 +567,7 @@ class CreateRuleRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateVariableRequestRequestTypeDef(BaseModel):
+class CreateVariableRequestRequestTypeDef(BaseValidatorModel):
     name: str
     dataType: DataTypeType
     dataSource: DataSourceType
@@ -576,113 +576,113 @@ class CreateVariableRequestRequestTypeDef(BaseModel):
     variableType: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class PutDetectorRequestRequestTypeDef(BaseModel):
+class PutDetectorRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     eventTypeName: str
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class PutEntityTypeRequestRequestTypeDef(BaseModel):
+class PutEntityTypeRequestRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class PutLabelRequestRequestTypeDef(BaseModel):
+class PutLabelRequestRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class PutOutcomeRequestRequestTypeDef(BaseModel):
+class PutOutcomeRequestRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceARN: str
     tags: Sequence[TagTypeDef]
 
-class BatchCreateVariableRequestRequestTypeDef(BaseModel):
+class BatchCreateVariableRequestRequestTypeDef(BaseValidatorModel):
     variableEntries: Sequence[VariableEntryTypeDef]
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class BatchCreateVariableResultTypeDef(BaseModel):
+class BatchCreateVariableResultTypeDef(BaseValidatorModel):
     errors: List[BatchCreateVariableErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDetectorVersionResultTypeDef(BaseModel):
+class CreateDetectorVersionResultTypeDef(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
     status: DetectorVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateModelVersionResultTypeDef(BaseModel):
+class CreateModelVersionResultTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     modelVersionNumber: str
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteEventsByEventTypeResultTypeDef(BaseModel):
+class DeleteEventsByEventTypeResultTypeDef(BaseValidatorModel):
     eventTypeName: str
     eventsDeletionStatus: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDeleteEventsByEventTypeStatusResultTypeDef(BaseModel):
+class GetDeleteEventsByEventTypeStatusResultTypeDef(BaseValidatorModel):
     eventTypeName: str
     eventsDeletionStatus: AsyncJobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetListElementsResultTypeDef(BaseModel):
+class GetListElementsResultTypeDef(BaseValidatorModel):
     elements: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetListsMetadataResultTypeDef(BaseModel):
+class GetListsMetadataResultTypeDef(BaseValidatorModel):
     lists: List[AllowDenyListTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResultTypeDef(BaseModel):
+class ListTagsForResourceResultTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateModelVersionResultTypeDef(BaseModel):
+class UpdateModelVersionResultTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     modelVersionNumber: str
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetVariableResultTypeDef(BaseModel):
+class BatchGetVariableResultTypeDef(BaseValidatorModel):
     variables: List[VariableTypeDef]
     errors: List[BatchGetVariableErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVariablesResultTypeDef(BaseModel):
+class GetVariablesResultTypeDef(BaseValidatorModel):
     variables: List[VariableTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBatchImportJobsResultTypeDef(BaseModel):
+class GetBatchImportJobsResultTypeDef(BaseValidatorModel):
     batchImports: List[BatchImportTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBatchPredictionJobsResultTypeDef(BaseModel):
+class GetBatchPredictionJobsResultTypeDef(BaseValidatorModel):
     batchPredictions: List[BatchPredictionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModelEndpointDataBlobTypeDef(BaseModel):
+class ModelEndpointDataBlobTypeDef(BaseValidatorModel):
     byteBuffer: Optional[BlobTypeDef] = None
     contentType: Optional[str] = None
 
-class ModelScoresTypeDef(BaseModel):
+class ModelScoresTypeDef(BaseValidatorModel):
     modelVersion: Optional[ModelVersionTypeDef] = None
     scores: Optional[Dict[str, float]] = None
 
-class CreateDetectorVersionRequestRequestTypeDef(BaseModel):
+class CreateDetectorVersionRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     rules: Sequence[RuleTypeDef]
     description: Optional[str] = None
@@ -691,14 +691,14 @@ class CreateDetectorVersionRequestRequestTypeDef(BaseModel):
     ruleExecutionMode: Optional[RuleExecutionModeType] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRuleResultTypeDef(BaseModel):
+class CreateRuleResultTypeDef(BaseValidatorModel):
     rule: RuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRuleRequestRequestTypeDef(BaseModel):
+class DeleteRuleRequestRequestTypeDef(BaseValidatorModel):
     rule: RuleTypeDef
 
-class GetDetectorVersionResultTypeDef(BaseModel):
+class GetDetectorVersionResultTypeDef(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
     description: str
@@ -712,7 +712,7 @@ class GetDetectorVersionResultTypeDef(BaseModel):
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDetectorVersionRequestRequestTypeDef(BaseModel):
+class UpdateDetectorVersionRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
     externalModelEndpoints: Sequence[str]
@@ -721,11 +721,11 @@ class UpdateDetectorVersionRequestRequestTypeDef(BaseModel):
     modelVersions: Optional[Sequence[ModelVersionTypeDef]] = None
     ruleExecutionMode: Optional[RuleExecutionModeType] = None
 
-class UpdateRuleMetadataRequestRequestTypeDef(BaseModel):
+class UpdateRuleMetadataRequestRequestTypeDef(BaseValidatorModel):
     rule: RuleTypeDef
     description: str
 
-class UpdateRuleVersionRequestRequestTypeDef(BaseModel):
+class UpdateRuleVersionRequestRequestTypeDef(BaseValidatorModel):
     rule: RuleTypeDef
     expression: str
     language: Literal["DETECTORPL"]
@@ -733,27 +733,27 @@ class UpdateRuleVersionRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateRuleVersionResultTypeDef(BaseModel):
+class UpdateRuleVersionResultTypeDef(BaseValidatorModel):
     rule: RuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataValidationMetricsTypeDef(BaseModel):
+class DataValidationMetricsTypeDef(BaseValidatorModel):
     fileLevelMessages: Optional[List[FileValidationMessageTypeDef]] = None
     fieldLevelMessages: Optional[List[FieldValidationMessageTypeDef]] = None
 
-class DescribeDetectorResultTypeDef(BaseModel):
+class DescribeDetectorResultTypeDef(BaseValidatorModel):
     detectorId: str
     detectorVersionSummaries: List[DetectorVersionSummaryTypeDef]
     nextToken: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDetectorsResultTypeDef(BaseModel):
+class GetDetectorsResultTypeDef(BaseValidatorModel):
     detectors: List[DetectorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EventTypeDef(BaseModel):
+class EventTypeDef(BaseValidatorModel):
     eventId: Optional[str] = None
     eventTypeName: Optional[str] = None
     eventTimestamp: Optional[str] = None
@@ -762,7 +762,7 @@ class EventTypeDef(BaseModel):
     labelTimestamp: Optional[str] = None
     entities: Optional[List[EntityTypeDef]] = None
 
-class SendEventRequestRequestTypeDef(BaseModel):
+class SendEventRequestRequestTypeDef(BaseValidatorModel):
     eventId: str
     eventTypeName: str
     eventTimestamp: str
@@ -771,12 +771,12 @@ class SendEventRequestRequestTypeDef(BaseModel):
     assignedLabel: Optional[str] = None
     labelTimestamp: Optional[str] = None
 
-class GetEntityTypesResultTypeDef(BaseModel):
+class GetEntityTypesResultTypeDef(BaseValidatorModel):
     entityTypes: List[EntityTypeTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutEventTypeRequestRequestTypeDef(BaseModel):
+class PutEventTypeRequestRequestTypeDef(BaseValidatorModel):
     name: str
     eventVariables: Sequence[str]
     entityTypes: Sequence[str]
@@ -786,12 +786,12 @@ class PutEventTypeRequestRequestTypeDef(BaseModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     eventOrchestration: Optional[EventOrchestrationTypeDef] = None
 
-class ListEventPredictionsResultTypeDef(BaseModel):
+class ListEventPredictionsResultTypeDef(BaseValidatorModel):
     eventPredictionSummaries: List[EventPredictionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EventTypeTypeDef(BaseModel):
+class EventTypeTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     eventVariables: Optional[List[str]] = None
@@ -804,11 +804,11 @@ class EventTypeTypeDef(BaseModel):
     arn: Optional[str] = None
     eventOrchestration: Optional[EventOrchestrationTypeDef] = None
 
-class ExternalModelOutputsTypeDef(BaseModel):
+class ExternalModelOutputsTypeDef(BaseValidatorModel):
     externalModel: Optional[ExternalModelSummaryTypeDef] = None
     outputs: Optional[Dict[str, str]] = None
 
-class ExternalModelTypeDef(BaseModel):
+class ExternalModelTypeDef(BaseValidatorModel):
     modelEndpoint: Optional[str] = None
     modelSource: Optional[Literal["SAGEMAKER"]] = None
     invokeModelEndpointRoleArn: Optional[str] = None
@@ -819,7 +819,7 @@ class ExternalModelTypeDef(BaseModel):
     createdTime: Optional[str] = None
     arn: Optional[str] = None
 
-class PutExternalModelRequestRequestTypeDef(BaseModel):
+class PutExternalModelRequestRequestTypeDef(BaseValidatorModel):
     modelEndpoint: str
     modelSource: Literal["SAGEMAKER"]
     invokeModelEndpointRoleArn: str
@@ -828,38 +828,38 @@ class PutExternalModelRequestRequestTypeDef(BaseModel):
     modelEndpointStatus: ModelEndpointStatusType
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class GetKMSEncryptionKeyResultTypeDef(BaseModel):
+class GetKMSEncryptionKeyResultTypeDef(BaseValidatorModel):
     kmsKey: KMSKeyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLabelsResultTypeDef(BaseModel):
+class GetLabelsResultTypeDef(BaseValidatorModel):
     labels: List[LabelTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetModelsResultTypeDef(BaseModel):
+class GetModelsResultTypeDef(BaseValidatorModel):
     nextToken: str
     models: List[ModelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOutcomesResultTypeDef(BaseModel):
+class GetOutcomesResultTypeDef(BaseValidatorModel):
     outcomes: List[OutcomeTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRulesResultTypeDef(BaseModel):
+class GetRulesResultTypeDef(BaseValidatorModel):
     ruleDetails: List[RuleDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IngestedEventsDetailTypeDef(BaseModel):
+class IngestedEventsDetailTypeDef(BaseValidatorModel):
     ingestedEventsTimeWindow: IngestedEventsTimeWindowTypeDef
 
-class TrainingDataSchemaTypeDef(BaseModel):
+class TrainingDataSchemaTypeDef(BaseValidatorModel):
     modelVariables: Sequence[str]
     labelSchema: Optional[LabelSchemaTypeDef] = None
 
-class ListEventPredictionsRequestRequestTypeDef(BaseModel):
+class ListEventPredictionsRequestRequestTypeDef(BaseValidatorModel):
     eventId: Optional[FilterConditionTypeDef] = None
     eventType: Optional[FilterConditionTypeDef] = None
     detectorId: Optional[FilterConditionTypeDef] = None
@@ -868,26 +868,26 @@ class ListEventPredictionsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class VariableImportanceMetricsTypeDef(BaseModel):
+class VariableImportanceMetricsTypeDef(BaseValidatorModel):
     logOddsMetrics: Optional[List[LogOddsMetricTypeDef]] = None
 
-class TrainingMetricsTypeDef(BaseModel):
+class TrainingMetricsTypeDef(BaseValidatorModel):
     auc: Optional[float] = None
     metricDataPoints: Optional[List[MetricDataPointTypeDef]] = None
 
-class OFIModelPerformanceTypeDef(BaseModel):
+class OFIModelPerformanceTypeDef(BaseValidatorModel):
     auc: Optional[float] = None
     uncertaintyRange: Optional[UncertaintyRangeTypeDef] = None
 
-class TFIModelPerformanceTypeDef(BaseModel):
+class TFIModelPerformanceTypeDef(BaseValidatorModel):
     auc: Optional[float] = None
     uncertaintyRange: Optional[UncertaintyRangeTypeDef] = None
 
-class PredictionExplanationsTypeDef(BaseModel):
+class PredictionExplanationsTypeDef(BaseValidatorModel):
     variableImpactExplanations: Optional[List[VariableImpactExplanationTypeDef]] = None
     aggregatedVariablesImpactExplanations: Optional[       List[AggregatedVariablesImpactExplanationTypeDef]     ] = None
 
-class GetEventPredictionRequestRequestTypeDef(BaseModel):
+class GetEventPredictionRequestRequestTypeDef(BaseValidatorModel):
     detectorId: str
     eventId: str
     eventTypeName: str
@@ -897,27 +897,27 @@ class GetEventPredictionRequestRequestTypeDef(BaseModel):
     detectorVersionId: Optional[str] = None
     externalModelEndpointDataBlobs: Optional[Mapping[str, ModelEndpointDataBlobTypeDef]] = None
 
-class GetEventResultTypeDef(BaseModel):
+class GetEventResultTypeDef(BaseValidatorModel):
     event: EventTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEventTypesResultTypeDef(BaseModel):
+class GetEventTypesResultTypeDef(BaseValidatorModel):
     eventTypes: List[EventTypeTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEventPredictionResultTypeDef(BaseModel):
+class GetEventPredictionResultTypeDef(BaseValidatorModel):
     modelScores: List[ModelScoresTypeDef]
     ruleResults: List[RuleResultTypeDef]
     externalModelOutputs: List[ExternalModelOutputsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetExternalModelsResultTypeDef(BaseModel):
+class GetExternalModelsResultTypeDef(BaseValidatorModel):
     externalModels: List[ExternalModelTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateModelVersionRequestRequestTypeDef(BaseModel):
+class UpdateModelVersionRequestRequestTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     majorVersionNumber: str
@@ -925,7 +925,7 @@ class UpdateModelVersionRequestRequestTypeDef(BaseModel):
     ingestedEventsDetail: Optional[IngestedEventsDetailTypeDef] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateModelVersionRequestRequestTypeDef(BaseModel):
+class CreateModelVersionRequestRequestTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     trainingDataSource: TrainingDataSourceEnumType
@@ -934,7 +934,7 @@ class CreateModelVersionRequestRequestTypeDef(BaseModel):
     ingestedEventsDetail: Optional[IngestedEventsDetailTypeDef] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class GetModelVersionResultTypeDef(BaseModel):
+class GetModelVersionResultTypeDef(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     modelVersionNumber: str
@@ -946,42 +946,42 @@ class GetModelVersionResultTypeDef(BaseModel):
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TrainingResultTypeDef(BaseModel):
+class TrainingResultTypeDef(BaseValidatorModel):
     dataValidationMetrics: Optional[DataValidationMetricsTypeDef] = None
     trainingMetrics: Optional[TrainingMetricsTypeDef] = None
     variableImportanceMetrics: Optional[VariableImportanceMetricsTypeDef] = None
 
-class OFITrainingMetricsValueTypeDef(BaseModel):
+class OFITrainingMetricsValueTypeDef(BaseValidatorModel):
     metricDataPoints: Optional[List[OFIMetricDataPointTypeDef]] = None
     modelPerformance: Optional[OFIModelPerformanceTypeDef] = None
 
-class TFITrainingMetricsValueTypeDef(BaseModel):
+class TFITrainingMetricsValueTypeDef(BaseValidatorModel):
     metricDataPoints: Optional[List[TFIMetricDataPointTypeDef]] = None
     modelPerformance: Optional[TFIModelPerformanceTypeDef] = None
 
-class ModelVersionEvaluationTypeDef(BaseModel):
+class ModelVersionEvaluationTypeDef(BaseValidatorModel):
     outputVariableName: Optional[str] = None
     evaluationScore: Optional[str] = None
     predictionExplanations: Optional[PredictionExplanationsTypeDef] = None
 
-class TrainingMetricsV2TypeDef(BaseModel):
+class TrainingMetricsV2TypeDef(BaseValidatorModel):
     ofi: Optional[OFITrainingMetricsValueTypeDef] = None
     tfi: Optional[TFITrainingMetricsValueTypeDef] = None
     ati: Optional[ATITrainingMetricsValueTypeDef] = None
 
-class EvaluatedModelVersionTypeDef(BaseModel):
+class EvaluatedModelVersionTypeDef(BaseValidatorModel):
     modelId: Optional[str] = None
     modelVersion: Optional[str] = None
     modelType: Optional[str] = None
     evaluations: Optional[List[ModelVersionEvaluationTypeDef]] = None
 
-class TrainingResultV2TypeDef(BaseModel):
+class TrainingResultV2TypeDef(BaseValidatorModel):
     dataValidationMetrics: Optional[DataValidationMetricsTypeDef] = None
     trainingMetricsV2: Optional[TrainingMetricsV2TypeDef] = None
     variableImportanceMetrics: Optional[VariableImportanceMetricsTypeDef] = None
     aggregatedVariablesImportanceMetrics: Optional[       AggregatedVariablesImportanceMetricsTypeDef     ] = None
 
-class GetEventPredictionMetadataResultTypeDef(BaseModel):
+class GetEventPredictionMetadataResultTypeDef(BaseValidatorModel):
     eventId: str
     eventTypeName: str
     entityId: str
@@ -999,7 +999,7 @@ class GetEventPredictionMetadataResultTypeDef(BaseModel):
     predictionTimestamp: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModelVersionDetailTypeDef(BaseModel):
+class ModelVersionDetailTypeDef(BaseValidatorModel):
     modelId: Optional[str] = None
     modelType: Optional[ModelTypeEnumType] = None
     modelVersionNumber: Optional[str] = None
@@ -1014,7 +1014,7 @@ class ModelVersionDetailTypeDef(BaseModel):
     arn: Optional[str] = None
     trainingResultV2: Optional[TrainingResultV2TypeDef] = None
 
-class DescribeModelVersionsResultTypeDef(BaseModel):
+class DescribeModelVersionsResultTypeDef(BaseValidatorModel):
     modelVersionDetails: List[ModelVersionDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

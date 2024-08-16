@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudwatch_constants import *
 
-class AlarmHistoryItemTypeDef(BaseModel):
+class AlarmHistoryItemTypeDef(BaseValidatorModel):
     AlarmName: Optional[str] = None
     AlarmType: Optional[AlarmTypeType] = None
     Timestamp: Optional[datetime] = None
@@ -19,18 +19,18 @@ class AlarmHistoryItemTypeDef(BaseModel):
     HistorySummary: Optional[str] = None
     HistoryData: Optional[str] = None
 
-class RangeTypeDef(BaseModel):
+class RangeTypeDef(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
 
-class DimensionTypeDef(BaseModel):
+class DimensionTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class MetricCharacteristicsTypeDef(BaseModel):
+class MetricCharacteristicsTypeDef(BaseValidatorModel):
     PeriodicSpikes: Optional[bool] = None
 
-class CloudwatchEventStateTypeDef(BaseModel):
+class CloudwatchEventStateTypeDef(BaseValidatorModel):
     timestamp: str
     value: str
     reason: Optional[str] = None
@@ -38,12 +38,12 @@ class CloudwatchEventStateTypeDef(BaseModel):
     actionsSuppressedBy: Optional[str] = None
     actionsSuppressedReason: Optional[str] = None
 
-class CloudwatchEventMetricStatsMetricTypeDef(BaseModel):
+class CloudwatchEventMetricStatsMetricTypeDef(BaseValidatorModel):
     metricName: str
     namespace: str
     dimensions: Dict[str, str]
 
-class CompositeAlarmTypeDef(BaseModel):
+class CompositeAlarmTypeDef(BaseValidatorModel):
     ActionsEnabled: Optional[bool] = None
     AlarmActions: Optional[List[str]] = None
     AlarmArn: Optional[str] = None
@@ -64,17 +64,17 @@ class CompositeAlarmTypeDef(BaseModel):
     ActionsSuppressorWaitPeriod: Optional[int] = None
     ActionsSuppressorExtensionPeriod: Optional[int] = None
 
-class DashboardEntryTypeDef(BaseModel):
+class DashboardEntryTypeDef(BaseValidatorModel):
     DashboardName: Optional[str] = None
     DashboardArn: Optional[str] = None
     LastModified: Optional[datetime] = None
     Size: Optional[int] = None
 
-class DashboardValidationMessageTypeDef(BaseModel):
+class DashboardValidationMessageTypeDef(BaseValidatorModel):
     DataPath: Optional[str] = None
     Message: Optional[str] = None
 
-class DatapointTypeDef(BaseModel):
+class DatapointTypeDef(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
     SampleCount: Optional[float] = None
     Average: Optional[float] = None
@@ -84,41 +84,41 @@ class DatapointTypeDef(BaseModel):
     Unit: Optional[StandardUnitType] = None
     ExtendedStatistics: Optional[Dict[str, float]] = None
 
-class DeleteAlarmsInputRequestTypeDef(BaseModel):
+class DeleteAlarmsInputRequestTypeDef(BaseValidatorModel):
     AlarmNames: Sequence[str]
 
-class DeleteDashboardsInputRequestTypeDef(BaseModel):
+class DeleteDashboardsInputRequestTypeDef(BaseValidatorModel):
     DashboardNames: Sequence[str]
 
-class DeleteInsightRulesInputRequestTypeDef(BaseModel):
+class DeleteInsightRulesInputRequestTypeDef(BaseValidatorModel):
     RuleNames: Sequence[str]
 
-class PartialFailureTypeDef(BaseModel):
+class PartialFailureTypeDef(BaseValidatorModel):
     FailureResource: Optional[str] = None
     ExceptionType: Optional[str] = None
     FailureCode: Optional[str] = None
     FailureDescription: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DeleteMetricStreamInputRequestTypeDef(BaseModel):
+class DeleteMetricStreamInputRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeAlarmsInputRequestTypeDef(BaseModel):
+class DescribeAlarmsInputRequestTypeDef(BaseValidatorModel):
     AlarmNames: Optional[Sequence[str]] = None
     AlarmNamePrefix: Optional[str] = None
     AlarmTypes: Optional[Sequence[AlarmTypeType]] = None
@@ -129,37 +129,37 @@ class DescribeAlarmsInputRequestTypeDef(BaseModel):
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeInsightRulesInputRequestTypeDef(BaseModel):
+class DescribeInsightRulesInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class InsightRuleTypeDef(BaseModel):
+class InsightRuleTypeDef(BaseValidatorModel):
     Name: str
     State: str
     Schema: str
     Definition: str
     ManagedRule: Optional[bool] = None
 
-class DimensionFilterTypeDef(BaseModel):
+class DimensionFilterTypeDef(BaseValidatorModel):
     Name: str
     Value: Optional[str] = None
 
-class DisableAlarmActionsInputRequestTypeDef(BaseModel):
+class DisableAlarmActionsInputRequestTypeDef(BaseValidatorModel):
     AlarmNames: Sequence[str]
 
-class DisableInsightRulesInputRequestTypeDef(BaseModel):
+class DisableInsightRulesInputRequestTypeDef(BaseValidatorModel):
     RuleNames: Sequence[str]
 
-class EnableAlarmActionsInputRequestTypeDef(BaseModel):
+class EnableAlarmActionsInputRequestTypeDef(BaseValidatorModel):
     AlarmNames: Sequence[str]
 
-class EnableInsightRulesInputRequestTypeDef(BaseModel):
+class EnableInsightRulesInputRequestTypeDef(BaseValidatorModel):
     RuleNames: Sequence[str]
 
-class GetDashboardInputRequestTypeDef(BaseModel):
+class GetDashboardInputRequestTypeDef(BaseValidatorModel):
     DashboardName: str
 
-class InsightRuleMetricDatapointTypeDef(BaseModel):
+class InsightRuleMetricDatapointTypeDef(BaseValidatorModel):
     Timestamp: datetime
     UniqueContributors: Optional[float] = None
     MaxContributorValue: Optional[float] = None
@@ -169,42 +169,42 @@ class InsightRuleMetricDatapointTypeDef(BaseModel):
     Minimum: Optional[float] = None
     Maximum: Optional[float] = None
 
-class LabelOptionsTypeDef(BaseModel):
+class LabelOptionsTypeDef(BaseValidatorModel):
     Timezone: Optional[str] = None
 
-class MessageDataTypeDef(BaseModel):
+class MessageDataTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Value: Optional[str] = None
 
-class GetMetricStreamInputRequestTypeDef(BaseModel):
+class GetMetricStreamInputRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class MetricStreamFilterTypeDef(BaseModel):
+class MetricStreamFilterTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricNames: Optional[List[str]] = None
 
-class GetMetricWidgetImageInputRequestTypeDef(BaseModel):
+class GetMetricWidgetImageInputRequestTypeDef(BaseValidatorModel):
     MetricWidget: str
     OutputFormat: Optional[str] = None
 
-class InsightRuleContributorDatapointTypeDef(BaseModel):
+class InsightRuleContributorDatapointTypeDef(BaseValidatorModel):
     Timestamp: datetime
     ApproximateValue: float
 
-class ListDashboardsInputRequestTypeDef(BaseModel):
+class ListDashboardsInputRequestTypeDef(BaseValidatorModel):
     DashboardNamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListManagedInsightRulesInputRequestTypeDef(BaseModel):
+class ListManagedInsightRulesInputRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListMetricStreamsInputRequestTypeDef(BaseModel):
+class ListMetricStreamsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MetricStreamEntryTypeDef(BaseModel):
+class MetricStreamEntryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreationDate: Optional[datetime] = None
     LastUpdateDate: Optional[datetime] = None
@@ -213,57 +213,57 @@ class MetricStreamEntryTypeDef(BaseModel):
     State: Optional[str] = None
     OutputFormat: Optional[MetricStreamOutputFormatType] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ManagedRuleStateTypeDef(BaseModel):
+class ManagedRuleStateTypeDef(BaseValidatorModel):
     RuleName: str
     State: str
 
-class StatisticSetTypeDef(BaseModel):
+class StatisticSetTypeDef(BaseValidatorModel):
     SampleCount: float
     Sum: float
     Minimum: float
     Maximum: float
 
-class MetricStreamStatisticsMetricTypeDef(BaseModel):
+class MetricStreamStatisticsMetricTypeDef(BaseValidatorModel):
     Namespace: str
     MetricName: str
 
-class PutDashboardInputRequestTypeDef(BaseModel):
+class PutDashboardInputRequestTypeDef(BaseValidatorModel):
     DashboardName: str
     DashboardBody: str
 
-class SetAlarmStateInputAlarmSetStateTypeDef(BaseModel):
+class SetAlarmStateInputAlarmSetStateTypeDef(BaseValidatorModel):
     StateValue: StateValueType
     StateReason: str
     StateReasonData: Optional[str] = None
 
-class SetAlarmStateInputRequestTypeDef(BaseModel):
+class SetAlarmStateInputRequestTypeDef(BaseValidatorModel):
     AlarmName: str
     StateValue: StateValueType
     StateReason: str
     StateReasonData: Optional[str] = None
 
-class StartMetricStreamsInputRequestTypeDef(BaseModel):
+class StartMetricStreamsInputRequestTypeDef(BaseValidatorModel):
     Names: Sequence[str]
 
-class StopMetricStreamsInputRequestTypeDef(BaseModel):
+class StopMetricStreamsInputRequestTypeDef(BaseValidatorModel):
     Names: Sequence[str]
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class AnomalyDetectorConfigurationTypeDef(BaseModel):
+class AnomalyDetectorConfigurationTypeDef(BaseValidatorModel):
     ExcludedTimeRanges: Optional[List[RangeTypeDef]] = None
     MetricTimezone: Optional[str] = None
 
-class DescribeAlarmsForMetricInputRequestTypeDef(BaseModel):
+class DescribeAlarmsForMetricInputRequestTypeDef(BaseValidatorModel):
     MetricName: str
     Namespace: str
     Statistic: Optional[StatisticType] = None
@@ -272,7 +272,7 @@ class DescribeAlarmsForMetricInputRequestTypeDef(BaseModel):
     Period: Optional[int] = None
     Unit: Optional[StandardUnitType] = None
 
-class DescribeAnomalyDetectorsInputRequestTypeDef(BaseModel):
+class DescribeAnomalyDetectorsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Namespace: Optional[str] = None
@@ -280,88 +280,88 @@ class DescribeAnomalyDetectorsInputRequestTypeDef(BaseModel):
     Dimensions: Optional[Sequence[DimensionTypeDef]] = None
     AnomalyDetectorTypes: Optional[Sequence[AnomalyDetectorTypeType]] = None
 
-class MetricPaginatorTypeDef(BaseModel):
+class MetricPaginatorTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
 
-class MetricTypeDef(BaseModel):
+class MetricTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[Sequence[DimensionTypeDef]] = None
 
-class SingleMetricAnomalyDetectorPaginatorTypeDef(BaseModel):
+class SingleMetricAnomalyDetectorPaginatorTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
     Stat: Optional[str] = None
 
-class SingleMetricAnomalyDetectorTypeDef(BaseModel):
+class SingleMetricAnomalyDetectorTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[Sequence[DimensionTypeDef]] = None
     Stat: Optional[str] = None
 
-class CloudwatchEventMetricStatsTypeDef(BaseModel):
+class CloudwatchEventMetricStatsTypeDef(BaseValidatorModel):
     period: str
     stat: str
     metric: Optional[CloudwatchEventMetricStatsMetricTypeDef] = None
 
-class DeleteInsightRulesOutputTypeDef(BaseModel):
+class DeleteInsightRulesOutputTypeDef(BaseValidatorModel):
     Failures: List[PartialFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAlarmHistoryOutputTypeDef(BaseModel):
+class DescribeAlarmHistoryOutputTypeDef(BaseValidatorModel):
     AlarmHistoryItems: List[AlarmHistoryItemTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableInsightRulesOutputTypeDef(BaseModel):
+class DisableInsightRulesOutputTypeDef(BaseValidatorModel):
     Failures: List[PartialFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableInsightRulesOutputTypeDef(BaseModel):
+class EnableInsightRulesOutputTypeDef(BaseValidatorModel):
     Failures: List[PartialFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDashboardOutputTypeDef(BaseModel):
+class GetDashboardOutputTypeDef(BaseValidatorModel):
     DashboardArn: str
     DashboardBody: str
     DashboardName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMetricStatisticsOutputTypeDef(BaseModel):
+class GetMetricStatisticsOutputTypeDef(BaseValidatorModel):
     Label: str
     Datapoints: List[DatapointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMetricWidgetImageOutputTypeDef(BaseModel):
+class GetMetricWidgetImageOutputTypeDef(BaseValidatorModel):
     MetricWidgetImage: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDashboardsOutputTypeDef(BaseModel):
+class ListDashboardsOutputTypeDef(BaseValidatorModel):
     DashboardEntries: List[DashboardEntryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDashboardOutputTypeDef(BaseModel):
+class PutDashboardOutputTypeDef(BaseValidatorModel):
     DashboardValidationMessages: List[DashboardValidationMessageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutManagedInsightRulesOutputTypeDef(BaseModel):
+class PutManagedInsightRulesOutputTypeDef(BaseValidatorModel):
     Failures: List[PartialFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutMetricStreamOutputTypeDef(BaseModel):
+class PutMetricStreamOutputTypeDef(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAlarmHistoryInputAlarmDescribeHistoryTypeDef(BaseModel):
+class DescribeAlarmHistoryInputAlarmDescribeHistoryTypeDef(BaseValidatorModel):
     AlarmTypes: Optional[Sequence[AlarmTypeType]] = None
     HistoryItemType: Optional[HistoryItemTypeType] = None
     StartDate: Optional[TimestampTypeDef] = None
@@ -370,7 +370,7 @@ class DescribeAlarmHistoryInputAlarmDescribeHistoryTypeDef(BaseModel):
     NextToken: Optional[str] = None
     ScanBy: Optional[ScanByType] = None
 
-class DescribeAlarmHistoryInputRequestTypeDef(BaseModel):
+class DescribeAlarmHistoryInputRequestTypeDef(BaseValidatorModel):
     AlarmName: Optional[str] = None
     AlarmTypes: Optional[Sequence[AlarmTypeType]] = None
     HistoryItemType: Optional[HistoryItemTypeType] = None
@@ -380,7 +380,7 @@ class DescribeAlarmHistoryInputRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     ScanBy: Optional[ScanByType] = None
 
-class GetInsightRuleReportInputRequestTypeDef(BaseModel):
+class GetInsightRuleReportInputRequestTypeDef(BaseValidatorModel):
     RuleName: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
@@ -389,7 +389,7 @@ class GetInsightRuleReportInputRequestTypeDef(BaseModel):
     Metrics: Optional[Sequence[str]] = None
     OrderBy: Optional[str] = None
 
-class GetMetricStatisticsInputMetricGetStatisticsTypeDef(BaseModel):
+class GetMetricStatisticsInputMetricGetStatisticsTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     Period: int
@@ -398,7 +398,7 @@ class GetMetricStatisticsInputMetricGetStatisticsTypeDef(BaseModel):
     ExtendedStatistics: Optional[Sequence[str]] = None
     Unit: Optional[StandardUnitType] = None
 
-class GetMetricStatisticsInputRequestTypeDef(BaseModel):
+class GetMetricStatisticsInputRequestTypeDef(BaseValidatorModel):
     Namespace: str
     MetricName: str
     StartTime: TimestampTypeDef
@@ -409,7 +409,7 @@ class GetMetricStatisticsInputRequestTypeDef(BaseModel):
     ExtendedStatistics: Optional[Sequence[str]] = None
     Unit: Optional[StandardUnitType] = None
 
-class DescribeAlarmHistoryInputDescribeAlarmHistoryPaginateTypeDef(BaseModel):
+class DescribeAlarmHistoryInputDescribeAlarmHistoryPaginateTypeDef(BaseValidatorModel):
     AlarmName: Optional[str] = None
     AlarmTypes: Optional[Sequence[AlarmTypeType]] = None
     HistoryItemType: Optional[HistoryItemTypeType] = None
@@ -418,7 +418,7 @@ class DescribeAlarmHistoryInputDescribeAlarmHistoryPaginateTypeDef(BaseModel):
     ScanBy: Optional[ScanByType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAlarmsInputDescribeAlarmsPaginateTypeDef(BaseModel):
+class DescribeAlarmsInputDescribeAlarmsPaginateTypeDef(BaseValidatorModel):
     AlarmNames: Optional[Sequence[str]] = None
     AlarmNamePrefix: Optional[str] = None
     AlarmTypes: Optional[Sequence[AlarmTypeType]] = None
@@ -428,18 +428,18 @@ class DescribeAlarmsInputDescribeAlarmsPaginateTypeDef(BaseModel):
     ActionPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAnomalyDetectorsInputDescribeAnomalyDetectorsPaginateTypeDef(BaseModel):
+class DescribeAnomalyDetectorsInputDescribeAnomalyDetectorsPaginateTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[Sequence[DimensionTypeDef]] = None
     AnomalyDetectorTypes: Optional[Sequence[AnomalyDetectorTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDashboardsInputListDashboardsPaginateTypeDef(BaseModel):
+class ListDashboardsInputListDashboardsPaginateTypeDef(BaseValidatorModel):
     DashboardNamePrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAlarmsInputAlarmExistsWaitTypeDef(BaseModel):
+class DescribeAlarmsInputAlarmExistsWaitTypeDef(BaseValidatorModel):
     AlarmNames: Optional[Sequence[str]] = None
     AlarmNamePrefix: Optional[str] = None
     AlarmTypes: Optional[Sequence[AlarmTypeType]] = None
@@ -451,7 +451,7 @@ class DescribeAlarmsInputAlarmExistsWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeAlarmsInputCompositeAlarmExistsWaitTypeDef(BaseModel):
+class DescribeAlarmsInputCompositeAlarmExistsWaitTypeDef(BaseValidatorModel):
     AlarmNames: Optional[Sequence[str]] = None
     AlarmNamePrefix: Optional[str] = None
     AlarmTypes: Optional[Sequence[AlarmTypeType]] = None
@@ -463,12 +463,12 @@ class DescribeAlarmsInputCompositeAlarmExistsWaitTypeDef(BaseModel):
     NextToken: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInsightRulesOutputTypeDef(BaseModel):
+class DescribeInsightRulesOutputTypeDef(BaseValidatorModel):
     NextToken: str
     InsightRules: List[InsightRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMetricsInputListMetricsPaginateTypeDef(BaseModel):
+class ListMetricsInputListMetricsPaginateTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[Sequence[DimensionFilterTypeDef]] = None
@@ -477,7 +477,7 @@ class ListMetricsInputListMetricsPaginateTypeDef(BaseModel):
     OwningAccount: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMetricsInputRequestTypeDef(BaseModel):
+class ListMetricsInputRequestTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[Sequence[DimensionFilterTypeDef]] = None
@@ -486,7 +486,7 @@ class ListMetricsInputRequestTypeDef(BaseModel):
     IncludeLinkedAccounts: Optional[bool] = None
     OwningAccount: Optional[str] = None
 
-class MetricDataResultTypeDef(BaseModel):
+class MetricDataResultTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Label: Optional[str] = None
     Timestamps: Optional[List[datetime]] = None
@@ -494,26 +494,26 @@ class MetricDataResultTypeDef(BaseModel):
     StatusCode: Optional[StatusCodeType] = None
     Messages: Optional[List[MessageDataTypeDef]] = None
 
-class InsightRuleContributorTypeDef(BaseModel):
+class InsightRuleContributorTypeDef(BaseValidatorModel):
     Keys: List[str]
     ApproximateAggregateValue: float
     Datapoints: List[InsightRuleContributorDatapointTypeDef]
 
-class ListMetricStreamsOutputTypeDef(BaseModel):
+class ListMetricStreamsOutputTypeDef(BaseValidatorModel):
     NextToken: str
     Entries: List[MetricStreamEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ManagedRuleTypeDef(BaseModel):
+class ManagedRuleTypeDef(BaseValidatorModel):
     TemplateName: str
     ResourceARN: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class PutCompositeAlarmInputRequestTypeDef(BaseModel):
+class PutCompositeAlarmInputRequestTypeDef(BaseValidatorModel):
     AlarmName: str
     AlarmRule: str
     ActionsEnabled: Optional[bool] = None
@@ -526,22 +526,22 @@ class PutCompositeAlarmInputRequestTypeDef(BaseModel):
     ActionsSuppressorWaitPeriod: Optional[int] = None
     ActionsSuppressorExtensionPeriod: Optional[int] = None
 
-class PutInsightRuleInputRequestTypeDef(BaseModel):
+class PutInsightRuleInputRequestTypeDef(BaseValidatorModel):
     RuleName: str
     RuleDefinition: str
     RuleState: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class ManagedRuleDescriptionTypeDef(BaseModel):
+class ManagedRuleDescriptionTypeDef(BaseValidatorModel):
     TemplateName: Optional[str] = None
     ResourceARN: Optional[str] = None
     RuleState: Optional[ManagedRuleStateTypeDef] = None
 
-class MetricDatumTypeDef(BaseModel):
+class MetricDatumTypeDef(BaseValidatorModel):
     MetricName: str
     Dimensions: Optional[Sequence[DimensionTypeDef]] = None
     Timestamp: Optional[TimestampTypeDef] = None
@@ -552,35 +552,35 @@ class MetricDatumTypeDef(BaseModel):
     Unit: Optional[StandardUnitType] = None
     StorageResolution: Optional[int] = None
 
-class MetricStreamStatisticsConfigurationTypeDef(BaseModel):
+class MetricStreamStatisticsConfigurationTypeDef(BaseValidatorModel):
     IncludeMetrics: List[MetricStreamStatisticsMetricTypeDef]
     AdditionalStatistics: List[str]
 
-class ListMetricsOutputPaginatorTypeDef(BaseModel):
+class ListMetricsOutputPaginatorTypeDef(BaseValidatorModel):
     Metrics: List[MetricPaginatorTypeDef]
     NextToken: str
     OwningAccounts: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricStatPaginatorTypeDef(BaseModel):
+class MetricStatPaginatorTypeDef(BaseValidatorModel):
     Metric: MetricPaginatorTypeDef
     Period: int
     Stat: str
     Unit: Optional[StandardUnitType] = None
 
-class ListMetricsOutputTypeDef(BaseModel):
+class ListMetricsOutputTypeDef(BaseValidatorModel):
     Metrics: List[MetricTypeDef]
     NextToken: str
     OwningAccounts: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricStatTypeDef(BaseModel):
+class MetricStatTypeDef(BaseValidatorModel):
     Metric: MetricTypeDef
     Period: int
     Stat: str
     Unit: Optional[StandardUnitType] = None
 
-class CloudwatchEventMetricTypeDef(BaseModel):
+class CloudwatchEventMetricTypeDef(BaseValidatorModel):
     id: str
     returnData: bool
     metricStat: Optional[CloudwatchEventMetricStatsTypeDef] = None
@@ -588,13 +588,13 @@ class CloudwatchEventMetricTypeDef(BaseModel):
     label: Optional[str] = None
     period: Optional[int] = None
 
-class GetMetricDataOutputTypeDef(BaseModel):
+class GetMetricDataOutputTypeDef(BaseValidatorModel):
     MetricDataResults: List[MetricDataResultTypeDef]
     NextToken: str
     Messages: List[MessageDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInsightRuleReportOutputTypeDef(BaseModel):
+class GetInsightRuleReportOutputTypeDef(BaseValidatorModel):
     KeyLabels: List[str]
     AggregationStatistic: str
     AggregateValue: float
@@ -603,19 +603,19 @@ class GetInsightRuleReportOutputTypeDef(BaseModel):
     MetricDatapoints: List[InsightRuleMetricDatapointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutManagedInsightRulesInputRequestTypeDef(BaseModel):
+class PutManagedInsightRulesInputRequestTypeDef(BaseValidatorModel):
     ManagedRules: Sequence[ManagedRuleTypeDef]
 
-class ListManagedInsightRulesOutputTypeDef(BaseModel):
+class ListManagedInsightRulesOutputTypeDef(BaseValidatorModel):
     ManagedRules: List[ManagedRuleDescriptionTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutMetricDataInputRequestTypeDef(BaseModel):
+class PutMetricDataInputRequestTypeDef(BaseValidatorModel):
     Namespace: str
     MetricData: Sequence[MetricDatumTypeDef]
 
-class GetMetricStreamOutputTypeDef(BaseModel):
+class GetMetricStreamOutputTypeDef(BaseValidatorModel):
     Arn: str
     Name: str
     IncludeFilters: List[MetricStreamFilterTypeDef]
@@ -630,7 +630,7 @@ class GetMetricStreamOutputTypeDef(BaseModel):
     IncludeLinkedAccountsMetrics: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutMetricStreamInputRequestTypeDef(BaseModel):
+class PutMetricStreamInputRequestTypeDef(BaseValidatorModel):
     Name: str
     FirehoseArn: str
     RoleArn: str
@@ -641,7 +641,7 @@ class PutMetricStreamInputRequestTypeDef(BaseModel):
     StatisticsConfigurations: Optional[       Sequence[MetricStreamStatisticsConfigurationTypeDef]     ] = None
     IncludeLinkedAccountsMetrics: Optional[bool] = None
 
-class MetricDataQueryPaginatorTypeDef(BaseModel):
+class MetricDataQueryPaginatorTypeDef(BaseValidatorModel):
     Id: str
     MetricStat: Optional[MetricStatPaginatorTypeDef] = None
     Expression: Optional[str] = None
@@ -650,7 +650,7 @@ class MetricDataQueryPaginatorTypeDef(BaseModel):
     Period: Optional[int] = None
     AccountId: Optional[str] = None
 
-class MetricDataQueryTypeDef(BaseModel):
+class MetricDataQueryTypeDef(BaseValidatorModel):
     Id: str
     MetricStat: Optional[MetricStatTypeDef] = None
     Expression: Optional[str] = None
@@ -659,7 +659,7 @@ class MetricDataQueryTypeDef(BaseModel):
     Period: Optional[int] = None
     AccountId: Optional[str] = None
 
-class CloudwatchEventDetailConfigurationTypeDef(BaseModel):
+class CloudwatchEventDetailConfigurationTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     description: Optional[str] = None
     metrics: Optional[List[CloudwatchEventMetricTypeDef]] = None
@@ -678,7 +678,7 @@ class CloudwatchEventDetailConfigurationTypeDef(BaseModel):
     alarmActions: Optional[List[str]] = None
     insufficientDataActions: Optional[List[str]] = None
 
-class GetMetricDataInputGetMetricDataPaginateTypeDef(BaseModel):
+class GetMetricDataInputGetMetricDataPaginateTypeDef(BaseValidatorModel):
     MetricDataQueries: Sequence[MetricDataQueryPaginatorTypeDef]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
@@ -686,7 +686,7 @@ class GetMetricDataInputGetMetricDataPaginateTypeDef(BaseModel):
     LabelOptions: Optional[LabelOptionsTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class MetricAlarmPaginatorTypeDef(BaseModel):
+class MetricAlarmPaginatorTypeDef(BaseValidatorModel):
     AlarmName: Optional[str] = None
     AlarmArn: Optional[str] = None
     AlarmDescription: Optional[str] = None
@@ -717,10 +717,10 @@ class MetricAlarmPaginatorTypeDef(BaseModel):
     EvaluationState: Optional[Literal["PARTIAL_DATA"]] = None
     StateTransitionedTimestamp: Optional[datetime] = None
 
-class MetricMathAnomalyDetectorPaginatorTypeDef(BaseModel):
+class MetricMathAnomalyDetectorPaginatorTypeDef(BaseValidatorModel):
     MetricDataQueries: Optional[List[MetricDataQueryPaginatorTypeDef]] = None
 
-class GetMetricDataInputRequestTypeDef(BaseModel):
+class GetMetricDataInputRequestTypeDef(BaseValidatorModel):
     MetricDataQueries: Sequence[MetricDataQueryTypeDef]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
@@ -729,7 +729,7 @@ class GetMetricDataInputRequestTypeDef(BaseModel):
     MaxDatapoints: Optional[int] = None
     LabelOptions: Optional[LabelOptionsTypeDef] = None
 
-class MetricAlarmTypeDef(BaseModel):
+class MetricAlarmTypeDef(BaseValidatorModel):
     AlarmName: Optional[str] = None
     AlarmArn: Optional[str] = None
     AlarmDescription: Optional[str] = None
@@ -760,10 +760,10 @@ class MetricAlarmTypeDef(BaseModel):
     EvaluationState: Optional[Literal["PARTIAL_DATA"]] = None
     StateTransitionedTimestamp: Optional[datetime] = None
 
-class MetricMathAnomalyDetectorTypeDef(BaseModel):
+class MetricMathAnomalyDetectorTypeDef(BaseValidatorModel):
     MetricDataQueries: Optional[Sequence[MetricDataQueryTypeDef]] = None
 
-class PutMetricAlarmInputMetricPutAlarmTypeDef(BaseModel):
+class PutMetricAlarmInputMetricPutAlarmTypeDef(BaseValidatorModel):
     AlarmName: str
     EvaluationPeriods: int
     ComparisonOperator: ComparisonOperatorType
@@ -785,7 +785,7 @@ class PutMetricAlarmInputMetricPutAlarmTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     ThresholdMetricId: Optional[str] = None
 
-class PutMetricAlarmInputRequestTypeDef(BaseModel):
+class PutMetricAlarmInputRequestTypeDef(BaseValidatorModel):
     AlarmName: str
     EvaluationPeriods: int
     ComparisonOperator: ComparisonOperatorType
@@ -809,7 +809,7 @@ class PutMetricAlarmInputRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     ThresholdMetricId: Optional[str] = None
 
-class CloudwatchEventDetailTypeDef(BaseModel):
+class CloudwatchEventDetailTypeDef(BaseValidatorModel):
     alarmName: str
     state: CloudwatchEventStateTypeDef
     operation: Optional[str] = None
@@ -817,13 +817,13 @@ class CloudwatchEventDetailTypeDef(BaseModel):
     previousConfiguration: Optional[CloudwatchEventDetailConfigurationTypeDef] = None
     previousState: Optional[CloudwatchEventStateTypeDef] = None
 
-class DescribeAlarmsOutputPaginatorTypeDef(BaseModel):
+class DescribeAlarmsOutputPaginatorTypeDef(BaseValidatorModel):
     CompositeAlarms: List[CompositeAlarmTypeDef]
     MetricAlarms: List[MetricAlarmPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AnomalyDetectorPaginatorTypeDef(BaseModel):
+class AnomalyDetectorPaginatorTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
@@ -834,23 +834,23 @@ class AnomalyDetectorPaginatorTypeDef(BaseModel):
     SingleMetricAnomalyDetector: Optional[SingleMetricAnomalyDetectorPaginatorTypeDef] = None
     MetricMathAnomalyDetector: Optional[MetricMathAnomalyDetectorPaginatorTypeDef] = None
 
-class DescribeAlarmsForMetricOutputTypeDef(BaseModel):
+class DescribeAlarmsForMetricOutputTypeDef(BaseValidatorModel):
     MetricAlarms: List[MetricAlarmTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAlarmsOutputTypeDef(BaseModel):
+class DescribeAlarmsOutputTypeDef(BaseValidatorModel):
     CompositeAlarms: List[CompositeAlarmTypeDef]
     MetricAlarms: List[MetricAlarmTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricStatAlarmTypeDef(BaseModel):
+class MetricStatAlarmTypeDef(BaseValidatorModel):
     Metric: MetricAlarmTypeDef
     Period: int
     Stat: str
     Unit: Optional[StandardUnitType] = None
 
-class AnomalyDetectorTypeDef(BaseModel):
+class AnomalyDetectorTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
@@ -861,7 +861,7 @@ class AnomalyDetectorTypeDef(BaseModel):
     SingleMetricAnomalyDetector: Optional[SingleMetricAnomalyDetectorTypeDef] = None
     MetricMathAnomalyDetector: Optional[MetricMathAnomalyDetectorTypeDef] = None
 
-class DeleteAnomalyDetectorInputRequestTypeDef(BaseModel):
+class DeleteAnomalyDetectorInputRequestTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[Sequence[DimensionTypeDef]] = None
@@ -869,7 +869,7 @@ class DeleteAnomalyDetectorInputRequestTypeDef(BaseModel):
     SingleMetricAnomalyDetector: Optional[SingleMetricAnomalyDetectorTypeDef] = None
     MetricMathAnomalyDetector: Optional[MetricMathAnomalyDetectorTypeDef] = None
 
-class PutAnomalyDetectorInputRequestTypeDef(BaseModel):
+class PutAnomalyDetectorInputRequestTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[Sequence[DimensionTypeDef]] = None
@@ -879,7 +879,7 @@ class PutAnomalyDetectorInputRequestTypeDef(BaseModel):
     SingleMetricAnomalyDetector: Optional[SingleMetricAnomalyDetectorTypeDef] = None
     MetricMathAnomalyDetector: Optional[MetricMathAnomalyDetectorTypeDef] = None
 
-class CloudwatchEventTypeDef(BaseModel):
+class CloudwatchEventTypeDef(BaseValidatorModel):
     version: str
     id: str
     source: str
@@ -889,12 +889,12 @@ class CloudwatchEventTypeDef(BaseModel):
     resources: List[str]
     detail: CloudwatchEventDetailTypeDef
 
-class DescribeAnomalyDetectorsOutputPaginatorTypeDef(BaseModel):
+class DescribeAnomalyDetectorsOutputPaginatorTypeDef(BaseValidatorModel):
     AnomalyDetectors: List[AnomalyDetectorPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricDataQueryAlarmTypeDef(BaseModel):
+class MetricDataQueryAlarmTypeDef(BaseValidatorModel):
     Id: str
     MetricStat: Optional[MetricStatAlarmTypeDef] = None
     Expression: Optional[str] = None
@@ -903,7 +903,7 @@ class MetricDataQueryAlarmTypeDef(BaseModel):
     Period: Optional[int] = None
     AccountId: Optional[str] = None
 
-class DescribeAnomalyDetectorsOutputTypeDef(BaseModel):
+class DescribeAnomalyDetectorsOutputTypeDef(BaseValidatorModel):
     AnomalyDetectors: List[AnomalyDetectorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

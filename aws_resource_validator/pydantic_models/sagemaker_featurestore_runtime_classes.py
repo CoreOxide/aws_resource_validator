@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,71 +11,71 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_constants import *
 
-class BatchGetRecordErrorTypeDef(BaseModel):
+class BatchGetRecordErrorTypeDef(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
     ErrorCode: str
     ErrorMessage: str
 
-class BatchGetRecordIdentifierTypeDef(BaseModel):
+class BatchGetRecordIdentifierTypeDef(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifiersValueAsString: Sequence[str]
     FeatureNames: Optional[Sequence[str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class FeatureValueTypeDef(BaseModel):
+class FeatureValueTypeDef(BaseValidatorModel):
     FeatureName: str
     ValueAsString: Optional[str] = None
     ValueAsStringList: Optional[List[str]] = None
 
-class DeleteRecordRequestRequestTypeDef(BaseModel):
+class DeleteRecordRequestRequestTypeDef(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
     EventTime: str
     TargetStores: Optional[Sequence[TargetStoreType]] = None
     DeletionMode: Optional[DeletionModeType] = None
 
-class GetRecordRequestRequestTypeDef(BaseModel):
+class GetRecordRequestRequestTypeDef(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
     FeatureNames: Optional[Sequence[str]] = None
     ExpirationTimeResponse: Optional[ExpirationTimeResponseType] = None
 
-class TtlDurationTypeDef(BaseModel):
+class TtlDurationTypeDef(BaseValidatorModel):
     Unit: TtlDurationUnitType
     Value: int
 
-class BatchGetRecordRequestRequestTypeDef(BaseModel):
+class BatchGetRecordRequestRequestTypeDef(BaseValidatorModel):
     Identifiers: Sequence[BatchGetRecordIdentifierTypeDef]
     ExpirationTimeResponse: Optional[ExpirationTimeResponseType] = None
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetRecordResultDetailTypeDef(BaseModel):
+class BatchGetRecordResultDetailTypeDef(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
     Record: List[FeatureValueTypeDef]
     ExpiresAt: Optional[str] = None
 
-class GetRecordResponseTypeDef(BaseModel):
+class GetRecordResponseTypeDef(BaseValidatorModel):
     Record: List[FeatureValueTypeDef]
     ExpiresAt: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRecordRequestRequestTypeDef(BaseModel):
+class PutRecordRequestRequestTypeDef(BaseValidatorModel):
     FeatureGroupName: str
     Record: Sequence[FeatureValueTypeDef]
     TargetStores: Optional[Sequence[TargetStoreType]] = None
     TtlDuration: Optional[TtlDurationTypeDef] = None
 
-class BatchGetRecordResponseTypeDef(BaseModel):
+class BatchGetRecordResponseTypeDef(BaseValidatorModel):
     Records: List[BatchGetRecordResultDetailTypeDef]
     Errors: List[BatchGetRecordErrorTypeDef]
     UnprocessedIdentifiers: List[BatchGetRecordIdentifierTypeDef]

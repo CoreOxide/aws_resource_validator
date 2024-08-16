@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,97 +11,97 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codeguruprofiler_constants import *
 
-class ChannelTypeDef(BaseModel):
+class ChannelTypeDef(BaseValidatorModel):
     eventPublishers: Sequence[Literal["AnomalyDetection"]]
     uri: str
     id: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class AgentConfigurationTypeDef(BaseModel):
+class AgentConfigurationTypeDef(BaseValidatorModel):
     periodInSeconds: int
     shouldProfile: bool
     agentParameters: Optional[Dict[AgentParameterFieldType, str]] = None
 
-class AgentOrchestrationConfigTypeDef(BaseModel):
+class AgentOrchestrationConfigTypeDef(BaseValidatorModel):
     profilingEnabled: bool
 
-class AggregatedProfileTimeTypeDef(BaseModel):
+class AggregatedProfileTimeTypeDef(BaseValidatorModel):
     period: Optional[AggregationPeriodType] = None
     start: Optional[datetime] = None
 
-class UserFeedbackTypeDef(BaseModel):
+class UserFeedbackTypeDef(BaseValidatorModel):
     type: FeedbackTypeType
 
-class MetricTypeDef(BaseModel):
+class MetricTypeDef(BaseValidatorModel):
     frameName: str
     threadStates: List[str]
     type: Literal["AggregatedRelativeTotalTime"]
 
-class FrameMetricTypeDef(BaseModel):
+class FrameMetricTypeDef(BaseValidatorModel):
     frameName: str
     threadStates: Sequence[str]
     type: Literal["AggregatedRelativeTotalTime"]
 
-class TimestampStructureTypeDef(BaseModel):
+class TimestampStructureTypeDef(BaseValidatorModel):
     value: datetime
 
-class ConfigureAgentRequestRequestTypeDef(BaseModel):
+class ConfigureAgentRequestRequestTypeDef(BaseValidatorModel):
     profilingGroupName: str
     fleetInstanceId: Optional[str] = None
     metadata: Optional[Mapping[MetadataFieldType, str]] = None
 
-class DeleteProfilingGroupRequestRequestTypeDef(BaseModel):
+class DeleteProfilingGroupRequestRequestTypeDef(BaseValidatorModel):
     profilingGroupName: str
 
-class DescribeProfilingGroupRequestRequestTypeDef(BaseModel):
+class DescribeProfilingGroupRequestRequestTypeDef(BaseValidatorModel):
     profilingGroupName: str
 
-class FindingsReportSummaryTypeDef(BaseModel):
+class FindingsReportSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     profileEndTime: Optional[datetime] = None
     profileStartTime: Optional[datetime] = None
     profilingGroupName: Optional[str] = None
     totalNumberOfFindings: Optional[int] = None
 
-class GetFindingsReportAccountSummaryRequestRequestTypeDef(BaseModel):
+class GetFindingsReportAccountSummaryRequestRequestTypeDef(BaseValidatorModel):
     dailyReportsOnly: Optional[bool] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class GetNotificationConfigurationRequestRequestTypeDef(BaseModel):
+class GetNotificationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     profilingGroupName: str
 
-class GetPolicyRequestRequestTypeDef(BaseModel):
+class GetPolicyRequestRequestTypeDef(BaseValidatorModel):
     profilingGroupName: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ProfileTimeTypeDef(BaseModel):
+class ProfileTimeTypeDef(BaseValidatorModel):
     start: Optional[datetime] = None
 
-class ListProfilingGroupsRequestRequestTypeDef(BaseModel):
+class ListProfilingGroupsRequestRequestTypeDef(BaseValidatorModel):
     includeDescription: Optional[bool] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class MatchTypeDef(BaseModel):
+class MatchTypeDef(BaseValidatorModel):
     frameAddress: Optional[str] = None
     targetFramesIndex: Optional[int] = None
     thresholdBreachValue: Optional[float] = None
 
-class PatternTypeDef(BaseModel):
+class PatternTypeDef(BaseValidatorModel):
     countersToAggregate: Optional[List[str]] = None
     description: Optional[str] = None
     id: Optional[str] = None
@@ -110,98 +110,98 @@ class PatternTypeDef(BaseModel):
     targetFrames: Optional[List[List[str]]] = None
     thresholdPercent: Optional[float] = None
 
-class PutPermissionRequestRequestTypeDef(BaseModel):
+class PutPermissionRequestRequestTypeDef(BaseValidatorModel):
     actionGroup: Literal["agentPermissions"]
     principals: Sequence[str]
     profilingGroupName: str
     revisionId: Optional[str] = None
 
-class RemoveNotificationChannelRequestRequestTypeDef(BaseModel):
+class RemoveNotificationChannelRequestRequestTypeDef(BaseValidatorModel):
     channelId: str
     profilingGroupName: str
 
-class RemovePermissionRequestRequestTypeDef(BaseModel):
+class RemovePermissionRequestRequestTypeDef(BaseValidatorModel):
     actionGroup: Literal["agentPermissions"]
     profilingGroupName: str
     revisionId: str
 
-class SubmitFeedbackRequestRequestTypeDef(BaseModel):
+class SubmitFeedbackRequestRequestTypeDef(BaseValidatorModel):
     anomalyInstanceId: str
     profilingGroupName: str
     type: FeedbackTypeType
     comment: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class AddNotificationChannelsRequestRequestTypeDef(BaseModel):
+class AddNotificationChannelsRequestRequestTypeDef(BaseValidatorModel):
     channels: Sequence[ChannelTypeDef]
     profilingGroupName: str
 
-class NotificationConfigurationTypeDef(BaseModel):
+class NotificationConfigurationTypeDef(BaseValidatorModel):
     channels: Optional[List[ChannelTypeDef]] = None
 
-class GetPolicyResponseTypeDef(BaseModel):
+class GetPolicyResponseTypeDef(BaseValidatorModel):
     policy: str
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetProfileResponseTypeDef(BaseModel):
+class GetProfileResponseTypeDef(BaseValidatorModel):
     contentEncoding: str
     contentType: str
     profile: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutPermissionResponseTypeDef(BaseModel):
+class PutPermissionResponseTypeDef(BaseValidatorModel):
     policy: str
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RemovePermissionResponseTypeDef(BaseModel):
+class RemovePermissionResponseTypeDef(BaseValidatorModel):
     policy: str
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfigureAgentResponseTypeDef(BaseModel):
+class ConfigureAgentResponseTypeDef(BaseValidatorModel):
     configuration: AgentConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProfilingGroupRequestRequestTypeDef(BaseModel):
+class CreateProfilingGroupRequestRequestTypeDef(BaseValidatorModel):
     clientToken: str
     profilingGroupName: str
     agentOrchestrationConfig: Optional[AgentOrchestrationConfigTypeDef] = None
     computePlatform: Optional[ComputePlatformType] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateProfilingGroupRequestRequestTypeDef(BaseModel):
+class UpdateProfilingGroupRequestRequestTypeDef(BaseValidatorModel):
     agentOrchestrationConfig: AgentOrchestrationConfigTypeDef
     profilingGroupName: str
 
-class ProfilingStatusTypeDef(BaseModel):
+class ProfilingStatusTypeDef(BaseValidatorModel):
     latestAgentOrchestratedAt: Optional[datetime] = None
     latestAgentProfileReportedAt: Optional[datetime] = None
     latestAggregatedProfile: Optional[AggregatedProfileTimeTypeDef] = None
 
-class AnomalyInstanceTypeDef(BaseModel):
+class AnomalyInstanceTypeDef(BaseValidatorModel):
     id: str
     startTime: datetime
     endTime: Optional[datetime] = None
     userFeedback: Optional[UserFeedbackTypeDef] = None
 
-class FrameMetricDatumTypeDef(BaseModel):
+class FrameMetricDatumTypeDef(BaseValidatorModel):
     frameMetric: FrameMetricTypeDef
     values: List[float]
 
-class BatchGetFrameMetricDataRequestRequestTypeDef(BaseModel):
+class BatchGetFrameMetricDataRequestRequestTypeDef(BaseValidatorModel):
     profilingGroupName: str
     endTime: Optional[TimestampTypeDef] = None
     frameMetrics: Optional[Sequence[FrameMetricTypeDef]] = None
@@ -209,7 +209,7 @@ class BatchGetFrameMetricDataRequestRequestTypeDef(BaseModel):
     startTime: Optional[TimestampTypeDef] = None
     targetResolution: Optional[AggregationPeriodType] = None
 
-class GetProfileRequestRequestTypeDef(BaseModel):
+class GetProfileRequestRequestTypeDef(BaseValidatorModel):
     profilingGroupName: str
     accept: Optional[str] = None
     endTime: Optional[TimestampTypeDef] = None
@@ -217,13 +217,13 @@ class GetProfileRequestRequestTypeDef(BaseModel):
     period: Optional[str] = None
     startTime: Optional[TimestampTypeDef] = None
 
-class GetRecommendationsRequestRequestTypeDef(BaseModel):
+class GetRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     endTime: TimestampTypeDef
     profilingGroupName: str
     startTime: TimestampTypeDef
     locale: Optional[str] = None
 
-class ListFindingsReportsRequestRequestTypeDef(BaseModel):
+class ListFindingsReportsRequestRequestTypeDef(BaseValidatorModel):
     endTime: TimestampTypeDef
     profilingGroupName: str
     startTime: TimestampTypeDef
@@ -231,7 +231,7 @@ class ListFindingsReportsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListProfileTimesRequestRequestTypeDef(BaseModel):
+class ListProfileTimesRequestRequestTypeDef(BaseValidatorModel):
     endTime: TimestampTypeDef
     period: AggregationPeriodType
     profilingGroupName: str
@@ -240,23 +240,23 @@ class ListProfileTimesRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     orderBy: Optional[OrderByType] = None
 
-class PostAgentProfileRequestRequestTypeDef(BaseModel):
+class PostAgentProfileRequestRequestTypeDef(BaseValidatorModel):
     agentProfile: BlobTypeDef
     contentType: str
     profilingGroupName: str
     profileToken: Optional[str] = None
 
-class GetFindingsReportAccountSummaryResponseTypeDef(BaseModel):
+class GetFindingsReportAccountSummaryResponseTypeDef(BaseValidatorModel):
     nextToken: str
     reportSummaries: List[FindingsReportSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFindingsReportsResponseTypeDef(BaseModel):
+class ListFindingsReportsResponseTypeDef(BaseValidatorModel):
     findingsReportSummaries: List[FindingsReportSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProfileTimesRequestListProfileTimesPaginateTypeDef(BaseModel):
+class ListProfileTimesRequestListProfileTimesPaginateTypeDef(BaseValidatorModel):
     endTime: TimestampTypeDef
     period: AggregationPeriodType
     profilingGroupName: str
@@ -264,12 +264,12 @@ class ListProfileTimesRequestListProfileTimesPaginateTypeDef(BaseModel):
     orderBy: Optional[OrderByType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProfileTimesResponseTypeDef(BaseModel):
+class ListProfileTimesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     profileTimes: List[ProfileTimeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RecommendationTypeDef(BaseModel):
+class RecommendationTypeDef(BaseValidatorModel):
     allMatchesCount: int
     allMatchesSum: float
     endTime: datetime
@@ -277,19 +277,19 @@ class RecommendationTypeDef(BaseModel):
     startTime: datetime
     topMatches: List[MatchTypeDef]
 
-class AddNotificationChannelsResponseTypeDef(BaseModel):
+class AddNotificationChannelsResponseTypeDef(BaseValidatorModel):
     notificationConfiguration: NotificationConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetNotificationConfigurationResponseTypeDef(BaseModel):
+class GetNotificationConfigurationResponseTypeDef(BaseValidatorModel):
     notificationConfiguration: NotificationConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RemoveNotificationChannelResponseTypeDef(BaseModel):
+class RemoveNotificationChannelResponseTypeDef(BaseValidatorModel):
     notificationConfiguration: NotificationConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProfilingGroupDescriptionTypeDef(BaseModel):
+class ProfilingGroupDescriptionTypeDef(BaseValidatorModel):
     agentOrchestrationConfig: Optional[AgentOrchestrationConfigTypeDef] = None
     arn: Optional[str] = None
     computePlatform: Optional[ComputePlatformType] = None
@@ -299,12 +299,12 @@ class ProfilingGroupDescriptionTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     updatedAt: Optional[datetime] = None
 
-class AnomalyTypeDef(BaseModel):
+class AnomalyTypeDef(BaseValidatorModel):
     instances: List[AnomalyInstanceTypeDef]
     metric: MetricTypeDef
     reason: str
 
-class BatchGetFrameMetricDataResponseTypeDef(BaseModel):
+class BatchGetFrameMetricDataResponseTypeDef(BaseValidatorModel):
     endTime: datetime
     endTimes: List[TimestampStructureTypeDef]
     frameMetricData: List[FrameMetricDatumTypeDef]
@@ -313,25 +313,25 @@ class BatchGetFrameMetricDataResponseTypeDef(BaseModel):
     unprocessedEndTimes: Dict[str, List[TimestampStructureTypeDef]]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProfilingGroupResponseTypeDef(BaseModel):
+class CreateProfilingGroupResponseTypeDef(BaseValidatorModel):
     profilingGroup: ProfilingGroupDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeProfilingGroupResponseTypeDef(BaseModel):
+class DescribeProfilingGroupResponseTypeDef(BaseValidatorModel):
     profilingGroup: ProfilingGroupDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProfilingGroupsResponseTypeDef(BaseModel):
+class ListProfilingGroupsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     profilingGroupNames: List[str]
     profilingGroups: List[ProfilingGroupDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProfilingGroupResponseTypeDef(BaseModel):
+class UpdateProfilingGroupResponseTypeDef(BaseValidatorModel):
     profilingGroup: ProfilingGroupDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRecommendationsResponseTypeDef(BaseModel):
+class GetRecommendationsResponseTypeDef(BaseValidatorModel):
     anomalies: List[AnomalyTypeDef]
     profileEndTime: datetime
     profileStartTime: datetime

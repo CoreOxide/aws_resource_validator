@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,41 +11,41 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudsearch_constants import *
 
-class OptionStatusTypeDef(BaseModel):
+class OptionStatusTypeDef(BaseValidatorModel):
     CreationDate: datetime
     UpdateDate: datetime
     State: OptionStateType
     UpdateVersion: Optional[int] = None
     PendingDeletion: Optional[bool] = None
 
-class AnalysisOptionsTypeDef(BaseModel):
+class AnalysisOptionsTypeDef(BaseValidatorModel):
     Synonyms: Optional[str] = None
     Stopwords: Optional[str] = None
     StemmingDictionary: Optional[str] = None
     JapaneseTokenizationDictionary: Optional[str] = None
     AlgorithmicStemming: Optional[AlgorithmicStemmingType] = None
 
-class BuildSuggestersRequestRequestTypeDef(BaseModel):
+class BuildSuggestersRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateDomainRequestRequestTypeDef(BaseModel):
+class CreateDomainRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
 
-class DateArrayOptionsTypeDef(BaseModel):
+class DateArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     SourceFields: Optional[str] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
 
-class DateOptionsTypeDef(BaseModel):
+class DateOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     SourceField: Optional[str] = None
     FacetEnabled: Optional[bool] = None
@@ -53,91 +53,91 @@ class DateOptionsTypeDef(BaseModel):
     ReturnEnabled: Optional[bool] = None
     SortEnabled: Optional[bool] = None
 
-class ExpressionTypeDef(BaseModel):
+class ExpressionTypeDef(BaseValidatorModel):
     ExpressionName: str
     ExpressionValue: str
 
-class DeleteAnalysisSchemeRequestRequestTypeDef(BaseModel):
+class DeleteAnalysisSchemeRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     AnalysisSchemeName: str
 
-class DeleteDomainRequestRequestTypeDef(BaseModel):
+class DeleteDomainRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
 
-class DeleteExpressionRequestRequestTypeDef(BaseModel):
+class DeleteExpressionRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ExpressionName: str
 
-class DeleteIndexFieldRequestRequestTypeDef(BaseModel):
+class DeleteIndexFieldRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     IndexFieldName: str
 
-class DeleteSuggesterRequestRequestTypeDef(BaseModel):
+class DeleteSuggesterRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     SuggesterName: str
 
-class DescribeAnalysisSchemesRequestRequestTypeDef(BaseModel):
+class DescribeAnalysisSchemesRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     AnalysisSchemeNames: Optional[Sequence[str]] = None
     Deployed: Optional[bool] = None
 
-class DescribeAvailabilityOptionsRequestRequestTypeDef(BaseModel):
+class DescribeAvailabilityOptionsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Deployed: Optional[bool] = None
 
-class DescribeDomainEndpointOptionsRequestRequestTypeDef(BaseModel):
+class DescribeDomainEndpointOptionsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Deployed: Optional[bool] = None
 
-class DescribeDomainsRequestRequestTypeDef(BaseModel):
+class DescribeDomainsRequestRequestTypeDef(BaseValidatorModel):
     DomainNames: Optional[Sequence[str]] = None
 
-class DescribeExpressionsRequestRequestTypeDef(BaseModel):
+class DescribeExpressionsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ExpressionNames: Optional[Sequence[str]] = None
     Deployed: Optional[bool] = None
 
-class DescribeIndexFieldsRequestRequestTypeDef(BaseModel):
+class DescribeIndexFieldsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     FieldNames: Optional[Sequence[str]] = None
     Deployed: Optional[bool] = None
 
-class DescribeScalingParametersRequestRequestTypeDef(BaseModel):
+class DescribeScalingParametersRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
 
-class DescribeServiceAccessPoliciesRequestRequestTypeDef(BaseModel):
+class DescribeServiceAccessPoliciesRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Deployed: Optional[bool] = None
 
-class DescribeSuggestersRequestRequestTypeDef(BaseModel):
+class DescribeSuggestersRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     SuggesterNames: Optional[Sequence[str]] = None
     Deployed: Optional[bool] = None
 
-class DocumentSuggesterOptionsTypeDef(BaseModel):
+class DocumentSuggesterOptionsTypeDef(BaseValidatorModel):
     SourceField: str
     FuzzyMatching: Optional[SuggesterFuzzyMatchingType] = None
     SortExpression: Optional[str] = None
 
-class DomainEndpointOptionsTypeDef(BaseModel):
+class DomainEndpointOptionsTypeDef(BaseValidatorModel):
     EnforceHTTPS: Optional[bool] = None
     TLSSecurityPolicy: Optional[TLSSecurityPolicyType] = None
 
-class LimitsTypeDef(BaseModel):
+class LimitsTypeDef(BaseValidatorModel):
     MaximumReplicationCount: int
     MaximumPartitionCount: int
 
-class ServiceEndpointTypeDef(BaseModel):
+class ServiceEndpointTypeDef(BaseValidatorModel):
     Endpoint: Optional[str] = None
 
-class DoubleArrayOptionsTypeDef(BaseModel):
+class DoubleArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[float] = None
     SourceFields: Optional[str] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
 
-class DoubleOptionsTypeDef(BaseModel):
+class DoubleOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[float] = None
     SourceField: Optional[str] = None
     FacetEnabled: Optional[bool] = None
@@ -145,17 +145,17 @@ class DoubleOptionsTypeDef(BaseModel):
     ReturnEnabled: Optional[bool] = None
     SortEnabled: Optional[bool] = None
 
-class IndexDocumentsRequestRequestTypeDef(BaseModel):
+class IndexDocumentsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
 
-class IntArrayOptionsTypeDef(BaseModel):
+class IntArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[int] = None
     SourceFields: Optional[str] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
 
-class IntOptionsTypeDef(BaseModel):
+class IntOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[int] = None
     SourceField: Optional[str] = None
     FacetEnabled: Optional[bool] = None
@@ -163,7 +163,7 @@ class IntOptionsTypeDef(BaseModel):
     ReturnEnabled: Optional[bool] = None
     SortEnabled: Optional[bool] = None
 
-class LatLonOptionsTypeDef(BaseModel):
+class LatLonOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     SourceField: Optional[str] = None
     FacetEnabled: Optional[bool] = None
@@ -171,14 +171,14 @@ class LatLonOptionsTypeDef(BaseModel):
     ReturnEnabled: Optional[bool] = None
     SortEnabled: Optional[bool] = None
 
-class LiteralArrayOptionsTypeDef(BaseModel):
+class LiteralArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     SourceFields: Optional[str] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
 
-class LiteralOptionsTypeDef(BaseModel):
+class LiteralOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     SourceField: Optional[str] = None
     FacetEnabled: Optional[bool] = None
@@ -186,14 +186,14 @@ class LiteralOptionsTypeDef(BaseModel):
     ReturnEnabled: Optional[bool] = None
     SortEnabled: Optional[bool] = None
 
-class TextArrayOptionsTypeDef(BaseModel):
+class TextArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     SourceFields: Optional[str] = None
     ReturnEnabled: Optional[bool] = None
     HighlightEnabled: Optional[bool] = None
     AnalysisScheme: Optional[str] = None
 
-class TextOptionsTypeDef(BaseModel):
+class TextOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     SourceField: Optional[str] = None
     ReturnEnabled: Optional[bool] = None
@@ -201,65 +201,65 @@ class TextOptionsTypeDef(BaseModel):
     HighlightEnabled: Optional[bool] = None
     AnalysisScheme: Optional[str] = None
 
-class ScalingParametersTypeDef(BaseModel):
+class ScalingParametersTypeDef(BaseValidatorModel):
     DesiredInstanceType: Optional[PartitionInstanceTypeType] = None
     DesiredReplicationCount: Optional[int] = None
     DesiredPartitionCount: Optional[int] = None
 
-class UpdateAvailabilityOptionsRequestRequestTypeDef(BaseModel):
+class UpdateAvailabilityOptionsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     MultiAZ: bool
 
-class UpdateServiceAccessPoliciesRequestRequestTypeDef(BaseModel):
+class UpdateServiceAccessPoliciesRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     AccessPolicies: str
 
-class AccessPoliciesStatusTypeDef(BaseModel):
+class AccessPoliciesStatusTypeDef(BaseValidatorModel):
     Options: str
     Status: OptionStatusTypeDef
 
-class AvailabilityOptionsStatusTypeDef(BaseModel):
+class AvailabilityOptionsStatusTypeDef(BaseValidatorModel):
     Options: bool
     Status: OptionStatusTypeDef
 
-class AnalysisSchemeTypeDef(BaseModel):
+class AnalysisSchemeTypeDef(BaseValidatorModel):
     AnalysisSchemeName: str
     AnalysisSchemeLanguage: AnalysisSchemeLanguageType
     AnalysisOptions: Optional[AnalysisOptionsTypeDef] = None
 
-class BuildSuggestersResponseTypeDef(BaseModel):
+class BuildSuggestersResponseTypeDef(BaseValidatorModel):
     FieldNames: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IndexDocumentsResponseTypeDef(BaseModel):
+class IndexDocumentsResponseTypeDef(BaseValidatorModel):
     FieldNames: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDomainNamesResponseTypeDef(BaseModel):
+class ListDomainNamesResponseTypeDef(BaseValidatorModel):
     DomainNames: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DefineExpressionRequestRequestTypeDef(BaseModel):
+class DefineExpressionRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Expression: ExpressionTypeDef
 
-class ExpressionStatusTypeDef(BaseModel):
+class ExpressionStatusTypeDef(BaseValidatorModel):
     Options: ExpressionTypeDef
     Status: OptionStatusTypeDef
 
-class SuggesterTypeDef(BaseModel):
+class SuggesterTypeDef(BaseValidatorModel):
     SuggesterName: str
     DocumentSuggesterOptions: DocumentSuggesterOptionsTypeDef
 
-class DomainEndpointOptionsStatusTypeDef(BaseModel):
+class DomainEndpointOptionsStatusTypeDef(BaseValidatorModel):
     Options: DomainEndpointOptionsTypeDef
     Status: OptionStatusTypeDef
 
-class UpdateDomainEndpointOptionsRequestRequestTypeDef(BaseModel):
+class UpdateDomainEndpointOptionsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     DomainEndpointOptions: DomainEndpointOptionsTypeDef
 
-class DomainStatusTypeDef(BaseModel):
+class DomainStatusTypeDef(BaseValidatorModel):
     DomainId: str
     DomainName: str
     RequiresIndexDocuments: bool
@@ -274,7 +274,7 @@ class DomainStatusTypeDef(BaseModel):
     SearchInstanceCount: Optional[int] = None
     Limits: Optional[LimitsTypeDef] = None
 
-class IndexFieldTypeDef(BaseModel):
+class IndexFieldTypeDef(BaseValidatorModel):
     IndexFieldName: str
     IndexFieldType: IndexFieldTypeType
     IntOptions: Optional[IntOptionsTypeDef] = None
@@ -289,127 +289,127 @@ class IndexFieldTypeDef(BaseModel):
     TextArrayOptions: Optional[TextArrayOptionsTypeDef] = None
     DateArrayOptions: Optional[DateArrayOptionsTypeDef] = None
 
-class ScalingParametersStatusTypeDef(BaseModel):
+class ScalingParametersStatusTypeDef(BaseValidatorModel):
     Options: ScalingParametersTypeDef
     Status: OptionStatusTypeDef
 
-class UpdateScalingParametersRequestRequestTypeDef(BaseModel):
+class UpdateScalingParametersRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ScalingParameters: ScalingParametersTypeDef
 
-class DescribeServiceAccessPoliciesResponseTypeDef(BaseModel):
+class DescribeServiceAccessPoliciesResponseTypeDef(BaseValidatorModel):
     AccessPolicies: AccessPoliciesStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServiceAccessPoliciesResponseTypeDef(BaseModel):
+class UpdateServiceAccessPoliciesResponseTypeDef(BaseValidatorModel):
     AccessPolicies: AccessPoliciesStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAvailabilityOptionsResponseTypeDef(BaseModel):
+class DescribeAvailabilityOptionsResponseTypeDef(BaseValidatorModel):
     AvailabilityOptions: AvailabilityOptionsStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAvailabilityOptionsResponseTypeDef(BaseModel):
+class UpdateAvailabilityOptionsResponseTypeDef(BaseValidatorModel):
     AvailabilityOptions: AvailabilityOptionsStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AnalysisSchemeStatusTypeDef(BaseModel):
+class AnalysisSchemeStatusTypeDef(BaseValidatorModel):
     Options: AnalysisSchemeTypeDef
     Status: OptionStatusTypeDef
 
-class DefineAnalysisSchemeRequestRequestTypeDef(BaseModel):
+class DefineAnalysisSchemeRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     AnalysisScheme: AnalysisSchemeTypeDef
 
-class DefineExpressionResponseTypeDef(BaseModel):
+class DefineExpressionResponseTypeDef(BaseValidatorModel):
     Expression: ExpressionStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteExpressionResponseTypeDef(BaseModel):
+class DeleteExpressionResponseTypeDef(BaseValidatorModel):
     Expression: ExpressionStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeExpressionsResponseTypeDef(BaseModel):
+class DescribeExpressionsResponseTypeDef(BaseValidatorModel):
     Expressions: List[ExpressionStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DefineSuggesterRequestRequestTypeDef(BaseModel):
+class DefineSuggesterRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Suggester: SuggesterTypeDef
 
-class SuggesterStatusTypeDef(BaseModel):
+class SuggesterStatusTypeDef(BaseValidatorModel):
     Options: SuggesterTypeDef
     Status: OptionStatusTypeDef
 
-class DescribeDomainEndpointOptionsResponseTypeDef(BaseModel):
+class DescribeDomainEndpointOptionsResponseTypeDef(BaseValidatorModel):
     DomainEndpointOptions: DomainEndpointOptionsStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDomainEndpointOptionsResponseTypeDef(BaseModel):
+class UpdateDomainEndpointOptionsResponseTypeDef(BaseValidatorModel):
     DomainEndpointOptions: DomainEndpointOptionsStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDomainResponseTypeDef(BaseModel):
+class CreateDomainResponseTypeDef(BaseValidatorModel):
     DomainStatus: DomainStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDomainResponseTypeDef(BaseModel):
+class DeleteDomainResponseTypeDef(BaseValidatorModel):
     DomainStatus: DomainStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDomainsResponseTypeDef(BaseModel):
+class DescribeDomainsResponseTypeDef(BaseValidatorModel):
     DomainStatusList: List[DomainStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DefineIndexFieldRequestRequestTypeDef(BaseModel):
+class DefineIndexFieldRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     IndexField: IndexFieldTypeDef
 
-class IndexFieldStatusTypeDef(BaseModel):
+class IndexFieldStatusTypeDef(BaseValidatorModel):
     Options: IndexFieldTypeDef
     Status: OptionStatusTypeDef
 
-class DescribeScalingParametersResponseTypeDef(BaseModel):
+class DescribeScalingParametersResponseTypeDef(BaseValidatorModel):
     ScalingParameters: ScalingParametersStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateScalingParametersResponseTypeDef(BaseModel):
+class UpdateScalingParametersResponseTypeDef(BaseValidatorModel):
     ScalingParameters: ScalingParametersStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DefineAnalysisSchemeResponseTypeDef(BaseModel):
+class DefineAnalysisSchemeResponseTypeDef(BaseValidatorModel):
     AnalysisScheme: AnalysisSchemeStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAnalysisSchemeResponseTypeDef(BaseModel):
+class DeleteAnalysisSchemeResponseTypeDef(BaseValidatorModel):
     AnalysisScheme: AnalysisSchemeStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAnalysisSchemesResponseTypeDef(BaseModel):
+class DescribeAnalysisSchemesResponseTypeDef(BaseValidatorModel):
     AnalysisSchemes: List[AnalysisSchemeStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DefineSuggesterResponseTypeDef(BaseModel):
+class DefineSuggesterResponseTypeDef(BaseValidatorModel):
     Suggester: SuggesterStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSuggesterResponseTypeDef(BaseModel):
+class DeleteSuggesterResponseTypeDef(BaseValidatorModel):
     Suggester: SuggesterStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSuggestersResponseTypeDef(BaseModel):
+class DescribeSuggestersResponseTypeDef(BaseValidatorModel):
     Suggesters: List[SuggesterStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DefineIndexFieldResponseTypeDef(BaseModel):
+class DefineIndexFieldResponseTypeDef(BaseValidatorModel):
     IndexField: IndexFieldStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteIndexFieldResponseTypeDef(BaseModel):
+class DeleteIndexFieldResponseTypeDef(BaseValidatorModel):
     IndexField: IndexFieldStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIndexFieldsResponseTypeDef(BaseModel):
+class DescribeIndexFieldsResponseTypeDef(BaseValidatorModel):
     IndexFields: List[IndexFieldStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 

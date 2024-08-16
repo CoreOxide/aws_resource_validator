@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,117 +11,117 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.redshift_constants import *
 
-class AcceptReservedNodeExchangeInputMessageRequestTypeDef(BaseModel):
+class AcceptReservedNodeExchangeInputMessageRequestTypeDef(BaseValidatorModel):
     ReservedNodeId: str
     TargetReservedNodeOfferingId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AttributeValueTargetTypeDef(BaseModel):
+class AttributeValueTargetTypeDef(BaseValidatorModel):
     AttributeValue: Optional[str] = None
 
-class AccountWithRestoreAccessTypeDef(BaseModel):
+class AccountWithRestoreAccessTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     AccountAlias: Optional[str] = None
 
-class AquaConfigurationTypeDef(BaseModel):
+class AquaConfigurationTypeDef(BaseValidatorModel):
     AquaStatus: Optional[AquaStatusType] = None
     AquaConfigurationStatus: Optional[AquaConfigurationStatusType] = None
 
-class AssociateDataShareConsumerMessageRequestTypeDef(BaseModel):
+class AssociateDataShareConsumerMessageRequestTypeDef(BaseValidatorModel):
     DataShareArn: str
     AssociateEntireAccount: Optional[bool] = None
     ConsumerArn: Optional[str] = None
     ConsumerRegion: Optional[str] = None
     AllowWrites: Optional[bool] = None
 
-class CertificateAssociationTypeDef(BaseModel):
+class CertificateAssociationTypeDef(BaseValidatorModel):
     CustomDomainName: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
 
-class AuthenticationProfileTypeDef(BaseModel):
+class AuthenticationProfileTypeDef(BaseValidatorModel):
     AuthenticationProfileName: Optional[str] = None
     AuthenticationProfileContent: Optional[str] = None
 
-class AuthorizeClusterSecurityGroupIngressMessageRequestTypeDef(BaseModel):
+class AuthorizeClusterSecurityGroupIngressMessageRequestTypeDef(BaseValidatorModel):
     ClusterSecurityGroupName: str
     CIDRIP: Optional[str] = None
     EC2SecurityGroupName: Optional[str] = None
     EC2SecurityGroupOwnerId: Optional[str] = None
 
-class AuthorizeDataShareMessageRequestTypeDef(BaseModel):
+class AuthorizeDataShareMessageRequestTypeDef(BaseValidatorModel):
     DataShareArn: str
     ConsumerIdentifier: str
     AllowWrites: Optional[bool] = None
 
-class AuthorizeEndpointAccessMessageRequestTypeDef(BaseModel):
+class AuthorizeEndpointAccessMessageRequestTypeDef(BaseValidatorModel):
     Account: str
     ClusterIdentifier: Optional[str] = None
     VpcIds: Optional[Sequence[str]] = None
 
-class AuthorizeSnapshotAccessMessageRequestTypeDef(BaseModel):
+class AuthorizeSnapshotAccessMessageRequestTypeDef(BaseValidatorModel):
     AccountWithRestoreAccess: str
     SnapshotIdentifier: Optional[str] = None
     SnapshotArn: Optional[str] = None
     SnapshotClusterIdentifier: Optional[str] = None
 
-class AuthorizedTokenIssuerExtraOutputTypeDef(BaseModel):
+class AuthorizedTokenIssuerExtraOutputTypeDef(BaseValidatorModel):
     TrustedTokenIssuerArn: Optional[str] = None
     AuthorizedAudiencesList: Optional[List[str]] = None
 
-class AuthorizedTokenIssuerOutputTypeDef(BaseModel):
+class AuthorizedTokenIssuerOutputTypeDef(BaseValidatorModel):
     TrustedTokenIssuerArn: Optional[str] = None
     AuthorizedAudiencesList: Optional[List[str]] = None
 
-class AuthorizedTokenIssuerTypeDef(BaseModel):
+class AuthorizedTokenIssuerTypeDef(BaseValidatorModel):
     TrustedTokenIssuerArn: Optional[str] = None
     AuthorizedAudiencesList: Optional[Sequence[str]] = None
 
-class SupportedPlatformTypeDef(BaseModel):
+class SupportedPlatformTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class DeleteClusterSnapshotMessageTypeDef(BaseModel):
+class DeleteClusterSnapshotMessageTypeDef(BaseValidatorModel):
     SnapshotIdentifier: str
     SnapshotClusterIdentifier: Optional[str] = None
 
-class SnapshotErrorMessageTypeDef(BaseModel):
+class SnapshotErrorMessageTypeDef(BaseValidatorModel):
     SnapshotIdentifier: Optional[str] = None
     SnapshotClusterIdentifier: Optional[str] = None
     FailureCode: Optional[str] = None
     FailureReason: Optional[str] = None
 
-class BatchModifyClusterSnapshotsMessageRequestTypeDef(BaseModel):
+class BatchModifyClusterSnapshotsMessageRequestTypeDef(BaseValidatorModel):
     SnapshotIdentifierList: Sequence[str]
     ManualSnapshotRetentionPeriod: Optional[int] = None
     Force: Optional[bool] = None
 
-class CancelResizeMessageRequestTypeDef(BaseModel):
+class CancelResizeMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class ClusterAssociatedToScheduleTypeDef(BaseModel):
+class ClusterAssociatedToScheduleTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     ScheduleAssociationState: Optional[ScheduleStateType] = None
 
-class RevisionTargetTypeDef(BaseModel):
+class RevisionTargetTypeDef(BaseValidatorModel):
     DatabaseRevision: Optional[str] = None
     Description: Optional[str] = None
     DatabaseRevisionReleaseDate: Optional[datetime] = None
 
-class ClusterIamRoleTypeDef(BaseModel):
+class ClusterIamRoleTypeDef(BaseValidatorModel):
     IamRoleArn: Optional[str] = None
     ApplyStatus: Optional[str] = None
 
-class ClusterNodeTypeDef(BaseModel):
+class ClusterNodeTypeDef(BaseValidatorModel):
     NodeRole: Optional[str] = None
     PrivateIPAddress: Optional[str] = None
     PublicIPAddress: Optional[str] = None
 
-class ParameterTypeDef(BaseModel):
+class ParameterTypeDef(BaseValidatorModel):
     ParameterName: Optional[str] = None
     ParameterValue: Optional[str] = None
     Description: Optional[str] = None
@@ -132,26 +132,26 @@ class ParameterTypeDef(BaseModel):
     IsModifiable: Optional[bool] = None
     MinimumEngineVersion: Optional[str] = None
 
-class ClusterParameterStatusTypeDef(BaseModel):
+class ClusterParameterStatusTypeDef(BaseValidatorModel):
     ParameterName: Optional[str] = None
     ParameterApplyStatus: Optional[str] = None
     ParameterApplyErrorDescription: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class ClusterSecurityGroupMembershipTypeDef(BaseModel):
+class ClusterSecurityGroupMembershipTypeDef(BaseValidatorModel):
     ClusterSecurityGroupName: Optional[str] = None
     Status: Optional[str] = None
 
-class ClusterSnapshotCopyStatusTypeDef(BaseModel):
+class ClusterSnapshotCopyStatusTypeDef(BaseValidatorModel):
     DestinationRegion: Optional[str] = None
     RetentionPeriod: Optional[int] = None
     ManualSnapshotRetentionPeriod: Optional[int] = None
     SnapshotCopyGrantName: Optional[str] = None
 
-class DataTransferProgressTypeDef(BaseModel):
+class DataTransferProgressTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
     CurrentRateInMegaBytesPerSecond: Optional[float] = None
     TotalDataInMegaBytes: Optional[int] = None
@@ -159,21 +159,21 @@ class DataTransferProgressTypeDef(BaseModel):
     EstimatedTimeToCompletionInSeconds: Optional[int] = None
     ElapsedTimeInSeconds: Optional[int] = None
 
-class DeferredMaintenanceWindowTypeDef(BaseModel):
+class DeferredMaintenanceWindowTypeDef(BaseValidatorModel):
     DeferMaintenanceIdentifier: Optional[str] = None
     DeferMaintenanceStartTime: Optional[datetime] = None
     DeferMaintenanceEndTime: Optional[datetime] = None
 
-class ElasticIpStatusTypeDef(BaseModel):
+class ElasticIpStatusTypeDef(BaseValidatorModel):
     ElasticIp: Optional[str] = None
     Status: Optional[str] = None
 
-class HsmStatusTypeDef(BaseModel):
+class HsmStatusTypeDef(BaseValidatorModel):
     HsmClientCertificateIdentifier: Optional[str] = None
     HsmConfigurationIdentifier: Optional[str] = None
     Status: Optional[str] = None
 
-class PendingModifiedValuesTypeDef(BaseModel):
+class PendingModifiedValuesTypeDef(BaseValidatorModel):
     MasterUserPassword: Optional[str] = None
     NodeType: Optional[str] = None
     NumberOfNodes: Optional[int] = None
@@ -186,7 +186,7 @@ class PendingModifiedValuesTypeDef(BaseModel):
     MaintenanceTrackName: Optional[str] = None
     EncryptionType: Optional[str] = None
 
-class ReservedNodeExchangeStatusTypeDef(BaseModel):
+class ReservedNodeExchangeStatusTypeDef(BaseValidatorModel):
     ReservedNodeExchangeRequestId: Optional[str] = None
     Status: Optional[ReservedNodeExchangeStatusTypeType] = None
     RequestTime: Optional[datetime] = None
@@ -197,11 +197,11 @@ class ReservedNodeExchangeStatusTypeDef(BaseModel):
     TargetReservedNodeType: Optional[str] = None
     TargetReservedNodeCount: Optional[int] = None
 
-class ResizeInfoTypeDef(BaseModel):
+class ResizeInfoTypeDef(BaseValidatorModel):
     ResizeType: Optional[str] = None
     AllowCancelResize: Optional[bool] = None
 
-class RestoreStatusTypeDef(BaseModel):
+class RestoreStatusTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
     CurrentRestoreRateInMegaBytesPerSecond: Optional[float] = None
     SnapshotSizeInMegaBytes: Optional[int] = None
@@ -209,38 +209,38 @@ class RestoreStatusTypeDef(BaseModel):
     ElapsedTimeInSeconds: Optional[int] = None
     EstimatedTimeToCompletionInSeconds: Optional[int] = None
 
-class VpcSecurityGroupMembershipTypeDef(BaseModel):
+class VpcSecurityGroupMembershipTypeDef(BaseValidatorModel):
     VpcSecurityGroupId: Optional[str] = None
     Status: Optional[str] = None
 
-class ClusterVersionTypeDef(BaseModel):
+class ClusterVersionTypeDef(BaseValidatorModel):
     ClusterVersion: Optional[str] = None
     ClusterParameterGroupFamily: Optional[str] = None
     Description: Optional[str] = None
 
-class CopyClusterSnapshotMessageRequestTypeDef(BaseModel):
+class CopyClusterSnapshotMessageRequestTypeDef(BaseValidatorModel):
     SourceSnapshotIdentifier: str
     TargetSnapshotIdentifier: str
     SourceSnapshotClusterIdentifier: Optional[str] = None
     ManualSnapshotRetentionPeriod: Optional[int] = None
 
-class CreateAuthenticationProfileMessageRequestTypeDef(BaseModel):
+class CreateAuthenticationProfileMessageRequestTypeDef(BaseValidatorModel):
     AuthenticationProfileName: str
     AuthenticationProfileContent: str
 
-class CreateCustomDomainAssociationMessageRequestTypeDef(BaseModel):
+class CreateCustomDomainAssociationMessageRequestTypeDef(BaseValidatorModel):
     CustomDomainName: str
     CustomDomainCertificateArn: str
     ClusterIdentifier: str
 
-class CreateEndpointAccessMessageRequestTypeDef(BaseModel):
+class CreateEndpointAccessMessageRequestTypeDef(BaseValidatorModel):
     EndpointName: str
     SubnetGroupName: str
     ClusterIdentifier: Optional[str] = None
     ResourceOwner: Optional[str] = None
     VpcSecurityGroupIds: Optional[Sequence[str]] = None
 
-class DataShareAssociationTypeDef(BaseModel):
+class DataShareAssociationTypeDef(BaseValidatorModel):
     ConsumerIdentifier: Optional[str] = None
     Status: Optional[DataShareStatusType] = None
     ConsumerRegion: Optional[str] = None
@@ -249,168 +249,168 @@ class DataShareAssociationTypeDef(BaseModel):
     ProducerAllowedWrites: Optional[bool] = None
     ConsumerAcceptedWrites: Optional[bool] = None
 
-class DeauthorizeDataShareMessageRequestTypeDef(BaseModel):
+class DeauthorizeDataShareMessageRequestTypeDef(BaseValidatorModel):
     DataShareArn: str
     ConsumerIdentifier: str
 
-class DeleteAuthenticationProfileMessageRequestTypeDef(BaseModel):
+class DeleteAuthenticationProfileMessageRequestTypeDef(BaseValidatorModel):
     AuthenticationProfileName: str
 
-class DeleteClusterMessageRequestTypeDef(BaseModel):
+class DeleteClusterMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     SkipFinalClusterSnapshot: Optional[bool] = None
     FinalClusterSnapshotIdentifier: Optional[str] = None
     FinalClusterSnapshotRetentionPeriod: Optional[int] = None
 
-class DeleteClusterParameterGroupMessageRequestTypeDef(BaseModel):
+class DeleteClusterParameterGroupMessageRequestTypeDef(BaseValidatorModel):
     ParameterGroupName: str
 
-class DeleteClusterSecurityGroupMessageRequestTypeDef(BaseModel):
+class DeleteClusterSecurityGroupMessageRequestTypeDef(BaseValidatorModel):
     ClusterSecurityGroupName: str
 
-class DeleteClusterSnapshotMessageRequestTypeDef(BaseModel):
+class DeleteClusterSnapshotMessageRequestTypeDef(BaseValidatorModel):
     SnapshotIdentifier: str
     SnapshotClusterIdentifier: Optional[str] = None
 
-class DeleteClusterSubnetGroupMessageRequestTypeDef(BaseModel):
+class DeleteClusterSubnetGroupMessageRequestTypeDef(BaseValidatorModel):
     ClusterSubnetGroupName: str
 
-class DeleteCustomDomainAssociationMessageRequestTypeDef(BaseModel):
+class DeleteCustomDomainAssociationMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     CustomDomainName: str
 
-class DeleteEndpointAccessMessageRequestTypeDef(BaseModel):
+class DeleteEndpointAccessMessageRequestTypeDef(BaseValidatorModel):
     EndpointName: str
 
-class DeleteEventSubscriptionMessageRequestTypeDef(BaseModel):
+class DeleteEventSubscriptionMessageRequestTypeDef(BaseValidatorModel):
     SubscriptionName: str
 
-class DeleteHsmClientCertificateMessageRequestTypeDef(BaseModel):
+class DeleteHsmClientCertificateMessageRequestTypeDef(BaseValidatorModel):
     HsmClientCertificateIdentifier: str
 
-class DeleteHsmConfigurationMessageRequestTypeDef(BaseModel):
+class DeleteHsmConfigurationMessageRequestTypeDef(BaseValidatorModel):
     HsmConfigurationIdentifier: str
 
-class DeleteRedshiftIdcApplicationMessageRequestTypeDef(BaseModel):
+class DeleteRedshiftIdcApplicationMessageRequestTypeDef(BaseValidatorModel):
     RedshiftIdcApplicationArn: str
 
-class DeleteResourcePolicyMessageRequestTypeDef(BaseModel):
+class DeleteResourcePolicyMessageRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DeleteScheduledActionMessageRequestTypeDef(BaseModel):
+class DeleteScheduledActionMessageRequestTypeDef(BaseValidatorModel):
     ScheduledActionName: str
 
-class DeleteSnapshotCopyGrantMessageRequestTypeDef(BaseModel):
+class DeleteSnapshotCopyGrantMessageRequestTypeDef(BaseValidatorModel):
     SnapshotCopyGrantName: str
 
-class DeleteSnapshotScheduleMessageRequestTypeDef(BaseModel):
+class DeleteSnapshotScheduleMessageRequestTypeDef(BaseValidatorModel):
     ScheduleIdentifier: str
 
-class DeleteTagsMessageRequestTypeDef(BaseModel):
+class DeleteTagsMessageRequestTypeDef(BaseValidatorModel):
     ResourceName: str
     TagKeys: Sequence[str]
 
-class DeleteUsageLimitMessageRequestTypeDef(BaseModel):
+class DeleteUsageLimitMessageRequestTypeDef(BaseValidatorModel):
     UsageLimitId: str
 
-class DescribeAccountAttributesMessageRequestTypeDef(BaseModel):
+class DescribeAccountAttributesMessageRequestTypeDef(BaseValidatorModel):
     AttributeNames: Optional[Sequence[str]] = None
 
-class DescribeAuthenticationProfilesMessageRequestTypeDef(BaseModel):
+class DescribeAuthenticationProfilesMessageRequestTypeDef(BaseValidatorModel):
     AuthenticationProfileName: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeClusterDbRevisionsMessageRequestTypeDef(BaseModel):
+class DescribeClusterDbRevisionsMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeClusterParameterGroupsMessageRequestTypeDef(BaseModel):
+class DescribeClusterParameterGroupsMessageRequestTypeDef(BaseValidatorModel):
     ParameterGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class DescribeClusterParametersMessageRequestTypeDef(BaseModel):
+class DescribeClusterParametersMessageRequestTypeDef(BaseValidatorModel):
     ParameterGroupName: str
     Source: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeClusterSecurityGroupsMessageRequestTypeDef(BaseModel):
+class DescribeClusterSecurityGroupsMessageRequestTypeDef(BaseValidatorModel):
     ClusterSecurityGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class SnapshotSortingEntityTypeDef(BaseModel):
+class SnapshotSortingEntityTypeDef(BaseValidatorModel):
     Attribute: SnapshotAttributeToSortByType
     SortOrder: Optional[SortByOrderType] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeClusterSubnetGroupsMessageRequestTypeDef(BaseModel):
+class DescribeClusterSubnetGroupsMessageRequestTypeDef(BaseValidatorModel):
     ClusterSubnetGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class DescribeClusterTracksMessageRequestTypeDef(BaseModel):
+class DescribeClusterTracksMessageRequestTypeDef(BaseValidatorModel):
     MaintenanceTrackName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeClusterVersionsMessageRequestTypeDef(BaseModel):
+class DescribeClusterVersionsMessageRequestTypeDef(BaseValidatorModel):
     ClusterVersion: Optional[str] = None
     ClusterParameterGroupFamily: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeClustersMessageRequestTypeDef(BaseModel):
+class DescribeClustersMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class DescribeCustomDomainAssociationsMessageRequestTypeDef(BaseModel):
+class DescribeCustomDomainAssociationsMessageRequestTypeDef(BaseValidatorModel):
     CustomDomainName: Optional[str] = None
     CustomDomainCertificateArn: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeDataSharesForConsumerMessageRequestTypeDef(BaseModel):
+class DescribeDataSharesForConsumerMessageRequestTypeDef(BaseValidatorModel):
     ConsumerArn: Optional[str] = None
     Status: Optional[DataShareStatusForConsumerType] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeDataSharesForProducerMessageRequestTypeDef(BaseModel):
+class DescribeDataSharesForProducerMessageRequestTypeDef(BaseValidatorModel):
     ProducerArn: Optional[str] = None
     Status: Optional[DataShareStatusForProducerType] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeDataSharesMessageRequestTypeDef(BaseModel):
+class DescribeDataSharesMessageRequestTypeDef(BaseValidatorModel):
     DataShareArn: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeDefaultClusterParametersMessageRequestTypeDef(BaseModel):
+class DescribeDefaultClusterParametersMessageRequestTypeDef(BaseValidatorModel):
     ParameterGroupFamily: str
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeEndpointAccessMessageRequestTypeDef(BaseModel):
+class DescribeEndpointAccessMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     ResourceOwner: Optional[str] = None
     EndpointName: Optional[str] = None
@@ -418,64 +418,64 @@ class DescribeEndpointAccessMessageRequestTypeDef(BaseModel):
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeEndpointAuthorizationMessageRequestTypeDef(BaseModel):
+class DescribeEndpointAuthorizationMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     Account: Optional[str] = None
     Grantee: Optional[bool] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeEventCategoriesMessageRequestTypeDef(BaseModel):
+class DescribeEventCategoriesMessageRequestTypeDef(BaseValidatorModel):
     SourceType: Optional[str] = None
 
-class DescribeEventSubscriptionsMessageRequestTypeDef(BaseModel):
+class DescribeEventSubscriptionsMessageRequestTypeDef(BaseValidatorModel):
     SubscriptionName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class DescribeHsmClientCertificatesMessageRequestTypeDef(BaseModel):
+class DescribeHsmClientCertificatesMessageRequestTypeDef(BaseValidatorModel):
     HsmClientCertificateIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class DescribeHsmConfigurationsMessageRequestTypeDef(BaseModel):
+class DescribeHsmConfigurationsMessageRequestTypeDef(BaseValidatorModel):
     HsmConfigurationIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class DescribeInboundIntegrationsMessageRequestTypeDef(BaseModel):
+class DescribeInboundIntegrationsMessageRequestTypeDef(BaseValidatorModel):
     IntegrationArn: Optional[str] = None
     TargetArn: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeLoggingStatusMessageRequestTypeDef(BaseModel):
+class DescribeLoggingStatusMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class NodeConfigurationOptionsFilterTypeDef(BaseModel):
+class NodeConfigurationOptionsFilterTypeDef(BaseValidatorModel):
     Name: Optional[NodeConfigurationOptionsFilterNameType] = None
     Operator: Optional[OperatorTypeType] = None
     Values: Optional[Sequence[str]] = None
 
-class DescribeOrderableClusterOptionsMessageRequestTypeDef(BaseModel):
+class DescribeOrderableClusterOptionsMessageRequestTypeDef(BaseValidatorModel):
     ClusterVersion: Optional[str] = None
     NodeType: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribePartnersInputMessageRequestTypeDef(BaseModel):
+class DescribePartnersInputMessageRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ClusterIdentifier: str
     DatabaseName: Optional[str] = None
     PartnerName: Optional[str] = None
 
-class PartnerIntegrationInfoTypeDef(BaseModel):
+class PartnerIntegrationInfoTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     PartnerName: Optional[str] = None
     Status: Optional[PartnerIntegrationStatusType] = None
@@ -483,42 +483,42 @@ class PartnerIntegrationInfoTypeDef(BaseModel):
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
-class DescribeRedshiftIdcApplicationsMessageRequestTypeDef(BaseModel):
+class DescribeRedshiftIdcApplicationsMessageRequestTypeDef(BaseValidatorModel):
     RedshiftIdcApplicationArn: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeReservedNodeExchangeStatusInputMessageRequestTypeDef(BaseModel):
+class DescribeReservedNodeExchangeStatusInputMessageRequestTypeDef(BaseValidatorModel):
     ReservedNodeId: Optional[str] = None
     ReservedNodeExchangeRequestId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeReservedNodeOfferingsMessageRequestTypeDef(BaseModel):
+class DescribeReservedNodeOfferingsMessageRequestTypeDef(BaseValidatorModel):
     ReservedNodeOfferingId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeReservedNodesMessageRequestTypeDef(BaseModel):
+class DescribeReservedNodesMessageRequestTypeDef(BaseValidatorModel):
     ReservedNodeId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeResizeMessageRequestTypeDef(BaseModel):
+class DescribeResizeMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class ScheduledActionFilterTypeDef(BaseModel):
+class ScheduledActionFilterTypeDef(BaseValidatorModel):
     Name: ScheduledActionFilterNameType
     Values: Sequence[str]
 
-class DescribeSnapshotCopyGrantsMessageRequestTypeDef(BaseModel):
+class DescribeSnapshotCopyGrantsMessageRequestTypeDef(BaseValidatorModel):
     SnapshotCopyGrantName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class DescribeSnapshotSchedulesMessageRequestTypeDef(BaseModel):
+class DescribeSnapshotSchedulesMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     ScheduleIdentifier: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
@@ -526,13 +526,13 @@ class DescribeSnapshotSchedulesMessageRequestTypeDef(BaseModel):
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
-class DescribeTableRestoreStatusMessageRequestTypeDef(BaseModel):
+class DescribeTableRestoreStatusMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     TableRestoreRequestId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeTagsMessageRequestTypeDef(BaseModel):
+class DescribeTagsMessageRequestTypeDef(BaseValidatorModel):
     ResourceName: Optional[str] = None
     ResourceType: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -540,7 +540,7 @@ class DescribeTagsMessageRequestTypeDef(BaseModel):
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class DescribeUsageLimitsMessageRequestTypeDef(BaseModel):
+class DescribeUsageLimitsMessageRequestTypeDef(BaseValidatorModel):
     UsageLimitId: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
     FeatureType: Optional[UsageLimitFeatureTypeType] = None
@@ -549,33 +549,33 @@ class DescribeUsageLimitsMessageRequestTypeDef(BaseModel):
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
 
-class DisableLoggingMessageRequestTypeDef(BaseModel):
+class DisableLoggingMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class DisableSnapshotCopyMessageRequestTypeDef(BaseModel):
+class DisableSnapshotCopyMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class DisassociateDataShareConsumerMessageRequestTypeDef(BaseModel):
+class DisassociateDataShareConsumerMessageRequestTypeDef(BaseValidatorModel):
     DataShareArn: str
     DisassociateEntireAccount: Optional[bool] = None
     ConsumerArn: Optional[str] = None
     ConsumerRegion: Optional[str] = None
 
-class EnableLoggingMessageRequestTypeDef(BaseModel):
+class EnableLoggingMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     BucketName: Optional[str] = None
     S3KeyPrefix: Optional[str] = None
     LogDestinationType: Optional[LogDestinationTypeType] = None
     LogExports: Optional[Sequence[str]] = None
 
-class EnableSnapshotCopyMessageRequestTypeDef(BaseModel):
+class EnableSnapshotCopyMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     DestinationRegion: str
     RetentionPeriod: Optional[int] = None
     SnapshotCopyGrantName: Optional[str] = None
     ManualSnapshotRetentionPeriod: Optional[int] = None
 
-class EndpointAuthorizationTypeDef(BaseModel):
+class EndpointAuthorizationTypeDef(BaseValidatorModel):
     Grantor: Optional[str] = None
     Grantee: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
@@ -586,13 +586,13 @@ class EndpointAuthorizationTypeDef(BaseModel):
     AllowedVPCs: Optional[List[str]] = None
     EndpointCount: Optional[int] = None
 
-class EventInfoMapTypeDef(BaseModel):
+class EventInfoMapTypeDef(BaseValidatorModel):
     EventId: Optional[str] = None
     EventCategories: Optional[List[str]] = None
     EventDescription: Optional[str] = None
     Severity: Optional[str] = None
 
-class EventTypeDef(BaseModel):
+class EventTypeDef(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
     Message: Optional[str] = None
@@ -601,10 +601,10 @@ class EventTypeDef(BaseModel):
     Date: Optional[datetime] = None
     EventId: Optional[str] = None
 
-class FailoverPrimaryComputeInputMessageRequestTypeDef(BaseModel):
+class FailoverPrimaryComputeInputMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class GetClusterCredentialsMessageRequestTypeDef(BaseModel):
+class GetClusterCredentialsMessageRequestTypeDef(BaseValidatorModel):
     DbUser: str
     DbName: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
@@ -613,63 +613,63 @@ class GetClusterCredentialsMessageRequestTypeDef(BaseModel):
     DbGroups: Optional[Sequence[str]] = None
     CustomDomainName: Optional[str] = None
 
-class GetClusterCredentialsWithIAMMessageRequestTypeDef(BaseModel):
+class GetClusterCredentialsWithIAMMessageRequestTypeDef(BaseValidatorModel):
     DbName: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
     DurationSeconds: Optional[int] = None
     CustomDomainName: Optional[str] = None
 
-class GetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef(BaseModel):
+class GetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef(BaseValidatorModel):
     ActionType: ReservedNodeExchangeActionTypeType
     ClusterIdentifier: Optional[str] = None
     SnapshotIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class GetReservedNodeExchangeOfferingsInputMessageRequestTypeDef(BaseModel):
+class GetReservedNodeExchangeOfferingsInputMessageRequestTypeDef(BaseValidatorModel):
     ReservedNodeId: str
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class GetResourcePolicyMessageRequestTypeDef(BaseModel):
+class GetResourcePolicyMessageRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ResourcePolicyTypeDef(BaseModel):
+class ResourcePolicyTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     Policy: Optional[str] = None
 
-class IntegrationErrorTypeDef(BaseModel):
+class IntegrationErrorTypeDef(BaseValidatorModel):
     ErrorCode: str
     ErrorMessage: Optional[str] = None
 
-class LakeFormationQueryTypeDef(BaseModel):
+class LakeFormationQueryTypeDef(BaseValidatorModel):
     Authorization: ServiceAuthorizationType
 
-class ListRecommendationsMessageRequestTypeDef(BaseModel):
+class ListRecommendationsMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     NamespaceArn: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class ModifyAquaInputMessageRequestTypeDef(BaseModel):
+class ModifyAquaInputMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     AquaConfigurationStatus: Optional[AquaConfigurationStatusType] = None
 
-class ModifyAuthenticationProfileMessageRequestTypeDef(BaseModel):
+class ModifyAuthenticationProfileMessageRequestTypeDef(BaseValidatorModel):
     AuthenticationProfileName: str
     AuthenticationProfileContent: str
 
-class ModifyClusterDbRevisionMessageRequestTypeDef(BaseModel):
+class ModifyClusterDbRevisionMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     RevisionTarget: str
 
-class ModifyClusterIamRolesMessageRequestTypeDef(BaseModel):
+class ModifyClusterIamRolesMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     AddIamRoles: Optional[Sequence[str]] = None
     RemoveIamRoles: Optional[Sequence[str]] = None
     DefaultIamRoleArn: Optional[str] = None
 
-class ModifyClusterMessageRequestTypeDef(BaseModel):
+class ModifyClusterMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     ClusterType: Optional[str] = None
     NodeType: Optional[str] = None
@@ -700,31 +700,31 @@ class ModifyClusterMessageRequestTypeDef(BaseModel):
     IpAddressType: Optional[str] = None
     MultiAZ: Optional[bool] = None
 
-class ModifyClusterSnapshotMessageRequestTypeDef(BaseModel):
+class ModifyClusterSnapshotMessageRequestTypeDef(BaseValidatorModel):
     SnapshotIdentifier: str
     ManualSnapshotRetentionPeriod: Optional[int] = None
     Force: Optional[bool] = None
 
-class ModifyClusterSnapshotScheduleMessageRequestTypeDef(BaseModel):
+class ModifyClusterSnapshotScheduleMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     ScheduleIdentifier: Optional[str] = None
     DisassociateSchedule: Optional[bool] = None
 
-class ModifyClusterSubnetGroupMessageRequestTypeDef(BaseModel):
+class ModifyClusterSubnetGroupMessageRequestTypeDef(BaseValidatorModel):
     ClusterSubnetGroupName: str
     SubnetIds: Sequence[str]
     Description: Optional[str] = None
 
-class ModifyCustomDomainAssociationMessageRequestTypeDef(BaseModel):
+class ModifyCustomDomainAssociationMessageRequestTypeDef(BaseValidatorModel):
     CustomDomainName: str
     CustomDomainCertificateArn: str
     ClusterIdentifier: str
 
-class ModifyEndpointAccessMessageRequestTypeDef(BaseModel):
+class ModifyEndpointAccessMessageRequestTypeDef(BaseValidatorModel):
     EndpointName: str
     VpcSecurityGroupIds: Optional[Sequence[str]] = None
 
-class ModifyEventSubscriptionMessageRequestTypeDef(BaseModel):
+class ModifyEventSubscriptionMessageRequestTypeDef(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: Optional[str] = None
     SourceType: Optional[str] = None
@@ -733,74 +733,74 @@ class ModifyEventSubscriptionMessageRequestTypeDef(BaseModel):
     Severity: Optional[str] = None
     Enabled: Optional[bool] = None
 
-class ModifySnapshotCopyRetentionPeriodMessageRequestTypeDef(BaseModel):
+class ModifySnapshotCopyRetentionPeriodMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     RetentionPeriod: int
     Manual: Optional[bool] = None
 
-class ModifySnapshotScheduleMessageRequestTypeDef(BaseModel):
+class ModifySnapshotScheduleMessageRequestTypeDef(BaseValidatorModel):
     ScheduleIdentifier: str
     ScheduleDefinitions: Sequence[str]
 
-class ModifyUsageLimitMessageRequestTypeDef(BaseModel):
+class ModifyUsageLimitMessageRequestTypeDef(BaseValidatorModel):
     UsageLimitId: str
     Amount: Optional[int] = None
     BreachAction: Optional[UsageLimitBreachActionType] = None
 
-class NetworkInterfaceTypeDef(BaseModel):
+class NetworkInterfaceTypeDef(BaseValidatorModel):
     NetworkInterfaceId: Optional[str] = None
     SubnetId: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     Ipv6Address: Optional[str] = None
 
-class NodeConfigurationOptionTypeDef(BaseModel):
+class NodeConfigurationOptionTypeDef(BaseValidatorModel):
     NodeType: Optional[str] = None
     NumberOfNodes: Optional[int] = None
     EstimatedDiskUtilizationPercent: Optional[float] = None
     Mode: Optional[ModeType] = None
 
-class PartnerIntegrationInputMessageRequestTypeDef(BaseModel):
+class PartnerIntegrationInputMessageRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ClusterIdentifier: str
     DatabaseName: str
     PartnerName: str
 
-class PauseClusterMessageRequestTypeDef(BaseModel):
+class PauseClusterMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class PauseClusterMessageTypeDef(BaseModel):
+class PauseClusterMessageTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class PurchaseReservedNodeOfferingMessageRequestTypeDef(BaseModel):
+class PurchaseReservedNodeOfferingMessageRequestTypeDef(BaseValidatorModel):
     ReservedNodeOfferingId: str
     NodeCount: Optional[int] = None
 
-class PutResourcePolicyMessageRequestTypeDef(BaseModel):
+class PutResourcePolicyMessageRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Policy: str
 
-class RebootClusterMessageRequestTypeDef(BaseModel):
+class RebootClusterMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class RecommendedActionTypeDef(BaseModel):
+class RecommendedActionTypeDef(BaseValidatorModel):
     Text: Optional[str] = None
     Database: Optional[str] = None
     Command: Optional[str] = None
     Type: Optional[RecommendedActionTypeType] = None
 
-class ReferenceLinkTypeDef(BaseModel):
+class ReferenceLinkTypeDef(BaseValidatorModel):
     Text: Optional[str] = None
     Link: Optional[str] = None
 
-class RecurringChargeTypeDef(BaseModel):
+class RecurringChargeTypeDef(BaseValidatorModel):
     RecurringChargeAmount: Optional[float] = None
     RecurringChargeFrequency: Optional[str] = None
 
-class RejectDataShareMessageRequestTypeDef(BaseModel):
+class RejectDataShareMessageRequestTypeDef(BaseValidatorModel):
     DataShareArn: str
 
-class ResizeClusterMessageRequestTypeDef(BaseModel):
+class ResizeClusterMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     ClusterType: Optional[str] = None
     NodeType: Optional[str] = None
@@ -809,7 +809,7 @@ class ResizeClusterMessageRequestTypeDef(BaseModel):
     ReservedNodeId: Optional[str] = None
     TargetReservedNodeOfferingId: Optional[str] = None
 
-class ResizeClusterMessageTypeDef(BaseModel):
+class ResizeClusterMessageTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     ClusterType: Optional[str] = None
     NodeType: Optional[str] = None
@@ -818,7 +818,7 @@ class ResizeClusterMessageTypeDef(BaseModel):
     ReservedNodeId: Optional[str] = None
     TargetReservedNodeOfferingId: Optional[str] = None
 
-class RestoreFromClusterSnapshotMessageRequestTypeDef(BaseModel):
+class RestoreFromClusterSnapshotMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     SnapshotIdentifier: Optional[str] = None
     SnapshotArn: Optional[str] = None
@@ -857,7 +857,7 @@ class RestoreFromClusterSnapshotMessageRequestTypeDef(BaseModel):
     IpAddressType: Optional[str] = None
     MultiAZ: Optional[bool] = None
 
-class RestoreTableFromClusterSnapshotMessageRequestTypeDef(BaseModel):
+class RestoreTableFromClusterSnapshotMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     SnapshotIdentifier: str
     SourceDatabaseName: str
@@ -868,7 +868,7 @@ class RestoreTableFromClusterSnapshotMessageRequestTypeDef(BaseModel):
     TargetSchemaName: Optional[str] = None
     EnableCaseSensitiveIdentifier: Optional[bool] = None
 
-class TableRestoreStatusTypeDef(BaseModel):
+class TableRestoreStatusTypeDef(BaseValidatorModel):
     TableRestoreRequestId: Optional[str] = None
     Status: Optional[TableRestoreStatusTypeType] = None
     Message: Optional[str] = None
@@ -884,37 +884,37 @@ class TableRestoreStatusTypeDef(BaseModel):
     TargetSchemaName: Optional[str] = None
     NewTableName: Optional[str] = None
 
-class ResumeClusterMessageRequestTypeDef(BaseModel):
+class ResumeClusterMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class ResumeClusterMessageTypeDef(BaseModel):
+class ResumeClusterMessageTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class RevokeClusterSecurityGroupIngressMessageRequestTypeDef(BaseModel):
+class RevokeClusterSecurityGroupIngressMessageRequestTypeDef(BaseValidatorModel):
     ClusterSecurityGroupName: str
     CIDRIP: Optional[str] = None
     EC2SecurityGroupName: Optional[str] = None
     EC2SecurityGroupOwnerId: Optional[str] = None
 
-class RevokeEndpointAccessMessageRequestTypeDef(BaseModel):
+class RevokeEndpointAccessMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     Account: Optional[str] = None
     VpcIds: Optional[Sequence[str]] = None
     Force: Optional[bool] = None
 
-class RevokeSnapshotAccessMessageRequestTypeDef(BaseModel):
+class RevokeSnapshotAccessMessageRequestTypeDef(BaseValidatorModel):
     AccountWithRestoreAccess: str
     SnapshotIdentifier: Optional[str] = None
     SnapshotArn: Optional[str] = None
     SnapshotClusterIdentifier: Optional[str] = None
 
-class RotateEncryptionKeyMessageRequestTypeDef(BaseModel):
+class RotateEncryptionKeyMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
 
-class SupportedOperationTypeDef(BaseModel):
+class SupportedOperationTypeDef(BaseValidatorModel):
     OperationName: Optional[str] = None
 
-class UpdatePartnerStatusInputMessageRequestTypeDef(BaseModel):
+class UpdatePartnerStatusInputMessageRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ClusterIdentifier: str
     DatabaseName: str
@@ -922,49 +922,49 @@ class UpdatePartnerStatusInputMessageRequestTypeDef(BaseModel):
     Status: PartnerIntegrationStatusType
     StatusMessage: Optional[str] = None
 
-class ClusterCredentialsTypeDef(BaseModel):
+class ClusterCredentialsTypeDef(BaseValidatorModel):
     DbUser: str
     DbPassword: str
     Expiration: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterExtendedCredentialsTypeDef(BaseModel):
+class ClusterExtendedCredentialsTypeDef(BaseValidatorModel):
     DbUser: str
     DbPassword: str
     Expiration: datetime
     NextRefreshTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterParameterGroupNameMessageTypeDef(BaseModel):
+class ClusterParameterGroupNameMessageTypeDef(BaseValidatorModel):
     ParameterGroupName: str
     ParameterGroupStatus: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAuthenticationProfileResultTypeDef(BaseModel):
+class CreateAuthenticationProfileResultTypeDef(BaseValidatorModel):
     AuthenticationProfileName: str
     AuthenticationProfileContent: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCustomDomainAssociationResultTypeDef(BaseModel):
+class CreateCustomDomainAssociationResultTypeDef(BaseValidatorModel):
     CustomDomainName: str
     CustomDomainCertificateArn: str
     ClusterIdentifier: str
     CustomDomainCertExpiryTime: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CustomerStorageMessageTypeDef(BaseModel):
+class CustomerStorageMessageTypeDef(BaseValidatorModel):
     TotalBackupSizeInMegaBytes: float
     TotalProvisionedStorageInMegaBytes: float
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAuthenticationProfileResultTypeDef(BaseModel):
+class DeleteAuthenticationProfileResultTypeDef(BaseValidatorModel):
     AuthenticationProfileName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EndpointAuthorizationResponseTypeDef(BaseModel):
+class EndpointAuthorizationResponseTypeDef(BaseValidatorModel):
     Grantor: str
     Grantee: str
     ClusterIdentifier: str
@@ -976,7 +976,7 @@ class EndpointAuthorizationResponseTypeDef(BaseModel):
     EndpointCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoggingStatusTypeDef(BaseModel):
+class LoggingStatusTypeDef(BaseValidatorModel):
     LoggingEnabled: bool
     BucketName: str
     S3KeyPrefix: str
@@ -987,24 +987,24 @@ class LoggingStatusTypeDef(BaseModel):
     LogExports: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyAuthenticationProfileResultTypeDef(BaseModel):
+class ModifyAuthenticationProfileResultTypeDef(BaseValidatorModel):
     AuthenticationProfileName: str
     AuthenticationProfileContent: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyCustomDomainAssociationResultTypeDef(BaseModel):
+class ModifyCustomDomainAssociationResultTypeDef(BaseValidatorModel):
     CustomDomainName: str
     CustomDomainCertificateArn: str
     ClusterIdentifier: str
     CustomDomainCertExpiryTime: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PartnerIntegrationOutputMessageTypeDef(BaseModel):
+class PartnerIntegrationOutputMessageTypeDef(BaseValidatorModel):
     DatabaseName: str
     PartnerName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResizeProgressMessageTypeDef(BaseModel):
+class ResizeProgressMessageTypeDef(BaseValidatorModel):
     TargetNodeType: str
     TargetNumberOfNodes: int
     TargetClusterType: str
@@ -1023,81 +1023,81 @@ class ResizeProgressMessageTypeDef(BaseModel):
     DataTransferProgressPercent: float
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AccountAttributeTypeDef(BaseModel):
+class AccountAttributeTypeDef(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeValues: Optional[List[AttributeValueTargetTypeDef]] = None
 
-class ModifyAquaOutputMessageTypeDef(BaseModel):
+class ModifyAquaOutputMessageTypeDef(BaseValidatorModel):
     AquaConfiguration: AquaConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociationTypeDef(BaseModel):
+class AssociationTypeDef(BaseValidatorModel):
     CustomDomainCertificateArn: Optional[str] = None
     CustomDomainCertificateExpiryDate: Optional[datetime] = None
     CertificateAssociations: Optional[List[CertificateAssociationTypeDef]] = None
 
-class DescribeAuthenticationProfilesResultTypeDef(BaseModel):
+class DescribeAuthenticationProfilesResultTypeDef(BaseValidatorModel):
     AuthenticationProfiles: List[AuthenticationProfileTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AvailabilityZoneTypeDef(BaseModel):
+class AvailabilityZoneTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     SupportedPlatforms: Optional[List[SupportedPlatformTypeDef]] = None
 
-class BatchDeleteClusterSnapshotsRequestRequestTypeDef(BaseModel):
+class BatchDeleteClusterSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     Identifiers: Sequence[DeleteClusterSnapshotMessageTypeDef]
 
-class BatchDeleteClusterSnapshotsResultTypeDef(BaseModel):
+class BatchDeleteClusterSnapshotsResultTypeDef(BaseValidatorModel):
     Resources: List[str]
     Errors: List[SnapshotErrorMessageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchModifyClusterSnapshotsOutputMessageTypeDef(BaseModel):
+class BatchModifyClusterSnapshotsOutputMessageTypeDef(BaseValidatorModel):
     Resources: List[str]
     Errors: List[SnapshotErrorMessageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterDbRevisionTypeDef(BaseModel):
+class ClusterDbRevisionTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     CurrentDatabaseRevision: Optional[str] = None
     DatabaseRevisionReleaseDate: Optional[datetime] = None
     RevisionTargets: Optional[List[RevisionTargetTypeDef]] = None
 
-class SecondaryClusterInfoTypeDef(BaseModel):
+class SecondaryClusterInfoTypeDef(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     ClusterNodes: Optional[List[ClusterNodeTypeDef]] = None
 
-class ClusterParameterGroupDetailsTypeDef(BaseModel):
+class ClusterParameterGroupDetailsTypeDef(BaseValidatorModel):
     Parameters: List[ParameterTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DefaultClusterParametersTypeDef(BaseModel):
+class DefaultClusterParametersTypeDef(BaseValidatorModel):
     ParameterGroupFamily: Optional[str] = None
     Marker: Optional[str] = None
     Parameters: Optional[List[ParameterTypeDef]] = None
 
-class ModifyClusterParameterGroupMessageRequestTypeDef(BaseModel):
+class ModifyClusterParameterGroupMessageRequestTypeDef(BaseValidatorModel):
     ParameterGroupName: str
     Parameters: Sequence[ParameterTypeDef]
 
-class ResetClusterParameterGroupMessageRequestTypeDef(BaseModel):
+class ResetClusterParameterGroupMessageRequestTypeDef(BaseValidatorModel):
     ParameterGroupName: str
     ResetAllParameters: Optional[bool] = None
     Parameters: Optional[Sequence[ParameterTypeDef]] = None
 
-class ClusterParameterGroupStatusTypeDef(BaseModel):
+class ClusterParameterGroupStatusTypeDef(BaseValidatorModel):
     ParameterGroupName: Optional[str] = None
     ParameterApplyStatus: Optional[str] = None
     ClusterParameterStatusList: Optional[List[ClusterParameterStatusTypeDef]] = None
 
-class ClusterParameterGroupTypeDef(BaseModel):
+class ClusterParameterGroupTypeDef(BaseValidatorModel):
     ParameterGroupName: Optional[str] = None
     ParameterGroupFamily: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class CreateClusterMessageRequestTypeDef(BaseModel):
+class CreateClusterMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     NodeType: str
     MasterUsername: str
@@ -1138,30 +1138,30 @@ class CreateClusterMessageRequestTypeDef(BaseModel):
     MultiAZ: Optional[bool] = None
     RedshiftIdcApplicationArn: Optional[str] = None
 
-class CreateClusterParameterGroupMessageRequestTypeDef(BaseModel):
+class CreateClusterParameterGroupMessageRequestTypeDef(BaseValidatorModel):
     ParameterGroupName: str
     ParameterGroupFamily: str
     Description: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateClusterSecurityGroupMessageRequestTypeDef(BaseModel):
+class CreateClusterSecurityGroupMessageRequestTypeDef(BaseValidatorModel):
     ClusterSecurityGroupName: str
     Description: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateClusterSnapshotMessageRequestTypeDef(BaseModel):
+class CreateClusterSnapshotMessageRequestTypeDef(BaseValidatorModel):
     SnapshotIdentifier: str
     ClusterIdentifier: str
     ManualSnapshotRetentionPeriod: Optional[int] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateClusterSubnetGroupMessageRequestTypeDef(BaseModel):
+class CreateClusterSubnetGroupMessageRequestTypeDef(BaseValidatorModel):
     ClusterSubnetGroupName: str
     Description: str
     SubnetIds: Sequence[str]
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateEventSubscriptionMessageRequestTypeDef(BaseModel):
+class CreateEventSubscriptionMessageRequestTypeDef(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: str
     SourceType: Optional[str] = None
@@ -1171,11 +1171,11 @@ class CreateEventSubscriptionMessageRequestTypeDef(BaseModel):
     Enabled: Optional[bool] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateHsmClientCertificateMessageRequestTypeDef(BaseModel):
+class CreateHsmClientCertificateMessageRequestTypeDef(BaseValidatorModel):
     HsmClientCertificateIdentifier: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateHsmConfigurationMessageRequestTypeDef(BaseModel):
+class CreateHsmConfigurationMessageRequestTypeDef(BaseValidatorModel):
     HsmConfigurationIdentifier: str
     Description: str
     HsmIpAddress: str
@@ -1184,12 +1184,12 @@ class CreateHsmConfigurationMessageRequestTypeDef(BaseModel):
     HsmServerPublicCertificate: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateSnapshotCopyGrantMessageRequestTypeDef(BaseModel):
+class CreateSnapshotCopyGrantMessageRequestTypeDef(BaseValidatorModel):
     SnapshotCopyGrantName: str
     KmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateSnapshotScheduleMessageRequestTypeDef(BaseModel):
+class CreateSnapshotScheduleMessageRequestTypeDef(BaseValidatorModel):
     ScheduleDefinitions: Optional[Sequence[str]] = None
     ScheduleIdentifier: Optional[str] = None
     ScheduleDescription: Optional[str] = None
@@ -1197,11 +1197,11 @@ class CreateSnapshotScheduleMessageRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     NextInvocations: Optional[int] = None
 
-class CreateTagsMessageRequestTypeDef(BaseModel):
+class CreateTagsMessageRequestTypeDef(BaseValidatorModel):
     ResourceName: str
     Tags: Sequence[TagTypeDef]
 
-class CreateUsageLimitMessageRequestTypeDef(BaseModel):
+class CreateUsageLimitMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     FeatureType: UsageLimitFeatureTypeType
     LimitType: UsageLimitLimitTypeType
@@ -1210,13 +1210,13 @@ class CreateUsageLimitMessageRequestTypeDef(BaseModel):
     BreachAction: Optional[UsageLimitBreachActionType] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class EC2SecurityGroupTypeDef(BaseModel):
+class EC2SecurityGroupTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
     EC2SecurityGroupName: Optional[str] = None
     EC2SecurityGroupOwnerId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class EventSubscriptionTypeDef(BaseModel):
+class EventSubscriptionTypeDef(BaseValidatorModel):
     CustomerAwsId: Optional[str] = None
     CustSubscriptionId: Optional[str] = None
     SnsTopicArn: Optional[str] = None
@@ -1229,29 +1229,29 @@ class EventSubscriptionTypeDef(BaseModel):
     Enabled: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class HsmClientCertificateTypeDef(BaseModel):
+class HsmClientCertificateTypeDef(BaseValidatorModel):
     HsmClientCertificateIdentifier: Optional[str] = None
     HsmClientCertificatePublicKey: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class HsmConfigurationTypeDef(BaseModel):
+class HsmConfigurationTypeDef(BaseValidatorModel):
     HsmConfigurationIdentifier: Optional[str] = None
     Description: Optional[str] = None
     HsmIpAddress: Optional[str] = None
     HsmPartitionName: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class IPRangeTypeDef(BaseModel):
+class IPRangeTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
     CIDRIP: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class SnapshotCopyGrantTypeDef(BaseModel):
+class SnapshotCopyGrantTypeDef(BaseValidatorModel):
     SnapshotCopyGrantName: Optional[str] = None
     KmsKeyId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class SnapshotScheduleResponseTypeDef(BaseModel):
+class SnapshotScheduleResponseTypeDef(BaseValidatorModel):
     ScheduleDefinitions: List[str]
     ScheduleIdentifier: str
     ScheduleDescription: str
@@ -1261,7 +1261,7 @@ class SnapshotScheduleResponseTypeDef(BaseModel):
     AssociatedClusters: List[ClusterAssociatedToScheduleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SnapshotScheduleTypeDef(BaseModel):
+class SnapshotScheduleTypeDef(BaseValidatorModel):
     ScheduleDefinitions: Optional[List[str]] = None
     ScheduleIdentifier: Optional[str] = None
     ScheduleDescription: Optional[str] = None
@@ -1270,7 +1270,7 @@ class SnapshotScheduleTypeDef(BaseModel):
     AssociatedClusterCount: Optional[int] = None
     AssociatedClusters: Optional[List[ClusterAssociatedToScheduleTypeDef]] = None
 
-class SnapshotTypeDef(BaseModel):
+class SnapshotTypeDef(BaseValidatorModel):
     SnapshotIdentifier: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
     SnapshotCreateTime: Optional[datetime] = None
@@ -1309,12 +1309,12 @@ class SnapshotTypeDef(BaseModel):
     MasterPasswordSecretKmsKeyId: Optional[str] = None
     SnapshotArn: Optional[str] = None
 
-class TaggedResourceTypeDef(BaseModel):
+class TaggedResourceTypeDef(BaseValidatorModel):
     Tag: Optional[TagTypeDef] = None
     ResourceName: Optional[str] = None
     ResourceType: Optional[str] = None
 
-class UsageLimitResponseTypeDef(BaseModel):
+class UsageLimitResponseTypeDef(BaseValidatorModel):
     UsageLimitId: str
     ClusterIdentifier: str
     FeatureType: UsageLimitFeatureTypeType
@@ -1325,7 +1325,7 @@ class UsageLimitResponseTypeDef(BaseModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UsageLimitTypeDef(BaseModel):
+class UsageLimitTypeDef(BaseValidatorModel):
     UsageLimitId: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
     FeatureType: Optional[UsageLimitFeatureTypeType] = None
@@ -1335,17 +1335,17 @@ class UsageLimitTypeDef(BaseModel):
     BreachAction: Optional[UsageLimitBreachActionType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class DescribeReservedNodeExchangeStatusOutputMessageTypeDef(BaseModel):
+class DescribeReservedNodeExchangeStatusOutputMessageTypeDef(BaseValidatorModel):
     ReservedNodeExchangeStatusDetails: List[ReservedNodeExchangeStatusTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterVersionsMessageTypeDef(BaseModel):
+class ClusterVersionsMessageTypeDef(BaseValidatorModel):
     Marker: str
     ClusterVersions: List[ClusterVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEventsMessageRequestTypeDef(BaseModel):
+class DescribeEventsMessageRequestTypeDef(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
     StartTime: Optional[TimestampTypeDef] = None
@@ -1354,7 +1354,7 @@ class DescribeEventsMessageRequestTypeDef(BaseModel):
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class ModifyClusterMaintenanceMessageRequestTypeDef(BaseModel):
+class ModifyClusterMaintenanceMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     DeferMaintenance: Optional[bool] = None
     DeferMaintenanceIdentifier: Optional[str] = None
@@ -1362,7 +1362,7 @@ class ModifyClusterMaintenanceMessageRequestTypeDef(BaseModel):
     DeferMaintenanceEndTime: Optional[TimestampTypeDef] = None
     DeferMaintenanceDuration: Optional[int] = None
 
-class DataShareResponseTypeDef(BaseModel):
+class DataShareResponseTypeDef(BaseValidatorModel):
     DataShareArn: str
     ProducerArn: str
     AllowPubliclyAccessibleConsumers: bool
@@ -1370,98 +1370,98 @@ class DataShareResponseTypeDef(BaseModel):
     ManagedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataShareTypeDef(BaseModel):
+class DataShareTypeDef(BaseValidatorModel):
     DataShareArn: Optional[str] = None
     ProducerArn: Optional[str] = None
     AllowPubliclyAccessibleConsumers: Optional[bool] = None
     DataShareAssociations: Optional[List[DataShareAssociationTypeDef]] = None
     ManagedBy: Optional[str] = None
 
-class DescribeClusterDbRevisionsMessageDescribeClusterDbRevisionsPaginateTypeDef(BaseModel):
+class DescribeClusterDbRevisionsMessageDescribeClusterDbRevisionsPaginateTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClusterParameterGroupsMessageDescribeClusterParameterGroupsPaginateTypeDef(BaseModel):
+class DescribeClusterParameterGroupsMessageDescribeClusterParameterGroupsPaginateTypeDef(BaseValidatorModel):
     ParameterGroupName: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClusterParametersMessageDescribeClusterParametersPaginateTypeDef(BaseModel):
+class DescribeClusterParametersMessageDescribeClusterParametersPaginateTypeDef(BaseValidatorModel):
     ParameterGroupName: str
     Source: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClusterSecurityGroupsMessageDescribeClusterSecurityGroupsPaginateTypeDef(BaseModel):
+class DescribeClusterSecurityGroupsMessageDescribeClusterSecurityGroupsPaginateTypeDef(BaseValidatorModel):
     ClusterSecurityGroupName: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClusterSubnetGroupsMessageDescribeClusterSubnetGroupsPaginateTypeDef(BaseModel):
+class DescribeClusterSubnetGroupsMessageDescribeClusterSubnetGroupsPaginateTypeDef(BaseValidatorModel):
     ClusterSubnetGroupName: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClusterTracksMessageDescribeClusterTracksPaginateTypeDef(BaseModel):
+class DescribeClusterTracksMessageDescribeClusterTracksPaginateTypeDef(BaseValidatorModel):
     MaintenanceTrackName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClusterVersionsMessageDescribeClusterVersionsPaginateTypeDef(BaseModel):
+class DescribeClusterVersionsMessageDescribeClusterVersionsPaginateTypeDef(BaseValidatorModel):
     ClusterVersion: Optional[str] = None
     ClusterParameterGroupFamily: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClustersMessageDescribeClustersPaginateTypeDef(BaseModel):
+class DescribeClustersMessageDescribeClustersPaginateTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCustomDomainAssociationsMessageDescribeCustomDomainAssociationsPaginateTypeDef(BaseModel):
+class DescribeCustomDomainAssociationsMessageDescribeCustomDomainAssociationsPaginateTypeDef(BaseValidatorModel):
     CustomDomainName: Optional[str] = None
     CustomDomainCertificateArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDataSharesForConsumerMessageDescribeDataSharesForConsumerPaginateTypeDef(BaseModel):
+class DescribeDataSharesForConsumerMessageDescribeDataSharesForConsumerPaginateTypeDef(BaseValidatorModel):
     ConsumerArn: Optional[str] = None
     Status: Optional[DataShareStatusForConsumerType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDataSharesForProducerMessageDescribeDataSharesForProducerPaginateTypeDef(BaseModel):
+class DescribeDataSharesForProducerMessageDescribeDataSharesForProducerPaginateTypeDef(BaseValidatorModel):
     ProducerArn: Optional[str] = None
     Status: Optional[DataShareStatusForProducerType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDataSharesMessageDescribeDataSharesPaginateTypeDef(BaseModel):
+class DescribeDataSharesMessageDescribeDataSharesPaginateTypeDef(BaseValidatorModel):
     DataShareArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDefaultClusterParametersMessageDescribeDefaultClusterParametersPaginateTypeDef(BaseModel):
+class DescribeDefaultClusterParametersMessageDescribeDefaultClusterParametersPaginateTypeDef(BaseValidatorModel):
     ParameterGroupFamily: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEndpointAccessMessageDescribeEndpointAccessPaginateTypeDef(BaseModel):
+class DescribeEndpointAccessMessageDescribeEndpointAccessPaginateTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     ResourceOwner: Optional[str] = None
     EndpointName: Optional[str] = None
     VpcId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEndpointAuthorizationMessageDescribeEndpointAuthorizationPaginateTypeDef(BaseModel):
+class DescribeEndpointAuthorizationMessageDescribeEndpointAuthorizationPaginateTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     Account: Optional[str] = None
     Grantee: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEventSubscriptionsMessageDescribeEventSubscriptionsPaginateTypeDef(BaseModel):
+class DescribeEventSubscriptionsMessageDescribeEventSubscriptionsPaginateTypeDef(BaseValidatorModel):
     SubscriptionName: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEventsMessageDescribeEventsPaginateTypeDef(BaseModel):
+class DescribeEventsMessageDescribeEventsPaginateTypeDef(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
     StartTime: Optional[TimestampTypeDef] = None
@@ -1469,71 +1469,71 @@ class DescribeEventsMessageDescribeEventsPaginateTypeDef(BaseModel):
     Duration: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeHsmClientCertificatesMessageDescribeHsmClientCertificatesPaginateTypeDef(BaseModel):
+class DescribeHsmClientCertificatesMessageDescribeHsmClientCertificatesPaginateTypeDef(BaseValidatorModel):
     HsmClientCertificateIdentifier: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeHsmConfigurationsMessageDescribeHsmConfigurationsPaginateTypeDef(BaseModel):
+class DescribeHsmConfigurationsMessageDescribeHsmConfigurationsPaginateTypeDef(BaseValidatorModel):
     HsmConfigurationIdentifier: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeInboundIntegrationsMessageDescribeInboundIntegrationsPaginateTypeDef(BaseModel):
+class DescribeInboundIntegrationsMessageDescribeInboundIntegrationsPaginateTypeDef(BaseValidatorModel):
     IntegrationArn: Optional[str] = None
     TargetArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeOrderableClusterOptionsMessageDescribeOrderableClusterOptionsPaginateTypeDef(BaseModel):
+class DescribeOrderableClusterOptionsMessageDescribeOrderableClusterOptionsPaginateTypeDef(BaseValidatorModel):
     ClusterVersion: Optional[str] = None
     NodeType: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRedshiftIdcApplicationsMessageDescribeRedshiftIdcApplicationsPaginateTypeDef(BaseModel):
+class DescribeRedshiftIdcApplicationsMessageDescribeRedshiftIdcApplicationsPaginateTypeDef(BaseValidatorModel):
     RedshiftIdcApplicationArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReservedNodeExchangeStatusInputMessageDescribeReservedNodeExchangeStatusPaginateTypeDef(BaseModel):
+class DescribeReservedNodeExchangeStatusInputMessageDescribeReservedNodeExchangeStatusPaginateTypeDef(BaseValidatorModel):
     ReservedNodeId: Optional[str] = None
     ReservedNodeExchangeRequestId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReservedNodeOfferingsMessageDescribeReservedNodeOfferingsPaginateTypeDef(BaseModel):
+class DescribeReservedNodeOfferingsMessageDescribeReservedNodeOfferingsPaginateTypeDef(BaseValidatorModel):
     ReservedNodeOfferingId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReservedNodesMessageDescribeReservedNodesPaginateTypeDef(BaseModel):
+class DescribeReservedNodesMessageDescribeReservedNodesPaginateTypeDef(BaseValidatorModel):
     ReservedNodeId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSnapshotCopyGrantsMessageDescribeSnapshotCopyGrantsPaginateTypeDef(BaseModel):
+class DescribeSnapshotCopyGrantsMessageDescribeSnapshotCopyGrantsPaginateTypeDef(BaseValidatorModel):
     SnapshotCopyGrantName: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSnapshotSchedulesMessageDescribeSnapshotSchedulesPaginateTypeDef(BaseModel):
+class DescribeSnapshotSchedulesMessageDescribeSnapshotSchedulesPaginateTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     ScheduleIdentifier: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTableRestoreStatusMessageDescribeTableRestoreStatusPaginateTypeDef(BaseModel):
+class DescribeTableRestoreStatusMessageDescribeTableRestoreStatusPaginateTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     TableRestoreRequestId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTagsMessageDescribeTagsPaginateTypeDef(BaseModel):
+class DescribeTagsMessageDescribeTagsPaginateTypeDef(BaseValidatorModel):
     ResourceName: Optional[str] = None
     ResourceType: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeUsageLimitsMessageDescribeUsageLimitsPaginateTypeDef(BaseModel):
+class DescribeUsageLimitsMessageDescribeUsageLimitsPaginateTypeDef(BaseValidatorModel):
     UsageLimitId: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
     FeatureType: Optional[UsageLimitFeatureTypeType] = None
@@ -1541,22 +1541,22 @@ class DescribeUsageLimitsMessageDescribeUsageLimitsPaginateTypeDef(BaseModel):
     TagValues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetReservedNodeExchangeConfigurationOptionsInputMessageGetReservedNodeExchangeConfigurationOptionsPaginateTypeDef(BaseModel):
+class GetReservedNodeExchangeConfigurationOptionsInputMessageGetReservedNodeExchangeConfigurationOptionsPaginateTypeDef(BaseValidatorModel):
     ActionType: ReservedNodeExchangeActionTypeType
     ClusterIdentifier: Optional[str] = None
     SnapshotIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetReservedNodeExchangeOfferingsInputMessageGetReservedNodeExchangeOfferingsPaginateTypeDef(BaseModel):
+class GetReservedNodeExchangeOfferingsInputMessageGetReservedNodeExchangeOfferingsPaginateTypeDef(BaseValidatorModel):
     ReservedNodeId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRecommendationsMessageListRecommendationsPaginateTypeDef(BaseModel):
+class ListRecommendationsMessageListRecommendationsPaginateTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     NamespaceArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClusterSnapshotsMessageDescribeClusterSnapshotsPaginateTypeDef(BaseModel):
+class DescribeClusterSnapshotsMessageDescribeClusterSnapshotsPaginateTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     SnapshotIdentifier: Optional[str] = None
     SnapshotArn: Optional[str] = None
@@ -1570,7 +1570,7 @@ class DescribeClusterSnapshotsMessageDescribeClusterSnapshotsPaginateTypeDef(Bas
     SortingEntities: Optional[Sequence[SnapshotSortingEntityTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeClusterSnapshotsMessageRequestTypeDef(BaseModel):
+class DescribeClusterSnapshotsMessageRequestTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     SnapshotIdentifier: Optional[str] = None
     SnapshotArn: Optional[str] = None
@@ -1585,7 +1585,7 @@ class DescribeClusterSnapshotsMessageRequestTypeDef(BaseModel):
     ClusterExists: Optional[bool] = None
     SortingEntities: Optional[Sequence[SnapshotSortingEntityTypeDef]] = None
 
-class DescribeClusterSnapshotsMessageSnapshotAvailableWaitTypeDef(BaseModel):
+class DescribeClusterSnapshotsMessageSnapshotAvailableWaitTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     SnapshotIdentifier: Optional[str] = None
     SnapshotArn: Optional[str] = None
@@ -1601,7 +1601,7 @@ class DescribeClusterSnapshotsMessageSnapshotAvailableWaitTypeDef(BaseModel):
     SortingEntities: Optional[Sequence[SnapshotSortingEntityTypeDef]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeClustersMessageClusterAvailableWaitTypeDef(BaseModel):
+class DescribeClustersMessageClusterAvailableWaitTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
@@ -1609,7 +1609,7 @@ class DescribeClustersMessageClusterAvailableWaitTypeDef(BaseModel):
     TagValues: Optional[Sequence[str]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeClustersMessageClusterDeletedWaitTypeDef(BaseModel):
+class DescribeClustersMessageClusterDeletedWaitTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
@@ -1617,7 +1617,7 @@ class DescribeClustersMessageClusterDeletedWaitTypeDef(BaseModel):
     TagValues: Optional[Sequence[str]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeClustersMessageClusterRestoredWaitTypeDef(BaseModel):
+class DescribeClustersMessageClusterRestoredWaitTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
@@ -1625,7 +1625,7 @@ class DescribeClustersMessageClusterRestoredWaitTypeDef(BaseModel):
     TagValues: Optional[Sequence[str]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeNodeConfigurationOptionsMessageDescribeNodeConfigurationOptionsPaginateTypeDef(BaseModel):
+class DescribeNodeConfigurationOptionsMessageDescribeNodeConfigurationOptionsPaginateTypeDef(BaseValidatorModel):
     ActionType: ActionTypeType
     ClusterIdentifier: Optional[str] = None
     SnapshotIdentifier: Optional[str] = None
@@ -1634,7 +1634,7 @@ class DescribeNodeConfigurationOptionsMessageDescribeNodeConfigurationOptionsPag
     Filters: Optional[Sequence[NodeConfigurationOptionsFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNodeConfigurationOptionsMessageRequestTypeDef(BaseModel):
+class DescribeNodeConfigurationOptionsMessageRequestTypeDef(BaseValidatorModel):
     ActionType: ActionTypeType
     ClusterIdentifier: Optional[str] = None
     SnapshotIdentifier: Optional[str] = None
@@ -1644,11 +1644,11 @@ class DescribeNodeConfigurationOptionsMessageRequestTypeDef(BaseModel):
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
-class DescribePartnersOutputMessageTypeDef(BaseModel):
+class DescribePartnersOutputMessageTypeDef(BaseValidatorModel):
     PartnerIntegrationInfoList: List[PartnerIntegrationInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeScheduledActionsMessageDescribeScheduledActionsPaginateTypeDef(BaseModel):
+class DescribeScheduledActionsMessageDescribeScheduledActionsPaginateTypeDef(BaseValidatorModel):
     ScheduledActionName: Optional[str] = None
     TargetActionType: Optional[ScheduledActionTypeValuesType] = None
     StartTime: Optional[TimestampTypeDef] = None
@@ -1657,7 +1657,7 @@ class DescribeScheduledActionsMessageDescribeScheduledActionsPaginateTypeDef(Bas
     Filters: Optional[Sequence[ScheduledActionFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeScheduledActionsMessageRequestTypeDef(BaseModel):
+class DescribeScheduledActionsMessageRequestTypeDef(BaseValidatorModel):
     ScheduledActionName: Optional[str] = None
     TargetActionType: Optional[ScheduledActionTypeValuesType] = None
     StartTime: Optional[TimestampTypeDef] = None
@@ -1667,29 +1667,29 @@ class DescribeScheduledActionsMessageRequestTypeDef(BaseModel):
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
-class EndpointAuthorizationListTypeDef(BaseModel):
+class EndpointAuthorizationListTypeDef(BaseValidatorModel):
     EndpointAuthorizationList: List[EndpointAuthorizationTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EventCategoriesMapTypeDef(BaseModel):
+class EventCategoriesMapTypeDef(BaseValidatorModel):
     SourceType: Optional[str] = None
     Events: Optional[List[EventInfoMapTypeDef]] = None
 
-class EventsMessageTypeDef(BaseModel):
+class EventsMessageTypeDef(BaseValidatorModel):
     Marker: str
     Events: List[EventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourcePolicyResultTypeDef(BaseModel):
+class GetResourcePolicyResultTypeDef(BaseValidatorModel):
     ResourcePolicy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutResourcePolicyResultTypeDef(BaseModel):
+class PutResourcePolicyResultTypeDef(BaseValidatorModel):
     ResourcePolicy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InboundIntegrationTypeDef(BaseModel):
+class InboundIntegrationTypeDef(BaseValidatorModel):
     IntegrationArn: Optional[str] = None
     SourceArn: Optional[str] = None
     TargetArn: Optional[str] = None
@@ -1697,20 +1697,20 @@ class InboundIntegrationTypeDef(BaseModel):
     Errors: Optional[List[IntegrationErrorTypeDef]] = None
     CreateTime: Optional[datetime] = None
 
-class LakeFormationScopeUnionTypeDef(BaseModel):
+class LakeFormationScopeUnionTypeDef(BaseValidatorModel):
     LakeFormationQuery: Optional[LakeFormationQueryTypeDef] = None
 
-class VpcEndpointTypeDef(BaseModel):
+class VpcEndpointTypeDef(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
     VpcId: Optional[str] = None
     NetworkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
 
-class NodeConfigurationOptionsMessageTypeDef(BaseModel):
+class NodeConfigurationOptionsMessageTypeDef(BaseValidatorModel):
     NodeConfigurationOptionList: List[NodeConfigurationOptionTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RecommendationTypeDef(BaseModel):
+class RecommendationTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
     NamespaceArn: Optional[str] = None
@@ -1724,7 +1724,7 @@ class RecommendationTypeDef(BaseModel):
     RecommendedActions: Optional[List[RecommendedActionTypeDef]] = None
     ReferenceLinks: Optional[List[ReferenceLinkTypeDef]] = None
 
-class ReservedNodeOfferingTypeDef(BaseModel):
+class ReservedNodeOfferingTypeDef(BaseValidatorModel):
     ReservedNodeOfferingId: Optional[str] = None
     NodeType: Optional[str] = None
     Duration: Optional[int] = None
@@ -1735,7 +1735,7 @@ class ReservedNodeOfferingTypeDef(BaseModel):
     RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
     ReservedNodeOfferingType: Optional[ReservedNodeOfferingTypeType] = None
 
-class ReservedNodeTypeDef(BaseModel):
+class ReservedNodeTypeDef(BaseValidatorModel):
     ReservedNodeId: Optional[str] = None
     ReservedNodeOfferingId: Optional[str] = None
     NodeType: Optional[str] = None
@@ -1750,188 +1750,188 @@ class ReservedNodeTypeDef(BaseModel):
     RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
     ReservedNodeOfferingType: Optional[ReservedNodeOfferingTypeType] = None
 
-class RestoreTableFromClusterSnapshotResultTypeDef(BaseModel):
+class RestoreTableFromClusterSnapshotResultTypeDef(BaseValidatorModel):
     TableRestoreStatus: TableRestoreStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TableRestoreStatusMessageTypeDef(BaseModel):
+class TableRestoreStatusMessageTypeDef(BaseValidatorModel):
     TableRestoreStatusDetails: List[TableRestoreStatusTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ScheduledActionTypeTypeDef(BaseModel):
+class ScheduledActionTypeTypeDef(BaseValidatorModel):
     ResizeCluster: Optional[ResizeClusterMessageTypeDef] = None
     PauseCluster: Optional[PauseClusterMessageTypeDef] = None
     ResumeCluster: Optional[ResumeClusterMessageTypeDef] = None
 
-class UpdateTargetTypeDef(BaseModel):
+class UpdateTargetTypeDef(BaseValidatorModel):
     MaintenanceTrackName: Optional[str] = None
     DatabaseVersion: Optional[str] = None
     SupportedOperations: Optional[List[SupportedOperationTypeDef]] = None
 
-class AccountAttributeListTypeDef(BaseModel):
+class AccountAttributeListTypeDef(BaseValidatorModel):
     AccountAttributes: List[AccountAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CustomDomainAssociationsMessageTypeDef(BaseModel):
+class CustomDomainAssociationsMessageTypeDef(BaseValidatorModel):
     Marker: str
     Associations: List[AssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OrderableClusterOptionTypeDef(BaseModel):
+class OrderableClusterOptionTypeDef(BaseValidatorModel):
     ClusterVersion: Optional[str] = None
     ClusterType: Optional[str] = None
     NodeType: Optional[str] = None
     AvailabilityZones: Optional[List[AvailabilityZoneTypeDef]] = None
 
-class SubnetTypeDef(BaseModel):
+class SubnetTypeDef(BaseValidatorModel):
     SubnetIdentifier: Optional[str] = None
     SubnetAvailabilityZone: Optional[AvailabilityZoneTypeDef] = None
     SubnetStatus: Optional[str] = None
 
-class ClusterDbRevisionsMessageTypeDef(BaseModel):
+class ClusterDbRevisionsMessageTypeDef(BaseValidatorModel):
     Marker: str
     ClusterDbRevisions: List[ClusterDbRevisionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDefaultClusterParametersResultTypeDef(BaseModel):
+class DescribeDefaultClusterParametersResultTypeDef(BaseValidatorModel):
     DefaultClusterParameters: DefaultClusterParametersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterParameterGroupsMessageTypeDef(BaseModel):
+class ClusterParameterGroupsMessageTypeDef(BaseValidatorModel):
     Marker: str
     ParameterGroups: List[ClusterParameterGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateClusterParameterGroupResultTypeDef(BaseModel):
+class CreateClusterParameterGroupResultTypeDef(BaseValidatorModel):
     ClusterParameterGroup: ClusterParameterGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEventSubscriptionResultTypeDef(BaseModel):
+class CreateEventSubscriptionResultTypeDef(BaseValidatorModel):
     EventSubscription: EventSubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EventSubscriptionsMessageTypeDef(BaseModel):
+class EventSubscriptionsMessageTypeDef(BaseValidatorModel):
     Marker: str
     EventSubscriptionsList: List[EventSubscriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyEventSubscriptionResultTypeDef(BaseModel):
+class ModifyEventSubscriptionResultTypeDef(BaseValidatorModel):
     EventSubscription: EventSubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHsmClientCertificateResultTypeDef(BaseModel):
+class CreateHsmClientCertificateResultTypeDef(BaseValidatorModel):
     HsmClientCertificate: HsmClientCertificateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HsmClientCertificateMessageTypeDef(BaseModel):
+class HsmClientCertificateMessageTypeDef(BaseValidatorModel):
     Marker: str
     HsmClientCertificates: List[HsmClientCertificateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHsmConfigurationResultTypeDef(BaseModel):
+class CreateHsmConfigurationResultTypeDef(BaseValidatorModel):
     HsmConfiguration: HsmConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HsmConfigurationMessageTypeDef(BaseModel):
+class HsmConfigurationMessageTypeDef(BaseValidatorModel):
     Marker: str
     HsmConfigurations: List[HsmConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterSecurityGroupTypeDef(BaseModel):
+class ClusterSecurityGroupTypeDef(BaseValidatorModel):
     ClusterSecurityGroupName: Optional[str] = None
     Description: Optional[str] = None
     EC2SecurityGroups: Optional[List[EC2SecurityGroupTypeDef]] = None
     IPRanges: Optional[List[IPRangeTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class CreateSnapshotCopyGrantResultTypeDef(BaseModel):
+class CreateSnapshotCopyGrantResultTypeDef(BaseValidatorModel):
     SnapshotCopyGrant: SnapshotCopyGrantTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SnapshotCopyGrantMessageTypeDef(BaseModel):
+class SnapshotCopyGrantMessageTypeDef(BaseValidatorModel):
     Marker: str
     SnapshotCopyGrants: List[SnapshotCopyGrantTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSnapshotSchedulesOutputMessageTypeDef(BaseModel):
+class DescribeSnapshotSchedulesOutputMessageTypeDef(BaseValidatorModel):
     SnapshotSchedules: List[SnapshotScheduleTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AuthorizeSnapshotAccessResultTypeDef(BaseModel):
+class AuthorizeSnapshotAccessResultTypeDef(BaseValidatorModel):
     Snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CopyClusterSnapshotResultTypeDef(BaseModel):
+class CopyClusterSnapshotResultTypeDef(BaseValidatorModel):
     Snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateClusterSnapshotResultTypeDef(BaseModel):
+class CreateClusterSnapshotResultTypeDef(BaseValidatorModel):
     Snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteClusterSnapshotResultTypeDef(BaseModel):
+class DeleteClusterSnapshotResultTypeDef(BaseValidatorModel):
     Snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyClusterSnapshotResultTypeDef(BaseModel):
+class ModifyClusterSnapshotResultTypeDef(BaseValidatorModel):
     Snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RevokeSnapshotAccessResultTypeDef(BaseModel):
+class RevokeSnapshotAccessResultTypeDef(BaseValidatorModel):
     Snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SnapshotMessageTypeDef(BaseModel):
+class SnapshotMessageTypeDef(BaseValidatorModel):
     Marker: str
     Snapshots: List[SnapshotTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TaggedResourceListMessageTypeDef(BaseModel):
+class TaggedResourceListMessageTypeDef(BaseValidatorModel):
     TaggedResources: List[TaggedResourceTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UsageLimitListTypeDef(BaseModel):
+class UsageLimitListTypeDef(BaseValidatorModel):
     UsageLimits: List[UsageLimitTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDataSharesForConsumerResultTypeDef(BaseModel):
+class DescribeDataSharesForConsumerResultTypeDef(BaseValidatorModel):
     DataShares: List[DataShareTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDataSharesForProducerResultTypeDef(BaseModel):
+class DescribeDataSharesForProducerResultTypeDef(BaseValidatorModel):
     DataShares: List[DataShareTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDataSharesResultTypeDef(BaseModel):
+class DescribeDataSharesResultTypeDef(BaseValidatorModel):
     DataShares: List[DataShareTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EventCategoriesMessageTypeDef(BaseModel):
+class EventCategoriesMessageTypeDef(BaseValidatorModel):
     EventCategoriesMapList: List[EventCategoriesMapTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InboundIntegrationsMessageTypeDef(BaseModel):
+class InboundIntegrationsMessageTypeDef(BaseValidatorModel):
     Marker: str
     InboundIntegrations: List[InboundIntegrationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceIntegrationsUnionExtraOutputTypeDef(BaseModel):
+class ServiceIntegrationsUnionExtraOutputTypeDef(BaseValidatorModel):
     LakeFormation: Optional[List[LakeFormationScopeUnionTypeDef]] = None
 
-class ServiceIntegrationsUnionOutputTypeDef(BaseModel):
+class ServiceIntegrationsUnionOutputTypeDef(BaseValidatorModel):
     LakeFormation: Optional[List[LakeFormationScopeUnionTypeDef]] = None
 
-class ServiceIntegrationsUnionTypeDef(BaseModel):
+class ServiceIntegrationsUnionTypeDef(BaseValidatorModel):
     LakeFormation: Optional[Sequence[LakeFormationScopeUnionTypeDef]] = None
 
-class EndpointAccessResponseTypeDef(BaseModel):
+class EndpointAccessResponseTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     ResourceOwner: str
     SubnetGroupName: str
@@ -1944,7 +1944,7 @@ class EndpointAccessResponseTypeDef(BaseModel):
     VpcEndpoint: VpcEndpointTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EndpointAccessTypeDef(BaseModel):
+class EndpointAccessTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     ResourceOwner: Optional[str] = None
     SubnetGroupName: Optional[str] = None
@@ -1956,45 +1956,45 @@ class EndpointAccessTypeDef(BaseModel):
     VpcSecurityGroups: Optional[List[VpcSecurityGroupMembershipTypeDef]] = None
     VpcEndpoint: Optional[VpcEndpointTypeDef] = None
 
-class EndpointTypeDef(BaseModel):
+class EndpointTypeDef(BaseValidatorModel):
     Address: Optional[str] = None
     Port: Optional[int] = None
     VpcEndpoints: Optional[List[VpcEndpointTypeDef]] = None
 
-class ListRecommendationsResultTypeDef(BaseModel):
+class ListRecommendationsResultTypeDef(BaseValidatorModel):
     Recommendations: List[RecommendationTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetReservedNodeExchangeOfferingsOutputMessageTypeDef(BaseModel):
+class GetReservedNodeExchangeOfferingsOutputMessageTypeDef(BaseValidatorModel):
     Marker: str
     ReservedNodeOfferings: List[ReservedNodeOfferingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReservedNodeOfferingsMessageTypeDef(BaseModel):
+class ReservedNodeOfferingsMessageTypeDef(BaseValidatorModel):
     Marker: str
     ReservedNodeOfferings: List[ReservedNodeOfferingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptReservedNodeExchangeOutputMessageTypeDef(BaseModel):
+class AcceptReservedNodeExchangeOutputMessageTypeDef(BaseValidatorModel):
     ExchangedReservedNode: ReservedNodeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PurchaseReservedNodeOfferingResultTypeDef(BaseModel):
+class PurchaseReservedNodeOfferingResultTypeDef(BaseValidatorModel):
     ReservedNode: ReservedNodeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReservedNodeConfigurationOptionTypeDef(BaseModel):
+class ReservedNodeConfigurationOptionTypeDef(BaseValidatorModel):
     SourceReservedNode: Optional[ReservedNodeTypeDef] = None
     TargetReservedNodeCount: Optional[int] = None
     TargetReservedNodeOffering: Optional[ReservedNodeOfferingTypeDef] = None
 
-class ReservedNodesMessageTypeDef(BaseModel):
+class ReservedNodesMessageTypeDef(BaseValidatorModel):
     Marker: str
     ReservedNodes: List[ReservedNodeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateScheduledActionMessageRequestTypeDef(BaseModel):
+class CreateScheduledActionMessageRequestTypeDef(BaseValidatorModel):
     ScheduledActionName: str
     TargetAction: ScheduledActionTypeTypeDef
     Schedule: str
@@ -2004,7 +2004,7 @@ class CreateScheduledActionMessageRequestTypeDef(BaseModel):
     EndTime: Optional[TimestampTypeDef] = None
     Enable: Optional[bool] = None
 
-class ModifyScheduledActionMessageRequestTypeDef(BaseModel):
+class ModifyScheduledActionMessageRequestTypeDef(BaseValidatorModel):
     ScheduledActionName: str
     TargetAction: Optional[ScheduledActionTypeTypeDef] = None
     Schedule: Optional[str] = None
@@ -2014,7 +2014,7 @@ class ModifyScheduledActionMessageRequestTypeDef(BaseModel):
     EndTime: Optional[TimestampTypeDef] = None
     Enable: Optional[bool] = None
 
-class ScheduledActionResponseTypeDef(BaseModel):
+class ScheduledActionResponseTypeDef(BaseValidatorModel):
     ScheduledActionName: str
     TargetAction: ScheduledActionTypeTypeDef
     Schedule: str
@@ -2026,7 +2026,7 @@ class ScheduledActionResponseTypeDef(BaseModel):
     EndTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ScheduledActionTypeDef(BaseModel):
+class ScheduledActionTypeDef(BaseValidatorModel):
     ScheduledActionName: Optional[str] = None
     TargetAction: Optional[ScheduledActionTypeTypeDef] = None
     Schedule: Optional[str] = None
@@ -2037,17 +2037,17 @@ class ScheduledActionTypeDef(BaseModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
-class MaintenanceTrackTypeDef(BaseModel):
+class MaintenanceTrackTypeDef(BaseValidatorModel):
     MaintenanceTrackName: Optional[str] = None
     DatabaseVersion: Optional[str] = None
     UpdateTargets: Optional[List[UpdateTargetTypeDef]] = None
 
-class OrderableClusterOptionsMessageTypeDef(BaseModel):
+class OrderableClusterOptionsMessageTypeDef(BaseValidatorModel):
     OrderableClusterOptions: List[OrderableClusterOptionTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterSubnetGroupTypeDef(BaseModel):
+class ClusterSubnetGroupTypeDef(BaseValidatorModel):
     ClusterSubnetGroupName: Optional[str] = None
     Description: Optional[str] = None
     VpcId: Optional[str] = None
@@ -2056,24 +2056,24 @@ class ClusterSubnetGroupTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     SupportedClusterIpAddressTypes: Optional[List[str]] = None
 
-class AuthorizeClusterSecurityGroupIngressResultTypeDef(BaseModel):
+class AuthorizeClusterSecurityGroupIngressResultTypeDef(BaseValidatorModel):
     ClusterSecurityGroup: ClusterSecurityGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterSecurityGroupMessageTypeDef(BaseModel):
+class ClusterSecurityGroupMessageTypeDef(BaseValidatorModel):
     Marker: str
     ClusterSecurityGroups: List[ClusterSecurityGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateClusterSecurityGroupResultTypeDef(BaseModel):
+class CreateClusterSecurityGroupResultTypeDef(BaseValidatorModel):
     ClusterSecurityGroup: ClusterSecurityGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RevokeClusterSecurityGroupIngressResultTypeDef(BaseModel):
+class RevokeClusterSecurityGroupIngressResultTypeDef(BaseValidatorModel):
     ClusterSecurityGroup: ClusterSecurityGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RedshiftIdcApplicationTypeDef(BaseModel):
+class RedshiftIdcApplicationTypeDef(BaseValidatorModel):
     IdcInstanceArn: Optional[str] = None
     RedshiftIdcApplicationName: Optional[str] = None
     RedshiftIdcApplicationArn: Optional[str] = None
@@ -2085,12 +2085,12 @@ class RedshiftIdcApplicationTypeDef(BaseModel):
     AuthorizedTokenIssuerList: Optional[List[AuthorizedTokenIssuerOutputTypeDef]] = None
     ServiceIntegrations: Optional[List[ServiceIntegrationsUnionOutputTypeDef]] = None
 
-class EndpointAccessListTypeDef(BaseModel):
+class EndpointAccessListTypeDef(BaseValidatorModel):
     EndpointAccessList: List[EndpointAccessTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterTypeDef(BaseModel):
+class ClusterTypeDef(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     NodeType: Optional[str] = None
     ClusterStatus: Optional[str] = None
@@ -2152,48 +2152,48 @@ class ClusterTypeDef(BaseModel):
     MultiAZ: Optional[str] = None
     MultiAZSecondary: Optional[SecondaryClusterInfoTypeDef] = None
 
-class GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef(BaseModel):
+class GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef(BaseValidatorModel):
     Marker: str
     ReservedNodeConfigurationOptionList: List[ReservedNodeConfigurationOptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ScheduledActionsMessageTypeDef(BaseModel):
+class ScheduledActionsMessageTypeDef(BaseValidatorModel):
     Marker: str
     ScheduledActions: List[ScheduledActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TrackListMessageTypeDef(BaseModel):
+class TrackListMessageTypeDef(BaseValidatorModel):
     MaintenanceTracks: List[MaintenanceTrackTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterSubnetGroupMessageTypeDef(BaseModel):
+class ClusterSubnetGroupMessageTypeDef(BaseValidatorModel):
     Marker: str
     ClusterSubnetGroups: List[ClusterSubnetGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateClusterSubnetGroupResultTypeDef(BaseModel):
+class CreateClusterSubnetGroupResultTypeDef(BaseValidatorModel):
     ClusterSubnetGroup: ClusterSubnetGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyClusterSubnetGroupResultTypeDef(BaseModel):
+class ModifyClusterSubnetGroupResultTypeDef(BaseValidatorModel):
     ClusterSubnetGroup: ClusterSubnetGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRedshiftIdcApplicationResultTypeDef(BaseModel):
+class CreateRedshiftIdcApplicationResultTypeDef(BaseValidatorModel):
     RedshiftIdcApplication: RedshiftIdcApplicationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRedshiftIdcApplicationsResultTypeDef(BaseModel):
+class DescribeRedshiftIdcApplicationsResultTypeDef(BaseValidatorModel):
     RedshiftIdcApplications: List[RedshiftIdcApplicationTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyRedshiftIdcApplicationResultTypeDef(BaseModel):
+class ModifyRedshiftIdcApplicationResultTypeDef(BaseValidatorModel):
     RedshiftIdcApplication: RedshiftIdcApplicationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRedshiftIdcApplicationMessageRequestTypeDef(BaseModel):
+class CreateRedshiftIdcApplicationMessageRequestTypeDef(BaseValidatorModel):
     IdcInstanceArn: str
     RedshiftIdcApplicationName: str
     IdcDisplayName: str
@@ -2202,7 +2202,7 @@ class CreateRedshiftIdcApplicationMessageRequestTypeDef(BaseModel):
     AuthorizedTokenIssuerList: Optional[Sequence[AuthorizedTokenIssuerUnionTypeDef]] = None
     ServiceIntegrations: Optional[Sequence[ServiceIntegrationsUnionUnionTypeDef]] = None
 
-class ModifyRedshiftIdcApplicationMessageRequestTypeDef(BaseModel):
+class ModifyRedshiftIdcApplicationMessageRequestTypeDef(BaseValidatorModel):
     RedshiftIdcApplicationArn: str
     IdentityNamespace: Optional[str] = None
     IamRoleArn: Optional[str] = None
@@ -2210,72 +2210,72 @@ class ModifyRedshiftIdcApplicationMessageRequestTypeDef(BaseModel):
     AuthorizedTokenIssuerList: Optional[Sequence[AuthorizedTokenIssuerUnionTypeDef]] = None
     ServiceIntegrations: Optional[Sequence[ServiceIntegrationsUnionUnionTypeDef]] = None
 
-class ClustersMessageTypeDef(BaseModel):
+class ClustersMessageTypeDef(BaseValidatorModel):
     Marker: str
     Clusters: List[ClusterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateClusterResultTypeDef(BaseModel):
+class CreateClusterResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteClusterResultTypeDef(BaseModel):
+class DeleteClusterResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableSnapshotCopyResultTypeDef(BaseModel):
+class DisableSnapshotCopyResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableSnapshotCopyResultTypeDef(BaseModel):
+class EnableSnapshotCopyResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FailoverPrimaryComputeResultTypeDef(BaseModel):
+class FailoverPrimaryComputeResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyClusterDbRevisionResultTypeDef(BaseModel):
+class ModifyClusterDbRevisionResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyClusterIamRolesResultTypeDef(BaseModel):
+class ModifyClusterIamRolesResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyClusterMaintenanceResultTypeDef(BaseModel):
+class ModifyClusterMaintenanceResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyClusterResultTypeDef(BaseModel):
+class ModifyClusterResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifySnapshotCopyRetentionPeriodResultTypeDef(BaseModel):
+class ModifySnapshotCopyRetentionPeriodResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PauseClusterResultTypeDef(BaseModel):
+class PauseClusterResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RebootClusterResultTypeDef(BaseModel):
+class RebootClusterResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResizeClusterResultTypeDef(BaseModel):
+class ResizeClusterResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreFromClusterSnapshotResultTypeDef(BaseModel):
+class RestoreFromClusterSnapshotResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResumeClusterResultTypeDef(BaseModel):
+class ResumeClusterResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RotateEncryptionKeyResultTypeDef(BaseModel):
+class RotateEncryptionKeyResultTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

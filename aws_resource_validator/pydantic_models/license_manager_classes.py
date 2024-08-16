@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,44 +11,44 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.license_manager_constants import *
 
-class AcceptGrantRequestRequestTypeDef(BaseModel):
+class AcceptGrantRequestRequestTypeDef(BaseValidatorModel):
     GrantArn: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class AutomatedDiscoveryInformationTypeDef(BaseModel):
+class AutomatedDiscoveryInformationTypeDef(BaseValidatorModel):
     LastRunTime: Optional[datetime] = None
 
-class BorrowConfigurationTypeDef(BaseModel):
+class BorrowConfigurationTypeDef(BaseValidatorModel):
     AllowEarlyCheckIn: bool
     MaxTimeToLiveInMinutes: int
 
-class CheckInLicenseRequestRequestTypeDef(BaseModel):
+class CheckInLicenseRequestRequestTypeDef(BaseValidatorModel):
     LicenseConsumptionToken: str
     Beneficiary: Optional[str] = None
 
-class EntitlementDataTypeDef(BaseModel):
+class EntitlementDataTypeDef(BaseValidatorModel):
     Name: str
     Unit: EntitlementDataUnitType
     Value: Optional[str] = None
 
-class MetadataTypeDef(BaseModel):
+class MetadataTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class ConsumedLicenseSummaryTypeDef(BaseModel):
+class ConsumedLicenseSummaryTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     ConsumedLicenses: Optional[int] = None
 
-class ProvisionalConfigurationTypeDef(BaseModel):
+class ProvisionalConfigurationTypeDef(BaseValidatorModel):
     MaxTimeToLiveInMinutes: int
 
-class CreateGrantRequestRequestTypeDef(BaseModel):
+class CreateGrantRequestRequestTypeDef(BaseValidatorModel):
     ClientToken: str
     GrantName: str
     LicenseArn: str
@@ -56,28 +56,28 @@ class CreateGrantRequestRequestTypeDef(BaseModel):
     HomeRegion: str
     AllowedOperations: Sequence[AllowedOperationType]
 
-class OptionsTypeDef(BaseModel):
+class OptionsTypeDef(BaseValidatorModel):
     ActivationOverrideBehavior: Optional[ActivationOverrideBehaviorType] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class LicenseConversionContextTypeDef(BaseModel):
+class LicenseConversionContextTypeDef(BaseValidatorModel):
     UsageOperation: Optional[str] = None
 
-class ReportContextTypeDef(BaseModel):
+class ReportContextTypeDef(BaseValidatorModel):
     licenseConfigurationArns: Sequence[str]
 
-class ReportFrequencyTypeDef(BaseModel):
+class ReportFrequencyTypeDef(BaseValidatorModel):
     value: Optional[int] = None
     period: Optional[ReportFrequencyTypeType] = None
 
-class DatetimeRangeTypeDef(BaseModel):
+class DatetimeRangeTypeDef(BaseValidatorModel):
     Begin: str
     End: Optional[str] = None
 
-class EntitlementTypeDef(BaseModel):
+class EntitlementTypeDef(BaseValidatorModel):
     Name: str
     Unit: EntitlementUnitType
     Value: Optional[str] = None
@@ -85,103 +85,103 @@ class EntitlementTypeDef(BaseModel):
     Overage: Optional[bool] = None
     AllowCheckIn: Optional[bool] = None
 
-class IssuerTypeDef(BaseModel):
+class IssuerTypeDef(BaseValidatorModel):
     Name: str
     SignKey: Optional[str] = None
 
-class CreateTokenRequestRequestTypeDef(BaseModel):
+class CreateTokenRequestRequestTypeDef(BaseValidatorModel):
     LicenseArn: str
     ClientToken: str
     RoleArns: Optional[Sequence[str]] = None
     ExpirationInDays: Optional[int] = None
     TokenProperties: Optional[Sequence[str]] = None
 
-class DeleteGrantRequestRequestTypeDef(BaseModel):
+class DeleteGrantRequestRequestTypeDef(BaseValidatorModel):
     GrantArn: str
     Version: str
     StatusReason: Optional[str] = None
 
-class DeleteLicenseConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteLicenseConfigurationRequestRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
 
-class DeleteLicenseManagerReportGeneratorRequestRequestTypeDef(BaseModel):
+class DeleteLicenseManagerReportGeneratorRequestRequestTypeDef(BaseValidatorModel):
     LicenseManagerReportGeneratorArn: str
 
-class DeleteLicenseRequestRequestTypeDef(BaseModel):
+class DeleteLicenseRequestRequestTypeDef(BaseValidatorModel):
     LicenseArn: str
     SourceVersion: str
 
-class DeleteTokenRequestRequestTypeDef(BaseModel):
+class DeleteTokenRequestRequestTypeDef(BaseValidatorModel):
     TokenId: str
 
-class EntitlementUsageTypeDef(BaseModel):
+class EntitlementUsageTypeDef(BaseValidatorModel):
     Name: str
     ConsumedValue: str
     Unit: EntitlementDataUnitType
     MaxCount: Optional[str] = None
 
-class ExtendLicenseConsumptionRequestRequestTypeDef(BaseModel):
+class ExtendLicenseConsumptionRequestRequestTypeDef(BaseValidatorModel):
     LicenseConsumptionToken: str
     DryRun: Optional[bool] = None
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
-class GetAccessTokenRequestRequestTypeDef(BaseModel):
+class GetAccessTokenRequestRequestTypeDef(BaseValidatorModel):
     Token: str
     TokenProperties: Optional[Sequence[str]] = None
 
-class GetGrantRequestRequestTypeDef(BaseModel):
+class GetGrantRequestRequestTypeDef(BaseValidatorModel):
     GrantArn: str
     Version: Optional[str] = None
 
-class GetLicenseConfigurationRequestRequestTypeDef(BaseModel):
+class GetLicenseConfigurationRequestRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
 
-class ManagedResourceSummaryTypeDef(BaseModel):
+class ManagedResourceSummaryTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     AssociationCount: Optional[int] = None
 
-class GetLicenseConversionTaskRequestRequestTypeDef(BaseModel):
+class GetLicenseConversionTaskRequestRequestTypeDef(BaseValidatorModel):
     LicenseConversionTaskId: str
 
-class GetLicenseManagerReportGeneratorRequestRequestTypeDef(BaseModel):
+class GetLicenseManagerReportGeneratorRequestRequestTypeDef(BaseValidatorModel):
     LicenseManagerReportGeneratorArn: str
 
-class GetLicenseRequestRequestTypeDef(BaseModel):
+class GetLicenseRequestRequestTypeDef(BaseValidatorModel):
     LicenseArn: str
     Version: Optional[str] = None
 
-class GetLicenseUsageRequestRequestTypeDef(BaseModel):
+class GetLicenseUsageRequestRequestTypeDef(BaseValidatorModel):
     LicenseArn: str
 
-class OrganizationConfigurationTypeDef(BaseModel):
+class OrganizationConfigurationTypeDef(BaseValidatorModel):
     EnableIntegration: bool
 
-class IssuerDetailsTypeDef(BaseModel):
+class IssuerDetailsTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     SignKey: Optional[str] = None
     KeyFingerprint: Optional[str] = None
 
-class ReceivedMetadataTypeDef(BaseModel):
+class ReceivedMetadataTypeDef(BaseValidatorModel):
     ReceivedStatus: Optional[ReceivedStatusType] = None
     ReceivedStatusReason: Optional[str] = None
     AllowedOperations: Optional[List[AllowedOperationType]] = None
 
-class InventoryFilterTypeDef(BaseModel):
+class InventoryFilterTypeDef(BaseValidatorModel):
     Name: str
     Condition: InventoryFilterConditionType
     Value: Optional[str] = None
 
-class LicenseConfigurationAssociationTypeDef(BaseModel):
+class LicenseConfigurationAssociationTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     ResourceType: Optional[ResourceTypeType] = None
     ResourceOwnerId: Optional[str] = None
     AssociationTime: Optional[datetime] = None
     AmiAssociationScope: Optional[str] = None
 
-class LicenseConfigurationUsageTypeDef(BaseModel):
+class LicenseConfigurationUsageTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     ResourceType: Optional[ResourceTypeType] = None
     ResourceStatus: Optional[str] = None
@@ -189,36 +189,36 @@ class LicenseConfigurationUsageTypeDef(BaseModel):
     AssociationTime: Optional[datetime] = None
     ConsumedLicenses: Optional[int] = None
 
-class LicenseSpecificationTypeDef(BaseModel):
+class LicenseSpecificationTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
     AmiAssociationScope: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAssociationsForLicenseConfigurationRequestRequestTypeDef(BaseModel):
+class ListAssociationsForLicenseConfigurationRequestRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListFailuresForLicenseConfigurationOperationsRequestRequestTypeDef(BaseModel):
+class ListFailuresForLicenseConfigurationOperationsRequestRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListLicenseSpecificationsForResourceRequestRequestTypeDef(BaseModel):
+class ListLicenseSpecificationsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListLicenseVersionsRequestRequestTypeDef(BaseModel):
+class ListLicenseVersionsRequestRequestTypeDef(BaseValidatorModel):
     LicenseArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ResourceInventoryTypeDef(BaseModel):
+class ResourceInventoryTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
     ResourceType: Optional[ResourceTypeType] = None
     ResourceArn: Optional[str] = None
@@ -226,10 +226,10 @@ class ResourceInventoryTypeDef(BaseModel):
     PlatformVersion: Optional[str] = None
     ResourceOwningAccountId: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class TokenDataTypeDef(BaseModel):
+class TokenDataTypeDef(BaseValidatorModel):
     TokenId: Optional[str] = None
     TokenType: Optional[str] = None
     LicenseArn: Optional[str] = None
@@ -238,102 +238,102 @@ class TokenDataTypeDef(BaseModel):
     RoleArns: Optional[List[str]] = None
     Status: Optional[str] = None
 
-class ProductInformationFilterPaginatorTypeDef(BaseModel):
+class ProductInformationFilterPaginatorTypeDef(BaseValidatorModel):
     ProductInformationFilterName: str
     ProductInformationFilterComparator: str
     ProductInformationFilterValue: Optional[List[str]] = None
 
-class ProductInformationFilterTypeDef(BaseModel):
+class ProductInformationFilterTypeDef(BaseValidatorModel):
     ProductInformationFilterName: str
     ProductInformationFilterComparator: str
     ProductInformationFilterValue: Optional[Sequence[str]] = None
 
-class RejectGrantRequestRequestTypeDef(BaseModel):
+class RejectGrantRequestRequestTypeDef(BaseValidatorModel):
     GrantArn: str
 
-class S3LocationTypeDef(BaseModel):
+class S3LocationTypeDef(BaseValidatorModel):
     bucket: Optional[str] = None
     keyPrefix: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class AcceptGrantResponseTypeDef(BaseModel):
+class AcceptGrantResponseTypeDef(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGrantResponseTypeDef(BaseModel):
+class CreateGrantResponseTypeDef(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGrantVersionResponseTypeDef(BaseModel):
+class CreateGrantVersionResponseTypeDef(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLicenseConfigurationResponseTypeDef(BaseModel):
+class CreateLicenseConfigurationResponseTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLicenseConversionTaskForResourceResponseTypeDef(BaseModel):
+class CreateLicenseConversionTaskForResourceResponseTypeDef(BaseValidatorModel):
     LicenseConversionTaskId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLicenseManagerReportGeneratorResponseTypeDef(BaseModel):
+class CreateLicenseManagerReportGeneratorResponseTypeDef(BaseValidatorModel):
     LicenseManagerReportGeneratorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLicenseResponseTypeDef(BaseModel):
+class CreateLicenseResponseTypeDef(BaseValidatorModel):
     LicenseArn: str
     Status: LicenseStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLicenseVersionResponseTypeDef(BaseModel):
+class CreateLicenseVersionResponseTypeDef(BaseValidatorModel):
     LicenseArn: str
     Version: str
     Status: LicenseStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTokenResponseTypeDef(BaseModel):
+class CreateTokenResponseTypeDef(BaseValidatorModel):
     TokenId: str
     TokenType: Literal["REFRESH_TOKEN"]
     Token: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteGrantResponseTypeDef(BaseModel):
+class DeleteGrantResponseTypeDef(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLicenseResponseTypeDef(BaseModel):
+class DeleteLicenseResponseTypeDef(BaseValidatorModel):
     Status: LicenseDeletionStatusType
     DeletionDate: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExtendLicenseConsumptionResponseTypeDef(BaseModel):
+class ExtendLicenseConsumptionResponseTypeDef(BaseValidatorModel):
     LicenseConsumptionToken: str
     Expiration: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessTokenResponseTypeDef(BaseModel):
+class GetAccessTokenResponseTypeDef(BaseValidatorModel):
     AccessToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RejectGrantResponseTypeDef(BaseModel):
+class RejectGrantResponseTypeDef(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CheckoutLicenseRequestRequestTypeDef(BaseModel):
+class CheckoutLicenseRequestRequestTypeDef(BaseValidatorModel):
     ProductSKU: str
     CheckoutType: CheckoutTypeType
     KeyFingerprint: str
@@ -342,7 +342,7 @@ class CheckoutLicenseRequestRequestTypeDef(BaseModel):
     Beneficiary: Optional[str] = None
     NodeId: Optional[str] = None
 
-class CheckoutLicenseResponseTypeDef(BaseModel):
+class CheckoutLicenseResponseTypeDef(BaseValidatorModel):
     CheckoutType: CheckoutTypeType
     LicenseConsumptionToken: str
     EntitlementsAllowed: List[EntitlementDataTypeDef]
@@ -353,7 +353,7 @@ class CheckoutLicenseResponseTypeDef(BaseModel):
     LicenseArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CheckoutBorrowLicenseRequestRequestTypeDef(BaseModel):
+class CheckoutBorrowLicenseRequestRequestTypeDef(BaseValidatorModel):
     LicenseArn: str
     Entitlements: Sequence[EntitlementDataTypeDef]
     DigitalSignatureMethod: Literal["JWT_PS384"]
@@ -361,7 +361,7 @@ class CheckoutBorrowLicenseRequestRequestTypeDef(BaseModel):
     NodeId: Optional[str] = None
     CheckoutMetadata: Optional[Sequence[MetadataTypeDef]] = None
 
-class CheckoutBorrowLicenseResponseTypeDef(BaseModel):
+class CheckoutBorrowLicenseResponseTypeDef(BaseValidatorModel):
     LicenseArn: str
     LicenseConsumptionToken: str
     EntitlementsAllowed: List[EntitlementDataTypeDef]
@@ -372,7 +372,7 @@ class CheckoutBorrowLicenseResponseTypeDef(BaseModel):
     CheckoutMetadata: List[MetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LicenseOperationFailureTypeDef(BaseModel):
+class LicenseOperationFailureTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     ResourceType: Optional[ResourceTypeType] = None
     ErrorMessage: Optional[str] = None
@@ -382,12 +382,12 @@ class LicenseOperationFailureTypeDef(BaseModel):
     OperationRequestedBy: Optional[str] = None
     MetadataList: Optional[List[MetadataTypeDef]] = None
 
-class ConsumptionConfigurationTypeDef(BaseModel):
+class ConsumptionConfigurationTypeDef(BaseValidatorModel):
     RenewType: Optional[RenewTypeType] = None
     ProvisionalConfiguration: Optional[ProvisionalConfigurationTypeDef] = None
     BorrowConfiguration: Optional[BorrowConfigurationTypeDef] = None
 
-class CreateGrantVersionRequestRequestTypeDef(BaseModel):
+class CreateGrantVersionRequestRequestTypeDef(BaseValidatorModel):
     ClientToken: str
     GrantArn: str
     GrantName: Optional[str] = None
@@ -397,7 +397,7 @@ class CreateGrantVersionRequestRequestTypeDef(BaseModel):
     SourceVersion: Optional[str] = None
     Options: Optional[OptionsTypeDef] = None
 
-class GrantTypeDef(BaseModel):
+class GrantTypeDef(BaseValidatorModel):
     GrantArn: str
     GrantName: str
     ParentArn: str
@@ -410,20 +410,20 @@ class GrantTypeDef(BaseModel):
     StatusReason: Optional[str] = None
     Options: Optional[OptionsTypeDef] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class CreateLicenseConversionTaskForResourceRequestRequestTypeDef(BaseModel):
+class CreateLicenseConversionTaskForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     SourceLicenseContext: LicenseConversionContextTypeDef
     DestinationLicenseContext: LicenseConversionContextTypeDef
 
-class GetLicenseConversionTaskResponseTypeDef(BaseModel):
+class GetLicenseConversionTaskResponseTypeDef(BaseValidatorModel):
     LicenseConversionTaskId: str
     ResourceArn: str
     SourceLicenseContext: LicenseConversionContextTypeDef
@@ -435,7 +435,7 @@ class GetLicenseConversionTaskResponseTypeDef(BaseModel):
     EndTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LicenseConversionTaskTypeDef(BaseModel):
+class LicenseConversionTaskTypeDef(BaseValidatorModel):
     LicenseConversionTaskId: Optional[str] = None
     ResourceArn: Optional[str] = None
     SourceLicenseContext: Optional[LicenseConversionContextTypeDef] = None
@@ -446,7 +446,7 @@ class LicenseConversionTaskTypeDef(BaseModel):
     LicenseConversionTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
-class CreateLicenseManagerReportGeneratorRequestRequestTypeDef(BaseModel):
+class CreateLicenseManagerReportGeneratorRequestRequestTypeDef(BaseValidatorModel):
     ReportGeneratorName: str
     Type: Sequence[ReportTypeType]
     ReportContext: ReportContextTypeDef
@@ -455,7 +455,7 @@ class CreateLicenseManagerReportGeneratorRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateLicenseManagerReportGeneratorRequestRequestTypeDef(BaseModel):
+class UpdateLicenseManagerReportGeneratorRequestRequestTypeDef(BaseValidatorModel):
     LicenseManagerReportGeneratorArn: str
     ReportGeneratorName: str
     Type: Sequence[ReportTypeType]
@@ -464,73 +464,73 @@ class UpdateLicenseManagerReportGeneratorRequestRequestTypeDef(BaseModel):
     ClientToken: str
     Description: Optional[str] = None
 
-class LicenseUsageTypeDef(BaseModel):
+class LicenseUsageTypeDef(BaseValidatorModel):
     EntitlementUsages: Optional[List[EntitlementUsageTypeDef]] = None
 
-class ListDistributedGrantsRequestRequestTypeDef(BaseModel):
+class ListDistributedGrantsRequestRequestTypeDef(BaseValidatorModel):
     GrantArns: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListLicenseConfigurationsRequestRequestTypeDef(BaseModel):
+class ListLicenseConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArns: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListLicenseConversionTasksRequestRequestTypeDef(BaseModel):
+class ListLicenseConversionTasksRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListLicenseManagerReportGeneratorsRequestRequestTypeDef(BaseModel):
+class ListLicenseManagerReportGeneratorsRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListLicensesRequestRequestTypeDef(BaseModel):
+class ListLicensesRequestRequestTypeDef(BaseValidatorModel):
     LicenseArns: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListReceivedGrantsForOrganizationRequestRequestTypeDef(BaseModel):
+class ListReceivedGrantsForOrganizationRequestRequestTypeDef(BaseValidatorModel):
     LicenseArn: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListReceivedGrantsRequestRequestTypeDef(BaseModel):
+class ListReceivedGrantsRequestRequestTypeDef(BaseValidatorModel):
     GrantArns: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListReceivedLicensesForOrganizationRequestRequestTypeDef(BaseModel):
+class ListReceivedLicensesForOrganizationRequestRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListReceivedLicensesRequestRequestTypeDef(BaseModel):
+class ListReceivedLicensesRequestRequestTypeDef(BaseValidatorModel):
     LicenseArns: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTokensRequestRequestTypeDef(BaseModel):
+class ListTokensRequestRequestTypeDef(BaseValidatorModel):
     TokenIds: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListUsageForLicenseConfigurationRequestRequestTypeDef(BaseModel):
+class ListUsageForLicenseConfigurationRequestRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class GetServiceSettingsResponseTypeDef(BaseModel):
+class GetServiceSettingsResponseTypeDef(BaseValidatorModel):
     S3BucketArn: str
     SnsTopicArn: str
     OrganizationConfiguration: OrganizationConfigurationTypeDef
@@ -538,78 +538,78 @@ class GetServiceSettingsResponseTypeDef(BaseModel):
     LicenseManagerResourceShareArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServiceSettingsRequestRequestTypeDef(BaseModel):
+class UpdateServiceSettingsRequestRequestTypeDef(BaseValidatorModel):
     S3BucketArn: Optional[str] = None
     SnsTopicArn: Optional[str] = None
     OrganizationConfiguration: Optional[OrganizationConfigurationTypeDef] = None
     EnableCrossAccountsDiscovery: Optional[bool] = None
 
-class ListResourceInventoryRequestRequestTypeDef(BaseModel):
+class ListResourceInventoryRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[InventoryFilterTypeDef]] = None
 
-class ListAssociationsForLicenseConfigurationResponseTypeDef(BaseModel):
+class ListAssociationsForLicenseConfigurationResponseTypeDef(BaseValidatorModel):
     LicenseConfigurationAssociations: List[LicenseConfigurationAssociationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUsageForLicenseConfigurationResponseTypeDef(BaseModel):
+class ListUsageForLicenseConfigurationResponseTypeDef(BaseValidatorModel):
     LicenseConfigurationUsageList: List[LicenseConfigurationUsageTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLicenseSpecificationsForResourceResponseTypeDef(BaseModel):
+class ListLicenseSpecificationsForResourceResponseTypeDef(BaseValidatorModel):
     LicenseSpecifications: List[LicenseSpecificationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLicenseSpecificationsForResourceRequestRequestTypeDef(BaseModel):
+class UpdateLicenseSpecificationsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     AddLicenseSpecifications: Optional[Sequence[LicenseSpecificationTypeDef]] = None
     RemoveLicenseSpecifications: Optional[Sequence[LicenseSpecificationTypeDef]] = None
 
-class ListAssociationsForLicenseConfigurationRequestListAssociationsForLicenseConfigurationPaginateTypeDef(BaseModel):
+class ListAssociationsForLicenseConfigurationRequestListAssociationsForLicenseConfigurationPaginateTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLicenseConfigurationsRequestListLicenseConfigurationsPaginateTypeDef(BaseModel):
+class ListLicenseConfigurationsRequestListLicenseConfigurationsPaginateTypeDef(BaseValidatorModel):
     LicenseConfigurationArns: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLicenseSpecificationsForResourceRequestListLicenseSpecificationsForResourcePaginateTypeDef(BaseModel):
+class ListLicenseSpecificationsForResourceRequestListLicenseSpecificationsForResourcePaginateTypeDef(BaseValidatorModel):
     ResourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourceInventoryRequestListResourceInventoryPaginateTypeDef(BaseModel):
+class ListResourceInventoryRequestListResourceInventoryPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[InventoryFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsageForLicenseConfigurationRequestListUsageForLicenseConfigurationPaginateTypeDef(BaseModel):
+class ListUsageForLicenseConfigurationRequestListUsageForLicenseConfigurationPaginateTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourceInventoryResponseTypeDef(BaseModel):
+class ListResourceInventoryResponseTypeDef(BaseValidatorModel):
     ResourceInventoryList: List[ResourceInventoryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTokensResponseTypeDef(BaseModel):
+class ListTokensResponseTypeDef(BaseValidatorModel):
     Tokens: List[TokenDataTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProductInformationPaginatorTypeDef(BaseModel):
+class ProductInformationPaginatorTypeDef(BaseValidatorModel):
     ResourceType: str
     ProductInformationFilterList: List[ProductInformationFilterPaginatorTypeDef]
 
-class ProductInformationTypeDef(BaseModel):
+class ProductInformationTypeDef(BaseValidatorModel):
     ResourceType: str
     ProductInformationFilterList: Sequence[ProductInformationFilterTypeDef]
 
-class ReportGeneratorTypeDef(BaseModel):
+class ReportGeneratorTypeDef(BaseValidatorModel):
     ReportGeneratorName: Optional[str] = None
     ReportType: Optional[List[ReportTypeType]] = None
     ReportContext: Optional[ReportContextTypeDef] = None
@@ -624,12 +624,12 @@ class ReportGeneratorTypeDef(BaseModel):
     CreateTime: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ListFailuresForLicenseConfigurationOperationsResponseTypeDef(BaseModel):
+class ListFailuresForLicenseConfigurationOperationsResponseTypeDef(BaseValidatorModel):
     LicenseOperationFailureList: List[LicenseOperationFailureTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLicenseRequestRequestTypeDef(BaseModel):
+class CreateLicenseRequestRequestTypeDef(BaseValidatorModel):
     LicenseName: str
     ProductName: str
     ProductSKU: str
@@ -642,7 +642,7 @@ class CreateLicenseRequestRequestTypeDef(BaseModel):
     ClientToken: str
     LicenseMetadata: Optional[Sequence[MetadataTypeDef]] = None
 
-class CreateLicenseVersionRequestRequestTypeDef(BaseModel):
+class CreateLicenseVersionRequestRequestTypeDef(BaseValidatorModel):
     LicenseArn: str
     LicenseName: str
     ProductName: str
@@ -656,7 +656,7 @@ class CreateLicenseVersionRequestRequestTypeDef(BaseModel):
     LicenseMetadata: Optional[Sequence[MetadataTypeDef]] = None
     SourceVersion: Optional[str] = None
 
-class GrantedLicenseTypeDef(BaseModel):
+class GrantedLicenseTypeDef(BaseValidatorModel):
     LicenseArn: Optional[str] = None
     LicenseName: Optional[str] = None
     ProductName: Optional[str] = None
@@ -673,7 +673,7 @@ class GrantedLicenseTypeDef(BaseModel):
     Version: Optional[str] = None
     ReceivedMetadata: Optional[ReceivedMetadataTypeDef] = None
 
-class LicenseTypeDef(BaseModel):
+class LicenseTypeDef(BaseValidatorModel):
     LicenseArn: Optional[str] = None
     LicenseName: Optional[str] = None
     ProductName: Optional[str] = None
@@ -689,35 +689,35 @@ class LicenseTypeDef(BaseModel):
     CreateTime: Optional[str] = None
     Version: Optional[str] = None
 
-class GetGrantResponseTypeDef(BaseModel):
+class GetGrantResponseTypeDef(BaseValidatorModel):
     Grant: GrantTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDistributedGrantsResponseTypeDef(BaseModel):
+class ListDistributedGrantsResponseTypeDef(BaseValidatorModel):
     Grants: List[GrantTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReceivedGrantsForOrganizationResponseTypeDef(BaseModel):
+class ListReceivedGrantsForOrganizationResponseTypeDef(BaseValidatorModel):
     Grants: List[GrantTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReceivedGrantsResponseTypeDef(BaseModel):
+class ListReceivedGrantsResponseTypeDef(BaseValidatorModel):
     Grants: List[GrantTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLicenseConversionTasksResponseTypeDef(BaseModel):
+class ListLicenseConversionTasksResponseTypeDef(BaseValidatorModel):
     LicenseConversionTasks: List[LicenseConversionTaskTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLicenseUsageResponseTypeDef(BaseModel):
+class GetLicenseUsageResponseTypeDef(BaseValidatorModel):
     LicenseUsage: LicenseUsageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LicenseConfigurationPaginatorTypeDef(BaseModel):
+class LicenseConfigurationPaginatorTypeDef(BaseValidatorModel):
     LicenseConfigurationId: Optional[str] = None
     LicenseConfigurationArn: Optional[str] = None
     Name: Optional[str] = None
@@ -735,7 +735,7 @@ class LicenseConfigurationPaginatorTypeDef(BaseModel):
     ProductInformationList: Optional[List[ProductInformationPaginatorTypeDef]] = None
     AutomatedDiscoveryInformation: Optional[AutomatedDiscoveryInformationTypeDef] = None
 
-class CreateLicenseConfigurationRequestRequestTypeDef(BaseModel):
+class CreateLicenseConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     LicenseCountingType: LicenseCountingTypeType
     Description: Optional[str] = None
@@ -746,7 +746,7 @@ class CreateLicenseConfigurationRequestRequestTypeDef(BaseModel):
     DisassociateWhenNotFound: Optional[bool] = None
     ProductInformationList: Optional[Sequence[ProductInformationTypeDef]] = None
 
-class GetLicenseConfigurationResponseTypeDef(BaseModel):
+class GetLicenseConfigurationResponseTypeDef(BaseValidatorModel):
     LicenseConfigurationId: str
     LicenseConfigurationArn: str
     Name: str
@@ -766,7 +766,7 @@ class GetLicenseConfigurationResponseTypeDef(BaseModel):
     DisassociateWhenNotFound: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LicenseConfigurationTypeDef(BaseModel):
+class LicenseConfigurationTypeDef(BaseValidatorModel):
     LicenseConfigurationId: Optional[str] = None
     LicenseConfigurationArn: Optional[str] = None
     Name: Optional[str] = None
@@ -784,7 +784,7 @@ class LicenseConfigurationTypeDef(BaseModel):
     ProductInformationList: Optional[List[ProductInformationTypeDef]] = None
     AutomatedDiscoveryInformation: Optional[AutomatedDiscoveryInformationTypeDef] = None
 
-class UpdateLicenseConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateLicenseConfigurationRequestRequestTypeDef(BaseValidatorModel):
     LicenseConfigurationArn: str
     LicenseConfigurationStatus: Optional[LicenseConfigurationStatusType] = None
     LicenseRules: Optional[Sequence[str]] = None
@@ -795,45 +795,45 @@ class UpdateLicenseConfigurationRequestRequestTypeDef(BaseModel):
     ProductInformationList: Optional[Sequence[ProductInformationTypeDef]] = None
     DisassociateWhenNotFound: Optional[bool] = None
 
-class GetLicenseManagerReportGeneratorResponseTypeDef(BaseModel):
+class GetLicenseManagerReportGeneratorResponseTypeDef(BaseValidatorModel):
     ReportGenerator: ReportGeneratorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLicenseManagerReportGeneratorsResponseTypeDef(BaseModel):
+class ListLicenseManagerReportGeneratorsResponseTypeDef(BaseValidatorModel):
     ReportGenerators: List[ReportGeneratorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReceivedLicensesForOrganizationResponseTypeDef(BaseModel):
+class ListReceivedLicensesForOrganizationResponseTypeDef(BaseValidatorModel):
     Licenses: List[GrantedLicenseTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReceivedLicensesResponseTypeDef(BaseModel):
+class ListReceivedLicensesResponseTypeDef(BaseValidatorModel):
     Licenses: List[GrantedLicenseTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLicenseResponseTypeDef(BaseModel):
+class GetLicenseResponseTypeDef(BaseValidatorModel):
     License: LicenseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLicenseVersionsResponseTypeDef(BaseModel):
+class ListLicenseVersionsResponseTypeDef(BaseValidatorModel):
     Licenses: List[LicenseTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLicensesResponseTypeDef(BaseModel):
+class ListLicensesResponseTypeDef(BaseValidatorModel):
     Licenses: List[LicenseTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLicenseConfigurationsResponsePaginatorTypeDef(BaseModel):
+class ListLicenseConfigurationsResponsePaginatorTypeDef(BaseValidatorModel):
     LicenseConfigurations: List[LicenseConfigurationPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLicenseConfigurationsResponseTypeDef(BaseModel):
+class ListLicenseConfigurationsResponseTypeDef(BaseValidatorModel):
     LicenseConfigurations: List[LicenseConfigurationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

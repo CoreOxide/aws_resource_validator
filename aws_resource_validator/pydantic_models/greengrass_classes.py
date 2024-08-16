@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,69 +11,69 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.greengrass_constants import *
 
-class AssociateRoleToGroupRequestRequestTypeDef(BaseModel):
+class AssociateRoleToGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     RoleArn: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class AssociateServiceRoleToAccountRequestRequestTypeDef(BaseModel):
+class AssociateServiceRoleToAccountRequestRequestTypeDef(BaseValidatorModel):
     RoleArn: str
 
-class BulkDeploymentMetricsTypeDef(BaseModel):
+class BulkDeploymentMetricsTypeDef(BaseValidatorModel):
     InvalidInputRecords: Optional[int] = None
     RecordsProcessed: Optional[int] = None
     RetryAttempts: Optional[int] = None
 
-class ErrorDetailTypeDef(BaseModel):
+class ErrorDetailTypeDef(BaseValidatorModel):
     DetailedErrorCode: Optional[str] = None
     DetailedErrorMessage: Optional[str] = None
 
-class BulkDeploymentTypeDef(BaseModel):
+class BulkDeploymentTypeDef(BaseValidatorModel):
     BulkDeploymentArn: Optional[str] = None
     BulkDeploymentId: Optional[str] = None
     CreatedAt: Optional[str] = None
 
-class ConnectivityInfoTypeDef(BaseModel):
+class ConnectivityInfoTypeDef(BaseValidatorModel):
     HostAddress: Optional[str] = None
     Id: Optional[str] = None
     Metadata: Optional[str] = None
     PortNumber: Optional[int] = None
 
-class ConnectorTypeDef(BaseModel):
+class ConnectorTypeDef(BaseValidatorModel):
     ConnectorArn: str
     Id: str
     Parameters: Optional[Mapping[str, str]] = None
 
-class CoreTypeDef(BaseModel):
+class CoreTypeDef(BaseValidatorModel):
     CertificateArn: str
     Id: str
     ThingArn: str
     SyncShadow: Optional[bool] = None
 
-class CreateDeploymentRequestRequestTypeDef(BaseModel):
+class CreateDeploymentRequestRequestTypeDef(BaseValidatorModel):
     DeploymentType: DeploymentTypeType
     GroupId: str
     AmznClientToken: Optional[str] = None
     DeploymentId: Optional[str] = None
     GroupVersionId: Optional[str] = None
 
-class DeviceTypeDef(BaseModel):
+class DeviceTypeDef(BaseValidatorModel):
     CertificateArn: str
     Id: str
     ThingArn: str
     SyncShadow: Optional[bool] = None
 
-class CreateGroupCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class CreateGroupCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     AmznClientToken: Optional[str] = None
 
-class GroupVersionTypeDef(BaseModel):
+class GroupVersionTypeDef(BaseValidatorModel):
     ConnectorDefinitionVersionArn: Optional[str] = None
     CoreDefinitionVersionArn: Optional[str] = None
     DeviceDefinitionVersionArn: Optional[str] = None
@@ -82,7 +82,7 @@ class GroupVersionTypeDef(BaseModel):
     ResourceDefinitionVersionArn: Optional[str] = None
     SubscriptionDefinitionVersionArn: Optional[str] = None
 
-class CreateGroupVersionRequestRequestTypeDef(BaseModel):
+class CreateGroupVersionRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     AmznClientToken: Optional[str] = None
     ConnectorDefinitionVersionArn: Optional[str] = None
@@ -93,14 +93,14 @@ class CreateGroupVersionRequestRequestTypeDef(BaseModel):
     ResourceDefinitionVersionArn: Optional[str] = None
     SubscriptionDefinitionVersionArn: Optional[str] = None
 
-class LoggerTypeDef(BaseModel):
+class LoggerTypeDef(BaseValidatorModel):
     Component: LoggerComponentType
     Id: str
     Level: LoggerLevelType
     Type: LoggerTypeType
     Space: Optional[int] = None
 
-class CreateSoftwareUpdateJobRequestRequestTypeDef(BaseModel):
+class CreateSoftwareUpdateJobRequestRequestTypeDef(BaseValidatorModel):
     S3UrlSignerRole: str
     SoftwareToUpdate: SoftwareToUpdateType
     UpdateTargets: Sequence[str]
@@ -109,13 +109,13 @@ class CreateSoftwareUpdateJobRequestRequestTypeDef(BaseModel):
     AmznClientToken: Optional[str] = None
     UpdateAgentLogLevel: Optional[UpdateAgentLogLevelType] = None
 
-class SubscriptionTypeDef(BaseModel):
+class SubscriptionTypeDef(BaseValidatorModel):
     Id: str
     Source: str
     Subject: str
     Target: str
 
-class DefinitionInformationTypeDef(BaseModel):
+class DefinitionInformationTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreationTimestamp: Optional[str] = None
     Id: Optional[str] = None
@@ -125,137 +125,137 @@ class DefinitionInformationTypeDef(BaseModel):
     Name: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class DeleteConnectorDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteConnectorDefinitionRequestRequestTypeDef(BaseValidatorModel):
     ConnectorDefinitionId: str
 
-class DeleteCoreDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteCoreDefinitionRequestRequestTypeDef(BaseValidatorModel):
     CoreDefinitionId: str
 
-class DeleteDeviceDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteDeviceDefinitionRequestRequestTypeDef(BaseValidatorModel):
     DeviceDefinitionId: str
 
-class DeleteFunctionDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteFunctionDefinitionRequestRequestTypeDef(BaseValidatorModel):
     FunctionDefinitionId: str
 
-class DeleteGroupRequestRequestTypeDef(BaseModel):
+class DeleteGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
 
-class DeleteLoggerDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteLoggerDefinitionRequestRequestTypeDef(BaseValidatorModel):
     LoggerDefinitionId: str
 
-class DeleteResourceDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteResourceDefinitionRequestRequestTypeDef(BaseValidatorModel):
     ResourceDefinitionId: str
 
-class DeleteSubscriptionDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteSubscriptionDefinitionRequestRequestTypeDef(BaseValidatorModel):
     SubscriptionDefinitionId: str
 
-class DeploymentTypeDef(BaseModel):
+class DeploymentTypeDef(BaseValidatorModel):
     CreatedAt: Optional[str] = None
     DeploymentArn: Optional[str] = None
     DeploymentId: Optional[str] = None
     DeploymentType: Optional[DeploymentTypeType] = None
     GroupArn: Optional[str] = None
 
-class DisassociateRoleFromGroupRequestRequestTypeDef(BaseModel):
+class DisassociateRoleFromGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
 
-class ResourceAccessPolicyTypeDef(BaseModel):
+class ResourceAccessPolicyTypeDef(BaseValidatorModel):
     ResourceId: str
     Permission: Optional[PermissionType] = None
 
-class FunctionRunAsConfigTypeDef(BaseModel):
+class FunctionRunAsConfigTypeDef(BaseValidatorModel):
     Gid: Optional[int] = None
     Uid: Optional[int] = None
 
-class GetAssociatedRoleRequestRequestTypeDef(BaseModel):
+class GetAssociatedRoleRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
 
-class GetBulkDeploymentStatusRequestRequestTypeDef(BaseModel):
+class GetBulkDeploymentStatusRequestRequestTypeDef(BaseValidatorModel):
     BulkDeploymentId: str
 
-class GetConnectivityInfoRequestRequestTypeDef(BaseModel):
+class GetConnectivityInfoRequestRequestTypeDef(BaseValidatorModel):
     ThingName: str
 
-class GetConnectorDefinitionRequestRequestTypeDef(BaseModel):
+class GetConnectorDefinitionRequestRequestTypeDef(BaseValidatorModel):
     ConnectorDefinitionId: str
 
-class GetConnectorDefinitionVersionRequestRequestTypeDef(BaseModel):
+class GetConnectorDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     ConnectorDefinitionId: str
     ConnectorDefinitionVersionId: str
     NextToken: Optional[str] = None
 
-class GetCoreDefinitionRequestRequestTypeDef(BaseModel):
+class GetCoreDefinitionRequestRequestTypeDef(BaseValidatorModel):
     CoreDefinitionId: str
 
-class GetCoreDefinitionVersionRequestRequestTypeDef(BaseModel):
+class GetCoreDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     CoreDefinitionId: str
     CoreDefinitionVersionId: str
 
-class GetDeploymentStatusRequestRequestTypeDef(BaseModel):
+class GetDeploymentStatusRequestRequestTypeDef(BaseValidatorModel):
     DeploymentId: str
     GroupId: str
 
-class GetDeviceDefinitionRequestRequestTypeDef(BaseModel):
+class GetDeviceDefinitionRequestRequestTypeDef(BaseValidatorModel):
     DeviceDefinitionId: str
 
-class GetDeviceDefinitionVersionRequestRequestTypeDef(BaseModel):
+class GetDeviceDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     DeviceDefinitionId: str
     DeviceDefinitionVersionId: str
     NextToken: Optional[str] = None
 
-class GetFunctionDefinitionRequestRequestTypeDef(BaseModel):
+class GetFunctionDefinitionRequestRequestTypeDef(BaseValidatorModel):
     FunctionDefinitionId: str
 
-class GetFunctionDefinitionVersionRequestRequestTypeDef(BaseModel):
+class GetFunctionDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     FunctionDefinitionId: str
     FunctionDefinitionVersionId: str
     NextToken: Optional[str] = None
 
-class GetGroupCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class GetGroupCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityId: str
     GroupId: str
 
-class GetGroupCertificateConfigurationRequestRequestTypeDef(BaseModel):
+class GetGroupCertificateConfigurationRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
 
-class GetGroupRequestRequestTypeDef(BaseModel):
+class GetGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
 
-class GetGroupVersionRequestRequestTypeDef(BaseModel):
+class GetGroupVersionRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     GroupVersionId: str
 
-class GetLoggerDefinitionRequestRequestTypeDef(BaseModel):
+class GetLoggerDefinitionRequestRequestTypeDef(BaseValidatorModel):
     LoggerDefinitionId: str
 
-class GetLoggerDefinitionVersionRequestRequestTypeDef(BaseModel):
+class GetLoggerDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     LoggerDefinitionId: str
     LoggerDefinitionVersionId: str
     NextToken: Optional[str] = None
 
-class GetResourceDefinitionRequestRequestTypeDef(BaseModel):
+class GetResourceDefinitionRequestRequestTypeDef(BaseValidatorModel):
     ResourceDefinitionId: str
 
-class GetResourceDefinitionVersionRequestRequestTypeDef(BaseModel):
+class GetResourceDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     ResourceDefinitionId: str
     ResourceDefinitionVersionId: str
 
-class GetSubscriptionDefinitionRequestRequestTypeDef(BaseModel):
+class GetSubscriptionDefinitionRequestRequestTypeDef(BaseValidatorModel):
     SubscriptionDefinitionId: str
 
-class GetSubscriptionDefinitionVersionRequestRequestTypeDef(BaseModel):
+class GetSubscriptionDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     SubscriptionDefinitionId: str
     SubscriptionDefinitionVersionId: str
     NextToken: Optional[str] = None
 
-class GetThingRuntimeConfigurationRequestRequestTypeDef(BaseModel):
+class GetThingRuntimeConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ThingName: str
 
-class GroupCertificateAuthorityPropertiesTypeDef(BaseModel):
+class GroupCertificateAuthorityPropertiesTypeDef(BaseValidatorModel):
     GroupCertificateAuthorityArn: Optional[str] = None
     GroupCertificateAuthorityId: Optional[str] = None
 
-class GroupInformationTypeDef(BaseModel):
+class GroupInformationTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreationTimestamp: Optional[str] = None
     Id: Optional[str] = None
@@ -264,195 +264,195 @@ class GroupInformationTypeDef(BaseModel):
     LatestVersionArn: Optional[str] = None
     Name: Optional[str] = None
 
-class GroupOwnerSettingTypeDef(BaseModel):
+class GroupOwnerSettingTypeDef(BaseValidatorModel):
     AutoAddGroupOwner: Optional[bool] = None
     GroupOwner: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListBulkDeploymentDetailedReportsRequestRequestTypeDef(BaseModel):
+class ListBulkDeploymentDetailedReportsRequestRequestTypeDef(BaseValidatorModel):
     BulkDeploymentId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListBulkDeploymentsRequestRequestTypeDef(BaseModel):
+class ListBulkDeploymentsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListConnectorDefinitionVersionsRequestRequestTypeDef(BaseModel):
+class ListConnectorDefinitionVersionsRequestRequestTypeDef(BaseValidatorModel):
     ConnectorDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class VersionInformationTypeDef(BaseModel):
+class VersionInformationTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreationTimestamp: Optional[str] = None
     Id: Optional[str] = None
     Version: Optional[str] = None
 
-class ListConnectorDefinitionsRequestRequestTypeDef(BaseModel):
+class ListConnectorDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListCoreDefinitionVersionsRequestRequestTypeDef(BaseModel):
+class ListCoreDefinitionVersionsRequestRequestTypeDef(BaseValidatorModel):
     CoreDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListCoreDefinitionsRequestRequestTypeDef(BaseModel):
+class ListCoreDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListDeploymentsRequestRequestTypeDef(BaseModel):
+class ListDeploymentsRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListDeviceDefinitionVersionsRequestRequestTypeDef(BaseModel):
+class ListDeviceDefinitionVersionsRequestRequestTypeDef(BaseValidatorModel):
     DeviceDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListDeviceDefinitionsRequestRequestTypeDef(BaseModel):
+class ListDeviceDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListFunctionDefinitionVersionsRequestRequestTypeDef(BaseModel):
+class ListFunctionDefinitionVersionsRequestRequestTypeDef(BaseValidatorModel):
     FunctionDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListFunctionDefinitionsRequestRequestTypeDef(BaseModel):
+class ListFunctionDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListGroupCertificateAuthoritiesRequestRequestTypeDef(BaseModel):
+class ListGroupCertificateAuthoritiesRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
 
-class ListGroupVersionsRequestRequestTypeDef(BaseModel):
+class ListGroupVersionsRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListGroupsRequestRequestTypeDef(BaseModel):
+class ListGroupsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListLoggerDefinitionVersionsRequestRequestTypeDef(BaseModel):
+class ListLoggerDefinitionVersionsRequestRequestTypeDef(BaseValidatorModel):
     LoggerDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListLoggerDefinitionsRequestRequestTypeDef(BaseModel):
+class ListLoggerDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListResourceDefinitionVersionsRequestRequestTypeDef(BaseModel):
+class ListResourceDefinitionVersionsRequestRequestTypeDef(BaseValidatorModel):
     ResourceDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListResourceDefinitionsRequestRequestTypeDef(BaseModel):
+class ListResourceDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListSubscriptionDefinitionVersionsRequestRequestTypeDef(BaseModel):
+class ListSubscriptionDefinitionVersionsRequestRequestTypeDef(BaseValidatorModel):
     SubscriptionDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListSubscriptionDefinitionsRequestRequestTypeDef(BaseModel):
+class ListSubscriptionDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ResetDeploymentsRequestRequestTypeDef(BaseModel):
+class ResetDeploymentsRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     AmznClientToken: Optional[str] = None
     Force: Optional[bool] = None
 
-class SecretsManagerSecretResourceDataTypeDef(BaseModel):
+class SecretsManagerSecretResourceDataTypeDef(BaseValidatorModel):
     ARN: Optional[str] = None
     AdditionalStagingLabelsToDownload: Optional[Sequence[str]] = None
 
-class ResourceDownloadOwnerSettingTypeDef(BaseModel):
+class ResourceDownloadOwnerSettingTypeDef(BaseValidatorModel):
     GroupOwner: str
     GroupPermission: PermissionType
 
-class TelemetryConfigurationTypeDef(BaseModel):
+class TelemetryConfigurationTypeDef(BaseValidatorModel):
     Telemetry: TelemetryType
     ConfigurationSyncStatus: Optional[ConfigurationSyncStatusType] = None
 
-class StartBulkDeploymentRequestRequestTypeDef(BaseModel):
+class StartBulkDeploymentRequestRequestTypeDef(BaseValidatorModel):
     ExecutionRoleArn: str
     InputFileUri: str
     AmznClientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class StopBulkDeploymentRequestRequestTypeDef(BaseModel):
+class StopBulkDeploymentRequestRequestTypeDef(BaseValidatorModel):
     BulkDeploymentId: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     tags: Optional[Mapping[str, str]] = None
 
-class TelemetryConfigurationUpdateTypeDef(BaseModel):
+class TelemetryConfigurationUpdateTypeDef(BaseValidatorModel):
     Telemetry: TelemetryType
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateConnectorDefinitionRequestRequestTypeDef(BaseModel):
+class UpdateConnectorDefinitionRequestRequestTypeDef(BaseValidatorModel):
     ConnectorDefinitionId: str
     Name: Optional[str] = None
 
-class UpdateCoreDefinitionRequestRequestTypeDef(BaseModel):
+class UpdateCoreDefinitionRequestRequestTypeDef(BaseValidatorModel):
     CoreDefinitionId: str
     Name: Optional[str] = None
 
-class UpdateDeviceDefinitionRequestRequestTypeDef(BaseModel):
+class UpdateDeviceDefinitionRequestRequestTypeDef(BaseValidatorModel):
     DeviceDefinitionId: str
     Name: Optional[str] = None
 
-class UpdateFunctionDefinitionRequestRequestTypeDef(BaseModel):
+class UpdateFunctionDefinitionRequestRequestTypeDef(BaseValidatorModel):
     FunctionDefinitionId: str
     Name: Optional[str] = None
 
-class UpdateGroupCertificateConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateGroupCertificateConfigurationRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     CertificateExpiryInMilliseconds: Optional[str] = None
 
-class UpdateGroupRequestRequestTypeDef(BaseModel):
+class UpdateGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupId: str
     Name: Optional[str] = None
 
-class UpdateLoggerDefinitionRequestRequestTypeDef(BaseModel):
+class UpdateLoggerDefinitionRequestRequestTypeDef(BaseValidatorModel):
     LoggerDefinitionId: str
     Name: Optional[str] = None
 
-class UpdateResourceDefinitionRequestRequestTypeDef(BaseModel):
+class UpdateResourceDefinitionRequestRequestTypeDef(BaseValidatorModel):
     ResourceDefinitionId: str
     Name: Optional[str] = None
 
-class UpdateSubscriptionDefinitionRequestRequestTypeDef(BaseModel):
+class UpdateSubscriptionDefinitionRequestRequestTypeDef(BaseValidatorModel):
     SubscriptionDefinitionId: str
     Name: Optional[str] = None
 
-class AssociateRoleToGroupResponseTypeDef(BaseModel):
+class AssociateRoleToGroupResponseTypeDef(BaseValidatorModel):
     AssociatedAt: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateServiceRoleToAccountResponseTypeDef(BaseModel):
+class AssociateServiceRoleToAccountResponseTypeDef(BaseValidatorModel):
     AssociatedAt: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConnectorDefinitionResponseTypeDef(BaseModel):
+class CreateConnectorDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -462,14 +462,14 @@ class CreateConnectorDefinitionResponseTypeDef(BaseModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConnectorDefinitionVersionResponseTypeDef(BaseModel):
+class CreateConnectorDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCoreDefinitionResponseTypeDef(BaseModel):
+class CreateCoreDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -479,19 +479,19 @@ class CreateCoreDefinitionResponseTypeDef(BaseModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCoreDefinitionVersionResponseTypeDef(BaseModel):
+class CreateCoreDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDeploymentResponseTypeDef(BaseModel):
+class CreateDeploymentResponseTypeDef(BaseValidatorModel):
     DeploymentArn: str
     DeploymentId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDeviceDefinitionResponseTypeDef(BaseModel):
+class CreateDeviceDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -501,14 +501,14 @@ class CreateDeviceDefinitionResponseTypeDef(BaseModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDeviceDefinitionVersionResponseTypeDef(BaseModel):
+class CreateDeviceDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFunctionDefinitionResponseTypeDef(BaseModel):
+class CreateFunctionDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -518,18 +518,18 @@ class CreateFunctionDefinitionResponseTypeDef(BaseModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFunctionDefinitionVersionResponseTypeDef(BaseModel):
+class CreateFunctionDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGroupCertificateAuthorityResponseTypeDef(BaseModel):
+class CreateGroupCertificateAuthorityResponseTypeDef(BaseValidatorModel):
     GroupCertificateAuthorityArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGroupResponseTypeDef(BaseModel):
+class CreateGroupResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -539,14 +539,14 @@ class CreateGroupResponseTypeDef(BaseModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGroupVersionResponseTypeDef(BaseModel):
+class CreateGroupVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLoggerDefinitionResponseTypeDef(BaseModel):
+class CreateLoggerDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -556,14 +556,14 @@ class CreateLoggerDefinitionResponseTypeDef(BaseModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLoggerDefinitionVersionResponseTypeDef(BaseModel):
+class CreateLoggerDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateResourceDefinitionResponseTypeDef(BaseModel):
+class CreateResourceDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -573,20 +573,20 @@ class CreateResourceDefinitionResponseTypeDef(BaseModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateResourceDefinitionVersionResponseTypeDef(BaseModel):
+class CreateResourceDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSoftwareUpdateJobResponseTypeDef(BaseModel):
+class CreateSoftwareUpdateJobResponseTypeDef(BaseValidatorModel):
     IotJobArn: str
     IotJobId: str
     PlatformSoftwareVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSubscriptionDefinitionResponseTypeDef(BaseModel):
+class CreateSubscriptionDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -596,30 +596,30 @@ class CreateSubscriptionDefinitionResponseTypeDef(BaseModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSubscriptionDefinitionVersionResponseTypeDef(BaseModel):
+class CreateSubscriptionDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateRoleFromGroupResponseTypeDef(BaseModel):
+class DisassociateRoleFromGroupResponseTypeDef(BaseValidatorModel):
     DisassociatedAt: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateServiceRoleFromAccountResponseTypeDef(BaseModel):
+class DisassociateServiceRoleFromAccountResponseTypeDef(BaseValidatorModel):
     DisassociatedAt: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAssociatedRoleResponseTypeDef(BaseModel):
+class GetAssociatedRoleResponseTypeDef(BaseValidatorModel):
     AssociatedAt: str
     RoleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetConnectorDefinitionResponseTypeDef(BaseModel):
+class GetConnectorDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -630,7 +630,7 @@ class GetConnectorDefinitionResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCoreDefinitionResponseTypeDef(BaseModel):
+class GetCoreDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -641,7 +641,7 @@ class GetCoreDefinitionResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDeviceDefinitionResponseTypeDef(BaseModel):
+class GetDeviceDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -652,7 +652,7 @@ class GetDeviceDefinitionResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFunctionDefinitionResponseTypeDef(BaseModel):
+class GetFunctionDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -663,19 +663,19 @@ class GetFunctionDefinitionResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupCertificateAuthorityResponseTypeDef(BaseModel):
+class GetGroupCertificateAuthorityResponseTypeDef(BaseValidatorModel):
     GroupCertificateAuthorityArn: str
     GroupCertificateAuthorityId: str
     PemEncodedCertificate: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupCertificateConfigurationResponseTypeDef(BaseModel):
+class GetGroupCertificateConfigurationResponseTypeDef(BaseValidatorModel):
     CertificateAuthorityExpiryInMilliseconds: str
     CertificateExpiryInMilliseconds: str
     GroupId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupResponseTypeDef(BaseModel):
+class GetGroupResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -686,7 +686,7 @@ class GetGroupResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLoggerDefinitionResponseTypeDef(BaseModel):
+class GetLoggerDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -697,7 +697,7 @@ class GetLoggerDefinitionResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourceDefinitionResponseTypeDef(BaseModel):
+class GetResourceDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -708,12 +708,12 @@ class GetResourceDefinitionResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServiceRoleForAccountResponseTypeDef(BaseModel):
+class GetServiceRoleForAccountResponseTypeDef(BaseValidatorModel):
     AssociatedAt: str
     RoleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSubscriptionDefinitionResponseTypeDef(BaseModel):
+class GetSubscriptionDefinitionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Id: str
@@ -724,32 +724,32 @@ class GetSubscriptionDefinitionResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetDeploymentsResponseTypeDef(BaseModel):
+class ResetDeploymentsResponseTypeDef(BaseValidatorModel):
     DeploymentArn: str
     DeploymentId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartBulkDeploymentResponseTypeDef(BaseModel):
+class StartBulkDeploymentResponseTypeDef(BaseValidatorModel):
     BulkDeploymentArn: str
     BulkDeploymentId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateConnectivityInfoResponseTypeDef(BaseModel):
+class UpdateConnectivityInfoResponseTypeDef(BaseValidatorModel):
     Message: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGroupCertificateConfigurationResponseTypeDef(BaseModel):
+class UpdateGroupCertificateConfigurationResponseTypeDef(BaseValidatorModel):
     CertificateAuthorityExpiryInMilliseconds: str
     CertificateExpiryInMilliseconds: str
     GroupId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BulkDeploymentResultTypeDef(BaseModel):
+class BulkDeploymentResultTypeDef(BaseValidatorModel):
     CreatedAt: Optional[str] = None
     DeploymentArn: Optional[str] = None
     DeploymentId: Optional[str] = None
@@ -759,7 +759,7 @@ class BulkDeploymentResultTypeDef(BaseModel):
     ErrorMessage: Optional[str] = None
     GroupArn: Optional[str] = None
 
-class GetBulkDeploymentStatusResponseTypeDef(BaseModel):
+class GetBulkDeploymentStatusResponseTypeDef(BaseValidatorModel):
     BulkDeploymentMetrics: BulkDeploymentMetricsTypeDef
     BulkDeploymentStatus: BulkDeploymentStatusType
     CreatedAt: str
@@ -768,7 +768,7 @@ class GetBulkDeploymentStatusResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDeploymentStatusResponseTypeDef(BaseModel):
+class GetDeploymentStatusResponseTypeDef(BaseValidatorModel):
     DeploymentStatus: str
     DeploymentType: DeploymentTypeType
     ErrorDetails: List[ErrorDetailTypeDef]
@@ -776,51 +776,51 @@ class GetDeploymentStatusResponseTypeDef(BaseModel):
     UpdatedAt: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBulkDeploymentsResponseTypeDef(BaseModel):
+class ListBulkDeploymentsResponseTypeDef(BaseValidatorModel):
     BulkDeployments: List[BulkDeploymentTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetConnectivityInfoResponseTypeDef(BaseModel):
+class GetConnectivityInfoResponseTypeDef(BaseValidatorModel):
     ConnectivityInfo: List[ConnectivityInfoTypeDef]
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateConnectivityInfoRequestRequestTypeDef(BaseModel):
+class UpdateConnectivityInfoRequestRequestTypeDef(BaseValidatorModel):
     ThingName: str
     ConnectivityInfo: Optional[Sequence[ConnectivityInfoTypeDef]] = None
 
-class ConnectorDefinitionVersionTypeDef(BaseModel):
+class ConnectorDefinitionVersionTypeDef(BaseValidatorModel):
     Connectors: Optional[Sequence[ConnectorTypeDef]] = None
 
-class CreateConnectorDefinitionVersionRequestRequestTypeDef(BaseModel):
+class CreateConnectorDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     ConnectorDefinitionId: str
     AmznClientToken: Optional[str] = None
     Connectors: Optional[Sequence[ConnectorTypeDef]] = None
 
-class CoreDefinitionVersionTypeDef(BaseModel):
+class CoreDefinitionVersionTypeDef(BaseValidatorModel):
     Cores: Optional[Sequence[CoreTypeDef]] = None
 
-class CreateCoreDefinitionVersionRequestRequestTypeDef(BaseModel):
+class CreateCoreDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     CoreDefinitionId: str
     AmznClientToken: Optional[str] = None
     Cores: Optional[Sequence[CoreTypeDef]] = None
 
-class CreateDeviceDefinitionVersionRequestRequestTypeDef(BaseModel):
+class CreateDeviceDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     DeviceDefinitionId: str
     AmznClientToken: Optional[str] = None
     Devices: Optional[Sequence[DeviceTypeDef]] = None
 
-class DeviceDefinitionVersionTypeDef(BaseModel):
+class DeviceDefinitionVersionTypeDef(BaseValidatorModel):
     Devices: Optional[Sequence[DeviceTypeDef]] = None
 
-class CreateGroupRequestRequestTypeDef(BaseModel):
+class CreateGroupRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[GroupVersionTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetGroupVersionResponseTypeDef(BaseModel):
+class GetGroupVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Definition: GroupVersionTypeDef
@@ -828,220 +828,220 @@ class GetGroupVersionResponseTypeDef(BaseModel):
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLoggerDefinitionVersionRequestRequestTypeDef(BaseModel):
+class CreateLoggerDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     LoggerDefinitionId: str
     AmznClientToken: Optional[str] = None
     Loggers: Optional[Sequence[LoggerTypeDef]] = None
 
-class LoggerDefinitionVersionTypeDef(BaseModel):
+class LoggerDefinitionVersionTypeDef(BaseValidatorModel):
     Loggers: Optional[Sequence[LoggerTypeDef]] = None
 
-class CreateSubscriptionDefinitionVersionRequestRequestTypeDef(BaseModel):
+class CreateSubscriptionDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     SubscriptionDefinitionId: str
     AmznClientToken: Optional[str] = None
     Subscriptions: Optional[Sequence[SubscriptionTypeDef]] = None
 
-class SubscriptionDefinitionVersionTypeDef(BaseModel):
+class SubscriptionDefinitionVersionTypeDef(BaseValidatorModel):
     Subscriptions: Optional[Sequence[SubscriptionTypeDef]] = None
 
-class ListConnectorDefinitionsResponseTypeDef(BaseModel):
+class ListConnectorDefinitionsResponseTypeDef(BaseValidatorModel):
     Definitions: List[DefinitionInformationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCoreDefinitionsResponseTypeDef(BaseModel):
+class ListCoreDefinitionsResponseTypeDef(BaseValidatorModel):
     Definitions: List[DefinitionInformationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeviceDefinitionsResponseTypeDef(BaseModel):
+class ListDeviceDefinitionsResponseTypeDef(BaseValidatorModel):
     Definitions: List[DefinitionInformationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFunctionDefinitionsResponseTypeDef(BaseModel):
+class ListFunctionDefinitionsResponseTypeDef(BaseValidatorModel):
     Definitions: List[DefinitionInformationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLoggerDefinitionsResponseTypeDef(BaseModel):
+class ListLoggerDefinitionsResponseTypeDef(BaseValidatorModel):
     Definitions: List[DefinitionInformationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourceDefinitionsResponseTypeDef(BaseModel):
+class ListResourceDefinitionsResponseTypeDef(BaseValidatorModel):
     Definitions: List[DefinitionInformationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSubscriptionDefinitionsResponseTypeDef(BaseModel):
+class ListSubscriptionDefinitionsResponseTypeDef(BaseValidatorModel):
     Definitions: List[DefinitionInformationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeploymentsResponseTypeDef(BaseModel):
+class ListDeploymentsResponseTypeDef(BaseValidatorModel):
     Deployments: List[DeploymentTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FunctionDefaultExecutionConfigTypeDef(BaseModel):
+class FunctionDefaultExecutionConfigTypeDef(BaseValidatorModel):
     IsolationMode: Optional[FunctionIsolationModeType] = None
     RunAs: Optional[FunctionRunAsConfigTypeDef] = None
 
-class FunctionExecutionConfigTypeDef(BaseModel):
+class FunctionExecutionConfigTypeDef(BaseValidatorModel):
     IsolationMode: Optional[FunctionIsolationModeType] = None
     RunAs: Optional[FunctionRunAsConfigTypeDef] = None
 
-class ListGroupCertificateAuthoritiesResponseTypeDef(BaseModel):
+class ListGroupCertificateAuthoritiesResponseTypeDef(BaseValidatorModel):
     GroupCertificateAuthorities: List[GroupCertificateAuthorityPropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGroupsResponseTypeDef(BaseModel):
+class ListGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupInformationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LocalDeviceResourceDataTypeDef(BaseModel):
+class LocalDeviceResourceDataTypeDef(BaseValidatorModel):
     GroupOwnerSetting: Optional[GroupOwnerSettingTypeDef] = None
     SourcePath: Optional[str] = None
 
-class LocalVolumeResourceDataTypeDef(BaseModel):
+class LocalVolumeResourceDataTypeDef(BaseValidatorModel):
     DestinationPath: Optional[str] = None
     GroupOwnerSetting: Optional[GroupOwnerSettingTypeDef] = None
     SourcePath: Optional[str] = None
 
-class ListBulkDeploymentsRequestListBulkDeploymentsPaginateTypeDef(BaseModel):
+class ListBulkDeploymentsRequestListBulkDeploymentsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListConnectorDefinitionVersionsRequestListConnectorDefinitionVersionsPaginateTypeDef(BaseModel):
+class ListConnectorDefinitionVersionsRequestListConnectorDefinitionVersionsPaginateTypeDef(BaseValidatorModel):
     ConnectorDefinitionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListConnectorDefinitionsRequestListConnectorDefinitionsPaginateTypeDef(BaseModel):
+class ListConnectorDefinitionsRequestListConnectorDefinitionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCoreDefinitionVersionsRequestListCoreDefinitionVersionsPaginateTypeDef(BaseModel):
+class ListCoreDefinitionVersionsRequestListCoreDefinitionVersionsPaginateTypeDef(BaseValidatorModel):
     CoreDefinitionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCoreDefinitionsRequestListCoreDefinitionsPaginateTypeDef(BaseModel):
+class ListCoreDefinitionsRequestListCoreDefinitionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDeploymentsRequestListDeploymentsPaginateTypeDef(BaseModel):
+class ListDeploymentsRequestListDeploymentsPaginateTypeDef(BaseValidatorModel):
     GroupId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDeviceDefinitionVersionsRequestListDeviceDefinitionVersionsPaginateTypeDef(BaseModel):
+class ListDeviceDefinitionVersionsRequestListDeviceDefinitionVersionsPaginateTypeDef(BaseValidatorModel):
     DeviceDefinitionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDeviceDefinitionsRequestListDeviceDefinitionsPaginateTypeDef(BaseModel):
+class ListDeviceDefinitionsRequestListDeviceDefinitionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFunctionDefinitionVersionsRequestListFunctionDefinitionVersionsPaginateTypeDef(BaseModel):
+class ListFunctionDefinitionVersionsRequestListFunctionDefinitionVersionsPaginateTypeDef(BaseValidatorModel):
     FunctionDefinitionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFunctionDefinitionsRequestListFunctionDefinitionsPaginateTypeDef(BaseModel):
+class ListFunctionDefinitionsRequestListFunctionDefinitionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGroupVersionsRequestListGroupVersionsPaginateTypeDef(BaseModel):
+class ListGroupVersionsRequestListGroupVersionsPaginateTypeDef(BaseValidatorModel):
     GroupId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGroupsRequestListGroupsPaginateTypeDef(BaseModel):
+class ListGroupsRequestListGroupsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLoggerDefinitionVersionsRequestListLoggerDefinitionVersionsPaginateTypeDef(BaseModel):
+class ListLoggerDefinitionVersionsRequestListLoggerDefinitionVersionsPaginateTypeDef(BaseValidatorModel):
     LoggerDefinitionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLoggerDefinitionsRequestListLoggerDefinitionsPaginateTypeDef(BaseModel):
+class ListLoggerDefinitionsRequestListLoggerDefinitionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourceDefinitionVersionsRequestListResourceDefinitionVersionsPaginateTypeDef(BaseModel):
+class ListResourceDefinitionVersionsRequestListResourceDefinitionVersionsPaginateTypeDef(BaseValidatorModel):
     ResourceDefinitionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourceDefinitionsRequestListResourceDefinitionsPaginateTypeDef(BaseModel):
+class ListResourceDefinitionsRequestListResourceDefinitionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubscriptionDefinitionVersionsRequestListSubscriptionDefinitionVersionsPaginateTypeDef(BaseModel):
+class ListSubscriptionDefinitionVersionsRequestListSubscriptionDefinitionVersionsPaginateTypeDef(BaseValidatorModel):
     SubscriptionDefinitionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubscriptionDefinitionsRequestListSubscriptionDefinitionsPaginateTypeDef(BaseModel):
+class ListSubscriptionDefinitionsRequestListSubscriptionDefinitionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListConnectorDefinitionVersionsResponseTypeDef(BaseModel):
+class ListConnectorDefinitionVersionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Versions: List[VersionInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCoreDefinitionVersionsResponseTypeDef(BaseModel):
+class ListCoreDefinitionVersionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Versions: List[VersionInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeviceDefinitionVersionsResponseTypeDef(BaseModel):
+class ListDeviceDefinitionVersionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Versions: List[VersionInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFunctionDefinitionVersionsResponseTypeDef(BaseModel):
+class ListFunctionDefinitionVersionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Versions: List[VersionInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGroupVersionsResponseTypeDef(BaseModel):
+class ListGroupVersionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Versions: List[VersionInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLoggerDefinitionVersionsResponseTypeDef(BaseModel):
+class ListLoggerDefinitionVersionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Versions: List[VersionInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourceDefinitionVersionsResponseTypeDef(BaseModel):
+class ListResourceDefinitionVersionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Versions: List[VersionInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSubscriptionDefinitionVersionsResponseTypeDef(BaseModel):
+class ListSubscriptionDefinitionVersionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Versions: List[VersionInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class S3MachineLearningModelResourceDataTypeDef(BaseModel):
+class S3MachineLearningModelResourceDataTypeDef(BaseValidatorModel):
     DestinationPath: Optional[str] = None
     OwnerSetting: Optional[ResourceDownloadOwnerSettingTypeDef] = None
     S3Uri: Optional[str] = None
 
-class SageMakerMachineLearningModelResourceDataTypeDef(BaseModel):
+class SageMakerMachineLearningModelResourceDataTypeDef(BaseValidatorModel):
     DestinationPath: Optional[str] = None
     OwnerSetting: Optional[ResourceDownloadOwnerSettingTypeDef] = None
     SageMakerJobArn: Optional[str] = None
 
-class RuntimeConfigurationTypeDef(BaseModel):
+class RuntimeConfigurationTypeDef(BaseValidatorModel):
     TelemetryConfiguration: Optional[TelemetryConfigurationTypeDef] = None
 
-class UpdateThingRuntimeConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateThingRuntimeConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ThingName: str
     TelemetryConfiguration: Optional[TelemetryConfigurationUpdateTypeDef] = None
 
-class ListBulkDeploymentDetailedReportsResponseTypeDef(BaseModel):
+class ListBulkDeploymentDetailedReportsResponseTypeDef(BaseValidatorModel):
     Deployments: List[BulkDeploymentResultTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConnectorDefinitionRequestRequestTypeDef(BaseModel):
+class CreateConnectorDefinitionRequestRequestTypeDef(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[ConnectorDefinitionVersionTypeDef] = None
     Name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetConnectorDefinitionVersionResponseTypeDef(BaseModel):
+class GetConnectorDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Definition: ConnectorDefinitionVersionTypeDef
@@ -1050,13 +1050,13 @@ class GetConnectorDefinitionVersionResponseTypeDef(BaseModel):
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCoreDefinitionRequestRequestTypeDef(BaseModel):
+class CreateCoreDefinitionRequestRequestTypeDef(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[CoreDefinitionVersionTypeDef] = None
     Name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetCoreDefinitionVersionResponseTypeDef(BaseModel):
+class GetCoreDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Definition: CoreDefinitionVersionTypeDef
@@ -1065,13 +1065,13 @@ class GetCoreDefinitionVersionResponseTypeDef(BaseModel):
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDeviceDefinitionRequestRequestTypeDef(BaseModel):
+class CreateDeviceDefinitionRequestRequestTypeDef(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[DeviceDefinitionVersionTypeDef] = None
     Name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetDeviceDefinitionVersionResponseTypeDef(BaseModel):
+class GetDeviceDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Definition: DeviceDefinitionVersionTypeDef
@@ -1080,13 +1080,13 @@ class GetDeviceDefinitionVersionResponseTypeDef(BaseModel):
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLoggerDefinitionRequestRequestTypeDef(BaseModel):
+class CreateLoggerDefinitionRequestRequestTypeDef(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[LoggerDefinitionVersionTypeDef] = None
     Name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetLoggerDefinitionVersionResponseTypeDef(BaseModel):
+class GetLoggerDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Definition: LoggerDefinitionVersionTypeDef
@@ -1094,13 +1094,13 @@ class GetLoggerDefinitionVersionResponseTypeDef(BaseModel):
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSubscriptionDefinitionRequestRequestTypeDef(BaseModel):
+class CreateSubscriptionDefinitionRequestRequestTypeDef(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[SubscriptionDefinitionVersionTypeDef] = None
     Name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetSubscriptionDefinitionVersionResponseTypeDef(BaseModel):
+class GetSubscriptionDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Definition: SubscriptionDefinitionVersionTypeDef
@@ -1109,27 +1109,27 @@ class GetSubscriptionDefinitionVersionResponseTypeDef(BaseModel):
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FunctionDefaultConfigTypeDef(BaseModel):
+class FunctionDefaultConfigTypeDef(BaseValidatorModel):
     Execution: Optional[FunctionDefaultExecutionConfigTypeDef] = None
 
-class FunctionConfigurationEnvironmentTypeDef(BaseModel):
+class FunctionConfigurationEnvironmentTypeDef(BaseValidatorModel):
     AccessSysfs: Optional[bool] = None
     Execution: Optional[FunctionExecutionConfigTypeDef] = None
     ResourceAccessPolicies: Optional[Sequence[ResourceAccessPolicyTypeDef]] = None
     Variables: Optional[Mapping[str, str]] = None
 
-class ResourceDataContainerTypeDef(BaseModel):
+class ResourceDataContainerTypeDef(BaseValidatorModel):
     LocalDeviceResourceData: Optional[LocalDeviceResourceDataTypeDef] = None
     LocalVolumeResourceData: Optional[LocalVolumeResourceDataTypeDef] = None
     S3MachineLearningModelResourceData: Optional[       S3MachineLearningModelResourceDataTypeDef     ] = None
     SageMakerMachineLearningModelResourceData: Optional[       SageMakerMachineLearningModelResourceDataTypeDef     ] = None
     SecretsManagerSecretResourceData: Optional[SecretsManagerSecretResourceDataTypeDef] = None
 
-class GetThingRuntimeConfigurationResponseTypeDef(BaseModel):
+class GetThingRuntimeConfigurationResponseTypeDef(BaseValidatorModel):
     RuntimeConfiguration: RuntimeConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FunctionConfigurationTypeDef(BaseModel):
+class FunctionConfigurationTypeDef(BaseValidatorModel):
     EncodingType: Optional[EncodingTypeType] = None
     Environment: Optional[FunctionConfigurationEnvironmentTypeDef] = None
     ExecArgs: Optional[str] = None
@@ -1139,41 +1139,41 @@ class FunctionConfigurationTypeDef(BaseModel):
     Timeout: Optional[int] = None
     FunctionRuntimeOverride: Optional[str] = None
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     Id: str
     Name: str
     ResourceDataContainer: ResourceDataContainerTypeDef
 
-class FunctionTypeDef(BaseModel):
+class FunctionTypeDef(BaseValidatorModel):
     Id: str
     FunctionArn: Optional[str] = None
     FunctionConfiguration: Optional[FunctionConfigurationTypeDef] = None
 
-class CreateResourceDefinitionVersionRequestRequestTypeDef(BaseModel):
+class CreateResourceDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     ResourceDefinitionId: str
     AmznClientToken: Optional[str] = None
     Resources: Optional[Sequence[ResourceTypeDef]] = None
 
-class ResourceDefinitionVersionTypeDef(BaseModel):
+class ResourceDefinitionVersionTypeDef(BaseValidatorModel):
     Resources: Optional[Sequence[ResourceTypeDef]] = None
 
-class CreateFunctionDefinitionVersionRequestRequestTypeDef(BaseModel):
+class CreateFunctionDefinitionVersionRequestRequestTypeDef(BaseValidatorModel):
     FunctionDefinitionId: str
     AmznClientToken: Optional[str] = None
     DefaultConfig: Optional[FunctionDefaultConfigTypeDef] = None
     Functions: Optional[Sequence[FunctionTypeDef]] = None
 
-class FunctionDefinitionVersionTypeDef(BaseModel):
+class FunctionDefinitionVersionTypeDef(BaseValidatorModel):
     DefaultConfig: Optional[FunctionDefaultConfigTypeDef] = None
     Functions: Optional[Sequence[FunctionTypeDef]] = None
 
-class CreateResourceDefinitionRequestRequestTypeDef(BaseModel):
+class CreateResourceDefinitionRequestRequestTypeDef(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[ResourceDefinitionVersionTypeDef] = None
     Name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetResourceDefinitionVersionResponseTypeDef(BaseModel):
+class GetResourceDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Definition: ResourceDefinitionVersionTypeDef
@@ -1181,13 +1181,13 @@ class GetResourceDefinitionVersionResponseTypeDef(BaseModel):
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFunctionDefinitionRequestRequestTypeDef(BaseModel):
+class CreateFunctionDefinitionRequestRequestTypeDef(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[FunctionDefinitionVersionTypeDef] = None
     Name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetFunctionDefinitionVersionResponseTypeDef(BaseModel):
+class GetFunctionDefinitionVersionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
     Definition: FunctionDefinitionVersionTypeDef

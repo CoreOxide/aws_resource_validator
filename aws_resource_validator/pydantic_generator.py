@@ -84,7 +84,7 @@ def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name:
         service_name (str): The service name for generating the corresponding constants file import.
         file_path (str): The path to the output file where Pydantic models will be saved.
     """
-    imports = set(["from pydantic import BaseModel", "from datetime import datetime"])
+    imports = set(["from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel", "from datetime import datetime"])
     type_imports = {
         "Optional": "from typing import Optional",
         "List": "from typing import List",

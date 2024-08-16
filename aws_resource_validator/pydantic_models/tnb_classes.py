@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,201 +11,201 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.tnb_constants import *
 
-class CancelSolNetworkOperationInputRequestTypeDef(BaseModel):
+class CancelSolNetworkOperationInputRequestTypeDef(BaseValidatorModel):
     nsLcmOpOccId: str
 
-class CreateSolFunctionPackageInputRequestTypeDef(BaseModel):
+class CreateSolFunctionPackageInputRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateSolNetworkInstanceInputRequestTypeDef(BaseModel):
+class CreateSolNetworkInstanceInputRequestTypeDef(BaseValidatorModel):
     nsName: str
     nsdInfoId: str
     nsDescription: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateSolNetworkPackageInputRequestTypeDef(BaseModel):
+class CreateSolNetworkPackageInputRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
-class DeleteSolFunctionPackageInputRequestTypeDef(BaseModel):
+class DeleteSolFunctionPackageInputRequestTypeDef(BaseValidatorModel):
     vnfPkgId: str
 
-class DeleteSolNetworkInstanceInputRequestTypeDef(BaseModel):
+class DeleteSolNetworkInstanceInputRequestTypeDef(BaseValidatorModel):
     nsInstanceId: str
 
-class DeleteSolNetworkPackageInputRequestTypeDef(BaseModel):
+class DeleteSolNetworkPackageInputRequestTypeDef(BaseValidatorModel):
     nsdInfoId: str
 
-class ErrorInfoTypeDef(BaseModel):
+class ErrorInfoTypeDef(BaseValidatorModel):
     cause: Optional[str] = None
     details: Optional[str] = None
 
-class ToscaOverrideTypeDef(BaseModel):
+class ToscaOverrideTypeDef(BaseValidatorModel):
     defaultValue: Optional[str] = None
     name: Optional[str] = None
 
-class GetSolFunctionInstanceInputRequestTypeDef(BaseModel):
+class GetSolFunctionInstanceInputRequestTypeDef(BaseValidatorModel):
     vnfInstanceId: str
 
-class GetSolFunctionInstanceMetadataTypeDef(BaseModel):
+class GetSolFunctionInstanceMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
 
-class GetSolFunctionPackageContentInputRequestTypeDef(BaseModel):
+class GetSolFunctionPackageContentInputRequestTypeDef(BaseValidatorModel):
     accept: Literal["application/zip"]
     vnfPkgId: str
 
-class GetSolFunctionPackageDescriptorInputRequestTypeDef(BaseModel):
+class GetSolFunctionPackageDescriptorInputRequestTypeDef(BaseValidatorModel):
     accept: Literal["text/plain"]
     vnfPkgId: str
 
-class GetSolFunctionPackageInputRequestTypeDef(BaseModel):
+class GetSolFunctionPackageInputRequestTypeDef(BaseValidatorModel):
     vnfPkgId: str
 
-class GetSolInstantiatedVnfInfoTypeDef(BaseModel):
+class GetSolInstantiatedVnfInfoTypeDef(BaseValidatorModel):
     vnfState: Optional[VnfOperationalStateType] = None
 
-class GetSolNetworkInstanceInputRequestTypeDef(BaseModel):
+class GetSolNetworkInstanceInputRequestTypeDef(BaseValidatorModel):
     nsInstanceId: str
 
-class GetSolNetworkInstanceMetadataTypeDef(BaseModel):
+class GetSolNetworkInstanceMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
 
-class LcmOperationInfoTypeDef(BaseModel):
+class LcmOperationInfoTypeDef(BaseValidatorModel):
     nsLcmOpOccId: str
 
-class GetSolNetworkOperationInputRequestTypeDef(BaseModel):
+class GetSolNetworkOperationInputRequestTypeDef(BaseValidatorModel):
     nsLcmOpOccId: str
 
-class GetSolNetworkOperationMetadataTypeDef(BaseModel):
+class GetSolNetworkOperationMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
 
-class ProblemDetailsTypeDef(BaseModel):
+class ProblemDetailsTypeDef(BaseValidatorModel):
     detail: str
     title: Optional[str] = None
 
-class GetSolNetworkPackageContentInputRequestTypeDef(BaseModel):
+class GetSolNetworkPackageContentInputRequestTypeDef(BaseValidatorModel):
     accept: Literal["application/zip"]
     nsdInfoId: str
 
-class GetSolNetworkPackageDescriptorInputRequestTypeDef(BaseModel):
+class GetSolNetworkPackageDescriptorInputRequestTypeDef(BaseValidatorModel):
     nsdInfoId: str
 
-class GetSolNetworkPackageInputRequestTypeDef(BaseModel):
+class GetSolNetworkPackageInputRequestTypeDef(BaseValidatorModel):
     nsdInfoId: str
 
-class GetSolVnfcResourceInfoMetadataTypeDef(BaseModel):
+class GetSolVnfcResourceInfoMetadataTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     helmChart: Optional[str] = None
     nodeGroup: Optional[str] = None
 
-class InstantiateSolNetworkInstanceInputRequestTypeDef(BaseModel):
+class InstantiateSolNetworkInstanceInputRequestTypeDef(BaseValidatorModel):
     nsInstanceId: str
     additionalParamsForNs: Optional[Mapping[str, Any]] = None
     dryRun: Optional[bool] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ListSolFunctionInstanceMetadataTypeDef(BaseModel):
+class ListSolFunctionInstanceMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListSolFunctionInstancesInputRequestTypeDef(BaseModel):
+class ListSolFunctionInstancesInputRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSolFunctionPackageMetadataTypeDef(BaseModel):
+class ListSolFunctionPackageMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
 
-class ListSolFunctionPackagesInputRequestTypeDef(BaseModel):
+class ListSolFunctionPackagesInputRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSolNetworkInstanceMetadataTypeDef(BaseModel):
+class ListSolNetworkInstanceMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
 
-class ListSolNetworkInstancesInputRequestTypeDef(BaseModel):
+class ListSolNetworkInstancesInputRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSolNetworkOperationsMetadataTypeDef(BaseModel):
+class ListSolNetworkOperationsMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
 
-class ListSolNetworkOperationsInputRequestTypeDef(BaseModel):
+class ListSolNetworkOperationsInputRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSolNetworkPackageMetadataTypeDef(BaseModel):
+class ListSolNetworkPackageMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
 
-class ListSolNetworkPackagesInputRequestTypeDef(BaseModel):
+class ListSolNetworkPackagesInputRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TerminateSolNetworkInstanceInputRequestTypeDef(BaseModel):
+class TerminateSolNetworkInstanceInputRequestTypeDef(BaseValidatorModel):
     nsInstanceId: str
     tags: Optional[Mapping[str, str]] = None
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateSolFunctionPackageInputRequestTypeDef(BaseModel):
+class UpdateSolFunctionPackageInputRequestTypeDef(BaseValidatorModel):
     operationalState: OperationalStateType
     vnfPkgId: str
 
-class UpdateSolNetworkModifyTypeDef(BaseModel):
+class UpdateSolNetworkModifyTypeDef(BaseValidatorModel):
     vnfConfigurableProperties: Mapping[str, Any]
     vnfInstanceId: str
 
-class UpdateSolNetworkPackageInputRequestTypeDef(BaseModel):
+class UpdateSolNetworkPackageInputRequestTypeDef(BaseValidatorModel):
     nsdInfoId: str
     nsdOperationalState: NsdOperationalStateType
 
-class PutSolFunctionPackageContentInputRequestTypeDef(BaseModel):
+class PutSolFunctionPackageContentInputRequestTypeDef(BaseValidatorModel):
     file: BlobTypeDef
     vnfPkgId: str
     contentType: Optional[Literal["application/zip"]] = None
 
-class PutSolNetworkPackageContentInputRequestTypeDef(BaseModel):
+class PutSolNetworkPackageContentInputRequestTypeDef(BaseValidatorModel):
     file: BlobTypeDef
     nsdInfoId: str
     contentType: Optional[Literal["application/zip"]] = None
 
-class ValidateSolFunctionPackageContentInputRequestTypeDef(BaseModel):
+class ValidateSolFunctionPackageContentInputRequestTypeDef(BaseValidatorModel):
     file: BlobTypeDef
     vnfPkgId: str
     contentType: Optional[Literal["application/zip"]] = None
 
-class ValidateSolNetworkPackageContentInputRequestTypeDef(BaseModel):
+class ValidateSolNetworkPackageContentInputRequestTypeDef(BaseValidatorModel):
     file: BlobTypeDef
     nsdInfoId: str
     contentType: Optional[Literal["application/zip"]] = None
 
-class CreateSolFunctionPackageOutputTypeDef(BaseModel):
+class CreateSolFunctionPackageOutputTypeDef(BaseValidatorModel):
     arn: str
     id: str
     onboardingState: OnboardingStateType
@@ -214,7 +214,7 @@ class CreateSolFunctionPackageOutputTypeDef(BaseModel):
     usageState: UsageStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSolNetworkInstanceOutputTypeDef(BaseModel):
+class CreateSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
     arn: str
     id: str
     nsInstanceName: str
@@ -222,7 +222,7 @@ class CreateSolNetworkInstanceOutputTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSolNetworkPackageOutputTypeDef(BaseModel):
+class CreateSolNetworkPackageOutputTypeDef(BaseValidatorModel):
     arn: str
     id: str
     nsdOnboardingState: NsdOnboardingStateType
@@ -231,57 +231,57 @@ class CreateSolNetworkPackageOutputTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolFunctionPackageContentOutputTypeDef(BaseModel):
+class GetSolFunctionPackageContentOutputTypeDef(BaseValidatorModel):
     contentType: Literal["application/zip"]
     packageContent: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolFunctionPackageDescriptorOutputTypeDef(BaseModel):
+class GetSolFunctionPackageDescriptorOutputTypeDef(BaseValidatorModel):
     contentType: Literal["text/plain"]
     vnfd: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolNetworkPackageContentOutputTypeDef(BaseModel):
+class GetSolNetworkPackageContentOutputTypeDef(BaseValidatorModel):
     contentType: Literal["application/zip"]
     nsdContent: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolNetworkPackageDescriptorOutputTypeDef(BaseModel):
+class GetSolNetworkPackageDescriptorOutputTypeDef(BaseValidatorModel):
     contentType: Literal["text/plain"]
     nsd: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InstantiateSolNetworkInstanceOutputTypeDef(BaseModel):
+class InstantiateSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
     nsLcmOpOccId: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TerminateSolNetworkInstanceOutputTypeDef(BaseModel):
+class TerminateSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
     nsLcmOpOccId: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSolFunctionPackageOutputTypeDef(BaseModel):
+class UpdateSolFunctionPackageOutputTypeDef(BaseValidatorModel):
     operationalState: OperationalStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSolNetworkInstanceOutputTypeDef(BaseModel):
+class UpdateSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
     nsLcmOpOccId: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSolNetworkPackageOutputTypeDef(BaseModel):
+class UpdateSolNetworkPackageOutputTypeDef(BaseValidatorModel):
     nsdOperationalState: NsdOperationalStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolNetworkOperationTaskDetailsTypeDef(BaseModel):
+class GetSolNetworkOperationTaskDetailsTypeDef(BaseValidatorModel):
     taskContext: Optional[Dict[str, str]] = None
     taskEndTime: Optional[datetime] = None
     taskErrorDetails: Optional[ErrorInfoTypeDef] = None
@@ -289,13 +289,13 @@ class GetSolNetworkOperationTaskDetailsTypeDef(BaseModel):
     taskStartTime: Optional[datetime] = None
     taskStatus: Optional[TaskStatusType] = None
 
-class FunctionArtifactMetaTypeDef(BaseModel):
+class FunctionArtifactMetaTypeDef(BaseValidatorModel):
     overrides: Optional[List[ToscaOverrideTypeDef]] = None
 
-class NetworkArtifactMetaTypeDef(BaseModel):
+class NetworkArtifactMetaTypeDef(BaseValidatorModel):
     overrides: Optional[List[ToscaOverrideTypeDef]] = None
 
-class GetSolNetworkInstanceOutputTypeDef(BaseModel):
+class GetSolNetworkInstanceOutputTypeDef(BaseValidatorModel):
     arn: str
     id: str
     lcmOpInfo: LcmOperationInfoTypeDef
@@ -308,10 +308,10 @@ class GetSolNetworkInstanceOutputTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolVnfcResourceInfoTypeDef(BaseModel):
+class GetSolVnfcResourceInfoTypeDef(BaseValidatorModel):
     metadata: Optional[GetSolVnfcResourceInfoMetadataTypeDef] = None
 
-class ListSolFunctionInstanceInfoTypeDef(BaseModel):
+class ListSolFunctionInstanceInfoTypeDef(BaseValidatorModel):
     arn: str
     id: str
     instantiationState: VnfInstantiationStateType
@@ -321,22 +321,22 @@ class ListSolFunctionInstanceInfoTypeDef(BaseModel):
     instantiatedVnfInfo: Optional[GetSolInstantiatedVnfInfoTypeDef] = None
     vnfPkgName: Optional[str] = None
 
-class ListSolFunctionInstancesInputListSolFunctionInstancesPaginateTypeDef(BaseModel):
+class ListSolFunctionInstancesInputListSolFunctionInstancesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSolFunctionPackagesInputListSolFunctionPackagesPaginateTypeDef(BaseModel):
+class ListSolFunctionPackagesInputListSolFunctionPackagesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSolNetworkInstancesInputListSolNetworkInstancesPaginateTypeDef(BaseModel):
+class ListSolNetworkInstancesInputListSolNetworkInstancesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSolNetworkOperationsInputListSolNetworkOperationsPaginateTypeDef(BaseModel):
+class ListSolNetworkOperationsInputListSolNetworkOperationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSolNetworkPackagesInputListSolNetworkPackagesPaginateTypeDef(BaseModel):
+class ListSolNetworkPackagesInputListSolNetworkPackagesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSolFunctionPackageInfoTypeDef(BaseModel):
+class ListSolFunctionPackageInfoTypeDef(BaseValidatorModel):
     arn: str
     id: str
     onboardingState: OnboardingStateType
@@ -348,7 +348,7 @@ class ListSolFunctionPackageInfoTypeDef(BaseModel):
     vnfdId: Optional[str] = None
     vnfdVersion: Optional[str] = None
 
-class ListSolNetworkInstanceInfoTypeDef(BaseModel):
+class ListSolNetworkInstanceInfoTypeDef(BaseValidatorModel):
     arn: str
     id: str
     metadata: ListSolNetworkInstanceMetadataTypeDef
@@ -358,7 +358,7 @@ class ListSolNetworkInstanceInfoTypeDef(BaseModel):
     nsdId: str
     nsdInfoId: str
 
-class ListSolNetworkOperationsInfoTypeDef(BaseModel):
+class ListSolNetworkOperationsInfoTypeDef(BaseValidatorModel):
     arn: str
     id: str
     lcmOperationType: LcmOperationTypeType
@@ -367,7 +367,7 @@ class ListSolNetworkOperationsInfoTypeDef(BaseModel):
     error: Optional[ProblemDetailsTypeDef] = None
     metadata: Optional[ListSolNetworkOperationsMetadataTypeDef] = None
 
-class ListSolNetworkPackageInfoTypeDef(BaseModel):
+class ListSolNetworkPackageInfoTypeDef(BaseValidatorModel):
     arn: str
     id: str
     metadata: ListSolNetworkPackageMetadataTypeDef
@@ -381,13 +381,13 @@ class ListSolNetworkPackageInfoTypeDef(BaseModel):
     nsdVersion: Optional[str] = None
     vnfPkgIds: Optional[List[str]] = None
 
-class UpdateSolNetworkInstanceInputRequestTypeDef(BaseModel):
+class UpdateSolNetworkInstanceInputRequestTypeDef(BaseValidatorModel):
     nsInstanceId: str
     updateType: Literal["MODIFY_VNF_INFORMATION"]
     modifyVnfInfoData: Optional[UpdateSolNetworkModifyTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetSolNetworkOperationOutputTypeDef(BaseModel):
+class GetSolNetworkOperationOutputTypeDef(BaseValidatorModel):
     arn: str
     error: ProblemDetailsTypeDef
     id: str
@@ -399,58 +399,58 @@ class GetSolNetworkOperationOutputTypeDef(BaseModel):
     tasks: List[GetSolNetworkOperationTaskDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolFunctionPackageMetadataTypeDef(BaseModel):
+class GetSolFunctionPackageMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
     vnfd: Optional[FunctionArtifactMetaTypeDef] = None
 
-class PutSolFunctionPackageContentMetadataTypeDef(BaseModel):
+class PutSolFunctionPackageContentMetadataTypeDef(BaseValidatorModel):
     vnfd: Optional[FunctionArtifactMetaTypeDef] = None
 
-class ValidateSolFunctionPackageContentMetadataTypeDef(BaseModel):
+class ValidateSolFunctionPackageContentMetadataTypeDef(BaseValidatorModel):
     vnfd: Optional[FunctionArtifactMetaTypeDef] = None
 
-class GetSolNetworkPackageMetadataTypeDef(BaseModel):
+class GetSolNetworkPackageMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastModified: datetime
     nsd: Optional[NetworkArtifactMetaTypeDef] = None
 
-class PutSolNetworkPackageContentMetadataTypeDef(BaseModel):
+class PutSolNetworkPackageContentMetadataTypeDef(BaseValidatorModel):
     nsd: Optional[NetworkArtifactMetaTypeDef] = None
 
-class ValidateSolNetworkPackageContentMetadataTypeDef(BaseModel):
+class ValidateSolNetworkPackageContentMetadataTypeDef(BaseValidatorModel):
     nsd: Optional[NetworkArtifactMetaTypeDef] = None
 
-class GetSolVnfInfoTypeDef(BaseModel):
+class GetSolVnfInfoTypeDef(BaseValidatorModel):
     vnfState: Optional[VnfOperationalStateType] = None
     vnfcResourceInfo: Optional[List[GetSolVnfcResourceInfoTypeDef]] = None
 
-class ListSolFunctionInstancesOutputTypeDef(BaseModel):
+class ListSolFunctionInstancesOutputTypeDef(BaseValidatorModel):
     functionInstances: List[ListSolFunctionInstanceInfoTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSolFunctionPackagesOutputTypeDef(BaseModel):
+class ListSolFunctionPackagesOutputTypeDef(BaseValidatorModel):
     functionPackages: List[ListSolFunctionPackageInfoTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSolNetworkInstancesOutputTypeDef(BaseModel):
+class ListSolNetworkInstancesOutputTypeDef(BaseValidatorModel):
     networkInstances: List[ListSolNetworkInstanceInfoTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSolNetworkOperationsOutputTypeDef(BaseModel):
+class ListSolNetworkOperationsOutputTypeDef(BaseValidatorModel):
     networkOperations: List[ListSolNetworkOperationsInfoTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSolNetworkPackagesOutputTypeDef(BaseModel):
+class ListSolNetworkPackagesOutputTypeDef(BaseValidatorModel):
     networkPackages: List[ListSolNetworkPackageInfoTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolFunctionPackageOutputTypeDef(BaseModel):
+class GetSolFunctionPackageOutputTypeDef(BaseValidatorModel):
     arn: str
     id: str
     metadata: GetSolFunctionPackageMetadataTypeDef
@@ -464,7 +464,7 @@ class GetSolFunctionPackageOutputTypeDef(BaseModel):
     vnfdVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSolFunctionPackageContentOutputTypeDef(BaseModel):
+class PutSolFunctionPackageContentOutputTypeDef(BaseValidatorModel):
     id: str
     metadata: PutSolFunctionPackageContentMetadataTypeDef
     vnfProductName: str
@@ -473,7 +473,7 @@ class PutSolFunctionPackageContentOutputTypeDef(BaseModel):
     vnfdVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ValidateSolFunctionPackageContentOutputTypeDef(BaseModel):
+class ValidateSolFunctionPackageContentOutputTypeDef(BaseValidatorModel):
     id: str
     metadata: ValidateSolFunctionPackageContentMetadataTypeDef
     vnfProductName: str
@@ -482,7 +482,7 @@ class ValidateSolFunctionPackageContentOutputTypeDef(BaseModel):
     vnfdVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolNetworkPackageOutputTypeDef(BaseModel):
+class GetSolNetworkPackageOutputTypeDef(BaseValidatorModel):
     arn: str
     id: str
     metadata: GetSolNetworkPackageMetadataTypeDef
@@ -496,7 +496,7 @@ class GetSolNetworkPackageOutputTypeDef(BaseModel):
     vnfPkgIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSolNetworkPackageContentOutputTypeDef(BaseModel):
+class PutSolNetworkPackageContentOutputTypeDef(BaseValidatorModel):
     arn: str
     id: str
     metadata: PutSolNetworkPackageContentMetadataTypeDef
@@ -506,7 +506,7 @@ class PutSolNetworkPackageContentOutputTypeDef(BaseModel):
     vnfPkgIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ValidateSolNetworkPackageContentOutputTypeDef(BaseModel):
+class ValidateSolNetworkPackageContentOutputTypeDef(BaseValidatorModel):
     arn: str
     id: str
     metadata: ValidateSolNetworkPackageContentMetadataTypeDef
@@ -516,7 +516,7 @@ class ValidateSolNetworkPackageContentOutputTypeDef(BaseModel):
     vnfPkgIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSolFunctionInstanceOutputTypeDef(BaseModel):
+class GetSolFunctionInstanceOutputTypeDef(BaseValidatorModel):
     arn: str
     id: str
     instantiatedVnfInfo: GetSolVnfInfoTypeDef

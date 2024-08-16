@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mediaconvert_constants import *
 
-class AacSettingsTypeDef(BaseModel):
+class AacSettingsTypeDef(BaseValidatorModel):
     AudioDescriptionBroadcasterMix: Optional[AacAudioDescriptionBroadcasterMixType] = None
     Bitrate: Optional[int] = None
     CodecProfile: Optional[AacCodecProfileType] = None
@@ -22,7 +22,7 @@ class AacSettingsTypeDef(BaseModel):
     Specification: Optional[AacSpecificationType] = None
     VbrQuality: Optional[AacVbrQualityType] = None
 
-class Ac3SettingsTypeDef(BaseModel):
+class Ac3SettingsTypeDef(BaseValidatorModel):
     Bitrate: Optional[int] = None
     BitstreamMode: Optional[Ac3BitstreamModeType] = None
     CodingMode: Optional[Ac3CodingModeType] = None
@@ -34,44 +34,44 @@ class Ac3SettingsTypeDef(BaseModel):
     MetadataControl: Optional[Ac3MetadataControlType] = None
     SampleRate: Optional[int] = None
 
-class AccelerationSettingsTypeDef(BaseModel):
+class AccelerationSettingsTypeDef(BaseValidatorModel):
     Mode: AccelerationModeType
 
-class AdvancedInputFilterSettingsTypeDef(BaseModel):
+class AdvancedInputFilterSettingsTypeDef(BaseValidatorModel):
     AddTexture: Optional[AdvancedInputFilterAddTextureType] = None
     Sharpening: Optional[AdvancedInputFilterSharpenType] = None
 
-class AiffSettingsTypeDef(BaseModel):
+class AiffSettingsTypeDef(BaseValidatorModel):
     BitDepth: Optional[int] = None
     Channels: Optional[int] = None
     SampleRate: Optional[int] = None
 
-class AllowedRenditionSizeTypeDef(BaseModel):
+class AllowedRenditionSizeTypeDef(BaseValidatorModel):
     Height: Optional[int] = None
     Required: Optional[RequiredFlagType] = None
     Width: Optional[int] = None
 
-class AncillarySourceSettingsTypeDef(BaseModel):
+class AncillarySourceSettingsTypeDef(BaseValidatorModel):
     Convert608To708: Optional[AncillaryConvert608To708Type] = None
     SourceAncillaryChannelNumber: Optional[int] = None
     TerminateCaptions: Optional[AncillaryTerminateCaptionsType] = None
 
-class AssociateCertificateRequestRequestTypeDef(BaseModel):
+class AssociateCertificateRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
 
-class AudioChannelTaggingSettingsExtraOutputTypeDef(BaseModel):
+class AudioChannelTaggingSettingsExtraOutputTypeDef(BaseValidatorModel):
     ChannelTag: Optional[AudioChannelTagType] = None
     ChannelTags: Optional[List[AudioChannelTagType]] = None
 
-class AudioChannelTaggingSettingsOutputTypeDef(BaseModel):
+class AudioChannelTaggingSettingsOutputTypeDef(BaseValidatorModel):
     ChannelTag: Optional[AudioChannelTagType] = None
     ChannelTags: Optional[List[AudioChannelTagType]] = None
 
-class AudioChannelTaggingSettingsTypeDef(BaseModel):
+class AudioChannelTaggingSettingsTypeDef(BaseValidatorModel):
     ChannelTag: Optional[AudioChannelTagType] = None
     ChannelTags: Optional[Sequence[AudioChannelTagType]] = None
 
-class Eac3AtmosSettingsTypeDef(BaseModel):
+class Eac3AtmosSettingsTypeDef(BaseValidatorModel):
     Bitrate: Optional[int] = None
     BitstreamMode: Optional[Literal["COMPLETE_MAIN"]] = None
     CodingMode: Optional[Eac3AtmosCodingModeType] = None
@@ -90,7 +90,7 @@ class Eac3AtmosSettingsTypeDef(BaseModel):
     StereoDownmix: Optional[Eac3AtmosStereoDownmixType] = None
     SurroundExMode: Optional[Eac3AtmosSurroundExModeType] = None
 
-class Eac3SettingsTypeDef(BaseModel):
+class Eac3SettingsTypeDef(BaseValidatorModel):
     AttenuationControl: Optional[Eac3AttenuationControlType] = None
     Bitrate: Optional[int] = None
     BitstreamMode: Optional[Eac3BitstreamModeType] = None
@@ -113,40 +113,40 @@ class Eac3SettingsTypeDef(BaseModel):
     SurroundExMode: Optional[Eac3SurroundExModeType] = None
     SurroundMode: Optional[Eac3SurroundModeType] = None
 
-class FlacSettingsTypeDef(BaseModel):
+class FlacSettingsTypeDef(BaseValidatorModel):
     BitDepth: Optional[int] = None
     Channels: Optional[int] = None
     SampleRate: Optional[int] = None
 
-class Mp2SettingsTypeDef(BaseModel):
+class Mp2SettingsTypeDef(BaseValidatorModel):
     Bitrate: Optional[int] = None
     Channels: Optional[int] = None
     SampleRate: Optional[int] = None
 
-class Mp3SettingsTypeDef(BaseModel):
+class Mp3SettingsTypeDef(BaseValidatorModel):
     Bitrate: Optional[int] = None
     Channels: Optional[int] = None
     RateControlMode: Optional[Mp3RateControlModeType] = None
     SampleRate: Optional[int] = None
     VbrQuality: Optional[int] = None
 
-class OpusSettingsTypeDef(BaseModel):
+class OpusSettingsTypeDef(BaseValidatorModel):
     Bitrate: Optional[int] = None
     Channels: Optional[int] = None
     SampleRate: Optional[int] = None
 
-class VorbisSettingsTypeDef(BaseModel):
+class VorbisSettingsTypeDef(BaseValidatorModel):
     Channels: Optional[int] = None
     SampleRate: Optional[int] = None
     VbrQuality: Optional[int] = None
 
-class WavSettingsTypeDef(BaseModel):
+class WavSettingsTypeDef(BaseValidatorModel):
     BitDepth: Optional[int] = None
     Channels: Optional[int] = None
     Format: Optional[WavFormatType] = None
     SampleRate: Optional[int] = None
 
-class AudioNormalizationSettingsTypeDef(BaseModel):
+class AudioNormalizationSettingsTypeDef(BaseValidatorModel):
     Algorithm: Optional[AudioNormalizationAlgorithmType] = None
     AlgorithmControl: Optional[AudioNormalizationAlgorithmControlType] = None
     CorrectionGateLevel: Optional[int] = None
@@ -155,47 +155,47 @@ class AudioNormalizationSettingsTypeDef(BaseModel):
     TargetLkfs: Optional[float] = None
     TruePeakLimiterThreshold: Optional[float] = None
 
-class HlsRenditionGroupSettingsTypeDef(BaseModel):
+class HlsRenditionGroupSettingsTypeDef(BaseValidatorModel):
     RenditionGroupId: Optional[str] = None
     RenditionLanguageCode: Optional[LanguageCodeType] = None
     RenditionName: Optional[str] = None
 
-class AudioSelectorGroupExtraOutputTypeDef(BaseModel):
+class AudioSelectorGroupExtraOutputTypeDef(BaseValidatorModel):
     AudioSelectorNames: Optional[List[str]] = None
 
-class AudioSelectorGroupOutputTypeDef(BaseModel):
+class AudioSelectorGroupOutputTypeDef(BaseValidatorModel):
     AudioSelectorNames: Optional[List[str]] = None
 
-class AudioSelectorGroupTypeDef(BaseModel):
+class AudioSelectorGroupTypeDef(BaseValidatorModel):
     AudioSelectorNames: Optional[Sequence[str]] = None
 
-class ForceIncludeRenditionSizeTypeDef(BaseModel):
+class ForceIncludeRenditionSizeTypeDef(BaseValidatorModel):
     Height: Optional[int] = None
     Width: Optional[int] = None
 
-class MinBottomRenditionSizeTypeDef(BaseModel):
+class MinBottomRenditionSizeTypeDef(BaseValidatorModel):
     Height: Optional[int] = None
     Width: Optional[int] = None
 
-class MinTopRenditionSizeTypeDef(BaseModel):
+class MinTopRenditionSizeTypeDef(BaseValidatorModel):
     Height: Optional[int] = None
     Width: Optional[int] = None
 
-class Av1QvbrSettingsTypeDef(BaseModel):
+class Av1QvbrSettingsTypeDef(BaseValidatorModel):
     QvbrQualityLevel: Optional[int] = None
     QvbrQualityLevelFineTune: Optional[float] = None
 
-class AvailBlankingTypeDef(BaseModel):
+class AvailBlankingTypeDef(BaseValidatorModel):
     AvailBlankingImage: Optional[str] = None
 
-class AvcIntraUhdSettingsTypeDef(BaseModel):
+class AvcIntraUhdSettingsTypeDef(BaseValidatorModel):
     QualityTuningLevel: Optional[AvcIntraUhdQualityTuningLevelType] = None
 
-class BandwidthReductionFilterTypeDef(BaseModel):
+class BandwidthReductionFilterTypeDef(BaseValidatorModel):
     Sharpening: Optional[BandwidthReductionFilterSharpeningType] = None
     Strength: Optional[BandwidthReductionFilterStrengthType] = None
 
-class BurninDestinationSettingsTypeDef(BaseModel):
+class BurninDestinationSettingsTypeDef(BaseValidatorModel):
     Alignment: Optional[BurninSubtitleAlignmentType] = None
     ApplyFontColor: Optional[BurninSubtitleApplyFontColorType] = None
     BackgroundColor: Optional[BurninSubtitleBackgroundColorType] = None
@@ -222,10 +222,10 @@ class BurninDestinationSettingsTypeDef(BaseModel):
     XPosition: Optional[int] = None
     YPosition: Optional[int] = None
 
-class CancelJobRequestRequestTypeDef(BaseModel):
+class CancelJobRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DvbSubDestinationSettingsTypeDef(BaseModel):
+class DvbSubDestinationSettingsTypeDef(BaseValidatorModel):
     Alignment: Optional[DvbSubtitleAlignmentType] = None
     ApplyFontColor: Optional[DvbSubtitleApplyFontColorType] = None
     BackgroundColor: Optional[DvbSubtitleBackgroundColorType] = None
@@ -258,121 +258,121 @@ class DvbSubDestinationSettingsTypeDef(BaseModel):
     XPosition: Optional[int] = None
     YPosition: Optional[int] = None
 
-class EmbeddedDestinationSettingsTypeDef(BaseModel):
+class EmbeddedDestinationSettingsTypeDef(BaseValidatorModel):
     Destination608ChannelNumber: Optional[int] = None
     Destination708ServiceNumber: Optional[int] = None
 
-class ImscDestinationSettingsTypeDef(BaseModel):
+class ImscDestinationSettingsTypeDef(BaseValidatorModel):
     Accessibility: Optional[ImscAccessibilitySubsType] = None
     StylePassthrough: Optional[ImscStylePassthroughType] = None
 
-class SccDestinationSettingsTypeDef(BaseModel):
+class SccDestinationSettingsTypeDef(BaseValidatorModel):
     Framerate: Optional[SccDestinationFramerateType] = None
 
-class SrtDestinationSettingsTypeDef(BaseModel):
+class SrtDestinationSettingsTypeDef(BaseValidatorModel):
     StylePassthrough: Optional[SrtStylePassthroughType] = None
 
-class TeletextDestinationSettingsExtraOutputTypeDef(BaseModel):
+class TeletextDestinationSettingsExtraOutputTypeDef(BaseValidatorModel):
     PageNumber: Optional[str] = None
     PageTypes: Optional[List[TeletextPageTypeType]] = None
 
-class TtmlDestinationSettingsTypeDef(BaseModel):
+class TtmlDestinationSettingsTypeDef(BaseValidatorModel):
     StylePassthrough: Optional[TtmlStylePassthroughType] = None
 
-class WebvttDestinationSettingsTypeDef(BaseModel):
+class WebvttDestinationSettingsTypeDef(BaseValidatorModel):
     Accessibility: Optional[WebvttAccessibilitySubsType] = None
     StylePassthrough: Optional[WebvttStylePassthroughType] = None
 
-class TeletextDestinationSettingsOutputTypeDef(BaseModel):
+class TeletextDestinationSettingsOutputTypeDef(BaseValidatorModel):
     PageNumber: Optional[str] = None
     PageTypes: Optional[List[TeletextPageTypeType]] = None
 
-class TeletextDestinationSettingsTypeDef(BaseModel):
+class TeletextDestinationSettingsTypeDef(BaseValidatorModel):
     PageNumber: Optional[str] = None
     PageTypes: Optional[Sequence[TeletextPageTypeType]] = None
 
-class CaptionSourceFramerateTypeDef(BaseModel):
+class CaptionSourceFramerateTypeDef(BaseValidatorModel):
     FramerateDenominator: Optional[int] = None
     FramerateNumerator: Optional[int] = None
 
-class DvbSubSourceSettingsTypeDef(BaseModel):
+class DvbSubSourceSettingsTypeDef(BaseValidatorModel):
     Pid: Optional[int] = None
 
-class EmbeddedSourceSettingsTypeDef(BaseModel):
+class EmbeddedSourceSettingsTypeDef(BaseValidatorModel):
     Convert608To708: Optional[EmbeddedConvert608To708Type] = None
     Source608ChannelNumber: Optional[int] = None
     Source608TrackNumber: Optional[int] = None
     TerminateCaptions: Optional[EmbeddedTerminateCaptionsType] = None
 
-class TeletextSourceSettingsTypeDef(BaseModel):
+class TeletextSourceSettingsTypeDef(BaseValidatorModel):
     PageNumber: Optional[str] = None
 
-class TrackSourceSettingsTypeDef(BaseModel):
+class TrackSourceSettingsTypeDef(BaseValidatorModel):
     TrackNumber: Optional[int] = None
 
-class WebvttHlsSourceSettingsTypeDef(BaseModel):
+class WebvttHlsSourceSettingsTypeDef(BaseValidatorModel):
     RenditionGroupId: Optional[str] = None
     RenditionLanguageCode: Optional[LanguageCodeType] = None
     RenditionName: Optional[str] = None
 
-class OutputChannelMappingExtraOutputTypeDef(BaseModel):
+class OutputChannelMappingExtraOutputTypeDef(BaseValidatorModel):
     InputChannels: Optional[List[int]] = None
     InputChannelsFineTune: Optional[List[float]] = None
 
-class OutputChannelMappingOutputTypeDef(BaseModel):
+class OutputChannelMappingOutputTypeDef(BaseValidatorModel):
     InputChannels: Optional[List[int]] = None
     InputChannelsFineTune: Optional[List[float]] = None
 
-class OutputChannelMappingTypeDef(BaseModel):
+class OutputChannelMappingTypeDef(BaseValidatorModel):
     InputChannels: Optional[Sequence[int]] = None
     InputChannelsFineTune: Optional[Sequence[float]] = None
 
-class ClipLimitsTypeDef(BaseModel):
+class ClipLimitsTypeDef(BaseValidatorModel):
     MaximumRGBTolerance: Optional[int] = None
     MaximumYUV: Optional[int] = None
     MinimumRGBTolerance: Optional[int] = None
     MinimumYUV: Optional[int] = None
 
-class CmafAdditionalManifestExtraOutputTypeDef(BaseModel):
+class CmafAdditionalManifestExtraOutputTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[List[str]] = None
 
-class CmafAdditionalManifestOutputTypeDef(BaseModel):
+class CmafAdditionalManifestOutputTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[List[str]] = None
 
-class CmafAdditionalManifestTypeDef(BaseModel):
+class CmafAdditionalManifestTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[Sequence[str]] = None
 
-class SpekeKeyProviderCmafExtraOutputTypeDef(BaseModel):
+class SpekeKeyProviderCmafExtraOutputTypeDef(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     DashSignaledSystemIds: Optional[List[str]] = None
     HlsSignaledSystemIds: Optional[List[str]] = None
     ResourceId: Optional[str] = None
     Url: Optional[str] = None
 
-class StaticKeyProviderTypeDef(BaseModel):
+class StaticKeyProviderTypeDef(BaseValidatorModel):
     KeyFormat: Optional[str] = None
     KeyFormatVersions: Optional[str] = None
     StaticKeyValue: Optional[str] = None
     Url: Optional[str] = None
 
-class SpekeKeyProviderCmafOutputTypeDef(BaseModel):
+class SpekeKeyProviderCmafOutputTypeDef(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     DashSignaledSystemIds: Optional[List[str]] = None
     HlsSignaledSystemIds: Optional[List[str]] = None
     ResourceId: Optional[str] = None
     Url: Optional[str] = None
 
-class SpekeKeyProviderCmafTypeDef(BaseModel):
+class SpekeKeyProviderCmafTypeDef(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     DashSignaledSystemIds: Optional[Sequence[str]] = None
     HlsSignaledSystemIds: Optional[Sequence[str]] = None
     ResourceId: Optional[str] = None
     Url: Optional[str] = None
 
-class CmafImageBasedTrickPlaySettingsTypeDef(BaseModel):
+class CmafImageBasedTrickPlaySettingsTypeDef(BaseValidatorModel):
     IntervalCadence: Optional[CmafIntervalCadenceType] = None
     ThumbnailHeight: Optional[int] = None
     ThumbnailInterval: Optional[float] = None
@@ -380,7 +380,7 @@ class CmafImageBasedTrickPlaySettingsTypeDef(BaseModel):
     TileHeight: Optional[int] = None
     TileWidth: Optional[int] = None
 
-class CmfcSettingsTypeDef(BaseModel):
+class CmfcSettingsTypeDef(BaseValidatorModel):
     AudioDuration: Optional[CmfcAudioDurationType] = None
     AudioGroupId: Optional[str] = None
     AudioRenditionSets: Optional[str] = None
@@ -396,14 +396,14 @@ class CmfcSettingsTypeDef(BaseModel):
     TimedMetadataSchemeIdUri: Optional[str] = None
     TimedMetadataValue: Optional[str] = None
 
-class ColorConversion3DLUTSettingTypeDef(BaseModel):
+class ColorConversion3DLUTSettingTypeDef(BaseValidatorModel):
     FileInput: Optional[str] = None
     InputColorSpace: Optional[ColorSpaceType] = None
     InputMasteringLuminance: Optional[int] = None
     OutputColorSpace: Optional[ColorSpaceType] = None
     OutputMasteringLuminance: Optional[int] = None
 
-class Hdr10MetadataTypeDef(BaseModel):
+class Hdr10MetadataTypeDef(BaseValidatorModel):
     BluePrimaryX: Optional[int] = None
     BluePrimaryY: Optional[int] = None
     GreenPrimaryX: Optional[int] = None
@@ -417,10 +417,10 @@ class Hdr10MetadataTypeDef(BaseModel):
     WhitePointX: Optional[int] = None
     WhitePointY: Optional[int] = None
 
-class F4vSettingsTypeDef(BaseModel):
+class F4vSettingsTypeDef(BaseValidatorModel):
     MoovPlacement: Optional[F4vMoovPlacementType] = None
 
-class M3u8SettingsExtraOutputTypeDef(BaseModel):
+class M3u8SettingsExtraOutputTypeDef(BaseValidatorModel):
     AudioDuration: Optional[M3u8AudioDurationType] = None
     AudioFramesPerPes: Optional[int] = None
     AudioPids: Optional[List[int]] = None
@@ -443,14 +443,14 @@ class M3u8SettingsExtraOutputTypeDef(BaseModel):
     TransportStreamId: Optional[int] = None
     VideoPid: Optional[int] = None
 
-class MovSettingsTypeDef(BaseModel):
+class MovSettingsTypeDef(BaseValidatorModel):
     ClapAtom: Optional[MovClapAtomType] = None
     CslgAtom: Optional[MovCslgAtomType] = None
     Mpeg2FourCCControl: Optional[MovMpeg2FourCCControlType] = None
     PaddingControl: Optional[MovPaddingControlType] = None
     Reference: Optional[MovReferenceType] = None
 
-class Mp4SettingsTypeDef(BaseModel):
+class Mp4SettingsTypeDef(BaseValidatorModel):
     AudioDuration: Optional[CmfcAudioDurationType] = None
     CslgAtom: Optional[Mp4CslgAtomType] = None
     CttsVersion: Optional[int] = None
@@ -458,7 +458,7 @@ class Mp4SettingsTypeDef(BaseModel):
     MoovPlacement: Optional[Mp4MoovPlacementType] = None
     Mp4MajorBrand: Optional[str] = None
 
-class MpdSettingsTypeDef(BaseModel):
+class MpdSettingsTypeDef(BaseValidatorModel):
     AccessibilityCaptionHints: Optional[MpdAccessibilityCaptionHintsType] = None
     AudioDuration: Optional[MpdAudioDurationType] = None
     CaptionContainerType: Optional[MpdCaptionContainerTypeType] = None
@@ -471,7 +471,7 @@ class MpdSettingsTypeDef(BaseModel):
     TimedMetadataSchemeIdUri: Optional[str] = None
     TimedMetadataValue: Optional[str] = None
 
-class M3u8SettingsOutputTypeDef(BaseModel):
+class M3u8SettingsOutputTypeDef(BaseValidatorModel):
     AudioDuration: Optional[M3u8AudioDurationType] = None
     AudioFramesPerPes: Optional[int] = None
     AudioPids: Optional[List[int]] = None
@@ -494,7 +494,7 @@ class M3u8SettingsOutputTypeDef(BaseModel):
     TransportStreamId: Optional[int] = None
     VideoPid: Optional[int] = None
 
-class M3u8SettingsTypeDef(BaseModel):
+class M3u8SettingsTypeDef(BaseValidatorModel):
     AudioDuration: Optional[M3u8AudioDurationType] = None
     AudioFramesPerPes: Optional[int] = None
     AudioPids: Optional[Sequence[int]] = None
@@ -517,54 +517,54 @@ class M3u8SettingsTypeDef(BaseModel):
     TransportStreamId: Optional[int] = None
     VideoPid: Optional[int] = None
 
-class HopDestinationTypeDef(BaseModel):
+class HopDestinationTypeDef(BaseValidatorModel):
     Priority: Optional[int] = None
     Queue: Optional[str] = None
     WaitMinutes: Optional[int] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ReservationPlanSettingsTypeDef(BaseModel):
+class ReservationPlanSettingsTypeDef(BaseValidatorModel):
     Commitment: Literal["ONE_YEAR"]
     RenewalType: RenewalTypeType
     ReservedSlots: int
 
-class DashAdditionalManifestExtraOutputTypeDef(BaseModel):
+class DashAdditionalManifestExtraOutputTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[List[str]] = None
 
-class DashAdditionalManifestOutputTypeDef(BaseModel):
+class DashAdditionalManifestOutputTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[List[str]] = None
 
-class DashAdditionalManifestTypeDef(BaseModel):
+class DashAdditionalManifestTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[Sequence[str]] = None
 
-class SpekeKeyProviderExtraOutputTypeDef(BaseModel):
+class SpekeKeyProviderExtraOutputTypeDef(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     ResourceId: Optional[str] = None
     SystemIds: Optional[List[str]] = None
     Url: Optional[str] = None
 
-class SpekeKeyProviderOutputTypeDef(BaseModel):
+class SpekeKeyProviderOutputTypeDef(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     ResourceId: Optional[str] = None
     SystemIds: Optional[List[str]] = None
     Url: Optional[str] = None
 
-class SpekeKeyProviderTypeDef(BaseModel):
+class SpekeKeyProviderTypeDef(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     ResourceId: Optional[str] = None
     SystemIds: Optional[Sequence[str]] = None
     Url: Optional[str] = None
 
-class DashIsoImageBasedTrickPlaySettingsTypeDef(BaseModel):
+class DashIsoImageBasedTrickPlaySettingsTypeDef(BaseValidatorModel):
     IntervalCadence: Optional[DashIsoIntervalCadenceType] = None
     ThumbnailHeight: Optional[int] = None
     ThumbnailInterval: Optional[float] = None
@@ -572,120 +572,120 @@ class DashIsoImageBasedTrickPlaySettingsTypeDef(BaseModel):
     TileHeight: Optional[int] = None
     TileWidth: Optional[int] = None
 
-class DeinterlacerTypeDef(BaseModel):
+class DeinterlacerTypeDef(BaseValidatorModel):
     Algorithm: Optional[DeinterlaceAlgorithmType] = None
     Control: Optional[DeinterlacerControlType] = None
     Mode: Optional[DeinterlacerModeType] = None
 
-class DeleteJobTemplateRequestRequestTypeDef(BaseModel):
+class DeleteJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeletePresetRequestRequestTypeDef(BaseModel):
+class DeletePresetRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteQueueRequestRequestTypeDef(BaseModel):
+class DeleteQueueRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeEndpointsRequestRequestTypeDef(BaseModel):
+class DescribeEndpointsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     Mode: Optional[DescribeEndpointsModeType] = None
     NextToken: Optional[str] = None
 
-class EndpointTypeDef(BaseModel):
+class EndpointTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
 
-class DisassociateCertificateRequestRequestTypeDef(BaseModel):
+class DisassociateCertificateRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
 
-class DolbyVisionLevel6MetadataTypeDef(BaseModel):
+class DolbyVisionLevel6MetadataTypeDef(BaseValidatorModel):
     MaxCll: Optional[int] = None
     MaxFall: Optional[int] = None
 
-class DvbNitSettingsTypeDef(BaseModel):
+class DvbNitSettingsTypeDef(BaseValidatorModel):
     NetworkId: Optional[int] = None
     NetworkName: Optional[str] = None
     NitInterval: Optional[int] = None
 
-class DvbSdtSettingsTypeDef(BaseModel):
+class DvbSdtSettingsTypeDef(BaseValidatorModel):
     OutputSdt: Optional[OutputSdtType] = None
     SdtInterval: Optional[int] = None
     ServiceName: Optional[str] = None
     ServiceProviderName: Optional[str] = None
 
-class DvbTdtSettingsTypeDef(BaseModel):
+class DvbTdtSettingsTypeDef(BaseValidatorModel):
     TdtInterval: Optional[int] = None
 
-class EsamManifestConfirmConditionNotificationTypeDef(BaseModel):
+class EsamManifestConfirmConditionNotificationTypeDef(BaseValidatorModel):
     MccXml: Optional[str] = None
 
-class EsamSignalProcessingNotificationTypeDef(BaseModel):
+class EsamSignalProcessingNotificationTypeDef(BaseValidatorModel):
     SccXml: Optional[str] = None
 
-class ExtendedDataServicesTypeDef(BaseModel):
+class ExtendedDataServicesTypeDef(BaseValidatorModel):
     CopyProtectionAction: Optional[CopyProtectionActionType] = None
     VchipAction: Optional[VchipActionType] = None
 
-class FrameCaptureSettingsTypeDef(BaseModel):
+class FrameCaptureSettingsTypeDef(BaseValidatorModel):
     FramerateDenominator: Optional[int] = None
     FramerateNumerator: Optional[int] = None
     MaxCaptures: Optional[int] = None
     Quality: Optional[int] = None
 
-class GetJobRequestRequestTypeDef(BaseModel):
+class GetJobRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetJobTemplateRequestRequestTypeDef(BaseModel):
+class GetJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class PolicyTypeDef(BaseModel):
+class PolicyTypeDef(BaseValidatorModel):
     HttpInputs: Optional[InputPolicyType] = None
     HttpsInputs: Optional[InputPolicyType] = None
     S3Inputs: Optional[InputPolicyType] = None
 
-class GetPresetRequestRequestTypeDef(BaseModel):
+class GetPresetRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetQueueRequestRequestTypeDef(BaseModel):
+class GetQueueRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class H264QvbrSettingsTypeDef(BaseModel):
+class H264QvbrSettingsTypeDef(BaseValidatorModel):
     MaxAverageBitrate: Optional[int] = None
     QvbrQualityLevel: Optional[int] = None
     QvbrQualityLevelFineTune: Optional[float] = None
 
-class H265QvbrSettingsTypeDef(BaseModel):
+class H265QvbrSettingsTypeDef(BaseValidatorModel):
     MaxAverageBitrate: Optional[int] = None
     QvbrQualityLevel: Optional[int] = None
     QvbrQualityLevelFineTune: Optional[float] = None
 
-class Hdr10PlusTypeDef(BaseModel):
+class Hdr10PlusTypeDef(BaseValidatorModel):
     MasteringMonitorNits: Optional[int] = None
     TargetMonitorNits: Optional[int] = None
 
-class HlsAdditionalManifestExtraOutputTypeDef(BaseModel):
+class HlsAdditionalManifestExtraOutputTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[List[str]] = None
 
-class HlsAdditionalManifestOutputTypeDef(BaseModel):
+class HlsAdditionalManifestOutputTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[List[str]] = None
 
-class HlsAdditionalManifestTypeDef(BaseModel):
+class HlsAdditionalManifestTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[Sequence[str]] = None
 
-class HlsCaptionLanguageMappingTypeDef(BaseModel):
+class HlsCaptionLanguageMappingTypeDef(BaseValidatorModel):
     CaptionChannel: Optional[int] = None
     CustomLanguageCode: Optional[str] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LanguageDescription: Optional[str] = None
 
-class HlsImageBasedTrickPlaySettingsTypeDef(BaseModel):
+class HlsImageBasedTrickPlaySettingsTypeDef(BaseValidatorModel):
     IntervalCadence: Optional[HlsIntervalCadenceType] = None
     ThumbnailHeight: Optional[int] = None
     ThumbnailInterval: Optional[float] = None
@@ -693,7 +693,7 @@ class HlsImageBasedTrickPlaySettingsTypeDef(BaseModel):
     TileHeight: Optional[int] = None
     TileWidth: Optional[int] = None
 
-class HlsSettingsTypeDef(BaseModel):
+class HlsSettingsTypeDef(BaseValidatorModel):
     AudioGroupId: Optional[str] = None
     AudioOnlyContainer: Optional[HlsAudioOnlyContainerType] = None
     AudioRenditionSets: Optional[str] = None
@@ -702,11 +702,11 @@ class HlsSettingsTypeDef(BaseModel):
     IFrameOnlyManifest: Optional[HlsIFrameOnlyManifestType] = None
     SegmentModifier: Optional[str] = None
 
-class Id3InsertionTypeDef(BaseModel):
+class Id3InsertionTypeDef(BaseValidatorModel):
     Id3: Optional[str] = None
     Timecode: Optional[str] = None
 
-class InsertableImageTypeDef(BaseModel):
+class InsertableImageTypeDef(BaseValidatorModel):
     Duration: Optional[int] = None
     FadeIn: Optional[int] = None
     FadeOut: Optional[int] = None
@@ -719,34 +719,34 @@ class InsertableImageTypeDef(BaseModel):
     StartTime: Optional[str] = None
     Width: Optional[int] = None
 
-class InputClippingTypeDef(BaseModel):
+class InputClippingTypeDef(BaseValidatorModel):
     EndTimecode: Optional[str] = None
     StartTimecode: Optional[str] = None
 
-class InputDecryptionSettingsTypeDef(BaseModel):
+class InputDecryptionSettingsTypeDef(BaseValidatorModel):
     DecryptionMode: Optional[DecryptionModeType] = None
     EncryptedDecryptionKey: Optional[str] = None
     InitializationVector: Optional[str] = None
     KmsKeyRegion: Optional[str] = None
 
-class InputVideoGeneratorTypeDef(BaseModel):
+class InputVideoGeneratorTypeDef(BaseValidatorModel):
     Channels: Optional[int] = None
     Duration: Optional[int] = None
     FramerateDenominator: Optional[int] = None
     FramerateNumerator: Optional[int] = None
     SampleRate: Optional[int] = None
 
-class RectangleTypeDef(BaseModel):
+class RectangleTypeDef(BaseValidatorModel):
     Height: Optional[int] = None
     Width: Optional[int] = None
     X: Optional[int] = None
     Y: Optional[int] = None
 
-class JobMessagesTypeDef(BaseModel):
+class JobMessagesTypeDef(BaseValidatorModel):
     Info: Optional[List[str]] = None
     Warning: Optional[List[str]] = None
 
-class KantarWatermarkSettingsTypeDef(BaseModel):
+class KantarWatermarkSettingsTypeDef(BaseValidatorModel):
     ChannelName: Optional[str] = None
     ContentReference: Optional[str] = None
     CredentialsSecretName: Optional[str] = None
@@ -761,11 +761,11 @@ class KantarWatermarkSettingsTypeDef(BaseModel):
     Metadata7: Optional[str] = None
     Metadata8: Optional[str] = None
 
-class NielsenConfigurationTypeDef(BaseModel):
+class NielsenConfigurationTypeDef(BaseValidatorModel):
     BreakoutCode: Optional[int] = None
     DistributorId: Optional[str] = None
 
-class NielsenNonLinearWatermarkSettingsTypeDef(BaseModel):
+class NielsenNonLinearWatermarkSettingsTypeDef(BaseValidatorModel):
     ActiveWatermarkProcess: Optional[NielsenActiveWatermarkProcessTypeType] = None
     AdiFilename: Optional[str] = None
     AssetId: Optional[str] = None
@@ -778,72 +778,72 @@ class NielsenNonLinearWatermarkSettingsTypeDef(BaseModel):
     TicServerUrl: Optional[str] = None
     UniqueTicPerAudioTrack: Optional[NielsenUniqueTicPerAudioTrackTypeType] = None
 
-class TimecodeConfigTypeDef(BaseModel):
+class TimecodeConfigTypeDef(BaseValidatorModel):
     Anchor: Optional[str] = None
     Source: Optional[TimecodeSourceType] = None
     Start: Optional[str] = None
     TimestampOffset: Optional[str] = None
 
-class QueueTransitionTypeDef(BaseModel):
+class QueueTransitionTypeDef(BaseValidatorModel):
     DestinationQueue: Optional[str] = None
     SourceQueue: Optional[str] = None
     Timestamp: Optional[datetime] = None
 
-class TimingTypeDef(BaseModel):
+class TimingTypeDef(BaseValidatorModel):
     FinishTime: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     SubmitTime: Optional[datetime] = None
 
-class WarningGroupTypeDef(BaseModel):
+class WarningGroupTypeDef(BaseValidatorModel):
     Code: int
     Count: int
 
-class ListJobTemplatesRequestRequestTypeDef(BaseModel):
+class ListJobTemplatesRequestRequestTypeDef(BaseValidatorModel):
     Category: Optional[str] = None
     ListBy: Optional[JobTemplateListByType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Order: Optional[OrderType] = None
 
-class ListJobsRequestRequestTypeDef(BaseModel):
+class ListJobsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Order: Optional[OrderType] = None
     Queue: Optional[str] = None
     Status: Optional[JobStatusType] = None
 
-class ListPresetsRequestRequestTypeDef(BaseModel):
+class ListPresetsRequestRequestTypeDef(BaseValidatorModel):
     Category: Optional[str] = None
     ListBy: Optional[PresetListByType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Order: Optional[OrderType] = None
 
-class ListQueuesRequestRequestTypeDef(BaseModel):
+class ListQueuesRequestRequestTypeDef(BaseValidatorModel):
     ListBy: Optional[QueueListByType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Order: Optional[OrderType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
 
-class ResourceTagsTypeDef(BaseModel):
+class ResourceTagsTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class M2tsScte35EsamTypeDef(BaseModel):
+class M2tsScte35EsamTypeDef(BaseValidatorModel):
     Scte35EsamPid: Optional[int] = None
 
-class MotionImageInsertionFramerateTypeDef(BaseModel):
+class MotionImageInsertionFramerateTypeDef(BaseValidatorModel):
     FramerateDenominator: Optional[int] = None
     FramerateNumerator: Optional[int] = None
 
-class MotionImageInsertionOffsetTypeDef(BaseModel):
+class MotionImageInsertionOffsetTypeDef(BaseValidatorModel):
     ImageX: Optional[int] = None
     ImageY: Optional[int] = None
 
-class Mpeg2SettingsTypeDef(BaseModel):
+class Mpeg2SettingsTypeDef(BaseValidatorModel):
     AdaptiveQuantization: Optional[Mpeg2AdaptiveQuantizationType] = None
     Bitrate: Optional[int] = None
     CodecLevel: Optional[Mpeg2CodecLevelType] = None
@@ -878,48 +878,48 @@ class Mpeg2SettingsTypeDef(BaseModel):
     Telecine: Optional[Mpeg2TelecineType] = None
     TemporalAdaptiveQuantization: Optional[Mpeg2TemporalAdaptiveQuantizationType] = None
 
-class MsSmoothAdditionalManifestExtraOutputTypeDef(BaseModel):
+class MsSmoothAdditionalManifestExtraOutputTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[List[str]] = None
 
-class MsSmoothAdditionalManifestOutputTypeDef(BaseModel):
+class MsSmoothAdditionalManifestOutputTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[List[str]] = None
 
-class MsSmoothAdditionalManifestTypeDef(BaseModel):
+class MsSmoothAdditionalManifestTypeDef(BaseValidatorModel):
     ManifestNameModifier: Optional[str] = None
     SelectedOutputs: Optional[Sequence[str]] = None
 
-class MxfXavcProfileSettingsTypeDef(BaseModel):
+class MxfXavcProfileSettingsTypeDef(BaseValidatorModel):
     DurationMode: Optional[MxfXavcDurationModeType] = None
     MaxAncDataSize: Optional[int] = None
 
-class NexGuardFileMarkerSettingsTypeDef(BaseModel):
+class NexGuardFileMarkerSettingsTypeDef(BaseValidatorModel):
     License: Optional[str] = None
     Payload: Optional[int] = None
     Preset: Optional[str] = None
     Strength: Optional[WatermarkingStrengthType] = None
 
-class NoiseReducerFilterSettingsTypeDef(BaseModel):
+class NoiseReducerFilterSettingsTypeDef(BaseValidatorModel):
     Strength: Optional[int] = None
 
-class NoiseReducerSpatialFilterSettingsTypeDef(BaseModel):
+class NoiseReducerSpatialFilterSettingsTypeDef(BaseValidatorModel):
     PostFilterSharpenStrength: Optional[int] = None
     Speed: Optional[int] = None
     Strength: Optional[int] = None
 
-class NoiseReducerTemporalFilterSettingsTypeDef(BaseModel):
+class NoiseReducerTemporalFilterSettingsTypeDef(BaseValidatorModel):
     AggressiveMode: Optional[int] = None
     PostTemporalSharpening: Optional[NoiseFilterPostTemporalSharpeningType] = None
     PostTemporalSharpeningStrength: Optional[       NoiseFilterPostTemporalSharpeningStrengthType     ] = None
     Speed: Optional[int] = None
     Strength: Optional[int] = None
 
-class VideoDetailTypeDef(BaseModel):
+class VideoDetailTypeDef(BaseValidatorModel):
     HeightInPx: Optional[int] = None
     WidthInPx: Optional[int] = None
 
-class ProresSettingsTypeDef(BaseModel):
+class ProresSettingsTypeDef(BaseValidatorModel):
     ChromaSampling: Optional[ProresChromaSamplingType] = None
     CodecProfile: Optional[ProresCodecProfileType] = None
     FramerateControl: Optional[ProresFramerateControlType] = None
@@ -934,7 +934,7 @@ class ProresSettingsTypeDef(BaseModel):
     SlowPal: Optional[ProresSlowPalType] = None
     Telecine: Optional[ProresTelecineType] = None
 
-class ReservationPlanTypeDef(BaseModel):
+class ReservationPlanTypeDef(BaseValidatorModel):
     Commitment: Optional[Literal["ONE_YEAR"]] = None
     ExpiresAt: Optional[datetime] = None
     PurchasedAt: Optional[datetime] = None
@@ -942,15 +942,15 @@ class ReservationPlanTypeDef(BaseModel):
     ReservedSlots: Optional[int] = None
     Status: Optional[ReservationPlanStatusType] = None
 
-class S3DestinationAccessControlTypeDef(BaseModel):
+class S3DestinationAccessControlTypeDef(BaseValidatorModel):
     CannedAcl: Optional[S3ObjectCannedAclType] = None
 
-class S3EncryptionSettingsTypeDef(BaseModel):
+class S3EncryptionSettingsTypeDef(BaseValidatorModel):
     EncryptionType: Optional[S3ServerSideEncryptionTypeType] = None
     KmsEncryptionContext: Optional[str] = None
     KmsKeyArn: Optional[str] = None
 
-class SearchJobsRequestRequestTypeDef(BaseModel):
+class SearchJobsRequestRequestTypeDef(BaseValidatorModel):
     InputFile: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -958,16 +958,16 @@ class SearchJobsRequestRequestTypeDef(BaseModel):
     Queue: Optional[str] = None
     Status: Optional[JobStatusType] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
     Tags: Mapping[str, str]
 
-class TimecodeBurninTypeDef(BaseModel):
+class TimecodeBurninTypeDef(BaseValidatorModel):
     FontSize: Optional[int] = None
     Position: Optional[TimecodeBurninPositionType] = None
     Prefix: Optional[str] = None
 
-class UncompressedSettingsTypeDef(BaseModel):
+class UncompressedSettingsTypeDef(BaseValidatorModel):
     Fourcc: Optional[UncompressedFourccType] = None
     FramerateControl: Optional[UncompressedFramerateControlType] = None
     FramerateConversionAlgorithm: Optional[UncompressedFramerateConversionAlgorithmType] = None
@@ -978,11 +978,11 @@ class UncompressedSettingsTypeDef(BaseModel):
     SlowPal: Optional[UncompressedSlowPalType] = None
     Telecine: Optional[UncompressedTelecineType] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
     TagKeys: Optional[Sequence[str]] = None
 
-class Vc3SettingsTypeDef(BaseModel):
+class Vc3SettingsTypeDef(BaseValidatorModel):
     FramerateControl: Optional[Vc3FramerateControlType] = None
     FramerateConversionAlgorithm: Optional[Vc3FramerateConversionAlgorithmType] = None
     FramerateDenominator: Optional[int] = None
@@ -993,7 +993,7 @@ class Vc3SettingsTypeDef(BaseModel):
     Telecine: Optional[Vc3TelecineType] = None
     Vc3Class: Optional[Vc3ClassType] = None
 
-class Vp8SettingsTypeDef(BaseModel):
+class Vp8SettingsTypeDef(BaseValidatorModel):
     Bitrate: Optional[int] = None
     FramerateControl: Optional[Vp8FramerateControlType] = None
     FramerateConversionAlgorithm: Optional[Vp8FramerateConversionAlgorithmType] = None
@@ -1008,7 +1008,7 @@ class Vp8SettingsTypeDef(BaseModel):
     QualityTuningLevel: Optional[Vp8QualityTuningLevelType] = None
     RateControlMode: Optional[Literal["VBR"]] = None
 
-class Vp9SettingsTypeDef(BaseModel):
+class Vp9SettingsTypeDef(BaseValidatorModel):
     Bitrate: Optional[int] = None
     FramerateControl: Optional[Vp9FramerateControlType] = None
     FramerateConversionAlgorithm: Optional[Vp9FramerateConversionAlgorithmType] = None
@@ -1023,17 +1023,17 @@ class Vp9SettingsTypeDef(BaseModel):
     QualityTuningLevel: Optional[Vp9QualityTuningLevelType] = None
     RateControlMode: Optional[Literal["VBR"]] = None
 
-class VideoOverlayInputClippingTypeDef(BaseModel):
+class VideoOverlayInputClippingTypeDef(BaseValidatorModel):
     EndTimecode: Optional[str] = None
     StartTimecode: Optional[str] = None
 
-class Xavc4kIntraCbgProfileSettingsTypeDef(BaseModel):
+class Xavc4kIntraCbgProfileSettingsTypeDef(BaseValidatorModel):
     XavcClass: Optional[Xavc4kIntraCbgProfileClassType] = None
 
-class Xavc4kIntraVbrProfileSettingsTypeDef(BaseModel):
+class Xavc4kIntraVbrProfileSettingsTypeDef(BaseValidatorModel):
     XavcClass: Optional[Xavc4kIntraVbrProfileClassType] = None
 
-class Xavc4kProfileSettingsTypeDef(BaseModel):
+class Xavc4kProfileSettingsTypeDef(BaseValidatorModel):
     BitrateClass: Optional[Xavc4kProfileBitrateClassType] = None
     CodecProfile: Optional[Xavc4kProfileCodecProfileType] = None
     FlickerAdaptiveQuantization: Optional[XavcFlickerAdaptiveQuantizationType] = None
@@ -1043,10 +1043,10 @@ class Xavc4kProfileSettingsTypeDef(BaseModel):
     QualityTuningLevel: Optional[Xavc4kProfileQualityTuningLevelType] = None
     Slices: Optional[int] = None
 
-class XavcHdIntraCbgProfileSettingsTypeDef(BaseModel):
+class XavcHdIntraCbgProfileSettingsTypeDef(BaseValidatorModel):
     XavcClass: Optional[XavcHdIntraCbgProfileClassType] = None
 
-class XavcHdProfileSettingsTypeDef(BaseModel):
+class XavcHdProfileSettingsTypeDef(BaseValidatorModel):
     BitrateClass: Optional[XavcHdProfileBitrateClassType] = None
     FlickerAdaptiveQuantization: Optional[XavcFlickerAdaptiveQuantizationType] = None
     GopBReference: Optional[XavcGopBReferenceType] = None
@@ -1057,7 +1057,7 @@ class XavcHdProfileSettingsTypeDef(BaseModel):
     Slices: Optional[int] = None
     Telecine: Optional[XavcHdProfileTelecineType] = None
 
-class AudioCodecSettingsTypeDef(BaseModel):
+class AudioCodecSettingsTypeDef(BaseValidatorModel):
     AacSettings: Optional[AacSettingsTypeDef] = None
     Ac3Settings: Optional[Ac3SettingsTypeDef] = None
     AiffSettings: Optional[AiffSettingsTypeDef] = None
@@ -1071,28 +1071,28 @@ class AudioCodecSettingsTypeDef(BaseModel):
     VorbisSettings: Optional[VorbisSettingsTypeDef] = None
     WavSettings: Optional[WavSettingsTypeDef] = None
 
-class AutomatedAbrRuleExtraOutputTypeDef(BaseModel):
+class AutomatedAbrRuleExtraOutputTypeDef(BaseValidatorModel):
     AllowedRenditions: Optional[List[AllowedRenditionSizeTypeDef]] = None
     ForceIncludeRenditions: Optional[List[ForceIncludeRenditionSizeTypeDef]] = None
     MinBottomRenditionSize: Optional[MinBottomRenditionSizeTypeDef] = None
     MinTopRenditionSize: Optional[MinTopRenditionSizeTypeDef] = None
     Type: Optional[RuleTypeType] = None
 
-class AutomatedAbrRuleOutputTypeDef(BaseModel):
+class AutomatedAbrRuleOutputTypeDef(BaseValidatorModel):
     AllowedRenditions: Optional[List[AllowedRenditionSizeTypeDef]] = None
     ForceIncludeRenditions: Optional[List[ForceIncludeRenditionSizeTypeDef]] = None
     MinBottomRenditionSize: Optional[MinBottomRenditionSizeTypeDef] = None
     MinTopRenditionSize: Optional[MinTopRenditionSizeTypeDef] = None
     Type: Optional[RuleTypeType] = None
 
-class AutomatedAbrRuleTypeDef(BaseModel):
+class AutomatedAbrRuleTypeDef(BaseValidatorModel):
     AllowedRenditions: Optional[Sequence[AllowedRenditionSizeTypeDef]] = None
     ForceIncludeRenditions: Optional[Sequence[ForceIncludeRenditionSizeTypeDef]] = None
     MinBottomRenditionSize: Optional[MinBottomRenditionSizeTypeDef] = None
     MinTopRenditionSize: Optional[MinTopRenditionSizeTypeDef] = None
     Type: Optional[RuleTypeType] = None
 
-class Av1SettingsTypeDef(BaseModel):
+class Av1SettingsTypeDef(BaseValidatorModel):
     AdaptiveQuantization: Optional[Av1AdaptiveQuantizationType] = None
     BitDepth: Optional[Av1BitDepthType] = None
     FilmGrainSynthesis: Optional[Av1FilmGrainSynthesisType] = None
@@ -1108,7 +1108,7 @@ class Av1SettingsTypeDef(BaseModel):
     Slices: Optional[int] = None
     SpatialAdaptiveQuantization: Optional[Av1SpatialAdaptiveQuantizationType] = None
 
-class AvcIntraSettingsTypeDef(BaseModel):
+class AvcIntraSettingsTypeDef(BaseValidatorModel):
     AvcIntraClass: Optional[AvcIntraClassType] = None
     AvcIntraUhdSettings: Optional[AvcIntraUhdSettingsTypeDef] = None
     FramerateControl: Optional[AvcIntraFramerateControlType] = None
@@ -1120,7 +1120,7 @@ class AvcIntraSettingsTypeDef(BaseModel):
     SlowPal: Optional[AvcIntraSlowPalType] = None
     Telecine: Optional[AvcIntraTelecineType] = None
 
-class CaptionDestinationSettingsExtraOutputTypeDef(BaseModel):
+class CaptionDestinationSettingsExtraOutputTypeDef(BaseValidatorModel):
     BurninDestinationSettings: Optional[BurninDestinationSettingsTypeDef] = None
     DestinationType: Optional[CaptionDestinationTypeType] = None
     DvbSubDestinationSettings: Optional[DvbSubDestinationSettingsTypeDef] = None
@@ -1132,7 +1132,7 @@ class CaptionDestinationSettingsExtraOutputTypeDef(BaseModel):
     TtmlDestinationSettings: Optional[TtmlDestinationSettingsTypeDef] = None
     WebvttDestinationSettings: Optional[WebvttDestinationSettingsTypeDef] = None
 
-class CaptionDestinationSettingsOutputTypeDef(BaseModel):
+class CaptionDestinationSettingsOutputTypeDef(BaseValidatorModel):
     BurninDestinationSettings: Optional[BurninDestinationSettingsTypeDef] = None
     DestinationType: Optional[CaptionDestinationTypeType] = None
     DvbSubDestinationSettings: Optional[DvbSubDestinationSettingsTypeDef] = None
@@ -1144,7 +1144,7 @@ class CaptionDestinationSettingsOutputTypeDef(BaseModel):
     TtmlDestinationSettings: Optional[TtmlDestinationSettingsTypeDef] = None
     WebvttDestinationSettings: Optional[WebvttDestinationSettingsTypeDef] = None
 
-class CaptionDestinationSettingsTypeDef(BaseModel):
+class CaptionDestinationSettingsTypeDef(BaseValidatorModel):
     BurninDestinationSettings: Optional[BurninDestinationSettingsTypeDef] = None
     DestinationType: Optional[CaptionDestinationTypeType] = None
     DvbSubDestinationSettings: Optional[DvbSubDestinationSettingsTypeDef] = None
@@ -1156,7 +1156,7 @@ class CaptionDestinationSettingsTypeDef(BaseModel):
     TtmlDestinationSettings: Optional[TtmlDestinationSettingsTypeDef] = None
     WebvttDestinationSettings: Optional[WebvttDestinationSettingsTypeDef] = None
 
-class FileSourceSettingsTypeDef(BaseModel):
+class FileSourceSettingsTypeDef(BaseValidatorModel):
     Convert608To708: Optional[FileSourceConvert608To708Type] = None
     ConvertPaintToPop: Optional[CaptionSourceConvertPaintOnToPopOnType] = None
     Framerate: Optional[CaptionSourceFramerateTypeDef] = None
@@ -1164,16 +1164,16 @@ class FileSourceSettingsTypeDef(BaseModel):
     TimeDelta: Optional[int] = None
     TimeDeltaUnits: Optional[FileSourceTimeDeltaUnitsType] = None
 
-class ChannelMappingExtraOutputTypeDef(BaseModel):
+class ChannelMappingExtraOutputTypeDef(BaseValidatorModel):
     OutputChannels: Optional[List[OutputChannelMappingExtraOutputTypeDef]] = None
 
-class ChannelMappingOutputTypeDef(BaseModel):
+class ChannelMappingOutputTypeDef(BaseValidatorModel):
     OutputChannels: Optional[List[OutputChannelMappingOutputTypeDef]] = None
 
-class ChannelMappingTypeDef(BaseModel):
+class ChannelMappingTypeDef(BaseValidatorModel):
     OutputChannels: Optional[Sequence[OutputChannelMappingTypeDef]] = None
 
-class CmafEncryptionSettingsExtraOutputTypeDef(BaseModel):
+class CmafEncryptionSettingsExtraOutputTypeDef(BaseValidatorModel):
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[CmafEncryptionTypeType] = None
     InitializationVectorInManifest: Optional[CmafInitializationVectorInManifestType] = None
@@ -1181,7 +1181,7 @@ class CmafEncryptionSettingsExtraOutputTypeDef(BaseModel):
     StaticKeyProvider: Optional[StaticKeyProviderTypeDef] = None
     Type: Optional[CmafKeyProviderTypeType] = None
 
-class CmafEncryptionSettingsOutputTypeDef(BaseModel):
+class CmafEncryptionSettingsOutputTypeDef(BaseValidatorModel):
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[CmafEncryptionTypeType] = None
     InitializationVectorInManifest: Optional[CmafInitializationVectorInManifestType] = None
@@ -1189,7 +1189,7 @@ class CmafEncryptionSettingsOutputTypeDef(BaseModel):
     StaticKeyProvider: Optional[StaticKeyProviderTypeDef] = None
     Type: Optional[CmafKeyProviderTypeType] = None
 
-class CmafEncryptionSettingsTypeDef(BaseModel):
+class CmafEncryptionSettingsTypeDef(BaseValidatorModel):
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[CmafEncryptionTypeType] = None
     InitializationVectorInManifest: Optional[CmafInitializationVectorInManifestType] = None
@@ -1197,7 +1197,7 @@ class CmafEncryptionSettingsTypeDef(BaseModel):
     StaticKeyProvider: Optional[StaticKeyProviderTypeDef] = None
     Type: Optional[CmafKeyProviderTypeType] = None
 
-class ColorCorrectorTypeDef(BaseModel):
+class ColorCorrectorTypeDef(BaseValidatorModel):
     Brightness: Optional[int] = None
     ClipLimits: Optional[ClipLimitsTypeDef] = None
     ColorSpaceConversion: Optional[ColorSpaceConversionType] = None
@@ -1210,7 +1210,7 @@ class ColorCorrectorTypeDef(BaseModel):
     Saturation: Optional[int] = None
     SdrReferenceWhiteLevel: Optional[int] = None
 
-class VideoSelectorTypeDef(BaseModel):
+class VideoSelectorTypeDef(BaseValidatorModel):
     AlphaBehavior: Optional[AlphaBehaviorType] = None
     ColorSpace: Optional[ColorSpaceType] = None
     ColorSpaceUsage: Optional[ColorSpaceUsageType] = None
@@ -1223,7 +1223,7 @@ class VideoSelectorTypeDef(BaseModel):
     Rotate: Optional[InputRotateType] = None
     SampleRange: Optional[InputSampleRangeType] = None
 
-class CreateQueueRequestRequestTypeDef(BaseModel):
+class CreateQueueRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     PricingPlan: Optional[PricingPlanType] = None
@@ -1231,17 +1231,17 @@ class CreateQueueRequestRequestTypeDef(BaseModel):
     Status: Optional[QueueStatusType] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateQueueRequestRequestTypeDef(BaseModel):
+class UpdateQueueRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     ReservationPlanSettings: Optional[ReservationPlanSettingsTypeDef] = None
     Status: Optional[QueueStatusType] = None
 
-class DashIsoEncryptionSettingsExtraOutputTypeDef(BaseModel):
+class DashIsoEncryptionSettingsExtraOutputTypeDef(BaseValidatorModel):
     PlaybackDeviceCompatibility: Optional[DashIsoPlaybackDeviceCompatibilityType] = None
     SpekeKeyProvider: Optional[SpekeKeyProviderExtraOutputTypeDef] = None
 
-class HlsEncryptionSettingsExtraOutputTypeDef(BaseModel):
+class HlsEncryptionSettingsExtraOutputTypeDef(BaseValidatorModel):
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[HlsEncryptionTypeType] = None
     InitializationVectorInManifest: Optional[HlsInitializationVectorInManifestType] = None
@@ -1250,14 +1250,14 @@ class HlsEncryptionSettingsExtraOutputTypeDef(BaseModel):
     StaticKeyProvider: Optional[StaticKeyProviderTypeDef] = None
     Type: Optional[HlsKeyProviderTypeType] = None
 
-class MsSmoothEncryptionSettingsExtraOutputTypeDef(BaseModel):
+class MsSmoothEncryptionSettingsExtraOutputTypeDef(BaseValidatorModel):
     SpekeKeyProvider: Optional[SpekeKeyProviderExtraOutputTypeDef] = None
 
-class DashIsoEncryptionSettingsOutputTypeDef(BaseModel):
+class DashIsoEncryptionSettingsOutputTypeDef(BaseValidatorModel):
     PlaybackDeviceCompatibility: Optional[DashIsoPlaybackDeviceCompatibilityType] = None
     SpekeKeyProvider: Optional[SpekeKeyProviderOutputTypeDef] = None
 
-class HlsEncryptionSettingsOutputTypeDef(BaseModel):
+class HlsEncryptionSettingsOutputTypeDef(BaseValidatorModel):
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[HlsEncryptionTypeType] = None
     InitializationVectorInManifest: Optional[HlsInitializationVectorInManifestType] = None
@@ -1266,14 +1266,14 @@ class HlsEncryptionSettingsOutputTypeDef(BaseModel):
     StaticKeyProvider: Optional[StaticKeyProviderTypeDef] = None
     Type: Optional[HlsKeyProviderTypeType] = None
 
-class MsSmoothEncryptionSettingsOutputTypeDef(BaseModel):
+class MsSmoothEncryptionSettingsOutputTypeDef(BaseValidatorModel):
     SpekeKeyProvider: Optional[SpekeKeyProviderOutputTypeDef] = None
 
-class DashIsoEncryptionSettingsTypeDef(BaseModel):
+class DashIsoEncryptionSettingsTypeDef(BaseValidatorModel):
     PlaybackDeviceCompatibility: Optional[DashIsoPlaybackDeviceCompatibilityType] = None
     SpekeKeyProvider: Optional[SpekeKeyProviderTypeDef] = None
 
-class HlsEncryptionSettingsTypeDef(BaseModel):
+class HlsEncryptionSettingsTypeDef(BaseValidatorModel):
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[HlsEncryptionTypeType] = None
     InitializationVectorInManifest: Optional[HlsInitializationVectorInManifestType] = None
@@ -1282,71 +1282,71 @@ class HlsEncryptionSettingsTypeDef(BaseModel):
     StaticKeyProvider: Optional[StaticKeyProviderTypeDef] = None
     Type: Optional[HlsKeyProviderTypeType] = None
 
-class MsSmoothEncryptionSettingsTypeDef(BaseModel):
+class MsSmoothEncryptionSettingsTypeDef(BaseValidatorModel):
     SpekeKeyProvider: Optional[SpekeKeyProviderTypeDef] = None
 
-class DescribeEndpointsRequestDescribeEndpointsPaginateTypeDef(BaseModel):
+class DescribeEndpointsRequestDescribeEndpointsPaginateTypeDef(BaseValidatorModel):
     Mode: Optional[DescribeEndpointsModeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobTemplatesRequestListJobTemplatesPaginateTypeDef(BaseModel):
+class ListJobTemplatesRequestListJobTemplatesPaginateTypeDef(BaseValidatorModel):
     Category: Optional[str] = None
     ListBy: Optional[JobTemplateListByType] = None
     Order: Optional[OrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobsRequestListJobsPaginateTypeDef(BaseModel):
+class ListJobsRequestListJobsPaginateTypeDef(BaseValidatorModel):
     Order: Optional[OrderType] = None
     Queue: Optional[str] = None
     Status: Optional[JobStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPresetsRequestListPresetsPaginateTypeDef(BaseModel):
+class ListPresetsRequestListPresetsPaginateTypeDef(BaseValidatorModel):
     Category: Optional[str] = None
     ListBy: Optional[PresetListByType] = None
     Order: Optional[OrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueuesRequestListQueuesPaginateTypeDef(BaseModel):
+class ListQueuesRequestListQueuesPaginateTypeDef(BaseValidatorModel):
     ListBy: Optional[QueueListByType] = None
     Order: Optional[OrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchJobsRequestSearchJobsPaginateTypeDef(BaseModel):
+class SearchJobsRequestSearchJobsPaginateTypeDef(BaseValidatorModel):
     InputFile: Optional[str] = None
     Order: Optional[OrderType] = None
     Queue: Optional[str] = None
     Status: Optional[JobStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEndpointsResponseTypeDef(BaseModel):
+class DescribeEndpointsResponseTypeDef(BaseValidatorModel):
     Endpoints: List[EndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DolbyVisionTypeDef(BaseModel):
+class DolbyVisionTypeDef(BaseValidatorModel):
     L6Metadata: Optional[DolbyVisionLevel6MetadataTypeDef] = None
     L6Mode: Optional[DolbyVisionLevel6ModeType] = None
     Mapping: Optional[DolbyVisionMappingType] = None
     Profile: Optional[DolbyVisionProfileType] = None
 
-class EsamSettingsTypeDef(BaseModel):
+class EsamSettingsTypeDef(BaseValidatorModel):
     ManifestConfirmConditionNotification: Optional[       EsamManifestConfirmConditionNotificationTypeDef     ] = None
     ResponseSignalPreroll: Optional[int] = None
     SignalProcessingNotification: Optional[EsamSignalProcessingNotificationTypeDef] = None
 
-class GetPolicyResponseTypeDef(BaseModel):
+class GetPolicyResponseTypeDef(BaseValidatorModel):
     Policy: PolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutPolicyRequestRequestTypeDef(BaseModel):
+class PutPolicyRequestRequestTypeDef(BaseValidatorModel):
     Policy: PolicyTypeDef
 
-class PutPolicyResponseTypeDef(BaseModel):
+class PutPolicyResponseTypeDef(BaseValidatorModel):
     Policy: PolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class H264SettingsTypeDef(BaseModel):
+class H264SettingsTypeDef(BaseValidatorModel):
     AdaptiveQuantization: Optional[H264AdaptiveQuantizationType] = None
     BandwidthReductionFilter: Optional[BandwidthReductionFilterTypeDef] = None
     Bitrate: Optional[int] = None
@@ -1391,7 +1391,7 @@ class H264SettingsTypeDef(BaseModel):
     TemporalAdaptiveQuantization: Optional[H264TemporalAdaptiveQuantizationType] = None
     UnregisteredSeiTimecode: Optional[H264UnregisteredSeiTimecodeType] = None
 
-class H265SettingsTypeDef(BaseModel):
+class H265SettingsTypeDef(BaseValidatorModel):
     AdaptiveQuantization: Optional[H265AdaptiveQuantizationType] = None
     AlternateTransferFunctionSei: Optional[H265AlternateTransferFunctionSeiType] = None
     BandwidthReductionFilter: Optional[BandwidthReductionFilterTypeDef] = None
@@ -1436,35 +1436,35 @@ class H265SettingsTypeDef(BaseModel):
     UnregisteredSeiTimecode: Optional[H265UnregisteredSeiTimecodeType] = None
     WriteMp4PackagingType: Optional[H265WriteMp4PackagingTypeType] = None
 
-class OutputSettingsTypeDef(BaseModel):
+class OutputSettingsTypeDef(BaseValidatorModel):
     HlsSettings: Optional[HlsSettingsTypeDef] = None
 
-class TimedMetadataInsertionExtraOutputTypeDef(BaseModel):
+class TimedMetadataInsertionExtraOutputTypeDef(BaseValidatorModel):
     Id3Insertions: Optional[List[Id3InsertionTypeDef]] = None
 
-class TimedMetadataInsertionOutputTypeDef(BaseModel):
+class TimedMetadataInsertionOutputTypeDef(BaseValidatorModel):
     Id3Insertions: Optional[List[Id3InsertionTypeDef]] = None
 
-class TimedMetadataInsertionTypeDef(BaseModel):
+class TimedMetadataInsertionTypeDef(BaseValidatorModel):
     Id3Insertions: Optional[Sequence[Id3InsertionTypeDef]] = None
 
-class ImageInserterExtraOutputTypeDef(BaseModel):
+class ImageInserterExtraOutputTypeDef(BaseValidatorModel):
     InsertableImages: Optional[List[InsertableImageTypeDef]] = None
     SdrReferenceWhiteLevel: Optional[int] = None
 
-class ImageInserterOutputTypeDef(BaseModel):
+class ImageInserterOutputTypeDef(BaseValidatorModel):
     InsertableImages: Optional[List[InsertableImageTypeDef]] = None
     SdrReferenceWhiteLevel: Optional[int] = None
 
-class ImageInserterTypeDef(BaseModel):
+class ImageInserterTypeDef(BaseValidatorModel):
     InsertableImages: Optional[Sequence[InsertableImageTypeDef]] = None
     SdrReferenceWhiteLevel: Optional[int] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     ResourceTags: ResourceTagsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class M2tsSettingsExtraOutputTypeDef(BaseModel):
+class M2tsSettingsExtraOutputTypeDef(BaseValidatorModel):
     AudioBufferModel: Optional[M2tsAudioBufferModelType] = None
     AudioDuration: Optional[M2tsAudioDurationType] = None
     AudioFramesPerPes: Optional[int] = None
@@ -1508,7 +1508,7 @@ class M2tsSettingsExtraOutputTypeDef(BaseModel):
     TransportStreamId: Optional[int] = None
     VideoPid: Optional[int] = None
 
-class M2tsSettingsOutputTypeDef(BaseModel):
+class M2tsSettingsOutputTypeDef(BaseValidatorModel):
     AudioBufferModel: Optional[M2tsAudioBufferModelType] = None
     AudioDuration: Optional[M2tsAudioDurationType] = None
     AudioFramesPerPes: Optional[int] = None
@@ -1552,7 +1552,7 @@ class M2tsSettingsOutputTypeDef(BaseModel):
     TransportStreamId: Optional[int] = None
     VideoPid: Optional[int] = None
 
-class M2tsSettingsTypeDef(BaseModel):
+class M2tsSettingsTypeDef(BaseValidatorModel):
     AudioBufferModel: Optional[M2tsAudioBufferModelType] = None
     AudioDuration: Optional[M2tsAudioDurationType] = None
     AudioFramesPerPes: Optional[int] = None
@@ -1596,7 +1596,7 @@ class M2tsSettingsTypeDef(BaseModel):
     TransportStreamId: Optional[int] = None
     VideoPid: Optional[int] = None
 
-class MotionImageInserterTypeDef(BaseModel):
+class MotionImageInserterTypeDef(BaseValidatorModel):
     Framerate: Optional[MotionImageInsertionFramerateTypeDef] = None
     Input: Optional[str] = None
     InsertionMode: Optional[MotionImageInsertionModeType] = None
@@ -1604,25 +1604,25 @@ class MotionImageInserterTypeDef(BaseModel):
     Playback: Optional[MotionImagePlaybackType] = None
     StartTime: Optional[str] = None
 
-class MxfSettingsTypeDef(BaseModel):
+class MxfSettingsTypeDef(BaseValidatorModel):
     AfdSignaling: Optional[MxfAfdSignalingType] = None
     Profile: Optional[MxfProfileType] = None
     XavcProfileSettings: Optional[MxfXavcProfileSettingsTypeDef] = None
 
-class PartnerWatermarkingTypeDef(BaseModel):
+class PartnerWatermarkingTypeDef(BaseValidatorModel):
     NexguardFileMarkerSettings: Optional[NexGuardFileMarkerSettingsTypeDef] = None
 
-class NoiseReducerTypeDef(BaseModel):
+class NoiseReducerTypeDef(BaseValidatorModel):
     Filter: Optional[NoiseReducerFilterType] = None
     FilterSettings: Optional[NoiseReducerFilterSettingsTypeDef] = None
     SpatialFilterSettings: Optional[NoiseReducerSpatialFilterSettingsTypeDef] = None
     TemporalFilterSettings: Optional[NoiseReducerTemporalFilterSettingsTypeDef] = None
 
-class OutputDetailTypeDef(BaseModel):
+class OutputDetailTypeDef(BaseValidatorModel):
     DurationInMs: Optional[int] = None
     VideoDetails: Optional[VideoDetailTypeDef] = None
 
-class QueueTypeDef(BaseModel):
+class QueueTypeDef(BaseValidatorModel):
     Name: str
     Arn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
@@ -1635,30 +1635,30 @@ class QueueTypeDef(BaseModel):
     SubmittedJobsCount: Optional[int] = None
     Type: Optional[TypeType] = None
 
-class S3DestinationSettingsTypeDef(BaseModel):
+class S3DestinationSettingsTypeDef(BaseValidatorModel):
     AccessControl: Optional[S3DestinationAccessControlTypeDef] = None
     Encryption: Optional[S3EncryptionSettingsTypeDef] = None
     StorageClass: Optional[S3StorageClassType] = None
 
-class VideoOverlayInputExtraOutputTypeDef(BaseModel):
+class VideoOverlayInputExtraOutputTypeDef(BaseValidatorModel):
     FileInput: Optional[str] = None
     InputClippings: Optional[List[VideoOverlayInputClippingTypeDef]] = None
     TimecodeSource: Optional[InputTimecodeSourceType] = None
     TimecodeStart: Optional[str] = None
 
-class VideoOverlayInputOutputTypeDef(BaseModel):
+class VideoOverlayInputOutputTypeDef(BaseValidatorModel):
     FileInput: Optional[str] = None
     InputClippings: Optional[List[VideoOverlayInputClippingTypeDef]] = None
     TimecodeSource: Optional[InputTimecodeSourceType] = None
     TimecodeStart: Optional[str] = None
 
-class VideoOverlayInputTypeDef(BaseModel):
+class VideoOverlayInputTypeDef(BaseValidatorModel):
     FileInput: Optional[str] = None
     InputClippings: Optional[Sequence[VideoOverlayInputClippingTypeDef]] = None
     TimecodeSource: Optional[InputTimecodeSourceType] = None
     TimecodeStart: Optional[str] = None
 
-class XavcSettingsTypeDef(BaseModel):
+class XavcSettingsTypeDef(BaseValidatorModel):
     AdaptiveQuantization: Optional[XavcAdaptiveQuantizationType] = None
     EntropyEncoding: Optional[XavcEntropyEncodingType] = None
     FramerateControl: Optional[XavcFramerateControlType] = None
@@ -1676,50 +1676,50 @@ class XavcSettingsTypeDef(BaseModel):
     XavcHdIntraCbgProfileSettings: Optional[XavcHdIntraCbgProfileSettingsTypeDef] = None
     XavcHdProfileSettings: Optional[XavcHdProfileSettingsTypeDef] = None
 
-class AutomatedAbrSettingsExtraOutputTypeDef(BaseModel):
+class AutomatedAbrSettingsExtraOutputTypeDef(BaseValidatorModel):
     MaxAbrBitrate: Optional[int] = None
     MaxRenditions: Optional[int] = None
     MinAbrBitrate: Optional[int] = None
     Rules: Optional[List[AutomatedAbrRuleExtraOutputTypeDef]] = None
 
-class AutomatedAbrSettingsOutputTypeDef(BaseModel):
+class AutomatedAbrSettingsOutputTypeDef(BaseValidatorModel):
     MaxAbrBitrate: Optional[int] = None
     MaxRenditions: Optional[int] = None
     MinAbrBitrate: Optional[int] = None
     Rules: Optional[List[AutomatedAbrRuleOutputTypeDef]] = None
 
-class AutomatedAbrSettingsTypeDef(BaseModel):
+class AutomatedAbrSettingsTypeDef(BaseValidatorModel):
     MaxAbrBitrate: Optional[int] = None
     MaxRenditions: Optional[int] = None
     MinAbrBitrate: Optional[int] = None
     Rules: Optional[Sequence[AutomatedAbrRuleTypeDef]] = None
 
-class CaptionDescriptionPresetExtraOutputTypeDef(BaseModel):
+class CaptionDescriptionPresetExtraOutputTypeDef(BaseValidatorModel):
     CustomLanguageCode: Optional[str] = None
     DestinationSettings: Optional[CaptionDestinationSettingsExtraOutputTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LanguageDescription: Optional[str] = None
 
-class CaptionDescriptionPresetOutputTypeDef(BaseModel):
+class CaptionDescriptionPresetOutputTypeDef(BaseValidatorModel):
     CustomLanguageCode: Optional[str] = None
     DestinationSettings: Optional[CaptionDestinationSettingsOutputTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LanguageDescription: Optional[str] = None
 
-class CaptionDescriptionPresetTypeDef(BaseModel):
+class CaptionDescriptionPresetTypeDef(BaseValidatorModel):
     CustomLanguageCode: Optional[str] = None
     DestinationSettings: Optional[CaptionDestinationSettingsTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LanguageDescription: Optional[str] = None
 
-class CaptionDescriptionTypeDef(BaseModel):
+class CaptionDescriptionTypeDef(BaseValidatorModel):
     CaptionSelectorName: Optional[str] = None
     CustomLanguageCode: Optional[str] = None
     DestinationSettings: Optional[CaptionDestinationSettingsTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LanguageDescription: Optional[str] = None
 
-class CaptionSourceSettingsTypeDef(BaseModel):
+class CaptionSourceSettingsTypeDef(BaseValidatorModel):
     AncillarySourceSettings: Optional[AncillarySourceSettingsTypeDef] = None
     DvbSubSourceSettings: Optional[DvbSubSourceSettingsTypeDef] = None
     EmbeddedSourceSettings: Optional[EmbeddedSourceSettingsTypeDef] = None
@@ -1729,28 +1729,28 @@ class CaptionSourceSettingsTypeDef(BaseModel):
     TrackSourceSettings: Optional[TrackSourceSettingsTypeDef] = None
     WebvttHlsSourceSettings: Optional[WebvttHlsSourceSettingsTypeDef] = None
 
-class RemixSettingsExtraOutputTypeDef(BaseModel):
+class RemixSettingsExtraOutputTypeDef(BaseValidatorModel):
     AudioDescriptionAudioChannel: Optional[int] = None
     AudioDescriptionDataChannel: Optional[int] = None
     ChannelMapping: Optional[ChannelMappingExtraOutputTypeDef] = None
     ChannelsIn: Optional[int] = None
     ChannelsOut: Optional[int] = None
 
-class RemixSettingsOutputTypeDef(BaseModel):
+class RemixSettingsOutputTypeDef(BaseValidatorModel):
     AudioDescriptionAudioChannel: Optional[int] = None
     AudioDescriptionDataChannel: Optional[int] = None
     ChannelMapping: Optional[ChannelMappingOutputTypeDef] = None
     ChannelsIn: Optional[int] = None
     ChannelsOut: Optional[int] = None
 
-class RemixSettingsTypeDef(BaseModel):
+class RemixSettingsTypeDef(BaseValidatorModel):
     AudioDescriptionAudioChannel: Optional[int] = None
     AudioDescriptionDataChannel: Optional[int] = None
     ChannelMapping: Optional[ChannelMappingTypeDef] = None
     ChannelsIn: Optional[int] = None
     ChannelsOut: Optional[int] = None
 
-class ContainerSettingsExtraOutputTypeDef(BaseModel):
+class ContainerSettingsExtraOutputTypeDef(BaseValidatorModel):
     CmfcSettings: Optional[CmfcSettingsTypeDef] = None
     Container: Optional[ContainerTypeType] = None
     F4vSettings: Optional[F4vSettingsTypeDef] = None
@@ -1761,7 +1761,7 @@ class ContainerSettingsExtraOutputTypeDef(BaseModel):
     MpdSettings: Optional[MpdSettingsTypeDef] = None
     MxfSettings: Optional[MxfSettingsTypeDef] = None
 
-class ContainerSettingsOutputTypeDef(BaseModel):
+class ContainerSettingsOutputTypeDef(BaseValidatorModel):
     CmfcSettings: Optional[CmfcSettingsTypeDef] = None
     Container: Optional[ContainerTypeType] = None
     F4vSettings: Optional[F4vSettingsTypeDef] = None
@@ -1772,7 +1772,7 @@ class ContainerSettingsOutputTypeDef(BaseModel):
     MpdSettings: Optional[MpdSettingsTypeDef] = None
     MxfSettings: Optional[MxfSettingsTypeDef] = None
 
-class ContainerSettingsTypeDef(BaseModel):
+class ContainerSettingsTypeDef(BaseValidatorModel):
     CmfcSettings: Optional[CmfcSettingsTypeDef] = None
     Container: Optional[ContainerTypeType] = None
     F4vSettings: Optional[F4vSettingsTypeDef] = None
@@ -1783,7 +1783,7 @@ class ContainerSettingsTypeDef(BaseModel):
     MpdSettings: Optional[MpdSettingsTypeDef] = None
     MxfSettings: Optional[MxfSettingsTypeDef] = None
 
-class VideoPreprocessorExtraOutputTypeDef(BaseModel):
+class VideoPreprocessorExtraOutputTypeDef(BaseValidatorModel):
     ColorCorrector: Optional[ColorCorrectorTypeDef] = None
     Deinterlacer: Optional[DeinterlacerTypeDef] = None
     DolbyVision: Optional[DolbyVisionTypeDef] = None
@@ -1793,7 +1793,7 @@ class VideoPreprocessorExtraOutputTypeDef(BaseModel):
     PartnerWatermarking: Optional[PartnerWatermarkingTypeDef] = None
     TimecodeBurnin: Optional[TimecodeBurninTypeDef] = None
 
-class VideoPreprocessorOutputTypeDef(BaseModel):
+class VideoPreprocessorOutputTypeDef(BaseValidatorModel):
     ColorCorrector: Optional[ColorCorrectorTypeDef] = None
     Deinterlacer: Optional[DeinterlacerTypeDef] = None
     DolbyVision: Optional[DolbyVisionTypeDef] = None
@@ -1803,7 +1803,7 @@ class VideoPreprocessorOutputTypeDef(BaseModel):
     PartnerWatermarking: Optional[PartnerWatermarkingTypeDef] = None
     TimecodeBurnin: Optional[TimecodeBurninTypeDef] = None
 
-class VideoPreprocessorTypeDef(BaseModel):
+class VideoPreprocessorTypeDef(BaseValidatorModel):
     ColorCorrector: Optional[ColorCorrectorTypeDef] = None
     Deinterlacer: Optional[DeinterlacerTypeDef] = None
     DolbyVision: Optional[DolbyVisionTypeDef] = None
@@ -1813,45 +1813,45 @@ class VideoPreprocessorTypeDef(BaseModel):
     PartnerWatermarking: Optional[PartnerWatermarkingTypeDef] = None
     TimecodeBurnin: Optional[TimecodeBurninTypeDef] = None
 
-class OutputGroupDetailTypeDef(BaseModel):
+class OutputGroupDetailTypeDef(BaseValidatorModel):
     OutputDetails: Optional[List[OutputDetailTypeDef]] = None
 
-class CreateQueueResponseTypeDef(BaseModel):
+class CreateQueueResponseTypeDef(BaseValidatorModel):
     Queue: QueueTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetQueueResponseTypeDef(BaseModel):
+class GetQueueResponseTypeDef(BaseValidatorModel):
     Queue: QueueTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListQueuesResponseTypeDef(BaseModel):
+class ListQueuesResponseTypeDef(BaseValidatorModel):
     Queues: List[QueueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateQueueResponseTypeDef(BaseModel):
+class UpdateQueueResponseTypeDef(BaseValidatorModel):
     Queue: QueueTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DestinationSettingsTypeDef(BaseModel):
+class DestinationSettingsTypeDef(BaseValidatorModel):
     S3Settings: Optional[S3DestinationSettingsTypeDef] = None
 
-class VideoOverlayExtraOutputTypeDef(BaseModel):
+class VideoOverlayExtraOutputTypeDef(BaseValidatorModel):
     EndTimecode: Optional[str] = None
     Input: Optional[VideoOverlayInputExtraOutputTypeDef] = None
     StartTimecode: Optional[str] = None
 
-class VideoOverlayOutputTypeDef(BaseModel):
+class VideoOverlayOutputTypeDef(BaseValidatorModel):
     EndTimecode: Optional[str] = None
     Input: Optional[VideoOverlayInputOutputTypeDef] = None
     StartTimecode: Optional[str] = None
 
-class VideoOverlayTypeDef(BaseModel):
+class VideoOverlayTypeDef(BaseValidatorModel):
     EndTimecode: Optional[str] = None
     Input: Optional[VideoOverlayInputTypeDef] = None
     StartTimecode: Optional[str] = None
 
-class VideoCodecSettingsTypeDef(BaseModel):
+class VideoCodecSettingsTypeDef(BaseValidatorModel):
     Av1Settings: Optional[Av1SettingsTypeDef] = None
     AvcIntraSettings: Optional[AvcIntraSettingsTypeDef] = None
     Codec: Optional[VideoCodecType] = None
@@ -1866,21 +1866,21 @@ class VideoCodecSettingsTypeDef(BaseModel):
     Vp9Settings: Optional[Vp9SettingsTypeDef] = None
     XavcSettings: Optional[XavcSettingsTypeDef] = None
 
-class AutomatedEncodingSettingsExtraOutputTypeDef(BaseModel):
+class AutomatedEncodingSettingsExtraOutputTypeDef(BaseValidatorModel):
     AbrSettings: Optional[AutomatedAbrSettingsExtraOutputTypeDef] = None
 
-class AutomatedEncodingSettingsOutputTypeDef(BaseModel):
+class AutomatedEncodingSettingsOutputTypeDef(BaseValidatorModel):
     AbrSettings: Optional[AutomatedAbrSettingsOutputTypeDef] = None
 
-class AutomatedEncodingSettingsTypeDef(BaseModel):
+class AutomatedEncodingSettingsTypeDef(BaseValidatorModel):
     AbrSettings: Optional[AutomatedAbrSettingsTypeDef] = None
 
-class CaptionSelectorTypeDef(BaseModel):
+class CaptionSelectorTypeDef(BaseValidatorModel):
     CustomLanguageCode: Optional[str] = None
     LanguageCode: Optional[LanguageCodeType] = None
     SourceSettings: Optional[CaptionSourceSettingsTypeDef] = None
 
-class AudioDescriptionExtraOutputTypeDef(BaseModel):
+class AudioDescriptionExtraOutputTypeDef(BaseValidatorModel):
     AudioChannelTaggingSettings: Optional[AudioChannelTaggingSettingsExtraOutputTypeDef] = None
     AudioNormalizationSettings: Optional[AudioNormalizationSettingsTypeDef] = None
     AudioSourceName: Optional[str] = None
@@ -1893,7 +1893,7 @@ class AudioDescriptionExtraOutputTypeDef(BaseModel):
     RemixSettings: Optional[RemixSettingsExtraOutputTypeDef] = None
     StreamName: Optional[str] = None
 
-class AudioSelectorExtraOutputTypeDef(BaseModel):
+class AudioSelectorExtraOutputTypeDef(BaseValidatorModel):
     AudioDurationCorrection: Optional[AudioDurationCorrectionType] = None
     CustomLanguageCode: Optional[str] = None
     DefaultSelection: Optional[AudioDefaultSelectionType] = None
@@ -1907,7 +1907,7 @@ class AudioSelectorExtraOutputTypeDef(BaseModel):
     SelectorType: Optional[AudioSelectorTypeType] = None
     Tracks: Optional[List[int]] = None
 
-class AudioDescriptionOutputTypeDef(BaseModel):
+class AudioDescriptionOutputTypeDef(BaseValidatorModel):
     AudioChannelTaggingSettings: Optional[AudioChannelTaggingSettingsOutputTypeDef] = None
     AudioNormalizationSettings: Optional[AudioNormalizationSettingsTypeDef] = None
     AudioSourceName: Optional[str] = None
@@ -1920,7 +1920,7 @@ class AudioDescriptionOutputTypeDef(BaseModel):
     RemixSettings: Optional[RemixSettingsOutputTypeDef] = None
     StreamName: Optional[str] = None
 
-class AudioSelectorOutputTypeDef(BaseModel):
+class AudioSelectorOutputTypeDef(BaseValidatorModel):
     AudioDurationCorrection: Optional[AudioDurationCorrectionType] = None
     CustomLanguageCode: Optional[str] = None
     DefaultSelection: Optional[AudioDefaultSelectionType] = None
@@ -1934,7 +1934,7 @@ class AudioSelectorOutputTypeDef(BaseModel):
     SelectorType: Optional[AudioSelectorTypeType] = None
     Tracks: Optional[List[int]] = None
 
-class AudioDescriptionTypeDef(BaseModel):
+class AudioDescriptionTypeDef(BaseValidatorModel):
     AudioChannelTaggingSettings: Optional[AudioChannelTaggingSettingsTypeDef] = None
     AudioNormalizationSettings: Optional[AudioNormalizationSettingsTypeDef] = None
     AudioSourceName: Optional[str] = None
@@ -1947,7 +1947,7 @@ class AudioDescriptionTypeDef(BaseModel):
     RemixSettings: Optional[RemixSettingsTypeDef] = None
     StreamName: Optional[str] = None
 
-class AudioSelectorTypeDef(BaseModel):
+class AudioSelectorTypeDef(BaseValidatorModel):
     AudioDurationCorrection: Optional[AudioDurationCorrectionType] = None
     CustomLanguageCode: Optional[str] = None
     DefaultSelection: Optional[AudioDefaultSelectionType] = None
@@ -1961,7 +1961,7 @@ class AudioSelectorTypeDef(BaseModel):
     SelectorType: Optional[AudioSelectorTypeType] = None
     Tracks: Optional[Sequence[int]] = None
 
-class CmafGroupSettingsExtraOutputTypeDef(BaseModel):
+class CmafGroupSettingsExtraOutputTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[List[CmafAdditionalManifestExtraOutputTypeDef]] = None
     BaseUrl: Optional[str] = None
     ClientCache: Optional[CmafClientCacheType] = None
@@ -1991,7 +1991,7 @@ class CmafGroupSettingsExtraOutputTypeDef(BaseModel):
     WriteHlsManifest: Optional[CmafWriteHLSManifestType] = None
     WriteSegmentTimelineInRepresentation: Optional[       CmafWriteSegmentTimelineInRepresentationType     ] = None
 
-class CmafGroupSettingsOutputTypeDef(BaseModel):
+class CmafGroupSettingsOutputTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[List[CmafAdditionalManifestOutputTypeDef]] = None
     BaseUrl: Optional[str] = None
     ClientCache: Optional[CmafClientCacheType] = None
@@ -2021,7 +2021,7 @@ class CmafGroupSettingsOutputTypeDef(BaseModel):
     WriteHlsManifest: Optional[CmafWriteHLSManifestType] = None
     WriteSegmentTimelineInRepresentation: Optional[       CmafWriteSegmentTimelineInRepresentationType     ] = None
 
-class CmafGroupSettingsTypeDef(BaseModel):
+class CmafGroupSettingsTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[Sequence[CmafAdditionalManifestTypeDef]] = None
     BaseUrl: Optional[str] = None
     ClientCache: Optional[CmafClientCacheType] = None
@@ -2051,7 +2051,7 @@ class CmafGroupSettingsTypeDef(BaseModel):
     WriteHlsManifest: Optional[CmafWriteHLSManifestType] = None
     WriteSegmentTimelineInRepresentation: Optional[       CmafWriteSegmentTimelineInRepresentationType     ] = None
 
-class DashIsoGroupSettingsExtraOutputTypeDef(BaseModel):
+class DashIsoGroupSettingsExtraOutputTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[List[DashAdditionalManifestExtraOutputTypeDef]] = None
     AudioChannelConfigSchemeIdUri: Optional[DashIsoGroupAudioChannelConfigSchemeIdUriType] = None
     BaseUrl: Optional[str] = None
@@ -2075,7 +2075,7 @@ class DashIsoGroupSettingsExtraOutputTypeDef(BaseModel):
     VideoCompositionOffsets: Optional[DashIsoVideoCompositionOffsetsType] = None
     WriteSegmentTimelineInRepresentation: Optional[       DashIsoWriteSegmentTimelineInRepresentationType     ] = None
 
-class DashIsoGroupSettingsOutputTypeDef(BaseModel):
+class DashIsoGroupSettingsOutputTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[List[DashAdditionalManifestOutputTypeDef]] = None
     AudioChannelConfigSchemeIdUri: Optional[DashIsoGroupAudioChannelConfigSchemeIdUriType] = None
     BaseUrl: Optional[str] = None
@@ -2099,7 +2099,7 @@ class DashIsoGroupSettingsOutputTypeDef(BaseModel):
     VideoCompositionOffsets: Optional[DashIsoVideoCompositionOffsetsType] = None
     WriteSegmentTimelineInRepresentation: Optional[       DashIsoWriteSegmentTimelineInRepresentationType     ] = None
 
-class DashIsoGroupSettingsTypeDef(BaseModel):
+class DashIsoGroupSettingsTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[Sequence[DashAdditionalManifestTypeDef]] = None
     AudioChannelConfigSchemeIdUri: Optional[DashIsoGroupAudioChannelConfigSchemeIdUriType] = None
     BaseUrl: Optional[str] = None
@@ -2123,11 +2123,11 @@ class DashIsoGroupSettingsTypeDef(BaseModel):
     VideoCompositionOffsets: Optional[DashIsoVideoCompositionOffsetsType] = None
     WriteSegmentTimelineInRepresentation: Optional[       DashIsoWriteSegmentTimelineInRepresentationType     ] = None
 
-class FileGroupSettingsTypeDef(BaseModel):
+class FileGroupSettingsTypeDef(BaseValidatorModel):
     Destination: Optional[str] = None
     DestinationSettings: Optional[DestinationSettingsTypeDef] = None
 
-class HlsGroupSettingsExtraOutputTypeDef(BaseModel):
+class HlsGroupSettingsExtraOutputTypeDef(BaseValidatorModel):
     AdMarkers: Optional[List[HlsAdMarkersType]] = None
     AdditionalManifests: Optional[List[HlsAdditionalManifestExtraOutputTypeDef]] = None
     AudioOnlyHeader: Optional[HlsAudioOnlyHeaderType] = None
@@ -2161,7 +2161,7 @@ class HlsGroupSettingsExtraOutputTypeDef(BaseModel):
     TimedMetadataId3Period: Optional[int] = None
     TimestampDeltaMilliseconds: Optional[int] = None
 
-class HlsGroupSettingsOutputTypeDef(BaseModel):
+class HlsGroupSettingsOutputTypeDef(BaseValidatorModel):
     AdMarkers: Optional[List[HlsAdMarkersType]] = None
     AdditionalManifests: Optional[List[HlsAdditionalManifestOutputTypeDef]] = None
     AudioOnlyHeader: Optional[HlsAudioOnlyHeaderType] = None
@@ -2195,7 +2195,7 @@ class HlsGroupSettingsOutputTypeDef(BaseModel):
     TimedMetadataId3Period: Optional[int] = None
     TimestampDeltaMilliseconds: Optional[int] = None
 
-class HlsGroupSettingsTypeDef(BaseModel):
+class HlsGroupSettingsTypeDef(BaseValidatorModel):
     AdMarkers: Optional[Sequence[HlsAdMarkersType]] = None
     AdditionalManifests: Optional[Sequence[HlsAdditionalManifestTypeDef]] = None
     AudioOnlyHeader: Optional[HlsAudioOnlyHeaderType] = None
@@ -2229,7 +2229,7 @@ class HlsGroupSettingsTypeDef(BaseModel):
     TimedMetadataId3Period: Optional[int] = None
     TimestampDeltaMilliseconds: Optional[int] = None
 
-class MsSmoothGroupSettingsExtraOutputTypeDef(BaseModel):
+class MsSmoothGroupSettingsExtraOutputTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[List[MsSmoothAdditionalManifestExtraOutputTypeDef]] = None
     AudioDeduplication: Optional[MsSmoothAudioDeduplicationType] = None
     Destination: Optional[str] = None
@@ -2239,7 +2239,7 @@ class MsSmoothGroupSettingsExtraOutputTypeDef(BaseModel):
     FragmentLengthControl: Optional[MsSmoothFragmentLengthControlType] = None
     ManifestEncoding: Optional[MsSmoothManifestEncodingType] = None
 
-class MsSmoothGroupSettingsOutputTypeDef(BaseModel):
+class MsSmoothGroupSettingsOutputTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[List[MsSmoothAdditionalManifestOutputTypeDef]] = None
     AudioDeduplication: Optional[MsSmoothAudioDeduplicationType] = None
     Destination: Optional[str] = None
@@ -2249,7 +2249,7 @@ class MsSmoothGroupSettingsOutputTypeDef(BaseModel):
     FragmentLengthControl: Optional[MsSmoothFragmentLengthControlType] = None
     ManifestEncoding: Optional[MsSmoothManifestEncodingType] = None
 
-class MsSmoothGroupSettingsTypeDef(BaseModel):
+class MsSmoothGroupSettingsTypeDef(BaseValidatorModel):
     AdditionalManifests: Optional[Sequence[MsSmoothAdditionalManifestTypeDef]] = None
     AudioDeduplication: Optional[MsSmoothAudioDeduplicationType] = None
     Destination: Optional[str] = None
@@ -2259,7 +2259,7 @@ class MsSmoothGroupSettingsTypeDef(BaseModel):
     FragmentLengthControl: Optional[MsSmoothFragmentLengthControlType] = None
     ManifestEncoding: Optional[MsSmoothManifestEncodingType] = None
 
-class VideoDescriptionExtraOutputTypeDef(BaseModel):
+class VideoDescriptionExtraOutputTypeDef(BaseValidatorModel):
     AfdSignaling: Optional[AfdSignalingType] = None
     AntiAlias: Optional[AntiAliasType] = None
     CodecSettings: Optional[VideoCodecSettingsTypeDef] = None
@@ -2276,7 +2276,7 @@ class VideoDescriptionExtraOutputTypeDef(BaseModel):
     VideoPreprocessors: Optional[VideoPreprocessorExtraOutputTypeDef] = None
     Width: Optional[int] = None
 
-class VideoDescriptionOutputTypeDef(BaseModel):
+class VideoDescriptionOutputTypeDef(BaseValidatorModel):
     AfdSignaling: Optional[AfdSignalingType] = None
     AntiAlias: Optional[AntiAliasType] = None
     CodecSettings: Optional[VideoCodecSettingsTypeDef] = None
@@ -2293,7 +2293,7 @@ class VideoDescriptionOutputTypeDef(BaseModel):
     VideoPreprocessors: Optional[VideoPreprocessorOutputTypeDef] = None
     Width: Optional[int] = None
 
-class VideoDescriptionTypeDef(BaseModel):
+class VideoDescriptionTypeDef(BaseValidatorModel):
     AfdSignaling: Optional[AfdSignalingType] = None
     AntiAlias: Optional[AntiAliasType] = None
     CodecSettings: Optional[VideoCodecSettingsTypeDef] = None
@@ -2310,7 +2310,7 @@ class VideoDescriptionTypeDef(BaseModel):
     VideoPreprocessors: Optional[VideoPreprocessorTypeDef] = None
     Width: Optional[int] = None
 
-class InputExtraOutputTypeDef(BaseModel):
+class InputExtraOutputTypeDef(BaseValidatorModel):
     AdvancedInputFilter: Optional[AdvancedInputFilterType] = None
     AdvancedInputFilterSettings: Optional[AdvancedInputFilterSettingsTypeDef] = None
     AudioSelectorGroups: Optional[Dict[str, AudioSelectorGroupExtraOutputTypeDef]] = None
@@ -2337,7 +2337,7 @@ class InputExtraOutputTypeDef(BaseModel):
     VideoOverlays: Optional[List[VideoOverlayExtraOutputTypeDef]] = None
     VideoSelector: Optional[VideoSelectorTypeDef] = None
 
-class InputTemplateExtraOutputTypeDef(BaseModel):
+class InputTemplateExtraOutputTypeDef(BaseValidatorModel):
     AdvancedInputFilter: Optional[AdvancedInputFilterType] = None
     AdvancedInputFilterSettings: Optional[AdvancedInputFilterSettingsTypeDef] = None
     AudioSelectorGroups: Optional[Dict[str, AudioSelectorGroupExtraOutputTypeDef]] = None
@@ -2360,7 +2360,7 @@ class InputTemplateExtraOutputTypeDef(BaseModel):
     VideoOverlays: Optional[List[VideoOverlayExtraOutputTypeDef]] = None
     VideoSelector: Optional[VideoSelectorTypeDef] = None
 
-class InputOutputTypeDef(BaseModel):
+class InputOutputTypeDef(BaseValidatorModel):
     AdvancedInputFilter: Optional[AdvancedInputFilterType] = None
     AdvancedInputFilterSettings: Optional[AdvancedInputFilterSettingsTypeDef] = None
     AudioSelectorGroups: Optional[Dict[str, AudioSelectorGroupOutputTypeDef]] = None
@@ -2387,7 +2387,7 @@ class InputOutputTypeDef(BaseModel):
     VideoOverlays: Optional[List[VideoOverlayOutputTypeDef]] = None
     VideoSelector: Optional[VideoSelectorTypeDef] = None
 
-class InputTemplateOutputTypeDef(BaseModel):
+class InputTemplateOutputTypeDef(BaseValidatorModel):
     AdvancedInputFilter: Optional[AdvancedInputFilterType] = None
     AdvancedInputFilterSettings: Optional[AdvancedInputFilterSettingsTypeDef] = None
     AudioSelectorGroups: Optional[Dict[str, AudioSelectorGroupOutputTypeDef]] = None
@@ -2410,7 +2410,7 @@ class InputTemplateOutputTypeDef(BaseModel):
     VideoOverlays: Optional[List[VideoOverlayOutputTypeDef]] = None
     VideoSelector: Optional[VideoSelectorTypeDef] = None
 
-class InputTemplateTypeDef(BaseModel):
+class InputTemplateTypeDef(BaseValidatorModel):
     AdvancedInputFilter: Optional[AdvancedInputFilterType] = None
     AdvancedInputFilterSettings: Optional[AdvancedInputFilterSettingsTypeDef] = None
     AudioSelectorGroups: Optional[Mapping[str, AudioSelectorGroupTypeDef]] = None
@@ -2433,7 +2433,7 @@ class InputTemplateTypeDef(BaseModel):
     VideoOverlays: Optional[Sequence[VideoOverlayTypeDef]] = None
     VideoSelector: Optional[VideoSelectorTypeDef] = None
 
-class InputTypeDef(BaseModel):
+class InputTypeDef(BaseValidatorModel):
     AdvancedInputFilter: Optional[AdvancedInputFilterType] = None
     AdvancedInputFilterSettings: Optional[AdvancedInputFilterSettingsTypeDef] = None
     AudioSelectorGroups: Optional[Mapping[str, AudioSelectorGroupTypeDef]] = None
@@ -2460,7 +2460,7 @@ class InputTypeDef(BaseModel):
     VideoOverlays: Optional[Sequence[VideoOverlayTypeDef]] = None
     VideoSelector: Optional[VideoSelectorTypeDef] = None
 
-class OutputGroupSettingsExtraOutputTypeDef(BaseModel):
+class OutputGroupSettingsExtraOutputTypeDef(BaseValidatorModel):
     CmafGroupSettings: Optional[CmafGroupSettingsExtraOutputTypeDef] = None
     DashIsoGroupSettings: Optional[DashIsoGroupSettingsExtraOutputTypeDef] = None
     FileGroupSettings: Optional[FileGroupSettingsTypeDef] = None
@@ -2468,7 +2468,7 @@ class OutputGroupSettingsExtraOutputTypeDef(BaseModel):
     MsSmoothGroupSettings: Optional[MsSmoothGroupSettingsExtraOutputTypeDef] = None
     Type: Optional[OutputGroupTypeType] = None
 
-class OutputGroupSettingsOutputTypeDef(BaseModel):
+class OutputGroupSettingsOutputTypeDef(BaseValidatorModel):
     CmafGroupSettings: Optional[CmafGroupSettingsOutputTypeDef] = None
     DashIsoGroupSettings: Optional[DashIsoGroupSettingsOutputTypeDef] = None
     FileGroupSettings: Optional[FileGroupSettingsTypeDef] = None
@@ -2476,7 +2476,7 @@ class OutputGroupSettingsOutputTypeDef(BaseModel):
     MsSmoothGroupSettings: Optional[MsSmoothGroupSettingsOutputTypeDef] = None
     Type: Optional[OutputGroupTypeType] = None
 
-class OutputGroupSettingsTypeDef(BaseModel):
+class OutputGroupSettingsTypeDef(BaseValidatorModel):
     CmafGroupSettings: Optional[CmafGroupSettingsTypeDef] = None
     DashIsoGroupSettings: Optional[DashIsoGroupSettingsTypeDef] = None
     FileGroupSettings: Optional[FileGroupSettingsTypeDef] = None
@@ -2484,19 +2484,19 @@ class OutputGroupSettingsTypeDef(BaseModel):
     MsSmoothGroupSettings: Optional[MsSmoothGroupSettingsTypeDef] = None
     Type: Optional[OutputGroupTypeType] = None
 
-class PresetSettingsExtraOutputTypeDef(BaseModel):
+class PresetSettingsExtraOutputTypeDef(BaseValidatorModel):
     AudioDescriptions: Optional[List[AudioDescriptionExtraOutputTypeDef]] = None
     CaptionDescriptions: Optional[List[CaptionDescriptionPresetExtraOutputTypeDef]] = None
     ContainerSettings: Optional[ContainerSettingsExtraOutputTypeDef] = None
     VideoDescription: Optional[VideoDescriptionExtraOutputTypeDef] = None
 
-class PresetSettingsOutputTypeDef(BaseModel):
+class PresetSettingsOutputTypeDef(BaseValidatorModel):
     AudioDescriptions: Optional[List[AudioDescriptionOutputTypeDef]] = None
     CaptionDescriptions: Optional[List[CaptionDescriptionPresetOutputTypeDef]] = None
     ContainerSettings: Optional[ContainerSettingsOutputTypeDef] = None
     VideoDescription: Optional[VideoDescriptionOutputTypeDef] = None
 
-class OutputTypeDef(BaseModel):
+class OutputTypeDef(BaseValidatorModel):
     AudioDescriptions: Optional[Sequence[AudioDescriptionTypeDef]] = None
     CaptionDescriptions: Optional[Sequence[CaptionDescriptionTypeDef]] = None
     ContainerSettings: Optional[ContainerSettingsTypeDef] = None
@@ -2506,13 +2506,13 @@ class OutputTypeDef(BaseModel):
     Preset: Optional[str] = None
     VideoDescription: Optional[VideoDescriptionTypeDef] = None
 
-class PresetSettingsTypeDef(BaseModel):
+class PresetSettingsTypeDef(BaseValidatorModel):
     AudioDescriptions: Optional[Sequence[AudioDescriptionTypeDef]] = None
     CaptionDescriptions: Optional[Sequence[CaptionDescriptionPresetTypeDef]] = None
     ContainerSettings: Optional[ContainerSettingsTypeDef] = None
     VideoDescription: Optional[VideoDescriptionTypeDef] = None
 
-class PresetTypeDef(BaseModel):
+class PresetTypeDef(BaseValidatorModel):
     Name: str
     Settings: PresetSettingsOutputTypeDef
     Arn: Optional[str] = None
@@ -2522,58 +2522,58 @@ class PresetTypeDef(BaseModel):
     LastUpdated: Optional[datetime] = None
     Type: Optional[TypeType] = None
 
-class OutputGroupExtraOutputTypeDef(BaseModel):
+class OutputGroupExtraOutputTypeDef(BaseValidatorModel):
     AutomatedEncodingSettings: Optional[AutomatedEncodingSettingsExtraOutputTypeDef] = None
     CustomName: Optional[str] = None
     Name: Optional[str] = None
     OutputGroupSettings: Optional[OutputGroupSettingsExtraOutputTypeDef] = None
     Outputs: Optional[List[OutputTypeDef]] = None
 
-class OutputGroupOutputTypeDef(BaseModel):
+class OutputGroupOutputTypeDef(BaseValidatorModel):
     AutomatedEncodingSettings: Optional[AutomatedEncodingSettingsOutputTypeDef] = None
     CustomName: Optional[str] = None
     Name: Optional[str] = None
     OutputGroupSettings: Optional[OutputGroupSettingsOutputTypeDef] = None
     Outputs: Optional[List[OutputTypeDef]] = None
 
-class OutputGroupTypeDef(BaseModel):
+class OutputGroupTypeDef(BaseValidatorModel):
     AutomatedEncodingSettings: Optional[AutomatedEncodingSettingsTypeDef] = None
     CustomName: Optional[str] = None
     Name: Optional[str] = None
     OutputGroupSettings: Optional[OutputGroupSettingsTypeDef] = None
     Outputs: Optional[Sequence[OutputTypeDef]] = None
 
-class CreatePresetRequestRequestTypeDef(BaseModel):
+class CreatePresetRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Settings: PresetSettingsTypeDef
     Category: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdatePresetRequestRequestTypeDef(BaseModel):
+class UpdatePresetRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Category: Optional[str] = None
     Description: Optional[str] = None
     Settings: Optional[PresetSettingsTypeDef] = None
 
-class CreatePresetResponseTypeDef(BaseModel):
+class CreatePresetResponseTypeDef(BaseValidatorModel):
     Preset: PresetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPresetResponseTypeDef(BaseModel):
+class GetPresetResponseTypeDef(BaseValidatorModel):
     Preset: PresetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPresetsResponseTypeDef(BaseModel):
+class ListPresetsResponseTypeDef(BaseValidatorModel):
     Presets: List[PresetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdatePresetResponseTypeDef(BaseModel):
+class UpdatePresetResponseTypeDef(BaseValidatorModel):
     Preset: PresetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JobSettingsExtraOutputTypeDef(BaseModel):
+class JobSettingsExtraOutputTypeDef(BaseValidatorModel):
     AdAvailOffset: Optional[int] = None
     AvailBlanking: Optional[AvailBlankingTypeDef] = None
     ColorConversion3DLUTSettings: Optional[List[ColorConversion3DLUTSettingTypeDef]] = None
@@ -2589,7 +2589,7 @@ class JobSettingsExtraOutputTypeDef(BaseModel):
     TimecodeConfig: Optional[TimecodeConfigTypeDef] = None
     TimedMetadataInsertion: Optional[TimedMetadataInsertionExtraOutputTypeDef] = None
 
-class JobTemplateSettingsExtraOutputTypeDef(BaseModel):
+class JobTemplateSettingsExtraOutputTypeDef(BaseValidatorModel):
     AdAvailOffset: Optional[int] = None
     AvailBlanking: Optional[AvailBlankingTypeDef] = None
     ColorConversion3DLUTSettings: Optional[List[ColorConversion3DLUTSettingTypeDef]] = None
@@ -2605,7 +2605,7 @@ class JobTemplateSettingsExtraOutputTypeDef(BaseModel):
     TimecodeConfig: Optional[TimecodeConfigTypeDef] = None
     TimedMetadataInsertion: Optional[TimedMetadataInsertionExtraOutputTypeDef] = None
 
-class JobSettingsOutputTypeDef(BaseModel):
+class JobSettingsOutputTypeDef(BaseValidatorModel):
     AdAvailOffset: Optional[int] = None
     AvailBlanking: Optional[AvailBlankingTypeDef] = None
     ColorConversion3DLUTSettings: Optional[List[ColorConversion3DLUTSettingTypeDef]] = None
@@ -2621,7 +2621,7 @@ class JobSettingsOutputTypeDef(BaseModel):
     TimecodeConfig: Optional[TimecodeConfigTypeDef] = None
     TimedMetadataInsertion: Optional[TimedMetadataInsertionOutputTypeDef] = None
 
-class JobTemplateSettingsOutputTypeDef(BaseModel):
+class JobTemplateSettingsOutputTypeDef(BaseValidatorModel):
     AdAvailOffset: Optional[int] = None
     AvailBlanking: Optional[AvailBlankingTypeDef] = None
     ColorConversion3DLUTSettings: Optional[List[ColorConversion3DLUTSettingTypeDef]] = None
@@ -2637,7 +2637,7 @@ class JobTemplateSettingsOutputTypeDef(BaseModel):
     TimecodeConfig: Optional[TimecodeConfigTypeDef] = None
     TimedMetadataInsertion: Optional[TimedMetadataInsertionOutputTypeDef] = None
 
-class JobSettingsTypeDef(BaseModel):
+class JobSettingsTypeDef(BaseValidatorModel):
     AdAvailOffset: Optional[int] = None
     AvailBlanking: Optional[AvailBlankingTypeDef] = None
     ColorConversion3DLUTSettings: Optional[Sequence[ColorConversion3DLUTSettingTypeDef]] = None
@@ -2653,7 +2653,7 @@ class JobSettingsTypeDef(BaseModel):
     TimecodeConfig: Optional[TimecodeConfigTypeDef] = None
     TimedMetadataInsertion: Optional[TimedMetadataInsertionTypeDef] = None
 
-class JobTemplateSettingsTypeDef(BaseModel):
+class JobTemplateSettingsTypeDef(BaseValidatorModel):
     AdAvailOffset: Optional[int] = None
     AvailBlanking: Optional[AvailBlankingTypeDef] = None
     ColorConversion3DLUTSettings: Optional[Sequence[ColorConversion3DLUTSettingTypeDef]] = None
@@ -2669,7 +2669,7 @@ class JobTemplateSettingsTypeDef(BaseModel):
     TimecodeConfig: Optional[TimecodeConfigTypeDef] = None
     TimedMetadataInsertion: Optional[TimedMetadataInsertionTypeDef] = None
 
-class JobTypeDef(BaseModel):
+class JobTypeDef(BaseValidatorModel):
     Role: str
     Settings: JobSettingsOutputTypeDef
     AccelerationSettings: Optional[AccelerationSettingsTypeDef] = None
@@ -2698,7 +2698,7 @@ class JobTypeDef(BaseModel):
     UserMetadata: Optional[Dict[str, str]] = None
     Warnings: Optional[List[WarningGroupTypeDef]] = None
 
-class JobTemplateTypeDef(BaseModel):
+class JobTemplateTypeDef(BaseValidatorModel):
     Name: str
     Settings: JobTemplateSettingsOutputTypeDef
     AccelerationSettings: Optional[AccelerationSettingsTypeDef] = None
@@ -2713,7 +2713,7 @@ class JobTemplateTypeDef(BaseModel):
     StatusUpdateInterval: Optional[StatusUpdateIntervalType] = None
     Type: Optional[TypeType] = None
 
-class CreateJobRequestRequestTypeDef(BaseModel):
+class CreateJobRequestRequestTypeDef(BaseValidatorModel):
     Role: str
     Settings: JobSettingsTypeDef
     AccelerationSettings: Optional[AccelerationSettingsTypeDef] = None
@@ -2728,7 +2728,7 @@ class CreateJobRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     UserMetadata: Optional[Mapping[str, str]] = None
 
-class CreateJobTemplateRequestRequestTypeDef(BaseModel):
+class CreateJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Settings: JobTemplateSettingsTypeDef
     AccelerationSettings: Optional[AccelerationSettingsTypeDef] = None
@@ -2740,7 +2740,7 @@ class CreateJobTemplateRequestRequestTypeDef(BaseModel):
     StatusUpdateInterval: Optional[StatusUpdateIntervalType] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateJobTemplateRequestRequestTypeDef(BaseModel):
+class UpdateJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     AccelerationSettings: Optional[AccelerationSettingsTypeDef] = None
     Category: Optional[str] = None
@@ -2751,38 +2751,38 @@ class UpdateJobTemplateRequestRequestTypeDef(BaseModel):
     Settings: Optional[JobTemplateSettingsTypeDef] = None
     StatusUpdateInterval: Optional[StatusUpdateIntervalType] = None
 
-class CreateJobResponseTypeDef(BaseModel):
+class CreateJobResponseTypeDef(BaseValidatorModel):
     Job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobResponseTypeDef(BaseModel):
+class GetJobResponseTypeDef(BaseValidatorModel):
     Job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobsResponseTypeDef(BaseModel):
+class ListJobsResponseTypeDef(BaseValidatorModel):
     Jobs: List[JobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SearchJobsResponseTypeDef(BaseModel):
+class SearchJobsResponseTypeDef(BaseValidatorModel):
     Jobs: List[JobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateJobTemplateResponseTypeDef(BaseModel):
+class CreateJobTemplateResponseTypeDef(BaseValidatorModel):
     JobTemplate: JobTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobTemplateResponseTypeDef(BaseModel):
+class GetJobTemplateResponseTypeDef(BaseValidatorModel):
     JobTemplate: JobTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobTemplatesResponseTypeDef(BaseModel):
+class ListJobTemplatesResponseTypeDef(BaseValidatorModel):
     JobTemplates: List[JobTemplateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateJobTemplateResponseTypeDef(BaseModel):
+class UpdateJobTemplateResponseTypeDef(BaseValidatorModel):
     JobTemplate: JobTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

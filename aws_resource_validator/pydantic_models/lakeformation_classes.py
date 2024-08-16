@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,252 +11,252 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.lakeformation_constants import *
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AddObjectInputTypeDef(BaseModel):
+class AddObjectInputTypeDef(BaseValidatorModel):
     Uri: str
     ETag: str
     Size: int
     PartitionValues: Optional[Sequence[str]] = None
 
-class AssumeDecoratedRoleWithSAMLRequestRequestTypeDef(BaseModel):
+class AssumeDecoratedRoleWithSAMLRequestRequestTypeDef(BaseValidatorModel):
     SAMLAssertion: str
     RoleArn: str
     PrincipalArn: str
     DurationSeconds: Optional[int] = None
 
-class AuditContextTypeDef(BaseModel):
+class AuditContextTypeDef(BaseValidatorModel):
     AdditionalAuditContext: Optional[str] = None
 
-class ErrorDetailTypeDef(BaseModel):
+class ErrorDetailTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class DataLakePrincipalTypeDef(BaseModel):
+class DataLakePrincipalTypeDef(BaseValidatorModel):
     DataLakePrincipalIdentifier: Optional[str] = None
 
-class CancelTransactionRequestRequestTypeDef(BaseModel):
+class CancelTransactionRequestRequestTypeDef(BaseValidatorModel):
     TransactionId: str
 
-class LFTagPairOutputTypeDef(BaseModel):
+class LFTagPairOutputTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: List[str]
     CatalogId: Optional[str] = None
 
-class ColumnWildcardExtraOutputTypeDef(BaseModel):
+class ColumnWildcardExtraOutputTypeDef(BaseValidatorModel):
     ExcludedColumnNames: Optional[List[str]] = None
 
-class ColumnWildcardOutputTypeDef(BaseModel):
+class ColumnWildcardOutputTypeDef(BaseValidatorModel):
     ExcludedColumnNames: Optional[List[str]] = None
 
-class ColumnWildcardTypeDef(BaseModel):
+class ColumnWildcardTypeDef(BaseValidatorModel):
     ExcludedColumnNames: Optional[Sequence[str]] = None
 
-class CommitTransactionRequestRequestTypeDef(BaseModel):
+class CommitTransactionRequestRequestTypeDef(BaseValidatorModel):
     TransactionId: str
 
-class CreateLFTagRequestRequestTypeDef(BaseModel):
+class CreateLFTagRequestRequestTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: Sequence[str]
     CatalogId: Optional[str] = None
 
-class ExternalFilteringConfigurationTypeDef(BaseModel):
+class ExternalFilteringConfigurationTypeDef(BaseValidatorModel):
     Status: EnableStatusType
     AuthorizedTargets: Sequence[str]
 
-class RowFilterExtraOutputTypeDef(BaseModel):
+class RowFilterExtraOutputTypeDef(BaseValidatorModel):
     FilterExpression: Optional[str] = None
     AllRowsWildcard: Optional[Dict[str, Any]] = None
 
-class RowFilterOutputTypeDef(BaseModel):
+class RowFilterOutputTypeDef(BaseValidatorModel):
     FilterExpression: Optional[str] = None
     AllRowsWildcard: Optional[Dict[str, Any]] = None
 
-class DataCellsFilterResourceTypeDef(BaseModel):
+class DataCellsFilterResourceTypeDef(BaseValidatorModel):
     TableCatalogId: Optional[str] = None
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
     Name: Optional[str] = None
 
-class RowFilterTypeDef(BaseModel):
+class RowFilterTypeDef(BaseValidatorModel):
     FilterExpression: Optional[str] = None
     AllRowsWildcard: Optional[Mapping[str, Any]] = None
 
-class DataLocationResourceTypeDef(BaseModel):
+class DataLocationResourceTypeDef(BaseValidatorModel):
     ResourceArn: str
     CatalogId: Optional[str] = None
 
-class DatabaseResourceTypeDef(BaseModel):
+class DatabaseResourceTypeDef(BaseValidatorModel):
     Name: str
     CatalogId: Optional[str] = None
 
-class DeleteDataCellsFilterRequestRequestTypeDef(BaseModel):
+class DeleteDataCellsFilterRequestRequestTypeDef(BaseValidatorModel):
     TableCatalogId: Optional[str] = None
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
     Name: Optional[str] = None
 
-class DeleteLFTagRequestRequestTypeDef(BaseModel):
+class DeleteLFTagRequestRequestTypeDef(BaseValidatorModel):
     TagKey: str
     CatalogId: Optional[str] = None
 
-class DeleteLakeFormationIdentityCenterConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteLakeFormationIdentityCenterConfigurationRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
-class DeleteObjectInputTypeDef(BaseModel):
+class DeleteObjectInputTypeDef(BaseValidatorModel):
     Uri: str
     ETag: Optional[str] = None
     PartitionValues: Optional[Sequence[str]] = None
 
-class VirtualObjectTypeDef(BaseModel):
+class VirtualObjectTypeDef(BaseValidatorModel):
     Uri: str
     ETag: Optional[str] = None
 
-class DeregisterResourceRequestRequestTypeDef(BaseModel):
+class DeregisterResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DescribeLakeFormationIdentityCenterConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeLakeFormationIdentityCenterConfigurationRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
-class ExternalFilteringConfigurationOutputTypeDef(BaseModel):
+class ExternalFilteringConfigurationOutputTypeDef(BaseValidatorModel):
     Status: EnableStatusType
     AuthorizedTargets: List[str]
 
-class DescribeResourceRequestRequestTypeDef(BaseModel):
+class DescribeResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ResourceInfoTypeDef(BaseModel):
+class ResourceInfoTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     RoleArn: Optional[str] = None
     LastModified: Optional[datetime] = None
     WithFederation: Optional[bool] = None
     HybridAccessEnabled: Optional[bool] = None
 
-class DescribeTransactionRequestRequestTypeDef(BaseModel):
+class DescribeTransactionRequestRequestTypeDef(BaseValidatorModel):
     TransactionId: str
 
-class TransactionDescriptionTypeDef(BaseModel):
+class TransactionDescriptionTypeDef(BaseValidatorModel):
     TransactionId: Optional[str] = None
     TransactionStatus: Optional[TransactionStatusType] = None
     TransactionStartTime: Optional[datetime] = None
     TransactionEndTime: Optional[datetime] = None
 
-class DetailsMapTypeDef(BaseModel):
+class DetailsMapTypeDef(BaseValidatorModel):
     ResourceShare: Optional[List[str]] = None
 
-class ExecutionStatisticsTypeDef(BaseModel):
+class ExecutionStatisticsTypeDef(BaseValidatorModel):
     AverageExecutionTimeMillis: Optional[int] = None
     DataScannedBytes: Optional[int] = None
     WorkUnitsExecutedCount: Optional[int] = None
 
-class ExtendTransactionRequestRequestTypeDef(BaseModel):
+class ExtendTransactionRequestRequestTypeDef(BaseValidatorModel):
     TransactionId: Optional[str] = None
 
-class FilterConditionTypeDef(BaseModel):
+class FilterConditionTypeDef(BaseValidatorModel):
     Field: Optional[FieldNameStringType] = None
     ComparisonOperator: Optional[ComparisonOperatorType] = None
     StringValueList: Optional[Sequence[str]] = None
 
-class GetDataCellsFilterRequestRequestTypeDef(BaseModel):
+class GetDataCellsFilterRequestRequestTypeDef(BaseValidatorModel):
     TableCatalogId: str
     DatabaseName: str
     TableName: str
     Name: str
 
-class GetDataLakeSettingsRequestRequestTypeDef(BaseModel):
+class GetDataLakeSettingsRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
-class GetEffectivePermissionsForPathRequestRequestTypeDef(BaseModel):
+class GetEffectivePermissionsForPathRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     CatalogId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetLFTagRequestRequestTypeDef(BaseModel):
+class GetLFTagRequestRequestTypeDef(BaseValidatorModel):
     TagKey: str
     CatalogId: Optional[str] = None
 
-class GetQueryStateRequestRequestTypeDef(BaseModel):
+class GetQueryStateRequestRequestTypeDef(BaseValidatorModel):
     QueryId: str
 
-class GetQueryStatisticsRequestRequestTypeDef(BaseModel):
+class GetQueryStatisticsRequestRequestTypeDef(BaseValidatorModel):
     QueryId: str
 
-class PlanningStatisticsTypeDef(BaseModel):
+class PlanningStatisticsTypeDef(BaseValidatorModel):
     EstimatedDataToScanBytes: Optional[int] = None
     PlanningTimeMillis: Optional[int] = None
     QueueTimeMillis: Optional[int] = None
     WorkUnitsGeneratedCount: Optional[int] = None
 
-class PartitionValueListTypeDef(BaseModel):
+class PartitionValueListTypeDef(BaseValidatorModel):
     Values: Sequence[str]
 
-class GetWorkUnitResultsRequestRequestTypeDef(BaseModel):
+class GetWorkUnitResultsRequestRequestTypeDef(BaseValidatorModel):
     QueryId: str
     WorkUnitId: int
     WorkUnitToken: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetWorkUnitsRequestRequestTypeDef(BaseModel):
+class GetWorkUnitsRequestRequestTypeDef(BaseValidatorModel):
     QueryId: str
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
-class WorkUnitRangeTypeDef(BaseModel):
+class WorkUnitRangeTypeDef(BaseValidatorModel):
     WorkUnitIdMax: int
     WorkUnitIdMin: int
     WorkUnitToken: str
 
-class LFTagKeyResourceOutputTypeDef(BaseModel):
+class LFTagKeyResourceOutputTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: List[str]
     CatalogId: Optional[str] = None
 
-class LFTagKeyResourceTypeDef(BaseModel):
+class LFTagKeyResourceTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: Sequence[str]
     CatalogId: Optional[str] = None
 
-class LFTagOutputTypeDef(BaseModel):
+class LFTagOutputTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: List[str]
 
-class LFTagPairExtraOutputTypeDef(BaseModel):
+class LFTagPairExtraOutputTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: List[str]
     CatalogId: Optional[str] = None
 
-class LFTagPairTypeDef(BaseModel):
+class LFTagPairTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: Sequence[str]
     CatalogId: Optional[str] = None
 
-class LFTagTypeDef(BaseModel):
+class LFTagTypeDef(BaseValidatorModel):
     TagKey: str
     TagValues: Sequence[str]
 
-class TableResourceTypeDef(BaseModel):
+class TableResourceTypeDef(BaseValidatorModel):
     DatabaseName: str
     CatalogId: Optional[str] = None
     Name: Optional[str] = None
     TableWildcard: Optional[Mapping[str, Any]] = None
 
-class ListLFTagsRequestRequestTypeDef(BaseModel):
+class ListLFTagsRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     ResourceShareType: Optional[ResourceShareTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTableStorageOptimizersRequestRequestTypeDef(BaseModel):
+class ListTableStorageOptimizersRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
@@ -264,102 +264,102 @@ class ListTableStorageOptimizersRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class StorageOptimizerTypeDef(BaseModel):
+class StorageOptimizerTypeDef(BaseValidatorModel):
     StorageOptimizerType: Optional[OptimizerTypeType] = None
     Config: Optional[Dict[str, str]] = None
     ErrorMessage: Optional[str] = None
     Warnings: Optional[str] = None
     LastRunDetails: Optional[str] = None
 
-class ListTransactionsRequestRequestTypeDef(BaseModel):
+class ListTransactionsRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     StatusFilter: Optional[TransactionStatusFilterType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class TableObjectTypeDef(BaseModel):
+class TableObjectTypeDef(BaseValidatorModel):
     Uri: Optional[str] = None
     ETag: Optional[str] = None
     Size: Optional[int] = None
 
-class RegisterResourceRequestRequestTypeDef(BaseModel):
+class RegisterResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     UseServiceLinkedRole: Optional[bool] = None
     RoleArn: Optional[str] = None
     WithFederation: Optional[bool] = None
     HybridAccessEnabled: Optional[bool] = None
 
-class TableResourceOutputTypeDef(BaseModel):
+class TableResourceOutputTypeDef(BaseValidatorModel):
     DatabaseName: str
     CatalogId: Optional[str] = None
     Name: Optional[str] = None
     TableWildcard: Optional[Dict[str, Any]] = None
 
-class StartTransactionRequestRequestTypeDef(BaseModel):
+class StartTransactionRequestRequestTypeDef(BaseValidatorModel):
     TransactionType: Optional[TransactionTypeType] = None
 
-class TableResourceExtraOutputTypeDef(BaseModel):
+class TableResourceExtraOutputTypeDef(BaseValidatorModel):
     DatabaseName: str
     CatalogId: Optional[str] = None
     Name: Optional[str] = None
     TableWildcard: Optional[Dict[str, Any]] = None
 
-class UpdateLFTagRequestRequestTypeDef(BaseModel):
+class UpdateLFTagRequestRequestTypeDef(BaseValidatorModel):
     TagKey: str
     CatalogId: Optional[str] = None
     TagValuesToDelete: Optional[Sequence[str]] = None
     TagValuesToAdd: Optional[Sequence[str]] = None
 
-class UpdateResourceRequestRequestTypeDef(BaseModel):
+class UpdateResourceRequestRequestTypeDef(BaseValidatorModel):
     RoleArn: str
     ResourceArn: str
     WithFederation: Optional[bool] = None
     HybridAccessEnabled: Optional[bool] = None
 
-class UpdateTableStorageOptimizerRequestRequestTypeDef(BaseModel):
+class UpdateTableStorageOptimizerRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     StorageOptimizerConfig: Mapping[OptimizerTypeType, Mapping[str, str]]
     CatalogId: Optional[str] = None
 
-class AssumeDecoratedRoleWithSAMLResponseTypeDef(BaseModel):
+class AssumeDecoratedRoleWithSAMLResponseTypeDef(BaseValidatorModel):
     AccessKeyId: str
     SecretAccessKey: str
     SessionToken: str
     Expiration: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CommitTransactionResponseTypeDef(BaseModel):
+class CommitTransactionResponseTypeDef(BaseValidatorModel):
     TransactionStatus: TransactionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLakeFormationIdentityCenterConfigurationResponseTypeDef(BaseModel):
+class CreateLakeFormationIdentityCenterConfigurationResponseTypeDef(BaseValidatorModel):
     ApplicationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDataLakePrincipalResponseTypeDef(BaseModel):
+class GetDataLakePrincipalResponseTypeDef(BaseValidatorModel):
     Identity: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLFTagResponseTypeDef(BaseModel):
+class GetLFTagResponseTypeDef(BaseValidatorModel):
     CatalogId: str
     TagKey: str
     TagValues: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetQueryStateResponseTypeDef(BaseModel):
+class GetQueryStateResponseTypeDef(BaseValidatorModel):
     Error: str
     State: QueryStateStringType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTemporaryGluePartitionCredentialsResponseTypeDef(BaseModel):
+class GetTemporaryGluePartitionCredentialsResponseTypeDef(BaseValidatorModel):
     AccessKeyId: str
     SecretAccessKey: str
     SessionToken: str
     Expiration: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTemporaryGlueTableCredentialsResponseTypeDef(BaseModel):
+class GetTemporaryGlueTableCredentialsResponseTypeDef(BaseValidatorModel):
     AccessKeyId: str
     SecretAccessKey: str
     SessionToken: str
@@ -367,70 +367,70 @@ class GetTemporaryGlueTableCredentialsResponseTypeDef(BaseModel):
     VendedS3Path: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWorkUnitResultsResponseTypeDef(BaseModel):
+class GetWorkUnitResultsResponseTypeDef(BaseValidatorModel):
     ResultStream: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartQueryPlanningResponseTypeDef(BaseModel):
+class StartQueryPlanningResponseTypeDef(BaseValidatorModel):
     QueryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTransactionResponseTypeDef(BaseModel):
+class StartTransactionResponseTypeDef(BaseValidatorModel):
     TransactionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTableStorageOptimizerResponseTypeDef(BaseModel):
+class UpdateTableStorageOptimizerResponseTypeDef(BaseValidatorModel):
     Result: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PrincipalPermissionsOutputTypeDef(BaseModel):
+class PrincipalPermissionsOutputTypeDef(BaseValidatorModel):
     Principal: Optional[DataLakePrincipalTypeDef] = None
     Permissions: Optional[List[PermissionType]] = None
 
-class PrincipalPermissionsTypeDef(BaseModel):
+class PrincipalPermissionsTypeDef(BaseValidatorModel):
     Principal: Optional[DataLakePrincipalTypeDef] = None
     Permissions: Optional[Sequence[PermissionType]] = None
 
-class ColumnLFTagTypeDef(BaseModel):
+class ColumnLFTagTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     LFTags: Optional[List[LFTagPairOutputTypeDef]] = None
 
-class LFTagErrorTypeDef(BaseModel):
+class LFTagErrorTypeDef(BaseValidatorModel):
     LFTag: Optional[LFTagPairOutputTypeDef] = None
     Error: Optional[ErrorDetailTypeDef] = None
 
-class ListLFTagsResponseTypeDef(BaseModel):
+class ListLFTagsResponseTypeDef(BaseValidatorModel):
     LFTags: List[LFTagPairOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TableWithColumnsResourceOutputTypeDef(BaseModel):
+class TableWithColumnsResourceOutputTypeDef(BaseValidatorModel):
     DatabaseName: str
     Name: str
     CatalogId: Optional[str] = None
     ColumnNames: Optional[List[str]] = None
     ColumnWildcard: Optional[ColumnWildcardOutputTypeDef] = None
 
-class TableWithColumnsResourceTypeDef(BaseModel):
+class TableWithColumnsResourceTypeDef(BaseValidatorModel):
     DatabaseName: str
     Name: str
     CatalogId: Optional[str] = None
     ColumnNames: Optional[Sequence[str]] = None
     ColumnWildcard: Optional[ColumnWildcardTypeDef] = None
 
-class CreateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef(BaseModel):
+class CreateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     InstanceArn: Optional[str] = None
     ExternalFiltering: Optional[ExternalFilteringConfigurationTypeDef] = None
     ShareRecipients: Optional[Sequence[DataLakePrincipalTypeDef]] = None
 
-class UpdateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateLakeFormationIdentityCenterConfigurationRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     ShareRecipients: Optional[Sequence[DataLakePrincipalTypeDef]] = None
     ApplicationStatus: Optional[ApplicationStatusType] = None
     ExternalFiltering: Optional[ExternalFilteringConfigurationTypeDef] = None
 
-class DataCellsFilterExtraOutputTypeDef(BaseModel):
+class DataCellsFilterExtraOutputTypeDef(BaseValidatorModel):
     TableCatalogId: str
     DatabaseName: str
     TableName: str
@@ -440,7 +440,7 @@ class DataCellsFilterExtraOutputTypeDef(BaseModel):
     ColumnWildcard: Optional[ColumnWildcardExtraOutputTypeDef] = None
     VersionId: Optional[str] = None
 
-class DataCellsFilterOutputTypeDef(BaseModel):
+class DataCellsFilterOutputTypeDef(BaseValidatorModel):
     TableCatalogId: str
     DatabaseName: str
     TableName: str
@@ -450,7 +450,7 @@ class DataCellsFilterOutputTypeDef(BaseModel):
     ColumnWildcard: Optional[ColumnWildcardOutputTypeDef] = None
     VersionId: Optional[str] = None
 
-class DataCellsFilterTypeDef(BaseModel):
+class DataCellsFilterTypeDef(BaseValidatorModel):
     TableCatalogId: str
     DatabaseName: str
     TableName: str
@@ -460,22 +460,22 @@ class DataCellsFilterTypeDef(BaseModel):
     ColumnWildcard: Optional[ColumnWildcardTypeDef] = None
     VersionId: Optional[str] = None
 
-class TaggedDatabaseTypeDef(BaseModel):
+class TaggedDatabaseTypeDef(BaseValidatorModel):
     Database: Optional[DatabaseResourceTypeDef] = None
     LFTags: Optional[List[LFTagPairOutputTypeDef]] = None
 
-class WriteOperationTypeDef(BaseModel):
+class WriteOperationTypeDef(BaseValidatorModel):
     AddObject: Optional[AddObjectInputTypeDef] = None
     DeleteObject: Optional[DeleteObjectInputTypeDef] = None
 
-class DeleteObjectsOnCancelRequestRequestTypeDef(BaseModel):
+class DeleteObjectsOnCancelRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     TransactionId: str
     Objects: Sequence[VirtualObjectTypeDef]
     CatalogId: Optional[str] = None
 
-class DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef(BaseModel):
+class DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef(BaseValidatorModel):
     CatalogId: str
     InstanceArn: str
     ApplicationArn: str
@@ -484,36 +484,36 @@ class DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef(BaseModel)
     ResourceShare: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeResourceResponseTypeDef(BaseModel):
+class DescribeResourceResponseTypeDef(BaseValidatorModel):
     ResourceInfo: ResourceInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourcesResponseTypeDef(BaseModel):
+class ListResourcesResponseTypeDef(BaseValidatorModel):
     ResourceInfoList: List[ResourceInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeTransactionResponseTypeDef(BaseModel):
+class DescribeTransactionResponseTypeDef(BaseValidatorModel):
     TransactionDescription: TransactionDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTransactionsResponseTypeDef(BaseModel):
+class ListTransactionsResponseTypeDef(BaseValidatorModel):
     Transactions: List[TransactionDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListResourcesRequestRequestTypeDef(BaseModel):
+class ListResourcesRequestRequestTypeDef(BaseValidatorModel):
     FilterConditionList: Optional[Sequence[FilterConditionTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetQueryStatisticsResponseTypeDef(BaseModel):
+class GetQueryStatisticsResponseTypeDef(BaseValidatorModel):
     ExecutionStatistics: ExecutionStatisticsTypeDef
     PlanningStatistics: PlanningStatisticsTypeDef
     QuerySubmissionTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTableObjectsRequestRequestTypeDef(BaseModel):
+class GetTableObjectsRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
@@ -523,21 +523,21 @@ class GetTableObjectsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class QueryPlanningContextTypeDef(BaseModel):
+class QueryPlanningContextTypeDef(BaseValidatorModel):
     DatabaseName: str
     CatalogId: Optional[str] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
     QueryParameters: Optional[Mapping[str, str]] = None
     TransactionId: Optional[str] = None
 
-class QuerySessionContextTypeDef(BaseModel):
+class QuerySessionContextTypeDef(BaseValidatorModel):
     QueryId: Optional[str] = None
     QueryStartTime: Optional[TimestampTypeDef] = None
     ClusterId: Optional[str] = None
     QueryAuthorizationId: Optional[str] = None
     AdditionalContext: Optional[Mapping[str, str]] = None
 
-class GetTemporaryGluePartitionCredentialsRequestRequestTypeDef(BaseModel):
+class GetTemporaryGluePartitionCredentialsRequestRequestTypeDef(BaseValidatorModel):
     TableArn: str
     Partition: PartitionValueListTypeDef
     Permissions: Optional[Sequence[PermissionType]] = None
@@ -545,50 +545,50 @@ class GetTemporaryGluePartitionCredentialsRequestRequestTypeDef(BaseModel):
     AuditContext: Optional[AuditContextTypeDef] = None
     SupportedPermissionTypes: Optional[Sequence[PermissionTypeType]] = None
 
-class GetWorkUnitsRequestGetWorkUnitsPaginateTypeDef(BaseModel):
+class GetWorkUnitsRequestGetWorkUnitsPaginateTypeDef(BaseValidatorModel):
     QueryId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLFTagsRequestListLFTagsPaginateTypeDef(BaseModel):
+class ListLFTagsRequestListLFTagsPaginateTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     ResourceShareType: Optional[ResourceShareTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetWorkUnitsResponseTypeDef(BaseModel):
+class GetWorkUnitsResponseTypeDef(BaseValidatorModel):
     QueryId: str
     WorkUnitRanges: List[WorkUnitRangeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LFTagPolicyResourceOutputTypeDef(BaseModel):
+class LFTagPolicyResourceOutputTypeDef(BaseValidatorModel):
     ResourceType: ResourceTypeType
     Expression: List[LFTagOutputTypeDef]
     CatalogId: Optional[str] = None
 
-class LFTagPolicyResourceTypeDef(BaseModel):
+class LFTagPolicyResourceTypeDef(BaseValidatorModel):
     ResourceType: ResourceTypeType
     Expression: Sequence[LFTagTypeDef]
     CatalogId: Optional[str] = None
 
-class ListDataCellsFilterRequestListDataCellsFilterPaginateTypeDef(BaseModel):
+class ListDataCellsFilterRequestListDataCellsFilterPaginateTypeDef(BaseValidatorModel):
     Table: Optional[TableResourceTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDataCellsFilterRequestRequestTypeDef(BaseModel):
+class ListDataCellsFilterRequestRequestTypeDef(BaseValidatorModel):
     Table: Optional[TableResourceTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTableStorageOptimizersResponseTypeDef(BaseModel):
+class ListTableStorageOptimizersResponseTypeDef(BaseValidatorModel):
     StorageOptimizerList: List[StorageOptimizerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PartitionObjectsTypeDef(BaseModel):
+class PartitionObjectsTypeDef(BaseValidatorModel):
     PartitionValues: Optional[List[str]] = None
     Objects: Optional[List[TableObjectTypeDef]] = None
 
-class DataLakeSettingsOutputTypeDef(BaseModel):
+class DataLakeSettingsOutputTypeDef(BaseValidatorModel):
     DataLakeAdmins: Optional[List[DataLakePrincipalTypeDef]] = None
     ReadOnlyAdmins: Optional[List[DataLakePrincipalTypeDef]] = None
     CreateDatabaseDefaultPermissions: Optional[List[PrincipalPermissionsOutputTypeDef]] = None
@@ -600,7 +600,7 @@ class DataLakeSettingsOutputTypeDef(BaseModel):
     ExternalDataFilteringAllowList: Optional[List[DataLakePrincipalTypeDef]] = None
     AuthorizedSessionTagValueList: Optional[List[str]] = None
 
-class DataLakeSettingsTypeDef(BaseModel):
+class DataLakeSettingsTypeDef(BaseValidatorModel):
     DataLakeAdmins: Optional[Sequence[DataLakePrincipalTypeDef]] = None
     ReadOnlyAdmins: Optional[Sequence[DataLakePrincipalTypeDef]] = None
     CreateDatabaseDefaultPermissions: Optional[Sequence[PrincipalPermissionsTypeDef]] = None
@@ -612,58 +612,58 @@ class DataLakeSettingsTypeDef(BaseModel):
     ExternalDataFilteringAllowList: Optional[Sequence[DataLakePrincipalTypeDef]] = None
     AuthorizedSessionTagValueList: Optional[Sequence[str]] = None
 
-class GetResourceLFTagsResponseTypeDef(BaseModel):
+class GetResourceLFTagsResponseTypeDef(BaseValidatorModel):
     LFTagOnDatabase: List[LFTagPairOutputTypeDef]
     LFTagsOnTable: List[LFTagPairOutputTypeDef]
     LFTagsOnColumns: List[ColumnLFTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TaggedTableTypeDef(BaseModel):
+class TaggedTableTypeDef(BaseValidatorModel):
     Table: Optional[TableResourceOutputTypeDef] = None
     LFTagOnDatabase: Optional[List[LFTagPairOutputTypeDef]] = None
     LFTagsOnTable: Optional[List[LFTagPairOutputTypeDef]] = None
     LFTagsOnColumns: Optional[List[ColumnLFTagTypeDef]] = None
 
-class AddLFTagsToResourceResponseTypeDef(BaseModel):
+class AddLFTagsToResourceResponseTypeDef(BaseValidatorModel):
     Failures: List[LFTagErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RemoveLFTagsFromResourceResponseTypeDef(BaseModel):
+class RemoveLFTagsFromResourceResponseTypeDef(BaseValidatorModel):
     Failures: List[LFTagErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDataCellsFilterResponseTypeDef(BaseModel):
+class GetDataCellsFilterResponseTypeDef(BaseValidatorModel):
     DataCellsFilter: DataCellsFilterOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataCellsFilterResponseTypeDef(BaseModel):
+class ListDataCellsFilterResponseTypeDef(BaseValidatorModel):
     DataCellsFilters: List[DataCellsFilterOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateDataCellsFilterRequestRequestTypeDef(BaseModel):
+class CreateDataCellsFilterRequestRequestTypeDef(BaseValidatorModel):
     TableData: DataCellsFilterTypeDef
 
-class UpdateDataCellsFilterRequestRequestTypeDef(BaseModel):
+class UpdateDataCellsFilterRequestRequestTypeDef(BaseValidatorModel):
     TableData: DataCellsFilterTypeDef
 
-class SearchDatabasesByLFTagsResponseTypeDef(BaseModel):
+class SearchDatabasesByLFTagsResponseTypeDef(BaseValidatorModel):
     DatabaseList: List[TaggedDatabaseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateTableObjectsRequestRequestTypeDef(BaseModel):
+class UpdateTableObjectsRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     WriteOperations: Sequence[WriteOperationTypeDef]
     CatalogId: Optional[str] = None
     TransactionId: Optional[str] = None
 
-class StartQueryPlanningRequestRequestTypeDef(BaseModel):
+class StartQueryPlanningRequestRequestTypeDef(BaseValidatorModel):
     QueryPlanningContext: QueryPlanningContextTypeDef
     QueryString: str
 
-class GetTemporaryGlueTableCredentialsRequestRequestTypeDef(BaseModel):
+class GetTemporaryGlueTableCredentialsRequestRequestTypeDef(BaseValidatorModel):
     TableArn: str
     Permissions: Optional[Sequence[PermissionType]] = None
     DurationSeconds: Optional[int] = None
@@ -672,7 +672,7 @@ class GetTemporaryGlueTableCredentialsRequestRequestTypeDef(BaseModel):
     S3Path: Optional[str] = None
     QuerySessionContext: Optional[QuerySessionContextTypeDef] = None
 
-class ResourceOutputTypeDef(BaseModel):
+class ResourceOutputTypeDef(BaseValidatorModel):
     Catalog: Optional[Dict[str, Any]] = None
     Database: Optional[DatabaseResourceTypeDef] = None
     Table: Optional[TableResourceOutputTypeDef] = None
@@ -682,7 +682,7 @@ class ResourceOutputTypeDef(BaseModel):
     LFTag: Optional[LFTagKeyResourceOutputTypeDef] = None
     LFTagPolicy: Optional[LFTagPolicyResourceOutputTypeDef] = None
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     Catalog: Optional[Mapping[str, Any]] = None
     Database: Optional[DatabaseResourceTypeDef] = None
     Table: Optional[TableResourceTypeDef] = None
@@ -692,60 +692,60 @@ class ResourceTypeDef(BaseModel):
     LFTag: Optional[LFTagKeyResourceTypeDef] = None
     LFTagPolicy: Optional[LFTagPolicyResourceTypeDef] = None
 
-class SearchDatabasesByLFTagsRequestRequestTypeDef(BaseModel):
+class SearchDatabasesByLFTagsRequestRequestTypeDef(BaseValidatorModel):
     Expression: Sequence[LFTagUnionTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     CatalogId: Optional[str] = None
 
-class SearchDatabasesByLFTagsRequestSearchDatabasesByLFTagsPaginateTypeDef(BaseModel):
+class SearchDatabasesByLFTagsRequestSearchDatabasesByLFTagsPaginateTypeDef(BaseValidatorModel):
     Expression: Sequence[LFTagUnionTypeDef]
     CatalogId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchTablesByLFTagsRequestRequestTypeDef(BaseModel):
+class SearchTablesByLFTagsRequestRequestTypeDef(BaseValidatorModel):
     Expression: Sequence[LFTagUnionTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     CatalogId: Optional[str] = None
 
-class SearchTablesByLFTagsRequestSearchTablesByLFTagsPaginateTypeDef(BaseModel):
+class SearchTablesByLFTagsRequestSearchTablesByLFTagsPaginateTypeDef(BaseValidatorModel):
     Expression: Sequence[LFTagUnionTypeDef]
     CatalogId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTableObjectsResponseTypeDef(BaseModel):
+class GetTableObjectsResponseTypeDef(BaseValidatorModel):
     Objects: List[PartitionObjectsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetDataLakeSettingsResponseTypeDef(BaseModel):
+class GetDataLakeSettingsResponseTypeDef(BaseValidatorModel):
     DataLakeSettings: DataLakeSettingsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDataLakeSettingsRequestRequestTypeDef(BaseModel):
+class PutDataLakeSettingsRequestRequestTypeDef(BaseValidatorModel):
     DataLakeSettings: DataLakeSettingsTypeDef
     CatalogId: Optional[str] = None
 
-class SearchTablesByLFTagsResponseTypeDef(BaseModel):
+class SearchTablesByLFTagsResponseTypeDef(BaseValidatorModel):
     TableList: List[TaggedTableTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchPermissionsRequestEntryOutputTypeDef(BaseModel):
+class BatchPermissionsRequestEntryOutputTypeDef(BaseValidatorModel):
     Id: str
     Principal: Optional[DataLakePrincipalTypeDef] = None
     Resource: Optional[ResourceOutputTypeDef] = None
     Permissions: Optional[List[PermissionType]] = None
     PermissionsWithGrantOption: Optional[List[PermissionType]] = None
 
-class LakeFormationOptInsInfoTypeDef(BaseModel):
+class LakeFormationOptInsInfoTypeDef(BaseValidatorModel):
     Resource: Optional[ResourceOutputTypeDef] = None
     Principal: Optional[DataLakePrincipalTypeDef] = None
     LastModified: Optional[datetime] = None
     LastUpdatedBy: Optional[str] = None
 
-class PrincipalResourcePermissionsTypeDef(BaseModel):
+class PrincipalResourcePermissionsTypeDef(BaseValidatorModel):
     Principal: Optional[DataLakePrincipalTypeDef] = None
     Resource: Optional[ResourceOutputTypeDef] = None
     Permissions: Optional[List[PermissionType]] = None
@@ -754,45 +754,45 @@ class PrincipalResourcePermissionsTypeDef(BaseModel):
     LastUpdated: Optional[datetime] = None
     LastUpdatedBy: Optional[str] = None
 
-class AddLFTagsToResourceRequestRequestTypeDef(BaseModel):
+class AddLFTagsToResourceRequestRequestTypeDef(BaseValidatorModel):
     Resource: ResourceTypeDef
     LFTags: Sequence[LFTagPairUnionTypeDef]
     CatalogId: Optional[str] = None
 
-class BatchPermissionsRequestEntryTypeDef(BaseModel):
+class BatchPermissionsRequestEntryTypeDef(BaseValidatorModel):
     Id: str
     Principal: Optional[DataLakePrincipalTypeDef] = None
     Resource: Optional[ResourceTypeDef] = None
     Permissions: Optional[Sequence[PermissionType]] = None
     PermissionsWithGrantOption: Optional[Sequence[PermissionType]] = None
 
-class CreateLakeFormationOptInRequestRequestTypeDef(BaseModel):
+class CreateLakeFormationOptInRequestRequestTypeDef(BaseValidatorModel):
     Principal: DataLakePrincipalTypeDef
     Resource: ResourceTypeDef
 
-class DeleteLakeFormationOptInRequestRequestTypeDef(BaseModel):
+class DeleteLakeFormationOptInRequestRequestTypeDef(BaseValidatorModel):
     Principal: DataLakePrincipalTypeDef
     Resource: ResourceTypeDef
 
-class GetResourceLFTagsRequestRequestTypeDef(BaseModel):
+class GetResourceLFTagsRequestRequestTypeDef(BaseValidatorModel):
     Resource: ResourceTypeDef
     CatalogId: Optional[str] = None
     ShowAssignedLFTags: Optional[bool] = None
 
-class GrantPermissionsRequestRequestTypeDef(BaseModel):
+class GrantPermissionsRequestRequestTypeDef(BaseValidatorModel):
     Principal: DataLakePrincipalTypeDef
     Resource: ResourceTypeDef
     Permissions: Sequence[PermissionType]
     CatalogId: Optional[str] = None
     PermissionsWithGrantOption: Optional[Sequence[PermissionType]] = None
 
-class ListLakeFormationOptInsRequestRequestTypeDef(BaseModel):
+class ListLakeFormationOptInsRequestRequestTypeDef(BaseValidatorModel):
     Principal: Optional[DataLakePrincipalTypeDef] = None
     Resource: Optional[ResourceTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListPermissionsRequestRequestTypeDef(BaseModel):
+class ListPermissionsRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     Principal: Optional[DataLakePrincipalTypeDef] = None
     ResourceType: Optional[DataLakeResourceTypeType] = None
@@ -801,50 +801,50 @@ class ListPermissionsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     IncludeRelated: Optional[str] = None
 
-class RemoveLFTagsFromResourceRequestRequestTypeDef(BaseModel):
+class RemoveLFTagsFromResourceRequestRequestTypeDef(BaseValidatorModel):
     Resource: ResourceTypeDef
     LFTags: Sequence[LFTagPairUnionTypeDef]
     CatalogId: Optional[str] = None
 
-class RevokePermissionsRequestRequestTypeDef(BaseModel):
+class RevokePermissionsRequestRequestTypeDef(BaseValidatorModel):
     Principal: DataLakePrincipalTypeDef
     Resource: ResourceTypeDef
     Permissions: Sequence[PermissionType]
     CatalogId: Optional[str] = None
     PermissionsWithGrantOption: Optional[Sequence[PermissionType]] = None
 
-class BatchPermissionsFailureEntryTypeDef(BaseModel):
+class BatchPermissionsFailureEntryTypeDef(BaseValidatorModel):
     RequestEntry: Optional[BatchPermissionsRequestEntryOutputTypeDef] = None
     Error: Optional[ErrorDetailTypeDef] = None
 
-class ListLakeFormationOptInsResponseTypeDef(BaseModel):
+class ListLakeFormationOptInsResponseTypeDef(BaseValidatorModel):
     LakeFormationOptInsInfoList: List[LakeFormationOptInsInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetEffectivePermissionsForPathResponseTypeDef(BaseModel):
+class GetEffectivePermissionsForPathResponseTypeDef(BaseValidatorModel):
     Permissions: List[PrincipalResourcePermissionsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPermissionsResponseTypeDef(BaseModel):
+class ListPermissionsResponseTypeDef(BaseValidatorModel):
     PrincipalResourcePermissions: List[PrincipalResourcePermissionsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchGrantPermissionsResponseTypeDef(BaseModel):
+class BatchGrantPermissionsResponseTypeDef(BaseValidatorModel):
     Failures: List[BatchPermissionsFailureEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchRevokePermissionsResponseTypeDef(BaseModel):
+class BatchRevokePermissionsResponseTypeDef(BaseValidatorModel):
     Failures: List[BatchPermissionsFailureEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGrantPermissionsRequestRequestTypeDef(BaseModel):
+class BatchGrantPermissionsRequestRequestTypeDef(BaseValidatorModel):
     Entries: Sequence[BatchPermissionsRequestEntryUnionTypeDef]
     CatalogId: Optional[str] = None
 
-class BatchRevokePermissionsRequestRequestTypeDef(BaseModel):
+class BatchRevokePermissionsRequestRequestTypeDef(BaseValidatorModel):
     Entries: Sequence[BatchPermissionsRequestEntryUnionTypeDef]
     CatalogId: Optional[str] = None
 

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mobile_constants import *
 
-class BundleDetailsTypeDef(BaseModel):
+class BundleDetailsTypeDef(BaseValidatorModel):
     bundleId: Optional[str] = None
     title: Optional[str] = None
     version: Optional[str] = None
@@ -19,90 +19,90 @@ class BundleDetailsTypeDef(BaseModel):
     iconUrl: Optional[str] = None
     availablePlatforms: Optional[List[PlatformType]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DeleteProjectRequestRequestTypeDef(BaseModel):
+class DeleteProjectRequestRequestTypeDef(BaseValidatorModel):
     projectId: str
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     type: Optional[str] = None
     name: Optional[str] = None
     arn: Optional[str] = None
     feature: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
 
-class DescribeBundleRequestRequestTypeDef(BaseModel):
+class DescribeBundleRequestRequestTypeDef(BaseValidatorModel):
     bundleId: str
 
-class DescribeProjectRequestRequestTypeDef(BaseModel):
+class DescribeProjectRequestRequestTypeDef(BaseValidatorModel):
     projectId: str
     syncFromResources: Optional[bool] = None
 
-class ExportBundleRequestRequestTypeDef(BaseModel):
+class ExportBundleRequestRequestTypeDef(BaseValidatorModel):
     bundleId: str
     projectId: Optional[str] = None
     platform: Optional[PlatformType] = None
 
-class ExportProjectRequestRequestTypeDef(BaseModel):
+class ExportProjectRequestRequestTypeDef(BaseValidatorModel):
     projectId: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListBundlesRequestRequestTypeDef(BaseModel):
+class ListBundlesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListProjectsRequestRequestTypeDef(BaseModel):
+class ListProjectsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ProjectSummaryTypeDef(BaseModel):
+class ProjectSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     projectId: Optional[str] = None
 
-class CreateProjectRequestRequestTypeDef(BaseModel):
+class CreateProjectRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     region: Optional[str] = None
     contents: Optional[BlobTypeDef] = None
     snapshotId: Optional[str] = None
 
-class UpdateProjectRequestRequestTypeDef(BaseModel):
+class UpdateProjectRequestRequestTypeDef(BaseValidatorModel):
     projectId: str
     contents: Optional[BlobTypeDef] = None
 
-class DescribeBundleResultTypeDef(BaseModel):
+class DescribeBundleResultTypeDef(BaseValidatorModel):
     details: BundleDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportBundleResultTypeDef(BaseModel):
+class ExportBundleResultTypeDef(BaseValidatorModel):
     downloadUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportProjectResultTypeDef(BaseModel):
+class ExportProjectResultTypeDef(BaseValidatorModel):
     downloadUrl: str
     shareUrl: str
     snapshotId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBundlesResultTypeDef(BaseModel):
+class ListBundlesResultTypeDef(BaseValidatorModel):
     bundleList: List[BundleDetailsTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteProjectResultTypeDef(BaseModel):
+class DeleteProjectResultTypeDef(BaseValidatorModel):
     deletedResources: List[ResourceTypeDef]
     orphanedResources: List[ResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProjectDetailsTypeDef(BaseModel):
+class ProjectDetailsTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     projectId: Optional[str] = None
     region: Optional[str] = None
@@ -112,26 +112,26 @@ class ProjectDetailsTypeDef(BaseModel):
     consoleUrl: Optional[str] = None
     resources: Optional[List[ResourceTypeDef]] = None
 
-class ListBundlesRequestListBundlesPaginateTypeDef(BaseModel):
+class ListBundlesRequestListBundlesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectsRequestListProjectsPaginateTypeDef(BaseModel):
+class ListProjectsRequestListProjectsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectsResultTypeDef(BaseModel):
+class ListProjectsResultTypeDef(BaseValidatorModel):
     projects: List[ProjectSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProjectResultTypeDef(BaseModel):
+class CreateProjectResultTypeDef(BaseValidatorModel):
     details: ProjectDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeProjectResultTypeDef(BaseModel):
+class DescribeProjectResultTypeDef(BaseValidatorModel):
     details: ProjectDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProjectResultTypeDef(BaseModel):
+class UpdateProjectResultTypeDef(BaseValidatorModel):
     details: ProjectDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

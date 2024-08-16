@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,155 +11,155 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.oam_constants import *
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateSinkInputRequestTypeDef(BaseModel):
+class CreateSinkInputRequestTypeDef(BaseValidatorModel):
     Name: str
     Tags: Optional[Mapping[str, str]] = None
 
-class DeleteLinkInputRequestTypeDef(BaseModel):
+class DeleteLinkInputRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class DeleteSinkInputRequestTypeDef(BaseModel):
+class DeleteSinkInputRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class GetLinkInputRequestTypeDef(BaseModel):
+class GetLinkInputRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class GetSinkInputRequestTypeDef(BaseModel):
+class GetSinkInputRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class GetSinkPolicyInputRequestTypeDef(BaseModel):
+class GetSinkPolicyInputRequestTypeDef(BaseValidatorModel):
     SinkIdentifier: str
 
-class LogGroupConfigurationTypeDef(BaseModel):
+class LogGroupConfigurationTypeDef(BaseValidatorModel):
     Filter: str
 
-class MetricConfigurationTypeDef(BaseModel):
+class MetricConfigurationTypeDef(BaseValidatorModel):
     Filter: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAttachedLinksInputRequestTypeDef(BaseModel):
+class ListAttachedLinksInputRequestTypeDef(BaseValidatorModel):
     SinkIdentifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListAttachedLinksItemTypeDef(BaseModel):
+class ListAttachedLinksItemTypeDef(BaseValidatorModel):
     Label: Optional[str] = None
     LinkArn: Optional[str] = None
     ResourceTypes: Optional[List[str]] = None
 
-class ListLinksInputRequestTypeDef(BaseModel):
+class ListLinksInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListLinksItemTypeDef(BaseModel):
+class ListLinksItemTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Label: Optional[str] = None
     ResourceTypes: Optional[List[str]] = None
     SinkArn: Optional[str] = None
 
-class ListSinksInputRequestTypeDef(BaseModel):
+class ListSinksInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListSinksItemTypeDef(BaseModel):
+class ListSinksItemTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class PutSinkPolicyInputRequestTypeDef(BaseModel):
+class PutSinkPolicyInputRequestTypeDef(BaseValidatorModel):
     Policy: str
     SinkIdentifier: str
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class CreateSinkOutputTypeDef(BaseModel):
+class CreateSinkOutputTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSinkOutputTypeDef(BaseModel):
+class GetSinkOutputTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSinkPolicyOutputTypeDef(BaseModel):
+class GetSinkPolicyOutputTypeDef(BaseValidatorModel):
     Policy: str
     SinkArn: str
     SinkId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSinkPolicyOutputTypeDef(BaseModel):
+class PutSinkPolicyOutputTypeDef(BaseValidatorModel):
     Policy: str
     SinkArn: str
     SinkId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LinkConfigurationTypeDef(BaseModel):
+class LinkConfigurationTypeDef(BaseValidatorModel):
     LogGroupConfiguration: Optional[LogGroupConfigurationTypeDef] = None
     MetricConfiguration: Optional[MetricConfigurationTypeDef] = None
 
-class ListAttachedLinksInputListAttachedLinksPaginateTypeDef(BaseModel):
+class ListAttachedLinksInputListAttachedLinksPaginateTypeDef(BaseValidatorModel):
     SinkIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLinksInputListLinksPaginateTypeDef(BaseModel):
+class ListLinksInputListLinksPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSinksInputListSinksPaginateTypeDef(BaseModel):
+class ListSinksInputListSinksPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAttachedLinksOutputTypeDef(BaseModel):
+class ListAttachedLinksOutputTypeDef(BaseValidatorModel):
     Items: List[ListAttachedLinksItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListLinksOutputTypeDef(BaseModel):
+class ListLinksOutputTypeDef(BaseValidatorModel):
     Items: List[ListLinksItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSinksOutputTypeDef(BaseModel):
+class ListSinksOutputTypeDef(BaseValidatorModel):
     Items: List[ListSinksItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateLinkInputRequestTypeDef(BaseModel):
+class CreateLinkInputRequestTypeDef(BaseValidatorModel):
     LabelTemplate: str
     ResourceTypes: Sequence[ResourceTypeType]
     SinkIdentifier: str
     LinkConfiguration: Optional[LinkConfigurationTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateLinkOutputTypeDef(BaseModel):
+class CreateLinkOutputTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     Label: str
@@ -170,7 +170,7 @@ class CreateLinkOutputTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLinkOutputTypeDef(BaseModel):
+class GetLinkOutputTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     Label: str
@@ -181,12 +181,12 @@ class GetLinkOutputTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLinkInputRequestTypeDef(BaseModel):
+class UpdateLinkInputRequestTypeDef(BaseValidatorModel):
     Identifier: str
     ResourceTypes: Sequence[ResourceTypeType]
     LinkConfiguration: Optional[LinkConfigurationTypeDef] = None
 
-class UpdateLinkOutputTypeDef(BaseModel):
+class UpdateLinkOutputTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     Label: str

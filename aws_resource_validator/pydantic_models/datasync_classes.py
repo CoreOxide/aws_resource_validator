@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,69 +11,69 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.datasync_constants import *
 
-class CredentialsTypeDef(BaseModel):
+class CredentialsTypeDef(BaseValidatorModel):
     Username: str
     Password: str
 
-class DiscoveryServerConfigurationTypeDef(BaseModel):
+class DiscoveryServerConfigurationTypeDef(BaseValidatorModel):
     ServerHostname: str
     ServerPort: Optional[int] = None
 
-class TagListEntryTypeDef(BaseModel):
+class TagListEntryTypeDef(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class PlatformTypeDef(BaseModel):
+class PlatformTypeDef(BaseValidatorModel):
     Version: Optional[str] = None
 
-class AzureBlobSasConfigurationTypeDef(BaseModel):
+class AzureBlobSasConfigurationTypeDef(BaseValidatorModel):
     Token: str
 
-class CancelTaskExecutionRequestRequestTypeDef(BaseModel):
+class CancelTaskExecutionRequestRequestTypeDef(BaseValidatorModel):
     TaskExecutionArn: str
 
-class CapacityTypeDef(BaseModel):
+class CapacityTypeDef(BaseValidatorModel):
     Used: Optional[int] = None
     Provisioned: Optional[int] = None
     LogicalUsed: Optional[int] = None
     ClusterCloudStorageUsed: Optional[int] = None
 
-class Ec2ConfigTypeDef(BaseModel):
+class Ec2ConfigTypeDef(BaseValidatorModel):
     SubnetArn: str
     SecurityGroupArns: Sequence[str]
 
-class HdfsNameNodeTypeDef(BaseModel):
+class HdfsNameNodeTypeDef(BaseValidatorModel):
     Hostname: str
     Port: int
 
-class QopConfigurationTypeDef(BaseModel):
+class QopConfigurationTypeDef(BaseValidatorModel):
     RpcProtection: Optional[HdfsRpcProtectionType] = None
     DataTransferProtection: Optional[HdfsDataTransferProtectionType] = None
 
-class NfsMountOptionsTypeDef(BaseModel):
+class NfsMountOptionsTypeDef(BaseValidatorModel):
     Version: Optional[NfsVersionType] = None
 
-class OnPremConfigTypeDef(BaseModel):
+class OnPremConfigTypeDef(BaseValidatorModel):
     AgentArns: Sequence[str]
 
-class S3ConfigTypeDef(BaseModel):
+class S3ConfigTypeDef(BaseValidatorModel):
     BucketAccessRoleArn: str
 
-class SmbMountOptionsTypeDef(BaseModel):
+class SmbMountOptionsTypeDef(BaseValidatorModel):
     Version: Optional[SmbVersionType] = None
 
-class FilterRuleTypeDef(BaseModel):
+class FilterRuleTypeDef(BaseValidatorModel):
     FilterType: Optional[Literal["SIMPLE_PATTERN"]] = None
     Value: Optional[str] = None
 
-class OptionsTypeDef(BaseModel):
+class OptionsTypeDef(BaseValidatorModel):
     VerifyMode: Optional[VerifyModeType] = None
     OverwriteMode: Optional[OverwriteModeType] = None
     Atime: Optional[AtimeType] = None
@@ -90,80 +90,80 @@ class OptionsTypeDef(BaseModel):
     SecurityDescriptorCopyFlags: Optional[SmbSecurityDescriptorCopyFlagsType] = None
     ObjectTags: Optional[ObjectTagsType] = None
 
-class TaskScheduleTypeDef(BaseModel):
+class TaskScheduleTypeDef(BaseValidatorModel):
     ScheduleExpression: str
     Status: Optional[ScheduleStatusType] = None
 
-class DeleteAgentRequestRequestTypeDef(BaseModel):
+class DeleteAgentRequestRequestTypeDef(BaseValidatorModel):
     AgentArn: str
 
-class DeleteLocationRequestRequestTypeDef(BaseModel):
+class DeleteLocationRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DeleteTaskRequestRequestTypeDef(BaseModel):
+class DeleteTaskRequestRequestTypeDef(BaseValidatorModel):
     TaskArn: str
 
-class DescribeAgentRequestRequestTypeDef(BaseModel):
+class DescribeAgentRequestRequestTypeDef(BaseValidatorModel):
     AgentArn: str
 
-class PrivateLinkConfigTypeDef(BaseModel):
+class PrivateLinkConfigTypeDef(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
     PrivateLinkEndpoint: Optional[str] = None
     SubnetArns: Optional[List[str]] = None
     SecurityGroupArns: Optional[List[str]] = None
 
-class DescribeDiscoveryJobRequestRequestTypeDef(BaseModel):
+class DescribeDiscoveryJobRequestRequestTypeDef(BaseValidatorModel):
     DiscoveryJobArn: str
 
-class DescribeLocationAzureBlobRequestRequestTypeDef(BaseModel):
+class DescribeLocationAzureBlobRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DescribeLocationEfsRequestRequestTypeDef(BaseModel):
+class DescribeLocationEfsRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class Ec2ConfigOutputTypeDef(BaseModel):
+class Ec2ConfigOutputTypeDef(BaseValidatorModel):
     SubnetArn: str
     SecurityGroupArns: List[str]
 
-class DescribeLocationFsxLustreRequestRequestTypeDef(BaseModel):
+class DescribeLocationFsxLustreRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DescribeLocationFsxOntapRequestRequestTypeDef(BaseModel):
+class DescribeLocationFsxOntapRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DescribeLocationFsxOpenZfsRequestRequestTypeDef(BaseModel):
+class DescribeLocationFsxOpenZfsRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DescribeLocationFsxWindowsRequestRequestTypeDef(BaseModel):
+class DescribeLocationFsxWindowsRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DescribeLocationHdfsRequestRequestTypeDef(BaseModel):
+class DescribeLocationHdfsRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DescribeLocationNfsRequestRequestTypeDef(BaseModel):
+class DescribeLocationNfsRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class OnPremConfigOutputTypeDef(BaseModel):
+class OnPremConfigOutputTypeDef(BaseValidatorModel):
     AgentArns: List[str]
 
-class DescribeLocationObjectStorageRequestRequestTypeDef(BaseModel):
+class DescribeLocationObjectStorageRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DescribeLocationS3RequestRequestTypeDef(BaseModel):
+class DescribeLocationS3RequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DescribeLocationSmbRequestRequestTypeDef(BaseModel):
+class DescribeLocationSmbRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
 
-class DescribeStorageSystemRequestRequestTypeDef(BaseModel):
+class DescribeStorageSystemRequestRequestTypeDef(BaseValidatorModel):
     StorageSystemArn: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeStorageSystemResourcesRequestRequestTypeDef(BaseModel):
+class DescribeStorageSystemResourcesRequestRequestTypeDef(BaseValidatorModel):
     DiscoveryJobArn: str
     ResourceType: DiscoveryResourceTypeType
     ResourceIds: Optional[Sequence[str]] = None
@@ -171,15 +171,15 @@ class DescribeStorageSystemResourcesRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeTaskExecutionRequestRequestTypeDef(BaseModel):
+class DescribeTaskExecutionRequestRequestTypeDef(BaseValidatorModel):
     TaskExecutionArn: str
 
-class ReportResultTypeDef(BaseModel):
+class ReportResultTypeDef(BaseValidatorModel):
     Status: Optional[PhaseStatusType] = None
     ErrorCode: Optional[str] = None
     ErrorDetail: Optional[str] = None
 
-class TaskExecutionResultDetailTypeDef(BaseModel):
+class TaskExecutionResultDetailTypeDef(BaseValidatorModel):
     PrepareDuration: Optional[int] = None
     PrepareStatus: Optional[PhaseStatusType] = None
     TotalDuration: Optional[int] = None
@@ -190,85 +190,85 @@ class TaskExecutionResultDetailTypeDef(BaseModel):
     ErrorCode: Optional[str] = None
     ErrorDetail: Optional[str] = None
 
-class DescribeTaskRequestRequestTypeDef(BaseModel):
+class DescribeTaskRequestRequestTypeDef(BaseValidatorModel):
     TaskArn: str
 
-class TaskScheduleDetailsTypeDef(BaseModel):
+class TaskScheduleDetailsTypeDef(BaseValidatorModel):
     StatusUpdateTime: Optional[datetime] = None
     DisabledReason: Optional[str] = None
     DisabledBy: Optional[ScheduleDisabledByType] = None
 
-class DiscoveryJobListEntryTypeDef(BaseModel):
+class DiscoveryJobListEntryTypeDef(BaseValidatorModel):
     DiscoveryJobArn: Optional[str] = None
     Status: Optional[DiscoveryJobStatusType] = None
 
-class GenerateRecommendationsRequestRequestTypeDef(BaseModel):
+class GenerateRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     DiscoveryJobArn: str
     ResourceIds: Sequence[str]
     ResourceType: DiscoveryResourceTypeType
 
-class IOPSTypeDef(BaseModel):
+class IOPSTypeDef(BaseValidatorModel):
     Read: Optional[float] = None
     Write: Optional[float] = None
     Other: Optional[float] = None
     Total: Optional[float] = None
 
-class LatencyTypeDef(BaseModel):
+class LatencyTypeDef(BaseValidatorModel):
     Read: Optional[float] = None
     Write: Optional[float] = None
     Other: Optional[float] = None
 
-class ListAgentsRequestRequestTypeDef(BaseModel):
+class ListAgentsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListDiscoveryJobsRequestRequestTypeDef(BaseModel):
+class ListDiscoveryJobsRequestRequestTypeDef(BaseValidatorModel):
     StorageSystemArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class LocationFilterTypeDef(BaseModel):
+class LocationFilterTypeDef(BaseValidatorModel):
     Name: LocationFilterNameType
     Values: Sequence[str]
     Operator: OperatorType
 
-class LocationListEntryTypeDef(BaseModel):
+class LocationListEntryTypeDef(BaseValidatorModel):
     LocationArn: Optional[str] = None
     LocationUri: Optional[str] = None
 
-class ListStorageSystemsRequestRequestTypeDef(BaseModel):
+class ListStorageSystemsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class StorageSystemListEntryTypeDef(BaseModel):
+class StorageSystemListEntryTypeDef(BaseValidatorModel):
     StorageSystemArn: Optional[str] = None
     Name: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTaskExecutionsRequestRequestTypeDef(BaseModel):
+class ListTaskExecutionsRequestRequestTypeDef(BaseValidatorModel):
     TaskArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class TaskExecutionListEntryTypeDef(BaseModel):
+class TaskExecutionListEntryTypeDef(BaseValidatorModel):
     TaskExecutionArn: Optional[str] = None
     Status: Optional[TaskExecutionStatusType] = None
 
-class TaskFilterTypeDef(BaseModel):
+class TaskFilterTypeDef(BaseValidatorModel):
     Name: TaskFilterNameType
     Values: Sequence[str]
     Operator: OperatorType
 
-class TaskListEntryTypeDef(BaseModel):
+class TaskListEntryTypeDef(BaseValidatorModel):
     TaskArn: Optional[str] = None
     Status: Optional[TaskStatusType] = None
     Name: Optional[str] = None
 
-class MaxP95PerformanceTypeDef(BaseModel):
+class MaxP95PerformanceTypeDef(BaseValidatorModel):
     IopsRead: Optional[float] = None
     IopsWrite: Optional[float] = None
     IopsOther: Optional[float] = None
@@ -281,50 +281,50 @@ class MaxP95PerformanceTypeDef(BaseModel):
     LatencyWrite: Optional[float] = None
     LatencyOther: Optional[float] = None
 
-class RecommendationTypeDef(BaseModel):
+class RecommendationTypeDef(BaseValidatorModel):
     StorageType: Optional[str] = None
     StorageConfiguration: Optional[Dict[str, str]] = None
     EstimatedMonthlyStorageCost: Optional[str] = None
 
-class ThroughputTypeDef(BaseModel):
+class ThroughputTypeDef(BaseValidatorModel):
     Read: Optional[float] = None
     Write: Optional[float] = None
     Other: Optional[float] = None
     Total: Optional[float] = None
 
-class RemoveStorageSystemRequestRequestTypeDef(BaseModel):
+class RemoveStorageSystemRequestRequestTypeDef(BaseValidatorModel):
     StorageSystemArn: str
 
-class ReportDestinationS3TypeDef(BaseModel):
+class ReportDestinationS3TypeDef(BaseValidatorModel):
     S3BucketArn: str
     BucketAccessRoleArn: str
     Subdirectory: Optional[str] = None
 
-class ReportOverrideTypeDef(BaseModel):
+class ReportOverrideTypeDef(BaseValidatorModel):
     ReportLevel: Optional[ReportLevelType] = None
 
-class S3ManifestConfigTypeDef(BaseModel):
+class S3ManifestConfigTypeDef(BaseValidatorModel):
     ManifestObjectPath: str
     BucketAccessRoleArn: str
     S3BucketArn: str
     ManifestObjectVersionId: Optional[str] = None
 
-class StopDiscoveryJobRequestRequestTypeDef(BaseModel):
+class StopDiscoveryJobRequestRequestTypeDef(BaseValidatorModel):
     DiscoveryJobArn: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Keys: Sequence[str]
 
-class UpdateAgentRequestRequestTypeDef(BaseModel):
+class UpdateAgentRequestRequestTypeDef(BaseValidatorModel):
     AgentArn: str
     Name: Optional[str] = None
 
-class UpdateDiscoveryJobRequestRequestTypeDef(BaseModel):
+class UpdateDiscoveryJobRequestRequestTypeDef(BaseValidatorModel):
     DiscoveryJobArn: str
     CollectionDurationMinutes: int
 
-class UpdateStorageSystemRequestRequestTypeDef(BaseModel):
+class UpdateStorageSystemRequestRequestTypeDef(BaseValidatorModel):
     StorageSystemArn: str
     ServerConfiguration: Optional[DiscoveryServerConfigurationTypeDef] = None
     AgentArns: Optional[Sequence[str]] = None
@@ -332,7 +332,7 @@ class UpdateStorageSystemRequestRequestTypeDef(BaseModel):
     CloudWatchLogGroupArn: Optional[str] = None
     Credentials: Optional[CredentialsTypeDef] = None
 
-class AddStorageSystemRequestRequestTypeDef(BaseModel):
+class AddStorageSystemRequestRequestTypeDef(BaseValidatorModel):
     ServerConfiguration: DiscoveryServerConfigurationTypeDef
     SystemType: Literal["NetAppONTAP"]
     AgentArns: Sequence[str]
@@ -342,7 +342,7 @@ class AddStorageSystemRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
     Name: Optional[str] = None
 
-class CreateAgentRequestRequestTypeDef(BaseModel):
+class CreateAgentRequestRequestTypeDef(BaseValidatorModel):
     ActivationKey: str
     AgentName: Optional[str] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
@@ -350,13 +350,13 @@ class CreateAgentRequestRequestTypeDef(BaseModel):
     SubnetArns: Optional[Sequence[str]] = None
     SecurityGroupArns: Optional[Sequence[str]] = None
 
-class CreateLocationFsxLustreRequestRequestTypeDef(BaseModel):
+class CreateLocationFsxLustreRequestRequestTypeDef(BaseValidatorModel):
     FsxFilesystemArn: str
     SecurityGroupArns: Sequence[str]
     Subdirectory: Optional[str] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class CreateLocationFsxWindowsRequestRequestTypeDef(BaseModel):
+class CreateLocationFsxWindowsRequestRequestTypeDef(BaseValidatorModel):
     FsxFilesystemArn: str
     SecurityGroupArns: Sequence[str]
     User: str
@@ -365,73 +365,73 @@ class CreateLocationFsxWindowsRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
     Domain: Optional[str] = None
 
-class StartDiscoveryJobRequestRequestTypeDef(BaseModel):
+class StartDiscoveryJobRequestRequestTypeDef(BaseValidatorModel):
     StorageSystemArn: str
     CollectionDurationMinutes: int
     ClientToken: str
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagListEntryTypeDef]
 
-class AddStorageSystemResponseTypeDef(BaseModel):
+class AddStorageSystemResponseTypeDef(BaseValidatorModel):
     StorageSystemArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAgentResponseTypeDef(BaseModel):
+class CreateAgentResponseTypeDef(BaseValidatorModel):
     AgentArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationAzureBlobResponseTypeDef(BaseModel):
+class CreateLocationAzureBlobResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationEfsResponseTypeDef(BaseModel):
+class CreateLocationEfsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationFsxLustreResponseTypeDef(BaseModel):
+class CreateLocationFsxLustreResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationFsxOntapResponseTypeDef(BaseModel):
+class CreateLocationFsxOntapResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationFsxOpenZfsResponseTypeDef(BaseModel):
+class CreateLocationFsxOpenZfsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationFsxWindowsResponseTypeDef(BaseModel):
+class CreateLocationFsxWindowsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationHdfsResponseTypeDef(BaseModel):
+class CreateLocationHdfsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationNfsResponseTypeDef(BaseModel):
+class CreateLocationNfsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationObjectStorageResponseTypeDef(BaseModel):
+class CreateLocationObjectStorageResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationS3ResponseTypeDef(BaseModel):
+class CreateLocationS3ResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationSmbResponseTypeDef(BaseModel):
+class CreateLocationSmbResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTaskResponseTypeDef(BaseModel):
+class CreateTaskResponseTypeDef(BaseValidatorModel):
     TaskArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDiscoveryJobResponseTypeDef(BaseModel):
+class DescribeDiscoveryJobResponseTypeDef(BaseValidatorModel):
     StorageSystemArn: str
     DiscoveryJobArn: str
     CollectionDurationMinutes: int
@@ -440,7 +440,7 @@ class DescribeDiscoveryJobResponseTypeDef(BaseModel):
     JobEndTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocationAzureBlobResponseTypeDef(BaseModel):
+class DescribeLocationAzureBlobResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     AuthenticationType: Literal["SAS"]
@@ -450,14 +450,14 @@ class DescribeLocationAzureBlobResponseTypeDef(BaseModel):
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocationFsxLustreResponseTypeDef(BaseModel):
+class DescribeLocationFsxLustreResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     SecurityGroupArns: List[str]
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocationFsxWindowsResponseTypeDef(BaseModel):
+class DescribeLocationFsxWindowsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     SecurityGroupArns: List[str]
@@ -466,7 +466,7 @@ class DescribeLocationFsxWindowsResponseTypeDef(BaseModel):
     Domain: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocationObjectStorageResponseTypeDef(BaseModel):
+class DescribeLocationObjectStorageResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     AccessKey: str
@@ -477,7 +477,7 @@ class DescribeLocationObjectStorageResponseTypeDef(BaseModel):
     ServerCertificate: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeStorageSystemResponseTypeDef(BaseModel):
+class DescribeStorageSystemResponseTypeDef(BaseValidatorModel):
     StorageSystemArn: str
     ServerConfiguration: DiscoveryServerConfigurationTypeDef
     SystemType: Literal["NetAppONTAP"]
@@ -490,26 +490,26 @@ class DescribeStorageSystemResponseTypeDef(BaseModel):
     SecretsManagerArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class StartDiscoveryJobResponseTypeDef(BaseModel):
+class StartDiscoveryJobResponseTypeDef(BaseValidatorModel):
     DiscoveryJobArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTaskExecutionResponseTypeDef(BaseModel):
+class StartTaskExecutionResponseTypeDef(BaseValidatorModel):
     TaskExecutionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AgentListEntryTypeDef(BaseModel):
+class AgentListEntryTypeDef(BaseValidatorModel):
     AgentArn: Optional[str] = None
     Name: Optional[str] = None
     Status: Optional[AgentStatusType] = None
     Platform: Optional[PlatformTypeDef] = None
 
-class CreateLocationAzureBlobRequestRequestTypeDef(BaseModel):
+class CreateLocationAzureBlobRequestRequestTypeDef(BaseValidatorModel):
     ContainerUrl: str
     AuthenticationType: Literal["SAS"]
     AgentArns: Sequence[str]
@@ -519,7 +519,7 @@ class CreateLocationAzureBlobRequestRequestTypeDef(BaseModel):
     Subdirectory: Optional[str] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class UpdateLocationAzureBlobRequestRequestTypeDef(BaseModel):
+class UpdateLocationAzureBlobRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
     Subdirectory: Optional[str] = None
     AuthenticationType: Optional[Literal["SAS"]] = None
@@ -528,7 +528,7 @@ class UpdateLocationAzureBlobRequestRequestTypeDef(BaseModel):
     AccessTier: Optional[AzureAccessTierType] = None
     AgentArns: Optional[Sequence[str]] = None
 
-class CreateLocationObjectStorageRequestRequestTypeDef(BaseModel):
+class CreateLocationObjectStorageRequestRequestTypeDef(BaseValidatorModel):
     ServerHostname: str
     BucketName: str
     AgentArns: Sequence[str]
@@ -540,7 +540,7 @@ class CreateLocationObjectStorageRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
     ServerCertificate: Optional[BlobTypeDef] = None
 
-class UpdateLocationObjectStorageRequestRequestTypeDef(BaseModel):
+class UpdateLocationObjectStorageRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
     ServerPort: Optional[int] = None
     ServerProtocol: Optional[ObjectStorageServerProtocolType] = None
@@ -550,7 +550,7 @@ class UpdateLocationObjectStorageRequestRequestTypeDef(BaseModel):
     AgentArns: Optional[Sequence[str]] = None
     ServerCertificate: Optional[BlobTypeDef] = None
 
-class CreateLocationEfsRequestRequestTypeDef(BaseModel):
+class CreateLocationEfsRequestRequestTypeDef(BaseValidatorModel):
     EfsFilesystemArn: str
     Ec2Config: Ec2ConfigTypeDef
     Subdirectory: Optional[str] = None
@@ -559,7 +559,7 @@ class CreateLocationEfsRequestRequestTypeDef(BaseModel):
     FileSystemAccessRoleArn: Optional[str] = None
     InTransitEncryption: Optional[EfsInTransitEncryptionType] = None
 
-class CreateLocationHdfsRequestRequestTypeDef(BaseModel):
+class CreateLocationHdfsRequestRequestTypeDef(BaseValidatorModel):
     NameNodes: Sequence[HdfsNameNodeTypeDef]
     AuthenticationType: HdfsAuthenticationTypeType
     AgentArns: Sequence[str]
@@ -574,7 +574,7 @@ class CreateLocationHdfsRequestRequestTypeDef(BaseModel):
     KerberosKrb5Conf: Optional[BlobTypeDef] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class DescribeLocationHdfsResponseTypeDef(BaseModel):
+class DescribeLocationHdfsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     NameNodes: List[HdfsNameNodeTypeDef]
@@ -589,7 +589,7 @@ class DescribeLocationHdfsResponseTypeDef(BaseModel):
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLocationHdfsRequestRequestTypeDef(BaseModel):
+class UpdateLocationHdfsRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
     Subdirectory: Optional[str] = None
     NameNodes: Optional[Sequence[HdfsNameNodeTypeDef]] = None
@@ -604,23 +604,23 @@ class UpdateLocationHdfsRequestRequestTypeDef(BaseModel):
     KerberosKrb5Conf: Optional[BlobTypeDef] = None
     AgentArns: Optional[Sequence[str]] = None
 
-class FsxProtocolNfsTypeDef(BaseModel):
+class FsxProtocolNfsTypeDef(BaseValidatorModel):
     MountOptions: Optional[NfsMountOptionsTypeDef] = None
 
-class CreateLocationNfsRequestRequestTypeDef(BaseModel):
+class CreateLocationNfsRequestRequestTypeDef(BaseValidatorModel):
     Subdirectory: str
     ServerHostname: str
     OnPremConfig: OnPremConfigTypeDef
     MountOptions: Optional[NfsMountOptionsTypeDef] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class UpdateLocationNfsRequestRequestTypeDef(BaseModel):
+class UpdateLocationNfsRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
     Subdirectory: Optional[str] = None
     OnPremConfig: Optional[OnPremConfigTypeDef] = None
     MountOptions: Optional[NfsMountOptionsTypeDef] = None
 
-class CreateLocationS3RequestRequestTypeDef(BaseModel):
+class CreateLocationS3RequestRequestTypeDef(BaseValidatorModel):
     S3BucketArn: str
     S3Config: S3ConfigTypeDef
     Subdirectory: Optional[str] = None
@@ -628,7 +628,7 @@ class CreateLocationS3RequestRequestTypeDef(BaseModel):
     AgentArns: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class DescribeLocationS3ResponseTypeDef(BaseModel):
+class DescribeLocationS3ResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     S3StorageClass: S3StorageClassType
@@ -637,7 +637,7 @@ class DescribeLocationS3ResponseTypeDef(BaseModel):
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLocationSmbRequestRequestTypeDef(BaseModel):
+class CreateLocationSmbRequestRequestTypeDef(BaseValidatorModel):
     Subdirectory: str
     ServerHostname: str
     User: str
@@ -647,7 +647,7 @@ class CreateLocationSmbRequestRequestTypeDef(BaseModel):
     MountOptions: Optional[SmbMountOptionsTypeDef] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class DescribeLocationSmbResponseTypeDef(BaseModel):
+class DescribeLocationSmbResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     AgentArns: List[str]
@@ -657,13 +657,13 @@ class DescribeLocationSmbResponseTypeDef(BaseModel):
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FsxProtocolSmbTypeDef(BaseModel):
+class FsxProtocolSmbTypeDef(BaseValidatorModel):
     Password: str
     User: str
     Domain: Optional[str] = None
     MountOptions: Optional[SmbMountOptionsTypeDef] = None
 
-class UpdateLocationSmbRequestRequestTypeDef(BaseModel):
+class UpdateLocationSmbRequestRequestTypeDef(BaseValidatorModel):
     LocationArn: str
     Subdirectory: Optional[str] = None
     User: Optional[str] = None
@@ -672,11 +672,11 @@ class UpdateLocationSmbRequestRequestTypeDef(BaseModel):
     AgentArns: Optional[Sequence[str]] = None
     MountOptions: Optional[SmbMountOptionsTypeDef] = None
 
-class UpdateTaskExecutionRequestRequestTypeDef(BaseModel):
+class UpdateTaskExecutionRequestRequestTypeDef(BaseValidatorModel):
     TaskExecutionArn: str
     Options: OptionsTypeDef
 
-class DescribeAgentResponseTypeDef(BaseModel):
+class DescribeAgentResponseTypeDef(BaseValidatorModel):
     AgentArn: str
     Name: str
     Status: AgentStatusType
@@ -687,7 +687,7 @@ class DescribeAgentResponseTypeDef(BaseModel):
     Platform: PlatformTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocationEfsResponseTypeDef(BaseModel):
+class DescribeLocationEfsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     Ec2Config: Ec2ConfigOutputTypeDef
@@ -697,7 +697,7 @@ class DescribeLocationEfsResponseTypeDef(BaseModel):
     InTransitEncryption: EfsInTransitEncryptionType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocationNfsResponseTypeDef(BaseModel):
+class DescribeLocationNfsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     OnPremConfig: OnPremConfigOutputTypeDef
@@ -705,25 +705,25 @@ class DescribeLocationNfsResponseTypeDef(BaseModel):
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAgentsRequestListAgentsPaginateTypeDef(BaseModel):
+class ListAgentsRequestListAgentsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDiscoveryJobsRequestListDiscoveryJobsPaginateTypeDef(BaseModel):
+class ListDiscoveryJobsRequestListDiscoveryJobsPaginateTypeDef(BaseValidatorModel):
     StorageSystemArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStorageSystemsRequestListStorageSystemsPaginateTypeDef(BaseModel):
+class ListStorageSystemsRequestListStorageSystemsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     ResourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTaskExecutionsRequestListTaskExecutionsPaginateTypeDef(BaseModel):
+class ListTaskExecutionsRequestListTaskExecutionsPaginateTypeDef(BaseValidatorModel):
     TaskArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeStorageSystemResourceMetricsRequestDescribeStorageSystemResourceMetricsPaginateTypeDef(BaseModel):
+class DescribeStorageSystemResourceMetricsRequestDescribeStorageSystemResourceMetricsPaginateTypeDef(BaseValidatorModel):
     DiscoveryJobArn: str
     ResourceType: DiscoveryResourceTypeType
     ResourceId: str
@@ -731,7 +731,7 @@ class DescribeStorageSystemResourceMetricsRequestDescribeStorageSystemResourceMe
     EndTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeStorageSystemResourceMetricsRequestRequestTypeDef(BaseModel):
+class DescribeStorageSystemResourceMetricsRequestRequestTypeDef(BaseValidatorModel):
     DiscoveryJobArn: str
     ResourceType: DiscoveryResourceTypeType
     ResourceId: str
@@ -740,50 +740,50 @@ class DescribeStorageSystemResourceMetricsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListDiscoveryJobsResponseTypeDef(BaseModel):
+class ListDiscoveryJobsResponseTypeDef(BaseValidatorModel):
     DiscoveryJobs: List[DiscoveryJobListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListLocationsRequestListLocationsPaginateTypeDef(BaseModel):
+class ListLocationsRequestListLocationsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[LocationFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLocationsRequestRequestTypeDef(BaseModel):
+class ListLocationsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[LocationFilterTypeDef]] = None
 
-class ListLocationsResponseTypeDef(BaseModel):
+class ListLocationsResponseTypeDef(BaseValidatorModel):
     Locations: List[LocationListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListStorageSystemsResponseTypeDef(BaseModel):
+class ListStorageSystemsResponseTypeDef(BaseValidatorModel):
     StorageSystems: List[StorageSystemListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTaskExecutionsResponseTypeDef(BaseModel):
+class ListTaskExecutionsResponseTypeDef(BaseValidatorModel):
     TaskExecutions: List[TaskExecutionListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTasksRequestListTasksPaginateTypeDef(BaseModel):
+class ListTasksRequestListTasksPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[TaskFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTasksRequestRequestTypeDef(BaseModel):
+class ListTasksRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[TaskFilterTypeDef]] = None
 
-class ListTasksResponseTypeDef(BaseModel):
+class ListTasksResponseTypeDef(BaseValidatorModel):
     Tasks: List[TaskListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class NetAppONTAPClusterTypeDef(BaseModel):
+class NetAppONTAPClusterTypeDef(BaseValidatorModel):
     CifsShareCount: Optional[int] = None
     NfsExportedVolumes: Optional[int] = None
     ResourceId: Optional[str] = None
@@ -797,7 +797,7 @@ class NetAppONTAPClusterTypeDef(BaseModel):
     LunCount: Optional[int] = None
     ClusterCloudStorageUsed: Optional[int] = None
 
-class NetAppONTAPSVMTypeDef(BaseModel):
+class NetAppONTAPSVMTypeDef(BaseValidatorModel):
     ClusterUuid: Optional[str] = None
     ResourceId: Optional[str] = None
     SvmName: Optional[str] = None
@@ -813,7 +813,7 @@ class NetAppONTAPSVMTypeDef(BaseModel):
     TotalSnapshotCapacityUsed: Optional[int] = None
     LunCount: Optional[int] = None
 
-class NetAppONTAPVolumeTypeDef(BaseModel):
+class NetAppONTAPVolumeTypeDef(BaseValidatorModel):
     VolumeName: Optional[str] = None
     ResourceId: Optional[str] = None
     CifsShareCount: Optional[int] = None
@@ -830,71 +830,71 @@ class NetAppONTAPVolumeTypeDef(BaseModel):
     RecommendationStatus: Optional[RecommendationStatusType] = None
     LunCount: Optional[int] = None
 
-class P95MetricsTypeDef(BaseModel):
+class P95MetricsTypeDef(BaseValidatorModel):
     IOPS: Optional[IOPSTypeDef] = None
     Throughput: Optional[ThroughputTypeDef] = None
     Latency: Optional[LatencyTypeDef] = None
 
-class ReportDestinationTypeDef(BaseModel):
+class ReportDestinationTypeDef(BaseValidatorModel):
     S3: Optional[ReportDestinationS3TypeDef] = None
 
-class ReportOverridesTypeDef(BaseModel):
+class ReportOverridesTypeDef(BaseValidatorModel):
     Transferred: Optional[ReportOverrideTypeDef] = None
     Verified: Optional[ReportOverrideTypeDef] = None
     Deleted: Optional[ReportOverrideTypeDef] = None
     Skipped: Optional[ReportOverrideTypeDef] = None
 
-class SourceManifestConfigTypeDef(BaseModel):
+class SourceManifestConfigTypeDef(BaseValidatorModel):
     S3: S3ManifestConfigTypeDef
 
-class ListAgentsResponseTypeDef(BaseModel):
+class ListAgentsResponseTypeDef(BaseValidatorModel):
     Agents: List[AgentListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class FsxProtocolTypeDef(BaseModel):
+class FsxProtocolTypeDef(BaseValidatorModel):
     NFS: Optional[FsxProtocolNfsTypeDef] = None
     SMB: Optional[FsxProtocolSmbTypeDef] = None
 
-class ResourceDetailsTypeDef(BaseModel):
+class ResourceDetailsTypeDef(BaseValidatorModel):
     NetAppONTAPSVMs: Optional[List[NetAppONTAPSVMTypeDef]] = None
     NetAppONTAPVolumes: Optional[List[NetAppONTAPVolumeTypeDef]] = None
     NetAppONTAPClusters: Optional[List[NetAppONTAPClusterTypeDef]] = None
 
-class ResourceMetricsTypeDef(BaseModel):
+class ResourceMetricsTypeDef(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
     P95Metrics: Optional[P95MetricsTypeDef] = None
     Capacity: Optional[CapacityTypeDef] = None
     ResourceId: Optional[str] = None
     ResourceType: Optional[DiscoveryResourceTypeType] = None
 
-class TaskReportConfigTypeDef(BaseModel):
+class TaskReportConfigTypeDef(BaseValidatorModel):
     Destination: Optional[ReportDestinationTypeDef] = None
     OutputType: Optional[ReportOutputTypeType] = None
     ReportLevel: Optional[ReportLevelType] = None
     ObjectVersionIds: Optional[ObjectVersionIdsType] = None
     Overrides: Optional[ReportOverridesTypeDef] = None
 
-class ManifestConfigTypeDef(BaseModel):
+class ManifestConfigTypeDef(BaseValidatorModel):
     Action: Optional[Literal["TRANSFER"]] = None
     Format: Optional[Literal["CSV"]] = None
     Source: Optional[SourceManifestConfigTypeDef] = None
 
-class CreateLocationFsxOntapRequestRequestTypeDef(BaseModel):
+class CreateLocationFsxOntapRequestRequestTypeDef(BaseValidatorModel):
     Protocol: FsxProtocolTypeDef
     SecurityGroupArns: Sequence[str]
     StorageVirtualMachineArn: str
     Subdirectory: Optional[str] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class CreateLocationFsxOpenZfsRequestRequestTypeDef(BaseModel):
+class CreateLocationFsxOpenZfsRequestRequestTypeDef(BaseValidatorModel):
     FsxFilesystemArn: str
     Protocol: FsxProtocolTypeDef
     SecurityGroupArns: Sequence[str]
     Subdirectory: Optional[str] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class DescribeLocationFsxOntapResponseTypeDef(BaseModel):
+class DescribeLocationFsxOntapResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
     LocationArn: str
     LocationUri: str
@@ -904,7 +904,7 @@ class DescribeLocationFsxOntapResponseTypeDef(BaseModel):
     FsxFilesystemArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLocationFsxOpenZfsResponseTypeDef(BaseModel):
+class DescribeLocationFsxOpenZfsResponseTypeDef(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
     SecurityGroupArns: List[str]
@@ -912,17 +912,17 @@ class DescribeLocationFsxOpenZfsResponseTypeDef(BaseModel):
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeStorageSystemResourcesResponseTypeDef(BaseModel):
+class DescribeStorageSystemResourcesResponseTypeDef(BaseValidatorModel):
     ResourceDetails: ResourceDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeStorageSystemResourceMetricsResponseTypeDef(BaseModel):
+class DescribeStorageSystemResourceMetricsResponseTypeDef(BaseValidatorModel):
     Metrics: List[ResourceMetricsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateTaskRequestRequestTypeDef(BaseModel):
+class CreateTaskRequestRequestTypeDef(BaseValidatorModel):
     SourceLocationArn: str
     DestinationLocationArn: str
     CloudWatchLogGroupArn: Optional[str] = None
@@ -935,7 +935,7 @@ class CreateTaskRequestRequestTypeDef(BaseModel):
     ManifestConfig: Optional[ManifestConfigTypeDef] = None
     TaskReportConfig: Optional[TaskReportConfigTypeDef] = None
 
-class DescribeTaskExecutionResponseTypeDef(BaseModel):
+class DescribeTaskExecutionResponseTypeDef(BaseValidatorModel):
     TaskExecutionArn: str
     Status: TaskExecutionStatusType
     Options: OptionsTypeDef
@@ -958,7 +958,7 @@ class DescribeTaskExecutionResponseTypeDef(BaseModel):
     EstimatedFilesToDelete: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTaskResponseTypeDef(BaseModel):
+class DescribeTaskResponseTypeDef(BaseValidatorModel):
     TaskArn: str
     Status: TaskStatusType
     Name: str
@@ -980,7 +980,7 @@ class DescribeTaskResponseTypeDef(BaseModel):
     ScheduleDetails: TaskScheduleDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTaskExecutionRequestRequestTypeDef(BaseModel):
+class StartTaskExecutionRequestRequestTypeDef(BaseValidatorModel):
     TaskArn: str
     OverrideOptions: Optional[OptionsTypeDef] = None
     Includes: Optional[Sequence[FilterRuleTypeDef]] = None
@@ -989,7 +989,7 @@ class StartTaskExecutionRequestRequestTypeDef(BaseModel):
     TaskReportConfig: Optional[TaskReportConfigTypeDef] = None
     Tags: Optional[Sequence[TagListEntryTypeDef]] = None
 
-class UpdateTaskRequestRequestTypeDef(BaseModel):
+class UpdateTaskRequestRequestTypeDef(BaseValidatorModel):
     TaskArn: str
     Options: Optional[OptionsTypeDef] = None
     Excludes: Optional[Sequence[FilterRuleTypeDef]] = None

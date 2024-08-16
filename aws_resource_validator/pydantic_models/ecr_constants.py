@@ -480,6 +480,6 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 RegistryScanningRuleUnionTypeDef = Union[   'RegistryScanningRuleTypeDef', 'RegistryScanningRuleOutputTypeDef' ]
 ReplicationConfigurationUnionTypeDef = Union[   'ReplicationConfigurationTypeDef', 'ReplicationConfigurationOutputTypeDef' ]

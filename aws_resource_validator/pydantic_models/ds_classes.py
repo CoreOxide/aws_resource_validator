@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,17 +11,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ds_constants import *
 
-class AcceptSharedDirectoryRequestRequestTypeDef(BaseModel):
+class AcceptSharedDirectoryRequestRequestTypeDef(BaseValidatorModel):
     SharedDirectoryId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class SharedDirectoryTypeDef(BaseModel):
+class SharedDirectoryTypeDef(BaseValidatorModel):
     OwnerAccountId: Optional[str] = None
     OwnerDirectoryId: Optional[str] = None
     ShareMethod: Optional[ShareMethodType] = None
@@ -32,70 +32,70 @@ class SharedDirectoryTypeDef(BaseModel):
     CreatedDateTime: Optional[datetime] = None
     LastUpdatedDateTime: Optional[datetime] = None
 
-class IpRouteTypeDef(BaseModel):
+class IpRouteTypeDef(BaseValidatorModel):
     CidrIp: Optional[str] = None
     Description: Optional[str] = None
 
-class DirectoryVpcSettingsTypeDef(BaseModel):
+class DirectoryVpcSettingsTypeDef(BaseValidatorModel):
     VpcId: str
     SubnetIds: Sequence[str]
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class AttributeTypeDef(BaseModel):
+class AttributeTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class CancelSchemaExtensionRequestRequestTypeDef(BaseModel):
+class CancelSchemaExtensionRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     SchemaExtensionId: str
 
-class CertificateInfoTypeDef(BaseModel):
+class CertificateInfoTypeDef(BaseValidatorModel):
     CertificateId: Optional[str] = None
     CommonName: Optional[str] = None
     State: Optional[CertificateStateType] = None
     ExpiryDateTime: Optional[datetime] = None
     Type: Optional[CertificateTypeType] = None
 
-class ClientCertAuthSettingsTypeDef(BaseModel):
+class ClientCertAuthSettingsTypeDef(BaseValidatorModel):
     OCSPUrl: Optional[str] = None
 
-class ClientAuthenticationSettingInfoTypeDef(BaseModel):
+class ClientAuthenticationSettingInfoTypeDef(BaseValidatorModel):
     Type: Optional[ClientAuthenticationTypeType] = None
     Status: Optional[ClientAuthenticationStatusType] = None
     LastUpdatedDateTime: Optional[datetime] = None
 
-class ConditionalForwarderTypeDef(BaseModel):
+class ConditionalForwarderTypeDef(BaseValidatorModel):
     RemoteDomainName: Optional[str] = None
     DnsIpAddrs: Optional[List[str]] = None
     ReplicationScope: Optional[Literal["Domain"]] = None
 
-class DirectoryConnectSettingsTypeDef(BaseModel):
+class DirectoryConnectSettingsTypeDef(BaseValidatorModel):
     VpcId: str
     SubnetIds: Sequence[str]
     CustomerDnsIps: Sequence[str]
     CustomerUserName: str
 
-class CreateAliasRequestRequestTypeDef(BaseModel):
+class CreateAliasRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Alias: str
 
-class CreateConditionalForwarderRequestRequestTypeDef(BaseModel):
+class CreateConditionalForwarderRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     RemoteDomainName: str
     DnsIpAddrs: Sequence[str]
 
-class CreateLogSubscriptionRequestRequestTypeDef(BaseModel):
+class CreateLogSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     LogGroupName: str
 
-class CreateSnapshotRequestRequestTypeDef(BaseModel):
+class CreateSnapshotRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Name: Optional[str] = None
 
-class CreateTrustRequestRequestTypeDef(BaseModel):
+class CreateTrustRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     RemoteDomainName: str
     TrustPassword: str
@@ -104,62 +104,62 @@ class CreateTrustRequestRequestTypeDef(BaseModel):
     ConditionalForwarderIpAddrs: Optional[Sequence[str]] = None
     SelectiveAuth: Optional[SelectiveAuthType] = None
 
-class DeleteConditionalForwarderRequestRequestTypeDef(BaseModel):
+class DeleteConditionalForwarderRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     RemoteDomainName: str
 
-class DeleteDirectoryRequestRequestTypeDef(BaseModel):
+class DeleteDirectoryRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
 
-class DeleteLogSubscriptionRequestRequestTypeDef(BaseModel):
+class DeleteLogSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
 
-class DeleteSnapshotRequestRequestTypeDef(BaseModel):
+class DeleteSnapshotRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
 
-class DeleteTrustRequestRequestTypeDef(BaseModel):
+class DeleteTrustRequestRequestTypeDef(BaseValidatorModel):
     TrustId: str
     DeleteAssociatedConditionalForwarder: Optional[bool] = None
 
-class DeregisterCertificateRequestRequestTypeDef(BaseModel):
+class DeregisterCertificateRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     CertificateId: str
 
-class DeregisterEventTopicRequestRequestTypeDef(BaseModel):
+class DeregisterEventTopicRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     TopicName: str
 
-class DescribeCertificateRequestRequestTypeDef(BaseModel):
+class DescribeCertificateRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     CertificateId: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeClientAuthenticationSettingsRequestRequestTypeDef(BaseModel):
+class DescribeClientAuthenticationSettingsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Type: Optional[ClientAuthenticationTypeType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeConditionalForwardersRequestRequestTypeDef(BaseModel):
+class DescribeConditionalForwardersRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     RemoteDomainNames: Optional[Sequence[str]] = None
 
-class DescribeDirectoriesRequestRequestTypeDef(BaseModel):
+class DescribeDirectoriesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeDomainControllersRequestRequestTypeDef(BaseModel):
+class DescribeDomainControllersRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     DomainControllerIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DomainControllerTypeDef(BaseModel):
+class DomainControllerTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     DomainControllerId: Optional[str] = None
     DnsIpAddr: Optional[str] = None
@@ -171,39 +171,39 @@ class DomainControllerTypeDef(BaseModel):
     LaunchTime: Optional[datetime] = None
     StatusLastUpdatedDateTime: Optional[datetime] = None
 
-class DescribeEventTopicsRequestRequestTypeDef(BaseModel):
+class DescribeEventTopicsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     TopicNames: Optional[Sequence[str]] = None
 
-class EventTopicTypeDef(BaseModel):
+class EventTopicTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     TopicName: Optional[str] = None
     TopicArn: Optional[str] = None
     CreatedDateTime: Optional[datetime] = None
     Status: Optional[TopicStatusType] = None
 
-class DescribeLDAPSSettingsRequestRequestTypeDef(BaseModel):
+class DescribeLDAPSSettingsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Type: Optional[Literal["Client"]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class LDAPSSettingInfoTypeDef(BaseModel):
+class LDAPSSettingInfoTypeDef(BaseValidatorModel):
     LDAPSStatus: Optional[LDAPSStatusType] = None
     LDAPSStatusReason: Optional[str] = None
     LastUpdatedDateTime: Optional[datetime] = None
 
-class DescribeRegionsRequestRequestTypeDef(BaseModel):
+class DescribeRegionsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     RegionName: Optional[str] = None
     NextToken: Optional[str] = None
 
-class DescribeSettingsRequestRequestTypeDef(BaseModel):
+class DescribeSettingsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Status: Optional[DirectoryConfigurationStatusType] = None
     NextToken: Optional[str] = None
 
-class SettingEntryTypeDef(BaseModel):
+class SettingEntryTypeDef(BaseValidatorModel):
     Type: Optional[str] = None
     Name: Optional[str] = None
     AllowedValues: Optional[str] = None
@@ -216,19 +216,19 @@ class SettingEntryTypeDef(BaseModel):
     LastRequestedDateTime: Optional[datetime] = None
     DataType: Optional[str] = None
 
-class DescribeSharedDirectoriesRequestRequestTypeDef(BaseModel):
+class DescribeSharedDirectoriesRequestRequestTypeDef(BaseValidatorModel):
     OwnerDirectoryId: str
     SharedDirectoryIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeSnapshotsRequestRequestTypeDef(BaseModel):
+class DescribeSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     SnapshotIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class SnapshotTypeDef(BaseModel):
+class SnapshotTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     SnapshotId: Optional[str] = None
     Type: Optional[SnapshotTypeType] = None
@@ -236,13 +236,13 @@ class SnapshotTypeDef(BaseModel):
     Status: Optional[SnapshotStatusType] = None
     StartTime: Optional[datetime] = None
 
-class DescribeTrustsRequestRequestTypeDef(BaseModel):
+class DescribeTrustsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     TrustIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class TrustTypeDef(BaseModel):
+class TrustTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     TrustId: Optional[str] = None
     RemoteDomainName: Optional[str] = None
@@ -255,13 +255,13 @@ class TrustTypeDef(BaseModel):
     TrustStateReason: Optional[str] = None
     SelectiveAuth: Optional[SelectiveAuthType] = None
 
-class DescribeUpdateDirectoryRequestRequestTypeDef(BaseModel):
+class DescribeUpdateDirectoryRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     UpdateType: Literal["OS"]
     RegionName: Optional[str] = None
     NextToken: Optional[str] = None
 
-class DirectoryConnectSettingsDescriptionTypeDef(BaseModel):
+class DirectoryConnectSettingsDescriptionTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
     CustomerUserName: Optional[str] = None
@@ -269,13 +269,13 @@ class DirectoryConnectSettingsDescriptionTypeDef(BaseModel):
     AvailabilityZones: Optional[List[str]] = None
     ConnectIps: Optional[List[str]] = None
 
-class DirectoryVpcSettingsDescriptionTypeDef(BaseModel):
+class DirectoryVpcSettingsDescriptionTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
     SecurityGroupId: Optional[str] = None
     AvailabilityZones: Optional[List[str]] = None
 
-class RadiusSettingsOutputTypeDef(BaseModel):
+class RadiusSettingsOutputTypeDef(BaseValidatorModel):
     RadiusServers: Optional[List[str]] = None
     RadiusPort: Optional[int] = None
     RadiusTimeout: Optional[int] = None
@@ -285,11 +285,11 @@ class RadiusSettingsOutputTypeDef(BaseModel):
     DisplayLabel: Optional[str] = None
     UseSameUsername: Optional[bool] = None
 
-class RegionsInfoTypeDef(BaseModel):
+class RegionsInfoTypeDef(BaseValidatorModel):
     PrimaryRegion: Optional[str] = None
     AdditionalRegions: Optional[List[str]] = None
 
-class DirectoryLimitsTypeDef(BaseModel):
+class DirectoryLimitsTypeDef(BaseValidatorModel):
     CloudOnlyDirectoriesLimit: Optional[int] = None
     CloudOnlyDirectoriesCurrentCount: Optional[int] = None
     CloudOnlyDirectoriesLimitReached: Optional[bool] = None
@@ -300,39 +300,39 @@ class DirectoryLimitsTypeDef(BaseModel):
     ConnectedDirectoriesCurrentCount: Optional[int] = None
     ConnectedDirectoriesLimitReached: Optional[bool] = None
 
-class DirectoryVpcSettingsExtraOutputTypeDef(BaseModel):
+class DirectoryVpcSettingsExtraOutputTypeDef(BaseValidatorModel):
     VpcId: str
     SubnetIds: List[str]
 
-class DirectoryVpcSettingsOutputTypeDef(BaseModel):
+class DirectoryVpcSettingsOutputTypeDef(BaseValidatorModel):
     VpcId: str
     SubnetIds: List[str]
 
-class DisableClientAuthenticationRequestRequestTypeDef(BaseModel):
+class DisableClientAuthenticationRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Type: ClientAuthenticationTypeType
 
-class DisableLDAPSRequestRequestTypeDef(BaseModel):
+class DisableLDAPSRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Type: Literal["Client"]
 
-class DisableRadiusRequestRequestTypeDef(BaseModel):
+class DisableRadiusRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
 
-class DisableSsoRequestRequestTypeDef(BaseModel):
+class DisableSsoRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     UserName: Optional[str] = None
     Password: Optional[str] = None
 
-class EnableClientAuthenticationRequestRequestTypeDef(BaseModel):
+class EnableClientAuthenticationRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Type: ClientAuthenticationTypeType
 
-class EnableLDAPSRequestRequestTypeDef(BaseModel):
+class EnableLDAPSRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Type: Literal["Client"]
 
-class RadiusSettingsTypeDef(BaseModel):
+class RadiusSettingsTypeDef(BaseValidatorModel):
     RadiusServers: Optional[Sequence[str]] = None
     RadiusPort: Optional[int] = None
     RadiusTimeout: Optional[int] = None
@@ -342,20 +342,20 @@ class RadiusSettingsTypeDef(BaseModel):
     DisplayLabel: Optional[str] = None
     UseSameUsername: Optional[bool] = None
 
-class EnableSsoRequestRequestTypeDef(BaseModel):
+class EnableSsoRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     UserName: Optional[str] = None
     Password: Optional[str] = None
 
-class GetSnapshotLimitsRequestRequestTypeDef(BaseModel):
+class GetSnapshotLimitsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
 
-class SnapshotLimitsTypeDef(BaseModel):
+class SnapshotLimitsTypeDef(BaseValidatorModel):
     ManualSnapshotsLimit: Optional[int] = None
     ManualSnapshotsCurrentCount: Optional[int] = None
     ManualSnapshotsLimitReached: Optional[bool] = None
 
-class IpRouteInfoTypeDef(BaseModel):
+class IpRouteInfoTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     CidrIp: Optional[str] = None
     IpRouteStatusMsg: Optional[IpRouteStatusMsgType] = None
@@ -363,32 +363,32 @@ class IpRouteInfoTypeDef(BaseModel):
     IpRouteStatusReason: Optional[str] = None
     Description: Optional[str] = None
 
-class ListCertificatesRequestRequestTypeDef(BaseModel):
+class ListCertificatesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListIpRoutesRequestRequestTypeDef(BaseModel):
+class ListIpRoutesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListLogSubscriptionsRequestRequestTypeDef(BaseModel):
+class ListLogSubscriptionsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class LogSubscriptionTypeDef(BaseModel):
+class LogSubscriptionTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     LogGroupName: Optional[str] = None
     SubscriptionCreatedDateTime: Optional[datetime] = None
 
-class ListSchemaExtensionsRequestRequestTypeDef(BaseModel):
+class ListSchemaExtensionsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class SchemaExtensionInfoTypeDef(BaseModel):
+class SchemaExtensionInfoTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     SchemaExtensionId: Optional[str] = None
     Description: Optional[str] = None
@@ -397,15 +397,15 @@ class SchemaExtensionInfoTypeDef(BaseModel):
     StartDateTime: Optional[datetime] = None
     EndDateTime: Optional[datetime] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class OSUpdateSettingsTypeDef(BaseModel):
+class OSUpdateSettingsTypeDef(BaseValidatorModel):
     OSVersion: Optional[OSVersionType] = None
 
-class RadiusSettingsExtraOutputTypeDef(BaseModel):
+class RadiusSettingsExtraOutputTypeDef(BaseValidatorModel):
     RadiusServers: Optional[List[str]] = None
     RadiusPort: Optional[int] = None
     RadiusTimeout: Optional[int] = None
@@ -415,160 +415,160 @@ class RadiusSettingsExtraOutputTypeDef(BaseModel):
     DisplayLabel: Optional[str] = None
     UseSameUsername: Optional[bool] = None
 
-class RegisterEventTopicRequestRequestTypeDef(BaseModel):
+class RegisterEventTopicRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     TopicName: str
 
-class RejectSharedDirectoryRequestRequestTypeDef(BaseModel):
+class RejectSharedDirectoryRequestRequestTypeDef(BaseValidatorModel):
     SharedDirectoryId: str
 
-class RemoveIpRoutesRequestRequestTypeDef(BaseModel):
+class RemoveIpRoutesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     CidrIps: Sequence[str]
 
-class RemoveRegionRequestRequestTypeDef(BaseModel):
+class RemoveRegionRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
 
-class RemoveTagsFromResourceRequestRequestTypeDef(BaseModel):
+class RemoveTagsFromResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     TagKeys: Sequence[str]
 
-class ResetUserPasswordRequestRequestTypeDef(BaseModel):
+class ResetUserPasswordRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     UserName: str
     NewPassword: str
 
-class RestoreFromSnapshotRequestRequestTypeDef(BaseModel):
+class RestoreFromSnapshotRequestRequestTypeDef(BaseValidatorModel):
     SnapshotId: str
 
-class SettingTypeDef(BaseModel):
+class SettingTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class ShareTargetTypeDef(BaseModel):
+class ShareTargetTypeDef(BaseValidatorModel):
     Id: str
     Type: Literal["ACCOUNT"]
 
-class StartSchemaExtensionRequestRequestTypeDef(BaseModel):
+class StartSchemaExtensionRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     CreateSnapshotBeforeSchemaExtension: bool
     LdifContent: str
     Description: str
 
-class UnshareTargetTypeDef(BaseModel):
+class UnshareTargetTypeDef(BaseValidatorModel):
     Id: str
     Type: Literal["ACCOUNT"]
 
-class UpdateConditionalForwarderRequestRequestTypeDef(BaseModel):
+class UpdateConditionalForwarderRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     RemoteDomainName: str
     DnsIpAddrs: Sequence[str]
 
-class UpdateNumberOfDomainControllersRequestRequestTypeDef(BaseModel):
+class UpdateNumberOfDomainControllersRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     DesiredNumber: int
 
-class UpdateTrustRequestRequestTypeDef(BaseModel):
+class UpdateTrustRequestRequestTypeDef(BaseValidatorModel):
     TrustId: str
     SelectiveAuth: Optional[SelectiveAuthType] = None
 
-class VerifyTrustRequestRequestTypeDef(BaseModel):
+class VerifyTrustRequestRequestTypeDef(BaseValidatorModel):
     TrustId: str
 
-class ConnectDirectoryResultTypeDef(BaseModel):
+class ConnectDirectoryResultTypeDef(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAliasResultTypeDef(BaseModel):
+class CreateAliasResultTypeDef(BaseValidatorModel):
     DirectoryId: str
     Alias: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDirectoryResultTypeDef(BaseModel):
+class CreateDirectoryResultTypeDef(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMicrosoftADResultTypeDef(BaseModel):
+class CreateMicrosoftADResultTypeDef(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSnapshotResultTypeDef(BaseModel):
+class CreateSnapshotResultTypeDef(BaseValidatorModel):
     SnapshotId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrustResultTypeDef(BaseModel):
+class CreateTrustResultTypeDef(BaseValidatorModel):
     TrustId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDirectoryResultTypeDef(BaseModel):
+class DeleteDirectoryResultTypeDef(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSnapshotResultTypeDef(BaseModel):
+class DeleteSnapshotResultTypeDef(BaseValidatorModel):
     SnapshotId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTrustResultTypeDef(BaseModel):
+class DeleteTrustResultTypeDef(BaseValidatorModel):
     TrustId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterCertificateResultTypeDef(BaseModel):
+class RegisterCertificateResultTypeDef(BaseValidatorModel):
     CertificateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RejectSharedDirectoryResultTypeDef(BaseModel):
+class RejectSharedDirectoryResultTypeDef(BaseValidatorModel):
     SharedDirectoryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ShareDirectoryResultTypeDef(BaseModel):
+class ShareDirectoryResultTypeDef(BaseValidatorModel):
     SharedDirectoryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSchemaExtensionResultTypeDef(BaseModel):
+class StartSchemaExtensionResultTypeDef(BaseValidatorModel):
     SchemaExtensionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UnshareDirectoryResultTypeDef(BaseModel):
+class UnshareDirectoryResultTypeDef(BaseValidatorModel):
     SharedDirectoryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSettingsResultTypeDef(BaseModel):
+class UpdateSettingsResultTypeDef(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTrustResultTypeDef(BaseModel):
+class UpdateTrustResultTypeDef(BaseValidatorModel):
     RequestId: str
     TrustId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifyTrustResultTypeDef(BaseModel):
+class VerifyTrustResultTypeDef(BaseValidatorModel):
     TrustId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptSharedDirectoryResultTypeDef(BaseModel):
+class AcceptSharedDirectoryResultTypeDef(BaseValidatorModel):
     SharedDirectory: SharedDirectoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSharedDirectoriesResultTypeDef(BaseModel):
+class DescribeSharedDirectoriesResultTypeDef(BaseValidatorModel):
     SharedDirectories: List[SharedDirectoryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AddIpRoutesRequestRequestTypeDef(BaseModel):
+class AddIpRoutesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     IpRoutes: Sequence[IpRouteTypeDef]
     UpdateSecurityGroupForDirectoryControllers: Optional[bool] = None
 
-class AddRegionRequestRequestTypeDef(BaseModel):
+class AddRegionRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     RegionName: str
     VPCSettings: DirectoryVpcSettingsTypeDef
 
-class AddTagsToResourceRequestRequestTypeDef(BaseModel):
+class AddTagsToResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     Tags: Sequence[TagTypeDef]
 
-class CreateDirectoryRequestRequestTypeDef(BaseModel):
+class CreateDirectoryRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Password: str
     Size: DirectorySizeType
@@ -577,7 +577,7 @@ class CreateDirectoryRequestRequestTypeDef(BaseModel):
     VpcSettings: Optional[DirectoryVpcSettingsTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateMicrosoftADRequestRequestTypeDef(BaseModel):
+class CreateMicrosoftADRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Password: str
     VpcSettings: DirectoryVpcSettingsTypeDef
@@ -586,29 +586,29 @@ class CreateMicrosoftADRequestRequestTypeDef(BaseModel):
     Edition: Optional[DirectoryEditionType] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResultTypeDef(BaseModel):
+class ListTagsForResourceResultTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ComputerTypeDef(BaseModel):
+class ComputerTypeDef(BaseValidatorModel):
     ComputerId: Optional[str] = None
     ComputerName: Optional[str] = None
     ComputerAttributes: Optional[List[AttributeTypeDef]] = None
 
-class CreateComputerRequestRequestTypeDef(BaseModel):
+class CreateComputerRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     ComputerName: str
     Password: str
     OrganizationalUnitDistinguishedName: Optional[str] = None
     ComputerAttributes: Optional[Sequence[AttributeTypeDef]] = None
 
-class ListCertificatesResultTypeDef(BaseModel):
+class ListCertificatesResultTypeDef(BaseValidatorModel):
     CertificatesInfo: List[CertificateInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CertificateTypeDef(BaseModel):
+class CertificateTypeDef(BaseValidatorModel):
     CertificateId: Optional[str] = None
     State: Optional[CertificateStateType] = None
     StateReason: Optional[str] = None
@@ -618,22 +618,22 @@ class CertificateTypeDef(BaseModel):
     Type: Optional[CertificateTypeType] = None
     ClientCertAuthSettings: Optional[ClientCertAuthSettingsTypeDef] = None
 
-class RegisterCertificateRequestRequestTypeDef(BaseModel):
+class RegisterCertificateRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     CertificateData: str
     Type: Optional[CertificateTypeType] = None
     ClientCertAuthSettings: Optional[ClientCertAuthSettingsTypeDef] = None
 
-class DescribeClientAuthenticationSettingsResultTypeDef(BaseModel):
+class DescribeClientAuthenticationSettingsResultTypeDef(BaseValidatorModel):
     ClientAuthenticationSettingsInfo: List[ClientAuthenticationSettingInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeConditionalForwardersResultTypeDef(BaseModel):
+class DescribeConditionalForwardersResultTypeDef(BaseValidatorModel):
     ConditionalForwarders: List[ConditionalForwarderTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConnectDirectoryRequestRequestTypeDef(BaseModel):
+class ConnectDirectoryRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Password: str
     Size: DirectorySizeType
@@ -642,102 +642,102 @@ class ConnectDirectoryRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribeClientAuthenticationSettingsRequestDescribeClientAuthenticationSettingsPaginateTypeDef(BaseModel):
+class DescribeClientAuthenticationSettingsRequestDescribeClientAuthenticationSettingsPaginateTypeDef(BaseValidatorModel):
     DirectoryId: str
     Type: Optional[ClientAuthenticationTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDirectoriesRequestDescribeDirectoriesPaginateTypeDef(BaseModel):
+class DescribeDirectoriesRequestDescribeDirectoriesPaginateTypeDef(BaseValidatorModel):
     DirectoryIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDomainControllersRequestDescribeDomainControllersPaginateTypeDef(BaseModel):
+class DescribeDomainControllersRequestDescribeDomainControllersPaginateTypeDef(BaseValidatorModel):
     DirectoryId: str
     DomainControllerIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLDAPSSettingsRequestDescribeLDAPSSettingsPaginateTypeDef(BaseModel):
+class DescribeLDAPSSettingsRequestDescribeLDAPSSettingsPaginateTypeDef(BaseValidatorModel):
     DirectoryId: str
     Type: Optional[Literal["Client"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRegionsRequestDescribeRegionsPaginateTypeDef(BaseModel):
+class DescribeRegionsRequestDescribeRegionsPaginateTypeDef(BaseValidatorModel):
     DirectoryId: str
     RegionName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSharedDirectoriesRequestDescribeSharedDirectoriesPaginateTypeDef(BaseModel):
+class DescribeSharedDirectoriesRequestDescribeSharedDirectoriesPaginateTypeDef(BaseValidatorModel):
     OwnerDirectoryId: str
     SharedDirectoryIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSnapshotsRequestDescribeSnapshotsPaginateTypeDef(BaseModel):
+class DescribeSnapshotsRequestDescribeSnapshotsPaginateTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     SnapshotIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTrustsRequestDescribeTrustsPaginateTypeDef(BaseModel):
+class DescribeTrustsRequestDescribeTrustsPaginateTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     TrustIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeUpdateDirectoryRequestDescribeUpdateDirectoryPaginateTypeDef(BaseModel):
+class DescribeUpdateDirectoryRequestDescribeUpdateDirectoryPaginateTypeDef(BaseValidatorModel):
     DirectoryId: str
     UpdateType: Literal["OS"]
     RegionName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCertificatesRequestListCertificatesPaginateTypeDef(BaseModel):
+class ListCertificatesRequestListCertificatesPaginateTypeDef(BaseValidatorModel):
     DirectoryId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIpRoutesRequestListIpRoutesPaginateTypeDef(BaseModel):
+class ListIpRoutesRequestListIpRoutesPaginateTypeDef(BaseValidatorModel):
     DirectoryId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLogSubscriptionsRequestListLogSubscriptionsPaginateTypeDef(BaseModel):
+class ListLogSubscriptionsRequestListLogSubscriptionsPaginateTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSchemaExtensionsRequestListSchemaExtensionsPaginateTypeDef(BaseModel):
+class ListSchemaExtensionsRequestListSchemaExtensionsPaginateTypeDef(BaseValidatorModel):
     DirectoryId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     ResourceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDomainControllersResultTypeDef(BaseModel):
+class DescribeDomainControllersResultTypeDef(BaseValidatorModel):
     DomainControllers: List[DomainControllerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeEventTopicsResultTypeDef(BaseModel):
+class DescribeEventTopicsResultTypeDef(BaseValidatorModel):
     EventTopics: List[EventTopicTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLDAPSSettingsResultTypeDef(BaseModel):
+class DescribeLDAPSSettingsResultTypeDef(BaseValidatorModel):
     LDAPSSettingsInfo: List[LDAPSSettingInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeSettingsResultTypeDef(BaseModel):
+class DescribeSettingsResultTypeDef(BaseValidatorModel):
     DirectoryId: str
     SettingEntries: List[SettingEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeSnapshotsResultTypeDef(BaseModel):
+class DescribeSnapshotsResultTypeDef(BaseValidatorModel):
     Snapshots: List[SnapshotTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeTrustsResultTypeDef(BaseModel):
+class DescribeTrustsResultTypeDef(BaseValidatorModel):
     Trusts: List[TrustTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class OwnerDirectoryDescriptionTypeDef(BaseModel):
+class OwnerDirectoryDescriptionTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     AccountId: Optional[str] = None
     DnsIpAddrs: Optional[List[str]] = None
@@ -745,11 +745,11 @@ class OwnerDirectoryDescriptionTypeDef(BaseModel):
     RadiusSettings: Optional[RadiusSettingsOutputTypeDef] = None
     RadiusStatus: Optional[RadiusStatusType] = None
 
-class GetDirectoryLimitsResultTypeDef(BaseModel):
+class GetDirectoryLimitsResultTypeDef(BaseValidatorModel):
     DirectoryLimits: DirectoryLimitsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegionDescriptionTypeDef(BaseModel):
+class RegionDescriptionTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     RegionName: Optional[str] = None
     RegionType: Optional[RegionTypeType] = None
@@ -760,65 +760,65 @@ class RegionDescriptionTypeDef(BaseModel):
     StatusLastUpdatedDateTime: Optional[datetime] = None
     LastUpdatedDateTime: Optional[datetime] = None
 
-class EnableRadiusRequestRequestTypeDef(BaseModel):
+class EnableRadiusRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     RadiusSettings: RadiusSettingsTypeDef
 
-class UpdateRadiusRequestRequestTypeDef(BaseModel):
+class UpdateRadiusRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     RadiusSettings: RadiusSettingsTypeDef
 
-class GetSnapshotLimitsResultTypeDef(BaseModel):
+class GetSnapshotLimitsResultTypeDef(BaseValidatorModel):
     SnapshotLimits: SnapshotLimitsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIpRoutesResultTypeDef(BaseModel):
+class ListIpRoutesResultTypeDef(BaseValidatorModel):
     IpRoutesInfo: List[IpRouteInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListLogSubscriptionsResultTypeDef(BaseModel):
+class ListLogSubscriptionsResultTypeDef(BaseValidatorModel):
     LogSubscriptions: List[LogSubscriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSchemaExtensionsResultTypeDef(BaseModel):
+class ListSchemaExtensionsResultTypeDef(BaseValidatorModel):
     SchemaExtensionsInfo: List[SchemaExtensionInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateDirectorySetupRequestRequestTypeDef(BaseModel):
+class UpdateDirectorySetupRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     UpdateType: Literal["OS"]
     OSUpdateSettings: Optional[OSUpdateSettingsTypeDef] = None
     CreateSnapshotBeforeUpdate: Optional[bool] = None
 
-class UpdateValueTypeDef(BaseModel):
+class UpdateValueTypeDef(BaseValidatorModel):
     OSUpdateSettings: Optional[OSUpdateSettingsTypeDef] = None
 
-class UpdateSettingsRequestRequestTypeDef(BaseModel):
+class UpdateSettingsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     Settings: Sequence[SettingTypeDef]
 
-class ShareDirectoryRequestRequestTypeDef(BaseModel):
+class ShareDirectoryRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     ShareTarget: ShareTargetTypeDef
     ShareMethod: ShareMethodType
     ShareNotes: Optional[str] = None
 
-class UnshareDirectoryRequestRequestTypeDef(BaseModel):
+class UnshareDirectoryRequestRequestTypeDef(BaseValidatorModel):
     DirectoryId: str
     UnshareTarget: UnshareTargetTypeDef
 
-class CreateComputerResultTypeDef(BaseModel):
+class CreateComputerResultTypeDef(BaseValidatorModel):
     Computer: ComputerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCertificateResultTypeDef(BaseModel):
+class DescribeCertificateResultTypeDef(BaseValidatorModel):
     Certificate: CertificateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DirectoryDescriptionTypeDef(BaseModel):
+class DirectoryDescriptionTypeDef(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     Name: Optional[str] = None
     ShortName: Optional[str] = None
@@ -846,12 +846,12 @@ class DirectoryDescriptionTypeDef(BaseModel):
     RegionsInfo: Optional[RegionsInfoTypeDef] = None
     OsVersion: Optional[OSVersionType] = None
 
-class DescribeRegionsResultTypeDef(BaseModel):
+class DescribeRegionsResultTypeDef(BaseValidatorModel):
     RegionsDescription: List[RegionDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateInfoEntryTypeDef(BaseModel):
+class UpdateInfoEntryTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
     Status: Optional[UpdateStatusType] = None
     StatusReason: Optional[str] = None
@@ -861,12 +861,12 @@ class UpdateInfoEntryTypeDef(BaseModel):
     StartTime: Optional[datetime] = None
     LastUpdatedDateTime: Optional[datetime] = None
 
-class DescribeDirectoriesResultTypeDef(BaseModel):
+class DescribeDirectoriesResultTypeDef(BaseValidatorModel):
     DirectoryDescriptions: List[DirectoryDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeUpdateDirectoryResultTypeDef(BaseModel):
+class DescribeUpdateDirectoryResultTypeDef(BaseValidatorModel):
     UpdateActivities: List[UpdateInfoEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

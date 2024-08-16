@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,89 +11,89 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ecs_constants import *
 
-class AttachmentStateChangeTypeDef(BaseModel):
+class AttachmentStateChangeTypeDef(BaseValidatorModel):
     attachmentArn: str
     status: str
 
-class KeyValuePairTypeDef(BaseModel):
+class KeyValuePairTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
 
-class AttributeTypeDef(BaseModel):
+class AttributeTypeDef(BaseValidatorModel):
     name: str
     value: Optional[str] = None
     targetType: Optional[Literal["container-instance"]] = None
     targetId: Optional[str] = None
 
-class ManagedScalingTypeDef(BaseModel):
+class ManagedScalingTypeDef(BaseValidatorModel):
     status: Optional[ManagedScalingStatusType] = None
     targetCapacity: Optional[int] = None
     minimumScalingStepSize: Optional[int] = None
     maximumScalingStepSize: Optional[int] = None
     instanceWarmupPeriod: Optional[int] = None
 
-class AwsVpcConfigurationOutputTypeDef(BaseModel):
+class AwsVpcConfigurationOutputTypeDef(BaseValidatorModel):
     subnets: List[str]
     securityGroups: Optional[List[str]] = None
     assignPublicIp: Optional[AssignPublicIpType] = None
 
-class AwsVpcConfigurationTypeDef(BaseModel):
+class AwsVpcConfigurationTypeDef(BaseValidatorModel):
     subnets: Sequence[str]
     securityGroups: Optional[Sequence[str]] = None
     assignPublicIp: Optional[AssignPublicIpType] = None
 
-class CapacityProviderStrategyItemTypeDef(BaseModel):
+class CapacityProviderStrategyItemTypeDef(BaseValidatorModel):
     capacityProvider: str
     weight: Optional[int] = None
     base: Optional[int] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
-class ManagedStorageConfigurationTypeDef(BaseModel):
+class ManagedStorageConfigurationTypeDef(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
     fargateEphemeralStorageKmsKeyId: Optional[str] = None
 
-class ClusterServiceConnectDefaultsRequestTypeDef(BaseModel):
+class ClusterServiceConnectDefaultsRequestTypeDef(BaseValidatorModel):
     namespace: str
 
-class ClusterServiceConnectDefaultsTypeDef(BaseModel):
+class ClusterServiceConnectDefaultsTypeDef(BaseValidatorModel):
     namespace: Optional[str] = None
 
-class ClusterSettingTypeDef(BaseModel):
+class ClusterSettingTypeDef(BaseValidatorModel):
     name: Optional[Literal["containerInsights"]] = None
     value: Optional[str] = None
 
-class ContainerDependencyTypeDef(BaseModel):
+class ContainerDependencyTypeDef(BaseValidatorModel):
     containerName: str
     condition: ContainerConditionType
 
-class EnvironmentFileTypeDef(BaseModel):
+class EnvironmentFileTypeDef(BaseValidatorModel):
     value: str
     type: Literal["s3"]
 
-class FirelensConfigurationOutputTypeDef(BaseModel):
+class FirelensConfigurationOutputTypeDef(BaseValidatorModel):
     type: FirelensConfigurationTypeType
     options: Optional[Dict[str, str]] = None
 
-class HealthCheckOutputTypeDef(BaseModel):
+class HealthCheckOutputTypeDef(BaseValidatorModel):
     command: List[str]
     interval: Optional[int] = None
     timeout: Optional[int] = None
     retries: Optional[int] = None
     startPeriod: Optional[int] = None
 
-class HostEntryTypeDef(BaseModel):
+class HostEntryTypeDef(BaseValidatorModel):
     hostname: str
     ipAddress: str
 
-class MountPointTypeDef(BaseModel):
+class MountPointTypeDef(BaseValidatorModel):
     sourceVolume: Optional[str] = None
     containerPath: Optional[str] = None
     readOnly: Optional[bool] = None
 
-class PortMappingTypeDef(BaseModel):
+class PortMappingTypeDef(BaseValidatorModel):
     containerPort: Optional[int] = None
     hostPort: Optional[int] = None
     protocol: Optional[TransportProtocolType] = None
@@ -101,48 +101,48 @@ class PortMappingTypeDef(BaseModel):
     appProtocol: Optional[ApplicationProtocolType] = None
     containerPortRange: Optional[str] = None
 
-class RepositoryCredentialsTypeDef(BaseModel):
+class RepositoryCredentialsTypeDef(BaseValidatorModel):
     credentialsParameter: str
 
-class ResourceRequirementTypeDef(BaseModel):
+class ResourceRequirementTypeDef(BaseValidatorModel):
     value: str
     type: ResourceTypeType
 
-class SecretTypeDef(BaseModel):
+class SecretTypeDef(BaseValidatorModel):
     name: str
     valueFrom: str
 
-class SystemControlTypeDef(BaseModel):
+class SystemControlTypeDef(BaseValidatorModel):
     namespace: Optional[str] = None
     value: Optional[str] = None
 
-class UlimitTypeDef(BaseModel):
+class UlimitTypeDef(BaseValidatorModel):
     name: UlimitNameType
     softLimit: int
     hardLimit: int
 
-class VolumeFromTypeDef(BaseModel):
+class VolumeFromTypeDef(BaseValidatorModel):
     sourceContainer: Optional[str] = None
     readOnly: Optional[bool] = None
 
-class FirelensConfigurationTypeDef(BaseModel):
+class FirelensConfigurationTypeDef(BaseValidatorModel):
     type: FirelensConfigurationTypeType
     options: Optional[Mapping[str, str]] = None
 
-class HealthCheckTypeDef(BaseModel):
+class HealthCheckTypeDef(BaseValidatorModel):
     command: Sequence[str]
     interval: Optional[int] = None
     timeout: Optional[int] = None
     retries: Optional[int] = None
     startPeriod: Optional[int] = None
 
-class InstanceHealthCheckResultTypeDef(BaseModel):
+class InstanceHealthCheckResultTypeDef(BaseValidatorModel):
     type: Optional[Literal["CONTAINER_RUNTIME"]] = None
     status: Optional[InstanceHealthCheckStateType] = None
     lastUpdated: Optional[datetime] = None
     lastStatusChange: Optional[datetime] = None
 
-class ResourceOutputTypeDef(BaseModel):
+class ResourceOutputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     type: Optional[str] = None
     doubleValue: Optional[float] = None
@@ -150,12 +150,12 @@ class ResourceOutputTypeDef(BaseModel):
     integerValue: Optional[int] = None
     stringSetValue: Optional[List[str]] = None
 
-class VersionInfoTypeDef(BaseModel):
+class VersionInfoTypeDef(BaseValidatorModel):
     agentVersion: Optional[str] = None
     agentHash: Optional[str] = None
     dockerVersion: Optional[str] = None
 
-class NetworkBindingTypeDef(BaseModel):
+class NetworkBindingTypeDef(BaseValidatorModel):
     bindIP: Optional[str] = None
     containerPort: Optional[int] = None
     hostPort: Optional[int] = None
@@ -163,256 +163,256 @@ class NetworkBindingTypeDef(BaseModel):
     containerPortRange: Optional[str] = None
     hostPortRange: Optional[str] = None
 
-class ManagedAgentTypeDef(BaseModel):
+class ManagedAgentTypeDef(BaseValidatorModel):
     lastStartedAt: Optional[datetime] = None
     name: Optional[Literal["ExecuteCommandAgent"]] = None
     reason: Optional[str] = None
     lastStatus: Optional[str] = None
 
-class NetworkInterfaceTypeDef(BaseModel):
+class NetworkInterfaceTypeDef(BaseValidatorModel):
     attachmentId: Optional[str] = None
     privateIpv4Address: Optional[str] = None
     ipv6Address: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DeploymentControllerTypeDef(BaseModel):
+class DeploymentControllerTypeDef(BaseValidatorModel):
     type: DeploymentControllerTypeType
 
-class LoadBalancerTypeDef(BaseModel):
+class LoadBalancerTypeDef(BaseValidatorModel):
     targetGroupArn: Optional[str] = None
     loadBalancerName: Optional[str] = None
     containerName: Optional[str] = None
     containerPort: Optional[int] = None
 
-class PlacementConstraintTypeDef(BaseModel):
+class PlacementConstraintTypeDef(BaseValidatorModel):
     type: Optional[PlacementConstraintTypeType] = None
     expression: Optional[str] = None
 
-class PlacementStrategyTypeDef(BaseModel):
+class PlacementStrategyTypeDef(BaseValidatorModel):
     type: Optional[PlacementStrategyTypeType] = None
     field: Optional[str] = None
 
-class ServiceRegistryTypeDef(BaseModel):
+class ServiceRegistryTypeDef(BaseValidatorModel):
     registryArn: Optional[str] = None
     port: Optional[int] = None
     containerName: Optional[str] = None
     containerPort: Optional[int] = None
 
-class ScaleTypeDef(BaseModel):
+class ScaleTypeDef(BaseValidatorModel):
     value: Optional[float] = None
     unit: Optional[Literal["PERCENT"]] = None
 
-class DeleteAccountSettingRequestRequestTypeDef(BaseModel):
+class DeleteAccountSettingRequestRequestTypeDef(BaseValidatorModel):
     name: SettingNameType
     principalArn: Optional[str] = None
 
-class SettingTypeDef(BaseModel):
+class SettingTypeDef(BaseValidatorModel):
     name: Optional[SettingNameType] = None
     value: Optional[str] = None
     principalArn: Optional[str] = None
     type: Optional[SettingTypeType] = None
 
-class DeleteCapacityProviderRequestRequestTypeDef(BaseModel):
+class DeleteCapacityProviderRequestRequestTypeDef(BaseValidatorModel):
     capacityProvider: str
 
-class DeleteClusterRequestRequestTypeDef(BaseModel):
+class DeleteClusterRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
 
-class DeleteServiceRequestRequestTypeDef(BaseModel):
+class DeleteServiceRequestRequestTypeDef(BaseValidatorModel):
     service: str
     cluster: Optional[str] = None
     force: Optional[bool] = None
 
-class DeleteTaskDefinitionsRequestRequestTypeDef(BaseModel):
+class DeleteTaskDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     taskDefinitions: Sequence[str]
 
-class FailureTypeDef(BaseModel):
+class FailureTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     reason: Optional[str] = None
     detail: Optional[str] = None
 
-class DeleteTaskSetRequestRequestTypeDef(BaseModel):
+class DeleteTaskSetRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
     service: str
     taskSet: str
     force: Optional[bool] = None
 
-class DeploymentAlarmsOutputTypeDef(BaseModel):
+class DeploymentAlarmsOutputTypeDef(BaseValidatorModel):
     alarmNames: List[str]
     enable: bool
     rollback: bool
 
-class DeploymentAlarmsTypeDef(BaseModel):
+class DeploymentAlarmsTypeDef(BaseValidatorModel):
     alarmNames: Sequence[str]
     enable: bool
     rollback: bool
 
-class DeploymentCircuitBreakerTypeDef(BaseModel):
+class DeploymentCircuitBreakerTypeDef(BaseValidatorModel):
     enable: bool
     rollback: bool
 
-class DeploymentEphemeralStorageTypeDef(BaseModel):
+class DeploymentEphemeralStorageTypeDef(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
-class ServiceConnectServiceResourceTypeDef(BaseModel):
+class ServiceConnectServiceResourceTypeDef(BaseValidatorModel):
     discoveryName: Optional[str] = None
     discoveryArn: Optional[str] = None
 
-class DeregisterContainerInstanceRequestRequestTypeDef(BaseModel):
+class DeregisterContainerInstanceRequestRequestTypeDef(BaseValidatorModel):
     containerInstance: str
     cluster: Optional[str] = None
     force: Optional[bool] = None
 
-class DeregisterTaskDefinitionRequestRequestTypeDef(BaseModel):
+class DeregisterTaskDefinitionRequestRequestTypeDef(BaseValidatorModel):
     taskDefinition: str
 
-class DescribeCapacityProvidersRequestRequestTypeDef(BaseModel):
+class DescribeCapacityProvidersRequestRequestTypeDef(BaseValidatorModel):
     capacityProviders: Optional[Sequence[str]] = None
     include: Optional[Sequence[Literal["TAGS"]]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeClustersRequestRequestTypeDef(BaseModel):
+class DescribeClustersRequestRequestTypeDef(BaseValidatorModel):
     clusters: Optional[Sequence[str]] = None
     include: Optional[Sequence[ClusterFieldType]] = None
 
-class DescribeContainerInstancesRequestRequestTypeDef(BaseModel):
+class DescribeContainerInstancesRequestRequestTypeDef(BaseValidatorModel):
     containerInstances: Sequence[str]
     cluster: Optional[str] = None
     include: Optional[Sequence[ContainerInstanceFieldType]] = None
 
-class DescribeServicesRequestRequestTypeDef(BaseModel):
+class DescribeServicesRequestRequestTypeDef(BaseValidatorModel):
     services: Sequence[str]
     cluster: Optional[str] = None
     include: Optional[Sequence[Literal["TAGS"]]] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeTaskDefinitionRequestRequestTypeDef(BaseModel):
+class DescribeTaskDefinitionRequestRequestTypeDef(BaseValidatorModel):
     taskDefinition: str
     include: Optional[Sequence[Literal["TAGS"]]] = None
 
-class DescribeTaskSetsRequestRequestTypeDef(BaseModel):
+class DescribeTaskSetsRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
     service: str
     taskSets: Optional[Sequence[str]] = None
     include: Optional[Sequence[Literal["TAGS"]]] = None
 
-class DescribeTasksRequestRequestTypeDef(BaseModel):
+class DescribeTasksRequestRequestTypeDef(BaseValidatorModel):
     tasks: Sequence[str]
     cluster: Optional[str] = None
     include: Optional[Sequence[Literal["TAGS"]]] = None
 
-class DeviceOutputTypeDef(BaseModel):
+class DeviceOutputTypeDef(BaseValidatorModel):
     hostPath: str
     containerPath: Optional[str] = None
     permissions: Optional[List[DeviceCgroupPermissionType]] = None
 
-class DeviceTypeDef(BaseModel):
+class DeviceTypeDef(BaseValidatorModel):
     hostPath: str
     containerPath: Optional[str] = None
     permissions: Optional[Sequence[DeviceCgroupPermissionType]] = None
 
-class DiscoverPollEndpointRequestRequestTypeDef(BaseModel):
+class DiscoverPollEndpointRequestRequestTypeDef(BaseValidatorModel):
     containerInstance: Optional[str] = None
     cluster: Optional[str] = None
 
-class DockerVolumeConfigurationOutputTypeDef(BaseModel):
+class DockerVolumeConfigurationOutputTypeDef(BaseValidatorModel):
     scope: Optional[ScopeType] = None
     autoprovision: Optional[bool] = None
     driver: Optional[str] = None
     driverOpts: Optional[Dict[str, str]] = None
     labels: Optional[Dict[str, str]] = None
 
-class DockerVolumeConfigurationTypeDef(BaseModel):
+class DockerVolumeConfigurationTypeDef(BaseValidatorModel):
     scope: Optional[ScopeType] = None
     autoprovision: Optional[bool] = None
     driver: Optional[str] = None
     driverOpts: Optional[Mapping[str, str]] = None
     labels: Optional[Mapping[str, str]] = None
 
-class EFSAuthorizationConfigTypeDef(BaseModel):
+class EFSAuthorizationConfigTypeDef(BaseValidatorModel):
     accessPointId: Optional[str] = None
     iam: Optional[EFSAuthorizationConfigIAMType] = None
 
-class EphemeralStorageTypeDef(BaseModel):
+class EphemeralStorageTypeDef(BaseValidatorModel):
     sizeInGiB: int
 
-class ExecuteCommandLogConfigurationTypeDef(BaseModel):
+class ExecuteCommandLogConfigurationTypeDef(BaseValidatorModel):
     cloudWatchLogGroupName: Optional[str] = None
     cloudWatchEncryptionEnabled: Optional[bool] = None
     s3BucketName: Optional[str] = None
     s3EncryptionEnabled: Optional[bool] = None
     s3KeyPrefix: Optional[str] = None
 
-class ExecuteCommandRequestRequestTypeDef(BaseModel):
+class ExecuteCommandRequestRequestTypeDef(BaseValidatorModel):
     command: str
     interactive: bool
     task: str
     cluster: Optional[str] = None
     container: Optional[str] = None
 
-class SessionTypeDef(BaseModel):
+class SessionTypeDef(BaseValidatorModel):
     sessionId: Optional[str] = None
     streamUrl: Optional[str] = None
     tokenValue: Optional[str] = None
 
-class FSxWindowsFileServerAuthorizationConfigTypeDef(BaseModel):
+class FSxWindowsFileServerAuthorizationConfigTypeDef(BaseValidatorModel):
     credentialsParameter: str
     domain: str
 
-class GetTaskProtectionRequestRequestTypeDef(BaseModel):
+class GetTaskProtectionRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
     tasks: Optional[Sequence[str]] = None
 
-class ProtectedTaskTypeDef(BaseModel):
+class ProtectedTaskTypeDef(BaseValidatorModel):
     taskArn: Optional[str] = None
     protectionEnabled: Optional[bool] = None
     expirationDate: Optional[datetime] = None
 
-class HostVolumePropertiesTypeDef(BaseModel):
+class HostVolumePropertiesTypeDef(BaseValidatorModel):
     sourcePath: Optional[str] = None
 
-class InferenceAcceleratorOverrideTypeDef(BaseModel):
+class InferenceAcceleratorOverrideTypeDef(BaseValidatorModel):
     deviceName: Optional[str] = None
     deviceType: Optional[str] = None
 
-class InferenceAcceleratorTypeDef(BaseModel):
+class InferenceAcceleratorTypeDef(BaseValidatorModel):
     deviceName: str
     deviceType: str
 
-class KernelCapabilitiesOutputTypeDef(BaseModel):
+class KernelCapabilitiesOutputTypeDef(BaseValidatorModel):
     add: Optional[List[str]] = None
     drop: Optional[List[str]] = None
 
-class KernelCapabilitiesTypeDef(BaseModel):
+class KernelCapabilitiesTypeDef(BaseValidatorModel):
     add: Optional[Sequence[str]] = None
     drop: Optional[Sequence[str]] = None
 
-class TmpfsOutputTypeDef(BaseModel):
+class TmpfsOutputTypeDef(BaseValidatorModel):
     containerPath: str
     size: int
     mountOptions: Optional[List[str]] = None
 
-class TmpfsTypeDef(BaseModel):
+class TmpfsTypeDef(BaseValidatorModel):
     containerPath: str
     size: int
     mountOptions: Optional[Sequence[str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAccountSettingsRequestRequestTypeDef(BaseModel):
+class ListAccountSettingsRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[SettingNameType] = None
     value: Optional[str] = None
     principalArn: Optional[str] = None
@@ -420,7 +420,7 @@ class ListAccountSettingsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListAttributesRequestRequestTypeDef(BaseModel):
+class ListAttributesRequestRequestTypeDef(BaseValidatorModel):
     targetType: Literal["container-instance"]
     cluster: Optional[str] = None
     attributeName: Optional[str] = None
@@ -428,46 +428,46 @@ class ListAttributesRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListClustersRequestRequestTypeDef(BaseModel):
+class ListClustersRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListContainerInstancesRequestRequestTypeDef(BaseModel):
+class ListContainerInstancesRequestRequestTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     filter: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[ContainerInstanceStatusType] = None
 
-class ListServicesByNamespaceRequestRequestTypeDef(BaseModel):
+class ListServicesByNamespaceRequestRequestTypeDef(BaseValidatorModel):
     namespace: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListServicesRequestRequestTypeDef(BaseModel):
+class ListServicesRequestRequestTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     launchType: Optional[LaunchTypeType] = None
     schedulingStrategy: Optional[SchedulingStrategyType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListTaskDefinitionFamiliesRequestRequestTypeDef(BaseModel):
+class ListTaskDefinitionFamiliesRequestRequestTypeDef(BaseValidatorModel):
     familyPrefix: Optional[str] = None
     status: Optional[TaskDefinitionFamilyStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTaskDefinitionsRequestRequestTypeDef(BaseModel):
+class ListTaskDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     familyPrefix: Optional[str] = None
     status: Optional[TaskDefinitionStatusType] = None
     sort: Optional[SortOrderType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTasksRequestRequestTypeDef(BaseModel):
+class ListTasksRequestRequestTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     containerInstance: Optional[str] = None
     family: Optional[str] = None
@@ -478,34 +478,34 @@ class ListTasksRequestRequestTypeDef(BaseModel):
     desiredStatus: Optional[DesiredStatusType] = None
     launchType: Optional[LaunchTypeType] = None
 
-class ManagedAgentStateChangeTypeDef(BaseModel):
+class ManagedAgentStateChangeTypeDef(BaseValidatorModel):
     containerName: str
     managedAgentName: Literal["ExecuteCommandAgent"]
     status: str
     reason: Optional[str] = None
 
-class PlatformDeviceTypeDef(BaseModel):
+class PlatformDeviceTypeDef(BaseValidatorModel):
     id: str
     type: Literal["GPU"]
 
-class PutAccountSettingDefaultRequestRequestTypeDef(BaseModel):
+class PutAccountSettingDefaultRequestRequestTypeDef(BaseValidatorModel):
     name: SettingNameType
     value: str
 
-class PutAccountSettingRequestRequestTypeDef(BaseModel):
+class PutAccountSettingRequestRequestTypeDef(BaseValidatorModel):
     name: SettingNameType
     value: str
     principalArn: Optional[str] = None
 
-class RuntimePlatformTypeDef(BaseModel):
+class RuntimePlatformTypeDef(BaseValidatorModel):
     cpuArchitecture: Optional[CPUArchitectureType] = None
     operatingSystemFamily: Optional[OSFamilyType] = None
 
-class TaskDefinitionPlacementConstraintTypeDef(BaseModel):
+class TaskDefinitionPlacementConstraintTypeDef(BaseValidatorModel):
     type: Optional[Literal["memberOf"]] = None
     expression: Optional[str] = None
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     type: Optional[str] = None
     doubleValue: Optional[float] = None
@@ -513,127 +513,127 @@ class ResourceTypeDef(BaseModel):
     integerValue: Optional[int] = None
     stringSetValue: Optional[Sequence[str]] = None
 
-class ServiceConnectClientAliasTypeDef(BaseModel):
+class ServiceConnectClientAliasTypeDef(BaseValidatorModel):
     port: int
     dnsName: Optional[str] = None
 
-class TimeoutConfigurationTypeDef(BaseModel):
+class TimeoutConfigurationTypeDef(BaseValidatorModel):
     idleTimeoutSeconds: Optional[int] = None
     perRequestTimeoutSeconds: Optional[int] = None
 
-class ServiceConnectTlsCertificateAuthorityTypeDef(BaseModel):
+class ServiceConnectTlsCertificateAuthorityTypeDef(BaseValidatorModel):
     awsPcaAuthorityArn: Optional[str] = None
 
-class ServiceEventTypeDef(BaseModel):
+class ServiceEventTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     createdAt: Optional[datetime] = None
     message: Optional[str] = None
 
-class StopTaskRequestRequestTypeDef(BaseModel):
+class StopTaskRequestRequestTypeDef(BaseValidatorModel):
     task: str
     cluster: Optional[str] = None
     reason: Optional[str] = None
 
-class TaskEphemeralStorageTypeDef(BaseModel):
+class TaskEphemeralStorageTypeDef(BaseValidatorModel):
     sizeInGiB: Optional[int] = None
     kmsKeyId: Optional[str] = None
 
-class TaskManagedEBSVolumeTerminationPolicyTypeDef(BaseModel):
+class TaskManagedEBSVolumeTerminationPolicyTypeDef(BaseValidatorModel):
     deleteOnTermination: bool
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateContainerAgentRequestRequestTypeDef(BaseModel):
+class UpdateContainerAgentRequestRequestTypeDef(BaseValidatorModel):
     containerInstance: str
     cluster: Optional[str] = None
 
-class UpdateContainerInstancesStateRequestRequestTypeDef(BaseModel):
+class UpdateContainerInstancesStateRequestRequestTypeDef(BaseValidatorModel):
     containerInstances: Sequence[str]
     status: ContainerInstanceStatusType
     cluster: Optional[str] = None
 
-class UpdateServicePrimaryTaskSetRequestRequestTypeDef(BaseModel):
+class UpdateServicePrimaryTaskSetRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
     service: str
     primaryTaskSet: str
 
-class UpdateTaskProtectionRequestRequestTypeDef(BaseModel):
+class UpdateTaskProtectionRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
     tasks: Sequence[str]
     protectionEnabled: bool
     expiresInMinutes: Optional[int] = None
 
-class SubmitAttachmentStateChangesRequestRequestTypeDef(BaseModel):
+class SubmitAttachmentStateChangesRequestRequestTypeDef(BaseValidatorModel):
     attachments: Sequence[AttachmentStateChangeTypeDef]
     cluster: Optional[str] = None
 
-class AttachmentTypeDef(BaseModel):
+class AttachmentTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     type: Optional[str] = None
     status: Optional[str] = None
     details: Optional[List[KeyValuePairTypeDef]] = None
 
-class ProxyConfigurationOutputTypeDef(BaseModel):
+class ProxyConfigurationOutputTypeDef(BaseValidatorModel):
     containerName: str
     type: Optional[Literal["APPMESH"]] = None
     properties: Optional[List[KeyValuePairTypeDef]] = None
 
-class ProxyConfigurationTypeDef(BaseModel):
+class ProxyConfigurationTypeDef(BaseValidatorModel):
     containerName: str
     type: Optional[Literal["APPMESH"]] = None
     properties: Optional[Sequence[KeyValuePairTypeDef]] = None
 
-class DeleteAttributesRequestRequestTypeDef(BaseModel):
+class DeleteAttributesRequestRequestTypeDef(BaseValidatorModel):
     attributes: Sequence[AttributeTypeDef]
     cluster: Optional[str] = None
 
-class PutAttributesRequestRequestTypeDef(BaseModel):
+class PutAttributesRequestRequestTypeDef(BaseValidatorModel):
     attributes: Sequence[AttributeTypeDef]
     cluster: Optional[str] = None
 
-class AutoScalingGroupProviderTypeDef(BaseModel):
+class AutoScalingGroupProviderTypeDef(BaseValidatorModel):
     autoScalingGroupArn: str
     managedScaling: Optional[ManagedScalingTypeDef] = None
     managedTerminationProtection: Optional[ManagedTerminationProtectionType] = None
     managedDraining: Optional[ManagedDrainingType] = None
 
-class AutoScalingGroupProviderUpdateTypeDef(BaseModel):
+class AutoScalingGroupProviderUpdateTypeDef(BaseValidatorModel):
     managedScaling: Optional[ManagedScalingTypeDef] = None
     managedTerminationProtection: Optional[ManagedTerminationProtectionType] = None
     managedDraining: Optional[ManagedDrainingType] = None
 
-class NetworkConfigurationOutputTypeDef(BaseModel):
+class NetworkConfigurationOutputTypeDef(BaseValidatorModel):
     awsvpcConfiguration: Optional[AwsVpcConfigurationOutputTypeDef] = None
 
-class NetworkConfigurationTypeDef(BaseModel):
+class NetworkConfigurationTypeDef(BaseValidatorModel):
     awsvpcConfiguration: Optional[AwsVpcConfigurationTypeDef] = None
 
-class PutClusterCapacityProvidersRequestRequestTypeDef(BaseModel):
+class PutClusterCapacityProvidersRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
     capacityProviders: Sequence[str]
     defaultCapacityProviderStrategy: Sequence[CapacityProviderStrategyItemTypeDef]
 
-class EBSTagSpecificationOutputTypeDef(BaseModel):
+class EBSTagSpecificationOutputTypeDef(BaseValidatorModel):
     resourceType: Literal["volume"]
     tags: Optional[List[TagTypeDef]] = None
     propagateTags: Optional[PropagateTagsType] = None
 
-class EBSTagSpecificationTypeDef(BaseModel):
+class EBSTagSpecificationTypeDef(BaseValidatorModel):
     resourceType: Literal["volume"]
     tags: Optional[Sequence[TagTypeDef]] = None
     propagateTags: Optional[PropagateTagsType] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class UpdateClusterSettingsRequestRequestTypeDef(BaseModel):
+class UpdateClusterSettingsRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
     settings: Sequence[ClusterSettingTypeDef]
 
-class ContainerOverrideOutputTypeDef(BaseModel):
+class ContainerOverrideOutputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     command: Optional[List[str]] = None
     environment: Optional[List[KeyValuePairTypeDef]] = None
@@ -643,7 +643,7 @@ class ContainerOverrideOutputTypeDef(BaseModel):
     memoryReservation: Optional[int] = None
     resourceRequirements: Optional[List[ResourceRequirementTypeDef]] = None
 
-class ContainerOverrideTypeDef(BaseModel):
+class ContainerOverrideTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     command: Optional[Sequence[str]] = None
     environment: Optional[Sequence[KeyValuePairTypeDef]] = None
@@ -653,21 +653,21 @@ class ContainerOverrideTypeDef(BaseModel):
     memoryReservation: Optional[int] = None
     resourceRequirements: Optional[Sequence[ResourceRequirementTypeDef]] = None
 
-class LogConfigurationOutputTypeDef(BaseModel):
+class LogConfigurationOutputTypeDef(BaseValidatorModel):
     logDriver: LogDriverType
     options: Optional[Dict[str, str]] = None
     secretOptions: Optional[List[SecretTypeDef]] = None
 
-class LogConfigurationTypeDef(BaseModel):
+class LogConfigurationTypeDef(BaseValidatorModel):
     logDriver: LogDriverType
     options: Optional[Mapping[str, str]] = None
     secretOptions: Optional[Sequence[SecretTypeDef]] = None
 
-class ContainerInstanceHealthStatusTypeDef(BaseModel):
+class ContainerInstanceHealthStatusTypeDef(BaseValidatorModel):
     overallStatus: Optional[InstanceHealthCheckStateType] = None
     details: Optional[List[InstanceHealthCheckResultTypeDef]] = None
 
-class ContainerStateChangeTypeDef(BaseModel):
+class ContainerStateChangeTypeDef(BaseValidatorModel):
     containerName: Optional[str] = None
     imageDigest: Optional[str] = None
     runtimeId: Optional[str] = None
@@ -676,7 +676,7 @@ class ContainerStateChangeTypeDef(BaseModel):
     reason: Optional[str] = None
     status: Optional[str] = None
 
-class SubmitContainerStateChangeRequestRequestTypeDef(BaseModel):
+class SubmitContainerStateChangeRequestRequestTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     task: Optional[str] = None
     containerName: Optional[str] = None
@@ -686,7 +686,7 @@ class SubmitContainerStateChangeRequestRequestTypeDef(BaseModel):
     reason: Optional[str] = None
     networkBindings: Optional[Sequence[NetworkBindingTypeDef]] = None
 
-class ContainerTypeDef(BaseModel):
+class ContainerTypeDef(BaseValidatorModel):
     containerArn: Optional[str] = None
     taskArn: Optional[str] = None
     name: Optional[str] = None
@@ -705,148 +705,148 @@ class ContainerTypeDef(BaseModel):
     memoryReservation: Optional[str] = None
     gpuIds: Optional[List[str]] = None
 
-class DeleteAttributesResponseTypeDef(BaseModel):
+class DeleteAttributesResponseTypeDef(BaseValidatorModel):
     attributes: List[AttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DiscoverPollEndpointResponseTypeDef(BaseModel):
+class DiscoverPollEndpointResponseTypeDef(BaseValidatorModel):
     endpoint: str
     telemetryEndpoint: str
     serviceConnectEndpoint: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAttributesResponseTypeDef(BaseModel):
+class ListAttributesResponseTypeDef(BaseValidatorModel):
     attributes: List[AttributeTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListClustersResponseTypeDef(BaseModel):
+class ListClustersResponseTypeDef(BaseValidatorModel):
     clusterArns: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListContainerInstancesResponseTypeDef(BaseModel):
+class ListContainerInstancesResponseTypeDef(BaseValidatorModel):
     containerInstanceArns: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServicesByNamespaceResponseTypeDef(BaseModel):
+class ListServicesByNamespaceResponseTypeDef(BaseValidatorModel):
     serviceArns: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServicesResponseTypeDef(BaseModel):
+class ListServicesResponseTypeDef(BaseValidatorModel):
     serviceArns: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTaskDefinitionFamiliesResponseTypeDef(BaseModel):
+class ListTaskDefinitionFamiliesResponseTypeDef(BaseValidatorModel):
     families: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTaskDefinitionsResponseTypeDef(BaseModel):
+class ListTaskDefinitionsResponseTypeDef(BaseValidatorModel):
     taskDefinitionArns: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTasksResponseTypeDef(BaseModel):
+class ListTasksResponseTypeDef(BaseValidatorModel):
     taskArns: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAttributesResponseTypeDef(BaseModel):
+class PutAttributesResponseTypeDef(BaseValidatorModel):
     attributes: List[AttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubmitAttachmentStateChangesResponseTypeDef(BaseModel):
+class SubmitAttachmentStateChangesResponseTypeDef(BaseValidatorModel):
     acknowledgment: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubmitContainerStateChangeResponseTypeDef(BaseModel):
+class SubmitContainerStateChangeResponseTypeDef(BaseValidatorModel):
     acknowledgment: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubmitTaskStateChangeResponseTypeDef(BaseModel):
+class SubmitTaskStateChangeResponseTypeDef(BaseValidatorModel):
     acknowledgment: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTaskSetRequestRequestTypeDef(BaseModel):
+class UpdateTaskSetRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
     service: str
     taskSet: str
     scale: ScaleTypeDef
 
-class DeleteAccountSettingResponseTypeDef(BaseModel):
+class DeleteAccountSettingResponseTypeDef(BaseValidatorModel):
     setting: SettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccountSettingsResponseTypeDef(BaseModel):
+class ListAccountSettingsResponseTypeDef(BaseValidatorModel):
     settings: List[SettingTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAccountSettingDefaultResponseTypeDef(BaseModel):
+class PutAccountSettingDefaultResponseTypeDef(BaseValidatorModel):
     setting: SettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAccountSettingResponseTypeDef(BaseModel):
+class PutAccountSettingResponseTypeDef(BaseValidatorModel):
     setting: SettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeploymentConfigurationOutputTypeDef(BaseModel):
+class DeploymentConfigurationOutputTypeDef(BaseValidatorModel):
     deploymentCircuitBreaker: Optional[DeploymentCircuitBreakerTypeDef] = None
     maximumPercent: Optional[int] = None
     minimumHealthyPercent: Optional[int] = None
     alarms: Optional[DeploymentAlarmsOutputTypeDef] = None
 
-class DeploymentConfigurationTypeDef(BaseModel):
+class DeploymentConfigurationTypeDef(BaseValidatorModel):
     deploymentCircuitBreaker: Optional[DeploymentCircuitBreakerTypeDef] = None
     maximumPercent: Optional[int] = None
     minimumHealthyPercent: Optional[int] = None
     alarms: Optional[DeploymentAlarmsTypeDef] = None
 
-class DescribeServicesRequestServicesInactiveWaitTypeDef(BaseModel):
+class DescribeServicesRequestServicesInactiveWaitTypeDef(BaseValidatorModel):
     services: Sequence[str]
     cluster: Optional[str] = None
     include: Optional[Sequence[Literal["TAGS"]]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeServicesRequestServicesStableWaitTypeDef(BaseModel):
+class DescribeServicesRequestServicesStableWaitTypeDef(BaseValidatorModel):
     services: Sequence[str]
     cluster: Optional[str] = None
     include: Optional[Sequence[Literal["TAGS"]]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeTasksRequestTasksRunningWaitTypeDef(BaseModel):
+class DescribeTasksRequestTasksRunningWaitTypeDef(BaseValidatorModel):
     tasks: Sequence[str]
     cluster: Optional[str] = None
     include: Optional[Sequence[Literal["TAGS"]]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeTasksRequestTasksStoppedWaitTypeDef(BaseModel):
+class DescribeTasksRequestTasksStoppedWaitTypeDef(BaseValidatorModel):
     tasks: Sequence[str]
     cluster: Optional[str] = None
     include: Optional[Sequence[Literal["TAGS"]]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class EFSVolumeConfigurationTypeDef(BaseModel):
+class EFSVolumeConfigurationTypeDef(BaseValidatorModel):
     fileSystemId: str
     rootDirectory: Optional[str] = None
     transitEncryption: Optional[EFSTransitEncryptionType] = None
     transitEncryptionPort: Optional[int] = None
     authorizationConfig: Optional[EFSAuthorizationConfigTypeDef] = None
 
-class ExecuteCommandConfigurationTypeDef(BaseModel):
+class ExecuteCommandConfigurationTypeDef(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
     logging: Optional[ExecuteCommandLoggingType] = None
     logConfiguration: Optional[ExecuteCommandLogConfigurationTypeDef] = None
 
-class ExecuteCommandResponseTypeDef(BaseModel):
+class ExecuteCommandResponseTypeDef(BaseValidatorModel):
     clusterArn: str
     containerArn: str
     containerName: str
@@ -855,22 +855,22 @@ class ExecuteCommandResponseTypeDef(BaseModel):
     taskArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FSxWindowsFileServerVolumeConfigurationTypeDef(BaseModel):
+class FSxWindowsFileServerVolumeConfigurationTypeDef(BaseValidatorModel):
     fileSystemId: str
     rootDirectory: str
     authorizationConfig: FSxWindowsFileServerAuthorizationConfigTypeDef
 
-class GetTaskProtectionResponseTypeDef(BaseModel):
+class GetTaskProtectionResponseTypeDef(BaseValidatorModel):
     protectedTasks: List[ProtectedTaskTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTaskProtectionResponseTypeDef(BaseModel):
+class UpdateTaskProtectionResponseTypeDef(BaseValidatorModel):
     protectedTasks: List[ProtectedTaskTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LinuxParametersOutputTypeDef(BaseModel):
+class LinuxParametersOutputTypeDef(BaseValidatorModel):
     capabilities: Optional[KernelCapabilitiesOutputTypeDef] = None
     devices: Optional[List[DeviceOutputTypeDef]] = None
     initProcessEnabled: Optional[bool] = None
@@ -879,7 +879,7 @@ class LinuxParametersOutputTypeDef(BaseModel):
     maxSwap: Optional[int] = None
     swappiness: Optional[int] = None
 
-class LinuxParametersTypeDef(BaseModel):
+class LinuxParametersTypeDef(BaseValidatorModel):
     capabilities: Optional[KernelCapabilitiesTypeDef] = None
     devices: Optional[Sequence[DeviceTypeDef]] = None
     initProcessEnabled: Optional[bool] = None
@@ -888,51 +888,51 @@ class LinuxParametersTypeDef(BaseModel):
     maxSwap: Optional[int] = None
     swappiness: Optional[int] = None
 
-class ListAccountSettingsRequestListAccountSettingsPaginateTypeDef(BaseModel):
+class ListAccountSettingsRequestListAccountSettingsPaginateTypeDef(BaseValidatorModel):
     name: Optional[SettingNameType] = None
     value: Optional[str] = None
     principalArn: Optional[str] = None
     effectiveSettings: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAttributesRequestListAttributesPaginateTypeDef(BaseModel):
+class ListAttributesRequestListAttributesPaginateTypeDef(BaseValidatorModel):
     targetType: Literal["container-instance"]
     cluster: Optional[str] = None
     attributeName: Optional[str] = None
     attributeValue: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListClustersRequestListClustersPaginateTypeDef(BaseModel):
+class ListClustersRequestListClustersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListContainerInstancesRequestListContainerInstancesPaginateTypeDef(BaseModel):
+class ListContainerInstancesRequestListContainerInstancesPaginateTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     filter: Optional[str] = None
     status: Optional[ContainerInstanceStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServicesByNamespaceRequestListServicesByNamespacePaginateTypeDef(BaseModel):
+class ListServicesByNamespaceRequestListServicesByNamespacePaginateTypeDef(BaseValidatorModel):
     namespace: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServicesRequestListServicesPaginateTypeDef(BaseModel):
+class ListServicesRequestListServicesPaginateTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     launchType: Optional[LaunchTypeType] = None
     schedulingStrategy: Optional[SchedulingStrategyType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTaskDefinitionFamiliesRequestListTaskDefinitionFamiliesPaginateTypeDef(BaseModel):
+class ListTaskDefinitionFamiliesRequestListTaskDefinitionFamiliesPaginateTypeDef(BaseValidatorModel):
     familyPrefix: Optional[str] = None
     status: Optional[TaskDefinitionFamilyStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTaskDefinitionsRequestListTaskDefinitionsPaginateTypeDef(BaseModel):
+class ListTaskDefinitionsRequestListTaskDefinitionsPaginateTypeDef(BaseValidatorModel):
     familyPrefix: Optional[str] = None
     status: Optional[TaskDefinitionStatusType] = None
     sort: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTasksRequestListTasksPaginateTypeDef(BaseModel):
+class ListTasksRequestListTasksPaginateTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     containerInstance: Optional[str] = None
     family: Optional[str] = None
@@ -942,12 +942,12 @@ class ListTasksRequestListTasksPaginateTypeDef(BaseModel):
     launchType: Optional[LaunchTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ServiceConnectTlsConfigurationTypeDef(BaseModel):
+class ServiceConnectTlsConfigurationTypeDef(BaseValidatorModel):
     issuerCertificateAuthority: ServiceConnectTlsCertificateAuthorityTypeDef
     kmsKey: Optional[str] = None
     roleArn: Optional[str] = None
 
-class CapacityProviderTypeDef(BaseModel):
+class CapacityProviderTypeDef(BaseValidatorModel):
     capacityProviderArn: Optional[str] = None
     name: Optional[str] = None
     status: Optional[CapacityProviderStatusType] = None
@@ -956,16 +956,16 @@ class CapacityProviderTypeDef(BaseModel):
     updateStatusReason: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class CreateCapacityProviderRequestRequestTypeDef(BaseModel):
+class CreateCapacityProviderRequestRequestTypeDef(BaseValidatorModel):
     name: str
     autoScalingGroupProvider: AutoScalingGroupProviderTypeDef
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateCapacityProviderRequestRequestTypeDef(BaseModel):
+class UpdateCapacityProviderRequestRequestTypeDef(BaseValidatorModel):
     name: str
     autoScalingGroupProvider: AutoScalingGroupProviderUpdateTypeDef
 
-class TaskSetTypeDef(BaseModel):
+class TaskSetTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     taskSetArn: Optional[str] = None
     serviceArn: Optional[str] = None
@@ -992,7 +992,7 @@ class TaskSetTypeDef(BaseModel):
     tags: Optional[List[TagTypeDef]] = None
     fargateEphemeralStorage: Optional[DeploymentEphemeralStorageTypeDef] = None
 
-class CreateTaskSetRequestRequestTypeDef(BaseModel):
+class CreateTaskSetRequestRequestTypeDef(BaseValidatorModel):
     service: str
     cluster: str
     taskDefinition: str
@@ -1007,7 +1007,7 @@ class CreateTaskSetRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class ServiceManagedEBSVolumeConfigurationOutputTypeDef(BaseModel):
+class ServiceManagedEBSVolumeConfigurationOutputTypeDef(BaseValidatorModel):
     roleArn: str
     encrypted: Optional[bool] = None
     kmsKeyId: Optional[str] = None
@@ -1019,7 +1019,7 @@ class ServiceManagedEBSVolumeConfigurationOutputTypeDef(BaseModel):
     tagSpecifications: Optional[List[EBSTagSpecificationOutputTypeDef]] = None
     filesystemType: Optional[TaskFilesystemTypeType] = None
 
-class ServiceManagedEBSVolumeConfigurationTypeDef(BaseModel):
+class ServiceManagedEBSVolumeConfigurationTypeDef(BaseValidatorModel):
     roleArn: str
     encrypted: Optional[bool] = None
     kmsKeyId: Optional[str] = None
@@ -1031,7 +1031,7 @@ class ServiceManagedEBSVolumeConfigurationTypeDef(BaseModel):
     tagSpecifications: Optional[Sequence[EBSTagSpecificationTypeDef]] = None
     filesystemType: Optional[TaskFilesystemTypeType] = None
 
-class TaskManagedEBSVolumeConfigurationTypeDef(BaseModel):
+class TaskManagedEBSVolumeConfigurationTypeDef(BaseValidatorModel):
     roleArn: str
     encrypted: Optional[bool] = None
     kmsKeyId: Optional[str] = None
@@ -1044,7 +1044,7 @@ class TaskManagedEBSVolumeConfigurationTypeDef(BaseModel):
     terminationPolicy: Optional[TaskManagedEBSVolumeTerminationPolicyTypeDef] = None
     filesystemType: Optional[TaskFilesystemTypeType] = None
 
-class TaskOverrideOutputTypeDef(BaseModel):
+class TaskOverrideOutputTypeDef(BaseValidatorModel):
     containerOverrides: Optional[List[ContainerOverrideOutputTypeDef]] = None
     cpu: Optional[str] = None
     inferenceAcceleratorOverrides: Optional[List[InferenceAcceleratorOverrideTypeDef]] = None
@@ -1053,7 +1053,7 @@ class TaskOverrideOutputTypeDef(BaseModel):
     taskRoleArn: Optional[str] = None
     ephemeralStorage: Optional[EphemeralStorageTypeDef] = None
 
-class TaskOverrideTypeDef(BaseModel):
+class TaskOverrideTypeDef(BaseValidatorModel):
     containerOverrides: Optional[Sequence[ContainerOverrideTypeDef]] = None
     cpu: Optional[str] = None
     inferenceAcceleratorOverrides: Optional[Sequence[InferenceAcceleratorOverrideTypeDef]] = None
@@ -1062,7 +1062,7 @@ class TaskOverrideTypeDef(BaseModel):
     taskRoleArn: Optional[str] = None
     ephemeralStorage: Optional[EphemeralStorageTypeDef] = None
 
-class ContainerInstanceTypeDef(BaseModel):
+class ContainerInstanceTypeDef(BaseValidatorModel):
     containerInstanceArn: Optional[str] = None
     ec2InstanceId: Optional[str] = None
     capacityProviderName: Optional[str] = None
@@ -1082,7 +1082,7 @@ class ContainerInstanceTypeDef(BaseModel):
     tags: Optional[List[TagTypeDef]] = None
     healthStatus: Optional[ContainerInstanceHealthStatusTypeDef] = None
 
-class SubmitTaskStateChangeRequestRequestTypeDef(BaseModel):
+class SubmitTaskStateChangeRequestRequestTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     task: Optional[str] = None
     status: Optional[str] = None
@@ -1094,11 +1094,11 @@ class SubmitTaskStateChangeRequestRequestTypeDef(BaseModel):
     pullStoppedAt: Optional[TimestampTypeDef] = None
     executionStoppedAt: Optional[TimestampTypeDef] = None
 
-class ClusterConfigurationTypeDef(BaseModel):
+class ClusterConfigurationTypeDef(BaseValidatorModel):
     executeCommandConfiguration: Optional[ExecuteCommandConfigurationTypeDef] = None
     managedStorageConfiguration: Optional[ManagedStorageConfigurationTypeDef] = None
 
-class VolumeOutputTypeDef(BaseModel):
+class VolumeOutputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     host: Optional[HostVolumePropertiesTypeDef] = None
     dockerVolumeConfiguration: Optional[DockerVolumeConfigurationOutputTypeDef] = None
@@ -1106,7 +1106,7 @@ class VolumeOutputTypeDef(BaseModel):
     fsxWindowsFileServerVolumeConfiguration: Optional[       FSxWindowsFileServerVolumeConfigurationTypeDef     ] = None
     configuredAtLaunch: Optional[bool] = None
 
-class VolumeTypeDef(BaseModel):
+class VolumeTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     host: Optional[HostVolumePropertiesTypeDef] = None
     dockerVolumeConfiguration: Optional[DockerVolumeConfigurationTypeDef] = None
@@ -1114,7 +1114,7 @@ class VolumeTypeDef(BaseModel):
     fsxWindowsFileServerVolumeConfiguration: Optional[       FSxWindowsFileServerVolumeConfigurationTypeDef     ] = None
     configuredAtLaunch: Optional[bool] = None
 
-class ContainerDefinitionOutputTypeDef(BaseModel):
+class ContainerDefinitionOutputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     image: Optional[str] = None
     repositoryCredentials: Optional[RepositoryCredentialsTypeDef] = None
@@ -1156,7 +1156,7 @@ class ContainerDefinitionOutputTypeDef(BaseModel):
     firelensConfiguration: Optional[FirelensConfigurationOutputTypeDef] = None
     credentialSpecs: Optional[List[str]] = None
 
-class ContainerDefinitionTypeDef(BaseModel):
+class ContainerDefinitionTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     image: Optional[str] = None
     repositoryCredentials: Optional[RepositoryCredentialsTypeDef] = None
@@ -1198,7 +1198,7 @@ class ContainerDefinitionTypeDef(BaseModel):
     firelensConfiguration: Optional[FirelensConfigurationTypeDef] = None
     credentialSpecs: Optional[Sequence[str]] = None
 
-class RegisterContainerInstanceRequestRequestTypeDef(BaseModel):
+class RegisterContainerInstanceRequestRequestTypeDef(BaseValidatorModel):
     cluster: Optional[str] = None
     instanceIdentityDocument: Optional[str] = None
     instanceIdentityDocumentSignature: Optional[str] = None
@@ -1209,7 +1209,7 @@ class RegisterContainerInstanceRequestRequestTypeDef(BaseModel):
     platformDevices: Optional[Sequence[PlatformDeviceTypeDef]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class ServiceConnectServiceOutputTypeDef(BaseModel):
+class ServiceConnectServiceOutputTypeDef(BaseValidatorModel):
     portName: str
     discoveryName: Optional[str] = None
     clientAliases: Optional[List[ServiceConnectClientAliasTypeDef]] = None
@@ -1217,7 +1217,7 @@ class ServiceConnectServiceOutputTypeDef(BaseModel):
     timeout: Optional[TimeoutConfigurationTypeDef] = None
     tls: Optional[ServiceConnectTlsConfigurationTypeDef] = None
 
-class ServiceConnectServiceTypeDef(BaseModel):
+class ServiceConnectServiceTypeDef(BaseValidatorModel):
     portName: str
     discoveryName: Optional[str] = None
     clientAliases: Optional[Sequence[ServiceConnectClientAliasTypeDef]] = None
@@ -1225,58 +1225,58 @@ class ServiceConnectServiceTypeDef(BaseModel):
     timeout: Optional[TimeoutConfigurationTypeDef] = None
     tls: Optional[ServiceConnectTlsConfigurationTypeDef] = None
 
-class CreateCapacityProviderResponseTypeDef(BaseModel):
+class CreateCapacityProviderResponseTypeDef(BaseValidatorModel):
     capacityProvider: CapacityProviderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCapacityProviderResponseTypeDef(BaseModel):
+class DeleteCapacityProviderResponseTypeDef(BaseValidatorModel):
     capacityProvider: CapacityProviderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCapacityProvidersResponseTypeDef(BaseModel):
+class DescribeCapacityProvidersResponseTypeDef(BaseValidatorModel):
     capacityProviders: List[CapacityProviderTypeDef]
     failures: List[FailureTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateCapacityProviderResponseTypeDef(BaseModel):
+class UpdateCapacityProviderResponseTypeDef(BaseValidatorModel):
     capacityProvider: CapacityProviderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTaskSetResponseTypeDef(BaseModel):
+class CreateTaskSetResponseTypeDef(BaseValidatorModel):
     taskSet: TaskSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTaskSetResponseTypeDef(BaseModel):
+class DeleteTaskSetResponseTypeDef(BaseValidatorModel):
     taskSet: TaskSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTaskSetsResponseTypeDef(BaseModel):
+class DescribeTaskSetsResponseTypeDef(BaseValidatorModel):
     taskSets: List[TaskSetTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServicePrimaryTaskSetResponseTypeDef(BaseModel):
+class UpdateServicePrimaryTaskSetResponseTypeDef(BaseValidatorModel):
     taskSet: TaskSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTaskSetResponseTypeDef(BaseModel):
+class UpdateTaskSetResponseTypeDef(BaseValidatorModel):
     taskSet: TaskSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceVolumeConfigurationOutputTypeDef(BaseModel):
+class ServiceVolumeConfigurationOutputTypeDef(BaseValidatorModel):
     name: str
     managedEBSVolume: Optional[ServiceManagedEBSVolumeConfigurationOutputTypeDef] = None
 
-class ServiceVolumeConfigurationTypeDef(BaseModel):
+class ServiceVolumeConfigurationTypeDef(BaseValidatorModel):
     name: str
     managedEBSVolume: Optional[ServiceManagedEBSVolumeConfigurationTypeDef] = None
 
-class TaskVolumeConfigurationTypeDef(BaseModel):
+class TaskVolumeConfigurationTypeDef(BaseValidatorModel):
     name: str
     managedEBSVolume: Optional[TaskManagedEBSVolumeConfigurationTypeDef] = None
 
-class TaskTypeDef(BaseModel):
+class TaskTypeDef(BaseValidatorModel):
     attachments: Optional[List[AttachmentTypeDef]] = None
     attributes: Optional[List[AttributeTypeDef]] = None
     availabilityZone: Optional[str] = None
@@ -1315,29 +1315,29 @@ class TaskTypeDef(BaseModel):
     ephemeralStorage: Optional[EphemeralStorageTypeDef] = None
     fargateEphemeralStorage: Optional[TaskEphemeralStorageTypeDef] = None
 
-class DeregisterContainerInstanceResponseTypeDef(BaseModel):
+class DeregisterContainerInstanceResponseTypeDef(BaseValidatorModel):
     containerInstance: ContainerInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeContainerInstancesResponseTypeDef(BaseModel):
+class DescribeContainerInstancesResponseTypeDef(BaseValidatorModel):
     containerInstances: List[ContainerInstanceTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterContainerInstanceResponseTypeDef(BaseModel):
+class RegisterContainerInstanceResponseTypeDef(BaseValidatorModel):
     containerInstance: ContainerInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateContainerAgentResponseTypeDef(BaseModel):
+class UpdateContainerAgentResponseTypeDef(BaseValidatorModel):
     containerInstance: ContainerInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateContainerInstancesStateResponseTypeDef(BaseModel):
+class UpdateContainerInstancesStateResponseTypeDef(BaseValidatorModel):
     containerInstances: List[ContainerInstanceTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClusterTypeDef(BaseModel):
+class ClusterTypeDef(BaseValidatorModel):
     clusterArn: Optional[str] = None
     clusterName: Optional[str] = None
     configuration: Optional[ClusterConfigurationTypeDef] = None
@@ -1355,7 +1355,7 @@ class ClusterTypeDef(BaseModel):
     attachmentsStatus: Optional[str] = None
     serviceConnectDefaults: Optional[ClusterServiceConnectDefaultsTypeDef] = None
 
-class CreateClusterRequestRequestTypeDef(BaseModel):
+class CreateClusterRequestRequestTypeDef(BaseValidatorModel):
     clusterName: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
     settings: Optional[Sequence[ClusterSettingTypeDef]] = None
@@ -1364,13 +1364,13 @@ class CreateClusterRequestRequestTypeDef(BaseModel):
     defaultCapacityProviderStrategy: Optional[       Sequence[CapacityProviderStrategyItemTypeDef]     ] = None
     serviceConnectDefaults: Optional[ClusterServiceConnectDefaultsRequestTypeDef] = None
 
-class UpdateClusterRequestRequestTypeDef(BaseModel):
+class UpdateClusterRequestRequestTypeDef(BaseValidatorModel):
     cluster: str
     settings: Optional[Sequence[ClusterSettingTypeDef]] = None
     configuration: Optional[ClusterConfigurationTypeDef] = None
     serviceConnectDefaults: Optional[ClusterServiceConnectDefaultsRequestTypeDef] = None
 
-class TaskDefinitionTypeDef(BaseModel):
+class TaskDefinitionTypeDef(BaseValidatorModel):
     taskDefinitionArn: Optional[str] = None
     containerDefinitions: Optional[List[ContainerDefinitionOutputTypeDef]] = None
     family: Optional[str] = None
@@ -1396,19 +1396,19 @@ class TaskDefinitionTypeDef(BaseModel):
     registeredBy: Optional[str] = None
     ephemeralStorage: Optional[EphemeralStorageTypeDef] = None
 
-class ServiceConnectConfigurationOutputTypeDef(BaseModel):
+class ServiceConnectConfigurationOutputTypeDef(BaseValidatorModel):
     enabled: bool
     namespace: Optional[str] = None
     services: Optional[List[ServiceConnectServiceOutputTypeDef]] = None
     logConfiguration: Optional[LogConfigurationOutputTypeDef] = None
 
-class ServiceConnectConfigurationTypeDef(BaseModel):
+class ServiceConnectConfigurationTypeDef(BaseValidatorModel):
     enabled: bool
     namespace: Optional[str] = None
     services: Optional[Sequence[ServiceConnectServiceTypeDef]] = None
     logConfiguration: Optional[LogConfigurationTypeDef] = None
 
-class RunTaskRequestRequestTypeDef(BaseModel):
+class RunTaskRequestRequestTypeDef(BaseValidatorModel):
     taskDefinition: str
     capacityProviderStrategy: Optional[Sequence[CapacityProviderStrategyItemTypeDef]] = None
     cluster: Optional[str] = None
@@ -1429,7 +1429,7 @@ class RunTaskRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     volumeConfigurations: Optional[Sequence[TaskVolumeConfigurationTypeDef]] = None
 
-class StartTaskRequestRequestTypeDef(BaseModel):
+class StartTaskRequestRequestTypeDef(BaseValidatorModel):
     containerInstances: Sequence[str]
     taskDefinition: str
     cluster: Optional[str] = None
@@ -1444,70 +1444,70 @@ class StartTaskRequestRequestTypeDef(BaseModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     volumeConfigurations: Optional[Sequence[TaskVolumeConfigurationTypeDef]] = None
 
-class DescribeTasksResponseTypeDef(BaseModel):
+class DescribeTasksResponseTypeDef(BaseValidatorModel):
     tasks: List[TaskTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RunTaskResponseTypeDef(BaseModel):
+class RunTaskResponseTypeDef(BaseValidatorModel):
     tasks: List[TaskTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTaskResponseTypeDef(BaseModel):
+class StartTaskResponseTypeDef(BaseValidatorModel):
     tasks: List[TaskTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopTaskResponseTypeDef(BaseModel):
+class StopTaskResponseTypeDef(BaseValidatorModel):
     task: TaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateClusterResponseTypeDef(BaseModel):
+class CreateClusterResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteClusterResponseTypeDef(BaseModel):
+class DeleteClusterResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeClustersResponseTypeDef(BaseModel):
+class DescribeClustersResponseTypeDef(BaseValidatorModel):
     clusters: List[ClusterTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutClusterCapacityProvidersResponseTypeDef(BaseModel):
+class PutClusterCapacityProvidersResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateClusterResponseTypeDef(BaseModel):
+class UpdateClusterResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateClusterSettingsResponseTypeDef(BaseModel):
+class UpdateClusterSettingsResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTaskDefinitionsResponseTypeDef(BaseModel):
+class DeleteTaskDefinitionsResponseTypeDef(BaseValidatorModel):
     taskDefinitions: List[TaskDefinitionTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeregisterTaskDefinitionResponseTypeDef(BaseModel):
+class DeregisterTaskDefinitionResponseTypeDef(BaseValidatorModel):
     taskDefinition: TaskDefinitionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTaskDefinitionResponseTypeDef(BaseModel):
-    taskDefinition: TaskDefinitionTypeDef
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class RegisterTaskDefinitionResponseTypeDef(BaseModel):
+class DescribeTaskDefinitionResponseTypeDef(BaseValidatorModel):
     taskDefinition: TaskDefinitionTypeDef
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterTaskDefinitionRequestRequestTypeDef(BaseModel):
+class RegisterTaskDefinitionResponseTypeDef(BaseValidatorModel):
+    taskDefinition: TaskDefinitionTypeDef
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterTaskDefinitionRequestRequestTypeDef(BaseValidatorModel):
     family: str
     containerDefinitions: Sequence[ContainerDefinitionUnionTypeDef]
     taskRoleArn: Optional[str] = None
@@ -1526,7 +1526,7 @@ class RegisterTaskDefinitionRequestRequestTypeDef(BaseModel):
     ephemeralStorage: Optional[EphemeralStorageTypeDef] = None
     runtimePlatform: Optional[RuntimePlatformTypeDef] = None
 
-class DeploymentTypeDef(BaseModel):
+class DeploymentTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     status: Optional[str] = None
     taskDefinition: Optional[str] = None
@@ -1548,7 +1548,7 @@ class DeploymentTypeDef(BaseModel):
     volumeConfigurations: Optional[List[ServiceVolumeConfigurationOutputTypeDef]] = None
     fargateEphemeralStorage: Optional[DeploymentEphemeralStorageTypeDef] = None
 
-class CreateServiceRequestRequestTypeDef(BaseModel):
+class CreateServiceRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
     cluster: Optional[str] = None
     taskDefinition: Optional[str] = None
@@ -1574,7 +1574,7 @@ class CreateServiceRequestRequestTypeDef(BaseModel):
     serviceConnectConfiguration: Optional[ServiceConnectConfigurationTypeDef] = None
     volumeConfigurations: Optional[Sequence[ServiceVolumeConfigurationUnionTypeDef]] = None
 
-class UpdateServiceRequestRequestTypeDef(BaseModel):
+class UpdateServiceRequestRequestTypeDef(BaseValidatorModel):
     service: str
     cluster: Optional[str] = None
     desiredCount: Optional[int] = None
@@ -1595,7 +1595,7 @@ class UpdateServiceRequestRequestTypeDef(BaseModel):
     serviceConnectConfiguration: Optional[ServiceConnectConfigurationTypeDef] = None
     volumeConfigurations: Optional[Sequence[ServiceVolumeConfigurationUnionTypeDef]] = None
 
-class ServiceTypeDef(BaseModel):
+class ServiceTypeDef(BaseValidatorModel):
     serviceArn: Optional[str] = None
     serviceName: Optional[str] = None
     clusterArn: Optional[str] = None
@@ -1628,20 +1628,20 @@ class ServiceTypeDef(BaseModel):
     propagateTags: Optional[PropagateTagsType] = None
     enableExecuteCommand: Optional[bool] = None
 
-class CreateServiceResponseTypeDef(BaseModel):
+class CreateServiceResponseTypeDef(BaseValidatorModel):
     service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteServiceResponseTypeDef(BaseModel):
+class DeleteServiceResponseTypeDef(BaseValidatorModel):
     service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeServicesResponseTypeDef(BaseModel):
+class DescribeServicesResponseTypeDef(BaseValidatorModel):
     services: List[ServiceTypeDef]
     failures: List[FailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServiceResponseTypeDef(BaseModel):
+class UpdateServiceResponseTypeDef(BaseValidatorModel):
     service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

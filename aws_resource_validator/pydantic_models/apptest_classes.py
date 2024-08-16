@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,140 +11,140 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.apptest_constants import *
 
-class BatchOutputTypeDef(BaseModel):
+class BatchOutputTypeDef(BaseValidatorModel):
     batchJobName: str
     batchJobParameters: Optional[Dict[str, str]] = None
     exportDataSetNames: Optional[List[str]] = None
 
-class MainframeActionPropertiesTypeDef(BaseModel):
+class MainframeActionPropertiesTypeDef(BaseValidatorModel):
     dmsTaskArn: Optional[str] = None
 
-class DataSetTypeDef(BaseModel):
+class DataSetTypeDef(BaseValidatorModel):
     type: Literal["PS"]
     name: str
     ccsid: str
     format: FormatType
     length: int
 
-class BatchTypeDef(BaseModel):
+class BatchTypeDef(BaseValidatorModel):
     batchJobName: str
     batchJobParameters: Optional[Mapping[str, str]] = None
     exportDataSetNames: Optional[Sequence[str]] = None
 
-class CloudFormationActionTypeDef(BaseModel):
+class CloudFormationActionTypeDef(BaseValidatorModel):
     resource: str
     actionType: Optional[CloudFormationActionTypeType] = None
 
-class CloudFormationOutputTypeDef(BaseModel):
+class CloudFormationOutputTypeDef(BaseValidatorModel):
     templateLocation: str
     parameters: Optional[Dict[str, str]] = None
 
-class CloudFormationTypeDef(BaseModel):
+class CloudFormationTypeDef(BaseValidatorModel):
     templateLocation: str
     parameters: Optional[Mapping[str, str]] = None
 
-class CompareDataSetsStepOutputTypeDef(BaseModel):
+class CompareDataSetsStepOutputTypeDef(BaseValidatorModel):
     comparisonOutputLocation: str
     comparisonStatus: ComparisonStatusEnumType
 
-class SourceDatabaseMetadataTypeDef(BaseModel):
+class SourceDatabaseMetadataTypeDef(BaseValidatorModel):
     type: Literal["z/OS-DB2"]
     captureTool: CaptureToolType
 
-class TargetDatabaseMetadataTypeDef(BaseModel):
+class TargetDatabaseMetadataTypeDef(BaseValidatorModel):
     type: Literal["PostgreSQL"]
     captureTool: CaptureToolType
 
-class CompareDatabaseCDCStepOutputTypeDef(BaseModel):
+class CompareDatabaseCDCStepOutputTypeDef(BaseValidatorModel):
     comparisonOutputLocation: str
     comparisonStatus: ComparisonStatusEnumType
 
-class CreateCloudFormationStepInputTypeDef(BaseModel):
+class CreateCloudFormationStepInputTypeDef(BaseValidatorModel):
     templateLocation: str
     parameters: Optional[Dict[str, str]] = None
 
-class CreateCloudFormationStepOutputTypeDef(BaseModel):
+class CreateCloudFormationStepOutputTypeDef(BaseValidatorModel):
     stackId: str
     exports: Optional[Dict[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ServiceSettingsTypeDef(BaseModel):
+class ServiceSettingsTypeDef(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
-class TestCasesTypeDef(BaseModel):
+class TestCasesTypeDef(BaseValidatorModel):
     sequential: Optional[Sequence[str]] = None
 
-class DeleteCloudFormationStepInputTypeDef(BaseModel):
+class DeleteCloudFormationStepInputTypeDef(BaseValidatorModel):
     stackId: str
 
-class DeleteTestCaseRequestRequestTypeDef(BaseModel):
+class DeleteTestCaseRequestRequestTypeDef(BaseValidatorModel):
     testCaseId: str
 
-class DeleteTestConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteTestConfigurationRequestRequestTypeDef(BaseValidatorModel):
     testConfigurationId: str
 
-class DeleteTestRunRequestRequestTypeDef(BaseModel):
+class DeleteTestRunRequestRequestTypeDef(BaseValidatorModel):
     testRunId: str
 
-class DeleteTestSuiteRequestRequestTypeDef(BaseModel):
+class DeleteTestSuiteRequestRequestTypeDef(BaseValidatorModel):
     testSuiteId: str
 
-class GetTestCaseRequestRequestTypeDef(BaseModel):
+class GetTestCaseRequestRequestTypeDef(BaseValidatorModel):
     testCaseId: str
     testCaseVersion: Optional[int] = None
 
-class TestCaseLatestVersionTypeDef(BaseModel):
+class TestCaseLatestVersionTypeDef(BaseValidatorModel):
     version: int
     status: TestCaseLifecycleType
     statusReason: Optional[str] = None
 
-class GetTestConfigurationRequestRequestTypeDef(BaseModel):
+class GetTestConfigurationRequestRequestTypeDef(BaseValidatorModel):
     testConfigurationId: str
     testConfigurationVersion: Optional[int] = None
 
-class TestConfigurationLatestVersionTypeDef(BaseModel):
+class TestConfigurationLatestVersionTypeDef(BaseValidatorModel):
     version: int
     status: TestConfigurationLifecycleType
     statusReason: Optional[str] = None
 
-class GetTestRunStepRequestRequestTypeDef(BaseModel):
+class GetTestRunStepRequestRequestTypeDef(BaseValidatorModel):
     testRunId: str
     stepName: str
     testCaseId: Optional[str] = None
     testSuiteId: Optional[str] = None
 
-class GetTestSuiteRequestRequestTypeDef(BaseModel):
+class GetTestSuiteRequestRequestTypeDef(BaseValidatorModel):
     testSuiteId: str
     testSuiteVersion: Optional[int] = None
 
-class TestCasesOutputTypeDef(BaseModel):
+class TestCasesOutputTypeDef(BaseValidatorModel):
     sequential: Optional[List[str]] = None
 
-class TestSuiteLatestVersionTypeDef(BaseModel):
+class TestSuiteLatestVersionTypeDef(BaseValidatorModel):
     version: int
     status: TestSuiteLifecycleType
     statusReason: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListTestCasesRequestRequestTypeDef(BaseModel):
+class ListTestCasesRequestRequestTypeDef(BaseValidatorModel):
     testCaseIds: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TestCaseSummaryTypeDef(BaseModel):
+class TestCaseSummaryTypeDef(BaseValidatorModel):
     testCaseId: str
     testCaseArn: str
     name: str
@@ -154,12 +154,12 @@ class TestCaseSummaryTypeDef(BaseModel):
     lastUpdateTime: datetime
     statusReason: Optional[str] = None
 
-class ListTestConfigurationsRequestRequestTypeDef(BaseModel):
+class ListTestConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     testConfigurationIds: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TestConfigurationSummaryTypeDef(BaseModel):
+class TestConfigurationSummaryTypeDef(BaseValidatorModel):
     testConfigurationId: str
     name: str
     latestVersion: int
@@ -169,14 +169,14 @@ class TestConfigurationSummaryTypeDef(BaseModel):
     lastUpdateTime: datetime
     statusReason: Optional[str] = None
 
-class ListTestRunStepsRequestRequestTypeDef(BaseModel):
+class ListTestRunStepsRequestRequestTypeDef(BaseValidatorModel):
     testRunId: str
     testCaseId: Optional[str] = None
     testSuiteId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TestRunStepSummaryTypeDef(BaseModel):
+class TestRunStepSummaryTypeDef(BaseValidatorModel):
     stepName: str
     testRunId: str
     status: StepRunStatusType
@@ -190,12 +190,12 @@ class TestRunStepSummaryTypeDef(BaseModel):
     statusReason: Optional[str] = None
     runEndTime: Optional[datetime] = None
 
-class ListTestRunTestCasesRequestRequestTypeDef(BaseModel):
+class ListTestRunTestCasesRequestRequestTypeDef(BaseValidatorModel):
     testRunId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TestCaseRunSummaryTypeDef(BaseModel):
+class TestCaseRunSummaryTypeDef(BaseValidatorModel):
     testCaseId: str
     testCaseVersion: int
     testRunId: str
@@ -204,13 +204,13 @@ class TestCaseRunSummaryTypeDef(BaseModel):
     statusReason: Optional[str] = None
     runEndTime: Optional[datetime] = None
 
-class ListTestRunsRequestRequestTypeDef(BaseModel):
+class ListTestRunsRequestRequestTypeDef(BaseValidatorModel):
     testSuiteId: Optional[str] = None
     testRunIds: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TestRunSummaryTypeDef(BaseModel):
+class TestRunSummaryTypeDef(BaseValidatorModel):
     testRunId: str
     testRunArn: str
     testSuiteId: str
@@ -222,12 +222,12 @@ class TestRunSummaryTypeDef(BaseModel):
     statusReason: Optional[str] = None
     runEndTime: Optional[datetime] = None
 
-class ListTestSuitesRequestRequestTypeDef(BaseModel):
+class ListTestSuitesRequestRequestTypeDef(BaseValidatorModel):
     testSuiteIds: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TestSuiteSummaryTypeDef(BaseModel):
+class TestSuiteSummaryTypeDef(BaseValidatorModel):
     testSuiteId: str
     name: str
     latestVersion: int
@@ -237,210 +237,210 @@ class TestSuiteSummaryTypeDef(BaseModel):
     lastUpdateTime: datetime
     statusReason: Optional[str] = None
 
-class M2ManagedActionPropertiesTypeDef(BaseModel):
+class M2ManagedActionPropertiesTypeDef(BaseValidatorModel):
     forceStop: Optional[bool] = None
     importDataSetLocation: Optional[str] = None
 
-class M2ManagedApplicationStepOutputTypeDef(BaseModel):
+class M2ManagedApplicationStepOutputTypeDef(BaseValidatorModel):
     importDataSetSummary: Optional[Dict[str, str]] = None
 
-class M2ManagedApplicationSummaryTypeDef(BaseModel):
+class M2ManagedApplicationSummaryTypeDef(BaseValidatorModel):
     applicationId: str
     runtime: Literal["MicroFocus"]
     listenerPort: Optional[int] = None
 
-class M2ManagedApplicationTypeDef(BaseModel):
+class M2ManagedApplicationTypeDef(BaseValidatorModel):
     applicationId: str
     runtime: Literal["MicroFocus"]
     vpcEndpointServiceName: Optional[str] = None
     listenerPort: Optional[str] = None
 
-class M2NonManagedApplicationActionTypeDef(BaseModel):
+class M2NonManagedApplicationActionTypeDef(BaseValidatorModel):
     resource: str
     actionType: M2NonManagedActionTypeType
 
-class M2NonManagedApplicationStepInputTypeDef(BaseModel):
+class M2NonManagedApplicationStepInputTypeDef(BaseValidatorModel):
     vpcEndpointServiceName: str
     listenerPort: int
     runtime: Literal["BluAge"]
     actionType: M2NonManagedActionTypeType
     webAppName: Optional[str] = None
 
-class M2NonManagedApplicationSummaryTypeDef(BaseModel):
+class M2NonManagedApplicationSummaryTypeDef(BaseValidatorModel):
     vpcEndpointServiceName: str
     listenerPort: int
     runtime: Literal["BluAge"]
     webAppName: Optional[str] = None
 
-class M2NonManagedApplicationTypeDef(BaseModel):
+class M2NonManagedApplicationTypeDef(BaseValidatorModel):
     vpcEndpointServiceName: str
     listenerPort: str
     runtime: Literal["BluAge"]
     webAppName: Optional[str] = None
 
-class OutputFileTypeDef(BaseModel):
+class OutputFileTypeDef(BaseValidatorModel):
     fileLocation: Optional[str] = None
 
-class ScriptSummaryTypeDef(BaseModel):
+class ScriptSummaryTypeDef(BaseValidatorModel):
     scriptLocation: str
     type: Literal["Selenium"]
 
-class ScriptTypeDef(BaseModel):
+class ScriptTypeDef(BaseValidatorModel):
     scriptLocation: str
     type: Literal["Selenium"]
 
-class StartTestRunRequestRequestTypeDef(BaseModel):
+class StartTestRunRequestRequestTypeDef(BaseValidatorModel):
     testSuiteId: str
     testConfigurationId: Optional[str] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class BatchStepOutputTypeDef(BaseModel):
+class BatchStepOutputTypeDef(BaseValidatorModel):
     dataSetExportLocation: Optional[str] = None
     dmsOutputLocation: Optional[str] = None
     dataSetDetails: Optional[List[DataSetTypeDef]] = None
 
-class CompareDataSetsStepInputTypeDef(BaseModel):
+class CompareDataSetsStepInputTypeDef(BaseValidatorModel):
     sourceLocation: str
     targetLocation: str
     sourceDataSets: List[DataSetTypeDef]
     targetDataSets: List[DataSetTypeDef]
 
-class TN3270StepOutputTypeDef(BaseModel):
+class TN3270StepOutputTypeDef(BaseValidatorModel):
     scriptOutputLocation: str
     dataSetExportLocation: Optional[str] = None
     dmsOutputLocation: Optional[str] = None
     dataSetDetails: Optional[List[DataSetTypeDef]] = None
 
-class CompareDatabaseCDCStepInputTypeDef(BaseModel):
+class CompareDatabaseCDCStepInputTypeDef(BaseValidatorModel):
     sourceLocation: str
     targetLocation: str
     sourceMetadata: SourceDatabaseMetadataTypeDef
     targetMetadata: TargetDatabaseMetadataTypeDef
     outputLocation: Optional[str] = None
 
-class DatabaseCDCTypeDef(BaseModel):
+class DatabaseCDCTypeDef(BaseValidatorModel):
     sourceMetadata: SourceDatabaseMetadataTypeDef
     targetMetadata: TargetDatabaseMetadataTypeDef
 
-class CreateCloudFormationSummaryTypeDef(BaseModel):
+class CreateCloudFormationSummaryTypeDef(BaseValidatorModel):
     stepInput: CreateCloudFormationStepInputTypeDef
     stepOutput: Optional[CreateCloudFormationStepOutputTypeDef] = None
 
-class CreateTestCaseResponseTypeDef(BaseModel):
+class CreateTestCaseResponseTypeDef(BaseValidatorModel):
     testCaseId: str
     testCaseVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTestConfigurationResponseTypeDef(BaseModel):
+class CreateTestConfigurationResponseTypeDef(BaseValidatorModel):
     testConfigurationId: str
     testConfigurationVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTestSuiteResponseTypeDef(BaseModel):
+class CreateTestSuiteResponseTypeDef(BaseValidatorModel):
     testSuiteId: str
     testSuiteVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTestRunResponseTypeDef(BaseModel):
+class StartTestRunResponseTypeDef(BaseValidatorModel):
     testRunId: str
     testRunStatus: TestRunStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTestCaseResponseTypeDef(BaseModel):
+class UpdateTestCaseResponseTypeDef(BaseValidatorModel):
     testCaseId: str
     testCaseVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTestConfigurationResponseTypeDef(BaseModel):
+class UpdateTestConfigurationResponseTypeDef(BaseValidatorModel):
     testConfigurationId: str
     testConfigurationVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTestSuiteResponseTypeDef(BaseModel):
+class UpdateTestSuiteResponseTypeDef(BaseValidatorModel):
     testSuiteId: str
     testSuiteVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCloudFormationSummaryTypeDef(BaseModel):
+class DeleteCloudFormationSummaryTypeDef(BaseValidatorModel):
     stepInput: DeleteCloudFormationStepInputTypeDef
     stepOutput: Optional[Dict[str, Any]] = None
 
-class ListTestCasesRequestListTestCasesPaginateTypeDef(BaseModel):
+class ListTestCasesRequestListTestCasesPaginateTypeDef(BaseValidatorModel):
     testCaseIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTestConfigurationsRequestListTestConfigurationsPaginateTypeDef(BaseModel):
+class ListTestConfigurationsRequestListTestConfigurationsPaginateTypeDef(BaseValidatorModel):
     testConfigurationIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTestRunStepsRequestListTestRunStepsPaginateTypeDef(BaseModel):
+class ListTestRunStepsRequestListTestRunStepsPaginateTypeDef(BaseValidatorModel):
     testRunId: str
     testCaseId: Optional[str] = None
     testSuiteId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTestRunTestCasesRequestListTestRunTestCasesPaginateTypeDef(BaseModel):
+class ListTestRunTestCasesRequestListTestRunTestCasesPaginateTypeDef(BaseValidatorModel):
     testRunId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTestRunsRequestListTestRunsPaginateTypeDef(BaseModel):
+class ListTestRunsRequestListTestRunsPaginateTypeDef(BaseValidatorModel):
     testSuiteId: Optional[str] = None
     testRunIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTestSuitesRequestListTestSuitesPaginateTypeDef(BaseModel):
+class ListTestSuitesRequestListTestSuitesPaginateTypeDef(BaseValidatorModel):
     testSuiteIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTestCasesResponseTypeDef(BaseModel):
+class ListTestCasesResponseTypeDef(BaseValidatorModel):
     testCases: List[TestCaseSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestConfigurationsResponseTypeDef(BaseModel):
+class ListTestConfigurationsResponseTypeDef(BaseValidatorModel):
     testConfigurations: List[TestConfigurationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestRunStepsResponseTypeDef(BaseModel):
+class ListTestRunStepsResponseTypeDef(BaseValidatorModel):
     testRunSteps: List[TestRunStepSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestRunTestCasesResponseTypeDef(BaseModel):
+class ListTestRunTestCasesResponseTypeDef(BaseValidatorModel):
     testRunTestCases: List[TestCaseRunSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestRunsResponseTypeDef(BaseModel):
+class ListTestRunsResponseTypeDef(BaseValidatorModel):
     testRuns: List[TestRunSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestSuitesResponseTypeDef(BaseModel):
+class ListTestSuitesResponseTypeDef(BaseValidatorModel):
     testSuites: List[TestSuiteSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class M2ManagedApplicationActionTypeDef(BaseModel):
+class M2ManagedApplicationActionTypeDef(BaseValidatorModel):
     resource: str
     actionType: M2ManagedActionTypeType
     properties: Optional[M2ManagedActionPropertiesTypeDef] = None
 
-class M2ManagedApplicationStepInputTypeDef(BaseModel):
+class M2ManagedApplicationStepInputTypeDef(BaseValidatorModel):
     applicationId: str
     runtime: str
     actionType: M2ManagedActionTypeType
@@ -448,121 +448,121 @@ class M2ManagedApplicationStepInputTypeDef(BaseModel):
     listenerPort: Optional[int] = None
     properties: Optional[M2ManagedActionPropertiesTypeDef] = None
 
-class M2NonManagedApplicationStepSummaryTypeDef(BaseModel):
+class M2NonManagedApplicationStepSummaryTypeDef(BaseValidatorModel):
     stepInput: M2NonManagedApplicationStepInputTypeDef
     stepOutput: Optional[Dict[str, Any]] = None
 
-class MainframeResourceSummaryTypeDef(BaseModel):
+class MainframeResourceSummaryTypeDef(BaseValidatorModel):
     m2ManagedApplication: Optional[M2ManagedApplicationSummaryTypeDef] = None
     m2NonManagedApplication: Optional[M2NonManagedApplicationSummaryTypeDef] = None
 
-class ResourceTypeOutputTypeDef(BaseModel):
+class ResourceTypeOutputTypeDef(BaseValidatorModel):
     cloudFormation: Optional[CloudFormationOutputTypeDef] = None
     m2ManagedApplication: Optional[M2ManagedApplicationTypeDef] = None
     m2NonManagedApplication: Optional[M2NonManagedApplicationTypeDef] = None
 
-class ResourceTypeTypeDef(BaseModel):
+class ResourceTypeTypeDef(BaseValidatorModel):
     cloudFormation: Optional[CloudFormationTypeDef] = None
     m2ManagedApplication: Optional[M2ManagedApplicationTypeDef] = None
     m2NonManagedApplication: Optional[M2NonManagedApplicationTypeDef] = None
 
-class OutputTypeDef(BaseModel):
+class OutputTypeDef(BaseValidatorModel):
     file: Optional[OutputFileTypeDef] = None
 
-class TN3270OutputTypeDef(BaseModel):
+class TN3270OutputTypeDef(BaseValidatorModel):
     script: ScriptTypeDef
     exportDataSetNames: Optional[List[str]] = None
 
-class TN3270TypeDef(BaseModel):
+class TN3270TypeDef(BaseValidatorModel):
     script: ScriptTypeDef
     exportDataSetNames: Optional[Sequence[str]] = None
 
-class CompareDataSetsSummaryTypeDef(BaseModel):
+class CompareDataSetsSummaryTypeDef(BaseValidatorModel):
     stepInput: CompareDataSetsStepInputTypeDef
     stepOutput: Optional[CompareDataSetsStepOutputTypeDef] = None
 
-class CompareDatabaseCDCSummaryTypeDef(BaseModel):
+class CompareDatabaseCDCSummaryTypeDef(BaseValidatorModel):
     stepInput: CompareDatabaseCDCStepInputTypeDef
     stepOutput: Optional[CompareDatabaseCDCStepOutputTypeDef] = None
 
-class FileMetadataOutputTypeDef(BaseModel):
+class FileMetadataOutputTypeDef(BaseValidatorModel):
     dataSets: Optional[List[DataSetTypeDef]] = None
     databaseCDC: Optional[DatabaseCDCTypeDef] = None
 
-class FileMetadataTypeDef(BaseModel):
+class FileMetadataTypeDef(BaseValidatorModel):
     dataSets: Optional[Sequence[DataSetTypeDef]] = None
     databaseCDC: Optional[DatabaseCDCTypeDef] = None
 
-class CloudFormationStepSummaryTypeDef(BaseModel):
+class CloudFormationStepSummaryTypeDef(BaseValidatorModel):
     createCloudformation: Optional[CreateCloudFormationSummaryTypeDef] = None
     deleteCloudformation: Optional[DeleteCloudFormationSummaryTypeDef] = None
 
-class ResourceActionTypeDef(BaseModel):
+class ResourceActionTypeDef(BaseValidatorModel):
     m2ManagedApplicationAction: Optional[M2ManagedApplicationActionTypeDef] = None
     m2NonManagedApplicationAction: Optional[M2NonManagedApplicationActionTypeDef] = None
     cloudFormationAction: Optional[CloudFormationActionTypeDef] = None
 
-class M2ManagedApplicationStepSummaryTypeDef(BaseModel):
+class M2ManagedApplicationStepSummaryTypeDef(BaseValidatorModel):
     stepInput: M2ManagedApplicationStepInputTypeDef
     stepOutput: Optional[M2ManagedApplicationStepOutputTypeDef] = None
 
-class BatchStepInputTypeDef(BaseModel):
+class BatchStepInputTypeDef(BaseValidatorModel):
     resource: MainframeResourceSummaryTypeDef
     batchJobName: str
     batchJobParameters: Optional[Dict[str, str]] = None
     exportDataSetNames: Optional[List[str]] = None
     properties: Optional[MainframeActionPropertiesTypeDef] = None
 
-class TN3270StepInputTypeDef(BaseModel):
+class TN3270StepInputTypeDef(BaseValidatorModel):
     resource: MainframeResourceSummaryTypeDef
     script: ScriptSummaryTypeDef
     exportDataSetNames: Optional[List[str]] = None
     properties: Optional[MainframeActionPropertiesTypeDef] = None
 
-class ResourceOutputTypeDef(BaseModel):
+class ResourceOutputTypeDef(BaseValidatorModel):
     name: str
     type: ResourceTypeOutputTypeDef
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     name: str
     type: ResourceTypeTypeDef
 
-class MainframeActionTypeOutputTypeDef(BaseModel):
+class MainframeActionTypeOutputTypeDef(BaseValidatorModel):
     batch: Optional[BatchOutputTypeDef] = None
     tn3270: Optional[TN3270OutputTypeDef] = None
 
-class MainframeActionTypeTypeDef(BaseModel):
+class MainframeActionTypeTypeDef(BaseValidatorModel):
     batch: Optional[BatchTypeDef] = None
     tn3270: Optional[TN3270TypeDef] = None
 
-class CompareFileTypeTypeDef(BaseModel):
+class CompareFileTypeTypeDef(BaseValidatorModel):
     datasets: Optional[CompareDataSetsSummaryTypeDef] = None
     databaseCDC: Optional[CompareDatabaseCDCSummaryTypeDef] = None
 
-class InputFileOutputTypeDef(BaseModel):
+class InputFileOutputTypeDef(BaseValidatorModel):
     sourceLocation: str
     targetLocation: str
     fileMetadata: FileMetadataOutputTypeDef
 
-class InputFileTypeDef(BaseModel):
+class InputFileTypeDef(BaseValidatorModel):
     sourceLocation: str
     targetLocation: str
     fileMetadata: FileMetadataTypeDef
 
-class ResourceActionSummaryTypeDef(BaseModel):
+class ResourceActionSummaryTypeDef(BaseValidatorModel):
     cloudFormation: Optional[CloudFormationStepSummaryTypeDef] = None
     m2ManagedApplication: Optional[M2ManagedApplicationStepSummaryTypeDef] = None
     m2NonManagedApplication: Optional[M2NonManagedApplicationStepSummaryTypeDef] = None
 
-class BatchSummaryTypeDef(BaseModel):
+class BatchSummaryTypeDef(BaseValidatorModel):
     stepInput: BatchStepInputTypeDef
     stepOutput: Optional[BatchStepOutputTypeDef] = None
 
-class TN3270SummaryTypeDef(BaseModel):
+class TN3270SummaryTypeDef(BaseValidatorModel):
     stepInput: TN3270StepInputTypeDef
     stepOutput: Optional[TN3270StepOutputTypeDef] = None
 
-class GetTestConfigurationResponseTypeDef(BaseModel):
+class GetTestConfigurationResponseTypeDef(BaseValidatorModel):
     testConfigurationId: str
     name: str
     testConfigurationArn: str
@@ -579,30 +579,30 @@ class GetTestConfigurationResponseTypeDef(BaseModel):
     serviceSettings: ServiceSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MainframeActionOutputTypeDef(BaseModel):
+class MainframeActionOutputTypeDef(BaseValidatorModel):
     resource: str
     actionType: MainframeActionTypeOutputTypeDef
     properties: Optional[MainframeActionPropertiesTypeDef] = None
 
-class MainframeActionTypeDef(BaseModel):
+class MainframeActionTypeDef(BaseValidatorModel):
     resource: str
     actionType: MainframeActionTypeTypeDef
     properties: Optional[MainframeActionPropertiesTypeDef] = None
 
-class FileTypeDef(BaseModel):
+class FileTypeDef(BaseValidatorModel):
     fileType: Optional[CompareFileTypeTypeDef] = None
 
-class InputOutputTypeDef(BaseModel):
+class InputOutputTypeDef(BaseValidatorModel):
     file: Optional[InputFileOutputTypeDef] = None
 
-class InputTypeDef(BaseModel):
+class InputTypeDef(BaseValidatorModel):
     file: Optional[InputFileTypeDef] = None
 
-class MainframeActionSummaryTypeDef(BaseModel):
+class MainframeActionSummaryTypeDef(BaseValidatorModel):
     batch: Optional[BatchSummaryTypeDef] = None
     tn3270: Optional[TN3270SummaryTypeDef] = None
 
-class CreateTestConfigurationRequestRequestTypeDef(BaseModel):
+class CreateTestConfigurationRequestRequestTypeDef(BaseValidatorModel):
     name: str
     resources: Sequence[ResourceUnionTypeDef]
     description: Optional[str] = None
@@ -611,40 +611,40 @@ class CreateTestConfigurationRequestRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     serviceSettings: Optional[ServiceSettingsTypeDef] = None
 
-class UpdateTestConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateTestConfigurationRequestRequestTypeDef(BaseValidatorModel):
     testConfigurationId: str
     description: Optional[str] = None
     resources: Optional[Sequence[ResourceUnionTypeDef]] = None
     properties: Optional[Mapping[str, str]] = None
     serviceSettings: Optional[ServiceSettingsTypeDef] = None
 
-class CompareActionSummaryTypeDef(BaseModel):
+class CompareActionSummaryTypeDef(BaseValidatorModel):
     type: FileTypeDef
 
-class CompareActionOutputTypeDef(BaseModel):
+class CompareActionOutputTypeDef(BaseValidatorModel):
     input: InputOutputTypeDef
     output: Optional[OutputTypeDef] = None
 
-class CompareActionTypeDef(BaseModel):
+class CompareActionTypeDef(BaseValidatorModel):
     input: InputTypeDef
     output: Optional[OutputTypeDef] = None
 
-class StepRunSummaryTypeDef(BaseModel):
+class StepRunSummaryTypeDef(BaseValidatorModel):
     mainframeAction: Optional[MainframeActionSummaryTypeDef] = None
     compareAction: Optional[CompareActionSummaryTypeDef] = None
     resourceAction: Optional[ResourceActionSummaryTypeDef] = None
 
-class StepActionOutputTypeDef(BaseModel):
+class StepActionOutputTypeDef(BaseValidatorModel):
     resourceAction: Optional[ResourceActionTypeDef] = None
     mainframeAction: Optional[MainframeActionOutputTypeDef] = None
     compareAction: Optional[CompareActionOutputTypeDef] = None
 
-class StepActionTypeDef(BaseModel):
+class StepActionTypeDef(BaseValidatorModel):
     resourceAction: Optional[ResourceActionTypeDef] = None
     mainframeAction: Optional[MainframeActionTypeDef] = None
     compareAction: Optional[CompareActionTypeDef] = None
 
-class GetTestRunStepResponseTypeDef(BaseModel):
+class GetTestRunStepResponseTypeDef(BaseValidatorModel):
     stepName: str
     testRunId: str
     testCaseId: str
@@ -660,17 +660,17 @@ class GetTestRunStepResponseTypeDef(BaseModel):
     stepRunSummary: StepRunSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StepOutputTypeDef(BaseModel):
+class StepOutputTypeDef(BaseValidatorModel):
     name: str
     action: StepActionOutputTypeDef
     description: Optional[str] = None
 
-class StepTypeDef(BaseModel):
+class StepTypeDef(BaseValidatorModel):
     name: str
     action: StepActionTypeDef
     description: Optional[str] = None
 
-class GetTestCaseResponseTypeDef(BaseModel):
+class GetTestCaseResponseTypeDef(BaseValidatorModel):
     testCaseId: str
     testCaseArn: str
     name: str
@@ -685,7 +685,7 @@ class GetTestCaseResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTestSuiteResponseTypeDef(BaseModel):
+class GetTestSuiteResponseTypeDef(BaseValidatorModel):
     testSuiteId: str
     name: str
     latestVersion: TestSuiteLatestVersionTypeDef
@@ -702,14 +702,14 @@ class GetTestSuiteResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTestCaseRequestRequestTypeDef(BaseModel):
+class CreateTestCaseRequestRequestTypeDef(BaseValidatorModel):
     name: str
     steps: Sequence[StepUnionTypeDef]
     description: Optional[str] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateTestSuiteRequestRequestTypeDef(BaseModel):
+class CreateTestSuiteRequestRequestTypeDef(BaseValidatorModel):
     name: str
     testCases: TestCasesTypeDef
     description: Optional[str] = None
@@ -718,12 +718,12 @@ class CreateTestSuiteRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateTestCaseRequestRequestTypeDef(BaseModel):
+class UpdateTestCaseRequestRequestTypeDef(BaseValidatorModel):
     testCaseId: str
     description: Optional[str] = None
     steps: Optional[Sequence[StepUnionTypeDef]] = None
 
-class UpdateTestSuiteRequestRequestTypeDef(BaseModel):
+class UpdateTestSuiteRequestRequestTypeDef(BaseValidatorModel):
     testSuiteId: str
     description: Optional[str] = None
     beforeSteps: Optional[Sequence[StepUnionTypeDef]] = None

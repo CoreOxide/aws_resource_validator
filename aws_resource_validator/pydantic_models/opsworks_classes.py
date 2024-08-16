@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,21 +11,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.opsworks_constants import *
 
-class StackConfigurationManagerTypeDef(BaseModel):
+class StackConfigurationManagerTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
 
-class DataSourceTypeDef(BaseModel):
+class DataSourceTypeDef(BaseValidatorModel):
     Type: Optional[str] = None
     Arn: Optional[str] = None
     DatabaseName: Optional[str] = None
 
-class EnvironmentVariableTypeDef(BaseModel):
+class EnvironmentVariableTypeDef(BaseValidatorModel):
     Key: str
     Value: str
     Secure: Optional[bool] = None
 
-class SourceTypeDef(BaseModel):
+class SourceTypeDef(BaseValidatorModel):
     Type: Optional[SourceTypeType] = None
     Url: Optional[str] = None
     Username: Optional[str] = None
@@ -33,28 +33,28 @@ class SourceTypeDef(BaseModel):
     SshKey: Optional[str] = None
     Revision: Optional[str] = None
 
-class SslConfigurationTypeDef(BaseModel):
+class SslConfigurationTypeDef(BaseValidatorModel):
     Certificate: str
     PrivateKey: str
     Chain: Optional[str] = None
 
-class AssignInstanceRequestRequestTypeDef(BaseModel):
+class AssignInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     LayerIds: Sequence[str]
 
-class AssignVolumeRequestRequestTypeDef(BaseModel):
+class AssignVolumeRequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
     InstanceId: Optional[str] = None
 
-class AssociateElasticIpRequestRequestTypeDef(BaseModel):
+class AssociateElasticIpRequestRequestTypeDef(BaseValidatorModel):
     ElasticIp: str
     InstanceId: Optional[str] = None
 
-class AttachElasticLoadBalancerRequestRequestTypeDef(BaseModel):
+class AttachElasticLoadBalancerRequestRequestTypeDef(BaseValidatorModel):
     ElasticLoadBalancerName: str
     LayerId: str
 
-class AutoScalingThresholdsOutputTypeDef(BaseModel):
+class AutoScalingThresholdsOutputTypeDef(BaseValidatorModel):
     InstanceCount: Optional[int] = None
     ThresholdsWaitTime: Optional[int] = None
     IgnoreMetricsTime: Optional[int] = None
@@ -63,7 +63,7 @@ class AutoScalingThresholdsOutputTypeDef(BaseModel):
     LoadThreshold: Optional[float] = None
     Alarms: Optional[List[str]] = None
 
-class AutoScalingThresholdsTypeDef(BaseModel):
+class AutoScalingThresholdsTypeDef(BaseValidatorModel):
     InstanceCount: Optional[int] = None
     ThresholdsWaitTime: Optional[int] = None
     IgnoreMetricsTime: Optional[int] = None
@@ -72,25 +72,25 @@ class AutoScalingThresholdsTypeDef(BaseModel):
     LoadThreshold: Optional[float] = None
     Alarms: Optional[Sequence[str]] = None
 
-class EbsBlockDeviceTypeDef(BaseModel):
+class EbsBlockDeviceTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     Iops: Optional[int] = None
     VolumeSize: Optional[int] = None
     VolumeType: Optional[VolumeTypeType] = None
     DeleteOnTermination: Optional[bool] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ChefConfigurationTypeDef(BaseModel):
+class ChefConfigurationTypeDef(BaseValidatorModel):
     ManageBerkshelf: Optional[bool] = None
     BerkshelfVersion: Optional[str] = None
 
-class CloudWatchLogsLogStreamTypeDef(BaseModel):
+class CloudWatchLogsLogStreamTypeDef(BaseValidatorModel):
     LogGroupName: Optional[str] = None
     DatetimeFormat: Optional[str] = None
     TimeZone: Optional[CloudWatchLogsTimeZoneType] = None
@@ -103,7 +103,7 @@ class CloudWatchLogsLogStreamTypeDef(BaseModel):
     BatchCount: Optional[int] = None
     BatchSize: Optional[int] = None
 
-class CommandTypeDef(BaseModel):
+class CommandTypeDef(BaseValidatorModel):
     CommandId: Optional[str] = None
     InstanceId: Optional[str] = None
     DeploymentId: Optional[str] = None
@@ -115,18 +115,18 @@ class CommandTypeDef(BaseModel):
     LogUrl: Optional[str] = None
     Type: Optional[str] = None
 
-class DeploymentCommandTypeDef(BaseModel):
+class DeploymentCommandTypeDef(BaseValidatorModel):
     Name: DeploymentCommandNameType
     Args: Optional[Mapping[str, Sequence[str]]] = None
 
-class RecipesTypeDef(BaseModel):
+class RecipesTypeDef(BaseValidatorModel):
     Setup: Optional[Sequence[str]] = None
     Configure: Optional[Sequence[str]] = None
     Deploy: Optional[Sequence[str]] = None
     Undeploy: Optional[Sequence[str]] = None
     Shutdown: Optional[Sequence[str]] = None
 
-class VolumeConfigurationTypeDef(BaseModel):
+class VolumeConfigurationTypeDef(BaseValidatorModel):
     MountPoint: str
     NumberOfDisks: int
     Size: int
@@ -135,100 +135,100 @@ class VolumeConfigurationTypeDef(BaseModel):
     Iops: Optional[int] = None
     Encrypted: Optional[bool] = None
 
-class CreateUserProfileRequestRequestTypeDef(BaseModel):
+class CreateUserProfileRequestRequestTypeDef(BaseValidatorModel):
     IamUserArn: str
     SshUsername: Optional[str] = None
     SshPublicKey: Optional[str] = None
     AllowSelfManagement: Optional[bool] = None
 
-class DeleteAppRequestRequestTypeDef(BaseModel):
+class DeleteAppRequestRequestTypeDef(BaseValidatorModel):
     AppId: str
 
-class DeleteInstanceRequestRequestTypeDef(BaseModel):
+class DeleteInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DeleteElasticIp: Optional[bool] = None
     DeleteVolumes: Optional[bool] = None
 
-class DeleteLayerRequestRequestTypeDef(BaseModel):
+class DeleteLayerRequestRequestTypeDef(BaseValidatorModel):
     LayerId: str
 
-class DeleteStackRequestRequestTypeDef(BaseModel):
+class DeleteStackRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
 
-class DeleteUserProfileRequestRequestTypeDef(BaseModel):
+class DeleteUserProfileRequestRequestTypeDef(BaseValidatorModel):
     IamUserArn: str
 
-class DeploymentCommandOutputTypeDef(BaseModel):
+class DeploymentCommandOutputTypeDef(BaseValidatorModel):
     Name: DeploymentCommandNameType
     Args: Optional[Dict[str, List[str]]] = None
 
-class DeregisterEcsClusterRequestRequestTypeDef(BaseModel):
+class DeregisterEcsClusterRequestRequestTypeDef(BaseValidatorModel):
     EcsClusterArn: str
 
-class DeregisterElasticIpRequestRequestTypeDef(BaseModel):
+class DeregisterElasticIpRequestRequestTypeDef(BaseValidatorModel):
     ElasticIp: str
 
-class DeregisterInstanceRequestRequestTypeDef(BaseModel):
+class DeregisterInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
 
-class DeregisterRdsDbInstanceRequestRequestTypeDef(BaseModel):
+class DeregisterRdsDbInstanceRequestRequestTypeDef(BaseValidatorModel):
     RdsDbInstanceArn: str
 
-class DeregisterVolumeRequestRequestTypeDef(BaseModel):
+class DeregisterVolumeRequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeAppsRequestRequestTypeDef(BaseModel):
+class DescribeAppsRequestRequestTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     AppIds: Optional[Sequence[str]] = None
 
-class DescribeCommandsRequestRequestTypeDef(BaseModel):
+class DescribeCommandsRequestRequestTypeDef(BaseValidatorModel):
     DeploymentId: Optional[str] = None
     InstanceId: Optional[str] = None
     CommandIds: Optional[Sequence[str]] = None
 
-class DescribeDeploymentsRequestRequestTypeDef(BaseModel):
+class DescribeDeploymentsRequestRequestTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     AppId: Optional[str] = None
     DeploymentIds: Optional[Sequence[str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeEcsClustersRequestRequestTypeDef(BaseModel):
+class DescribeEcsClustersRequestRequestTypeDef(BaseValidatorModel):
     EcsClusterArns: Optional[Sequence[str]] = None
     StackId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class EcsClusterTypeDef(BaseModel):
+class EcsClusterTypeDef(BaseValidatorModel):
     EcsClusterArn: Optional[str] = None
     EcsClusterName: Optional[str] = None
     StackId: Optional[str] = None
     RegisteredAt: Optional[str] = None
 
-class DescribeElasticIpsRequestRequestTypeDef(BaseModel):
+class DescribeElasticIpsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     StackId: Optional[str] = None
     Ips: Optional[Sequence[str]] = None
 
-class ElasticIpTypeDef(BaseModel):
+class ElasticIpTypeDef(BaseValidatorModel):
     Ip: Optional[str] = None
     Name: Optional[str] = None
     Domain: Optional[str] = None
     Region: Optional[str] = None
     InstanceId: Optional[str] = None
 
-class DescribeElasticLoadBalancersRequestRequestTypeDef(BaseModel):
+class DescribeElasticLoadBalancersRequestRequestTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     LayerIds: Optional[Sequence[str]] = None
 
-class ElasticLoadBalancerTypeDef(BaseModel):
+class ElasticLoadBalancerTypeDef(BaseValidatorModel):
     ElasticLoadBalancerName: Optional[str] = None
     Region: Optional[str] = None
     DnsName: Optional[str] = None
@@ -239,41 +239,41 @@ class ElasticLoadBalancerTypeDef(BaseModel):
     SubnetIds: Optional[List[str]] = None
     Ec2InstanceIds: Optional[List[str]] = None
 
-class DescribeInstancesRequestRequestTypeDef(BaseModel):
+class DescribeInstancesRequestRequestTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     LayerId: Optional[str] = None
     InstanceIds: Optional[Sequence[str]] = None
 
-class DescribeLayersRequestRequestTypeDef(BaseModel):
+class DescribeLayersRequestRequestTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     LayerIds: Optional[Sequence[str]] = None
 
-class DescribeLoadBasedAutoScalingRequestRequestTypeDef(BaseModel):
+class DescribeLoadBasedAutoScalingRequestRequestTypeDef(BaseValidatorModel):
     LayerIds: Sequence[str]
 
-class SelfUserProfileTypeDef(BaseModel):
+class SelfUserProfileTypeDef(BaseValidatorModel):
     IamUserArn: Optional[str] = None
     Name: Optional[str] = None
     SshUsername: Optional[str] = None
     SshPublicKey: Optional[str] = None
 
-class DescribePermissionsRequestRequestTypeDef(BaseModel):
+class DescribePermissionsRequestRequestTypeDef(BaseValidatorModel):
     IamUserArn: Optional[str] = None
     StackId: Optional[str] = None
 
-class PermissionTypeDef(BaseModel):
+class PermissionTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     IamUserArn: Optional[str] = None
     AllowSsh: Optional[bool] = None
     AllowSudo: Optional[bool] = None
     Level: Optional[str] = None
 
-class DescribeRaidArraysRequestRequestTypeDef(BaseModel):
+class DescribeRaidArraysRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     StackId: Optional[str] = None
     RaidArrayIds: Optional[Sequence[str]] = None
 
-class RaidArrayTypeDef(BaseModel):
+class RaidArrayTypeDef(BaseValidatorModel):
     RaidArrayId: Optional[str] = None
     InstanceId: Optional[str] = None
     Name: Optional[str] = None
@@ -288,11 +288,11 @@ class RaidArrayTypeDef(BaseModel):
     VolumeType: Optional[str] = None
     Iops: Optional[int] = None
 
-class DescribeRdsDbInstancesRequestRequestTypeDef(BaseModel):
+class DescribeRdsDbInstancesRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     RdsDbInstanceArns: Optional[Sequence[str]] = None
 
-class RdsDbInstanceTypeDef(BaseModel):
+class RdsDbInstanceTypeDef(BaseValidatorModel):
     RdsDbInstanceArn: Optional[str] = None
     DbInstanceIdentifier: Optional[str] = None
     DbUser: Optional[str] = None
@@ -303,12 +303,12 @@ class RdsDbInstanceTypeDef(BaseModel):
     StackId: Optional[str] = None
     MissingOnRds: Optional[bool] = None
 
-class DescribeServiceErrorsRequestRequestTypeDef(BaseModel):
+class DescribeServiceErrorsRequestRequestTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     InstanceId: Optional[str] = None
     ServiceErrorIds: Optional[Sequence[str]] = None
 
-class ServiceErrorTypeDef(BaseModel):
+class ServiceErrorTypeDef(BaseValidatorModel):
     ServiceErrorId: Optional[str] = None
     StackId: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -316,35 +316,35 @@ class ServiceErrorTypeDef(BaseModel):
     Message: Optional[str] = None
     CreatedAt: Optional[str] = None
 
-class DescribeStackProvisioningParametersRequestRequestTypeDef(BaseModel):
+class DescribeStackProvisioningParametersRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
 
-class DescribeStackSummaryRequestRequestTypeDef(BaseModel):
+class DescribeStackSummaryRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
 
-class DescribeStacksRequestRequestTypeDef(BaseModel):
+class DescribeStacksRequestRequestTypeDef(BaseValidatorModel):
     StackIds: Optional[Sequence[str]] = None
 
-class DescribeTimeBasedAutoScalingRequestRequestTypeDef(BaseModel):
+class DescribeTimeBasedAutoScalingRequestRequestTypeDef(BaseValidatorModel):
     InstanceIds: Sequence[str]
 
-class DescribeUserProfilesRequestRequestTypeDef(BaseModel):
+class DescribeUserProfilesRequestRequestTypeDef(BaseValidatorModel):
     IamUserArns: Optional[Sequence[str]] = None
 
-class UserProfileTypeDef(BaseModel):
+class UserProfileTypeDef(BaseValidatorModel):
     IamUserArn: Optional[str] = None
     Name: Optional[str] = None
     SshUsername: Optional[str] = None
     SshPublicKey: Optional[str] = None
     AllowSelfManagement: Optional[bool] = None
 
-class DescribeVolumesRequestRequestTypeDef(BaseModel):
+class DescribeVolumesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     StackId: Optional[str] = None
     RaidArrayId: Optional[str] = None
     VolumeIds: Optional[Sequence[str]] = None
 
-class VolumeTypeDef(BaseModel):
+class VolumeTypeDef(BaseValidatorModel):
     VolumeId: Optional[str] = None
     Ec2VolumeId: Optional[str] = None
     Name: Optional[str] = None
@@ -360,36 +360,36 @@ class VolumeTypeDef(BaseModel):
     Iops: Optional[int] = None
     Encrypted: Optional[bool] = None
 
-class DetachElasticLoadBalancerRequestRequestTypeDef(BaseModel):
+class DetachElasticLoadBalancerRequestRequestTypeDef(BaseValidatorModel):
     ElasticLoadBalancerName: str
     LayerId: str
 
-class DisassociateElasticIpRequestRequestTypeDef(BaseModel):
+class DisassociateElasticIpRequestRequestTypeDef(BaseValidatorModel):
     ElasticIp: str
 
-class GetHostnameSuggestionRequestRequestTypeDef(BaseModel):
+class GetHostnameSuggestionRequestRequestTypeDef(BaseValidatorModel):
     LayerId: str
 
-class GrantAccessRequestRequestTypeDef(BaseModel):
+class GrantAccessRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ValidForInMinutes: Optional[int] = None
 
-class TemporaryCredentialTypeDef(BaseModel):
+class TemporaryCredentialTypeDef(BaseValidatorModel):
     Username: Optional[str] = None
     Password: Optional[str] = None
     ValidForInMinutes: Optional[int] = None
     InstanceId: Optional[str] = None
 
-class InstanceIdentityTypeDef(BaseModel):
+class InstanceIdentityTypeDef(BaseValidatorModel):
     Document: Optional[str] = None
     Signature: Optional[str] = None
 
-class ReportedOsTypeDef(BaseModel):
+class ReportedOsTypeDef(BaseValidatorModel):
     Family: Optional[str] = None
     Name: Optional[str] = None
     Version: Optional[str] = None
 
-class InstancesCountTypeDef(BaseModel):
+class InstancesCountTypeDef(BaseValidatorModel):
     Assigning: Optional[int] = None
     Booting: Optional[int] = None
     ConnectionLost: Optional[int] = None
@@ -411,55 +411,55 @@ class InstancesCountTypeDef(BaseModel):
     Terminating: Optional[int] = None
     Unassigning: Optional[int] = None
 
-class RecipesOutputTypeDef(BaseModel):
+class RecipesOutputTypeDef(BaseValidatorModel):
     Setup: Optional[List[str]] = None
     Configure: Optional[List[str]] = None
     Deploy: Optional[List[str]] = None
     Undeploy: Optional[List[str]] = None
     Shutdown: Optional[List[str]] = None
 
-class ShutdownEventConfigurationTypeDef(BaseModel):
+class ShutdownEventConfigurationTypeDef(BaseValidatorModel):
     ExecutionTimeout: Optional[int] = None
     DelayUntilElbConnectionsDrained: Optional[bool] = None
 
-class ListTagsRequestRequestTypeDef(BaseModel):
+class ListTagsRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class OperatingSystemConfigurationManagerTypeDef(BaseModel):
+class OperatingSystemConfigurationManagerTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
 
-class RebootInstanceRequestRequestTypeDef(BaseModel):
+class RebootInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
 
-class RegisterEcsClusterRequestRequestTypeDef(BaseModel):
+class RegisterEcsClusterRequestRequestTypeDef(BaseValidatorModel):
     EcsClusterArn: str
     StackId: str
 
-class RegisterElasticIpRequestRequestTypeDef(BaseModel):
+class RegisterElasticIpRequestRequestTypeDef(BaseValidatorModel):
     ElasticIp: str
     StackId: str
 
-class RegisterRdsDbInstanceRequestRequestTypeDef(BaseModel):
+class RegisterRdsDbInstanceRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     RdsDbInstanceArn: str
     DbUser: str
     DbPassword: str
 
-class RegisterVolumeRequestRequestTypeDef(BaseModel):
+class RegisterVolumeRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     Ec2VolumeId: Optional[str] = None
 
-class SetPermissionRequestRequestTypeDef(BaseModel):
+class SetPermissionRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     IamUserArn: str
     AllowSsh: Optional[bool] = None
     AllowSudo: Optional[bool] = None
     Level: Optional[str] = None
 
-class WeeklyAutoScalingScheduleTypeDef(BaseModel):
+class WeeklyAutoScalingScheduleTypeDef(BaseValidatorModel):
     Monday: Optional[Mapping[str, str]] = None
     Tuesday: Optional[Mapping[str, str]] = None
     Wednesday: Optional[Mapping[str, str]] = None
@@ -468,24 +468,24 @@ class WeeklyAutoScalingScheduleTypeDef(BaseModel):
     Saturday: Optional[Mapping[str, str]] = None
     Sunday: Optional[Mapping[str, str]] = None
 
-class StartInstanceRequestRequestTypeDef(BaseModel):
+class StartInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
 
-class StartStackRequestRequestTypeDef(BaseModel):
+class StartStackRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
 
-class StopInstanceRequestRequestTypeDef(BaseModel):
+class StopInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Force: Optional[bool] = None
 
-class StopStackRequestRequestTypeDef(BaseModel):
+class StopStackRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class WeeklyAutoScalingScheduleOutputTypeDef(BaseModel):
+class WeeklyAutoScalingScheduleOutputTypeDef(BaseValidatorModel):
     Monday: Optional[Dict[str, str]] = None
     Tuesday: Optional[Dict[str, str]] = None
     Wednesday: Optional[Dict[str, str]] = None
@@ -494,21 +494,21 @@ class WeeklyAutoScalingScheduleOutputTypeDef(BaseModel):
     Saturday: Optional[Dict[str, str]] = None
     Sunday: Optional[Dict[str, str]] = None
 
-class UnassignInstanceRequestRequestTypeDef(BaseModel):
+class UnassignInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
 
-class UnassignVolumeRequestRequestTypeDef(BaseModel):
+class UnassignVolumeRequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateElasticIpRequestRequestTypeDef(BaseModel):
+class UpdateElasticIpRequestRequestTypeDef(BaseValidatorModel):
     ElasticIp: str
     Name: Optional[str] = None
 
-class UpdateInstanceRequestRequestTypeDef(BaseModel):
+class UpdateInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     LayerIds: Optional[Sequence[str]] = None
     InstanceType: Optional[str] = None
@@ -522,34 +522,34 @@ class UpdateInstanceRequestRequestTypeDef(BaseModel):
     EbsOptimized: Optional[bool] = None
     AgentVersion: Optional[str] = None
 
-class UpdateMyUserProfileRequestRequestTypeDef(BaseModel):
+class UpdateMyUserProfileRequestRequestTypeDef(BaseValidatorModel):
     SshPublicKey: Optional[str] = None
 
-class UpdateRdsDbInstanceRequestRequestTypeDef(BaseModel):
+class UpdateRdsDbInstanceRequestRequestTypeDef(BaseValidatorModel):
     RdsDbInstanceArn: str
     DbUser: Optional[str] = None
     DbPassword: Optional[str] = None
 
-class UpdateUserProfileRequestRequestTypeDef(BaseModel):
+class UpdateUserProfileRequestRequestTypeDef(BaseValidatorModel):
     IamUserArn: str
     SshUsername: Optional[str] = None
     SshPublicKey: Optional[str] = None
     AllowSelfManagement: Optional[bool] = None
 
-class UpdateVolumeRequestRequestTypeDef(BaseModel):
+class UpdateVolumeRequestRequestTypeDef(BaseValidatorModel):
     VolumeId: str
     Name: Optional[str] = None
     MountPoint: Optional[str] = None
 
-class AgentVersionTypeDef(BaseModel):
+class AgentVersionTypeDef(BaseValidatorModel):
     Version: Optional[str] = None
     ConfigurationManager: Optional[StackConfigurationManagerTypeDef] = None
 
-class DescribeAgentVersionsRequestRequestTypeDef(BaseModel):
+class DescribeAgentVersionsRequestRequestTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     ConfigurationManager: Optional[StackConfigurationManagerTypeDef] = None
 
-class AppTypeDef(BaseModel):
+class AppTypeDef(BaseValidatorModel):
     AppId: Optional[str] = None
     StackId: Optional[str] = None
     Shortname: Optional[str] = None
@@ -565,7 +565,7 @@ class AppTypeDef(BaseModel):
     CreatedAt: Optional[str] = None
     Environment: Optional[List[EnvironmentVariableTypeDef]] = None
 
-class CreateAppRequestRequestTypeDef(BaseModel):
+class CreateAppRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     Name: str
     Type: AppTypeType
@@ -579,7 +579,7 @@ class CreateAppRequestRequestTypeDef(BaseModel):
     Attributes: Optional[Mapping[AppAttributesKeysType, str]] = None
     Environment: Optional[Sequence[EnvironmentVariableTypeDef]] = None
 
-class UpdateAppRequestRequestTypeDef(BaseModel):
+class UpdateAppRequestRequestTypeDef(BaseValidatorModel):
     AppId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -592,71 +592,71 @@ class UpdateAppRequestRequestTypeDef(BaseModel):
     Attributes: Optional[Mapping[AppAttributesKeysType, str]] = None
     Environment: Optional[Sequence[EnvironmentVariableTypeDef]] = None
 
-class LoadBasedAutoScalingConfigurationTypeDef(BaseModel):
+class LoadBasedAutoScalingConfigurationTypeDef(BaseValidatorModel):
     LayerId: Optional[str] = None
     Enable: Optional[bool] = None
     UpScaling: Optional[AutoScalingThresholdsOutputTypeDef] = None
     DownScaling: Optional[AutoScalingThresholdsOutputTypeDef] = None
 
-class SetLoadBasedAutoScalingRequestRequestTypeDef(BaseModel):
+class SetLoadBasedAutoScalingRequestRequestTypeDef(BaseValidatorModel):
     LayerId: str
     Enable: Optional[bool] = None
     UpScaling: Optional[AutoScalingThresholdsTypeDef] = None
     DownScaling: Optional[AutoScalingThresholdsTypeDef] = None
 
-class BlockDeviceMappingTypeDef(BaseModel):
+class BlockDeviceMappingTypeDef(BaseValidatorModel):
     DeviceName: Optional[str] = None
     NoDevice: Optional[str] = None
     VirtualName: Optional[str] = None
     Ebs: Optional[EbsBlockDeviceTypeDef] = None
 
-class ChefConfigurationResponseTypeDef(BaseModel):
+class ChefConfigurationResponseTypeDef(BaseValidatorModel):
     ManageBerkshelf: bool
     BerkshelfVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CloneStackResultTypeDef(BaseModel):
+class CloneStackResultTypeDef(BaseValidatorModel):
     StackId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAppResultTypeDef(BaseModel):
+class CreateAppResultTypeDef(BaseValidatorModel):
     AppId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDeploymentResultTypeDef(BaseModel):
+class CreateDeploymentResultTypeDef(BaseValidatorModel):
     DeploymentId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceResultTypeDef(BaseModel):
+class CreateInstanceResultTypeDef(BaseValidatorModel):
     InstanceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLayerResultTypeDef(BaseModel):
+class CreateLayerResultTypeDef(BaseValidatorModel):
     LayerId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStackResultTypeDef(BaseModel):
+class CreateStackResultTypeDef(BaseValidatorModel):
     StackId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserProfileResultTypeDef(BaseModel):
+class CreateUserProfileResultTypeDef(BaseValidatorModel):
     IamUserArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeStackProvisioningParametersResultTypeDef(BaseModel):
+class DescribeStackProvisioningParametersResultTypeDef(BaseValidatorModel):
     AgentInstallerUrl: str
     Parameters: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetHostnameSuggestionResultTypeDef(BaseModel):
+class GetHostnameSuggestionResultTypeDef(BaseValidatorModel):
     LayerId: str
     Hostname: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InstancesCountResponseTypeDef(BaseModel):
+class InstancesCountResponseTypeDef(BaseValidatorModel):
     Assigning: int
     Booting: int
     ConnectionLost: int
@@ -679,12 +679,12 @@ class InstancesCountResponseTypeDef(BaseModel):
     Unassigning: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsResultTypeDef(BaseModel):
+class ListTagsResultTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class RecipesResponseTypeDef(BaseModel):
+class RecipesResponseTypeDef(BaseValidatorModel):
     Setup: List[str]
     Configure: List[str]
     Deploy: List[str]
@@ -692,23 +692,23 @@ class RecipesResponseTypeDef(BaseModel):
     Shutdown: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterEcsClusterResultTypeDef(BaseModel):
+class RegisterEcsClusterResultTypeDef(BaseValidatorModel):
     EcsClusterArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterElasticIpResultTypeDef(BaseModel):
+class RegisterElasticIpResultTypeDef(BaseValidatorModel):
     ElasticIp: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterInstanceResultTypeDef(BaseModel):
+class RegisterInstanceResultTypeDef(BaseValidatorModel):
     InstanceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterVolumeResultTypeDef(BaseModel):
+class RegisterVolumeResultTypeDef(BaseValidatorModel):
     VolumeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SourceResponseTypeDef(BaseModel):
+class SourceResponseTypeDef(BaseValidatorModel):
     Type: SourceTypeType
     Url: str
     Username: str
@@ -717,12 +717,12 @@ class SourceResponseTypeDef(BaseModel):
     Revision: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StackConfigurationManagerResponseTypeDef(BaseModel):
+class StackConfigurationManagerResponseTypeDef(BaseValidatorModel):
     Name: str
     Version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CloneStackRequestRequestTypeDef(BaseModel):
+class CloneStackRequestRequestTypeDef(BaseValidatorModel):
     SourceStackId: str
     ServiceRoleArn: str
     Name: Optional[str] = None
@@ -746,7 +746,7 @@ class CloneStackRequestRequestTypeDef(BaseModel):
     DefaultRootDeviceType: Optional[RootDeviceTypeType] = None
     AgentVersion: Optional[str] = None
 
-class CreateStackRequestRequestTypeDef(BaseModel):
+class CreateStackRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Region: str
     ServiceRoleArn: str
@@ -767,7 +767,7 @@ class CreateStackRequestRequestTypeDef(BaseModel):
     DefaultRootDeviceType: Optional[RootDeviceTypeType] = None
     AgentVersion: Optional[str] = None
 
-class CreateStackRequestServiceResourceCreateStackTypeDef(BaseModel):
+class CreateStackRequestServiceResourceCreateStackTypeDef(BaseValidatorModel):
     Name: str
     Region: str
     ServiceRoleArn: str
@@ -788,7 +788,7 @@ class CreateStackRequestServiceResourceCreateStackTypeDef(BaseModel):
     DefaultRootDeviceType: Optional[RootDeviceTypeType] = None
     AgentVersion: Optional[str] = None
 
-class StackTypeDef(BaseModel):
+class StackTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     Name: Optional[str] = None
     Arn: Optional[str] = None
@@ -812,7 +812,7 @@ class StackTypeDef(BaseModel):
     DefaultRootDeviceType: Optional[RootDeviceTypeType] = None
     AgentVersion: Optional[str] = None
 
-class UpdateStackRequestRequestTypeDef(BaseModel):
+class UpdateStackRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     Name: Optional[str] = None
     Attributes: Optional[Mapping[Literal["Color"], str]] = None
@@ -832,24 +832,24 @@ class UpdateStackRequestRequestTypeDef(BaseModel):
     UseOpsworksSecurityGroups: Optional[bool] = None
     AgentVersion: Optional[str] = None
 
-class CloudWatchLogsConfigurationOutputTypeDef(BaseModel):
+class CloudWatchLogsConfigurationOutputTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     LogStreams: Optional[List[CloudWatchLogsLogStreamTypeDef]] = None
 
-class CloudWatchLogsConfigurationResponseTypeDef(BaseModel):
+class CloudWatchLogsConfigurationResponseTypeDef(BaseValidatorModel):
     Enabled: bool
     LogStreams: List[CloudWatchLogsLogStreamTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CloudWatchLogsConfigurationTypeDef(BaseModel):
+class CloudWatchLogsConfigurationTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     LogStreams: Optional[Sequence[CloudWatchLogsLogStreamTypeDef]] = None
 
-class DescribeCommandsResultTypeDef(BaseModel):
+class DescribeCommandsResultTypeDef(BaseValidatorModel):
     Commands: List[CommandTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDeploymentRequestRequestTypeDef(BaseModel):
+class CreateDeploymentRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     Command: DeploymentCommandTypeDef
     AppId: Optional[str] = None
@@ -858,7 +858,7 @@ class CreateDeploymentRequestRequestTypeDef(BaseModel):
     Comment: Optional[str] = None
     CustomJson: Optional[str] = None
 
-class DeploymentTypeDef(BaseModel):
+class DeploymentTypeDef(BaseValidatorModel):
     DeploymentId: Optional[str] = None
     StackId: Optional[str] = None
     AppId: Optional[str] = None
@@ -872,92 +872,92 @@ class DeploymentTypeDef(BaseModel):
     CustomJson: Optional[str] = None
     InstanceIds: Optional[List[str]] = None
 
-class DescribeAppsRequestAppExistsWaitTypeDef(BaseModel):
+class DescribeAppsRequestAppExistsWaitTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     AppIds: Optional[Sequence[str]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeDeploymentsRequestDeploymentSuccessfulWaitTypeDef(BaseModel):
+class DescribeDeploymentsRequestDeploymentSuccessfulWaitTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     AppId: Optional[str] = None
     DeploymentIds: Optional[Sequence[str]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstancesRequestInstanceOnlineWaitTypeDef(BaseModel):
+class DescribeInstancesRequestInstanceOnlineWaitTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     LayerId: Optional[str] = None
     InstanceIds: Optional[Sequence[str]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstancesRequestInstanceRegisteredWaitTypeDef(BaseModel):
+class DescribeInstancesRequestInstanceRegisteredWaitTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     LayerId: Optional[str] = None
     InstanceIds: Optional[Sequence[str]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstancesRequestInstanceStoppedWaitTypeDef(BaseModel):
+class DescribeInstancesRequestInstanceStoppedWaitTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     LayerId: Optional[str] = None
     InstanceIds: Optional[Sequence[str]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeInstancesRequestInstanceTerminatedWaitTypeDef(BaseModel):
+class DescribeInstancesRequestInstanceTerminatedWaitTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     LayerId: Optional[str] = None
     InstanceIds: Optional[Sequence[str]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeEcsClustersRequestDescribeEcsClustersPaginateTypeDef(BaseModel):
+class DescribeEcsClustersRequestDescribeEcsClustersPaginateTypeDef(BaseValidatorModel):
     EcsClusterArns: Optional[Sequence[str]] = None
     StackId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEcsClustersResultTypeDef(BaseModel):
+class DescribeEcsClustersResultTypeDef(BaseValidatorModel):
     EcsClusters: List[EcsClusterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeElasticIpsResultTypeDef(BaseModel):
+class DescribeElasticIpsResultTypeDef(BaseValidatorModel):
     ElasticIps: List[ElasticIpTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeElasticLoadBalancersResultTypeDef(BaseModel):
+class DescribeElasticLoadBalancersResultTypeDef(BaseValidatorModel):
     ElasticLoadBalancers: List[ElasticLoadBalancerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeMyUserProfileResultTypeDef(BaseModel):
+class DescribeMyUserProfileResultTypeDef(BaseValidatorModel):
     UserProfile: SelfUserProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePermissionsResultTypeDef(BaseModel):
+class DescribePermissionsResultTypeDef(BaseValidatorModel):
     Permissions: List[PermissionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRaidArraysResultTypeDef(BaseModel):
+class DescribeRaidArraysResultTypeDef(BaseValidatorModel):
     RaidArrays: List[RaidArrayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRdsDbInstancesResultTypeDef(BaseModel):
+class DescribeRdsDbInstancesResultTypeDef(BaseValidatorModel):
     RdsDbInstances: List[RdsDbInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeServiceErrorsResultTypeDef(BaseModel):
+class DescribeServiceErrorsResultTypeDef(BaseValidatorModel):
     ServiceErrors: List[ServiceErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeUserProfilesResultTypeDef(BaseModel):
+class DescribeUserProfilesResultTypeDef(BaseValidatorModel):
     UserProfiles: List[UserProfileTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVolumesResultTypeDef(BaseModel):
+class DescribeVolumesResultTypeDef(BaseValidatorModel):
     Volumes: List[VolumeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GrantAccessResultTypeDef(BaseModel):
+class GrantAccessResultTypeDef(BaseValidatorModel):
     TemporaryCredential: TemporaryCredentialTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterInstanceRequestRequestTypeDef(BaseModel):
+class RegisterInstanceRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     Hostname: Optional[str] = None
     PublicIp: Optional[str] = None
@@ -966,7 +966,7 @@ class RegisterInstanceRequestRequestTypeDef(BaseModel):
     RsaPublicKeyFingerprint: Optional[str] = None
     InstanceIdentity: Optional[InstanceIdentityTypeDef] = None
 
-class StackSummaryTypeDef(BaseModel):
+class StackSummaryTypeDef(BaseValidatorModel):
     StackId: Optional[str] = None
     Name: Optional[str] = None
     Arn: Optional[str] = None
@@ -974,14 +974,14 @@ class StackSummaryTypeDef(BaseModel):
     AppsCount: Optional[int] = None
     InstancesCount: Optional[InstancesCountTypeDef] = None
 
-class LifecycleEventConfigurationResponseTypeDef(BaseModel):
+class LifecycleEventConfigurationResponseTypeDef(BaseValidatorModel):
     Shutdown: ShutdownEventConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LifecycleEventConfigurationTypeDef(BaseModel):
+class LifecycleEventConfigurationTypeDef(BaseValidatorModel):
     Shutdown: Optional[ShutdownEventConfigurationTypeDef] = None
 
-class OperatingSystemTypeDef(BaseModel):
+class OperatingSystemTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Id: Optional[str] = None
     Type: Optional[str] = None
@@ -990,27 +990,27 @@ class OperatingSystemTypeDef(BaseModel):
     ReportedVersion: Optional[str] = None
     Supported: Optional[bool] = None
 
-class SetTimeBasedAutoScalingRequestRequestTypeDef(BaseModel):
+class SetTimeBasedAutoScalingRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AutoScalingSchedule: Optional[WeeklyAutoScalingScheduleTypeDef] = None
 
-class TimeBasedAutoScalingConfigurationTypeDef(BaseModel):
+class TimeBasedAutoScalingConfigurationTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     AutoScalingSchedule: Optional[WeeklyAutoScalingScheduleOutputTypeDef] = None
 
-class DescribeAgentVersionsResultTypeDef(BaseModel):
+class DescribeAgentVersionsResultTypeDef(BaseValidatorModel):
     AgentVersions: List[AgentVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAppsResultTypeDef(BaseModel):
+class DescribeAppsResultTypeDef(BaseValidatorModel):
     Apps: List[AppTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLoadBasedAutoScalingResultTypeDef(BaseModel):
+class DescribeLoadBasedAutoScalingResultTypeDef(BaseValidatorModel):
     LoadBasedAutoScalingConfigurations: List[LoadBasedAutoScalingConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceRequestRequestTypeDef(BaseModel):
+class CreateInstanceRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     LayerIds: Sequence[str]
     InstanceType: str
@@ -1030,7 +1030,7 @@ class CreateInstanceRequestRequestTypeDef(BaseModel):
     AgentVersion: Optional[str] = None
     Tenancy: Optional[str] = None
 
-class InstanceTypeDef(BaseModel):
+class InstanceTypeDef(BaseValidatorModel):
     AgentVersion: Optional[str] = None
     AmiId: Optional[str] = None
     Architecture: Optional[ArchitectureType] = None
@@ -1073,19 +1073,19 @@ class InstanceTypeDef(BaseModel):
     Tenancy: Optional[str] = None
     VirtualizationType: Optional[VirtualizationTypeType] = None
 
-class DescribeStacksResultTypeDef(BaseModel):
+class DescribeStacksResultTypeDef(BaseValidatorModel):
     Stacks: List[StackTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDeploymentsResultTypeDef(BaseModel):
+class DescribeDeploymentsResultTypeDef(BaseValidatorModel):
     Deployments: List[DeploymentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeStackSummaryResultTypeDef(BaseModel):
+class DescribeStackSummaryResultTypeDef(BaseValidatorModel):
     StackSummary: StackSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLayerRequestRequestTypeDef(BaseModel):
+class CreateLayerRequestRequestTypeDef(BaseValidatorModel):
     StackId: str
     Type: LayerTypeType
     Name: str
@@ -1105,7 +1105,7 @@ class CreateLayerRequestRequestTypeDef(BaseModel):
     UseEbsOptimizedInstances: Optional[bool] = None
     LifecycleEventConfiguration: Optional[LifecycleEventConfigurationTypeDef] = None
 
-class CreateLayerRequestStackCreateLayerTypeDef(BaseModel):
+class CreateLayerRequestStackCreateLayerTypeDef(BaseValidatorModel):
     Type: LayerTypeType
     Name: str
     Shortname: str
@@ -1124,7 +1124,7 @@ class CreateLayerRequestStackCreateLayerTypeDef(BaseModel):
     UseEbsOptimizedInstances: Optional[bool] = None
     LifecycleEventConfiguration: Optional[LifecycleEventConfigurationTypeDef] = None
 
-class LayerTypeDef(BaseModel):
+class LayerTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     StackId: Optional[str] = None
     LayerId: Optional[str] = None
@@ -1149,7 +1149,7 @@ class LayerTypeDef(BaseModel):
     UseEbsOptimizedInstances: Optional[bool] = None
     LifecycleEventConfiguration: Optional[LifecycleEventConfigurationTypeDef] = None
 
-class UpdateLayerRequestRequestTypeDef(BaseModel):
+class UpdateLayerRequestRequestTypeDef(BaseValidatorModel):
     LayerId: str
     Name: Optional[str] = None
     Shortname: Optional[str] = None
@@ -1168,19 +1168,19 @@ class UpdateLayerRequestRequestTypeDef(BaseModel):
     UseEbsOptimizedInstances: Optional[bool] = None
     LifecycleEventConfiguration: Optional[LifecycleEventConfigurationTypeDef] = None
 
-class DescribeOperatingSystemsResponseTypeDef(BaseModel):
+class DescribeOperatingSystemsResponseTypeDef(BaseValidatorModel):
     OperatingSystems: List[OperatingSystemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTimeBasedAutoScalingResultTypeDef(BaseModel):
+class DescribeTimeBasedAutoScalingResultTypeDef(BaseValidatorModel):
     TimeBasedAutoScalingConfigurations: List[TimeBasedAutoScalingConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeInstancesResultTypeDef(BaseModel):
+class DescribeInstancesResultTypeDef(BaseValidatorModel):
     Instances: List[InstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLayersResultTypeDef(BaseModel):
+class DescribeLayersResultTypeDef(BaseValidatorModel):
     Layers: List[LayerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 

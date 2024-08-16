@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,26 +11,26 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.xray_constants import *
 
-class AliasTypeDef(BaseModel):
+class AliasTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Names: Optional[List[str]] = None
     Type: Optional[str] = None
 
-class AnnotationValueTypeDef(BaseModel):
+class AnnotationValueTypeDef(BaseValidatorModel):
     NumberValue: Optional[float] = None
     BooleanValue: Optional[bool] = None
     StringValue: Optional[str] = None
 
-class ServiceIdTypeDef(BaseModel):
+class ServiceIdTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Names: Optional[List[str]] = None
     AccountId: Optional[str] = None
     Type: Optional[str] = None
 
-class AvailabilityZoneDetailTypeDef(BaseModel):
+class AvailabilityZoneDetailTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class BackendConnectionErrorsTypeDef(BaseModel):
+class BackendConnectionErrorsTypeDef(BaseValidatorModel):
     TimeoutCount: Optional[int] = None
     ConnectionRefusedCount: Optional[int] = None
     HTTPCode4XXCount: Optional[int] = None
@@ -38,31 +38,31 @@ class BackendConnectionErrorsTypeDef(BaseModel):
     UnknownHostCount: Optional[int] = None
     OtherCount: Optional[int] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class BatchGetTracesRequestRequestTypeDef(BaseModel):
+class BatchGetTracesRequestRequestTypeDef(BaseValidatorModel):
     TraceIds: Sequence[str]
     NextToken: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class InsightsConfigurationTypeDef(BaseModel):
+class InsightsConfigurationTypeDef(BaseValidatorModel):
     InsightsEnabled: Optional[bool] = None
     NotificationsEnabled: Optional[bool] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class SamplingRuleTypeDef(BaseModel):
+class SamplingRuleTypeDef(BaseValidatorModel):
     ResourceARN: str
     Priority: int
     FixedRate: float
@@ -77,150 +77,150 @@ class SamplingRuleTypeDef(BaseModel):
     RuleARN: Optional[str] = None
     Attributes: Optional[Mapping[str, str]] = None
 
-class DeleteGroupRequestRequestTypeDef(BaseModel):
+class DeleteGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupARN: Optional[str] = None
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseModel):
+class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyName: str
     PolicyRevisionId: Optional[str] = None
 
-class DeleteSamplingRuleRequestRequestTypeDef(BaseModel):
+class DeleteSamplingRuleRequestRequestTypeDef(BaseValidatorModel):
     RuleName: Optional[str] = None
     RuleARN: Optional[str] = None
 
-class ErrorStatisticsTypeDef(BaseModel):
+class ErrorStatisticsTypeDef(BaseValidatorModel):
     ThrottleCount: Optional[int] = None
     OtherCount: Optional[int] = None
     TotalCount: Optional[int] = None
 
-class FaultStatisticsTypeDef(BaseModel):
+class FaultStatisticsTypeDef(BaseValidatorModel):
     OtherCount: Optional[int] = None
     TotalCount: Optional[int] = None
 
-class HistogramEntryTypeDef(BaseModel):
+class HistogramEntryTypeDef(BaseValidatorModel):
     Value: Optional[float] = None
     Count: Optional[int] = None
 
-class EncryptionConfigTypeDef(BaseModel):
+class EncryptionConfigTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
     Status: Optional[EncryptionStatusType] = None
     Type: Optional[EncryptionTypeType] = None
 
-class RootCauseExceptionTypeDef(BaseModel):
+class RootCauseExceptionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Message: Optional[str] = None
 
-class ForecastStatisticsTypeDef(BaseModel):
+class ForecastStatisticsTypeDef(BaseValidatorModel):
     FaultCountHigh: Optional[int] = None
     FaultCountLow: Optional[int] = None
 
-class GetGroupRequestRequestTypeDef(BaseModel):
+class GetGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupARN: Optional[str] = None
 
-class GetGroupsRequestRequestTypeDef(BaseModel):
+class GetGroupsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class GetInsightEventsRequestRequestTypeDef(BaseModel):
+class GetInsightEventsRequestRequestTypeDef(BaseValidatorModel):
     InsightId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetInsightRequestRequestTypeDef(BaseModel):
+class GetInsightRequestRequestTypeDef(BaseValidatorModel):
     InsightId: str
 
-class GetSamplingRulesRequestRequestTypeDef(BaseModel):
+class GetSamplingRulesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class GetSamplingStatisticSummariesRequestRequestTypeDef(BaseModel):
+class GetSamplingStatisticSummariesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class SamplingStatisticSummaryTypeDef(BaseModel):
+class SamplingStatisticSummaryTypeDef(BaseValidatorModel):
     RuleName: Optional[str] = None
     Timestamp: Optional[datetime] = None
     RequestCount: Optional[int] = None
     BorrowCount: Optional[int] = None
     SampledCount: Optional[int] = None
 
-class SamplingTargetDocumentTypeDef(BaseModel):
+class SamplingTargetDocumentTypeDef(BaseValidatorModel):
     RuleName: Optional[str] = None
     FixedRate: Optional[float] = None
     ReservoirQuota: Optional[int] = None
     ReservoirQuotaTTL: Optional[datetime] = None
     Interval: Optional[int] = None
 
-class UnprocessedStatisticsTypeDef(BaseModel):
+class UnprocessedStatisticsTypeDef(BaseValidatorModel):
     RuleName: Optional[str] = None
     ErrorCode: Optional[str] = None
     Message: Optional[str] = None
 
-class GetTraceGraphRequestRequestTypeDef(BaseModel):
+class GetTraceGraphRequestRequestTypeDef(BaseValidatorModel):
     TraceIds: Sequence[str]
     NextToken: Optional[str] = None
 
-class SamplingStrategyTypeDef(BaseModel):
+class SamplingStrategyTypeDef(BaseValidatorModel):
     Name: Optional[SamplingStrategyNameType] = None
     Value: Optional[float] = None
 
-class HttpTypeDef(BaseModel):
+class HttpTypeDef(BaseValidatorModel):
     HttpURL: Optional[str] = None
     HttpStatus: Optional[int] = None
     HttpMethod: Optional[str] = None
     UserAgent: Optional[str] = None
     ClientIp: Optional[str] = None
 
-class RequestImpactStatisticsTypeDef(BaseModel):
+class RequestImpactStatisticsTypeDef(BaseValidatorModel):
     FaultCount: Optional[int] = None
     OkCount: Optional[int] = None
     TotalCount: Optional[int] = None
 
-class InsightImpactGraphEdgeTypeDef(BaseModel):
+class InsightImpactGraphEdgeTypeDef(BaseValidatorModel):
     ReferenceId: Optional[int] = None
 
-class InstanceIdDetailTypeDef(BaseModel):
+class InstanceIdDetailTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
 
-class ListResourcePoliciesRequestRequestTypeDef(BaseModel):
+class ListResourcePoliciesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class ResourcePolicyTypeDef(BaseModel):
+class ResourcePolicyTypeDef(BaseValidatorModel):
     PolicyName: Optional[str] = None
     PolicyDocument: Optional[str] = None
     PolicyRevisionId: Optional[str] = None
     LastUpdatedTime: Optional[datetime] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     NextToken: Optional[str] = None
 
-class PutEncryptionConfigRequestRequestTypeDef(BaseModel):
+class PutEncryptionConfigRequestRequestTypeDef(BaseValidatorModel):
     Type: EncryptionTypeType
     KeyId: Optional[str] = None
 
-class PutResourcePolicyRequestRequestTypeDef(BaseModel):
+class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyName: str
     PolicyDocument: str
     PolicyRevisionId: Optional[str] = None
     BypassPolicyLockoutCheck: Optional[bool] = None
 
-class PutTraceSegmentsRequestRequestTypeDef(BaseModel):
+class PutTraceSegmentsRequestRequestTypeDef(BaseValidatorModel):
     TraceSegmentDocuments: Sequence[str]
 
-class UnprocessedTraceSegmentTypeDef(BaseModel):
+class UnprocessedTraceSegmentTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     ErrorCode: Optional[str] = None
     Message: Optional[str] = None
 
-class ResourceARNDetailTypeDef(BaseModel):
+class ResourceARNDetailTypeDef(BaseValidatorModel):
     ARN: Optional[str] = None
 
-class ResponseTimeRootCauseEntityTypeDef(BaseModel):
+class ResponseTimeRootCauseEntityTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Coverage: Optional[float] = None
     Remote: Optional[bool] = None
 
-class SamplingRulePaginatorTypeDef(BaseModel):
+class SamplingRulePaginatorTypeDef(BaseValidatorModel):
     ResourceARN: str
     Priority: int
     FixedRate: float
@@ -235,7 +235,7 @@ class SamplingRulePaginatorTypeDef(BaseModel):
     RuleARN: Optional[str] = None
     Attributes: Optional[Dict[str, str]] = None
 
-class SamplingRuleUpdateTypeDef(BaseModel):
+class SamplingRuleUpdateTypeDef(BaseValidatorModel):
     RuleName: Optional[str] = None
     RuleARN: Optional[str] = None
     ResourceARN: Optional[str] = None
@@ -249,130 +249,130 @@ class SamplingRuleUpdateTypeDef(BaseModel):
     URLPath: Optional[str] = None
     Attributes: Optional[Mapping[str, str]] = None
 
-class SegmentTypeDef(BaseModel):
+class SegmentTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Document: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class AnomalousServiceTypeDef(BaseModel):
+class AnomalousServiceTypeDef(BaseValidatorModel):
     ServiceId: Optional[ServiceIdTypeDef] = None
 
-class TraceUserTypeDef(BaseModel):
+class TraceUserTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     ServiceIds: Optional[List[ServiceIdTypeDef]] = None
 
-class ValueWithServiceIdsTypeDef(BaseModel):
+class ValueWithServiceIdsTypeDef(BaseValidatorModel):
     AnnotationValue: Optional[AnnotationValueTypeDef] = None
     ServiceIds: Optional[List[ServiceIdTypeDef]] = None
 
-class BatchGetTracesRequestBatchGetTracesPaginateTypeDef(BaseModel):
+class BatchGetTracesRequestBatchGetTracesPaginateTypeDef(BaseValidatorModel):
     TraceIds: Sequence[str]
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetGroupsRequestGetGroupsPaginateTypeDef(BaseModel):
+class GetGroupsRequestGetGroupsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetSamplingRulesRequestGetSamplingRulesPaginateTypeDef(BaseModel):
+class GetSamplingRulesRequestGetSamplingRulesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetSamplingStatisticSummariesRequestGetSamplingStatisticSummariesPaginateTypeDef(BaseModel):
+class GetSamplingStatisticSummariesRequestGetSamplingStatisticSummariesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTraceGraphRequestGetTraceGraphPaginateTypeDef(BaseModel):
+class GetTraceGraphRequestGetTraceGraphPaginateTypeDef(BaseValidatorModel):
     TraceIds: Sequence[str]
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourcePoliciesRequestListResourcePoliciesPaginateTypeDef(BaseModel):
+class ListResourcePoliciesRequestListResourcePoliciesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     ResourceARN: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GroupSummaryTypeDef(BaseModel):
+class GroupSummaryTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupARN: Optional[str] = None
     FilterExpression: Optional[str] = None
     InsightsConfiguration: Optional[InsightsConfigurationTypeDef] = None
 
-class GroupTypeDef(BaseModel):
+class GroupTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupARN: Optional[str] = None
     FilterExpression: Optional[str] = None
     InsightsConfiguration: Optional[InsightsConfigurationTypeDef] = None
 
-class UpdateGroupRequestRequestTypeDef(BaseModel):
+class UpdateGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupARN: Optional[str] = None
     FilterExpression: Optional[str] = None
     InsightsConfiguration: Optional[InsightsConfigurationTypeDef] = None
 
-class CreateGroupRequestRequestTypeDef(BaseModel):
+class CreateGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     FilterExpression: Optional[str] = None
     InsightsConfiguration: Optional[InsightsConfigurationTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class CreateSamplingRuleRequestRequestTypeDef(BaseModel):
+class CreateSamplingRuleRequestRequestTypeDef(BaseValidatorModel):
     SamplingRule: SamplingRuleTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class SamplingRuleRecordTypeDef(BaseModel):
+class SamplingRuleRecordTypeDef(BaseValidatorModel):
     SamplingRule: Optional[SamplingRuleTypeDef] = None
     CreatedAt: Optional[datetime] = None
     ModifiedAt: Optional[datetime] = None
 
-class EdgeStatisticsTypeDef(BaseModel):
+class EdgeStatisticsTypeDef(BaseValidatorModel):
     OkCount: Optional[int] = None
     ErrorStatistics: Optional[ErrorStatisticsTypeDef] = None
     FaultStatistics: Optional[FaultStatisticsTypeDef] = None
     TotalCount: Optional[int] = None
     TotalResponseTime: Optional[float] = None
 
-class ServiceStatisticsTypeDef(BaseModel):
+class ServiceStatisticsTypeDef(BaseValidatorModel):
     OkCount: Optional[int] = None
     ErrorStatistics: Optional[ErrorStatisticsTypeDef] = None
     FaultStatistics: Optional[FaultStatisticsTypeDef] = None
     TotalCount: Optional[int] = None
     TotalResponseTime: Optional[float] = None
 
-class GetEncryptionConfigResultTypeDef(BaseModel):
+class GetEncryptionConfigResultTypeDef(BaseValidatorModel):
     EncryptionConfig: EncryptionConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutEncryptionConfigResultTypeDef(BaseModel):
+class PutEncryptionConfigResultTypeDef(BaseValidatorModel):
     EncryptionConfig: EncryptionConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ErrorRootCauseEntityTypeDef(BaseModel):
+class ErrorRootCauseEntityTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Exceptions: Optional[List[RootCauseExceptionTypeDef]] = None
     Remote: Optional[bool] = None
 
-class FaultRootCauseEntityTypeDef(BaseModel):
+class FaultRootCauseEntityTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Exceptions: Optional[List[RootCauseExceptionTypeDef]] = None
     Remote: Optional[bool] = None
 
-class GetInsightImpactGraphRequestRequestTypeDef(BaseModel):
+class GetInsightImpactGraphRequestRequestTypeDef(BaseValidatorModel):
     InsightId: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     NextToken: Optional[str] = None
 
-class GetInsightSummariesRequestRequestTypeDef(BaseModel):
+class GetInsightSummariesRequestRequestTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     States: Optional[Sequence[InsightStateType]] = None
@@ -381,21 +381,21 @@ class GetInsightSummariesRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetServiceGraphRequestGetServiceGraphPaginateTypeDef(BaseModel):
+class GetServiceGraphRequestGetServiceGraphPaginateTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     GroupName: Optional[str] = None
     GroupARN: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetServiceGraphRequestRequestTypeDef(BaseModel):
+class GetServiceGraphRequestRequestTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     GroupName: Optional[str] = None
     GroupARN: Optional[str] = None
     NextToken: Optional[str] = None
 
-class GetTimeSeriesServiceStatisticsRequestGetTimeSeriesServiceStatisticsPaginateTypeDef(BaseModel):
+class GetTimeSeriesServiceStatisticsRequestGetTimeSeriesServiceStatisticsPaginateTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     GroupName: Optional[str] = None
@@ -405,7 +405,7 @@ class GetTimeSeriesServiceStatisticsRequestGetTimeSeriesServiceStatisticsPaginat
     ForecastStatistics: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTimeSeriesServiceStatisticsRequestRequestTypeDef(BaseModel):
+class GetTimeSeriesServiceStatisticsRequestRequestTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     GroupName: Optional[str] = None
@@ -415,7 +415,7 @@ class GetTimeSeriesServiceStatisticsRequestRequestTypeDef(BaseModel):
     ForecastStatistics: Optional[bool] = None
     NextToken: Optional[str] = None
 
-class SamplingStatisticsDocumentTypeDef(BaseModel):
+class SamplingStatisticsDocumentTypeDef(BaseValidatorModel):
     RuleName: str
     ClientID: str
     Timestamp: TimestampTypeDef
@@ -423,7 +423,7 @@ class SamplingStatisticsDocumentTypeDef(BaseModel):
     SampledCount: int
     BorrowCount: Optional[int] = None
 
-class TelemetryRecordTypeDef(BaseModel):
+class TelemetryRecordTypeDef(BaseValidatorModel):
     Timestamp: TimestampTypeDef
     SegmentsReceivedCount: Optional[int] = None
     SegmentsSentCount: Optional[int] = None
@@ -431,18 +431,18 @@ class TelemetryRecordTypeDef(BaseModel):
     SegmentsRejectedCount: Optional[int] = None
     BackendConnectionErrors: Optional[BackendConnectionErrorsTypeDef] = None
 
-class GetSamplingStatisticSummariesResultTypeDef(BaseModel):
+class GetSamplingStatisticSummariesResultTypeDef(BaseValidatorModel):
     SamplingStatisticSummaries: List[SamplingStatisticSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSamplingTargetsResultTypeDef(BaseModel):
+class GetSamplingTargetsResultTypeDef(BaseValidatorModel):
     SamplingTargetDocuments: List[SamplingTargetDocumentTypeDef]
     LastRuleModification: datetime
     UnprocessedStatistics: List[UnprocessedStatisticsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTraceSummariesRequestGetTraceSummariesPaginateTypeDef(BaseModel):
+class GetTraceSummariesRequestGetTraceSummariesPaginateTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     TimeRangeType: Optional[TimeRangeTypeType] = None
@@ -451,7 +451,7 @@ class GetTraceSummariesRequestGetTraceSummariesPaginateTypeDef(BaseModel):
     FilterExpression: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTraceSummariesRequestRequestTypeDef(BaseModel):
+class GetTraceSummariesRequestRequestTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     TimeRangeType: Optional[TimeRangeTypeType] = None
@@ -460,7 +460,7 @@ class GetTraceSummariesRequestRequestTypeDef(BaseModel):
     FilterExpression: Optional[str] = None
     NextToken: Optional[str] = None
 
-class InsightImpactGraphServiceTypeDef(BaseModel):
+class InsightImpactGraphServiceTypeDef(BaseValidatorModel):
     ReferenceId: Optional[int] = None
     Type: Optional[str] = None
     Name: Optional[str] = None
@@ -468,20 +468,20 @@ class InsightImpactGraphServiceTypeDef(BaseModel):
     AccountId: Optional[str] = None
     Edges: Optional[List[InsightImpactGraphEdgeTypeDef]] = None
 
-class ListResourcePoliciesResultTypeDef(BaseModel):
+class ListResourcePoliciesResultTypeDef(BaseValidatorModel):
     ResourcePolicies: List[ResourcePolicyTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutResourcePolicyResultTypeDef(BaseModel):
+class PutResourcePolicyResultTypeDef(BaseValidatorModel):
     ResourcePolicy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutTraceSegmentsResultTypeDef(BaseModel):
+class PutTraceSegmentsResultTypeDef(BaseValidatorModel):
     UnprocessedTraceSegments: List[UnprocessedTraceSegmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResponseTimeRootCauseServiceTypeDef(BaseModel):
+class ResponseTimeRootCauseServiceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Names: Optional[List[str]] = None
     Type: Optional[str] = None
@@ -489,28 +489,28 @@ class ResponseTimeRootCauseServiceTypeDef(BaseModel):
     EntityPath: Optional[List[ResponseTimeRootCauseEntityTypeDef]] = None
     Inferred: Optional[bool] = None
 
-class SamplingRuleRecordPaginatorTypeDef(BaseModel):
+class SamplingRuleRecordPaginatorTypeDef(BaseValidatorModel):
     SamplingRule: Optional[SamplingRulePaginatorTypeDef] = None
     CreatedAt: Optional[datetime] = None
     ModifiedAt: Optional[datetime] = None
 
-class UpdateSamplingRuleRequestRequestTypeDef(BaseModel):
+class UpdateSamplingRuleRequestRequestTypeDef(BaseValidatorModel):
     SamplingRuleUpdate: SamplingRuleUpdateTypeDef
 
-class TraceTypeDef(BaseModel):
+class TraceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Duration: Optional[float] = None
     LimitExceeded: Optional[bool] = None
     Segments: Optional[List[SegmentTypeDef]] = None
 
-class InsightEventTypeDef(BaseModel):
+class InsightEventTypeDef(BaseValidatorModel):
     Summary: Optional[str] = None
     EventTime: Optional[datetime] = None
     ClientRequestImpactStatistics: Optional[RequestImpactStatisticsTypeDef] = None
     RootCauseServiceRequestImpactStatistics: Optional[RequestImpactStatisticsTypeDef] = None
     TopAnomalousServices: Optional[List[AnomalousServiceTypeDef]] = None
 
-class InsightSummaryTypeDef(BaseModel):
+class InsightSummaryTypeDef(BaseValidatorModel):
     InsightId: Optional[str] = None
     GroupARN: Optional[str] = None
     GroupName: Optional[str] = None
@@ -525,7 +525,7 @@ class InsightSummaryTypeDef(BaseModel):
     TopAnomalousServices: Optional[List[AnomalousServiceTypeDef]] = None
     LastUpdateTime: Optional[datetime] = None
 
-class InsightTypeDef(BaseModel):
+class InsightTypeDef(BaseValidatorModel):
     InsightId: Optional[str] = None
     GroupARN: Optional[str] = None
     GroupName: Optional[str] = None
@@ -539,41 +539,41 @@ class InsightTypeDef(BaseModel):
     RootCauseServiceRequestImpactStatistics: Optional[RequestImpactStatisticsTypeDef] = None
     TopAnomalousServices: Optional[List[AnomalousServiceTypeDef]] = None
 
-class GetGroupsResultTypeDef(BaseModel):
+class GetGroupsResultTypeDef(BaseValidatorModel):
     Groups: List[GroupSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGroupResultTypeDef(BaseModel):
+class CreateGroupResultTypeDef(BaseValidatorModel):
     Group: GroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupResultTypeDef(BaseModel):
+class GetGroupResultTypeDef(BaseValidatorModel):
     Group: GroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGroupResultTypeDef(BaseModel):
+class UpdateGroupResultTypeDef(BaseValidatorModel):
     Group: GroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSamplingRuleResultTypeDef(BaseModel):
+class CreateSamplingRuleResultTypeDef(BaseValidatorModel):
     SamplingRuleRecord: SamplingRuleRecordTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSamplingRuleResultTypeDef(BaseModel):
+class DeleteSamplingRuleResultTypeDef(BaseValidatorModel):
     SamplingRuleRecord: SamplingRuleRecordTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSamplingRulesResultTypeDef(BaseModel):
+class GetSamplingRulesResultTypeDef(BaseValidatorModel):
     SamplingRuleRecords: List[SamplingRuleRecordTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSamplingRuleResultTypeDef(BaseModel):
+class UpdateSamplingRuleResultTypeDef(BaseValidatorModel):
     SamplingRuleRecord: SamplingRuleRecordTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EdgeTypeDef(BaseModel):
+class EdgeTypeDef(BaseValidatorModel):
     ReferenceId: Optional[int] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
@@ -583,14 +583,14 @@ class EdgeTypeDef(BaseModel):
     EdgeType: Optional[str] = None
     ReceivedEventAgeHistogram: Optional[List[HistogramEntryTypeDef]] = None
 
-class TimeSeriesServiceStatisticsTypeDef(BaseModel):
+class TimeSeriesServiceStatisticsTypeDef(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
     EdgeSummaryStatistics: Optional[EdgeStatisticsTypeDef] = None
     ServiceSummaryStatistics: Optional[ServiceStatisticsTypeDef] = None
     ServiceForecastStatistics: Optional[ForecastStatisticsTypeDef] = None
     ResponseTimeHistogram: Optional[List[HistogramEntryTypeDef]] = None
 
-class ErrorRootCauseServiceTypeDef(BaseModel):
+class ErrorRootCauseServiceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Names: Optional[List[str]] = None
     Type: Optional[str] = None
@@ -598,7 +598,7 @@ class ErrorRootCauseServiceTypeDef(BaseModel):
     EntityPath: Optional[List[ErrorRootCauseEntityTypeDef]] = None
     Inferred: Optional[bool] = None
 
-class FaultRootCauseServiceTypeDef(BaseModel):
+class FaultRootCauseServiceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Names: Optional[List[str]] = None
     Type: Optional[str] = None
@@ -606,16 +606,16 @@ class FaultRootCauseServiceTypeDef(BaseModel):
     EntityPath: Optional[List[FaultRootCauseEntityTypeDef]] = None
     Inferred: Optional[bool] = None
 
-class GetSamplingTargetsRequestRequestTypeDef(BaseModel):
+class GetSamplingTargetsRequestRequestTypeDef(BaseValidatorModel):
     SamplingStatisticsDocuments: Sequence[SamplingStatisticsDocumentTypeDef]
 
-class PutTelemetryRecordsRequestRequestTypeDef(BaseModel):
+class PutTelemetryRecordsRequestRequestTypeDef(BaseValidatorModel):
     TelemetryRecords: Sequence[TelemetryRecordTypeDef]
     EC2InstanceId: Optional[str] = None
     Hostname: Optional[str] = None
     ResourceARN: Optional[str] = None
 
-class GetInsightImpactGraphResultTypeDef(BaseModel):
+class GetInsightImpactGraphResultTypeDef(BaseValidatorModel):
     InsightId: str
     StartTime: datetime
     EndTime: datetime
@@ -625,36 +625,36 @@ class GetInsightImpactGraphResultTypeDef(BaseModel):
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResponseTimeRootCauseTypeDef(BaseModel):
+class ResponseTimeRootCauseTypeDef(BaseValidatorModel):
     Services: Optional[List[ResponseTimeRootCauseServiceTypeDef]] = None
     ClientImpacting: Optional[bool] = None
 
-class GetSamplingRulesResultPaginatorTypeDef(BaseModel):
+class GetSamplingRulesResultPaginatorTypeDef(BaseValidatorModel):
     SamplingRuleRecords: List[SamplingRuleRecordPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetTracesResultTypeDef(BaseModel):
+class BatchGetTracesResultTypeDef(BaseValidatorModel):
     Traces: List[TraceTypeDef]
     UnprocessedTraceIds: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInsightEventsResultTypeDef(BaseModel):
+class GetInsightEventsResultTypeDef(BaseValidatorModel):
     InsightEvents: List[InsightEventTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInsightSummariesResultTypeDef(BaseModel):
+class GetInsightSummariesResultTypeDef(BaseValidatorModel):
     InsightSummaries: List[InsightSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInsightResultTypeDef(BaseModel):
+class GetInsightResultTypeDef(BaseValidatorModel):
     Insight: InsightTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceTypeDef(BaseModel):
+class ServiceTypeDef(BaseValidatorModel):
     ReferenceId: Optional[int] = None
     Name: Optional[str] = None
     Names: Optional[List[str]] = None
@@ -669,21 +669,21 @@ class ServiceTypeDef(BaseModel):
     DurationHistogram: Optional[List[HistogramEntryTypeDef]] = None
     ResponseTimeHistogram: Optional[List[HistogramEntryTypeDef]] = None
 
-class GetTimeSeriesServiceStatisticsResultTypeDef(BaseModel):
+class GetTimeSeriesServiceStatisticsResultTypeDef(BaseValidatorModel):
     TimeSeriesServiceStatistics: List[TimeSeriesServiceStatisticsTypeDef]
     ContainsOldGroupVersions: bool
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ErrorRootCauseTypeDef(BaseModel):
+class ErrorRootCauseTypeDef(BaseValidatorModel):
     Services: Optional[List[ErrorRootCauseServiceTypeDef]] = None
     ClientImpacting: Optional[bool] = None
 
-class FaultRootCauseTypeDef(BaseModel):
+class FaultRootCauseTypeDef(BaseValidatorModel):
     Services: Optional[List[FaultRootCauseServiceTypeDef]] = None
     ClientImpacting: Optional[bool] = None
 
-class GetServiceGraphResultTypeDef(BaseModel):
+class GetServiceGraphResultTypeDef(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
     Services: List[ServiceTypeDef]
@@ -691,12 +691,12 @@ class GetServiceGraphResultTypeDef(BaseModel):
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTraceGraphResultTypeDef(BaseModel):
+class GetTraceGraphResultTypeDef(BaseValidatorModel):
     Services: List[ServiceTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TraceSummaryTypeDef(BaseModel):
+class TraceSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     StartTime: Optional[datetime] = None
     Duration: Optional[float] = None
@@ -719,7 +719,7 @@ class TraceSummaryTypeDef(BaseModel):
     Revision: Optional[int] = None
     MatchedEventTime: Optional[datetime] = None
 
-class GetTraceSummariesResultTypeDef(BaseModel):
+class GetTraceSummariesResultTypeDef(BaseValidatorModel):
     TraceSummaries: List[TraceSummaryTypeDef]
     ApproximateTime: datetime
     TracesProcessedCount: int

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,375 +11,375 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.clouddirectory_constants import *
 
-class ObjectReferenceTypeDef(BaseModel):
+class ObjectReferenceTypeDef(BaseValidatorModel):
     Selector: Optional[str] = None
 
-class SchemaFacetTypeDef(BaseModel):
+class SchemaFacetTypeDef(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     FacetName: Optional[str] = None
 
-class ApplySchemaRequestRequestTypeDef(BaseModel):
+class ApplySchemaRequestRequestTypeDef(BaseValidatorModel):
     PublishedSchemaArn: str
     DirectoryArn: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class TypedLinkSchemaAndFacetNameTypeDef(BaseModel):
+class TypedLinkSchemaAndFacetNameTypeDef(BaseValidatorModel):
     SchemaArn: str
     TypedLinkName: str
 
-class AttributeKeyTypeDef(BaseModel):
+class AttributeKeyTypeDef(BaseValidatorModel):
     SchemaArn: str
     FacetName: str
     Name: str
 
-class TypedAttributeValuePaginatorTypeDef(BaseModel):
+class TypedAttributeValuePaginatorTypeDef(BaseValidatorModel):
     StringValue: Optional[str] = None
     BinaryValue: Optional[bytes] = None
     BooleanValue: Optional[bool] = None
     NumberValue: Optional[str] = None
     DatetimeValue: Optional[datetime] = None
 
-class BatchAttachObjectResponseTypeDef(BaseModel):
+class BatchAttachObjectResponseTypeDef(BaseValidatorModel):
     attachedObjectIdentifier: Optional[str] = None
 
-class BatchAttachToIndexResponseTypeDef(BaseModel):
+class BatchAttachToIndexResponseTypeDef(BaseValidatorModel):
     AttachedObjectIdentifier: Optional[str] = None
 
-class BatchCreateIndexResponseTypeDef(BaseModel):
+class BatchCreateIndexResponseTypeDef(BaseValidatorModel):
     ObjectIdentifier: Optional[str] = None
 
-class BatchCreateObjectResponseTypeDef(BaseModel):
+class BatchCreateObjectResponseTypeDef(BaseValidatorModel):
     ObjectIdentifier: Optional[str] = None
 
-class BatchDetachFromIndexResponseTypeDef(BaseModel):
+class BatchDetachFromIndexResponseTypeDef(BaseValidatorModel):
     DetachedObjectIdentifier: Optional[str] = None
 
-class BatchDetachObjectResponseTypeDef(BaseModel):
+class BatchDetachObjectResponseTypeDef(BaseValidatorModel):
     detachedObjectIdentifier: Optional[str] = None
 
-class BatchListObjectChildrenResponseTypeDef(BaseModel):
+class BatchListObjectChildrenResponseTypeDef(BaseValidatorModel):
     Children: Optional[Dict[str, str]] = None
     NextToken: Optional[str] = None
 
-class PathToObjectIdentifiersTypeDef(BaseModel):
+class PathToObjectIdentifiersTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     ObjectIdentifiers: Optional[List[str]] = None
 
-class ObjectIdentifierAndLinkNameTupleTypeDef(BaseModel):
+class ObjectIdentifierAndLinkNameTupleTypeDef(BaseValidatorModel):
     ObjectIdentifier: Optional[str] = None
     LinkName: Optional[str] = None
 
-class BatchListObjectPoliciesResponseTypeDef(BaseModel):
+class BatchListObjectPoliciesResponseTypeDef(BaseValidatorModel):
     AttachedPolicyIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
 
-class BatchListPolicyAttachmentsResponseTypeDef(BaseModel):
+class BatchListPolicyAttachmentsResponseTypeDef(BaseValidatorModel):
     ObjectIdentifiers: Optional[List[str]] = None
     NextToken: Optional[str] = None
 
-class BatchReadExceptionTypeDef(BaseModel):
+class BatchReadExceptionTypeDef(BaseValidatorModel):
     Type: Optional[BatchReadExceptionTypeType] = None
     Message: Optional[str] = None
 
-class BatchUpdateObjectAttributesResponseTypeDef(BaseModel):
+class BatchUpdateObjectAttributesResponseTypeDef(BaseValidatorModel):
     ObjectIdentifier: Optional[str] = None
 
-class CreateDirectoryRequestRequestTypeDef(BaseModel):
+class CreateDirectoryRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     SchemaArn: str
 
-class CreateSchemaRequestRequestTypeDef(BaseModel):
+class CreateSchemaRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteDirectoryRequestRequestTypeDef(BaseModel):
+class DeleteDirectoryRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
 
-class DeleteFacetRequestRequestTypeDef(BaseModel):
+class DeleteFacetRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
 
-class DeleteSchemaRequestRequestTypeDef(BaseModel):
+class DeleteSchemaRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
 
-class DeleteTypedLinkFacetRequestRequestTypeDef(BaseModel):
+class DeleteTypedLinkFacetRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
 
-class DirectoryTypeDef(BaseModel):
+class DirectoryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     DirectoryArn: Optional[str] = None
     State: Optional[DirectoryStateType] = None
     CreationDateTime: Optional[datetime] = None
 
-class DisableDirectoryRequestRequestTypeDef(BaseModel):
+class DisableDirectoryRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
 
-class EnableDirectoryRequestRequestTypeDef(BaseModel):
+class EnableDirectoryRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
 
-class RulePaginatorTypeDef(BaseModel):
+class RulePaginatorTypeDef(BaseValidatorModel):
     Type: Optional[RuleTypeType] = None
     Parameters: Optional[Dict[str, str]] = None
 
-class RuleTypeDef(BaseModel):
+class RuleTypeDef(BaseValidatorModel):
     Type: Optional[RuleTypeType] = None
     Parameters: Optional[Mapping[str, str]] = None
 
-class FacetAttributeReferenceTypeDef(BaseModel):
+class FacetAttributeReferenceTypeDef(BaseValidatorModel):
     TargetFacetName: str
     TargetAttributeName: str
 
-class FacetTypeDef(BaseModel):
+class FacetTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     ObjectType: Optional[ObjectTypeType] = None
     FacetStyle: Optional[FacetStyleType] = None
 
-class GetAppliedSchemaVersionRequestRequestTypeDef(BaseModel):
+class GetAppliedSchemaVersionRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
 
-class GetDirectoryRequestRequestTypeDef(BaseModel):
+class GetDirectoryRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
 
-class GetFacetRequestRequestTypeDef(BaseModel):
+class GetFacetRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
 
-class GetSchemaAsJsonRequestRequestTypeDef(BaseModel):
+class GetSchemaAsJsonRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
 
-class GetTypedLinkFacetInformationRequestRequestTypeDef(BaseModel):
+class GetTypedLinkFacetInformationRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAppliedSchemaArnsRequestRequestTypeDef(BaseModel):
+class ListAppliedSchemaArnsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     SchemaArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDevelopmentSchemaArnsRequestRequestTypeDef(BaseModel):
+class ListDevelopmentSchemaArnsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDirectoriesRequestRequestTypeDef(BaseModel):
+class ListDirectoriesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     state: Optional[DirectoryStateType] = None
 
-class ListFacetAttributesRequestRequestTypeDef(BaseModel):
+class ListFacetAttributesRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListFacetNamesRequestRequestTypeDef(BaseModel):
+class ListFacetNamesRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListManagedSchemaArnsRequestRequestTypeDef(BaseModel):
+class ListManagedSchemaArnsRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListPublishedSchemaArnsRequestRequestTypeDef(BaseModel):
+class ListPublishedSchemaArnsRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class ListTypedLinkFacetAttributesRequestRequestTypeDef(BaseModel):
+class ListTypedLinkFacetAttributesRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTypedLinkFacetNamesRequestRequestTypeDef(BaseModel):
+class ListTypedLinkFacetNamesRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PolicyAttachmentTypeDef(BaseModel):
+class PolicyAttachmentTypeDef(BaseValidatorModel):
     PolicyId: Optional[str] = None
     ObjectIdentifier: Optional[str] = None
     PolicyType: Optional[str] = None
 
-class PublishSchemaRequestRequestTypeDef(BaseModel):
+class PublishSchemaRequestRequestTypeDef(BaseValidatorModel):
     DevelopmentSchemaArn: str
     Version: str
     MinorVersion: Optional[str] = None
     Name: Optional[str] = None
 
-class PutSchemaFromJsonRequestRequestTypeDef(BaseModel):
+class PutSchemaFromJsonRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Document: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateSchemaRequestRequestTypeDef(BaseModel):
+class UpdateSchemaRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
 
-class UpgradeAppliedSchemaRequestRequestTypeDef(BaseModel):
+class UpgradeAppliedSchemaRequestRequestTypeDef(BaseValidatorModel):
     PublishedSchemaArn: str
     DirectoryArn: str
     DryRun: Optional[bool] = None
 
-class UpgradePublishedSchemaRequestRequestTypeDef(BaseModel):
+class UpgradePublishedSchemaRequestRequestTypeDef(BaseValidatorModel):
     DevelopmentSchemaArn: str
     PublishedSchemaArn: str
     MinorVersion: str
     DryRun: Optional[bool] = None
 
-class AttachObjectRequestRequestTypeDef(BaseModel):
+class AttachObjectRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ParentReference: ObjectReferenceTypeDef
     ChildReference: ObjectReferenceTypeDef
     LinkName: str
 
-class AttachPolicyRequestRequestTypeDef(BaseModel):
+class AttachPolicyRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     PolicyReference: ObjectReferenceTypeDef
     ObjectReference: ObjectReferenceTypeDef
 
-class AttachToIndexRequestRequestTypeDef(BaseModel):
+class AttachToIndexRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     IndexReference: ObjectReferenceTypeDef
     TargetReference: ObjectReferenceTypeDef
 
-class BatchAttachObjectTypeDef(BaseModel):
+class BatchAttachObjectTypeDef(BaseValidatorModel):
     ParentReference: ObjectReferenceTypeDef
     ChildReference: ObjectReferenceTypeDef
     LinkName: str
 
-class BatchAttachPolicyTypeDef(BaseModel):
+class BatchAttachPolicyTypeDef(BaseValidatorModel):
     PolicyReference: ObjectReferenceTypeDef
     ObjectReference: ObjectReferenceTypeDef
 
-class BatchAttachToIndexTypeDef(BaseModel):
+class BatchAttachToIndexTypeDef(BaseValidatorModel):
     IndexReference: ObjectReferenceTypeDef
     TargetReference: ObjectReferenceTypeDef
 
-class BatchDeleteObjectTypeDef(BaseModel):
+class BatchDeleteObjectTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
 
-class BatchDetachFromIndexTypeDef(BaseModel):
+class BatchDetachFromIndexTypeDef(BaseValidatorModel):
     IndexReference: ObjectReferenceTypeDef
     TargetReference: ObjectReferenceTypeDef
 
-class BatchDetachObjectTypeDef(BaseModel):
+class BatchDetachObjectTypeDef(BaseValidatorModel):
     ParentReference: ObjectReferenceTypeDef
     LinkName: str
     BatchReferenceName: Optional[str] = None
 
-class BatchDetachPolicyTypeDef(BaseModel):
+class BatchDetachPolicyTypeDef(BaseValidatorModel):
     PolicyReference: ObjectReferenceTypeDef
     ObjectReference: ObjectReferenceTypeDef
 
-class BatchGetObjectInformationTypeDef(BaseModel):
+class BatchGetObjectInformationTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
 
-class BatchListAttachedIndicesTypeDef(BaseModel):
+class BatchListAttachedIndicesTypeDef(BaseValidatorModel):
     TargetReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class BatchListObjectChildrenTypeDef(BaseModel):
+class BatchListObjectChildrenTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class BatchListObjectParentPathsTypeDef(BaseModel):
+class BatchListObjectParentPathsTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class BatchListObjectParentsTypeDef(BaseModel):
+class BatchListObjectParentsTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class BatchListObjectPoliciesTypeDef(BaseModel):
+class BatchListObjectPoliciesTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class BatchListPolicyAttachmentsTypeDef(BaseModel):
+class BatchListPolicyAttachmentsTypeDef(BaseValidatorModel):
     PolicyReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class BatchLookupPolicyTypeDef(BaseModel):
+class BatchLookupPolicyTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DeleteObjectRequestRequestTypeDef(BaseModel):
+class DeleteObjectRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
 
-class DetachFromIndexRequestRequestTypeDef(BaseModel):
+class DetachFromIndexRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     IndexReference: ObjectReferenceTypeDef
     TargetReference: ObjectReferenceTypeDef
 
-class DetachObjectRequestRequestTypeDef(BaseModel):
+class DetachObjectRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ParentReference: ObjectReferenceTypeDef
     LinkName: str
 
-class DetachPolicyRequestRequestTypeDef(BaseModel):
+class DetachPolicyRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     PolicyReference: ObjectReferenceTypeDef
     ObjectReference: ObjectReferenceTypeDef
 
-class GetObjectInformationRequestRequestTypeDef(BaseModel):
+class GetObjectInformationRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class ListAttachedIndicesRequestRequestTypeDef(BaseModel):
+class ListAttachedIndicesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     TargetReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class ListObjectChildrenRequestRequestTypeDef(BaseModel):
+class ListObjectChildrenRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class ListObjectParentPathsRequestRequestTypeDef(BaseModel):
+class ListObjectParentPathsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListObjectParentsRequestRequestTypeDef(BaseModel):
+class ListObjectParentsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
@@ -387,53 +387,53 @@ class ListObjectParentsRequestRequestTypeDef(BaseModel):
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
     IncludeAllLinksToEachParent: Optional[bool] = None
 
-class ListObjectPoliciesRequestRequestTypeDef(BaseModel):
+class ListObjectPoliciesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class ListPolicyAttachmentsRequestRequestTypeDef(BaseModel):
+class ListPolicyAttachmentsRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     PolicyReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class LookupPolicyRequestRequestTypeDef(BaseModel):
+class LookupPolicyRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class BatchGetObjectAttributesTypeDef(BaseModel):
+class BatchGetObjectAttributesTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     SchemaFacet: SchemaFacetTypeDef
     AttributeNames: Sequence[str]
 
-class BatchGetObjectInformationResponseTypeDef(BaseModel):
+class BatchGetObjectInformationResponseTypeDef(BaseValidatorModel):
     SchemaFacets: Optional[List[SchemaFacetTypeDef]] = None
     ObjectIdentifier: Optional[str] = None
 
-class BatchListObjectAttributesTypeDef(BaseModel):
+class BatchListObjectAttributesTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     FacetFilter: Optional[SchemaFacetTypeDef] = None
 
-class BatchRemoveFacetFromObjectTypeDef(BaseModel):
+class BatchRemoveFacetFromObjectTypeDef(BaseValidatorModel):
     SchemaFacet: SchemaFacetTypeDef
     ObjectReference: ObjectReferenceTypeDef
 
-class GetObjectAttributesRequestRequestTypeDef(BaseModel):
+class GetObjectAttributesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     SchemaFacet: SchemaFacetTypeDef
     AttributeNames: Sequence[str]
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class ListObjectAttributesRequestRequestTypeDef(BaseModel):
+class ListObjectAttributesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     NextToken: Optional[str] = None
@@ -441,221 +441,221 @@ class ListObjectAttributesRequestRequestTypeDef(BaseModel):
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
     FacetFilter: Optional[SchemaFacetTypeDef] = None
 
-class RemoveFacetFromObjectRequestRequestTypeDef(BaseModel):
+class RemoveFacetFromObjectRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     SchemaFacet: SchemaFacetTypeDef
     ObjectReference: ObjectReferenceTypeDef
 
-class ApplySchemaResponseTypeDef(BaseModel):
+class ApplySchemaResponseTypeDef(BaseValidatorModel):
     AppliedSchemaArn: str
     DirectoryArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachObjectResponseTypeDef(BaseModel):
+class AttachObjectResponseTypeDef(BaseValidatorModel):
     AttachedObjectIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachToIndexResponseTypeDef(BaseModel):
+class AttachToIndexResponseTypeDef(BaseValidatorModel):
     AttachedObjectIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDirectoryResponseTypeDef(BaseModel):
+class CreateDirectoryResponseTypeDef(BaseValidatorModel):
     DirectoryArn: str
     Name: str
     ObjectIdentifier: str
     AppliedSchemaArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateIndexResponseTypeDef(BaseModel):
+class CreateIndexResponseTypeDef(BaseValidatorModel):
     ObjectIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateObjectResponseTypeDef(BaseModel):
+class CreateObjectResponseTypeDef(BaseValidatorModel):
     ObjectIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSchemaResponseTypeDef(BaseModel):
+class CreateSchemaResponseTypeDef(BaseValidatorModel):
     SchemaArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDirectoryResponseTypeDef(BaseModel):
+class DeleteDirectoryResponseTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSchemaResponseTypeDef(BaseModel):
+class DeleteSchemaResponseTypeDef(BaseValidatorModel):
     SchemaArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetachFromIndexResponseTypeDef(BaseModel):
+class DetachFromIndexResponseTypeDef(BaseValidatorModel):
     DetachedObjectIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetachObjectResponseTypeDef(BaseModel):
+class DetachObjectResponseTypeDef(BaseValidatorModel):
     DetachedObjectIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableDirectoryResponseTypeDef(BaseModel):
+class DisableDirectoryResponseTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableDirectoryResponseTypeDef(BaseModel):
+class EnableDirectoryResponseTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAppliedSchemaVersionResponseTypeDef(BaseModel):
+class GetAppliedSchemaVersionResponseTypeDef(BaseValidatorModel):
     AppliedSchemaArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetObjectInformationResponseTypeDef(BaseModel):
+class GetObjectInformationResponseTypeDef(BaseValidatorModel):
     SchemaFacets: List[SchemaFacetTypeDef]
     ObjectIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSchemaAsJsonResponseTypeDef(BaseModel):
+class GetSchemaAsJsonResponseTypeDef(BaseValidatorModel):
     Name: str
     Document: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTypedLinkFacetInformationResponseTypeDef(BaseModel):
+class GetTypedLinkFacetInformationResponseTypeDef(BaseValidatorModel):
     IdentityAttributeOrder: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAppliedSchemaArnsResponseTypeDef(BaseModel):
+class ListAppliedSchemaArnsResponseTypeDef(BaseValidatorModel):
     SchemaArns: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDevelopmentSchemaArnsResponseTypeDef(BaseModel):
+class ListDevelopmentSchemaArnsResponseTypeDef(BaseValidatorModel):
     SchemaArns: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFacetNamesResponseTypeDef(BaseModel):
+class ListFacetNamesResponseTypeDef(BaseValidatorModel):
     FacetNames: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListManagedSchemaArnsResponseTypeDef(BaseModel):
+class ListManagedSchemaArnsResponseTypeDef(BaseValidatorModel):
     SchemaArns: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListObjectChildrenResponseTypeDef(BaseModel):
+class ListObjectChildrenResponseTypeDef(BaseValidatorModel):
     Children: Dict[str, str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListObjectPoliciesResponseTypeDef(BaseModel):
+class ListObjectPoliciesResponseTypeDef(BaseValidatorModel):
     AttachedPolicyIds: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPolicyAttachmentsResponseTypeDef(BaseModel):
+class ListPolicyAttachmentsResponseTypeDef(BaseValidatorModel):
     ObjectIdentifiers: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPublishedSchemaArnsResponseTypeDef(BaseModel):
+class ListPublishedSchemaArnsResponseTypeDef(BaseValidatorModel):
     SchemaArns: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTypedLinkFacetNamesResponseTypeDef(BaseModel):
+class ListTypedLinkFacetNamesResponseTypeDef(BaseValidatorModel):
     FacetNames: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PublishSchemaResponseTypeDef(BaseModel):
+class PublishSchemaResponseTypeDef(BaseValidatorModel):
     PublishedSchemaArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSchemaFromJsonResponseTypeDef(BaseModel):
+class PutSchemaFromJsonResponseTypeDef(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateObjectAttributesResponseTypeDef(BaseModel):
+class UpdateObjectAttributesResponseTypeDef(BaseValidatorModel):
     ObjectIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSchemaResponseTypeDef(BaseModel):
+class UpdateSchemaResponseTypeDef(BaseValidatorModel):
     SchemaArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpgradeAppliedSchemaResponseTypeDef(BaseModel):
+class UpgradeAppliedSchemaResponseTypeDef(BaseValidatorModel):
     UpgradedSchemaArn: str
     DirectoryArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpgradePublishedSchemaResponseTypeDef(BaseModel):
+class UpgradePublishedSchemaResponseTypeDef(BaseValidatorModel):
     UpgradedSchemaArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchCreateIndexTypeDef(BaseModel):
+class BatchCreateIndexTypeDef(BaseValidatorModel):
     OrderedIndexedAttributeList: Sequence[AttributeKeyTypeDef]
     IsUnique: bool
     ParentReference: Optional[ObjectReferenceTypeDef] = None
     LinkName: Optional[str] = None
     BatchReferenceName: Optional[str] = None
 
-class CreateIndexRequestRequestTypeDef(BaseModel):
+class CreateIndexRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     OrderedIndexedAttributeList: Sequence[AttributeKeyTypeDef]
     IsUnique: bool
     ParentReference: Optional[ObjectReferenceTypeDef] = None
     LinkName: Optional[str] = None
 
-class AttributeKeyAndValuePaginatorTypeDef(BaseModel):
+class AttributeKeyAndValuePaginatorTypeDef(BaseValidatorModel):
     Key: AttributeKeyTypeDef
     Value: TypedAttributeValuePaginatorTypeDef
 
-class AttributeNameAndValuePaginatorTypeDef(BaseModel):
+class AttributeNameAndValuePaginatorTypeDef(BaseValidatorModel):
     AttributeName: str
     Value: TypedAttributeValuePaginatorTypeDef
 
-class TypedAttributeValueRangePaginatorTypeDef(BaseModel):
+class TypedAttributeValueRangePaginatorTypeDef(BaseValidatorModel):
     StartMode: RangeModeType
     EndMode: RangeModeType
     StartValue: Optional[TypedAttributeValuePaginatorTypeDef] = None
     EndValue: Optional[TypedAttributeValuePaginatorTypeDef] = None
 
-class BatchListObjectParentPathsResponseTypeDef(BaseModel):
+class BatchListObjectParentPathsResponseTypeDef(BaseValidatorModel):
     PathToObjectIdentifiersList: Optional[List[PathToObjectIdentifiersTypeDef]] = None
     NextToken: Optional[str] = None
 
-class ListObjectParentPathsResponseTypeDef(BaseModel):
+class ListObjectParentPathsResponseTypeDef(BaseValidatorModel):
     PathToObjectIdentifiersList: List[PathToObjectIdentifiersTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchListObjectParentsResponseTypeDef(BaseModel):
+class BatchListObjectParentsResponseTypeDef(BaseValidatorModel):
     ParentLinks: Optional[List[ObjectIdentifierAndLinkNameTupleTypeDef]] = None
     NextToken: Optional[str] = None
 
-class ListObjectParentsResponseTypeDef(BaseModel):
+class ListObjectParentsResponseTypeDef(BaseValidatorModel):
     Parents: Dict[str, str]
     NextToken: str
     ParentLinks: List[ObjectIdentifierAndLinkNameTupleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDirectoryResponseTypeDef(BaseModel):
+class GetDirectoryResponseTypeDef(BaseValidatorModel):
     Directory: DirectoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDirectoriesResponseTypeDef(BaseModel):
+class ListDirectoriesResponseTypeDef(BaseValidatorModel):
     Directories: List[DirectoryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FacetAttributeDefinitionPaginatorTypeDef(BaseModel):
+class FacetAttributeDefinitionPaginatorTypeDef(BaseValidatorModel):
     Type: FacetAttributeTypeType
     DefaultValue: Optional[TypedAttributeValuePaginatorTypeDef] = None
     IsImmutable: Optional[bool] = None
     Rules: Optional[Dict[str, RulePaginatorTypeDef]] = None
 
-class TypedLinkAttributeDefinitionPaginatorTypeDef(BaseModel):
+class TypedLinkAttributeDefinitionPaginatorTypeDef(BaseValidatorModel):
     Name: str
     Type: FacetAttributeTypeType
     RequiredBehavior: RequiredAttributeBehaviorType
@@ -663,179 +663,179 @@ class TypedLinkAttributeDefinitionPaginatorTypeDef(BaseModel):
     IsImmutable: Optional[bool] = None
     Rules: Optional[Dict[str, RulePaginatorTypeDef]] = None
 
-class GetFacetResponseTypeDef(BaseModel):
+class GetFacetResponseTypeDef(BaseValidatorModel):
     Facet: FacetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAppliedSchemaArnsRequestListAppliedSchemaArnsPaginateTypeDef(BaseModel):
+class ListAppliedSchemaArnsRequestListAppliedSchemaArnsPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     SchemaArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAttachedIndicesRequestListAttachedIndicesPaginateTypeDef(BaseModel):
+class ListAttachedIndicesRequestListAttachedIndicesPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     TargetReference: ObjectReferenceTypeDef
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDevelopmentSchemaArnsRequestListDevelopmentSchemaArnsPaginateTypeDef(BaseModel):
+class ListDevelopmentSchemaArnsRequestListDevelopmentSchemaArnsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDirectoriesRequestListDirectoriesPaginateTypeDef(BaseModel):
+class ListDirectoriesRequestListDirectoriesPaginateTypeDef(BaseValidatorModel):
     state: Optional[DirectoryStateType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFacetAttributesRequestListFacetAttributesPaginateTypeDef(BaseModel):
+class ListFacetAttributesRequestListFacetAttributesPaginateTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFacetNamesRequestListFacetNamesPaginateTypeDef(BaseModel):
+class ListFacetNamesRequestListFacetNamesPaginateTypeDef(BaseValidatorModel):
     SchemaArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListManagedSchemaArnsRequestListManagedSchemaArnsPaginateTypeDef(BaseModel):
+class ListManagedSchemaArnsRequestListManagedSchemaArnsPaginateTypeDef(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListObjectAttributesRequestListObjectAttributesPaginateTypeDef(BaseModel):
+class ListObjectAttributesRequestListObjectAttributesPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
     FacetFilter: Optional[SchemaFacetTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListObjectParentPathsRequestListObjectParentPathsPaginateTypeDef(BaseModel):
+class ListObjectParentPathsRequestListObjectParentPathsPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListObjectPoliciesRequestListObjectPoliciesPaginateTypeDef(BaseModel):
+class ListObjectPoliciesRequestListObjectPoliciesPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPolicyAttachmentsRequestListPolicyAttachmentsPaginateTypeDef(BaseModel):
+class ListPolicyAttachmentsRequestListPolicyAttachmentsPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     PolicyReference: ObjectReferenceTypeDef
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPublishedSchemaArnsRequestListPublishedSchemaArnsPaginateTypeDef(BaseModel):
+class ListPublishedSchemaArnsRequestListPublishedSchemaArnsPaginateTypeDef(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     ResourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTypedLinkFacetAttributesRequestListTypedLinkFacetAttributesPaginateTypeDef(BaseModel):
+class ListTypedLinkFacetAttributesRequestListTypedLinkFacetAttributesPaginateTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTypedLinkFacetNamesRequestListTypedLinkFacetNamesPaginateTypeDef(BaseModel):
+class ListTypedLinkFacetNamesRequestListTypedLinkFacetNamesPaginateTypeDef(BaseValidatorModel):
     SchemaArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class LookupPolicyRequestLookupPolicyPaginateTypeDef(BaseModel):
+class LookupPolicyRequestLookupPolicyPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class PolicyToPathTypeDef(BaseModel):
+class PolicyToPathTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     Policies: Optional[List[PolicyAttachmentTypeDef]] = None
 
-class TypedAttributeValueTypeDef(BaseModel):
+class TypedAttributeValueTypeDef(BaseValidatorModel):
     StringValue: Optional[str] = None
     BinaryValue: Optional[BlobTypeDef] = None
     BooleanValue: Optional[bool] = None
     NumberValue: Optional[str] = None
     DatetimeValue: Optional[TimestampTypeDef] = None
 
-class IndexAttachmentPaginatorTypeDef(BaseModel):
+class IndexAttachmentPaginatorTypeDef(BaseValidatorModel):
     IndexedAttributes: Optional[List[AttributeKeyAndValuePaginatorTypeDef]] = None
     ObjectIdentifier: Optional[str] = None
 
-class ListObjectAttributesResponsePaginatorTypeDef(BaseModel):
+class ListObjectAttributesResponsePaginatorTypeDef(BaseValidatorModel):
     Attributes: List[AttributeKeyAndValuePaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TypedLinkSpecifierPaginatorTypeDef(BaseModel):
+class TypedLinkSpecifierPaginatorTypeDef(BaseValidatorModel):
     TypedLinkFacet: TypedLinkSchemaAndFacetNameTypeDef
     SourceObjectReference: ObjectReferenceTypeDef
     TargetObjectReference: ObjectReferenceTypeDef
     IdentityAttributeValues: List[AttributeNameAndValuePaginatorTypeDef]
 
-class ObjectAttributeRangePaginatorTypeDef(BaseModel):
+class ObjectAttributeRangePaginatorTypeDef(BaseValidatorModel):
     AttributeKey: Optional[AttributeKeyTypeDef] = None
     Range: Optional[TypedAttributeValueRangePaginatorTypeDef] = None
 
-class TypedLinkAttributeRangePaginatorTypeDef(BaseModel):
+class TypedLinkAttributeRangePaginatorTypeDef(BaseValidatorModel):
     Range: TypedAttributeValueRangePaginatorTypeDef
     AttributeName: Optional[str] = None
 
-class FacetAttributePaginatorTypeDef(BaseModel):
+class FacetAttributePaginatorTypeDef(BaseValidatorModel):
     Name: str
     AttributeDefinition: Optional[FacetAttributeDefinitionPaginatorTypeDef] = None
     AttributeReference: Optional[FacetAttributeReferenceTypeDef] = None
     RequiredBehavior: Optional[RequiredAttributeBehaviorType] = None
 
-class ListTypedLinkFacetAttributesResponsePaginatorTypeDef(BaseModel):
+class ListTypedLinkFacetAttributesResponsePaginatorTypeDef(BaseValidatorModel):
     Attributes: List[TypedLinkAttributeDefinitionPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchLookupPolicyResponseTypeDef(BaseModel):
+class BatchLookupPolicyResponseTypeDef(BaseValidatorModel):
     PolicyToPathList: Optional[List[PolicyToPathTypeDef]] = None
     NextToken: Optional[str] = None
 
-class LookupPolicyResponseTypeDef(BaseModel):
+class LookupPolicyResponseTypeDef(BaseValidatorModel):
     PolicyToPathList: List[PolicyToPathTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttributeKeyAndValueTypeDef(BaseModel):
+class AttributeKeyAndValueTypeDef(BaseValidatorModel):
     Key: AttributeKeyTypeDef
     Value: TypedAttributeValueTypeDef
 
-class AttributeNameAndValueTypeDef(BaseModel):
+class AttributeNameAndValueTypeDef(BaseValidatorModel):
     AttributeName: str
     Value: TypedAttributeValueTypeDef
 
-class FacetAttributeDefinitionTypeDef(BaseModel):
+class FacetAttributeDefinitionTypeDef(BaseValidatorModel):
     Type: FacetAttributeTypeType
     DefaultValue: Optional[TypedAttributeValueTypeDef] = None
     IsImmutable: Optional[bool] = None
     Rules: Optional[Mapping[str, RuleTypeDef]] = None
 
-class LinkAttributeActionTypeDef(BaseModel):
+class LinkAttributeActionTypeDef(BaseValidatorModel):
     AttributeActionType: Optional[UpdateActionTypeType] = None
     AttributeUpdateValue: Optional[TypedAttributeValueTypeDef] = None
 
-class ObjectAttributeActionTypeDef(BaseModel):
+class ObjectAttributeActionTypeDef(BaseValidatorModel):
     ObjectAttributeActionType: Optional[UpdateActionTypeType] = None
     ObjectAttributeUpdateValue: Optional[TypedAttributeValueTypeDef] = None
 
-class TypedAttributeValueRangeTypeDef(BaseModel):
+class TypedAttributeValueRangeTypeDef(BaseValidatorModel):
     StartMode: RangeModeType
     EndMode: RangeModeType
     StartValue: Optional[TypedAttributeValueTypeDef] = None
     EndValue: Optional[TypedAttributeValueTypeDef] = None
 
-class TypedLinkAttributeDefinitionTypeDef(BaseModel):
+class TypedLinkAttributeDefinitionTypeDef(BaseValidatorModel):
     Name: str
     Type: FacetAttributeTypeType
     RequiredBehavior: RequiredAttributeBehaviorType
@@ -843,34 +843,34 @@ class TypedLinkAttributeDefinitionTypeDef(BaseModel):
     IsImmutable: Optional[bool] = None
     Rules: Optional[Mapping[str, RuleTypeDef]] = None
 
-class ListAttachedIndicesResponsePaginatorTypeDef(BaseModel):
+class ListAttachedIndicesResponsePaginatorTypeDef(BaseValidatorModel):
     IndexAttachments: List[IndexAttachmentPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIndexResponsePaginatorTypeDef(BaseModel):
+class ListIndexResponsePaginatorTypeDef(BaseValidatorModel):
     IndexAttachments: List[IndexAttachmentPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIncomingTypedLinksResponsePaginatorTypeDef(BaseModel):
+class ListIncomingTypedLinksResponsePaginatorTypeDef(BaseValidatorModel):
     LinkSpecifiers: List[TypedLinkSpecifierPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOutgoingTypedLinksResponsePaginatorTypeDef(BaseModel):
+class ListOutgoingTypedLinksResponsePaginatorTypeDef(BaseValidatorModel):
     TypedLinkSpecifiers: List[TypedLinkSpecifierPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIndexRequestListIndexPaginateTypeDef(BaseModel):
+class ListIndexRequestListIndexPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     IndexReference: ObjectReferenceTypeDef
     RangesOnIndexedValues: Optional[Sequence[ObjectAttributeRangePaginatorTypeDef]] = None
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIncomingTypedLinksRequestListIncomingTypedLinksPaginateTypeDef(BaseModel):
+class ListIncomingTypedLinksRequestListIncomingTypedLinksPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     FilterAttributeRanges: Optional[Sequence[TypedLinkAttributeRangePaginatorTypeDef]] = None
@@ -878,7 +878,7 @@ class ListIncomingTypedLinksRequestListIncomingTypedLinksPaginateTypeDef(BaseMod
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOutgoingTypedLinksRequestListOutgoingTypedLinksPaginateTypeDef(BaseModel):
+class ListOutgoingTypedLinksRequestListOutgoingTypedLinksPaginateTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     FilterAttributeRanges: Optional[Sequence[TypedLinkAttributeRangePaginatorTypeDef]] = None
@@ -886,219 +886,219 @@ class ListOutgoingTypedLinksRequestListOutgoingTypedLinksPaginateTypeDef(BaseMod
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFacetAttributesResponsePaginatorTypeDef(BaseModel):
+class ListFacetAttributesResponsePaginatorTypeDef(BaseValidatorModel):
     Attributes: List[FacetAttributePaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AddFacetToObjectRequestRequestTypeDef(BaseModel):
+class AddFacetToObjectRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     SchemaFacet: SchemaFacetTypeDef
     ObjectReference: ObjectReferenceTypeDef
     ObjectAttributeList: Optional[Sequence[AttributeKeyAndValueTypeDef]] = None
 
-class BatchAddFacetToObjectTypeDef(BaseModel):
+class BatchAddFacetToObjectTypeDef(BaseValidatorModel):
     SchemaFacet: SchemaFacetTypeDef
     ObjectAttributeList: Sequence[AttributeKeyAndValueTypeDef]
     ObjectReference: ObjectReferenceTypeDef
 
-class BatchCreateObjectTypeDef(BaseModel):
+class BatchCreateObjectTypeDef(BaseValidatorModel):
     SchemaFacet: Sequence[SchemaFacetTypeDef]
     ObjectAttributeList: Sequence[AttributeKeyAndValueTypeDef]
     ParentReference: Optional[ObjectReferenceTypeDef] = None
     LinkName: Optional[str] = None
     BatchReferenceName: Optional[str] = None
 
-class BatchGetLinkAttributesResponseTypeDef(BaseModel):
+class BatchGetLinkAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: Optional[List[AttributeKeyAndValueTypeDef]] = None
 
-class BatchGetObjectAttributesResponseTypeDef(BaseModel):
+class BatchGetObjectAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: Optional[List[AttributeKeyAndValueTypeDef]] = None
 
-class BatchListObjectAttributesResponseTypeDef(BaseModel):
+class BatchListObjectAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: Optional[List[AttributeKeyAndValueTypeDef]] = None
     NextToken: Optional[str] = None
 
-class CreateObjectRequestRequestTypeDef(BaseModel):
+class CreateObjectRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     SchemaFacets: Sequence[SchemaFacetTypeDef]
     ObjectAttributeList: Optional[Sequence[AttributeKeyAndValueTypeDef]] = None
     ParentReference: Optional[ObjectReferenceTypeDef] = None
     LinkName: Optional[str] = None
 
-class GetLinkAttributesResponseTypeDef(BaseModel):
+class GetLinkAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: List[AttributeKeyAndValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetObjectAttributesResponseTypeDef(BaseModel):
+class GetObjectAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: List[AttributeKeyAndValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IndexAttachmentTypeDef(BaseModel):
+class IndexAttachmentTypeDef(BaseValidatorModel):
     IndexedAttributes: Optional[List[AttributeKeyAndValueTypeDef]] = None
     ObjectIdentifier: Optional[str] = None
 
-class ListObjectAttributesResponseTypeDef(BaseModel):
+class ListObjectAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: List[AttributeKeyAndValueTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachTypedLinkRequestRequestTypeDef(BaseModel):
+class AttachTypedLinkRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     SourceObjectReference: ObjectReferenceTypeDef
     TargetObjectReference: ObjectReferenceTypeDef
     TypedLinkFacet: TypedLinkSchemaAndFacetNameTypeDef
     Attributes: Sequence[AttributeNameAndValueTypeDef]
 
-class BatchAttachTypedLinkTypeDef(BaseModel):
+class BatchAttachTypedLinkTypeDef(BaseValidatorModel):
     SourceObjectReference: ObjectReferenceTypeDef
     TargetObjectReference: ObjectReferenceTypeDef
     TypedLinkFacet: TypedLinkSchemaAndFacetNameTypeDef
     Attributes: Sequence[AttributeNameAndValueTypeDef]
 
-class TypedLinkSpecifierTypeDef(BaseModel):
+class TypedLinkSpecifierTypeDef(BaseValidatorModel):
     TypedLinkFacet: TypedLinkSchemaAndFacetNameTypeDef
     SourceObjectReference: ObjectReferenceTypeDef
     TargetObjectReference: ObjectReferenceTypeDef
     IdentityAttributeValues: List[AttributeNameAndValueTypeDef]
 
-class FacetAttributeTypeDef(BaseModel):
+class FacetAttributeTypeDef(BaseValidatorModel):
     Name: str
     AttributeDefinition: Optional[FacetAttributeDefinitionTypeDef] = None
     AttributeReference: Optional[FacetAttributeReferenceTypeDef] = None
     RequiredBehavior: Optional[RequiredAttributeBehaviorType] = None
 
-class LinkAttributeUpdateTypeDef(BaseModel):
+class LinkAttributeUpdateTypeDef(BaseValidatorModel):
     AttributeKey: Optional[AttributeKeyTypeDef] = None
     AttributeAction: Optional[LinkAttributeActionTypeDef] = None
 
-class ObjectAttributeUpdateTypeDef(BaseModel):
+class ObjectAttributeUpdateTypeDef(BaseValidatorModel):
     ObjectAttributeKey: Optional[AttributeKeyTypeDef] = None
     ObjectAttributeAction: Optional[ObjectAttributeActionTypeDef] = None
 
-class ObjectAttributeRangeTypeDef(BaseModel):
+class ObjectAttributeRangeTypeDef(BaseValidatorModel):
     AttributeKey: Optional[AttributeKeyTypeDef] = None
     Range: Optional[TypedAttributeValueRangeTypeDef] = None
 
-class TypedLinkAttributeRangeTypeDef(BaseModel):
+class TypedLinkAttributeRangeTypeDef(BaseValidatorModel):
     Range: TypedAttributeValueRangeTypeDef
     AttributeName: Optional[str] = None
 
-class ListTypedLinkFacetAttributesResponseTypeDef(BaseModel):
+class ListTypedLinkFacetAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: List[TypedLinkAttributeDefinitionTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TypedLinkFacetAttributeUpdateTypeDef(BaseModel):
+class TypedLinkFacetAttributeUpdateTypeDef(BaseValidatorModel):
     Attribute: TypedLinkAttributeDefinitionTypeDef
     Action: UpdateActionTypeType
 
-class TypedLinkFacetTypeDef(BaseModel):
+class TypedLinkFacetTypeDef(BaseValidatorModel):
     Name: str
     Attributes: Sequence[TypedLinkAttributeDefinitionTypeDef]
     IdentityAttributeOrder: Sequence[str]
 
-class BatchListAttachedIndicesResponseTypeDef(BaseModel):
+class BatchListAttachedIndicesResponseTypeDef(BaseValidatorModel):
     IndexAttachments: Optional[List[IndexAttachmentTypeDef]] = None
     NextToken: Optional[str] = None
 
-class BatchListIndexResponseTypeDef(BaseModel):
+class BatchListIndexResponseTypeDef(BaseValidatorModel):
     IndexAttachments: Optional[List[IndexAttachmentTypeDef]] = None
     NextToken: Optional[str] = None
 
-class ListAttachedIndicesResponseTypeDef(BaseModel):
+class ListAttachedIndicesResponseTypeDef(BaseValidatorModel):
     IndexAttachments: List[IndexAttachmentTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIndexResponseTypeDef(BaseModel):
+class ListIndexResponseTypeDef(BaseValidatorModel):
     IndexAttachments: List[IndexAttachmentTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachTypedLinkResponseTypeDef(BaseModel):
+class AttachTypedLinkResponseTypeDef(BaseValidatorModel):
     TypedLinkSpecifier: TypedLinkSpecifierTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchAttachTypedLinkResponseTypeDef(BaseModel):
+class BatchAttachTypedLinkResponseTypeDef(BaseValidatorModel):
     TypedLinkSpecifier: Optional[TypedLinkSpecifierTypeDef] = None
 
-class BatchDetachTypedLinkTypeDef(BaseModel):
+class BatchDetachTypedLinkTypeDef(BaseValidatorModel):
     TypedLinkSpecifier: TypedLinkSpecifierTypeDef
 
-class BatchGetLinkAttributesTypeDef(BaseModel):
+class BatchGetLinkAttributesTypeDef(BaseValidatorModel):
     TypedLinkSpecifier: TypedLinkSpecifierTypeDef
     AttributeNames: Sequence[str]
 
-class BatchListIncomingTypedLinksResponseTypeDef(BaseModel):
+class BatchListIncomingTypedLinksResponseTypeDef(BaseValidatorModel):
     LinkSpecifiers: Optional[List[TypedLinkSpecifierTypeDef]] = None
     NextToken: Optional[str] = None
 
-class BatchListOutgoingTypedLinksResponseTypeDef(BaseModel):
+class BatchListOutgoingTypedLinksResponseTypeDef(BaseValidatorModel):
     TypedLinkSpecifiers: Optional[List[TypedLinkSpecifierTypeDef]] = None
     NextToken: Optional[str] = None
 
-class DetachTypedLinkRequestRequestTypeDef(BaseModel):
+class DetachTypedLinkRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     TypedLinkSpecifier: TypedLinkSpecifierTypeDef
 
-class GetLinkAttributesRequestRequestTypeDef(BaseModel):
+class GetLinkAttributesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     TypedLinkSpecifier: TypedLinkSpecifierTypeDef
     AttributeNames: Sequence[str]
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class ListIncomingTypedLinksResponseTypeDef(BaseModel):
+class ListIncomingTypedLinksResponseTypeDef(BaseValidatorModel):
     LinkSpecifiers: List[TypedLinkSpecifierTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOutgoingTypedLinksResponseTypeDef(BaseModel):
+class ListOutgoingTypedLinksResponseTypeDef(BaseValidatorModel):
     TypedLinkSpecifiers: List[TypedLinkSpecifierTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFacetRequestRequestTypeDef(BaseModel):
+class CreateFacetRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
     Attributes: Optional[Sequence[FacetAttributeTypeDef]] = None
     ObjectType: Optional[ObjectTypeType] = None
     FacetStyle: Optional[FacetStyleType] = None
 
-class FacetAttributeUpdateTypeDef(BaseModel):
+class FacetAttributeUpdateTypeDef(BaseValidatorModel):
     Attribute: Optional[FacetAttributeTypeDef] = None
     Action: Optional[UpdateActionTypeType] = None
 
-class ListFacetAttributesResponseTypeDef(BaseModel):
+class ListFacetAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: List[FacetAttributeTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchUpdateLinkAttributesTypeDef(BaseModel):
+class BatchUpdateLinkAttributesTypeDef(BaseValidatorModel):
     TypedLinkSpecifier: TypedLinkSpecifierTypeDef
     AttributeUpdates: Sequence[LinkAttributeUpdateTypeDef]
 
-class UpdateLinkAttributesRequestRequestTypeDef(BaseModel):
+class UpdateLinkAttributesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     TypedLinkSpecifier: TypedLinkSpecifierTypeDef
     AttributeUpdates: Sequence[LinkAttributeUpdateTypeDef]
 
-class BatchUpdateObjectAttributesTypeDef(BaseModel):
+class BatchUpdateObjectAttributesTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     AttributeUpdates: Sequence[ObjectAttributeUpdateTypeDef]
 
-class UpdateObjectAttributesRequestRequestTypeDef(BaseModel):
+class UpdateObjectAttributesRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     AttributeUpdates: Sequence[ObjectAttributeUpdateTypeDef]
 
-class BatchListIndexTypeDef(BaseModel):
+class BatchListIndexTypeDef(BaseValidatorModel):
     IndexReference: ObjectReferenceTypeDef
     RangesOnIndexedValues: Optional[Sequence[ObjectAttributeRangeTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListIndexRequestRequestTypeDef(BaseModel):
+class ListIndexRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     IndexReference: ObjectReferenceTypeDef
     RangesOnIndexedValues: Optional[Sequence[ObjectAttributeRangeTypeDef]] = None
@@ -1106,21 +1106,21 @@ class ListIndexRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class BatchListIncomingTypedLinksTypeDef(BaseModel):
+class BatchListIncomingTypedLinksTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     FilterAttributeRanges: Optional[Sequence[TypedLinkAttributeRangeTypeDef]] = None
     FilterTypedLink: Optional[TypedLinkSchemaAndFacetNameTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class BatchListOutgoingTypedLinksTypeDef(BaseModel):
+class BatchListOutgoingTypedLinksTypeDef(BaseValidatorModel):
     ObjectReference: ObjectReferenceTypeDef
     FilterAttributeRanges: Optional[Sequence[TypedLinkAttributeRangeTypeDef]] = None
     FilterTypedLink: Optional[TypedLinkSchemaAndFacetNameTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListIncomingTypedLinksRequestRequestTypeDef(BaseModel):
+class ListIncomingTypedLinksRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     FilterAttributeRanges: Optional[Sequence[TypedLinkAttributeRangeTypeDef]] = None
@@ -1129,7 +1129,7 @@ class ListIncomingTypedLinksRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class ListOutgoingTypedLinksRequestRequestTypeDef(BaseModel):
+class ListOutgoingTypedLinksRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReferenceTypeDef
     FilterAttributeRanges: Optional[Sequence[TypedLinkAttributeRangeTypeDef]] = None
@@ -1138,17 +1138,17 @@ class ListOutgoingTypedLinksRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class UpdateTypedLinkFacetRequestRequestTypeDef(BaseModel):
+class UpdateTypedLinkFacetRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
     AttributeUpdates: Sequence[TypedLinkFacetAttributeUpdateTypeDef]
     IdentityAttributeOrder: Sequence[str]
 
-class CreateTypedLinkFacetRequestRequestTypeDef(BaseModel):
+class CreateTypedLinkFacetRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Facet: TypedLinkFacetTypeDef
 
-class BatchWriteOperationResponseTypeDef(BaseModel):
+class BatchWriteOperationResponseTypeDef(BaseValidatorModel):
     CreateObject: Optional[BatchCreateObjectResponseTypeDef] = None
     AttachObject: Optional[BatchAttachObjectResponseTypeDef] = None
     DetachObject: Optional[BatchDetachObjectResponseTypeDef] = None
@@ -1165,7 +1165,7 @@ class BatchWriteOperationResponseTypeDef(BaseModel):
     DetachTypedLink: Optional[Dict[str, Any]] = None
     UpdateLinkAttributes: Optional[Dict[str, Any]] = None
 
-class BatchReadSuccessfulResponseTypeDef(BaseModel):
+class BatchReadSuccessfulResponseTypeDef(BaseValidatorModel):
     ListObjectAttributes: Optional[BatchListObjectAttributesResponseTypeDef] = None
     ListObjectChildren: Optional[BatchListObjectChildrenResponseTypeDef] = None
     GetObjectInformation: Optional[BatchGetObjectInformationResponseTypeDef] = None
@@ -1181,13 +1181,13 @@ class BatchReadSuccessfulResponseTypeDef(BaseModel):
     GetLinkAttributes: Optional[BatchGetLinkAttributesResponseTypeDef] = None
     ListObjectParents: Optional[BatchListObjectParentsResponseTypeDef] = None
 
-class UpdateFacetRequestRequestTypeDef(BaseModel):
+class UpdateFacetRequestRequestTypeDef(BaseValidatorModel):
     SchemaArn: str
     Name: str
     AttributeUpdates: Optional[Sequence[FacetAttributeUpdateTypeDef]] = None
     ObjectType: Optional[ObjectTypeType] = None
 
-class BatchWriteOperationTypeDef(BaseModel):
+class BatchWriteOperationTypeDef(BaseValidatorModel):
     CreateObject: Optional[BatchCreateObjectTypeDef] = None
     AttachObject: Optional[BatchAttachObjectTypeDef] = None
     DetachObject: Optional[BatchDetachObjectTypeDef] = None
@@ -1204,7 +1204,7 @@ class BatchWriteOperationTypeDef(BaseModel):
     DetachTypedLink: Optional[BatchDetachTypedLinkTypeDef] = None
     UpdateLinkAttributes: Optional[BatchUpdateLinkAttributesTypeDef] = None
 
-class BatchReadOperationTypeDef(BaseModel):
+class BatchReadOperationTypeDef(BaseValidatorModel):
     ListObjectAttributes: Optional[BatchListObjectAttributesTypeDef] = None
     ListObjectChildren: Optional[BatchListObjectChildrenTypeDef] = None
     ListAttachedIndices: Optional[BatchListAttachedIndicesTypeDef] = None
@@ -1220,24 +1220,24 @@ class BatchReadOperationTypeDef(BaseModel):
     ListIncomingTypedLinks: Optional[BatchListIncomingTypedLinksTypeDef] = None
     GetLinkAttributes: Optional[BatchGetLinkAttributesTypeDef] = None
 
-class BatchWriteResponseTypeDef(BaseModel):
+class BatchWriteResponseTypeDef(BaseValidatorModel):
     Responses: List[BatchWriteOperationResponseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchReadOperationResponseTypeDef(BaseModel):
+class BatchReadOperationResponseTypeDef(BaseValidatorModel):
     SuccessfulResponse: Optional[BatchReadSuccessfulResponseTypeDef] = None
     ExceptionResponse: Optional[BatchReadExceptionTypeDef] = None
 
-class BatchWriteRequestRequestTypeDef(BaseModel):
+class BatchWriteRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     Operations: Sequence[BatchWriteOperationTypeDef]
 
-class BatchReadRequestRequestTypeDef(BaseModel):
+class BatchReadRequestRequestTypeDef(BaseValidatorModel):
     DirectoryArn: str
     Operations: Sequence[BatchReadOperationTypeDef]
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
-class BatchReadResponseTypeDef(BaseModel):
+class BatchReadResponseTypeDef(BaseValidatorModel):
     Responses: List[BatchReadOperationResponseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 

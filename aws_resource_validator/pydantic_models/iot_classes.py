@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,28 +11,28 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iot_constants import *
 
-class AbortCriteriaTypeDef(BaseModel):
+class AbortCriteriaTypeDef(BaseValidatorModel):
     failureType: JobExecutionFailureTypeType
     action: Literal["CANCEL"]
     thresholdPercentage: float
     minNumberOfExecutedThings: int
 
-class AcceptCertificateTransferRequestRequestTypeDef(BaseModel):
+class AcceptCertificateTransferRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
     setAsActive: Optional[bool] = None
 
-class CloudwatchAlarmActionTypeDef(BaseModel):
+class CloudwatchAlarmActionTypeDef(BaseValidatorModel):
     roleArn: str
     alarmName: str
     stateReason: str
     stateValue: str
 
-class CloudwatchLogsActionTypeDef(BaseModel):
+class CloudwatchLogsActionTypeDef(BaseValidatorModel):
     roleArn: str
     logGroupName: str
     batchMode: Optional[bool] = None
 
-class CloudwatchMetricActionTypeDef(BaseModel):
+class CloudwatchMetricActionTypeDef(BaseValidatorModel):
     roleArn: str
     metricNamespace: str
     metricName: str
@@ -40,7 +40,7 @@ class CloudwatchMetricActionTypeDef(BaseModel):
     metricUnit: str
     metricTimestamp: Optional[str] = None
 
-class DynamoDBActionTypeDef(BaseModel):
+class DynamoDBActionTypeDef(BaseValidatorModel):
     tableName: str
     roleArn: str
     hashKeyField: str
@@ -52,72 +52,72 @@ class DynamoDBActionTypeDef(BaseModel):
     rangeKeyType: Optional[DynamoKeyTypeType] = None
     payloadField: Optional[str] = None
 
-class ElasticsearchActionTypeDef(BaseModel):
+class ElasticsearchActionTypeDef(BaseValidatorModel):
     roleArn: str
     endpoint: str
     index: str
     type: str
     id: str
 
-class FirehoseActionTypeDef(BaseModel):
+class FirehoseActionTypeDef(BaseValidatorModel):
     roleArn: str
     deliveryStreamName: str
     separator: Optional[str] = None
     batchMode: Optional[bool] = None
 
-class IotAnalyticsActionTypeDef(BaseModel):
+class IotAnalyticsActionTypeDef(BaseValidatorModel):
     channelArn: Optional[str] = None
     channelName: Optional[str] = None
     batchMode: Optional[bool] = None
     roleArn: Optional[str] = None
 
-class IotEventsActionTypeDef(BaseModel):
+class IotEventsActionTypeDef(BaseValidatorModel):
     inputName: str
     roleArn: str
     messageId: Optional[str] = None
     batchMode: Optional[bool] = None
 
-class KinesisActionTypeDef(BaseModel):
+class KinesisActionTypeDef(BaseValidatorModel):
     roleArn: str
     streamName: str
     partitionKey: Optional[str] = None
 
-class LambdaActionTypeDef(BaseModel):
+class LambdaActionTypeDef(BaseValidatorModel):
     functionArn: str
 
-class OpenSearchActionTypeDef(BaseModel):
+class OpenSearchActionTypeDef(BaseValidatorModel):
     roleArn: str
     endpoint: str
     index: str
     type: str
     id: str
 
-class S3ActionTypeDef(BaseModel):
+class S3ActionTypeDef(BaseValidatorModel):
     roleArn: str
     bucketName: str
     key: str
     cannedAcl: Optional[CannedAccessControlListType] = None
 
-class SalesforceActionTypeDef(BaseModel):
+class SalesforceActionTypeDef(BaseValidatorModel):
     token: str
     url: str
 
-class SnsActionTypeDef(BaseModel):
+class SnsActionTypeDef(BaseValidatorModel):
     targetArn: str
     roleArn: str
     messageFormat: Optional[MessageFormatType] = None
 
-class SqsActionTypeDef(BaseModel):
+class SqsActionTypeDef(BaseValidatorModel):
     roleArn: str
     queueUrl: str
     useBase64: Optional[bool] = None
 
-class StepFunctionsActionTypeDef(BaseModel):
+class StepFunctionsActionTypeDef(BaseValidatorModel):
     stateMachineName: str
     roleArn: str
     executionNamePrefix: Optional[str] = None
 
-class MetricValuePaginatorTypeDef(BaseModel):
+class MetricValuePaginatorTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     cidrs: Optional[List[str]] = None
     ports: Optional[List[int]] = None
@@ -125,10 +125,10 @@ class MetricValuePaginatorTypeDef(BaseModel):
     numbers: Optional[List[float]] = None
     strings: Optional[List[str]] = None
 
-class ViolationEventAdditionalInfoTypeDef(BaseModel):
+class ViolationEventAdditionalInfoTypeDef(BaseValidatorModel):
     confidenceLevel: Optional[ConfidenceLevelType] = None
 
-class MetricValueTypeDef(BaseModel):
+class MetricValueTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     cidrs: Optional[Sequence[str]] = None
     ports: Optional[Sequence[int]] = None
@@ -136,86 +136,86 @@ class MetricValueTypeDef(BaseModel):
     numbers: Optional[Sequence[float]] = None
     strings: Optional[Sequence[str]] = None
 
-class AddThingToBillingGroupRequestRequestTypeDef(BaseModel):
+class AddThingToBillingGroupRequestRequestTypeDef(BaseValidatorModel):
     billingGroupName: Optional[str] = None
     billingGroupArn: Optional[str] = None
     thingName: Optional[str] = None
     thingArn: Optional[str] = None
 
-class AddThingToThingGroupRequestRequestTypeDef(BaseModel):
+class AddThingToThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: Optional[str] = None
     thingGroupArn: Optional[str] = None
     thingName: Optional[str] = None
     thingArn: Optional[str] = None
     overrideDynamicGroups: Optional[bool] = None
 
-class AddThingsToThingGroupParamsPaginatorTypeDef(BaseModel):
+class AddThingsToThingGroupParamsPaginatorTypeDef(BaseValidatorModel):
     thingGroupNames: List[str]
     overrideDynamicGroups: Optional[bool] = None
 
-class AddThingsToThingGroupParamsTypeDef(BaseModel):
+class AddThingsToThingGroupParamsTypeDef(BaseValidatorModel):
     thingGroupNames: Sequence[str]
     overrideDynamicGroups: Optional[bool] = None
 
-class AggregationTypeTypeDef(BaseModel):
+class AggregationTypeTypeDef(BaseValidatorModel):
     name: AggregationTypeNameType
     values: Optional[Sequence[str]] = None
 
-class AlertTargetTypeDef(BaseModel):
+class AlertTargetTypeDef(BaseValidatorModel):
     alertTargetArn: str
     roleArn: str
 
-class PolicyTypeDef(BaseModel):
+class PolicyTypeDef(BaseValidatorModel):
     policyName: Optional[str] = None
     policyArn: Optional[str] = None
 
-class AssetPropertyTimestampTypeDef(BaseModel):
+class AssetPropertyTimestampTypeDef(BaseValidatorModel):
     timeInSeconds: str
     offsetInNanos: Optional[str] = None
 
-class AssetPropertyVariantTypeDef(BaseModel):
+class AssetPropertyVariantTypeDef(BaseValidatorModel):
     stringValue: Optional[str] = None
     integerValue: Optional[str] = None
     doubleValue: Optional[str] = None
     booleanValue: Optional[str] = None
 
-class AssociateTargetsWithJobRequestRequestTypeDef(BaseModel):
+class AssociateTargetsWithJobRequestRequestTypeDef(BaseValidatorModel):
     targets: Sequence[str]
     jobId: str
     comment: Optional[str] = None
     namespaceId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AttachPolicyRequestRequestTypeDef(BaseModel):
+class AttachPolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     target: str
 
-class AttachPrincipalPolicyRequestRequestTypeDef(BaseModel):
+class AttachPrincipalPolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     principal: str
 
-class AttachSecurityProfileRequestRequestTypeDef(BaseModel):
+class AttachSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     securityProfileName: str
     securityProfileTargetArn: str
 
-class AttachThingPrincipalRequestRequestTypeDef(BaseModel):
+class AttachThingPrincipalRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
     principal: str
 
-class AttributePayloadTypeDef(BaseModel):
+class AttributePayloadTypeDef(BaseValidatorModel):
     attributes: Optional[Mapping[str, str]] = None
     merge: Optional[bool] = None
 
-class AuditCheckConfigurationTypeDef(BaseModel):
+class AuditCheckConfigurationTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
 
-class AuditCheckDetailsTypeDef(BaseModel):
+class AuditCheckDetailsTypeDef(BaseValidatorModel):
     checkRunStatus: Optional[AuditCheckRunStatusType] = None
     checkCompliant: Optional[bool] = None
     totalResourcesCount: Optional[int] = None
@@ -224,7 +224,7 @@ class AuditCheckDetailsTypeDef(BaseModel):
     errorCode: Optional[str] = None
     message: Optional[str] = None
 
-class AuditMitigationActionExecutionMetadataTypeDef(BaseModel):
+class AuditMitigationActionExecutionMetadataTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     findingId: Optional[str] = None
     actionName: Optional[str] = None
@@ -235,35 +235,35 @@ class AuditMitigationActionExecutionMetadataTypeDef(BaseModel):
     errorCode: Optional[str] = None
     message: Optional[str] = None
 
-class AuditMitigationActionsTaskMetadataTypeDef(BaseModel):
+class AuditMitigationActionsTaskMetadataTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     startTime: Optional[datetime] = None
     taskStatus: Optional[AuditMitigationActionsTaskStatusType] = None
 
-class AuditMitigationActionsTaskTargetTypeDef(BaseModel):
+class AuditMitigationActionsTaskTargetTypeDef(BaseValidatorModel):
     auditTaskId: Optional[str] = None
     findingIds: Optional[List[str]] = None
     auditCheckToReasonCodeFilter: Optional[Dict[str, List[str]]] = None
 
-class AuditNotificationTargetTypeDef(BaseModel):
+class AuditNotificationTargetTypeDef(BaseValidatorModel):
     targetArn: Optional[str] = None
     roleArn: Optional[str] = None
     enabled: Optional[bool] = None
 
-class AuditTaskMetadataTypeDef(BaseModel):
+class AuditTaskMetadataTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     taskStatus: Optional[AuditTaskStatusType] = None
     taskType: Optional[AuditTaskTypeType] = None
 
-class AuthInfoTypeDef(BaseModel):
+class AuthInfoTypeDef(BaseValidatorModel):
     resources: Sequence[str]
     actionType: Optional[ActionTypeType] = None
 
-class AuthorizerConfigTypeDef(BaseModel):
+class AuthorizerConfigTypeDef(BaseValidatorModel):
     defaultAuthorizerName: Optional[str] = None
     allowAuthorizerOverride: Optional[bool] = None
 
-class AuthorizerDescriptionTypeDef(BaseModel):
+class AuthorizerDescriptionTypeDef(BaseValidatorModel):
     authorizerName: Optional[str] = None
     authorizerArn: Optional[str] = None
     authorizerFunctionArn: Optional[str] = None
@@ -275,33 +275,33 @@ class AuthorizerDescriptionTypeDef(BaseModel):
     signingDisabled: Optional[bool] = None
     enableCachingForHttp: Optional[bool] = None
 
-class AuthorizerSummaryTypeDef(BaseModel):
+class AuthorizerSummaryTypeDef(BaseValidatorModel):
     authorizerName: Optional[str] = None
     authorizerArn: Optional[str] = None
 
-class AwsJobAbortCriteriaTypeDef(BaseModel):
+class AwsJobAbortCriteriaTypeDef(BaseValidatorModel):
     failureType: AwsJobAbortCriteriaFailureTypeType
     action: Literal["CANCEL"]
     thresholdPercentage: float
     minNumberOfExecutedThings: int
 
-class AwsJobRateIncreaseCriteriaTypeDef(BaseModel):
+class AwsJobRateIncreaseCriteriaTypeDef(BaseValidatorModel):
     numberOfNotifiedThings: Optional[int] = None
     numberOfSucceededThings: Optional[int] = None
 
-class AwsJobPresignedUrlConfigTypeDef(BaseModel):
+class AwsJobPresignedUrlConfigTypeDef(BaseValidatorModel):
     expiresInSec: Optional[int] = None
 
-class AwsJobTimeoutConfigTypeDef(BaseModel):
+class AwsJobTimeoutConfigTypeDef(BaseValidatorModel):
     inProgressTimeoutInMinutes: Optional[int] = None
 
-class MachineLearningDetectionConfigTypeDef(BaseModel):
+class MachineLearningDetectionConfigTypeDef(BaseValidatorModel):
     confidenceLevel: ConfidenceLevelType
 
-class StatisticalThresholdTypeDef(BaseModel):
+class StatisticalThresholdTypeDef(BaseValidatorModel):
     statistic: Optional[str] = None
 
-class BehaviorModelTrainingSummaryTypeDef(BaseModel):
+class BehaviorModelTrainingSummaryTypeDef(BaseValidatorModel):
     securityProfileName: Optional[str] = None
     behaviorName: Optional[str] = None
     trainingDataCollectionStartDate: Optional[datetime] = None
@@ -309,125 +309,125 @@ class BehaviorModelTrainingSummaryTypeDef(BaseModel):
     datapointsCollectionPercentage: Optional[float] = None
     lastModelRefreshDate: Optional[datetime] = None
 
-class MetricDimensionTypeDef(BaseModel):
+class MetricDimensionTypeDef(BaseValidatorModel):
     dimensionName: str
     operator: Optional[DimensionValueOperatorType] = None
 
-class BillingGroupMetadataTypeDef(BaseModel):
+class BillingGroupMetadataTypeDef(BaseValidatorModel):
     creationDate: Optional[datetime] = None
 
-class BillingGroupPropertiesTypeDef(BaseModel):
+class BillingGroupPropertiesTypeDef(BaseValidatorModel):
     billingGroupDescription: Optional[str] = None
 
-class BucketTypeDef(BaseModel):
+class BucketTypeDef(BaseValidatorModel):
     keyValue: Optional[str] = None
     count: Optional[int] = None
 
-class TermsAggregationTypeDef(BaseModel):
+class TermsAggregationTypeDef(BaseValidatorModel):
     maxBuckets: Optional[int] = None
 
-class CertificateValidityTypeDef(BaseModel):
+class CertificateValidityTypeDef(BaseValidatorModel):
     notBefore: Optional[datetime] = None
     notAfter: Optional[datetime] = None
 
-class CACertificateTypeDef(BaseModel):
+class CACertificateTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
     certificateId: Optional[str] = None
     status: Optional[CACertificateStatusType] = None
     creationDate: Optional[datetime] = None
 
-class CancelAuditMitigationActionsTaskRequestRequestTypeDef(BaseModel):
+class CancelAuditMitigationActionsTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
 
-class CancelAuditTaskRequestRequestTypeDef(BaseModel):
+class CancelAuditTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
 
-class CancelCertificateTransferRequestRequestTypeDef(BaseModel):
+class CancelCertificateTransferRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
 
-class CancelDetectMitigationActionsTaskRequestRequestTypeDef(BaseModel):
+class CancelDetectMitigationActionsTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
 
-class CancelJobExecutionRequestRequestTypeDef(BaseModel):
+class CancelJobExecutionRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     thingName: str
     force: Optional[bool] = None
     expectedVersion: Optional[int] = None
     statusDetails: Optional[Mapping[str, str]] = None
 
-class CancelJobRequestRequestTypeDef(BaseModel):
+class CancelJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     reasonCode: Optional[str] = None
     comment: Optional[str] = None
     force: Optional[bool] = None
 
-class TransferDataTypeDef(BaseModel):
+class TransferDataTypeDef(BaseValidatorModel):
     transferMessage: Optional[str] = None
     rejectReason: Optional[str] = None
     transferDate: Optional[datetime] = None
     acceptDate: Optional[datetime] = None
     rejectDate: Optional[datetime] = None
 
-class CertificateProviderSummaryTypeDef(BaseModel):
+class CertificateProviderSummaryTypeDef(BaseValidatorModel):
     certificateProviderName: Optional[str] = None
     certificateProviderArn: Optional[str] = None
 
-class CertificateTypeDef(BaseModel):
+class CertificateTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
     certificateId: Optional[str] = None
     status: Optional[CertificateStatusType] = None
     certificateMode: Optional[CertificateModeType] = None
     creationDate: Optional[datetime] = None
 
-class CodeSigningCertificateChainTypeDef(BaseModel):
+class CodeSigningCertificateChainTypeDef(BaseValidatorModel):
     certificateName: Optional[str] = None
     inlineDocument: Optional[str] = None
 
-class ConfigurationTypeDef(BaseModel):
+class ConfigurationTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class ConfirmTopicRuleDestinationRequestRequestTypeDef(BaseModel):
+class ConfirmTopicRuleDestinationRequestRequestTypeDef(BaseValidatorModel):
     confirmationToken: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
-class CreateCertificateFromCsrRequestRequestTypeDef(BaseModel):
+class CreateCertificateFromCsrRequestRequestTypeDef(BaseValidatorModel):
     certificateSigningRequest: str
     setAsActive: Optional[bool] = None
 
-class ServerCertificateConfigTypeDef(BaseModel):
+class ServerCertificateConfigTypeDef(BaseValidatorModel):
     enableOCSPCheck: Optional[bool] = None
 
-class TlsConfigTypeDef(BaseModel):
+class TlsConfigTypeDef(BaseValidatorModel):
     securityPolicy: Optional[str] = None
 
-class PresignedUrlConfigTypeDef(BaseModel):
+class PresignedUrlConfigTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
     expiresInSec: Optional[int] = None
 
-class TimeoutConfigTypeDef(BaseModel):
+class TimeoutConfigTypeDef(BaseValidatorModel):
     inProgressTimeoutInMinutes: Optional[int] = None
 
-class MaintenanceWindowTypeDef(BaseModel):
+class MaintenanceWindowTypeDef(BaseValidatorModel):
     startTime: str
     durationInMinutes: int
 
-class CreateKeysAndCertificateRequestRequestTypeDef(BaseModel):
+class CreateKeysAndCertificateRequestRequestTypeDef(BaseValidatorModel):
     setAsActive: Optional[bool] = None
 
-class KeyPairTypeDef(BaseModel):
+class KeyPairTypeDef(BaseValidatorModel):
     PublicKey: Optional[str] = None
     PrivateKey: Optional[str] = None
 
-class CreatePackageRequestRequestTypeDef(BaseModel):
+class CreatePackageRequestRequestTypeDef(BaseValidatorModel):
     packageName: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
 
-class CreatePackageVersionRequestRequestTypeDef(BaseModel):
+class CreatePackageVersionRequestRequestTypeDef(BaseValidatorModel):
     packageName: str
     versionName: str
     description: Optional[str] = None
@@ -435,169 +435,169 @@ class CreatePackageVersionRequestRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
 
-class CreatePolicyVersionRequestRequestTypeDef(BaseModel):
+class CreatePolicyVersionRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     policyDocument: str
     setAsDefault: Optional[bool] = None
 
-class CreateProvisioningClaimRequestRequestTypeDef(BaseModel):
+class CreateProvisioningClaimRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
 
-class ProvisioningHookTypeDef(BaseModel):
+class ProvisioningHookTypeDef(BaseValidatorModel):
     targetArn: str
     payloadVersion: Optional[str] = None
 
-class CreateProvisioningTemplateVersionRequestRequestTypeDef(BaseModel):
+class CreateProvisioningTemplateVersionRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
     templateBody: str
     setAsDefault: Optional[bool] = None
 
-class MetricsExportConfigTypeDef(BaseModel):
+class MetricsExportConfigTypeDef(BaseValidatorModel):
     mqttTopic: str
     roleArn: str
 
-class ThingTypePropertiesTypeDef(BaseModel):
+class ThingTypePropertiesTypeDef(BaseValidatorModel):
     thingTypeDescription: Optional[str] = None
     searchableAttributes: Optional[Sequence[str]] = None
 
-class DeleteAccountAuditConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteAccountAuditConfigurationRequestRequestTypeDef(BaseValidatorModel):
     deleteScheduledAudits: Optional[bool] = None
 
-class DeleteAuthorizerRequestRequestTypeDef(BaseModel):
+class DeleteAuthorizerRequestRequestTypeDef(BaseValidatorModel):
     authorizerName: str
 
-class DeleteBillingGroupRequestRequestTypeDef(BaseModel):
+class DeleteBillingGroupRequestRequestTypeDef(BaseValidatorModel):
     billingGroupName: str
     expectedVersion: Optional[int] = None
 
-class DeleteCACertificateRequestRequestTypeDef(BaseModel):
+class DeleteCACertificateRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
 
-class DeleteCertificateProviderRequestRequestTypeDef(BaseModel):
+class DeleteCertificateProviderRequestRequestTypeDef(BaseValidatorModel):
     certificateProviderName: str
 
-class DeleteCertificateRequestRequestTypeDef(BaseModel):
+class DeleteCertificateRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
     forceDelete: Optional[bool] = None
 
-class DeleteCustomMetricRequestRequestTypeDef(BaseModel):
+class DeleteCustomMetricRequestRequestTypeDef(BaseValidatorModel):
     metricName: str
 
-class DeleteDimensionRequestRequestTypeDef(BaseModel):
+class DeleteDimensionRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteDomainConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteDomainConfigurationRequestRequestTypeDef(BaseValidatorModel):
     domainConfigurationName: str
 
-class DeleteDynamicThingGroupRequestRequestTypeDef(BaseModel):
+class DeleteDynamicThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: str
     expectedVersion: Optional[int] = None
 
-class DeleteFleetMetricRequestRequestTypeDef(BaseModel):
+class DeleteFleetMetricRequestRequestTypeDef(BaseValidatorModel):
     metricName: str
     expectedVersion: Optional[int] = None
 
-class DeleteJobExecutionRequestRequestTypeDef(BaseModel):
+class DeleteJobExecutionRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     thingName: str
     executionNumber: int
     force: Optional[bool] = None
     namespaceId: Optional[str] = None
 
-class DeleteJobRequestRequestTypeDef(BaseModel):
+class DeleteJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     force: Optional[bool] = None
     namespaceId: Optional[str] = None
 
-class DeleteJobTemplateRequestRequestTypeDef(BaseModel):
+class DeleteJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     jobTemplateId: str
 
-class DeleteMitigationActionRequestRequestTypeDef(BaseModel):
+class DeleteMitigationActionRequestRequestTypeDef(BaseValidatorModel):
     actionName: str
 
-class DeleteOTAUpdateRequestRequestTypeDef(BaseModel):
+class DeleteOTAUpdateRequestRequestTypeDef(BaseValidatorModel):
     otaUpdateId: str
     deleteStream: Optional[bool] = None
     forceDeleteAWSJob: Optional[bool] = None
 
-class DeletePackageRequestRequestTypeDef(BaseModel):
+class DeletePackageRequestRequestTypeDef(BaseValidatorModel):
     packageName: str
     clientToken: Optional[str] = None
 
-class DeletePackageVersionRequestRequestTypeDef(BaseModel):
+class DeletePackageVersionRequestRequestTypeDef(BaseValidatorModel):
     packageName: str
     versionName: str
     clientToken: Optional[str] = None
 
-class DeletePolicyRequestRequestTypeDef(BaseModel):
+class DeletePolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
 
-class DeletePolicyVersionRequestRequestTypeDef(BaseModel):
+class DeletePolicyVersionRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     policyVersionId: str
 
-class DeleteProvisioningTemplateRequestRequestTypeDef(BaseModel):
+class DeleteProvisioningTemplateRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
 
-class DeleteProvisioningTemplateVersionRequestRequestTypeDef(BaseModel):
+class DeleteProvisioningTemplateVersionRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
     versionId: int
 
-class DeleteRoleAliasRequestRequestTypeDef(BaseModel):
+class DeleteRoleAliasRequestRequestTypeDef(BaseValidatorModel):
     roleAlias: str
 
-class DeleteScheduledAuditRequestRequestTypeDef(BaseModel):
+class DeleteScheduledAuditRequestRequestTypeDef(BaseValidatorModel):
     scheduledAuditName: str
 
-class DeleteSecurityProfileRequestRequestTypeDef(BaseModel):
+class DeleteSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     securityProfileName: str
     expectedVersion: Optional[int] = None
 
-class DeleteStreamRequestRequestTypeDef(BaseModel):
+class DeleteStreamRequestRequestTypeDef(BaseValidatorModel):
     streamId: str
 
-class DeleteThingGroupRequestRequestTypeDef(BaseModel):
+class DeleteThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: str
     expectedVersion: Optional[int] = None
 
-class DeleteThingRequestRequestTypeDef(BaseModel):
+class DeleteThingRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
     expectedVersion: Optional[int] = None
 
-class DeleteThingTypeRequestRequestTypeDef(BaseModel):
+class DeleteThingTypeRequestRequestTypeDef(BaseValidatorModel):
     thingTypeName: str
 
-class DeleteTopicRuleDestinationRequestRequestTypeDef(BaseModel):
+class DeleteTopicRuleDestinationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteTopicRuleRequestRequestTypeDef(BaseModel):
+class DeleteTopicRuleRequestRequestTypeDef(BaseValidatorModel):
     ruleName: str
 
-class DeleteV2LoggingLevelRequestRequestTypeDef(BaseModel):
+class DeleteV2LoggingLevelRequestRequestTypeDef(BaseValidatorModel):
     targetType: LogTargetTypeType
     targetName: str
 
-class DeprecateThingTypeRequestRequestTypeDef(BaseModel):
+class DeprecateThingTypeRequestRequestTypeDef(BaseValidatorModel):
     thingTypeName: str
     undoDeprecate: Optional[bool] = None
 
-class DescribeAuditFindingRequestRequestTypeDef(BaseModel):
+class DescribeAuditFindingRequestRequestTypeDef(BaseValidatorModel):
     findingId: str
 
-class DescribeAuditMitigationActionsTaskRequestRequestTypeDef(BaseModel):
+class DescribeAuditMitigationActionsTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
 
-class TaskStatisticsForAuditCheckTypeDef(BaseModel):
+class TaskStatisticsForAuditCheckTypeDef(BaseValidatorModel):
     totalFindingsCount: Optional[int] = None
     failedFindingsCount: Optional[int] = None
     succeededFindingsCount: Optional[int] = None
     skippedFindingsCount: Optional[int] = None
     canceledFindingsCount: Optional[int] = None
 
-class DescribeAuditTaskRequestRequestTypeDef(BaseModel):
+class DescribeAuditTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
 
-class TaskStatisticsTypeDef(BaseModel):
+class TaskStatisticsTypeDef(BaseValidatorModel):
     totalChecks: Optional[int] = None
     inProgressChecks: Optional[int] = None
     waitingForDataCollectionChecks: Optional[int] = None
@@ -606,88 +606,88 @@ class TaskStatisticsTypeDef(BaseModel):
     failedChecks: Optional[int] = None
     canceledChecks: Optional[int] = None
 
-class DescribeAuthorizerRequestRequestTypeDef(BaseModel):
+class DescribeAuthorizerRequestRequestTypeDef(BaseValidatorModel):
     authorizerName: str
 
-class DescribeBillingGroupRequestRequestTypeDef(BaseModel):
+class DescribeBillingGroupRequestRequestTypeDef(BaseValidatorModel):
     billingGroupName: str
 
-class DescribeCACertificateRequestRequestTypeDef(BaseModel):
+class DescribeCACertificateRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
 
-class RegistrationConfigTypeDef(BaseModel):
+class RegistrationConfigTypeDef(BaseValidatorModel):
     templateBody: Optional[str] = None
     roleArn: Optional[str] = None
     templateName: Optional[str] = None
 
-class DescribeCertificateProviderRequestRequestTypeDef(BaseModel):
+class DescribeCertificateProviderRequestRequestTypeDef(BaseValidatorModel):
     certificateProviderName: str
 
-class DescribeCertificateRequestRequestTypeDef(BaseModel):
+class DescribeCertificateRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
 
-class DescribeCustomMetricRequestRequestTypeDef(BaseModel):
+class DescribeCustomMetricRequestRequestTypeDef(BaseValidatorModel):
     metricName: str
 
-class DescribeDetectMitigationActionsTaskRequestRequestTypeDef(BaseModel):
+class DescribeDetectMitigationActionsTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
 
-class DescribeDimensionRequestRequestTypeDef(BaseModel):
+class DescribeDimensionRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DescribeDomainConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeDomainConfigurationRequestRequestTypeDef(BaseValidatorModel):
     domainConfigurationName: str
 
-class ServerCertificateSummaryTypeDef(BaseModel):
+class ServerCertificateSummaryTypeDef(BaseValidatorModel):
     serverCertificateArn: Optional[str] = None
     serverCertificateStatus: Optional[ServerCertificateStatusType] = None
     serverCertificateStatusDetail: Optional[str] = None
 
-class DescribeEndpointRequestRequestTypeDef(BaseModel):
+class DescribeEndpointRequestRequestTypeDef(BaseValidatorModel):
     endpointType: Optional[str] = None
 
-class DescribeFleetMetricRequestRequestTypeDef(BaseModel):
+class DescribeFleetMetricRequestRequestTypeDef(BaseValidatorModel):
     metricName: str
 
-class DescribeIndexRequestRequestTypeDef(BaseModel):
+class DescribeIndexRequestRequestTypeDef(BaseValidatorModel):
     indexName: str
 
-class DescribeJobExecutionRequestRequestTypeDef(BaseModel):
+class DescribeJobExecutionRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     thingName: str
     executionNumber: Optional[int] = None
 
-class DescribeJobRequestRequestTypeDef(BaseModel):
+class DescribeJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
 
-class DescribeJobTemplateRequestRequestTypeDef(BaseModel):
+class DescribeJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     jobTemplateId: str
 
-class DescribeManagedJobTemplateRequestRequestTypeDef(BaseModel):
+class DescribeManagedJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
     templateVersion: Optional[str] = None
 
-class DocumentParameterTypeDef(BaseModel):
+class DocumentParameterTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     description: Optional[str] = None
     regex: Optional[str] = None
     example: Optional[str] = None
     optional: Optional[bool] = None
 
-class DescribeMitigationActionRequestRequestTypeDef(BaseModel):
+class DescribeMitigationActionRequestRequestTypeDef(BaseValidatorModel):
     actionName: str
 
-class DescribeProvisioningTemplateRequestRequestTypeDef(BaseModel):
+class DescribeProvisioningTemplateRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
 
-class DescribeProvisioningTemplateVersionRequestRequestTypeDef(BaseModel):
+class DescribeProvisioningTemplateVersionRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
     versionId: int
 
-class DescribeRoleAliasRequestRequestTypeDef(BaseModel):
+class DescribeRoleAliasRequestRequestTypeDef(BaseValidatorModel):
     roleAlias: str
 
-class RoleAliasDescriptionTypeDef(BaseModel):
+class RoleAliasDescriptionTypeDef(BaseValidatorModel):
     roleAlias: Optional[str] = None
     roleAliasArn: Optional[str] = None
     roleArn: Optional[str] = None
@@ -696,53 +696,53 @@ class RoleAliasDescriptionTypeDef(BaseModel):
     creationDate: Optional[datetime] = None
     lastModifiedDate: Optional[datetime] = None
 
-class DescribeScheduledAuditRequestRequestTypeDef(BaseModel):
+class DescribeScheduledAuditRequestRequestTypeDef(BaseValidatorModel):
     scheduledAuditName: str
 
-class DescribeSecurityProfileRequestRequestTypeDef(BaseModel):
+class DescribeSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     securityProfileName: str
 
-class DescribeStreamRequestRequestTypeDef(BaseModel):
+class DescribeStreamRequestRequestTypeDef(BaseValidatorModel):
     streamId: str
 
-class DescribeThingGroupRequestRequestTypeDef(BaseModel):
+class DescribeThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: str
 
-class DescribeThingRegistrationTaskRequestRequestTypeDef(BaseModel):
+class DescribeThingRegistrationTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
 
-class DescribeThingRequestRequestTypeDef(BaseModel):
+class DescribeThingRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
 
-class DescribeThingTypeRequestRequestTypeDef(BaseModel):
+class DescribeThingTypeRequestRequestTypeDef(BaseValidatorModel):
     thingTypeName: str
 
-class ThingTypeMetadataTypeDef(BaseModel):
+class ThingTypeMetadataTypeDef(BaseValidatorModel):
     deprecated: Optional[bool] = None
     deprecationDate: Optional[datetime] = None
     creationDate: Optional[datetime] = None
 
-class S3DestinationTypeDef(BaseModel):
+class S3DestinationTypeDef(BaseValidatorModel):
     bucket: Optional[str] = None
     prefix: Optional[str] = None
 
-class DetachPolicyRequestRequestTypeDef(BaseModel):
+class DetachPolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     target: str
 
-class DetachPrincipalPolicyRequestRequestTypeDef(BaseModel):
+class DetachPrincipalPolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     principal: str
 
-class DetachSecurityProfileRequestRequestTypeDef(BaseModel):
+class DetachSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     securityProfileName: str
     securityProfileTargetArn: str
 
-class DetachThingPrincipalRequestRequestTypeDef(BaseModel):
+class DetachThingPrincipalRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
     principal: str
 
-class DetectMitigationActionExecutionTypeDef(BaseModel):
+class DetectMitigationActionExecutionTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     violationId: Optional[str] = None
     actionName: Optional[str] = None
@@ -753,135 +753,135 @@ class DetectMitigationActionExecutionTypeDef(BaseModel):
     errorCode: Optional[str] = None
     message: Optional[str] = None
 
-class DetectMitigationActionsTaskStatisticsTypeDef(BaseModel):
+class DetectMitigationActionsTaskStatisticsTypeDef(BaseValidatorModel):
     actionsExecuted: Optional[int] = None
     actionsSkipped: Optional[int] = None
     actionsFailed: Optional[int] = None
 
-class DetectMitigationActionsTaskTargetTypeDef(BaseModel):
+class DetectMitigationActionsTaskTargetTypeDef(BaseValidatorModel):
     violationIds: Optional[List[str]] = None
     securityProfileName: Optional[str] = None
     behaviorName: Optional[str] = None
 
-class ViolationEventOccurrenceRangeTypeDef(BaseModel):
+class ViolationEventOccurrenceRangeTypeDef(BaseValidatorModel):
     startTime: datetime
     endTime: datetime
 
-class DisableTopicRuleRequestRequestTypeDef(BaseModel):
+class DisableTopicRuleRequestRequestTypeDef(BaseValidatorModel):
     ruleName: str
 
-class DomainConfigurationSummaryTypeDef(BaseModel):
+class DomainConfigurationSummaryTypeDef(BaseValidatorModel):
     domainConfigurationName: Optional[str] = None
     domainConfigurationArn: Optional[str] = None
     serviceType: Optional[ServiceTypeType] = None
 
-class PutItemInputTypeDef(BaseModel):
+class PutItemInputTypeDef(BaseValidatorModel):
     tableName: str
 
-class EffectivePolicyTypeDef(BaseModel):
+class EffectivePolicyTypeDef(BaseValidatorModel):
     policyName: Optional[str] = None
     policyArn: Optional[str] = None
     policyDocument: Optional[str] = None
 
-class EnableIoTLoggingParamsTypeDef(BaseModel):
+class EnableIoTLoggingParamsTypeDef(BaseValidatorModel):
     roleArnForLogging: str
     logLevel: LogLevelType
 
-class EnableTopicRuleRequestRequestTypeDef(BaseModel):
+class EnableTopicRuleRequestRequestTypeDef(BaseValidatorModel):
     ruleName: str
 
-class ErrorInfoTypeDef(BaseModel):
+class ErrorInfoTypeDef(BaseValidatorModel):
     code: Optional[str] = None
     message: Optional[str] = None
 
-class RateIncreaseCriteriaTypeDef(BaseModel):
+class RateIncreaseCriteriaTypeDef(BaseValidatorModel):
     numberOfNotifiedThings: Optional[int] = None
     numberOfSucceededThings: Optional[int] = None
 
-class FieldTypeDef(BaseModel):
+class FieldTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     type: Optional[FieldTypeType] = None
 
-class S3LocationTypeDef(BaseModel):
+class S3LocationTypeDef(BaseValidatorModel):
     bucket: Optional[str] = None
     key: Optional[str] = None
     version: Optional[str] = None
 
-class StreamTypeDef(BaseModel):
+class StreamTypeDef(BaseValidatorModel):
     streamId: Optional[str] = None
     fileId: Optional[int] = None
 
-class FleetMetricNameAndArnTypeDef(BaseModel):
+class FleetMetricNameAndArnTypeDef(BaseValidatorModel):
     metricName: Optional[str] = None
     metricArn: Optional[str] = None
 
-class GeoLocationTargetTypeDef(BaseModel):
+class GeoLocationTargetTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     order: Optional[TargetFieldOrderType] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetBehaviorModelTrainingSummariesRequestRequestTypeDef(BaseModel):
+class GetBehaviorModelTrainingSummariesRequestRequestTypeDef(BaseValidatorModel):
     securityProfileName: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class GetCardinalityRequestRequestTypeDef(BaseModel):
+class GetCardinalityRequestRequestTypeDef(BaseValidatorModel):
     queryString: str
     indexName: Optional[str] = None
     aggregationField: Optional[str] = None
     queryVersion: Optional[str] = None
 
-class GetEffectivePoliciesRequestRequestTypeDef(BaseModel):
+class GetEffectivePoliciesRequestRequestTypeDef(BaseValidatorModel):
     principal: Optional[str] = None
     cognitoIdentityPoolId: Optional[str] = None
     thingName: Optional[str] = None
 
-class GetJobDocumentRequestRequestTypeDef(BaseModel):
+class GetJobDocumentRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
 
-class GetOTAUpdateRequestRequestTypeDef(BaseModel):
+class GetOTAUpdateRequestRequestTypeDef(BaseValidatorModel):
     otaUpdateId: str
 
-class VersionUpdateByJobsConfigTypeDef(BaseModel):
+class VersionUpdateByJobsConfigTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
     roleArn: Optional[str] = None
 
-class GetPackageRequestRequestTypeDef(BaseModel):
+class GetPackageRequestRequestTypeDef(BaseValidatorModel):
     packageName: str
 
-class GetPackageVersionRequestRequestTypeDef(BaseModel):
+class GetPackageVersionRequestRequestTypeDef(BaseValidatorModel):
     packageName: str
     versionName: str
 
-class GetPercentilesRequestRequestTypeDef(BaseModel):
+class GetPercentilesRequestRequestTypeDef(BaseValidatorModel):
     queryString: str
     indexName: Optional[str] = None
     aggregationField: Optional[str] = None
     queryVersion: Optional[str] = None
     percents: Optional[Sequence[float]] = None
 
-class PercentPairTypeDef(BaseModel):
+class PercentPairTypeDef(BaseValidatorModel):
     percent: Optional[float] = None
     value: Optional[float] = None
 
-class GetPolicyRequestRequestTypeDef(BaseModel):
+class GetPolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
 
-class GetPolicyVersionRequestRequestTypeDef(BaseModel):
+class GetPolicyVersionRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     policyVersionId: str
 
-class GetStatisticsRequestRequestTypeDef(BaseModel):
+class GetStatisticsRequestRequestTypeDef(BaseValidatorModel):
     queryString: str
     indexName: Optional[str] = None
     aggregationField: Optional[str] = None
     queryVersion: Optional[str] = None
 
-class StatisticsTypeDef(BaseModel):
+class StatisticsTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     average: Optional[float] = None
     sum: Optional[float] = None
@@ -891,47 +891,47 @@ class StatisticsTypeDef(BaseModel):
     variance: Optional[float] = None
     stdDeviation: Optional[float] = None
 
-class GetTopicRuleDestinationRequestRequestTypeDef(BaseModel):
+class GetTopicRuleDestinationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetTopicRuleRequestRequestTypeDef(BaseModel):
+class GetTopicRuleRequestRequestTypeDef(BaseValidatorModel):
     ruleName: str
 
-class GroupNameAndArnTypeDef(BaseModel):
+class GroupNameAndArnTypeDef(BaseValidatorModel):
     groupName: Optional[str] = None
     groupArn: Optional[str] = None
 
-class HttpActionHeaderTypeDef(BaseModel):
+class HttpActionHeaderTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class SigV4AuthorizationTypeDef(BaseModel):
+class SigV4AuthorizationTypeDef(BaseValidatorModel):
     signingRegion: str
     serviceName: str
     roleArn: str
 
-class HttpContextTypeDef(BaseModel):
+class HttpContextTypeDef(BaseValidatorModel):
     headers: Optional[Mapping[str, str]] = None
     queryString: Optional[str] = None
 
-class HttpUrlDestinationConfigurationTypeDef(BaseModel):
+class HttpUrlDestinationConfigurationTypeDef(BaseValidatorModel):
     confirmationUrl: str
 
-class HttpUrlDestinationPropertiesTypeDef(BaseModel):
+class HttpUrlDestinationPropertiesTypeDef(BaseValidatorModel):
     confirmationUrl: Optional[str] = None
 
-class HttpUrlDestinationSummaryTypeDef(BaseModel):
+class HttpUrlDestinationSummaryTypeDef(BaseValidatorModel):
     confirmationUrl: Optional[str] = None
 
-class IssuerCertificateIdentifierTypeDef(BaseModel):
+class IssuerCertificateIdentifierTypeDef(BaseValidatorModel):
     issuerCertificateSubject: Optional[str] = None
     issuerId: Optional[str] = None
     issuerCertificateSerialNumber: Optional[str] = None
 
-class JobExecutionStatusDetailsTypeDef(BaseModel):
+class JobExecutionStatusDetailsTypeDef(BaseValidatorModel):
     detailsMap: Optional[Dict[str, str]] = None
 
-class JobExecutionSummaryTypeDef(BaseModel):
+class JobExecutionSummaryTypeDef(BaseValidatorModel):
     status: Optional[JobExecutionStatusType] = None
     queuedAt: Optional[datetime] = None
     startedAt: Optional[datetime] = None
@@ -939,11 +939,11 @@ class JobExecutionSummaryTypeDef(BaseModel):
     executionNumber: Optional[int] = None
     retryAttempt: Optional[int] = None
 
-class RetryCriteriaTypeDef(BaseModel):
+class RetryCriteriaTypeDef(BaseValidatorModel):
     failureType: RetryableFailureTypeType
     numberOfRetries: int
 
-class JobProcessDetailsTypeDef(BaseModel):
+class JobProcessDetailsTypeDef(BaseValidatorModel):
     processingTargets: Optional[List[str]] = None
     numberOfCanceledThings: Optional[int] = None
     numberOfSucceededThings: Optional[int] = None
@@ -954,7 +954,7 @@ class JobProcessDetailsTypeDef(BaseModel):
     numberOfRemovedThings: Optional[int] = None
     numberOfTimedOutThings: Optional[int] = None
 
-class JobSummaryTypeDef(BaseModel):
+class JobSummaryTypeDef(BaseValidatorModel):
     jobArn: Optional[str] = None
     jobId: Optional[str] = None
     thingGroupId: Optional[str] = None
@@ -965,20 +965,20 @@ class JobSummaryTypeDef(BaseModel):
     completedAt: Optional[datetime] = None
     isConcurrent: Optional[bool] = None
 
-class JobTemplateSummaryTypeDef(BaseModel):
+class JobTemplateSummaryTypeDef(BaseValidatorModel):
     jobTemplateArn: Optional[str] = None
     jobTemplateId: Optional[str] = None
     description: Optional[str] = None
     createdAt: Optional[datetime] = None
 
-class ScheduledJobRolloutTypeDef(BaseModel):
+class ScheduledJobRolloutTypeDef(BaseValidatorModel):
     startTime: Optional[str] = None
 
-class KafkaActionHeaderTypeDef(BaseModel):
+class KafkaActionHeaderTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class ListActiveViolationsRequestRequestTypeDef(BaseModel):
+class ListActiveViolationsRequestRequestTypeDef(BaseValidatorModel):
     thingName: Optional[str] = None
     securityProfileName: Optional[str] = None
     behaviorCriteriaType: Optional[BehaviorCriteriaTypeType] = None
@@ -987,79 +987,79 @@ class ListActiveViolationsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListAttachedPoliciesRequestRequestTypeDef(BaseModel):
+class ListAttachedPoliciesRequestRequestTypeDef(BaseValidatorModel):
     target: str
     recursive: Optional[bool] = None
     marker: Optional[str] = None
     pageSize: Optional[int] = None
 
-class ListAuditMitigationActionsExecutionsRequestRequestTypeDef(BaseModel):
+class ListAuditMitigationActionsExecutionsRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
     findingId: str
     actionStatus: Optional[AuditMitigationActionsExecutionStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAuthorizersRequestRequestTypeDef(BaseModel):
+class ListAuthorizersRequestRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
     ascendingOrder: Optional[bool] = None
     status: Optional[AuthorizerStatusType] = None
 
-class ListBillingGroupsRequestRequestTypeDef(BaseModel):
+class ListBillingGroupsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     namePrefixFilter: Optional[str] = None
 
-class ListCACertificatesRequestRequestTypeDef(BaseModel):
+class ListCACertificatesRequestRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
     ascendingOrder: Optional[bool] = None
     templateName: Optional[str] = None
 
-class ListCertificateProvidersRequestRequestTypeDef(BaseModel):
+class ListCertificateProvidersRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     ascendingOrder: Optional[bool] = None
 
-class ListCertificatesByCARequestRequestTypeDef(BaseModel):
+class ListCertificatesByCARequestRequestTypeDef(BaseValidatorModel):
     caCertificateId: str
     pageSize: Optional[int] = None
     marker: Optional[str] = None
     ascendingOrder: Optional[bool] = None
 
-class ListCertificatesRequestRequestTypeDef(BaseModel):
+class ListCertificatesRequestRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
     ascendingOrder: Optional[bool] = None
 
-class ListCustomMetricsRequestRequestTypeDef(BaseModel):
+class ListCustomMetricsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDimensionsRequestRequestTypeDef(BaseModel):
+class ListDimensionsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDomainConfigurationsRequestRequestTypeDef(BaseModel):
+class ListDomainConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     marker: Optional[str] = None
     pageSize: Optional[int] = None
     serviceType: Optional[ServiceTypeType] = None
 
-class ListFleetMetricsRequestRequestTypeDef(BaseModel):
+class ListFleetMetricsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListIndicesRequestRequestTypeDef(BaseModel):
+class ListIndicesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListJobExecutionsForJobRequestRequestTypeDef(BaseModel):
+class ListJobExecutionsForJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     status: Optional[JobExecutionStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListJobExecutionsForThingRequestRequestTypeDef(BaseModel):
+class ListJobExecutionsForThingRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
     status: Optional[JobExecutionStatusType] = None
     namespaceId: Optional[str] = None
@@ -1067,11 +1067,11 @@ class ListJobExecutionsForThingRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     jobId: Optional[str] = None
 
-class ListJobTemplatesRequestRequestTypeDef(BaseModel):
+class ListJobTemplatesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListJobsRequestRequestTypeDef(BaseModel):
+class ListJobsRequestRequestTypeDef(BaseValidatorModel):
     status: Optional[JobStatusType] = None
     targetSelection: Optional[TargetSelectionType] = None
     maxResults: Optional[int] = None
@@ -1080,44 +1080,44 @@ class ListJobsRequestRequestTypeDef(BaseModel):
     thingGroupId: Optional[str] = None
     namespaceId: Optional[str] = None
 
-class ListManagedJobTemplatesRequestRequestTypeDef(BaseModel):
+class ListManagedJobTemplatesRequestRequestTypeDef(BaseValidatorModel):
     templateName: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ManagedJobTemplateSummaryTypeDef(BaseModel):
+class ManagedJobTemplateSummaryTypeDef(BaseValidatorModel):
     templateArn: Optional[str] = None
     templateName: Optional[str] = None
     description: Optional[str] = None
     environments: Optional[List[str]] = None
     templateVersion: Optional[str] = None
 
-class ListMitigationActionsRequestRequestTypeDef(BaseModel):
+class ListMitigationActionsRequestRequestTypeDef(BaseValidatorModel):
     actionType: Optional[MitigationActionTypeType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class MitigationActionIdentifierTypeDef(BaseModel):
+class MitigationActionIdentifierTypeDef(BaseValidatorModel):
     actionName: Optional[str] = None
     actionArn: Optional[str] = None
     creationDate: Optional[datetime] = None
 
-class ListOTAUpdatesRequestRequestTypeDef(BaseModel):
+class ListOTAUpdatesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     otaUpdateStatus: Optional[OTAUpdateStatusType] = None
 
-class OTAUpdateSummaryTypeDef(BaseModel):
+class OTAUpdateSummaryTypeDef(BaseValidatorModel):
     otaUpdateId: Optional[str] = None
     otaUpdateArn: Optional[str] = None
     creationDate: Optional[datetime] = None
 
-class ListOutgoingCertificatesRequestRequestTypeDef(BaseModel):
+class ListOutgoingCertificatesRequestRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
     ascendingOrder: Optional[bool] = None
 
-class OutgoingCertificateTypeDef(BaseModel):
+class OutgoingCertificateTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
     certificateId: Optional[str] = None
     transferredTo: Optional[str] = None
@@ -1125,74 +1125,74 @@ class OutgoingCertificateTypeDef(BaseModel):
     transferMessage: Optional[str] = None
     creationDate: Optional[datetime] = None
 
-class ListPackageVersionsRequestRequestTypeDef(BaseModel):
+class ListPackageVersionsRequestRequestTypeDef(BaseValidatorModel):
     packageName: str
     status: Optional[PackageVersionStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class PackageVersionSummaryTypeDef(BaseModel):
+class PackageVersionSummaryTypeDef(BaseValidatorModel):
     packageName: Optional[str] = None
     versionName: Optional[str] = None
     status: Optional[PackageVersionStatusType] = None
     creationDate: Optional[datetime] = None
     lastModifiedDate: Optional[datetime] = None
 
-class ListPackagesRequestRequestTypeDef(BaseModel):
+class ListPackagesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class PackageSummaryTypeDef(BaseModel):
+class PackageSummaryTypeDef(BaseValidatorModel):
     packageName: Optional[str] = None
     defaultVersionName: Optional[str] = None
     creationDate: Optional[datetime] = None
     lastModifiedDate: Optional[datetime] = None
 
-class ListPoliciesRequestRequestTypeDef(BaseModel):
+class ListPoliciesRequestRequestTypeDef(BaseValidatorModel):
     marker: Optional[str] = None
     pageSize: Optional[int] = None
     ascendingOrder: Optional[bool] = None
 
-class ListPolicyPrincipalsRequestRequestTypeDef(BaseModel):
+class ListPolicyPrincipalsRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     marker: Optional[str] = None
     pageSize: Optional[int] = None
     ascendingOrder: Optional[bool] = None
 
-class ListPolicyVersionsRequestRequestTypeDef(BaseModel):
+class ListPolicyVersionsRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
 
-class PolicyVersionTypeDef(BaseModel):
+class PolicyVersionTypeDef(BaseValidatorModel):
     versionId: Optional[str] = None
     isDefaultVersion: Optional[bool] = None
     createDate: Optional[datetime] = None
 
-class ListPrincipalPoliciesRequestRequestTypeDef(BaseModel):
+class ListPrincipalPoliciesRequestRequestTypeDef(BaseValidatorModel):
     principal: str
     marker: Optional[str] = None
     pageSize: Optional[int] = None
     ascendingOrder: Optional[bool] = None
 
-class ListPrincipalThingsRequestRequestTypeDef(BaseModel):
+class ListPrincipalThingsRequestRequestTypeDef(BaseValidatorModel):
     principal: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListProvisioningTemplateVersionsRequestRequestTypeDef(BaseModel):
+class ListProvisioningTemplateVersionsRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ProvisioningTemplateVersionSummaryTypeDef(BaseModel):
+class ProvisioningTemplateVersionSummaryTypeDef(BaseValidatorModel):
     versionId: Optional[int] = None
     creationDate: Optional[datetime] = None
     isDefaultVersion: Optional[bool] = None
 
-class ListProvisioningTemplatesRequestRequestTypeDef(BaseModel):
+class ListProvisioningTemplatesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ProvisioningTemplateSummaryTypeDef(BaseModel):
+class ProvisioningTemplateSummaryTypeDef(BaseValidatorModel):
     templateArn: Optional[str] = None
     templateName: Optional[str] = None
     description: Optional[str] = None
@@ -1201,116 +1201,116 @@ class ProvisioningTemplateSummaryTypeDef(BaseModel):
     enabled: Optional[bool] = None
     type: Optional[TemplateTypeType] = None
 
-class ListRelatedResourcesForAuditFindingRequestRequestTypeDef(BaseModel):
+class ListRelatedResourcesForAuditFindingRequestRequestTypeDef(BaseValidatorModel):
     findingId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListRoleAliasesRequestRequestTypeDef(BaseModel):
+class ListRoleAliasesRequestRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
     ascendingOrder: Optional[bool] = None
 
-class ListScheduledAuditsRequestRequestTypeDef(BaseModel):
+class ListScheduledAuditsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ScheduledAuditMetadataTypeDef(BaseModel):
+class ScheduledAuditMetadataTypeDef(BaseValidatorModel):
     scheduledAuditName: Optional[str] = None
     scheduledAuditArn: Optional[str] = None
     frequency: Optional[AuditFrequencyType] = None
     dayOfMonth: Optional[str] = None
     dayOfWeek: Optional[DayOfWeekType] = None
 
-class ListSecurityProfilesForTargetRequestRequestTypeDef(BaseModel):
+class ListSecurityProfilesForTargetRequestRequestTypeDef(BaseValidatorModel):
     securityProfileTargetArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     recursive: Optional[bool] = None
 
-class ListSecurityProfilesRequestRequestTypeDef(BaseModel):
+class ListSecurityProfilesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     dimensionName: Optional[str] = None
     metricName: Optional[str] = None
 
-class SecurityProfileIdentifierTypeDef(BaseModel):
+class SecurityProfileIdentifierTypeDef(BaseValidatorModel):
     name: str
     arn: str
 
-class ListStreamsRequestRequestTypeDef(BaseModel):
+class ListStreamsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     ascendingOrder: Optional[bool] = None
 
-class StreamSummaryTypeDef(BaseModel):
+class StreamSummaryTypeDef(BaseValidatorModel):
     streamId: Optional[str] = None
     streamArn: Optional[str] = None
     streamVersion: Optional[int] = None
     description: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
 
-class ListTargetsForPolicyRequestRequestTypeDef(BaseModel):
+class ListTargetsForPolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     marker: Optional[str] = None
     pageSize: Optional[int] = None
 
-class ListTargetsForSecurityProfileRequestRequestTypeDef(BaseModel):
+class ListTargetsForSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     securityProfileName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class SecurityProfileTargetTypeDef(BaseModel):
+class SecurityProfileTargetTypeDef(BaseValidatorModel):
     arn: str
 
-class ListThingGroupsForThingRequestRequestTypeDef(BaseModel):
+class ListThingGroupsForThingRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListThingGroupsRequestRequestTypeDef(BaseModel):
+class ListThingGroupsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     parentGroup: Optional[str] = None
     namePrefixFilter: Optional[str] = None
     recursive: Optional[bool] = None
 
-class ListThingPrincipalsRequestRequestTypeDef(BaseModel):
+class ListThingPrincipalsRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListThingRegistrationTaskReportsRequestRequestTypeDef(BaseModel):
+class ListThingRegistrationTaskReportsRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
     reportType: ReportTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListThingRegistrationTasksRequestRequestTypeDef(BaseModel):
+class ListThingRegistrationTasksRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[StatusType] = None
 
-class ListThingTypesRequestRequestTypeDef(BaseModel):
+class ListThingTypesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     thingTypeName: Optional[str] = None
 
-class ListThingsInBillingGroupRequestRequestTypeDef(BaseModel):
+class ListThingsInBillingGroupRequestRequestTypeDef(BaseValidatorModel):
     billingGroupName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListThingsInThingGroupRequestRequestTypeDef(BaseModel):
+class ListThingsInThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: str
     recursive: Optional[bool] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListThingsRequestRequestTypeDef(BaseModel):
+class ListThingsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     attributeName: Optional[str] = None
@@ -1318,193 +1318,193 @@ class ListThingsRequestRequestTypeDef(BaseModel):
     thingTypeName: Optional[str] = None
     usePrefixAttributeValue: Optional[bool] = None
 
-class ThingAttributeTypeDef(BaseModel):
+class ThingAttributeTypeDef(BaseValidatorModel):
     thingName: Optional[str] = None
     thingTypeName: Optional[str] = None
     thingArn: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
     version: Optional[int] = None
 
-class ListTopicRuleDestinationsRequestRequestTypeDef(BaseModel):
+class ListTopicRuleDestinationsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTopicRulesRequestRequestTypeDef(BaseModel):
+class ListTopicRulesRequestRequestTypeDef(BaseValidatorModel):
     topic: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     ruleDisabled: Optional[bool] = None
 
-class TopicRuleListItemTypeDef(BaseModel):
+class TopicRuleListItemTypeDef(BaseValidatorModel):
     ruleArn: Optional[str] = None
     ruleName: Optional[str] = None
     topicPattern: Optional[str] = None
     createdAt: Optional[datetime] = None
     ruleDisabled: Optional[bool] = None
 
-class ListV2LoggingLevelsRequestRequestTypeDef(BaseModel):
+class ListV2LoggingLevelsRequestRequestTypeDef(BaseValidatorModel):
     targetType: Optional[LogTargetTypeType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class LocationTimestampTypeDef(BaseModel):
+class LocationTimestampTypeDef(BaseValidatorModel):
     value: str
     unit: Optional[str] = None
 
-class LogTargetTypeDef(BaseModel):
+class LogTargetTypeDef(BaseValidatorModel):
     targetType: LogTargetTypeType
     targetName: Optional[str] = None
 
-class LoggingOptionsPayloadTypeDef(BaseModel):
+class LoggingOptionsPayloadTypeDef(BaseValidatorModel):
     roleArn: str
     logLevel: Optional[LogLevelType] = None
 
-class PublishFindingToSnsParamsTypeDef(BaseModel):
+class PublishFindingToSnsParamsTypeDef(BaseValidatorModel):
     topicArn: str
 
-class ReplaceDefaultPolicyVersionParamsTypeDef(BaseModel):
+class ReplaceDefaultPolicyVersionParamsTypeDef(BaseValidatorModel):
     templateName: Literal["BLANK_POLICY"]
 
-class UpdateCACertificateParamsTypeDef(BaseModel):
+class UpdateCACertificateParamsTypeDef(BaseValidatorModel):
     action: Literal["DEACTIVATE"]
 
-class UpdateDeviceCertificateParamsTypeDef(BaseModel):
+class UpdateDeviceCertificateParamsTypeDef(BaseValidatorModel):
     action: Literal["DEACTIVATE"]
 
-class UserPropertyTypeDef(BaseModel):
+class UserPropertyTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class PolicyVersionIdentifierTypeDef(BaseModel):
+class PolicyVersionIdentifierTypeDef(BaseValidatorModel):
     policyName: Optional[str] = None
     policyVersionId: Optional[str] = None
 
-class PutVerificationStateOnViolationRequestRequestTypeDef(BaseModel):
+class PutVerificationStateOnViolationRequestRequestTypeDef(BaseValidatorModel):
     violationId: str
     verificationState: VerificationStateType
     verificationStateDescription: Optional[str] = None
 
-class RegisterCertificateRequestRequestTypeDef(BaseModel):
+class RegisterCertificateRequestRequestTypeDef(BaseValidatorModel):
     certificatePem: str
     caCertificatePem: Optional[str] = None
     setAsActive: Optional[bool] = None
     status: Optional[CertificateStatusType] = None
 
-class RegisterCertificateWithoutCARequestRequestTypeDef(BaseModel):
+class RegisterCertificateWithoutCARequestRequestTypeDef(BaseValidatorModel):
     certificatePem: str
     status: Optional[CertificateStatusType] = None
 
-class RegisterThingRequestRequestTypeDef(BaseModel):
+class RegisterThingRequestRequestTypeDef(BaseValidatorModel):
     templateBody: str
     parameters: Optional[Mapping[str, str]] = None
 
-class RejectCertificateTransferRequestRequestTypeDef(BaseModel):
+class RejectCertificateTransferRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
     rejectReason: Optional[str] = None
 
-class RemoveThingFromBillingGroupRequestRequestTypeDef(BaseModel):
+class RemoveThingFromBillingGroupRequestRequestTypeDef(BaseValidatorModel):
     billingGroupName: Optional[str] = None
     billingGroupArn: Optional[str] = None
     thingName: Optional[str] = None
     thingArn: Optional[str] = None
 
-class RemoveThingFromThingGroupRequestRequestTypeDef(BaseModel):
+class RemoveThingFromThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: Optional[str] = None
     thingGroupArn: Optional[str] = None
     thingName: Optional[str] = None
     thingArn: Optional[str] = None
 
-class SearchIndexRequestRequestTypeDef(BaseModel):
+class SearchIndexRequestRequestTypeDef(BaseValidatorModel):
     queryString: str
     indexName: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     queryVersion: Optional[str] = None
 
-class ThingGroupDocumentTypeDef(BaseModel):
+class ThingGroupDocumentTypeDef(BaseValidatorModel):
     thingGroupName: Optional[str] = None
     thingGroupId: Optional[str] = None
     thingGroupDescription: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
     parentGroupNames: Optional[List[str]] = None
 
-class SetDefaultAuthorizerRequestRequestTypeDef(BaseModel):
+class SetDefaultAuthorizerRequestRequestTypeDef(BaseValidatorModel):
     authorizerName: str
 
-class SetDefaultPolicyVersionRequestRequestTypeDef(BaseModel):
+class SetDefaultPolicyVersionRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     policyVersionId: str
 
-class SetV2LoggingOptionsRequestRequestTypeDef(BaseModel):
+class SetV2LoggingOptionsRequestRequestTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
     defaultLogLevel: Optional[LogLevelType] = None
     disableAllLogs: Optional[bool] = None
 
-class SigningProfileParameterTypeDef(BaseModel):
+class SigningProfileParameterTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
     platform: Optional[str] = None
     certificatePathOnDevice: Optional[str] = None
 
-class StartOnDemandAuditTaskRequestRequestTypeDef(BaseModel):
+class StartOnDemandAuditTaskRequestRequestTypeDef(BaseValidatorModel):
     targetCheckNames: Sequence[str]
 
-class StartThingRegistrationTaskRequestRequestTypeDef(BaseModel):
+class StartThingRegistrationTaskRequestRequestTypeDef(BaseValidatorModel):
     templateBody: str
     inputFileBucket: str
     inputFileKey: str
     roleArn: str
 
-class StopThingRegistrationTaskRequestRequestTypeDef(BaseModel):
+class StopThingRegistrationTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
 
-class TlsContextTypeDef(BaseModel):
+class TlsContextTypeDef(BaseValidatorModel):
     serverName: Optional[str] = None
 
-class ThingConnectivityTypeDef(BaseModel):
+class ThingConnectivityTypeDef(BaseValidatorModel):
     connected: Optional[bool] = None
     timestamp: Optional[int] = None
     disconnectReason: Optional[str] = None
 
-class ThingTypePropertiesPaginatorTypeDef(BaseModel):
+class ThingTypePropertiesPaginatorTypeDef(BaseValidatorModel):
     thingTypeDescription: Optional[str] = None
     searchableAttributes: Optional[List[str]] = None
 
-class TimestreamDimensionTypeDef(BaseModel):
+class TimestreamDimensionTypeDef(BaseValidatorModel):
     name: str
     value: str
 
-class TimestreamTimestampTypeDef(BaseModel):
+class TimestreamTimestampTypeDef(BaseValidatorModel):
     value: str
     unit: str
 
-class VpcDestinationConfigurationTypeDef(BaseModel):
+class VpcDestinationConfigurationTypeDef(BaseValidatorModel):
     subnetIds: Sequence[str]
     vpcId: str
     roleArn: str
     securityGroups: Optional[Sequence[str]] = None
 
-class VpcDestinationSummaryTypeDef(BaseModel):
+class VpcDestinationSummaryTypeDef(BaseValidatorModel):
     subnetIds: Optional[List[str]] = None
     securityGroups: Optional[List[str]] = None
     vpcId: Optional[str] = None
     roleArn: Optional[str] = None
 
-class VpcDestinationPropertiesTypeDef(BaseModel):
+class VpcDestinationPropertiesTypeDef(BaseValidatorModel):
     subnetIds: Optional[List[str]] = None
     securityGroups: Optional[List[str]] = None
     vpcId: Optional[str] = None
     roleArn: Optional[str] = None
 
-class TransferCertificateRequestRequestTypeDef(BaseModel):
+class TransferCertificateRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
     targetAwsAccount: str
     transferMessage: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateAuthorizerRequestRequestTypeDef(BaseModel):
+class UpdateAuthorizerRequestRequestTypeDef(BaseValidatorModel):
     authorizerName: str
     authorizerFunctionArn: Optional[str] = None
     tokenKeyName: Optional[str] = None
@@ -1512,31 +1512,31 @@ class UpdateAuthorizerRequestRequestTypeDef(BaseModel):
     status: Optional[AuthorizerStatusType] = None
     enableCachingForHttp: Optional[bool] = None
 
-class UpdateCertificateProviderRequestRequestTypeDef(BaseModel):
+class UpdateCertificateProviderRequestRequestTypeDef(BaseValidatorModel):
     certificateProviderName: str
     lambdaFunctionArn: Optional[str] = None
     accountDefaultForOperations: Optional[Sequence[Literal["CreateCertificateFromCsr"]]] = None
 
-class UpdateCertificateRequestRequestTypeDef(BaseModel):
+class UpdateCertificateRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
     newStatus: CertificateStatusType
 
-class UpdateCustomMetricRequestRequestTypeDef(BaseModel):
+class UpdateCustomMetricRequestRequestTypeDef(BaseValidatorModel):
     metricName: str
     displayName: str
 
-class UpdateDimensionRequestRequestTypeDef(BaseModel):
+class UpdateDimensionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     stringValues: Sequence[str]
 
-class UpdatePackageRequestRequestTypeDef(BaseModel):
+class UpdatePackageRequestRequestTypeDef(BaseValidatorModel):
     packageName: str
     description: Optional[str] = None
     defaultVersionName: Optional[str] = None
     unsetDefaultVersion: Optional[bool] = None
     clientToken: Optional[str] = None
 
-class UpdatePackageVersionRequestRequestTypeDef(BaseModel):
+class UpdatePackageVersionRequestRequestTypeDef(BaseValidatorModel):
     packageName: str
     versionName: str
     description: Optional[str] = None
@@ -1544,43 +1544,43 @@ class UpdatePackageVersionRequestRequestTypeDef(BaseModel):
     action: Optional[PackageVersionActionType] = None
     clientToken: Optional[str] = None
 
-class UpdateRoleAliasRequestRequestTypeDef(BaseModel):
+class UpdateRoleAliasRequestRequestTypeDef(BaseValidatorModel):
     roleAlias: str
     roleArn: Optional[str] = None
     credentialDurationSeconds: Optional[int] = None
 
-class UpdateScheduledAuditRequestRequestTypeDef(BaseModel):
+class UpdateScheduledAuditRequestRequestTypeDef(BaseValidatorModel):
     scheduledAuditName: str
     frequency: Optional[AuditFrequencyType] = None
     dayOfMonth: Optional[str] = None
     dayOfWeek: Optional[DayOfWeekType] = None
     targetCheckNames: Optional[Sequence[str]] = None
 
-class UpdateThingGroupsForThingRequestRequestTypeDef(BaseModel):
+class UpdateThingGroupsForThingRequestRequestTypeDef(BaseValidatorModel):
     thingName: Optional[str] = None
     thingGroupsToAdd: Optional[Sequence[str]] = None
     thingGroupsToRemove: Optional[Sequence[str]] = None
     overrideDynamicGroups: Optional[bool] = None
 
-class UpdateTopicRuleDestinationRequestRequestTypeDef(BaseModel):
+class UpdateTopicRuleDestinationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     status: TopicRuleDestinationStatusType
 
-class ValidationErrorTypeDef(BaseModel):
+class ValidationErrorTypeDef(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
-class AbortConfigTypeDef(BaseModel):
+class AbortConfigTypeDef(BaseValidatorModel):
     criteriaList: Sequence[AbortCriteriaTypeDef]
 
-class MetricDatumPaginatorTypeDef(BaseModel):
+class MetricDatumPaginatorTypeDef(BaseValidatorModel):
     timestamp: Optional[datetime] = None
     value: Optional[MetricValuePaginatorTypeDef] = None
 
-class MetricDatumTypeDef(BaseModel):
+class MetricDatumTypeDef(BaseValidatorModel):
     timestamp: Optional[datetime] = None
     value: Optional[MetricValueTypeDef] = None
 
-class UpdateFleetMetricRequestRequestTypeDef(BaseModel):
+class UpdateFleetMetricRequestRequestTypeDef(BaseValidatorModel):
     metricName: str
     indexName: str
     queryString: Optional[str] = None
@@ -1592,70 +1592,70 @@ class UpdateFleetMetricRequestRequestTypeDef(BaseModel):
     unit: Optional[FleetMetricUnitType] = None
     expectedVersion: Optional[int] = None
 
-class AllowedTypeDef(BaseModel):
+class AllowedTypeDef(BaseValidatorModel):
     policies: Optional[List[PolicyTypeDef]] = None
 
-class ExplicitDenyTypeDef(BaseModel):
+class ExplicitDenyTypeDef(BaseValidatorModel):
     policies: Optional[List[PolicyTypeDef]] = None
 
-class ImplicitDenyTypeDef(BaseModel):
+class ImplicitDenyTypeDef(BaseValidatorModel):
     policies: Optional[List[PolicyTypeDef]] = None
 
-class AssetPropertyValueTypeDef(BaseModel):
+class AssetPropertyValueTypeDef(BaseValidatorModel):
     value: AssetPropertyVariantTypeDef
     timestamp: AssetPropertyTimestampTypeDef
     quality: Optional[str] = None
 
-class AssociateTargetsWithJobResponseTypeDef(BaseModel):
+class AssociateTargetsWithJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
     jobId: str
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelJobResponseTypeDef(BaseModel):
+class CancelJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
     jobId: str
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAuthorizerResponseTypeDef(BaseModel):
+class CreateAuthorizerResponseTypeDef(BaseValidatorModel):
     authorizerName: str
     authorizerArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBillingGroupResponseTypeDef(BaseModel):
+class CreateBillingGroupResponseTypeDef(BaseValidatorModel):
     billingGroupName: str
     billingGroupArn: str
     billingGroupId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCertificateFromCsrResponseTypeDef(BaseModel):
+class CreateCertificateFromCsrResponseTypeDef(BaseValidatorModel):
     certificateArn: str
     certificateId: str
     certificatePem: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCertificateProviderResponseTypeDef(BaseModel):
+class CreateCertificateProviderResponseTypeDef(BaseValidatorModel):
     certificateProviderName: str
     certificateProviderArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCustomMetricResponseTypeDef(BaseModel):
+class CreateCustomMetricResponseTypeDef(BaseValidatorModel):
     metricName: str
     metricArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDimensionResponseTypeDef(BaseModel):
+class CreateDimensionResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDomainConfigurationResponseTypeDef(BaseModel):
+class CreateDomainConfigurationResponseTypeDef(BaseValidatorModel):
     domainConfigurationName: str
     domainConfigurationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDynamicThingGroupResponseTypeDef(BaseModel):
+class CreateDynamicThingGroupResponseTypeDef(BaseValidatorModel):
     thingGroupName: str
     thingGroupArn: str
     thingGroupId: str
@@ -1664,28 +1664,28 @@ class CreateDynamicThingGroupResponseTypeDef(BaseModel):
     queryVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFleetMetricResponseTypeDef(BaseModel):
+class CreateFleetMetricResponseTypeDef(BaseValidatorModel):
     metricName: str
     metricArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJobResponseTypeDef(BaseModel):
+class CreateJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
     jobId: str
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJobTemplateResponseTypeDef(BaseModel):
+class CreateJobTemplateResponseTypeDef(BaseValidatorModel):
     jobTemplateArn: str
     jobTemplateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMitigationActionResponseTypeDef(BaseModel):
+class CreateMitigationActionResponseTypeDef(BaseValidatorModel):
     actionArn: str
     actionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateOTAUpdateResponseTypeDef(BaseModel):
+class CreateOTAUpdateResponseTypeDef(BaseValidatorModel):
     otaUpdateId: str
     awsIotJobId: str
     otaUpdateArn: str
@@ -1693,13 +1693,13 @@ class CreateOTAUpdateResponseTypeDef(BaseModel):
     otaUpdateStatus: OTAUpdateStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePackageResponseTypeDef(BaseModel):
+class CreatePackageResponseTypeDef(BaseValidatorModel):
     packageName: str
     packageArn: str
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePackageVersionResponseTypeDef(BaseModel):
+class CreatePackageVersionResponseTypeDef(BaseValidatorModel):
     packageVersionArn: str
     packageName: str
     versionName: str
@@ -1709,73 +1709,73 @@ class CreatePackageVersionResponseTypeDef(BaseModel):
     errorReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePolicyResponseTypeDef(BaseModel):
+class CreatePolicyResponseTypeDef(BaseValidatorModel):
     policyName: str
     policyArn: str
     policyDocument: str
     policyVersionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePolicyVersionResponseTypeDef(BaseModel):
+class CreatePolicyVersionResponseTypeDef(BaseValidatorModel):
     policyArn: str
     policyDocument: str
     policyVersionId: str
     isDefaultVersion: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProvisioningTemplateResponseTypeDef(BaseModel):
+class CreateProvisioningTemplateResponseTypeDef(BaseValidatorModel):
     templateArn: str
     templateName: str
     defaultVersionId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProvisioningTemplateVersionResponseTypeDef(BaseModel):
+class CreateProvisioningTemplateVersionResponseTypeDef(BaseValidatorModel):
     templateArn: str
     templateName: str
     versionId: int
     isDefaultVersion: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRoleAliasResponseTypeDef(BaseModel):
+class CreateRoleAliasResponseTypeDef(BaseValidatorModel):
     roleAlias: str
     roleAliasArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateScheduledAuditResponseTypeDef(BaseModel):
+class CreateScheduledAuditResponseTypeDef(BaseValidatorModel):
     scheduledAuditArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSecurityProfileResponseTypeDef(BaseModel):
+class CreateSecurityProfileResponseTypeDef(BaseValidatorModel):
     securityProfileName: str
     securityProfileArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStreamResponseTypeDef(BaseModel):
+class CreateStreamResponseTypeDef(BaseValidatorModel):
     streamId: str
     streamArn: str
     description: str
     streamVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateThingGroupResponseTypeDef(BaseModel):
+class CreateThingGroupResponseTypeDef(BaseValidatorModel):
     thingGroupName: str
     thingGroupArn: str
     thingGroupId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateThingResponseTypeDef(BaseModel):
+class CreateThingResponseTypeDef(BaseValidatorModel):
     thingName: str
     thingArn: str
     thingId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateThingTypeResponseTypeDef(BaseModel):
+class CreateThingTypeResponseTypeDef(BaseValidatorModel):
     thingTypeName: str
     thingTypeArn: str
     thingTypeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCertificateProviderResponseTypeDef(BaseModel):
+class DescribeCertificateProviderResponseTypeDef(BaseValidatorModel):
     certificateProviderName: str
     certificateProviderArn: str
     lambdaFunctionArn: str
@@ -1784,7 +1784,7 @@ class DescribeCertificateProviderResponseTypeDef(BaseModel):
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCustomMetricResponseTypeDef(BaseModel):
+class DescribeCustomMetricResponseTypeDef(BaseValidatorModel):
     metricName: str
     metricArn: str
     metricType: CustomMetricTypeType
@@ -1793,7 +1793,7 @@ class DescribeCustomMetricResponseTypeDef(BaseModel):
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDimensionResponseTypeDef(BaseModel):
+class DescribeDimensionResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     type: Literal["TOPIC_FILTER"]
@@ -1802,11 +1802,11 @@ class DescribeDimensionResponseTypeDef(BaseModel):
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEndpointResponseTypeDef(BaseModel):
+class DescribeEndpointResponseTypeDef(BaseValidatorModel):
     endpointAddress: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeFleetMetricResponseTypeDef(BaseModel):
+class DescribeFleetMetricResponseTypeDef(BaseValidatorModel):
     metricName: str
     queryString: str
     aggregationType: AggregationTypeTypeDef
@@ -1822,20 +1822,20 @@ class DescribeFleetMetricResponseTypeDef(BaseModel):
     metricArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIndexResponseTypeDef(BaseModel):
+class DescribeIndexResponseTypeDef(BaseValidatorModel):
     indexName: str
     indexStatus: IndexStatusType
     schema: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeProvisioningTemplateVersionResponseTypeDef(BaseModel):
+class DescribeProvisioningTemplateVersionResponseTypeDef(BaseValidatorModel):
     versionId: int
     creationDate: datetime
     templateBody: str
     isDefaultVersion: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeScheduledAuditResponseTypeDef(BaseModel):
+class DescribeScheduledAuditResponseTypeDef(BaseValidatorModel):
     frequency: AuditFrequencyType
     dayOfMonth: str
     dayOfWeek: DayOfWeekType
@@ -1844,7 +1844,7 @@ class DescribeScheduledAuditResponseTypeDef(BaseModel):
     scheduledAuditArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeThingRegistrationTaskResponseTypeDef(BaseModel):
+class DescribeThingRegistrationTaskResponseTypeDef(BaseValidatorModel):
     taskId: str
     creationDate: datetime
     lastModifiedDate: datetime
@@ -1859,7 +1859,7 @@ class DescribeThingRegistrationTaskResponseTypeDef(BaseModel):
     percentageProgress: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeThingResponseTypeDef(BaseModel):
+class DescribeThingResponseTypeDef(BaseValidatorModel):
     defaultClientId: str
     thingName: str
     thingId: str
@@ -1870,23 +1870,23 @@ class DescribeThingResponseTypeDef(BaseModel):
     billingGroupName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCardinalityResponseTypeDef(BaseModel):
+class GetCardinalityResponseTypeDef(BaseValidatorModel):
     cardinality: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobDocumentResponseTypeDef(BaseModel):
+class GetJobDocumentResponseTypeDef(BaseValidatorModel):
     document: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLoggingOptionsResponseTypeDef(BaseModel):
+class GetLoggingOptionsResponseTypeDef(BaseValidatorModel):
     roleArn: str
     logLevel: LogLevelType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPackageResponseTypeDef(BaseModel):
+class GetPackageResponseTypeDef(BaseValidatorModel):
     packageName: str
     packageArn: str
     description: str
@@ -1895,7 +1895,7 @@ class GetPackageResponseTypeDef(BaseModel):
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPackageVersionResponseTypeDef(BaseModel):
+class GetPackageVersionResponseTypeDef(BaseValidatorModel):
     packageVersionArn: str
     packageName: str
     versionName: str
@@ -1907,7 +1907,7 @@ class GetPackageVersionResponseTypeDef(BaseModel):
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPolicyResponseTypeDef(BaseModel):
+class GetPolicyResponseTypeDef(BaseValidatorModel):
     policyName: str
     policyArn: str
     policyDocument: str
@@ -1917,7 +1917,7 @@ class GetPolicyResponseTypeDef(BaseModel):
     generationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPolicyVersionResponseTypeDef(BaseModel):
+class GetPolicyVersionResponseTypeDef(BaseValidatorModel):
     policyArn: str
     policyName: str
     policyDocument: str
@@ -1928,134 +1928,134 @@ class GetPolicyVersionResponseTypeDef(BaseModel):
     generationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRegistrationCodeResponseTypeDef(BaseModel):
+class GetRegistrationCodeResponseTypeDef(BaseValidatorModel):
     registrationCode: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetV2LoggingOptionsResponseTypeDef(BaseModel):
+class GetV2LoggingOptionsResponseTypeDef(BaseValidatorModel):
     roleArn: str
     defaultLogLevel: LogLevelType
     disableAllLogs: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAttachedPoliciesResponseTypeDef(BaseModel):
+class ListAttachedPoliciesResponseTypeDef(BaseValidatorModel):
     policies: List[PolicyTypeDef]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCustomMetricsResponseTypeDef(BaseModel):
+class ListCustomMetricsResponseTypeDef(BaseValidatorModel):
     metricNames: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDimensionsResponseTypeDef(BaseModel):
+class ListDimensionsResponseTypeDef(BaseValidatorModel):
     dimensionNames: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIndicesResponseTypeDef(BaseModel):
+class ListIndicesResponseTypeDef(BaseValidatorModel):
     indexNames: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPoliciesResponseTypeDef(BaseModel):
+class ListPoliciesResponseTypeDef(BaseValidatorModel):
     policies: List[PolicyTypeDef]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPolicyPrincipalsResponseTypeDef(BaseModel):
+class ListPolicyPrincipalsResponseTypeDef(BaseValidatorModel):
     principals: List[str]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPrincipalPoliciesResponseTypeDef(BaseModel):
+class ListPrincipalPoliciesResponseTypeDef(BaseValidatorModel):
     policies: List[PolicyTypeDef]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPrincipalThingsResponseTypeDef(BaseModel):
+class ListPrincipalThingsResponseTypeDef(BaseValidatorModel):
     things: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRoleAliasesResponseTypeDef(BaseModel):
+class ListRoleAliasesResponseTypeDef(BaseValidatorModel):
     roleAliases: List[str]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTargetsForPolicyResponseTypeDef(BaseModel):
+class ListTargetsForPolicyResponseTypeDef(BaseValidatorModel):
     targets: List[str]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListThingPrincipalsResponseTypeDef(BaseModel):
+class ListThingPrincipalsResponseTypeDef(BaseValidatorModel):
     principals: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListThingRegistrationTaskReportsResponseTypeDef(BaseModel):
+class ListThingRegistrationTaskReportsResponseTypeDef(BaseValidatorModel):
     resourceLinks: List[str]
     reportType: ReportTypeType
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListThingRegistrationTasksResponseTypeDef(BaseModel):
+class ListThingRegistrationTasksResponseTypeDef(BaseValidatorModel):
     taskIds: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListThingsInBillingGroupResponseTypeDef(BaseModel):
+class ListThingsInBillingGroupResponseTypeDef(BaseValidatorModel):
     things: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListThingsInThingGroupResponseTypeDef(BaseModel):
+class ListThingsInThingGroupResponseTypeDef(BaseValidatorModel):
     things: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterCACertificateResponseTypeDef(BaseModel):
+class RegisterCACertificateResponseTypeDef(BaseValidatorModel):
     certificateArn: str
     certificateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterCertificateResponseTypeDef(BaseModel):
+class RegisterCertificateResponseTypeDef(BaseValidatorModel):
     certificateArn: str
     certificateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterCertificateWithoutCAResponseTypeDef(BaseModel):
+class RegisterCertificateWithoutCAResponseTypeDef(BaseValidatorModel):
     certificateArn: str
     certificateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterThingResponseTypeDef(BaseModel):
+class RegisterThingResponseTypeDef(BaseValidatorModel):
     certificatePem: str
     resourceArns: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetDefaultAuthorizerResponseTypeDef(BaseModel):
+class SetDefaultAuthorizerResponseTypeDef(BaseValidatorModel):
     authorizerName: str
     authorizerArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartAuditMitigationActionsTaskResponseTypeDef(BaseModel):
+class StartAuditMitigationActionsTaskResponseTypeDef(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartDetectMitigationActionsTaskResponseTypeDef(BaseModel):
+class StartDetectMitigationActionsTaskResponseTypeDef(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartOnDemandAuditTaskResponseTypeDef(BaseModel):
+class StartOnDemandAuditTaskResponseTypeDef(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartThingRegistrationTaskResponseTypeDef(BaseModel):
+class StartThingRegistrationTaskResponseTypeDef(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestInvokeAuthorizerResponseTypeDef(BaseModel):
+class TestInvokeAuthorizerResponseTypeDef(BaseValidatorModel):
     isAuthenticated: bool
     principalId: str
     policyDocuments: List[str]
@@ -2063,25 +2063,25 @@ class TestInvokeAuthorizerResponseTypeDef(BaseModel):
     disconnectAfterInSeconds: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TransferCertificateResponseTypeDef(BaseModel):
+class TransferCertificateResponseTypeDef(BaseValidatorModel):
     transferredCertificateArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAuthorizerResponseTypeDef(BaseModel):
+class UpdateAuthorizerResponseTypeDef(BaseValidatorModel):
     authorizerName: str
     authorizerArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBillingGroupResponseTypeDef(BaseModel):
+class UpdateBillingGroupResponseTypeDef(BaseValidatorModel):
     version: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateCertificateProviderResponseTypeDef(BaseModel):
+class UpdateCertificateProviderResponseTypeDef(BaseValidatorModel):
     certificateProviderName: str
     certificateProviderArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateCustomMetricResponseTypeDef(BaseModel):
+class UpdateCustomMetricResponseTypeDef(BaseValidatorModel):
     metricName: str
     metricArn: str
     metricType: CustomMetricTypeType
@@ -2090,7 +2090,7 @@ class UpdateCustomMetricResponseTypeDef(BaseModel):
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDimensionResponseTypeDef(BaseModel):
+class UpdateDimensionResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     type: Literal["TOPIC_FILTER"]
@@ -2099,90 +2099,90 @@ class UpdateDimensionResponseTypeDef(BaseModel):
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDomainConfigurationResponseTypeDef(BaseModel):
+class UpdateDomainConfigurationResponseTypeDef(BaseValidatorModel):
     domainConfigurationName: str
     domainConfigurationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDynamicThingGroupResponseTypeDef(BaseModel):
+class UpdateDynamicThingGroupResponseTypeDef(BaseValidatorModel):
     version: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMitigationActionResponseTypeDef(BaseModel):
+class UpdateMitigationActionResponseTypeDef(BaseValidatorModel):
     actionArn: str
     actionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRoleAliasResponseTypeDef(BaseModel):
+class UpdateRoleAliasResponseTypeDef(BaseValidatorModel):
     roleAlias: str
     roleAliasArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateScheduledAuditResponseTypeDef(BaseModel):
+class UpdateScheduledAuditResponseTypeDef(BaseValidatorModel):
     scheduledAuditArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateStreamResponseTypeDef(BaseModel):
+class UpdateStreamResponseTypeDef(BaseValidatorModel):
     streamId: str
     streamArn: str
     description: str
     streamVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateThingGroupResponseTypeDef(BaseModel):
+class UpdateThingGroupResponseTypeDef(BaseValidatorModel):
     version: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateThingRequestRequestTypeDef(BaseModel):
+class CreateThingRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
     thingTypeName: Optional[str] = None
     attributePayload: Optional[AttributePayloadTypeDef] = None
     billingGroupName: Optional[str] = None
 
-class ThingGroupPropertiesTypeDef(BaseModel):
+class ThingGroupPropertiesTypeDef(BaseValidatorModel):
     thingGroupDescription: Optional[str] = None
     attributePayload: Optional[AttributePayloadTypeDef] = None
 
-class UpdateThingRequestRequestTypeDef(BaseModel):
+class UpdateThingRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
     thingTypeName: Optional[str] = None
     attributePayload: Optional[AttributePayloadTypeDef] = None
     expectedVersion: Optional[int] = None
     removeThingType: Optional[bool] = None
 
-class ListAuditMitigationActionsExecutionsResponseTypeDef(BaseModel):
+class ListAuditMitigationActionsExecutionsResponseTypeDef(BaseValidatorModel):
     actionsExecutions: List[AuditMitigationActionExecutionMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAuditMitigationActionsTasksResponseTypeDef(BaseModel):
+class ListAuditMitigationActionsTasksResponseTypeDef(BaseValidatorModel):
     tasks: List[AuditMitigationActionsTaskMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartAuditMitigationActionsTaskRequestRequestTypeDef(BaseModel):
+class StartAuditMitigationActionsTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
     target: AuditMitigationActionsTaskTargetTypeDef
     auditCheckToActionsMapping: Mapping[str, Sequence[str]]
     clientRequestToken: str
 
-class DescribeAccountAuditConfigurationResponseTypeDef(BaseModel):
+class DescribeAccountAuditConfigurationResponseTypeDef(BaseValidatorModel):
     roleArn: str
     auditNotificationTargetConfigurations: Dict[       Literal["SNS"], AuditNotificationTargetTypeDef
     auditCheckConfigurations: Dict[str, AuditCheckConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAccountAuditConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateAccountAuditConfigurationRequestRequestTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
     auditNotificationTargetConfigurations: Optional[       Mapping[Literal["SNS"], AuditNotificationTargetTypeDef] = None
     auditCheckConfigurations: Optional[Mapping[str, AuditCheckConfigurationTypeDef]] = None
 
-class ListAuditTasksResponseTypeDef(BaseModel):
+class ListAuditTasksResponseTypeDef(BaseValidatorModel):
     tasks: List[AuditTaskMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestAuthorizationRequestRequestTypeDef(BaseModel):
+class TestAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     authInfos: Sequence[AuthInfoTypeDef]
     principal: Optional[str] = None
     cognitoIdentityPoolId: Optional[str] = None
@@ -2190,28 +2190,28 @@ class TestAuthorizationRequestRequestTypeDef(BaseModel):
     policyNamesToAdd: Optional[Sequence[str]] = None
     policyNamesToSkip: Optional[Sequence[str]] = None
 
-class DescribeAuthorizerResponseTypeDef(BaseModel):
+class DescribeAuthorizerResponseTypeDef(BaseValidatorModel):
     authorizerDescription: AuthorizerDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDefaultAuthorizerResponseTypeDef(BaseModel):
+class DescribeDefaultAuthorizerResponseTypeDef(BaseValidatorModel):
     authorizerDescription: AuthorizerDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAuthorizersResponseTypeDef(BaseModel):
+class ListAuthorizersResponseTypeDef(BaseValidatorModel):
     authorizers: List[AuthorizerSummaryTypeDef]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AwsJobAbortConfigTypeDef(BaseModel):
+class AwsJobAbortConfigTypeDef(BaseValidatorModel):
     abortCriteriaList: Sequence[AwsJobAbortCriteriaTypeDef]
 
-class AwsJobExponentialRolloutRateTypeDef(BaseModel):
+class AwsJobExponentialRolloutRateTypeDef(BaseValidatorModel):
     baseRatePerMinute: int
     incrementFactor: float
     rateIncreaseCriteria: AwsJobRateIncreaseCriteriaTypeDef
 
-class BehaviorCriteriaPaginatorTypeDef(BaseModel):
+class BehaviorCriteriaPaginatorTypeDef(BaseValidatorModel):
     comparisonOperator: Optional[ComparisonOperatorType] = None
     value: Optional[MetricValuePaginatorTypeDef] = None
     durationSeconds: Optional[int] = None
@@ -2220,7 +2220,7 @@ class BehaviorCriteriaPaginatorTypeDef(BaseModel):
     statisticalThreshold: Optional[StatisticalThresholdTypeDef] = None
     mlDetectionConfig: Optional[MachineLearningDetectionConfigTypeDef] = None
 
-class BehaviorCriteriaTypeDef(BaseModel):
+class BehaviorCriteriaTypeDef(BaseValidatorModel):
     comparisonOperator: Optional[ComparisonOperatorType] = None
     value: Optional[MetricValueTypeDef] = None
     durationSeconds: Optional[int] = None
@@ -2229,17 +2229,17 @@ class BehaviorCriteriaTypeDef(BaseModel):
     statisticalThreshold: Optional[StatisticalThresholdTypeDef] = None
     mlDetectionConfig: Optional[MachineLearningDetectionConfigTypeDef] = None
 
-class GetBehaviorModelTrainingSummariesResponseTypeDef(BaseModel):
+class GetBehaviorModelTrainingSummariesResponseTypeDef(BaseValidatorModel):
     summaries: List[BehaviorModelTrainingSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricToRetainTypeDef(BaseModel):
+class MetricToRetainTypeDef(BaseValidatorModel):
     metric: str
     metricDimension: Optional[MetricDimensionTypeDef] = None
     exportMetric: Optional[bool] = None
 
-class DescribeBillingGroupResponseTypeDef(BaseModel):
+class DescribeBillingGroupResponseTypeDef(BaseValidatorModel):
     billingGroupName: str
     billingGroupId: str
     billingGroupArn: str
@@ -2248,28 +2248,28 @@ class DescribeBillingGroupResponseTypeDef(BaseModel):
     billingGroupMetadata: BillingGroupMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBillingGroupRequestRequestTypeDef(BaseModel):
+class UpdateBillingGroupRequestRequestTypeDef(BaseValidatorModel):
     billingGroupName: str
     billingGroupProperties: BillingGroupPropertiesTypeDef
     expectedVersion: Optional[int] = None
 
-class CodeSigningSignatureTypeDef(BaseModel):
+class CodeSigningSignatureTypeDef(BaseValidatorModel):
     inlineDocument: Optional[BlobTypeDef] = None
 
-class MqttContextTypeDef(BaseModel):
+class MqttContextTypeDef(BaseValidatorModel):
     username: Optional[str] = None
     password: Optional[BlobTypeDef] = None
     clientId: Optional[str] = None
 
-class GetBucketsAggregationResponseTypeDef(BaseModel):
+class GetBucketsAggregationResponseTypeDef(BaseValidatorModel):
     totalCount: int
     buckets: List[BucketTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BucketsAggregationTypeTypeDef(BaseModel):
+class BucketsAggregationTypeTypeDef(BaseValidatorModel):
     termsAggregation: Optional[TermsAggregationTypeDef] = None
 
-class CACertificateDescriptionTypeDef(BaseModel):
+class CACertificateDescriptionTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
     certificateId: Optional[str] = None
     status: Optional[CACertificateStatusType] = None
@@ -2283,12 +2283,12 @@ class CACertificateDescriptionTypeDef(BaseModel):
     validity: Optional[CertificateValidityTypeDef] = None
     certificateMode: Optional[CertificateModeType] = None
 
-class ListCACertificatesResponseTypeDef(BaseModel):
+class ListCACertificatesResponseTypeDef(BaseValidatorModel):
     certificates: List[CACertificateTypeDef]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CertificateDescriptionTypeDef(BaseModel):
+class CertificateDescriptionTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
     certificateId: Optional[str] = None
     caCertificateId: Optional[str] = None
@@ -2304,31 +2304,31 @@ class CertificateDescriptionTypeDef(BaseModel):
     validity: Optional[CertificateValidityTypeDef] = None
     certificateMode: Optional[CertificateModeType] = None
 
-class ListCertificateProvidersResponseTypeDef(BaseModel):
+class ListCertificateProvidersResponseTypeDef(BaseValidatorModel):
     certificateProviders: List[CertificateProviderSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCertificatesByCAResponseTypeDef(BaseModel):
+class ListCertificatesByCAResponseTypeDef(BaseValidatorModel):
     certificates: List[CertificateTypeDef]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCertificatesResponseTypeDef(BaseModel):
+class ListCertificatesResponseTypeDef(BaseValidatorModel):
     certificates: List[CertificateTypeDef]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEventConfigurationsResponseTypeDef(BaseModel):
+class DescribeEventConfigurationsResponseTypeDef(BaseValidatorModel):
     eventConfigurations: Dict[EventTypeType, ConfigurationTypeDef]
     creationDate: datetime
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEventConfigurationsRequestRequestTypeDef(BaseModel):
+class UpdateEventConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     eventConfigurations: Optional[Mapping[EventTypeType, ConfigurationTypeDef]] = None
 
-class ListAuditMitigationActionsTasksRequestRequestTypeDef(BaseModel):
+class ListAuditMitigationActionsTasksRequestRequestTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     auditTaskId: Optional[str] = None
@@ -2337,7 +2337,7 @@ class ListAuditMitigationActionsTasksRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAuditTasksRequestRequestTypeDef(BaseModel):
+class ListAuditTasksRequestRequestTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     taskType: Optional[AuditTaskTypeType] = None
@@ -2345,7 +2345,7 @@ class ListAuditTasksRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDetectMitigationActionsExecutionsRequestRequestTypeDef(BaseModel):
+class ListDetectMitigationActionsExecutionsRequestRequestTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     violationId: Optional[str] = None
     thingName: Optional[str] = None
@@ -2354,13 +2354,13 @@ class ListDetectMitigationActionsExecutionsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListDetectMitigationActionsTasksRequestRequestTypeDef(BaseModel):
+class ListDetectMitigationActionsTasksRequestRequestTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListMetricValuesRequestRequestTypeDef(BaseModel):
+class ListMetricValuesRequestRequestTypeDef(BaseValidatorModel):
     thingName: str
     metricName: str
     startTime: TimestampTypeDef
@@ -2370,7 +2370,7 @@ class ListMetricValuesRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListViolationEventsRequestRequestTypeDef(BaseModel):
+class ListViolationEventsRequestRequestTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     thingName: Optional[str] = None
@@ -2381,7 +2381,7 @@ class ListViolationEventsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class CreateAuthorizerRequestRequestTypeDef(BaseModel):
+class CreateAuthorizerRequestRequestTypeDef(BaseValidatorModel):
     authorizerName: str
     authorizerFunctionArn: str
     tokenKeyName: Optional[str] = None
@@ -2391,33 +2391,33 @@ class CreateAuthorizerRequestRequestTypeDef(BaseModel):
     signingDisabled: Optional[bool] = None
     enableCachingForHttp: Optional[bool] = None
 
-class CreateBillingGroupRequestRequestTypeDef(BaseModel):
+class CreateBillingGroupRequestRequestTypeDef(BaseValidatorModel):
     billingGroupName: str
     billingGroupProperties: Optional[BillingGroupPropertiesTypeDef] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateCertificateProviderRequestRequestTypeDef(BaseModel):
+class CreateCertificateProviderRequestRequestTypeDef(BaseValidatorModel):
     certificateProviderName: str
     lambdaFunctionArn: str
     accountDefaultForOperations: Sequence[Literal["CreateCertificateFromCsr"]]
     clientToken: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateCustomMetricRequestRequestTypeDef(BaseModel):
+class CreateCustomMetricRequestRequestTypeDef(BaseValidatorModel):
     metricName: str
     metricType: CustomMetricTypeType
     clientRequestToken: str
     displayName: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateDimensionRequestRequestTypeDef(BaseModel):
+class CreateDimensionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     type: Literal["TOPIC_FILTER"]
     stringValues: Sequence[str]
     clientRequestToken: str
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateFleetMetricRequestRequestTypeDef(BaseModel):
+class CreateFleetMetricRequestRequestTypeDef(BaseValidatorModel):
     metricName: str
     queryString: str
     aggregationType: AggregationTypeTypeDef
@@ -2429,18 +2429,18 @@ class CreateFleetMetricRequestRequestTypeDef(BaseModel):
     unit: Optional[FleetMetricUnitType] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreatePolicyRequestRequestTypeDef(BaseModel):
+class CreatePolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     policyDocument: str
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRoleAliasRequestRequestTypeDef(BaseModel):
+class CreateRoleAliasRequestRequestTypeDef(BaseValidatorModel):
     roleAlias: str
     roleArn: str
     credentialDurationSeconds: Optional[int] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateScheduledAuditRequestRequestTypeDef(BaseModel):
+class CreateScheduledAuditRequestRequestTypeDef(BaseValidatorModel):
     frequency: AuditFrequencyType
     targetCheckNames: Sequence[str]
     scheduledAuditName: str
@@ -2448,16 +2448,16 @@ class CreateScheduledAuditRequestRequestTypeDef(BaseModel):
     dayOfWeek: Optional[DayOfWeekType] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class CreateDomainConfigurationRequestRequestTypeDef(BaseModel):
+class CreateDomainConfigurationRequestRequestTypeDef(BaseValidatorModel):
     domainConfigurationName: str
     domainName: Optional[str] = None
     serverCertificateArns: Optional[Sequence[str]] = None
@@ -2468,7 +2468,7 @@ class CreateDomainConfigurationRequestRequestTypeDef(BaseModel):
     tlsConfig: Optional[TlsConfigTypeDef] = None
     serverCertificateConfig: Optional[ServerCertificateConfigTypeDef] = None
 
-class UpdateDomainConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateDomainConfigurationRequestRequestTypeDef(BaseValidatorModel):
     domainConfigurationName: str
     authorizerConfig: Optional[AuthorizerConfigTypeDef] = None
     domainConfigurationStatus: Optional[DomainConfigurationStatusType] = None
@@ -2476,27 +2476,27 @@ class UpdateDomainConfigurationRequestRequestTypeDef(BaseModel):
     tlsConfig: Optional[TlsConfigTypeDef] = None
     serverCertificateConfig: Optional[ServerCertificateConfigTypeDef] = None
 
-class SchedulingConfigTypeDef(BaseModel):
+class SchedulingConfigTypeDef(BaseValidatorModel):
     startTime: Optional[str] = None
     endTime: Optional[str] = None
     endBehavior: Optional[JobEndBehaviorType] = None
     maintenanceWindows: Optional[Sequence[MaintenanceWindowTypeDef]] = None
 
-class CreateKeysAndCertificateResponseTypeDef(BaseModel):
+class CreateKeysAndCertificateResponseTypeDef(BaseValidatorModel):
     certificateArn: str
     certificateId: str
     certificatePem: str
     keyPair: KeyPairTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProvisioningClaimResponseTypeDef(BaseModel):
+class CreateProvisioningClaimResponseTypeDef(BaseValidatorModel):
     certificateId: str
     certificatePem: str
     keyPair: KeyPairTypeDef
     expiration: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProvisioningTemplateRequestRequestTypeDef(BaseModel):
+class CreateProvisioningTemplateRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
     templateBody: str
     provisioningRoleArn: str
@@ -2506,7 +2506,7 @@ class CreateProvisioningTemplateRequestRequestTypeDef(BaseModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     type: Optional[TemplateTypeType] = None
 
-class DescribeProvisioningTemplateResponseTypeDef(BaseModel):
+class DescribeProvisioningTemplateResponseTypeDef(BaseValidatorModel):
     templateArn: str
     templateName: str
     description: str
@@ -2520,7 +2520,7 @@ class DescribeProvisioningTemplateResponseTypeDef(BaseModel):
     type: TemplateTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProvisioningTemplateRequestRequestTypeDef(BaseModel):
+class UpdateProvisioningTemplateRequestRequestTypeDef(BaseValidatorModel):
     templateName: str
     description: Optional[str] = None
     enabled: Optional[bool] = None
@@ -2529,12 +2529,12 @@ class UpdateProvisioningTemplateRequestRequestTypeDef(BaseModel):
     preProvisioningHook: Optional[ProvisioningHookTypeDef] = None
     removePreProvisioningHook: Optional[bool] = None
 
-class CreateThingTypeRequestRequestTypeDef(BaseModel):
+class CreateThingTypeRequestRequestTypeDef(BaseValidatorModel):
     thingTypeName: str
     thingTypeProperties: Optional[ThingTypePropertiesTypeDef] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribeAuditTaskResponseTypeDef(BaseModel):
+class DescribeAuditTaskResponseTypeDef(BaseValidatorModel):
     taskStatus: AuditTaskStatusType
     taskType: AuditTaskTypeType
     taskStartTime: datetime
@@ -2543,7 +2543,7 @@ class DescribeAuditTaskResponseTypeDef(BaseModel):
     auditDetails: Dict[str, AuditCheckDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterCACertificateRequestRequestTypeDef(BaseModel):
+class RegisterCACertificateRequestRequestTypeDef(BaseValidatorModel):
     caCertificate: str
     verificationCertificate: Optional[str] = None
     setAsActive: Optional[bool] = None
@@ -2552,14 +2552,14 @@ class RegisterCACertificateRequestRequestTypeDef(BaseModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     certificateMode: Optional[CertificateModeType] = None
 
-class UpdateCACertificateRequestRequestTypeDef(BaseModel):
+class UpdateCACertificateRequestRequestTypeDef(BaseValidatorModel):
     certificateId: str
     newStatus: Optional[CACertificateStatusType] = None
     newAutoRegistrationStatus: Optional[AutoRegistrationStatusType] = None
     registrationConfig: Optional[RegistrationConfigTypeDef] = None
     removeAutoRegistration: Optional[bool] = None
 
-class DescribeDomainConfigurationResponseTypeDef(BaseModel):
+class DescribeDomainConfigurationResponseTypeDef(BaseValidatorModel):
     domainConfigurationName: str
     domainConfigurationArn: str
     domainName: str
@@ -2573,7 +2573,7 @@ class DescribeDomainConfigurationResponseTypeDef(BaseModel):
     serverCertificateConfig: ServerCertificateConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeManagedJobTemplateResponseTypeDef(BaseModel):
+class DescribeManagedJobTemplateResponseTypeDef(BaseValidatorModel):
     templateName: str
     templateArn: str
     description: str
@@ -2583,11 +2583,11 @@ class DescribeManagedJobTemplateResponseTypeDef(BaseModel):
     document: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRoleAliasResponseTypeDef(BaseModel):
+class DescribeRoleAliasResponseTypeDef(BaseValidatorModel):
     roleAliasDescription: RoleAliasDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeThingTypeResponseTypeDef(BaseModel):
+class DescribeThingTypeResponseTypeDef(BaseValidatorModel):
     thingTypeName: str
     thingTypeId: str
     thingTypeArn: str
@@ -2595,21 +2595,21 @@ class DescribeThingTypeResponseTypeDef(BaseModel):
     thingTypeMetadata: ThingTypeMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ThingTypeDefinitionTypeDef(BaseModel):
+class ThingTypeDefinitionTypeDef(BaseValidatorModel):
     thingTypeName: Optional[str] = None
     thingTypeArn: Optional[str] = None
     thingTypeProperties: Optional[ThingTypePropertiesTypeDef] = None
     thingTypeMetadata: Optional[ThingTypeMetadataTypeDef] = None
 
-class DestinationTypeDef(BaseModel):
+class DestinationTypeDef(BaseValidatorModel):
     s3Destination: Optional[S3DestinationTypeDef] = None
 
-class ListDetectMitigationActionsExecutionsResponseTypeDef(BaseModel):
+class ListDetectMitigationActionsExecutionsResponseTypeDef(BaseValidatorModel):
     actionsExecutions: List[DetectMitigationActionExecutionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartDetectMitigationActionsTaskRequestRequestTypeDef(BaseModel):
+class StartDetectMitigationActionsTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
     target: DetectMitigationActionsTaskTargetTypeDef
     actions: Sequence[str]
@@ -2618,47 +2618,47 @@ class StartDetectMitigationActionsTaskRequestRequestTypeDef(BaseModel):
     includeOnlyActiveViolations: Optional[bool] = None
     includeSuppressedAlerts: Optional[bool] = None
 
-class ListDomainConfigurationsResponseTypeDef(BaseModel):
+class ListDomainConfigurationsResponseTypeDef(BaseValidatorModel):
     domainConfigurations: List[DomainConfigurationSummaryTypeDef]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DynamoDBv2ActionTypeDef(BaseModel):
+class DynamoDBv2ActionTypeDef(BaseValidatorModel):
     roleArn: str
     putItem: PutItemInputTypeDef
 
-class GetEffectivePoliciesResponseTypeDef(BaseModel):
+class GetEffectivePoliciesResponseTypeDef(BaseValidatorModel):
     effectivePolicies: List[EffectivePolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExponentialRolloutRateTypeDef(BaseModel):
+class ExponentialRolloutRateTypeDef(BaseValidatorModel):
     baseRatePerMinute: int
     incrementFactor: float
     rateIncreaseCriteria: RateIncreaseCriteriaTypeDef
 
-class ThingGroupIndexingConfigurationTypeDef(BaseModel):
+class ThingGroupIndexingConfigurationTypeDef(BaseValidatorModel):
     thingGroupIndexingMode: ThingGroupIndexingModeType
     managedFields: Optional[List[FieldTypeDef]] = None
     customFields: Optional[List[FieldTypeDef]] = None
 
-class StreamFileTypeDef(BaseModel):
+class StreamFileTypeDef(BaseValidatorModel):
     fileId: Optional[int] = None
     s3Location: Optional[S3LocationTypeDef] = None
 
-class FileLocationTypeDef(BaseModel):
+class FileLocationTypeDef(BaseValidatorModel):
     stream: Optional[StreamTypeDef] = None
     s3Location: Optional[S3LocationTypeDef] = None
 
-class ListFleetMetricsResponseTypeDef(BaseModel):
+class ListFleetMetricsResponseTypeDef(BaseValidatorModel):
     fleetMetrics: List[FleetMetricNameAndArnTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IndexingFilterTypeDef(BaseModel):
+class IndexingFilterTypeDef(BaseValidatorModel):
     namedShadowNames: Optional[List[str]] = None
     geoLocations: Optional[List[GeoLocationTargetTypeDef]] = None
 
-class ListActiveViolationsRequestListActiveViolationsPaginateTypeDef(BaseModel):
+class ListActiveViolationsRequestListActiveViolationsPaginateTypeDef(BaseValidatorModel):
     thingName: Optional[str] = None
     securityProfileName: Optional[str] = None
     behaviorCriteriaType: Optional[BehaviorCriteriaTypeType] = None
@@ -2666,18 +2666,18 @@ class ListActiveViolationsRequestListActiveViolationsPaginateTypeDef(BaseModel):
     verificationState: Optional[VerificationStateType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAttachedPoliciesRequestListAttachedPoliciesPaginateTypeDef(BaseModel):
+class ListAttachedPoliciesRequestListAttachedPoliciesPaginateTypeDef(BaseValidatorModel):
     target: str
     recursive: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAuditMitigationActionsExecutionsRequestListAuditMitigationActionsExecutionsPaginateTypeDef(BaseModel):
+class ListAuditMitigationActionsExecutionsRequestListAuditMitigationActionsExecutionsPaginateTypeDef(BaseValidatorModel):
     taskId: str
     findingId: str
     actionStatus: Optional[AuditMitigationActionsExecutionStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAuditMitigationActionsTasksRequestListAuditMitigationActionsTasksPaginateTypeDef(BaseModel):
+class ListAuditMitigationActionsTasksRequestListAuditMitigationActionsTasksPaginateTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     auditTaskId: Optional[str] = None
@@ -2685,40 +2685,40 @@ class ListAuditMitigationActionsTasksRequestListAuditMitigationActionsTasksPagin
     taskStatus: Optional[AuditMitigationActionsTaskStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAuditTasksRequestListAuditTasksPaginateTypeDef(BaseModel):
+class ListAuditTasksRequestListAuditTasksPaginateTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     taskType: Optional[AuditTaskTypeType] = None
     taskStatus: Optional[AuditTaskStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAuthorizersRequestListAuthorizersPaginateTypeDef(BaseModel):
+class ListAuthorizersRequestListAuthorizersPaginateTypeDef(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
     status: Optional[AuthorizerStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBillingGroupsRequestListBillingGroupsPaginateTypeDef(BaseModel):
+class ListBillingGroupsRequestListBillingGroupsPaginateTypeDef(BaseValidatorModel):
     namePrefixFilter: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCACertificatesRequestListCACertificatesPaginateTypeDef(BaseModel):
+class ListCACertificatesRequestListCACertificatesPaginateTypeDef(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
     templateName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCertificatesByCARequestListCertificatesByCAPaginateTypeDef(BaseModel):
+class ListCertificatesByCARequestListCertificatesByCAPaginateTypeDef(BaseValidatorModel):
     caCertificateId: str
     ascendingOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCertificatesRequestListCertificatesPaginateTypeDef(BaseModel):
+class ListCertificatesRequestListCertificatesPaginateTypeDef(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCustomMetricsRequestListCustomMetricsPaginateTypeDef(BaseModel):
+class ListCustomMetricsRequestListCustomMetricsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDetectMitigationActionsExecutionsRequestListDetectMitigationActionsExecutionsPaginateTypeDef(BaseModel):
+class ListDetectMitigationActionsExecutionsRequestListDetectMitigationActionsExecutionsPaginateTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     violationId: Optional[str] = None
     thingName: Optional[str] = None
@@ -2726,40 +2726,40 @@ class ListDetectMitigationActionsExecutionsRequestListDetectMitigationActionsExe
     endTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDetectMitigationActionsTasksRequestListDetectMitigationActionsTasksPaginateTypeDef(BaseModel):
+class ListDetectMitigationActionsTasksRequestListDetectMitigationActionsTasksPaginateTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDimensionsRequestListDimensionsPaginateTypeDef(BaseModel):
+class ListDimensionsRequestListDimensionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDomainConfigurationsRequestListDomainConfigurationsPaginateTypeDef(BaseModel):
+class ListDomainConfigurationsRequestListDomainConfigurationsPaginateTypeDef(BaseValidatorModel):
     serviceType: Optional[ServiceTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFleetMetricsRequestListFleetMetricsPaginateTypeDef(BaseModel):
+class ListFleetMetricsRequestListFleetMetricsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIndicesRequestListIndicesPaginateTypeDef(BaseModel):
+class ListIndicesRequestListIndicesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobExecutionsForJobRequestListJobExecutionsForJobPaginateTypeDef(BaseModel):
+class ListJobExecutionsForJobRequestListJobExecutionsForJobPaginateTypeDef(BaseValidatorModel):
     jobId: str
     status: Optional[JobExecutionStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobExecutionsForThingRequestListJobExecutionsForThingPaginateTypeDef(BaseModel):
+class ListJobExecutionsForThingRequestListJobExecutionsForThingPaginateTypeDef(BaseValidatorModel):
     thingName: str
     status: Optional[JobExecutionStatusType] = None
     namespaceId: Optional[str] = None
     jobId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobTemplatesRequestListJobTemplatesPaginateTypeDef(BaseModel):
+class ListJobTemplatesRequestListJobTemplatesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobsRequestListJobsPaginateTypeDef(BaseModel):
+class ListJobsRequestListJobsPaginateTypeDef(BaseValidatorModel):
     status: Optional[JobStatusType] = None
     targetSelection: Optional[TargetSelectionType] = None
     thingGroupName: Optional[str] = None
@@ -2767,11 +2767,11 @@ class ListJobsRequestListJobsPaginateTypeDef(BaseModel):
     namespaceId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListManagedJobTemplatesRequestListManagedJobTemplatesPaginateTypeDef(BaseModel):
+class ListManagedJobTemplatesRequestListManagedJobTemplatesPaginateTypeDef(BaseValidatorModel):
     templateName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMetricValuesRequestListMetricValuesPaginateTypeDef(BaseModel):
+class ListMetricValuesRequestListMetricValuesPaginateTypeDef(BaseValidatorModel):
     thingName: str
     metricName: str
     startTime: TimestampTypeDef
@@ -2780,144 +2780,144 @@ class ListMetricValuesRequestListMetricValuesPaginateTypeDef(BaseModel):
     dimensionValueOperator: Optional[DimensionValueOperatorType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMitigationActionsRequestListMitigationActionsPaginateTypeDef(BaseModel):
+class ListMitigationActionsRequestListMitigationActionsPaginateTypeDef(BaseValidatorModel):
     actionType: Optional[MitigationActionTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOTAUpdatesRequestListOTAUpdatesPaginateTypeDef(BaseModel):
+class ListOTAUpdatesRequestListOTAUpdatesPaginateTypeDef(BaseValidatorModel):
     otaUpdateStatus: Optional[OTAUpdateStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOutgoingCertificatesRequestListOutgoingCertificatesPaginateTypeDef(BaseModel):
+class ListOutgoingCertificatesRequestListOutgoingCertificatesPaginateTypeDef(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPackageVersionsRequestListPackageVersionsPaginateTypeDef(BaseModel):
+class ListPackageVersionsRequestListPackageVersionsPaginateTypeDef(BaseValidatorModel):
     packageName: str
     status: Optional[PackageVersionStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPackagesRequestListPackagesPaginateTypeDef(BaseModel):
+class ListPackagesRequestListPackagesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPoliciesRequestListPoliciesPaginateTypeDef(BaseModel):
+class ListPoliciesRequestListPoliciesPaginateTypeDef(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPolicyPrincipalsRequestListPolicyPrincipalsPaginateTypeDef(BaseModel):
+class ListPolicyPrincipalsRequestListPolicyPrincipalsPaginateTypeDef(BaseValidatorModel):
     policyName: str
     ascendingOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPrincipalPoliciesRequestListPrincipalPoliciesPaginateTypeDef(BaseModel):
+class ListPrincipalPoliciesRequestListPrincipalPoliciesPaginateTypeDef(BaseValidatorModel):
     principal: str
     ascendingOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPrincipalThingsRequestListPrincipalThingsPaginateTypeDef(BaseModel):
+class ListPrincipalThingsRequestListPrincipalThingsPaginateTypeDef(BaseValidatorModel):
     principal: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProvisioningTemplateVersionsRequestListProvisioningTemplateVersionsPaginateTypeDef(BaseModel):
+class ListProvisioningTemplateVersionsRequestListProvisioningTemplateVersionsPaginateTypeDef(BaseValidatorModel):
     templateName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProvisioningTemplatesRequestListProvisioningTemplatesPaginateTypeDef(BaseModel):
+class ListProvisioningTemplatesRequestListProvisioningTemplatesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRelatedResourcesForAuditFindingRequestListRelatedResourcesForAuditFindingPaginateTypeDef(BaseModel):
+class ListRelatedResourcesForAuditFindingRequestListRelatedResourcesForAuditFindingPaginateTypeDef(BaseValidatorModel):
     findingId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRoleAliasesRequestListRoleAliasesPaginateTypeDef(BaseModel):
+class ListRoleAliasesRequestListRoleAliasesPaginateTypeDef(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListScheduledAuditsRequestListScheduledAuditsPaginateTypeDef(BaseModel):
+class ListScheduledAuditsRequestListScheduledAuditsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSecurityProfilesForTargetRequestListSecurityProfilesForTargetPaginateTypeDef(BaseModel):
+class ListSecurityProfilesForTargetRequestListSecurityProfilesForTargetPaginateTypeDef(BaseValidatorModel):
     securityProfileTargetArn: str
     recursive: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSecurityProfilesRequestListSecurityProfilesPaginateTypeDef(BaseModel):
+class ListSecurityProfilesRequestListSecurityProfilesPaginateTypeDef(BaseValidatorModel):
     dimensionName: Optional[str] = None
     metricName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStreamsRequestListStreamsPaginateTypeDef(BaseModel):
+class ListStreamsRequestListStreamsPaginateTypeDef(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     resourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTargetsForPolicyRequestListTargetsForPolicyPaginateTypeDef(BaseModel):
+class ListTargetsForPolicyRequestListTargetsForPolicyPaginateTypeDef(BaseValidatorModel):
     policyName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTargetsForSecurityProfileRequestListTargetsForSecurityProfilePaginateTypeDef(BaseModel):
+class ListTargetsForSecurityProfileRequestListTargetsForSecurityProfilePaginateTypeDef(BaseValidatorModel):
     securityProfileName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThingGroupsForThingRequestListThingGroupsForThingPaginateTypeDef(BaseModel):
+class ListThingGroupsForThingRequestListThingGroupsForThingPaginateTypeDef(BaseValidatorModel):
     thingName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThingGroupsRequestListThingGroupsPaginateTypeDef(BaseModel):
+class ListThingGroupsRequestListThingGroupsPaginateTypeDef(BaseValidatorModel):
     parentGroup: Optional[str] = None
     namePrefixFilter: Optional[str] = None
     recursive: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThingPrincipalsRequestListThingPrincipalsPaginateTypeDef(BaseModel):
+class ListThingPrincipalsRequestListThingPrincipalsPaginateTypeDef(BaseValidatorModel):
     thingName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThingRegistrationTaskReportsRequestListThingRegistrationTaskReportsPaginateTypeDef(BaseModel):
+class ListThingRegistrationTaskReportsRequestListThingRegistrationTaskReportsPaginateTypeDef(BaseValidatorModel):
     taskId: str
     reportType: ReportTypeType
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThingRegistrationTasksRequestListThingRegistrationTasksPaginateTypeDef(BaseModel):
+class ListThingRegistrationTasksRequestListThingRegistrationTasksPaginateTypeDef(BaseValidatorModel):
     status: Optional[StatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThingTypesRequestListThingTypesPaginateTypeDef(BaseModel):
+class ListThingTypesRequestListThingTypesPaginateTypeDef(BaseValidatorModel):
     thingTypeName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThingsInBillingGroupRequestListThingsInBillingGroupPaginateTypeDef(BaseModel):
+class ListThingsInBillingGroupRequestListThingsInBillingGroupPaginateTypeDef(BaseValidatorModel):
     billingGroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThingsInThingGroupRequestListThingsInThingGroupPaginateTypeDef(BaseModel):
+class ListThingsInThingGroupRequestListThingsInThingGroupPaginateTypeDef(BaseValidatorModel):
     thingGroupName: str
     recursive: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThingsRequestListThingsPaginateTypeDef(BaseModel):
+class ListThingsRequestListThingsPaginateTypeDef(BaseValidatorModel):
     attributeName: Optional[str] = None
     attributeValue: Optional[str] = None
     thingTypeName: Optional[str] = None
     usePrefixAttributeValue: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTopicRuleDestinationsRequestListTopicRuleDestinationsPaginateTypeDef(BaseModel):
+class ListTopicRuleDestinationsRequestListTopicRuleDestinationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTopicRulesRequestListTopicRulesPaginateTypeDef(BaseModel):
+class ListTopicRulesRequestListTopicRulesPaginateTypeDef(BaseValidatorModel):
     topic: Optional[str] = None
     ruleDisabled: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListV2LoggingLevelsRequestListV2LoggingLevelsPaginateTypeDef(BaseModel):
+class ListV2LoggingLevelsRequestListV2LoggingLevelsPaginateTypeDef(BaseValidatorModel):
     targetType: Optional[LogTargetTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListViolationEventsRequestListViolationEventsPaginateTypeDef(BaseModel):
+class ListViolationEventsRequestListViolationEventsPaginateTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     thingName: Optional[str] = None
@@ -2927,46 +2927,46 @@ class ListViolationEventsRequestListViolationEventsPaginateTypeDef(BaseModel):
     verificationState: Optional[VerificationStateType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetPackageConfigurationResponseTypeDef(BaseModel):
+class GetPackageConfigurationResponseTypeDef(BaseValidatorModel):
     versionUpdateByJobsConfig: VersionUpdateByJobsConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePackageConfigurationRequestRequestTypeDef(BaseModel):
+class UpdatePackageConfigurationRequestRequestTypeDef(BaseValidatorModel):
     versionUpdateByJobsConfig: Optional[VersionUpdateByJobsConfigTypeDef] = None
     clientToken: Optional[str] = None
 
-class GetPercentilesResponseTypeDef(BaseModel):
+class GetPercentilesResponseTypeDef(BaseValidatorModel):
     percentiles: List[PercentPairTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStatisticsResponseTypeDef(BaseModel):
+class GetStatisticsResponseTypeDef(BaseValidatorModel):
     statistics: StatisticsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBillingGroupsResponseTypeDef(BaseModel):
+class ListBillingGroupsResponseTypeDef(BaseValidatorModel):
     billingGroups: List[GroupNameAndArnTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListThingGroupsForThingResponseTypeDef(BaseModel):
+class ListThingGroupsForThingResponseTypeDef(BaseValidatorModel):
     thingGroups: List[GroupNameAndArnTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListThingGroupsResponseTypeDef(BaseModel):
+class ListThingGroupsResponseTypeDef(BaseValidatorModel):
     thingGroups: List[GroupNameAndArnTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ThingGroupMetadataTypeDef(BaseModel):
+class ThingGroupMetadataTypeDef(BaseValidatorModel):
     parentGroupName: Optional[str] = None
     rootToParentThingGroups: Optional[List[GroupNameAndArnTypeDef]] = None
     creationDate: Optional[datetime] = None
 
-class HttpAuthorizationTypeDef(BaseModel):
+class HttpAuthorizationTypeDef(BaseValidatorModel):
     sigv4: Optional[SigV4AuthorizationTypeDef] = None
 
-class JobExecutionTypeDef(BaseModel):
+class JobExecutionTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     status: Optional[JobExecutionStatusType] = None
     forceCanceled: Optional[bool] = None
@@ -2979,28 +2979,28 @@ class JobExecutionTypeDef(BaseModel):
     versionNumber: Optional[int] = None
     approximateSecondsBeforeTimedOut: Optional[int] = None
 
-class JobExecutionSummaryForJobTypeDef(BaseModel):
+class JobExecutionSummaryForJobTypeDef(BaseValidatorModel):
     thingArn: Optional[str] = None
     jobExecutionSummary: Optional[JobExecutionSummaryTypeDef] = None
 
-class JobExecutionSummaryForThingTypeDef(BaseModel):
+class JobExecutionSummaryForThingTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     jobExecutionSummary: Optional[JobExecutionSummaryTypeDef] = None
 
-class JobExecutionsRetryConfigTypeDef(BaseModel):
+class JobExecutionsRetryConfigTypeDef(BaseValidatorModel):
     criteriaList: Sequence[RetryCriteriaTypeDef]
 
-class ListJobsResponseTypeDef(BaseModel):
+class ListJobsResponseTypeDef(BaseValidatorModel):
     jobs: List[JobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobTemplatesResponseTypeDef(BaseModel):
+class ListJobTemplatesResponseTypeDef(BaseValidatorModel):
     jobTemplates: List[JobTemplateSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class KafkaActionTypeDef(BaseModel):
+class KafkaActionTypeDef(BaseValidatorModel):
     destinationArn: str
     topic: str
     clientProperties: Mapping[str, str]
@@ -3008,85 +3008,85 @@ class KafkaActionTypeDef(BaseModel):
     partition: Optional[str] = None
     headers: Optional[Sequence[KafkaActionHeaderTypeDef]] = None
 
-class ListManagedJobTemplatesResponseTypeDef(BaseModel):
+class ListManagedJobTemplatesResponseTypeDef(BaseValidatorModel):
     managedJobTemplates: List[ManagedJobTemplateSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMitigationActionsResponseTypeDef(BaseModel):
+class ListMitigationActionsResponseTypeDef(BaseValidatorModel):
     actionIdentifiers: List[MitigationActionIdentifierTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOTAUpdatesResponseTypeDef(BaseModel):
+class ListOTAUpdatesResponseTypeDef(BaseValidatorModel):
     otaUpdates: List[OTAUpdateSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOutgoingCertificatesResponseTypeDef(BaseModel):
+class ListOutgoingCertificatesResponseTypeDef(BaseValidatorModel):
     outgoingCertificates: List[OutgoingCertificateTypeDef]
     nextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPackageVersionsResponseTypeDef(BaseModel):
+class ListPackageVersionsResponseTypeDef(BaseValidatorModel):
     packageVersionSummaries: List[PackageVersionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPackagesResponseTypeDef(BaseModel):
+class ListPackagesResponseTypeDef(BaseValidatorModel):
     packageSummaries: List[PackageSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPolicyVersionsResponseTypeDef(BaseModel):
+class ListPolicyVersionsResponseTypeDef(BaseValidatorModel):
     policyVersions: List[PolicyVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProvisioningTemplateVersionsResponseTypeDef(BaseModel):
+class ListProvisioningTemplateVersionsResponseTypeDef(BaseValidatorModel):
     versions: List[ProvisioningTemplateVersionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProvisioningTemplatesResponseTypeDef(BaseModel):
+class ListProvisioningTemplatesResponseTypeDef(BaseValidatorModel):
     templates: List[ProvisioningTemplateSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListScheduledAuditsResponseTypeDef(BaseModel):
+class ListScheduledAuditsResponseTypeDef(BaseValidatorModel):
     scheduledAudits: List[ScheduledAuditMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSecurityProfilesResponseTypeDef(BaseModel):
+class ListSecurityProfilesResponseTypeDef(BaseValidatorModel):
     securityProfileIdentifiers: List[SecurityProfileIdentifierTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStreamsResponseTypeDef(BaseModel):
+class ListStreamsResponseTypeDef(BaseValidatorModel):
     streams: List[StreamSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTargetsForSecurityProfileResponseTypeDef(BaseModel):
+class ListTargetsForSecurityProfileResponseTypeDef(BaseValidatorModel):
     securityProfileTargets: List[SecurityProfileTargetTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SecurityProfileTargetMappingTypeDef(BaseModel):
+class SecurityProfileTargetMappingTypeDef(BaseValidatorModel):
     securityProfileIdentifier: Optional[SecurityProfileIdentifierTypeDef] = None
     target: Optional[SecurityProfileTargetTypeDef] = None
 
-class ListThingsResponseTypeDef(BaseModel):
+class ListThingsResponseTypeDef(BaseValidatorModel):
     things: List[ThingAttributeTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTopicRulesResponseTypeDef(BaseModel):
+class ListTopicRulesResponseTypeDef(BaseValidatorModel):
     rules: List[TopicRuleListItemTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LocationActionTypeDef(BaseModel):
+class LocationActionTypeDef(BaseValidatorModel):
     roleArn: str
     trackerName: str
     deviceId: str
@@ -3094,18 +3094,18 @@ class LocationActionTypeDef(BaseModel):
     longitude: str
     timestamp: Optional[LocationTimestampTypeDef] = None
 
-class LogTargetConfigurationTypeDef(BaseModel):
+class LogTargetConfigurationTypeDef(BaseValidatorModel):
     logTarget: Optional[LogTargetTypeDef] = None
     logLevel: Optional[LogLevelType] = None
 
-class SetV2LoggingLevelRequestRequestTypeDef(BaseModel):
+class SetV2LoggingLevelRequestRequestTypeDef(BaseValidatorModel):
     logTarget: LogTargetTypeDef
     logLevel: LogLevelType
 
-class SetLoggingOptionsRequestRequestTypeDef(BaseModel):
+class SetLoggingOptionsRequestRequestTypeDef(BaseValidatorModel):
     loggingOptionsPayload: LoggingOptionsPayloadTypeDef
 
-class MitigationActionParamsPaginatorTypeDef(BaseModel):
+class MitigationActionParamsPaginatorTypeDef(BaseValidatorModel):
     updateDeviceCertificateParams: Optional[UpdateDeviceCertificateParamsTypeDef] = None
     updateCACertificateParams: Optional[UpdateCACertificateParamsTypeDef] = None
     addThingsToThingGroupParams: Optional[AddThingsToThingGroupParamsPaginatorTypeDef] = None
@@ -3113,7 +3113,7 @@ class MitigationActionParamsPaginatorTypeDef(BaseModel):
     enableIoTLoggingParams: Optional[EnableIoTLoggingParamsTypeDef] = None
     publishFindingToSnsParams: Optional[PublishFindingToSnsParamsTypeDef] = None
 
-class MitigationActionParamsTypeDef(BaseModel):
+class MitigationActionParamsTypeDef(BaseValidatorModel):
     updateDeviceCertificateParams: Optional[UpdateDeviceCertificateParamsTypeDef] = None
     updateCACertificateParams: Optional[UpdateCACertificateParamsTypeDef] = None
     addThingsToThingGroupParams: Optional[AddThingsToThingGroupParamsTypeDef] = None
@@ -3121,7 +3121,7 @@ class MitigationActionParamsTypeDef(BaseModel):
     enableIoTLoggingParams: Optional[EnableIoTLoggingParamsTypeDef] = None
     publishFindingToSnsParams: Optional[PublishFindingToSnsParamsTypeDef] = None
 
-class MqttHeadersTypeDef(BaseModel):
+class MqttHeadersTypeDef(BaseValidatorModel):
     payloadFormatIndicator: Optional[str] = None
     contentType: Optional[str] = None
     responseTopic: Optional[str] = None
@@ -3129,7 +3129,7 @@ class MqttHeadersTypeDef(BaseModel):
     messageExpiry: Optional[str] = None
     userProperties: Optional[Sequence[UserPropertyTypeDef]] = None
 
-class ResourceIdentifierTypeDef(BaseModel):
+class ResourceIdentifierTypeDef(BaseValidatorModel):
     deviceCertificateId: Optional[str] = None
     caCertificateId: Optional[str] = None
     cognitoIdentityPoolId: Optional[str] = None
@@ -3141,7 +3141,7 @@ class ResourceIdentifierTypeDef(BaseModel):
     issuerCertificateIdentifier: Optional[IssuerCertificateIdentifierTypeDef] = None
     deviceCertificateArn: Optional[str] = None
 
-class ThingDocumentTypeDef(BaseModel):
+class ThingDocumentTypeDef(BaseValidatorModel):
     thingName: Optional[str] = None
     thingId: Optional[str] = None
     thingTypeName: Optional[str] = None
@@ -3151,24 +3151,24 @@ class ThingDocumentTypeDef(BaseModel):
     deviceDefender: Optional[str] = None
     connectivity: Optional[ThingConnectivityTypeDef] = None
 
-class ThingTypeDefinitionPaginatorTypeDef(BaseModel):
+class ThingTypeDefinitionPaginatorTypeDef(BaseValidatorModel):
     thingTypeName: Optional[str] = None
     thingTypeArn: Optional[str] = None
     thingTypeProperties: Optional[ThingTypePropertiesPaginatorTypeDef] = None
     thingTypeMetadata: Optional[ThingTypeMetadataTypeDef] = None
 
-class TimestreamActionTypeDef(BaseModel):
+class TimestreamActionTypeDef(BaseValidatorModel):
     roleArn: str
     databaseName: str
     tableName: str
     dimensions: Sequence[TimestreamDimensionTypeDef]
     timestamp: Optional[TimestreamTimestampTypeDef] = None
 
-class TopicRuleDestinationConfigurationTypeDef(BaseModel):
+class TopicRuleDestinationConfigurationTypeDef(BaseValidatorModel):
     httpUrlConfiguration: Optional[HttpUrlDestinationConfigurationTypeDef] = None
     vpcConfiguration: Optional[VpcDestinationConfigurationTypeDef] = None
 
-class TopicRuleDestinationSummaryTypeDef(BaseModel):
+class TopicRuleDestinationSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     status: Optional[TopicRuleDestinationStatusType] = None
     createdAt: Optional[datetime] = None
@@ -3177,7 +3177,7 @@ class TopicRuleDestinationSummaryTypeDef(BaseModel):
     httpUrlSummary: Optional[HttpUrlDestinationSummaryTypeDef] = None
     vpcDestinationSummary: Optional[VpcDestinationSummaryTypeDef] = None
 
-class TopicRuleDestinationTypeDef(BaseModel):
+class TopicRuleDestinationTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     status: Optional[TopicRuleDestinationStatusType] = None
     createdAt: Optional[datetime] = None
@@ -3186,33 +3186,33 @@ class TopicRuleDestinationTypeDef(BaseModel):
     httpUrlProperties: Optional[HttpUrlDestinationPropertiesTypeDef] = None
     vpcProperties: Optional[VpcDestinationPropertiesTypeDef] = None
 
-class ValidateSecurityProfileBehaviorsResponseTypeDef(BaseModel):
+class ValidateSecurityProfileBehaviorsResponseTypeDef(BaseValidatorModel):
     valid: bool
     validationErrors: List[ValidationErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMetricValuesResponsePaginatorTypeDef(BaseModel):
+class ListMetricValuesResponsePaginatorTypeDef(BaseValidatorModel):
     metricDatumList: List[MetricDatumPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMetricValuesResponseTypeDef(BaseModel):
+class ListMetricValuesResponseTypeDef(BaseValidatorModel):
     metricDatumList: List[MetricDatumTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeniedTypeDef(BaseModel):
+class DeniedTypeDef(BaseValidatorModel):
     implicitDeny: Optional[ImplicitDenyTypeDef] = None
     explicitDeny: Optional[ExplicitDenyTypeDef] = None
 
-class PutAssetPropertyValueEntryTypeDef(BaseModel):
+class PutAssetPropertyValueEntryTypeDef(BaseValidatorModel):
     propertyValues: Sequence[AssetPropertyValueTypeDef]
     entryId: Optional[str] = None
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
 
-class CreateDynamicThingGroupRequestRequestTypeDef(BaseModel):
+class CreateDynamicThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: str
     queryString: str
     thingGroupProperties: Optional[ThingGroupPropertiesTypeDef] = None
@@ -3220,13 +3220,13 @@ class CreateDynamicThingGroupRequestRequestTypeDef(BaseModel):
     queryVersion: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateThingGroupRequestRequestTypeDef(BaseModel):
+class CreateThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: str
     parentGroupName: Optional[str] = None
     thingGroupProperties: Optional[ThingGroupPropertiesTypeDef] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateDynamicThingGroupRequestRequestTypeDef(BaseModel):
+class UpdateDynamicThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: str
     thingGroupProperties: ThingGroupPropertiesTypeDef
     expectedVersion: Optional[int] = None
@@ -3234,16 +3234,16 @@ class UpdateDynamicThingGroupRequestRequestTypeDef(BaseModel):
     queryString: Optional[str] = None
     queryVersion: Optional[str] = None
 
-class UpdateThingGroupRequestRequestTypeDef(BaseModel):
+class UpdateThingGroupRequestRequestTypeDef(BaseValidatorModel):
     thingGroupName: str
     thingGroupProperties: ThingGroupPropertiesTypeDef
     expectedVersion: Optional[int] = None
 
-class AwsJobExecutionsRolloutConfigTypeDef(BaseModel):
+class AwsJobExecutionsRolloutConfigTypeDef(BaseValidatorModel):
     maximumPerMinute: Optional[int] = None
     exponentialRate: Optional[AwsJobExponentialRolloutRateTypeDef] = None
 
-class BehaviorPaginatorTypeDef(BaseModel):
+class BehaviorPaginatorTypeDef(BaseValidatorModel):
     name: str
     metric: Optional[str] = None
     metricDimension: Optional[MetricDimensionTypeDef] = None
@@ -3251,7 +3251,7 @@ class BehaviorPaginatorTypeDef(BaseModel):
     suppressAlerts: Optional[bool] = None
     exportMetric: Optional[bool] = None
 
-class BehaviorTypeDef(BaseModel):
+class BehaviorTypeDef(BaseValidatorModel):
     name: str
     metric: Optional[str] = None
     metricDimension: Optional[MetricDimensionTypeDef] = None
@@ -3259,13 +3259,13 @@ class BehaviorTypeDef(BaseModel):
     suppressAlerts: Optional[bool] = None
     exportMetric: Optional[bool] = None
 
-class CustomCodeSigningTypeDef(BaseModel):
+class CustomCodeSigningTypeDef(BaseValidatorModel):
     signature: Optional[CodeSigningSignatureTypeDef] = None
     certificateChain: Optional[CodeSigningCertificateChainTypeDef] = None
     hashAlgorithm: Optional[str] = None
     signatureAlgorithm: Optional[str] = None
 
-class TestInvokeAuthorizerRequestRequestTypeDef(BaseModel):
+class TestInvokeAuthorizerRequestRequestTypeDef(BaseValidatorModel):
     authorizerName: str
     token: Optional[str] = None
     tokenSignature: Optional[str] = None
@@ -3273,44 +3273,44 @@ class TestInvokeAuthorizerRequestRequestTypeDef(BaseModel):
     mqttContext: Optional[MqttContextTypeDef] = None
     tlsContext: Optional[TlsContextTypeDef] = None
 
-class GetBucketsAggregationRequestRequestTypeDef(BaseModel):
+class GetBucketsAggregationRequestRequestTypeDef(BaseValidatorModel):
     queryString: str
     aggregationField: str
     bucketsAggregationType: BucketsAggregationTypeTypeDef
     indexName: Optional[str] = None
     queryVersion: Optional[str] = None
 
-class DescribeCACertificateResponseTypeDef(BaseModel):
+class DescribeCACertificateResponseTypeDef(BaseValidatorModel):
     certificateDescription: CACertificateDescriptionTypeDef
     registrationConfig: RegistrationConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCertificateResponseTypeDef(BaseModel):
+class DescribeCertificateResponseTypeDef(BaseValidatorModel):
     certificateDescription: CertificateDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListThingTypesResponseTypeDef(BaseModel):
+class ListThingTypesResponseTypeDef(BaseValidatorModel):
     thingTypes: List[ThingTypeDefinitionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSigningJobParameterTypeDef(BaseModel):
+class StartSigningJobParameterTypeDef(BaseValidatorModel):
     signingProfileParameter: Optional[SigningProfileParameterTypeDef] = None
     signingProfileName: Optional[str] = None
     destination: Optional[DestinationTypeDef] = None
 
-class JobExecutionsRolloutConfigTypeDef(BaseModel):
+class JobExecutionsRolloutConfigTypeDef(BaseValidatorModel):
     maximumPerMinute: Optional[int] = None
     exponentialRate: Optional[ExponentialRolloutRateTypeDef] = None
 
-class CreateStreamRequestRequestTypeDef(BaseModel):
+class CreateStreamRequestRequestTypeDef(BaseValidatorModel):
     streamId: str
     files: Sequence[StreamFileTypeDef]
     roleArn: str
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class StreamInfoTypeDef(BaseModel):
+class StreamInfoTypeDef(BaseValidatorModel):
     streamId: Optional[str] = None
     streamArn: Optional[str] = None
     streamVersion: Optional[int] = None
@@ -3320,13 +3320,13 @@ class StreamInfoTypeDef(BaseModel):
     lastUpdatedAt: Optional[datetime] = None
     roleArn: Optional[str] = None
 
-class UpdateStreamRequestRequestTypeDef(BaseModel):
+class UpdateStreamRequestRequestTypeDef(BaseValidatorModel):
     streamId: str
     description: Optional[str] = None
     files: Optional[Sequence[StreamFileTypeDef]] = None
     roleArn: Optional[str] = None
 
-class ThingIndexingConfigurationTypeDef(BaseModel):
+class ThingIndexingConfigurationTypeDef(BaseValidatorModel):
     thingIndexingMode: ThingIndexingModeType
     thingConnectivityIndexingMode: Optional[ThingConnectivityIndexingModeType] = None
     deviceDefenderIndexingMode: Optional[DeviceDefenderIndexingModeType] = None
@@ -3335,7 +3335,7 @@ class ThingIndexingConfigurationTypeDef(BaseModel):
     customFields: Optional[List[FieldTypeDef]] = None
     filter: Optional[IndexingFilterTypeDef] = None
 
-class DescribeThingGroupResponseTypeDef(BaseModel):
+class DescribeThingGroupResponseTypeDef(BaseValidatorModel):
     thingGroupName: str
     thingGroupId: str
     thingGroupArn: str
@@ -3348,49 +3348,49 @@ class DescribeThingGroupResponseTypeDef(BaseModel):
     status: DynamicGroupStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HttpActionTypeDef(BaseModel):
+class HttpActionTypeDef(BaseValidatorModel):
     url: str
     confirmationUrl: Optional[str] = None
     headers: Optional[Sequence[HttpActionHeaderTypeDef]] = None
     auth: Optional[HttpAuthorizationTypeDef] = None
 
-class DescribeJobExecutionResponseTypeDef(BaseModel):
+class DescribeJobExecutionResponseTypeDef(BaseValidatorModel):
     execution: JobExecutionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobExecutionsForJobResponseTypeDef(BaseModel):
+class ListJobExecutionsForJobResponseTypeDef(BaseValidatorModel):
     executionSummaries: List[JobExecutionSummaryForJobTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobExecutionsForThingResponseTypeDef(BaseModel):
+class ListJobExecutionsForThingResponseTypeDef(BaseValidatorModel):
     executionSummaries: List[JobExecutionSummaryForThingTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSecurityProfilesForTargetResponseTypeDef(BaseModel):
+class ListSecurityProfilesForTargetResponseTypeDef(BaseValidatorModel):
     securityProfileTargetMappings: List[SecurityProfileTargetMappingTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListV2LoggingLevelsResponseTypeDef(BaseModel):
+class ListV2LoggingLevelsResponseTypeDef(BaseValidatorModel):
     logTargetConfigurations: List[LogTargetConfigurationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MitigationActionPaginatorTypeDef(BaseModel):
+class MitigationActionPaginatorTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     id: Optional[str] = None
     roleArn: Optional[str] = None
     actionParams: Optional[MitigationActionParamsPaginatorTypeDef] = None
 
-class CreateMitigationActionRequestRequestTypeDef(BaseModel):
+class CreateMitigationActionRequestRequestTypeDef(BaseValidatorModel):
     actionName: str
     roleArn: str
     actionParams: MitigationActionParamsTypeDef
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribeMitigationActionResponseTypeDef(BaseModel):
+class DescribeMitigationActionResponseTypeDef(BaseValidatorModel):
     actionName: str
     actionType: MitigationActionTypeType
     actionArn: str
@@ -3401,31 +3401,31 @@ class DescribeMitigationActionResponseTypeDef(BaseModel):
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MitigationActionTypeDef(BaseModel):
+class MitigationActionTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     id: Optional[str] = None
     roleArn: Optional[str] = None
     actionParams: Optional[MitigationActionParamsTypeDef] = None
 
-class UpdateMitigationActionRequestRequestTypeDef(BaseModel):
+class UpdateMitigationActionRequestRequestTypeDef(BaseValidatorModel):
     actionName: str
     roleArn: Optional[str] = None
     actionParams: Optional[MitigationActionParamsTypeDef] = None
 
-class RepublishActionTypeDef(BaseModel):
+class RepublishActionTypeDef(BaseValidatorModel):
     roleArn: str
     topic: str
     qos: Optional[int] = None
     headers: Optional[MqttHeadersTypeDef] = None
 
-class AuditSuppressionTypeDef(BaseModel):
+class AuditSuppressionTypeDef(BaseValidatorModel):
     checkName: str
     resourceIdentifier: ResourceIdentifierTypeDef
     expirationDate: Optional[datetime] = None
     suppressIndefinitely: Optional[bool] = None
     description: Optional[str] = None
 
-class CreateAuditSuppressionRequestRequestTypeDef(BaseModel):
+class CreateAuditSuppressionRequestRequestTypeDef(BaseValidatorModel):
     checkName: str
     resourceIdentifier: ResourceIdentifierTypeDef
     clientRequestToken: str
@@ -3433,15 +3433,15 @@ class CreateAuditSuppressionRequestRequestTypeDef(BaseModel):
     suppressIndefinitely: Optional[bool] = None
     description: Optional[str] = None
 
-class DeleteAuditSuppressionRequestRequestTypeDef(BaseModel):
+class DeleteAuditSuppressionRequestRequestTypeDef(BaseValidatorModel):
     checkName: str
     resourceIdentifier: ResourceIdentifierTypeDef
 
-class DescribeAuditSuppressionRequestRequestTypeDef(BaseModel):
+class DescribeAuditSuppressionRequestRequestTypeDef(BaseValidatorModel):
     checkName: str
     resourceIdentifier: ResourceIdentifierTypeDef
 
-class DescribeAuditSuppressionResponseTypeDef(BaseModel):
+class DescribeAuditSuppressionResponseTypeDef(BaseValidatorModel):
     checkName: str
     resourceIdentifier: ResourceIdentifierTypeDef
     expirationDate: datetime
@@ -3449,7 +3449,7 @@ class DescribeAuditSuppressionResponseTypeDef(BaseModel):
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAuditFindingsRequestListAuditFindingsPaginateTypeDef(BaseModel):
+class ListAuditFindingsRequestListAuditFindingsPaginateTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     checkName: Optional[str] = None
     resourceIdentifier: Optional[ResourceIdentifierTypeDef] = None
@@ -3458,7 +3458,7 @@ class ListAuditFindingsRequestListAuditFindingsPaginateTypeDef(BaseModel):
     listSuppressedFindings: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAuditFindingsRequestRequestTypeDef(BaseModel):
+class ListAuditFindingsRequestRequestTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     checkName: Optional[str] = None
     resourceIdentifier: Optional[ResourceIdentifierTypeDef] = None
@@ -3468,75 +3468,75 @@ class ListAuditFindingsRequestRequestTypeDef(BaseModel):
     endTime: Optional[TimestampTypeDef] = None
     listSuppressedFindings: Optional[bool] = None
 
-class ListAuditSuppressionsRequestListAuditSuppressionsPaginateTypeDef(BaseModel):
+class ListAuditSuppressionsRequestListAuditSuppressionsPaginateTypeDef(BaseValidatorModel):
     checkName: Optional[str] = None
     resourceIdentifier: Optional[ResourceIdentifierTypeDef] = None
     ascendingOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAuditSuppressionsRequestRequestTypeDef(BaseModel):
+class ListAuditSuppressionsRequestRequestTypeDef(BaseValidatorModel):
     checkName: Optional[str] = None
     resourceIdentifier: Optional[ResourceIdentifierTypeDef] = None
     ascendingOrder: Optional[bool] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class NonCompliantResourceTypeDef(BaseModel):
+class NonCompliantResourceTypeDef(BaseValidatorModel):
     resourceType: Optional[ResourceTypeType] = None
     resourceIdentifier: Optional[ResourceIdentifierTypeDef] = None
     additionalInfo: Optional[Dict[str, str]] = None
 
-class RelatedResourceTypeDef(BaseModel):
+class RelatedResourceTypeDef(BaseValidatorModel):
     resourceType: Optional[ResourceTypeType] = None
     resourceIdentifier: Optional[ResourceIdentifierTypeDef] = None
     additionalInfo: Optional[Dict[str, str]] = None
 
-class UpdateAuditSuppressionRequestRequestTypeDef(BaseModel):
+class UpdateAuditSuppressionRequestRequestTypeDef(BaseValidatorModel):
     checkName: str
     resourceIdentifier: ResourceIdentifierTypeDef
     expirationDate: Optional[TimestampTypeDef] = None
     suppressIndefinitely: Optional[bool] = None
     description: Optional[str] = None
 
-class SearchIndexResponseTypeDef(BaseModel):
+class SearchIndexResponseTypeDef(BaseValidatorModel):
     nextToken: str
     things: List[ThingDocumentTypeDef]
     thingGroups: List[ThingGroupDocumentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListThingTypesResponsePaginatorTypeDef(BaseModel):
+class ListThingTypesResponsePaginatorTypeDef(BaseValidatorModel):
     thingTypes: List[ThingTypeDefinitionPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTopicRuleDestinationRequestRequestTypeDef(BaseModel):
+class CreateTopicRuleDestinationRequestRequestTypeDef(BaseValidatorModel):
     destinationConfiguration: TopicRuleDestinationConfigurationTypeDef
 
-class ListTopicRuleDestinationsResponseTypeDef(BaseModel):
+class ListTopicRuleDestinationsResponseTypeDef(BaseValidatorModel):
     destinationSummaries: List[TopicRuleDestinationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTopicRuleDestinationResponseTypeDef(BaseModel):
+class CreateTopicRuleDestinationResponseTypeDef(BaseValidatorModel):
     topicRuleDestination: TopicRuleDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTopicRuleDestinationResponseTypeDef(BaseModel):
+class GetTopicRuleDestinationResponseTypeDef(BaseValidatorModel):
     topicRuleDestination: TopicRuleDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AuthResultTypeDef(BaseModel):
+class AuthResultTypeDef(BaseValidatorModel):
     authInfo: Optional[AuthInfoTypeDef] = None
     allowed: Optional[AllowedTypeDef] = None
     denied: Optional[DeniedTypeDef] = None
     authDecision: Optional[AuthDecisionType] = None
     missingContextValues: Optional[List[str]] = None
 
-class IotSiteWiseActionTypeDef(BaseModel):
+class IotSiteWiseActionTypeDef(BaseValidatorModel):
     putAssetPropertyValueEntries: Sequence[PutAssetPropertyValueEntryTypeDef]
     roleArn: str
 
-class ActiveViolationPaginatorTypeDef(BaseModel):
+class ActiveViolationPaginatorTypeDef(BaseValidatorModel):
     violationId: Optional[str] = None
     thingName: Optional[str] = None
     securityProfileName: Optional[str] = None
@@ -3548,7 +3548,7 @@ class ActiveViolationPaginatorTypeDef(BaseModel):
     lastViolationTime: Optional[datetime] = None
     violationStartTime: Optional[datetime] = None
 
-class ViolationEventPaginatorTypeDef(BaseModel):
+class ViolationEventPaginatorTypeDef(BaseValidatorModel):
     violationId: Optional[str] = None
     thingName: Optional[str] = None
     securityProfileName: Optional[str] = None
@@ -3560,7 +3560,7 @@ class ViolationEventPaginatorTypeDef(BaseModel):
     verificationStateDescription: Optional[str] = None
     violationEventTime: Optional[datetime] = None
 
-class ActiveViolationTypeDef(BaseModel):
+class ActiveViolationTypeDef(BaseValidatorModel):
     violationId: Optional[str] = None
     thingName: Optional[str] = None
     securityProfileName: Optional[str] = None
@@ -3572,7 +3572,7 @@ class ActiveViolationTypeDef(BaseModel):
     lastViolationTime: Optional[datetime] = None
     violationStartTime: Optional[datetime] = None
 
-class CreateSecurityProfileRequestRequestTypeDef(BaseModel):
+class CreateSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     securityProfileName: str
     securityProfileDescription: Optional[str] = None
     behaviors: Optional[Sequence[BehaviorTypeDef]] = None
@@ -3582,7 +3582,7 @@ class CreateSecurityProfileRequestRequestTypeDef(BaseModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     metricsExportConfig: Optional[MetricsExportConfigTypeDef] = None
 
-class DescribeSecurityProfileResponseTypeDef(BaseModel):
+class DescribeSecurityProfileResponseTypeDef(BaseValidatorModel):
     securityProfileName: str
     securityProfileArn: str
     securityProfileDescription: str
@@ -3596,7 +3596,7 @@ class DescribeSecurityProfileResponseTypeDef(BaseModel):
     metricsExportConfig: MetricsExportConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSecurityProfileRequestRequestTypeDef(BaseModel):
+class UpdateSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     securityProfileName: str
     securityProfileDescription: Optional[str] = None
     behaviors: Optional[Sequence[BehaviorTypeDef]] = None
@@ -3610,7 +3610,7 @@ class UpdateSecurityProfileRequestRequestTypeDef(BaseModel):
     metricsExportConfig: Optional[MetricsExportConfigTypeDef] = None
     deleteMetricsExportConfig: Optional[bool] = None
 
-class UpdateSecurityProfileResponseTypeDef(BaseModel):
+class UpdateSecurityProfileResponseTypeDef(BaseValidatorModel):
     securityProfileName: str
     securityProfileArn: str
     securityProfileDescription: str
@@ -3624,10 +3624,10 @@ class UpdateSecurityProfileResponseTypeDef(BaseModel):
     metricsExportConfig: MetricsExportConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ValidateSecurityProfileBehaviorsRequestRequestTypeDef(BaseModel):
+class ValidateSecurityProfileBehaviorsRequestRequestTypeDef(BaseValidatorModel):
     behaviors: Sequence[BehaviorTypeDef]
 
-class ViolationEventTypeDef(BaseModel):
+class ViolationEventTypeDef(BaseValidatorModel):
     violationId: Optional[str] = None
     thingName: Optional[str] = None
     securityProfileName: Optional[str] = None
@@ -3639,12 +3639,12 @@ class ViolationEventTypeDef(BaseModel):
     verificationStateDescription: Optional[str] = None
     violationEventTime: Optional[datetime] = None
 
-class CodeSigningTypeDef(BaseModel):
+class CodeSigningTypeDef(BaseValidatorModel):
     awsSignerJobId: Optional[str] = None
     startSigningJobParameter: Optional[StartSigningJobParameterTypeDef] = None
     customCodeSigning: Optional[CustomCodeSigningTypeDef] = None
 
-class CreateJobRequestRequestTypeDef(BaseModel):
+class CreateJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     targets: Sequence[str]
     documentSource: Optional[str] = None
@@ -3663,7 +3663,7 @@ class CreateJobRequestRequestTypeDef(BaseModel):
     schedulingConfig: Optional[SchedulingConfigTypeDef] = None
     destinationPackageVersions: Optional[Sequence[str]] = None
 
-class CreateJobTemplateRequestRequestTypeDef(BaseModel):
+class CreateJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     jobTemplateId: str
     description: str
     jobArn: Optional[str] = None
@@ -3678,7 +3678,7 @@ class CreateJobTemplateRequestRequestTypeDef(BaseModel):
     maintenanceWindows: Optional[Sequence[MaintenanceWindowTypeDef]] = None
     destinationPackageVersions: Optional[Sequence[str]] = None
 
-class DescribeJobTemplateResponseTypeDef(BaseModel):
+class DescribeJobTemplateResponseTypeDef(BaseValidatorModel):
     jobTemplateArn: str
     jobTemplateId: str
     description: str
@@ -3694,7 +3694,7 @@ class DescribeJobTemplateResponseTypeDef(BaseModel):
     destinationPackageVersions: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JobTypeDef(BaseModel):
+class JobTypeDef(BaseValidatorModel):
     jobArn: Optional[str] = None
     jobId: Optional[str] = None
     targetSelection: Optional[TargetSelectionType] = None
@@ -3721,7 +3721,7 @@ class JobTypeDef(BaseModel):
     scheduledJobRollouts: Optional[List[ScheduledJobRolloutTypeDef]] = None
     destinationPackageVersions: Optional[List[str]] = None
 
-class UpdateJobRequestRequestTypeDef(BaseModel):
+class UpdateJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     description: Optional[str] = None
     presignedUrlConfig: Optional[PresignedUrlConfigTypeDef] = None
@@ -3731,20 +3731,20 @@ class UpdateJobRequestRequestTypeDef(BaseModel):
     namespaceId: Optional[str] = None
     jobExecutionsRetryConfig: Optional[JobExecutionsRetryConfigTypeDef] = None
 
-class DescribeStreamResponseTypeDef(BaseModel):
+class DescribeStreamResponseTypeDef(BaseValidatorModel):
     streamInfo: StreamInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIndexingConfigurationResponseTypeDef(BaseModel):
+class GetIndexingConfigurationResponseTypeDef(BaseValidatorModel):
     thingIndexingConfiguration: ThingIndexingConfigurationTypeDef
     thingGroupIndexingConfiguration: ThingGroupIndexingConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateIndexingConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateIndexingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     thingIndexingConfiguration: Optional[ThingIndexingConfigurationTypeDef] = None
     thingGroupIndexingConfiguration: Optional[ThingGroupIndexingConfigurationTypeDef] = None
 
-class DetectMitigationActionsTaskSummaryPaginatorTypeDef(BaseModel):
+class DetectMitigationActionsTaskSummaryPaginatorTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     taskStatus: Optional[DetectMitigationActionsTaskStatusType] = None
     taskStartTime: Optional[datetime] = None
@@ -3756,7 +3756,7 @@ class DetectMitigationActionsTaskSummaryPaginatorTypeDef(BaseModel):
     actionsDefinition: Optional[List[MitigationActionPaginatorTypeDef]] = None
     taskStatistics: Optional[DetectMitigationActionsTaskStatisticsTypeDef] = None
 
-class DescribeAuditMitigationActionsTaskResponseTypeDef(BaseModel):
+class DescribeAuditMitigationActionsTaskResponseTypeDef(BaseValidatorModel):
     taskStatus: AuditMitigationActionsTaskStatusType
     startTime: datetime
     endTime: datetime
@@ -3766,7 +3766,7 @@ class DescribeAuditMitigationActionsTaskResponseTypeDef(BaseModel):
     actionsDefinition: List[MitigationActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetectMitigationActionsTaskSummaryTypeDef(BaseModel):
+class DetectMitigationActionsTaskSummaryTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     taskStatus: Optional[DetectMitigationActionsTaskStatusType] = None
     taskStartTime: Optional[datetime] = None
@@ -3778,12 +3778,12 @@ class DetectMitigationActionsTaskSummaryTypeDef(BaseModel):
     actionsDefinition: Optional[List[MitigationActionTypeDef]] = None
     taskStatistics: Optional[DetectMitigationActionsTaskStatisticsTypeDef] = None
 
-class ListAuditSuppressionsResponseTypeDef(BaseModel):
+class ListAuditSuppressionsResponseTypeDef(BaseValidatorModel):
     suppressions: List[AuditSuppressionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AuditFindingTypeDef(BaseModel):
+class AuditFindingTypeDef(BaseValidatorModel):
     findingId: Optional[str] = None
     taskId: Optional[str] = None
     checkName: Optional[str] = None
@@ -3796,16 +3796,16 @@ class AuditFindingTypeDef(BaseModel):
     reasonForNonComplianceCode: Optional[str] = None
     isSuppressed: Optional[bool] = None
 
-class ListRelatedResourcesForAuditFindingResponseTypeDef(BaseModel):
+class ListRelatedResourcesForAuditFindingResponseTypeDef(BaseValidatorModel):
     relatedResources: List[RelatedResourceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestAuthorizationResponseTypeDef(BaseModel):
+class TestAuthorizationResponseTypeDef(BaseValidatorModel):
     authResults: List[AuthResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ActionTypeDef(BaseModel):
+class ActionTypeDef(BaseValidatorModel):
     dynamoDB: Optional[DynamoDBActionTypeDef] = None
     dynamoDBv2: Optional[DynamoDBv2ActionTypeDef] = None
     lambda: Optional[LambdaActionTypeDef] = None
@@ -3830,27 +3830,27 @@ class ActionTypeDef(BaseModel):
     openSearch: Optional[OpenSearchActionTypeDef] = None
     location: Optional[LocationActionTypeDef] = None
 
-class ListActiveViolationsResponsePaginatorTypeDef(BaseModel):
+class ListActiveViolationsResponsePaginatorTypeDef(BaseValidatorModel):
     activeViolations: List[ActiveViolationPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListViolationEventsResponsePaginatorTypeDef(BaseModel):
+class ListViolationEventsResponsePaginatorTypeDef(BaseValidatorModel):
     violationEvents: List[ViolationEventPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListActiveViolationsResponseTypeDef(BaseModel):
+class ListActiveViolationsResponseTypeDef(BaseValidatorModel):
     activeViolations: List[ActiveViolationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListViolationEventsResponseTypeDef(BaseModel):
+class ListViolationEventsResponseTypeDef(BaseValidatorModel):
     violationEvents: List[ViolationEventTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OTAUpdateFileTypeDef(BaseModel):
+class OTAUpdateFileTypeDef(BaseValidatorModel):
     fileName: Optional[str] = None
     fileType: Optional[int] = None
     fileVersion: Optional[str] = None
@@ -3858,35 +3858,35 @@ class OTAUpdateFileTypeDef(BaseModel):
     codeSigning: Optional[CodeSigningTypeDef] = None
     attributes: Optional[Mapping[str, str]] = None
 
-class DescribeJobResponseTypeDef(BaseModel):
+class DescribeJobResponseTypeDef(BaseValidatorModel):
     documentSource: str
     job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDetectMitigationActionsTasksResponsePaginatorTypeDef(BaseModel):
+class ListDetectMitigationActionsTasksResponsePaginatorTypeDef(BaseValidatorModel):
     tasks: List[DetectMitigationActionsTaskSummaryPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDetectMitigationActionsTaskResponseTypeDef(BaseModel):
+class DescribeDetectMitigationActionsTaskResponseTypeDef(BaseValidatorModel):
     taskSummary: DetectMitigationActionsTaskSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDetectMitigationActionsTasksResponseTypeDef(BaseModel):
+class ListDetectMitigationActionsTasksResponseTypeDef(BaseValidatorModel):
     tasks: List[DetectMitigationActionsTaskSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAuditFindingResponseTypeDef(BaseModel):
+class DescribeAuditFindingResponseTypeDef(BaseValidatorModel):
     finding: AuditFindingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAuditFindingsResponseTypeDef(BaseModel):
+class ListAuditFindingsResponseTypeDef(BaseValidatorModel):
     findings: List[AuditFindingTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TopicRulePayloadTypeDef(BaseModel):
+class TopicRulePayloadTypeDef(BaseValidatorModel):
     sql: str
     actions: Sequence[ActionTypeDef]
     description: Optional[str] = None
@@ -3894,7 +3894,7 @@ class TopicRulePayloadTypeDef(BaseModel):
     awsIotSqlVersion: Optional[str] = None
     errorAction: Optional[ActionTypeDef] = None
 
-class TopicRuleTypeDef(BaseModel):
+class TopicRuleTypeDef(BaseValidatorModel):
     ruleName: Optional[str] = None
     sql: Optional[str] = None
     description: Optional[str] = None
@@ -3904,7 +3904,7 @@ class TopicRuleTypeDef(BaseModel):
     awsIotSqlVersion: Optional[str] = None
     errorAction: Optional[ActionTypeDef] = None
 
-class CreateOTAUpdateRequestRequestTypeDef(BaseModel):
+class CreateOTAUpdateRequestRequestTypeDef(BaseValidatorModel):
     otaUpdateId: str
     targets: Sequence[str]
     files: Sequence[OTAUpdateFileTypeDef]
@@ -3919,7 +3919,7 @@ class CreateOTAUpdateRequestRequestTypeDef(BaseModel):
     additionalParameters: Optional[Mapping[str, str]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class OTAUpdateInfoTypeDef(BaseModel):
+class OTAUpdateInfoTypeDef(BaseValidatorModel):
     otaUpdateId: Optional[str] = None
     otaUpdateArn: Optional[str] = None
     creationDate: Optional[datetime] = None
@@ -3937,21 +3937,21 @@ class OTAUpdateInfoTypeDef(BaseModel):
     errorInfo: Optional[ErrorInfoTypeDef] = None
     additionalParameters: Optional[Dict[str, str]] = None
 
-class CreateTopicRuleRequestRequestTypeDef(BaseModel):
+class CreateTopicRuleRequestRequestTypeDef(BaseValidatorModel):
     ruleName: str
     topicRulePayload: TopicRulePayloadTypeDef
     tags: Optional[str] = None
 
-class ReplaceTopicRuleRequestRequestTypeDef(BaseModel):
+class ReplaceTopicRuleRequestRequestTypeDef(BaseValidatorModel):
     ruleName: str
     topicRulePayload: TopicRulePayloadTypeDef
 
-class GetTopicRuleResponseTypeDef(BaseModel):
+class GetTopicRuleResponseTypeDef(BaseValidatorModel):
     ruleArn: str
     rule: TopicRuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOTAUpdateResponseTypeDef(BaseModel):
+class GetOTAUpdateResponseTypeDef(BaseValidatorModel):
     otaUpdateInfo: OTAUpdateInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

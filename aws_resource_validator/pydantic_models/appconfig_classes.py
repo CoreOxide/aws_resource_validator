@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.appconfig_constants import *
 
-class ActionInvocationTypeDef(BaseModel):
+class ActionInvocationTypeDef(BaseValidatorModel):
     ExtensionIdentifier: Optional[str] = None
     ActionName: Optional[str] = None
     Uri: Optional[str] = None
@@ -20,31 +20,31 @@ class ActionInvocationTypeDef(BaseModel):
     ErrorCode: Optional[str] = None
     InvocationId: Optional[str] = None
 
-class ActionTypeDef(BaseModel):
+class ActionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Uri: Optional[str] = None
     RoleArn: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ApplicationTypeDef(BaseModel):
+class ApplicationTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
 
-class AppliedExtensionTypeDef(BaseModel):
+class AppliedExtensionTypeDef(BaseValidatorModel):
     ExtensionId: Optional[str] = None
     ExtensionAssociationId: Optional[str] = None
     VersionNumber: Optional[int] = None
     Parameters: Optional[Dict[str, str]] = None
 
-class ConfigurationProfileSummaryTypeDef(BaseModel):
+class ConfigurationProfileSummaryTypeDef(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -52,16 +52,16 @@ class ConfigurationProfileSummaryTypeDef(BaseModel):
     ValidatorTypes: Optional[List[ValidatorTypeType]] = None
     Type: Optional[str] = None
 
-class ValidatorTypeDef(BaseModel):
+class ValidatorTypeDef(BaseValidatorModel):
     Type: ValidatorTypeType
     Content: str
 
-class CreateApplicationRequestRequestTypeDef(BaseModel):
+class CreateApplicationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateDeploymentStrategyRequestRequestTypeDef(BaseModel):
+class CreateDeploymentStrategyRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     DeploymentDurationInMinutes: int
     GrowthFactor: float
@@ -71,49 +71,49 @@ class CreateDeploymentStrategyRequestRequestTypeDef(BaseModel):
     ReplicateTo: Optional[ReplicateToType] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class MonitorTypeDef(BaseModel):
+class MonitorTypeDef(BaseValidatorModel):
     AlarmArn: str
     AlarmRoleArn: Optional[str] = None
 
-class CreateExtensionAssociationRequestRequestTypeDef(BaseModel):
+class CreateExtensionAssociationRequestRequestTypeDef(BaseValidatorModel):
     ExtensionIdentifier: str
     ResourceIdentifier: str
     ExtensionVersionNumber: Optional[int] = None
     Parameters: Optional[Mapping[str, str]] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ParameterTypeDef(BaseModel):
+class ParameterTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Required: Optional[bool] = None
     Dynamic: Optional[bool] = None
 
-class DeleteApplicationRequestRequestTypeDef(BaseModel):
+class DeleteApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class DeleteConfigurationProfileRequestRequestTypeDef(BaseModel):
+class DeleteConfigurationProfileRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
 
-class DeleteDeploymentStrategyRequestRequestTypeDef(BaseModel):
+class DeleteDeploymentStrategyRequestRequestTypeDef(BaseValidatorModel):
     DeploymentStrategyId: str
 
-class DeleteEnvironmentRequestRequestTypeDef(BaseModel):
+class DeleteEnvironmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
 
-class DeleteExtensionAssociationRequestRequestTypeDef(BaseModel):
+class DeleteExtensionAssociationRequestRequestTypeDef(BaseValidatorModel):
     ExtensionAssociationId: str
 
-class DeleteExtensionRequestRequestTypeDef(BaseModel):
+class DeleteExtensionRequestRequestTypeDef(BaseValidatorModel):
     ExtensionIdentifier: str
     VersionNumber: Optional[int] = None
 
-class DeleteHostedConfigurationVersionRequestRequestTypeDef(BaseModel):
+class DeleteHostedConfigurationVersionRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     VersionNumber: int
 
-class DeploymentStrategyTypeDef(BaseModel):
+class DeploymentStrategyTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -123,7 +123,7 @@ class DeploymentStrategyTypeDef(BaseModel):
     FinalBakeTimeInMinutes: Optional[int] = None
     ReplicateTo: Optional[ReplicateToType] = None
 
-class DeploymentSummaryTypeDef(BaseModel):
+class DeploymentSummaryTypeDef(BaseValidatorModel):
     DeploymentNumber: Optional[int] = None
     ConfigurationName: Optional[str] = None
     ConfigurationVersion: Optional[str] = None
@@ -137,57 +137,57 @@ class DeploymentSummaryTypeDef(BaseModel):
     CompletedAt: Optional[datetime] = None
     VersionLabel: Optional[str] = None
 
-class ExtensionAssociationSummaryTypeDef(BaseModel):
+class ExtensionAssociationSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     ExtensionArn: Optional[str] = None
     ResourceArn: Optional[str] = None
 
-class ExtensionSummaryTypeDef(BaseModel):
+class ExtensionSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     VersionNumber: Optional[int] = None
     Arn: Optional[str] = None
     Description: Optional[str] = None
 
-class GetApplicationRequestRequestTypeDef(BaseModel):
+class GetApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetConfigurationProfileRequestRequestTypeDef(BaseModel):
+class GetConfigurationProfileRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
 
-class GetConfigurationRequestRequestTypeDef(BaseModel):
+class GetConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Application: str
     Environment: str
     Configuration: str
     ClientId: str
     ClientConfigurationVersion: Optional[str] = None
 
-class GetDeploymentRequestRequestTypeDef(BaseModel):
+class GetDeploymentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
     DeploymentNumber: int
 
-class GetDeploymentStrategyRequestRequestTypeDef(BaseModel):
+class GetDeploymentStrategyRequestRequestTypeDef(BaseValidatorModel):
     DeploymentStrategyId: str
 
-class GetEnvironmentRequestRequestTypeDef(BaseModel):
+class GetEnvironmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
 
-class GetExtensionAssociationRequestRequestTypeDef(BaseModel):
+class GetExtensionAssociationRequestRequestTypeDef(BaseValidatorModel):
     ExtensionAssociationId: str
 
-class GetExtensionRequestRequestTypeDef(BaseModel):
+class GetExtensionRequestRequestTypeDef(BaseValidatorModel):
     ExtensionIdentifier: str
     VersionNumber: Optional[int] = None
 
-class GetHostedConfigurationVersionRequestRequestTypeDef(BaseModel):
+class GetHostedConfigurationVersionRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     VersionNumber: int
 
-class HostedConfigurationVersionSummaryTypeDef(BaseModel):
+class HostedConfigurationVersionSummaryTypeDef(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ConfigurationProfileId: Optional[str] = None
     VersionNumber: Optional[int] = None
@@ -196,59 +196,59 @@ class HostedConfigurationVersionSummaryTypeDef(BaseModel):
     VersionLabel: Optional[str] = None
     KmsKeyArn: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListApplicationsRequestRequestTypeDef(BaseModel):
+class ListApplicationsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListConfigurationProfilesRequestRequestTypeDef(BaseModel):
+class ListConfigurationProfilesRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Type: Optional[str] = None
 
-class ListDeploymentStrategiesRequestRequestTypeDef(BaseModel):
+class ListDeploymentStrategiesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListDeploymentsRequestRequestTypeDef(BaseModel):
+class ListDeploymentsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListEnvironmentsRequestRequestTypeDef(BaseModel):
+class ListEnvironmentsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListExtensionAssociationsRequestRequestTypeDef(BaseModel):
+class ListExtensionAssociationsRequestRequestTypeDef(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
     ExtensionIdentifier: Optional[str] = None
     ExtensionVersionNumber: Optional[int] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListExtensionsRequestRequestTypeDef(BaseModel):
+class ListExtensionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Name: Optional[str] = None
 
-class ListHostedConfigurationVersionsRequestRequestTypeDef(BaseModel):
+class ListHostedConfigurationVersionsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     VersionLabel: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class StartDeploymentRequestRequestTypeDef(BaseModel):
+class StartDeploymentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
     DeploymentStrategyId: str
@@ -259,25 +259,25 @@ class StartDeploymentRequestRequestTypeDef(BaseModel):
     KmsKeyIdentifier: Optional[str] = None
     DynamicExtensionParameters: Optional[Mapping[str, str]] = None
 
-class StopDeploymentRequestRequestTypeDef(BaseModel):
+class StopDeploymentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
     DeploymentNumber: int
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateApplicationRequestRequestTypeDef(BaseModel):
+class UpdateApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
-class UpdateDeploymentStrategyRequestRequestTypeDef(BaseModel):
+class UpdateDeploymentStrategyRequestRequestTypeDef(BaseValidatorModel):
     DeploymentStrategyId: str
     Description: Optional[str] = None
     DeploymentDurationInMinutes: Optional[int] = None
@@ -285,35 +285,35 @@ class UpdateDeploymentStrategyRequestRequestTypeDef(BaseModel):
     GrowthFactor: Optional[float] = None
     GrowthType: Optional[GrowthTypeType] = None
 
-class UpdateExtensionAssociationRequestRequestTypeDef(BaseModel):
+class UpdateExtensionAssociationRequestRequestTypeDef(BaseValidatorModel):
     ExtensionAssociationId: str
     Parameters: Optional[Mapping[str, str]] = None
 
-class ValidateConfigurationRequestRequestTypeDef(BaseModel):
+class ValidateConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     ConfigurationVersion: str
 
-class DeploymentEventTypeDef(BaseModel):
+class DeploymentEventTypeDef(BaseValidatorModel):
     EventType: Optional[DeploymentEventTypeType] = None
     TriggeredBy: Optional[TriggeredByType] = None
     Description: Optional[str] = None
     ActionInvocations: Optional[List[ActionInvocationTypeDef]] = None
     OccurredAt: Optional[datetime] = None
 
-class ApplicationResponseTypeDef(BaseModel):
+class ApplicationResponseTypeDef(BaseValidatorModel):
     Id: str
     Name: str
     Description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfigurationTypeDef(BaseModel):
+class ConfigurationTypeDef(BaseValidatorModel):
     Content: StreamingBody
     ConfigurationVersion: str
     ContentType: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeploymentStrategyResponseTypeDef(BaseModel):
+class DeploymentStrategyResponseTypeDef(BaseValidatorModel):
     Id: str
     Name: str
     Description: str
@@ -324,10 +324,10 @@ class DeploymentStrategyResponseTypeDef(BaseModel):
     ReplicateTo: ReplicateToType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExtensionAssociationTypeDef(BaseModel):
+class ExtensionAssociationTypeDef(BaseValidatorModel):
     Id: str
     ExtensionArn: str
     ResourceArn: str
@@ -336,7 +336,7 @@ class ExtensionAssociationTypeDef(BaseModel):
     ExtensionVersionNumber: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HostedConfigurationVersionTypeDef(BaseModel):
+class HostedConfigurationVersionTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     VersionNumber: int
@@ -347,16 +347,16 @@ class HostedConfigurationVersionTypeDef(BaseModel):
     KmsKeyArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResourceTagsTypeDef(BaseModel):
+class ResourceTagsTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ApplicationsTypeDef(BaseModel):
+class ApplicationsTypeDef(BaseValidatorModel):
     Items: List[ApplicationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHostedConfigurationVersionRequestRequestTypeDef(BaseModel):
+class CreateHostedConfigurationVersionRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     Content: BlobTypeDef
@@ -365,12 +365,12 @@ class CreateHostedConfigurationVersionRequestRequestTypeDef(BaseModel):
     LatestVersionNumber: Optional[int] = None
     VersionLabel: Optional[str] = None
 
-class ConfigurationProfilesTypeDef(BaseModel):
+class ConfigurationProfilesTypeDef(BaseValidatorModel):
     Items: List[ConfigurationProfileSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfigurationProfileTypeDef(BaseModel):
+class ConfigurationProfileTypeDef(BaseValidatorModel):
     ApplicationId: str
     Id: str
     Name: str
@@ -383,7 +383,7 @@ class ConfigurationProfileTypeDef(BaseModel):
     KmsKeyIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConfigurationProfileRequestRequestTypeDef(BaseModel):
+class CreateConfigurationProfileRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     Name: str
     LocationUri: str
@@ -394,7 +394,7 @@ class CreateConfigurationProfileRequestRequestTypeDef(BaseModel):
     Type: Optional[str] = None
     KmsKeyIdentifier: Optional[str] = None
 
-class UpdateConfigurationProfileRequestRequestTypeDef(BaseModel):
+class UpdateConfigurationProfileRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     Name: Optional[str] = None
@@ -403,14 +403,14 @@ class UpdateConfigurationProfileRequestRequestTypeDef(BaseModel):
     Validators: Optional[Sequence[ValidatorTypeDef]] = None
     KmsKeyIdentifier: Optional[str] = None
 
-class CreateEnvironmentRequestRequestTypeDef(BaseModel):
+class CreateEnvironmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     Name: str
     Description: Optional[str] = None
     Monitors: Optional[Sequence[MonitorTypeDef]] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class EnvironmentResponseTypeDef(BaseModel):
+class EnvironmentResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     Id: str
     Name: str
@@ -419,7 +419,7 @@ class EnvironmentResponseTypeDef(BaseModel):
     Monitors: List[MonitorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnvironmentTypeDef(BaseModel):
+class EnvironmentTypeDef(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -427,14 +427,14 @@ class EnvironmentTypeDef(BaseModel):
     State: Optional[EnvironmentStateType] = None
     Monitors: Optional[List[MonitorTypeDef]] = None
 
-class UpdateEnvironmentRequestRequestTypeDef(BaseModel):
+class UpdateEnvironmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     Monitors: Optional[Sequence[MonitorTypeDef]] = None
 
-class CreateExtensionRequestRequestTypeDef(BaseModel):
+class CreateExtensionRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Actions: Mapping[ActionPointType, Sequence[ActionTypeDef]]
     Description: Optional[str] = None
@@ -442,7 +442,7 @@ class CreateExtensionRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     LatestVersionNumber: Optional[int] = None
 
-class ExtensionTypeDef(BaseModel):
+class ExtensionTypeDef(BaseValidatorModel):
     Id: str
     Name: str
     VersionNumber: int
@@ -452,75 +452,75 @@ class ExtensionTypeDef(BaseModel):
     Parameters: Dict[str, ParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateExtensionRequestRequestTypeDef(BaseModel):
+class UpdateExtensionRequestRequestTypeDef(BaseValidatorModel):
     ExtensionIdentifier: str
     Description: Optional[str] = None
     Actions: Optional[Mapping[ActionPointType, Sequence[ActionTypeDef]]] = None
     Parameters: Optional[Mapping[str, ParameterTypeDef]] = None
     VersionNumber: Optional[int] = None
 
-class DeploymentStrategiesTypeDef(BaseModel):
+class DeploymentStrategiesTypeDef(BaseValidatorModel):
     Items: List[DeploymentStrategyTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeploymentsTypeDef(BaseModel):
+class DeploymentsTypeDef(BaseValidatorModel):
     Items: List[DeploymentSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExtensionAssociationsTypeDef(BaseModel):
+class ExtensionAssociationsTypeDef(BaseValidatorModel):
     Items: List[ExtensionAssociationSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExtensionsTypeDef(BaseModel):
+class ExtensionsTypeDef(BaseValidatorModel):
     Items: List[ExtensionSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HostedConfigurationVersionsTypeDef(BaseModel):
+class HostedConfigurationVersionsTypeDef(BaseValidatorModel):
     Items: List[HostedConfigurationVersionSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationsRequestListApplicationsPaginateTypeDef(BaseModel):
+class ListApplicationsRequestListApplicationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListConfigurationProfilesRequestListConfigurationProfilesPaginateTypeDef(BaseModel):
+class ListConfigurationProfilesRequestListConfigurationProfilesPaginateTypeDef(BaseValidatorModel):
     ApplicationId: str
     Type: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDeploymentStrategiesRequestListDeploymentStrategiesPaginateTypeDef(BaseModel):
+class ListDeploymentStrategiesRequestListDeploymentStrategiesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDeploymentsRequestListDeploymentsPaginateTypeDef(BaseModel):
+class ListDeploymentsRequestListDeploymentsPaginateTypeDef(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentsRequestListEnvironmentsPaginateTypeDef(BaseModel):
+class ListEnvironmentsRequestListEnvironmentsPaginateTypeDef(BaseValidatorModel):
     ApplicationId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListExtensionAssociationsRequestListExtensionAssociationsPaginateTypeDef(BaseModel):
+class ListExtensionAssociationsRequestListExtensionAssociationsPaginateTypeDef(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
     ExtensionIdentifier: Optional[str] = None
     ExtensionVersionNumber: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListExtensionsRequestListExtensionsPaginateTypeDef(BaseModel):
+class ListExtensionsRequestListExtensionsPaginateTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHostedConfigurationVersionsRequestListHostedConfigurationVersionsPaginateTypeDef(BaseModel):
+class ListHostedConfigurationVersionsRequestListHostedConfigurationVersionsPaginateTypeDef(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     VersionLabel: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DeploymentTypeDef(BaseModel):
+class DeploymentTypeDef(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
     DeploymentStrategyId: str
@@ -545,7 +545,7 @@ class DeploymentTypeDef(BaseModel):
     VersionLabel: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnvironmentsTypeDef(BaseModel):
+class EnvironmentsTypeDef(BaseValidatorModel):
     Items: List[EnvironmentTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

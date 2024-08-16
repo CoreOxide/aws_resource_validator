@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,28 +11,28 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.polly_constants import *
 
-class DeleteLexiconInputRequestTypeDef(BaseModel):
+class DeleteLexiconInputRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeVoicesInputRequestTypeDef(BaseModel):
+class DescribeVoicesInputRequestTypeDef(BaseValidatorModel):
     Engine: Optional[EngineType] = None
     LanguageCode: Optional[LanguageCodeType] = None
     IncludeAdditionalLanguageCodes: Optional[bool] = None
     NextToken: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class VoiceTypeDef(BaseModel):
+class VoiceTypeDef(BaseValidatorModel):
     Gender: Optional[GenderType] = None
     Id: Optional[VoiceIdType] = None
     LanguageCode: Optional[LanguageCodeType] = None
@@ -41,10 +41,10 @@ class VoiceTypeDef(BaseModel):
     AdditionalLanguageCodes: Optional[List[LanguageCodeType]] = None
     SupportedEngines: Optional[List[EngineType]] = None
 
-class GetLexiconInputRequestTypeDef(BaseModel):
+class GetLexiconInputRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class LexiconAttributesTypeDef(BaseModel):
+class LexiconAttributesTypeDef(BaseValidatorModel):
     Alphabet: Optional[str] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LastModified: Optional[datetime] = None
@@ -52,14 +52,14 @@ class LexiconAttributesTypeDef(BaseModel):
     LexemesCount: Optional[int] = None
     Size: Optional[int] = None
 
-class LexiconTypeDef(BaseModel):
+class LexiconTypeDef(BaseValidatorModel):
     Content: Optional[str] = None
     Name: Optional[str] = None
 
-class GetSpeechSynthesisTaskInputRequestTypeDef(BaseModel):
+class GetSpeechSynthesisTaskInputRequestTypeDef(BaseValidatorModel):
     TaskId: str
 
-class SynthesisTaskTypeDef(BaseModel):
+class SynthesisTaskTypeDef(BaseValidatorModel):
     Engine: Optional[EngineType] = None
     TaskId: Optional[str] = None
     TaskStatus: Optional[TaskStatusType] = None
@@ -76,19 +76,19 @@ class SynthesisTaskTypeDef(BaseModel):
     VoiceId: Optional[VoiceIdType] = None
     LanguageCode: Optional[LanguageCodeType] = None
 
-class ListLexiconsInputRequestTypeDef(BaseModel):
+class ListLexiconsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class ListSpeechSynthesisTasksInputRequestTypeDef(BaseModel):
+class ListSpeechSynthesisTasksInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Status: Optional[TaskStatusType] = None
 
-class PutLexiconInputRequestTypeDef(BaseModel):
+class PutLexiconInputRequestTypeDef(BaseValidatorModel):
     Name: str
     Content: str
 
-class StartSpeechSynthesisTaskInputRequestTypeDef(BaseModel):
+class StartSpeechSynthesisTaskInputRequestTypeDef(BaseValidatorModel):
     OutputFormat: OutputFormatType
     OutputS3BucketName: str
     Text: str
@@ -102,7 +102,7 @@ class StartSpeechSynthesisTaskInputRequestTypeDef(BaseModel):
     SpeechMarkTypes: Optional[Sequence[SpeechMarkTypeType]] = None
     TextType: Optional[TextTypeType] = None
 
-class SynthesizeSpeechInputRequestTypeDef(BaseModel):
+class SynthesizeSpeechInputRequestTypeDef(BaseValidatorModel):
     OutputFormat: OutputFormatType
     Text: str
     VoiceId: VoiceIdType
@@ -113,53 +113,53 @@ class SynthesizeSpeechInputRequestTypeDef(BaseModel):
     SpeechMarkTypes: Optional[Sequence[SpeechMarkTypeType]] = None
     TextType: Optional[TextTypeType] = None
 
-class DescribeVoicesInputDescribeVoicesPaginateTypeDef(BaseModel):
+class DescribeVoicesInputDescribeVoicesPaginateTypeDef(BaseValidatorModel):
     Engine: Optional[EngineType] = None
     LanguageCode: Optional[LanguageCodeType] = None
     IncludeAdditionalLanguageCodes: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLexiconsInputListLexiconsPaginateTypeDef(BaseModel):
+class ListLexiconsInputListLexiconsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSpeechSynthesisTasksInputListSpeechSynthesisTasksPaginateTypeDef(BaseModel):
+class ListSpeechSynthesisTasksInputListSpeechSynthesisTasksPaginateTypeDef(BaseValidatorModel):
     Status: Optional[TaskStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SynthesizeSpeechOutputTypeDef(BaseModel):
+class SynthesizeSpeechOutputTypeDef(BaseValidatorModel):
     AudioStream: StreamingBody
     ContentType: str
     RequestCharacters: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVoicesOutputTypeDef(BaseModel):
+class DescribeVoicesOutputTypeDef(BaseValidatorModel):
     Voices: List[VoiceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LexiconDescriptionTypeDef(BaseModel):
+class LexiconDescriptionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Attributes: Optional[LexiconAttributesTypeDef] = None
 
-class GetLexiconOutputTypeDef(BaseModel):
+class GetLexiconOutputTypeDef(BaseValidatorModel):
     Lexicon: LexiconTypeDef
     LexiconAttributes: LexiconAttributesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSpeechSynthesisTaskOutputTypeDef(BaseModel):
+class GetSpeechSynthesisTaskOutputTypeDef(BaseValidatorModel):
     SynthesisTask: SynthesisTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSpeechSynthesisTasksOutputTypeDef(BaseModel):
+class ListSpeechSynthesisTasksOutputTypeDef(BaseValidatorModel):
     SynthesisTasks: List[SynthesisTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class StartSpeechSynthesisTaskOutputTypeDef(BaseModel):
+class StartSpeechSynthesisTaskOutputTypeDef(BaseValidatorModel):
     SynthesisTask: SynthesisTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLexiconsOutputTypeDef(BaseModel):
+class ListLexiconsOutputTypeDef(BaseValidatorModel):
     Lexicons: List[LexiconDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

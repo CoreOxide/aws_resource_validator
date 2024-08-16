@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,254 +11,254 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.compute_optimizer_constants import *
 
-class AccountEnrollmentStatusTypeDef(BaseModel):
+class AccountEnrollmentStatusTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
     status: Optional[StatusType] = None
     statusReason: Optional[str] = None
     lastUpdatedTimestamp: Optional[datetime] = None
 
-class AutoScalingGroupConfigurationTypeDef(BaseModel):
+class AutoScalingGroupConfigurationTypeDef(BaseValidatorModel):
     desiredCapacity: Optional[int] = None
     minSize: Optional[int] = None
     maxSize: Optional[int] = None
     instanceType: Optional[str] = None
 
-class AutoScalingGroupEstimatedMonthlySavingsTypeDef(BaseModel):
+class AutoScalingGroupEstimatedMonthlySavingsTypeDef(BaseValidatorModel):
     currency: Optional[CurrencyType] = None
     value: Optional[float] = None
 
-class UtilizationMetricTypeDef(BaseModel):
+class UtilizationMetricTypeDef(BaseValidatorModel):
     name: Optional[MetricNameType] = None
     statistic: Optional[MetricStatisticType] = None
     value: Optional[float] = None
 
-class MemorySizeConfigurationTypeDef(BaseModel):
+class MemorySizeConfigurationTypeDef(BaseValidatorModel):
     memory: Optional[int] = None
     memoryReservation: Optional[int] = None
 
-class CurrentPerformanceRiskRatingsTypeDef(BaseModel):
+class CurrentPerformanceRiskRatingsTypeDef(BaseValidatorModel):
     high: Optional[int] = None
     medium: Optional[int] = None
     low: Optional[int] = None
     veryLow: Optional[int] = None
 
-class CustomizableMetricParametersTypeDef(BaseModel):
+class CustomizableMetricParametersTypeDef(BaseValidatorModel):
     threshold: Optional[CustomizableMetricThresholdType] = None
     headroom: Optional[CustomizableMetricHeadroomType] = None
 
-class DBStorageConfigurationTypeDef(BaseModel):
+class DBStorageConfigurationTypeDef(BaseValidatorModel):
     storageType: Optional[str] = None
     allocatedStorage: Optional[int] = None
     iops: Optional[int] = None
     maxAllocatedStorage: Optional[int] = None
     storageThroughput: Optional[int] = None
 
-class ScopeTypeDef(BaseModel):
+class ScopeTypeDef(BaseValidatorModel):
     name: Optional[ScopeNameType] = None
     value: Optional[str] = None
 
-class JobFilterTypeDef(BaseModel):
+class JobFilterTypeDef(BaseValidatorModel):
     name: Optional[JobFilterNameType] = None
     values: Optional[Sequence[str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class EBSSavingsEstimationModeTypeDef(BaseModel):
+class EBSSavingsEstimationModeTypeDef(BaseValidatorModel):
     source: Optional[EBSSavingsEstimationModeSourceType] = None
 
-class EBSEstimatedMonthlySavingsTypeDef(BaseModel):
+class EBSEstimatedMonthlySavingsTypeDef(BaseValidatorModel):
     currency: Optional[CurrencyType] = None
     value: Optional[float] = None
 
-class EBSFilterTypeDef(BaseModel):
+class EBSFilterTypeDef(BaseValidatorModel):
     name: Optional[Literal["Finding"]] = None
     values: Optional[Sequence[str]] = None
 
-class EBSUtilizationMetricTypeDef(BaseModel):
+class EBSUtilizationMetricTypeDef(BaseValidatorModel):
     name: Optional[EBSMetricNameType] = None
     statistic: Optional[MetricStatisticType] = None
     value: Optional[float] = None
 
-class ECSSavingsEstimationModeTypeDef(BaseModel):
+class ECSSavingsEstimationModeTypeDef(BaseValidatorModel):
     source: Optional[ECSSavingsEstimationModeSourceType] = None
 
-class ECSEstimatedMonthlySavingsTypeDef(BaseModel):
+class ECSEstimatedMonthlySavingsTypeDef(BaseValidatorModel):
     currency: Optional[CurrencyType] = None
     value: Optional[float] = None
 
-class ECSServiceProjectedMetricTypeDef(BaseModel):
+class ECSServiceProjectedMetricTypeDef(BaseValidatorModel):
     name: Optional[ECSServiceMetricNameType] = None
     timestamps: Optional[List[datetime]] = None
     upperBoundValues: Optional[List[float]] = None
     lowerBoundValues: Optional[List[float]] = None
 
-class ECSServiceProjectedUtilizationMetricTypeDef(BaseModel):
+class ECSServiceProjectedUtilizationMetricTypeDef(BaseValidatorModel):
     name: Optional[ECSServiceMetricNameType] = None
     statistic: Optional[ECSServiceMetricStatisticType] = None
     lowerBoundValue: Optional[float] = None
     upperBoundValue: Optional[float] = None
 
-class ECSServiceRecommendationFilterTypeDef(BaseModel):
+class ECSServiceRecommendationFilterTypeDef(BaseValidatorModel):
     name: Optional[ECSServiceRecommendationFilterNameType] = None
     values: Optional[Sequence[str]] = None
 
-class ECSServiceUtilizationMetricTypeDef(BaseModel):
+class ECSServiceUtilizationMetricTypeDef(BaseValidatorModel):
     name: Optional[ECSServiceMetricNameType] = None
     statistic: Optional[ECSServiceMetricStatisticType] = None
     value: Optional[float] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
-class EffectivePreferredResourceTypeDef(BaseModel):
+class EffectivePreferredResourceTypeDef(BaseValidatorModel):
     name: Optional[Literal["Ec2InstanceTypes"]] = None
     includeList: Optional[List[str]] = None
     effectiveIncludeList: Optional[List[str]] = None
     excludeList: Optional[List[str]] = None
 
-class ExternalMetricsPreferenceTypeDef(BaseModel):
+class ExternalMetricsPreferenceTypeDef(BaseValidatorModel):
     source: Optional[ExternalMetricsSourceType] = None
 
-class InstanceSavingsEstimationModeTypeDef(BaseModel):
+class InstanceSavingsEstimationModeTypeDef(BaseValidatorModel):
     source: Optional[InstanceSavingsEstimationModeSourceType] = None
 
-class EnrollmentFilterTypeDef(BaseModel):
+class EnrollmentFilterTypeDef(BaseValidatorModel):
     name: Optional[Literal["Status"]] = None
     values: Optional[Sequence[str]] = None
 
-class EstimatedMonthlySavingsTypeDef(BaseModel):
+class EstimatedMonthlySavingsTypeDef(BaseValidatorModel):
     currency: Optional[CurrencyType] = None
     value: Optional[float] = None
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     name: Optional[FilterNameType] = None
     values: Optional[Sequence[str]] = None
 
-class RecommendationPreferencesTypeDef(BaseModel):
+class RecommendationPreferencesTypeDef(BaseValidatorModel):
     cpuVendorArchitectures: Optional[Sequence[CpuVendorArchitectureType]] = None
 
-class S3DestinationConfigTypeDef(BaseModel):
+class S3DestinationConfigTypeDef(BaseValidatorModel):
     bucket: Optional[str] = None
     keyPrefix: Optional[str] = None
 
-class S3DestinationTypeDef(BaseModel):
+class S3DestinationTypeDef(BaseValidatorModel):
     bucket: Optional[str] = None
     key: Optional[str] = None
     metadataKey: Optional[str] = None
 
-class LambdaFunctionRecommendationFilterTypeDef(BaseModel):
+class LambdaFunctionRecommendationFilterTypeDef(BaseValidatorModel):
     name: Optional[LambdaFunctionRecommendationFilterNameType] = None
     values: Optional[Sequence[str]] = None
 
-class LicenseRecommendationFilterTypeDef(BaseModel):
+class LicenseRecommendationFilterTypeDef(BaseValidatorModel):
     name: Optional[LicenseRecommendationFilterNameType] = None
     values: Optional[Sequence[str]] = None
 
-class RDSDBRecommendationFilterTypeDef(BaseModel):
+class RDSDBRecommendationFilterTypeDef(BaseValidatorModel):
     name: Optional[RDSDBRecommendationFilterNameType] = None
     values: Optional[Sequence[str]] = None
 
-class ExternalMetricStatusTypeDef(BaseModel):
+class ExternalMetricStatusTypeDef(BaseValidatorModel):
     statusCode: Optional[ExternalMetricStatusCodeType] = None
     statusReason: Optional[str] = None
 
-class GetRecommendationErrorTypeDef(BaseModel):
+class GetRecommendationErrorTypeDef(BaseValidatorModel):
     identifier: Optional[str] = None
     code: Optional[str] = None
     message: Optional[str] = None
 
-class GetEffectiveRecommendationPreferencesRequestRequestTypeDef(BaseModel):
+class GetEffectiveRecommendationPreferencesRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class GetRecommendationSummariesRequestRequestTypeDef(BaseModel):
+class GetRecommendationSummariesRequestRequestTypeDef(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GpuTypeDef(BaseModel):
+class GpuTypeDef(BaseValidatorModel):
     gpuCount: Optional[int] = None
     gpuMemorySizeInMiB: Optional[int] = None
 
-class InstanceEstimatedMonthlySavingsTypeDef(BaseModel):
+class InstanceEstimatedMonthlySavingsTypeDef(BaseValidatorModel):
     currency: Optional[CurrencyType] = None
     value: Optional[float] = None
 
-class RecommendationSourceTypeDef(BaseModel):
+class RecommendationSourceTypeDef(BaseValidatorModel):
     recommendationSourceArn: Optional[str] = None
     recommendationSourceType: Optional[RecommendationSourceTypeType] = None
 
-class LambdaSavingsEstimationModeTypeDef(BaseModel):
+class LambdaSavingsEstimationModeTypeDef(BaseValidatorModel):
     source: Optional[LambdaSavingsEstimationModeSourceType] = None
 
-class LambdaEstimatedMonthlySavingsTypeDef(BaseModel):
+class LambdaEstimatedMonthlySavingsTypeDef(BaseValidatorModel):
     currency: Optional[CurrencyType] = None
     value: Optional[float] = None
 
-class LambdaFunctionMemoryProjectedMetricTypeDef(BaseModel):
+class LambdaFunctionMemoryProjectedMetricTypeDef(BaseValidatorModel):
     name: Optional[Literal["Duration"]] = None
     statistic: Optional[LambdaFunctionMemoryMetricStatisticType] = None
     value: Optional[float] = None
 
-class LambdaFunctionUtilizationMetricTypeDef(BaseModel):
+class LambdaFunctionUtilizationMetricTypeDef(BaseValidatorModel):
     name: Optional[LambdaFunctionMetricNameType] = None
     statistic: Optional[LambdaFunctionMetricStatisticType] = None
     value: Optional[float] = None
 
-class MetricSourceTypeDef(BaseModel):
+class MetricSourceTypeDef(BaseValidatorModel):
     provider: Optional[Literal["CloudWatchApplicationInsights"]] = None
     providerArn: Optional[str] = None
 
-class PreferredResourceTypeDef(BaseModel):
+class PreferredResourceTypeDef(BaseValidatorModel):
     name: Optional[Literal["Ec2InstanceTypes"]] = None
     includeList: Optional[Sequence[str]] = None
     excludeList: Optional[Sequence[str]] = None
 
-class ProjectedMetricTypeDef(BaseModel):
+class ProjectedMetricTypeDef(BaseValidatorModel):
     name: Optional[MetricNameType] = None
     timestamps: Optional[List[datetime]] = None
     values: Optional[List[float]] = None
 
-class RDSDBUtilizationMetricTypeDef(BaseModel):
+class RDSDBUtilizationMetricTypeDef(BaseValidatorModel):
     name: Optional[RDSDBMetricNameType] = None
     statistic: Optional[RDSDBMetricStatisticType] = None
     value: Optional[float] = None
 
-class RDSDatabaseProjectedMetricTypeDef(BaseModel):
+class RDSDatabaseProjectedMetricTypeDef(BaseValidatorModel):
     name: Optional[RDSDBMetricNameType] = None
     timestamps: Optional[List[datetime]] = None
     values: Optional[List[float]] = None
 
-class RDSSavingsEstimationModeTypeDef(BaseModel):
+class RDSSavingsEstimationModeTypeDef(BaseValidatorModel):
     source: Optional[RDSSavingsEstimationModeSourceType] = None
 
-class RDSInstanceEstimatedMonthlySavingsTypeDef(BaseModel):
+class RDSInstanceEstimatedMonthlySavingsTypeDef(BaseValidatorModel):
     currency: Optional[CurrencyType] = None
     value: Optional[float] = None
 
-class RDSStorageEstimatedMonthlySavingsTypeDef(BaseModel):
+class RDSStorageEstimatedMonthlySavingsTypeDef(BaseValidatorModel):
     currency: Optional[CurrencyType] = None
     value: Optional[float] = None
 
-class ReasonCodeSummaryTypeDef(BaseModel):
+class ReasonCodeSummaryTypeDef(BaseValidatorModel):
     name: Optional[FindingReasonCodeType] = None
     value: Optional[float] = None
 
-class UpdateEnrollmentStatusRequestRequestTypeDef(BaseModel):
+class UpdateEnrollmentStatusRequestRequestTypeDef(BaseValidatorModel):
     status: StatusType
     includeMemberAccounts: Optional[bool] = None
 
-class VolumeConfigurationTypeDef(BaseModel):
+class VolumeConfigurationTypeDef(BaseValidatorModel):
     volumeType: Optional[str] = None
     volumeSize: Optional[int] = None
     volumeBaselineIOPS: Optional[int] = None
@@ -267,56 +267,56 @@ class VolumeConfigurationTypeDef(BaseModel):
     volumeBurstThroughput: Optional[int] = None
     rootVolume: Optional[bool] = None
 
-class AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef(BaseModel):
+class AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef(BaseValidatorModel):
     savingsOpportunityPercentage: Optional[float] = None
     estimatedMonthlySavings: Optional[AutoScalingGroupEstimatedMonthlySavingsTypeDef] = None
 
-class ContainerConfigurationTypeDef(BaseModel):
+class ContainerConfigurationTypeDef(BaseValidatorModel):
     containerName: Optional[str] = None
     memorySizeConfiguration: Optional[MemorySizeConfigurationTypeDef] = None
     cpu: Optional[int] = None
 
-class ContainerRecommendationTypeDef(BaseModel):
+class ContainerRecommendationTypeDef(BaseValidatorModel):
     containerName: Optional[str] = None
     memorySizeConfiguration: Optional[MemorySizeConfigurationTypeDef] = None
     cpu: Optional[int] = None
 
-class UtilizationPreferenceTypeDef(BaseModel):
+class UtilizationPreferenceTypeDef(BaseValidatorModel):
     metricName: Optional[CustomizableMetricNameType] = None
     metricParameters: Optional[CustomizableMetricParametersTypeDef] = None
 
-class DeleteRecommendationPreferencesRequestRequestTypeDef(BaseModel):
+class DeleteRecommendationPreferencesRequestRequestTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     recommendationPreferenceNames: Sequence[RecommendationPreferenceNameType]
     scope: Optional[ScopeTypeDef] = None
 
-class GetRecommendationPreferencesRequestRequestTypeDef(BaseModel):
+class GetRecommendationPreferencesRequestRequestTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     scope: Optional[ScopeTypeDef] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class DescribeRecommendationExportJobsRequestRequestTypeDef(BaseModel):
+class DescribeRecommendationExportJobsRequestRequestTypeDef(BaseValidatorModel):
     jobIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[JobFilterTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class DescribeRecommendationExportJobsRequestDescribeRecommendationExportJobsPaginateTypeDef(BaseModel):
+class DescribeRecommendationExportJobsRequestDescribeRecommendationExportJobsPaginateTypeDef(BaseValidatorModel):
     jobIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[JobFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRecommendationPreferencesRequestGetRecommendationPreferencesPaginateTypeDef(BaseModel):
+class GetRecommendationPreferencesRequestGetRecommendationPreferencesPaginateTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     scope: Optional[ScopeTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRecommendationSummariesRequestGetRecommendationSummariesPaginateTypeDef(BaseModel):
+class GetRecommendationSummariesRequestGetRecommendationSummariesPaginateTypeDef(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetEnrollmentStatusResponseTypeDef(BaseModel):
+class GetEnrollmentStatusResponseTypeDef(BaseValidatorModel):
     status: StatusType
     statusReason: str
     memberAccountsEnrolled: bool
@@ -324,67 +324,67 @@ class GetEnrollmentStatusResponseTypeDef(BaseModel):
     numberOfMemberAccountsOptedIn: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEnrollmentStatusesForOrganizationResponseTypeDef(BaseModel):
+class GetEnrollmentStatusesForOrganizationResponseTypeDef(BaseValidatorModel):
     accountEnrollmentStatuses: List[AccountEnrollmentStatusTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEnrollmentStatusResponseTypeDef(BaseModel):
+class UpdateEnrollmentStatusResponseTypeDef(BaseValidatorModel):
     status: StatusType
     statusReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EBSEffectiveRecommendationPreferencesTypeDef(BaseModel):
+class EBSEffectiveRecommendationPreferencesTypeDef(BaseValidatorModel):
     savingsEstimationMode: Optional[EBSSavingsEstimationModeTypeDef] = None
 
-class EBSSavingsOpportunityAfterDiscountsTypeDef(BaseModel):
+class EBSSavingsOpportunityAfterDiscountsTypeDef(BaseValidatorModel):
     savingsOpportunityPercentage: Optional[float] = None
     estimatedMonthlySavings: Optional[EBSEstimatedMonthlySavingsTypeDef] = None
 
-class GetEBSVolumeRecommendationsRequestRequestTypeDef(BaseModel):
+class GetEBSVolumeRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     volumeArns: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[EBSFilterTypeDef]] = None
     accountIds: Optional[Sequence[str]] = None
 
-class ECSEffectiveRecommendationPreferencesTypeDef(BaseModel):
+class ECSEffectiveRecommendationPreferencesTypeDef(BaseValidatorModel):
     savingsEstimationMode: Optional[ECSSavingsEstimationModeTypeDef] = None
 
-class ECSSavingsOpportunityAfterDiscountsTypeDef(BaseModel):
+class ECSSavingsOpportunityAfterDiscountsTypeDef(BaseValidatorModel):
     savingsOpportunityPercentage: Optional[float] = None
     estimatedMonthlySavings: Optional[ECSEstimatedMonthlySavingsTypeDef] = None
 
-class ECSServiceRecommendedOptionProjectedMetricTypeDef(BaseModel):
+class ECSServiceRecommendedOptionProjectedMetricTypeDef(BaseValidatorModel):
     recommendedCpuUnits: Optional[int] = None
     recommendedMemorySize: Optional[int] = None
     projectedMetrics: Optional[List[ECSServiceProjectedMetricTypeDef]] = None
 
-class GetECSServiceRecommendationsRequestRequestTypeDef(BaseModel):
+class GetECSServiceRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     serviceArns: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[ECSServiceRecommendationFilterTypeDef]] = None
     accountIds: Optional[Sequence[str]] = None
 
-class GetEnrollmentStatusesForOrganizationRequestGetEnrollmentStatusesForOrganizationPaginateTypeDef(BaseModel):
+class GetEnrollmentStatusesForOrganizationRequestGetEnrollmentStatusesForOrganizationPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[EnrollmentFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetEnrollmentStatusesForOrganizationRequestRequestTypeDef(BaseModel):
+class GetEnrollmentStatusesForOrganizationRequestRequestTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[EnrollmentFilterTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class InferredWorkloadSavingTypeDef(BaseModel):
+class InferredWorkloadSavingTypeDef(BaseValidatorModel):
     inferredWorkloadTypes: Optional[List[InferredWorkloadTypeType]] = None
     estimatedMonthlySavings: Optional[EstimatedMonthlySavingsTypeDef] = None
 
-class SavingsOpportunityTypeDef(BaseModel):
+class SavingsOpportunityTypeDef(BaseValidatorModel):
     savingsOpportunityPercentage: Optional[float] = None
     estimatedMonthlySavings: Optional[EstimatedMonthlySavingsTypeDef] = None
 
-class GetAutoScalingGroupRecommendationsRequestRequestTypeDef(BaseModel):
+class GetAutoScalingGroupRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
     autoScalingGroupArns: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
@@ -392,7 +392,7 @@ class GetAutoScalingGroupRecommendationsRequestRequestTypeDef(BaseModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     recommendationPreferences: Optional[RecommendationPreferencesTypeDef] = None
 
-class GetEC2InstanceRecommendationsRequestRequestTypeDef(BaseModel):
+class GetEC2InstanceRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     instanceArns: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -400,7 +400,7 @@ class GetEC2InstanceRecommendationsRequestRequestTypeDef(BaseModel):
     accountIds: Optional[Sequence[str]] = None
     recommendationPreferences: Optional[RecommendationPreferencesTypeDef] = None
 
-class ExportAutoScalingGroupRecommendationsRequestRequestTypeDef(BaseModel):
+class ExportAutoScalingGroupRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfigTypeDef
     accountIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
@@ -409,7 +409,7 @@ class ExportAutoScalingGroupRecommendationsRequestRequestTypeDef(BaseModel):
     includeMemberAccounts: Optional[bool] = None
     recommendationPreferences: Optional[RecommendationPreferencesTypeDef] = None
 
-class ExportEBSVolumeRecommendationsRequestRequestTypeDef(BaseModel):
+class ExportEBSVolumeRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfigTypeDef
     accountIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[EBSFilterTypeDef]] = None
@@ -417,7 +417,7 @@ class ExportEBSVolumeRecommendationsRequestRequestTypeDef(BaseModel):
     fileFormat: Optional[Literal["Csv"]] = None
     includeMemberAccounts: Optional[bool] = None
 
-class ExportEC2InstanceRecommendationsRequestRequestTypeDef(BaseModel):
+class ExportEC2InstanceRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfigTypeDef
     accountIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
@@ -426,7 +426,7 @@ class ExportEC2InstanceRecommendationsRequestRequestTypeDef(BaseModel):
     includeMemberAccounts: Optional[bool] = None
     recommendationPreferences: Optional[RecommendationPreferencesTypeDef] = None
 
-class ExportECSServiceRecommendationsRequestRequestTypeDef(BaseModel):
+class ExportECSServiceRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfigTypeDef
     accountIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[ECSServiceRecommendationFilterTypeDef]] = None
@@ -434,45 +434,45 @@ class ExportECSServiceRecommendationsRequestRequestTypeDef(BaseModel):
     fileFormat: Optional[Literal["Csv"]] = None
     includeMemberAccounts: Optional[bool] = None
 
-class ExportAutoScalingGroupRecommendationsResponseTypeDef(BaseModel):
+class ExportAutoScalingGroupRecommendationsResponseTypeDef(BaseValidatorModel):
     jobId: str
     s3Destination: S3DestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportDestinationTypeDef(BaseModel):
+class ExportDestinationTypeDef(BaseValidatorModel):
     s3: Optional[S3DestinationTypeDef] = None
 
-class ExportEBSVolumeRecommendationsResponseTypeDef(BaseModel):
+class ExportEBSVolumeRecommendationsResponseTypeDef(BaseValidatorModel):
     jobId: str
     s3Destination: S3DestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportEC2InstanceRecommendationsResponseTypeDef(BaseModel):
+class ExportEC2InstanceRecommendationsResponseTypeDef(BaseValidatorModel):
     jobId: str
     s3Destination: S3DestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportECSServiceRecommendationsResponseTypeDef(BaseModel):
+class ExportECSServiceRecommendationsResponseTypeDef(BaseValidatorModel):
     jobId: str
     s3Destination: S3DestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportLambdaFunctionRecommendationsResponseTypeDef(BaseModel):
+class ExportLambdaFunctionRecommendationsResponseTypeDef(BaseValidatorModel):
     jobId: str
     s3Destination: S3DestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportLicenseRecommendationsResponseTypeDef(BaseModel):
+class ExportLicenseRecommendationsResponseTypeDef(BaseValidatorModel):
     jobId: str
     s3Destination: S3DestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportRDSDatabaseRecommendationsResponseTypeDef(BaseModel):
+class ExportRDSDatabaseRecommendationsResponseTypeDef(BaseValidatorModel):
     jobId: str
     s3Destination: S3DestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportLambdaFunctionRecommendationsRequestRequestTypeDef(BaseModel):
+class ExportLambdaFunctionRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfigTypeDef
     accountIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[LambdaFunctionRecommendationFilterTypeDef]] = None
@@ -480,20 +480,20 @@ class ExportLambdaFunctionRecommendationsRequestRequestTypeDef(BaseModel):
     fileFormat: Optional[Literal["Csv"]] = None
     includeMemberAccounts: Optional[bool] = None
 
-class GetLambdaFunctionRecommendationsRequestGetLambdaFunctionRecommendationsPaginateTypeDef(BaseModel):
+class GetLambdaFunctionRecommendationsRequestGetLambdaFunctionRecommendationsPaginateTypeDef(BaseValidatorModel):
     functionArns: Optional[Sequence[str]] = None
     accountIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[LambdaFunctionRecommendationFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetLambdaFunctionRecommendationsRequestRequestTypeDef(BaseModel):
+class GetLambdaFunctionRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     functionArns: Optional[Sequence[str]] = None
     accountIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[LambdaFunctionRecommendationFilterTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ExportLicenseRecommendationsRequestRequestTypeDef(BaseModel):
+class ExportLicenseRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfigTypeDef
     accountIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[LicenseRecommendationFilterTypeDef]] = None
@@ -501,14 +501,14 @@ class ExportLicenseRecommendationsRequestRequestTypeDef(BaseModel):
     fileFormat: Optional[Literal["Csv"]] = None
     includeMemberAccounts: Optional[bool] = None
 
-class GetLicenseRecommendationsRequestRequestTypeDef(BaseModel):
+class GetLicenseRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     resourceArns: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[LicenseRecommendationFilterTypeDef]] = None
     accountIds: Optional[Sequence[str]] = None
 
-class ExportRDSDatabaseRecommendationsRequestRequestTypeDef(BaseModel):
+class ExportRDSDatabaseRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfigTypeDef
     accountIds: Optional[Sequence[str]] = None
     filters: Optional[Sequence[RDSDBRecommendationFilterTypeDef]] = None
@@ -517,7 +517,7 @@ class ExportRDSDatabaseRecommendationsRequestRequestTypeDef(BaseModel):
     includeMemberAccounts: Optional[bool] = None
     recommendationPreferences: Optional[RecommendationPreferencesTypeDef] = None
 
-class GetRDSDatabaseRecommendationsRequestRequestTypeDef(BaseModel):
+class GetRDSDatabaseRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     resourceArns: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -525,7 +525,7 @@ class GetRDSDatabaseRecommendationsRequestRequestTypeDef(BaseModel):
     accountIds: Optional[Sequence[str]] = None
     recommendationPreferences: Optional[RecommendationPreferencesTypeDef] = None
 
-class GetEC2RecommendationProjectedMetricsRequestRequestTypeDef(BaseModel):
+class GetEC2RecommendationProjectedMetricsRequestRequestTypeDef(BaseValidatorModel):
     instanceArn: str
     stat: MetricStatisticType
     period: int
@@ -533,14 +533,14 @@ class GetEC2RecommendationProjectedMetricsRequestRequestTypeDef(BaseModel):
     endTime: TimestampTypeDef
     recommendationPreferences: Optional[RecommendationPreferencesTypeDef] = None
 
-class GetECSServiceRecommendationProjectedMetricsRequestRequestTypeDef(BaseModel):
+class GetECSServiceRecommendationProjectedMetricsRequestRequestTypeDef(BaseValidatorModel):
     serviceArn: str
     stat: MetricStatisticType
     period: int
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
 
-class GetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef(BaseModel):
+class GetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     stat: MetricStatisticType
     period: int
@@ -548,21 +548,21 @@ class GetRDSDatabaseRecommendationProjectedMetricsRequestRequestTypeDef(BaseMode
     endTime: TimestampTypeDef
     recommendationPreferences: Optional[RecommendationPreferencesTypeDef] = None
 
-class GpuInfoTypeDef(BaseModel):
+class GpuInfoTypeDef(BaseValidatorModel):
     gpus: Optional[List[GpuTypeDef]] = None
 
-class InstanceSavingsOpportunityAfterDiscountsTypeDef(BaseModel):
+class InstanceSavingsOpportunityAfterDiscountsTypeDef(BaseValidatorModel):
     savingsOpportunityPercentage: Optional[float] = None
     estimatedMonthlySavings: Optional[InstanceEstimatedMonthlySavingsTypeDef] = None
 
-class LambdaEffectiveRecommendationPreferencesTypeDef(BaseModel):
+class LambdaEffectiveRecommendationPreferencesTypeDef(BaseValidatorModel):
     savingsEstimationMode: Optional[LambdaSavingsEstimationModeTypeDef] = None
 
-class LambdaSavingsOpportunityAfterDiscountsTypeDef(BaseModel):
+class LambdaSavingsOpportunityAfterDiscountsTypeDef(BaseValidatorModel):
     savingsOpportunityPercentage: Optional[float] = None
     estimatedMonthlySavings: Optional[LambdaEstimatedMonthlySavingsTypeDef] = None
 
-class LicenseConfigurationTypeDef(BaseModel):
+class LicenseConfigurationTypeDef(BaseValidatorModel):
     numberOfCores: Optional[int] = None
     instanceType: Optional[str] = None
     operatingSystem: Optional[str] = None
@@ -572,43 +572,43 @@ class LicenseConfigurationTypeDef(BaseModel):
     licenseVersion: Optional[str] = None
     metricsSource: Optional[List[MetricSourceTypeDef]] = None
 
-class RecommendedOptionProjectedMetricTypeDef(BaseModel):
+class RecommendedOptionProjectedMetricTypeDef(BaseValidatorModel):
     recommendedInstanceType: Optional[str] = None
     rank: Optional[int] = None
     projectedMetrics: Optional[List[ProjectedMetricTypeDef]] = None
 
-class RDSDatabaseRecommendedOptionProjectedMetricTypeDef(BaseModel):
+class RDSDatabaseRecommendedOptionProjectedMetricTypeDef(BaseValidatorModel):
     recommendedDBInstanceClass: Optional[str] = None
     rank: Optional[int] = None
     projectedMetrics: Optional[List[RDSDatabaseProjectedMetricTypeDef]] = None
 
-class RDSEffectiveRecommendationPreferencesTypeDef(BaseModel):
+class RDSEffectiveRecommendationPreferencesTypeDef(BaseValidatorModel):
     cpuVendorArchitectures: Optional[List[CpuVendorArchitectureType]] = None
     enhancedInfrastructureMetrics: Optional[EnhancedInfrastructureMetricsType] = None
     lookBackPeriod: Optional[LookBackPeriodPreferenceType] = None
     savingsEstimationMode: Optional[RDSSavingsEstimationModeTypeDef] = None
 
-class RDSInstanceSavingsOpportunityAfterDiscountsTypeDef(BaseModel):
+class RDSInstanceSavingsOpportunityAfterDiscountsTypeDef(BaseValidatorModel):
     savingsOpportunityPercentage: Optional[float] = None
     estimatedMonthlySavings: Optional[RDSInstanceEstimatedMonthlySavingsTypeDef] = None
 
-class RDSStorageSavingsOpportunityAfterDiscountsTypeDef(BaseModel):
+class RDSStorageSavingsOpportunityAfterDiscountsTypeDef(BaseValidatorModel):
     savingsOpportunityPercentage: Optional[float] = None
     estimatedMonthlySavings: Optional[RDSStorageEstimatedMonthlySavingsTypeDef] = None
 
-class SummaryTypeDef(BaseModel):
+class SummaryTypeDef(BaseValidatorModel):
     name: Optional[FindingType] = None
     value: Optional[float] = None
     reasonCodeSummaries: Optional[List[ReasonCodeSummaryTypeDef]] = None
 
-class ServiceConfigurationTypeDef(BaseModel):
+class ServiceConfigurationTypeDef(BaseValidatorModel):
     memory: Optional[int] = None
     cpu: Optional[int] = None
     containerConfigurations: Optional[List[ContainerConfigurationTypeDef]] = None
     autoScalingConfiguration: Optional[AutoScalingConfigurationType] = None
     taskDefinitionArn: Optional[str] = None
 
-class EffectiveRecommendationPreferencesTypeDef(BaseModel):
+class EffectiveRecommendationPreferencesTypeDef(BaseValidatorModel):
     cpuVendorArchitectures: Optional[List[CpuVendorArchitectureType]] = None
     enhancedInfrastructureMetrics: Optional[EnhancedInfrastructureMetricsType] = None
     inferredWorkloadTypes: Optional[InferredWorkloadTypesPreferenceType] = None
@@ -618,7 +618,7 @@ class EffectiveRecommendationPreferencesTypeDef(BaseModel):
     preferredResources: Optional[List[EffectivePreferredResourceTypeDef]] = None
     savingsEstimationMode: Optional[InstanceSavingsEstimationModeTypeDef] = None
 
-class GetEffectiveRecommendationPreferencesResponseTypeDef(BaseModel):
+class GetEffectiveRecommendationPreferencesResponseTypeDef(BaseValidatorModel):
     enhancedInfrastructureMetrics: EnhancedInfrastructureMetricsType
     externalMetricsPreference: ExternalMetricsPreferenceTypeDef
     lookBackPeriod: LookBackPeriodPreferenceType
@@ -626,7 +626,7 @@ class GetEffectiveRecommendationPreferencesResponseTypeDef(BaseModel):
     preferredResources: List[EffectivePreferredResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRecommendationPreferencesRequestRequestTypeDef(BaseModel):
+class PutRecommendationPreferencesRequestRequestTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     scope: Optional[ScopeTypeDef] = None
     enhancedInfrastructureMetrics: Optional[EnhancedInfrastructureMetricsType] = None
@@ -637,7 +637,7 @@ class PutRecommendationPreferencesRequestRequestTypeDef(BaseModel):
     preferredResources: Optional[Sequence[PreferredResourceTypeDef]] = None
     savingsEstimationMode: Optional[SavingsEstimationModeType] = None
 
-class RecommendationPreferencesDetailTypeDef(BaseModel):
+class RecommendationPreferencesDetailTypeDef(BaseValidatorModel):
     scope: Optional[ScopeTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
     enhancedInfrastructureMetrics: Optional[EnhancedInfrastructureMetricsType] = None
@@ -648,11 +648,11 @@ class RecommendationPreferencesDetailTypeDef(BaseModel):
     preferredResources: Optional[List[EffectivePreferredResourceTypeDef]] = None
     savingsEstimationMode: Optional[SavingsEstimationModeType] = None
 
-class GetECSServiceRecommendationProjectedMetricsResponseTypeDef(BaseModel):
+class GetECSServiceRecommendationProjectedMetricsResponseTypeDef(BaseValidatorModel):
     recommendedOptionProjectedMetrics: List[       ECSServiceRecommendedOptionProjectedMetricTypeDef     ]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ECSServiceRecommendationOptionTypeDef(BaseModel):
+class ECSServiceRecommendationOptionTypeDef(BaseValidatorModel):
     memory: Optional[int] = None
     cpu: Optional[int] = None
     savingsOpportunity: Optional[SavingsOpportunityTypeDef] = None
@@ -660,21 +660,21 @@ class ECSServiceRecommendationOptionTypeDef(BaseModel):
     projectedUtilizationMetrics: Optional[       List[ECSServiceProjectedUtilizationMetricTypeDef]     ] = None
     containerRecommendations: Optional[List[ContainerRecommendationTypeDef]] = None
 
-class LicenseRecommendationOptionTypeDef(BaseModel):
+class LicenseRecommendationOptionTypeDef(BaseValidatorModel):
     rank: Optional[int] = None
     operatingSystem: Optional[str] = None
     licenseEdition: Optional[LicenseEditionType] = None
     licenseModel: Optional[LicenseModelType] = None
     savingsOpportunity: Optional[SavingsOpportunityTypeDef] = None
 
-class VolumeRecommendationOptionTypeDef(BaseModel):
+class VolumeRecommendationOptionTypeDef(BaseValidatorModel):
     configuration: Optional[VolumeConfigurationTypeDef] = None
     performanceRisk: Optional[float] = None
     rank: Optional[int] = None
     savingsOpportunity: Optional[SavingsOpportunityTypeDef] = None
     savingsOpportunityAfterDiscounts: Optional[EBSSavingsOpportunityAfterDiscountsTypeDef] = None
 
-class RecommendationExportJobTypeDef(BaseModel):
+class RecommendationExportJobTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     destination: Optional[ExportDestinationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
@@ -683,7 +683,7 @@ class RecommendationExportJobTypeDef(BaseModel):
     lastUpdatedTimestamp: Optional[datetime] = None
     failureReason: Optional[str] = None
 
-class AutoScalingGroupRecommendationOptionTypeDef(BaseModel):
+class AutoScalingGroupRecommendationOptionTypeDef(BaseValidatorModel):
     configuration: Optional[AutoScalingGroupConfigurationTypeDef] = None
     instanceGpuInfo: Optional[GpuInfoTypeDef] = None
     projectedUtilizationMetrics: Optional[List[UtilizationMetricTypeDef]] = None
@@ -693,7 +693,7 @@ class AutoScalingGroupRecommendationOptionTypeDef(BaseModel):
     savingsOpportunityAfterDiscounts: Optional[       AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef     ] = None
     migrationEffort: Optional[MigrationEffortType] = None
 
-class InstanceRecommendationOptionTypeDef(BaseModel):
+class InstanceRecommendationOptionTypeDef(BaseValidatorModel):
     instanceType: Optional[str] = None
     instanceGpuInfo: Optional[GpuInfoTypeDef] = None
     projectedUtilizationMetrics: Optional[List[UtilizationMetricTypeDef]] = None
@@ -704,22 +704,22 @@ class InstanceRecommendationOptionTypeDef(BaseModel):
     savingsOpportunityAfterDiscounts: Optional[       InstanceSavingsOpportunityAfterDiscountsTypeDef     ] = None
     migrationEffort: Optional[MigrationEffortType] = None
 
-class LambdaFunctionMemoryRecommendationOptionTypeDef(BaseModel):
+class LambdaFunctionMemoryRecommendationOptionTypeDef(BaseValidatorModel):
     rank: Optional[int] = None
     memorySize: Optional[int] = None
     projectedUtilizationMetrics: Optional[       List[LambdaFunctionMemoryProjectedMetricTypeDef]     ] = None
     savingsOpportunity: Optional[SavingsOpportunityTypeDef] = None
     savingsOpportunityAfterDiscounts: Optional[       LambdaSavingsOpportunityAfterDiscountsTypeDef     ] = None
 
-class GetEC2RecommendationProjectedMetricsResponseTypeDef(BaseModel):
+class GetEC2RecommendationProjectedMetricsResponseTypeDef(BaseValidatorModel):
     recommendedOptionProjectedMetrics: List[RecommendedOptionProjectedMetricTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef(BaseModel):
+class GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef(BaseValidatorModel):
     recommendedOptionProjectedMetrics: List[       RDSDatabaseRecommendedOptionProjectedMetricTypeDef     ]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RDSDBInstanceRecommendationOptionTypeDef(BaseModel):
+class RDSDBInstanceRecommendationOptionTypeDef(BaseValidatorModel):
     dbInstanceClass: Optional[str] = None
     projectedUtilizationMetrics: Optional[List[RDSDBUtilizationMetricTypeDef]] = None
     performanceRisk: Optional[float] = None
@@ -727,13 +727,13 @@ class RDSDBInstanceRecommendationOptionTypeDef(BaseModel):
     savingsOpportunity: Optional[SavingsOpportunityTypeDef] = None
     savingsOpportunityAfterDiscounts: Optional[       RDSInstanceSavingsOpportunityAfterDiscountsTypeDef     ] = None
 
-class RDSDBStorageRecommendationOptionTypeDef(BaseModel):
+class RDSDBStorageRecommendationOptionTypeDef(BaseValidatorModel):
     storageConfiguration: Optional[DBStorageConfigurationTypeDef] = None
     rank: Optional[int] = None
     savingsOpportunity: Optional[SavingsOpportunityTypeDef] = None
     savingsOpportunityAfterDiscounts: Optional[       RDSStorageSavingsOpportunityAfterDiscountsTypeDef     ] = None
 
-class RecommendationSummaryTypeDef(BaseModel):
+class RecommendationSummaryTypeDef(BaseValidatorModel):
     summaries: Optional[List[SummaryTypeDef]] = None
     recommendationResourceType: Optional[RecommendationSourceTypeType] = None
     accountId: Optional[str] = None
@@ -741,12 +741,12 @@ class RecommendationSummaryTypeDef(BaseModel):
     currentPerformanceRiskRatings: Optional[CurrentPerformanceRiskRatingsTypeDef] = None
     inferredWorkloadSavings: Optional[List[InferredWorkloadSavingTypeDef]] = None
 
-class GetRecommendationPreferencesResponseTypeDef(BaseModel):
+class GetRecommendationPreferencesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     recommendationPreferencesDetails: List[RecommendationPreferencesDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ECSServiceRecommendationTypeDef(BaseModel):
+class ECSServiceRecommendationTypeDef(BaseValidatorModel):
     serviceArn: Optional[str] = None
     accountId: Optional[str] = None
     currentServiceConfiguration: Optional[ServiceConfigurationTypeDef] = None
@@ -761,7 +761,7 @@ class ECSServiceRecommendationTypeDef(BaseModel):
     effectiveRecommendationPreferences: Optional[       ECSEffectiveRecommendationPreferencesTypeDef     ] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class LicenseRecommendationTypeDef(BaseModel):
+class LicenseRecommendationTypeDef(BaseValidatorModel):
     resourceArn: Optional[str] = None
     accountId: Optional[str] = None
     currentLicenseConfiguration: Optional[LicenseConfigurationTypeDef] = None
@@ -772,7 +772,7 @@ class LicenseRecommendationTypeDef(BaseModel):
     licenseRecommendationOptions: Optional[List[LicenseRecommendationOptionTypeDef]] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class VolumeRecommendationTypeDef(BaseModel):
+class VolumeRecommendationTypeDef(BaseValidatorModel):
     volumeArn: Optional[str] = None
     accountId: Optional[str] = None
     currentConfiguration: Optional[VolumeConfigurationTypeDef] = None
@@ -785,12 +785,12 @@ class VolumeRecommendationTypeDef(BaseModel):
     effectiveRecommendationPreferences: Optional[       EBSEffectiveRecommendationPreferencesTypeDef     ] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class DescribeRecommendationExportJobsResponseTypeDef(BaseModel):
+class DescribeRecommendationExportJobsResponseTypeDef(BaseValidatorModel):
     recommendationExportJobs: List[RecommendationExportJobTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AutoScalingGroupRecommendationTypeDef(BaseModel):
+class AutoScalingGroupRecommendationTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
     autoScalingGroupArn: Optional[str] = None
     autoScalingGroupName: Optional[str] = None
@@ -805,7 +805,7 @@ class AutoScalingGroupRecommendationTypeDef(BaseModel):
     effectiveRecommendationPreferences: Optional[       EffectiveRecommendationPreferencesTypeDef     ] = None
     inferredWorkloadTypes: Optional[List[InferredWorkloadTypeType]] = None
 
-class InstanceRecommendationTypeDef(BaseModel):
+class InstanceRecommendationTypeDef(BaseValidatorModel):
     instanceArn: Optional[str] = None
     accountId: Optional[str] = None
     instanceName: Optional[str] = None
@@ -826,7 +826,7 @@ class InstanceRecommendationTypeDef(BaseModel):
     currentInstanceGpuInfo: Optional[GpuInfoTypeDef] = None
     idle: Optional[InstanceIdleType] = None
 
-class LambdaFunctionRecommendationTypeDef(BaseModel):
+class LambdaFunctionRecommendationTypeDef(BaseValidatorModel):
     functionArn: Optional[str] = None
     functionVersion: Optional[str] = None
     accountId: Optional[str] = None
@@ -842,7 +842,7 @@ class LambdaFunctionRecommendationTypeDef(BaseModel):
     effectiveRecommendationPreferences: Optional[       LambdaEffectiveRecommendationPreferencesTypeDef     ] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class RDSDBRecommendationTypeDef(BaseModel):
+class RDSDBRecommendationTypeDef(BaseValidatorModel):
     resourceArn: Optional[str] = None
     accountId: Optional[str] = None
     engine: Optional[str] = None
@@ -862,47 +862,47 @@ class RDSDBRecommendationTypeDef(BaseModel):
     lastRefreshTimestamp: Optional[datetime] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class GetRecommendationSummariesResponseTypeDef(BaseModel):
+class GetRecommendationSummariesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     recommendationSummaries: List[RecommendationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetECSServiceRecommendationsResponseTypeDef(BaseModel):
+class GetECSServiceRecommendationsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     ecsServiceRecommendations: List[ECSServiceRecommendationTypeDef]
     errors: List[GetRecommendationErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLicenseRecommendationsResponseTypeDef(BaseModel):
+class GetLicenseRecommendationsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     licenseRecommendations: List[LicenseRecommendationTypeDef]
     errors: List[GetRecommendationErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEBSVolumeRecommendationsResponseTypeDef(BaseModel):
+class GetEBSVolumeRecommendationsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     volumeRecommendations: List[VolumeRecommendationTypeDef]
     errors: List[GetRecommendationErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAutoScalingGroupRecommendationsResponseTypeDef(BaseModel):
+class GetAutoScalingGroupRecommendationsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     autoScalingGroupRecommendations: List[AutoScalingGroupRecommendationTypeDef]
     errors: List[GetRecommendationErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEC2InstanceRecommendationsResponseTypeDef(BaseModel):
+class GetEC2InstanceRecommendationsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     instanceRecommendations: List[InstanceRecommendationTypeDef]
     errors: List[GetRecommendationErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLambdaFunctionRecommendationsResponseTypeDef(BaseModel):
+class GetLambdaFunctionRecommendationsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     lambdaFunctionRecommendations: List[LambdaFunctionRecommendationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRDSDatabaseRecommendationsResponseTypeDef(BaseModel):
+class GetRDSDatabaseRecommendationsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     rdsDBRecommendations: List[RDSDBRecommendationTypeDef]
     errors: List[GetRecommendationErrorTypeDef]

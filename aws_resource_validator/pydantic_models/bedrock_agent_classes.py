@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,35 +11,35 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.bedrock_agent_constants import *
 
-class S3IdentifierTypeDef(BaseModel):
+class S3IdentifierTypeDef(BaseValidatorModel):
     s3BucketName: Optional[str] = None
     s3ObjectKey: Optional[str] = None
 
-class ActionGroupExecutorTypeDef(BaseModel):
+class ActionGroupExecutorTypeDef(BaseValidatorModel):
     customControl: Optional[Literal["RETURN_CONTROL"]] = None
     _lambda: Optional[str] = None
 
-class ActionGroupSummaryTypeDef(BaseModel):
+class ActionGroupSummaryTypeDef(BaseValidatorModel):
     actionGroupId: str
     actionGroupName: str
     actionGroupState: ActionGroupStateType
     updatedAt: datetime
     description: Optional[str] = None
 
-class AgentAliasRoutingConfigurationListItemTypeDef(BaseModel):
+class AgentAliasRoutingConfigurationListItemTypeDef(BaseValidatorModel):
     agentVersion: Optional[str] = None
     provisionedThroughput: Optional[str] = None
 
-class AgentFlowNodeConfigurationTypeDef(BaseModel):
+class AgentFlowNodeConfigurationTypeDef(BaseValidatorModel):
     agentAliasArn: str
 
-class AgentKnowledgeBaseSummaryTypeDef(BaseModel):
+class AgentKnowledgeBaseSummaryTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     knowledgeBaseState: KnowledgeBaseStateType
     updatedAt: datetime
     description: Optional[str] = None
 
-class AgentKnowledgeBaseTypeDef(BaseModel):
+class AgentKnowledgeBaseTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     createdAt: datetime
@@ -48,85 +48,85 @@ class AgentKnowledgeBaseTypeDef(BaseModel):
     knowledgeBaseState: KnowledgeBaseStateType
     updatedAt: datetime
 
-class GuardrailConfigurationTypeDef(BaseModel):
+class GuardrailConfigurationTypeDef(BaseValidatorModel):
     guardrailIdentifier: Optional[str] = None
     guardrailVersion: Optional[str] = None
 
-class MemoryConfigurationOutputTypeDef(BaseModel):
+class MemoryConfigurationOutputTypeDef(BaseValidatorModel):
     enabledMemoryTypes: List[Literal["SESSION_SUMMARY"]]
     storageDays: Optional[int] = None
 
-class AssociateAgentKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class AssociateAgentKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     description: str
     knowledgeBaseId: str
     knowledgeBaseState: Optional[KnowledgeBaseStateType] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class BedrockEmbeddingModelConfigurationTypeDef(BaseModel):
+class BedrockEmbeddingModelConfigurationTypeDef(BaseValidatorModel):
     dimensions: Optional[int] = None
 
-class ParsingPromptTypeDef(BaseModel):
+class ParsingPromptTypeDef(BaseValidatorModel):
     parsingPromptText: str
 
-class FixedSizeChunkingConfigurationTypeDef(BaseModel):
+class FixedSizeChunkingConfigurationTypeDef(BaseValidatorModel):
     maxTokens: int
     overlapPercentage: int
 
-class SemanticChunkingConfigurationTypeDef(BaseModel):
+class SemanticChunkingConfigurationTypeDef(BaseValidatorModel):
     breakpointPercentileThreshold: int
     bufferSize: int
     maxTokens: int
 
-class FlowConditionTypeDef(BaseModel):
+class FlowConditionTypeDef(BaseValidatorModel):
     name: str
     expression: Optional[str] = None
 
-class ConfluenceSourceConfigurationTypeDef(BaseModel):
+class ConfluenceSourceConfigurationTypeDef(BaseValidatorModel):
     authType: ConfluenceAuthTypeType
     credentialsSecretArn: str
     hostType: Literal["SAAS"]
     hostUrl: str
 
-class MemoryConfigurationTypeDef(BaseModel):
+class MemoryConfigurationTypeDef(BaseValidatorModel):
     enabledMemoryTypes: Sequence[Literal["SESSION_SUMMARY"]]
     storageDays: Optional[int] = None
 
-class ServerSideEncryptionConfigurationTypeDef(BaseModel):
+class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
     kmsKeyArn: Optional[str] = None
 
-class FlowAliasRoutingConfigurationListItemTypeDef(BaseModel):
+class FlowAliasRoutingConfigurationListItemTypeDef(BaseValidatorModel):
     flowVersion: Optional[str] = None
 
-class CreateFlowVersionRequestRequestTypeDef(BaseModel):
+class CreateFlowVersionRequestRequestTypeDef(BaseValidatorModel):
     flowIdentifier: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
-class CreatePromptVersionRequestRequestTypeDef(BaseModel):
+class CreatePromptVersionRequestRequestTypeDef(BaseValidatorModel):
     promptIdentifier: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class S3DataSourceConfigurationOutputTypeDef(BaseModel):
+class S3DataSourceConfigurationOutputTypeDef(BaseValidatorModel):
     bucketArn: str
     bucketOwnerAccountId: Optional[str] = None
     inclusionPrefixes: Optional[List[str]] = None
 
-class S3DataSourceConfigurationTypeDef(BaseModel):
+class S3DataSourceConfigurationTypeDef(BaseValidatorModel):
     bucketArn: str
     bucketOwnerAccountId: Optional[str] = None
     inclusionPrefixes: Optional[Sequence[str]] = None
 
-class DataSourceSummaryTypeDef(BaseModel):
+class DataSourceSummaryTypeDef(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
     name: str
@@ -134,82 +134,82 @@ class DataSourceSummaryTypeDef(BaseModel):
     updatedAt: datetime
     description: Optional[str] = None
 
-class DeleteAgentActionGroupRequestRequestTypeDef(BaseModel):
+class DeleteAgentActionGroupRequestRequestTypeDef(BaseValidatorModel):
     actionGroupId: str
     agentId: str
     agentVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
-class DeleteAgentAliasRequestRequestTypeDef(BaseModel):
+class DeleteAgentAliasRequestRequestTypeDef(BaseValidatorModel):
     agentAliasId: str
     agentId: str
 
-class DeleteAgentRequestRequestTypeDef(BaseModel):
+class DeleteAgentRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     skipResourceInUseCheck: Optional[bool] = None
 
-class DeleteAgentVersionRequestRequestTypeDef(BaseModel):
+class DeleteAgentVersionRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
-class DeleteDataSourceRequestRequestTypeDef(BaseModel):
+class DeleteDataSourceRequestRequestTypeDef(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
 
-class DeleteFlowAliasRequestRequestTypeDef(BaseModel):
+class DeleteFlowAliasRequestRequestTypeDef(BaseValidatorModel):
     aliasIdentifier: str
     flowIdentifier: str
 
-class DeleteFlowRequestRequestTypeDef(BaseModel):
+class DeleteFlowRequestRequestTypeDef(BaseValidatorModel):
     flowIdentifier: str
     skipResourceInUseCheck: Optional[bool] = None
 
-class DeleteFlowVersionRequestRequestTypeDef(BaseModel):
+class DeleteFlowVersionRequestRequestTypeDef(BaseValidatorModel):
     flowIdentifier: str
     flowVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
-class DeleteKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class DeleteKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
 
-class DeletePromptRequestRequestTypeDef(BaseModel):
+class DeletePromptRequestRequestTypeDef(BaseValidatorModel):
     promptIdentifier: str
     promptVersion: Optional[str] = None
 
-class DisassociateAgentKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class DisassociateAgentKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     knowledgeBaseId: str
 
-class FlowConditionalConnectionConfigurationTypeDef(BaseModel):
+class FlowConditionalConnectionConfigurationTypeDef(BaseValidatorModel):
     condition: str
 
-class FlowDataConnectionConfigurationTypeDef(BaseModel):
+class FlowDataConnectionConfigurationTypeDef(BaseValidatorModel):
     sourceOutput: str
     targetInput: str
 
-class KnowledgeBaseFlowNodeConfigurationTypeDef(BaseModel):
+class KnowledgeBaseFlowNodeConfigurationTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     modelId: Optional[str] = None
 
-class LambdaFunctionFlowNodeConfigurationTypeDef(BaseModel):
+class LambdaFunctionFlowNodeConfigurationTypeDef(BaseValidatorModel):
     lambdaArn: str
 
-class LexFlowNodeConfigurationTypeDef(BaseModel):
+class LexFlowNodeConfigurationTypeDef(BaseValidatorModel):
     botAliasArn: str
     localeId: str
 
-class FlowNodeInputTypeDef(BaseModel):
+class FlowNodeInputTypeDef(BaseValidatorModel):
     expression: str
     name: str
     type: FlowNodeIODataTypeType
 
-class FlowNodeOutputTypeDef(BaseModel):
+class FlowNodeOutputTypeDef(BaseValidatorModel):
     name: str
     type: FlowNodeIODataTypeType
 
-class FlowSummaryTypeDef(BaseModel):
+class FlowSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     id: str
@@ -219,97 +219,97 @@ class FlowSummaryTypeDef(BaseModel):
     version: str
     description: Optional[str] = None
 
-class FlowValidationTypeDef(BaseModel):
+class FlowValidationTypeDef(BaseValidatorModel):
     message: str
     severity: FlowValidationSeverityType
 
-class FlowVersionSummaryTypeDef(BaseModel):
+class FlowVersionSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     id: str
     status: FlowStatusType
     version: str
 
-class ParameterDetailTypeDef(BaseModel):
+class ParameterDetailTypeDef(BaseValidatorModel):
     type: TypeType
     description: Optional[str] = None
     required: Optional[bool] = None
 
-class GetAgentActionGroupRequestRequestTypeDef(BaseModel):
+class GetAgentActionGroupRequestRequestTypeDef(BaseValidatorModel):
     actionGroupId: str
     agentId: str
     agentVersion: str
 
-class GetAgentAliasRequestRequestTypeDef(BaseModel):
+class GetAgentAliasRequestRequestTypeDef(BaseValidatorModel):
     agentAliasId: str
     agentId: str
 
-class GetAgentKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class GetAgentKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     knowledgeBaseId: str
 
-class GetAgentRequestRequestTypeDef(BaseModel):
+class GetAgentRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
 
-class GetAgentVersionRequestRequestTypeDef(BaseModel):
+class GetAgentVersionRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
 
-class GetDataSourceRequestRequestTypeDef(BaseModel):
+class GetDataSourceRequestRequestTypeDef(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
 
-class GetFlowAliasRequestRequestTypeDef(BaseModel):
+class GetFlowAliasRequestRequestTypeDef(BaseValidatorModel):
     aliasIdentifier: str
     flowIdentifier: str
 
-class GetFlowRequestRequestTypeDef(BaseModel):
+class GetFlowRequestRequestTypeDef(BaseValidatorModel):
     flowIdentifier: str
 
-class GetFlowVersionRequestRequestTypeDef(BaseModel):
+class GetFlowVersionRequestRequestTypeDef(BaseValidatorModel):
     flowIdentifier: str
     flowVersion: str
 
-class GetIngestionJobRequestRequestTypeDef(BaseModel):
+class GetIngestionJobRequestRequestTypeDef(BaseValidatorModel):
     dataSourceId: str
     ingestionJobId: str
     knowledgeBaseId: str
 
-class GetKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class GetKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
 
-class GetPromptRequestRequestTypeDef(BaseModel):
+class GetPromptRequestRequestTypeDef(BaseValidatorModel):
     promptIdentifier: str
     promptVersion: Optional[str] = None
 
-class HierarchicalChunkingLevelConfigurationTypeDef(BaseModel):
+class HierarchicalChunkingLevelConfigurationTypeDef(BaseValidatorModel):
     maxTokens: int
 
-class InferenceConfigurationOutputTypeDef(BaseModel):
+class InferenceConfigurationOutputTypeDef(BaseValidatorModel):
     maximumLength: Optional[int] = None
     stopSequences: Optional[List[str]] = None
     temperature: Optional[float] = None
     topK: Optional[int] = None
     topP: Optional[float] = None
 
-class InferenceConfigurationTypeDef(BaseModel):
+class InferenceConfigurationTypeDef(BaseValidatorModel):
     maximumLength: Optional[int] = None
     stopSequences: Optional[Sequence[str]] = None
     temperature: Optional[float] = None
     topK: Optional[int] = None
     topP: Optional[float] = None
 
-class IngestionJobFilterTypeDef(BaseModel):
+class IngestionJobFilterTypeDef(BaseValidatorModel):
     attribute: Literal["STATUS"]
     operator: Literal["EQ"]
     values: Sequence[str]
 
-class IngestionJobSortByTypeDef(BaseModel):
+class IngestionJobSortByTypeDef(BaseValidatorModel):
     attribute: IngestionJobSortByAttributeType
     order: SortOrderType
 
-class IngestionJobStatisticsTypeDef(BaseModel):
+class IngestionJobStatisticsTypeDef(BaseValidatorModel):
     numberOfDocumentsDeleted: Optional[int] = None
     numberOfDocumentsFailed: Optional[int] = None
     numberOfDocumentsScanned: Optional[int] = None
@@ -318,76 +318,76 @@ class IngestionJobStatisticsTypeDef(BaseModel):
     numberOfModifiedDocumentsIndexed: Optional[int] = None
     numberOfNewDocumentsIndexed: Optional[int] = None
 
-class S3LocationTypeDef(BaseModel):
+class S3LocationTypeDef(BaseValidatorModel):
     uri: str
 
-class KnowledgeBaseSummaryTypeDef(BaseModel):
+class KnowledgeBaseSummaryTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     name: str
     status: KnowledgeBaseStatusType
     updatedAt: datetime
     description: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAgentActionGroupsRequestRequestTypeDef(BaseModel):
+class ListAgentActionGroupsRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAgentAliasesRequestRequestTypeDef(BaseModel):
+class ListAgentAliasesRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAgentKnowledgeBasesRequestRequestTypeDef(BaseModel):
+class ListAgentKnowledgeBasesRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAgentVersionsRequestRequestTypeDef(BaseModel):
+class ListAgentVersionsRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAgentsRequestRequestTypeDef(BaseModel):
+class ListAgentsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListDataSourcesRequestRequestTypeDef(BaseModel):
+class ListDataSourcesRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListFlowAliasesRequestRequestTypeDef(BaseModel):
+class ListFlowAliasesRequestRequestTypeDef(BaseValidatorModel):
     flowIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListFlowVersionsRequestRequestTypeDef(BaseModel):
+class ListFlowVersionsRequestRequestTypeDef(BaseValidatorModel):
     flowIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListFlowsRequestRequestTypeDef(BaseModel):
+class ListFlowsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListKnowledgeBasesRequestRequestTypeDef(BaseModel):
+class ListKnowledgeBasesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListPromptsRequestRequestTypeDef(BaseModel):
+class ListPromptsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     promptIdentifier: Optional[str] = None
 
-class PromptSummaryTypeDef(BaseModel):
+class PromptSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     id: str
@@ -396,82 +396,82 @@ class PromptSummaryTypeDef(BaseModel):
     version: str
     description: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class MongoDbAtlasFieldMappingTypeDef(BaseModel):
+class MongoDbAtlasFieldMappingTypeDef(BaseValidatorModel):
     metadataField: str
     textField: str
     vectorField: str
 
-class OpenSearchServerlessFieldMappingTypeDef(BaseModel):
+class OpenSearchServerlessFieldMappingTypeDef(BaseValidatorModel):
     metadataField: str
     textField: str
     vectorField: str
 
-class PatternObjectFilterOutputTypeDef(BaseModel):
+class PatternObjectFilterOutputTypeDef(BaseValidatorModel):
     objectType: str
     exclusionFilters: Optional[List[str]] = None
     inclusionFilters: Optional[List[str]] = None
 
-class PatternObjectFilterTypeDef(BaseModel):
+class PatternObjectFilterTypeDef(BaseValidatorModel):
     objectType: str
     exclusionFilters: Optional[Sequence[str]] = None
     inclusionFilters: Optional[Sequence[str]] = None
 
-class PineconeFieldMappingTypeDef(BaseModel):
+class PineconeFieldMappingTypeDef(BaseValidatorModel):
     metadataField: str
     textField: str
 
-class PrepareAgentRequestRequestTypeDef(BaseModel):
+class PrepareAgentRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
 
-class PrepareFlowRequestRequestTypeDef(BaseModel):
+class PrepareFlowRequestRequestTypeDef(BaseValidatorModel):
     flowIdentifier: str
 
-class PromptFlowNodeResourceConfigurationTypeDef(BaseModel):
+class PromptFlowNodeResourceConfigurationTypeDef(BaseValidatorModel):
     promptArn: str
 
-class PromptModelInferenceConfigurationOutputTypeDef(BaseModel):
+class PromptModelInferenceConfigurationOutputTypeDef(BaseValidatorModel):
     maxTokens: Optional[int] = None
     stopSequences: Optional[List[str]] = None
     temperature: Optional[float] = None
     topK: Optional[int] = None
     topP: Optional[float] = None
 
-class PromptModelInferenceConfigurationTypeDef(BaseModel):
+class PromptModelInferenceConfigurationTypeDef(BaseValidatorModel):
     maxTokens: Optional[int] = None
     stopSequences: Optional[Sequence[str]] = None
     temperature: Optional[float] = None
     topK: Optional[int] = None
     topP: Optional[float] = None
 
-class PromptInputVariableTypeDef(BaseModel):
+class PromptInputVariableTypeDef(BaseValidatorModel):
     name: Optional[str] = None
 
-class RdsFieldMappingTypeDef(BaseModel):
+class RdsFieldMappingTypeDef(BaseValidatorModel):
     metadataField: str
     primaryKeyField: str
     textField: str
     vectorField: str
 
-class RedisEnterpriseCloudFieldMappingTypeDef(BaseModel):
+class RedisEnterpriseCloudFieldMappingTypeDef(BaseValidatorModel):
     metadataField: str
     textField: str
     vectorField: str
 
-class RetrievalFlowNodeS3ConfigurationTypeDef(BaseModel):
+class RetrievalFlowNodeS3ConfigurationTypeDef(BaseValidatorModel):
     bucketName: str
 
-class SalesforceSourceConfigurationTypeDef(BaseModel):
+class SalesforceSourceConfigurationTypeDef(BaseValidatorModel):
     authType: Literal["OAUTH2_CLIENT_CREDENTIALS"]
     credentialsSecretArn: str
     hostUrl: str
 
-class SeedUrlTypeDef(BaseModel):
+class SeedUrlTypeDef(BaseValidatorModel):
     url: Optional[str] = None
 
-class SharePointSourceConfigurationOutputTypeDef(BaseModel):
+class SharePointSourceConfigurationOutputTypeDef(BaseValidatorModel):
     authType: Literal["OAUTH2_CLIENT_CREDENTIALS"]
     credentialsSecretArn: str
     domain: str
@@ -479,7 +479,7 @@ class SharePointSourceConfigurationOutputTypeDef(BaseModel):
     siteUrls: List[str]
     tenantId: Optional[str] = None
 
-class SharePointSourceConfigurationTypeDef(BaseModel):
+class SharePointSourceConfigurationTypeDef(BaseValidatorModel):
     authType: Literal["OAUTH2_CLIENT_CREDENTIALS"]
     credentialsSecretArn: str
     domain: str
@@ -487,46 +487,46 @@ class SharePointSourceConfigurationTypeDef(BaseModel):
     siteUrls: Sequence[str]
     tenantId: Optional[str] = None
 
-class StartIngestionJobRequestRequestTypeDef(BaseModel):
+class StartIngestionJobRequestRequestTypeDef(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
-class StorageFlowNodeS3ConfigurationTypeDef(BaseModel):
+class StorageFlowNodeS3ConfigurationTypeDef(BaseValidatorModel):
     bucketName: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TransformationLambdaConfigurationTypeDef(BaseModel):
+class TransformationLambdaConfigurationTypeDef(BaseValidatorModel):
     lambdaArn: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateAgentKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class UpdateAgentKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     knowledgeBaseId: str
     description: Optional[str] = None
     knowledgeBaseState: Optional[KnowledgeBaseStateType] = None
 
-class WebCrawlerLimitsTypeDef(BaseModel):
+class WebCrawlerLimitsTypeDef(BaseValidatorModel):
     rateLimit: Optional[int] = None
 
-class APISchemaTypeDef(BaseModel):
+class APISchemaTypeDef(BaseValidatorModel):
     payload: Optional[str] = None
     s3: Optional[S3IdentifierTypeDef] = None
 
-class AgentAliasHistoryEventTypeDef(BaseModel):
+class AgentAliasHistoryEventTypeDef(BaseValidatorModel):
     endDate: Optional[datetime] = None
     routingConfiguration: Optional[List[AgentAliasRoutingConfigurationListItemTypeDef]] = None
     startDate: Optional[datetime] = None
 
-class AgentAliasSummaryTypeDef(BaseModel):
+class AgentAliasSummaryTypeDef(BaseValidatorModel):
     agentAliasId: str
     agentAliasName: str
     agentAliasStatus: AgentAliasStatusType
@@ -535,7 +535,7 @@ class AgentAliasSummaryTypeDef(BaseModel):
     description: Optional[str] = None
     routingConfiguration: Optional[List[AgentAliasRoutingConfigurationListItemTypeDef]] = None
 
-class CreateAgentAliasRequestRequestTypeDef(BaseModel):
+class CreateAgentAliasRequestRequestTypeDef(BaseValidatorModel):
     agentAliasName: str
     agentId: str
     clientToken: Optional[str] = None
@@ -543,14 +543,14 @@ class CreateAgentAliasRequestRequestTypeDef(BaseModel):
     routingConfiguration: Optional[       Sequence[AgentAliasRoutingConfigurationListItemTypeDef]     ] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateAgentAliasRequestRequestTypeDef(BaseModel):
+class UpdateAgentAliasRequestRequestTypeDef(BaseValidatorModel):
     agentAliasId: str
     agentAliasName: str
     agentId: str
     description: Optional[str] = None
     routingConfiguration: Optional[       Sequence[AgentAliasRoutingConfigurationListItemTypeDef]     ] = None
 
-class AgentSummaryTypeDef(BaseModel):
+class AgentSummaryTypeDef(BaseValidatorModel):
     agentId: str
     agentName: str
     agentStatus: AgentStatusType
@@ -559,7 +559,7 @@ class AgentSummaryTypeDef(BaseModel):
     guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
     latestAgentVersion: Optional[str] = None
 
-class AgentVersionSummaryTypeDef(BaseModel):
+class AgentVersionSummaryTypeDef(BaseValidatorModel):
     agentName: str
     agentStatus: AgentStatusType
     agentVersion: str
@@ -568,105 +568,105 @@ class AgentVersionSummaryTypeDef(BaseModel):
     description: Optional[str] = None
     guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
 
-class AssociateAgentKnowledgeBaseResponseTypeDef(BaseModel):
+class AssociateAgentKnowledgeBaseResponseTypeDef(BaseValidatorModel):
     agentKnowledgeBase: AgentKnowledgeBaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAgentAliasResponseTypeDef(BaseModel):
+class DeleteAgentAliasResponseTypeDef(BaseValidatorModel):
     agentAliasId: str
     agentAliasStatus: AgentAliasStatusType
     agentId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAgentResponseTypeDef(BaseModel):
+class DeleteAgentResponseTypeDef(BaseValidatorModel):
     agentId: str
     agentStatus: AgentStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAgentVersionResponseTypeDef(BaseModel):
+class DeleteAgentVersionResponseTypeDef(BaseValidatorModel):
     agentId: str
     agentStatus: AgentStatusType
     agentVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDataSourceResponseTypeDef(BaseModel):
+class DeleteDataSourceResponseTypeDef(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
     status: DataSourceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFlowAliasResponseTypeDef(BaseModel):
+class DeleteFlowAliasResponseTypeDef(BaseValidatorModel):
     flowId: str
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFlowResponseTypeDef(BaseModel):
+class DeleteFlowResponseTypeDef(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFlowVersionResponseTypeDef(BaseModel):
+class DeleteFlowVersionResponseTypeDef(BaseValidatorModel):
     id: str
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteKnowledgeBaseResponseTypeDef(BaseModel):
+class DeleteKnowledgeBaseResponseTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     status: KnowledgeBaseStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletePromptResponseTypeDef(BaseModel):
+class DeletePromptResponseTypeDef(BaseValidatorModel):
     id: str
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAgentKnowledgeBaseResponseTypeDef(BaseModel):
+class GetAgentKnowledgeBaseResponseTypeDef(BaseValidatorModel):
     agentKnowledgeBase: AgentKnowledgeBaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAgentActionGroupsResponseTypeDef(BaseModel):
+class ListAgentActionGroupsResponseTypeDef(BaseValidatorModel):
     actionGroupSummaries: List[ActionGroupSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAgentKnowledgeBasesResponseTypeDef(BaseModel):
+class ListAgentKnowledgeBasesResponseTypeDef(BaseValidatorModel):
     agentKnowledgeBaseSummaries: List[AgentKnowledgeBaseSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PrepareAgentResponseTypeDef(BaseModel):
+class PrepareAgentResponseTypeDef(BaseValidatorModel):
     agentId: str
     agentStatus: AgentStatusType
     agentVersion: str
     preparedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PrepareFlowResponseTypeDef(BaseModel):
+class PrepareFlowResponseTypeDef(BaseValidatorModel):
     id: str
     status: FlowStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAgentKnowledgeBaseResponseTypeDef(BaseModel):
+class UpdateAgentKnowledgeBaseResponseTypeDef(BaseValidatorModel):
     agentKnowledgeBase: AgentKnowledgeBaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmbeddingModelConfigurationTypeDef(BaseModel):
+class EmbeddingModelConfigurationTypeDef(BaseValidatorModel):
     bedrockEmbeddingModelConfiguration: Optional[       BedrockEmbeddingModelConfigurationTypeDef     ] = None
 
-class BedrockFoundationModelConfigurationTypeDef(BaseModel):
+class BedrockFoundationModelConfigurationTypeDef(BaseValidatorModel):
     modelArn: str
     parsingPrompt: Optional[ParsingPromptTypeDef] = None
 
-class ConditionFlowNodeConfigurationOutputTypeDef(BaseModel):
+class ConditionFlowNodeConfigurationOutputTypeDef(BaseValidatorModel):
     conditions: List[FlowConditionTypeDef]
 
-class ConditionFlowNodeConfigurationTypeDef(BaseModel):
+class ConditionFlowNodeConfigurationTypeDef(BaseValidatorModel):
     conditions: Sequence[FlowConditionTypeDef]
 
-class CreateFlowAliasRequestRequestTypeDef(BaseModel):
+class CreateFlowAliasRequestRequestTypeDef(BaseValidatorModel):
     flowIdentifier: str
     name: str
     routingConfiguration: Sequence[FlowAliasRoutingConfigurationListItemTypeDef]
@@ -674,7 +674,7 @@ class CreateFlowAliasRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateFlowAliasResponseTypeDef(BaseModel):
+class CreateFlowAliasResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     description: str
@@ -685,7 +685,7 @@ class CreateFlowAliasResponseTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FlowAliasSummaryTypeDef(BaseModel):
+class FlowAliasSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     flowId: str
@@ -695,7 +695,7 @@ class FlowAliasSummaryTypeDef(BaseModel):
     updatedAt: datetime
     description: Optional[str] = None
 
-class GetFlowAliasResponseTypeDef(BaseModel):
+class GetFlowAliasResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     description: str
@@ -706,14 +706,14 @@ class GetFlowAliasResponseTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFlowAliasRequestRequestTypeDef(BaseModel):
+class UpdateFlowAliasRequestRequestTypeDef(BaseValidatorModel):
     aliasIdentifier: str
     flowIdentifier: str
     name: str
     routingConfiguration: Sequence[FlowAliasRoutingConfigurationListItemTypeDef]
     description: Optional[str] = None
 
-class UpdateFlowAliasResponseTypeDef(BaseModel):
+class UpdateFlowAliasResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     description: str
@@ -724,44 +724,44 @@ class UpdateFlowAliasResponseTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataSourcesResponseTypeDef(BaseModel):
+class ListDataSourcesResponseTypeDef(BaseValidatorModel):
     dataSourceSummaries: List[DataSourceSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FlowConnectionConfigurationTypeDef(BaseModel):
+class FlowConnectionConfigurationTypeDef(BaseValidatorModel):
     conditional: Optional[FlowConditionalConnectionConfigurationTypeDef] = None
     data: Optional[FlowDataConnectionConfigurationTypeDef] = None
 
-class ListFlowsResponseTypeDef(BaseModel):
+class ListFlowsResponseTypeDef(BaseValidatorModel):
     flowSummaries: List[FlowSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFlowVersionsResponseTypeDef(BaseModel):
+class ListFlowVersionsResponseTypeDef(BaseValidatorModel):
     flowVersionSummaries: List[FlowVersionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FunctionOutputTypeDef(BaseModel):
+class FunctionOutputTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     parameters: Optional[Dict[str, ParameterDetailTypeDef]] = None
 
-class FunctionTypeDef(BaseModel):
+class FunctionTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     parameters: Optional[Mapping[str, ParameterDetailTypeDef]] = None
 
-class HierarchicalChunkingConfigurationOutputTypeDef(BaseModel):
+class HierarchicalChunkingConfigurationOutputTypeDef(BaseValidatorModel):
     levelConfigurations: List[HierarchicalChunkingLevelConfigurationTypeDef]
     overlapTokens: int
 
-class HierarchicalChunkingConfigurationTypeDef(BaseModel):
+class HierarchicalChunkingConfigurationTypeDef(BaseValidatorModel):
     levelConfigurations: Sequence[HierarchicalChunkingLevelConfigurationTypeDef]
     overlapTokens: int
 
-class PromptConfigurationOutputTypeDef(BaseModel):
+class PromptConfigurationOutputTypeDef(BaseValidatorModel):
     basePromptTemplate: Optional[str] = None
     inferenceConfiguration: Optional[InferenceConfigurationOutputTypeDef] = None
     parserMode: Optional[CreationModeType] = None
@@ -769,7 +769,7 @@ class PromptConfigurationOutputTypeDef(BaseModel):
     promptState: Optional[PromptStateType] = None
     promptType: Optional[PromptTypeType] = None
 
-class PromptConfigurationTypeDef(BaseModel):
+class PromptConfigurationTypeDef(BaseValidatorModel):
     basePromptTemplate: Optional[str] = None
     inferenceConfiguration: Optional[InferenceConfigurationTypeDef] = None
     parserMode: Optional[CreationModeType] = None
@@ -777,7 +777,7 @@ class PromptConfigurationTypeDef(BaseModel):
     promptState: Optional[PromptStateType] = None
     promptType: Optional[PromptTypeType] = None
 
-class ListIngestionJobsRequestRequestTypeDef(BaseModel):
+class ListIngestionJobsRequestRequestTypeDef(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
     filters: Optional[Sequence[IngestionJobFilterTypeDef]] = None
@@ -785,7 +785,7 @@ class ListIngestionJobsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     sortBy: Optional[IngestionJobSortByTypeDef] = None
 
-class IngestionJobSummaryTypeDef(BaseModel):
+class IngestionJobSummaryTypeDef(BaseValidatorModel):
     dataSourceId: str
     ingestionJobId: str
     knowledgeBaseId: str
@@ -795,7 +795,7 @@ class IngestionJobSummaryTypeDef(BaseModel):
     description: Optional[str] = None
     statistics: Optional[IngestionJobStatisticsTypeDef] = None
 
-class IngestionJobTypeDef(BaseModel):
+class IngestionJobTypeDef(BaseValidatorModel):
     dataSourceId: str
     ingestionJobId: str
     knowledgeBaseId: str
@@ -806,70 +806,70 @@ class IngestionJobTypeDef(BaseModel):
     failureReasons: Optional[List[str]] = None
     statistics: Optional[IngestionJobStatisticsTypeDef] = None
 
-class IntermediateStorageTypeDef(BaseModel):
+class IntermediateStorageTypeDef(BaseValidatorModel):
     s3Location: S3LocationTypeDef
 
-class ListKnowledgeBasesResponseTypeDef(BaseModel):
+class ListKnowledgeBasesResponseTypeDef(BaseValidatorModel):
     knowledgeBaseSummaries: List[KnowledgeBaseSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAgentActionGroupsRequestListAgentActionGroupsPaginateTypeDef(BaseModel):
+class ListAgentActionGroupsRequestListAgentActionGroupsPaginateTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAgentAliasesRequestListAgentAliasesPaginateTypeDef(BaseModel):
+class ListAgentAliasesRequestListAgentAliasesPaginateTypeDef(BaseValidatorModel):
     agentId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAgentKnowledgeBasesRequestListAgentKnowledgeBasesPaginateTypeDef(BaseModel):
+class ListAgentKnowledgeBasesRequestListAgentKnowledgeBasesPaginateTypeDef(BaseValidatorModel):
     agentId: str
     agentVersion: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAgentVersionsRequestListAgentVersionsPaginateTypeDef(BaseModel):
+class ListAgentVersionsRequestListAgentVersionsPaginateTypeDef(BaseValidatorModel):
     agentId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAgentsRequestListAgentsPaginateTypeDef(BaseModel):
+class ListAgentsRequestListAgentsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDataSourcesRequestListDataSourcesPaginateTypeDef(BaseModel):
+class ListDataSourcesRequestListDataSourcesPaginateTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFlowAliasesRequestListFlowAliasesPaginateTypeDef(BaseModel):
+class ListFlowAliasesRequestListFlowAliasesPaginateTypeDef(BaseValidatorModel):
     flowIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFlowVersionsRequestListFlowVersionsPaginateTypeDef(BaseModel):
+class ListFlowVersionsRequestListFlowVersionsPaginateTypeDef(BaseValidatorModel):
     flowIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFlowsRequestListFlowsPaginateTypeDef(BaseModel):
+class ListFlowsRequestListFlowsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIngestionJobsRequestListIngestionJobsPaginateTypeDef(BaseModel):
+class ListIngestionJobsRequestListIngestionJobsPaginateTypeDef(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
     filters: Optional[Sequence[IngestionJobFilterTypeDef]] = None
     sortBy: Optional[IngestionJobSortByTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListKnowledgeBasesRequestListKnowledgeBasesPaginateTypeDef(BaseModel):
+class ListKnowledgeBasesRequestListKnowledgeBasesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPromptsRequestListPromptsPaginateTypeDef(BaseModel):
+class ListPromptsRequestListPromptsPaginateTypeDef(BaseValidatorModel):
     promptIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPromptsResponseTypeDef(BaseModel):
+class ListPromptsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     promptSummaries: List[PromptSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MongoDbAtlasConfigurationTypeDef(BaseModel):
+class MongoDbAtlasConfigurationTypeDef(BaseValidatorModel):
     collectionName: str
     credentialsSecretArn: str
     databaseName: str
@@ -878,78 +878,78 @@ class MongoDbAtlasConfigurationTypeDef(BaseModel):
     vectorIndexName: str
     endpointServiceName: Optional[str] = None
 
-class OpenSearchServerlessConfigurationTypeDef(BaseModel):
+class OpenSearchServerlessConfigurationTypeDef(BaseValidatorModel):
     collectionArn: str
     fieldMapping: OpenSearchServerlessFieldMappingTypeDef
     vectorIndexName: str
 
-class PatternObjectFilterConfigurationOutputTypeDef(BaseModel):
+class PatternObjectFilterConfigurationOutputTypeDef(BaseValidatorModel):
     filters: List[PatternObjectFilterOutputTypeDef]
 
-class PatternObjectFilterConfigurationTypeDef(BaseModel):
+class PatternObjectFilterConfigurationTypeDef(BaseValidatorModel):
     filters: Sequence[PatternObjectFilterTypeDef]
 
-class PineconeConfigurationTypeDef(BaseModel):
+class PineconeConfigurationTypeDef(BaseValidatorModel):
     connectionString: str
     credentialsSecretArn: str
     fieldMapping: PineconeFieldMappingTypeDef
     namespace: Optional[str] = None
 
-class PromptInferenceConfigurationOutputTypeDef(BaseModel):
+class PromptInferenceConfigurationOutputTypeDef(BaseValidatorModel):
     text: Optional[PromptModelInferenceConfigurationOutputTypeDef] = None
 
-class PromptInferenceConfigurationTypeDef(BaseModel):
+class PromptInferenceConfigurationTypeDef(BaseValidatorModel):
     text: Optional[PromptModelInferenceConfigurationTypeDef] = None
 
-class TextPromptTemplateConfigurationOutputTypeDef(BaseModel):
+class TextPromptTemplateConfigurationOutputTypeDef(BaseValidatorModel):
     text: str
     inputVariables: Optional[List[PromptInputVariableTypeDef]] = None
 
-class TextPromptTemplateConfigurationTypeDef(BaseModel):
+class TextPromptTemplateConfigurationTypeDef(BaseValidatorModel):
     text: str
     inputVariables: Optional[Sequence[PromptInputVariableTypeDef]] = None
 
-class RdsConfigurationTypeDef(BaseModel):
+class RdsConfigurationTypeDef(BaseValidatorModel):
     credentialsSecretArn: str
     databaseName: str
     fieldMapping: RdsFieldMappingTypeDef
     resourceArn: str
     tableName: str
 
-class RedisEnterpriseCloudConfigurationTypeDef(BaseModel):
+class RedisEnterpriseCloudConfigurationTypeDef(BaseValidatorModel):
     credentialsSecretArn: str
     endpoint: str
     fieldMapping: RedisEnterpriseCloudFieldMappingTypeDef
     vectorIndexName: str
 
-class RetrievalFlowNodeServiceConfigurationTypeDef(BaseModel):
+class RetrievalFlowNodeServiceConfigurationTypeDef(BaseValidatorModel):
     s3: Optional[RetrievalFlowNodeS3ConfigurationTypeDef] = None
 
-class UrlConfigurationOutputTypeDef(BaseModel):
+class UrlConfigurationOutputTypeDef(BaseValidatorModel):
     seedUrls: Optional[List[SeedUrlTypeDef]] = None
 
-class UrlConfigurationTypeDef(BaseModel):
+class UrlConfigurationTypeDef(BaseValidatorModel):
     seedUrls: Optional[Sequence[SeedUrlTypeDef]] = None
 
-class StorageFlowNodeServiceConfigurationTypeDef(BaseModel):
+class StorageFlowNodeServiceConfigurationTypeDef(BaseValidatorModel):
     s3: Optional[StorageFlowNodeS3ConfigurationTypeDef] = None
 
-class TransformationFunctionTypeDef(BaseModel):
+class TransformationFunctionTypeDef(BaseValidatorModel):
     transformationLambdaConfiguration: TransformationLambdaConfigurationTypeDef
 
-class WebCrawlerConfigurationOutputTypeDef(BaseModel):
+class WebCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
     crawlerLimits: Optional[WebCrawlerLimitsTypeDef] = None
     exclusionFilters: Optional[List[str]] = None
     inclusionFilters: Optional[List[str]] = None
     scope: Optional[WebScopeTypeType] = None
 
-class WebCrawlerConfigurationTypeDef(BaseModel):
+class WebCrawlerConfigurationTypeDef(BaseValidatorModel):
     crawlerLimits: Optional[WebCrawlerLimitsTypeDef] = None
     exclusionFilters: Optional[Sequence[str]] = None
     inclusionFilters: Optional[Sequence[str]] = None
     scope: Optional[WebScopeTypeType] = None
 
-class AgentAliasTypeDef(BaseModel):
+class AgentAliasTypeDef(BaseValidatorModel):
     agentAliasArn: str
     agentAliasId: str
     agentAliasName: str
@@ -963,95 +963,95 @@ class AgentAliasTypeDef(BaseModel):
     description: Optional[str] = None
     failureReasons: Optional[List[str]] = None
 
-class ListAgentAliasesResponseTypeDef(BaseModel):
+class ListAgentAliasesResponseTypeDef(BaseValidatorModel):
     agentAliasSummaries: List[AgentAliasSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAgentsResponseTypeDef(BaseModel):
+class ListAgentsResponseTypeDef(BaseValidatorModel):
     agentSummaries: List[AgentSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAgentVersionsResponseTypeDef(BaseModel):
+class ListAgentVersionsResponseTypeDef(BaseValidatorModel):
     agentVersionSummaries: List[AgentVersionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VectorKnowledgeBaseConfigurationTypeDef(BaseModel):
+class VectorKnowledgeBaseConfigurationTypeDef(BaseValidatorModel):
     embeddingModelArn: str
     embeddingModelConfiguration: Optional[EmbeddingModelConfigurationTypeDef] = None
 
-class ParsingConfigurationTypeDef(BaseModel):
+class ParsingConfigurationTypeDef(BaseValidatorModel):
     parsingStrategy: Literal["BEDROCK_FOUNDATION_MODEL"]
     bedrockFoundationModelConfiguration: Optional[       BedrockFoundationModelConfigurationTypeDef     ] = None
 
-class ListFlowAliasesResponseTypeDef(BaseModel):
+class ListFlowAliasesResponseTypeDef(BaseValidatorModel):
     flowAliasSummaries: List[FlowAliasSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FlowConnectionTypeDef(BaseModel):
+class FlowConnectionTypeDef(BaseValidatorModel):
     name: str
     source: str
     target: str
     type: FlowConnectionTypeType
     configuration: Optional[FlowConnectionConfigurationTypeDef] = None
 
-class FunctionSchemaOutputTypeDef(BaseModel):
+class FunctionSchemaOutputTypeDef(BaseValidatorModel):
     functions: Optional[List[FunctionOutputTypeDef]] = None
 
-class FunctionSchemaTypeDef(BaseModel):
+class FunctionSchemaTypeDef(BaseValidatorModel):
     functions: Optional[Sequence[FunctionTypeDef]] = None
 
-class ChunkingConfigurationOutputTypeDef(BaseModel):
+class ChunkingConfigurationOutputTypeDef(BaseValidatorModel):
     chunkingStrategy: ChunkingStrategyType
     fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfigurationTypeDef] = None
     hierarchicalChunkingConfiguration: Optional[       HierarchicalChunkingConfigurationOutputTypeDef     ] = None
     semanticChunkingConfiguration: Optional[SemanticChunkingConfigurationTypeDef] = None
 
-class ChunkingConfigurationTypeDef(BaseModel):
+class ChunkingConfigurationTypeDef(BaseValidatorModel):
     chunkingStrategy: ChunkingStrategyType
     fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfigurationTypeDef] = None
     hierarchicalChunkingConfiguration: Optional[HierarchicalChunkingConfigurationTypeDef] = None
     semanticChunkingConfiguration: Optional[SemanticChunkingConfigurationTypeDef] = None
 
-class PromptOverrideConfigurationOutputTypeDef(BaseModel):
+class PromptOverrideConfigurationOutputTypeDef(BaseValidatorModel):
     promptConfigurations: List[PromptConfigurationOutputTypeDef]
     overrideLambda: Optional[str] = None
 
-class PromptOverrideConfigurationTypeDef(BaseModel):
+class PromptOverrideConfigurationTypeDef(BaseValidatorModel):
     promptConfigurations: Sequence[PromptConfigurationTypeDef]
     overrideLambda: Optional[str] = None
 
-class ListIngestionJobsResponseTypeDef(BaseModel):
+class ListIngestionJobsResponseTypeDef(BaseValidatorModel):
     ingestionJobSummaries: List[IngestionJobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIngestionJobResponseTypeDef(BaseModel):
+class GetIngestionJobResponseTypeDef(BaseValidatorModel):
     ingestionJob: IngestionJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartIngestionJobResponseTypeDef(BaseModel):
+class StartIngestionJobResponseTypeDef(BaseValidatorModel):
     ingestionJob: IngestionJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CrawlFilterConfigurationOutputTypeDef(BaseModel):
+class CrawlFilterConfigurationOutputTypeDef(BaseValidatorModel):
     type: Literal["PATTERN"]
     patternObjectFilter: Optional[PatternObjectFilterConfigurationOutputTypeDef] = None
 
-class CrawlFilterConfigurationTypeDef(BaseModel):
+class CrawlFilterConfigurationTypeDef(BaseValidatorModel):
     type: Literal["PATTERN"]
     patternObjectFilter: Optional[PatternObjectFilterConfigurationTypeDef] = None
 
-class PromptTemplateConfigurationOutputTypeDef(BaseModel):
+class PromptTemplateConfigurationOutputTypeDef(BaseValidatorModel):
     text: Optional[TextPromptTemplateConfigurationOutputTypeDef] = None
 
-class PromptTemplateConfigurationTypeDef(BaseModel):
+class PromptTemplateConfigurationTypeDef(BaseValidatorModel):
     text: Optional[TextPromptTemplateConfigurationTypeDef] = None
 
-class StorageConfigurationTypeDef(BaseModel):
+class StorageConfigurationTypeDef(BaseValidatorModel):
     type: KnowledgeBaseStorageTypeType
     mongoDbAtlasConfiguration: Optional[MongoDbAtlasConfigurationTypeDef] = None
     opensearchServerlessConfiguration: Optional[OpenSearchServerlessConfigurationTypeDef] = None
@@ -1059,39 +1059,39 @@ class StorageConfigurationTypeDef(BaseModel):
     rdsConfiguration: Optional[RdsConfigurationTypeDef] = None
     redisEnterpriseCloudConfiguration: Optional[RedisEnterpriseCloudConfigurationTypeDef] = None
 
-class RetrievalFlowNodeConfigurationTypeDef(BaseModel):
+class RetrievalFlowNodeConfigurationTypeDef(BaseValidatorModel):
     serviceConfiguration: RetrievalFlowNodeServiceConfigurationTypeDef
 
-class WebSourceConfigurationOutputTypeDef(BaseModel):
+class WebSourceConfigurationOutputTypeDef(BaseValidatorModel):
     urlConfiguration: UrlConfigurationOutputTypeDef
 
-class WebSourceConfigurationTypeDef(BaseModel):
+class WebSourceConfigurationTypeDef(BaseValidatorModel):
     urlConfiguration: UrlConfigurationTypeDef
 
-class StorageFlowNodeConfigurationTypeDef(BaseModel):
+class StorageFlowNodeConfigurationTypeDef(BaseValidatorModel):
     serviceConfiguration: StorageFlowNodeServiceConfigurationTypeDef
 
-class TransformationTypeDef(BaseModel):
+class TransformationTypeDef(BaseValidatorModel):
     stepToApply: Literal["POST_CHUNKING"]
     transformationFunction: TransformationFunctionTypeDef
 
-class CreateAgentAliasResponseTypeDef(BaseModel):
+class CreateAgentAliasResponseTypeDef(BaseValidatorModel):
     agentAlias: AgentAliasTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAgentAliasResponseTypeDef(BaseModel):
+class GetAgentAliasResponseTypeDef(BaseValidatorModel):
     agentAlias: AgentAliasTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAgentAliasResponseTypeDef(BaseModel):
+class UpdateAgentAliasResponseTypeDef(BaseValidatorModel):
     agentAlias: AgentAliasTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class KnowledgeBaseConfigurationTypeDef(BaseModel):
+class KnowledgeBaseConfigurationTypeDef(BaseValidatorModel):
     type: Literal["VECTOR"]
     vectorKnowledgeBaseConfiguration: Optional[VectorKnowledgeBaseConfigurationTypeDef] = None
 
-class AgentActionGroupTypeDef(BaseModel):
+class AgentActionGroupTypeDef(BaseValidatorModel):
     actionGroupId: str
     actionGroupName: str
     actionGroupState: ActionGroupStateType
@@ -1106,7 +1106,7 @@ class AgentActionGroupTypeDef(BaseModel):
     functionSchema: Optional[FunctionSchemaOutputTypeDef] = None
     parentActionSignature: Optional[ActionGroupSignatureType] = None
 
-class CreateAgentActionGroupRequestRequestTypeDef(BaseModel):
+class CreateAgentActionGroupRequestRequestTypeDef(BaseValidatorModel):
     actionGroupName: str
     agentId: str
     agentVersion: str
@@ -1118,7 +1118,7 @@ class CreateAgentActionGroupRequestRequestTypeDef(BaseModel):
     functionSchema: Optional[FunctionSchemaTypeDef] = None
     parentActionGroupSignature: Optional[ActionGroupSignatureType] = None
 
-class UpdateAgentActionGroupRequestRequestTypeDef(BaseModel):
+class UpdateAgentActionGroupRequestRequestTypeDef(BaseValidatorModel):
     actionGroupId: str
     actionGroupName: str
     agentId: str
@@ -1130,7 +1130,7 @@ class UpdateAgentActionGroupRequestRequestTypeDef(BaseModel):
     functionSchema: Optional[FunctionSchemaTypeDef] = None
     parentActionGroupSignature: Optional[ActionGroupSignatureType] = None
 
-class AgentTypeDef(BaseModel):
+class AgentTypeDef(BaseValidatorModel):
     agentArn: str
     agentId: str
     agentName: str
@@ -1152,7 +1152,7 @@ class AgentTypeDef(BaseModel):
     promptOverrideConfiguration: Optional[PromptOverrideConfigurationOutputTypeDef] = None
     recommendedActions: Optional[List[str]] = None
 
-class AgentVersionTypeDef(BaseModel):
+class AgentVersionTypeDef(BaseValidatorModel):
     agentArn: str
     agentId: str
     agentName: str
@@ -1172,7 +1172,7 @@ class AgentVersionTypeDef(BaseModel):
     promptOverrideConfiguration: Optional[PromptOverrideConfigurationOutputTypeDef] = None
     recommendedActions: Optional[List[str]] = None
 
-class CreateAgentRequestRequestTypeDef(BaseModel):
+class CreateAgentRequestRequestTypeDef(BaseValidatorModel):
     agentName: str
     agentResourceRoleArn: Optional[str] = None
     clientToken: Optional[str] = None
@@ -1186,7 +1186,7 @@ class CreateAgentRequestRequestTypeDef(BaseModel):
     promptOverrideConfiguration: Optional[PromptOverrideConfigurationTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateAgentRequestRequestTypeDef(BaseModel):
+class UpdateAgentRequestRequestTypeDef(BaseValidatorModel):
     agentId: str
     agentName: str
     agentResourceRoleArn: str
@@ -1199,67 +1199,67 @@ class UpdateAgentRequestRequestTypeDef(BaseModel):
     memoryConfiguration: Optional[MemoryConfigurationTypeDef] = None
     promptOverrideConfiguration: Optional[PromptOverrideConfigurationTypeDef] = None
 
-class ConfluenceCrawlerConfigurationOutputTypeDef(BaseModel):
+class ConfluenceCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
     filterConfiguration: Optional[CrawlFilterConfigurationOutputTypeDef] = None
 
-class SalesforceCrawlerConfigurationOutputTypeDef(BaseModel):
+class SalesforceCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
     filterConfiguration: Optional[CrawlFilterConfigurationOutputTypeDef] = None
 
-class SharePointCrawlerConfigurationOutputTypeDef(BaseModel):
+class SharePointCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
     filterConfiguration: Optional[CrawlFilterConfigurationOutputTypeDef] = None
 
-class ConfluenceCrawlerConfigurationTypeDef(BaseModel):
+class ConfluenceCrawlerConfigurationTypeDef(BaseValidatorModel):
     filterConfiguration: Optional[CrawlFilterConfigurationTypeDef] = None
 
-class SalesforceCrawlerConfigurationTypeDef(BaseModel):
+class SalesforceCrawlerConfigurationTypeDef(BaseValidatorModel):
     filterConfiguration: Optional[CrawlFilterConfigurationTypeDef] = None
 
-class SharePointCrawlerConfigurationTypeDef(BaseModel):
+class SharePointCrawlerConfigurationTypeDef(BaseValidatorModel):
     filterConfiguration: Optional[CrawlFilterConfigurationTypeDef] = None
 
-class PromptFlowNodeInlineConfigurationOutputTypeDef(BaseModel):
+class PromptFlowNodeInlineConfigurationOutputTypeDef(BaseValidatorModel):
     modelId: str
     templateConfiguration: PromptTemplateConfigurationOutputTypeDef
     templateType: Literal["TEXT"]
     inferenceConfiguration: Optional[PromptInferenceConfigurationOutputTypeDef] = None
 
-class PromptVariantOutputTypeDef(BaseModel):
+class PromptVariantOutputTypeDef(BaseValidatorModel):
     name: str
     templateType: Literal["TEXT"]
     inferenceConfiguration: Optional[PromptInferenceConfigurationOutputTypeDef] = None
     modelId: Optional[str] = None
     templateConfiguration: Optional[PromptTemplateConfigurationOutputTypeDef] = None
 
-class PromptFlowNodeInlineConfigurationTypeDef(BaseModel):
+class PromptFlowNodeInlineConfigurationTypeDef(BaseValidatorModel):
     modelId: str
     templateConfiguration: PromptTemplateConfigurationTypeDef
     templateType: Literal["TEXT"]
     inferenceConfiguration: Optional[PromptInferenceConfigurationTypeDef] = None
 
-class PromptVariantTypeDef(BaseModel):
+class PromptVariantTypeDef(BaseValidatorModel):
     name: str
     templateType: Literal["TEXT"]
     inferenceConfiguration: Optional[PromptInferenceConfigurationTypeDef] = None
     modelId: Optional[str] = None
     templateConfiguration: Optional[PromptTemplateConfigurationTypeDef] = None
 
-class WebDataSourceConfigurationOutputTypeDef(BaseModel):
+class WebDataSourceConfigurationOutputTypeDef(BaseValidatorModel):
     sourceConfiguration: WebSourceConfigurationOutputTypeDef
     crawlerConfiguration: Optional[WebCrawlerConfigurationOutputTypeDef] = None
 
-class WebDataSourceConfigurationTypeDef(BaseModel):
+class WebDataSourceConfigurationTypeDef(BaseValidatorModel):
     sourceConfiguration: WebSourceConfigurationTypeDef
     crawlerConfiguration: Optional[WebCrawlerConfigurationTypeDef] = None
 
-class CustomTransformationConfigurationOutputTypeDef(BaseModel):
+class CustomTransformationConfigurationOutputTypeDef(BaseValidatorModel):
     intermediateStorage: IntermediateStorageTypeDef
     transformations: List[TransformationTypeDef]
 
-class CustomTransformationConfigurationTypeDef(BaseModel):
+class CustomTransformationConfigurationTypeDef(BaseValidatorModel):
     intermediateStorage: IntermediateStorageTypeDef
     transformations: Sequence[TransformationTypeDef]
 
-class CreateKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class CreateKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseConfiguration: KnowledgeBaseConfigurationTypeDef
     name: str
     roleArn: str
@@ -1268,7 +1268,7 @@ class CreateKnowledgeBaseRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class KnowledgeBaseTypeDef(BaseModel):
+class KnowledgeBaseTypeDef(BaseValidatorModel):
     createdAt: datetime
     knowledgeBaseArn: str
     knowledgeBaseConfiguration: KnowledgeBaseConfigurationTypeDef
@@ -1281,7 +1281,7 @@ class KnowledgeBaseTypeDef(BaseModel):
     description: Optional[str] = None
     failureReasons: Optional[List[str]] = None
 
-class UpdateKnowledgeBaseRequestRequestTypeDef(BaseModel):
+class UpdateKnowledgeBaseRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseConfiguration: KnowledgeBaseConfigurationTypeDef
     knowledgeBaseId: str
     name: str
@@ -1289,63 +1289,63 @@ class UpdateKnowledgeBaseRequestRequestTypeDef(BaseModel):
     storageConfiguration: StorageConfigurationTypeDef
     description: Optional[str] = None
 
-class CreateAgentActionGroupResponseTypeDef(BaseModel):
+class CreateAgentActionGroupResponseTypeDef(BaseValidatorModel):
     agentActionGroup: AgentActionGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAgentActionGroupResponseTypeDef(BaseModel):
+class GetAgentActionGroupResponseTypeDef(BaseValidatorModel):
     agentActionGroup: AgentActionGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAgentActionGroupResponseTypeDef(BaseModel):
+class UpdateAgentActionGroupResponseTypeDef(BaseValidatorModel):
     agentActionGroup: AgentActionGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAgentResponseTypeDef(BaseModel):
+class CreateAgentResponseTypeDef(BaseValidatorModel):
     agent: AgentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAgentResponseTypeDef(BaseModel):
+class GetAgentResponseTypeDef(BaseValidatorModel):
     agent: AgentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAgentResponseTypeDef(BaseModel):
+class UpdateAgentResponseTypeDef(BaseValidatorModel):
     agent: AgentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAgentVersionResponseTypeDef(BaseModel):
+class GetAgentVersionResponseTypeDef(BaseValidatorModel):
     agentVersion: AgentVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfluenceDataSourceConfigurationOutputTypeDef(BaseModel):
+class ConfluenceDataSourceConfigurationOutputTypeDef(BaseValidatorModel):
     sourceConfiguration: ConfluenceSourceConfigurationTypeDef
     crawlerConfiguration: Optional[ConfluenceCrawlerConfigurationOutputTypeDef] = None
 
-class SalesforceDataSourceConfigurationOutputTypeDef(BaseModel):
+class SalesforceDataSourceConfigurationOutputTypeDef(BaseValidatorModel):
     sourceConfiguration: SalesforceSourceConfigurationTypeDef
     crawlerConfiguration: Optional[SalesforceCrawlerConfigurationOutputTypeDef] = None
 
-class SharePointDataSourceConfigurationOutputTypeDef(BaseModel):
+class SharePointDataSourceConfigurationOutputTypeDef(BaseValidatorModel):
     sourceConfiguration: SharePointSourceConfigurationOutputTypeDef
     crawlerConfiguration: Optional[SharePointCrawlerConfigurationOutputTypeDef] = None
 
-class ConfluenceDataSourceConfigurationTypeDef(BaseModel):
+class ConfluenceDataSourceConfigurationTypeDef(BaseValidatorModel):
     sourceConfiguration: ConfluenceSourceConfigurationTypeDef
     crawlerConfiguration: Optional[ConfluenceCrawlerConfigurationTypeDef] = None
 
-class SalesforceDataSourceConfigurationTypeDef(BaseModel):
+class SalesforceDataSourceConfigurationTypeDef(BaseValidatorModel):
     sourceConfiguration: SalesforceSourceConfigurationTypeDef
     crawlerConfiguration: Optional[SalesforceCrawlerConfigurationTypeDef] = None
 
-class SharePointDataSourceConfigurationTypeDef(BaseModel):
+class SharePointDataSourceConfigurationTypeDef(BaseValidatorModel):
     sourceConfiguration: SharePointSourceConfigurationTypeDef
     crawlerConfiguration: Optional[SharePointCrawlerConfigurationTypeDef] = None
 
-class PromptFlowNodeSourceConfigurationOutputTypeDef(BaseModel):
+class PromptFlowNodeSourceConfigurationOutputTypeDef(BaseValidatorModel):
     inline: Optional[PromptFlowNodeInlineConfigurationOutputTypeDef] = None
     resource: Optional[PromptFlowNodeResourceConfigurationTypeDef] = None
 
-class CreatePromptResponseTypeDef(BaseModel):
+class CreatePromptResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     customerEncryptionKeyArn: str
@@ -1358,7 +1358,7 @@ class CreatePromptResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePromptVersionResponseTypeDef(BaseModel):
+class CreatePromptVersionResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     customerEncryptionKeyArn: str
@@ -1371,7 +1371,7 @@ class CreatePromptVersionResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPromptResponseTypeDef(BaseModel):
+class GetPromptResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     customerEncryptionKeyArn: str
@@ -1384,7 +1384,7 @@ class GetPromptResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePromptResponseTypeDef(BaseModel):
+class UpdatePromptResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     customerEncryptionKeyArn: str
@@ -1397,33 +1397,33 @@ class UpdatePromptResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PromptFlowNodeSourceConfigurationTypeDef(BaseModel):
+class PromptFlowNodeSourceConfigurationTypeDef(BaseValidatorModel):
     inline: Optional[PromptFlowNodeInlineConfigurationTypeDef] = None
     resource: Optional[PromptFlowNodeResourceConfigurationTypeDef] = None
 
-class VectorIngestionConfigurationOutputTypeDef(BaseModel):
+class VectorIngestionConfigurationOutputTypeDef(BaseValidatorModel):
     chunkingConfiguration: Optional[ChunkingConfigurationOutputTypeDef] = None
     customTransformationConfiguration: Optional[       CustomTransformationConfigurationOutputTypeDef     ] = None
     parsingConfiguration: Optional[ParsingConfigurationTypeDef] = None
 
-class VectorIngestionConfigurationTypeDef(BaseModel):
+class VectorIngestionConfigurationTypeDef(BaseValidatorModel):
     chunkingConfiguration: Optional[ChunkingConfigurationTypeDef] = None
     customTransformationConfiguration: Optional[CustomTransformationConfigurationTypeDef] = None
     parsingConfiguration: Optional[ParsingConfigurationTypeDef] = None
 
-class CreateKnowledgeBaseResponseTypeDef(BaseModel):
+class CreateKnowledgeBaseResponseTypeDef(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetKnowledgeBaseResponseTypeDef(BaseModel):
+class GetKnowledgeBaseResponseTypeDef(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateKnowledgeBaseResponseTypeDef(BaseModel):
+class UpdateKnowledgeBaseResponseTypeDef(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataSourceConfigurationOutputTypeDef(BaseModel):
+class DataSourceConfigurationOutputTypeDef(BaseValidatorModel):
     type: DataSourceTypeType
     confluenceConfiguration: Optional[ConfluenceDataSourceConfigurationOutputTypeDef] = None
     s3Configuration: Optional[S3DataSourceConfigurationOutputTypeDef] = None
@@ -1431,7 +1431,7 @@ class DataSourceConfigurationOutputTypeDef(BaseModel):
     sharePointConfiguration: Optional[SharePointDataSourceConfigurationOutputTypeDef] = None
     webConfiguration: Optional[WebDataSourceConfigurationOutputTypeDef] = None
 
-class DataSourceConfigurationTypeDef(BaseModel):
+class DataSourceConfigurationTypeDef(BaseValidatorModel):
     type: DataSourceTypeType
     confluenceConfiguration: Optional[ConfluenceDataSourceConfigurationTypeDef] = None
     s3Configuration: Optional[S3DataSourceConfigurationTypeDef] = None
@@ -1439,13 +1439,13 @@ class DataSourceConfigurationTypeDef(BaseModel):
     sharePointConfiguration: Optional[SharePointDataSourceConfigurationTypeDef] = None
     webConfiguration: Optional[WebDataSourceConfigurationTypeDef] = None
 
-class PromptFlowNodeConfigurationOutputTypeDef(BaseModel):
+class PromptFlowNodeConfigurationOutputTypeDef(BaseValidatorModel):
     sourceConfiguration: PromptFlowNodeSourceConfigurationOutputTypeDef
 
-class PromptFlowNodeConfigurationTypeDef(BaseModel):
+class PromptFlowNodeConfigurationTypeDef(BaseValidatorModel):
     sourceConfiguration: PromptFlowNodeSourceConfigurationTypeDef
 
-class CreatePromptRequestRequestTypeDef(BaseModel):
+class CreatePromptRequestRequestTypeDef(BaseValidatorModel):
     name: str
     clientToken: Optional[str] = None
     customerEncryptionKeyArn: Optional[str] = None
@@ -1454,7 +1454,7 @@ class CreatePromptRequestRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     variants: Optional[Sequence[PromptVariantUnionTypeDef]] = None
 
-class UpdatePromptRequestRequestTypeDef(BaseModel):
+class UpdatePromptRequestRequestTypeDef(BaseValidatorModel):
     name: str
     promptIdentifier: str
     customerEncryptionKeyArn: Optional[str] = None
@@ -1462,7 +1462,7 @@ class UpdatePromptRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     variants: Optional[Sequence[PromptVariantUnionTypeDef]] = None
 
-class DataSourceTypeDef(BaseModel):
+class DataSourceTypeDef(BaseValidatorModel):
     createdAt: datetime
     dataSourceConfiguration: DataSourceConfigurationOutputTypeDef
     dataSourceId: str
@@ -1476,7 +1476,7 @@ class DataSourceTypeDef(BaseModel):
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     vectorIngestionConfiguration: Optional[VectorIngestionConfigurationOutputTypeDef] = None
 
-class CreateDataSourceRequestRequestTypeDef(BaseModel):
+class CreateDataSourceRequestRequestTypeDef(BaseValidatorModel):
     dataSourceConfiguration: DataSourceConfigurationTypeDef
     knowledgeBaseId: str
     name: str
@@ -1486,7 +1486,7 @@ class CreateDataSourceRequestRequestTypeDef(BaseModel):
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     vectorIngestionConfiguration: Optional[VectorIngestionConfigurationTypeDef] = None
 
-class UpdateDataSourceRequestRequestTypeDef(BaseModel):
+class UpdateDataSourceRequestRequestTypeDef(BaseValidatorModel):
     dataSourceConfiguration: DataSourceConfigurationTypeDef
     dataSourceId: str
     knowledgeBaseId: str
@@ -1496,7 +1496,7 @@ class UpdateDataSourceRequestRequestTypeDef(BaseModel):
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     vectorIngestionConfiguration: Optional[VectorIngestionConfigurationTypeDef] = None
 
-class FlowNodeConfigurationOutputTypeDef(BaseModel):
+class FlowNodeConfigurationOutputTypeDef(BaseValidatorModel):
     agent: Optional[AgentFlowNodeConfigurationTypeDef] = None
     collector: Optional[Dict[str, Any]] = None
     condition: Optional[ConditionFlowNodeConfigurationOutputTypeDef] = None
@@ -1510,7 +1510,7 @@ class FlowNodeConfigurationOutputTypeDef(BaseModel):
     retrieval: Optional[RetrievalFlowNodeConfigurationTypeDef] = None
     storage: Optional[StorageFlowNodeConfigurationTypeDef] = None
 
-class FlowNodeConfigurationTypeDef(BaseModel):
+class FlowNodeConfigurationTypeDef(BaseValidatorModel):
     agent: Optional[AgentFlowNodeConfigurationTypeDef] = None
     collector: Optional[Mapping[str, Any]] = None
     condition: Optional[ConditionFlowNodeConfigurationTypeDef] = None
@@ -1524,41 +1524,41 @@ class FlowNodeConfigurationTypeDef(BaseModel):
     retrieval: Optional[RetrievalFlowNodeConfigurationTypeDef] = None
     storage: Optional[StorageFlowNodeConfigurationTypeDef] = None
 
-class CreateDataSourceResponseTypeDef(BaseModel):
+class CreateDataSourceResponseTypeDef(BaseValidatorModel):
     dataSource: DataSourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDataSourceResponseTypeDef(BaseModel):
+class GetDataSourceResponseTypeDef(BaseValidatorModel):
     dataSource: DataSourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDataSourceResponseTypeDef(BaseModel):
+class UpdateDataSourceResponseTypeDef(BaseValidatorModel):
     dataSource: DataSourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FlowNodeExtraOutputTypeDef(BaseModel):
+class FlowNodeExtraOutputTypeDef(BaseValidatorModel):
     name: str
     type: FlowNodeTypeType
     configuration: Optional[FlowNodeConfigurationOutputTypeDef] = None
     inputs: Optional[List[FlowNodeInputTypeDef]] = None
     outputs: Optional[List[FlowNodeOutputTypeDef]] = None
 
-class FlowNodeTypeDef(BaseModel):
+class FlowNodeTypeDef(BaseValidatorModel):
     name: str
     type: FlowNodeTypeType
     configuration: Optional[FlowNodeConfigurationTypeDef] = None
     inputs: Optional[Sequence[FlowNodeInputTypeDef]] = None
     outputs: Optional[Sequence[FlowNodeOutputTypeDef]] = None
 
-class FlowDefinitionOutputTypeDef(BaseModel):
+class FlowDefinitionOutputTypeDef(BaseValidatorModel):
     connections: Optional[List[FlowConnectionTypeDef]] = None
     nodes: Optional[List[FlowNodeExtraOutputTypeDef]] = None
 
-class FlowDefinitionTypeDef(BaseModel):
+class FlowDefinitionTypeDef(BaseValidatorModel):
     connections: Optional[Sequence[FlowConnectionTypeDef]] = None
     nodes: Optional[Sequence[FlowNodeTypeDef]] = None
 
-class CreateFlowResponseTypeDef(BaseModel):
+class CreateFlowResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     customerEncryptionKeyArn: str
@@ -1572,7 +1572,7 @@ class CreateFlowResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFlowVersionResponseTypeDef(BaseModel):
+class CreateFlowVersionResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     customerEncryptionKeyArn: str
@@ -1585,7 +1585,7 @@ class CreateFlowVersionResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFlowResponseTypeDef(BaseModel):
+class GetFlowResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     customerEncryptionKeyArn: str
@@ -1600,7 +1600,7 @@ class GetFlowResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFlowVersionResponseTypeDef(BaseModel):
+class GetFlowVersionResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     customerEncryptionKeyArn: str
@@ -1613,7 +1613,7 @@ class GetFlowVersionResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFlowResponseTypeDef(BaseModel):
+class UpdateFlowResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     customerEncryptionKeyArn: str
@@ -1627,7 +1627,7 @@ class UpdateFlowResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFlowRequestRequestTypeDef(BaseModel):
+class CreateFlowRequestRequestTypeDef(BaseValidatorModel):
     executionRoleArn: str
     name: str
     clientToken: Optional[str] = None
@@ -1636,7 +1636,7 @@ class CreateFlowRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateFlowRequestRequestTypeDef(BaseModel):
+class UpdateFlowRequestRequestTypeDef(BaseValidatorModel):
     executionRoleArn: str
     flowIdentifier: str
     name: str

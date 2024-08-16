@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,20 +11,20 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.rolesanywhere_constants import *
 
-class MappingRuleTypeDef(BaseModel):
+class MappingRuleTypeDef(BaseValidatorModel):
     specifier: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class NotificationSettingTypeDef(BaseModel):
+class NotificationSettingTypeDef(BaseValidatorModel):
     enabled: bool
     event: NotificationEventType
     channel: Optional[Literal["ALL"]] = None
     threshold: Optional[int] = None
 
-class CredentialSummaryTypeDef(BaseModel):
+class CredentialSummaryTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
     failed: Optional[bool] = None
     issuer: Optional[str] = None
@@ -32,7 +32,7 @@ class CredentialSummaryTypeDef(BaseModel):
     serialNumber: Optional[str] = None
     x509CertificateData: Optional[str] = None
 
-class CrlDetailTypeDef(BaseModel):
+class CrlDetailTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     crlArn: Optional[str] = None
     crlData: Optional[bytes] = None
@@ -42,33 +42,33 @@ class CrlDetailTypeDef(BaseModel):
     trustAnchorArn: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DeleteAttributeMappingRequestRequestTypeDef(BaseModel):
+class DeleteAttributeMappingRequestRequestTypeDef(BaseValidatorModel):
     certificateField: CertificateFieldType
     profileId: str
     specifiers: Optional[Sequence[str]] = None
 
-class InstancePropertyTypeDef(BaseModel):
+class InstancePropertyTypeDef(BaseValidatorModel):
     failed: Optional[bool] = None
     properties: Optional[Dict[str, str]] = None
     seenAt: Optional[datetime] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListRequestRequestTypeDef(BaseModel):
+class ListRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     pageSize: Optional[int] = None
 
-class SubjectSummaryTypeDef(BaseModel):
+class SubjectSummaryTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     enabled: Optional[bool] = None
     lastSeenAt: Optional[datetime] = None
@@ -77,41 +77,41 @@ class SubjectSummaryTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     x509Subject: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class NotificationSettingDetailTypeDef(BaseModel):
+class NotificationSettingDetailTypeDef(BaseValidatorModel):
     enabled: bool
     event: NotificationEventType
     channel: Optional[Literal["ALL"]] = None
     configuredBy: Optional[str] = None
     threshold: Optional[int] = None
 
-class NotificationSettingKeyTypeDef(BaseModel):
+class NotificationSettingKeyTypeDef(BaseValidatorModel):
     event: NotificationEventType
     channel: Optional[Literal["ALL"]] = None
 
-class ScalarCrlRequestRequestTypeDef(BaseModel):
+class ScalarCrlRequestRequestTypeDef(BaseValidatorModel):
     crlId: str
 
-class ScalarProfileRequestRequestTypeDef(BaseModel):
+class ScalarProfileRequestRequestTypeDef(BaseValidatorModel):
     profileId: str
 
-class ScalarSubjectRequestRequestTypeDef(BaseModel):
+class ScalarSubjectRequestRequestTypeDef(BaseValidatorModel):
     subjectId: str
 
-class ScalarTrustAnchorRequestRequestTypeDef(BaseModel):
+class ScalarTrustAnchorRequestRequestTypeDef(BaseValidatorModel):
     trustAnchorId: str
 
-class SourceDataTypeDef(BaseModel):
+class SourceDataTypeDef(BaseValidatorModel):
     acmPcaArn: Optional[str] = None
     x509CertificateData: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateProfileRequestRequestTypeDef(BaseModel):
+class UpdateProfileRequestRequestTypeDef(BaseValidatorModel):
     profileId: str
     durationSeconds: Optional[int] = None
     managedPolicyArns: Optional[Sequence[str]] = None
@@ -119,21 +119,21 @@ class UpdateProfileRequestRequestTypeDef(BaseModel):
     roleArns: Optional[Sequence[str]] = None
     sessionPolicy: Optional[str] = None
 
-class AttributeMappingTypeDef(BaseModel):
+class AttributeMappingTypeDef(BaseValidatorModel):
     certificateField: Optional[CertificateFieldType] = None
     mappingRules: Optional[List[MappingRuleTypeDef]] = None
 
-class PutAttributeMappingRequestRequestTypeDef(BaseModel):
+class PutAttributeMappingRequestRequestTypeDef(BaseValidatorModel):
     certificateField: CertificateFieldType
     mappingRules: Sequence[MappingRuleTypeDef]
     profileId: str
 
-class UpdateCrlRequestRequestTypeDef(BaseModel):
+class UpdateCrlRequestRequestTypeDef(BaseValidatorModel):
     crlId: str
     crlData: Optional[BlobTypeDef] = None
     name: Optional[str] = None
 
-class CreateProfileRequestRequestTypeDef(BaseModel):
+class CreateProfileRequestRequestTypeDef(BaseValidatorModel):
     name: str
     roleArns: Sequence[str]
     durationSeconds: Optional[int] = None
@@ -143,35 +143,35 @@ class CreateProfileRequestRequestTypeDef(BaseModel):
     sessionPolicy: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class ImportCrlRequestRequestTypeDef(BaseModel):
+class ImportCrlRequestRequestTypeDef(BaseValidatorModel):
     crlData: BlobTypeDef
     name: str
     trustAnchorArn: str
     enabled: Optional[bool] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class PutNotificationSettingsRequestRequestTypeDef(BaseModel):
+class PutNotificationSettingsRequestRequestTypeDef(BaseValidatorModel):
     notificationSettings: Sequence[NotificationSettingTypeDef]
     trustAnchorId: str
 
-class CrlDetailResponseTypeDef(BaseModel):
+class CrlDetailResponseTypeDef(BaseValidatorModel):
     crl: CrlDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCrlsResponseTypeDef(BaseModel):
+class ListCrlsResponseTypeDef(BaseValidatorModel):
     crls: List[CrlDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubjectDetailTypeDef(BaseModel):
+class SubjectDetailTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     credentials: Optional[List[CredentialSummaryTypeDef]] = None
     enabled: Optional[bool] = None
@@ -182,36 +182,36 @@ class SubjectDetailTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     x509Subject: Optional[str] = None
 
-class ListRequestListCrlsPaginateTypeDef(BaseModel):
+class ListRequestListCrlsPaginateTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRequestListProfilesPaginateTypeDef(BaseModel):
+class ListRequestListProfilesPaginateTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRequestListSubjectsPaginateTypeDef(BaseModel):
+class ListRequestListSubjectsPaginateTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRequestListTrustAnchorsPaginateTypeDef(BaseModel):
+class ListRequestListTrustAnchorsPaginateTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubjectsResponseTypeDef(BaseModel):
+class ListSubjectsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     subjects: List[SubjectSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetNotificationSettingsRequestRequestTypeDef(BaseModel):
+class ResetNotificationSettingsRequestRequestTypeDef(BaseValidatorModel):
     notificationSettingKeys: Sequence[NotificationSettingKeyTypeDef]
     trustAnchorId: str
 
-class SourceTypeDef(BaseModel):
+class SourceTypeDef(BaseValidatorModel):
     sourceData: Optional[SourceDataTypeDef] = None
     sourceType: Optional[TrustAnchorTypeType] = None
 
-class ProfileDetailTypeDef(BaseModel):
+class ProfileDetailTypeDef(BaseValidatorModel):
     attributeMappings: Optional[List[AttributeMappingTypeDef]] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
@@ -226,18 +226,18 @@ class ProfileDetailTypeDef(BaseModel):
     sessionPolicy: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
-class SubjectDetailResponseTypeDef(BaseModel):
+class SubjectDetailResponseTypeDef(BaseValidatorModel):
     subject: SubjectDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrustAnchorRequestRequestTypeDef(BaseModel):
+class CreateTrustAnchorRequestRequestTypeDef(BaseValidatorModel):
     name: str
     source: SourceTypeDef
     enabled: Optional[bool] = None
     notificationSettings: Optional[Sequence[NotificationSettingTypeDef]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class TrustAnchorDetailTypeDef(BaseModel):
+class TrustAnchorDetailTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     enabled: Optional[bool] = None
     name: Optional[str] = None
@@ -247,42 +247,42 @@ class TrustAnchorDetailTypeDef(BaseModel):
     trustAnchorId: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
-class UpdateTrustAnchorRequestRequestTypeDef(BaseModel):
+class UpdateTrustAnchorRequestRequestTypeDef(BaseValidatorModel):
     trustAnchorId: str
     name: Optional[str] = None
     source: Optional[SourceTypeDef] = None
 
-class DeleteAttributeMappingResponseTypeDef(BaseModel):
+class DeleteAttributeMappingResponseTypeDef(BaseValidatorModel):
     profile: ProfileDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProfilesResponseTypeDef(BaseModel):
+class ListProfilesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     profiles: List[ProfileDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProfileDetailResponseTypeDef(BaseModel):
+class ProfileDetailResponseTypeDef(BaseValidatorModel):
     profile: ProfileDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAttributeMappingResponseTypeDef(BaseModel):
+class PutAttributeMappingResponseTypeDef(BaseValidatorModel):
     profile: ProfileDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTrustAnchorsResponseTypeDef(BaseModel):
+class ListTrustAnchorsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     trustAnchors: List[TrustAnchorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutNotificationSettingsResponseTypeDef(BaseModel):
+class PutNotificationSettingsResponseTypeDef(BaseValidatorModel):
     trustAnchor: TrustAnchorDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetNotificationSettingsResponseTypeDef(BaseModel):
+class ResetNotificationSettingsResponseTypeDef(BaseValidatorModel):
     trustAnchor: TrustAnchorDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TrustAnchorDetailResponseTypeDef(BaseModel):
+class TrustAnchorDetailResponseTypeDef(BaseValidatorModel):
     trustAnchor: TrustAnchorDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

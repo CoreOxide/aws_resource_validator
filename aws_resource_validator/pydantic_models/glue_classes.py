@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,125 +11,125 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.glue_constants import *
 
-class NotificationPropertyTypeDef(BaseModel):
+class NotificationPropertyTypeDef(BaseValidatorModel):
     NotifyDelayAfter: Optional[int] = None
 
-class AggregateOperationExtraOutputTypeDef(BaseModel):
+class AggregateOperationExtraOutputTypeDef(BaseValidatorModel):
     Column: List[str]
     AggFunc: AggFunctionType
 
-class AggregateOperationOutputTypeDef(BaseModel):
+class AggregateOperationOutputTypeDef(BaseValidatorModel):
     Column: List[str]
     AggFunc: AggFunctionType
 
-class AggregateOperationTypeDef(BaseModel):
+class AggregateOperationTypeDef(BaseValidatorModel):
     Column: Sequence[str]
     AggFunc: AggFunctionType
 
-class AmazonRedshiftAdvancedOptionTypeDef(BaseModel):
+class AmazonRedshiftAdvancedOptionTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class OptionTypeDef(BaseModel):
+class OptionTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     Label: Optional[str] = None
     Description: Optional[str] = None
 
-class ApplyMappingExtraOutputTypeDef(BaseModel):
+class ApplyMappingExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Mapping: List["MappingExtraOutputTypeDef"]
 
-class ApplyMappingOutputTypeDef(BaseModel):
+class ApplyMappingOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Mapping: List["MappingOutputTypeDef"]
 
-class ApplyMappingTypeDef(BaseModel):
+class ApplyMappingTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Mapping: Sequence["MappingTypeDef"]
 
-class AuditContextTypeDef(BaseModel):
+class AuditContextTypeDef(BaseValidatorModel):
     AdditionalAuditContext: Optional[str] = None
     RequestedColumns: Optional[Sequence[str]] = None
     AllColumnsRequested: Optional[bool] = None
 
-class AuthorizationCodePropertiesTypeDef(BaseModel):
+class AuthorizationCodePropertiesTypeDef(BaseValidatorModel):
     AuthorizationCode: Optional[str] = None
     RedirectUri: Optional[str] = None
 
-class PartitionValueListOutputTypeDef(BaseModel):
+class PartitionValueListOutputTypeDef(BaseValidatorModel):
     Values: List[str]
 
-class BasicCatalogTargetExtraOutputTypeDef(BaseModel):
+class BasicCatalogTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
     Table: str
 
-class BasicCatalogTargetOutputTypeDef(BaseModel):
+class BasicCatalogTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
     Table: str
 
-class BasicCatalogTargetTypeDef(BaseModel):
+class BasicCatalogTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Database: str
     Table: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class BatchDeleteConnectionRequestRequestTypeDef(BaseModel):
+class BatchDeleteConnectionRequestRequestTypeDef(BaseValidatorModel):
     ConnectionNameList: Sequence[str]
     CatalogId: Optional[str] = None
 
-class ErrorDetailTypeDef(BaseModel):
+class ErrorDetailTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class BatchDeleteTableRequestRequestTypeDef(BaseModel):
+class BatchDeleteTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TablesToDelete: Sequence[str]
     CatalogId: Optional[str] = None
     TransactionId: Optional[str] = None
 
-class BatchDeleteTableVersionRequestRequestTypeDef(BaseModel):
+class BatchDeleteTableVersionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     VersionIds: Sequence[str]
     CatalogId: Optional[str] = None
 
-class BatchGetBlueprintsRequestRequestTypeDef(BaseModel):
+class BatchGetBlueprintsRequestRequestTypeDef(BaseValidatorModel):
     Names: Sequence[str]
     IncludeBlueprint: Optional[bool] = None
     IncludeParameterSpec: Optional[bool] = None
 
-class BatchGetCrawlersRequestRequestTypeDef(BaseModel):
+class BatchGetCrawlersRequestRequestTypeDef(BaseValidatorModel):
     CrawlerNames: Sequence[str]
 
-class BatchGetCustomEntityTypesRequestRequestTypeDef(BaseModel):
+class BatchGetCustomEntityTypesRequestRequestTypeDef(BaseValidatorModel):
     Names: Sequence[str]
 
-class CustomEntityTypeTypeDef(BaseModel):
+class CustomEntityTypeTypeDef(BaseValidatorModel):
     Name: str
     RegexString: str
     ContextWords: Optional[List[str]] = None
 
-class BatchGetDataQualityResultRequestRequestTypeDef(BaseModel):
+class BatchGetDataQualityResultRequestRequestTypeDef(BaseValidatorModel):
     ResultIds: Sequence[str]
 
-class BatchGetDevEndpointsRequestRequestTypeDef(BaseModel):
+class BatchGetDevEndpointsRequestRequestTypeDef(BaseValidatorModel):
     DevEndpointNames: Sequence[str]
 
-class DevEndpointTypeDef(BaseModel):
+class DevEndpointTypeDef(BaseValidatorModel):
     EndpointName: Optional[str] = None
     RoleArn: Optional[str] = None
     SecurityGroupIds: Optional[List[str]] = None
@@ -156,40 +156,40 @@ class DevEndpointTypeDef(BaseModel):
     SecurityConfiguration: Optional[str] = None
     Arguments: Optional[Dict[str, str]] = None
 
-class BatchGetJobsRequestRequestTypeDef(BaseModel):
+class BatchGetJobsRequestRequestTypeDef(BaseValidatorModel):
     JobNames: Sequence[str]
 
-class BatchGetTableOptimizerEntryTypeDef(BaseModel):
+class BatchGetTableOptimizerEntryTypeDef(BaseValidatorModel):
     catalogId: Optional[str] = None
     databaseName: Optional[str] = None
     tableName: Optional[str] = None
     type: Optional[Literal["compaction"]] = None
 
-class BatchGetTriggersRequestRequestTypeDef(BaseModel):
+class BatchGetTriggersRequestRequestTypeDef(BaseValidatorModel):
     TriggerNames: Sequence[str]
 
-class BatchGetWorkflowsRequestRequestTypeDef(BaseModel):
+class BatchGetWorkflowsRequestRequestTypeDef(BaseValidatorModel):
     Names: Sequence[str]
     IncludeGraph: Optional[bool] = None
 
-class BatchStopJobRunRequestRequestTypeDef(BaseModel):
+class BatchStopJobRunRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
     JobRunIds: Sequence[str]
 
-class BatchStopJobRunSuccessfulSubmissionTypeDef(BaseModel):
+class BatchStopJobRunSuccessfulSubmissionTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     JobRunId: Optional[str] = None
 
-class BinaryColumnStatisticsDataTypeDef(BaseModel):
+class BinaryColumnStatisticsDataTypeDef(BaseValidatorModel):
     MaximumLength: int
     AverageLength: float
     NumberOfNulls: int
 
-class BlueprintDetailsTypeDef(BaseModel):
+class BlueprintDetailsTypeDef(BaseValidatorModel):
     BlueprintName: Optional[str] = None
     RunId: Optional[str] = None
 
-class BlueprintRunTypeDef(BaseModel):
+class BlueprintRunTypeDef(BaseValidatorModel):
     BlueprintName: Optional[str] = None
     RunId: Optional[str] = None
     WorkflowName: Optional[str] = None
@@ -201,43 +201,43 @@ class BlueprintRunTypeDef(BaseModel):
     Parameters: Optional[str] = None
     RoleArn: Optional[str] = None
 
-class LastActiveDefinitionTypeDef(BaseModel):
+class LastActiveDefinitionTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     LastModifiedOn: Optional[datetime] = None
     ParameterSpec: Optional[str] = None
     BlueprintLocation: Optional[str] = None
     BlueprintServiceLocation: Optional[str] = None
 
-class BooleanColumnStatisticsDataTypeDef(BaseModel):
+class BooleanColumnStatisticsDataTypeDef(BaseValidatorModel):
     NumberOfTrues: int
     NumberOfFalses: int
     NumberOfNulls: int
 
-class CancelDataQualityRuleRecommendationRunRequestRequestTypeDef(BaseModel):
+class CancelDataQualityRuleRecommendationRunRequestRequestTypeDef(BaseValidatorModel):
     RunId: str
 
-class CancelDataQualityRulesetEvaluationRunRequestRequestTypeDef(BaseModel):
+class CancelDataQualityRulesetEvaluationRunRequestRequestTypeDef(BaseValidatorModel):
     RunId: str
 
-class CancelMLTaskRunRequestRequestTypeDef(BaseModel):
+class CancelMLTaskRunRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
     TaskRunId: str
 
-class CancelStatementRequestRequestTypeDef(BaseModel):
+class CancelStatementRequestRequestTypeDef(BaseValidatorModel):
     SessionId: str
     Id: int
     RequestOrigin: Optional[str] = None
 
-class CatalogEntryTypeDef(BaseModel):
+class CatalogEntryTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
 
-class CatalogImportStatusTypeDef(BaseModel):
+class CatalogImportStatusTypeDef(BaseValidatorModel):
     ImportCompleted: Optional[bool] = None
     ImportTime: Optional[datetime] = None
     ImportedBy: Optional[str] = None
 
-class KafkaStreamingSourceOptionsExtraOutputTypeDef(BaseModel):
+class KafkaStreamingSourceOptionsExtraOutputTypeDef(BaseValidatorModel):
     BootstrapServers: Optional[str] = None
     SecurityProtocol: Optional[str] = None
     ConnectionName: Optional[str] = None
@@ -258,11 +258,11 @@ class KafkaStreamingSourceOptionsExtraOutputTypeDef(BaseModel):
     EmitConsumerLagMetrics: Optional[str] = None
     StartingTimestamp: Optional[datetime] = None
 
-class StreamingDataPreviewOptionsTypeDef(BaseModel):
+class StreamingDataPreviewOptionsTypeDef(BaseValidatorModel):
     PollingTime: Optional[int] = None
     RecordPollingLimit: Optional[int] = None
 
-class KafkaStreamingSourceOptionsOutputTypeDef(BaseModel):
+class KafkaStreamingSourceOptionsOutputTypeDef(BaseValidatorModel):
     BootstrapServers: Optional[str] = None
     SecurityProtocol: Optional[str] = None
     ConnectionName: Optional[str] = None
@@ -283,7 +283,7 @@ class KafkaStreamingSourceOptionsOutputTypeDef(BaseModel):
     EmitConsumerLagMetrics: Optional[str] = None
     StartingTimestamp: Optional[datetime] = None
 
-class KinesisStreamingSourceOptionsExtraOutputTypeDef(BaseModel):
+class KinesisStreamingSourceOptionsExtraOutputTypeDef(BaseValidatorModel):
     EndpointUrl: Optional[str] = None
     StreamName: Optional[str] = None
     Classification: Optional[str] = None
@@ -306,7 +306,7 @@ class KinesisStreamingSourceOptionsExtraOutputTypeDef(BaseModel):
     EmitConsumerLagMetrics: Optional[str] = None
     StartingTimestamp: Optional[datetime] = None
 
-class KinesisStreamingSourceOptionsOutputTypeDef(BaseModel):
+class KinesisStreamingSourceOptionsOutputTypeDef(BaseValidatorModel):
     EndpointUrl: Optional[str] = None
     StreamName: Optional[str] = None
     Classification: Optional[str] = None
@@ -329,41 +329,41 @@ class KinesisStreamingSourceOptionsOutputTypeDef(BaseModel):
     EmitConsumerLagMetrics: Optional[str] = None
     StartingTimestamp: Optional[datetime] = None
 
-class CatalogSchemaChangePolicyTypeDef(BaseModel):
+class CatalogSchemaChangePolicyTypeDef(BaseValidatorModel):
     EnableUpdateCatalog: Optional[bool] = None
     UpdateBehavior: Optional[UpdateCatalogBehaviorType] = None
 
-class CatalogSourceTypeDef(BaseModel):
+class CatalogSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
 
-class CatalogTargetExtraOutputTypeDef(BaseModel):
+class CatalogTargetExtraOutputTypeDef(BaseValidatorModel):
     DatabaseName: str
     Tables: List[str]
     ConnectionName: Optional[str] = None
     EventQueueArn: Optional[str] = None
     DlqEventQueueArn: Optional[str] = None
 
-class CatalogTargetOutputTypeDef(BaseModel):
+class CatalogTargetOutputTypeDef(BaseValidatorModel):
     DatabaseName: str
     Tables: List[str]
     ConnectionName: Optional[str] = None
     EventQueueArn: Optional[str] = None
     DlqEventQueueArn: Optional[str] = None
 
-class CatalogTargetTypeDef(BaseModel):
+class CatalogTargetTypeDef(BaseValidatorModel):
     DatabaseName: str
     Tables: Sequence[str]
     ConnectionName: Optional[str] = None
     EventQueueArn: Optional[str] = None
     DlqEventQueueArn: Optional[str] = None
 
-class CheckSchemaVersionValidityInputRequestTypeDef(BaseModel):
+class CheckSchemaVersionValidityInputRequestTypeDef(BaseValidatorModel):
     DataFormat: DataFormatType
     SchemaDefinition: str
 
-class CsvClassifierTypeDef(BaseModel):
+class CsvClassifierTypeDef(BaseValidatorModel):
     Name: str
     CreationTime: Optional[datetime] = None
     LastUpdated: Optional[datetime] = None
@@ -378,7 +378,7 @@ class CsvClassifierTypeDef(BaseModel):
     CustomDatatypes: Optional[List[str]] = None
     Serde: Optional[CsvSerdeOptionType] = None
 
-class GrokClassifierTypeDef(BaseModel):
+class GrokClassifierTypeDef(BaseValidatorModel):
     Name: str
     Classification: str
     GrokPattern: str
@@ -387,14 +387,14 @@ class GrokClassifierTypeDef(BaseModel):
     Version: Optional[int] = None
     CustomPatterns: Optional[str] = None
 
-class JsonClassifierTypeDef(BaseModel):
+class JsonClassifierTypeDef(BaseValidatorModel):
     Name: str
     JsonPath: str
     CreationTime: Optional[datetime] = None
     LastUpdated: Optional[datetime] = None
     Version: Optional[int] = None
 
-class XMLClassifierTypeDef(BaseModel):
+class XMLClassifierTypeDef(BaseValidatorModel):
     Name: str
     Classification: str
     CreationTime: Optional[datetime] = None
@@ -402,17 +402,17 @@ class XMLClassifierTypeDef(BaseModel):
     Version: Optional[int] = None
     RowTag: Optional[str] = None
 
-class CloudWatchEncryptionTypeDef(BaseModel):
+class CloudWatchEncryptionTypeDef(BaseValidatorModel):
     CloudWatchEncryptionMode: Optional[CloudWatchEncryptionModeType] = None
     KmsKeyArn: Optional[str] = None
 
-class ConnectorDataTargetExtraOutputTypeDef(BaseModel):
+class ConnectorDataTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionType: str
     Data: Dict[str, str]
     Inputs: Optional[List[str]] = None
 
-class DirectJDBCSourceTypeDef(BaseModel):
+class DirectJDBCSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
@@ -420,67 +420,67 @@ class DirectJDBCSourceTypeDef(BaseModel):
     ConnectionType: JDBCConnectionTypeType
     RedshiftTmpDir: Optional[str] = None
 
-class DropDuplicatesExtraOutputTypeDef(BaseModel):
+class DropDuplicatesExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Columns: Optional[List[List[str]]] = None
 
-class DropFieldsExtraOutputTypeDef(BaseModel):
+class DropFieldsExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Paths: List[List[str]]
 
-class DynamoDBCatalogSourceTypeDef(BaseModel):
+class DynamoDBCatalogSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
 
-class FillMissingValuesExtraOutputTypeDef(BaseModel):
+class FillMissingValuesExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     ImputedPath: str
     FilledPath: Optional[str] = None
 
-class MergeExtraOutputTypeDef(BaseModel):
+class MergeExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Source: str
     PrimaryKeys: List[List[str]]
 
-class MicrosoftSQLServerCatalogSourceTypeDef(BaseModel):
+class MicrosoftSQLServerCatalogSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
 
-class MicrosoftSQLServerCatalogTargetExtraOutputTypeDef(BaseModel):
-    Name: str
-    Inputs: List[str]
-    Database: str
-    Table: str
-
-class MySQLCatalogSourceTypeDef(BaseModel):
-    Name: str
-    Database: str
-    Table: str
-
-class MySQLCatalogTargetExtraOutputTypeDef(BaseModel):
+class MicrosoftSQLServerCatalogTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
     Table: str
 
-class OracleSQLCatalogSourceTypeDef(BaseModel):
+class MySQLCatalogSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
 
-class OracleSQLCatalogTargetExtraOutputTypeDef(BaseModel):
+class MySQLCatalogTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
     Table: str
 
-class PIIDetectionExtraOutputTypeDef(BaseModel):
+class OracleSQLCatalogSourceTypeDef(BaseValidatorModel):
+    Name: str
+    Database: str
+    Table: str
+
+class OracleSQLCatalogTargetExtraOutputTypeDef(BaseValidatorModel):
+    Name: str
+    Inputs: List[str]
+    Database: str
+    Table: str
+
+class PIIDetectionExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     PiiType: PiiTypeType
@@ -490,109 +490,109 @@ class PIIDetectionExtraOutputTypeDef(BaseModel):
     ThresholdFraction: Optional[float] = None
     MaskValue: Optional[str] = None
 
-class PostgreSQLCatalogSourceTypeDef(BaseModel):
+class PostgreSQLCatalogSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
 
-class PostgreSQLCatalogTargetExtraOutputTypeDef(BaseModel):
+class PostgreSQLCatalogTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
     Table: str
 
-class RedshiftSourceTypeDef(BaseModel):
+class RedshiftSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     RedshiftTmpDir: Optional[str] = None
     TmpDirIAMRole: Optional[str] = None
 
-class RelationalCatalogSourceTypeDef(BaseModel):
+class RelationalCatalogSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
 
-class RenameFieldExtraOutputTypeDef(BaseModel):
+class RenameFieldExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     SourcePath: List[str]
     TargetPath: List[str]
 
-class SelectFieldsExtraOutputTypeDef(BaseModel):
+class SelectFieldsExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Paths: List[List[str]]
 
-class SelectFromCollectionExtraOutputTypeDef(BaseModel):
+class SelectFromCollectionExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Index: int
 
-class SpigotExtraOutputTypeDef(BaseModel):
+class SpigotExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
     Topk: Optional[int] = None
     Prob: Optional[float] = None
 
-class SplitFieldsExtraOutputTypeDef(BaseModel):
+class SplitFieldsExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Paths: List[List[str]]
 
-class UnionExtraOutputTypeDef(BaseModel):
+class UnionExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     UnionType: UnionTypeType
 
-class ConnectorDataTargetOutputTypeDef(BaseModel):
+class ConnectorDataTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionType: str
     Data: Dict[str, str]
     Inputs: Optional[List[str]] = None
 
-class DropDuplicatesOutputTypeDef(BaseModel):
+class DropDuplicatesOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Columns: Optional[List[List[str]]] = None
 
-class DropFieldsOutputTypeDef(BaseModel):
+class DropFieldsOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Paths: List[List[str]]
 
-class FillMissingValuesOutputTypeDef(BaseModel):
+class FillMissingValuesOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     ImputedPath: str
     FilledPath: Optional[str] = None
 
-class MergeOutputTypeDef(BaseModel):
+class MergeOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Source: str
     PrimaryKeys: List[List[str]]
 
-class MicrosoftSQLServerCatalogTargetOutputTypeDef(BaseModel):
+class MicrosoftSQLServerCatalogTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
     Table: str
 
-class MySQLCatalogTargetOutputTypeDef(BaseModel):
+class MySQLCatalogTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
     Table: str
 
-class OracleSQLCatalogTargetOutputTypeDef(BaseModel):
+class OracleSQLCatalogTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
     Table: str
 
-class PIIDetectionOutputTypeDef(BaseModel):
+class PIIDetectionOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     PiiType: PiiTypeType
@@ -602,92 +602,92 @@ class PIIDetectionOutputTypeDef(BaseModel):
     ThresholdFraction: Optional[float] = None
     MaskValue: Optional[str] = None
 
-class PostgreSQLCatalogTargetOutputTypeDef(BaseModel):
+class PostgreSQLCatalogTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
     Table: str
 
-class RenameFieldOutputTypeDef(BaseModel):
+class RenameFieldOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     SourcePath: List[str]
     TargetPath: List[str]
 
-class SelectFieldsOutputTypeDef(BaseModel):
+class SelectFieldsOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Paths: List[List[str]]
 
-class SelectFromCollectionOutputTypeDef(BaseModel):
+class SelectFromCollectionOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Index: int
 
-class SpigotOutputTypeDef(BaseModel):
+class SpigotOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
     Topk: Optional[int] = None
     Prob: Optional[float] = None
 
-class SplitFieldsOutputTypeDef(BaseModel):
+class SplitFieldsOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Paths: List[List[str]]
 
-class UnionOutputTypeDef(BaseModel):
+class UnionOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     UnionType: UnionTypeType
 
-class ConnectorDataTargetTypeDef(BaseModel):
+class ConnectorDataTargetTypeDef(BaseValidatorModel):
     Name: str
     ConnectionType: str
     Data: Mapping[str, str]
     Inputs: Optional[Sequence[str]] = None
 
-class DropDuplicatesTypeDef(BaseModel):
+class DropDuplicatesTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Columns: Optional[Sequence[Sequence[str]]] = None
 
-class DropFieldsTypeDef(BaseModel):
+class DropFieldsTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Paths: Sequence[Sequence[str]]
 
-class FillMissingValuesTypeDef(BaseModel):
+class FillMissingValuesTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     ImputedPath: str
     FilledPath: Optional[str] = None
 
-class MergeTypeDef(BaseModel):
+class MergeTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Source: str
     PrimaryKeys: Sequence[Sequence[str]]
 
-class MicrosoftSQLServerCatalogTargetTypeDef(BaseModel):
+class MicrosoftSQLServerCatalogTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Database: str
     Table: str
 
-class MySQLCatalogTargetTypeDef(BaseModel):
+class MySQLCatalogTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Database: str
     Table: str
 
-class OracleSQLCatalogTargetTypeDef(BaseModel):
+class OracleSQLCatalogTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Database: str
     Table: str
 
-class PIIDetectionTypeDef(BaseModel):
+class PIIDetectionTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     PiiType: PiiTypeType
@@ -697,94 +697,94 @@ class PIIDetectionTypeDef(BaseModel):
     ThresholdFraction: Optional[float] = None
     MaskValue: Optional[str] = None
 
-class PostgreSQLCatalogTargetTypeDef(BaseModel):
+class PostgreSQLCatalogTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Database: str
     Table: str
 
-class RenameFieldTypeDef(BaseModel):
+class RenameFieldTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     SourcePath: Sequence[str]
     TargetPath: Sequence[str]
 
-class SelectFieldsTypeDef(BaseModel):
+class SelectFieldsTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Paths: Sequence[Sequence[str]]
 
-class SelectFromCollectionTypeDef(BaseModel):
+class SelectFromCollectionTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Index: int
 
-class SpigotTypeDef(BaseModel):
+class SpigotTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Path: str
     Topk: Optional[int] = None
     Prob: Optional[float] = None
 
-class SplitFieldsTypeDef(BaseModel):
+class SplitFieldsTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Paths: Sequence[Sequence[str]]
 
-class UnionTypeDef(BaseModel):
+class UnionTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     UnionType: UnionTypeType
 
-class CodeGenEdgeTypeDef(BaseModel):
+class CodeGenEdgeTypeDef(BaseValidatorModel):
     Source: str
     Target: str
     TargetParameter: Optional[str] = None
 
-class CodeGenNodeArgTypeDef(BaseModel):
+class CodeGenNodeArgTypeDef(BaseValidatorModel):
     Name: str
     Value: str
     Param: Optional[bool] = None
 
-class ColumnImportanceTypeDef(BaseModel):
+class ColumnImportanceTypeDef(BaseValidatorModel):
     ColumnName: Optional[str] = None
     Importance: Optional[float] = None
 
-class ColumnOutputTypeDef(BaseModel):
+class ColumnOutputTypeDef(BaseValidatorModel):
     Name: str
     Type: Optional[str] = None
     Comment: Optional[str] = None
     Parameters: Optional[Dict[str, str]] = None
 
-class ColumnRowFilterTypeDef(BaseModel):
+class ColumnRowFilterTypeDef(BaseValidatorModel):
     ColumnName: Optional[str] = None
     RowFilterExpression: Optional[str] = None
 
-class DateColumnStatisticsDataOutputTypeDef(BaseModel):
+class DateColumnStatisticsDataOutputTypeDef(BaseValidatorModel):
     NumberOfNulls: int
     NumberOfDistinctValues: int
     MinimumValue: Optional[datetime] = None
     MaximumValue: Optional[datetime] = None
 
-class DoubleColumnStatisticsDataTypeDef(BaseModel):
+class DoubleColumnStatisticsDataTypeDef(BaseValidatorModel):
     NumberOfNulls: int
     NumberOfDistinctValues: int
     MinimumValue: Optional[float] = None
     MaximumValue: Optional[float] = None
 
-class LongColumnStatisticsDataTypeDef(BaseModel):
+class LongColumnStatisticsDataTypeDef(BaseValidatorModel):
     NumberOfNulls: int
     NumberOfDistinctValues: int
     MinimumValue: Optional[int] = None
     MaximumValue: Optional[int] = None
 
-class StringColumnStatisticsDataTypeDef(BaseModel):
+class StringColumnStatisticsDataTypeDef(BaseValidatorModel):
     MaximumLength: int
     AverageLength: float
     NumberOfNulls: int
     NumberOfDistinctValues: int
 
-class ColumnStatisticsTaskRunTypeDef(BaseModel):
+class ColumnStatisticsTaskRunTypeDef(BaseValidatorModel):
     CustomerId: Optional[str] = None
     ColumnStatisticsTaskRunId: Optional[str] = None
     DatabaseName: Optional[str] = None
@@ -804,66 +804,66 @@ class ColumnStatisticsTaskRunTypeDef(BaseModel):
     ErrorMessage: Optional[str] = None
     DPUSeconds: Optional[float] = None
 
-class ColumnTypeDef(BaseModel):
+class ColumnTypeDef(BaseValidatorModel):
     Name: str
     Type: Optional[str] = None
     Comment: Optional[str] = None
     Parameters: Optional[Mapping[str, str]] = None
 
-class ConditionExpressionTypeDef(BaseModel):
+class ConditionExpressionTypeDef(BaseValidatorModel):
     Condition: str
     TargetColumn: str
     Value: Optional[str] = None
 
-class ConditionTypeDef(BaseModel):
+class ConditionTypeDef(BaseValidatorModel):
     LogicalOperator: Optional[Literal["EQUALS"]] = None
     JobName: Optional[str] = None
     State: Optional[JobRunStateType] = None
     CrawlerName: Optional[str] = None
     CrawlState: Optional[CrawlStateType] = None
 
-class ConfigurationObjectOutputTypeDef(BaseModel):
+class ConfigurationObjectOutputTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     AllowedValues: Optional[List[str]] = None
     MinValue: Optional[str] = None
     MaxValue: Optional[str] = None
 
-class ConfigurationObjectTypeDef(BaseModel):
+class ConfigurationObjectTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     AllowedValues: Optional[Sequence[str]] = None
     MinValue: Optional[str] = None
     MaxValue: Optional[str] = None
 
-class ConfusionMatrixTypeDef(BaseModel):
+class ConfusionMatrixTypeDef(BaseValidatorModel):
     NumTruePositives: Optional[int] = None
     NumFalsePositives: Optional[int] = None
     NumTrueNegatives: Optional[int] = None
     NumFalseNegatives: Optional[int] = None
 
-class PhysicalConnectionRequirementsTypeDef(BaseModel):
+class PhysicalConnectionRequirementsTypeDef(BaseValidatorModel):
     SubnetId: Optional[str] = None
     SecurityGroupIdList: Optional[Sequence[str]] = None
     AvailabilityZone: Optional[str] = None
 
-class ConnectionPasswordEncryptionTypeDef(BaseModel):
+class ConnectionPasswordEncryptionTypeDef(BaseValidatorModel):
     ReturnConnectionPasswordEncrypted: bool
     AwsKmsKeyId: Optional[str] = None
 
-class PhysicalConnectionRequirementsOutputTypeDef(BaseModel):
+class PhysicalConnectionRequirementsOutputTypeDef(BaseValidatorModel):
     SubnetId: Optional[str] = None
     SecurityGroupIdList: Optional[List[str]] = None
     AvailabilityZone: Optional[str] = None
 
-class ConnectionsListExtraOutputTypeDef(BaseModel):
+class ConnectionsListExtraOutputTypeDef(BaseValidatorModel):
     Connections: Optional[List[str]] = None
 
-class ConnectionsListOutputTypeDef(BaseModel):
+class ConnectionsListOutputTypeDef(BaseValidatorModel):
     Connections: Optional[List[str]] = None
 
-class ConnectionsListTypeDef(BaseModel):
+class ConnectionsListTypeDef(BaseValidatorModel):
     Connections: Optional[Sequence[str]] = None
 
-class CrawlTypeDef(BaseModel):
+class CrawlTypeDef(BaseValidatorModel):
     State: Optional[CrawlStateType] = None
     StartedOn: Optional[datetime] = None
     CompletedOn: Optional[datetime] = None
@@ -871,7 +871,7 @@ class CrawlTypeDef(BaseModel):
     LogGroup: Optional[str] = None
     LogStream: Optional[str] = None
 
-class CrawlerHistoryTypeDef(BaseModel):
+class CrawlerHistoryTypeDef(BaseValidatorModel):
     CrawlId: Optional[str] = None
     State: Optional[CrawlerHistoryStateType] = None
     StartTime: Optional[datetime] = None
@@ -883,7 +883,7 @@ class CrawlerHistoryTypeDef(BaseModel):
     MessagePrefix: Optional[str] = None
     DPUHour: Optional[float] = None
 
-class CrawlerMetricsTypeDef(BaseModel):
+class CrawlerMetricsTypeDef(BaseValidatorModel):
     CrawlerName: Optional[str] = None
     TimeLeftSeconds: Optional[float] = None
     StillEstimating: Optional[bool] = None
@@ -893,41 +893,41 @@ class CrawlerMetricsTypeDef(BaseModel):
     TablesUpdated: Optional[int] = None
     TablesDeleted: Optional[int] = None
 
-class DeltaTargetExtraOutputTypeDef(BaseModel):
+class DeltaTargetExtraOutputTypeDef(BaseValidatorModel):
     DeltaTables: Optional[List[str]] = None
     ConnectionName: Optional[str] = None
     WriteManifest: Optional[bool] = None
     CreateNativeDeltaTable: Optional[bool] = None
 
-class DynamoDBTargetTypeDef(BaseModel):
+class DynamoDBTargetTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     scanAll: Optional[bool] = None
     scanRate: Optional[float] = None
 
-class HudiTargetExtraOutputTypeDef(BaseModel):
+class HudiTargetExtraOutputTypeDef(BaseValidatorModel):
     Paths: Optional[List[str]] = None
     ConnectionName: Optional[str] = None
     Exclusions: Optional[List[str]] = None
     MaximumTraversalDepth: Optional[int] = None
 
-class IcebergTargetExtraOutputTypeDef(BaseModel):
+class IcebergTargetExtraOutputTypeDef(BaseValidatorModel):
     Paths: Optional[List[str]] = None
     ConnectionName: Optional[str] = None
     Exclusions: Optional[List[str]] = None
     MaximumTraversalDepth: Optional[int] = None
 
-class JdbcTargetExtraOutputTypeDef(BaseModel):
+class JdbcTargetExtraOutputTypeDef(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     Path: Optional[str] = None
     Exclusions: Optional[List[str]] = None
     EnableAdditionalMetadata: Optional[List[JdbcMetadataEntryType]] = None
 
-class MongoDBTargetTypeDef(BaseModel):
+class MongoDBTargetTypeDef(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     Path: Optional[str] = None
     ScanAll: Optional[bool] = None
 
-class S3TargetExtraOutputTypeDef(BaseModel):
+class S3TargetExtraOutputTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     Exclusions: Optional[List[str]] = None
     ConnectionName: Optional[str] = None
@@ -935,31 +935,31 @@ class S3TargetExtraOutputTypeDef(BaseModel):
     EventQueueArn: Optional[str] = None
     DlqEventQueueArn: Optional[str] = None
 
-class DeltaTargetOutputTypeDef(BaseModel):
+class DeltaTargetOutputTypeDef(BaseValidatorModel):
     DeltaTables: Optional[List[str]] = None
     ConnectionName: Optional[str] = None
     WriteManifest: Optional[bool] = None
     CreateNativeDeltaTable: Optional[bool] = None
 
-class HudiTargetOutputTypeDef(BaseModel):
+class HudiTargetOutputTypeDef(BaseValidatorModel):
     Paths: Optional[List[str]] = None
     ConnectionName: Optional[str] = None
     Exclusions: Optional[List[str]] = None
     MaximumTraversalDepth: Optional[int] = None
 
-class IcebergTargetOutputTypeDef(BaseModel):
+class IcebergTargetOutputTypeDef(BaseValidatorModel):
     Paths: Optional[List[str]] = None
     ConnectionName: Optional[str] = None
     Exclusions: Optional[List[str]] = None
     MaximumTraversalDepth: Optional[int] = None
 
-class JdbcTargetOutputTypeDef(BaseModel):
+class JdbcTargetOutputTypeDef(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     Path: Optional[str] = None
     Exclusions: Optional[List[str]] = None
     EnableAdditionalMetadata: Optional[List[JdbcMetadataEntryType]] = None
 
-class S3TargetOutputTypeDef(BaseModel):
+class S3TargetOutputTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     Exclusions: Optional[List[str]] = None
     ConnectionName: Optional[str] = None
@@ -967,31 +967,31 @@ class S3TargetOutputTypeDef(BaseModel):
     EventQueueArn: Optional[str] = None
     DlqEventQueueArn: Optional[str] = None
 
-class DeltaTargetTypeDef(BaseModel):
+class DeltaTargetTypeDef(BaseValidatorModel):
     DeltaTables: Optional[Sequence[str]] = None
     ConnectionName: Optional[str] = None
     WriteManifest: Optional[bool] = None
     CreateNativeDeltaTable: Optional[bool] = None
 
-class HudiTargetTypeDef(BaseModel):
+class HudiTargetTypeDef(BaseValidatorModel):
     Paths: Optional[Sequence[str]] = None
     ConnectionName: Optional[str] = None
     Exclusions: Optional[Sequence[str]] = None
     MaximumTraversalDepth: Optional[int] = None
 
-class IcebergTargetTypeDef(BaseModel):
+class IcebergTargetTypeDef(BaseValidatorModel):
     Paths: Optional[Sequence[str]] = None
     ConnectionName: Optional[str] = None
     Exclusions: Optional[Sequence[str]] = None
     MaximumTraversalDepth: Optional[int] = None
 
-class JdbcTargetTypeDef(BaseModel):
+class JdbcTargetTypeDef(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     Path: Optional[str] = None
     Exclusions: Optional[Sequence[str]] = None
     EnableAdditionalMetadata: Optional[Sequence[JdbcMetadataEntryType]] = None
 
-class S3TargetTypeDef(BaseModel):
+class S3TargetTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     Exclusions: Optional[Sequence[str]] = None
     ConnectionName: Optional[str] = None
@@ -999,11 +999,11 @@ class S3TargetTypeDef(BaseModel):
     EventQueueArn: Optional[str] = None
     DlqEventQueueArn: Optional[str] = None
 
-class LakeFormationConfigurationTypeDef(BaseModel):
+class LakeFormationConfigurationTypeDef(BaseValidatorModel):
     UseLakeFormationCredentials: Optional[bool] = None
     AccountId: Optional[str] = None
 
-class LastCrawlInfoTypeDef(BaseModel):
+class LastCrawlInfoTypeDef(BaseValidatorModel):
     Status: Optional[LastCrawlStatusType] = None
     ErrorMessage: Optional[str] = None
     LogGroup: Optional[str] = None
@@ -1011,32 +1011,32 @@ class LastCrawlInfoTypeDef(BaseModel):
     MessagePrefix: Optional[str] = None
     StartTime: Optional[datetime] = None
 
-class LineageConfigurationTypeDef(BaseModel):
+class LineageConfigurationTypeDef(BaseValidatorModel):
     CrawlerLineageSettings: Optional[CrawlerLineageSettingsType] = None
 
-class RecrawlPolicyTypeDef(BaseModel):
+class RecrawlPolicyTypeDef(BaseValidatorModel):
     RecrawlBehavior: Optional[RecrawlBehaviorType] = None
 
-class ScheduleTypeDef(BaseModel):
+class ScheduleTypeDef(BaseValidatorModel):
     ScheduleExpression: Optional[str] = None
     State: Optional[ScheduleStateType] = None
 
-class SchemaChangePolicyTypeDef(BaseModel):
+class SchemaChangePolicyTypeDef(BaseValidatorModel):
     UpdateBehavior: Optional[UpdateBehaviorType] = None
     DeleteBehavior: Optional[DeleteBehaviorType] = None
 
-class CrawlsFilterTypeDef(BaseModel):
+class CrawlsFilterTypeDef(BaseValidatorModel):
     FieldName: Optional[FieldNameType] = None
     FilterOperator: Optional[FilterOperatorType] = None
     FieldValue: Optional[str] = None
 
-class CreateBlueprintRequestRequestTypeDef(BaseModel):
+class CreateBlueprintRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     BlueprintLocation: str
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateCsvClassifierRequestTypeDef(BaseModel):
+class CreateCsvClassifierRequestTypeDef(BaseValidatorModel):
     Name: str
     Delimiter: Optional[str] = None
     QuoteSymbol: Optional[str] = None
@@ -1048,33 +1048,33 @@ class CreateCsvClassifierRequestTypeDef(BaseModel):
     CustomDatatypes: Optional[Sequence[str]] = None
     Serde: Optional[CsvSerdeOptionType] = None
 
-class CreateGrokClassifierRequestTypeDef(BaseModel):
+class CreateGrokClassifierRequestTypeDef(BaseValidatorModel):
     Classification: str
     Name: str
     GrokPattern: str
     CustomPatterns: Optional[str] = None
 
-class CreateJsonClassifierRequestTypeDef(BaseModel):
+class CreateJsonClassifierRequestTypeDef(BaseValidatorModel):
     Name: str
     JsonPath: str
 
-class CreateXMLClassifierRequestTypeDef(BaseModel):
+class CreateXMLClassifierRequestTypeDef(BaseValidatorModel):
     Classification: str
     Name: str
     RowTag: Optional[str] = None
 
-class CreateCustomEntityTypeRequestRequestTypeDef(BaseModel):
+class CreateCustomEntityTypeRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     RegexString: str
     ContextWords: Optional[Sequence[str]] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class DataQualityTargetTableTypeDef(BaseModel):
+class DataQualityTargetTableTypeDef(BaseValidatorModel):
     TableName: str
     DatabaseName: str
     CatalogId: Optional[str] = None
 
-class CreateDevEndpointRequestRequestTypeDef(BaseModel):
+class CreateDevEndpointRequestRequestTypeDef(BaseValidatorModel):
     EndpointName: str
     RoleArn: str
     SecurityGroupIds: Optional[Sequence[str]] = None
@@ -1091,16 +1091,16 @@ class CreateDevEndpointRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     Arguments: Optional[Mapping[str, str]] = None
 
-class ExecutionPropertyTypeDef(BaseModel):
+class ExecutionPropertyTypeDef(BaseValidatorModel):
     MaxConcurrentRuns: Optional[int] = None
 
-class JobCommandTypeDef(BaseModel):
+class JobCommandTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     ScriptLocation: Optional[str] = None
     PythonVersion: Optional[str] = None
     Runtime: Optional[str] = None
 
-class SourceControlDetailsTypeDef(BaseModel):
+class SourceControlDetailsTypeDef(BaseValidatorModel):
     Provider: Optional[SourceControlProviderType] = None
     Repository: Optional[str] = None
     Owner: Optional[str] = None
@@ -1110,231 +1110,231 @@ class SourceControlDetailsTypeDef(BaseModel):
     AuthStrategy: Optional[SourceControlAuthStrategyType] = None
     AuthToken: Optional[str] = None
 
-class PartitionIndexTypeDef(BaseModel):
+class PartitionIndexTypeDef(BaseValidatorModel):
     Keys: Sequence[str]
     IndexName: str
 
-class CreateRegistryInputRequestTypeDef(BaseModel):
+class CreateRegistryInputRequestTypeDef(BaseValidatorModel):
     RegistryName: str
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class RegistryIdTypeDef(BaseModel):
+class RegistryIdTypeDef(BaseValidatorModel):
     RegistryName: Optional[str] = None
     RegistryArn: Optional[str] = None
 
-class SessionCommandTypeDef(BaseModel):
+class SessionCommandTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     PythonVersion: Optional[str] = None
 
-class TableOptimizerConfigurationTypeDef(BaseModel):
+class TableOptimizerConfigurationTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
     enabled: Optional[bool] = None
 
-class EventBatchingConditionTypeDef(BaseModel):
+class EventBatchingConditionTypeDef(BaseValidatorModel):
     BatchSize: int
     BatchWindow: Optional[int] = None
 
-class CreateWorkflowRequestRequestTypeDef(BaseModel):
+class CreateWorkflowRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     DefaultRunProperties: Optional[Mapping[str, str]] = None
     Tags: Optional[Mapping[str, str]] = None
     MaxConcurrentRuns: Optional[int] = None
 
-class DQResultsPublishingOptionsTypeDef(BaseModel):
+class DQResultsPublishingOptionsTypeDef(BaseValidatorModel):
     EvaluationContext: Optional[str] = None
     ResultsS3Prefix: Optional[str] = None
     CloudWatchMetricsEnabled: Optional[bool] = None
     ResultsPublishingEnabled: Optional[bool] = None
 
-class DQStopJobOnFailureOptionsTypeDef(BaseModel):
+class DQStopJobOnFailureOptionsTypeDef(BaseValidatorModel):
     StopJobOnFailureTiming: Optional[DQStopJobOnFailureTimingType] = None
 
-class EncryptionAtRestTypeDef(BaseModel):
+class EncryptionAtRestTypeDef(BaseValidatorModel):
     CatalogEncryptionMode: CatalogEncryptionModeType
     SseAwsKmsKeyId: Optional[str] = None
     CatalogEncryptionServiceRole: Optional[str] = None
 
-class DataLakePrincipalTypeDef(BaseModel):
+class DataLakePrincipalTypeDef(BaseValidatorModel):
     DataLakePrincipalIdentifier: Optional[str] = None
 
-class DataQualityAnalyzerResultTypeDef(BaseModel):
+class DataQualityAnalyzerResultTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     EvaluationMessage: Optional[str] = None
     EvaluatedMetrics: Optional[Dict[str, float]] = None
 
-class DataQualityEvaluationRunAdditionalRunOptionsTypeDef(BaseModel):
+class DataQualityEvaluationRunAdditionalRunOptionsTypeDef(BaseValidatorModel):
     CloudWatchMetricsEnabled: Optional[bool] = None
     ResultsS3Prefix: Optional[str] = None
     CompositeRuleEvaluationMethod: Optional[DQCompositeRuleEvaluationMethodType] = None
 
-class DataQualityMetricValuesTypeDef(BaseModel):
+class DataQualityMetricValuesTypeDef(BaseValidatorModel):
     ActualValue: Optional[float] = None
     ExpectedValue: Optional[float] = None
     LowerLimit: Optional[float] = None
     UpperLimit: Optional[float] = None
 
-class DataQualityRuleResultTypeDef(BaseModel):
+class DataQualityRuleResultTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     EvaluationMessage: Optional[str] = None
     Result: Optional[DataQualityRuleResultStatusType] = None
     EvaluatedMetrics: Optional[Dict[str, float]] = None
 
-class GlueTableOutputTypeDef(BaseModel):
+class GlueTableOutputTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
     ConnectionName: Optional[str] = None
     AdditionalOptions: Optional[Dict[str, str]] = None
 
-class GlueTableTypeDef(BaseModel):
+class GlueTableTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
     ConnectionName: Optional[str] = None
     AdditionalOptions: Optional[Mapping[str, str]] = None
 
-class DatabaseIdentifierTypeDef(BaseModel):
+class DatabaseIdentifierTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     DatabaseName: Optional[str] = None
     Region: Optional[str] = None
 
-class FederatedDatabaseTypeDef(BaseModel):
+class FederatedDatabaseTypeDef(BaseValidatorModel):
     Identifier: Optional[str] = None
     ConnectionName: Optional[str] = None
 
-class DatatypeTypeDef(BaseModel):
+class DatatypeTypeDef(BaseValidatorModel):
     Id: str
     Label: str
 
-class DecimalNumberOutputTypeDef(BaseModel):
+class DecimalNumberOutputTypeDef(BaseValidatorModel):
     UnscaledValue: bytes
     Scale: int
 
-class DeleteBlueprintRequestRequestTypeDef(BaseModel):
+class DeleteBlueprintRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteClassifierRequestRequestTypeDef(BaseModel):
+class DeleteClassifierRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteColumnStatisticsForPartitionRequestRequestTypeDef(BaseModel):
+class DeleteColumnStatisticsForPartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionValues: Sequence[str]
     ColumnName: str
     CatalogId: Optional[str] = None
 
-class DeleteColumnStatisticsForTableRequestRequestTypeDef(BaseModel):
+class DeleteColumnStatisticsForTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     ColumnName: str
     CatalogId: Optional[str] = None
 
-class DeleteConnectionRequestRequestTypeDef(BaseModel):
+class DeleteConnectionRequestRequestTypeDef(BaseValidatorModel):
     ConnectionName: str
     CatalogId: Optional[str] = None
 
-class DeleteCrawlerRequestRequestTypeDef(BaseModel):
+class DeleteCrawlerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteCustomEntityTypeRequestRequestTypeDef(BaseModel):
+class DeleteCustomEntityTypeRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteDataQualityRulesetRequestRequestTypeDef(BaseModel):
+class DeleteDataQualityRulesetRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteDatabaseRequestRequestTypeDef(BaseModel):
+class DeleteDatabaseRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     CatalogId: Optional[str] = None
 
-class DeleteDevEndpointRequestRequestTypeDef(BaseModel):
+class DeleteDevEndpointRequestRequestTypeDef(BaseValidatorModel):
     EndpointName: str
 
-class DeleteJobRequestRequestTypeDef(BaseModel):
+class DeleteJobRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
 
-class DeleteMLTransformRequestRequestTypeDef(BaseModel):
+class DeleteMLTransformRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
 
-class DeletePartitionIndexRequestRequestTypeDef(BaseModel):
+class DeletePartitionIndexRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     IndexName: str
     CatalogId: Optional[str] = None
 
-class DeletePartitionRequestRequestTypeDef(BaseModel):
+class DeletePartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionValues: Sequence[str]
     CatalogId: Optional[str] = None
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseModel):
+class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyHashCondition: Optional[str] = None
     ResourceArn: Optional[str] = None
 
-class SchemaIdTypeDef(BaseModel):
+class SchemaIdTypeDef(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     SchemaName: Optional[str] = None
     RegistryName: Optional[str] = None
 
-class DeleteSecurityConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteSecurityConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteSessionRequestRequestTypeDef(BaseModel):
+class DeleteSessionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     RequestOrigin: Optional[str] = None
 
-class DeleteTableOptimizerRequestRequestTypeDef(BaseModel):
+class DeleteTableOptimizerRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     TableName: str
     Type: Literal["compaction"]
 
-class DeleteTableRequestRequestTypeDef(BaseModel):
+class DeleteTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     Name: str
     CatalogId: Optional[str] = None
     TransactionId: Optional[str] = None
 
-class DeleteTableVersionRequestRequestTypeDef(BaseModel):
+class DeleteTableVersionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     VersionId: str
     CatalogId: Optional[str] = None
 
-class DeleteTriggerRequestRequestTypeDef(BaseModel):
+class DeleteTriggerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteUsageProfileRequestRequestTypeDef(BaseModel):
+class DeleteUsageProfileRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteUserDefinedFunctionRequestRequestTypeDef(BaseModel):
+class DeleteUserDefinedFunctionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     FunctionName: str
     CatalogId: Optional[str] = None
 
-class DeleteWorkflowRequestRequestTypeDef(BaseModel):
+class DeleteWorkflowRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DevEndpointCustomLibrariesTypeDef(BaseModel):
+class DevEndpointCustomLibrariesTypeDef(BaseValidatorModel):
     ExtraPythonLibsS3Path: Optional[str] = None
     ExtraJarsS3Path: Optional[str] = None
 
-class DirectSchemaChangePolicyTypeDef(BaseModel):
+class DirectSchemaChangePolicyTypeDef(BaseValidatorModel):
     EnableUpdateCatalog: Optional[bool] = None
     UpdateBehavior: Optional[UpdateCatalogBehaviorType] = None
     Table: Optional[str] = None
     Database: Optional[str] = None
 
-class NullCheckBoxListTypeDef(BaseModel):
+class NullCheckBoxListTypeDef(BaseValidatorModel):
     IsEmpty: Optional[bool] = None
     IsNullString: Optional[bool] = None
     IsNegOne: Optional[bool] = None
 
-class TransformConfigParameterExtraOutputTypeDef(BaseModel):
+class TransformConfigParameterExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Type: ParamTypeType
     ValidationRule: Optional[str] = None
@@ -1343,7 +1343,7 @@ class TransformConfigParameterExtraOutputTypeDef(BaseModel):
     ListType: Optional[ParamTypeType] = None
     IsOptional: Optional[bool] = None
 
-class TransformConfigParameterOutputTypeDef(BaseModel):
+class TransformConfigParameterOutputTypeDef(BaseValidatorModel):
     Name: str
     Type: ParamTypeType
     ValidationRule: Optional[str] = None
@@ -1352,7 +1352,7 @@ class TransformConfigParameterOutputTypeDef(BaseModel):
     ListType: Optional[ParamTypeType] = None
     IsOptional: Optional[bool] = None
 
-class TransformConfigParameterTypeDef(BaseModel):
+class TransformConfigParameterTypeDef(BaseValidatorModel):
     Name: str
     Type: ParamTypeType
     ValidationRule: Optional[str] = None
@@ -1361,169 +1361,169 @@ class TransformConfigParameterTypeDef(BaseModel):
     ListType: Optional[ParamTypeType] = None
     IsOptional: Optional[bool] = None
 
-class EdgeTypeDef(BaseModel):
+class EdgeTypeDef(BaseValidatorModel):
     SourceId: Optional[str] = None
     DestinationId: Optional[str] = None
 
-class JobBookmarksEncryptionTypeDef(BaseModel):
+class JobBookmarksEncryptionTypeDef(BaseValidatorModel):
     JobBookmarksEncryptionMode: Optional[JobBookmarksEncryptionModeType] = None
     KmsKeyArn: Optional[str] = None
 
-class S3EncryptionTypeDef(BaseModel):
+class S3EncryptionTypeDef(BaseValidatorModel):
     S3EncryptionMode: Optional[S3EncryptionModeType] = None
     KmsKeyArn: Optional[str] = None
 
-class ErrorDetailsTypeDef(BaseModel):
+class ErrorDetailsTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class ExportLabelsTaskRunPropertiesTypeDef(BaseModel):
+class ExportLabelsTaskRunPropertiesTypeDef(BaseValidatorModel):
     OutputS3Path: Optional[str] = None
 
-class FederatedTableTypeDef(BaseModel):
+class FederatedTableTypeDef(BaseValidatorModel):
     Identifier: Optional[str] = None
     DatabaseIdentifier: Optional[str] = None
     ConnectionName: Optional[str] = None
 
-class FilterValueExtraOutputTypeDef(BaseModel):
+class FilterValueExtraOutputTypeDef(BaseValidatorModel):
     Type: FilterValueTypeType
     Value: List[str]
 
-class FilterValueOutputTypeDef(BaseModel):
+class FilterValueOutputTypeDef(BaseValidatorModel):
     Type: FilterValueTypeType
     Value: List[str]
 
-class FilterValueTypeDef(BaseModel):
+class FilterValueTypeDef(BaseValidatorModel):
     Type: FilterValueTypeType
     Value: Sequence[str]
 
-class FindMatchesParametersTypeDef(BaseModel):
+class FindMatchesParametersTypeDef(BaseValidatorModel):
     PrimaryKeyColumnName: Optional[str] = None
     PrecisionRecallTradeoff: Optional[float] = None
     AccuracyCostTradeoff: Optional[float] = None
     EnforceProvidedLabels: Optional[bool] = None
 
-class FindMatchesTaskRunPropertiesTypeDef(BaseModel):
+class FindMatchesTaskRunPropertiesTypeDef(BaseValidatorModel):
     JobId: Optional[str] = None
     JobName: Optional[str] = None
     JobRunId: Optional[str] = None
 
-class GetBlueprintRequestRequestTypeDef(BaseModel):
+class GetBlueprintRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     IncludeBlueprint: Optional[bool] = None
     IncludeParameterSpec: Optional[bool] = None
 
-class GetBlueprintRunRequestRequestTypeDef(BaseModel):
+class GetBlueprintRunRequestRequestTypeDef(BaseValidatorModel):
     BlueprintName: str
     RunId: str
 
-class GetBlueprintRunsRequestRequestTypeDef(BaseModel):
+class GetBlueprintRunsRequestRequestTypeDef(BaseValidatorModel):
     BlueprintName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetCatalogImportStatusRequestRequestTypeDef(BaseModel):
+class GetCatalogImportStatusRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
-class GetClassifierRequestRequestTypeDef(BaseModel):
+class GetClassifierRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetClassifiersRequestRequestTypeDef(BaseModel):
+class GetClassifiersRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetColumnStatisticsForPartitionRequestRequestTypeDef(BaseModel):
+class GetColumnStatisticsForPartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionValues: Sequence[str]
     ColumnNames: Sequence[str]
     CatalogId: Optional[str] = None
 
-class GetColumnStatisticsForTableRequestRequestTypeDef(BaseModel):
+class GetColumnStatisticsForTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     ColumnNames: Sequence[str]
     CatalogId: Optional[str] = None
 
-class GetColumnStatisticsTaskRunRequestRequestTypeDef(BaseModel):
+class GetColumnStatisticsTaskRunRequestRequestTypeDef(BaseValidatorModel):
     ColumnStatisticsTaskRunId: str
 
-class GetColumnStatisticsTaskRunsRequestRequestTypeDef(BaseModel):
+class GetColumnStatisticsTaskRunsRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetConnectionRequestRequestTypeDef(BaseModel):
+class GetConnectionRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     CatalogId: Optional[str] = None
     HidePassword: Optional[bool] = None
 
-class GetConnectionsFilterTypeDef(BaseModel):
+class GetConnectionsFilterTypeDef(BaseValidatorModel):
     MatchCriteria: Optional[Sequence[str]] = None
     ConnectionType: Optional[ConnectionTypeType] = None
 
-class GetCrawlerMetricsRequestRequestTypeDef(BaseModel):
+class GetCrawlerMetricsRequestRequestTypeDef(BaseValidatorModel):
     CrawlerNameList: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetCrawlerRequestRequestTypeDef(BaseModel):
+class GetCrawlerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetCrawlersRequestRequestTypeDef(BaseModel):
+class GetCrawlersRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetCustomEntityTypeRequestRequestTypeDef(BaseModel):
+class GetCustomEntityTypeRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetDataCatalogEncryptionSettingsRequestRequestTypeDef(BaseModel):
+class GetDataCatalogEncryptionSettingsRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
-class GetDataQualityResultRequestRequestTypeDef(BaseModel):
+class GetDataQualityResultRequestRequestTypeDef(BaseValidatorModel):
     ResultId: str
 
-class GetDataQualityRuleRecommendationRunRequestRequestTypeDef(BaseModel):
+class GetDataQualityRuleRecommendationRunRequestRequestTypeDef(BaseValidatorModel):
     RunId: str
 
-class GetDataQualityRulesetEvaluationRunRequestRequestTypeDef(BaseModel):
+class GetDataQualityRulesetEvaluationRunRequestRequestTypeDef(BaseValidatorModel):
     RunId: str
 
-class GetDataQualityRulesetRequestRequestTypeDef(BaseModel):
+class GetDataQualityRulesetRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetDatabaseRequestRequestTypeDef(BaseModel):
+class GetDatabaseRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     CatalogId: Optional[str] = None
 
-class GetDatabasesRequestRequestTypeDef(BaseModel):
+class GetDatabasesRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ResourceShareType: Optional[ResourceShareTypeType] = None
     AttributesToGet: Optional[Sequence[Literal["NAME"]]] = None
 
-class GetDataflowGraphRequestRequestTypeDef(BaseModel):
+class GetDataflowGraphRequestRequestTypeDef(BaseValidatorModel):
     PythonScript: Optional[str] = None
 
-class GetDevEndpointRequestRequestTypeDef(BaseModel):
+class GetDevEndpointRequestRequestTypeDef(BaseValidatorModel):
     EndpointName: str
 
-class GetDevEndpointsRequestRequestTypeDef(BaseModel):
+class GetDevEndpointsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetJobBookmarkRequestRequestTypeDef(BaseModel):
+class GetJobBookmarkRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
     RunId: Optional[str] = None
 
-class JobBookmarkEntryTypeDef(BaseModel):
+class JobBookmarkEntryTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     Version: Optional[int] = None
     Run: Optional[int] = None
@@ -1532,43 +1532,43 @@ class JobBookmarkEntryTypeDef(BaseModel):
     RunId: Optional[str] = None
     JobBookmark: Optional[str] = None
 
-class GetJobRequestRequestTypeDef(BaseModel):
+class GetJobRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
 
-class GetJobRunRequestRequestTypeDef(BaseModel):
+class GetJobRunRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
     RunId: str
     PredecessorsIncluded: Optional[bool] = None
 
-class GetJobRunsRequestRequestTypeDef(BaseModel):
+class GetJobRunsRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetJobsRequestRequestTypeDef(BaseModel):
+class GetJobsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetMLTaskRunRequestRequestTypeDef(BaseModel):
+class GetMLTaskRunRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
     TaskRunId: str
 
-class TaskRunSortCriteriaTypeDef(BaseModel):
+class TaskRunSortCriteriaTypeDef(BaseValidatorModel):
     Column: TaskRunSortColumnTypeType
     SortDirection: SortDirectionTypeType
 
-class GetMLTransformRequestRequestTypeDef(BaseModel):
+class GetMLTransformRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
 
-class SchemaColumnTypeDef(BaseModel):
+class SchemaColumnTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     DataType: Optional[str] = None
 
-class TransformSortCriteriaTypeDef(BaseModel):
+class TransformSortCriteriaTypeDef(BaseValidatorModel):
     Column: TransformSortColumnTypeType
     SortDirection: SortDirectionTypeType
 
-class MappingEntryTypeDef(BaseModel):
+class MappingEntryTypeDef(BaseValidatorModel):
     SourceTable: Optional[str] = None
     SourcePath: Optional[str] = None
     SourceType: Optional[str] = None
@@ -1576,143 +1576,143 @@ class MappingEntryTypeDef(BaseModel):
     TargetPath: Optional[str] = None
     TargetType: Optional[str] = None
 
-class GetPartitionIndexesRequestRequestTypeDef(BaseModel):
+class GetPartitionIndexesRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
     NextToken: Optional[str] = None
 
-class GetPartitionRequestRequestTypeDef(BaseModel):
+class GetPartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionValues: Sequence[str]
     CatalogId: Optional[str] = None
 
-class SegmentTypeDef(BaseModel):
+class SegmentTypeDef(BaseValidatorModel):
     SegmentNumber: int
     TotalSegments: int
 
-class GetResourcePoliciesRequestRequestTypeDef(BaseModel):
+class GetResourcePoliciesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GluePolicyTypeDef(BaseModel):
+class GluePolicyTypeDef(BaseValidatorModel):
     PolicyInJson: Optional[str] = None
     PolicyHash: Optional[str] = None
     CreateTime: Optional[datetime] = None
     UpdateTime: Optional[datetime] = None
 
-class GetResourcePolicyRequestRequestTypeDef(BaseModel):
+class GetResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
-class SchemaVersionNumberTypeDef(BaseModel):
+class SchemaVersionNumberTypeDef(BaseValidatorModel):
     LatestVersion: Optional[bool] = None
     VersionNumber: Optional[int] = None
 
-class GetSecurityConfigurationRequestRequestTypeDef(BaseModel):
+class GetSecurityConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetSecurityConfigurationsRequestRequestTypeDef(BaseModel):
+class GetSecurityConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetSessionRequestRequestTypeDef(BaseModel):
+class GetSessionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     RequestOrigin: Optional[str] = None
 
-class GetStatementRequestRequestTypeDef(BaseModel):
+class GetStatementRequestRequestTypeDef(BaseValidatorModel):
     SessionId: str
     Id: int
     RequestOrigin: Optional[str] = None
 
-class GetTableOptimizerRequestRequestTypeDef(BaseModel):
+class GetTableOptimizerRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     TableName: str
     Type: Literal["compaction"]
 
-class GetTableVersionRequestRequestTypeDef(BaseModel):
+class GetTableVersionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
     VersionId: Optional[str] = None
 
-class GetTableVersionsRequestRequestTypeDef(BaseModel):
+class GetTableVersionsRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetTagsRequestRequestTypeDef(BaseModel):
+class GetTagsRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class GetTriggerRequestRequestTypeDef(BaseModel):
+class GetTriggerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetTriggersRequestRequestTypeDef(BaseModel):
+class GetTriggersRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     DependentJobName: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class SupportedDialectTypeDef(BaseModel):
+class SupportedDialectTypeDef(BaseValidatorModel):
     Dialect: Optional[ViewDialectType] = None
     DialectVersion: Optional[str] = None
 
-class GetUsageProfileRequestRequestTypeDef(BaseModel):
+class GetUsageProfileRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetUserDefinedFunctionRequestRequestTypeDef(BaseModel):
+class GetUserDefinedFunctionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     FunctionName: str
     CatalogId: Optional[str] = None
 
-class GetUserDefinedFunctionsRequestRequestTypeDef(BaseModel):
+class GetUserDefinedFunctionsRequestRequestTypeDef(BaseValidatorModel):
     Pattern: str
     CatalogId: Optional[str] = None
     DatabaseName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetWorkflowRequestRequestTypeDef(BaseModel):
+class GetWorkflowRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     IncludeGraph: Optional[bool] = None
 
-class GetWorkflowRunPropertiesRequestRequestTypeDef(BaseModel):
+class GetWorkflowRunPropertiesRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     RunId: str
 
-class GetWorkflowRunRequestRequestTypeDef(BaseModel):
+class GetWorkflowRunRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     RunId: str
     IncludeGraph: Optional[bool] = None
 
-class GetWorkflowRunsRequestRequestTypeDef(BaseModel):
+class GetWorkflowRunsRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     IncludeGraph: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GlueStudioSchemaColumnTypeDef(BaseModel):
+class GlueStudioSchemaColumnTypeDef(BaseValidatorModel):
     Name: str
     Type: Optional[str] = None
 
-class S3SourceAdditionalOptionsTypeDef(BaseModel):
+class S3SourceAdditionalOptionsTypeDef(BaseValidatorModel):
     BoundedSize: Optional[int] = None
     BoundedFiles: Optional[int] = None
 
-class IcebergInputTypeDef(BaseModel):
+class IcebergInputTypeDef(BaseValidatorModel):
     MetadataOperation: Literal["CREATE"]
     Version: Optional[str] = None
 
-class ImportCatalogToGlueRequestRequestTypeDef(BaseModel):
+class ImportCatalogToGlueRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
-class ImportLabelsTaskRunPropertiesTypeDef(BaseModel):
+class ImportLabelsTaskRunPropertiesTypeDef(BaseValidatorModel):
     InputS3Path: Optional[str] = None
     Replace: Optional[bool] = None
 
-class JDBCConnectorOptionsExtraOutputTypeDef(BaseModel):
+class JDBCConnectorOptionsExtraOutputTypeDef(BaseValidatorModel):
     FilterPredicate: Optional[str] = None
     PartitionColumn: Optional[str] = None
     LowerBound: Optional[int] = None
@@ -1722,7 +1722,7 @@ class JDBCConnectorOptionsExtraOutputTypeDef(BaseModel):
     JobBookmarkKeysSortOrder: Optional[str] = None
     DataTypeMapping: Optional[Dict[JDBCDataTypeType, GlueRecordTypeType]] = None
 
-class JDBCConnectorOptionsOutputTypeDef(BaseModel):
+class JDBCConnectorOptionsOutputTypeDef(BaseValidatorModel):
     FilterPredicate: Optional[str] = None
     PartitionColumn: Optional[str] = None
     LowerBound: Optional[int] = None
@@ -1732,7 +1732,7 @@ class JDBCConnectorOptionsOutputTypeDef(BaseModel):
     JobBookmarkKeysSortOrder: Optional[str] = None
     DataTypeMapping: Optional[Dict[JDBCDataTypeType, GlueRecordTypeType]] = None
 
-class JDBCConnectorOptionsTypeDef(BaseModel):
+class JDBCConnectorOptionsTypeDef(BaseValidatorModel):
     FilterPredicate: Optional[str] = None
     PartitionColumn: Optional[str] = None
     LowerBound: Optional[int] = None
@@ -1742,63 +1742,63 @@ class JDBCConnectorOptionsTypeDef(BaseModel):
     JobBookmarkKeysSortOrder: Optional[str] = None
     DataTypeMapping: Optional[Mapping[JDBCDataTypeType, GlueRecordTypeType]] = None
 
-class PredecessorTypeDef(BaseModel):
+class PredecessorTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     RunId: Optional[str] = None
 
-class JoinColumnExtraOutputTypeDef(BaseModel):
+class JoinColumnExtraOutputTypeDef(BaseValidatorModel):
     From: str
     Keys: List[List[str]]
 
-class JoinColumnOutputTypeDef(BaseModel):
+class JoinColumnOutputTypeDef(BaseValidatorModel):
     From: str
     Keys: List[List[str]]
 
-class JoinColumnTypeDef(BaseModel):
+class JoinColumnTypeDef(BaseValidatorModel):
     From: str
     Keys: Sequence[Sequence[str]]
 
-class KeySchemaElementTypeDef(BaseModel):
+class KeySchemaElementTypeDef(BaseValidatorModel):
     Name: str
     Type: str
 
-class LabelingSetGenerationTaskRunPropertiesTypeDef(BaseModel):
+class LabelingSetGenerationTaskRunPropertiesTypeDef(BaseValidatorModel):
     OutputS3Path: Optional[str] = None
 
-class ListBlueprintsRequestRequestTypeDef(BaseModel):
+class ListBlueprintsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ListColumnStatisticsTaskRunsRequestRequestTypeDef(BaseModel):
+class ListColumnStatisticsTaskRunsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCrawlersRequestRequestTypeDef(BaseModel):
+class ListCrawlersRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ListCustomEntityTypesRequestRequestTypeDef(BaseModel):
+class ListCustomEntityTypesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ListDevEndpointsRequestRequestTypeDef(BaseModel):
+class ListDevEndpointsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ListJobsRequestRequestTypeDef(BaseModel):
+class ListJobsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ListRegistriesInputRequestTypeDef(BaseModel):
+class ListRegistriesInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class RegistryListItemTypeDef(BaseModel):
+class RegistryListItemTypeDef(BaseValidatorModel):
     RegistryName: Optional[str] = None
     RegistryArn: Optional[str] = None
     Description: Optional[str] = None
@@ -1806,14 +1806,14 @@ class RegistryListItemTypeDef(BaseModel):
     CreatedTime: Optional[str] = None
     UpdatedTime: Optional[str] = None
 
-class SchemaVersionListItemTypeDef(BaseModel):
+class SchemaVersionListItemTypeDef(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     SchemaVersionId: Optional[str] = None
     VersionNumber: Optional[int] = None
     Status: Optional[SchemaVersionStatusType] = None
     CreatedTime: Optional[str] = None
 
-class SchemaListItemTypeDef(BaseModel):
+class SchemaListItemTypeDef(BaseValidatorModel):
     RegistryName: Optional[str] = None
     SchemaName: Optional[str] = None
     SchemaArn: Optional[str] = None
@@ -1822,18 +1822,18 @@ class SchemaListItemTypeDef(BaseModel):
     CreatedTime: Optional[str] = None
     UpdatedTime: Optional[str] = None
 
-class ListSessionsRequestRequestTypeDef(BaseModel):
+class ListSessionsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Mapping[str, str]] = None
     RequestOrigin: Optional[str] = None
 
-class ListStatementsRequestRequestTypeDef(BaseModel):
+class ListStatementsRequestRequestTypeDef(BaseValidatorModel):
     SessionId: str
     RequestOrigin: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListTableOptimizerRunsRequestRequestTypeDef(BaseModel):
+class ListTableOptimizerRunsRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     TableName: str
@@ -1841,31 +1841,31 @@ class ListTableOptimizerRunsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTriggersRequestRequestTypeDef(BaseModel):
+class ListTriggersRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     DependentJobName: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ListUsageProfilesRequestRequestTypeDef(BaseModel):
+class ListUsageProfilesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class UsageProfileDefinitionTypeDef(BaseModel):
+class UsageProfileDefinitionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     CreatedOn: Optional[datetime] = None
     LastModifiedOn: Optional[datetime] = None
 
-class ListWorkflowsRequestRequestTypeDef(BaseModel):
+class ListWorkflowsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MLUserDataEncryptionTypeDef(BaseModel):
+class MLUserDataEncryptionTypeDef(BaseValidatorModel):
     MlUserDataEncryptionMode: MLUserDataEncryptionModeStringType
     KmsKeyId: Optional[str] = None
 
-class MappingExtraOutputTypeDef(BaseModel):
+class MappingExtraOutputTypeDef(BaseValidatorModel):
     ToKey: Optional[str] = None
     FromPath: Optional[List[str]] = None
     FromType: Optional[str] = None
@@ -1873,7 +1873,7 @@ class MappingExtraOutputTypeDef(BaseModel):
     Dropped: Optional[bool] = None
     Children: Optional[List[Dict[str, Any]]] = None
 
-class MappingOutputTypeDef(BaseModel):
+class MappingOutputTypeDef(BaseValidatorModel):
     ToKey: Optional[str] = None
     FromPath: Optional[List[str]] = None
     FromType: Optional[str] = None
@@ -1881,7 +1881,7 @@ class MappingOutputTypeDef(BaseModel):
     Dropped: Optional[bool] = None
     Children: Optional[List[Dict[str, Any]]] = None
 
-class MappingTypeDef(BaseModel):
+class MappingTypeDef(BaseValidatorModel):
     ToKey: Optional[str] = None
     FromPath: Optional[Sequence[str]] = None
     FromType: Optional[str] = None
@@ -1889,140 +1889,140 @@ class MappingTypeDef(BaseModel):
     Dropped: Optional[bool] = None
     Children: Optional[Sequence[Dict[str, Any]]] = None
 
-class OtherMetadataValueListItemTypeDef(BaseModel):
+class OtherMetadataValueListItemTypeDef(BaseValidatorModel):
     MetadataValue: Optional[str] = None
     CreatedTime: Optional[str] = None
 
-class MetadataKeyValuePairTypeDef(BaseModel):
+class MetadataKeyValuePairTypeDef(BaseValidatorModel):
     MetadataKey: Optional[str] = None
     MetadataValue: Optional[str] = None
 
-class OAuth2ClientApplicationTypeDef(BaseModel):
+class OAuth2ClientApplicationTypeDef(BaseValidatorModel):
     UserManagedClientApplicationClientId: Optional[str] = None
     AWSManagedClientApplicationReference: Optional[str] = None
 
-class OrderTypeDef(BaseModel):
+class OrderTypeDef(BaseValidatorModel):
     Column: str
     SortOrder: int
 
-class PartitionValueListExtraOutputTypeDef(BaseModel):
+class PartitionValueListExtraOutputTypeDef(BaseValidatorModel):
     Values: List[str]
 
-class PartitionValueListTypeDef(BaseModel):
+class PartitionValueListTypeDef(BaseValidatorModel):
     Values: Sequence[str]
 
-class PropertyPredicateTypeDef(BaseModel):
+class PropertyPredicateTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
     Comparator: Optional[ComparatorType] = None
 
-class PutResourcePolicyRequestRequestTypeDef(BaseModel):
+class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyInJson: str
     ResourceArn: Optional[str] = None
     PolicyHashCondition: Optional[str] = None
     PolicyExistsCondition: Optional[ExistConditionType] = None
     EnableHybrid: Optional[EnableHybridValuesType] = None
 
-class PutWorkflowRunPropertiesRequestRequestTypeDef(BaseModel):
+class PutWorkflowRunPropertiesRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     RunId: str
     RunProperties: Mapping[str, str]
 
-class RecipeActionExtraOutputTypeDef(BaseModel):
+class RecipeActionExtraOutputTypeDef(BaseValidatorModel):
     Operation: str
     Parameters: Optional[Dict[str, str]] = None
 
-class RecipeActionOutputTypeDef(BaseModel):
+class RecipeActionOutputTypeDef(BaseValidatorModel):
     Operation: str
     Parameters: Optional[Dict[str, str]] = None
 
-class RecipeActionTypeDef(BaseModel):
+class RecipeActionTypeDef(BaseValidatorModel):
     Operation: str
     Parameters: Optional[Mapping[str, str]] = None
 
-class RecipeReferenceTypeDef(BaseModel):
+class RecipeReferenceTypeDef(BaseValidatorModel):
     RecipeArn: str
     RecipeVersion: str
 
-class UpsertRedshiftTargetOptionsExtraOutputTypeDef(BaseModel):
+class UpsertRedshiftTargetOptionsExtraOutputTypeDef(BaseValidatorModel):
     TableLocation: Optional[str] = None
     ConnectionName: Optional[str] = None
     UpsertKeys: Optional[List[str]] = None
 
-class UpsertRedshiftTargetOptionsOutputTypeDef(BaseModel):
+class UpsertRedshiftTargetOptionsOutputTypeDef(BaseValidatorModel):
     TableLocation: Optional[str] = None
     ConnectionName: Optional[str] = None
     UpsertKeys: Optional[List[str]] = None
 
-class UpsertRedshiftTargetOptionsTypeDef(BaseModel):
+class UpsertRedshiftTargetOptionsTypeDef(BaseValidatorModel):
     TableLocation: Optional[str] = None
     ConnectionName: Optional[str] = None
     UpsertKeys: Optional[Sequence[str]] = None
 
-class ResetJobBookmarkRequestRequestTypeDef(BaseModel):
+class ResetJobBookmarkRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
     RunId: Optional[str] = None
 
-class ResourceUriTypeDef(BaseModel):
+class ResourceUriTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
     Uri: Optional[str] = None
 
-class ResumeWorkflowRunRequestRequestTypeDef(BaseModel):
+class ResumeWorkflowRunRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     RunId: str
     NodeIds: Sequence[str]
 
-class RunMetricsTypeDef(BaseModel):
+class RunMetricsTypeDef(BaseValidatorModel):
     NumberOfBytesCompacted: Optional[str] = None
     NumberOfFilesCompacted: Optional[str] = None
     NumberOfDpus: Optional[str] = None
     JobDurationInHour: Optional[str] = None
 
-class RunStatementRequestRequestTypeDef(BaseModel):
+class RunStatementRequestRequestTypeDef(BaseValidatorModel):
     SessionId: str
     Code: str
     RequestOrigin: Optional[str] = None
 
-class S3DirectSourceAdditionalOptionsTypeDef(BaseModel):
+class S3DirectSourceAdditionalOptionsTypeDef(BaseValidatorModel):
     BoundedSize: Optional[int] = None
     BoundedFiles: Optional[int] = None
     EnableSamplePath: Optional[bool] = None
     SamplePath: Optional[str] = None
 
-class SortCriterionTypeDef(BaseModel):
+class SortCriterionTypeDef(BaseValidatorModel):
     FieldName: Optional[str] = None
     Sort: Optional[SortType] = None
 
-class SerDeInfoOutputTypeDef(BaseModel):
+class SerDeInfoOutputTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     SerializationLibrary: Optional[str] = None
     Parameters: Optional[Dict[str, str]] = None
 
-class SerDeInfoTypeDef(BaseModel):
+class SerDeInfoTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     SerializationLibrary: Optional[str] = None
     Parameters: Optional[Mapping[str, str]] = None
 
-class SkewedInfoOutputTypeDef(BaseModel):
+class SkewedInfoOutputTypeDef(BaseValidatorModel):
     SkewedColumnNames: Optional[List[str]] = None
     SkewedColumnValues: Optional[List[str]] = None
     SkewedColumnValueLocationMaps: Optional[Dict[str, str]] = None
 
-class SkewedInfoTypeDef(BaseModel):
+class SkewedInfoTypeDef(BaseValidatorModel):
     SkewedColumnNames: Optional[Sequence[str]] = None
     SkewedColumnValues: Optional[Sequence[str]] = None
     SkewedColumnValueLocationMaps: Optional[Mapping[str, str]] = None
 
-class SqlAliasTypeDef(BaseModel):
+class SqlAliasTypeDef(BaseValidatorModel):
     From: str
     Alias: str
 
-class StartBlueprintRunRequestRequestTypeDef(BaseModel):
+class StartBlueprintRunRequestRequestTypeDef(BaseValidatorModel):
     BlueprintName: str
     RoleArn: str
     Parameters: Optional[str] = None
 
-class StartColumnStatisticsTaskRunRequestRequestTypeDef(BaseModel):
+class StartColumnStatisticsTaskRunRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     Role: str
@@ -2031,83 +2031,83 @@ class StartColumnStatisticsTaskRunRequestRequestTypeDef(BaseModel):
     CatalogID: Optional[str] = None
     SecurityConfiguration: Optional[str] = None
 
-class StartCrawlerRequestRequestTypeDef(BaseModel):
+class StartCrawlerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class StartCrawlerScheduleRequestRequestTypeDef(BaseModel):
+class StartCrawlerScheduleRequestRequestTypeDef(BaseValidatorModel):
     CrawlerName: str
 
-class StartExportLabelsTaskRunRequestRequestTypeDef(BaseModel):
+class StartExportLabelsTaskRunRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
     OutputS3Path: str
 
-class StartImportLabelsTaskRunRequestRequestTypeDef(BaseModel):
+class StartImportLabelsTaskRunRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
     InputS3Path: str
     ReplaceAllLabels: Optional[bool] = None
 
-class StartMLEvaluationTaskRunRequestRequestTypeDef(BaseModel):
+class StartMLEvaluationTaskRunRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
 
-class StartMLLabelingSetGenerationTaskRunRequestRequestTypeDef(BaseModel):
+class StartMLLabelingSetGenerationTaskRunRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
     OutputS3Path: str
 
-class StartTriggerRequestRequestTypeDef(BaseModel):
+class StartTriggerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class StartWorkflowRunRequestRequestTypeDef(BaseModel):
+class StartWorkflowRunRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     RunProperties: Optional[Mapping[str, str]] = None
 
-class StartingEventBatchConditionTypeDef(BaseModel):
+class StartingEventBatchConditionTypeDef(BaseValidatorModel):
     BatchSize: Optional[int] = None
     BatchWindow: Optional[int] = None
 
-class StatementOutputDataTypeDef(BaseModel):
+class StatementOutputDataTypeDef(BaseValidatorModel):
     TextPlain: Optional[str] = None
 
-class StopColumnStatisticsTaskRunRequestRequestTypeDef(BaseModel):
+class StopColumnStatisticsTaskRunRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
 
-class StopCrawlerRequestRequestTypeDef(BaseModel):
+class StopCrawlerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class StopCrawlerScheduleRequestRequestTypeDef(BaseModel):
+class StopCrawlerScheduleRequestRequestTypeDef(BaseValidatorModel):
     CrawlerName: str
 
-class StopSessionRequestRequestTypeDef(BaseModel):
+class StopSessionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     RequestOrigin: Optional[str] = None
 
-class StopTriggerRequestRequestTypeDef(BaseModel):
+class StopTriggerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class StopWorkflowRunRequestRequestTypeDef(BaseModel):
+class StopWorkflowRunRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     RunId: str
 
-class TableIdentifierTypeDef(BaseModel):
+class TableIdentifierTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     DatabaseName: Optional[str] = None
     Name: Optional[str] = None
     Region: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagsToAdd: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagsToRemove: Sequence[str]
 
-class UpdateBlueprintRequestRequestTypeDef(BaseModel):
+class UpdateBlueprintRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     BlueprintLocation: str
     Description: Optional[str] = None
 
-class UpdateCsvClassifierRequestTypeDef(BaseModel):
+class UpdateCsvClassifierRequestTypeDef(BaseValidatorModel):
     Name: str
     Delimiter: Optional[str] = None
     QuoteSymbol: Optional[str] = None
@@ -2119,31 +2119,31 @@ class UpdateCsvClassifierRequestTypeDef(BaseModel):
     CustomDatatypes: Optional[Sequence[str]] = None
     Serde: Optional[CsvSerdeOptionType] = None
 
-class UpdateGrokClassifierRequestTypeDef(BaseModel):
+class UpdateGrokClassifierRequestTypeDef(BaseValidatorModel):
     Name: str
     Classification: Optional[str] = None
     GrokPattern: Optional[str] = None
     CustomPatterns: Optional[str] = None
 
-class UpdateJsonClassifierRequestTypeDef(BaseModel):
+class UpdateJsonClassifierRequestTypeDef(BaseValidatorModel):
     Name: str
     JsonPath: Optional[str] = None
 
-class UpdateXMLClassifierRequestTypeDef(BaseModel):
+class UpdateXMLClassifierRequestTypeDef(BaseValidatorModel):
     Name: str
     Classification: Optional[str] = None
     RowTag: Optional[str] = None
 
-class UpdateCrawlerScheduleRequestRequestTypeDef(BaseModel):
+class UpdateCrawlerScheduleRequestRequestTypeDef(BaseValidatorModel):
     CrawlerName: str
     Schedule: Optional[str] = None
 
-class UpdateDataQualityRulesetRequestRequestTypeDef(BaseModel):
+class UpdateDataQualityRulesetRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     Ruleset: Optional[str] = None
 
-class UpdateJobFromSourceControlRequestRequestTypeDef(BaseModel):
+class UpdateJobFromSourceControlRequestRequestTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     Provider: Optional[SourceControlProviderType] = None
     RepositoryName: Optional[str] = None
@@ -2154,7 +2154,7 @@ class UpdateJobFromSourceControlRequestRequestTypeDef(BaseModel):
     AuthStrategy: Optional[SourceControlAuthStrategyType] = None
     AuthToken: Optional[str] = None
 
-class UpdateSourceControlFromJobRequestRequestTypeDef(BaseModel):
+class UpdateSourceControlFromJobRequestRequestTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     Provider: Optional[SourceControlProviderType] = None
     RepositoryName: Optional[str] = None
@@ -2165,20 +2165,20 @@ class UpdateSourceControlFromJobRequestRequestTypeDef(BaseModel):
     AuthStrategy: Optional[SourceControlAuthStrategyType] = None
     AuthToken: Optional[str] = None
 
-class UpdateWorkflowRequestRequestTypeDef(BaseModel):
+class UpdateWorkflowRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     DefaultRunProperties: Optional[Mapping[str, str]] = None
     MaxConcurrentRuns: Optional[int] = None
 
-class ViewRepresentationInputTypeDef(BaseModel):
+class ViewRepresentationInputTypeDef(BaseValidatorModel):
     Dialect: Optional[ViewDialectType] = None
     DialectVersion: Optional[str] = None
     ViewOriginalText: Optional[str] = None
     ValidationConnection: Optional[str] = None
     ViewExpandedText: Optional[str] = None
 
-class ViewRepresentationTypeDef(BaseModel):
+class ViewRepresentationTypeDef(BaseValidatorModel):
     Dialect: Optional[ViewDialectType] = None
     DialectVersion: Optional[str] = None
     ViewOriginalText: Optional[str] = None
@@ -2186,7 +2186,7 @@ class ViewRepresentationTypeDef(BaseModel):
     ValidationConnection: Optional[str] = None
     IsStale: Optional[bool] = None
 
-class WorkflowRunStatisticsTypeDef(BaseModel):
+class WorkflowRunStatisticsTypeDef(BaseValidatorModel):
     TotalActions: Optional[int] = None
     TimeoutActions: Optional[int] = None
     FailedActions: Optional[int] = None
@@ -2196,7 +2196,7 @@ class WorkflowRunStatisticsTypeDef(BaseModel):
     ErroredActions: Optional[int] = None
     WaitingActions: Optional[int] = None
 
-class ActionExtraOutputTypeDef(BaseModel):
+class ActionExtraOutputTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     Arguments: Optional[Dict[str, str]] = None
     Timeout: Optional[int] = None
@@ -2204,7 +2204,7 @@ class ActionExtraOutputTypeDef(BaseModel):
     NotificationProperty: Optional[NotificationPropertyTypeDef] = None
     CrawlerName: Optional[str] = None
 
-class ActionOutputTypeDef(BaseModel):
+class ActionOutputTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     Arguments: Optional[Dict[str, str]] = None
     Timeout: Optional[int] = None
@@ -2212,7 +2212,7 @@ class ActionOutputTypeDef(BaseModel):
     NotificationProperty: Optional[NotificationPropertyTypeDef] = None
     CrawlerName: Optional[str] = None
 
-class ActionTypeDef(BaseModel):
+class ActionTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     Arguments: Optional[Mapping[str, str]] = None
     Timeout: Optional[int] = None
@@ -2220,7 +2220,7 @@ class ActionTypeDef(BaseModel):
     NotificationProperty: Optional[NotificationPropertyTypeDef] = None
     CrawlerName: Optional[str] = None
 
-class StartJobRunRequestRequestTypeDef(BaseModel):
+class StartJobRunRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
     JobRunId: Optional[str] = None
     Arguments: Optional[Mapping[str, str]] = None
@@ -2233,25 +2233,25 @@ class StartJobRunRequestRequestTypeDef(BaseModel):
     NumberOfWorkers: Optional[int] = None
     ExecutionClass: Optional[ExecutionClassType] = None
 
-class AggregateExtraOutputTypeDef(BaseModel):
+class AggregateExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Groups: List[List[str]]
     Aggs: List[AggregateOperationExtraOutputTypeDef]
 
-class AggregateOutputTypeDef(BaseModel):
+class AggregateOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Groups: List[List[str]]
     Aggs: List[AggregateOperationOutputTypeDef]
 
-class AggregateTypeDef(BaseModel):
+class AggregateTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Groups: Sequence[Sequence[str]]
     Aggs: Sequence[AggregateOperationTypeDef]
 
-class AmazonRedshiftNodeDataExtraOutputTypeDef(BaseModel):
+class AmazonRedshiftNodeDataExtraOutputTypeDef(BaseValidatorModel):
     AccessType: Optional[str] = None
     SourceType: Optional[str] = None
     Connection: Optional[OptionTypeDef] = None
@@ -2279,7 +2279,7 @@ class AmazonRedshiftNodeDataExtraOutputTypeDef(BaseModel):
     StagingTable: Optional[str] = None
     SelectedColumns: Optional[List[OptionTypeDef]] = None
 
-class AmazonRedshiftNodeDataOutputTypeDef(BaseModel):
+class AmazonRedshiftNodeDataOutputTypeDef(BaseValidatorModel):
     AccessType: Optional[str] = None
     SourceType: Optional[str] = None
     Connection: Optional[OptionTypeDef] = None
@@ -2307,7 +2307,7 @@ class AmazonRedshiftNodeDataOutputTypeDef(BaseModel):
     StagingTable: Optional[str] = None
     SelectedColumns: Optional[List[OptionTypeDef]] = None
 
-class AmazonRedshiftNodeDataTypeDef(BaseModel):
+class AmazonRedshiftNodeDataTypeDef(BaseValidatorModel):
     AccessType: Optional[str] = None
     SourceType: Optional[str] = None
     Connection: Optional[OptionTypeDef] = None
@@ -2335,7 +2335,7 @@ class AmazonRedshiftNodeDataTypeDef(BaseModel):
     StagingTable: Optional[str] = None
     SelectedColumns: Optional[Sequence[OptionTypeDef]] = None
 
-class SnowflakeNodeDataExtraOutputTypeDef(BaseModel):
+class SnowflakeNodeDataExtraOutputTypeDef(BaseValidatorModel):
     SourceType: Optional[str] = None
     Connection: Optional[OptionTypeDef] = None
     Schema: Optional[str] = None
@@ -2358,7 +2358,7 @@ class SnowflakeNodeDataExtraOutputTypeDef(BaseModel):
     AutoPushdown: Optional[bool] = None
     TableSchema: Optional[List[OptionTypeDef]] = None
 
-class SnowflakeNodeDataOutputTypeDef(BaseModel):
+class SnowflakeNodeDataOutputTypeDef(BaseValidatorModel):
     SourceType: Optional[str] = None
     Connection: Optional[OptionTypeDef] = None
     Schema: Optional[str] = None
@@ -2381,7 +2381,7 @@ class SnowflakeNodeDataOutputTypeDef(BaseModel):
     AutoPushdown: Optional[bool] = None
     TableSchema: Optional[List[OptionTypeDef]] = None
 
-class SnowflakeNodeDataTypeDef(BaseModel):
+class SnowflakeNodeDataTypeDef(BaseValidatorModel):
     SourceType: Optional[str] = None
     Connection: Optional[OptionTypeDef] = None
     Schema: Optional[str] = None
@@ -2404,38 +2404,38 @@ class SnowflakeNodeDataTypeDef(BaseModel):
     AutoPushdown: Optional[bool] = None
     TableSchema: Optional[Sequence[OptionTypeDef]] = None
 
-class BackfillErrorTypeDef(BaseModel):
+class BackfillErrorTypeDef(BaseValidatorModel):
     Code: Optional[BackfillErrorCodeType] = None
     Partitions: Optional[List[PartitionValueListOutputTypeDef]] = None
 
-class CancelMLTaskRunResponseTypeDef(BaseModel):
+class CancelMLTaskRunResponseTypeDef(BaseValidatorModel):
     TransformId: str
     TaskRunId: str
     Status: TaskStatusTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CheckSchemaVersionValidityResponseTypeDef(BaseModel):
+class CheckSchemaVersionValidityResponseTypeDef(BaseValidatorModel):
     Valid: bool
     Error: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBlueprintResponseTypeDef(BaseModel):
+class CreateBlueprintResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConnectionResponseTypeDef(BaseModel):
+class CreateConnectionResponseTypeDef(BaseValidatorModel):
     CreateConnectionStatus: ConnectionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCustomEntityTypeResponseTypeDef(BaseModel):
+class CreateCustomEntityTypeResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDataQualityRulesetResponseTypeDef(BaseModel):
+class CreateDataQualityRulesetResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDevEndpointResponseTypeDef(BaseModel):
+class CreateDevEndpointResponseTypeDef(BaseValidatorModel):
     EndpointName: str
     Status: str
     SecurityGroupIds: List[str]
@@ -2457,22 +2457,22 @@ class CreateDevEndpointResponseTypeDef(BaseModel):
     Arguments: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJobResponseTypeDef(BaseModel):
+class CreateJobResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMLTransformResponseTypeDef(BaseModel):
+class CreateMLTransformResponseTypeDef(BaseValidatorModel):
     TransformId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRegistryResponseTypeDef(BaseModel):
+class CreateRegistryResponseTypeDef(BaseValidatorModel):
     RegistryArn: str
     RegistryName: str
     Description: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSchemaResponseTypeDef(BaseModel):
+class CreateSchemaResponseTypeDef(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
     SchemaName: str
@@ -2489,80 +2489,80 @@ class CreateSchemaResponseTypeDef(BaseModel):
     SchemaVersionStatus: SchemaVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateScriptResponseTypeDef(BaseModel):
+class CreateScriptResponseTypeDef(BaseValidatorModel):
     PythonScript: str
     ScalaCode: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSecurityConfigurationResponseTypeDef(BaseModel):
+class CreateSecurityConfigurationResponseTypeDef(BaseValidatorModel):
     Name: str
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTriggerResponseTypeDef(BaseModel):
+class CreateTriggerResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUsageProfileResponseTypeDef(BaseModel):
+class CreateUsageProfileResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWorkflowResponseTypeDef(BaseModel):
+class CreateWorkflowResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBlueprintResponseTypeDef(BaseModel):
+class DeleteBlueprintResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCustomEntityTypeResponseTypeDef(BaseModel):
+class DeleteCustomEntityTypeResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteJobResponseTypeDef(BaseModel):
+class DeleteJobResponseTypeDef(BaseValidatorModel):
     JobName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteMLTransformResponseTypeDef(BaseModel):
+class DeleteMLTransformResponseTypeDef(BaseValidatorModel):
     TransformId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRegistryResponseTypeDef(BaseModel):
+class DeleteRegistryResponseTypeDef(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
     Status: RegistryStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSchemaResponseTypeDef(BaseModel):
+class DeleteSchemaResponseTypeDef(BaseValidatorModel):
     SchemaArn: str
     SchemaName: str
     Status: SchemaStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSessionResponseTypeDef(BaseModel):
+class DeleteSessionResponseTypeDef(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTriggerResponseTypeDef(BaseModel):
+class DeleteTriggerResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteWorkflowResponseTypeDef(BaseModel):
+class DeleteWorkflowResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCustomEntityTypeResponseTypeDef(BaseModel):
+class GetCustomEntityTypeResponseTypeDef(BaseValidatorModel):
     Name: str
     RegexString: str
     ContextWords: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPlanResponseTypeDef(BaseModel):
+class GetPlanResponseTypeDef(BaseValidatorModel):
     PythonScript: str
     ScalaCode: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRegistryResponseTypeDef(BaseModel):
+class GetRegistryResponseTypeDef(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
     Description: str
@@ -2571,14 +2571,14 @@ class GetRegistryResponseTypeDef(BaseModel):
     UpdatedTime: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourcePolicyResponseTypeDef(BaseModel):
+class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
     PolicyInJson: str
     PolicyHash: str
     CreateTime: datetime
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSchemaByDefinitionResponseTypeDef(BaseModel):
+class GetSchemaByDefinitionResponseTypeDef(BaseValidatorModel):
     SchemaVersionId: str
     SchemaArn: str
     DataFormat: DataFormatType
@@ -2586,7 +2586,7 @@ class GetSchemaByDefinitionResponseTypeDef(BaseModel):
     CreatedTime: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSchemaResponseTypeDef(BaseModel):
+class GetSchemaResponseTypeDef(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
     SchemaName: str
@@ -2602,7 +2602,7 @@ class GetSchemaResponseTypeDef(BaseModel):
     UpdatedTime: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSchemaVersionResponseTypeDef(BaseModel):
+class GetSchemaVersionResponseTypeDef(BaseValidatorModel):
     SchemaVersionId: str
     SchemaDefinition: str
     DataFormat: DataFormatType
@@ -2612,63 +2612,63 @@ class GetSchemaVersionResponseTypeDef(BaseModel):
     CreatedTime: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSchemaVersionsDiffResponseTypeDef(BaseModel):
+class GetSchemaVersionsDiffResponseTypeDef(BaseValidatorModel):
     Diff: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTagsResponseTypeDef(BaseModel):
+class GetTagsResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWorkflowRunPropertiesResponseTypeDef(BaseModel):
+class GetWorkflowRunPropertiesResponseTypeDef(BaseValidatorModel):
     RunProperties: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBlueprintsResponseTypeDef(BaseModel):
+class ListBlueprintsResponseTypeDef(BaseValidatorModel):
     Blueprints: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListColumnStatisticsTaskRunsResponseTypeDef(BaseModel):
+class ListColumnStatisticsTaskRunsResponseTypeDef(BaseValidatorModel):
     ColumnStatisticsTaskRunIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListCrawlersResponseTypeDef(BaseModel):
+class ListCrawlersResponseTypeDef(BaseValidatorModel):
     CrawlerNames: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListDevEndpointsResponseTypeDef(BaseModel):
+class ListDevEndpointsResponseTypeDef(BaseValidatorModel):
     DevEndpointNames: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListJobsResponseTypeDef(BaseModel):
+class ListJobsResponseTypeDef(BaseValidatorModel):
     JobNames: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListMLTransformsResponseTypeDef(BaseModel):
+class ListMLTransformsResponseTypeDef(BaseValidatorModel):
     TransformIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTriggersResponseTypeDef(BaseModel):
+class ListTriggersResponseTypeDef(BaseValidatorModel):
     TriggerNames: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListWorkflowsResponseTypeDef(BaseModel):
+class ListWorkflowsResponseTypeDef(BaseValidatorModel):
     Workflows: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutResourcePolicyResponseTypeDef(BaseModel):
+class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
     PolicyHash: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSchemaVersionMetadataResponseTypeDef(BaseModel):
+class PutSchemaVersionMetadataResponseTypeDef(BaseValidatorModel):
     SchemaArn: str
     SchemaName: str
     RegistryName: str
@@ -2679,13 +2679,13 @@ class PutSchemaVersionMetadataResponseTypeDef(BaseModel):
     MetadataValue: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterSchemaVersionResponseTypeDef(BaseModel):
+class RegisterSchemaVersionResponseTypeDef(BaseValidatorModel):
     SchemaVersionId: str
     VersionNumber: int
     Status: SchemaVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RemoveSchemaVersionMetadataResponseTypeDef(BaseModel):
+class RemoveSchemaVersionMetadataResponseTypeDef(BaseValidatorModel):
     SchemaArn: str
     SchemaName: str
     RegistryName: str
@@ -2696,191 +2696,191 @@ class RemoveSchemaVersionMetadataResponseTypeDef(BaseModel):
     MetadataValue: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResumeWorkflowRunResponseTypeDef(BaseModel):
+class ResumeWorkflowRunResponseTypeDef(BaseValidatorModel):
     RunId: str
     NodeIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RunStatementResponseTypeDef(BaseModel):
+class RunStatementResponseTypeDef(BaseValidatorModel):
     Id: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartBlueprintRunResponseTypeDef(BaseModel):
+class StartBlueprintRunResponseTypeDef(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartColumnStatisticsTaskRunResponseTypeDef(BaseModel):
+class StartColumnStatisticsTaskRunResponseTypeDef(BaseValidatorModel):
     ColumnStatisticsTaskRunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartDataQualityRuleRecommendationRunResponseTypeDef(BaseModel):
+class StartDataQualityRuleRecommendationRunResponseTypeDef(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartDataQualityRulesetEvaluationRunResponseTypeDef(BaseModel):
+class StartDataQualityRulesetEvaluationRunResponseTypeDef(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartExportLabelsTaskRunResponseTypeDef(BaseModel):
+class StartExportLabelsTaskRunResponseTypeDef(BaseValidatorModel):
     TaskRunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartImportLabelsTaskRunResponseTypeDef(BaseModel):
+class StartImportLabelsTaskRunResponseTypeDef(BaseValidatorModel):
     TaskRunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartJobRunResponseTypeDef(BaseModel):
+class StartJobRunResponseTypeDef(BaseValidatorModel):
     JobRunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMLEvaluationTaskRunResponseTypeDef(BaseModel):
+class StartMLEvaluationTaskRunResponseTypeDef(BaseValidatorModel):
     TaskRunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMLLabelingSetGenerationTaskRunResponseTypeDef(BaseModel):
+class StartMLLabelingSetGenerationTaskRunResponseTypeDef(BaseValidatorModel):
     TaskRunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTriggerResponseTypeDef(BaseModel):
+class StartTriggerResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartWorkflowRunResponseTypeDef(BaseModel):
+class StartWorkflowRunResponseTypeDef(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopSessionResponseTypeDef(BaseModel):
+class StopSessionResponseTypeDef(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopTriggerResponseTypeDef(BaseModel):
+class StopTriggerResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBlueprintResponseTypeDef(BaseModel):
+class UpdateBlueprintResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDataQualityRulesetResponseTypeDef(BaseModel):
+class UpdateDataQualityRulesetResponseTypeDef(BaseValidatorModel):
     Name: str
     Description: str
     Ruleset: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateJobFromSourceControlResponseTypeDef(BaseModel):
+class UpdateJobFromSourceControlResponseTypeDef(BaseValidatorModel):
     JobName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateJobResponseTypeDef(BaseModel):
+class UpdateJobResponseTypeDef(BaseValidatorModel):
     JobName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMLTransformResponseTypeDef(BaseModel):
+class UpdateMLTransformResponseTypeDef(BaseValidatorModel):
     TransformId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRegistryResponseTypeDef(BaseModel):
+class UpdateRegistryResponseTypeDef(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSchemaResponseTypeDef(BaseModel):
+class UpdateSchemaResponseTypeDef(BaseValidatorModel):
     SchemaArn: str
     SchemaName: str
     RegistryName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSourceControlFromJobResponseTypeDef(BaseModel):
+class UpdateSourceControlFromJobResponseTypeDef(BaseValidatorModel):
     JobName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUsageProfileResponseTypeDef(BaseModel):
+class UpdateUsageProfileResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateWorkflowResponseTypeDef(BaseModel):
+class UpdateWorkflowResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDeleteConnectionResponseTypeDef(BaseModel):
+class BatchDeleteConnectionResponseTypeDef(BaseValidatorModel):
     Succeeded: List[str]
     Errors: Dict[str, ErrorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetTableOptimizerErrorTypeDef(BaseModel):
+class BatchGetTableOptimizerErrorTypeDef(BaseValidatorModel):
     error: Optional[ErrorDetailTypeDef] = None
     catalogId: Optional[str] = None
     databaseName: Optional[str] = None
     tableName: Optional[str] = None
     type: Optional[Literal["compaction"]] = None
 
-class BatchStopJobRunErrorTypeDef(BaseModel):
+class BatchStopJobRunErrorTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     JobRunId: Optional[str] = None
     ErrorDetail: Optional[ErrorDetailTypeDef] = None
 
-class BatchUpdatePartitionFailureEntryTypeDef(BaseModel):
+class BatchUpdatePartitionFailureEntryTypeDef(BaseValidatorModel):
     PartitionValueList: Optional[List[str]] = None
     ErrorDetail: Optional[ErrorDetailTypeDef] = None
 
-class ColumnErrorTypeDef(BaseModel):
+class ColumnErrorTypeDef(BaseValidatorModel):
     ColumnName: Optional[str] = None
     Error: Optional[ErrorDetailTypeDef] = None
 
-class PartitionErrorTypeDef(BaseModel):
+class PartitionErrorTypeDef(BaseValidatorModel):
     PartitionValues: Optional[List[str]] = None
     ErrorDetail: Optional[ErrorDetailTypeDef] = None
 
-class TableErrorTypeDef(BaseModel):
+class TableErrorTypeDef(BaseValidatorModel):
     TableName: Optional[str] = None
     ErrorDetail: Optional[ErrorDetailTypeDef] = None
 
-class TableVersionErrorTypeDef(BaseModel):
+class TableVersionErrorTypeDef(BaseValidatorModel):
     TableName: Optional[str] = None
     VersionId: Optional[str] = None
     ErrorDetail: Optional[ErrorDetailTypeDef] = None
 
-class BatchGetCustomEntityTypesResponseTypeDef(BaseModel):
+class BatchGetCustomEntityTypesResponseTypeDef(BaseValidatorModel):
     CustomEntityTypes: List[CustomEntityTypeTypeDef]
     CustomEntityTypesNotFound: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCustomEntityTypesResponseTypeDef(BaseModel):
+class ListCustomEntityTypesResponseTypeDef(BaseValidatorModel):
     CustomEntityTypes: List[CustomEntityTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchGetDevEndpointsResponseTypeDef(BaseModel):
+class BatchGetDevEndpointsResponseTypeDef(BaseValidatorModel):
     DevEndpoints: List[DevEndpointTypeDef]
     DevEndpointsNotFound: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDevEndpointResponseTypeDef(BaseModel):
+class GetDevEndpointResponseTypeDef(BaseValidatorModel):
     DevEndpoint: DevEndpointTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDevEndpointsResponseTypeDef(BaseModel):
+class GetDevEndpointsResponseTypeDef(BaseValidatorModel):
     DevEndpoints: List[DevEndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchGetTableOptimizerRequestRequestTypeDef(BaseModel):
+class BatchGetTableOptimizerRequestRequestTypeDef(BaseValidatorModel):
     Entries: Sequence[BatchGetTableOptimizerEntryTypeDef]
 
-class DecimalNumberTypeDef(BaseModel):
+class DecimalNumberTypeDef(BaseValidatorModel):
     UnscaledValue: BlobTypeDef
     Scale: int
 
-class GetBlueprintRunResponseTypeDef(BaseModel):
+class GetBlueprintRunResponseTypeDef(BaseValidatorModel):
     BlueprintRun: BlueprintRunTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBlueprintRunsResponseTypeDef(BaseModel):
+class GetBlueprintRunsResponseTypeDef(BaseValidatorModel):
     BlueprintRuns: List[BlueprintRunTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BlueprintTypeDef(BaseModel):
+class BlueprintTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     CreatedOn: Optional[datetime] = None
@@ -2892,11 +2892,11 @@ class BlueprintTypeDef(BaseModel):
     ErrorMessage: Optional[str] = None
     LastActiveDefinition: Optional[LastActiveDefinitionTypeDef] = None
 
-class GetCatalogImportStatusResponseTypeDef(BaseModel):
+class GetCatalogImportStatusResponseTypeDef(BaseValidatorModel):
     ImportStatus: CatalogImportStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CatalogKafkaSourceExtraOutputTypeDef(BaseModel):
+class CatalogKafkaSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Table: str
     Database: str
@@ -2905,14 +2905,14 @@ class CatalogKafkaSourceExtraOutputTypeDef(BaseModel):
     StreamingOptions: Optional[KafkaStreamingSourceOptionsExtraOutputTypeDef] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class DirectKafkaSourceExtraOutputTypeDef(BaseModel):
+class DirectKafkaSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     StreamingOptions: Optional[KafkaStreamingSourceOptionsExtraOutputTypeDef] = None
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class CatalogKafkaSourceOutputTypeDef(BaseModel):
+class CatalogKafkaSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Table: str
     Database: str
@@ -2921,14 +2921,14 @@ class CatalogKafkaSourceOutputTypeDef(BaseModel):
     StreamingOptions: Optional[KafkaStreamingSourceOptionsOutputTypeDef] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class DirectKafkaSourceOutputTypeDef(BaseModel):
+class DirectKafkaSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     StreamingOptions: Optional[KafkaStreamingSourceOptionsOutputTypeDef] = None
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class CatalogKinesisSourceExtraOutputTypeDef(BaseModel):
+class CatalogKinesisSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Table: str
     Database: str
@@ -2937,14 +2937,14 @@ class CatalogKinesisSourceExtraOutputTypeDef(BaseModel):
     StreamingOptions: Optional[KinesisStreamingSourceOptionsExtraOutputTypeDef] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class DirectKinesisSourceExtraOutputTypeDef(BaseModel):
+class DirectKinesisSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
     StreamingOptions: Optional[KinesisStreamingSourceOptionsExtraOutputTypeDef] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class CatalogKinesisSourceOutputTypeDef(BaseModel):
+class CatalogKinesisSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Table: str
     Database: str
@@ -2953,14 +2953,14 @@ class CatalogKinesisSourceOutputTypeDef(BaseModel):
     StreamingOptions: Optional[KinesisStreamingSourceOptionsOutputTypeDef] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class DirectKinesisSourceOutputTypeDef(BaseModel):
+class DirectKinesisSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
     StreamingOptions: Optional[KinesisStreamingSourceOptionsOutputTypeDef] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class GovernedCatalogTargetExtraOutputTypeDef(BaseModel):
+class GovernedCatalogTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Table: str
@@ -2968,7 +2968,7 @@ class GovernedCatalogTargetExtraOutputTypeDef(BaseModel):
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class GovernedCatalogTargetOutputTypeDef(BaseModel):
+class GovernedCatalogTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Table: str
@@ -2976,7 +2976,7 @@ class GovernedCatalogTargetOutputTypeDef(BaseModel):
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class GovernedCatalogTargetTypeDef(BaseModel):
+class GovernedCatalogTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Table: str
@@ -2984,7 +2984,7 @@ class GovernedCatalogTargetTypeDef(BaseModel):
     PartitionKeys: Optional[Sequence[Sequence[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class S3CatalogTargetExtraOutputTypeDef(BaseModel):
+class S3CatalogTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Table: str
@@ -2992,7 +2992,7 @@ class S3CatalogTargetExtraOutputTypeDef(BaseModel):
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class S3CatalogTargetOutputTypeDef(BaseModel):
+class S3CatalogTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Table: str
@@ -3000,7 +3000,7 @@ class S3CatalogTargetOutputTypeDef(BaseModel):
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class S3CatalogTargetTypeDef(BaseModel):
+class S3CatalogTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Table: str
@@ -3008,7 +3008,7 @@ class S3CatalogTargetTypeDef(BaseModel):
     PartitionKeys: Optional[Sequence[Sequence[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class S3DeltaCatalogTargetExtraOutputTypeDef(BaseModel):
+class S3DeltaCatalogTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Table: str
@@ -3017,7 +3017,7 @@ class S3DeltaCatalogTargetExtraOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class S3DeltaCatalogTargetOutputTypeDef(BaseModel):
+class S3DeltaCatalogTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Table: str
@@ -3026,7 +3026,7 @@ class S3DeltaCatalogTargetOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class S3DeltaCatalogTargetTypeDef(BaseModel):
+class S3DeltaCatalogTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Table: str
@@ -3035,7 +3035,7 @@ class S3DeltaCatalogTargetTypeDef(BaseModel):
     AdditionalOptions: Optional[Mapping[str, str]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class S3HudiCatalogTargetExtraOutputTypeDef(BaseModel):
+class S3HudiCatalogTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Table: str
@@ -3044,7 +3044,7 @@ class S3HudiCatalogTargetExtraOutputTypeDef(BaseModel):
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class S3HudiCatalogTargetOutputTypeDef(BaseModel):
+class S3HudiCatalogTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Table: str
@@ -3053,7 +3053,7 @@ class S3HudiCatalogTargetOutputTypeDef(BaseModel):
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class S3HudiCatalogTargetTypeDef(BaseModel):
+class S3HudiCatalogTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Table: str
@@ -3062,52 +3062,52 @@ class S3HudiCatalogTargetTypeDef(BaseModel):
     PartitionKeys: Optional[Sequence[Sequence[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
-class ClassifierTypeDef(BaseModel):
+class ClassifierTypeDef(BaseValidatorModel):
     GrokClassifier: Optional[GrokClassifierTypeDef] = None
     XMLClassifier: Optional[XMLClassifierTypeDef] = None
     JsonClassifier: Optional[JsonClassifierTypeDef] = None
     CsvClassifier: Optional[CsvClassifierTypeDef] = None
 
-class CodeGenNodeOutputTypeDef(BaseModel):
+class CodeGenNodeOutputTypeDef(BaseValidatorModel):
     Id: str
     NodeType: str
     Args: List[CodeGenNodeArgTypeDef]
     LineNumber: Optional[int] = None
 
-class CodeGenNodeTypeDef(BaseModel):
+class CodeGenNodeTypeDef(BaseValidatorModel):
     Id: str
     NodeType: str
     Args: Sequence[CodeGenNodeArgTypeDef]
     LineNumber: Optional[int] = None
 
-class LocationTypeDef(BaseModel):
+class LocationTypeDef(BaseValidatorModel):
     Jdbc: Optional[Sequence[CodeGenNodeArgTypeDef]] = None
     S3: Optional[Sequence[CodeGenNodeArgTypeDef]] = None
     DynamoDB: Optional[Sequence[CodeGenNodeArgTypeDef]] = None
 
-class GetColumnStatisticsTaskRunResponseTypeDef(BaseModel):
+class GetColumnStatisticsTaskRunResponseTypeDef(BaseValidatorModel):
     ColumnStatisticsTaskRun: ColumnStatisticsTaskRunTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetColumnStatisticsTaskRunsResponseTypeDef(BaseModel):
+class GetColumnStatisticsTaskRunsResponseTypeDef(BaseValidatorModel):
     ColumnStatisticsTaskRuns: List[ColumnStatisticsTaskRunTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DateColumnStatisticsDataTypeDef(BaseModel):
+class DateColumnStatisticsDataTypeDef(BaseValidatorModel):
     NumberOfNulls: int
     NumberOfDistinctValues: int
     MinimumValue: Optional[TimestampTypeDef] = None
     MaximumValue: Optional[TimestampTypeDef] = None
 
-class GetTableRequestRequestTypeDef(BaseModel):
+class GetTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     Name: str
     CatalogId: Optional[str] = None
     TransactionId: Optional[str] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
 
-class GetTablesRequestRequestTypeDef(BaseModel):
+class GetTablesRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     CatalogId: Optional[str] = None
     Expression: Optional[str] = None
@@ -3116,7 +3116,7 @@ class GetTablesRequestRequestTypeDef(BaseModel):
     TransactionId: Optional[str] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
 
-class KafkaStreamingSourceOptionsTypeDef(BaseModel):
+class KafkaStreamingSourceOptionsTypeDef(BaseValidatorModel):
     BootstrapServers: Optional[str] = None
     SecurityProtocol: Optional[str] = None
     ConnectionName: Optional[str] = None
@@ -3137,7 +3137,7 @@ class KafkaStreamingSourceOptionsTypeDef(BaseModel):
     EmitConsumerLagMetrics: Optional[str] = None
     StartingTimestamp: Optional[TimestampTypeDef] = None
 
-class KinesisStreamingSourceOptionsTypeDef(BaseModel):
+class KinesisStreamingSourceOptionsTypeDef(BaseValidatorModel):
     EndpointUrl: Optional[str] = None
     StreamName: Optional[str] = None
     Classification: Optional[str] = None
@@ -3160,40 +3160,40 @@ class KinesisStreamingSourceOptionsTypeDef(BaseModel):
     EmitConsumerLagMetrics: Optional[str] = None
     StartingTimestamp: Optional[TimestampTypeDef] = None
 
-class QuerySessionContextTypeDef(BaseModel):
+class QuerySessionContextTypeDef(BaseValidatorModel):
     QueryId: Optional[str] = None
     QueryStartTime: Optional[TimestampTypeDef] = None
     ClusterId: Optional[str] = None
     QueryAuthorizationId: Optional[str] = None
     AdditionalContext: Optional[Mapping[str, str]] = None
 
-class TaskRunFilterCriteriaTypeDef(BaseModel):
+class TaskRunFilterCriteriaTypeDef(BaseValidatorModel):
     TaskRunType: Optional[TaskTypeType] = None
     Status: Optional[TaskStatusTypeType] = None
     StartedBefore: Optional[TimestampTypeDef] = None
     StartedAfter: Optional[TimestampTypeDef] = None
 
-class PredicateExtraOutputTypeDef(BaseModel):
+class PredicateExtraOutputTypeDef(BaseValidatorModel):
     Logical: Optional[LogicalType] = None
     Conditions: Optional[List[ConditionTypeDef]] = None
 
-class PredicateOutputTypeDef(BaseModel):
+class PredicateOutputTypeDef(BaseValidatorModel):
     Logical: Optional[LogicalType] = None
     Conditions: Optional[List[ConditionTypeDef]] = None
 
-class PredicateTypeDef(BaseModel):
+class PredicateTypeDef(BaseValidatorModel):
     Logical: Optional[LogicalType] = None
     Conditions: Optional[Sequence[ConditionTypeDef]] = None
 
-class ProfileConfigurationOutputTypeDef(BaseModel):
+class ProfileConfigurationOutputTypeDef(BaseValidatorModel):
     SessionConfiguration: Optional[Dict[str, ConfigurationObjectOutputTypeDef]] = None
     JobConfiguration: Optional[Dict[str, ConfigurationObjectOutputTypeDef]] = None
 
-class ProfileConfigurationTypeDef(BaseModel):
+class ProfileConfigurationTypeDef(BaseValidatorModel):
     SessionConfiguration: Optional[Mapping[str, ConfigurationObjectTypeDef]] = None
     JobConfiguration: Optional[Mapping[str, ConfigurationObjectTypeDef]] = None
 
-class FindMatchesMetricsTypeDef(BaseModel):
+class FindMatchesMetricsTypeDef(BaseValidatorModel):
     AreaUnderPRCurve: Optional[float] = None
     Precision: Optional[float] = None
     Recall: Optional[float] = None
@@ -3201,20 +3201,20 @@ class FindMatchesMetricsTypeDef(BaseModel):
     ConfusionMatrix: Optional[ConfusionMatrixTypeDef] = None
     ColumnImportances: Optional[List[ColumnImportanceTypeDef]] = None
 
-class CrawlerNodeDetailsTypeDef(BaseModel):
+class CrawlerNodeDetailsTypeDef(BaseValidatorModel):
     Crawls: Optional[List[CrawlTypeDef]] = None
 
-class ListCrawlsResponseTypeDef(BaseModel):
+class ListCrawlsResponseTypeDef(BaseValidatorModel):
     Crawls: List[CrawlerHistoryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetCrawlerMetricsResponseTypeDef(BaseModel):
+class GetCrawlerMetricsResponseTypeDef(BaseValidatorModel):
     CrawlerMetricsList: List[CrawlerMetricsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CrawlerTargetsExtraOutputTypeDef(BaseModel):
+class CrawlerTargetsExtraOutputTypeDef(BaseValidatorModel):
     S3Targets: Optional[List[S3TargetExtraOutputTypeDef]] = None
     JdbcTargets: Optional[List[JdbcTargetExtraOutputTypeDef]] = None
     MongoDBTargets: Optional[List[MongoDBTargetTypeDef]] = None
@@ -3224,7 +3224,7 @@ class CrawlerTargetsExtraOutputTypeDef(BaseModel):
     IcebergTargets: Optional[List[IcebergTargetExtraOutputTypeDef]] = None
     HudiTargets: Optional[List[HudiTargetExtraOutputTypeDef]] = None
 
-class CrawlerTargetsOutputTypeDef(BaseModel):
+class CrawlerTargetsOutputTypeDef(BaseValidatorModel):
     S3Targets: Optional[List[S3TargetOutputTypeDef]] = None
     JdbcTargets: Optional[List[JdbcTargetOutputTypeDef]] = None
     MongoDBTargets: Optional[List[MongoDBTargetTypeDef]] = None
@@ -3234,7 +3234,7 @@ class CrawlerTargetsOutputTypeDef(BaseModel):
     IcebergTargets: Optional[List[IcebergTargetOutputTypeDef]] = None
     HudiTargets: Optional[List[HudiTargetOutputTypeDef]] = None
 
-class CrawlerTargetsTypeDef(BaseModel):
+class CrawlerTargetsTypeDef(BaseValidatorModel):
     S3Targets: Optional[Sequence[S3TargetTypeDef]] = None
     JdbcTargets: Optional[Sequence[JdbcTargetTypeDef]] = None
     MongoDBTargets: Optional[Sequence[MongoDBTargetTypeDef]] = None
@@ -3244,19 +3244,19 @@ class CrawlerTargetsTypeDef(BaseModel):
     IcebergTargets: Optional[Sequence[IcebergTargetTypeDef]] = None
     HudiTargets: Optional[Sequence[HudiTargetTypeDef]] = None
 
-class ListCrawlsRequestRequestTypeDef(BaseModel):
+class ListCrawlsRequestRequestTypeDef(BaseValidatorModel):
     CrawlerName: str
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[CrawlsFilterTypeDef]] = None
     NextToken: Optional[str] = None
 
-class CreateClassifierRequestRequestTypeDef(BaseModel):
+class CreateClassifierRequestRequestTypeDef(BaseValidatorModel):
     GrokClassifier: Optional[CreateGrokClassifierRequestTypeDef] = None
     XMLClassifier: Optional[CreateXMLClassifierRequestTypeDef] = None
     JsonClassifier: Optional[CreateJsonClassifierRequestTypeDef] = None
     CsvClassifier: Optional[CreateCsvClassifierRequestTypeDef] = None
 
-class CreateDataQualityRulesetRequestRequestTypeDef(BaseModel):
+class CreateDataQualityRulesetRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Ruleset: str
     Description: Optional[str] = None
@@ -3264,7 +3264,7 @@ class CreateDataQualityRulesetRequestRequestTypeDef(BaseModel):
     TargetTable: Optional[DataQualityTargetTableTypeDef] = None
     ClientToken: Optional[str] = None
 
-class DataQualityRulesetFilterCriteriaTypeDef(BaseModel):
+class DataQualityRulesetFilterCriteriaTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
@@ -3273,7 +3273,7 @@ class DataQualityRulesetFilterCriteriaTypeDef(BaseModel):
     LastModifiedAfter: Optional[TimestampTypeDef] = None
     TargetTable: Optional[DataQualityTargetTableTypeDef] = None
 
-class DataQualityRulesetListDetailsTypeDef(BaseModel):
+class DataQualityRulesetListDetailsTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     CreatedOn: Optional[datetime] = None
@@ -3282,7 +3282,7 @@ class DataQualityRulesetListDetailsTypeDef(BaseModel):
     RecommendationRunId: Optional[str] = None
     RuleCount: Optional[int] = None
 
-class GetDataQualityRulesetResponseTypeDef(BaseModel):
+class GetDataQualityRulesetResponseTypeDef(BaseValidatorModel):
     Name: str
     Description: str
     Ruleset: str
@@ -3292,13 +3292,13 @@ class GetDataQualityRulesetResponseTypeDef(BaseModel):
     RecommendationRunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePartitionIndexRequestRequestTypeDef(BaseModel):
+class CreatePartitionIndexRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionIndex: PartitionIndexTypeDef
     CatalogId: Optional[str] = None
 
-class CreateSchemaInputRequestTypeDef(BaseModel):
+class CreateSchemaInputRequestTypeDef(BaseValidatorModel):
     SchemaName: str
     DataFormat: DataFormatType
     RegistryId: Optional[RegistryIdTypeDef] = None
@@ -3307,22 +3307,22 @@ class CreateSchemaInputRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     SchemaDefinition: Optional[str] = None
 
-class DeleteRegistryInputRequestTypeDef(BaseModel):
+class DeleteRegistryInputRequestTypeDef(BaseValidatorModel):
     RegistryId: RegistryIdTypeDef
 
-class GetRegistryInputRequestTypeDef(BaseModel):
+class GetRegistryInputRequestTypeDef(BaseValidatorModel):
     RegistryId: RegistryIdTypeDef
 
-class ListSchemasInputRequestTypeDef(BaseModel):
+class ListSchemasInputRequestTypeDef(BaseValidatorModel):
     RegistryId: Optional[RegistryIdTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class UpdateRegistryInputRequestTypeDef(BaseModel):
+class UpdateRegistryInputRequestTypeDef(BaseValidatorModel):
     RegistryId: RegistryIdTypeDef
     Description: str
 
-class CreateSessionRequestRequestTypeDef(BaseModel):
+class CreateSessionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Role: str
     Command: SessionCommandTypeDef
@@ -3339,7 +3339,7 @@ class CreateSessionRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     RequestOrigin: Optional[str] = None
 
-class SessionTypeDef(BaseModel):
+class SessionTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     CreatedOn: Optional[datetime] = None
     Status: Optional[SessionStatusType] = None
@@ -3361,21 +3361,21 @@ class SessionTypeDef(BaseModel):
     IdleTimeout: Optional[int] = None
     ProfileName: Optional[str] = None
 
-class CreateTableOptimizerRequestRequestTypeDef(BaseModel):
+class CreateTableOptimizerRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     TableName: str
     Type: Literal["compaction"]
     TableOptimizerConfiguration: TableOptimizerConfigurationTypeDef
 
-class UpdateTableOptimizerRequestRequestTypeDef(BaseModel):
+class UpdateTableOptimizerRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     TableName: str
     Type: Literal["compaction"]
     TableOptimizerConfiguration: TableOptimizerConfigurationTypeDef
 
-class EvaluateDataQualityExtraOutputTypeDef(BaseModel):
+class EvaluateDataQualityExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Ruleset: str
@@ -3383,7 +3383,7 @@ class EvaluateDataQualityExtraOutputTypeDef(BaseModel):
     PublishingOptions: Optional[DQResultsPublishingOptionsTypeDef] = None
     StopJobOnFailureOptions: Optional[DQStopJobOnFailureOptionsTypeDef] = None
 
-class EvaluateDataQualityMultiFrameExtraOutputTypeDef(BaseModel):
+class EvaluateDataQualityMultiFrameExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Ruleset: str
@@ -3392,7 +3392,7 @@ class EvaluateDataQualityMultiFrameExtraOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[AdditionalOptionKeysType, str]] = None
     StopJobOnFailureOptions: Optional[DQStopJobOnFailureOptionsTypeDef] = None
 
-class EvaluateDataQualityMultiFrameOutputTypeDef(BaseModel):
+class EvaluateDataQualityMultiFrameOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Ruleset: str
@@ -3401,7 +3401,7 @@ class EvaluateDataQualityMultiFrameOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[AdditionalOptionKeysType, str]] = None
     StopJobOnFailureOptions: Optional[DQStopJobOnFailureOptionsTypeDef] = None
 
-class EvaluateDataQualityMultiFrameTypeDef(BaseModel):
+class EvaluateDataQualityMultiFrameTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Ruleset: str
@@ -3410,7 +3410,7 @@ class EvaluateDataQualityMultiFrameTypeDef(BaseModel):
     AdditionalOptions: Optional[Mapping[AdditionalOptionKeysType, str]] = None
     StopJobOnFailureOptions: Optional[DQStopJobOnFailureOptionsTypeDef] = None
 
-class EvaluateDataQualityOutputTypeDef(BaseModel):
+class EvaluateDataQualityOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Ruleset: str
@@ -3418,7 +3418,7 @@ class EvaluateDataQualityOutputTypeDef(BaseModel):
     PublishingOptions: Optional[DQResultsPublishingOptionsTypeDef] = None
     StopJobOnFailureOptions: Optional[DQStopJobOnFailureOptionsTypeDef] = None
 
-class EvaluateDataQualityTypeDef(BaseModel):
+class EvaluateDataQualityTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Ruleset: str
@@ -3426,68 +3426,68 @@ class EvaluateDataQualityTypeDef(BaseModel):
     PublishingOptions: Optional[DQResultsPublishingOptionsTypeDef] = None
     StopJobOnFailureOptions: Optional[DQStopJobOnFailureOptionsTypeDef] = None
 
-class DataCatalogEncryptionSettingsTypeDef(BaseModel):
+class DataCatalogEncryptionSettingsTypeDef(BaseValidatorModel):
     EncryptionAtRest: Optional[EncryptionAtRestTypeDef] = None
     ConnectionPasswordEncryption: Optional[ConnectionPasswordEncryptionTypeDef] = None
 
-class PrincipalPermissionsOutputTypeDef(BaseModel):
+class PrincipalPermissionsOutputTypeDef(BaseValidatorModel):
     Principal: Optional[DataLakePrincipalTypeDef] = None
     Permissions: Optional[List[PermissionType]] = None
 
-class PrincipalPermissionsTypeDef(BaseModel):
+class PrincipalPermissionsTypeDef(BaseValidatorModel):
     Principal: Optional[DataLakePrincipalTypeDef] = None
     Permissions: Optional[Sequence[PermissionType]] = None
 
-class MetricBasedObservationTypeDef(BaseModel):
+class MetricBasedObservationTypeDef(BaseValidatorModel):
     MetricName: Optional[str] = None
     MetricValues: Optional[DataQualityMetricValuesTypeDef] = None
     NewRules: Optional[List[str]] = None
 
-class DataSourceOutputTypeDef(BaseModel):
+class DataSourceOutputTypeDef(BaseValidatorModel):
     GlueTable: GlueTableOutputTypeDef
 
-class DataSourceTypeDef(BaseModel):
+class DataSourceTypeDef(BaseValidatorModel):
     GlueTable: GlueTableTypeDef
 
-class NullValueFieldTypeDef(BaseModel):
+class NullValueFieldTypeDef(BaseValidatorModel):
     Value: str
     Datatype: DatatypeTypeDef
 
-class DecimalColumnStatisticsDataOutputTypeDef(BaseModel):
+class DecimalColumnStatisticsDataOutputTypeDef(BaseValidatorModel):
     NumberOfNulls: int
     NumberOfDistinctValues: int
     MinimumValue: Optional[DecimalNumberOutputTypeDef] = None
     MaximumValue: Optional[DecimalNumberOutputTypeDef] = None
 
-class DeleteSchemaInputRequestTypeDef(BaseModel):
+class DeleteSchemaInputRequestTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
 
-class DeleteSchemaVersionsInputRequestTypeDef(BaseModel):
+class DeleteSchemaVersionsInputRequestTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
     Versions: str
 
-class GetSchemaByDefinitionInputRequestTypeDef(BaseModel):
+class GetSchemaByDefinitionInputRequestTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
     SchemaDefinition: str
 
-class GetSchemaInputRequestTypeDef(BaseModel):
+class GetSchemaInputRequestTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
 
-class ListSchemaVersionsInputRequestTypeDef(BaseModel):
+class ListSchemaVersionsInputRequestTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class RegisterSchemaVersionInputRequestTypeDef(BaseModel):
+class RegisterSchemaVersionInputRequestTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
     SchemaDefinition: str
 
-class SchemaReferenceTypeDef(BaseModel):
+class SchemaReferenceTypeDef(BaseValidatorModel):
     SchemaId: Optional[SchemaIdTypeDef] = None
     SchemaVersionId: Optional[str] = None
     SchemaVersionNumber: Optional[int] = None
 
-class UpdateDevEndpointRequestRequestTypeDef(BaseModel):
+class UpdateDevEndpointRequestRequestTypeDef(BaseValidatorModel):
     EndpointName: str
     PublicKey: Optional[str] = None
     AddPublicKeys: Optional[Sequence[str]] = None
@@ -3497,7 +3497,7 @@ class UpdateDevEndpointRequestRequestTypeDef(BaseModel):
     DeleteArguments: Optional[Sequence[str]] = None
     AddArguments: Optional[Mapping[str, str]] = None
 
-class S3DeltaDirectTargetExtraOutputTypeDef(BaseModel):
+class S3DeltaDirectTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
@@ -3507,7 +3507,7 @@ class S3DeltaDirectTargetExtraOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3DeltaDirectTargetOutputTypeDef(BaseModel):
+class S3DeltaDirectTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
@@ -3517,7 +3517,7 @@ class S3DeltaDirectTargetOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3DeltaDirectTargetTypeDef(BaseModel):
+class S3DeltaDirectTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Path: str
@@ -3527,7 +3527,7 @@ class S3DeltaDirectTargetTypeDef(BaseModel):
     AdditionalOptions: Optional[Mapping[str, str]] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3DirectTargetExtraOutputTypeDef(BaseModel):
+class S3DirectTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
@@ -3536,7 +3536,7 @@ class S3DirectTargetExtraOutputTypeDef(BaseModel):
     Compression: Optional[str] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3DirectTargetOutputTypeDef(BaseModel):
+class S3DirectTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
@@ -3545,7 +3545,7 @@ class S3DirectTargetOutputTypeDef(BaseModel):
     Compression: Optional[str] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3DirectTargetTypeDef(BaseModel):
+class S3DirectTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Path: str
@@ -3554,7 +3554,7 @@ class S3DirectTargetTypeDef(BaseModel):
     Compression: Optional[str] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3GlueParquetTargetExtraOutputTypeDef(BaseModel):
+class S3GlueParquetTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
@@ -3562,7 +3562,7 @@ class S3GlueParquetTargetExtraOutputTypeDef(BaseModel):
     Compression: Optional[ParquetCompressionTypeType] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3GlueParquetTargetOutputTypeDef(BaseModel):
+class S3GlueParquetTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
@@ -3570,7 +3570,7 @@ class S3GlueParquetTargetOutputTypeDef(BaseModel):
     Compression: Optional[ParquetCompressionTypeType] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3GlueParquetTargetTypeDef(BaseModel):
+class S3GlueParquetTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Path: str
@@ -3578,7 +3578,7 @@ class S3GlueParquetTargetTypeDef(BaseModel):
     Compression: Optional[ParquetCompressionTypeType] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3HudiDirectTargetExtraOutputTypeDef(BaseModel):
+class S3HudiDirectTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
@@ -3588,7 +3588,7 @@ class S3HudiDirectTargetExtraOutputTypeDef(BaseModel):
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3HudiDirectTargetOutputTypeDef(BaseModel):
+class S3HudiDirectTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Path: str
@@ -3598,7 +3598,7 @@ class S3HudiDirectTargetOutputTypeDef(BaseModel):
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class S3HudiDirectTargetTypeDef(BaseModel):
+class S3HudiDirectTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Path: str
@@ -3608,89 +3608,89 @@ class S3HudiDirectTargetTypeDef(BaseModel):
     PartitionKeys: Optional[Sequence[Sequence[str]]] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
 
-class EncryptionConfigurationExtraOutputTypeDef(BaseModel):
+class EncryptionConfigurationExtraOutputTypeDef(BaseValidatorModel):
     S3Encryption: Optional[List[S3EncryptionTypeDef]] = None
     CloudWatchEncryption: Optional[CloudWatchEncryptionTypeDef] = None
     JobBookmarksEncryption: Optional[JobBookmarksEncryptionTypeDef] = None
 
-class EncryptionConfigurationOutputTypeDef(BaseModel):
+class EncryptionConfigurationOutputTypeDef(BaseValidatorModel):
     S3Encryption: Optional[List[S3EncryptionTypeDef]] = None
     CloudWatchEncryption: Optional[CloudWatchEncryptionTypeDef] = None
     JobBookmarksEncryption: Optional[JobBookmarksEncryptionTypeDef] = None
 
-class EncryptionConfigurationTypeDef(BaseModel):
+class EncryptionConfigurationTypeDef(BaseValidatorModel):
     S3Encryption: Optional[Sequence[S3EncryptionTypeDef]] = None
     CloudWatchEncryption: Optional[CloudWatchEncryptionTypeDef] = None
     JobBookmarksEncryption: Optional[JobBookmarksEncryptionTypeDef] = None
 
-class SchemaVersionErrorItemTypeDef(BaseModel):
+class SchemaVersionErrorItemTypeDef(BaseValidatorModel):
     VersionNumber: Optional[int] = None
     ErrorDetails: Optional[ErrorDetailsTypeDef] = None
 
-class FilterExpressionExtraOutputTypeDef(BaseModel):
+class FilterExpressionExtraOutputTypeDef(BaseValidatorModel):
     Operation: FilterOperationType
     Values: List[FilterValueExtraOutputTypeDef]
     Negated: Optional[bool] = None
 
-class FilterExpressionOutputTypeDef(BaseModel):
+class FilterExpressionOutputTypeDef(BaseValidatorModel):
     Operation: FilterOperationType
     Values: List[FilterValueOutputTypeDef]
     Negated: Optional[bool] = None
 
-class FilterExpressionTypeDef(BaseModel):
+class FilterExpressionTypeDef(BaseValidatorModel):
     Operation: FilterOperationType
     Values: Sequence[FilterValueTypeDef]
     Negated: Optional[bool] = None
 
-class TransformParametersTypeDef(BaseModel):
+class TransformParametersTypeDef(BaseValidatorModel):
     TransformType: Literal["FIND_MATCHES"]
     FindMatchesParameters: Optional[FindMatchesParametersTypeDef] = None
 
-class GetClassifiersRequestGetClassifiersPaginateTypeDef(BaseModel):
+class GetClassifiersRequestGetClassifiersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetCrawlerMetricsRequestGetCrawlerMetricsPaginateTypeDef(BaseModel):
+class GetCrawlerMetricsRequestGetCrawlerMetricsPaginateTypeDef(BaseValidatorModel):
     CrawlerNameList: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetCrawlersRequestGetCrawlersPaginateTypeDef(BaseModel):
+class GetCrawlersRequestGetCrawlersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDatabasesRequestGetDatabasesPaginateTypeDef(BaseModel):
+class GetDatabasesRequestGetDatabasesPaginateTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     ResourceShareType: Optional[ResourceShareTypeType] = None
     AttributesToGet: Optional[Sequence[Literal["NAME"]]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDevEndpointsRequestGetDevEndpointsPaginateTypeDef(BaseModel):
+class GetDevEndpointsRequestGetDevEndpointsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetJobRunsRequestGetJobRunsPaginateTypeDef(BaseModel):
+class GetJobRunsRequestGetJobRunsPaginateTypeDef(BaseValidatorModel):
     JobName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetJobsRequestGetJobsPaginateTypeDef(BaseModel):
+class GetJobsRequestGetJobsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetPartitionIndexesRequestGetPartitionIndexesPaginateTypeDef(BaseModel):
+class GetPartitionIndexesRequestGetPartitionIndexesPaginateTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetResourcePoliciesRequestGetResourcePoliciesPaginateTypeDef(BaseModel):
+class GetResourcePoliciesRequestGetResourcePoliciesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetSecurityConfigurationsRequestGetSecurityConfigurationsPaginateTypeDef(BaseModel):
+class GetSecurityConfigurationsRequestGetSecurityConfigurationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTableVersionsRequestGetTableVersionsPaginateTypeDef(BaseModel):
+class GetTableVersionsRequestGetTableVersionsPaginateTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTablesRequestGetTablesPaginateTypeDef(BaseModel):
+class GetTablesRequestGetTablesPaginateTypeDef(BaseValidatorModel):
     DatabaseName: str
     CatalogId: Optional[str] = None
     Expression: Optional[str] = None
@@ -3698,73 +3698,73 @@ class GetTablesRequestGetTablesPaginateTypeDef(BaseModel):
     QueryAsOfTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTriggersRequestGetTriggersPaginateTypeDef(BaseModel):
+class GetTriggersRequestGetTriggersPaginateTypeDef(BaseValidatorModel):
     DependentJobName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetUserDefinedFunctionsRequestGetUserDefinedFunctionsPaginateTypeDef(BaseModel):
+class GetUserDefinedFunctionsRequestGetUserDefinedFunctionsPaginateTypeDef(BaseValidatorModel):
     Pattern: str
     CatalogId: Optional[str] = None
     DatabaseName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetWorkflowRunsRequestGetWorkflowRunsPaginateTypeDef(BaseModel):
+class GetWorkflowRunsRequestGetWorkflowRunsPaginateTypeDef(BaseValidatorModel):
     Name: str
     IncludeGraph: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBlueprintsRequestListBlueprintsPaginateTypeDef(BaseModel):
+class ListBlueprintsRequestListBlueprintsPaginateTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobsRequestListJobsPaginateTypeDef(BaseModel):
+class ListJobsRequestListJobsPaginateTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRegistriesInputListRegistriesPaginateTypeDef(BaseModel):
+class ListRegistriesInputListRegistriesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSchemaVersionsInputListSchemaVersionsPaginateTypeDef(BaseModel):
+class ListSchemaVersionsInputListSchemaVersionsPaginateTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSchemasInputListSchemasPaginateTypeDef(BaseModel):
+class ListSchemasInputListSchemasPaginateTypeDef(BaseValidatorModel):
     RegistryId: Optional[RegistryIdTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTriggersRequestListTriggersPaginateTypeDef(BaseModel):
+class ListTriggersRequestListTriggersPaginateTypeDef(BaseValidatorModel):
     DependentJobName: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsageProfilesRequestListUsageProfilesPaginateTypeDef(BaseModel):
+class ListUsageProfilesRequestListUsageProfilesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkflowsRequestListWorkflowsPaginateTypeDef(BaseModel):
+class ListWorkflowsRequestListWorkflowsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetConnectionsRequestGetConnectionsPaginateTypeDef(BaseModel):
+class GetConnectionsRequestGetConnectionsPaginateTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     Filter: Optional[GetConnectionsFilterTypeDef] = None
     HidePassword: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetConnectionsRequestRequestTypeDef(BaseModel):
+class GetConnectionsRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     Filter: Optional[GetConnectionsFilterTypeDef] = None
     HidePassword: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetJobBookmarkResponseTypeDef(BaseModel):
+class GetJobBookmarkResponseTypeDef(BaseValidatorModel):
     JobBookmarkEntry: JobBookmarkEntryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetJobBookmarkResponseTypeDef(BaseModel):
+class ResetJobBookmarkResponseTypeDef(BaseValidatorModel):
     JobBookmarkEntry: JobBookmarkEntryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TransformFilterCriteriaTypeDef(BaseModel):
+class TransformFilterCriteriaTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     TransformType: Optional[Literal["FIND_MATCHES"]] = None
     Status: Optional[TransformStatusTypeType] = None
@@ -3775,11 +3775,11 @@ class TransformFilterCriteriaTypeDef(BaseModel):
     LastModifiedAfter: Optional[TimestampTypeDef] = None
     Schema: Optional[Sequence[SchemaColumnTypeDef]] = None
 
-class GetMappingResponseTypeDef(BaseModel):
+class GetMappingResponseTypeDef(BaseValidatorModel):
     Mapping: List[MappingEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPartitionsRequestGetPartitionsPaginateTypeDef(BaseModel):
+class GetPartitionsRequestGetPartitionsPaginateTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
@@ -3790,7 +3790,7 @@ class GetPartitionsRequestGetPartitionsPaginateTypeDef(BaseModel):
     QueryAsOfTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetPartitionsRequestRequestTypeDef(BaseModel):
+class GetPartitionsRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
@@ -3802,55 +3802,55 @@ class GetPartitionsRequestRequestTypeDef(BaseModel):
     TransactionId: Optional[str] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
 
-class GetResourcePoliciesResponseTypeDef(BaseModel):
+class GetResourcePoliciesResponseTypeDef(BaseValidatorModel):
     GetResourcePoliciesResponseList: List[GluePolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetSchemaVersionInputRequestTypeDef(BaseModel):
+class GetSchemaVersionInputRequestTypeDef(BaseValidatorModel):
     SchemaId: Optional[SchemaIdTypeDef] = None
     SchemaVersionId: Optional[str] = None
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
 
-class GetSchemaVersionsDiffInputRequestTypeDef(BaseModel):
+class GetSchemaVersionsDiffInputRequestTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
     FirstSchemaVersionNumber: SchemaVersionNumberTypeDef
     SecondSchemaVersionNumber: SchemaVersionNumberTypeDef
     SchemaDiffType: Literal["SYNTAX_DIFF"]
 
-class UpdateSchemaInputRequestTypeDef(BaseModel):
+class UpdateSchemaInputRequestTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
     Compatibility: Optional[CompatibilityType] = None
     Description: Optional[str] = None
 
-class GlueSchemaExtraOutputTypeDef(BaseModel):
+class GlueSchemaExtraOutputTypeDef(BaseValidatorModel):
     Columns: Optional[List[GlueStudioSchemaColumnTypeDef]] = None
 
-class GlueSchemaOutputTypeDef(BaseModel):
+class GlueSchemaOutputTypeDef(BaseValidatorModel):
     Columns: Optional[List[GlueStudioSchemaColumnTypeDef]] = None
 
-class GlueSchemaTypeDef(BaseModel):
+class GlueSchemaTypeDef(BaseValidatorModel):
     Columns: Optional[Sequence[GlueStudioSchemaColumnTypeDef]] = None
 
-class GovernedCatalogSourceTypeDef(BaseModel):
+class GovernedCatalogSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     PartitionPredicate: Optional[str] = None
     AdditionalOptions: Optional[S3SourceAdditionalOptionsTypeDef] = None
 
-class S3CatalogSourceTypeDef(BaseModel):
+class S3CatalogSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     PartitionPredicate: Optional[str] = None
     AdditionalOptions: Optional[S3SourceAdditionalOptionsTypeDef] = None
 
-class OpenTableFormatInputTypeDef(BaseModel):
+class OpenTableFormatInputTypeDef(BaseValidatorModel):
     IcebergInput: Optional[IcebergInputTypeDef] = None
 
-class JobRunTypeDef(BaseModel):
+class JobRunTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Attempt: Optional[int] = None
     PreviousRunId: Optional[str] = None
@@ -3879,67 +3879,67 @@ class JobRunTypeDef(BaseModel):
     MaintenanceWindow: Optional[str] = None
     ProfileName: Optional[str] = None
 
-class JoinExtraOutputTypeDef(BaseModel):
+class JoinExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     JoinType: JoinTypeType
     Columns: List[JoinColumnExtraOutputTypeDef]
 
-class JoinOutputTypeDef(BaseModel):
+class JoinOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     JoinType: JoinTypeType
     Columns: List[JoinColumnOutputTypeDef]
 
-class JoinTypeDef(BaseModel):
+class JoinTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     JoinType: JoinTypeType
     Columns: Sequence[JoinColumnTypeDef]
 
-class TaskRunPropertiesTypeDef(BaseModel):
+class TaskRunPropertiesTypeDef(BaseValidatorModel):
     TaskType: Optional[TaskTypeType] = None
     ImportLabelsTaskRunProperties: Optional[ImportLabelsTaskRunPropertiesTypeDef] = None
     ExportLabelsTaskRunProperties: Optional[ExportLabelsTaskRunPropertiesTypeDef] = None
     LabelingSetGenerationTaskRunProperties: Optional[       LabelingSetGenerationTaskRunPropertiesTypeDef     ] = None
     FindMatchesTaskRunProperties: Optional[FindMatchesTaskRunPropertiesTypeDef] = None
 
-class ListRegistriesResponseTypeDef(BaseModel):
+class ListRegistriesResponseTypeDef(BaseValidatorModel):
     Registries: List[RegistryListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSchemaVersionsResponseTypeDef(BaseModel):
+class ListSchemaVersionsResponseTypeDef(BaseValidatorModel):
     Schemas: List[SchemaVersionListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSchemasResponseTypeDef(BaseModel):
+class ListSchemasResponseTypeDef(BaseValidatorModel):
     Schemas: List[SchemaListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListUsageProfilesResponseTypeDef(BaseModel):
+class ListUsageProfilesResponseTypeDef(BaseValidatorModel):
     Profiles: List[UsageProfileDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TransformEncryptionTypeDef(BaseModel):
+class TransformEncryptionTypeDef(BaseValidatorModel):
     MlUserDataEncryption: Optional[MLUserDataEncryptionTypeDef] = None
     TaskRunSecurityConfigurationName: Optional[str] = None
 
-class MetadataInfoTypeDef(BaseModel):
+class MetadataInfoTypeDef(BaseValidatorModel):
     MetadataValue: Optional[str] = None
     CreatedTime: Optional[str] = None
     OtherMetadataValueList: Optional[List[OtherMetadataValueListItemTypeDef]] = None
 
-class PutSchemaVersionMetadataInputRequestTypeDef(BaseModel):
+class PutSchemaVersionMetadataInputRequestTypeDef(BaseValidatorModel):
     MetadataKeyValue: MetadataKeyValuePairTypeDef
     SchemaId: Optional[SchemaIdTypeDef] = None
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
     SchemaVersionId: Optional[str] = None
 
-class QuerySchemaVersionMetadataInputRequestTypeDef(BaseModel):
+class QuerySchemaVersionMetadataInputRequestTypeDef(BaseValidatorModel):
     SchemaId: Optional[SchemaIdTypeDef] = None
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
     SchemaVersionId: Optional[str] = None
@@ -3947,38 +3947,38 @@ class QuerySchemaVersionMetadataInputRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class RemoveSchemaVersionMetadataInputRequestTypeDef(BaseModel):
+class RemoveSchemaVersionMetadataInputRequestTypeDef(BaseValidatorModel):
     MetadataKeyValue: MetadataKeyValuePairTypeDef
     SchemaId: Optional[SchemaIdTypeDef] = None
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
     SchemaVersionId: Optional[str] = None
 
-class OAuth2PropertiesInputTypeDef(BaseModel):
+class OAuth2PropertiesInputTypeDef(BaseValidatorModel):
     OAuth2GrantType: Optional[OAuth2GrantTypeType] = None
     OAuth2ClientApplication: Optional[OAuth2ClientApplicationTypeDef] = None
     TokenUrl: Optional[str] = None
     TokenUrlParametersMap: Optional[Mapping[str, str]] = None
     AuthorizationCodeProperties: Optional[AuthorizationCodePropertiesTypeDef] = None
 
-class OAuth2PropertiesTypeDef(BaseModel):
+class OAuth2PropertiesTypeDef(BaseValidatorModel):
     OAuth2GrantType: Optional[OAuth2GrantTypeType] = None
     OAuth2ClientApplication: Optional[OAuth2ClientApplicationTypeDef] = None
     TokenUrl: Optional[str] = None
     TokenUrlParametersMap: Optional[Dict[str, str]] = None
 
-class RecipeStepExtraOutputTypeDef(BaseModel):
+class RecipeStepExtraOutputTypeDef(BaseValidatorModel):
     Action: RecipeActionExtraOutputTypeDef
     ConditionExpressions: Optional[List[ConditionExpressionTypeDef]] = None
 
-class RecipeStepOutputTypeDef(BaseModel):
+class RecipeStepOutputTypeDef(BaseValidatorModel):
     Action: RecipeActionOutputTypeDef
     ConditionExpressions: Optional[List[ConditionExpressionTypeDef]] = None
 
-class RecipeStepTypeDef(BaseModel):
+class RecipeStepTypeDef(BaseValidatorModel):
     Action: RecipeActionTypeDef
     ConditionExpressions: Optional[Sequence[ConditionExpressionTypeDef]] = None
 
-class RedshiftTargetExtraOutputTypeDef(BaseModel):
+class RedshiftTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
@@ -3987,7 +3987,7 @@ class RedshiftTargetExtraOutputTypeDef(BaseModel):
     TmpDirIAMRole: Optional[str] = None
     UpsertRedshiftOptions: Optional[UpsertRedshiftTargetOptionsExtraOutputTypeDef] = None
 
-class RedshiftTargetOutputTypeDef(BaseModel):
+class RedshiftTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Database: str
@@ -3996,7 +3996,7 @@ class RedshiftTargetOutputTypeDef(BaseModel):
     TmpDirIAMRole: Optional[str] = None
     UpsertRedshiftOptions: Optional[UpsertRedshiftTargetOptionsOutputTypeDef] = None
 
-class RedshiftTargetTypeDef(BaseModel):
+class RedshiftTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Database: str
@@ -4005,14 +4005,14 @@ class RedshiftTargetTypeDef(BaseModel):
     TmpDirIAMRole: Optional[str] = None
     UpsertRedshiftOptions: Optional[UpsertRedshiftTargetOptionsTypeDef] = None
 
-class UserDefinedFunctionInputTypeDef(BaseModel):
+class UserDefinedFunctionInputTypeDef(BaseValidatorModel):
     FunctionName: Optional[str] = None
     ClassName: Optional[str] = None
     OwnerName: Optional[str] = None
     OwnerType: Optional[PrincipalTypeType] = None
     ResourceUris: Optional[Sequence[ResourceUriTypeDef]] = None
 
-class UserDefinedFunctionTypeDef(BaseModel):
+class UserDefinedFunctionTypeDef(BaseValidatorModel):
     FunctionName: Optional[str] = None
     DatabaseName: Optional[str] = None
     ClassName: Optional[str] = None
@@ -4022,14 +4022,14 @@ class UserDefinedFunctionTypeDef(BaseModel):
     ResourceUris: Optional[List[ResourceUriTypeDef]] = None
     CatalogId: Optional[str] = None
 
-class TableOptimizerRunTypeDef(BaseModel):
+class TableOptimizerRunTypeDef(BaseValidatorModel):
     eventType: Optional[TableOptimizerEventTypeType] = None
     startTimestamp: Optional[datetime] = None
     endTimestamp: Optional[datetime] = None
     metrics: Optional[RunMetricsTypeDef] = None
     error: Optional[str] = None
 
-class SearchTablesRequestRequestTypeDef(BaseModel):
+class SearchTablesRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: Optional[str] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[PropertyPredicateTypeDef]] = None
@@ -4038,7 +4038,7 @@ class SearchTablesRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     ResourceShareType: Optional[ResourceShareTypeType] = None
 
-class StatementOutputTypeDef(BaseModel):
+class StatementOutputTypeDef(BaseValidatorModel):
     Data: Optional[StatementOutputDataTypeDef] = None
     ExecutionCount: Optional[int] = None
     Status: Optional[StatementStateType] = None
@@ -4046,132 +4046,132 @@ class StatementOutputTypeDef(BaseModel):
     ErrorValue: Optional[str] = None
     Traceback: Optional[List[str]] = None
 
-class UpdateClassifierRequestRequestTypeDef(BaseModel):
+class UpdateClassifierRequestRequestTypeDef(BaseValidatorModel):
     GrokClassifier: Optional[UpdateGrokClassifierRequestTypeDef] = None
     XMLClassifier: Optional[UpdateXMLClassifierRequestTypeDef] = None
     JsonClassifier: Optional[UpdateJsonClassifierRequestTypeDef] = None
     CsvClassifier: Optional[UpdateCsvClassifierRequestTypeDef] = None
 
-class ViewDefinitionInputTypeDef(BaseModel):
+class ViewDefinitionInputTypeDef(BaseValidatorModel):
     IsProtected: Optional[bool] = None
     Definer: Optional[str] = None
     Representations: Optional[Sequence[ViewRepresentationInputTypeDef]] = None
     SubObjects: Optional[Sequence[str]] = None
 
-class ViewDefinitionTypeDef(BaseModel):
+class ViewDefinitionTypeDef(BaseValidatorModel):
     IsProtected: Optional[bool] = None
     Definer: Optional[str] = None
     SubObjects: Optional[List[str]] = None
     Representations: Optional[List[ViewRepresentationTypeDef]] = None
 
-class AmazonRedshiftSourceExtraOutputTypeDef(BaseModel):
+class AmazonRedshiftSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Data: Optional[AmazonRedshiftNodeDataExtraOutputTypeDef] = None
 
-class AmazonRedshiftTargetExtraOutputTypeDef(BaseModel):
+class AmazonRedshiftTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Data: Optional[AmazonRedshiftNodeDataExtraOutputTypeDef] = None
     Inputs: Optional[List[str]] = None
 
-class AmazonRedshiftSourceOutputTypeDef(BaseModel):
+class AmazonRedshiftSourceOutputTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Data: Optional[AmazonRedshiftNodeDataOutputTypeDef] = None
 
-class AmazonRedshiftTargetOutputTypeDef(BaseModel):
+class AmazonRedshiftTargetOutputTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Data: Optional[AmazonRedshiftNodeDataOutputTypeDef] = None
     Inputs: Optional[List[str]] = None
 
-class AmazonRedshiftSourceTypeDef(BaseModel):
+class AmazonRedshiftSourceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Data: Optional[AmazonRedshiftNodeDataTypeDef] = None
 
-class AmazonRedshiftTargetTypeDef(BaseModel):
+class AmazonRedshiftTargetTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Data: Optional[AmazonRedshiftNodeDataTypeDef] = None
     Inputs: Optional[Sequence[str]] = None
 
-class SnowflakeTargetExtraOutputTypeDef(BaseModel):
+class SnowflakeTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Data: SnowflakeNodeDataExtraOutputTypeDef
     Inputs: Optional[List[str]] = None
 
-class SnowflakeTargetOutputTypeDef(BaseModel):
+class SnowflakeTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Data: SnowflakeNodeDataOutputTypeDef
     Inputs: Optional[List[str]] = None
 
-class SnowflakeTargetTypeDef(BaseModel):
+class SnowflakeTargetTypeDef(BaseValidatorModel):
     Name: str
     Data: SnowflakeNodeDataTypeDef
     Inputs: Optional[Sequence[str]] = None
 
-class PartitionIndexDescriptorTypeDef(BaseModel):
+class PartitionIndexDescriptorTypeDef(BaseValidatorModel):
     IndexName: str
     Keys: List[KeySchemaElementTypeDef]
     IndexStatus: PartitionIndexStatusType
     BackfillErrors: Optional[List[BackfillErrorTypeDef]] = None
 
-class BatchStopJobRunResponseTypeDef(BaseModel):
+class BatchStopJobRunResponseTypeDef(BaseValidatorModel):
     SuccessfulSubmissions: List[BatchStopJobRunSuccessfulSubmissionTypeDef]
     Errors: List[BatchStopJobRunErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchUpdatePartitionResponseTypeDef(BaseModel):
+class BatchUpdatePartitionResponseTypeDef(BaseValidatorModel):
     Errors: List[BatchUpdatePartitionFailureEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchCreatePartitionResponseTypeDef(BaseModel):
+class BatchCreatePartitionResponseTypeDef(BaseValidatorModel):
     Errors: List[PartitionErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDeletePartitionResponseTypeDef(BaseModel):
+class BatchDeletePartitionResponseTypeDef(BaseValidatorModel):
     Errors: List[PartitionErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDeleteTableResponseTypeDef(BaseModel):
+class BatchDeleteTableResponseTypeDef(BaseValidatorModel):
     Errors: List[TableErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDeleteTableVersionResponseTypeDef(BaseModel):
+class BatchDeleteTableVersionResponseTypeDef(BaseValidatorModel):
     Errors: List[TableVersionErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DecimalColumnStatisticsDataTypeDef(BaseModel):
+class DecimalColumnStatisticsDataTypeDef(BaseValidatorModel):
     NumberOfNulls: int
     NumberOfDistinctValues: int
     MinimumValue: Optional[DecimalNumberTypeDef] = None
     MaximumValue: Optional[DecimalNumberTypeDef] = None
 
-class BatchGetBlueprintsResponseTypeDef(BaseModel):
+class BatchGetBlueprintsResponseTypeDef(BaseValidatorModel):
     Blueprints: List[BlueprintTypeDef]
     MissingBlueprints: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBlueprintResponseTypeDef(BaseModel):
+class GetBlueprintResponseTypeDef(BaseValidatorModel):
     Blueprint: BlueprintTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetClassifierResponseTypeDef(BaseModel):
+class GetClassifierResponseTypeDef(BaseValidatorModel):
     Classifier: ClassifierTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetClassifiersResponseTypeDef(BaseModel):
+class GetClassifiersResponseTypeDef(BaseValidatorModel):
     Classifiers: List[ClassifierTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetDataflowGraphResponseTypeDef(BaseModel):
+class GetDataflowGraphResponseTypeDef(BaseValidatorModel):
     DagNodes: List[CodeGenNodeOutputTypeDef]
     DagEdges: List[CodeGenEdgeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMappingRequestRequestTypeDef(BaseModel):
+class GetMappingRequestRequestTypeDef(BaseValidatorModel):
     Source: CatalogEntryTypeDef
     Sinks: Optional[Sequence[CatalogEntryTypeDef]] = None
     Location: Optional[LocationTypeDef] = None
 
-class GetPlanRequestRequestTypeDef(BaseModel):
+class GetPlanRequestRequestTypeDef(BaseValidatorModel):
     Mapping: Sequence[MappingEntryTypeDef]
     Source: CatalogEntryTypeDef
     Sinks: Optional[Sequence[CatalogEntryTypeDef]] = None
@@ -4179,7 +4179,7 @@ class GetPlanRequestRequestTypeDef(BaseModel):
     Language: Optional[LanguageType] = None
     AdditionalPlanOptionsMap: Optional[Mapping[str, str]] = None
 
-class CatalogKafkaSourceTypeDef(BaseModel):
+class CatalogKafkaSourceTypeDef(BaseValidatorModel):
     Name: str
     Table: str
     Database: str
@@ -4188,14 +4188,14 @@ class CatalogKafkaSourceTypeDef(BaseModel):
     StreamingOptions: Optional[KafkaStreamingSourceOptionsTypeDef] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class DirectKafkaSourceTypeDef(BaseModel):
+class DirectKafkaSourceTypeDef(BaseValidatorModel):
     Name: str
     StreamingOptions: Optional[KafkaStreamingSourceOptionsTypeDef] = None
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class CatalogKinesisSourceTypeDef(BaseModel):
+class CatalogKinesisSourceTypeDef(BaseValidatorModel):
     Name: str
     Table: str
     Database: str
@@ -4204,14 +4204,14 @@ class CatalogKinesisSourceTypeDef(BaseModel):
     StreamingOptions: Optional[KinesisStreamingSourceOptionsTypeDef] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class DirectKinesisSourceTypeDef(BaseModel):
+class DirectKinesisSourceTypeDef(BaseValidatorModel):
     Name: str
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
     StreamingOptions: Optional[KinesisStreamingSourceOptionsTypeDef] = None
     DataPreviewOptions: Optional[StreamingDataPreviewOptionsTypeDef] = None
 
-class GetUnfilteredPartitionMetadataRequestRequestTypeDef(BaseModel):
+class GetUnfilteredPartitionMetadataRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     TableName: str
@@ -4221,7 +4221,7 @@ class GetUnfilteredPartitionMetadataRequestRequestTypeDef(BaseModel):
     AuditContext: Optional[AuditContextTypeDef] = None
     QuerySessionContext: Optional[QuerySessionContextTypeDef] = None
 
-class GetUnfilteredPartitionsMetadataRequestRequestTypeDef(BaseModel):
+class GetUnfilteredPartitionsMetadataRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     TableName: str
@@ -4234,7 +4234,7 @@ class GetUnfilteredPartitionsMetadataRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     QuerySessionContext: Optional[QuerySessionContextTypeDef] = None
 
-class GetUnfilteredTableMetadataRequestRequestTypeDef(BaseModel):
+class GetUnfilteredTableMetadataRequestRequestTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     Name: str
@@ -4247,14 +4247,14 @@ class GetUnfilteredTableMetadataRequestRequestTypeDef(BaseModel):
     Permissions: Optional[Sequence[PermissionType]] = None
     QuerySessionContext: Optional[QuerySessionContextTypeDef] = None
 
-class GetMLTaskRunsRequestRequestTypeDef(BaseModel):
+class GetMLTaskRunsRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filter: Optional[TaskRunFilterCriteriaTypeDef] = None
     Sort: Optional[TaskRunSortCriteriaTypeDef] = None
 
-class TriggerTypeDef(BaseModel):
+class TriggerTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     WorkflowName: Optional[str] = None
     Id: Optional[str] = None
@@ -4266,7 +4266,7 @@ class TriggerTypeDef(BaseModel):
     Predicate: Optional[PredicateOutputTypeDef] = None
     EventBatchingCondition: Optional[EventBatchingConditionTypeDef] = None
 
-class TriggerUpdateTypeDef(BaseModel):
+class TriggerUpdateTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Schedule: Optional[str] = None
@@ -4274,7 +4274,7 @@ class TriggerUpdateTypeDef(BaseModel):
     Predicate: Optional[PredicateTypeDef] = None
     EventBatchingCondition: Optional[EventBatchingConditionTypeDef] = None
 
-class GetUsageProfileResponseTypeDef(BaseModel):
+class GetUsageProfileResponseTypeDef(BaseValidatorModel):
     Name: str
     Description: str
     Configuration: ProfileConfigurationOutputTypeDef
@@ -4282,22 +4282,22 @@ class GetUsageProfileResponseTypeDef(BaseModel):
     LastModifiedOn: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUsageProfileRequestRequestTypeDef(BaseModel):
+class CreateUsageProfileRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Configuration: ProfileConfigurationTypeDef
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateUsageProfileRequestRequestTypeDef(BaseModel):
+class UpdateUsageProfileRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Configuration: ProfileConfigurationTypeDef
     Description: Optional[str] = None
 
-class EvaluationMetricsTypeDef(BaseModel):
+class EvaluationMetricsTypeDef(BaseValidatorModel):
     TransformType: Literal["FIND_MATCHES"]
     FindMatchesMetrics: Optional[FindMatchesMetricsTypeDef] = None
 
-class CrawlerTypeDef(BaseModel):
+class CrawlerTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Role: Optional[str] = None
     Targets: Optional[CrawlerTargetsOutputTypeDef] = None
@@ -4319,7 +4319,7 @@ class CrawlerTypeDef(BaseModel):
     CrawlerSecurityConfiguration: Optional[str] = None
     LakeFormationConfiguration: Optional[LakeFormationConfigurationTypeDef] = None
 
-class CreateCrawlerRequestRequestTypeDef(BaseModel):
+class CreateCrawlerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Role: str
     Targets: CrawlerTargetsTypeDef
@@ -4336,7 +4336,7 @@ class CreateCrawlerRequestRequestTypeDef(BaseModel):
     CrawlerSecurityConfiguration: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateCrawlerRequestRequestTypeDef(BaseModel):
+class UpdateCrawlerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Role: Optional[str] = None
     DatabaseName: Optional[str] = None
@@ -4352,40 +4352,40 @@ class UpdateCrawlerRequestRequestTypeDef(BaseModel):
     Configuration: Optional[str] = None
     CrawlerSecurityConfiguration: Optional[str] = None
 
-class ListDataQualityRulesetsRequestRequestTypeDef(BaseModel):
+class ListDataQualityRulesetsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filter: Optional[DataQualityRulesetFilterCriteriaTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ListDataQualityRulesetsResponseTypeDef(BaseModel):
+class ListDataQualityRulesetsResponseTypeDef(BaseValidatorModel):
     Rulesets: List[DataQualityRulesetListDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateSessionResponseTypeDef(BaseModel):
+class CreateSessionResponseTypeDef(BaseValidatorModel):
     Session: SessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSessionResponseTypeDef(BaseModel):
+class GetSessionResponseTypeDef(BaseValidatorModel):
     Session: SessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSessionsResponseTypeDef(BaseModel):
+class ListSessionsResponseTypeDef(BaseValidatorModel):
     Ids: List[str]
     Sessions: List[SessionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetDataCatalogEncryptionSettingsResponseTypeDef(BaseModel):
+class GetDataCatalogEncryptionSettingsResponseTypeDef(BaseValidatorModel):
     DataCatalogEncryptionSettings: DataCatalogEncryptionSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDataCatalogEncryptionSettingsRequestRequestTypeDef(BaseModel):
+class PutDataCatalogEncryptionSettingsRequestRequestTypeDef(BaseValidatorModel):
     DataCatalogEncryptionSettings: DataCatalogEncryptionSettingsTypeDef
     CatalogId: Optional[str] = None
 
-class DatabaseTypeDef(BaseModel):
+class DatabaseTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     LocationUri: Optional[str] = None
@@ -4396,7 +4396,7 @@ class DatabaseTypeDef(BaseModel):
     CatalogId: Optional[str] = None
     FederatedDatabase: Optional[FederatedDatabaseTypeDef] = None
 
-class DatabaseInputTypeDef(BaseModel):
+class DatabaseInputTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     LocationUri: Optional[str] = None
@@ -4405,30 +4405,30 @@ class DatabaseInputTypeDef(BaseModel):
     TargetDatabase: Optional[DatabaseIdentifierTypeDef] = None
     FederatedDatabase: Optional[FederatedDatabaseTypeDef] = None
 
-class DataQualityObservationTypeDef(BaseModel):
+class DataQualityObservationTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     MetricBasedObservation: Optional[MetricBasedObservationTypeDef] = None
 
-class DataQualityResultDescriptionTypeDef(BaseModel):
+class DataQualityResultDescriptionTypeDef(BaseValidatorModel):
     ResultId: Optional[str] = None
     DataSource: Optional[DataSourceOutputTypeDef] = None
     JobName: Optional[str] = None
     JobRunId: Optional[str] = None
     StartedOn: Optional[datetime] = None
 
-class DataQualityRuleRecommendationRunDescriptionTypeDef(BaseModel):
+class DataQualityRuleRecommendationRunDescriptionTypeDef(BaseValidatorModel):
     RunId: Optional[str] = None
     Status: Optional[TaskStatusTypeType] = None
     StartedOn: Optional[datetime] = None
     DataSource: Optional[DataSourceOutputTypeDef] = None
 
-class DataQualityRulesetEvaluationRunDescriptionTypeDef(BaseModel):
+class DataQualityRulesetEvaluationRunDescriptionTypeDef(BaseValidatorModel):
     RunId: Optional[str] = None
     Status: Optional[TaskStatusTypeType] = None
     StartedOn: Optional[datetime] = None
     DataSource: Optional[DataSourceOutputTypeDef] = None
 
-class GetDataQualityRuleRecommendationRunResponseTypeDef(BaseModel):
+class GetDataQualityRuleRecommendationRunResponseTypeDef(BaseValidatorModel):
     RunId: str
     DataSource: DataSourceOutputTypeDef
     Role: str
@@ -4444,7 +4444,7 @@ class GetDataQualityRuleRecommendationRunResponseTypeDef(BaseModel):
     CreatedRulesetName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDataQualityRulesetEvaluationRunResponseTypeDef(BaseModel):
+class GetDataQualityRulesetEvaluationRunResponseTypeDef(BaseValidatorModel):
     RunId: str
     DataSource: DataSourceOutputTypeDef
     Role: str
@@ -4462,24 +4462,24 @@ class GetDataQualityRulesetEvaluationRunResponseTypeDef(BaseModel):
     AdditionalDataSources: Dict[str, DataSourceOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataQualityResultFilterCriteriaTypeDef(BaseModel):
+class DataQualityResultFilterCriteriaTypeDef(BaseValidatorModel):
     DataSource: Optional[DataSourceTypeDef] = None
     JobName: Optional[str] = None
     JobRunId: Optional[str] = None
     StartedAfter: Optional[TimestampTypeDef] = None
     StartedBefore: Optional[TimestampTypeDef] = None
 
-class DataQualityRuleRecommendationRunFilterTypeDef(BaseModel):
+class DataQualityRuleRecommendationRunFilterTypeDef(BaseValidatorModel):
     DataSource: DataSourceTypeDef
     StartedBefore: Optional[TimestampTypeDef] = None
     StartedAfter: Optional[TimestampTypeDef] = None
 
-class DataQualityRulesetEvaluationRunFilterTypeDef(BaseModel):
+class DataQualityRulesetEvaluationRunFilterTypeDef(BaseValidatorModel):
     DataSource: DataSourceTypeDef
     StartedBefore: Optional[TimestampTypeDef] = None
     StartedAfter: Optional[TimestampTypeDef] = None
 
-class StartDataQualityRuleRecommendationRunRequestRequestTypeDef(BaseModel):
+class StartDataQualityRuleRecommendationRunRequestRequestTypeDef(BaseValidatorModel):
     DataSource: DataSourceTypeDef
     Role: str
     NumberOfWorkers: Optional[int] = None
@@ -4487,25 +4487,25 @@ class StartDataQualityRuleRecommendationRunRequestRequestTypeDef(BaseModel):
     CreatedRulesetName: Optional[str] = None
     ClientToken: Optional[str] = None
 
-class DropNullFieldsExtraOutputTypeDef(BaseModel):
+class DropNullFieldsExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     NullCheckBoxList: Optional[NullCheckBoxListTypeDef] = None
     NullTextList: Optional[List[NullValueFieldTypeDef]] = None
 
-class DropNullFieldsOutputTypeDef(BaseModel):
+class DropNullFieldsOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     NullCheckBoxList: Optional[NullCheckBoxListTypeDef] = None
     NullTextList: Optional[List[NullValueFieldTypeDef]] = None
 
-class DropNullFieldsTypeDef(BaseModel):
+class DropNullFieldsTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     NullCheckBoxList: Optional[NullCheckBoxListTypeDef] = None
     NullTextList: Optional[Sequence[NullValueFieldTypeDef]] = None
 
-class ColumnStatisticsDataOutputTypeDef(BaseModel):
+class ColumnStatisticsDataOutputTypeDef(BaseValidatorModel):
     Type: ColumnStatisticsTypeType
     BooleanColumnStatisticsData: Optional[BooleanColumnStatisticsDataTypeDef] = None
     DateColumnStatisticsData: Optional[DateColumnStatisticsDataOutputTypeDef] = None
@@ -4515,7 +4515,7 @@ class ColumnStatisticsDataOutputTypeDef(BaseModel):
     StringColumnStatisticsData: Optional[StringColumnStatisticsDataTypeDef] = None
     BinaryColumnStatisticsData: Optional[BinaryColumnStatisticsDataTypeDef] = None
 
-class StorageDescriptorOutputTypeDef(BaseModel):
+class StorageDescriptorOutputTypeDef(BaseValidatorModel):
     Columns: Optional[List[ColumnOutputTypeDef]] = None
     Location: Optional[str] = None
     AdditionalLocations: Optional[List[str]] = None
@@ -4531,7 +4531,7 @@ class StorageDescriptorOutputTypeDef(BaseModel):
     StoredAsSubDirectories: Optional[bool] = None
     SchemaReference: Optional[SchemaReferenceTypeDef] = None
 
-class StorageDescriptorTypeDef(BaseModel):
+class StorageDescriptorTypeDef(BaseValidatorModel):
     Columns: Optional[Sequence[ColumnTypeDef]] = None
     Location: Optional[str] = None
     AdditionalLocations: Optional[Sequence[str]] = None
@@ -4547,38 +4547,38 @@ class StorageDescriptorTypeDef(BaseModel):
     StoredAsSubDirectories: Optional[bool] = None
     SchemaReference: Optional[SchemaReferenceTypeDef] = None
 
-class SecurityConfigurationTypeDef(BaseModel):
+class SecurityConfigurationTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     CreatedTimeStamp: Optional[datetime] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationOutputTypeDef] = None
 
-class CreateSecurityConfigurationRequestRequestTypeDef(BaseModel):
+class CreateSecurityConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     EncryptionConfiguration: EncryptionConfigurationTypeDef
 
-class DeleteSchemaVersionsResponseTypeDef(BaseModel):
+class DeleteSchemaVersionsResponseTypeDef(BaseValidatorModel):
     SchemaVersionErrors: List[SchemaVersionErrorItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FilterExtraOutputTypeDef(BaseModel):
+class FilterExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     LogicalOperator: FilterLogicalOperatorType
     Filters: List[FilterExpressionExtraOutputTypeDef]
 
-class FilterOutputTypeDef(BaseModel):
+class FilterOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     LogicalOperator: FilterLogicalOperatorType
     Filters: List[FilterExpressionOutputTypeDef]
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     LogicalOperator: FilterLogicalOperatorType
     Filters: Sequence[FilterExpressionTypeDef]
 
-class UpdateMLTransformRequestRequestTypeDef(BaseModel):
+class UpdateMLTransformRequestRequestTypeDef(BaseValidatorModel):
     TransformId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -4591,20 +4591,20 @@ class UpdateMLTransformRequestRequestTypeDef(BaseModel):
     Timeout: Optional[int] = None
     MaxRetries: Optional[int] = None
 
-class GetMLTransformsRequestRequestTypeDef(BaseModel):
+class GetMLTransformsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filter: Optional[TransformFilterCriteriaTypeDef] = None
     Sort: Optional[TransformSortCriteriaTypeDef] = None
 
-class ListMLTransformsRequestRequestTypeDef(BaseModel):
+class ListMLTransformsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filter: Optional[TransformFilterCriteriaTypeDef] = None
     Sort: Optional[TransformSortCriteriaTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class AthenaConnectorSourceExtraOutputTypeDef(BaseModel):
+class AthenaConnectorSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionName: str
     ConnectorName: str
@@ -4613,34 +4613,34 @@ class AthenaConnectorSourceExtraOutputTypeDef(BaseModel):
     ConnectionTable: Optional[str] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class CatalogDeltaSourceExtraOutputTypeDef(BaseModel):
+class CatalogDeltaSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalDeltaOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class CatalogHudiSourceExtraOutputTypeDef(BaseModel):
+class CatalogHudiSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalHudiOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class ConnectorDataSourceExtraOutputTypeDef(BaseModel):
+class ConnectorDataSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionType: str
     Data: Dict[str, str]
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class CustomCodeExtraOutputTypeDef(BaseModel):
+class CustomCodeExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Code: str
     ClassName: str
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class DynamicTransformExtraOutputTypeDef(BaseModel):
+class DynamicTransformExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     TransformName: str
     Inputs: List[str]
@@ -4650,7 +4650,7 @@ class DynamicTransformExtraOutputTypeDef(BaseModel):
     Version: Optional[str] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class JDBCConnectorSourceExtraOutputTypeDef(BaseModel):
+class JDBCConnectorSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionName: str
     ConnectorName: str
@@ -4660,7 +4660,7 @@ class JDBCConnectorSourceExtraOutputTypeDef(BaseModel):
     Query: Optional[str] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class JDBCConnectorTargetExtraOutputTypeDef(BaseModel):
+class JDBCConnectorTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     ConnectionName: str
@@ -4670,21 +4670,21 @@ class JDBCConnectorTargetExtraOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class S3CatalogDeltaSourceExtraOutputTypeDef(BaseModel):
+class S3CatalogDeltaSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalDeltaOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class S3CatalogHudiSourceExtraOutputTypeDef(BaseModel):
+class S3CatalogHudiSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalHudiOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class S3CsvSourceExtraOutputTypeDef(BaseModel):
+class S3CsvSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     Separator: SeparatorType
@@ -4705,21 +4705,21 @@ class S3CsvSourceExtraOutputTypeDef(BaseModel):
     OptimizePerformance: Optional[bool] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class S3DeltaSourceExtraOutputTypeDef(BaseModel):
+class S3DeltaSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     AdditionalDeltaOptions: Optional[Dict[str, str]] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class S3HudiSourceExtraOutputTypeDef(BaseModel):
+class S3HudiSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     AdditionalHudiOptions: Optional[Dict[str, str]] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class S3JsonSourceExtraOutputTypeDef(BaseModel):
+class S3JsonSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     CompressionType: Optional[CompressionTypeType] = None
@@ -4734,7 +4734,7 @@ class S3JsonSourceExtraOutputTypeDef(BaseModel):
     Multiline: Optional[bool] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class S3ParquetSourceExtraOutputTypeDef(BaseModel):
+class S3ParquetSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     CompressionType: Optional[ParquetCompressionTypeType] = None
@@ -4747,12 +4747,12 @@ class S3ParquetSourceExtraOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class SnowflakeSourceExtraOutputTypeDef(BaseModel):
+class SnowflakeSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Data: SnowflakeNodeDataExtraOutputTypeDef
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class SparkConnectorSourceExtraOutputTypeDef(BaseModel):
+class SparkConnectorSourceExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionName: str
     ConnectorName: str
@@ -4760,7 +4760,7 @@ class SparkConnectorSourceExtraOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class SparkConnectorTargetExtraOutputTypeDef(BaseModel):
+class SparkConnectorTargetExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     ConnectionName: str
@@ -4769,14 +4769,14 @@ class SparkConnectorTargetExtraOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class SparkSQLExtraOutputTypeDef(BaseModel):
+class SparkSQLExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     SqlQuery: str
     SqlAliases: List[SqlAliasTypeDef]
     OutputSchemas: Optional[List[GlueSchemaExtraOutputTypeDef]] = None
 
-class AthenaConnectorSourceOutputTypeDef(BaseModel):
+class AthenaConnectorSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionName: str
     ConnectorName: str
@@ -4785,34 +4785,34 @@ class AthenaConnectorSourceOutputTypeDef(BaseModel):
     ConnectionTable: Optional[str] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class CatalogDeltaSourceOutputTypeDef(BaseModel):
+class CatalogDeltaSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalDeltaOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class CatalogHudiSourceOutputTypeDef(BaseModel):
+class CatalogHudiSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalHudiOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class ConnectorDataSourceOutputTypeDef(BaseModel):
+class ConnectorDataSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionType: str
     Data: Dict[str, str]
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class CustomCodeOutputTypeDef(BaseModel):
+class CustomCodeOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     Code: str
     ClassName: str
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class DynamicTransformOutputTypeDef(BaseModel):
+class DynamicTransformOutputTypeDef(BaseValidatorModel):
     Name: str
     TransformName: str
     Inputs: List[str]
@@ -4822,7 +4822,7 @@ class DynamicTransformOutputTypeDef(BaseModel):
     Version: Optional[str] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class JDBCConnectorSourceOutputTypeDef(BaseModel):
+class JDBCConnectorSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionName: str
     ConnectorName: str
@@ -4832,7 +4832,7 @@ class JDBCConnectorSourceOutputTypeDef(BaseModel):
     Query: Optional[str] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class JDBCConnectorTargetOutputTypeDef(BaseModel):
+class JDBCConnectorTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     ConnectionName: str
@@ -4842,21 +4842,21 @@ class JDBCConnectorTargetOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class S3CatalogDeltaSourceOutputTypeDef(BaseModel):
+class S3CatalogDeltaSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalDeltaOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class S3CatalogHudiSourceOutputTypeDef(BaseModel):
+class S3CatalogHudiSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalHudiOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class S3CsvSourceOutputTypeDef(BaseModel):
+class S3CsvSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     Separator: SeparatorType
@@ -4877,21 +4877,21 @@ class S3CsvSourceOutputTypeDef(BaseModel):
     OptimizePerformance: Optional[bool] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class S3DeltaSourceOutputTypeDef(BaseModel):
+class S3DeltaSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     AdditionalDeltaOptions: Optional[Dict[str, str]] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class S3HudiSourceOutputTypeDef(BaseModel):
+class S3HudiSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     AdditionalHudiOptions: Optional[Dict[str, str]] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class S3JsonSourceOutputTypeDef(BaseModel):
+class S3JsonSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     CompressionType: Optional[CompressionTypeType] = None
@@ -4906,7 +4906,7 @@ class S3JsonSourceOutputTypeDef(BaseModel):
     Multiline: Optional[bool] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class S3ParquetSourceOutputTypeDef(BaseModel):
+class S3ParquetSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Paths: List[str]
     CompressionType: Optional[ParquetCompressionTypeType] = None
@@ -4919,12 +4919,12 @@ class S3ParquetSourceOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class SnowflakeSourceOutputTypeDef(BaseModel):
+class SnowflakeSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     Data: SnowflakeNodeDataOutputTypeDef
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class SparkConnectorSourceOutputTypeDef(BaseModel):
+class SparkConnectorSourceOutputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionName: str
     ConnectorName: str
@@ -4932,7 +4932,7 @@ class SparkConnectorSourceOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class SparkConnectorTargetOutputTypeDef(BaseModel):
+class SparkConnectorTargetOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     ConnectionName: str
@@ -4941,14 +4941,14 @@ class SparkConnectorTargetOutputTypeDef(BaseModel):
     AdditionalOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class SparkSQLOutputTypeDef(BaseModel):
+class SparkSQLOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     SqlQuery: str
     SqlAliases: List[SqlAliasTypeDef]
     OutputSchemas: Optional[List[GlueSchemaOutputTypeDef]] = None
 
-class AthenaConnectorSourceTypeDef(BaseModel):
+class AthenaConnectorSourceTypeDef(BaseValidatorModel):
     Name: str
     ConnectionName: str
     ConnectorName: str
@@ -4957,34 +4957,34 @@ class AthenaConnectorSourceTypeDef(BaseModel):
     ConnectionTable: Optional[str] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class CatalogDeltaSourceTypeDef(BaseModel):
+class CatalogDeltaSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalDeltaOptions: Optional[Mapping[str, str]] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class CatalogHudiSourceTypeDef(BaseModel):
+class CatalogHudiSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalHudiOptions: Optional[Mapping[str, str]] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class ConnectorDataSourceTypeDef(BaseModel):
+class ConnectorDataSourceTypeDef(BaseValidatorModel):
     Name: str
     ConnectionType: str
     Data: Mapping[str, str]
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class CustomCodeTypeDef(BaseModel):
+class CustomCodeTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     Code: str
     ClassName: str
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class DynamicTransformTypeDef(BaseModel):
+class DynamicTransformTypeDef(BaseValidatorModel):
     Name: str
     TransformName: str
     Inputs: Sequence[str]
@@ -4994,7 +4994,7 @@ class DynamicTransformTypeDef(BaseModel):
     Version: Optional[str] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class JDBCConnectorSourceTypeDef(BaseModel):
+class JDBCConnectorSourceTypeDef(BaseValidatorModel):
     Name: str
     ConnectionName: str
     ConnectorName: str
@@ -5004,7 +5004,7 @@ class JDBCConnectorSourceTypeDef(BaseModel):
     Query: Optional[str] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class JDBCConnectorTargetTypeDef(BaseModel):
+class JDBCConnectorTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     ConnectionName: str
@@ -5014,21 +5014,21 @@ class JDBCConnectorTargetTypeDef(BaseModel):
     AdditionalOptions: Optional[Mapping[str, str]] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class S3CatalogDeltaSourceTypeDef(BaseModel):
+class S3CatalogDeltaSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalDeltaOptions: Optional[Mapping[str, str]] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class S3CatalogHudiSourceTypeDef(BaseModel):
+class S3CatalogHudiSourceTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     Table: str
     AdditionalHudiOptions: Optional[Mapping[str, str]] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class S3CsvSourceTypeDef(BaseModel):
+class S3CsvSourceTypeDef(BaseValidatorModel):
     Name: str
     Paths: Sequence[str]
     Separator: SeparatorType
@@ -5049,21 +5049,21 @@ class S3CsvSourceTypeDef(BaseModel):
     OptimizePerformance: Optional[bool] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class S3DeltaSourceTypeDef(BaseModel):
+class S3DeltaSourceTypeDef(BaseValidatorModel):
     Name: str
     Paths: Sequence[str]
     AdditionalDeltaOptions: Optional[Mapping[str, str]] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class S3HudiSourceTypeDef(BaseModel):
+class S3HudiSourceTypeDef(BaseValidatorModel):
     Name: str
     Paths: Sequence[str]
     AdditionalHudiOptions: Optional[Mapping[str, str]] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class S3JsonSourceTypeDef(BaseModel):
+class S3JsonSourceTypeDef(BaseValidatorModel):
     Name: str
     Paths: Sequence[str]
     CompressionType: Optional[CompressionTypeType] = None
@@ -5078,7 +5078,7 @@ class S3JsonSourceTypeDef(BaseModel):
     Multiline: Optional[bool] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class S3ParquetSourceTypeDef(BaseModel):
+class S3ParquetSourceTypeDef(BaseValidatorModel):
     Name: str
     Paths: Sequence[str]
     CompressionType: Optional[ParquetCompressionTypeType] = None
@@ -5091,12 +5091,12 @@ class S3ParquetSourceTypeDef(BaseModel):
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class SnowflakeSourceTypeDef(BaseModel):
+class SnowflakeSourceTypeDef(BaseValidatorModel):
     Name: str
     Data: SnowflakeNodeDataTypeDef
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class SparkConnectorSourceTypeDef(BaseModel):
+class SparkConnectorSourceTypeDef(BaseValidatorModel):
     Name: str
     ConnectionName: str
     ConnectorName: str
@@ -5104,7 +5104,7 @@ class SparkConnectorSourceTypeDef(BaseModel):
     AdditionalOptions: Optional[Mapping[str, str]] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class SparkConnectorTargetTypeDef(BaseModel):
+class SparkConnectorTargetTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     ConnectionName: str
@@ -5113,26 +5113,26 @@ class SparkConnectorTargetTypeDef(BaseModel):
     AdditionalOptions: Optional[Mapping[str, str]] = None
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class SparkSQLTypeDef(BaseModel):
+class SparkSQLTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     SqlQuery: str
     SqlAliases: Sequence[SqlAliasTypeDef]
     OutputSchemas: Optional[Sequence[GlueSchemaTypeDef]] = None
 
-class GetJobRunResponseTypeDef(BaseModel):
+class GetJobRunResponseTypeDef(BaseValidatorModel):
     JobRun: JobRunTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobRunsResponseTypeDef(BaseModel):
+class GetJobRunsResponseTypeDef(BaseValidatorModel):
     JobRuns: List[JobRunTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class JobNodeDetailsTypeDef(BaseModel):
+class JobNodeDetailsTypeDef(BaseValidatorModel):
     JobRuns: Optional[List[JobRunTypeDef]] = None
 
-class GetMLTaskRunResponseTypeDef(BaseModel):
+class GetMLTaskRunResponseTypeDef(BaseValidatorModel):
     TransformId: str
     TaskRunId: str
     Status: TaskStatusTypeType
@@ -5145,7 +5145,7 @@ class GetMLTaskRunResponseTypeDef(BaseModel):
     ExecutionTime: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TaskRunTypeDef(BaseModel):
+class TaskRunTypeDef(BaseValidatorModel):
     TransformId: Optional[str] = None
     TaskRunId: Optional[str] = None
     Status: Optional[TaskStatusTypeType] = None
@@ -5157,7 +5157,7 @@ class TaskRunTypeDef(BaseModel):
     CompletedOn: Optional[datetime] = None
     ExecutionTime: Optional[int] = None
 
-class CreateMLTransformRequestRequestTypeDef(BaseModel):
+class CreateMLTransformRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     InputRecordTables: Sequence[GlueTableUnionTypeDef]
     Parameters: TransformParametersTypeDef
@@ -5172,73 +5172,73 @@ class CreateMLTransformRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     TransformEncryption: Optional[TransformEncryptionTypeDef] = None
 
-class QuerySchemaVersionMetadataResponseTypeDef(BaseModel):
+class QuerySchemaVersionMetadataResponseTypeDef(BaseValidatorModel):
     MetadataInfoMap: Dict[str, MetadataInfoTypeDef]
     SchemaVersionId: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AuthenticationConfigurationInputTypeDef(BaseModel):
+class AuthenticationConfigurationInputTypeDef(BaseValidatorModel):
     AuthenticationType: Optional[AuthenticationTypeType] = None
     SecretArn: Optional[str] = None
     OAuth2Properties: Optional[OAuth2PropertiesInputTypeDef] = None
 
-class AuthenticationConfigurationTypeDef(BaseModel):
+class AuthenticationConfigurationTypeDef(BaseValidatorModel):
     AuthenticationType: Optional[AuthenticationTypeType] = None
     SecretArn: Optional[str] = None
     OAuth2Properties: Optional[OAuth2PropertiesTypeDef] = None
 
-class BatchDeletePartitionRequestRequestTypeDef(BaseModel):
+class BatchDeletePartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionsToDelete: Sequence[PartitionValueListUnionTypeDef]
     CatalogId: Optional[str] = None
 
-class BatchGetPartitionRequestRequestTypeDef(BaseModel):
+class BatchGetPartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionsToGet: Sequence[PartitionValueListUnionTypeDef]
     CatalogId: Optional[str] = None
 
-class RecipeExtraOutputTypeDef(BaseModel):
+class RecipeExtraOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     RecipeReference: Optional[RecipeReferenceTypeDef] = None
     RecipeSteps: Optional[List[RecipeStepExtraOutputTypeDef]] = None
 
-class RecipeOutputTypeDef(BaseModel):
+class RecipeOutputTypeDef(BaseValidatorModel):
     Name: str
     Inputs: List[str]
     RecipeReference: Optional[RecipeReferenceTypeDef] = None
     RecipeSteps: Optional[List[RecipeStepOutputTypeDef]] = None
 
-class RecipeTypeDef(BaseModel):
+class RecipeTypeDef(BaseValidatorModel):
     Name: str
     Inputs: Sequence[str]
     RecipeReference: Optional[RecipeReferenceTypeDef] = None
     RecipeSteps: Optional[Sequence[RecipeStepTypeDef]] = None
 
-class CreateUserDefinedFunctionRequestRequestTypeDef(BaseModel):
+class CreateUserDefinedFunctionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     FunctionInput: UserDefinedFunctionInputTypeDef
     CatalogId: Optional[str] = None
 
-class UpdateUserDefinedFunctionRequestRequestTypeDef(BaseModel):
+class UpdateUserDefinedFunctionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     FunctionName: str
     FunctionInput: UserDefinedFunctionInputTypeDef
     CatalogId: Optional[str] = None
 
-class GetUserDefinedFunctionResponseTypeDef(BaseModel):
+class GetUserDefinedFunctionResponseTypeDef(BaseValidatorModel):
     UserDefinedFunction: UserDefinedFunctionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUserDefinedFunctionsResponseTypeDef(BaseModel):
+class GetUserDefinedFunctionsResponseTypeDef(BaseValidatorModel):
     UserDefinedFunctions: List[UserDefinedFunctionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTableOptimizerRunsResponseTypeDef(BaseModel):
+class ListTableOptimizerRunsResponseTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     TableName: str
@@ -5246,12 +5246,12 @@ class ListTableOptimizerRunsResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TableOptimizerTypeDef(BaseModel):
+class TableOptimizerTypeDef(BaseValidatorModel):
     type: Optional[Literal["compaction"]] = None
     configuration: Optional[TableOptimizerConfigurationTypeDef] = None
     lastRun: Optional[TableOptimizerRunTypeDef] = None
 
-class StatementTypeDef(BaseModel):
+class StatementTypeDef(BaseValidatorModel):
     Id: Optional[int] = None
     Code: Optional[str] = None
     State: Optional[StatementStateType] = None
@@ -5260,7 +5260,7 @@ class StatementTypeDef(BaseModel):
     StartedOn: Optional[int] = None
     CompletedOn: Optional[int] = None
 
-class CreateTriggerRequestRequestTypeDef(BaseModel):
+class CreateTriggerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Type: TriggerTypeType
     Actions: Sequence[ActionUnionTypeDef]
@@ -5272,12 +5272,12 @@ class CreateTriggerRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     EventBatchingCondition: Optional[EventBatchingConditionTypeDef] = None
 
-class GetPartitionIndexesResponseTypeDef(BaseModel):
+class GetPartitionIndexesResponseTypeDef(BaseValidatorModel):
     PartitionIndexDescriptorList: List[PartitionIndexDescriptorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ColumnStatisticsDataTypeDef(BaseModel):
+class ColumnStatisticsDataTypeDef(BaseValidatorModel):
     Type: ColumnStatisticsTypeType
     BooleanColumnStatisticsData: Optional[BooleanColumnStatisticsDataTypeDef] = None
     DateColumnStatisticsData: Optional[DateColumnStatisticsDataTypeDef] = None
@@ -5287,37 +5287,37 @@ class ColumnStatisticsDataTypeDef(BaseModel):
     StringColumnStatisticsData: Optional[StringColumnStatisticsDataTypeDef] = None
     BinaryColumnStatisticsData: Optional[BinaryColumnStatisticsDataTypeDef] = None
 
-class CreateScriptRequestRequestTypeDef(BaseModel):
+class CreateScriptRequestRequestTypeDef(BaseValidatorModel):
     DagNodes: Optional[Sequence[CodeGenNodeUnionTypeDef]] = None
     DagEdges: Optional[Sequence[CodeGenEdgeTypeDef]] = None
     Language: Optional[LanguageType] = None
 
-class BatchGetTriggersResponseTypeDef(BaseModel):
+class BatchGetTriggersResponseTypeDef(BaseValidatorModel):
     Triggers: List[TriggerTypeDef]
     TriggersNotFound: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTriggerResponseTypeDef(BaseModel):
+class GetTriggerResponseTypeDef(BaseValidatorModel):
     Trigger: TriggerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTriggersResponseTypeDef(BaseModel):
+class GetTriggersResponseTypeDef(BaseValidatorModel):
     Triggers: List[TriggerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TriggerNodeDetailsTypeDef(BaseModel):
+class TriggerNodeDetailsTypeDef(BaseValidatorModel):
     Trigger: Optional[TriggerTypeDef] = None
 
-class UpdateTriggerResponseTypeDef(BaseModel):
+class UpdateTriggerResponseTypeDef(BaseValidatorModel):
     Trigger: TriggerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTriggerRequestRequestTypeDef(BaseModel):
+class UpdateTriggerRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     TriggerUpdate: TriggerUpdateTypeDef
 
-class GetMLTransformResponseTypeDef(BaseModel):
+class GetMLTransformResponseTypeDef(BaseValidatorModel):
     TransformId: str
     Name: str
     Description: str
@@ -5339,7 +5339,7 @@ class GetMLTransformResponseTypeDef(BaseModel):
     TransformEncryption: TransformEncryptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MLTransformTypeDef(BaseModel):
+class MLTransformTypeDef(BaseValidatorModel):
     TransformId: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -5360,40 +5360,40 @@ class MLTransformTypeDef(BaseModel):
     MaxRetries: Optional[int] = None
     TransformEncryption: Optional[TransformEncryptionTypeDef] = None
 
-class BatchGetCrawlersResponseTypeDef(BaseModel):
+class BatchGetCrawlersResponseTypeDef(BaseValidatorModel):
     Crawlers: List[CrawlerTypeDef]
     CrawlersNotFound: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCrawlerResponseTypeDef(BaseModel):
+class GetCrawlerResponseTypeDef(BaseValidatorModel):
     Crawler: CrawlerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCrawlersResponseTypeDef(BaseModel):
+class GetCrawlersResponseTypeDef(BaseValidatorModel):
     Crawlers: List[CrawlerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetDatabaseResponseTypeDef(BaseModel):
+class GetDatabaseResponseTypeDef(BaseValidatorModel):
     Database: DatabaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDatabasesResponseTypeDef(BaseModel):
+class GetDatabasesResponseTypeDef(BaseValidatorModel):
     DatabaseList: List[DatabaseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateDatabaseRequestRequestTypeDef(BaseModel):
+class CreateDatabaseRequestRequestTypeDef(BaseValidatorModel):
     DatabaseInput: DatabaseInputTypeDef
     CatalogId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateDatabaseRequestRequestTypeDef(BaseModel):
+class UpdateDatabaseRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     DatabaseInput: DatabaseInputTypeDef
     CatalogId: Optional[str] = None
 
-class DataQualityResultTypeDef(BaseModel):
+class DataQualityResultTypeDef(BaseValidatorModel):
     ResultId: Optional[str] = None
     Score: Optional[float] = None
     DataSource: Optional[DataSourceOutputTypeDef] = None
@@ -5408,7 +5408,7 @@ class DataQualityResultTypeDef(BaseModel):
     AnalyzerResults: Optional[List[DataQualityAnalyzerResultTypeDef]] = None
     Observations: Optional[List[DataQualityObservationTypeDef]] = None
 
-class GetDataQualityResultResponseTypeDef(BaseModel):
+class GetDataQualityResultResponseTypeDef(BaseValidatorModel):
     ResultId: str
     Score: float
     DataSource: DataSourceOutputTypeDef
@@ -5424,37 +5424,37 @@ class GetDataQualityResultResponseTypeDef(BaseModel):
     Observations: List[DataQualityObservationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataQualityResultsResponseTypeDef(BaseModel):
+class ListDataQualityResultsResponseTypeDef(BaseValidatorModel):
     Results: List[DataQualityResultDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListDataQualityRuleRecommendationRunsResponseTypeDef(BaseModel):
+class ListDataQualityRuleRecommendationRunsResponseTypeDef(BaseValidatorModel):
     Runs: List[DataQualityRuleRecommendationRunDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListDataQualityRulesetEvaluationRunsResponseTypeDef(BaseModel):
+class ListDataQualityRulesetEvaluationRunsResponseTypeDef(BaseValidatorModel):
     Runs: List[DataQualityRulesetEvaluationRunDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListDataQualityResultsRequestRequestTypeDef(BaseModel):
+class ListDataQualityResultsRequestRequestTypeDef(BaseValidatorModel):
     Filter: Optional[DataQualityResultFilterCriteriaTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDataQualityRuleRecommendationRunsRequestRequestTypeDef(BaseModel):
+class ListDataQualityRuleRecommendationRunsRequestRequestTypeDef(BaseValidatorModel):
     Filter: Optional[DataQualityRuleRecommendationRunFilterTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDataQualityRulesetEvaluationRunsRequestRequestTypeDef(BaseModel):
+class ListDataQualityRulesetEvaluationRunsRequestRequestTypeDef(BaseValidatorModel):
     Filter: Optional[DataQualityRulesetEvaluationRunFilterTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class StartDataQualityRulesetEvaluationRunRequestRequestTypeDef(BaseModel):
+class StartDataQualityRulesetEvaluationRunRequestRequestTypeDef(BaseValidatorModel):
     DataSource: DataSourceTypeDef
     Role: str
     RulesetNames: Sequence[str]
@@ -5464,13 +5464,13 @@ class StartDataQualityRulesetEvaluationRunRequestRequestTypeDef(BaseModel):
     AdditionalRunOptions: Optional[DataQualityEvaluationRunAdditionalRunOptionsTypeDef] = None
     AdditionalDataSources: Optional[Mapping[str, DataSourceUnionTypeDef]] = None
 
-class ColumnStatisticsOutputTypeDef(BaseModel):
+class ColumnStatisticsOutputTypeDef(BaseValidatorModel):
     ColumnName: str
     ColumnType: str
     AnalyzedTime: datetime
     StatisticsData: ColumnStatisticsDataOutputTypeDef
 
-class PartitionTypeDef(BaseModel):
+class PartitionTypeDef(BaseValidatorModel):
     Values: Optional[List[str]] = None
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
@@ -5481,7 +5481,7 @@ class PartitionTypeDef(BaseModel):
     LastAnalyzedTime: Optional[datetime] = None
     CatalogId: Optional[str] = None
 
-class TableTypeDef(BaseModel):
+class TableTypeDef(BaseValidatorModel):
     Name: str
     DatabaseName: Optional[str] = None
     Description: Optional[str] = None
@@ -5506,14 +5506,14 @@ class TableTypeDef(BaseModel):
     ViewDefinition: Optional[ViewDefinitionTypeDef] = None
     IsMultiDialectView: Optional[bool] = None
 
-class PartitionInputTypeDef(BaseModel):
+class PartitionInputTypeDef(BaseValidatorModel):
     Values: Optional[Sequence[str]] = None
     LastAccessTime: Optional[TimestampTypeDef] = None
     StorageDescriptor: Optional[StorageDescriptorTypeDef] = None
     Parameters: Optional[Mapping[str, str]] = None
     LastAnalyzedTime: Optional[TimestampTypeDef] = None
 
-class TableInputTypeDef(BaseModel):
+class TableInputTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     Owner: Optional[str] = None
@@ -5529,21 +5529,21 @@ class TableInputTypeDef(BaseModel):
     TargetTable: Optional[TableIdentifierTypeDef] = None
     ViewDefinition: Optional[ViewDefinitionInputTypeDef] = None
 
-class GetSecurityConfigurationResponseTypeDef(BaseModel):
+class GetSecurityConfigurationResponseTypeDef(BaseValidatorModel):
     SecurityConfiguration: SecurityConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSecurityConfigurationsResponseTypeDef(BaseModel):
+class GetSecurityConfigurationsResponseTypeDef(BaseValidatorModel):
     SecurityConfigurations: List[SecurityConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetMLTaskRunsResponseTypeDef(BaseModel):
+class GetMLTaskRunsResponseTypeDef(BaseValidatorModel):
     TaskRuns: List[TaskRunTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ConnectionInputTypeDef(BaseModel):
+class ConnectionInputTypeDef(BaseValidatorModel):
     Name: str
     ConnectionType: ConnectionTypeType
     ConnectionProperties: Mapping[ConnectionPropertyKeyType, str]
@@ -5553,7 +5553,7 @@ class ConnectionInputTypeDef(BaseModel):
     AuthenticationConfiguration: Optional[AuthenticationConfigurationInputTypeDef] = None
     ValidateCredentials: Optional[bool] = None
 
-class ConnectionTypeDef(BaseModel):
+class ConnectionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     ConnectionType: Optional[ConnectionTypeType] = None
@@ -5568,7 +5568,7 @@ class ConnectionTypeDef(BaseModel):
     LastConnectionValidationTime: Optional[datetime] = None
     AuthenticationConfiguration: Optional[AuthenticationConfigurationTypeDef] = None
 
-class CodeGenConfigurationNodeExtraOutputTypeDef(BaseModel):
+class CodeGenConfigurationNodeExtraOutputTypeDef(BaseValidatorModel):
     AthenaConnectorSource: Optional[AthenaConnectorSourceExtraOutputTypeDef] = None
     JDBCConnectorSource: Optional[JDBCConnectorSourceExtraOutputTypeDef] = None
     SparkConnectorSource: Optional[SparkConnectorSourceExtraOutputTypeDef] = None
@@ -5641,7 +5641,7 @@ class CodeGenConfigurationNodeExtraOutputTypeDef(BaseModel):
     ConnectorDataSource: Optional[ConnectorDataSourceExtraOutputTypeDef] = None
     ConnectorDataTarget: Optional[ConnectorDataTargetExtraOutputTypeDef] = None
 
-class CodeGenConfigurationNodeOutputTypeDef(BaseModel):
+class CodeGenConfigurationNodeOutputTypeDef(BaseValidatorModel):
     AthenaConnectorSource: Optional[AthenaConnectorSourceOutputTypeDef] = None
     JDBCConnectorSource: Optional[JDBCConnectorSourceOutputTypeDef] = None
     SparkConnectorSource: Optional[SparkConnectorSourceOutputTypeDef] = None
@@ -5714,7 +5714,7 @@ class CodeGenConfigurationNodeOutputTypeDef(BaseModel):
     ConnectorDataSource: Optional[ConnectorDataSourceOutputTypeDef] = None
     ConnectorDataTarget: Optional[ConnectorDataTargetOutputTypeDef] = None
 
-class CodeGenConfigurationNodeTypeDef(BaseModel):
+class CodeGenConfigurationNodeTypeDef(BaseValidatorModel):
     AthenaConnectorSource: Optional[AthenaConnectorSourceTypeDef] = None
     JDBCConnectorSource: Optional[JDBCConnectorSourceTypeDef] = None
     SparkConnectorSource: Optional[SparkConnectorSourceTypeDef] = None
@@ -5787,35 +5787,35 @@ class CodeGenConfigurationNodeTypeDef(BaseModel):
     ConnectorDataSource: Optional[ConnectorDataSourceTypeDef] = None
     ConnectorDataTarget: Optional[ConnectorDataTargetTypeDef] = None
 
-class BatchTableOptimizerTypeDef(BaseModel):
+class BatchTableOptimizerTypeDef(BaseValidatorModel):
     catalogId: Optional[str] = None
     databaseName: Optional[str] = None
     tableName: Optional[str] = None
     tableOptimizer: Optional[TableOptimizerTypeDef] = None
 
-class GetTableOptimizerResponseTypeDef(BaseModel):
+class GetTableOptimizerResponseTypeDef(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
     TableName: str
     TableOptimizer: TableOptimizerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStatementResponseTypeDef(BaseModel):
+class GetStatementResponseTypeDef(BaseValidatorModel):
     Statement: StatementTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStatementsResponseTypeDef(BaseModel):
+class ListStatementsResponseTypeDef(BaseValidatorModel):
     Statements: List[StatementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ColumnStatisticsTypeDef(BaseModel):
+class ColumnStatisticsTypeDef(BaseValidatorModel):
     ColumnName: str
     ColumnType: str
     AnalyzedTime: TimestampTypeDef
     StatisticsData: ColumnStatisticsDataTypeDef
 
-class NodeTypeDef(BaseModel):
+class NodeTypeDef(BaseValidatorModel):
     Type: Optional[NodeTypeType] = None
     Name: Optional[str] = None
     UniqueId: Optional[str] = None
@@ -5823,65 +5823,65 @@ class NodeTypeDef(BaseModel):
     JobDetails: Optional[JobNodeDetailsTypeDef] = None
     CrawlerDetails: Optional[CrawlerNodeDetailsTypeDef] = None
 
-class GetMLTransformsResponseTypeDef(BaseModel):
+class GetMLTransformsResponseTypeDef(BaseValidatorModel):
     Transforms: List[MLTransformTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchGetDataQualityResultResponseTypeDef(BaseModel):
+class BatchGetDataQualityResultResponseTypeDef(BaseValidatorModel):
     Results: List[DataQualityResultTypeDef]
     ResultsNotFound: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ColumnStatisticsErrorTypeDef(BaseModel):
+class ColumnStatisticsErrorTypeDef(BaseValidatorModel):
     ColumnStatistics: Optional[ColumnStatisticsOutputTypeDef] = None
     Error: Optional[ErrorDetailTypeDef] = None
 
-class GetColumnStatisticsForPartitionResponseTypeDef(BaseModel):
+class GetColumnStatisticsForPartitionResponseTypeDef(BaseValidatorModel):
     ColumnStatisticsList: List[ColumnStatisticsOutputTypeDef]
     Errors: List[ColumnErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetColumnStatisticsForTableResponseTypeDef(BaseModel):
+class GetColumnStatisticsForTableResponseTypeDef(BaseValidatorModel):
     ColumnStatisticsList: List[ColumnStatisticsOutputTypeDef]
     Errors: List[ColumnErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetPartitionResponseTypeDef(BaseModel):
+class BatchGetPartitionResponseTypeDef(BaseValidatorModel):
     Partitions: List[PartitionTypeDef]
     UnprocessedKeys: List[PartitionValueListOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPartitionResponseTypeDef(BaseModel):
+class GetPartitionResponseTypeDef(BaseValidatorModel):
     Partition: PartitionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPartitionsResponseTypeDef(BaseModel):
+class GetPartitionsResponseTypeDef(BaseValidatorModel):
     Partitions: List[PartitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetUnfilteredPartitionMetadataResponseTypeDef(BaseModel):
+class GetUnfilteredPartitionMetadataResponseTypeDef(BaseValidatorModel):
     Partition: PartitionTypeDef
     AuthorizedColumns: List[str]
     IsRegisteredWithLakeFormation: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UnfilteredPartitionTypeDef(BaseModel):
+class UnfilteredPartitionTypeDef(BaseValidatorModel):
     Partition: Optional[PartitionTypeDef] = None
     AuthorizedColumns: Optional[List[str]] = None
     IsRegisteredWithLakeFormation: Optional[bool] = None
 
-class GetTableResponseTypeDef(BaseModel):
+class GetTableResponseTypeDef(BaseValidatorModel):
     Table: TableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTablesResponseTypeDef(BaseModel):
+class GetTablesResponseTypeDef(BaseValidatorModel):
     TableList: List[TableTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetUnfilteredTableMetadataResponseTypeDef(BaseModel):
+class GetUnfilteredTableMetadataResponseTypeDef(BaseValidatorModel):
     Table: TableTypeDef
     AuthorizedColumns: List[str]
     IsRegisteredWithLakeFormation: bool
@@ -5894,39 +5894,39 @@ class GetUnfilteredTableMetadataResponseTypeDef(BaseModel):
     RowFilter: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchTablesResponseTypeDef(BaseModel):
+class SearchTablesResponseTypeDef(BaseValidatorModel):
     TableList: List[TableTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TableVersionTypeDef(BaseModel):
+class TableVersionTypeDef(BaseValidatorModel):
     Table: Optional[TableTypeDef] = None
     VersionId: Optional[str] = None
 
-class BatchCreatePartitionRequestRequestTypeDef(BaseModel):
+class BatchCreatePartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionInputList: Sequence[PartitionInputTypeDef]
     CatalogId: Optional[str] = None
 
-class BatchUpdatePartitionRequestEntryTypeDef(BaseModel):
+class BatchUpdatePartitionRequestEntryTypeDef(BaseValidatorModel):
     PartitionValueList: Sequence[str]
     PartitionInput: PartitionInputTypeDef
 
-class CreatePartitionRequestRequestTypeDef(BaseModel):
+class CreatePartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionInput: PartitionInputTypeDef
     CatalogId: Optional[str] = None
 
-class UpdatePartitionRequestRequestTypeDef(BaseModel):
+class UpdatePartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionValueList: Sequence[str]
     PartitionInput: PartitionInputTypeDef
     CatalogId: Optional[str] = None
 
-class CreateTableRequestRequestTypeDef(BaseModel):
+class CreateTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableInput: TableInputTypeDef
     CatalogId: Optional[str] = None
@@ -5934,7 +5934,7 @@ class CreateTableRequestRequestTypeDef(BaseModel):
     TransactionId: Optional[str] = None
     OpenTableFormatInput: Optional[OpenTableFormatInputTypeDef] = None
 
-class UpdateTableRequestRequestTypeDef(BaseModel):
+class UpdateTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableInput: TableInputTypeDef
     CatalogId: Optional[str] = None
@@ -5944,26 +5944,26 @@ class UpdateTableRequestRequestTypeDef(BaseModel):
     ViewUpdateAction: Optional[ViewUpdateActionType] = None
     Force: Optional[bool] = None
 
-class CreateConnectionRequestRequestTypeDef(BaseModel):
+class CreateConnectionRequestRequestTypeDef(BaseValidatorModel):
     ConnectionInput: ConnectionInputTypeDef
     CatalogId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateConnectionRequestRequestTypeDef(BaseModel):
+class UpdateConnectionRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     ConnectionInput: ConnectionInputTypeDef
     CatalogId: Optional[str] = None
 
-class GetConnectionResponseTypeDef(BaseModel):
+class GetConnectionResponseTypeDef(BaseValidatorModel):
     Connection: ConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetConnectionsResponseTypeDef(BaseModel):
+class GetConnectionsResponseTypeDef(BaseValidatorModel):
     ConnectionList: List[ConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class JobTypeDef(BaseModel):
+class JobTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     JobMode: Optional[JobModeType] = None
     Description: Optional[str] = None
@@ -5991,7 +5991,7 @@ class JobTypeDef(BaseModel):
     MaintenanceWindow: Optional[str] = None
     ProfileName: Optional[str] = None
 
-class JobUpdateTypeDef(BaseModel):
+class JobUpdateTypeDef(BaseValidatorModel):
     JobMode: Optional[JobModeType] = None
     Description: Optional[str] = None
     LogUri: Optional[str] = None
@@ -6015,58 +6015,58 @@ class JobUpdateTypeDef(BaseModel):
     SourceControlDetails: Optional[SourceControlDetailsTypeDef] = None
     MaintenanceWindow: Optional[str] = None
 
-class BatchGetTableOptimizerResponseTypeDef(BaseModel):
+class BatchGetTableOptimizerResponseTypeDef(BaseValidatorModel):
     TableOptimizers: List[BatchTableOptimizerTypeDef]
     Failures: List[BatchGetTableOptimizerErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WorkflowGraphTypeDef(BaseModel):
+class WorkflowGraphTypeDef(BaseValidatorModel):
     Nodes: Optional[List[NodeTypeDef]] = None
     Edges: Optional[List[EdgeTypeDef]] = None
 
-class UpdateColumnStatisticsForPartitionResponseTypeDef(BaseModel):
+class UpdateColumnStatisticsForPartitionResponseTypeDef(BaseValidatorModel):
     Errors: List[ColumnStatisticsErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateColumnStatisticsForTableResponseTypeDef(BaseModel):
+class UpdateColumnStatisticsForTableResponseTypeDef(BaseValidatorModel):
     Errors: List[ColumnStatisticsErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUnfilteredPartitionsMetadataResponseTypeDef(BaseModel):
+class GetUnfilteredPartitionsMetadataResponseTypeDef(BaseValidatorModel):
     UnfilteredPartitions: List[UnfilteredPartitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetTableVersionResponseTypeDef(BaseModel):
+class GetTableVersionResponseTypeDef(BaseValidatorModel):
     TableVersion: TableVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTableVersionsResponseTypeDef(BaseModel):
+class GetTableVersionsResponseTypeDef(BaseValidatorModel):
     TableVersions: List[TableVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchUpdatePartitionRequestRequestTypeDef(BaseModel):
+class BatchUpdatePartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     Entries: Sequence[BatchUpdatePartitionRequestEntryTypeDef]
     CatalogId: Optional[str] = None
 
-class BatchGetJobsResponseTypeDef(BaseModel):
+class BatchGetJobsResponseTypeDef(BaseValidatorModel):
     Jobs: List[JobTypeDef]
     JobsNotFound: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobResponseTypeDef(BaseModel):
+class GetJobResponseTypeDef(BaseValidatorModel):
     Job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobsResponseTypeDef(BaseModel):
+class GetJobsResponseTypeDef(BaseValidatorModel):
     Jobs: List[JobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateJobRequestRequestTypeDef(BaseModel):
+class CreateJobRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Role: str
     Command: JobCommandTypeDef
@@ -6092,24 +6092,24 @@ class CreateJobRequestRequestTypeDef(BaseModel):
     SourceControlDetails: Optional[SourceControlDetailsTypeDef] = None
     MaintenanceWindow: Optional[str] = None
 
-class UpdateJobRequestRequestTypeDef(BaseModel):
+class UpdateJobRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
     JobUpdate: JobUpdateTypeDef
 
-class UpdateColumnStatisticsForPartitionRequestRequestTypeDef(BaseModel):
+class UpdateColumnStatisticsForPartitionRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     PartitionValues: Sequence[str]
     ColumnStatisticsList: Sequence[ColumnStatisticsUnionTypeDef]
     CatalogId: Optional[str] = None
 
-class UpdateColumnStatisticsForTableRequestRequestTypeDef(BaseModel):
+class UpdateColumnStatisticsForTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     ColumnStatisticsList: Sequence[ColumnStatisticsUnionTypeDef]
     CatalogId: Optional[str] = None
 
-class WorkflowRunTypeDef(BaseModel):
+class WorkflowRunTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     WorkflowRunId: Optional[str] = None
     PreviousRunId: Optional[str] = None
@@ -6122,16 +6122,16 @@ class WorkflowRunTypeDef(BaseModel):
     Graph: Optional[WorkflowGraphTypeDef] = None
     StartingEventBatchCondition: Optional[StartingEventBatchConditionTypeDef] = None
 
-class GetWorkflowRunResponseTypeDef(BaseModel):
+class GetWorkflowRunResponseTypeDef(BaseValidatorModel):
     Run: WorkflowRunTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWorkflowRunsResponseTypeDef(BaseModel):
+class GetWorkflowRunsResponseTypeDef(BaseValidatorModel):
     Runs: List[WorkflowRunTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class WorkflowTypeDef(BaseModel):
+class WorkflowTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     DefaultRunProperties: Optional[Dict[str, str]] = None
@@ -6142,12 +6142,12 @@ class WorkflowTypeDef(BaseModel):
     MaxConcurrentRuns: Optional[int] = None
     BlueprintDetails: Optional[BlueprintDetailsTypeDef] = None
 
-class BatchGetWorkflowsResponseTypeDef(BaseModel):
+class BatchGetWorkflowsResponseTypeDef(BaseValidatorModel):
     Workflows: List[WorkflowTypeDef]
     MissingWorkflows: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWorkflowResponseTypeDef(BaseModel):
+class GetWorkflowResponseTypeDef(BaseValidatorModel):
     Workflow: WorkflowTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

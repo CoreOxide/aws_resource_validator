@@ -974,7 +974,7 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-2",]
 TimestampTypeDef = Union[datetime, str]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 ColumnLevelPermissionRuleUnionTypeDef = Union[   'ColumnLevelPermissionRuleTypeDef', 'ColumnLevelPermissionRuleOutputTypeDef' ]
 FieldFolderUnionTypeDef = Union['FieldFolderTypeDef', 'FieldFolderOutputTypeDef']
 ResourcePermissionUnionTypeDef = Union[   'ResourcePermissionTypeDef', 'ResourcePermissionExtraOutputTypeDef' ]

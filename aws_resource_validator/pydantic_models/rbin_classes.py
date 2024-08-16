@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,80 +11,80 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.rbin_constants import *
 
-class ResourceTagTypeDef(BaseModel):
+class ResourceTagTypeDef(BaseValidatorModel):
     ResourceTagKey: str
     ResourceTagValue: Optional[str] = None
 
-class RetentionPeriodTypeDef(BaseModel):
+class RetentionPeriodTypeDef(BaseValidatorModel):
     RetentionPeriodValue: int
     RetentionPeriodUnit: Literal["DAYS"]
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DeleteRuleRequestRequestTypeDef(BaseModel):
+class DeleteRuleRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class GetRuleRequestRequestTypeDef(BaseModel):
+class GetRuleRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class UnlockDelayTypeDef(BaseModel):
+class UnlockDelayTypeDef(BaseValidatorModel):
     UnlockDelayValue: int
     UnlockDelayUnit: Literal["DAYS"]
 
-class UnlockRuleRequestRequestTypeDef(BaseModel):
+class UnlockRuleRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class ListRulesRequestRequestTypeDef(BaseModel):
+class ListRulesRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: ResourceTypeType
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
     LockState: Optional[LockStateType] = None
 
-class RuleSummaryTypeDef(BaseModel):
+class RuleSummaryTypeDef(BaseValidatorModel):
     Identifier: Optional[str] = None
     Description: Optional[str] = None
     RetentionPeriod: Optional[RetentionPeriodTypeDef] = None
     LockState: Optional[LockStateType] = None
     RuleArn: Optional[str] = None
 
-class UpdateRuleRequestRequestTypeDef(BaseModel):
+class UpdateRuleRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     RetentionPeriod: Optional[RetentionPeriodTypeDef] = None
     Description: Optional[str] = None
     ResourceType: Optional[ResourceTypeType] = None
     ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRuleResponseTypeDef(BaseModel):
+class UpdateRuleResponseTypeDef(BaseValidatorModel):
     Identifier: str
     RetentionPeriod: RetentionPeriodTypeDef
     Description: str
@@ -96,21 +96,21 @@ class UpdateRuleResponseTypeDef(BaseModel):
     RuleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRulesRequestListRulesPaginateTypeDef(BaseModel):
+class ListRulesRequestListRulesPaginateTypeDef(BaseValidatorModel):
     ResourceType: ResourceTypeType
     ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
     LockState: Optional[LockStateType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class LockConfigurationTypeDef(BaseModel):
+class LockConfigurationTypeDef(BaseValidatorModel):
     UnlockDelay: UnlockDelayTypeDef
 
-class ListRulesResponseTypeDef(BaseModel):
+class ListRulesResponseTypeDef(BaseValidatorModel):
     Rules: List[RuleSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRuleRequestRequestTypeDef(BaseModel):
+class CreateRuleRequestRequestTypeDef(BaseValidatorModel):
     RetentionPeriod: RetentionPeriodTypeDef
     ResourceType: ResourceTypeType
     Description: Optional[str] = None
@@ -118,7 +118,7 @@ class CreateRuleRequestRequestTypeDef(BaseModel):
     ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
     LockConfiguration: Optional[LockConfigurationTypeDef] = None
 
-class CreateRuleResponseTypeDef(BaseModel):
+class CreateRuleResponseTypeDef(BaseValidatorModel):
     Identifier: str
     RetentionPeriod: RetentionPeriodTypeDef
     Description: str
@@ -131,7 +131,7 @@ class CreateRuleResponseTypeDef(BaseModel):
     RuleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRuleResponseTypeDef(BaseModel):
+class GetRuleResponseTypeDef(BaseValidatorModel):
     Identifier: str
     Description: str
     ResourceType: ResourceTypeType
@@ -144,11 +144,11 @@ class GetRuleResponseTypeDef(BaseModel):
     RuleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LockRuleRequestRequestTypeDef(BaseModel):
+class LockRuleRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     LockConfiguration: LockConfigurationTypeDef
 
-class LockRuleResponseTypeDef(BaseModel):
+class LockRuleResponseTypeDef(BaseValidatorModel):
     Identifier: str
     Description: str
     ResourceType: ResourceTypeType
@@ -160,7 +160,7 @@ class LockRuleResponseTypeDef(BaseModel):
     RuleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UnlockRuleResponseTypeDef(BaseModel):
+class UnlockRuleResponseTypeDef(BaseValidatorModel):
     Identifier: str
     Description: str
     ResourceType: ResourceTypeType

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,77 +11,77 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.forecast_constants import *
 
-class ActionTypeDef(BaseModel):
+class ActionTypeDef(BaseValidatorModel):
     AttributeName: str
     Operation: OperationType
     Value: float
 
-class AdditionalDatasetTypeDef(BaseModel):
+class AdditionalDatasetTypeDef(BaseValidatorModel):
     Name: str
     Configuration: Optional[Mapping[str, Sequence[str]]] = None
 
-class AttributeConfigTypeDef(BaseModel):
+class AttributeConfigTypeDef(BaseValidatorModel):
     AttributeName: str
     Transformations: Mapping[str, str]
 
-class BaselineMetricTypeDef(BaseModel):
+class BaselineMetricTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[float] = None
 
-class CategoricalParameterRangeTypeDef(BaseModel):
+class CategoricalParameterRangeTypeDef(BaseValidatorModel):
     Name: str
     Values: Sequence[str]
 
-class ContinuousParameterRangeTypeDef(BaseModel):
+class ContinuousParameterRangeTypeDef(BaseValidatorModel):
     Name: str
     MaxValue: float
     MinValue: float
     ScalingType: Optional[ScalingTypeType] = None
 
-class EncryptionConfigTypeDef(BaseModel):
+class EncryptionConfigTypeDef(BaseValidatorModel):
     RoleArn: str
     KMSKeyArn: str
 
-class MonitorConfigTypeDef(BaseModel):
+class MonitorConfigTypeDef(BaseValidatorModel):
     MonitorName: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class TimeAlignmentBoundaryTypeDef(BaseModel):
+class TimeAlignmentBoundaryTypeDef(BaseValidatorModel):
     Month: Optional[MonthType] = None
     DayOfMonth: Optional[int] = None
     DayOfWeek: Optional[DayOfWeekType] = None
     Hour: Optional[int] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class ExplainabilityConfigTypeDef(BaseModel):
+class ExplainabilityConfigTypeDef(BaseValidatorModel):
     TimeSeriesGranularity: TimeSeriesGranularityType
     TimePointGranularity: TimePointGranularityType
 
-class EvaluationParametersTypeDef(BaseModel):
+class EvaluationParametersTypeDef(BaseValidatorModel):
     NumberOfBacktestWindows: Optional[int] = None
     BackTestWindowOffset: Optional[int] = None
 
-class S3ConfigTypeDef(BaseModel):
+class S3ConfigTypeDef(BaseValidatorModel):
     Path: str
     RoleArn: str
     KMSKeyArn: Optional[str] = None
 
-class DatasetGroupSummaryTypeDef(BaseModel):
+class DatasetGroupSummaryTypeDef(BaseValidatorModel):
     DatasetGroupArn: Optional[str] = None
     DatasetGroupName: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class DatasetSummaryTypeDef(BaseModel):
+class DatasetSummaryTypeDef(BaseValidatorModel):
     DatasetArn: Optional[str] = None
     DatasetName: Optional[str] = None
     DatasetType: Optional[DatasetTypeType] = None
@@ -89,70 +89,70 @@ class DatasetSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class DeleteDatasetGroupRequestRequestTypeDef(BaseModel):
+class DeleteDatasetGroupRequestRequestTypeDef(BaseValidatorModel):
     DatasetGroupArn: str
 
-class DeleteDatasetImportJobRequestRequestTypeDef(BaseModel):
+class DeleteDatasetImportJobRequestRequestTypeDef(BaseValidatorModel):
     DatasetImportJobArn: str
 
-class DeleteDatasetRequestRequestTypeDef(BaseModel):
+class DeleteDatasetRequestRequestTypeDef(BaseValidatorModel):
     DatasetArn: str
 
-class DeleteExplainabilityExportRequestRequestTypeDef(BaseModel):
+class DeleteExplainabilityExportRequestRequestTypeDef(BaseValidatorModel):
     ExplainabilityExportArn: str
 
-class DeleteExplainabilityRequestRequestTypeDef(BaseModel):
+class DeleteExplainabilityRequestRequestTypeDef(BaseValidatorModel):
     ExplainabilityArn: str
 
-class DeleteForecastExportJobRequestRequestTypeDef(BaseModel):
+class DeleteForecastExportJobRequestRequestTypeDef(BaseValidatorModel):
     ForecastExportJobArn: str
 
-class DeleteForecastRequestRequestTypeDef(BaseModel):
+class DeleteForecastRequestRequestTypeDef(BaseValidatorModel):
     ForecastArn: str
 
-class DeleteMonitorRequestRequestTypeDef(BaseModel):
+class DeleteMonitorRequestRequestTypeDef(BaseValidatorModel):
     MonitorArn: str
 
-class DeletePredictorBacktestExportJobRequestRequestTypeDef(BaseModel):
+class DeletePredictorBacktestExportJobRequestRequestTypeDef(BaseValidatorModel):
     PredictorBacktestExportJobArn: str
 
-class DeletePredictorRequestRequestTypeDef(BaseModel):
+class DeletePredictorRequestRequestTypeDef(BaseValidatorModel):
     PredictorArn: str
 
-class DeleteResourceTreeRequestRequestTypeDef(BaseModel):
+class DeleteResourceTreeRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DeleteWhatIfAnalysisRequestRequestTypeDef(BaseModel):
+class DeleteWhatIfAnalysisRequestRequestTypeDef(BaseValidatorModel):
     WhatIfAnalysisArn: str
 
-class DeleteWhatIfForecastExportRequestRequestTypeDef(BaseModel):
+class DeleteWhatIfForecastExportRequestRequestTypeDef(BaseValidatorModel):
     WhatIfForecastExportArn: str
 
-class DeleteWhatIfForecastRequestRequestTypeDef(BaseModel):
+class DeleteWhatIfForecastRequestRequestTypeDef(BaseValidatorModel):
     WhatIfForecastArn: str
 
-class DescribeAutoPredictorRequestRequestTypeDef(BaseModel):
+class DescribeAutoPredictorRequestRequestTypeDef(BaseValidatorModel):
     PredictorArn: str
 
-class ExplainabilityInfoTypeDef(BaseModel):
+class ExplainabilityInfoTypeDef(BaseValidatorModel):
     ExplainabilityArn: Optional[str] = None
     Status: Optional[str] = None
 
-class MonitorInfoTypeDef(BaseModel):
+class MonitorInfoTypeDef(BaseValidatorModel):
     MonitorArn: Optional[str] = None
     Status: Optional[str] = None
 
-class ReferencePredictorSummaryTypeDef(BaseModel):
+class ReferencePredictorSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     State: Optional[StateType] = None
 
-class DescribeDatasetGroupRequestRequestTypeDef(BaseModel):
+class DescribeDatasetGroupRequestRequestTypeDef(BaseValidatorModel):
     DatasetGroupArn: str
 
-class DescribeDatasetImportJobRequestRequestTypeDef(BaseModel):
+class DescribeDatasetImportJobRequestRequestTypeDef(BaseValidatorModel):
     DatasetImportJobArn: str
 
-class StatisticsTypeDef(BaseModel):
+class StatisticsTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
     CountDistinct: Optional[int] = None
     CountNull: Optional[int] = None
@@ -166,56 +166,56 @@ class StatisticsTypeDef(BaseModel):
     CountNullLong: Optional[int] = None
     CountNanLong: Optional[int] = None
 
-class DescribeDatasetRequestRequestTypeDef(BaseModel):
+class DescribeDatasetRequestRequestTypeDef(BaseValidatorModel):
     DatasetArn: str
 
-class DescribeExplainabilityExportRequestRequestTypeDef(BaseModel):
+class DescribeExplainabilityExportRequestRequestTypeDef(BaseValidatorModel):
     ExplainabilityExportArn: str
 
-class DescribeExplainabilityRequestRequestTypeDef(BaseModel):
+class DescribeExplainabilityRequestRequestTypeDef(BaseValidatorModel):
     ExplainabilityArn: str
 
-class DescribeForecastExportJobRequestRequestTypeDef(BaseModel):
+class DescribeForecastExportJobRequestRequestTypeDef(BaseValidatorModel):
     ForecastExportJobArn: str
 
-class DescribeForecastRequestRequestTypeDef(BaseModel):
+class DescribeForecastRequestRequestTypeDef(BaseValidatorModel):
     ForecastArn: str
 
-class DescribeMonitorRequestRequestTypeDef(BaseModel):
+class DescribeMonitorRequestRequestTypeDef(BaseValidatorModel):
     MonitorArn: str
 
-class DescribePredictorBacktestExportJobRequestRequestTypeDef(BaseModel):
+class DescribePredictorBacktestExportJobRequestRequestTypeDef(BaseValidatorModel):
     PredictorBacktestExportJobArn: str
 
-class DescribePredictorRequestRequestTypeDef(BaseModel):
+class DescribePredictorRequestRequestTypeDef(BaseValidatorModel):
     PredictorArn: str
 
-class DescribeWhatIfAnalysisRequestRequestTypeDef(BaseModel):
+class DescribeWhatIfAnalysisRequestRequestTypeDef(BaseValidatorModel):
     WhatIfAnalysisArn: str
 
-class DescribeWhatIfForecastExportRequestRequestTypeDef(BaseModel):
+class DescribeWhatIfForecastExportRequestRequestTypeDef(BaseValidatorModel):
     WhatIfForecastExportArn: str
 
-class DescribeWhatIfForecastRequestRequestTypeDef(BaseModel):
+class DescribeWhatIfForecastRequestRequestTypeDef(BaseValidatorModel):
     WhatIfForecastArn: str
 
-class ErrorMetricTypeDef(BaseModel):
+class ErrorMetricTypeDef(BaseValidatorModel):
     ForecastType: Optional[str] = None
     WAPE: Optional[float] = None
     RMSE: Optional[float] = None
     MASE: Optional[float] = None
     MAPE: Optional[float] = None
 
-class FeaturizationMethodTypeDef(BaseModel):
+class FeaturizationMethodTypeDef(BaseValidatorModel):
     FeaturizationMethodName: Literal["filling"]
     FeaturizationMethodParameters: Optional[Mapping[str, str]] = None
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     Key: str
     Value: str
     Condition: FilterConditionStringType
 
-class ForecastSummaryTypeDef(BaseModel):
+class ForecastSummaryTypeDef(BaseValidatorModel):
     ForecastArn: Optional[str] = None
     ForecastName: Optional[str] = None
     PredictorArn: Optional[str] = None
@@ -226,33 +226,33 @@ class ForecastSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class GetAccuracyMetricsRequestRequestTypeDef(BaseModel):
+class GetAccuracyMetricsRequestRequestTypeDef(BaseValidatorModel):
     PredictorArn: str
 
-class SupplementaryFeatureTypeDef(BaseModel):
+class SupplementaryFeatureTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class IntegerParameterRangeTypeDef(BaseModel):
+class IntegerParameterRangeTypeDef(BaseValidatorModel):
     Name: str
     MaxValue: int
     MinValue: int
     ScalingType: Optional[ScalingTypeType] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListDatasetGroupsRequestRequestTypeDef(BaseModel):
+class ListDatasetGroupsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDatasetsRequestRequestTypeDef(BaseModel):
+class ListDatasetsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MonitorSummaryTypeDef(BaseModel):
+class MonitorSummaryTypeDef(BaseValidatorModel):
     MonitorArn: Optional[str] = None
     MonitorName: Optional[str] = None
     ResourceArn: Optional[str] = None
@@ -260,10 +260,10 @@ class MonitorSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class WhatIfAnalysisSummaryTypeDef(BaseModel):
+class WhatIfAnalysisSummaryTypeDef(BaseValidatorModel):
     WhatIfAnalysisArn: Optional[str] = None
     WhatIfAnalysisName: Optional[str] = None
     ForecastArn: Optional[str] = None
@@ -272,7 +272,7 @@ class WhatIfAnalysisSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class WhatIfForecastSummaryTypeDef(BaseModel):
+class WhatIfForecastSummaryTypeDef(BaseValidatorModel):
     WhatIfForecastArn: Optional[str] = None
     WhatIfForecastName: Optional[str] = None
     WhatIfAnalysisArn: Optional[str] = None
@@ -281,132 +281,132 @@ class WhatIfForecastSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class MetricResultTypeDef(BaseModel):
+class MetricResultTypeDef(BaseValidatorModel):
     MetricName: Optional[str] = None
     MetricValue: Optional[float] = None
 
-class WeightedQuantileLossTypeDef(BaseModel):
+class WeightedQuantileLossTypeDef(BaseValidatorModel):
     Quantile: Optional[float] = None
     LossValue: Optional[float] = None
 
-class MonitorDataSourceTypeDef(BaseModel):
+class MonitorDataSourceTypeDef(BaseValidatorModel):
     DatasetImportJobArn: Optional[str] = None
     ForecastArn: Optional[str] = None
     PredictorArn: Optional[str] = None
 
-class PredictorEventTypeDef(BaseModel):
+class PredictorEventTypeDef(BaseValidatorModel):
     Detail: Optional[str] = None
     Datetime: Optional[datetime] = None
 
-class TestWindowSummaryTypeDef(BaseModel):
+class TestWindowSummaryTypeDef(BaseValidatorModel):
     TestWindowStart: Optional[datetime] = None
     TestWindowEnd: Optional[datetime] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
 
-class ResumeResourceRequestRequestTypeDef(BaseModel):
+class ResumeResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class SchemaAttributeTypeDef(BaseModel):
+class SchemaAttributeTypeDef(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeType: Optional[AttributeTypeType] = None
 
-class StopResourceRequestRequestTypeDef(BaseModel):
+class StopResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class TimeSeriesConditionTypeDef(BaseModel):
+class TimeSeriesConditionTypeDef(BaseValidatorModel):
     AttributeName: str
     AttributeValue: str
     Condition: ConditionType
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateDatasetGroupRequestRequestTypeDef(BaseModel):
+class UpdateDatasetGroupRequestRequestTypeDef(BaseValidatorModel):
     DatasetGroupArn: str
     DatasetArns: Sequence[str]
 
-class DataConfigTypeDef(BaseModel):
+class DataConfigTypeDef(BaseValidatorModel):
     DatasetGroupArn: str
     AttributeConfigs: Optional[Sequence[AttributeConfigTypeDef]] = None
     AdditionalDatasets: Optional[Sequence[AdditionalDatasetTypeDef]] = None
 
-class PredictorBaselineTypeDef(BaseModel):
+class PredictorBaselineTypeDef(BaseValidatorModel):
     BaselineMetrics: Optional[List[BaselineMetricTypeDef]] = None
 
-class CreateDatasetGroupRequestRequestTypeDef(BaseModel):
+class CreateDatasetGroupRequestRequestTypeDef(BaseValidatorModel):
     DatasetGroupName: str
     Domain: DomainType
     DatasetArns: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateMonitorRequestRequestTypeDef(BaseModel):
+class CreateMonitorRequestRequestTypeDef(BaseValidatorModel):
     MonitorName: str
     ResourceArn: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class CreateAutoPredictorResponseTypeDef(BaseModel):
+class CreateAutoPredictorResponseTypeDef(BaseValidatorModel):
     PredictorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDatasetGroupResponseTypeDef(BaseModel):
+class CreateDatasetGroupResponseTypeDef(BaseValidatorModel):
     DatasetGroupArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDatasetImportJobResponseTypeDef(BaseModel):
+class CreateDatasetImportJobResponseTypeDef(BaseValidatorModel):
     DatasetImportJobArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDatasetResponseTypeDef(BaseModel):
+class CreateDatasetResponseTypeDef(BaseValidatorModel):
     DatasetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateExplainabilityExportResponseTypeDef(BaseModel):
+class CreateExplainabilityExportResponseTypeDef(BaseValidatorModel):
     ExplainabilityExportArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateExplainabilityResponseTypeDef(BaseModel):
+class CreateExplainabilityResponseTypeDef(BaseValidatorModel):
     ExplainabilityArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateForecastExportJobResponseTypeDef(BaseModel):
+class CreateForecastExportJobResponseTypeDef(BaseValidatorModel):
     ForecastExportJobArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateForecastResponseTypeDef(BaseModel):
+class CreateForecastResponseTypeDef(BaseValidatorModel):
     ForecastArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMonitorResponseTypeDef(BaseModel):
+class CreateMonitorResponseTypeDef(BaseValidatorModel):
     MonitorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePredictorBacktestExportJobResponseTypeDef(BaseModel):
+class CreatePredictorBacktestExportJobResponseTypeDef(BaseValidatorModel):
     PredictorBacktestExportJobArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePredictorResponseTypeDef(BaseModel):
+class CreatePredictorResponseTypeDef(BaseValidatorModel):
     PredictorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWhatIfAnalysisResponseTypeDef(BaseModel):
+class CreateWhatIfAnalysisResponseTypeDef(BaseValidatorModel):
     WhatIfAnalysisArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWhatIfForecastExportResponseTypeDef(BaseModel):
+class CreateWhatIfForecastExportResponseTypeDef(BaseValidatorModel):
     WhatIfForecastExportArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWhatIfForecastResponseTypeDef(BaseModel):
+class CreateWhatIfForecastResponseTypeDef(BaseValidatorModel):
     WhatIfForecastArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDatasetGroupResponseTypeDef(BaseModel):
+class DescribeDatasetGroupResponseTypeDef(BaseValidatorModel):
     DatasetGroupName: str
     DatasetGroupArn: str
     DatasetArns: List[str]
@@ -416,14 +416,14 @@ class DescribeDatasetGroupResponseTypeDef(BaseModel):
     LastModificationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExplainabilitySummaryTypeDef(BaseModel):
+class ExplainabilitySummaryTypeDef(BaseValidatorModel):
     ExplainabilityArn: Optional[str] = None
     ExplainabilityName: Optional[str] = None
     ResourceArn: Optional[str] = None
@@ -433,23 +433,23 @@ class ExplainabilitySummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class DataDestinationTypeDef(BaseModel):
+class DataDestinationTypeDef(BaseValidatorModel):
     S3Config: S3ConfigTypeDef
 
-class DataSourceTypeDef(BaseModel):
+class DataSourceTypeDef(BaseValidatorModel):
     S3Config: S3ConfigTypeDef
 
-class ListDatasetGroupsResponseTypeDef(BaseModel):
+class ListDatasetGroupsResponseTypeDef(BaseValidatorModel):
     DatasetGroups: List[DatasetGroupSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDatasetsResponseTypeDef(BaseModel):
+class ListDatasetsResponseTypeDef(BaseValidatorModel):
     Datasets: List[DatasetSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PredictorSummaryTypeDef(BaseModel):
+class PredictorSummaryTypeDef(BaseValidatorModel):
     PredictorArn: Optional[str] = None
     PredictorName: Optional[str] = None
     DatasetGroupArn: Optional[str] = None
@@ -460,162 +460,162 @@ class PredictorSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class FeaturizationTypeDef(BaseModel):
+class FeaturizationTypeDef(BaseValidatorModel):
     AttributeName: str
     FeaturizationPipeline: Optional[Sequence[FeaturizationMethodTypeDef]] = None
 
-class ListDatasetImportJobsRequestRequestTypeDef(BaseModel):
+class ListDatasetImportJobsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListExplainabilitiesRequestRequestTypeDef(BaseModel):
+class ListExplainabilitiesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListExplainabilityExportsRequestRequestTypeDef(BaseModel):
+class ListExplainabilityExportsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListForecastExportJobsRequestRequestTypeDef(BaseModel):
+class ListForecastExportJobsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListForecastsRequestRequestTypeDef(BaseModel):
+class ListForecastsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListMonitorEvaluationsRequestRequestTypeDef(BaseModel):
+class ListMonitorEvaluationsRequestRequestTypeDef(BaseValidatorModel):
     MonitorArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListMonitorsRequestRequestTypeDef(BaseModel):
+class ListMonitorsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListPredictorBacktestExportJobsRequestRequestTypeDef(BaseModel):
+class ListPredictorBacktestExportJobsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListPredictorsRequestRequestTypeDef(BaseModel):
+class ListPredictorsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListWhatIfAnalysesRequestRequestTypeDef(BaseModel):
+class ListWhatIfAnalysesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListWhatIfForecastExportsRequestRequestTypeDef(BaseModel):
+class ListWhatIfForecastExportsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListWhatIfForecastsRequestRequestTypeDef(BaseModel):
+class ListWhatIfForecastsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListForecastsResponseTypeDef(BaseModel):
+class ListForecastsResponseTypeDef(BaseValidatorModel):
     Forecasts: List[ForecastSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InputDataConfigTypeDef(BaseModel):
+class InputDataConfigTypeDef(BaseValidatorModel):
     DatasetGroupArn: str
     SupplementaryFeatures: Optional[Sequence[SupplementaryFeatureTypeDef]] = None
 
-class ParameterRangesTypeDef(BaseModel):
+class ParameterRangesTypeDef(BaseValidatorModel):
     CategoricalParameterRanges: Optional[Sequence[CategoricalParameterRangeTypeDef]] = None
     ContinuousParameterRanges: Optional[Sequence[ContinuousParameterRangeTypeDef]] = None
     IntegerParameterRanges: Optional[Sequence[IntegerParameterRangeTypeDef]] = None
 
-class ListDatasetGroupsRequestListDatasetGroupsPaginateTypeDef(BaseModel):
+class ListDatasetGroupsRequestListDatasetGroupsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDatasetImportJobsRequestListDatasetImportJobsPaginateTypeDef(BaseModel):
+class ListDatasetImportJobsRequestListDatasetImportJobsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDatasetsRequestListDatasetsPaginateTypeDef(BaseModel):
+class ListDatasetsRequestListDatasetsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListExplainabilitiesRequestListExplainabilitiesPaginateTypeDef(BaseModel):
+class ListExplainabilitiesRequestListExplainabilitiesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListExplainabilityExportsRequestListExplainabilityExportsPaginateTypeDef(BaseModel):
+class ListExplainabilityExportsRequestListExplainabilityExportsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListForecastExportJobsRequestListForecastExportJobsPaginateTypeDef(BaseModel):
+class ListForecastExportJobsRequestListForecastExportJobsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListForecastsRequestListForecastsPaginateTypeDef(BaseModel):
+class ListForecastsRequestListForecastsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMonitorEvaluationsRequestListMonitorEvaluationsPaginateTypeDef(BaseModel):
+class ListMonitorEvaluationsRequestListMonitorEvaluationsPaginateTypeDef(BaseValidatorModel):
     MonitorArn: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMonitorsRequestListMonitorsPaginateTypeDef(BaseModel):
+class ListMonitorsRequestListMonitorsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPredictorBacktestExportJobsRequestListPredictorBacktestExportJobsPaginateTypeDef(BaseModel):
+class ListPredictorBacktestExportJobsRequestListPredictorBacktestExportJobsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPredictorsRequestListPredictorsPaginateTypeDef(BaseModel):
+class ListPredictorsRequestListPredictorsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWhatIfAnalysesRequestListWhatIfAnalysesPaginateTypeDef(BaseModel):
+class ListWhatIfAnalysesRequestListWhatIfAnalysesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWhatIfForecastExportsRequestListWhatIfForecastExportsPaginateTypeDef(BaseModel):
+class ListWhatIfForecastExportsRequestListWhatIfForecastExportsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWhatIfForecastsRequestListWhatIfForecastsPaginateTypeDef(BaseModel):
+class ListWhatIfForecastsRequestListWhatIfForecastsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMonitorsResponseTypeDef(BaseModel):
+class ListMonitorsResponseTypeDef(BaseValidatorModel):
     Monitors: List[MonitorSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWhatIfAnalysesResponseTypeDef(BaseModel):
+class ListWhatIfAnalysesResponseTypeDef(BaseValidatorModel):
     WhatIfAnalyses: List[WhatIfAnalysisSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWhatIfForecastsResponseTypeDef(BaseModel):
+class ListWhatIfForecastsResponseTypeDef(BaseValidatorModel):
     WhatIfForecasts: List[WhatIfForecastSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricsTypeDef(BaseModel):
+class MetricsTypeDef(BaseValidatorModel):
     RMSE: Optional[float] = None
     WeightedQuantileLosses: Optional[List[WeightedQuantileLossTypeDef]] = None
     ErrorMetrics: Optional[List[ErrorMetricTypeDef]] = None
     AverageWeightedQuantileLoss: Optional[float] = None
 
-class PredictorMonitorEvaluationTypeDef(BaseModel):
+class PredictorMonitorEvaluationTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     MonitorArn: Optional[str] = None
     EvaluationTime: Optional[datetime] = None
@@ -628,18 +628,18 @@ class PredictorMonitorEvaluationTypeDef(BaseModel):
     NumItemsEvaluated: Optional[int] = None
     Message: Optional[str] = None
 
-class PredictorExecutionTypeDef(BaseModel):
+class PredictorExecutionTypeDef(BaseValidatorModel):
     AlgorithmArn: Optional[str] = None
     TestWindows: Optional[List[TestWindowSummaryTypeDef]] = None
 
-class SchemaTypeDef(BaseModel):
+class SchemaTypeDef(BaseValidatorModel):
     Attributes: Optional[Sequence[SchemaAttributeTypeDef]] = None
 
-class TimeSeriesTransformationTypeDef(BaseModel):
+class TimeSeriesTransformationTypeDef(BaseValidatorModel):
     Action: Optional[ActionTypeDef] = None
     TimeSeriesConditions: Optional[Sequence[TimeSeriesConditionTypeDef]] = None
 
-class CreateAutoPredictorRequestRequestTypeDef(BaseModel):
+class CreateAutoPredictorRequestRequestTypeDef(BaseValidatorModel):
     PredictorName: str
     ForecastHorizon: Optional[int] = None
     ForecastTypes: Optional[Sequence[str]] = None
@@ -654,7 +654,7 @@ class CreateAutoPredictorRequestRequestTypeDef(BaseModel):
     MonitorConfig: Optional[MonitorConfigTypeDef] = None
     TimeAlignmentBoundary: Optional[TimeAlignmentBoundaryTypeDef] = None
 
-class DescribeAutoPredictorResponseTypeDef(BaseModel):
+class DescribeAutoPredictorResponseTypeDef(BaseValidatorModel):
     PredictorArn: str
     PredictorName: str
     ForecastHorizon: int
@@ -676,43 +676,43 @@ class DescribeAutoPredictorResponseTypeDef(BaseModel):
     TimeAlignmentBoundary: TimeAlignmentBoundaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BaselineTypeDef(BaseModel):
+class BaselineTypeDef(BaseValidatorModel):
     PredictorBaseline: Optional[PredictorBaselineTypeDef] = None
 
-class ListExplainabilitiesResponseTypeDef(BaseModel):
+class ListExplainabilitiesResponseTypeDef(BaseValidatorModel):
     Explainabilities: List[ExplainabilitySummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateExplainabilityExportRequestRequestTypeDef(BaseModel):
+class CreateExplainabilityExportRequestRequestTypeDef(BaseValidatorModel):
     ExplainabilityExportName: str
     ExplainabilityArn: str
     Destination: DataDestinationTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
     Format: Optional[str] = None
 
-class CreateForecastExportJobRequestRequestTypeDef(BaseModel):
+class CreateForecastExportJobRequestRequestTypeDef(BaseValidatorModel):
     ForecastExportJobName: str
     ForecastArn: str
     Destination: DataDestinationTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
     Format: Optional[str] = None
 
-class CreatePredictorBacktestExportJobRequestRequestTypeDef(BaseModel):
+class CreatePredictorBacktestExportJobRequestRequestTypeDef(BaseValidatorModel):
     PredictorBacktestExportJobName: str
     PredictorArn: str
     Destination: DataDestinationTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
     Format: Optional[str] = None
 
-class CreateWhatIfForecastExportRequestRequestTypeDef(BaseModel):
+class CreateWhatIfForecastExportRequestRequestTypeDef(BaseValidatorModel):
     WhatIfForecastExportName: str
     WhatIfForecastArns: Sequence[str]
     Destination: DataDestinationTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
     Format: Optional[str] = None
 
-class DescribeExplainabilityExportResponseTypeDef(BaseModel):
+class DescribeExplainabilityExportResponseTypeDef(BaseValidatorModel):
     ExplainabilityExportArn: str
     ExplainabilityExportName: str
     ExplainabilityArn: str
@@ -724,7 +724,7 @@ class DescribeExplainabilityExportResponseTypeDef(BaseModel):
     Format: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeForecastExportJobResponseTypeDef(BaseModel):
+class DescribeForecastExportJobResponseTypeDef(BaseValidatorModel):
     ForecastExportJobArn: str
     ForecastExportJobName: str
     ForecastArn: str
@@ -736,7 +736,7 @@ class DescribeForecastExportJobResponseTypeDef(BaseModel):
     Format: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePredictorBacktestExportJobResponseTypeDef(BaseModel):
+class DescribePredictorBacktestExportJobResponseTypeDef(BaseValidatorModel):
     PredictorBacktestExportJobArn: str
     PredictorBacktestExportJobName: str
     PredictorArn: str
@@ -748,7 +748,7 @@ class DescribePredictorBacktestExportJobResponseTypeDef(BaseModel):
     Format: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWhatIfForecastExportResponseTypeDef(BaseModel):
+class DescribeWhatIfForecastExportResponseTypeDef(BaseValidatorModel):
     WhatIfForecastExportArn: str
     WhatIfForecastExportName: str
     WhatIfForecastArns: List[str]
@@ -761,7 +761,7 @@ class DescribeWhatIfForecastExportResponseTypeDef(BaseModel):
     Format: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExplainabilityExportSummaryTypeDef(BaseModel):
+class ExplainabilityExportSummaryTypeDef(BaseValidatorModel):
     ExplainabilityExportArn: Optional[str] = None
     ExplainabilityExportName: Optional[str] = None
     Destination: Optional[DataDestinationTypeDef] = None
@@ -770,7 +770,7 @@ class ExplainabilityExportSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class ForecastExportJobSummaryTypeDef(BaseModel):
+class ForecastExportJobSummaryTypeDef(BaseValidatorModel):
     ForecastExportJobArn: Optional[str] = None
     ForecastExportJobName: Optional[str] = None
     Destination: Optional[DataDestinationTypeDef] = None
@@ -779,7 +779,7 @@ class ForecastExportJobSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class PredictorBacktestExportJobSummaryTypeDef(BaseModel):
+class PredictorBacktestExportJobSummaryTypeDef(BaseValidatorModel):
     PredictorBacktestExportJobArn: Optional[str] = None
     PredictorBacktestExportJobName: Optional[str] = None
     Destination: Optional[DataDestinationTypeDef] = None
@@ -788,7 +788,7 @@ class PredictorBacktestExportJobSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class WhatIfForecastExportSummaryTypeDef(BaseModel):
+class WhatIfForecastExportSummaryTypeDef(BaseValidatorModel):
     WhatIfForecastExportArn: Optional[str] = None
     WhatIfForecastArns: Optional[List[str]] = None
     WhatIfForecastExportName: Optional[str] = None
@@ -798,7 +798,7 @@ class WhatIfForecastExportSummaryTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
-class CreateDatasetImportJobRequestRequestTypeDef(BaseModel):
+class CreateDatasetImportJobRequestRequestTypeDef(BaseValidatorModel):
     DatasetImportJobName: str
     DatasetArn: str
     DataSource: DataSourceTypeDef
@@ -810,7 +810,7 @@ class CreateDatasetImportJobRequestRequestTypeDef(BaseModel):
     Format: Optional[str] = None
     ImportMode: Optional[ImportModeType] = None
 
-class DatasetImportJobSummaryTypeDef(BaseModel):
+class DatasetImportJobSummaryTypeDef(BaseValidatorModel):
     DatasetImportJobArn: Optional[str] = None
     DatasetImportJobName: Optional[str] = None
     DataSource: Optional[DataSourceTypeDef] = None
@@ -820,7 +820,7 @@ class DatasetImportJobSummaryTypeDef(BaseModel):
     LastModificationTime: Optional[datetime] = None
     ImportMode: Optional[ImportModeType] = None
 
-class DescribeDatasetImportJobResponseTypeDef(BaseModel):
+class DescribeDatasetImportJobResponseTypeDef(BaseValidatorModel):
     DatasetImportJobName: str
     DatasetImportJobArn: str
     DatasetArn: str
@@ -840,35 +840,35 @@ class DescribeDatasetImportJobResponseTypeDef(BaseModel):
     ImportMode: ImportModeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPredictorsResponseTypeDef(BaseModel):
+class ListPredictorsResponseTypeDef(BaseValidatorModel):
     Predictors: List[PredictorSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FeaturizationConfigTypeDef(BaseModel):
+class FeaturizationConfigTypeDef(BaseValidatorModel):
     ForecastFrequency: str
     ForecastDimensions: Optional[Sequence[str]] = None
     Featurizations: Optional[Sequence[FeaturizationTypeDef]] = None
 
-class HyperParameterTuningJobConfigTypeDef(BaseModel):
+class HyperParameterTuningJobConfigTypeDef(BaseValidatorModel):
     ParameterRanges: Optional[ParameterRangesTypeDef] = None
 
-class WindowSummaryTypeDef(BaseModel):
+class WindowSummaryTypeDef(BaseValidatorModel):
     TestWindowStart: Optional[datetime] = None
     TestWindowEnd: Optional[datetime] = None
     ItemCount: Optional[int] = None
     EvaluationType: Optional[EvaluationTypeType] = None
     Metrics: Optional[MetricsTypeDef] = None
 
-class ListMonitorEvaluationsResponseTypeDef(BaseModel):
+class ListMonitorEvaluationsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     PredictorMonitorEvaluations: List[PredictorMonitorEvaluationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PredictorExecutionDetailsTypeDef(BaseModel):
+class PredictorExecutionDetailsTypeDef(BaseValidatorModel):
     PredictorExecutions: Optional[List[PredictorExecutionTypeDef]] = None
 
-class CreateDatasetRequestRequestTypeDef(BaseModel):
+class CreateDatasetRequestRequestTypeDef(BaseValidatorModel):
     DatasetName: str
     Domain: DomainType
     DatasetType: DatasetTypeType
@@ -877,7 +877,7 @@ class CreateDatasetRequestRequestTypeDef(BaseModel):
     EncryptionConfig: Optional[EncryptionConfigTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateExplainabilityRequestRequestTypeDef(BaseModel):
+class CreateExplainabilityRequestRequestTypeDef(BaseValidatorModel):
     ExplainabilityName: str
     ResourceArn: str
     ExplainabilityConfig: ExplainabilityConfigTypeDef
@@ -888,7 +888,7 @@ class CreateExplainabilityRequestRequestTypeDef(BaseModel):
     EndDateTime: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribeDatasetResponseTypeDef(BaseModel):
+class DescribeDatasetResponseTypeDef(BaseValidatorModel):
     DatasetArn: str
     DatasetName: str
     Domain: DomainType
@@ -901,7 +901,7 @@ class DescribeDatasetResponseTypeDef(BaseModel):
     LastModificationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeExplainabilityResponseTypeDef(BaseModel):
+class DescribeExplainabilityResponseTypeDef(BaseValidatorModel):
     ExplainabilityArn: str
     ExplainabilityName: str
     ResourceArn: str
@@ -918,18 +918,18 @@ class DescribeExplainabilityResponseTypeDef(BaseModel):
     LastModificationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TimeSeriesIdentifiersTypeDef(BaseModel):
+class TimeSeriesIdentifiersTypeDef(BaseValidatorModel):
     DataSource: Optional[DataSourceTypeDef] = None
     Schema: Optional[SchemaTypeDef] = None
     Format: Optional[str] = None
 
-class TimeSeriesReplacementsDataSourceTypeDef(BaseModel):
+class TimeSeriesReplacementsDataSourceTypeDef(BaseValidatorModel):
     S3Config: S3ConfigTypeDef
     Schema: SchemaTypeDef
     Format: Optional[str] = None
     TimestampFormat: Optional[str] = None
 
-class DescribeMonitorResponseTypeDef(BaseModel):
+class DescribeMonitorResponseTypeDef(BaseValidatorModel):
     MonitorName: str
     MonitorArn: str
     ResourceArn: str
@@ -943,32 +943,32 @@ class DescribeMonitorResponseTypeDef(BaseModel):
     EstimatedEvaluationTimeRemainingInMinutes: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListExplainabilityExportsResponseTypeDef(BaseModel):
+class ListExplainabilityExportsResponseTypeDef(BaseValidatorModel):
     ExplainabilityExports: List[ExplainabilityExportSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListForecastExportJobsResponseTypeDef(BaseModel):
+class ListForecastExportJobsResponseTypeDef(BaseValidatorModel):
     ForecastExportJobs: List[ForecastExportJobSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPredictorBacktestExportJobsResponseTypeDef(BaseModel):
+class ListPredictorBacktestExportJobsResponseTypeDef(BaseValidatorModel):
     PredictorBacktestExportJobs: List[PredictorBacktestExportJobSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWhatIfForecastExportsResponseTypeDef(BaseModel):
+class ListWhatIfForecastExportsResponseTypeDef(BaseValidatorModel):
     WhatIfForecastExports: List[WhatIfForecastExportSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDatasetImportJobsResponseTypeDef(BaseModel):
+class ListDatasetImportJobsResponseTypeDef(BaseValidatorModel):
     DatasetImportJobs: List[DatasetImportJobSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePredictorRequestRequestTypeDef(BaseModel):
+class CreatePredictorRequestRequestTypeDef(BaseValidatorModel):
     PredictorName: str
     ForecastHorizon: int
     InputDataConfig: InputDataConfigTypeDef
@@ -985,11 +985,11 @@ class CreatePredictorRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     OptimizationMetric: Optional[OptimizationMetricType] = None
 
-class EvaluationResultTypeDef(BaseModel):
+class EvaluationResultTypeDef(BaseValidatorModel):
     AlgorithmArn: Optional[str] = None
     TestWindows: Optional[List[WindowSummaryTypeDef]] = None
 
-class DescribePredictorResponseTypeDef(BaseModel):
+class DescribePredictorResponseTypeDef(BaseValidatorModel):
     PredictorArn: str
     PredictorName: str
     AlgorithmArn: str
@@ -1016,17 +1016,17 @@ class DescribePredictorResponseTypeDef(BaseModel):
     OptimizationMetric: OptimizationMetricType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TimeSeriesSelectorTypeDef(BaseModel):
+class TimeSeriesSelectorTypeDef(BaseValidatorModel):
     TimeSeriesIdentifiers: Optional[TimeSeriesIdentifiersTypeDef] = None
 
-class CreateWhatIfForecastRequestRequestTypeDef(BaseModel):
+class CreateWhatIfForecastRequestRequestTypeDef(BaseValidatorModel):
     WhatIfForecastName: str
     WhatIfAnalysisArn: str
     TimeSeriesTransformations: Optional[Sequence[TimeSeriesTransformationTypeDef]] = None
     TimeSeriesReplacementsDataSource: Optional[TimeSeriesReplacementsDataSourceTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribeWhatIfForecastResponseTypeDef(BaseModel):
+class DescribeWhatIfForecastResponseTypeDef(BaseValidatorModel):
     WhatIfForecastName: str
     WhatIfForecastArn: str
     WhatIfAnalysisArn: str
@@ -1040,27 +1040,27 @@ class DescribeWhatIfForecastResponseTypeDef(BaseModel):
     ForecastTypes: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccuracyMetricsResponseTypeDef(BaseModel):
+class GetAccuracyMetricsResponseTypeDef(BaseValidatorModel):
     PredictorEvaluationResults: List[EvaluationResultTypeDef]
     IsAutoPredictor: bool
     AutoMLOverrideStrategy: AutoMLOverrideStrategyType
     OptimizationMetric: OptimizationMetricType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateForecastRequestRequestTypeDef(BaseModel):
+class CreateForecastRequestRequestTypeDef(BaseValidatorModel):
     ForecastName: str
     PredictorArn: str
     ForecastTypes: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     TimeSeriesSelector: Optional[TimeSeriesSelectorTypeDef] = None
 
-class CreateWhatIfAnalysisRequestRequestTypeDef(BaseModel):
+class CreateWhatIfAnalysisRequestRequestTypeDef(BaseValidatorModel):
     WhatIfAnalysisName: str
     ForecastArn: str
     TimeSeriesSelector: Optional[TimeSeriesSelectorTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribeForecastResponseTypeDef(BaseModel):
+class DescribeForecastResponseTypeDef(BaseValidatorModel):
     ForecastArn: str
     ForecastName: str
     ForecastTypes: List[str]
@@ -1074,7 +1074,7 @@ class DescribeForecastResponseTypeDef(BaseModel):
     TimeSeriesSelector: TimeSeriesSelectorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWhatIfAnalysisResponseTypeDef(BaseModel):
+class DescribeWhatIfAnalysisResponseTypeDef(BaseValidatorModel):
     WhatIfAnalysisName: str
     WhatIfAnalysisArn: str
     ForecastArn: str

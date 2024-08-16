@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,131 +11,131 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.scheduler_constants import *
 
-class AwsVpcConfigurationTypeDef(BaseModel):
+class AwsVpcConfigurationTypeDef(BaseValidatorModel):
     Subnets: Sequence[str]
     AssignPublicIp: Optional[AssignPublicIpType] = None
     SecurityGroups: Optional[Sequence[str]] = None
 
-class CapacityProviderStrategyItemTypeDef(BaseModel):
+class CapacityProviderStrategyItemTypeDef(BaseValidatorModel):
     capacityProvider: str
     base: Optional[int] = None
     weight: Optional[int] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class FlexibleTimeWindowTypeDef(BaseModel):
+class FlexibleTimeWindowTypeDef(BaseValidatorModel):
     Mode: FlexibleTimeWindowModeType
     MaximumWindowInMinutes: Optional[int] = None
 
-class DeadLetterConfigTypeDef(BaseModel):
+class DeadLetterConfigTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
-class DeleteScheduleGroupInputRequestTypeDef(BaseModel):
+class DeleteScheduleGroupInputRequestTypeDef(BaseValidatorModel):
     Name: str
     ClientToken: Optional[str] = None
 
-class DeleteScheduleInputRequestTypeDef(BaseModel):
+class DeleteScheduleInputRequestTypeDef(BaseValidatorModel):
     Name: str
     ClientToken: Optional[str] = None
     GroupName: Optional[str] = None
 
-class PlacementConstraintTypeDef(BaseModel):
+class PlacementConstraintTypeDef(BaseValidatorModel):
     expression: Optional[str] = None
     type: Optional[PlacementConstraintTypeType] = None
 
-class PlacementStrategyTypeDef(BaseModel):
+class PlacementStrategyTypeDef(BaseValidatorModel):
     field: Optional[str] = None
     type: Optional[PlacementStrategyTypeType] = None
 
-class EventBridgeParametersTypeDef(BaseModel):
+class EventBridgeParametersTypeDef(BaseValidatorModel):
     DetailType: str
     Source: str
 
-class GetScheduleGroupInputRequestTypeDef(BaseModel):
+class GetScheduleGroupInputRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetScheduleInputRequestTypeDef(BaseModel):
+class GetScheduleInputRequestTypeDef(BaseValidatorModel):
     Name: str
     GroupName: Optional[str] = None
 
-class KinesisParametersTypeDef(BaseModel):
+class KinesisParametersTypeDef(BaseValidatorModel):
     PartitionKey: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListScheduleGroupsInputRequestTypeDef(BaseModel):
+class ListScheduleGroupsInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ScheduleGroupSummaryTypeDef(BaseModel):
+class ScheduleGroupSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreationDate: Optional[datetime] = None
     LastModificationDate: Optional[datetime] = None
     Name: Optional[str] = None
     State: Optional[ScheduleGroupStateType] = None
 
-class ListSchedulesInputRequestTypeDef(BaseModel):
+class ListSchedulesInputRequestTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     MaxResults: Optional[int] = None
     NamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
     State: Optional[ScheduleStateType] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class RetryPolicyTypeDef(BaseModel):
+class RetryPolicyTypeDef(BaseValidatorModel):
     MaximumEventAgeInSeconds: Optional[int] = None
     MaximumRetryAttempts: Optional[int] = None
 
-class SageMakerPipelineParameterTypeDef(BaseModel):
+class SageMakerPipelineParameterTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class TargetSummaryTypeDef(BaseModel):
+class TargetSummaryTypeDef(BaseValidatorModel):
     Arn: str
 
-class SqsParametersTypeDef(BaseModel):
+class SqsParametersTypeDef(BaseValidatorModel):
     MessageGroupId: Optional[str] = None
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class NetworkConfigurationTypeDef(BaseModel):
+class NetworkConfigurationTypeDef(BaseValidatorModel):
     awsvpcConfiguration: Optional[AwsVpcConfigurationTypeDef] = None
 
-class CreateScheduleGroupInputRequestTypeDef(BaseModel):
+class CreateScheduleGroupInputRequestTypeDef(BaseValidatorModel):
     Name: str
     ClientToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class CreateScheduleGroupOutputTypeDef(BaseModel):
+class CreateScheduleGroupOutputTypeDef(BaseValidatorModel):
     ScheduleGroupArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateScheduleOutputTypeDef(BaseModel):
+class CreateScheduleOutputTypeDef(BaseValidatorModel):
     ScheduleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetScheduleGroupOutputTypeDef(BaseModel):
+class GetScheduleGroupOutputTypeDef(BaseValidatorModel):
     Arn: str
     CreationDate: datetime
     LastModificationDate: datetime
@@ -143,33 +143,33 @@ class GetScheduleGroupOutputTypeDef(BaseModel):
     State: ScheduleGroupStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateScheduleOutputTypeDef(BaseModel):
+class UpdateScheduleOutputTypeDef(BaseValidatorModel):
     ScheduleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListScheduleGroupsInputListScheduleGroupsPaginateTypeDef(BaseModel):
+class ListScheduleGroupsInputListScheduleGroupsPaginateTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSchedulesInputListSchedulesPaginateTypeDef(BaseModel):
+class ListSchedulesInputListSchedulesPaginateTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     NamePrefix: Optional[str] = None
     State: Optional[ScheduleStateType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListScheduleGroupsOutputTypeDef(BaseModel):
+class ListScheduleGroupsOutputTypeDef(BaseValidatorModel):
     NextToken: str
     ScheduleGroups: List[ScheduleGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SageMakerPipelineParametersTypeDef(BaseModel):
+class SageMakerPipelineParametersTypeDef(BaseValidatorModel):
     PipelineParameterList: Optional[Sequence[SageMakerPipelineParameterTypeDef]] = None
 
-class ScheduleSummaryTypeDef(BaseModel):
+class ScheduleSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreationDate: Optional[datetime] = None
     GroupName: Optional[str] = None
@@ -178,7 +178,7 @@ class ScheduleSummaryTypeDef(BaseModel):
     State: Optional[ScheduleStateType] = None
     Target: Optional[TargetSummaryTypeDef] = None
 
-class EcsParametersTypeDef(BaseModel):
+class EcsParametersTypeDef(BaseValidatorModel):
     TaskDefinitionArn: str
     CapacityProviderStrategy: Optional[Sequence[CapacityProviderStrategyItemTypeDef]] = None
     EnableECSManagedTags: Optional[bool] = None
@@ -194,12 +194,12 @@ class EcsParametersTypeDef(BaseModel):
     Tags: Optional[Sequence[Mapping[str, str]]] = None
     TaskCount: Optional[int] = None
 
-class ListSchedulesOutputTypeDef(BaseModel):
+class ListSchedulesOutputTypeDef(BaseValidatorModel):
     NextToken: str
     Schedules: List[ScheduleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TargetTypeDef(BaseModel):
+class TargetTypeDef(BaseValidatorModel):
     Arn: str
     RoleArn: str
     DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
@@ -211,7 +211,7 @@ class TargetTypeDef(BaseModel):
     SageMakerPipelineParameters: Optional[SageMakerPipelineParametersTypeDef] = None
     SqsParameters: Optional[SqsParametersTypeDef] = None
 
-class CreateScheduleInputRequestTypeDef(BaseModel):
+class CreateScheduleInputRequestTypeDef(BaseValidatorModel):
     FlexibleTimeWindow: FlexibleTimeWindowTypeDef
     Name: str
     ScheduleExpression: str
@@ -226,7 +226,7 @@ class CreateScheduleInputRequestTypeDef(BaseModel):
     StartDate: Optional[TimestampTypeDef] = None
     State: Optional[ScheduleStateType] = None
 
-class GetScheduleOutputTypeDef(BaseModel):
+class GetScheduleOutputTypeDef(BaseValidatorModel):
     ActionAfterCompletion: ActionAfterCompletionType
     Arn: str
     CreationDate: datetime
@@ -244,7 +244,7 @@ class GetScheduleOutputTypeDef(BaseModel):
     Target: TargetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateScheduleInputRequestTypeDef(BaseModel):
+class UpdateScheduleInputRequestTypeDef(BaseValidatorModel):
     FlexibleTimeWindow: FlexibleTimeWindowTypeDef
     Name: str
     ScheduleExpression: str

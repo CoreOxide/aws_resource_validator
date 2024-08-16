@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.opensearchserverless_constants import *
 
-class AccessPolicyDetailTypeDef(BaseModel):
+class AccessPolicyDetailTypeDef(BaseValidatorModel):
     createdDate: Optional[int] = None
     description: Optional[str] = None
     lastModifiedDate: Optional[int] = None
@@ -20,10 +20,10 @@ class AccessPolicyDetailTypeDef(BaseModel):
     policyVersion: Optional[str] = None
     type: Optional[Literal["data"]] = None
 
-class AccessPolicyStatsTypeDef(BaseModel):
+class AccessPolicyStatsTypeDef(BaseValidatorModel):
     DataPolicyCount: Optional[int] = None
 
-class AccessPolicySummaryTypeDef(BaseModel):
+class AccessPolicySummaryTypeDef(BaseValidatorModel):
     createdDate: Optional[int] = None
     description: Optional[str] = None
     lastModifiedDate: Optional[int] = None
@@ -31,15 +31,15 @@ class AccessPolicySummaryTypeDef(BaseModel):
     policyVersion: Optional[str] = None
     type: Optional[Literal["data"]] = None
 
-class CapacityLimitsTypeDef(BaseModel):
+class CapacityLimitsTypeDef(BaseValidatorModel):
     maxIndexingCapacityInOCU: Optional[int] = None
     maxSearchCapacityInOCU: Optional[int] = None
 
-class BatchGetCollectionRequestRequestTypeDef(BaseModel):
+class BatchGetCollectionRequestRequestTypeDef(BaseValidatorModel):
     ids: Optional[Sequence[str]] = None
     names: Optional[Sequence[str]] = None
 
-class CollectionDetailTypeDef(BaseModel):
+class CollectionDetailTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     collectionEndpoint: Optional[str] = None
     createdDate: Optional[int] = None
@@ -53,24 +53,24 @@ class CollectionDetailTypeDef(BaseModel):
     status: Optional[CollectionStatusType] = None
     type: Optional[CollectionTypeType] = None
 
-class CollectionErrorDetailTypeDef(BaseModel):
+class CollectionErrorDetailTypeDef(BaseValidatorModel):
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
     id: Optional[str] = None
     name: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class LifecyclePolicyResourceIdentifierTypeDef(BaseModel):
+class LifecyclePolicyResourceIdentifierTypeDef(BaseValidatorModel):
     resource: str
     type: Literal["retention"]
 
-class EffectiveLifecyclePolicyDetailTypeDef(BaseModel):
+class EffectiveLifecyclePolicyDetailTypeDef(BaseValidatorModel):
     noMinRetentionPeriod: Optional[bool] = None
     policyName: Optional[str] = None
     resource: Optional[str] = None
@@ -78,17 +78,17 @@ class EffectiveLifecyclePolicyDetailTypeDef(BaseModel):
     retentionPeriod: Optional[str] = None
     type: Optional[Literal["retention"]] = None
 
-class EffectiveLifecyclePolicyErrorDetailTypeDef(BaseModel):
+class EffectiveLifecyclePolicyErrorDetailTypeDef(BaseValidatorModel):
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
     resource: Optional[str] = None
     type: Optional[Literal["retention"]] = None
 
-class LifecyclePolicyIdentifierTypeDef(BaseModel):
+class LifecyclePolicyIdentifierTypeDef(BaseValidatorModel):
     name: str
     type: Literal["retention"]
 
-class LifecyclePolicyDetailTypeDef(BaseModel):
+class LifecyclePolicyDetailTypeDef(BaseValidatorModel):
     createdDate: Optional[int] = None
     description: Optional[str] = None
     lastModifiedDate: Optional[int] = None
@@ -97,16 +97,16 @@ class LifecyclePolicyDetailTypeDef(BaseModel):
     policyVersion: Optional[str] = None
     type: Optional[Literal["retention"]] = None
 
-class LifecyclePolicyErrorDetailTypeDef(BaseModel):
+class LifecyclePolicyErrorDetailTypeDef(BaseValidatorModel):
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
     name: Optional[str] = None
     type: Optional[Literal["retention"]] = None
 
-class BatchGetVpcEndpointRequestRequestTypeDef(BaseModel):
+class BatchGetVpcEndpointRequestRequestTypeDef(BaseValidatorModel):
     ids: Sequence[str]
 
-class VpcEndpointDetailTypeDef(BaseModel):
+class VpcEndpointDetailTypeDef(BaseValidatorModel):
     createdDate: Optional[int] = None
     id: Optional[str] = None
     name: Optional[str] = None
@@ -115,29 +115,29 @@ class VpcEndpointDetailTypeDef(BaseModel):
     subnetIds: Optional[List[str]] = None
     vpcId: Optional[str] = None
 
-class VpcEndpointErrorDetailTypeDef(BaseModel):
+class VpcEndpointErrorDetailTypeDef(BaseValidatorModel):
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
     id: Optional[str] = None
 
-class CollectionFiltersTypeDef(BaseModel):
+class CollectionFiltersTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     status: Optional[CollectionStatusType] = None
 
-class CollectionSummaryTypeDef(BaseModel):
+class CollectionSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     id: Optional[str] = None
     name: Optional[str] = None
     status: Optional[CollectionStatusType] = None
 
-class CreateAccessPolicyRequestRequestTypeDef(BaseModel):
+class CreateAccessPolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     policy: str
     type: Literal["data"]
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
-class CreateCollectionDetailTypeDef(BaseModel):
+class CreateCollectionDetailTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdDate: Optional[int] = None
     description: Optional[str] = None
@@ -149,31 +149,31 @@ class CreateCollectionDetailTypeDef(BaseModel):
     status: Optional[CollectionStatusType] = None
     type: Optional[CollectionTypeType] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class CreateLifecyclePolicyRequestRequestTypeDef(BaseModel):
+class CreateLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     policy: str
     type: Literal["retention"]
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
-class SamlConfigOptionsTypeDef(BaseModel):
+class SamlConfigOptionsTypeDef(BaseValidatorModel):
     metadata: str
     groupAttribute: Optional[str] = None
     sessionTimeout: Optional[int] = None
     userAttribute: Optional[str] = None
 
-class CreateSecurityPolicyRequestRequestTypeDef(BaseModel):
+class CreateSecurityPolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     policy: str
     type: SecurityPolicyTypeType
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
-class SecurityPolicyDetailTypeDef(BaseModel):
+class SecurityPolicyDetailTypeDef(BaseValidatorModel):
     createdDate: Optional[int] = None
     description: Optional[str] = None
     lastModifiedDate: Optional[int] = None
@@ -182,77 +182,77 @@ class SecurityPolicyDetailTypeDef(BaseModel):
     policyVersion: Optional[str] = None
     type: Optional[SecurityPolicyTypeType] = None
 
-class CreateVpcEndpointDetailTypeDef(BaseModel):
+class CreateVpcEndpointDetailTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     status: Optional[VpcEndpointStatusType] = None
 
-class CreateVpcEndpointRequestRequestTypeDef(BaseModel):
+class CreateVpcEndpointRequestRequestTypeDef(BaseValidatorModel):
     name: str
     subnetIds: Sequence[str]
     vpcId: str
     clientToken: Optional[str] = None
     securityGroupIds: Optional[Sequence[str]] = None
 
-class DeleteAccessPolicyRequestRequestTypeDef(BaseModel):
+class DeleteAccessPolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     type: Literal["data"]
     clientToken: Optional[str] = None
 
-class DeleteCollectionDetailTypeDef(BaseModel):
+class DeleteCollectionDetailTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     status: Optional[CollectionStatusType] = None
 
-class DeleteCollectionRequestRequestTypeDef(BaseModel):
+class DeleteCollectionRequestRequestTypeDef(BaseValidatorModel):
     id: str
     clientToken: Optional[str] = None
 
-class DeleteLifecyclePolicyRequestRequestTypeDef(BaseModel):
+class DeleteLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     type: Literal["retention"]
     clientToken: Optional[str] = None
 
-class DeleteSecurityConfigRequestRequestTypeDef(BaseModel):
+class DeleteSecurityConfigRequestRequestTypeDef(BaseValidatorModel):
     id: str
     clientToken: Optional[str] = None
 
-class DeleteSecurityPolicyRequestRequestTypeDef(BaseModel):
+class DeleteSecurityPolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     type: SecurityPolicyTypeType
     clientToken: Optional[str] = None
 
-class DeleteVpcEndpointDetailTypeDef(BaseModel):
+class DeleteVpcEndpointDetailTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     status: Optional[VpcEndpointStatusType] = None
 
-class DeleteVpcEndpointRequestRequestTypeDef(BaseModel):
+class DeleteVpcEndpointRequestRequestTypeDef(BaseValidatorModel):
     id: str
     clientToken: Optional[str] = None
 
-class GetAccessPolicyRequestRequestTypeDef(BaseModel):
+class GetAccessPolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     type: Literal["data"]
 
-class LifecyclePolicyStatsTypeDef(BaseModel):
+class LifecyclePolicyStatsTypeDef(BaseValidatorModel):
     RetentionPolicyCount: Optional[int] = None
 
-class SecurityConfigStatsTypeDef(BaseModel):
+class SecurityConfigStatsTypeDef(BaseValidatorModel):
     SamlConfigCount: Optional[int] = None
 
-class SecurityPolicyStatsTypeDef(BaseModel):
+class SecurityPolicyStatsTypeDef(BaseValidatorModel):
     EncryptionPolicyCount: Optional[int] = None
     NetworkPolicyCount: Optional[int] = None
 
-class GetSecurityConfigRequestRequestTypeDef(BaseModel):
+class GetSecurityConfigRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class GetSecurityPolicyRequestRequestTypeDef(BaseModel):
+class GetSecurityPolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     type: SecurityPolicyTypeType
 
-class LifecyclePolicySummaryTypeDef(BaseModel):
+class LifecyclePolicySummaryTypeDef(BaseValidatorModel):
     createdDate: Optional[int] = None
     description: Optional[str] = None
     lastModifiedDate: Optional[int] = None
@@ -260,24 +260,24 @@ class LifecyclePolicySummaryTypeDef(BaseModel):
     policyVersion: Optional[str] = None
     type: Optional[Literal["retention"]] = None
 
-class ListAccessPoliciesRequestRequestTypeDef(BaseModel):
+class ListAccessPoliciesRequestRequestTypeDef(BaseValidatorModel):
     type: Literal["data"]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     resource: Optional[Sequence[str]] = None
 
-class ListLifecyclePoliciesRequestRequestTypeDef(BaseModel):
+class ListLifecyclePoliciesRequestRequestTypeDef(BaseValidatorModel):
     type: Literal["retention"]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     resources: Optional[Sequence[str]] = None
 
-class ListSecurityConfigsRequestRequestTypeDef(BaseModel):
+class ListSecurityConfigsRequestRequestTypeDef(BaseValidatorModel):
     type: Literal["saml"]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class SecurityConfigSummaryTypeDef(BaseModel):
+class SecurityConfigSummaryTypeDef(BaseValidatorModel):
     configVersion: Optional[str] = None
     createdDate: Optional[int] = None
     description: Optional[str] = None
@@ -285,13 +285,13 @@ class SecurityConfigSummaryTypeDef(BaseModel):
     lastModifiedDate: Optional[int] = None
     type: Optional[Literal["saml"]] = None
 
-class ListSecurityPoliciesRequestRequestTypeDef(BaseModel):
+class ListSecurityPoliciesRequestRequestTypeDef(BaseValidatorModel):
     type: SecurityPolicyTypeType
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     resource: Optional[Sequence[str]] = None
 
-class SecurityPolicySummaryTypeDef(BaseModel):
+class SecurityPolicySummaryTypeDef(BaseValidatorModel):
     createdDate: Optional[int] = None
     description: Optional[str] = None
     lastModifiedDate: Optional[int] = None
@@ -299,22 +299,22 @@ class SecurityPolicySummaryTypeDef(BaseModel):
     policyVersion: Optional[str] = None
     type: Optional[SecurityPolicyTypeType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class VpcEndpointFiltersTypeDef(BaseModel):
+class VpcEndpointFiltersTypeDef(BaseValidatorModel):
     status: Optional[VpcEndpointStatusType] = None
 
-class VpcEndpointSummaryTypeDef(BaseModel):
+class VpcEndpointSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     status: Optional[VpcEndpointStatusType] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateAccessPolicyRequestRequestTypeDef(BaseModel):
+class UpdateAccessPolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     policyVersion: str
     type: Literal["data"]
@@ -322,7 +322,7 @@ class UpdateAccessPolicyRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     policy: Optional[str] = None
 
-class UpdateCollectionDetailTypeDef(BaseModel):
+class UpdateCollectionDetailTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdDate: Optional[int] = None
     description: Optional[str] = None
@@ -332,12 +332,12 @@ class UpdateCollectionDetailTypeDef(BaseModel):
     status: Optional[CollectionStatusType] = None
     type: Optional[CollectionTypeType] = None
 
-class UpdateCollectionRequestRequestTypeDef(BaseModel):
+class UpdateCollectionRequestRequestTypeDef(BaseValidatorModel):
     id: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
-class UpdateLifecyclePolicyRequestRequestTypeDef(BaseModel):
+class UpdateLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     policyVersion: str
     type: Literal["retention"]
@@ -345,7 +345,7 @@ class UpdateLifecyclePolicyRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     policy: Optional[str] = None
 
-class UpdateSecurityPolicyRequestRequestTypeDef(BaseModel):
+class UpdateSecurityPolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     policyVersion: str
     type: SecurityPolicyTypeType
@@ -353,7 +353,7 @@ class UpdateSecurityPolicyRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     policy: Optional[str] = None
 
-class UpdateVpcEndpointDetailTypeDef(BaseModel):
+class UpdateVpcEndpointDetailTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     lastModifiedDate: Optional[int] = None
     name: Optional[str] = None
@@ -361,7 +361,7 @@ class UpdateVpcEndpointDetailTypeDef(BaseModel):
     status: Optional[VpcEndpointStatusType] = None
     subnetIds: Optional[List[str]] = None
 
-class UpdateVpcEndpointRequestRequestTypeDef(BaseModel):
+class UpdateVpcEndpointRequestRequestTypeDef(BaseValidatorModel):
     id: str
     addSecurityGroupIds: Optional[Sequence[str]] = None
     addSubnetIds: Optional[Sequence[str]] = None
@@ -369,78 +369,78 @@ class UpdateVpcEndpointRequestRequestTypeDef(BaseModel):
     removeSecurityGroupIds: Optional[Sequence[str]] = None
     removeSubnetIds: Optional[Sequence[str]] = None
 
-class AccountSettingsDetailTypeDef(BaseModel):
+class AccountSettingsDetailTypeDef(BaseValidatorModel):
     capacityLimits: Optional[CapacityLimitsTypeDef] = None
 
-class UpdateAccountSettingsRequestRequestTypeDef(BaseModel):
+class UpdateAccountSettingsRequestRequestTypeDef(BaseValidatorModel):
     capacityLimits: Optional[CapacityLimitsTypeDef] = None
 
-class BatchGetCollectionResponseTypeDef(BaseModel):
+class BatchGetCollectionResponseTypeDef(BaseValidatorModel):
     collectionDetails: List[CollectionDetailTypeDef]
     collectionErrorDetails: List[CollectionErrorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessPolicyResponseTypeDef(BaseModel):
+class CreateAccessPolicyResponseTypeDef(BaseValidatorModel):
     accessPolicyDetail: AccessPolicyDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessPolicyResponseTypeDef(BaseModel):
+class GetAccessPolicyResponseTypeDef(BaseValidatorModel):
     accessPolicyDetail: AccessPolicyDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccessPoliciesResponseTypeDef(BaseModel):
+class ListAccessPoliciesResponseTypeDef(BaseValidatorModel):
     accessPolicySummaries: List[AccessPolicySummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAccessPolicyResponseTypeDef(BaseModel):
+class UpdateAccessPolicyResponseTypeDef(BaseValidatorModel):
     accessPolicyDetail: AccessPolicyDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetEffectiveLifecyclePolicyRequestRequestTypeDef(BaseModel):
+class BatchGetEffectiveLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceIdentifiers: Sequence[LifecyclePolicyResourceIdentifierTypeDef]
 
-class BatchGetEffectiveLifecyclePolicyResponseTypeDef(BaseModel):
+class BatchGetEffectiveLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     effectiveLifecyclePolicyDetails: List[EffectiveLifecyclePolicyDetailTypeDef]
     effectiveLifecyclePolicyErrorDetails: List[EffectiveLifecyclePolicyErrorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetLifecyclePolicyRequestRequestTypeDef(BaseModel):
+class BatchGetLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
     identifiers: Sequence[LifecyclePolicyIdentifierTypeDef]
 
-class CreateLifecyclePolicyResponseTypeDef(BaseModel):
+class CreateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     lifecyclePolicyDetail: LifecyclePolicyDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLifecyclePolicyResponseTypeDef(BaseModel):
+class UpdateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     lifecyclePolicyDetail: LifecyclePolicyDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetLifecyclePolicyResponseTypeDef(BaseModel):
+class BatchGetLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     lifecyclePolicyDetails: List[LifecyclePolicyDetailTypeDef]
     lifecyclePolicyErrorDetails: List[LifecyclePolicyErrorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetVpcEndpointResponseTypeDef(BaseModel):
+class BatchGetVpcEndpointResponseTypeDef(BaseValidatorModel):
     vpcEndpointDetails: List[VpcEndpointDetailTypeDef]
     vpcEndpointErrorDetails: List[VpcEndpointErrorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCollectionsRequestRequestTypeDef(BaseModel):
+class ListCollectionsRequestRequestTypeDef(BaseValidatorModel):
     collectionFilters: Optional[CollectionFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListCollectionsResponseTypeDef(BaseModel):
+class ListCollectionsResponseTypeDef(BaseValidatorModel):
     collectionSummaries: List[CollectionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCollectionResponseTypeDef(BaseModel):
+class CreateCollectionResponseTypeDef(BaseValidatorModel):
     createCollectionDetail: CreateCollectionDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCollectionRequestRequestTypeDef(BaseModel):
+class CreateCollectionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
@@ -448,22 +448,22 @@ class CreateCollectionRequestRequestTypeDef(BaseModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     type: Optional[CollectionTypeType] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class CreateSecurityConfigRequestRequestTypeDef(BaseModel):
+class CreateSecurityConfigRequestRequestTypeDef(BaseValidatorModel):
     name: str
     type: Literal["saml"]
     clientToken: Optional[str] = None
     description: Optional[str] = None
     samlOptions: Optional[SamlConfigOptionsTypeDef] = None
 
-class SecurityConfigDetailTypeDef(BaseModel):
+class SecurityConfigDetailTypeDef(BaseValidatorModel):
     configVersion: Optional[str] = None
     createdDate: Optional[int] = None
     description: Optional[str] = None
@@ -472,38 +472,38 @@ class SecurityConfigDetailTypeDef(BaseModel):
     samlOptions: Optional[SamlConfigOptionsTypeDef] = None
     type: Optional[Literal["saml"]] = None
 
-class UpdateSecurityConfigRequestRequestTypeDef(BaseModel):
+class UpdateSecurityConfigRequestRequestTypeDef(BaseValidatorModel):
     configVersion: str
     id: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     samlOptions: Optional[SamlConfigOptionsTypeDef] = None
 
-class CreateSecurityPolicyResponseTypeDef(BaseModel):
+class CreateSecurityPolicyResponseTypeDef(BaseValidatorModel):
     securityPolicyDetail: SecurityPolicyDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSecurityPolicyResponseTypeDef(BaseModel):
+class GetSecurityPolicyResponseTypeDef(BaseValidatorModel):
     securityPolicyDetail: SecurityPolicyDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSecurityPolicyResponseTypeDef(BaseModel):
+class UpdateSecurityPolicyResponseTypeDef(BaseValidatorModel):
     securityPolicyDetail: SecurityPolicyDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVpcEndpointResponseTypeDef(BaseModel):
+class CreateVpcEndpointResponseTypeDef(BaseValidatorModel):
     createVpcEndpointDetail: CreateVpcEndpointDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCollectionResponseTypeDef(BaseModel):
+class DeleteCollectionResponseTypeDef(BaseValidatorModel):
     deleteCollectionDetail: DeleteCollectionDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVpcEndpointResponseTypeDef(BaseModel):
+class DeleteVpcEndpointResponseTypeDef(BaseValidatorModel):
     deleteVpcEndpointDetail: DeleteVpcEndpointDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPoliciesStatsResponseTypeDef(BaseModel):
+class GetPoliciesStatsResponseTypeDef(BaseValidatorModel):
     AccessPolicyStats: AccessPolicyStatsTypeDef
     LifecyclePolicyStats: LifecyclePolicyStatsTypeDef
     SecurityConfigStats: SecurityConfigStatsTypeDef
@@ -511,56 +511,56 @@ class GetPoliciesStatsResponseTypeDef(BaseModel):
     TotalPolicyCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLifecyclePoliciesResponseTypeDef(BaseModel):
+class ListLifecyclePoliciesResponseTypeDef(BaseValidatorModel):
     lifecyclePolicySummaries: List[LifecyclePolicySummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSecurityConfigsResponseTypeDef(BaseModel):
+class ListSecurityConfigsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     securityConfigSummaries: List[SecurityConfigSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSecurityPoliciesResponseTypeDef(BaseModel):
+class ListSecurityPoliciesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     securityPolicySummaries: List[SecurityPolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVpcEndpointsRequestRequestTypeDef(BaseModel):
+class ListVpcEndpointsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     vpcEndpointFilters: Optional[VpcEndpointFiltersTypeDef] = None
 
-class ListVpcEndpointsResponseTypeDef(BaseModel):
+class ListVpcEndpointsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     vpcEndpointSummaries: List[VpcEndpointSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateCollectionResponseTypeDef(BaseModel):
+class UpdateCollectionResponseTypeDef(BaseValidatorModel):
     updateCollectionDetail: UpdateCollectionDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVpcEndpointResponseTypeDef(BaseModel):
+class UpdateVpcEndpointResponseTypeDef(BaseValidatorModel):
     UpdateVpcEndpointDetail: UpdateVpcEndpointDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccountSettingsResponseTypeDef(BaseModel):
+class GetAccountSettingsResponseTypeDef(BaseValidatorModel):
     accountSettingsDetail: AccountSettingsDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAccountSettingsResponseTypeDef(BaseModel):
+class UpdateAccountSettingsResponseTypeDef(BaseValidatorModel):
     accountSettingsDetail: AccountSettingsDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSecurityConfigResponseTypeDef(BaseModel):
+class CreateSecurityConfigResponseTypeDef(BaseValidatorModel):
     securityConfigDetail: SecurityConfigDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSecurityConfigResponseTypeDef(BaseModel):
+class GetSecurityConfigResponseTypeDef(BaseValidatorModel):
     securityConfigDetail: SecurityConfigDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSecurityConfigResponseTypeDef(BaseModel):
+class UpdateSecurityConfigResponseTypeDef(BaseValidatorModel):
     securityConfigDetail: SecurityConfigDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

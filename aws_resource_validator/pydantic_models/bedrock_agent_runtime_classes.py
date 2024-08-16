@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,115 +11,115 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.bedrock_agent_runtime_constants import *
 
-class AccessDeniedExceptionTypeDef(BaseModel):
+class AccessDeniedExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class ParameterTypeDef(BaseModel):
+class ParameterTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     type: Optional[str] = None
     value: Optional[str] = None
 
-class ActionGroupInvocationOutputTypeDef(BaseModel):
+class ActionGroupInvocationOutputTypeDef(BaseValidatorModel):
     text: Optional[str] = None
 
-class ApiParameterTypeDef(BaseModel):
+class ApiParameterTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     type: Optional[str] = None
     value: Optional[str] = None
 
-class ContentBodyTypeDef(BaseModel):
+class ContentBodyTypeDef(BaseValidatorModel):
     body: Optional[str] = None
 
-class BadGatewayExceptionTypeDef(BaseModel):
+class BadGatewayExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
     resourceName: Optional[str] = None
 
-class CodeInterpreterInvocationInputTypeDef(BaseModel):
+class CodeInterpreterInvocationInputTypeDef(BaseValidatorModel):
     code: Optional[str] = None
     files: Optional[List[str]] = None
 
-class CodeInterpreterInvocationOutputTypeDef(BaseModel):
+class CodeInterpreterInvocationOutputTypeDef(BaseValidatorModel):
     executionError: Optional[str] = None
     executionOutput: Optional[str] = None
     executionTimeout: Optional[bool] = None
     files: Optional[List[str]] = None
 
-class ConflictExceptionTypeDef(BaseModel):
+class ConflictExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class DeleteAgentMemoryRequestRequestTypeDef(BaseModel):
+class DeleteAgentMemoryRequestRequestTypeDef(BaseValidatorModel):
     agentAliasId: str
     agentId: str
     memoryId: Optional[str] = None
 
-class DependencyFailedExceptionTypeDef(BaseModel):
+class DependencyFailedExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
     resourceName: Optional[str] = None
 
-class S3ObjectDocTypeDef(BaseModel):
+class S3ObjectDocTypeDef(BaseValidatorModel):
     uri: str
 
-class GuardrailConfigurationTypeDef(BaseModel):
+class GuardrailConfigurationTypeDef(BaseValidatorModel):
     guardrailId: str
     guardrailVersion: str
 
-class PromptTemplateTypeDef(BaseModel):
+class PromptTemplateTypeDef(BaseValidatorModel):
     textPromptTemplate: Optional[str] = None
 
-class FailureTraceTypeDef(BaseModel):
+class FailureTraceTypeDef(BaseValidatorModel):
     failureReason: Optional[str] = None
     traceId: Optional[str] = None
 
-class OutputFileTypeDef(BaseModel):
+class OutputFileTypeDef(BaseValidatorModel):
     bytes: Optional[bytes] = None
     name: Optional[str] = None
     type: Optional[str] = None
 
-class S3ObjectFileTypeDef(BaseModel):
+class S3ObjectFileTypeDef(BaseValidatorModel):
     uri: str
 
-class FilterAttributeTypeDef(BaseModel):
+class FilterAttributeTypeDef(BaseValidatorModel):
     key: str
     value: Mapping[str, Any]
 
-class FinalResponseTypeDef(BaseModel):
+class FinalResponseTypeDef(BaseValidatorModel):
     text: Optional[str] = None
 
-class FlowCompletionEventTypeDef(BaseModel):
+class FlowCompletionEventTypeDef(BaseValidatorModel):
     completionReason: Literal["SUCCESS"]
 
-class FlowInputContentTypeDef(BaseModel):
+class FlowInputContentTypeDef(BaseValidatorModel):
     document: Optional[Mapping[str, Any]] = None
 
-class FlowOutputContentTypeDef(BaseModel):
+class FlowOutputContentTypeDef(BaseValidatorModel):
     document: Optional[Dict[str, Any]] = None
 
-class InternalServerExceptionTypeDef(BaseModel):
+class InternalServerExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class ResourceNotFoundExceptionTypeDef(BaseModel):
+class ResourceNotFoundExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class ServiceQuotaExceededExceptionTypeDef(BaseModel):
+class ServiceQuotaExceededExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class ThrottlingExceptionTypeDef(BaseModel):
+class ThrottlingExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class ValidationExceptionTypeDef(BaseModel):
+class ValidationExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class FunctionParameterTypeDef(BaseModel):
+class FunctionParameterTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     type: Optional[str] = None
     value: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetAgentMemoryRequestRequestTypeDef(BaseModel):
+class GetAgentMemoryRequestRequestTypeDef(BaseValidatorModel):
     agentAliasId: str
     agentId: str
     memoryId: str
@@ -127,131 +127,131 @@ class GetAgentMemoryRequestRequestTypeDef(BaseModel):
     maxItems: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class GuardrailContentFilterTypeDef(BaseModel):
+class GuardrailContentFilterTypeDef(BaseValidatorModel):
     action: Optional[Literal["BLOCKED"]] = None
     confidence: Optional[GuardrailContentFilterConfidenceType] = None
     type: Optional[GuardrailContentFilterTypeType] = None
 
-class GuardrailCustomWordTypeDef(BaseModel):
+class GuardrailCustomWordTypeDef(BaseValidatorModel):
     action: Optional[Literal["BLOCKED"]] = None
     match: Optional[str] = None
 
-class GuardrailManagedWordTypeDef(BaseModel):
+class GuardrailManagedWordTypeDef(BaseValidatorModel):
     action: Optional[Literal["BLOCKED"]] = None
     match: Optional[str] = None
     type: Optional[Literal["PROFANITY"]] = None
 
-class GuardrailPiiEntityFilterTypeDef(BaseModel):
+class GuardrailPiiEntityFilterTypeDef(BaseValidatorModel):
     action: Optional[GuardrailSensitiveInformationPolicyActionType] = None
     match: Optional[str] = None
     type: Optional[GuardrailPiiEntityTypeType] = None
 
-class GuardrailRegexFilterTypeDef(BaseModel):
+class GuardrailRegexFilterTypeDef(BaseValidatorModel):
     action: Optional[GuardrailSensitiveInformationPolicyActionType] = None
     match: Optional[str] = None
     name: Optional[str] = None
     regex: Optional[str] = None
 
-class GuardrailTopicTypeDef(BaseModel):
+class GuardrailTopicTypeDef(BaseValidatorModel):
     action: Optional[Literal["BLOCKED"]] = None
     name: Optional[str] = None
     type: Optional[Literal["DENY"]] = None
 
-class TextInferenceConfigTypeDef(BaseModel):
+class TextInferenceConfigTypeDef(BaseValidatorModel):
     maxTokens: Optional[int] = None
     stopSequences: Optional[Sequence[str]] = None
     temperature: Optional[float] = None
     topP: Optional[float] = None
 
-class InferenceConfigurationTypeDef(BaseModel):
+class InferenceConfigurationTypeDef(BaseValidatorModel):
     maximumLength: Optional[int] = None
     stopSequences: Optional[List[str]] = None
     temperature: Optional[float] = None
     topK: Optional[int] = None
     topP: Optional[float] = None
 
-class KnowledgeBaseLookupInputTypeDef(BaseModel):
+class KnowledgeBaseLookupInputTypeDef(BaseValidatorModel):
     knowledgeBaseId: Optional[str] = None
     text: Optional[str] = None
 
-class KnowledgeBaseQueryTypeDef(BaseModel):
+class KnowledgeBaseQueryTypeDef(BaseValidatorModel):
     text: str
 
-class KnowledgeBaseVectorSearchConfigurationTypeDef(BaseModel):
+class KnowledgeBaseVectorSearchConfigurationTypeDef(BaseValidatorModel):
     filter: Optional["RetrievalFilterTypeDef"] = None
     numberOfResults: Optional[int] = None
     overrideSearchType: Optional[SearchTypeType] = None
 
-class RetrievalResultContentTypeDef(BaseModel):
+class RetrievalResultContentTypeDef(BaseValidatorModel):
     text: str
 
-class MemorySessionSummaryTypeDef(BaseModel):
+class MemorySessionSummaryTypeDef(BaseValidatorModel):
     memoryId: Optional[str] = None
     sessionExpiryTime: Optional[datetime] = None
     sessionId: Optional[str] = None
     sessionStartTime: Optional[datetime] = None
     summaryText: Optional[str] = None
 
-class RepromptResponseTypeDef(BaseModel):
+class RepromptResponseTypeDef(BaseValidatorModel):
     source: Optional[SourceType] = None
     text: Optional[str] = None
 
-class QueryTransformationConfigurationTypeDef(BaseModel):
+class QueryTransformationConfigurationTypeDef(BaseValidatorModel):
     type: Literal["QUERY_DECOMPOSITION"]
 
-class RationaleTypeDef(BaseModel):
+class RationaleTypeDef(BaseValidatorModel):
     text: Optional[str] = None
     traceId: Optional[str] = None
 
-class PostProcessingParsedResponseTypeDef(BaseModel):
+class PostProcessingParsedResponseTypeDef(BaseValidatorModel):
     text: Optional[str] = None
 
-class PreProcessingParsedResponseTypeDef(BaseModel):
+class PreProcessingParsedResponseTypeDef(BaseValidatorModel):
     isValid: Optional[bool] = None
     rationale: Optional[str] = None
 
-class RetrievalResultConfluenceLocationTypeDef(BaseModel):
+class RetrievalResultConfluenceLocationTypeDef(BaseValidatorModel):
     url: Optional[str] = None
 
-class RetrievalResultS3LocationTypeDef(BaseModel):
+class RetrievalResultS3LocationTypeDef(BaseValidatorModel):
     uri: Optional[str] = None
 
-class RetrievalResultSalesforceLocationTypeDef(BaseModel):
+class RetrievalResultSalesforceLocationTypeDef(BaseValidatorModel):
     url: Optional[str] = None
 
-class RetrievalResultSharePointLocationTypeDef(BaseModel):
+class RetrievalResultSharePointLocationTypeDef(BaseValidatorModel):
     url: Optional[str] = None
 
-class RetrievalResultWebLocationTypeDef(BaseModel):
+class RetrievalResultWebLocationTypeDef(BaseValidatorModel):
     url: Optional[str] = None
 
-class RetrieveAndGenerateInputTypeDef(BaseModel):
+class RetrieveAndGenerateInputTypeDef(BaseValidatorModel):
     text: str
 
-class RetrieveAndGenerateOutputTypeDef(BaseModel):
+class RetrieveAndGenerateOutputTypeDef(BaseValidatorModel):
     text: str
 
-class RetrieveAndGenerateSessionConfigurationTypeDef(BaseModel):
+class RetrieveAndGenerateSessionConfigurationTypeDef(BaseValidatorModel):
     kmsKeyArn: str
 
-class SpanTypeDef(BaseModel):
+class SpanTypeDef(BaseValidatorModel):
     end: Optional[int] = None
     start: Optional[int] = None
 
-class PropertyParametersTypeDef(BaseModel):
+class PropertyParametersTypeDef(BaseValidatorModel):
     properties: Optional[List[ParameterTypeDef]] = None
 
-class RequestBodyTypeDef(BaseModel):
+class RequestBodyTypeDef(BaseValidatorModel):
     content: Optional[Dict[str, List[ParameterTypeDef]]] = None
 
-class ApiResultTypeDef(BaseModel):
+class ApiResultTypeDef(BaseValidatorModel):
     actionGroup: str
     apiPath: Optional[str] = None
     httpMethod: Optional[str] = None
@@ -259,25 +259,25 @@ class ApiResultTypeDef(BaseModel):
     responseBody: Optional[Mapping[str, ContentBodyTypeDef]] = None
     responseState: Optional[ResponseStateType] = None
 
-class FunctionResultTypeDef(BaseModel):
+class FunctionResultTypeDef(BaseValidatorModel):
     actionGroup: str
     function: Optional[str] = None
     responseBody: Optional[Mapping[str, ContentBodyTypeDef]] = None
     responseState: Optional[ResponseStateType] = None
 
-class ByteContentDocTypeDef(BaseModel):
+class ByteContentDocTypeDef(BaseValidatorModel):
     contentType: str
     data: BlobTypeDef
     identifier: str
 
-class ByteContentFileTypeDef(BaseModel):
+class ByteContentFileTypeDef(BaseValidatorModel):
     data: BlobTypeDef
     mediaType: str
 
-class FilePartTypeDef(BaseModel):
+class FilePartTypeDef(BaseValidatorModel):
     files: Optional[List[OutputFileTypeDef]] = None
 
-class RetrievalFilterTypeDef(BaseModel):
+class RetrievalFilterTypeDef(BaseValidatorModel):
     andAll: Optional[Sequence[Dict[str, Any]]] = None
     equals: Optional[FilterAttributeTypeDef] = None
     greaterThan: Optional[FilterAttributeTypeDef] = None
@@ -292,46 +292,46 @@ class RetrievalFilterTypeDef(BaseModel):
     startsWith: Optional[FilterAttributeTypeDef] = None
     stringContains: Optional[FilterAttributeTypeDef] = None
 
-class FlowInputTypeDef(BaseModel):
+class FlowInputTypeDef(BaseValidatorModel):
     content: FlowInputContentTypeDef
     nodeName: str
     nodeOutputName: str
 
-class FlowOutputEventTypeDef(BaseModel):
+class FlowOutputEventTypeDef(BaseValidatorModel):
     content: FlowOutputContentTypeDef
     nodeName: str
     nodeType: NodeTypeType
 
-class FunctionInvocationInputTypeDef(BaseModel):
+class FunctionInvocationInputTypeDef(BaseValidatorModel):
     actionGroup: str
     function: Optional[str] = None
     parameters: Optional[List[FunctionParameterTypeDef]] = None
 
-class GetAgentMemoryRequestGetAgentMemoryPaginateTypeDef(BaseModel):
+class GetAgentMemoryRequestGetAgentMemoryPaginateTypeDef(BaseValidatorModel):
     agentAliasId: str
     agentId: str
     memoryId: str
     memoryType: Literal["SESSION_SUMMARY"]
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GuardrailContentPolicyAssessmentTypeDef(BaseModel):
+class GuardrailContentPolicyAssessmentTypeDef(BaseValidatorModel):
     filters: Optional[List[GuardrailContentFilterTypeDef]] = None
 
-class GuardrailWordPolicyAssessmentTypeDef(BaseModel):
+class GuardrailWordPolicyAssessmentTypeDef(BaseValidatorModel):
     customWords: Optional[List[GuardrailCustomWordTypeDef]] = None
     managedWordLists: Optional[List[GuardrailManagedWordTypeDef]] = None
 
-class GuardrailSensitiveInformationPolicyAssessmentTypeDef(BaseModel):
+class GuardrailSensitiveInformationPolicyAssessmentTypeDef(BaseValidatorModel):
     piiEntities: Optional[List[GuardrailPiiEntityFilterTypeDef]] = None
     regexes: Optional[List[GuardrailRegexFilterTypeDef]] = None
 
-class GuardrailTopicPolicyAssessmentTypeDef(BaseModel):
+class GuardrailTopicPolicyAssessmentTypeDef(BaseValidatorModel):
     topics: Optional[List[GuardrailTopicTypeDef]] = None
 
-class InferenceConfigTypeDef(BaseModel):
+class InferenceConfigTypeDef(BaseValidatorModel):
     textInferenceConfig: Optional[TextInferenceConfigTypeDef] = None
 
-class ModelInvocationInputTypeDef(BaseModel):
+class ModelInvocationInputTypeDef(BaseValidatorModel):
     inferenceConfiguration: Optional[InferenceConfigurationTypeDef] = None
     overrideLambda: Optional[str] = None
     parserMode: Optional[CreationModeType] = None
@@ -340,24 +340,24 @@ class ModelInvocationInputTypeDef(BaseModel):
     traceId: Optional[str] = None
     type: Optional[PromptTypeType] = None
 
-class KnowledgeBaseRetrievalConfigurationTypeDef(BaseModel):
+class KnowledgeBaseRetrievalConfigurationTypeDef(BaseValidatorModel):
     vectorSearchConfiguration: KnowledgeBaseVectorSearchConfigurationTypeDef
 
-class MemoryTypeDef(BaseModel):
+class MemoryTypeDef(BaseValidatorModel):
     sessionSummary: Optional[MemorySessionSummaryTypeDef] = None
 
-class OrchestrationConfigurationTypeDef(BaseModel):
+class OrchestrationConfigurationTypeDef(BaseValidatorModel):
     queryTransformationConfiguration: QueryTransformationConfigurationTypeDef
 
-class PostProcessingModelInvocationOutputTypeDef(BaseModel):
+class PostProcessingModelInvocationOutputTypeDef(BaseValidatorModel):
     parsedResponse: Optional[PostProcessingParsedResponseTypeDef] = None
     traceId: Optional[str] = None
 
-class PreProcessingModelInvocationOutputTypeDef(BaseModel):
+class PreProcessingModelInvocationOutputTypeDef(BaseValidatorModel):
     parsedResponse: Optional[PreProcessingParsedResponseTypeDef] = None
     traceId: Optional[str] = None
 
-class RetrievalResultLocationTypeDef(BaseModel):
+class RetrievalResultLocationTypeDef(BaseValidatorModel):
     type: RetrievalResultLocationTypeType
     confluenceLocation: Optional[RetrievalResultConfluenceLocationTypeDef] = None
     s3Location: Optional[RetrievalResultS3LocationTypeDef] = None
@@ -365,14 +365,14 @@ class RetrievalResultLocationTypeDef(BaseModel):
     sharePointLocation: Optional[RetrievalResultSharePointLocationTypeDef] = None
     webLocation: Optional[RetrievalResultWebLocationTypeDef] = None
 
-class TextResponsePartTypeDef(BaseModel):
+class TextResponsePartTypeDef(BaseValidatorModel):
     span: Optional[SpanTypeDef] = None
     text: Optional[str] = None
 
-class ApiRequestBodyTypeDef(BaseModel):
+class ApiRequestBodyTypeDef(BaseValidatorModel):
     content: Optional[Dict[str, PropertyParametersTypeDef]] = None
 
-class ActionGroupInvocationInputTypeDef(BaseModel):
+class ActionGroupInvocationInputTypeDef(BaseValidatorModel):
     actionGroupName: Optional[str] = None
     apiPath: Optional[str] = None
     executionType: Optional[ExecutionTypeType] = None
@@ -382,26 +382,26 @@ class ActionGroupInvocationInputTypeDef(BaseModel):
     requestBody: Optional[RequestBodyTypeDef] = None
     verb: Optional[str] = None
 
-class InvocationResultMemberTypeDef(BaseModel):
+class InvocationResultMemberTypeDef(BaseValidatorModel):
     apiResult: Optional[ApiResultTypeDef] = None
     functionResult: Optional[FunctionResultTypeDef] = None
 
-class ExternalSourceTypeDef(BaseModel):
+class ExternalSourceTypeDef(BaseValidatorModel):
     sourceType: ExternalSourceTypeType
     byteContent: Optional[ByteContentDocTypeDef] = None
     s3Location: Optional[S3ObjectDocTypeDef] = None
 
-class FileSourceTypeDef(BaseModel):
+class FileSourceTypeDef(BaseValidatorModel):
     sourceType: FileSourceTypeType
     byteContent: Optional[ByteContentFileTypeDef] = None
     s3Location: Optional[S3ObjectFileTypeDef] = None
 
-class InvokeFlowRequestRequestTypeDef(BaseModel):
+class InvokeFlowRequestRequestTypeDef(BaseValidatorModel):
     flowAliasIdentifier: str
     flowIdentifier: str
     inputs: Sequence[FlowInputTypeDef]
 
-class FlowResponseStreamTypeDef(BaseModel):
+class FlowResponseStreamTypeDef(BaseValidatorModel):
     accessDeniedException: Optional[AccessDeniedExceptionTypeDef] = None
     badGatewayException: Optional[BadGatewayExceptionTypeDef] = None
     conflictException: Optional[ConflictExceptionTypeDef] = None
@@ -414,125 +414,125 @@ class FlowResponseStreamTypeDef(BaseModel):
     throttlingException: Optional[ThrottlingExceptionTypeDef] = None
     validationException: Optional[ValidationExceptionTypeDef] = None
 
-class GuardrailAssessmentTypeDef(BaseModel):
+class GuardrailAssessmentTypeDef(BaseValidatorModel):
     contentPolicy: Optional[GuardrailContentPolicyAssessmentTypeDef] = None
     sensitiveInformationPolicy: Optional[       GuardrailSensitiveInformationPolicyAssessmentTypeDef     ] = None
     topicPolicy: Optional[GuardrailTopicPolicyAssessmentTypeDef] = None
     wordPolicy: Optional[GuardrailWordPolicyAssessmentTypeDef] = None
 
-class ExternalSourcesGenerationConfigurationTypeDef(BaseModel):
+class ExternalSourcesGenerationConfigurationTypeDef(BaseValidatorModel):
     additionalModelRequestFields: Optional[Mapping[str, Mapping[str, Any]]] = None
     guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
     inferenceConfig: Optional[InferenceConfigTypeDef] = None
     promptTemplate: Optional[PromptTemplateTypeDef] = None
 
-class GenerationConfigurationTypeDef(BaseModel):
+class GenerationConfigurationTypeDef(BaseValidatorModel):
     additionalModelRequestFields: Optional[Mapping[str, Mapping[str, Any]]] = None
     guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
     inferenceConfig: Optional[InferenceConfigTypeDef] = None
     promptTemplate: Optional[PromptTemplateTypeDef] = None
 
-class KnowledgeBaseConfigurationTypeDef(BaseModel):
+class KnowledgeBaseConfigurationTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     retrievalConfiguration: KnowledgeBaseRetrievalConfigurationTypeDef
 
-class RetrieveRequestRequestTypeDef(BaseModel):
+class RetrieveRequestRequestTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     retrievalQuery: KnowledgeBaseQueryTypeDef
     nextToken: Optional[str] = None
     retrievalConfiguration: Optional[KnowledgeBaseRetrievalConfigurationTypeDef] = None
 
-class RetrieveRequestRetrievePaginateTypeDef(BaseModel):
+class RetrieveRequestRetrievePaginateTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     retrievalQuery: KnowledgeBaseQueryTypeDef
     retrievalConfiguration: Optional[KnowledgeBaseRetrievalConfigurationTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetAgentMemoryResponseTypeDef(BaseModel):
+class GetAgentMemoryResponseTypeDef(BaseValidatorModel):
     memoryContents: List[MemoryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PostProcessingTraceTypeDef(BaseModel):
+class PostProcessingTraceTypeDef(BaseValidatorModel):
     modelInvocationInput: Optional[ModelInvocationInputTypeDef] = None
     modelInvocationOutput: Optional[PostProcessingModelInvocationOutputTypeDef] = None
 
-class PreProcessingTraceTypeDef(BaseModel):
+class PreProcessingTraceTypeDef(BaseValidatorModel):
     modelInvocationInput: Optional[ModelInvocationInputTypeDef] = None
     modelInvocationOutput: Optional[PreProcessingModelInvocationOutputTypeDef] = None
 
-class KnowledgeBaseRetrievalResultTypeDef(BaseModel):
+class KnowledgeBaseRetrievalResultTypeDef(BaseValidatorModel):
     content: RetrievalResultContentTypeDef
     location: Optional[RetrievalResultLocationTypeDef] = None
     metadata: Optional[Dict[str, Dict[str, Any]]] = None
     score: Optional[float] = None
 
-class RetrievedReferenceTypeDef(BaseModel):
+class RetrievedReferenceTypeDef(BaseValidatorModel):
     content: Optional[RetrievalResultContentTypeDef] = None
     location: Optional[RetrievalResultLocationTypeDef] = None
     metadata: Optional[Dict[str, Dict[str, Any]]] = None
 
-class GeneratedResponsePartTypeDef(BaseModel):
+class GeneratedResponsePartTypeDef(BaseValidatorModel):
     textResponsePart: Optional[TextResponsePartTypeDef] = None
 
-class ApiInvocationInputTypeDef(BaseModel):
+class ApiInvocationInputTypeDef(BaseValidatorModel):
     actionGroup: str
     apiPath: Optional[str] = None
     httpMethod: Optional[str] = None
     parameters: Optional[List[ApiParameterTypeDef]] = None
     requestBody: Optional[ApiRequestBodyTypeDef] = None
 
-class InvocationInputTypeDef(BaseModel):
+class InvocationInputTypeDef(BaseValidatorModel):
     actionGroupInvocationInput: Optional[ActionGroupInvocationInputTypeDef] = None
     codeInterpreterInvocationInput: Optional[CodeInterpreterInvocationInputTypeDef] = None
     invocationType: Optional[InvocationTypeType] = None
     knowledgeBaseLookupInput: Optional[KnowledgeBaseLookupInputTypeDef] = None
     traceId: Optional[str] = None
 
-class InputFileTypeDef(BaseModel):
+class InputFileTypeDef(BaseValidatorModel):
     name: str
     source: FileSourceTypeDef
     useCase: FileUseCaseType
 
-class InvokeFlowResponseTypeDef(BaseModel):
+class InvokeFlowResponseTypeDef(BaseValidatorModel):
     responseStream: "EventStream[FlowResponseStreamTypeDef]"
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GuardrailTraceTypeDef(BaseModel):
+class GuardrailTraceTypeDef(BaseValidatorModel):
     action: Optional[GuardrailActionType] = None
     inputAssessments: Optional[List[GuardrailAssessmentTypeDef]] = None
     outputAssessments: Optional[List[GuardrailAssessmentTypeDef]] = None
     traceId: Optional[str] = None
 
-class ExternalSourcesRetrieveAndGenerateConfigurationTypeDef(BaseModel):
+class ExternalSourcesRetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
     modelArn: str
     sources: Sequence[ExternalSourceTypeDef]
     generationConfiguration: Optional[ExternalSourcesGenerationConfigurationTypeDef] = None
 
-class KnowledgeBaseRetrieveAndGenerateConfigurationTypeDef(BaseModel):
+class KnowledgeBaseRetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
     knowledgeBaseId: str
     modelArn: str
     generationConfiguration: Optional[GenerationConfigurationTypeDef] = None
     orchestrationConfiguration: Optional[OrchestrationConfigurationTypeDef] = None
     retrievalConfiguration: Optional[KnowledgeBaseRetrievalConfigurationTypeDef] = None
 
-class RetrieveResponseTypeDef(BaseModel):
+class RetrieveResponseTypeDef(BaseValidatorModel):
     nextToken: str
     retrievalResults: List[KnowledgeBaseRetrievalResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class KnowledgeBaseLookupOutputTypeDef(BaseModel):
+class KnowledgeBaseLookupOutputTypeDef(BaseValidatorModel):
     retrievedReferences: Optional[List[RetrievedReferenceTypeDef]] = None
 
-class CitationTypeDef(BaseModel):
+class CitationTypeDef(BaseValidatorModel):
     generatedResponsePart: Optional[GeneratedResponsePartTypeDef] = None
     retrievedReferences: Optional[List[RetrievedReferenceTypeDef]] = None
 
-class InvocationInputMemberTypeDef(BaseModel):
+class InvocationInputMemberTypeDef(BaseValidatorModel):
     apiInvocationInput: Optional[ApiInvocationInputTypeDef] = None
     functionInvocationInput: Optional[FunctionInvocationInputTypeDef] = None
 
-class SessionStateTypeDef(BaseModel):
+class SessionStateTypeDef(BaseValidatorModel):
     files: Optional[Sequence[InputFileTypeDef]] = None
     invocationId: Optional[str] = None
     knowledgeBaseConfigurations: Optional[Sequence[KnowledgeBaseConfigurationTypeDef]] = None
@@ -540,12 +540,12 @@ class SessionStateTypeDef(BaseModel):
     returnControlInvocationResults: Optional[Sequence[InvocationResultMemberTypeDef]] = None
     sessionAttributes: Optional[Mapping[str, str]] = None
 
-class RetrieveAndGenerateConfigurationTypeDef(BaseModel):
+class RetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
     type: RetrieveAndGenerateTypeType
     externalSourcesConfiguration: Optional[       ExternalSourcesRetrieveAndGenerateConfigurationTypeDef     ] = None
     knowledgeBaseConfiguration: Optional[       KnowledgeBaseRetrieveAndGenerateConfigurationTypeDef     ] = None
 
-class ObservationTypeDef(BaseModel):
+class ObservationTypeDef(BaseValidatorModel):
     actionGroupInvocationOutput: Optional[ActionGroupInvocationOutputTypeDef] = None
     codeInterpreterInvocationOutput: Optional[CodeInterpreterInvocationOutputTypeDef] = None
     finalResponse: Optional[FinalResponseTypeDef] = None
@@ -554,21 +554,21 @@ class ObservationTypeDef(BaseModel):
     traceId: Optional[str] = None
     type: Optional[TypeType] = None
 
-class AttributionTypeDef(BaseModel):
+class AttributionTypeDef(BaseValidatorModel):
     citations: Optional[List[CitationTypeDef]] = None
 
-class RetrieveAndGenerateResponseTypeDef(BaseModel):
+class RetrieveAndGenerateResponseTypeDef(BaseValidatorModel):
     citations: List[CitationTypeDef]
     guardrailAction: GuadrailActionType
     output: RetrieveAndGenerateOutputTypeDef
     sessionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReturnControlPayloadTypeDef(BaseModel):
+class ReturnControlPayloadTypeDef(BaseValidatorModel):
     invocationId: Optional[str] = None
     invocationInputs: Optional[List[InvocationInputMemberTypeDef]] = None
 
-class InvokeAgentRequestRequestTypeDef(BaseModel):
+class InvokeAgentRequestRequestTypeDef(BaseValidatorModel):
     agentAliasId: str
     agentId: str
     sessionId: str
@@ -578,37 +578,37 @@ class InvokeAgentRequestRequestTypeDef(BaseModel):
     memoryId: Optional[str] = None
     sessionState: Optional[SessionStateTypeDef] = None
 
-class RetrieveAndGenerateRequestRequestTypeDef(BaseModel):
+class RetrieveAndGenerateRequestRequestTypeDef(BaseValidatorModel):
     input: RetrieveAndGenerateInputTypeDef
     retrieveAndGenerateConfiguration: Optional[RetrieveAndGenerateConfigurationTypeDef] = None
     sessionConfiguration: Optional[RetrieveAndGenerateSessionConfigurationTypeDef] = None
     sessionId: Optional[str] = None
 
-class OrchestrationTraceTypeDef(BaseModel):
+class OrchestrationTraceTypeDef(BaseValidatorModel):
     invocationInput: Optional[InvocationInputTypeDef] = None
     modelInvocationInput: Optional[ModelInvocationInputTypeDef] = None
     observation: Optional[ObservationTypeDef] = None
     rationale: Optional[RationaleTypeDef] = None
 
-class PayloadPartTypeDef(BaseModel):
+class PayloadPartTypeDef(BaseValidatorModel):
     attribution: Optional[AttributionTypeDef] = None
     bytes: Optional[bytes] = None
 
-class TraceTypeDef(BaseModel):
+class TraceTypeDef(BaseValidatorModel):
     failureTrace: Optional[FailureTraceTypeDef] = None
     guardrailTrace: Optional[GuardrailTraceTypeDef] = None
     orchestrationTrace: Optional[OrchestrationTraceTypeDef] = None
     postProcessingTrace: Optional[PostProcessingTraceTypeDef] = None
     preProcessingTrace: Optional[PreProcessingTraceTypeDef] = None
 
-class TracePartTypeDef(BaseModel):
+class TracePartTypeDef(BaseValidatorModel):
     agentAliasId: Optional[str] = None
     agentId: Optional[str] = None
     agentVersion: Optional[str] = None
     sessionId: Optional[str] = None
     trace: Optional[TraceTypeDef] = None
 
-class ResponseStreamTypeDef(BaseModel):
+class ResponseStreamTypeDef(BaseValidatorModel):
     accessDeniedException: Optional[AccessDeniedExceptionTypeDef] = None
     badGatewayException: Optional[BadGatewayExceptionTypeDef] = None
     chunk: Optional[PayloadPartTypeDef] = None
@@ -623,7 +623,7 @@ class ResponseStreamTypeDef(BaseModel):
     trace: Optional[TracePartTypeDef] = None
     validationException: Optional[ValidationExceptionTypeDef] = None
 
-class InvokeAgentResponseTypeDef(BaseModel):
+class InvokeAgentResponseTypeDef(BaseValidatorModel):
     completion: "EventStream[ResponseStreamTypeDef]"
     contentType: str
     memoryId: str

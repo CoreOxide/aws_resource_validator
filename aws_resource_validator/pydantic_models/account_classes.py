@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,26 +11,26 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.account_constants import *
 
-class AcceptPrimaryEmailUpdateRequestRequestTypeDef(BaseModel):
+class AcceptPrimaryEmailUpdateRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Otp: str
     PrimaryEmail: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AlternateContactTypeDef(BaseModel):
+class AlternateContactTypeDef(BaseValidatorModel):
     AlternateContactType: Optional[AlternateContactTypeType] = None
     EmailAddress: Optional[str] = None
     Name: Optional[str] = None
     PhoneNumber: Optional[str] = None
     Title: Optional[str] = None
 
-class ContactInformationTypeDef(BaseModel):
+class ContactInformationTypeDef(BaseValidatorModel):
     AddressLine1: str
     City: str
     CountryCode: str
@@ -44,48 +44,48 @@ class ContactInformationTypeDef(BaseModel):
     StateOrRegion: Optional[str] = None
     WebsiteUrl: Optional[str] = None
 
-class DeleteAlternateContactRequestRequestTypeDef(BaseModel):
+class DeleteAlternateContactRequestRequestTypeDef(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
     AccountId: Optional[str] = None
 
-class DisableRegionRequestRequestTypeDef(BaseModel):
+class DisableRegionRequestRequestTypeDef(BaseValidatorModel):
     RegionName: str
     AccountId: Optional[str] = None
 
-class EnableRegionRequestRequestTypeDef(BaseModel):
+class EnableRegionRequestRequestTypeDef(BaseValidatorModel):
     RegionName: str
     AccountId: Optional[str] = None
 
-class GetAlternateContactRequestRequestTypeDef(BaseModel):
+class GetAlternateContactRequestRequestTypeDef(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
     AccountId: Optional[str] = None
 
-class GetContactInformationRequestRequestTypeDef(BaseModel):
+class GetContactInformationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
-class GetPrimaryEmailRequestRequestTypeDef(BaseModel):
+class GetPrimaryEmailRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class GetRegionOptStatusRequestRequestTypeDef(BaseModel):
+class GetRegionOptStatusRequestRequestTypeDef(BaseValidatorModel):
     RegionName: str
     AccountId: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListRegionsRequestRequestTypeDef(BaseModel):
+class ListRegionsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     RegionOptStatusContains: Optional[Sequence[RegionOptStatusType]] = None
 
-class RegionTypeDef(BaseModel):
+class RegionTypeDef(BaseValidatorModel):
     RegionName: Optional[str] = None
     RegionOptStatus: Optional[RegionOptStatusType] = None
 
-class PutAlternateContactRequestRequestTypeDef(BaseModel):
+class PutAlternateContactRequestRequestTypeDef(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
     EmailAddress: str
     Name: str
@@ -93,48 +93,48 @@ class PutAlternateContactRequestRequestTypeDef(BaseModel):
     Title: str
     AccountId: Optional[str] = None
 
-class StartPrimaryEmailUpdateRequestRequestTypeDef(BaseModel):
+class StartPrimaryEmailUpdateRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     PrimaryEmail: str
 
-class AcceptPrimaryEmailUpdateResponseTypeDef(BaseModel):
+class AcceptPrimaryEmailUpdateResponseTypeDef(BaseValidatorModel):
     Status: PrimaryEmailUpdateStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPrimaryEmailResponseTypeDef(BaseModel):
+class GetPrimaryEmailResponseTypeDef(BaseValidatorModel):
     PrimaryEmail: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRegionOptStatusResponseTypeDef(BaseModel):
+class GetRegionOptStatusResponseTypeDef(BaseValidatorModel):
     RegionName: str
     RegionOptStatus: RegionOptStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartPrimaryEmailUpdateResponseTypeDef(BaseModel):
+class StartPrimaryEmailUpdateResponseTypeDef(BaseValidatorModel):
     Status: PrimaryEmailUpdateStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAlternateContactResponseTypeDef(BaseModel):
+class GetAlternateContactResponseTypeDef(BaseValidatorModel):
     AlternateContact: AlternateContactTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContactInformationResponseTypeDef(BaseModel):
+class GetContactInformationResponseTypeDef(BaseValidatorModel):
     ContactInformation: ContactInformationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutContactInformationRequestRequestTypeDef(BaseModel):
+class PutContactInformationRequestRequestTypeDef(BaseValidatorModel):
     ContactInformation: ContactInformationTypeDef
     AccountId: Optional[str] = None
 
-class ListRegionsRequestListRegionsPaginateTypeDef(BaseModel):
+class ListRegionsRequestListRegionsPaginateTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     RegionOptStatusContains: Optional[Sequence[RegionOptStatusType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRegionsResponseTypeDef(BaseModel):
+class ListRegionsResponseTypeDef(BaseValidatorModel):
     Regions: List[RegionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

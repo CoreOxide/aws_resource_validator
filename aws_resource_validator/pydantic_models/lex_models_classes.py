@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.lex_models_constants import *
 
-class BotChannelAssociationTypeDef(BaseModel):
+class BotChannelAssociationTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     botAlias: Optional[str] = None
@@ -22,7 +22,7 @@ class BotChannelAssociationTypeDef(BaseModel):
     status: Optional[ChannelStatusType] = None
     failureReason: Optional[str] = None
 
-class BotMetadataTypeDef(BaseModel):
+class BotMetadataTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     status: Optional[StatusType] = None
@@ -30,204 +30,204 @@ class BotMetadataTypeDef(BaseModel):
     createdDate: Optional[datetime] = None
     version: Optional[str] = None
 
-class BuiltinIntentMetadataTypeDef(BaseModel):
+class BuiltinIntentMetadataTypeDef(BaseValidatorModel):
     signature: Optional[str] = None
     supportedLocales: Optional[List[LocaleType]] = None
 
-class BuiltinIntentSlotTypeDef(BaseModel):
+class BuiltinIntentSlotTypeDef(BaseValidatorModel):
     name: Optional[str] = None
 
-class BuiltinSlotTypeMetadataTypeDef(BaseModel):
+class BuiltinSlotTypeMetadataTypeDef(BaseValidatorModel):
     signature: Optional[str] = None
     supportedLocales: Optional[List[LocaleType]] = None
 
-class CodeHookTypeDef(BaseModel):
+class CodeHookTypeDef(BaseValidatorModel):
     uri: str
     messageVersion: str
 
-class LogSettingsRequestTypeDef(BaseModel):
+class LogSettingsRequestTypeDef(BaseValidatorModel):
     logType: LogTypeType
     destination: DestinationType
     resourceArn: str
     kmsKeyArn: Optional[str] = None
 
-class LogSettingsResponseTypeDef(BaseModel):
+class LogSettingsResponseTypeDef(BaseValidatorModel):
     logType: Optional[LogTypeType] = None
     destination: Optional[DestinationType] = None
     kmsKeyArn: Optional[str] = None
     resourceArn: Optional[str] = None
     resourcePrefix: Optional[str] = None
 
-class CreateBotVersionRequestRequestTypeDef(BaseModel):
+class CreateBotVersionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     checksum: Optional[str] = None
 
-class IntentTypeDef(BaseModel):
+class IntentTypeDef(BaseValidatorModel):
     intentName: str
     intentVersion: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateIntentVersionRequestRequestTypeDef(BaseModel):
+class CreateIntentVersionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     checksum: Optional[str] = None
 
-class InputContextTypeDef(BaseModel):
+class InputContextTypeDef(BaseValidatorModel):
     name: str
 
-class KendraConfigurationTypeDef(BaseModel):
+class KendraConfigurationTypeDef(BaseValidatorModel):
     kendraIndex: str
     role: str
     queryFilterString: Optional[str] = None
 
-class OutputContextTypeDef(BaseModel):
+class OutputContextTypeDef(BaseValidatorModel):
     name: str
     timeToLiveInSeconds: int
     turnsToLive: int
 
-class CreateSlotTypeVersionRequestRequestTypeDef(BaseModel):
+class CreateSlotTypeVersionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     checksum: Optional[str] = None
 
-class EnumerationValueTypeDef(BaseModel):
+class EnumerationValueTypeDef(BaseValidatorModel):
     value: str
     synonyms: Optional[List[str]] = None
 
-class DeleteBotAliasRequestRequestTypeDef(BaseModel):
+class DeleteBotAliasRequestRequestTypeDef(BaseValidatorModel):
     name: str
     botName: str
 
-class DeleteBotChannelAssociationRequestRequestTypeDef(BaseModel):
+class DeleteBotChannelAssociationRequestRequestTypeDef(BaseValidatorModel):
     name: str
     botName: str
     botAlias: str
 
-class DeleteBotRequestRequestTypeDef(BaseModel):
+class DeleteBotRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteBotVersionRequestRequestTypeDef(BaseModel):
-    name: str
-    version: str
-
-class DeleteIntentRequestRequestTypeDef(BaseModel):
-    name: str
-
-class DeleteIntentVersionRequestRequestTypeDef(BaseModel):
+class DeleteBotVersionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     version: str
 
-class DeleteSlotTypeRequestRequestTypeDef(BaseModel):
+class DeleteIntentRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteSlotTypeVersionRequestRequestTypeDef(BaseModel):
+class DeleteIntentVersionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     version: str
 
-class DeleteUtterancesRequestRequestTypeDef(BaseModel):
+class DeleteSlotTypeRequestRequestTypeDef(BaseValidatorModel):
+    name: str
+
+class DeleteSlotTypeVersionRequestRequestTypeDef(BaseValidatorModel):
+    name: str
+    version: str
+
+class DeleteUtterancesRequestRequestTypeDef(BaseValidatorModel):
     botName: str
     userId: str
 
-class GetBotAliasRequestRequestTypeDef(BaseModel):
+class GetBotAliasRequestRequestTypeDef(BaseValidatorModel):
     name: str
     botName: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetBotAliasesRequestRequestTypeDef(BaseModel):
+class GetBotAliasesRequestRequestTypeDef(BaseValidatorModel):
     botName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     nameContains: Optional[str] = None
 
-class GetBotChannelAssociationRequestRequestTypeDef(BaseModel):
+class GetBotChannelAssociationRequestRequestTypeDef(BaseValidatorModel):
     name: str
     botName: str
     botAlias: str
 
-class GetBotChannelAssociationsRequestRequestTypeDef(BaseModel):
+class GetBotChannelAssociationsRequestRequestTypeDef(BaseValidatorModel):
     botName: str
     botAlias: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     nameContains: Optional[str] = None
 
-class GetBotRequestRequestTypeDef(BaseModel):
+class GetBotRequestRequestTypeDef(BaseValidatorModel):
     name: str
     versionOrAlias: str
 
-class GetBotVersionsRequestRequestTypeDef(BaseModel):
+class GetBotVersionsRequestRequestTypeDef(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetBotsRequestRequestTypeDef(BaseModel):
+class GetBotsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     nameContains: Optional[str] = None
 
-class GetBuiltinIntentRequestRequestTypeDef(BaseModel):
+class GetBuiltinIntentRequestRequestTypeDef(BaseValidatorModel):
     signature: str
 
-class GetBuiltinIntentsRequestRequestTypeDef(BaseModel):
+class GetBuiltinIntentsRequestRequestTypeDef(BaseValidatorModel):
     locale: Optional[LocaleType] = None
     signatureContains: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetBuiltinSlotTypesRequestRequestTypeDef(BaseModel):
+class GetBuiltinSlotTypesRequestRequestTypeDef(BaseValidatorModel):
     locale: Optional[LocaleType] = None
     signatureContains: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetExportRequestRequestTypeDef(BaseModel):
+class GetExportRequestRequestTypeDef(BaseValidatorModel):
     name: str
     version: str
     resourceType: ResourceTypeType
     exportType: ExportTypeType
 
-class GetImportRequestRequestTypeDef(BaseModel):
+class GetImportRequestRequestTypeDef(BaseValidatorModel):
     importId: str
 
-class GetIntentRequestRequestTypeDef(BaseModel):
+class GetIntentRequestRequestTypeDef(BaseValidatorModel):
     name: str
     version: str
 
-class GetIntentVersionsRequestRequestTypeDef(BaseModel):
+class GetIntentVersionsRequestRequestTypeDef(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class IntentMetadataTypeDef(BaseModel):
+class IntentMetadataTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     lastUpdatedDate: Optional[datetime] = None
     createdDate: Optional[datetime] = None
     version: Optional[str] = None
 
-class GetIntentsRequestRequestTypeDef(BaseModel):
+class GetIntentsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     nameContains: Optional[str] = None
 
-class GetMigrationRequestRequestTypeDef(BaseModel):
+class GetMigrationRequestRequestTypeDef(BaseValidatorModel):
     migrationId: str
 
-class MigrationAlertTypeDef(BaseModel):
+class MigrationAlertTypeDef(BaseValidatorModel):
     type: Optional[MigrationAlertTypeType] = None
     message: Optional[str] = None
     details: Optional[List[str]] = None
     referenceURLs: Optional[List[str]] = None
 
-class GetMigrationsRequestRequestTypeDef(BaseModel):
+class GetMigrationsRequestRequestTypeDef(BaseValidatorModel):
     sortByAttribute: Optional[MigrationSortAttributeType] = None
     sortByOrder: Optional[SortOrderType] = None
     v1BotNameContains: Optional[str] = None
@@ -235,7 +235,7 @@ class GetMigrationsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class MigrationSummaryTypeDef(BaseModel):
+class MigrationSummaryTypeDef(BaseValidatorModel):
     migrationId: Optional[str] = None
     v1BotName: Optional[str] = None
     v1BotVersion: Optional[str] = None
@@ -246,84 +246,84 @@ class MigrationSummaryTypeDef(BaseModel):
     migrationStrategy: Optional[MigrationStrategyType] = None
     migrationTimestamp: Optional[datetime] = None
 
-class GetSlotTypeRequestRequestTypeDef(BaseModel):
+class GetSlotTypeRequestRequestTypeDef(BaseValidatorModel):
     name: str
     version: str
 
-class GetSlotTypeVersionsRequestRequestTypeDef(BaseModel):
+class GetSlotTypeVersionsRequestRequestTypeDef(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class SlotTypeMetadataTypeDef(BaseModel):
+class SlotTypeMetadataTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     lastUpdatedDate: Optional[datetime] = None
     createdDate: Optional[datetime] = None
     version: Optional[str] = None
 
-class GetSlotTypesRequestRequestTypeDef(BaseModel):
+class GetSlotTypesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     nameContains: Optional[str] = None
 
-class GetUtterancesViewRequestRequestTypeDef(BaseModel):
+class GetUtterancesViewRequestRequestTypeDef(BaseValidatorModel):
     botName: str
     botVersions: Sequence[str]
     statusType: StatusTypeType
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class MessageTypeDef(BaseModel):
+class MessageTypeDef(BaseValidatorModel):
     contentType: ContentTypeType
     content: str
     groupNumber: Optional[int] = None
 
-class SlotDefaultValueTypeDef(BaseModel):
+class SlotDefaultValueTypeDef(BaseValidatorModel):
     defaultValue: str
 
-class SlotTypeRegexConfigurationTypeDef(BaseModel):
+class SlotTypeRegexConfigurationTypeDef(BaseValidatorModel):
     pattern: str
 
-class StartMigrationRequestRequestTypeDef(BaseModel):
+class StartMigrationRequestRequestTypeDef(BaseValidatorModel):
     v1BotName: str
     v1BotVersion: str
     v2BotName: str
     v2BotRole: str
     migrationStrategy: MigrationStrategyType
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UtteranceDataTypeDef(BaseModel):
+class UtteranceDataTypeDef(BaseValidatorModel):
     utteranceString: Optional[str] = None
     count: Optional[int] = None
     distinctUsers: Optional[int] = None
     firstUtteredDate: Optional[datetime] = None
     lastUtteredDate: Optional[datetime] = None
 
-class FulfillmentActivityTypeDef(BaseModel):
+class FulfillmentActivityTypeDef(BaseValidatorModel):
     type: FulfillmentActivityTypeType
     codeHook: Optional[CodeHookTypeDef] = None
 
-class ConversationLogsRequestTypeDef(BaseModel):
+class ConversationLogsRequestTypeDef(BaseValidatorModel):
     logSettings: Sequence[LogSettingsRequestTypeDef]
     iamRoleArn: str
 
-class ConversationLogsResponseTypeDef(BaseModel):
+class ConversationLogsResponseTypeDef(BaseValidatorModel):
     logSettings: Optional[List[LogSettingsResponseTypeDef]] = None
     iamRoleArn: Optional[str] = None
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBotChannelAssociationResponseTypeDef(BaseModel):
+class GetBotChannelAssociationResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     botAlias: str
@@ -335,38 +335,38 @@ class GetBotChannelAssociationResponseTypeDef(BaseModel):
     failureReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBotChannelAssociationsResponseTypeDef(BaseModel):
+class GetBotChannelAssociationsResponseTypeDef(BaseValidatorModel):
     botChannelAssociations: List[BotChannelAssociationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBotVersionsResponseTypeDef(BaseModel):
+class GetBotVersionsResponseTypeDef(BaseValidatorModel):
     bots: List[BotMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBotsResponseTypeDef(BaseModel):
+class GetBotsResponseTypeDef(BaseValidatorModel):
     bots: List[BotMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBuiltinIntentResponseTypeDef(BaseModel):
+class GetBuiltinIntentResponseTypeDef(BaseValidatorModel):
     signature: str
     supportedLocales: List[LocaleType]
     slots: List[BuiltinIntentSlotTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBuiltinIntentsResponseTypeDef(BaseModel):
+class GetBuiltinIntentsResponseTypeDef(BaseValidatorModel):
     intents: List[BuiltinIntentMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBuiltinSlotTypesResponseTypeDef(BaseModel):
+class GetBuiltinSlotTypesResponseTypeDef(BaseValidatorModel):
     slotTypes: List[BuiltinSlotTypeMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetExportResponseTypeDef(BaseModel):
+class GetExportResponseTypeDef(BaseValidatorModel):
     name: str
     version: str
     resourceType: ResourceTypeType
@@ -376,7 +376,7 @@ class GetExportResponseTypeDef(BaseModel):
     url: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImportResponseTypeDef(BaseModel):
+class GetImportResponseTypeDef(BaseValidatorModel):
     name: str
     resourceType: ResourceTypeType
     mergeStrategy: MergeStrategyType
@@ -386,7 +386,7 @@ class GetImportResponseTypeDef(BaseModel):
     createdDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMigrationResponseTypeDef(BaseModel):
+class StartMigrationResponseTypeDef(BaseValidatorModel):
     v1BotName: str
     v1BotVersion: str
     v1BotLocale: LocaleType
@@ -397,62 +397,62 @@ class StartMigrationResponseTypeDef(BaseModel):
     migrationTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBotAliasesRequestGetBotAliasesPaginateTypeDef(BaseModel):
+class GetBotAliasesRequestGetBotAliasesPaginateTypeDef(BaseValidatorModel):
     botName: str
     nameContains: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetBotChannelAssociationsRequestGetBotChannelAssociationsPaginateTypeDef(BaseModel):
+class GetBotChannelAssociationsRequestGetBotChannelAssociationsPaginateTypeDef(BaseValidatorModel):
     botName: str
     botAlias: str
     nameContains: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetBotVersionsRequestGetBotVersionsPaginateTypeDef(BaseModel):
+class GetBotVersionsRequestGetBotVersionsPaginateTypeDef(BaseValidatorModel):
     name: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetBotsRequestGetBotsPaginateTypeDef(BaseModel):
+class GetBotsRequestGetBotsPaginateTypeDef(BaseValidatorModel):
     nameContains: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetBuiltinIntentsRequestGetBuiltinIntentsPaginateTypeDef(BaseModel):
+class GetBuiltinIntentsRequestGetBuiltinIntentsPaginateTypeDef(BaseValidatorModel):
     locale: Optional[LocaleType] = None
     signatureContains: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetBuiltinSlotTypesRequestGetBuiltinSlotTypesPaginateTypeDef(BaseModel):
+class GetBuiltinSlotTypesRequestGetBuiltinSlotTypesPaginateTypeDef(BaseValidatorModel):
     locale: Optional[LocaleType] = None
     signatureContains: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetIntentVersionsRequestGetIntentVersionsPaginateTypeDef(BaseModel):
+class GetIntentVersionsRequestGetIntentVersionsPaginateTypeDef(BaseValidatorModel):
     name: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetIntentsRequestGetIntentsPaginateTypeDef(BaseModel):
+class GetIntentsRequestGetIntentsPaginateTypeDef(BaseValidatorModel):
     nameContains: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetSlotTypeVersionsRequestGetSlotTypeVersionsPaginateTypeDef(BaseModel):
+class GetSlotTypeVersionsRequestGetSlotTypeVersionsPaginateTypeDef(BaseValidatorModel):
     name: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetSlotTypesRequestGetSlotTypesPaginateTypeDef(BaseModel):
+class GetSlotTypesRequestGetSlotTypesPaginateTypeDef(BaseValidatorModel):
     nameContains: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetIntentVersionsResponseTypeDef(BaseModel):
+class GetIntentVersionsResponseTypeDef(BaseValidatorModel):
     intents: List[IntentMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIntentsResponseTypeDef(BaseModel):
+class GetIntentsResponseTypeDef(BaseValidatorModel):
     intents: List[IntentMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMigrationResponseTypeDef(BaseModel):
+class GetMigrationResponseTypeDef(BaseValidatorModel):
     migrationId: str
     v1BotName: str
     v1BotVersion: str
@@ -465,32 +465,32 @@ class GetMigrationResponseTypeDef(BaseModel):
     alerts: List[MigrationAlertTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMigrationsResponseTypeDef(BaseModel):
+class GetMigrationsResponseTypeDef(BaseValidatorModel):
     migrationSummaries: List[MigrationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSlotTypeVersionsResponseTypeDef(BaseModel):
+class GetSlotTypeVersionsResponseTypeDef(BaseValidatorModel):
     slotTypes: List[SlotTypeMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSlotTypesResponseTypeDef(BaseModel):
+class GetSlotTypesResponseTypeDef(BaseValidatorModel):
     slotTypes: List[SlotTypeMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartImportRequestRequestTypeDef(BaseModel):
+class StartImportRequestRequestTypeDef(BaseValidatorModel):
     payload: BlobTypeDef
     resourceType: ResourceTypeType
     mergeStrategy: MergeStrategyType
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class StartImportResponseTypeDef(BaseModel):
+class StartImportResponseTypeDef(BaseValidatorModel):
     name: str
     resourceType: ResourceTypeType
     mergeStrategy: MergeStrategyType
@@ -500,30 +500,30 @@ class StartImportResponseTypeDef(BaseModel):
     createdDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class PromptTypeDef(BaseModel):
+class PromptTypeDef(BaseValidatorModel):
     messages: List[MessageTypeDef]
     maxAttempts: int
     responseCard: Optional[str] = None
 
-class StatementTypeDef(BaseModel):
+class StatementTypeDef(BaseValidatorModel):
     messages: List[MessageTypeDef]
     responseCard: Optional[str] = None
 
-class SlotDefaultValueSpecTypeDef(BaseModel):
+class SlotDefaultValueSpecTypeDef(BaseValidatorModel):
     defaultValueList: List[SlotDefaultValueTypeDef]
 
-class SlotTypeConfigurationTypeDef(BaseModel):
+class SlotTypeConfigurationTypeDef(BaseValidatorModel):
     regexConfiguration: Optional[SlotTypeRegexConfigurationTypeDef] = None
 
-class UtteranceListTypeDef(BaseModel):
+class UtteranceListTypeDef(BaseValidatorModel):
     botVersion: Optional[str] = None
     utterances: Optional[List[UtteranceDataTypeDef]] = None
 
-class PutBotAliasRequestRequestTypeDef(BaseModel):
+class PutBotAliasRequestRequestTypeDef(BaseValidatorModel):
     name: str
     botVersion: str
     botName: str
@@ -532,7 +532,7 @@ class PutBotAliasRequestRequestTypeDef(BaseModel):
     conversationLogs: Optional[ConversationLogsRequestTypeDef] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class BotAliasMetadataTypeDef(BaseModel):
+class BotAliasMetadataTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     botVersion: Optional[str] = None
@@ -542,7 +542,7 @@ class BotAliasMetadataTypeDef(BaseModel):
     checksum: Optional[str] = None
     conversationLogs: Optional[ConversationLogsResponseTypeDef] = None
 
-class GetBotAliasResponseTypeDef(BaseModel):
+class GetBotAliasResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     botVersion: str
@@ -553,7 +553,7 @@ class GetBotAliasResponseTypeDef(BaseModel):
     conversationLogs: ConversationLogsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBotAliasResponseTypeDef(BaseModel):
+class PutBotAliasResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     botVersion: str
@@ -565,7 +565,7 @@ class PutBotAliasResponseTypeDef(BaseModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBotVersionResponseTypeDef(BaseModel):
+class CreateBotVersionResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     intents: List[IntentTypeDef]
@@ -585,11 +585,11 @@ class CreateBotVersionResponseTypeDef(BaseModel):
     detectSentiment: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FollowUpPromptTypeDef(BaseModel):
+class FollowUpPromptTypeDef(BaseValidatorModel):
     prompt: PromptTypeDef
     rejectionStatement: StatementTypeDef
 
-class GetBotResponseTypeDef(BaseModel):
+class GetBotResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     intents: List[IntentTypeDef]
@@ -610,7 +610,7 @@ class GetBotResponseTypeDef(BaseModel):
     detectSentiment: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBotRequestRequestTypeDef(BaseModel):
+class PutBotRequestRequestTypeDef(BaseValidatorModel):
     name: str
     locale: LocaleType
     childDirected: bool
@@ -628,7 +628,7 @@ class PutBotRequestRequestTypeDef(BaseModel):
     createVersion: Optional[bool] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class PutBotResponseTypeDef(BaseModel):
+class PutBotResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     intents: List[IntentTypeDef]
@@ -651,7 +651,7 @@ class PutBotResponseTypeDef(BaseModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SlotTypeDef(BaseModel):
+class SlotTypeDef(BaseValidatorModel):
     name: str
     slotConstraint: SlotConstraintType
     description: Optional[str] = None
@@ -664,7 +664,7 @@ class SlotTypeDef(BaseModel):
     obfuscationSetting: Optional[ObfuscationSettingType] = None
     defaultValueSpec: Optional[SlotDefaultValueSpecTypeDef] = None
 
-class CreateSlotTypeVersionResponseTypeDef(BaseModel):
+class CreateSlotTypeVersionResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     enumerationValues: List[EnumerationValueTypeDef]
@@ -677,7 +677,7 @@ class CreateSlotTypeVersionResponseTypeDef(BaseModel):
     slotTypeConfigurations: List[SlotTypeConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSlotTypeResponseTypeDef(BaseModel):
+class GetSlotTypeResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     enumerationValues: List[EnumerationValueTypeDef]
@@ -690,7 +690,7 @@ class GetSlotTypeResponseTypeDef(BaseModel):
     slotTypeConfigurations: List[SlotTypeConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSlotTypeRequestRequestTypeDef(BaseModel):
+class PutSlotTypeRequestRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     enumerationValues: Optional[Sequence[EnumerationValueTypeDef]] = None
@@ -700,7 +700,7 @@ class PutSlotTypeRequestRequestTypeDef(BaseModel):
     parentSlotTypeSignature: Optional[str] = None
     slotTypeConfigurations: Optional[Sequence[SlotTypeConfigurationTypeDef]] = None
 
-class PutSlotTypeResponseTypeDef(BaseModel):
+class PutSlotTypeResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     enumerationValues: List[EnumerationValueTypeDef]
@@ -714,17 +714,17 @@ class PutSlotTypeResponseTypeDef(BaseModel):
     slotTypeConfigurations: List[SlotTypeConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUtterancesViewResponseTypeDef(BaseModel):
+class GetUtterancesViewResponseTypeDef(BaseValidatorModel):
     botName: str
     utterances: List[UtteranceListTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBotAliasesResponseTypeDef(BaseModel):
+class GetBotAliasesResponseTypeDef(BaseValidatorModel):
     BotAliases: List[BotAliasMetadataTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateIntentVersionResponseTypeDef(BaseModel):
+class CreateIntentVersionResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     slots: List[SlotTypeDef]
@@ -745,7 +745,7 @@ class CreateIntentVersionResponseTypeDef(BaseModel):
     outputContexts: List[OutputContextTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIntentResponseTypeDef(BaseModel):
+class GetIntentResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     slots: List[SlotTypeDef]
@@ -766,7 +766,7 @@ class GetIntentResponseTypeDef(BaseModel):
     outputContexts: List[OutputContextTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutIntentRequestRequestTypeDef(BaseModel):
+class PutIntentRequestRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     slots: Optional[Sequence[SlotTypeDef]] = None
@@ -784,7 +784,7 @@ class PutIntentRequestRequestTypeDef(BaseModel):
     inputContexts: Optional[Sequence[InputContextTypeDef]] = None
     outputContexts: Optional[Sequence[OutputContextTypeDef]] = None
 
-class PutIntentResponseTypeDef(BaseModel):
+class PutIntentResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     slots: List[SlotTypeDef]

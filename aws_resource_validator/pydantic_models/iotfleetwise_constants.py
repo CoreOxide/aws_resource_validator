@@ -489,6 +489,6 @@ PaginatorName = Literal["get_vehicle_status",
     "list_vehicles",
     "list_vehicles_in_fleet",]
 RegionName = Literal["eu-central-1", "us-east-1"]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 TimestampTypeDef = Union[datetime, str]
 NodeUnionTypeDef = Union['NodeTypeDef', 'NodeExtraOutputTypeDef']

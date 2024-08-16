@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,34 +11,34 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.nimble_constants import *
 
-class AcceptEulasRequestRequestTypeDef(BaseModel):
+class AcceptEulasRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     clientToken: Optional[str] = None
     eulaIds: Optional[Sequence[str]] = None
 
-class EulaAcceptanceTypeDef(BaseModel):
+class EulaAcceptanceTypeDef(BaseValidatorModel):
     acceptedAt: Optional[datetime] = None
     acceptedBy: Optional[str] = None
     accepteeId: Optional[str] = None
     eulaAcceptanceId: Optional[str] = None
     eulaId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class ActiveDirectoryComputerAttributeTypeDef(BaseModel):
+class ActiveDirectoryComputerAttributeTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
 
-class ComputeFarmConfigurationTypeDef(BaseModel):
+class ComputeFarmConfigurationTypeDef(BaseValidatorModel):
     activeDirectoryUser: Optional[str] = None
     endpoint: Optional[str] = None
 
-class CreateStreamingImageRequestRequestTypeDef(BaseModel):
+class CreateStreamingImageRequestRequestTypeDef(BaseValidatorModel):
     ec2ImageId: str
     name: str
     studioId: str
@@ -46,7 +46,7 @@ class CreateStreamingImageRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateStreamingSessionRequestRequestTypeDef(BaseModel):
+class CreateStreamingSessionRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     studioId: str
     clientToken: Optional[str] = None
@@ -55,13 +55,13 @@ class CreateStreamingSessionRequestRequestTypeDef(BaseModel):
     streamingImageId: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateStreamingSessionStreamRequestRequestTypeDef(BaseModel):
+class CreateStreamingSessionStreamRequestRequestTypeDef(BaseValidatorModel):
     sessionId: str
     studioId: str
     clientToken: Optional[str] = None
     expirationInSeconds: Optional[int] = None
 
-class StreamingSessionStreamTypeDef(BaseModel):
+class StreamingSessionStreamTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     expiresAt: Optional[datetime] = None
@@ -71,70 +71,70 @@ class StreamingSessionStreamTypeDef(BaseModel):
     streamId: Optional[str] = None
     url: Optional[str] = None
 
-class ScriptParameterKeyValueTypeDef(BaseModel):
+class ScriptParameterKeyValueTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
-class StudioComponentInitializationScriptTypeDef(BaseModel):
+class StudioComponentInitializationScriptTypeDef(BaseValidatorModel):
     launchProfileProtocolVersion: Optional[str] = None
     platform: Optional[LaunchProfilePlatformType] = None
     runContext: Optional[StudioComponentInitializationScriptRunContextType] = None
     script: Optional[str] = None
 
-class StudioEncryptionConfigurationTypeDef(BaseModel):
+class StudioEncryptionConfigurationTypeDef(BaseValidatorModel):
     keyType: StudioEncryptionConfigurationKeyTypeType
     keyArn: Optional[str] = None
 
-class DeleteLaunchProfileMemberRequestRequestTypeDef(BaseModel):
+class DeleteLaunchProfileMemberRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     principalId: str
     studioId: str
     clientToken: Optional[str] = None
 
-class DeleteLaunchProfileRequestRequestTypeDef(BaseModel):
+class DeleteLaunchProfileRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     studioId: str
     clientToken: Optional[str] = None
 
-class DeleteStreamingImageRequestRequestTypeDef(BaseModel):
+class DeleteStreamingImageRequestRequestTypeDef(BaseValidatorModel):
     streamingImageId: str
     studioId: str
     clientToken: Optional[str] = None
 
-class DeleteStreamingSessionRequestRequestTypeDef(BaseModel):
+class DeleteStreamingSessionRequestRequestTypeDef(BaseValidatorModel):
     sessionId: str
     studioId: str
     clientToken: Optional[str] = None
 
-class DeleteStudioComponentRequestRequestTypeDef(BaseModel):
+class DeleteStudioComponentRequestRequestTypeDef(BaseValidatorModel):
     studioComponentId: str
     studioId: str
     clientToken: Optional[str] = None
 
-class DeleteStudioMemberRequestRequestTypeDef(BaseModel):
+class DeleteStudioMemberRequestRequestTypeDef(BaseValidatorModel):
     principalId: str
     studioId: str
     clientToken: Optional[str] = None
 
-class DeleteStudioRequestRequestTypeDef(BaseModel):
+class DeleteStudioRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     clientToken: Optional[str] = None
 
-class EulaTypeDef(BaseModel):
+class EulaTypeDef(BaseValidatorModel):
     content: Optional[str] = None
     createdAt: Optional[datetime] = None
     eulaId: Optional[str] = None
     name: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
-class GetEulaRequestRequestTypeDef(BaseModel):
+class GetEulaRequestRequestTypeDef(BaseValidatorModel):
     eulaId: str
 
-class GetLaunchProfileDetailsRequestRequestTypeDef(BaseModel):
+class GetLaunchProfileDetailsRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     studioId: str
 
-class StudioComponentSummaryTypeDef(BaseModel):
+class StudioComponentSummaryTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     description: Optional[str] = None
@@ -145,41 +145,41 @@ class StudioComponentSummaryTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class GetLaunchProfileInitializationRequestRequestTypeDef(BaseModel):
+class GetLaunchProfileInitializationRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     launchProfileProtocolVersions: Sequence[str]
     launchPurpose: str
     platform: str
     studioId: str
 
-class GetLaunchProfileMemberRequestRequestTypeDef(BaseModel):
+class GetLaunchProfileMemberRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     principalId: str
     studioId: str
 
-class LaunchProfileMembershipTypeDef(BaseModel):
+class LaunchProfileMembershipTypeDef(BaseValidatorModel):
     identityStoreId: Optional[str] = None
     persona: Optional[Literal["USER"]] = None
     principalId: Optional[str] = None
     sid: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class GetLaunchProfileRequestRequestTypeDef(BaseModel):
+class GetLaunchProfileRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     studioId: str
 
-class GetStreamingImageRequestRequestTypeDef(BaseModel):
+class GetStreamingImageRequestRequestTypeDef(BaseValidatorModel):
     streamingImageId: str
     studioId: str
 
-class GetStreamingSessionBackupRequestRequestTypeDef(BaseModel):
+class GetStreamingSessionBackupRequestRequestTypeDef(BaseValidatorModel):
     backupId: str
     studioId: str
 
-class StreamingSessionBackupTypeDef(BaseModel):
+class StreamingSessionBackupTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     backupId: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -191,211 +191,211 @@ class StreamingSessionBackupTypeDef(BaseModel):
     statusMessage: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class GetStreamingSessionRequestRequestTypeDef(BaseModel):
+class GetStreamingSessionRequestRequestTypeDef(BaseValidatorModel):
     sessionId: str
     studioId: str
 
-class GetStreamingSessionStreamRequestRequestTypeDef(BaseModel):
+class GetStreamingSessionStreamRequestRequestTypeDef(BaseValidatorModel):
     sessionId: str
     streamId: str
     studioId: str
 
-class GetStudioComponentRequestRequestTypeDef(BaseModel):
+class GetStudioComponentRequestRequestTypeDef(BaseValidatorModel):
     studioComponentId: str
     studioId: str
 
-class GetStudioMemberRequestRequestTypeDef(BaseModel):
+class GetStudioMemberRequestRequestTypeDef(BaseValidatorModel):
     principalId: str
     studioId: str
 
-class StudioMembershipTypeDef(BaseModel):
+class StudioMembershipTypeDef(BaseValidatorModel):
     identityStoreId: Optional[str] = None
     persona: Optional[Literal["ADMINISTRATOR"]] = None
     principalId: Optional[str] = None
     sid: Optional[str] = None
 
-class GetStudioRequestRequestTypeDef(BaseModel):
+class GetStudioRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
 
-class LaunchProfileInitializationScriptTypeDef(BaseModel):
+class LaunchProfileInitializationScriptTypeDef(BaseValidatorModel):
     runtimeRoleArn: Optional[str] = None
     script: Optional[str] = None
     secureInitializationRoleArn: Optional[str] = None
     studioComponentId: Optional[str] = None
     studioComponentName: Optional[str] = None
 
-class ValidationResultTypeDef(BaseModel):
+class ValidationResultTypeDef(BaseValidatorModel):
     state: LaunchProfileValidationStateType
     statusCode: LaunchProfileValidationStatusCodeType
     statusMessage: str
     type: LaunchProfileValidationTypeType
 
-class LicenseServiceConfigurationTypeDef(BaseModel):
+class LicenseServiceConfigurationTypeDef(BaseValidatorModel):
     endpoint: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListEulaAcceptancesRequestRequestTypeDef(BaseModel):
+class ListEulaAcceptancesRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     eulaIds: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
 
-class ListEulasRequestRequestTypeDef(BaseModel):
+class ListEulasRequestRequestTypeDef(BaseValidatorModel):
     eulaIds: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
 
-class ListLaunchProfileMembersRequestRequestTypeDef(BaseModel):
+class ListLaunchProfileMembersRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     studioId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListLaunchProfilesRequestRequestTypeDef(BaseModel):
+class ListLaunchProfilesRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     principalId: Optional[str] = None
     states: Optional[Sequence[LaunchProfileStateType]] = None
 
-class ListStreamingImagesRequestRequestTypeDef(BaseModel):
+class ListStreamingImagesRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     nextToken: Optional[str] = None
     owner: Optional[str] = None
 
-class ListStreamingSessionBackupsRequestRequestTypeDef(BaseModel):
+class ListStreamingSessionBackupsRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     nextToken: Optional[str] = None
     ownedBy: Optional[str] = None
 
-class ListStreamingSessionsRequestRequestTypeDef(BaseModel):
+class ListStreamingSessionsRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     createdBy: Optional[str] = None
     nextToken: Optional[str] = None
     ownedBy: Optional[str] = None
     sessionIds: Optional[str] = None
 
-class ListStudioComponentsRequestRequestTypeDef(BaseModel):
+class ListStudioComponentsRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     states: Optional[Sequence[StudioComponentStateType]] = None
     types: Optional[Sequence[StudioComponentTypeType]] = None
 
-class ListStudioMembersRequestRequestTypeDef(BaseModel):
+class ListStudioMembersRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListStudiosRequestRequestTypeDef(BaseModel):
+class ListStudiosRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class NewLaunchProfileMemberTypeDef(BaseModel):
+class NewLaunchProfileMemberTypeDef(BaseValidatorModel):
     persona: Literal["USER"]
     principalId: str
 
-class NewStudioMemberTypeDef(BaseModel):
+class NewStudioMemberTypeDef(BaseValidatorModel):
     persona: Literal["ADMINISTRATOR"]
     principalId: str
 
-class SharedFileSystemConfigurationTypeDef(BaseModel):
+class SharedFileSystemConfigurationTypeDef(BaseValidatorModel):
     endpoint: Optional[str] = None
     fileSystemId: Optional[str] = None
     linuxMountPoint: Optional[str] = None
     shareName: Optional[str] = None
     windowsMountDrive: Optional[str] = None
 
-class StartStreamingSessionRequestRequestTypeDef(BaseModel):
+class StartStreamingSessionRequestRequestTypeDef(BaseValidatorModel):
     sessionId: str
     studioId: str
     backupId: Optional[str] = None
     clientToken: Optional[str] = None
 
-class StartStudioSSOConfigurationRepairRequestRequestTypeDef(BaseModel):
+class StartStudioSSOConfigurationRepairRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     clientToken: Optional[str] = None
 
-class StopStreamingSessionRequestRequestTypeDef(BaseModel):
+class StopStreamingSessionRequestRequestTypeDef(BaseValidatorModel):
     sessionId: str
     studioId: str
     clientToken: Optional[str] = None
     volumeRetentionMode: Optional[VolumeRetentionModeType] = None
 
-class StreamConfigurationSessionBackupTypeDef(BaseModel):
+class StreamConfigurationSessionBackupTypeDef(BaseValidatorModel):
     maxBackupsToRetain: Optional[int] = None
     mode: Optional[SessionBackupModeType] = None
 
-class VolumeConfigurationTypeDef(BaseModel):
+class VolumeConfigurationTypeDef(BaseValidatorModel):
     iops: Optional[int] = None
     size: Optional[int] = None
     throughput: Optional[int] = None
 
-class StreamingSessionStorageRootTypeDef(BaseModel):
+class StreamingSessionStorageRootTypeDef(BaseValidatorModel):
     linux: Optional[str] = None
     windows: Optional[str] = None
 
-class StreamingImageEncryptionConfigurationTypeDef(BaseModel):
+class StreamingImageEncryptionConfigurationTypeDef(BaseValidatorModel):
     keyType: Literal["CUSTOMER_MANAGED_KEY"]
     keyArn: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Optional[Mapping[str, str]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateLaunchProfileMemberRequestRequestTypeDef(BaseModel):
+class UpdateLaunchProfileMemberRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     persona: Literal["USER"]
     principalId: str
     studioId: str
     clientToken: Optional[str] = None
 
-class UpdateStreamingImageRequestRequestTypeDef(BaseModel):
+class UpdateStreamingImageRequestRequestTypeDef(BaseValidatorModel):
     streamingImageId: str
     studioId: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     name: Optional[str] = None
 
-class UpdateStudioRequestRequestTypeDef(BaseModel):
+class UpdateStudioRequestRequestTypeDef(BaseValidatorModel):
     studioId: str
     adminRoleArn: Optional[str] = None
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
     userRoleArn: Optional[str] = None
 
-class AcceptEulasResponseTypeDef(BaseModel):
+class AcceptEulasResponseTypeDef(BaseValidatorModel):
     eulaAcceptances: List[EulaAcceptanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEulaAcceptancesResponseTypeDef(BaseModel):
+class ListEulaAcceptancesResponseTypeDef(BaseValidatorModel):
     eulaAcceptances: List[EulaAcceptanceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ActiveDirectoryConfigurationPaginatorTypeDef(BaseModel):
+class ActiveDirectoryConfigurationPaginatorTypeDef(BaseValidatorModel):
     computerAttributes: Optional[List[ActiveDirectoryComputerAttributeTypeDef]] = None
     directoryId: Optional[str] = None
     organizationalUnitDistinguishedName: Optional[str] = None
 
-class ActiveDirectoryConfigurationTypeDef(BaseModel):
+class ActiveDirectoryConfigurationTypeDef(BaseValidatorModel):
     computerAttributes: Optional[Sequence[ActiveDirectoryComputerAttributeTypeDef]] = None
     directoryId: Optional[str] = None
     organizationalUnitDistinguishedName: Optional[str] = None
 
-class LaunchProfileInitializationActiveDirectoryTypeDef(BaseModel):
+class LaunchProfileInitializationActiveDirectoryTypeDef(BaseValidatorModel):
     computerAttributes: Optional[List[ActiveDirectoryComputerAttributeTypeDef]] = None
     directoryId: Optional[str] = None
     directoryName: Optional[str] = None
@@ -404,15 +404,15 @@ class LaunchProfileInitializationActiveDirectoryTypeDef(BaseModel):
     studioComponentId: Optional[str] = None
     studioComponentName: Optional[str] = None
 
-class CreateStreamingSessionStreamResponseTypeDef(BaseModel):
+class CreateStreamingSessionStreamResponseTypeDef(BaseValidatorModel):
     stream: StreamingSessionStreamTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStreamingSessionStreamResponseTypeDef(BaseModel):
+class GetStreamingSessionStreamResponseTypeDef(BaseValidatorModel):
     stream: StreamingSessionStreamTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStudioRequestRequestTypeDef(BaseModel):
+class CreateStudioRequestRequestTypeDef(BaseValidatorModel):
     adminRoleArn: str
     displayName: str
     studioName: str
@@ -421,7 +421,7 @@ class CreateStudioRequestRequestTypeDef(BaseModel):
     studioEncryptionConfiguration: Optional[StudioEncryptionConfigurationTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class StudioTypeDef(BaseModel):
+class StudioTypeDef(BaseValidatorModel):
     adminRoleArn: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -439,169 +439,169 @@ class StudioTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     userRoleArn: Optional[str] = None
 
-class GetEulaResponseTypeDef(BaseModel):
+class GetEulaResponseTypeDef(BaseValidatorModel):
     eula: EulaTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEulasResponseTypeDef(BaseModel):
+class ListEulasResponseTypeDef(BaseValidatorModel):
     eulas: List[EulaTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLaunchProfileMemberResponseTypeDef(BaseModel):
+class GetLaunchProfileMemberResponseTypeDef(BaseValidatorModel):
     member: LaunchProfileMembershipTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLaunchProfileMembersResponseTypeDef(BaseModel):
+class ListLaunchProfileMembersResponseTypeDef(BaseValidatorModel):
     members: List[LaunchProfileMembershipTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLaunchProfileMemberResponseTypeDef(BaseModel):
+class UpdateLaunchProfileMemberResponseTypeDef(BaseValidatorModel):
     member: LaunchProfileMembershipTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLaunchProfileRequestLaunchProfileDeletedWaitTypeDef(BaseModel):
+class GetLaunchProfileRequestLaunchProfileDeletedWaitTypeDef(BaseValidatorModel):
     launchProfileId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetLaunchProfileRequestLaunchProfileReadyWaitTypeDef(BaseModel):
+class GetLaunchProfileRequestLaunchProfileReadyWaitTypeDef(BaseValidatorModel):
     launchProfileId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStreamingImageRequestStreamingImageDeletedWaitTypeDef(BaseModel):
+class GetStreamingImageRequestStreamingImageDeletedWaitTypeDef(BaseValidatorModel):
     streamingImageId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStreamingImageRequestStreamingImageReadyWaitTypeDef(BaseModel):
+class GetStreamingImageRequestStreamingImageReadyWaitTypeDef(BaseValidatorModel):
     streamingImageId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStreamingSessionRequestStreamingSessionDeletedWaitTypeDef(BaseModel):
+class GetStreamingSessionRequestStreamingSessionDeletedWaitTypeDef(BaseValidatorModel):
     sessionId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStreamingSessionRequestStreamingSessionReadyWaitTypeDef(BaseModel):
+class GetStreamingSessionRequestStreamingSessionReadyWaitTypeDef(BaseValidatorModel):
     sessionId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStreamingSessionRequestStreamingSessionStoppedWaitTypeDef(BaseModel):
+class GetStreamingSessionRequestStreamingSessionStoppedWaitTypeDef(BaseValidatorModel):
     sessionId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStreamingSessionStreamRequestStreamingSessionStreamReadyWaitTypeDef(BaseModel):
+class GetStreamingSessionStreamRequestStreamingSessionStreamReadyWaitTypeDef(BaseValidatorModel):
     sessionId: str
     streamId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStudioComponentRequestStudioComponentDeletedWaitTypeDef(BaseModel):
+class GetStudioComponentRequestStudioComponentDeletedWaitTypeDef(BaseValidatorModel):
     studioComponentId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStudioComponentRequestStudioComponentReadyWaitTypeDef(BaseModel):
+class GetStudioComponentRequestStudioComponentReadyWaitTypeDef(BaseValidatorModel):
     studioComponentId: str
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStudioRequestStudioDeletedWaitTypeDef(BaseModel):
+class GetStudioRequestStudioDeletedWaitTypeDef(BaseValidatorModel):
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStudioRequestStudioReadyWaitTypeDef(BaseModel):
+class GetStudioRequestStudioReadyWaitTypeDef(BaseValidatorModel):
     studioId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetStreamingSessionBackupResponseTypeDef(BaseModel):
+class GetStreamingSessionBackupResponseTypeDef(BaseValidatorModel):
     streamingSessionBackup: StreamingSessionBackupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStreamingSessionBackupsResponseTypeDef(BaseModel):
+class ListStreamingSessionBackupsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     streamingSessionBackups: List[StreamingSessionBackupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStudioMemberResponseTypeDef(BaseModel):
+class GetStudioMemberResponseTypeDef(BaseValidatorModel):
     member: StudioMembershipTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStudioMembersResponseTypeDef(BaseModel):
+class ListStudioMembersResponseTypeDef(BaseValidatorModel):
     members: List[StudioMembershipTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEulaAcceptancesRequestListEulaAcceptancesPaginateTypeDef(BaseModel):
+class ListEulaAcceptancesRequestListEulaAcceptancesPaginateTypeDef(BaseValidatorModel):
     studioId: str
     eulaIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEulasRequestListEulasPaginateTypeDef(BaseModel):
+class ListEulasRequestListEulasPaginateTypeDef(BaseValidatorModel):
     eulaIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLaunchProfileMembersRequestListLaunchProfileMembersPaginateTypeDef(BaseModel):
+class ListLaunchProfileMembersRequestListLaunchProfileMembersPaginateTypeDef(BaseValidatorModel):
     launchProfileId: str
     studioId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLaunchProfilesRequestListLaunchProfilesPaginateTypeDef(BaseModel):
+class ListLaunchProfilesRequestListLaunchProfilesPaginateTypeDef(BaseValidatorModel):
     studioId: str
     principalId: Optional[str] = None
     states: Optional[Sequence[LaunchProfileStateType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStreamingImagesRequestListStreamingImagesPaginateTypeDef(BaseModel):
+class ListStreamingImagesRequestListStreamingImagesPaginateTypeDef(BaseValidatorModel):
     studioId: str
     owner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStreamingSessionBackupsRequestListStreamingSessionBackupsPaginateTypeDef(BaseModel):
+class ListStreamingSessionBackupsRequestListStreamingSessionBackupsPaginateTypeDef(BaseValidatorModel):
     studioId: str
     ownedBy: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStreamingSessionsRequestListStreamingSessionsPaginateTypeDef(BaseModel):
+class ListStreamingSessionsRequestListStreamingSessionsPaginateTypeDef(BaseValidatorModel):
     studioId: str
     createdBy: Optional[str] = None
     ownedBy: Optional[str] = None
     sessionIds: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStudioComponentsRequestListStudioComponentsPaginateTypeDef(BaseModel):
+class ListStudioComponentsRequestListStudioComponentsPaginateTypeDef(BaseValidatorModel):
     studioId: str
     states: Optional[Sequence[StudioComponentStateType]] = None
     types: Optional[Sequence[StudioComponentTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStudioMembersRequestListStudioMembersPaginateTypeDef(BaseModel):
+class ListStudioMembersRequestListStudioMembersPaginateTypeDef(BaseValidatorModel):
     studioId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStudiosRequestListStudiosPaginateTypeDef(BaseModel):
+class ListStudiosRequestListStudiosPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class PutLaunchProfileMembersRequestRequestTypeDef(BaseModel):
+class PutLaunchProfileMembersRequestRequestTypeDef(BaseValidatorModel):
     identityStoreId: str
     launchProfileId: str
     members: Sequence[NewLaunchProfileMemberTypeDef]
     studioId: str
     clientToken: Optional[str] = None
 
-class PutStudioMembersRequestRequestTypeDef(BaseModel):
+class PutStudioMembersRequestRequestTypeDef(BaseValidatorModel):
     identityStoreId: str
     members: Sequence[NewStudioMemberTypeDef]
     studioId: str
     clientToken: Optional[str] = None
 
-class StreamingSessionTypeDef(BaseModel):
+class StreamingSessionTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     automaticTerminationMode: Optional[AutomaticTerminationModeType] = None
     backupMode: Optional[SessionBackupModeType] = None
@@ -630,15 +630,15 @@ class StreamingSessionTypeDef(BaseModel):
     volumeConfiguration: Optional[VolumeConfigurationTypeDef] = None
     volumeRetentionMode: Optional[VolumeRetentionModeType] = None
 
-class StreamConfigurationSessionStoragePaginatorTypeDef(BaseModel):
+class StreamConfigurationSessionStoragePaginatorTypeDef(BaseValidatorModel):
     mode: List[Literal["UPLOAD"]]
     root: Optional[StreamingSessionStorageRootTypeDef] = None
 
-class StreamConfigurationSessionStorageTypeDef(BaseModel):
+class StreamConfigurationSessionStorageTypeDef(BaseValidatorModel):
     mode: Sequence[Literal["UPLOAD"]]
     root: Optional[StreamingSessionStorageRootTypeDef] = None
 
-class StreamingImageTypeDef(BaseModel):
+class StreamingImageTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     description: Optional[str] = None
     ec2ImageId: Optional[str] = None
@@ -653,19 +653,19 @@ class StreamingImageTypeDef(BaseModel):
     streamingImageId: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class StudioComponentConfigurationPaginatorTypeDef(BaseModel):
+class StudioComponentConfigurationPaginatorTypeDef(BaseValidatorModel):
     activeDirectoryConfiguration: Optional[ActiveDirectoryConfigurationPaginatorTypeDef] = None
     computeFarmConfiguration: Optional[ComputeFarmConfigurationTypeDef] = None
     licenseServiceConfiguration: Optional[LicenseServiceConfigurationTypeDef] = None
     sharedFileSystemConfiguration: Optional[SharedFileSystemConfigurationTypeDef] = None
 
-class StudioComponentConfigurationTypeDef(BaseModel):
+class StudioComponentConfigurationTypeDef(BaseValidatorModel):
     activeDirectoryConfiguration: Optional[ActiveDirectoryConfigurationTypeDef] = None
     computeFarmConfiguration: Optional[ComputeFarmConfigurationTypeDef] = None
     licenseServiceConfiguration: Optional[LicenseServiceConfigurationTypeDef] = None
     sharedFileSystemConfiguration: Optional[SharedFileSystemConfigurationTypeDef] = None
 
-class LaunchProfileInitializationTypeDef(BaseModel):
+class LaunchProfileInitializationTypeDef(BaseValidatorModel):
     activeDirectory: Optional[LaunchProfileInitializationActiveDirectoryTypeDef] = None
     ec2SecurityGroupIds: Optional[List[str]] = None
     launchProfileId: Optional[str] = None
@@ -676,57 +676,57 @@ class LaunchProfileInitializationTypeDef(BaseModel):
     systemInitializationScripts: Optional[List[LaunchProfileInitializationScriptTypeDef]] = None
     userInitializationScripts: Optional[List[LaunchProfileInitializationScriptTypeDef]] = None
 
-class CreateStudioResponseTypeDef(BaseModel):
+class CreateStudioResponseTypeDef(BaseValidatorModel):
     studio: StudioTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteStudioResponseTypeDef(BaseModel):
+class DeleteStudioResponseTypeDef(BaseValidatorModel):
     studio: StudioTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStudioResponseTypeDef(BaseModel):
+class GetStudioResponseTypeDef(BaseValidatorModel):
     studio: StudioTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStudiosResponseTypeDef(BaseModel):
+class ListStudiosResponseTypeDef(BaseValidatorModel):
     nextToken: str
     studios: List[StudioTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartStudioSSOConfigurationRepairResponseTypeDef(BaseModel):
+class StartStudioSSOConfigurationRepairResponseTypeDef(BaseValidatorModel):
     studio: StudioTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateStudioResponseTypeDef(BaseModel):
+class UpdateStudioResponseTypeDef(BaseValidatorModel):
     studio: StudioTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStreamingSessionResponseTypeDef(BaseModel):
+class CreateStreamingSessionResponseTypeDef(BaseValidatorModel):
     session: StreamingSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteStreamingSessionResponseTypeDef(BaseModel):
+class DeleteStreamingSessionResponseTypeDef(BaseValidatorModel):
     session: StreamingSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStreamingSessionResponseTypeDef(BaseModel):
+class GetStreamingSessionResponseTypeDef(BaseValidatorModel):
     session: StreamingSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStreamingSessionsResponseTypeDef(BaseModel):
+class ListStreamingSessionsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     sessions: List[StreamingSessionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartStreamingSessionResponseTypeDef(BaseModel):
+class StartStreamingSessionResponseTypeDef(BaseValidatorModel):
     session: StreamingSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopStreamingSessionResponseTypeDef(BaseModel):
+class StopStreamingSessionResponseTypeDef(BaseValidatorModel):
     session: StreamingSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StreamConfigurationPaginatorTypeDef(BaseModel):
+class StreamConfigurationPaginatorTypeDef(BaseValidatorModel):
     clipboardMode: StreamingClipboardModeType
     ec2InstanceTypes: List[StreamingInstanceTypeType]
     streamingImageIds: List[str]
@@ -738,7 +738,7 @@ class StreamConfigurationPaginatorTypeDef(BaseModel):
     sessionStorage: Optional[StreamConfigurationSessionStoragePaginatorTypeDef] = None
     volumeConfiguration: Optional[VolumeConfigurationTypeDef] = None
 
-class StreamConfigurationCreateTypeDef(BaseModel):
+class StreamConfigurationCreateTypeDef(BaseValidatorModel):
     clipboardMode: StreamingClipboardModeType
     ec2InstanceTypes: Sequence[StreamingInstanceTypeType]
     streamingImageIds: Sequence[str]
@@ -750,7 +750,7 @@ class StreamConfigurationCreateTypeDef(BaseModel):
     sessionStorage: Optional[StreamConfigurationSessionStorageTypeDef] = None
     volumeConfiguration: Optional[VolumeConfigurationTypeDef] = None
 
-class StreamConfigurationTypeDef(BaseModel):
+class StreamConfigurationTypeDef(BaseValidatorModel):
     clipboardMode: StreamingClipboardModeType
     ec2InstanceTypes: List[StreamingInstanceTypeType]
     streamingImageIds: List[str]
@@ -762,28 +762,28 @@ class StreamConfigurationTypeDef(BaseModel):
     sessionStorage: Optional[StreamConfigurationSessionStorageTypeDef] = None
     volumeConfiguration: Optional[VolumeConfigurationTypeDef] = None
 
-class CreateStreamingImageResponseTypeDef(BaseModel):
+class CreateStreamingImageResponseTypeDef(BaseValidatorModel):
     streamingImage: StreamingImageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteStreamingImageResponseTypeDef(BaseModel):
+class DeleteStreamingImageResponseTypeDef(BaseValidatorModel):
     streamingImage: StreamingImageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStreamingImageResponseTypeDef(BaseModel):
+class GetStreamingImageResponseTypeDef(BaseValidatorModel):
     streamingImage: StreamingImageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStreamingImagesResponseTypeDef(BaseModel):
+class ListStreamingImagesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     streamingImages: List[StreamingImageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateStreamingImageResponseTypeDef(BaseModel):
+class UpdateStreamingImageResponseTypeDef(BaseValidatorModel):
     streamingImage: StreamingImageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StudioComponentPaginatorTypeDef(BaseModel):
+class StudioComponentPaginatorTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     configuration: Optional[StudioComponentConfigurationPaginatorTypeDef] = None
     createdAt: Optional[datetime] = None
@@ -805,7 +805,7 @@ class StudioComponentPaginatorTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class CreateStudioComponentRequestRequestTypeDef(BaseModel):
+class CreateStudioComponentRequestRequestTypeDef(BaseValidatorModel):
     name: str
     studioId: str
     type: StudioComponentTypeType
@@ -820,7 +820,7 @@ class CreateStudioComponentRequestRequestTypeDef(BaseModel):
     subtype: Optional[StudioComponentSubtypeType] = None
     tags: Optional[Mapping[str, str]] = None
 
-class StudioComponentTypeDef(BaseModel):
+class StudioComponentTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     configuration: Optional[StudioComponentConfigurationTypeDef] = None
     createdAt: Optional[datetime] = None
@@ -842,7 +842,7 @@ class StudioComponentTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class UpdateStudioComponentRequestRequestTypeDef(BaseModel):
+class UpdateStudioComponentRequestRequestTypeDef(BaseValidatorModel):
     studioComponentId: str
     studioId: str
     clientToken: Optional[str] = None
@@ -857,11 +857,11 @@ class UpdateStudioComponentRequestRequestTypeDef(BaseModel):
     subtype: Optional[StudioComponentSubtypeType] = None
     type: Optional[StudioComponentTypeType] = None
 
-class GetLaunchProfileInitializationResponseTypeDef(BaseModel):
+class GetLaunchProfileInitializationResponseTypeDef(BaseValidatorModel):
     launchProfileInitialization: LaunchProfileInitializationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LaunchProfilePaginatorTypeDef(BaseModel):
+class LaunchProfilePaginatorTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
@@ -880,7 +880,7 @@ class LaunchProfilePaginatorTypeDef(BaseModel):
     updatedBy: Optional[str] = None
     validationResults: Optional[List[ValidationResultTypeDef]] = None
 
-class CreateLaunchProfileRequestRequestTypeDef(BaseModel):
+class CreateLaunchProfileRequestRequestTypeDef(BaseValidatorModel):
     ec2SubnetIds: Sequence[str]
     launchProfileProtocolVersions: Sequence[str]
     name: str
@@ -891,7 +891,7 @@ class CreateLaunchProfileRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateLaunchProfileRequestRequestTypeDef(BaseModel):
+class UpdateLaunchProfileRequestRequestTypeDef(BaseValidatorModel):
     launchProfileId: str
     studioId: str
     clientToken: Optional[str] = None
@@ -901,7 +901,7 @@ class UpdateLaunchProfileRequestRequestTypeDef(BaseModel):
     streamConfiguration: Optional[StreamConfigurationCreateTypeDef] = None
     studioComponentIds: Optional[Sequence[str]] = None
 
-class LaunchProfileTypeDef(BaseModel):
+class LaunchProfileTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
@@ -920,61 +920,61 @@ class LaunchProfileTypeDef(BaseModel):
     updatedBy: Optional[str] = None
     validationResults: Optional[List[ValidationResultTypeDef]] = None
 
-class ListStudioComponentsResponsePaginatorTypeDef(BaseModel):
+class ListStudioComponentsResponsePaginatorTypeDef(BaseValidatorModel):
     nextToken: str
     studioComponents: List[StudioComponentPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStudioComponentResponseTypeDef(BaseModel):
+class CreateStudioComponentResponseTypeDef(BaseValidatorModel):
     studioComponent: StudioComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteStudioComponentResponseTypeDef(BaseModel):
+class DeleteStudioComponentResponseTypeDef(BaseValidatorModel):
     studioComponent: StudioComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStudioComponentResponseTypeDef(BaseModel):
+class GetStudioComponentResponseTypeDef(BaseValidatorModel):
     studioComponent: StudioComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStudioComponentsResponseTypeDef(BaseModel):
+class ListStudioComponentsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     studioComponents: List[StudioComponentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateStudioComponentResponseTypeDef(BaseModel):
+class UpdateStudioComponentResponseTypeDef(BaseValidatorModel):
     studioComponent: StudioComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLaunchProfilesResponsePaginatorTypeDef(BaseModel):
+class ListLaunchProfilesResponsePaginatorTypeDef(BaseValidatorModel):
     launchProfiles: List[LaunchProfilePaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLaunchProfileResponseTypeDef(BaseModel):
+class CreateLaunchProfileResponseTypeDef(BaseValidatorModel):
     launchProfile: LaunchProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLaunchProfileResponseTypeDef(BaseModel):
+class DeleteLaunchProfileResponseTypeDef(BaseValidatorModel):
     launchProfile: LaunchProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLaunchProfileDetailsResponseTypeDef(BaseModel):
+class GetLaunchProfileDetailsResponseTypeDef(BaseValidatorModel):
     launchProfile: LaunchProfileTypeDef
     streamingImages: List[StreamingImageTypeDef]
     studioComponentSummaries: List[StudioComponentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLaunchProfileResponseTypeDef(BaseModel):
+class GetLaunchProfileResponseTypeDef(BaseValidatorModel):
     launchProfile: LaunchProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLaunchProfilesResponseTypeDef(BaseModel):
+class ListLaunchProfilesResponseTypeDef(BaseValidatorModel):
     launchProfiles: List[LaunchProfileTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLaunchProfileResponseTypeDef(BaseModel):
+class UpdateLaunchProfileResponseTypeDef(BaseValidatorModel):
     launchProfile: LaunchProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
