@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.timestream_write_constants import *
 
-class BatchLoadProgressReportTypeDef(BaseModel):
+class BatchLoadProgressReportTypeDef(BaseValidatorModel):
     RecordsProcessed: Optional[int] = None
     RecordsIngested: Optional[int] = None
     ParseFailures: Optional[int] = None
@@ -19,7 +19,7 @@ class BatchLoadProgressReportTypeDef(BaseModel):
     FileFailures: Optional[int] = None
     BytesMetered: Optional[int] = None
 
-class BatchLoadTaskTypeDef(BaseModel):
+class BatchLoadTaskTypeDef(BaseValidatorModel):
     TaskId: Optional[str] = None
     TaskStatus: Optional[BatchLoadStatusType] = None
     DatabaseName: Optional[str] = None
@@ -28,18 +28,18 @@ class BatchLoadTaskTypeDef(BaseModel):
     LastUpdatedTime: Optional[datetime] = None
     ResumableUntil: Optional[datetime] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class DatabaseTypeDef(BaseModel):
+class DatabaseTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     DatabaseName: Optional[str] = None
     TableCount: Optional[int] = None
@@ -47,170 +47,170 @@ class DatabaseTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
 
-class RetentionPropertiesTypeDef(BaseModel):
+class RetentionPropertiesTypeDef(BaseValidatorModel):
     MemoryStoreRetentionPeriodInHours: int
     MagneticStoreRetentionPeriodInDays: int
 
-class CsvConfigurationTypeDef(BaseModel):
+class CsvConfigurationTypeDef(BaseValidatorModel):
     ColumnSeparator: Optional[str] = None
     EscapeChar: Optional[str] = None
     QuoteChar: Optional[str] = None
     NullValue: Optional[str] = None
     TrimWhiteSpace: Optional[bool] = None
 
-class DataModelS3ConfigurationTypeDef(BaseModel):
+class DataModelS3ConfigurationTypeDef(BaseValidatorModel):
     BucketName: Optional[str] = None
     ObjectKey: Optional[str] = None
 
-class DimensionMappingTypeDef(BaseModel):
+class DimensionMappingTypeDef(BaseValidatorModel):
     SourceColumn: Optional[str] = None
     DestinationColumn: Optional[str] = None
 
-class DataSourceS3ConfigurationTypeDef(BaseModel):
+class DataSourceS3ConfigurationTypeDef(BaseValidatorModel):
     BucketName: str
     ObjectKeyPrefix: Optional[str] = None
 
-class DeleteDatabaseRequestRequestTypeDef(BaseModel):
+class DeleteDatabaseRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
 
-class DeleteTableRequestRequestTypeDef(BaseModel):
+class DeleteTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
 
-class DescribeBatchLoadTaskRequestRequestTypeDef(BaseModel):
+class DescribeBatchLoadTaskRequestRequestTypeDef(BaseValidatorModel):
     TaskId: str
 
-class DescribeDatabaseRequestRequestTypeDef(BaseModel):
+class DescribeDatabaseRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
 
-class EndpointTypeDef(BaseModel):
+class EndpointTypeDef(BaseValidatorModel):
     Address: str
     CachePeriodInMinutes: int
 
-class DescribeTableRequestRequestTypeDef(BaseModel):
+class DescribeTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
 
-class DimensionTypeDef(BaseModel):
+class DimensionTypeDef(BaseValidatorModel):
     Name: str
     Value: str
     DimensionValueType: Optional[Literal["VARCHAR"]] = None
 
-class ListBatchLoadTasksRequestRequestTypeDef(BaseModel):
+class ListBatchLoadTasksRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     TaskStatus: Optional[BatchLoadStatusType] = None
 
-class ListDatabasesRequestRequestTypeDef(BaseModel):
+class ListDatabasesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTablesRequestRequestTypeDef(BaseModel):
+class ListTablesRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class S3ConfigurationTypeDef(BaseModel):
+class S3ConfigurationTypeDef(BaseValidatorModel):
     BucketName: Optional[str] = None
     ObjectKeyPrefix: Optional[str] = None
     EncryptionOption: Optional[S3EncryptionOptionType] = None
     KmsKeyId: Optional[str] = None
 
-class MeasureValueTypeDef(BaseModel):
+class MeasureValueTypeDef(BaseValidatorModel):
     Name: str
     Value: str
     Type: MeasureValueTypeType
 
-class MultiMeasureAttributeMappingTypeDef(BaseModel):
+class MultiMeasureAttributeMappingTypeDef(BaseValidatorModel):
     SourceColumn: str
     TargetMultiMeasureAttributeName: Optional[str] = None
     MeasureValueType: Optional[ScalarMeasureValueTypeType] = None
 
-class PartitionKeyTypeDef(BaseModel):
+class PartitionKeyTypeDef(BaseValidatorModel):
     Type: PartitionKeyTypeType
     Name: Optional[str] = None
     EnforcementInRecord: Optional[PartitionKeyEnforcementLevelType] = None
 
-class RecordsIngestedTypeDef(BaseModel):
+class RecordsIngestedTypeDef(BaseValidatorModel):
     Total: Optional[int] = None
     MemoryStore: Optional[int] = None
     MagneticStore: Optional[int] = None
 
-class ReportS3ConfigurationTypeDef(BaseModel):
+class ReportS3ConfigurationTypeDef(BaseValidatorModel):
     BucketName: str
     ObjectKeyPrefix: Optional[str] = None
     EncryptionOption: Optional[S3EncryptionOptionType] = None
     KmsKeyId: Optional[str] = None
 
-class ResumeBatchLoadTaskRequestRequestTypeDef(BaseModel):
+class ResumeBatchLoadTaskRequestRequestTypeDef(BaseValidatorModel):
     TaskId: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateDatabaseRequestRequestTypeDef(BaseModel):
+class UpdateDatabaseRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     KmsKeyId: str
 
-class CreateBatchLoadTaskResponseTypeDef(BaseModel):
+class CreateBatchLoadTaskResponseTypeDef(BaseValidatorModel):
     TaskId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBatchLoadTasksResponseTypeDef(BaseModel):
+class ListBatchLoadTasksResponseTypeDef(BaseValidatorModel):
     NextToken: str
     BatchLoadTasks: List[BatchLoadTaskTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDatabaseRequestRequestTypeDef(BaseModel):
+class CreateDatabaseRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     KmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class CreateDatabaseResponseTypeDef(BaseModel):
+class CreateDatabaseResponseTypeDef(BaseValidatorModel):
     Database: DatabaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDatabaseResponseTypeDef(BaseModel):
+class DescribeDatabaseResponseTypeDef(BaseValidatorModel):
     Database: DatabaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDatabasesResponseTypeDef(BaseModel):
+class ListDatabasesResponseTypeDef(BaseValidatorModel):
     Databases: List[DatabaseTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDatabaseResponseTypeDef(BaseModel):
+class UpdateDatabaseResponseTypeDef(BaseValidatorModel):
     Database: DatabaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataSourceConfigurationTypeDef(BaseModel):
+class DataSourceConfigurationTypeDef(BaseValidatorModel):
     DataSourceS3Configuration: DataSourceS3ConfigurationTypeDef
     DataFormat: Literal["CSV"]
     CsvConfiguration: Optional[CsvConfigurationTypeDef] = None
 
-class DescribeEndpointsResponseTypeDef(BaseModel):
+class DescribeEndpointsResponseTypeDef(BaseValidatorModel):
     Endpoints: List[EndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MagneticStoreRejectedDataLocationTypeDef(BaseModel):
+class MagneticStoreRejectedDataLocationTypeDef(BaseValidatorModel):
     S3Configuration: Optional[S3ConfigurationTypeDef] = None
 
-class RecordTypeDef(BaseModel):
+class RecordTypeDef(BaseValidatorModel):
     Dimensions: Optional[Sequence[DimensionTypeDef]] = None
     MeasureName: Optional[str] = None
     MeasureValue: Optional[str] = None
@@ -220,38 +220,38 @@ class RecordTypeDef(BaseModel):
     Version: Optional[int] = None
     MeasureValues: Optional[Sequence[MeasureValueTypeDef]] = None
 
-class MixedMeasureMappingTypeDef(BaseModel):
+class MixedMeasureMappingTypeDef(BaseValidatorModel):
     MeasureValueType: MeasureValueTypeType
     MeasureName: Optional[str] = None
     SourceColumn: Optional[str] = None
     TargetMeasureName: Optional[str] = None
     MultiMeasureAttributeMappings: Optional[Sequence[MultiMeasureAttributeMappingTypeDef]] = None
 
-class MultiMeasureMappingsTypeDef(BaseModel):
+class MultiMeasureMappingsTypeDef(BaseValidatorModel):
     MultiMeasureAttributeMappings: Sequence[MultiMeasureAttributeMappingTypeDef]
     TargetMultiMeasureName: Optional[str] = None
 
-class SchemaTypeDef(BaseModel):
+class SchemaTypeDef(BaseValidatorModel):
     CompositePartitionKey: Optional[Sequence[PartitionKeyTypeDef]] = None
 
-class WriteRecordsResponseTypeDef(BaseModel):
+class WriteRecordsResponseTypeDef(BaseValidatorModel):
     RecordsIngested: RecordsIngestedTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReportConfigurationTypeDef(BaseModel):
+class ReportConfigurationTypeDef(BaseValidatorModel):
     ReportS3Configuration: Optional[ReportS3ConfigurationTypeDef] = None
 
-class MagneticStoreWritePropertiesTypeDef(BaseModel):
+class MagneticStoreWritePropertiesTypeDef(BaseValidatorModel):
     EnableMagneticStoreWrites: bool
     MagneticStoreRejectedDataLocation: Optional[MagneticStoreRejectedDataLocationTypeDef] = None
 
-class WriteRecordsRequestRequestTypeDef(BaseModel):
+class WriteRecordsRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     Records: Sequence[RecordTypeDef]
     CommonAttributes: Optional[RecordTypeDef] = None
 
-class DataModelTypeDef(BaseModel):
+class DataModelTypeDef(BaseValidatorModel):
     DimensionMappings: Sequence[DimensionMappingTypeDef]
     TimeColumn: Optional[str] = None
     TimeUnit: Optional[TimeUnitType] = None
@@ -259,7 +259,7 @@ class DataModelTypeDef(BaseModel):
     MixedMeasureMappings: Optional[Sequence[MixedMeasureMappingTypeDef]] = None
     MeasureNameColumn: Optional[str] = None
 
-class CreateTableRequestRequestTypeDef(BaseModel):
+class CreateTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     RetentionProperties: Optional[RetentionPropertiesTypeDef] = None
@@ -267,7 +267,7 @@ class CreateTableRequestRequestTypeDef(BaseModel):
     MagneticStoreWriteProperties: Optional[MagneticStoreWritePropertiesTypeDef] = None
     Schema: Optional[SchemaTypeDef] = None
 
-class TableTypeDef(BaseModel):
+class TableTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     TableName: Optional[str] = None
     DatabaseName: Optional[str] = None
@@ -278,35 +278,35 @@ class TableTypeDef(BaseModel):
     MagneticStoreWriteProperties: Optional[MagneticStoreWritePropertiesTypeDef] = None
     Schema: Optional[SchemaTypeDef] = None
 
-class UpdateTableRequestRequestTypeDef(BaseModel):
+class UpdateTableRequestRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     RetentionProperties: Optional[RetentionPropertiesTypeDef] = None
     MagneticStoreWriteProperties: Optional[MagneticStoreWritePropertiesTypeDef] = None
     Schema: Optional[SchemaTypeDef] = None
 
-class DataModelConfigurationTypeDef(BaseModel):
+class DataModelConfigurationTypeDef(BaseValidatorModel):
     DataModel: Optional[DataModelTypeDef] = None
     DataModelS3Configuration: Optional[DataModelS3ConfigurationTypeDef] = None
 
-class CreateTableResponseTypeDef(BaseModel):
+class CreateTableResponseTypeDef(BaseValidatorModel):
     Table: TableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTableResponseTypeDef(BaseModel):
+class DescribeTableResponseTypeDef(BaseValidatorModel):
     Table: TableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTablesResponseTypeDef(BaseModel):
+class ListTablesResponseTypeDef(BaseValidatorModel):
     Tables: List[TableTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTableResponseTypeDef(BaseModel):
+class UpdateTableResponseTypeDef(BaseValidatorModel):
     Table: TableTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchLoadTaskDescriptionTypeDef(BaseModel):
+class BatchLoadTaskDescriptionTypeDef(BaseValidatorModel):
     TaskId: Optional[str] = None
     ErrorMessage: Optional[str] = None
     DataSourceConfiguration: Optional[DataSourceConfigurationTypeDef] = None
@@ -321,7 +321,7 @@ class BatchLoadTaskDescriptionTypeDef(BaseModel):
     LastUpdatedTime: Optional[datetime] = None
     ResumableUntil: Optional[datetime] = None
 
-class CreateBatchLoadTaskRequestRequestTypeDef(BaseModel):
+class CreateBatchLoadTaskRequestRequestTypeDef(BaseValidatorModel):
     DataSourceConfiguration: DataSourceConfigurationTypeDef
     ReportConfiguration: ReportConfigurationTypeDef
     TargetDatabaseName: str
@@ -330,7 +330,7 @@ class CreateBatchLoadTaskRequestRequestTypeDef(BaseModel):
     DataModelConfiguration: Optional[DataModelConfigurationTypeDef] = None
     RecordVersion: Optional[int] = None
 
-class DescribeBatchLoadTaskResponseTypeDef(BaseModel):
+class DescribeBatchLoadTaskResponseTypeDef(BaseValidatorModel):
     BatchLoadTaskDescription: BatchLoadTaskDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

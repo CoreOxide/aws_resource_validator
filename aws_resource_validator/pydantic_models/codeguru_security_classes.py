@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,71 +11,71 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codeguru_security_constants import *
 
-class FindingMetricsValuePerSeverityTypeDef(BaseModel):
+class FindingMetricsValuePerSeverityTypeDef(BaseValidatorModel):
     critical: Optional[float] = None
     high: Optional[float] = None
     info: Optional[float] = None
     low: Optional[float] = None
     medium: Optional[float] = None
 
-class BatchGetFindingsErrorTypeDef(BaseModel):
+class BatchGetFindingsErrorTypeDef(BaseValidatorModel):
     errorCode: ErrorCodeType
     findingId: str
     message: str
     scanName: str
 
-class FindingIdentifierTypeDef(BaseModel):
+class FindingIdentifierTypeDef(BaseValidatorModel):
     findingId: str
     scanName: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CategoryWithFindingNumTypeDef(BaseModel):
+class CategoryWithFindingNumTypeDef(BaseValidatorModel):
     categoryName: Optional[str] = None
     findingNumber: Optional[int] = None
 
-class CodeLineTypeDef(BaseModel):
+class CodeLineTypeDef(BaseValidatorModel):
     content: Optional[str] = None
     number: Optional[int] = None
 
-class ResourceIdTypeDef(BaseModel):
+class ResourceIdTypeDef(BaseValidatorModel):
     codeArtifactId: Optional[str] = None
 
-class CreateUploadUrlRequestRequestTypeDef(BaseModel):
+class CreateUploadUrlRequestRequestTypeDef(BaseValidatorModel):
     scanName: str
 
-class EncryptionConfigTypeDef(BaseModel):
+class EncryptionConfigTypeDef(BaseValidatorModel):
     kmsKeyArn: Optional[str] = None
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     subResourceId: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetFindingsRequestRequestTypeDef(BaseModel):
+class GetFindingsRequestRequestTypeDef(BaseValidatorModel):
     scanName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[StatusType] = None
 
-class GetScanRequestRequestTypeDef(BaseModel):
+class GetScanRequestRequestTypeDef(BaseValidatorModel):
     scanName: str
     runId: Optional[str] = None
 
-class ListScansRequestRequestTypeDef(BaseModel):
+class ListScansRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ScanSummaryTypeDef(BaseModel):
+class ScanSummaryTypeDef(BaseValidatorModel):
     createdAt: datetime
     runId: str
     scanName: str
@@ -83,46 +83,46 @@ class ScanSummaryTypeDef(BaseModel):
     scanNameArn: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ScanNameWithFindingNumTypeDef(BaseModel):
+class ScanNameWithFindingNumTypeDef(BaseValidatorModel):
     findingNumber: Optional[int] = None
     scanName: Optional[str] = None
 
-class RecommendationTypeDef(BaseModel):
+class RecommendationTypeDef(BaseValidatorModel):
     text: Optional[str] = None
     url: Optional[str] = None
 
-class SuggestedFixTypeDef(BaseModel):
+class SuggestedFixTypeDef(BaseValidatorModel):
     code: Optional[str] = None
     description: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class AccountFindingsMetricTypeDef(BaseModel):
+class AccountFindingsMetricTypeDef(BaseValidatorModel):
     closedFindings: Optional[FindingMetricsValuePerSeverityTypeDef] = None
     date: Optional[datetime] = None
     meanTimeToClose: Optional[FindingMetricsValuePerSeverityTypeDef] = None
     newFindings: Optional[FindingMetricsValuePerSeverityTypeDef] = None
     openFindings: Optional[FindingMetricsValuePerSeverityTypeDef] = None
 
-class BatchGetFindingsRequestRequestTypeDef(BaseModel):
+class BatchGetFindingsRequestRequestTypeDef(BaseValidatorModel):
     findingIdentifiers: Sequence[FindingIdentifierTypeDef]
 
-class CreateUploadUrlResponseTypeDef(BaseModel):
+class CreateUploadUrlResponseTypeDef(BaseValidatorModel):
     codeArtifactId: str
     requestHeaders: Dict[str, str]
     s3Url: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetScanResponseTypeDef(BaseModel):
+class GetScanResponseTypeDef(BaseValidatorModel):
     analysisType: AnalysisTypeType
     createdAt: datetime
     errorMessage: str
@@ -134,18 +134,18 @@ class GetScanResponseTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FilePathTypeDef(BaseModel):
+class FilePathTypeDef(BaseValidatorModel):
     codeSnippet: Optional[List[CodeLineTypeDef]] = None
     endLine: Optional[int] = None
     name: Optional[str] = None
     path: Optional[str] = None
     startLine: Optional[int] = None
 
-class CreateScanRequestRequestTypeDef(BaseModel):
+class CreateScanRequestRequestTypeDef(BaseValidatorModel):
     resourceId: ResourceIdTypeDef
     scanName: str
     analysisType: Optional[AnalysisTypeType] = None
@@ -153,7 +153,7 @@ class CreateScanRequestRequestTypeDef(BaseModel):
     scanType: Optional[ScanTypeType] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateScanResponseTypeDef(BaseModel):
+class CreateScanResponseTypeDef(BaseValidatorModel):
     resourceId: ResourceIdTypeDef
     runId: str
     scanName: str
@@ -161,72 +161,72 @@ class CreateScanResponseTypeDef(BaseModel):
     scanState: ScanStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccountConfigurationResponseTypeDef(BaseModel):
+class GetAccountConfigurationResponseTypeDef(BaseValidatorModel):
     encryptionConfig: EncryptionConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAccountConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateAccountConfigurationRequestRequestTypeDef(BaseValidatorModel):
     encryptionConfig: EncryptionConfigTypeDef
 
-class UpdateAccountConfigurationResponseTypeDef(BaseModel):
+class UpdateAccountConfigurationResponseTypeDef(BaseValidatorModel):
     encryptionConfig: EncryptionConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFindingsRequestGetFindingsPaginateTypeDef(BaseModel):
+class GetFindingsRequestGetFindingsPaginateTypeDef(BaseValidatorModel):
     scanName: str
     status: Optional[StatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListScansRequestListScansPaginateTypeDef(BaseModel):
+class ListScansRequestListScansPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetMetricsSummaryRequestRequestTypeDef(BaseModel):
+class GetMetricsSummaryRequestRequestTypeDef(BaseValidatorModel):
     date: TimestampTypeDef
 
-class ListFindingsMetricsRequestListFindingsMetricsPaginateTypeDef(BaseModel):
+class ListFindingsMetricsRequestListFindingsMetricsPaginateTypeDef(BaseValidatorModel):
     endDate: TimestampTypeDef
     startDate: TimestampTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFindingsMetricsRequestRequestTypeDef(BaseModel):
+class ListFindingsMetricsRequestRequestTypeDef(BaseValidatorModel):
     endDate: TimestampTypeDef
     startDate: TimestampTypeDef
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListScansResponseTypeDef(BaseModel):
+class ListScansResponseTypeDef(BaseValidatorModel):
     nextToken: str
     summaries: List[ScanSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricsSummaryTypeDef(BaseModel):
+class MetricsSummaryTypeDef(BaseValidatorModel):
     categoriesWithMostFindings: Optional[List[CategoryWithFindingNumTypeDef]] = None
     date: Optional[datetime] = None
     openFindings: Optional[FindingMetricsValuePerSeverityTypeDef] = None
     scansWithMostOpenCriticalFindings: Optional[List[ScanNameWithFindingNumTypeDef]] = None
     scansWithMostOpenFindings: Optional[List[ScanNameWithFindingNumTypeDef]] = None
 
-class RemediationTypeDef(BaseModel):
+class RemediationTypeDef(BaseValidatorModel):
     recommendation: Optional[RecommendationTypeDef] = None
     suggestedFixes: Optional[List[SuggestedFixTypeDef]] = None
 
-class ListFindingsMetricsResponseTypeDef(BaseModel):
+class ListFindingsMetricsResponseTypeDef(BaseValidatorModel):
     findingsMetrics: List[AccountFindingsMetricTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VulnerabilityTypeDef(BaseModel):
+class VulnerabilityTypeDef(BaseValidatorModel):
     filePath: Optional[FilePathTypeDef] = None
     id: Optional[str] = None
     itemCount: Optional[int] = None
     referenceUrls: Optional[List[str]] = None
     relatedVulnerabilities: Optional[List[str]] = None
 
-class GetMetricsSummaryResponseTypeDef(BaseModel):
+class GetMetricsSummaryResponseTypeDef(BaseValidatorModel):
     metricsSummary: MetricsSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FindingTypeDef(BaseModel):
+class FindingTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     description: Optional[str] = None
     detectorId: Optional[str] = None
@@ -244,12 +244,12 @@ class FindingTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     vulnerability: Optional[VulnerabilityTypeDef] = None
 
-class BatchGetFindingsResponseTypeDef(BaseModel):
+class BatchGetFindingsResponseTypeDef(BaseValidatorModel):
     failedFindings: List[BatchGetFindingsErrorTypeDef]
     findings: List[FindingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFindingsResponseTypeDef(BaseModel):
+class GetFindingsResponseTypeDef(BaseValidatorModel):
     findings: List[FindingTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

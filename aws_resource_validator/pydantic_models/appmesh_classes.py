@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,115 +11,115 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.appmesh_constants import *
 
-class AwsCloudMapInstanceAttributeTypeDef(BaseModel):
+class AwsCloudMapInstanceAttributeTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class ListenerTlsFileCertificateTypeDef(BaseModel):
+class ListenerTlsFileCertificateTypeDef(BaseValidatorModel):
     certificateChain: str
     privateKey: str
 
-class ListenerTlsSdsCertificateTypeDef(BaseModel):
+class ListenerTlsSdsCertificateTypeDef(BaseValidatorModel):
     secretName: str
 
-class TagRefTypeDef(BaseModel):
+class TagRefTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DeleteGatewayRouteInputRequestTypeDef(BaseModel):
+class DeleteGatewayRouteInputRequestTypeDef(BaseValidatorModel):
     gatewayRouteName: str
     meshName: str
     virtualGatewayName: str
     meshOwner: Optional[str] = None
 
-class DeleteMeshInputRequestTypeDef(BaseModel):
+class DeleteMeshInputRequestTypeDef(BaseValidatorModel):
     meshName: str
 
-class DeleteRouteInputRequestTypeDef(BaseModel):
+class DeleteRouteInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     routeName: str
     virtualRouterName: str
     meshOwner: Optional[str] = None
 
-class DeleteVirtualGatewayInputRequestTypeDef(BaseModel):
+class DeleteVirtualGatewayInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualGatewayName: str
     meshOwner: Optional[str] = None
 
-class DeleteVirtualNodeInputRequestTypeDef(BaseModel):
+class DeleteVirtualNodeInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualNodeName: str
     meshOwner: Optional[str] = None
 
-class DeleteVirtualRouterInputRequestTypeDef(BaseModel):
+class DeleteVirtualRouterInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualRouterName: str
     meshOwner: Optional[str] = None
 
-class DeleteVirtualServiceInputRequestTypeDef(BaseModel):
+class DeleteVirtualServiceInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualServiceName: str
     meshOwner: Optional[str] = None
 
-class DescribeGatewayRouteInputRequestTypeDef(BaseModel):
+class DescribeGatewayRouteInputRequestTypeDef(BaseValidatorModel):
     gatewayRouteName: str
     meshName: str
     virtualGatewayName: str
     meshOwner: Optional[str] = None
 
-class DescribeMeshInputRequestTypeDef(BaseModel):
+class DescribeMeshInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     meshOwner: Optional[str] = None
 
-class DescribeRouteInputRequestTypeDef(BaseModel):
+class DescribeRouteInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     routeName: str
     virtualRouterName: str
     meshOwner: Optional[str] = None
 
-class DescribeVirtualGatewayInputRequestTypeDef(BaseModel):
+class DescribeVirtualGatewayInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualGatewayName: str
     meshOwner: Optional[str] = None
 
-class DescribeVirtualNodeInputRequestTypeDef(BaseModel):
+class DescribeVirtualNodeInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualNodeName: str
     meshOwner: Optional[str] = None
 
-class DescribeVirtualRouterInputRequestTypeDef(BaseModel):
+class DescribeVirtualRouterInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualRouterName: str
     meshOwner: Optional[str] = None
 
-class DescribeVirtualServiceInputRequestTypeDef(BaseModel):
+class DescribeVirtualServiceInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualServiceName: str
     meshOwner: Optional[str] = None
 
-class DnsServiceDiscoveryTypeDef(BaseModel):
+class DnsServiceDiscoveryTypeDef(BaseValidatorModel):
     hostname: str
     ipPreference: Optional[IpPreferenceType] = None
     responseType: Optional[DnsResponseTypeType] = None
 
-class DurationTypeDef(BaseModel):
+class DurationTypeDef(BaseValidatorModel):
     unit: Optional[DurationUnitType] = None
     value: Optional[int] = None
 
-class EgressFilterTypeDef(BaseModel):
+class EgressFilterTypeDef(BaseValidatorModel):
     type: EgressFilterTypeType
 
-class GatewayRouteStatusTypeDef(BaseModel):
+class GatewayRouteStatusTypeDef(BaseValidatorModel):
     status: GatewayRouteStatusCodeType
 
-class ResourceMetadataTypeDef(BaseModel):
+class ResourceMetadataTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -128,14 +128,14 @@ class ResourceMetadataTypeDef(BaseModel):
     uid: str
     version: int
 
-class GatewayRouteHostnameMatchTypeDef(BaseModel):
+class GatewayRouteHostnameMatchTypeDef(BaseValidatorModel):
     exact: Optional[str] = None
     suffix: Optional[str] = None
 
-class GatewayRouteHostnameRewriteTypeDef(BaseModel):
+class GatewayRouteHostnameRewriteTypeDef(BaseValidatorModel):
     defaultTargetHostname: Optional[DefaultGatewayRouteRewriteType] = None
 
-class GatewayRouteRefTypeDef(BaseModel):
+class GatewayRouteRefTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     gatewayRouteName: str
@@ -146,19 +146,19 @@ class GatewayRouteRefTypeDef(BaseModel):
     version: int
     virtualGatewayName: str
 
-class GatewayRouteVirtualServiceTypeDef(BaseModel):
+class GatewayRouteVirtualServiceTypeDef(BaseValidatorModel):
     virtualServiceName: str
 
-class MatchRangeTypeDef(BaseModel):
+class MatchRangeTypeDef(BaseValidatorModel):
     end: int
     start: int
 
-class WeightedTargetTypeDef(BaseModel):
+class WeightedTargetTypeDef(BaseValidatorModel):
     virtualNode: str
     weight: int
     port: Optional[int] = None
 
-class HealthCheckPolicyTypeDef(BaseModel):
+class HealthCheckPolicyTypeDef(BaseValidatorModel):
     healthyThreshold: int
     intervalMillis: int
     protocol: PortProtocolType
@@ -167,41 +167,41 @@ class HealthCheckPolicyTypeDef(BaseModel):
     path: Optional[str] = None
     port: Optional[int] = None
 
-class HttpPathMatchTypeDef(BaseModel):
+class HttpPathMatchTypeDef(BaseValidatorModel):
     exact: Optional[str] = None
     regex: Optional[str] = None
 
-class HttpGatewayRoutePathRewriteTypeDef(BaseModel):
+class HttpGatewayRoutePathRewriteTypeDef(BaseValidatorModel):
     exact: Optional[str] = None
 
-class HttpGatewayRoutePrefixRewriteTypeDef(BaseModel):
+class HttpGatewayRoutePrefixRewriteTypeDef(BaseValidatorModel):
     defaultPrefix: Optional[DefaultGatewayRouteRewriteType] = None
     value: Optional[str] = None
 
-class QueryParameterMatchTypeDef(BaseModel):
+class QueryParameterMatchTypeDef(BaseValidatorModel):
     exact: Optional[str] = None
 
-class JsonFormatRefTypeDef(BaseModel):
+class JsonFormatRefTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListGatewayRoutesInputRequestTypeDef(BaseModel):
+class ListGatewayRoutesInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualGatewayName: str
     limit: Optional[int] = None
     meshOwner: Optional[str] = None
     nextToken: Optional[str] = None
 
-class ListMeshesInputRequestTypeDef(BaseModel):
+class ListMeshesInputRequestTypeDef(BaseValidatorModel):
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
-class MeshRefTypeDef(BaseModel):
+class MeshRefTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -210,14 +210,14 @@ class MeshRefTypeDef(BaseModel):
     resourceOwner: str
     version: int
 
-class ListRoutesInputRequestTypeDef(BaseModel):
+class ListRoutesInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     virtualRouterName: str
     limit: Optional[int] = None
     meshOwner: Optional[str] = None
     nextToken: Optional[str] = None
 
-class RouteRefTypeDef(BaseModel):
+class RouteRefTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -228,18 +228,18 @@ class RouteRefTypeDef(BaseModel):
     version: int
     virtualRouterName: str
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListVirtualGatewaysInputRequestTypeDef(BaseModel):
+class ListVirtualGatewaysInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     limit: Optional[int] = None
     meshOwner: Optional[str] = None
     nextToken: Optional[str] = None
 
-class VirtualGatewayRefTypeDef(BaseModel):
+class VirtualGatewayRefTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -249,13 +249,13 @@ class VirtualGatewayRefTypeDef(BaseModel):
     version: int
     virtualGatewayName: str
 
-class ListVirtualNodesInputRequestTypeDef(BaseModel):
+class ListVirtualNodesInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     limit: Optional[int] = None
     meshOwner: Optional[str] = None
     nextToken: Optional[str] = None
 
-class VirtualNodeRefTypeDef(BaseModel):
+class VirtualNodeRefTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -265,13 +265,13 @@ class VirtualNodeRefTypeDef(BaseModel):
     version: int
     virtualNodeName: str
 
-class ListVirtualRoutersInputRequestTypeDef(BaseModel):
+class ListVirtualRoutersInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     limit: Optional[int] = None
     meshOwner: Optional[str] = None
     nextToken: Optional[str] = None
 
-class VirtualRouterRefTypeDef(BaseModel):
+class VirtualRouterRefTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -281,13 +281,13 @@ class VirtualRouterRefTypeDef(BaseModel):
     version: int
     virtualRouterName: str
 
-class ListVirtualServicesInputRequestTypeDef(BaseModel):
+class ListVirtualServicesInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     limit: Optional[int] = None
     meshOwner: Optional[str] = None
     nextToken: Optional[str] = None
 
-class VirtualServiceRefTypeDef(BaseModel):
+class VirtualServiceRefTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -297,62 +297,62 @@ class VirtualServiceRefTypeDef(BaseModel):
     version: int
     virtualServiceName: str
 
-class ListenerTlsAcmCertificateTypeDef(BaseModel):
+class ListenerTlsAcmCertificateTypeDef(BaseValidatorModel):
     certificateArn: str
 
-class TlsValidationContextFileTrustTypeDef(BaseModel):
+class TlsValidationContextFileTrustTypeDef(BaseValidatorModel):
     certificateChain: str
 
-class TlsValidationContextSdsTrustTypeDef(BaseModel):
+class TlsValidationContextSdsTrustTypeDef(BaseValidatorModel):
     secretName: str
 
-class PortMappingTypeDef(BaseModel):
+class PortMappingTypeDef(BaseValidatorModel):
     port: int
     protocol: PortProtocolType
 
-class MeshStatusTypeDef(BaseModel):
+class MeshStatusTypeDef(BaseValidatorModel):
     status: Optional[MeshStatusCodeType] = None
 
-class MeshServiceDiscoveryTypeDef(BaseModel):
+class MeshServiceDiscoveryTypeDef(BaseValidatorModel):
     ipPreference: Optional[IpPreferenceType] = None
 
-class RouteStatusTypeDef(BaseModel):
+class RouteStatusTypeDef(BaseValidatorModel):
     status: RouteStatusCodeType
 
-class SubjectAlternativeNameMatchersTypeDef(BaseModel):
+class SubjectAlternativeNameMatchersTypeDef(BaseValidatorModel):
     exact: Sequence[str]
 
-class TcpRouteMatchTypeDef(BaseModel):
+class TcpRouteMatchTypeDef(BaseValidatorModel):
     port: Optional[int] = None
 
-class TlsValidationContextAcmTrustTypeDef(BaseModel):
+class TlsValidationContextAcmTrustTypeDef(BaseValidatorModel):
     certificateAuthorityArns: Sequence[str]
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class VirtualGatewayListenerTlsFileCertificateTypeDef(BaseModel):
+class VirtualGatewayListenerTlsFileCertificateTypeDef(BaseValidatorModel):
     certificateChain: str
     privateKey: str
 
-class VirtualGatewayListenerTlsSdsCertificateTypeDef(BaseModel):
+class VirtualGatewayListenerTlsSdsCertificateTypeDef(BaseValidatorModel):
     secretName: str
 
-class VirtualGatewayGrpcConnectionPoolTypeDef(BaseModel):
+class VirtualGatewayGrpcConnectionPoolTypeDef(BaseValidatorModel):
     maxRequests: int
 
-class VirtualGatewayHttp2ConnectionPoolTypeDef(BaseModel):
+class VirtualGatewayHttp2ConnectionPoolTypeDef(BaseValidatorModel):
     maxRequests: int
 
-class VirtualGatewayHttpConnectionPoolTypeDef(BaseModel):
+class VirtualGatewayHttpConnectionPoolTypeDef(BaseValidatorModel):
     maxConnections: int
     maxPendingRequests: Optional[int] = None
 
-class VirtualGatewayStatusTypeDef(BaseModel):
+class VirtualGatewayStatusTypeDef(BaseValidatorModel):
     status: VirtualGatewayStatusCodeType
 
-class VirtualGatewayHealthCheckPolicyTypeDef(BaseModel):
+class VirtualGatewayHealthCheckPolicyTypeDef(BaseValidatorModel):
     healthyThreshold: int
     intervalMillis: int
     protocol: VirtualGatewayPortProtocolType
@@ -361,383 +361,383 @@ class VirtualGatewayHealthCheckPolicyTypeDef(BaseModel):
     path: Optional[str] = None
     port: Optional[int] = None
 
-class VirtualGatewayListenerTlsAcmCertificateTypeDef(BaseModel):
+class VirtualGatewayListenerTlsAcmCertificateTypeDef(BaseValidatorModel):
     certificateArn: str
 
-class VirtualGatewayTlsValidationContextFileTrustTypeDef(BaseModel):
+class VirtualGatewayTlsValidationContextFileTrustTypeDef(BaseValidatorModel):
     certificateChain: str
 
-class VirtualGatewayTlsValidationContextSdsTrustTypeDef(BaseModel):
+class VirtualGatewayTlsValidationContextSdsTrustTypeDef(BaseValidatorModel):
     secretName: str
 
-class VirtualGatewayPortMappingTypeDef(BaseModel):
+class VirtualGatewayPortMappingTypeDef(BaseValidatorModel):
     port: int
     protocol: VirtualGatewayPortProtocolType
 
-class VirtualGatewayTlsValidationContextAcmTrustTypeDef(BaseModel):
+class VirtualGatewayTlsValidationContextAcmTrustTypeDef(BaseValidatorModel):
     certificateAuthorityArns: Sequence[str]
 
-class VirtualNodeGrpcConnectionPoolTypeDef(BaseModel):
+class VirtualNodeGrpcConnectionPoolTypeDef(BaseValidatorModel):
     maxRequests: int
 
-class VirtualNodeHttp2ConnectionPoolTypeDef(BaseModel):
+class VirtualNodeHttp2ConnectionPoolTypeDef(BaseValidatorModel):
     maxRequests: int
 
-class VirtualNodeHttpConnectionPoolTypeDef(BaseModel):
+class VirtualNodeHttpConnectionPoolTypeDef(BaseValidatorModel):
     maxConnections: int
     maxPendingRequests: Optional[int] = None
 
-class VirtualNodeTcpConnectionPoolTypeDef(BaseModel):
+class VirtualNodeTcpConnectionPoolTypeDef(BaseValidatorModel):
     maxConnections: int
 
-class VirtualNodeStatusTypeDef(BaseModel):
+class VirtualNodeStatusTypeDef(BaseValidatorModel):
     status: VirtualNodeStatusCodeType
 
-class VirtualNodeServiceProviderTypeDef(BaseModel):
+class VirtualNodeServiceProviderTypeDef(BaseValidatorModel):
     virtualNodeName: str
 
-class VirtualRouterStatusTypeDef(BaseModel):
+class VirtualRouterStatusTypeDef(BaseValidatorModel):
     status: VirtualRouterStatusCodeType
 
-class VirtualRouterServiceProviderTypeDef(BaseModel):
+class VirtualRouterServiceProviderTypeDef(BaseValidatorModel):
     virtualRouterName: str
 
-class VirtualServiceStatusTypeDef(BaseModel):
+class VirtualServiceStatusTypeDef(BaseValidatorModel):
     status: VirtualServiceStatusCodeType
 
-class AwsCloudMapServiceDiscoveryTypeDef(BaseModel):
+class AwsCloudMapServiceDiscoveryTypeDef(BaseValidatorModel):
     namespaceName: str
     serviceName: str
     attributes: Optional[Sequence[AwsCloudMapInstanceAttributeTypeDef]] = None
     ipPreference: Optional[IpPreferenceType] = None
 
-class ClientTlsCertificateTypeDef(BaseModel):
+class ClientTlsCertificateTypeDef(BaseValidatorModel):
     file: Optional[ListenerTlsFileCertificateTypeDef] = None
     sds: Optional[ListenerTlsSdsCertificateTypeDef] = None
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagRefTypeDef]
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     nextToken: str
     tags: List[TagRefTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GrpcRetryPolicyTypeDef(BaseModel):
+class GrpcRetryPolicyTypeDef(BaseValidatorModel):
     maxRetries: int
     perRetryTimeout: DurationTypeDef
     grpcRetryEvents: Optional[Sequence[GrpcRetryPolicyEventType]] = None
     httpRetryEvents: Optional[Sequence[str]] = None
     tcpRetryEvents: Optional[Sequence[Literal["connection-error"]]] = None
 
-class GrpcTimeoutTypeDef(BaseModel):
+class GrpcTimeoutTypeDef(BaseValidatorModel):
     idle: Optional[DurationTypeDef] = None
     perRequest: Optional[DurationTypeDef] = None
 
-class HttpRetryPolicyTypeDef(BaseModel):
+class HttpRetryPolicyTypeDef(BaseValidatorModel):
     maxRetries: int
     perRetryTimeout: DurationTypeDef
     httpRetryEvents: Optional[Sequence[str]] = None
     tcpRetryEvents: Optional[Sequence[Literal["connection-error"]]] = None
 
-class HttpTimeoutTypeDef(BaseModel):
+class HttpTimeoutTypeDef(BaseValidatorModel):
     idle: Optional[DurationTypeDef] = None
     perRequest: Optional[DurationTypeDef] = None
 
-class OutlierDetectionTypeDef(BaseModel):
+class OutlierDetectionTypeDef(BaseValidatorModel):
     baseEjectionDuration: DurationTypeDef
     interval: DurationTypeDef
     maxEjectionPercent: int
     maxServerErrors: int
 
-class TcpTimeoutTypeDef(BaseModel):
+class TcpTimeoutTypeDef(BaseValidatorModel):
     idle: Optional[DurationTypeDef] = None
 
-class GrpcGatewayRouteRewriteTypeDef(BaseModel):
+class GrpcGatewayRouteRewriteTypeDef(BaseValidatorModel):
     hostname: Optional[GatewayRouteHostnameRewriteTypeDef] = None
 
-class ListGatewayRoutesOutputTypeDef(BaseModel):
+class ListGatewayRoutesOutputTypeDef(BaseValidatorModel):
     gatewayRoutes: List[GatewayRouteRefTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GatewayRouteTargetTypeDef(BaseModel):
+class GatewayRouteTargetTypeDef(BaseValidatorModel):
     virtualService: GatewayRouteVirtualServiceTypeDef
     port: Optional[int] = None
 
-class GrpcMetadataMatchMethodTypeDef(BaseModel):
+class GrpcMetadataMatchMethodTypeDef(BaseValidatorModel):
     exact: Optional[str] = None
     prefix: Optional[str] = None
     range: Optional[MatchRangeTypeDef] = None
     regex: Optional[str] = None
     suffix: Optional[str] = None
 
-class GrpcRouteMetadataMatchMethodTypeDef(BaseModel):
+class GrpcRouteMetadataMatchMethodTypeDef(BaseValidatorModel):
     exact: Optional[str] = None
     prefix: Optional[str] = None
     range: Optional[MatchRangeTypeDef] = None
     regex: Optional[str] = None
     suffix: Optional[str] = None
 
-class HeaderMatchMethodTypeDef(BaseModel):
+class HeaderMatchMethodTypeDef(BaseValidatorModel):
     exact: Optional[str] = None
     prefix: Optional[str] = None
     range: Optional[MatchRangeTypeDef] = None
     regex: Optional[str] = None
     suffix: Optional[str] = None
 
-class GrpcRouteActionTypeDef(BaseModel):
+class GrpcRouteActionTypeDef(BaseValidatorModel):
     weightedTargets: Sequence[WeightedTargetTypeDef]
 
-class HttpRouteActionTypeDef(BaseModel):
+class HttpRouteActionTypeDef(BaseValidatorModel):
     weightedTargets: Sequence[WeightedTargetTypeDef]
 
-class TcpRouteActionTypeDef(BaseModel):
+class TcpRouteActionTypeDef(BaseValidatorModel):
     weightedTargets: Sequence[WeightedTargetTypeDef]
 
-class HttpGatewayRouteRewriteTypeDef(BaseModel):
+class HttpGatewayRouteRewriteTypeDef(BaseValidatorModel):
     hostname: Optional[GatewayRouteHostnameRewriteTypeDef] = None
     path: Optional[HttpGatewayRoutePathRewriteTypeDef] = None
     prefix: Optional[HttpGatewayRoutePrefixRewriteTypeDef] = None
 
-class HttpQueryParameterTypeDef(BaseModel):
+class HttpQueryParameterTypeDef(BaseValidatorModel):
     name: str
     match: Optional[QueryParameterMatchTypeDef] = None
 
-class LoggingFormatTypeDef(BaseModel):
+class LoggingFormatTypeDef(BaseValidatorModel):
     json: Optional[Sequence[JsonFormatRefTypeDef]] = None
     text: Optional[str] = None
 
-class ListGatewayRoutesInputListGatewayRoutesPaginateTypeDef(BaseModel):
+class ListGatewayRoutesInputListGatewayRoutesPaginateTypeDef(BaseValidatorModel):
     meshName: str
     virtualGatewayName: str
     meshOwner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMeshesInputListMeshesPaginateTypeDef(BaseModel):
+class ListMeshesInputListMeshesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRoutesInputListRoutesPaginateTypeDef(BaseModel):
+class ListRoutesInputListRoutesPaginateTypeDef(BaseValidatorModel):
     meshName: str
     virtualRouterName: str
     meshOwner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceInputListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceInputListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     resourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVirtualGatewaysInputListVirtualGatewaysPaginateTypeDef(BaseModel):
+class ListVirtualGatewaysInputListVirtualGatewaysPaginateTypeDef(BaseValidatorModel):
     meshName: str
     meshOwner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVirtualNodesInputListVirtualNodesPaginateTypeDef(BaseModel):
+class ListVirtualNodesInputListVirtualNodesPaginateTypeDef(BaseValidatorModel):
     meshName: str
     meshOwner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVirtualRoutersInputListVirtualRoutersPaginateTypeDef(BaseModel):
+class ListVirtualRoutersInputListVirtualRoutersPaginateTypeDef(BaseValidatorModel):
     meshName: str
     meshOwner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVirtualServicesInputListVirtualServicesPaginateTypeDef(BaseModel):
+class ListVirtualServicesInputListVirtualServicesPaginateTypeDef(BaseValidatorModel):
     meshName: str
     meshOwner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMeshesOutputTypeDef(BaseModel):
+class ListMeshesOutputTypeDef(BaseValidatorModel):
     meshes: List[MeshRefTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRoutesOutputTypeDef(BaseModel):
+class ListRoutesOutputTypeDef(BaseValidatorModel):
     nextToken: str
     routes: List[RouteRefTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVirtualGatewaysOutputTypeDef(BaseModel):
+class ListVirtualGatewaysOutputTypeDef(BaseValidatorModel):
     nextToken: str
     virtualGateways: List[VirtualGatewayRefTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVirtualNodesOutputTypeDef(BaseModel):
+class ListVirtualNodesOutputTypeDef(BaseValidatorModel):
     nextToken: str
     virtualNodes: List[VirtualNodeRefTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVirtualRoutersOutputTypeDef(BaseModel):
+class ListVirtualRoutersOutputTypeDef(BaseValidatorModel):
     nextToken: str
     virtualRouters: List[VirtualRouterRefTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVirtualServicesOutputTypeDef(BaseModel):
+class ListVirtualServicesOutputTypeDef(BaseValidatorModel):
     nextToken: str
     virtualServices: List[VirtualServiceRefTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListenerTlsCertificateTypeDef(BaseModel):
+class ListenerTlsCertificateTypeDef(BaseValidatorModel):
     acm: Optional[ListenerTlsAcmCertificateTypeDef] = None
     file: Optional[ListenerTlsFileCertificateTypeDef] = None
     sds: Optional[ListenerTlsSdsCertificateTypeDef] = None
 
-class ListenerTlsValidationContextTrustTypeDef(BaseModel):
+class ListenerTlsValidationContextTrustTypeDef(BaseValidatorModel):
     file: Optional[TlsValidationContextFileTrustTypeDef] = None
     sds: Optional[TlsValidationContextSdsTrustTypeDef] = None
 
-class VirtualRouterListenerTypeDef(BaseModel):
+class VirtualRouterListenerTypeDef(BaseValidatorModel):
     portMapping: PortMappingTypeDef
 
-class MeshSpecTypeDef(BaseModel):
+class MeshSpecTypeDef(BaseValidatorModel):
     egressFilter: Optional[EgressFilterTypeDef] = None
     serviceDiscovery: Optional[MeshServiceDiscoveryTypeDef] = None
 
-class SubjectAlternativeNamesTypeDef(BaseModel):
+class SubjectAlternativeNamesTypeDef(BaseValidatorModel):
     match: SubjectAlternativeNameMatchersTypeDef
 
-class TlsValidationContextTrustTypeDef(BaseModel):
+class TlsValidationContextTrustTypeDef(BaseValidatorModel):
     acm: Optional[TlsValidationContextAcmTrustTypeDef] = None
     file: Optional[TlsValidationContextFileTrustTypeDef] = None
     sds: Optional[TlsValidationContextSdsTrustTypeDef] = None
 
-class VirtualGatewayClientTlsCertificateTypeDef(BaseModel):
+class VirtualGatewayClientTlsCertificateTypeDef(BaseValidatorModel):
     file: Optional[VirtualGatewayListenerTlsFileCertificateTypeDef] = None
     sds: Optional[VirtualGatewayListenerTlsSdsCertificateTypeDef] = None
 
-class VirtualGatewayConnectionPoolTypeDef(BaseModel):
+class VirtualGatewayConnectionPoolTypeDef(BaseValidatorModel):
     grpc: Optional[VirtualGatewayGrpcConnectionPoolTypeDef] = None
     http: Optional[VirtualGatewayHttpConnectionPoolTypeDef] = None
     http2: Optional[VirtualGatewayHttp2ConnectionPoolTypeDef] = None
 
-class VirtualGatewayListenerTlsCertificateTypeDef(BaseModel):
+class VirtualGatewayListenerTlsCertificateTypeDef(BaseValidatorModel):
     acm: Optional[VirtualGatewayListenerTlsAcmCertificateTypeDef] = None
     file: Optional[VirtualGatewayListenerTlsFileCertificateTypeDef] = None
     sds: Optional[VirtualGatewayListenerTlsSdsCertificateTypeDef] = None
 
-class VirtualGatewayListenerTlsValidationContextTrustTypeDef(BaseModel):
+class VirtualGatewayListenerTlsValidationContextTrustTypeDef(BaseValidatorModel):
     file: Optional[VirtualGatewayTlsValidationContextFileTrustTypeDef] = None
     sds: Optional[VirtualGatewayTlsValidationContextSdsTrustTypeDef] = None
 
-class VirtualGatewayTlsValidationContextTrustTypeDef(BaseModel):
+class VirtualGatewayTlsValidationContextTrustTypeDef(BaseValidatorModel):
     acm: Optional[VirtualGatewayTlsValidationContextAcmTrustTypeDef] = None
     file: Optional[VirtualGatewayTlsValidationContextFileTrustTypeDef] = None
     sds: Optional[VirtualGatewayTlsValidationContextSdsTrustTypeDef] = None
 
-class VirtualNodeConnectionPoolTypeDef(BaseModel):
+class VirtualNodeConnectionPoolTypeDef(BaseValidatorModel):
     grpc: Optional[VirtualNodeGrpcConnectionPoolTypeDef] = None
     http: Optional[VirtualNodeHttpConnectionPoolTypeDef] = None
     http2: Optional[VirtualNodeHttp2ConnectionPoolTypeDef] = None
     tcp: Optional[VirtualNodeTcpConnectionPoolTypeDef] = None
 
-class VirtualServiceProviderTypeDef(BaseModel):
+class VirtualServiceProviderTypeDef(BaseValidatorModel):
     virtualNode: Optional[VirtualNodeServiceProviderTypeDef] = None
     virtualRouter: Optional[VirtualRouterServiceProviderTypeDef] = None
 
-class ServiceDiscoveryTypeDef(BaseModel):
+class ServiceDiscoveryTypeDef(BaseValidatorModel):
     awsCloudMap: Optional[AwsCloudMapServiceDiscoveryTypeDef] = None
     dns: Optional[DnsServiceDiscoveryTypeDef] = None
 
-class ListenerTimeoutTypeDef(BaseModel):
+class ListenerTimeoutTypeDef(BaseValidatorModel):
     grpc: Optional[GrpcTimeoutTypeDef] = None
     http: Optional[HttpTimeoutTypeDef] = None
     http2: Optional[HttpTimeoutTypeDef] = None
     tcp: Optional[TcpTimeoutTypeDef] = None
 
-class GrpcGatewayRouteActionTypeDef(BaseModel):
+class GrpcGatewayRouteActionTypeDef(BaseValidatorModel):
     target: GatewayRouteTargetTypeDef
     rewrite: Optional[GrpcGatewayRouteRewriteTypeDef] = None
 
-class GrpcGatewayRouteMetadataTypeDef(BaseModel):
+class GrpcGatewayRouteMetadataTypeDef(BaseValidatorModel):
     name: str
     invert: Optional[bool] = None
     match: Optional[GrpcMetadataMatchMethodTypeDef] = None
 
-class GrpcRouteMetadataTypeDef(BaseModel):
+class GrpcRouteMetadataTypeDef(BaseValidatorModel):
     name: str
     invert: Optional[bool] = None
     match: Optional[GrpcRouteMetadataMatchMethodTypeDef] = None
 
-class HttpGatewayRouteHeaderTypeDef(BaseModel):
+class HttpGatewayRouteHeaderTypeDef(BaseValidatorModel):
     name: str
     invert: Optional[bool] = None
     match: Optional[HeaderMatchMethodTypeDef] = None
 
-class HttpRouteHeaderTypeDef(BaseModel):
+class HttpRouteHeaderTypeDef(BaseValidatorModel):
     name: str
     invert: Optional[bool] = None
     match: Optional[HeaderMatchMethodTypeDef] = None
 
-class TcpRouteTypeDef(BaseModel):
+class TcpRouteTypeDef(BaseValidatorModel):
     action: TcpRouteActionTypeDef
     match: Optional[TcpRouteMatchTypeDef] = None
     timeout: Optional[TcpTimeoutTypeDef] = None
 
-class HttpGatewayRouteActionTypeDef(BaseModel):
+class HttpGatewayRouteActionTypeDef(BaseValidatorModel):
     target: GatewayRouteTargetTypeDef
     rewrite: Optional[HttpGatewayRouteRewriteTypeDef] = None
 
-class FileAccessLogTypeDef(BaseModel):
+class FileAccessLogTypeDef(BaseValidatorModel):
     path: str
     format: Optional[LoggingFormatTypeDef] = None
 
-class VirtualGatewayFileAccessLogTypeDef(BaseModel):
+class VirtualGatewayFileAccessLogTypeDef(BaseValidatorModel):
     path: str
     format: Optional[LoggingFormatTypeDef] = None
 
-class VirtualRouterSpecTypeDef(BaseModel):
+class VirtualRouterSpecTypeDef(BaseValidatorModel):
     listeners: Optional[Sequence[VirtualRouterListenerTypeDef]] = None
 
-class CreateMeshInputRequestTypeDef(BaseModel):
+class CreateMeshInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     clientToken: Optional[str] = None
     spec: Optional[MeshSpecTypeDef] = None
     tags: Optional[Sequence[TagRefTypeDef]] = None
 
-class MeshDataTypeDef(BaseModel):
+class MeshDataTypeDef(BaseValidatorModel):
     meshName: str
     metadata: ResourceMetadataTypeDef
     spec: MeshSpecTypeDef
     status: MeshStatusTypeDef
 
-class UpdateMeshInputRequestTypeDef(BaseModel):
+class UpdateMeshInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     clientToken: Optional[str] = None
     spec: Optional[MeshSpecTypeDef] = None
 
-class ListenerTlsValidationContextTypeDef(BaseModel):
+class ListenerTlsValidationContextTypeDef(BaseValidatorModel):
     trust: ListenerTlsValidationContextTrustTypeDef
     subjectAlternativeNames: Optional[SubjectAlternativeNamesTypeDef] = None
 
-class TlsValidationContextTypeDef(BaseModel):
+class TlsValidationContextTypeDef(BaseValidatorModel):
     trust: TlsValidationContextTrustTypeDef
     subjectAlternativeNames: Optional[SubjectAlternativeNamesTypeDef] = None
 
-class VirtualGatewayListenerTlsValidationContextTypeDef(BaseModel):
+class VirtualGatewayListenerTlsValidationContextTypeDef(BaseValidatorModel):
     trust: VirtualGatewayListenerTlsValidationContextTrustTypeDef
     subjectAlternativeNames: Optional[SubjectAlternativeNamesTypeDef] = None
 
-class VirtualGatewayTlsValidationContextTypeDef(BaseModel):
+class VirtualGatewayTlsValidationContextTypeDef(BaseValidatorModel):
     trust: VirtualGatewayTlsValidationContextTrustTypeDef
     subjectAlternativeNames: Optional[SubjectAlternativeNamesTypeDef] = None
 
-class VirtualServiceSpecTypeDef(BaseModel):
+class VirtualServiceSpecTypeDef(BaseValidatorModel):
     provider: Optional[VirtualServiceProviderTypeDef] = None
 
-class GrpcGatewayRouteMatchTypeDef(BaseModel):
+class GrpcGatewayRouteMatchTypeDef(BaseValidatorModel):
     hostname: Optional[GatewayRouteHostnameMatchTypeDef] = None
     metadata: Optional[Sequence[GrpcGatewayRouteMetadataTypeDef]] = None
     port: Optional[int] = None
     serviceName: Optional[str] = None
 
-class GrpcRouteMatchTypeDef(BaseModel):
+class GrpcRouteMatchTypeDef(BaseValidatorModel):
     metadata: Optional[Sequence[GrpcRouteMetadataTypeDef]] = None
     methodName: Optional[str] = None
     port: Optional[int] = None
     serviceName: Optional[str] = None
 
-class HttpGatewayRouteMatchTypeDef(BaseModel):
+class HttpGatewayRouteMatchTypeDef(BaseValidatorModel):
     headers: Optional[Sequence[HttpGatewayRouteHeaderTypeDef]] = None
     hostname: Optional[GatewayRouteHostnameMatchTypeDef] = None
     method: Optional[HttpMethodType] = None
@@ -746,7 +746,7 @@ class HttpGatewayRouteMatchTypeDef(BaseModel):
     prefix: Optional[str] = None
     queryParameters: Optional[Sequence[HttpQueryParameterTypeDef]] = None
 
-class HttpRouteMatchTypeDef(BaseModel):
+class HttpRouteMatchTypeDef(BaseValidatorModel):
     headers: Optional[Sequence[HttpRouteHeaderTypeDef]] = None
     method: Optional[HttpMethodType] = None
     path: Optional[HttpPathMatchTypeDef] = None
@@ -755,13 +755,13 @@ class HttpRouteMatchTypeDef(BaseModel):
     queryParameters: Optional[Sequence[HttpQueryParameterTypeDef]] = None
     scheme: Optional[HttpSchemeType] = None
 
-class AccessLogTypeDef(BaseModel):
+class AccessLogTypeDef(BaseValidatorModel):
     file: Optional[FileAccessLogTypeDef] = None
 
-class VirtualGatewayAccessLogTypeDef(BaseModel):
+class VirtualGatewayAccessLogTypeDef(BaseValidatorModel):
     file: Optional[VirtualGatewayFileAccessLogTypeDef] = None
 
-class CreateVirtualRouterInputRequestTypeDef(BaseModel):
+class CreateVirtualRouterInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     spec: VirtualRouterSpecTypeDef
     virtualRouterName: str
@@ -769,59 +769,59 @@ class CreateVirtualRouterInputRequestTypeDef(BaseModel):
     meshOwner: Optional[str] = None
     tags: Optional[Sequence[TagRefTypeDef]] = None
 
-class UpdateVirtualRouterInputRequestTypeDef(BaseModel):
+class UpdateVirtualRouterInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     spec: VirtualRouterSpecTypeDef
     virtualRouterName: str
     clientToken: Optional[str] = None
     meshOwner: Optional[str] = None
 
-class VirtualRouterDataTypeDef(BaseModel):
+class VirtualRouterDataTypeDef(BaseValidatorModel):
     meshName: str
     metadata: ResourceMetadataTypeDef
     spec: VirtualRouterSpecTypeDef
     status: VirtualRouterStatusTypeDef
     virtualRouterName: str
 
-class CreateMeshOutputTypeDef(BaseModel):
+class CreateMeshOutputTypeDef(BaseValidatorModel):
     mesh: MeshDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteMeshOutputTypeDef(BaseModel):
+class DeleteMeshOutputTypeDef(BaseValidatorModel):
     mesh: MeshDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeMeshOutputTypeDef(BaseModel):
+class DescribeMeshOutputTypeDef(BaseValidatorModel):
     mesh: MeshDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMeshOutputTypeDef(BaseModel):
+class UpdateMeshOutputTypeDef(BaseValidatorModel):
     mesh: MeshDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListenerTlsTypeDef(BaseModel):
+class ListenerTlsTypeDef(BaseValidatorModel):
     certificate: ListenerTlsCertificateTypeDef
     mode: ListenerTlsModeType
     validation: Optional[ListenerTlsValidationContextTypeDef] = None
 
-class ClientPolicyTlsTypeDef(BaseModel):
+class ClientPolicyTlsTypeDef(BaseValidatorModel):
     validation: TlsValidationContextTypeDef
     certificate: Optional[ClientTlsCertificateTypeDef] = None
     enforce: Optional[bool] = None
     ports: Optional[Sequence[int]] = None
 
-class VirtualGatewayListenerTlsTypeDef(BaseModel):
+class VirtualGatewayListenerTlsTypeDef(BaseValidatorModel):
     certificate: VirtualGatewayListenerTlsCertificateTypeDef
     mode: VirtualGatewayListenerTlsModeType
     validation: Optional[VirtualGatewayListenerTlsValidationContextTypeDef] = None
 
-class VirtualGatewayClientPolicyTlsTypeDef(BaseModel):
+class VirtualGatewayClientPolicyTlsTypeDef(BaseValidatorModel):
     validation: VirtualGatewayTlsValidationContextTypeDef
     certificate: Optional[VirtualGatewayClientTlsCertificateTypeDef] = None
     enforce: Optional[bool] = None
     ports: Optional[Sequence[int]] = None
 
-class CreateVirtualServiceInputRequestTypeDef(BaseModel):
+class CreateVirtualServiceInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     spec: VirtualServiceSpecTypeDef
     virtualServiceName: str
@@ -829,63 +829,63 @@ class CreateVirtualServiceInputRequestTypeDef(BaseModel):
     meshOwner: Optional[str] = None
     tags: Optional[Sequence[TagRefTypeDef]] = None
 
-class UpdateVirtualServiceInputRequestTypeDef(BaseModel):
+class UpdateVirtualServiceInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     spec: VirtualServiceSpecTypeDef
     virtualServiceName: str
     clientToken: Optional[str] = None
     meshOwner: Optional[str] = None
 
-class VirtualServiceDataTypeDef(BaseModel):
+class VirtualServiceDataTypeDef(BaseValidatorModel):
     meshName: str
     metadata: ResourceMetadataTypeDef
     spec: VirtualServiceSpecTypeDef
     status: VirtualServiceStatusTypeDef
     virtualServiceName: str
 
-class GrpcGatewayRouteTypeDef(BaseModel):
+class GrpcGatewayRouteTypeDef(BaseValidatorModel):
     action: GrpcGatewayRouteActionTypeDef
     match: GrpcGatewayRouteMatchTypeDef
 
-class GrpcRouteTypeDef(BaseModel):
+class GrpcRouteTypeDef(BaseValidatorModel):
     action: GrpcRouteActionTypeDef
     match: GrpcRouteMatchTypeDef
     retryPolicy: Optional[GrpcRetryPolicyTypeDef] = None
     timeout: Optional[GrpcTimeoutTypeDef] = None
 
-class HttpGatewayRouteTypeDef(BaseModel):
+class HttpGatewayRouteTypeDef(BaseValidatorModel):
     action: HttpGatewayRouteActionTypeDef
     match: HttpGatewayRouteMatchTypeDef
 
-class HttpRouteTypeDef(BaseModel):
+class HttpRouteTypeDef(BaseValidatorModel):
     action: HttpRouteActionTypeDef
     match: HttpRouteMatchTypeDef
     retryPolicy: Optional[HttpRetryPolicyTypeDef] = None
     timeout: Optional[HttpTimeoutTypeDef] = None
 
-class LoggingTypeDef(BaseModel):
+class LoggingTypeDef(BaseValidatorModel):
     accessLog: Optional[AccessLogTypeDef] = None
 
-class VirtualGatewayLoggingTypeDef(BaseModel):
+class VirtualGatewayLoggingTypeDef(BaseValidatorModel):
     accessLog: Optional[VirtualGatewayAccessLogTypeDef] = None
 
-class CreateVirtualRouterOutputTypeDef(BaseModel):
+class CreateVirtualRouterOutputTypeDef(BaseValidatorModel):
     virtualRouter: VirtualRouterDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVirtualRouterOutputTypeDef(BaseModel):
+class DeleteVirtualRouterOutputTypeDef(BaseValidatorModel):
     virtualRouter: VirtualRouterDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVirtualRouterOutputTypeDef(BaseModel):
+class DescribeVirtualRouterOutputTypeDef(BaseValidatorModel):
     virtualRouter: VirtualRouterDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVirtualRouterOutputTypeDef(BaseModel):
+class UpdateVirtualRouterOutputTypeDef(BaseValidatorModel):
     virtualRouter: VirtualRouterDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListenerTypeDef(BaseModel):
+class ListenerTypeDef(BaseValidatorModel):
     portMapping: PortMappingTypeDef
     connectionPool: Optional[VirtualNodeConnectionPoolTypeDef] = None
     healthCheck: Optional[HealthCheckPolicyTypeDef] = None
@@ -893,58 +893,58 @@ class ListenerTypeDef(BaseModel):
     timeout: Optional[ListenerTimeoutTypeDef] = None
     tls: Optional[ListenerTlsTypeDef] = None
 
-class ClientPolicyTypeDef(BaseModel):
+class ClientPolicyTypeDef(BaseValidatorModel):
     tls: Optional[ClientPolicyTlsTypeDef] = None
 
-class VirtualGatewayListenerTypeDef(BaseModel):
+class VirtualGatewayListenerTypeDef(BaseValidatorModel):
     portMapping: VirtualGatewayPortMappingTypeDef
     connectionPool: Optional[VirtualGatewayConnectionPoolTypeDef] = None
     healthCheck: Optional[VirtualGatewayHealthCheckPolicyTypeDef] = None
     tls: Optional[VirtualGatewayListenerTlsTypeDef] = None
 
-class VirtualGatewayClientPolicyTypeDef(BaseModel):
+class VirtualGatewayClientPolicyTypeDef(BaseValidatorModel):
     tls: Optional[VirtualGatewayClientPolicyTlsTypeDef] = None
 
-class CreateVirtualServiceOutputTypeDef(BaseModel):
+class CreateVirtualServiceOutputTypeDef(BaseValidatorModel):
     virtualService: VirtualServiceDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVirtualServiceOutputTypeDef(BaseModel):
+class DeleteVirtualServiceOutputTypeDef(BaseValidatorModel):
     virtualService: VirtualServiceDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVirtualServiceOutputTypeDef(BaseModel):
+class DescribeVirtualServiceOutputTypeDef(BaseValidatorModel):
     virtualService: VirtualServiceDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVirtualServiceOutputTypeDef(BaseModel):
+class UpdateVirtualServiceOutputTypeDef(BaseValidatorModel):
     virtualService: VirtualServiceDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GatewayRouteSpecTypeDef(BaseModel):
+class GatewayRouteSpecTypeDef(BaseValidatorModel):
     grpcRoute: Optional[GrpcGatewayRouteTypeDef] = None
     http2Route: Optional[HttpGatewayRouteTypeDef] = None
     httpRoute: Optional[HttpGatewayRouteTypeDef] = None
     priority: Optional[int] = None
 
-class RouteSpecTypeDef(BaseModel):
+class RouteSpecTypeDef(BaseValidatorModel):
     grpcRoute: Optional[GrpcRouteTypeDef] = None
     http2Route: Optional[HttpRouteTypeDef] = None
     httpRoute: Optional[HttpRouteTypeDef] = None
     priority: Optional[int] = None
     tcpRoute: Optional[TcpRouteTypeDef] = None
 
-class BackendDefaultsTypeDef(BaseModel):
+class BackendDefaultsTypeDef(BaseValidatorModel):
     clientPolicy: Optional[ClientPolicyTypeDef] = None
 
-class VirtualServiceBackendTypeDef(BaseModel):
+class VirtualServiceBackendTypeDef(BaseValidatorModel):
     virtualServiceName: str
     clientPolicy: Optional[ClientPolicyTypeDef] = None
 
-class VirtualGatewayBackendDefaultsTypeDef(BaseModel):
+class VirtualGatewayBackendDefaultsTypeDef(BaseValidatorModel):
     clientPolicy: Optional[VirtualGatewayClientPolicyTypeDef] = None
 
-class CreateGatewayRouteInputRequestTypeDef(BaseModel):
+class CreateGatewayRouteInputRequestTypeDef(BaseValidatorModel):
     gatewayRouteName: str
     meshName: str
     spec: GatewayRouteSpecTypeDef
@@ -953,7 +953,7 @@ class CreateGatewayRouteInputRequestTypeDef(BaseModel):
     meshOwner: Optional[str] = None
     tags: Optional[Sequence[TagRefTypeDef]] = None
 
-class GatewayRouteDataTypeDef(BaseModel):
+class GatewayRouteDataTypeDef(BaseValidatorModel):
     gatewayRouteName: str
     meshName: str
     metadata: ResourceMetadataTypeDef
@@ -961,7 +961,7 @@ class GatewayRouteDataTypeDef(BaseModel):
     status: GatewayRouteStatusTypeDef
     virtualGatewayName: str
 
-class UpdateGatewayRouteInputRequestTypeDef(BaseModel):
+class UpdateGatewayRouteInputRequestTypeDef(BaseValidatorModel):
     gatewayRouteName: str
     meshName: str
     spec: GatewayRouteSpecTypeDef
@@ -969,7 +969,7 @@ class UpdateGatewayRouteInputRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     meshOwner: Optional[str] = None
 
-class CreateRouteInputRequestTypeDef(BaseModel):
+class CreateRouteInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     routeName: str
     spec: RouteSpecTypeDef
@@ -978,7 +978,7 @@ class CreateRouteInputRequestTypeDef(BaseModel):
     meshOwner: Optional[str] = None
     tags: Optional[Sequence[TagRefTypeDef]] = None
 
-class RouteDataTypeDef(BaseModel):
+class RouteDataTypeDef(BaseValidatorModel):
     meshName: str
     metadata: ResourceMetadataTypeDef
     routeName: str
@@ -986,7 +986,7 @@ class RouteDataTypeDef(BaseModel):
     status: RouteStatusTypeDef
     virtualRouterName: str
 
-class UpdateRouteInputRequestTypeDef(BaseModel):
+class UpdateRouteInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     routeName: str
     spec: RouteSpecTypeDef
@@ -994,54 +994,54 @@ class UpdateRouteInputRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     meshOwner: Optional[str] = None
 
-class BackendTypeDef(BaseModel):
+class BackendTypeDef(BaseValidatorModel):
     virtualService: Optional[VirtualServiceBackendTypeDef] = None
 
-class VirtualGatewaySpecTypeDef(BaseModel):
+class VirtualGatewaySpecTypeDef(BaseValidatorModel):
     listeners: Sequence[VirtualGatewayListenerTypeDef]
     backendDefaults: Optional[VirtualGatewayBackendDefaultsTypeDef] = None
     logging: Optional[VirtualGatewayLoggingTypeDef] = None
 
-class CreateGatewayRouteOutputTypeDef(BaseModel):
+class CreateGatewayRouteOutputTypeDef(BaseValidatorModel):
     gatewayRoute: GatewayRouteDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteGatewayRouteOutputTypeDef(BaseModel):
+class DeleteGatewayRouteOutputTypeDef(BaseValidatorModel):
     gatewayRoute: GatewayRouteDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeGatewayRouteOutputTypeDef(BaseModel):
+class DescribeGatewayRouteOutputTypeDef(BaseValidatorModel):
     gatewayRoute: GatewayRouteDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGatewayRouteOutputTypeDef(BaseModel):
+class UpdateGatewayRouteOutputTypeDef(BaseValidatorModel):
     gatewayRoute: GatewayRouteDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRouteOutputTypeDef(BaseModel):
+class CreateRouteOutputTypeDef(BaseValidatorModel):
     route: RouteDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRouteOutputTypeDef(BaseModel):
+class DeleteRouteOutputTypeDef(BaseValidatorModel):
     route: RouteDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRouteOutputTypeDef(BaseModel):
+class DescribeRouteOutputTypeDef(BaseValidatorModel):
     route: RouteDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRouteOutputTypeDef(BaseModel):
+class UpdateRouteOutputTypeDef(BaseValidatorModel):
     route: RouteDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VirtualNodeSpecTypeDef(BaseModel):
+class VirtualNodeSpecTypeDef(BaseValidatorModel):
     backendDefaults: Optional[BackendDefaultsTypeDef] = None
     backends: Optional[Sequence[BackendTypeDef]] = None
     listeners: Optional[Sequence[ListenerTypeDef]] = None
     logging: Optional[LoggingTypeDef] = None
     serviceDiscovery: Optional[ServiceDiscoveryTypeDef] = None
 
-class CreateVirtualGatewayInputRequestTypeDef(BaseModel):
+class CreateVirtualGatewayInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     spec: VirtualGatewaySpecTypeDef
     virtualGatewayName: str
@@ -1049,21 +1049,21 @@ class CreateVirtualGatewayInputRequestTypeDef(BaseModel):
     meshOwner: Optional[str] = None
     tags: Optional[Sequence[TagRefTypeDef]] = None
 
-class UpdateVirtualGatewayInputRequestTypeDef(BaseModel):
+class UpdateVirtualGatewayInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     spec: VirtualGatewaySpecTypeDef
     virtualGatewayName: str
     clientToken: Optional[str] = None
     meshOwner: Optional[str] = None
 
-class VirtualGatewayDataTypeDef(BaseModel):
+class VirtualGatewayDataTypeDef(BaseValidatorModel):
     meshName: str
     metadata: ResourceMetadataTypeDef
     spec: VirtualGatewaySpecTypeDef
     status: VirtualGatewayStatusTypeDef
     virtualGatewayName: str
 
-class CreateVirtualNodeInputRequestTypeDef(BaseModel):
+class CreateVirtualNodeInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     spec: VirtualNodeSpecTypeDef
     virtualNodeName: str
@@ -1071,49 +1071,49 @@ class CreateVirtualNodeInputRequestTypeDef(BaseModel):
     meshOwner: Optional[str] = None
     tags: Optional[Sequence[TagRefTypeDef]] = None
 
-class UpdateVirtualNodeInputRequestTypeDef(BaseModel):
+class UpdateVirtualNodeInputRequestTypeDef(BaseValidatorModel):
     meshName: str
     spec: VirtualNodeSpecTypeDef
     virtualNodeName: str
     clientToken: Optional[str] = None
     meshOwner: Optional[str] = None
 
-class VirtualNodeDataTypeDef(BaseModel):
+class VirtualNodeDataTypeDef(BaseValidatorModel):
     meshName: str
     metadata: ResourceMetadataTypeDef
     spec: VirtualNodeSpecTypeDef
     status: VirtualNodeStatusTypeDef
     virtualNodeName: str
 
-class CreateVirtualGatewayOutputTypeDef(BaseModel):
+class CreateVirtualGatewayOutputTypeDef(BaseValidatorModel):
     virtualGateway: VirtualGatewayDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVirtualGatewayOutputTypeDef(BaseModel):
+class DeleteVirtualGatewayOutputTypeDef(BaseValidatorModel):
     virtualGateway: VirtualGatewayDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVirtualGatewayOutputTypeDef(BaseModel):
+class DescribeVirtualGatewayOutputTypeDef(BaseValidatorModel):
     virtualGateway: VirtualGatewayDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVirtualGatewayOutputTypeDef(BaseModel):
+class UpdateVirtualGatewayOutputTypeDef(BaseValidatorModel):
     virtualGateway: VirtualGatewayDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVirtualNodeOutputTypeDef(BaseModel):
+class CreateVirtualNodeOutputTypeDef(BaseValidatorModel):
     virtualNode: VirtualNodeDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVirtualNodeOutputTypeDef(BaseModel):
+class DeleteVirtualNodeOutputTypeDef(BaseValidatorModel):
     virtualNode: VirtualNodeDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVirtualNodeOutputTypeDef(BaseModel):
+class DescribeVirtualNodeOutputTypeDef(BaseValidatorModel):
     virtualNode: VirtualNodeDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVirtualNodeOutputTypeDef(BaseModel):
+class UpdateVirtualNodeOutputTypeDef(BaseValidatorModel):
     virtualNode: VirtualNodeDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

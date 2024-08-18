@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,79 +11,79 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.lexv2_runtime_constants import *
 
-class ActiveContextTimeToLiveTypeDef(BaseModel):
+class ActiveContextTimeToLiveTypeDef(BaseValidatorModel):
     timeToLiveInSeconds: int
     turnsToLive: int
 
-class ButtonTypeDef(BaseModel):
+class ButtonTypeDef(BaseValidatorModel):
     text: str
     value: str
 
-class ConfidenceScoreTypeDef(BaseModel):
+class ConfidenceScoreTypeDef(BaseValidatorModel):
     score: Optional[float] = None
 
-class DeleteSessionRequestRequestTypeDef(BaseModel):
+class DeleteSessionRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     sessionId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DialogActionTypeDef(BaseModel):
+class DialogActionTypeDef(BaseValidatorModel):
     type: DialogActionTypeType
     slotToElicit: Optional[str] = None
     slotElicitationStyle: Optional[StyleTypeType] = None
     subSlotToElicit: Optional["ElicitSubSlotTypeDef"] = None
 
-class ElicitSubSlotTypeDef(BaseModel):
+class ElicitSubSlotTypeDef(BaseValidatorModel):
     name: str
     subSlotToElicit: Optional[Dict[str, Any]] = None
 
-class GetSessionRequestRequestTypeDef(BaseModel):
+class GetSessionRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     sessionId: str
 
-class IntentTypeDef(BaseModel):
+class IntentTypeDef(BaseValidatorModel):
     name: str
     slots: Optional[Dict[str, "SlotTypeDef"]] = None
     state: Optional[IntentStateType] = None
     confirmationState: Optional[ConfirmationStateType] = None
 
-class RecognizedBotMemberTypeDef(BaseModel):
+class RecognizedBotMemberTypeDef(BaseValidatorModel):
     botId: str
     botName: Optional[str] = None
 
-class RuntimeHintValueTypeDef(BaseModel):
+class RuntimeHintValueTypeDef(BaseValidatorModel):
     phrase: str
 
-class RuntimeHintsTypeDef(BaseModel):
+class RuntimeHintsTypeDef(BaseValidatorModel):
     slotHints: Optional[Dict[str, Dict[str, "RuntimeHintDetailsTypeDef"]]] = None
 
-class SentimentScoreTypeDef(BaseModel):
+class SentimentScoreTypeDef(BaseValidatorModel):
     positive: Optional[float] = None
     negative: Optional[float] = None
     neutral: Optional[float] = None
     mixed: Optional[float] = None
 
-class ValueTypeDef(BaseModel):
+class ValueTypeDef(BaseValidatorModel):
     interpretedValue: str
     originalValue: Optional[str] = None
     resolvedValues: Optional[List[str]] = None
 
-class ActiveContextTypeDef(BaseModel):
+class ActiveContextTypeDef(BaseValidatorModel):
     name: str
     timeToLive: ActiveContextTimeToLiveTypeDef
     contextAttributes: Dict[str, str]
 
-class RecognizeUtteranceRequestRequestTypeDef(BaseModel):
+class RecognizeUtteranceRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
@@ -94,20 +94,20 @@ class RecognizeUtteranceRequestRequestTypeDef(BaseModel):
     responseContentType: Optional[str] = None
     inputStream: Optional[BlobTypeDef] = None
 
-class ImageResponseCardTypeDef(BaseModel):
+class ImageResponseCardTypeDef(BaseValidatorModel):
     title: str
     subtitle: Optional[str] = None
     imageUrl: Optional[str] = None
     buttons: Optional[List[ButtonTypeDef]] = None
 
-class DeleteSessionResponseTypeDef(BaseModel):
+class DeleteSessionResponseTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     sessionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSessionResponseTypeDef(BaseModel):
+class PutSessionResponseTypeDef(BaseValidatorModel):
     contentType: str
     messages: str
     sessionState: str
@@ -116,7 +116,7 @@ class PutSessionResponseTypeDef(BaseModel):
     audioStream: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RecognizeUtteranceResponseTypeDef(BaseModel):
+class RecognizeUtteranceResponseTypeDef(BaseValidatorModel):
     inputMode: str
     contentType: str
     messages: str
@@ -129,21 +129,21 @@ class RecognizeUtteranceResponseTypeDef(BaseModel):
     recognizedBotMember: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RuntimeHintDetailsTypeDef(BaseModel):
+class RuntimeHintDetailsTypeDef(BaseValidatorModel):
     runtimeHintValues: Optional[List[RuntimeHintValueTypeDef]] = None
     subSlotHints: Optional[Dict[str, Dict[str, Any]]] = None
 
-class SentimentResponseTypeDef(BaseModel):
+class SentimentResponseTypeDef(BaseValidatorModel):
     sentiment: Optional[SentimentTypeType] = None
     sentimentScore: Optional[SentimentScoreTypeDef] = None
 
-class SlotTypeDef(BaseModel):
+class SlotTypeDef(BaseValidatorModel):
     value: Optional[ValueTypeDef] = None
     shape: Optional[ShapeType] = None
     values: Optional[List[Dict[str, Any]]] = None
     subSlots: Optional[Dict[str, Dict[str, Any]]] = None
 
-class SessionStateTypeDef(BaseModel):
+class SessionStateTypeDef(BaseValidatorModel):
     dialogAction: Optional[DialogActionTypeDef] = None
     intent: Optional[IntentTypeDef] = None
     activeContexts: Optional[List[ActiveContextTypeDef]] = None
@@ -151,18 +151,18 @@ class SessionStateTypeDef(BaseModel):
     originatingRequestId: Optional[str] = None
     runtimeHints: Optional[RuntimeHintsTypeDef] = None
 
-class MessageTypeDef(BaseModel):
+class MessageTypeDef(BaseValidatorModel):
     contentType: MessageContentTypeType
     content: Optional[str] = None
     imageResponseCard: Optional[ImageResponseCardTypeDef] = None
 
-class InterpretationTypeDef(BaseModel):
+class InterpretationTypeDef(BaseValidatorModel):
     nluConfidence: Optional[ConfidenceScoreTypeDef] = None
     sentimentResponse: Optional[SentimentResponseTypeDef] = None
     intent: Optional[IntentTypeDef] = None
     interpretationSource: Optional[InterpretationSourceType] = None
 
-class RecognizeTextRequestRequestTypeDef(BaseModel):
+class RecognizeTextRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
@@ -171,7 +171,7 @@ class RecognizeTextRequestRequestTypeDef(BaseModel):
     sessionState: Optional[SessionStateTypeDef] = None
     requestAttributes: Optional[Mapping[str, str]] = None
 
-class PutSessionRequestRequestTypeDef(BaseModel):
+class PutSessionRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
@@ -181,14 +181,14 @@ class PutSessionRequestRequestTypeDef(BaseModel):
     requestAttributes: Optional[Mapping[str, str]] = None
     responseContentType: Optional[str] = None
 
-class GetSessionResponseTypeDef(BaseModel):
+class GetSessionResponseTypeDef(BaseValidatorModel):
     sessionId: str
     messages: List[MessageTypeDef]
     interpretations: List[InterpretationTypeDef]
     sessionState: SessionStateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RecognizeTextResponseTypeDef(BaseModel):
+class RecognizeTextResponseTypeDef(BaseValidatorModel):
     messages: List[MessageTypeDef]
     sessionState: SessionStateTypeDef
     interpretations: List[InterpretationTypeDef]

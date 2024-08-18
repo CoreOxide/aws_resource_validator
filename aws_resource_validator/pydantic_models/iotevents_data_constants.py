@@ -396,4 +396,4 @@ ResourceServiceName = Literal["cloudformation",
     "s3",
     "sns",
     "sqs",]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]

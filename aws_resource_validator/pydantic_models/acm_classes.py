@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,21 +11,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.acm_constants import *
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
-class CertificateOptionsTypeDef(BaseModel):
+class CertificateOptionsTypeDef(BaseValidatorModel):
     CertificateTransparencyLoggingPreference: Optional[       CertificateTransparencyLoggingPreferenceType     ] = None
 
-class ExtendedKeyUsageTypeDef(BaseModel):
+class ExtendedKeyUsageTypeDef(BaseValidatorModel):
     Name: Optional[ExtendedKeyUsageNameType] = None
     OID: Optional[str] = None
 
-class KeyUsageTypeDef(BaseModel):
+class KeyUsageTypeDef(BaseValidatorModel):
     Name: Optional[KeyUsageNameType] = None
 
-class CertificateSummaryTypeDef(BaseModel):
+class CertificateSummaryTypeDef(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     DomainName: Optional[str] = None
     SubjectAlternativeNameSummaries: Optional[List[str]] = None
@@ -45,118 +45,118 @@ class CertificateSummaryTypeDef(BaseModel):
     ImportedAt: Optional[datetime] = None
     RevokedAt: Optional[datetime] = None
 
-class DeleteCertificateRequestRequestTypeDef(BaseModel):
+class DeleteCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeCertificateRequestRequestTypeDef(BaseModel):
+class DescribeCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DomainValidationOptionTypeDef(BaseModel):
+class DomainValidationOptionTypeDef(BaseValidatorModel):
     DomainName: str
     ValidationDomain: str
 
-class ResourceRecordTypeDef(BaseModel):
+class ResourceRecordTypeDef(BaseValidatorModel):
     Name: str
     Type: Literal["CNAME"]
     Value: str
 
-class ExpiryEventsConfigurationTypeDef(BaseModel):
+class ExpiryEventsConfigurationTypeDef(BaseValidatorModel):
     DaysBeforeExpiry: Optional[int] = None
 
-class FiltersTypeDef(BaseModel):
+class FiltersTypeDef(BaseValidatorModel):
     extendedKeyUsage: Optional[Sequence[ExtendedKeyUsageNameType]] = None
     keyUsage: Optional[Sequence[KeyUsageNameType]] = None
     keyTypes: Optional[Sequence[KeyAlgorithmType]] = None
 
-class GetCertificateRequestRequestTypeDef(BaseModel):
+class GetCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListTagsForCertificateRequestRequestTypeDef(BaseModel):
+class ListTagsForCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
 
-class RenewCertificateRequestRequestTypeDef(BaseModel):
+class RenewCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
 
-class ResendValidationEmailRequestRequestTypeDef(BaseModel):
+class ResendValidationEmailRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
     Domain: str
     ValidationDomain: str
 
-class AddTagsToCertificateRequestRequestTypeDef(BaseModel):
+class AddTagsToCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
     Tags: Sequence[TagTypeDef]
 
-class RemoveTagsFromCertificateRequestRequestTypeDef(BaseModel):
+class RemoveTagsFromCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
     Tags: Sequence[TagTypeDef]
 
-class ExportCertificateRequestRequestTypeDef(BaseModel):
+class ExportCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
     Passphrase: BlobTypeDef
 
-class ImportCertificateRequestRequestTypeDef(BaseModel):
+class ImportCertificateRequestRequestTypeDef(BaseValidatorModel):
     Certificate: BlobTypeDef
     PrivateKey: BlobTypeDef
     CertificateArn: Optional[str] = None
     CertificateChain: Optional[BlobTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateCertificateOptionsRequestRequestTypeDef(BaseModel):
+class UpdateCertificateOptionsRequestRequestTypeDef(BaseValidatorModel):
     CertificateArn: str
     Options: CertificateOptionsTypeDef
 
-class DescribeCertificateRequestCertificateValidatedWaitTypeDef(BaseModel):
+class DescribeCertificateRequestCertificateValidatedWaitTypeDef(BaseValidatorModel):
     CertificateArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportCertificateResponseTypeDef(BaseModel):
+class ExportCertificateResponseTypeDef(BaseValidatorModel):
     Certificate: str
     CertificateChain: str
     PrivateKey: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCertificateResponseTypeDef(BaseModel):
+class GetCertificateResponseTypeDef(BaseValidatorModel):
     Certificate: str
     CertificateChain: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportCertificateResponseTypeDef(BaseModel):
+class ImportCertificateResponseTypeDef(BaseValidatorModel):
     CertificateArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCertificatesResponseTypeDef(BaseModel):
+class ListCertificatesResponseTypeDef(BaseValidatorModel):
     CertificateSummaryList: List[CertificateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTagsForCertificateResponseTypeDef(BaseModel):
+class ListTagsForCertificateResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RequestCertificateResponseTypeDef(BaseModel):
+class RequestCertificateResponseTypeDef(BaseValidatorModel):
     CertificateArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RequestCertificateRequestRequestTypeDef(BaseModel):
+class RequestCertificateRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ValidationMethod: Optional[ValidationMethodType] = None
     SubjectAlternativeNames: Optional[Sequence[str]] = None
@@ -167,7 +167,7 @@ class RequestCertificateRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     KeyAlgorithm: Optional[KeyAlgorithmType] = None
 
-class DomainValidationTypeDef(BaseModel):
+class DomainValidationTypeDef(BaseValidatorModel):
     DomainName: str
     ValidationEmails: Optional[List[str]] = None
     ValidationDomain: Optional[str] = None
@@ -175,15 +175,15 @@ class DomainValidationTypeDef(BaseModel):
     ResourceRecord: Optional[ResourceRecordTypeDef] = None
     ValidationMethod: Optional[ValidationMethodType] = None
 
-class GetAccountConfigurationResponseTypeDef(BaseModel):
+class GetAccountConfigurationResponseTypeDef(BaseValidatorModel):
     ExpiryEvents: ExpiryEventsConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAccountConfigurationRequestRequestTypeDef(BaseModel):
+class PutAccountConfigurationRequestRequestTypeDef(BaseValidatorModel):
     IdempotencyToken: str
     ExpiryEvents: Optional[ExpiryEventsConfigurationTypeDef] = None
 
-class ListCertificatesRequestRequestTypeDef(BaseModel):
+class ListCertificatesRequestRequestTypeDef(BaseValidatorModel):
     CertificateStatuses: Optional[Sequence[CertificateStatusType]] = None
     Includes: Optional[FiltersTypeDef] = None
     NextToken: Optional[str] = None
@@ -191,20 +191,20 @@ class ListCertificatesRequestRequestTypeDef(BaseModel):
     SortBy: Optional[Literal["CREATED_AT"]] = None
     SortOrder: Optional[SortOrderType] = None
 
-class ListCertificatesRequestListCertificatesPaginateTypeDef(BaseModel):
+class ListCertificatesRequestListCertificatesPaginateTypeDef(BaseValidatorModel):
     CertificateStatuses: Optional[Sequence[CertificateStatusType]] = None
     Includes: Optional[FiltersTypeDef] = None
     SortBy: Optional[Literal["CREATED_AT"]] = None
     SortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class RenewalSummaryTypeDef(BaseModel):
+class RenewalSummaryTypeDef(BaseValidatorModel):
     RenewalStatus: RenewalStatusType
     DomainValidationOptions: List[DomainValidationTypeDef]
     UpdatedAt: datetime
     RenewalStatusReason: Optional[FailureReasonType] = None
 
-class CertificateDetailTypeDef(BaseModel):
+class CertificateDetailTypeDef(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     DomainName: Optional[str] = None
     SubjectAlternativeNames: Optional[List[str]] = None
@@ -232,7 +232,7 @@ class CertificateDetailTypeDef(BaseModel):
     RenewalEligibility: Optional[RenewalEligibilityType] = None
     Options: Optional[CertificateOptionsTypeDef] = None
 
-class DescribeCertificateResponseTypeDef(BaseModel):
+class DescribeCertificateResponseTypeDef(BaseValidatorModel):
     Certificate: CertificateDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

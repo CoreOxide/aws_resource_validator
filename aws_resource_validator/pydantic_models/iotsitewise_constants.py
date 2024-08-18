@@ -511,4 +511,4 @@ RegionName = Literal["ap-northeast-1",
     "us-east-2",
     "us-west-2",]
 TimestampTypeDef = Union[datetime, str]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]

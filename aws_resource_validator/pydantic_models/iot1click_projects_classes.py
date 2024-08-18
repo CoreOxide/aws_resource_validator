@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,141 +11,141 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iot1click_projects_constants import *
 
-class AssociateDeviceWithPlacementRequestRequestTypeDef(BaseModel):
+class AssociateDeviceWithPlacementRequestRequestTypeDef(BaseValidatorModel):
     projectName: str
     placementName: str
     deviceId: str
     deviceTemplateName: str
 
-class CreatePlacementRequestRequestTypeDef(BaseModel):
+class CreatePlacementRequestRequestTypeDef(BaseValidatorModel):
     placementName: str
     projectName: str
     attributes: Optional[Mapping[str, str]] = None
 
-class DeletePlacementRequestRequestTypeDef(BaseModel):
+class DeletePlacementRequestRequestTypeDef(BaseValidatorModel):
     placementName: str
     projectName: str
 
-class DeleteProjectRequestRequestTypeDef(BaseModel):
+class DeleteProjectRequestRequestTypeDef(BaseValidatorModel):
     projectName: str
 
-class DescribePlacementRequestRequestTypeDef(BaseModel):
+class DescribePlacementRequestRequestTypeDef(BaseValidatorModel):
     placementName: str
     projectName: str
 
-class PlacementDescriptionTypeDef(BaseModel):
+class PlacementDescriptionTypeDef(BaseValidatorModel):
     projectName: str
     placementName: str
     attributes: Dict[str, str]
     createdDate: datetime
     updatedDate: datetime
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DescribeProjectRequestRequestTypeDef(BaseModel):
+class DescribeProjectRequestRequestTypeDef(BaseValidatorModel):
     projectName: str
 
-class DeviceTemplateTypeDef(BaseModel):
+class DeviceTemplateTypeDef(BaseValidatorModel):
     deviceType: Optional[str] = None
     callbackOverrides: Optional[Mapping[str, str]] = None
 
-class DisassociateDeviceFromPlacementRequestRequestTypeDef(BaseModel):
+class DisassociateDeviceFromPlacementRequestRequestTypeDef(BaseValidatorModel):
     projectName: str
     placementName: str
     deviceTemplateName: str
 
-class GetDevicesInPlacementRequestRequestTypeDef(BaseModel):
+class GetDevicesInPlacementRequestRequestTypeDef(BaseValidatorModel):
     projectName: str
     placementName: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListPlacementsRequestRequestTypeDef(BaseModel):
+class ListPlacementsRequestRequestTypeDef(BaseValidatorModel):
     projectName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class PlacementSummaryTypeDef(BaseModel):
+class PlacementSummaryTypeDef(BaseValidatorModel):
     projectName: str
     placementName: str
     createdDate: datetime
     updatedDate: datetime
 
-class ListProjectsRequestRequestTypeDef(BaseModel):
+class ListProjectsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ProjectSummaryTypeDef(BaseModel):
+class ProjectSummaryTypeDef(BaseValidatorModel):
     projectName: str
     createdDate: datetime
     updatedDate: datetime
     arn: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdatePlacementRequestRequestTypeDef(BaseModel):
+class UpdatePlacementRequestRequestTypeDef(BaseValidatorModel):
     placementName: str
     projectName: str
     attributes: Optional[Mapping[str, str]] = None
 
-class DescribePlacementResponseTypeDef(BaseModel):
+class DescribePlacementResponseTypeDef(BaseValidatorModel):
     placement: PlacementDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDevicesInPlacementResponseTypeDef(BaseModel):
+class GetDevicesInPlacementResponseTypeDef(BaseValidatorModel):
     devices: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PlacementTemplateTypeDef(BaseModel):
+class PlacementTemplateTypeDef(BaseValidatorModel):
     defaultAttributes: Optional[Mapping[str, str]] = None
     deviceTemplates: Optional[Mapping[str, DeviceTemplateTypeDef]] = None
 
-class ListPlacementsRequestListPlacementsPaginateTypeDef(BaseModel):
+class ListPlacementsRequestListPlacementsPaginateTypeDef(BaseValidatorModel):
     projectName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectsRequestListProjectsPaginateTypeDef(BaseModel):
+class ListProjectsRequestListProjectsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPlacementsResponseTypeDef(BaseModel):
+class ListPlacementsResponseTypeDef(BaseValidatorModel):
     placements: List[PlacementSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProjectsResponseTypeDef(BaseModel):
+class ListProjectsResponseTypeDef(BaseValidatorModel):
     projects: List[ProjectSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProjectRequestRequestTypeDef(BaseModel):
+class CreateProjectRequestRequestTypeDef(BaseValidatorModel):
     projectName: str
     description: Optional[str] = None
     placementTemplate: Optional[PlacementTemplateTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ProjectDescriptionTypeDef(BaseModel):
+class ProjectDescriptionTypeDef(BaseValidatorModel):
     projectName: str
     createdDate: datetime
     updatedDate: datetime
@@ -154,12 +154,12 @@ class ProjectDescriptionTypeDef(BaseModel):
     placementTemplate: Optional[PlacementTemplateTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class UpdateProjectRequestRequestTypeDef(BaseModel):
+class UpdateProjectRequestRequestTypeDef(BaseValidatorModel):
     projectName: str
     description: Optional[str] = None
     placementTemplate: Optional[PlacementTemplateTypeDef] = None
 
-class DescribeProjectResponseTypeDef(BaseModel):
+class DescribeProjectResponseTypeDef(BaseValidatorModel):
     project: ProjectDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

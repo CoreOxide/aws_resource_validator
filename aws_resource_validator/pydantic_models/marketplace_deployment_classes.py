@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,40 +11,40 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.marketplace_deployment_constants import *
 
-class DeploymentParameterInputTypeDef(BaseModel):
+class DeploymentParameterInputTypeDef(BaseValidatorModel):
     name: str
     secretString: str
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Optional[Mapping[str, str]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDeploymentParameterResponseTypeDef(BaseModel):
+class PutDeploymentParameterResponseTypeDef(BaseValidatorModel):
     agreementId: str
     deploymentParameterId: str
     resourceArn: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDeploymentParameterRequestRequestTypeDef(BaseModel):
+class PutDeploymentParameterRequestRequestTypeDef(BaseValidatorModel):
     agreementId: str
     catalog: str
     deploymentParameter: DeploymentParameterInputTypeDef

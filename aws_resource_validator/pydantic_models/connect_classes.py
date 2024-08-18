@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,57 +11,57 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.connect_constants import *
 
-class ActionSummaryTypeDef(BaseModel):
+class ActionSummaryTypeDef(BaseValidatorModel):
     ActionType: ActionTypeType
 
-class ActivateEvaluationFormRequestRequestTypeDef(BaseModel):
+class ActivateEvaluationFormRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
     EvaluationFormVersion: int
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DistributionTypeDef(BaseModel):
+class DistributionTypeDef(BaseValidatorModel):
     Region: str
     Percentage: int
 
-class QueueReferenceTypeDef(BaseModel):
+class QueueReferenceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
 
-class AgentHierarchyGroupTypeDef(BaseModel):
+class AgentHierarchyGroupTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
-class AgentHierarchyGroupsTypeDef(BaseModel):
+class AgentHierarchyGroupsTypeDef(BaseValidatorModel):
     L1Ids: Optional[Sequence[str]] = None
     L2Ids: Optional[Sequence[str]] = None
     L3Ids: Optional[Sequence[str]] = None
     L4Ids: Optional[Sequence[str]] = None
     L5Ids: Optional[Sequence[str]] = None
 
-class DeviceInfoTypeDef(BaseModel):
+class DeviceInfoTypeDef(BaseValidatorModel):
     PlatformName: Optional[str] = None
     PlatformVersion: Optional[str] = None
     OperatingSystem: Optional[str] = None
 
-class ParticipantCapabilitiesTypeDef(BaseModel):
+class ParticipantCapabilitiesTypeDef(BaseValidatorModel):
     Video: Optional[Literal["SEND"]] = None
 
-class AudioQualityMetricsInfoTypeDef(BaseModel):
+class AudioQualityMetricsInfoTypeDef(BaseValidatorModel):
     QualityScore: Optional[float] = None
     PotentialQualityIssues: Optional[List[str]] = None
 
-class AgentStatusReferenceTypeDef(BaseModel):
+class AgentStatusReferenceTypeDef(BaseValidatorModel):
     StatusStartTimestamp: Optional[datetime] = None
     StatusArn: Optional[str] = None
     StatusName: Optional[str] = None
 
-class AgentStatusSummaryTypeDef(BaseModel):
+class AgentStatusSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -69,7 +69,7 @@ class AgentStatusSummaryTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class AgentStatusTypeDef(BaseModel):
+class AgentStatusTypeDef(BaseValidatorModel):
     AgentStatusARN: Optional[str] = None
     AgentStatusId: Optional[str] = None
     Name: Optional[str] = None
@@ -81,120 +81,120 @@ class AgentStatusTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class AgentsCriteriaTypeDef(BaseModel):
+class AgentsCriteriaTypeDef(BaseValidatorModel):
     AgentIds: Optional[List[str]] = None
 
-class AnalyticsDataAssociationResultTypeDef(BaseModel):
+class AnalyticsDataAssociationResultTypeDef(BaseValidatorModel):
     DataSetId: Optional[str] = None
     TargetAccountId: Optional[str] = None
     ResourceShareId: Optional[str] = None
     ResourceShareArn: Optional[str] = None
 
-class AnswerMachineDetectionConfigTypeDef(BaseModel):
+class AnswerMachineDetectionConfigTypeDef(BaseValidatorModel):
     EnableAnswerMachineDetection: Optional[bool] = None
     AwaitAnswerMachinePrompt: Optional[bool] = None
 
-class ApplicationExtraOutputTypeDef(BaseModel):
+class ApplicationExtraOutputTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     ApplicationPermissions: Optional[List[str]] = None
 
-class ApplicationOutputTypeDef(BaseModel):
+class ApplicationOutputTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     ApplicationPermissions: Optional[List[str]] = None
 
-class ApplicationTypeDef(BaseModel):
+class ApplicationTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     ApplicationPermissions: Optional[Sequence[str]] = None
 
-class AssociateAnalyticsDataSetRequestRequestTypeDef(BaseModel):
+class AssociateAnalyticsDataSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataSetId: str
     TargetAccountId: Optional[str] = None
 
-class AssociateApprovedOriginRequestRequestTypeDef(BaseModel):
+class AssociateApprovedOriginRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Origin: str
 
-class LexBotTypeDef(BaseModel):
+class LexBotTypeDef(BaseValidatorModel):
     Name: str
     LexRegion: str
 
-class LexV2BotTypeDef(BaseModel):
+class LexV2BotTypeDef(BaseValidatorModel):
     AliasArn: Optional[str] = None
 
-class AssociateDefaultVocabularyRequestRequestTypeDef(BaseModel):
+class AssociateDefaultVocabularyRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     LanguageCode: VocabularyLanguageCodeType
     VocabularyId: Optional[str] = None
 
-class AssociateFlowRequestRequestTypeDef(BaseModel):
+class AssociateFlowRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceId: str
     FlowId: str
     ResourceType: Literal["SMS_PHONE_NUMBER"]
 
-class AssociateLambdaFunctionRequestRequestTypeDef(BaseModel):
+class AssociateLambdaFunctionRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     FunctionArn: str
 
-class AssociatePhoneNumberContactFlowRequestRequestTypeDef(BaseModel):
+class AssociatePhoneNumberContactFlowRequestRequestTypeDef(BaseValidatorModel):
     PhoneNumberId: str
     InstanceId: str
     ContactFlowId: str
 
-class AssociateQueueQuickConnectsRequestRequestTypeDef(BaseModel):
+class AssociateQueueQuickConnectsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     QuickConnectIds: Sequence[str]
 
-class AssociateSecurityKeyRequestRequestTypeDef(BaseModel):
+class AssociateSecurityKeyRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Key: str
 
-class AssociateTrafficDistributionGroupUserRequestRequestTypeDef(BaseModel):
+class AssociateTrafficDistributionGroupUserRequestRequestTypeDef(BaseValidatorModel):
     TrafficDistributionGroupId: str
     UserId: str
     InstanceId: str
 
-class UserProficiencyTypeDef(BaseModel):
+class UserProficiencyTypeDef(BaseValidatorModel):
     AttributeName: str
     AttributeValue: str
     Level: float
 
-class AttachedFileErrorTypeDef(BaseModel):
+class AttachedFileErrorTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
     FileId: Optional[str] = None
 
-class CreatedByInfoTypeDef(BaseModel):
+class CreatedByInfoTypeDef(BaseValidatorModel):
     ConnectUserArn: Optional[str] = None
     AWSIdentityArn: Optional[str] = None
 
-class AttachmentReferenceTypeDef(BaseModel):
+class AttachmentReferenceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
     Status: Optional[ReferenceStatusType] = None
 
-class AttendeeTypeDef(BaseModel):
+class AttendeeTypeDef(BaseValidatorModel):
     AttendeeId: Optional[str] = None
     JoinToken: Optional[str] = None
 
-class HierarchyGroupConditionTypeDef(BaseModel):
+class HierarchyGroupConditionTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     HierarchyGroupMatchType: Optional[HierarchyGroupMatchTypeType] = None
 
-class TagConditionTypeDef(BaseModel):
+class TagConditionTypeDef(BaseValidatorModel):
     TagKey: Optional[str] = None
     TagValue: Optional[str] = None
 
-class AttributeTypeDef(BaseModel):
+class AttributeTypeDef(BaseValidatorModel):
     AttributeType: Optional[InstanceAttributeTypeType] = None
     Value: Optional[str] = None
 
-class AudioFeaturesTypeDef(BaseModel):
+class AudioFeaturesTypeDef(BaseValidatorModel):
     EchoReduction: Optional[MeetingFeatureStatusType] = None
 
-class AuthenticationProfileSummaryTypeDef(BaseModel):
+class AuthenticationProfileSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -202,7 +202,7 @@ class AuthenticationProfileSummaryTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class AuthenticationProfileTypeDef(BaseModel):
+class AuthenticationProfileTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -216,65 +216,65 @@ class AuthenticationProfileTypeDef(BaseModel):
     PeriodicSessionDuration: Optional[int] = None
     MaxSessionDuration: Optional[int] = None
 
-class AvailableNumberSummaryTypeDef(BaseModel):
+class AvailableNumberSummaryTypeDef(BaseValidatorModel):
     PhoneNumber: Optional[str] = None
     PhoneNumberCountryCode: Optional[PhoneNumberCountryCodeType] = None
     PhoneNumberType: Optional[PhoneNumberTypeType] = None
 
-class BatchAssociateAnalyticsDataSetRequestRequestTypeDef(BaseModel):
+class BatchAssociateAnalyticsDataSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataSetIds: Sequence[str]
     TargetAccountId: Optional[str] = None
 
-class ErrorResultTypeDef(BaseModel):
+class ErrorResultTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class BatchDisassociateAnalyticsDataSetRequestRequestTypeDef(BaseModel):
+class BatchDisassociateAnalyticsDataSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataSetIds: Sequence[str]
     TargetAccountId: Optional[str] = None
 
-class BatchGetAttachedFileMetadataRequestRequestTypeDef(BaseModel):
+class BatchGetAttachedFileMetadataRequestRequestTypeDef(BaseValidatorModel):
     FileIds: Sequence[str]
     InstanceId: str
     AssociatedResourceArn: str
 
-class BatchGetFlowAssociationRequestRequestTypeDef(BaseModel):
+class BatchGetFlowAssociationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceIds: Sequence[str]
     ResourceType: Optional[Literal["VOICE_PHONE_NUMBER"]] = None
 
-class FlowAssociationSummaryTypeDef(BaseModel):
+class FlowAssociationSummaryTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
     FlowId: Optional[str] = None
     ResourceType: Optional[Literal["VOICE_PHONE_NUMBER"]] = None
 
-class FailedRequestTypeDef(BaseModel):
+class FailedRequestTypeDef(BaseValidatorModel):
     RequestIdentifier: Optional[str] = None
     FailureReasonCode: Optional[FailureReasonCodeType] = None
     FailureReasonMessage: Optional[str] = None
 
-class SuccessfulRequestTypeDef(BaseModel):
+class SuccessfulRequestTypeDef(BaseValidatorModel):
     RequestIdentifier: Optional[str] = None
     ContactId: Optional[str] = None
 
-class CampaignTypeDef(BaseModel):
+class CampaignTypeDef(BaseValidatorModel):
     CampaignId: Optional[str] = None
 
-class ChatEventTypeDef(BaseModel):
+class ChatEventTypeDef(BaseValidatorModel):
     Type: ChatEventTypeType
     ContentType: Optional[str] = None
     Content: Optional[str] = None
 
-class ChatMessageTypeDef(BaseModel):
+class ChatMessageTypeDef(BaseValidatorModel):
     ContentType: str
     Content: str
 
-class ChatStreamingConfigurationTypeDef(BaseModel):
+class ChatStreamingConfigurationTypeDef(BaseValidatorModel):
     StreamingEndpointArn: str
 
-class ClaimPhoneNumberRequestRequestTypeDef(BaseModel):
+class ClaimPhoneNumberRequestRequestTypeDef(BaseValidatorModel):
     PhoneNumber: str
     TargetArn: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -282,34 +282,34 @@ class ClaimPhoneNumberRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     ClientToken: Optional[str] = None
 
-class PhoneNumberStatusTypeDef(BaseModel):
+class PhoneNumberStatusTypeDef(BaseValidatorModel):
     Status: Optional[PhoneNumberWorkflowStatusType] = None
     Message: Optional[str] = None
 
-class CompleteAttachedFileUploadRequestRequestTypeDef(BaseModel):
+class CompleteAttachedFileUploadRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     FileId: str
     AssociatedResourceArn: str
 
-class EndpointTypeDef(BaseModel):
+class EndpointTypeDef(BaseValidatorModel):
     Type: Optional[EndpointTypeType] = None
     Address: Optional[str] = None
 
-class ContactFilterTypeDef(BaseModel):
+class ContactFilterTypeDef(BaseValidatorModel):
     ContactStates: Optional[Sequence[ContactStateType]] = None
 
-class StringConditionTypeDef(BaseModel):
+class StringConditionTypeDef(BaseValidatorModel):
     FieldName: Optional[str] = None
     Value: Optional[str] = None
     ComparisonType: Optional[StringComparisonTypeType] = None
 
-class ContactFlowModuleSummaryTypeDef(BaseModel):
+class ContactFlowModuleSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     State: Optional[ContactFlowModuleStateType] = None
 
-class ContactFlowModuleTypeDef(BaseModel):
+class ContactFlowModuleTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -319,7 +319,7 @@ class ContactFlowModuleTypeDef(BaseModel):
     Status: Optional[ContactFlowModuleStatusType] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ContactFlowSummaryTypeDef(BaseModel):
+class ContactFlowSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -327,7 +327,7 @@ class ContactFlowSummaryTypeDef(BaseModel):
     ContactFlowState: Optional[ContactFlowStateType] = None
     ContactFlowStatus: Optional[ContactFlowStatusType] = None
 
-class ContactFlowTypeDef(BaseModel):
+class ContactFlowTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -338,32 +338,32 @@ class ContactFlowTypeDef(BaseModel):
     Content: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ContactSearchSummaryAgentInfoTypeDef(BaseModel):
+class ContactSearchSummaryAgentInfoTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     ConnectedToAgentTimestamp: Optional[datetime] = None
 
-class ContactSearchSummaryQueueInfoTypeDef(BaseModel):
+class ContactSearchSummaryQueueInfoTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     EnqueueTimestamp: Optional[datetime] = None
 
-class CustomerVoiceActivityTypeDef(BaseModel):
+class CustomerVoiceActivityTypeDef(BaseValidatorModel):
     GreetingStartTimestamp: Optional[datetime] = None
     GreetingEndTimestamp: Optional[datetime] = None
 
-class DisconnectDetailsTypeDef(BaseModel):
+class DisconnectDetailsTypeDef(BaseValidatorModel):
     PotentialDisconnectIssue: Optional[str] = None
 
-class QueueInfoTypeDef(BaseModel):
+class QueueInfoTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     EnqueueTimestamp: Optional[datetime] = None
 
-class SegmentAttributeValueTypeDef(BaseModel):
+class SegmentAttributeValueTypeDef(BaseValidatorModel):
     ValueString: Optional[str] = None
 
-class WisdomInfoTypeDef(BaseModel):
+class WisdomInfoTypeDef(BaseValidatorModel):
     SessionArn: Optional[str] = None
 
-class CreateAgentStatusRequestRequestTypeDef(BaseModel):
+class CreateAgentStatusRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     State: AgentStatusStateType
@@ -371,7 +371,7 @@ class CreateAgentStatusRequestRequestTypeDef(BaseModel):
     DisplayOrder: Optional[int] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateContactFlowModuleRequestRequestTypeDef(BaseModel):
+class CreateContactFlowModuleRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     Content: str
@@ -379,7 +379,7 @@ class CreateContactFlowModuleRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     ClientToken: Optional[str] = None
 
-class CreateContactFlowRequestRequestTypeDef(BaseModel):
+class CreateContactFlowRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     Type: ContactFlowTypeType
@@ -388,11 +388,11 @@ class CreateContactFlowRequestRequestTypeDef(BaseModel):
     Status: Optional[ContactFlowStatusType] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class EvaluationFormScoringStrategyTypeDef(BaseModel):
+class EvaluationFormScoringStrategyTypeDef(BaseValidatorModel):
     Mode: EvaluationFormScoringModeType
     Status: EvaluationFormScoringStatusType
 
-class CreateInstanceRequestRequestTypeDef(BaseModel):
+class CreateInstanceRequestRequestTypeDef(BaseValidatorModel):
     IdentityManagementType: DirectoryTypeType
     InboundCallsEnabled: bool
     OutboundCallsEnabled: bool
@@ -401,7 +401,7 @@ class CreateInstanceRequestRequestTypeDef(BaseModel):
     DirectoryId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateIntegrationAssociationRequestRequestTypeDef(BaseModel):
+class CreateIntegrationAssociationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     IntegrationType: IntegrationTypeType
     IntegrationArn: str
@@ -410,83 +410,83 @@ class CreateIntegrationAssociationRequestRequestTypeDef(BaseModel):
     SourceType: Optional[SourceTypeType] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ParticipantDetailsToAddTypeDef(BaseModel):
+class ParticipantDetailsToAddTypeDef(BaseValidatorModel):
     ParticipantRole: Optional[ParticipantRoleType] = None
     DisplayName: Optional[str] = None
 
-class ParticipantTokenCredentialsTypeDef(BaseModel):
+class ParticipantTokenCredentialsTypeDef(BaseValidatorModel):
     ParticipantToken: Optional[str] = None
     Expiry: Optional[str] = None
 
-class CreatePersistentContactAssociationRequestRequestTypeDef(BaseModel):
+class CreatePersistentContactAssociationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     InitialContactId: str
     RehydrationType: RehydrationTypeType
     SourceContactId: str
     ClientToken: Optional[str] = None
 
-class PredefinedAttributeValuesTypeDef(BaseModel):
+class PredefinedAttributeValuesTypeDef(BaseValidatorModel):
     StringList: Optional[Sequence[str]] = None
 
-class CreatePromptRequestRequestTypeDef(BaseModel):
+class CreatePromptRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     S3Uri: str
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class OutboundCallerConfigTypeDef(BaseModel):
+class OutboundCallerConfigTypeDef(BaseValidatorModel):
     OutboundCallerIdName: Optional[str] = None
     OutboundCallerIdNumberId: Optional[str] = None
     OutboundFlowId: Optional[str] = None
 
-class RuleTriggerEventSourceTypeDef(BaseModel):
+class RuleTriggerEventSourceTypeDef(BaseValidatorModel):
     EventSourceName: EventSourceNameType
     IntegrationAssociationId: Optional[str] = None
 
-class CreateTrafficDistributionGroupRequestRequestTypeDef(BaseModel):
+class CreateTrafficDistributionGroupRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     InstanceId: str
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateUseCaseRequestRequestTypeDef(BaseModel):
+class CreateUseCaseRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     IntegrationAssociationId: str
     UseCaseType: UseCaseTypeType
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateUserHierarchyGroupRequestRequestTypeDef(BaseModel):
+class CreateUserHierarchyGroupRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     InstanceId: str
     ParentGroupId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UserIdentityInfoTypeDef(BaseModel):
+class UserIdentityInfoTypeDef(BaseValidatorModel):
     FirstName: Optional[str] = None
     LastName: Optional[str] = None
     Email: Optional[str] = None
     SecondaryEmail: Optional[str] = None
     Mobile: Optional[str] = None
 
-class UserPhoneConfigTypeDef(BaseModel):
+class UserPhoneConfigTypeDef(BaseValidatorModel):
     PhoneType: PhoneTypeType
     AutoAccept: Optional[bool] = None
     AfterContactWorkTimeLimit: Optional[int] = None
     DeskPhoneNumber: Optional[str] = None
 
-class ViewInputContentTypeDef(BaseModel):
+class ViewInputContentTypeDef(BaseValidatorModel):
     Template: Optional[str] = None
     Actions: Optional[Sequence[str]] = None
 
-class CreateViewVersionRequestRequestTypeDef(BaseModel):
+class CreateViewVersionRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ViewId: str
     VersionDescription: Optional[str] = None
     ViewContentSha256: Optional[str] = None
 
-class CreateVocabularyRequestRequestTypeDef(BaseModel):
+class CreateVocabularyRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     VocabularyName: str
     LanguageCode: VocabularyLanguageCodeType
@@ -494,189 +494,189 @@ class CreateVocabularyRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CredentialsTypeDef(BaseModel):
+class CredentialsTypeDef(BaseValidatorModel):
     AccessToken: Optional[str] = None
     AccessTokenExpiration: Optional[datetime] = None
     RefreshToken: Optional[str] = None
     RefreshTokenExpiration: Optional[datetime] = None
 
-class CrossChannelBehaviorTypeDef(BaseModel):
+class CrossChannelBehaviorTypeDef(BaseValidatorModel):
     BehaviorType: BehaviorTypeType
 
-class CurrentMetricTypeDef(BaseModel):
+class CurrentMetricTypeDef(BaseValidatorModel):
     Name: Optional[CurrentMetricNameType] = None
     Unit: Optional[UnitType] = None
 
-class CurrentMetricSortCriteriaTypeDef(BaseModel):
+class CurrentMetricSortCriteriaTypeDef(BaseValidatorModel):
     SortByMetric: Optional[CurrentMetricNameType] = None
     SortOrder: Optional[SortOrderType] = None
 
-class DateReferenceTypeDef(BaseModel):
+class DateReferenceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class DeactivateEvaluationFormRequestRequestTypeDef(BaseModel):
+class DeactivateEvaluationFormRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
     EvaluationFormVersion: int
 
-class DefaultVocabularyTypeDef(BaseModel):
+class DefaultVocabularyTypeDef(BaseValidatorModel):
     InstanceId: str
     LanguageCode: VocabularyLanguageCodeType
     VocabularyId: str
     VocabularyName: str
 
-class DeleteAttachedFileRequestRequestTypeDef(BaseModel):
+class DeleteAttachedFileRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     FileId: str
     AssociatedResourceArn: str
 
-class DeleteContactEvaluationRequestRequestTypeDef(BaseModel):
+class DeleteContactEvaluationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationId: str
 
-class DeleteContactFlowModuleRequestRequestTypeDef(BaseModel):
+class DeleteContactFlowModuleRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowModuleId: str
 
-class DeleteContactFlowRequestRequestTypeDef(BaseModel):
+class DeleteContactFlowRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
 
-class DeleteEvaluationFormRequestRequestTypeDef(BaseModel):
+class DeleteEvaluationFormRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
     EvaluationFormVersion: Optional[int] = None
 
-class DeleteHoursOfOperationRequestRequestTypeDef(BaseModel):
+class DeleteHoursOfOperationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
 
-class DeleteInstanceRequestRequestTypeDef(BaseModel):
+class DeleteInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
 
-class DeleteIntegrationAssociationRequestRequestTypeDef(BaseModel):
+class DeleteIntegrationAssociationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     IntegrationAssociationId: str
 
-class DeletePredefinedAttributeRequestRequestTypeDef(BaseModel):
+class DeletePredefinedAttributeRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
 
-class DeletePromptRequestRequestTypeDef(BaseModel):
+class DeletePromptRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     PromptId: str
 
-class DeleteQueueRequestRequestTypeDef(BaseModel):
+class DeleteQueueRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
 
-class DeleteQuickConnectRequestRequestTypeDef(BaseModel):
+class DeleteQuickConnectRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QuickConnectId: str
 
-class DeleteRoutingProfileRequestRequestTypeDef(BaseModel):
+class DeleteRoutingProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
 
-class DeleteRuleRequestRequestTypeDef(BaseModel):
+class DeleteRuleRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RuleId: str
 
-class DeleteSecurityProfileRequestRequestTypeDef(BaseModel):
+class DeleteSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     SecurityProfileId: str
 
-class DeleteTaskTemplateRequestRequestTypeDef(BaseModel):
+class DeleteTaskTemplateRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     TaskTemplateId: str
 
-class DeleteTrafficDistributionGroupRequestRequestTypeDef(BaseModel):
+class DeleteTrafficDistributionGroupRequestRequestTypeDef(BaseValidatorModel):
     TrafficDistributionGroupId: str
 
-class DeleteUseCaseRequestRequestTypeDef(BaseModel):
+class DeleteUseCaseRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     IntegrationAssociationId: str
     UseCaseId: str
 
-class DeleteUserHierarchyGroupRequestRequestTypeDef(BaseModel):
+class DeleteUserHierarchyGroupRequestRequestTypeDef(BaseValidatorModel):
     HierarchyGroupId: str
     InstanceId: str
 
-class DeleteUserRequestRequestTypeDef(BaseModel):
+class DeleteUserRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     UserId: str
 
-class DeleteViewRequestRequestTypeDef(BaseModel):
+class DeleteViewRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ViewId: str
 
-class DeleteViewVersionRequestRequestTypeDef(BaseModel):
+class DeleteViewVersionRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ViewId: str
     ViewVersion: int
 
-class DeleteVocabularyRequestRequestTypeDef(BaseModel):
+class DeleteVocabularyRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     VocabularyId: str
 
-class DescribeAgentStatusRequestRequestTypeDef(BaseModel):
+class DescribeAgentStatusRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AgentStatusId: str
 
-class DescribeAuthenticationProfileRequestRequestTypeDef(BaseModel):
+class DescribeAuthenticationProfileRequestRequestTypeDef(BaseValidatorModel):
     AuthenticationProfileId: str
     InstanceId: str
 
-class DescribeContactEvaluationRequestRequestTypeDef(BaseModel):
+class DescribeContactEvaluationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationId: str
 
-class DescribeContactFlowModuleRequestRequestTypeDef(BaseModel):
+class DescribeContactFlowModuleRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowModuleId: str
 
-class DescribeContactFlowRequestRequestTypeDef(BaseModel):
+class DescribeContactFlowRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
 
-class DescribeContactRequestRequestTypeDef(BaseModel):
+class DescribeContactRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
 
-class DescribeEvaluationFormRequestRequestTypeDef(BaseModel):
+class DescribeEvaluationFormRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
     EvaluationFormVersion: Optional[int] = None
 
-class DescribeHoursOfOperationRequestRequestTypeDef(BaseModel):
+class DescribeHoursOfOperationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
 
-class DescribeInstanceAttributeRequestRequestTypeDef(BaseModel):
+class DescribeInstanceAttributeRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AttributeType: InstanceAttributeTypeType
 
-class DescribeInstanceRequestRequestTypeDef(BaseModel):
+class DescribeInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
 
-class DescribeInstanceStorageConfigRequestRequestTypeDef(BaseModel):
+class DescribeInstanceStorageConfigRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AssociationId: str
     ResourceType: InstanceStorageResourceTypeType
 
-class DescribePhoneNumberRequestRequestTypeDef(BaseModel):
+class DescribePhoneNumberRequestRequestTypeDef(BaseValidatorModel):
     PhoneNumberId: str
 
-class DescribePredefinedAttributeRequestRequestTypeDef(BaseModel):
+class DescribePredefinedAttributeRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
 
-class DescribePromptRequestRequestTypeDef(BaseModel):
+class DescribePromptRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     PromptId: str
 
-class PromptTypeDef(BaseModel):
+class PromptTypeDef(BaseValidatorModel):
     PromptARN: Optional[str] = None
     PromptId: Optional[str] = None
     Name: Optional[str] = None
@@ -685,27 +685,27 @@ class PromptTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class DescribeQueueRequestRequestTypeDef(BaseModel):
+class DescribeQueueRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
 
-class DescribeQuickConnectRequestRequestTypeDef(BaseModel):
+class DescribeQuickConnectRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QuickConnectId: str
 
-class DescribeRoutingProfileRequestRequestTypeDef(BaseModel):
+class DescribeRoutingProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
 
-class DescribeRuleRequestRequestTypeDef(BaseModel):
+class DescribeRuleRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RuleId: str
 
-class DescribeSecurityProfileRequestRequestTypeDef(BaseModel):
+class DescribeSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
 
-class SecurityProfileTypeDef(BaseModel):
+class SecurityProfileTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     OrganizationResourceId: Optional[str] = None
     Arn: Optional[str] = None
@@ -719,10 +719,10 @@ class SecurityProfileTypeDef(BaseModel):
     HierarchyRestrictedResources: Optional[List[str]] = None
     AllowedAccessControlHierarchyGroupId: Optional[str] = None
 
-class DescribeTrafficDistributionGroupRequestRequestTypeDef(BaseModel):
+class DescribeTrafficDistributionGroupRequestRequestTypeDef(BaseValidatorModel):
     TrafficDistributionGroupId: str
 
-class TrafficDistributionGroupTypeDef(BaseModel):
+class TrafficDistributionGroupTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -732,26 +732,26 @@ class TrafficDistributionGroupTypeDef(BaseModel):
     Tags: Optional[Dict[str, str]] = None
     IsDefault: Optional[bool] = None
 
-class DescribeUserHierarchyGroupRequestRequestTypeDef(BaseModel):
+class DescribeUserHierarchyGroupRequestRequestTypeDef(BaseValidatorModel):
     HierarchyGroupId: str
     InstanceId: str
 
-class DescribeUserHierarchyStructureRequestRequestTypeDef(BaseModel):
+class DescribeUserHierarchyStructureRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
 
-class DescribeUserRequestRequestTypeDef(BaseModel):
+class DescribeUserRequestRequestTypeDef(BaseValidatorModel):
     UserId: str
     InstanceId: str
 
-class DescribeViewRequestRequestTypeDef(BaseModel):
+class DescribeViewRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ViewId: str
 
-class DescribeVocabularyRequestRequestTypeDef(BaseModel):
+class DescribeVocabularyRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     VocabularyId: str
 
-class VocabularyTypeDef(BaseModel):
+class VocabularyTypeDef(BaseValidatorModel):
     Name: str
     Id: str
     Arn: str
@@ -762,124 +762,124 @@ class VocabularyTypeDef(BaseModel):
     Content: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class RoutingProfileReferenceTypeDef(BaseModel):
+class RoutingProfileReferenceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
 
-class DisassociateAnalyticsDataSetRequestRequestTypeDef(BaseModel):
+class DisassociateAnalyticsDataSetRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataSetId: str
     TargetAccountId: Optional[str] = None
 
-class DisassociateApprovedOriginRequestRequestTypeDef(BaseModel):
+class DisassociateApprovedOriginRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Origin: str
 
-class DisassociateFlowRequestRequestTypeDef(BaseModel):
+class DisassociateFlowRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceId: str
     ResourceType: Literal["SMS_PHONE_NUMBER"]
 
-class DisassociateInstanceStorageConfigRequestRequestTypeDef(BaseModel):
+class DisassociateInstanceStorageConfigRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AssociationId: str
     ResourceType: InstanceStorageResourceTypeType
 
-class DisassociateLambdaFunctionRequestRequestTypeDef(BaseModel):
+class DisassociateLambdaFunctionRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     FunctionArn: str
 
-class DisassociateLexBotRequestRequestTypeDef(BaseModel):
+class DisassociateLexBotRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     BotName: str
     LexRegion: str
 
-class DisassociatePhoneNumberContactFlowRequestRequestTypeDef(BaseModel):
+class DisassociatePhoneNumberContactFlowRequestRequestTypeDef(BaseValidatorModel):
     PhoneNumberId: str
     InstanceId: str
 
-class DisassociateQueueQuickConnectsRequestRequestTypeDef(BaseModel):
+class DisassociateQueueQuickConnectsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     QuickConnectIds: Sequence[str]
 
-class RoutingProfileQueueReferenceTypeDef(BaseModel):
+class RoutingProfileQueueReferenceTypeDef(BaseValidatorModel):
     QueueId: str
     Channel: ChannelType
 
-class DisassociateSecurityKeyRequestRequestTypeDef(BaseModel):
+class DisassociateSecurityKeyRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AssociationId: str
 
-class DisassociateTrafficDistributionGroupUserRequestRequestTypeDef(BaseModel):
+class DisassociateTrafficDistributionGroupUserRequestRequestTypeDef(BaseValidatorModel):
     TrafficDistributionGroupId: str
     UserId: str
     InstanceId: str
 
-class UserProficiencyDisassociateTypeDef(BaseModel):
+class UserProficiencyDisassociateTypeDef(BaseValidatorModel):
     AttributeName: str
     AttributeValue: str
 
-class DisconnectReasonTypeDef(BaseModel):
+class DisconnectReasonTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
 
-class DismissUserContactRequestRequestTypeDef(BaseModel):
+class DismissUserContactRequestRequestTypeDef(BaseValidatorModel):
     UserId: str
     InstanceId: str
     ContactId: str
 
-class DownloadUrlMetadataTypeDef(BaseModel):
+class DownloadUrlMetadataTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
     UrlExpiry: Optional[str] = None
 
-class EmailReferenceTypeDef(BaseModel):
+class EmailReferenceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class EncryptionConfigTypeDef(BaseModel):
+class EncryptionConfigTypeDef(BaseValidatorModel):
     EncryptionType: Literal["KMS"]
     KeyId: str
 
-class EvaluationAnswerDataTypeDef(BaseModel):
+class EvaluationAnswerDataTypeDef(BaseValidatorModel):
     StringValue: Optional[str] = None
     NumericValue: Optional[float] = None
     NotApplicable: Optional[bool] = None
 
-class NumericQuestionPropertyValueAutomationTypeDef(BaseModel):
+class NumericQuestionPropertyValueAutomationTypeDef(BaseValidatorModel):
     Label: NumericQuestionPropertyAutomationLabelType
 
-class EvaluationFormNumericQuestionOptionTypeDef(BaseModel):
+class EvaluationFormNumericQuestionOptionTypeDef(BaseValidatorModel):
     MinValue: int
     MaxValue: int
     Score: Optional[int] = None
     AutomaticFail: Optional[bool] = None
 
-class EvaluationFormSectionOutputTypeDef(BaseModel):
+class EvaluationFormSectionOutputTypeDef(BaseValidatorModel):
     Title: str
     RefId: str
     Items: List["EvaluationFormItemOutputTypeDef"]
     Instructions: Optional[str] = None
     Weight: Optional[float] = None
 
-class EvaluationFormSectionTypeDef(BaseModel):
+class EvaluationFormSectionTypeDef(BaseValidatorModel):
     Title: str
     RefId: str
     Items: Sequence["EvaluationFormItemTypeDef"]
     Instructions: Optional[str] = None
     Weight: Optional[float] = None
 
-class SingleSelectQuestionRuleCategoryAutomationTypeDef(BaseModel):
+class SingleSelectQuestionRuleCategoryAutomationTypeDef(BaseValidatorModel):
     Category: str
     Condition: SingleSelectQuestionRuleCategoryAutomationConditionType
     OptionRefId: str
 
-class EvaluationFormSingleSelectQuestionOptionTypeDef(BaseModel):
+class EvaluationFormSingleSelectQuestionOptionTypeDef(BaseValidatorModel):
     RefId: str
     Text: str
     Score: Optional[int] = None
     AutomaticFail: Optional[bool] = None
 
-class EvaluationFormSummaryTypeDef(BaseModel):
+class EvaluationFormSummaryTypeDef(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormArn: str
     Title: str
@@ -892,7 +892,7 @@ class EvaluationFormSummaryTypeDef(BaseModel):
     LastActivatedBy: Optional[str] = None
     ActiveVersion: Optional[int] = None
 
-class EvaluationFormVersionSummaryTypeDef(BaseModel):
+class EvaluationFormVersionSummaryTypeDef(BaseValidatorModel):
     EvaluationFormArn: str
     EvaluationFormId: str
     EvaluationFormVersion: int
@@ -903,135 +903,135 @@ class EvaluationFormVersionSummaryTypeDef(BaseModel):
     LastModifiedTime: datetime
     LastModifiedBy: str
 
-class EvaluationScoreTypeDef(BaseModel):
+class EvaluationScoreTypeDef(BaseValidatorModel):
     Percentage: Optional[float] = None
     NotApplicable: Optional[bool] = None
     AutomaticFail: Optional[bool] = None
 
-class EvaluationNoteTypeDef(BaseModel):
+class EvaluationNoteTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
-class EventBridgeActionDefinitionTypeDef(BaseModel):
+class EventBridgeActionDefinitionTypeDef(BaseValidatorModel):
     Name: str
 
-class ExpiryTypeDef(BaseModel):
+class ExpiryTypeDef(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
     ExpiryTimestamp: Optional[datetime] = None
 
-class FieldValueUnionOutputTypeDef(BaseModel):
+class FieldValueUnionOutputTypeDef(BaseValidatorModel):
     BooleanValue: Optional[bool] = None
     DoubleValue: Optional[float] = None
     EmptyValue: Optional[Dict[str, Any]] = None
     StringValue: Optional[str] = None
 
-class FieldValueUnionTypeDef(BaseModel):
+class FieldValueUnionTypeDef(BaseValidatorModel):
     BooleanValue: Optional[bool] = None
     DoubleValue: Optional[float] = None
     EmptyValue: Optional[Mapping[str, Any]] = None
     StringValue: Optional[str] = None
 
-class FilterV2TypeDef(BaseModel):
+class FilterV2TypeDef(BaseValidatorModel):
     FilterKey: Optional[str] = None
     FilterValues: Optional[Sequence[str]] = None
 
-class FiltersTypeDef(BaseModel):
+class FiltersTypeDef(BaseValidatorModel):
     Queues: Optional[Sequence[str]] = None
     Channels: Optional[Sequence[ChannelType]] = None
     RoutingProfiles: Optional[Sequence[str]] = None
     RoutingStepExpressions: Optional[Sequence[str]] = None
 
-class GetAttachedFileRequestRequestTypeDef(BaseModel):
+class GetAttachedFileRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     FileId: str
     AssociatedResourceArn: str
     UrlExpiryInSeconds: Optional[int] = None
 
-class GetContactAttributesRequestRequestTypeDef(BaseModel):
+class GetContactAttributesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     InitialContactId: str
 
-class GetFederationTokenRequestRequestTypeDef(BaseModel):
+class GetFederationTokenRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
 
-class GetFlowAssociationRequestRequestTypeDef(BaseModel):
+class GetFlowAssociationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceId: str
     ResourceType: Literal["SMS_PHONE_NUMBER"]
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class IntervalDetailsTypeDef(BaseModel):
+class IntervalDetailsTypeDef(BaseValidatorModel):
     TimeZone: Optional[str] = None
     IntervalPeriod: Optional[IntervalPeriodType] = None
 
-class GetPromptFileRequestRequestTypeDef(BaseModel):
+class GetPromptFileRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     PromptId: str
 
-class GetTaskTemplateRequestRequestTypeDef(BaseModel):
+class GetTaskTemplateRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     TaskTemplateId: str
     SnapshotVersion: Optional[str] = None
 
-class GetTrafficDistributionRequestRequestTypeDef(BaseModel):
+class GetTrafficDistributionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class HierarchyGroupSummaryReferenceTypeDef(BaseModel):
+class HierarchyGroupSummaryReferenceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
 
-class HierarchyGroupSummaryTypeDef(BaseModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
-    LastModifiedTime: Optional[datetime] = None
-    LastModifiedRegion: Optional[str] = None
-
-class HierarchyLevelTypeDef(BaseModel):
+class HierarchyGroupSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class HierarchyLevelUpdateTypeDef(BaseModel):
+class HierarchyLevelTypeDef(BaseValidatorModel):
+    Id: Optional[str] = None
+    Arn: Optional[str] = None
+    Name: Optional[str] = None
+    LastModifiedTime: Optional[datetime] = None
+    LastModifiedRegion: Optional[str] = None
+
+class HierarchyLevelUpdateTypeDef(BaseValidatorModel):
     Name: str
 
-class ThresholdTypeDef(BaseModel):
+class ThresholdTypeDef(BaseValidatorModel):
     Comparison: Optional[Literal["LT"]] = None
     ThresholdValue: Optional[float] = None
 
-class HoursOfOperationTimeSliceTypeDef(BaseModel):
+class HoursOfOperationTimeSliceTypeDef(BaseValidatorModel):
     Hours: int
     Minutes: int
 
-class HoursOfOperationSummaryTypeDef(BaseModel):
+class HoursOfOperationSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class ImportPhoneNumberRequestRequestTypeDef(BaseModel):
+class ImportPhoneNumberRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     SourcePhoneNumberArn: str
     PhoneNumberDescription: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
     ClientToken: Optional[str] = None
 
-class InstanceStatusReasonTypeDef(BaseModel):
+class InstanceStatusReasonTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
 
-class KinesisFirehoseConfigTypeDef(BaseModel):
+class KinesisFirehoseConfigTypeDef(BaseValidatorModel):
     FirehoseArn: str
 
-class KinesisStreamConfigTypeDef(BaseModel):
+class KinesisStreamConfigTypeDef(BaseValidatorModel):
     StreamArn: str
 
-class InstanceSummaryTypeDef(BaseModel):
+class InstanceSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     IdentityManagementType: Optional[DirectoryTypeType] = None
@@ -1043,7 +1043,7 @@ class InstanceSummaryTypeDef(BaseModel):
     OutboundCallsEnabled: Optional[bool] = None
     InstanceAccessUrl: Optional[str] = None
 
-class IntegrationAssociationSummaryTypeDef(BaseModel):
+class IntegrationAssociationSummaryTypeDef(BaseValidatorModel):
     IntegrationAssociationId: Optional[str] = None
     IntegrationAssociationArn: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -1053,135 +1053,135 @@ class IntegrationAssociationSummaryTypeDef(BaseModel):
     SourceApplicationName: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
 
-class TaskTemplateFieldIdentifierTypeDef(BaseModel):
+class TaskTemplateFieldIdentifierTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class ListAgentStatusRequestRequestTypeDef(BaseModel):
+class ListAgentStatusRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     AgentStatusTypes: Optional[Sequence[AgentStatusTypeType]] = None
 
-class ListAnalyticsDataAssociationsRequestRequestTypeDef(BaseModel):
+class ListAnalyticsDataAssociationsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     DataSetId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListApprovedOriginsRequestRequestTypeDef(BaseModel):
+class ListApprovedOriginsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListAuthenticationProfilesRequestRequestTypeDef(BaseModel):
+class ListAuthenticationProfilesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListBotsRequestRequestTypeDef(BaseModel):
+class ListBotsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     LexVersion: LexVersionType
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListContactEvaluationsRequestRequestTypeDef(BaseModel):
+class ListContactEvaluationsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     NextToken: Optional[str] = None
 
-class ListContactFlowModulesRequestRequestTypeDef(BaseModel):
+class ListContactFlowModulesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ContactFlowModuleState: Optional[ContactFlowModuleStateType] = None
 
-class ListContactFlowsRequestRequestTypeDef(BaseModel):
+class ListContactFlowsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowTypes: Optional[Sequence[ContactFlowTypeType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListContactReferencesRequestRequestTypeDef(BaseModel):
+class ListContactReferencesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     ReferenceTypes: Sequence[ReferenceTypeType]
     NextToken: Optional[str] = None
 
-class ListDefaultVocabulariesRequestRequestTypeDef(BaseModel):
+class ListDefaultVocabulariesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     LanguageCode: Optional[VocabularyLanguageCodeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListEvaluationFormVersionsRequestRequestTypeDef(BaseModel):
+class ListEvaluationFormVersionsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListEvaluationFormsRequestRequestTypeDef(BaseModel):
+class ListEvaluationFormsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListFlowAssociationsRequestRequestTypeDef(BaseModel):
+class ListFlowAssociationsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceType: Optional[Literal["VOICE_PHONE_NUMBER"]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListHoursOfOperationsRequestRequestTypeDef(BaseModel):
+class ListHoursOfOperationsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListInstanceAttributesRequestRequestTypeDef(BaseModel):
+class ListInstanceAttributesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListInstanceStorageConfigsRequestRequestTypeDef(BaseModel):
+class ListInstanceStorageConfigsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceType: InstanceStorageResourceTypeType
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListInstancesRequestRequestTypeDef(BaseModel):
+class ListInstancesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListIntegrationAssociationsRequestRequestTypeDef(BaseModel):
+class ListIntegrationAssociationsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     IntegrationType: Optional[IntegrationTypeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     IntegrationArn: Optional[str] = None
 
-class ListLambdaFunctionsRequestRequestTypeDef(BaseModel):
+class ListLambdaFunctionsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListLexBotsRequestRequestTypeDef(BaseModel):
+class ListLexBotsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListPhoneNumbersRequestRequestTypeDef(BaseModel):
+class ListPhoneNumbersRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     PhoneNumberTypes: Optional[Sequence[PhoneNumberTypeType]] = None
     PhoneNumberCountryCodes: Optional[Sequence[PhoneNumberCountryCodeType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PhoneNumberSummaryTypeDef(BaseModel):
+class PhoneNumberSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     PhoneNumber: Optional[str] = None
     PhoneNumberType: Optional[PhoneNumberTypeType] = None
     PhoneNumberCountryCode: Optional[PhoneNumberCountryCodeType] = None
 
-class ListPhoneNumbersSummaryTypeDef(BaseModel):
+class ListPhoneNumbersSummaryTypeDef(BaseValidatorModel):
     PhoneNumberId: Optional[str] = None
     PhoneNumberArn: Optional[str] = None
     PhoneNumber: Optional[str] = None
@@ -1192,7 +1192,7 @@ class ListPhoneNumbersSummaryTypeDef(BaseModel):
     PhoneNumberDescription: Optional[str] = None
     SourcePhoneNumberArn: Optional[str] = None
 
-class ListPhoneNumbersV2RequestRequestTypeDef(BaseModel):
+class ListPhoneNumbersV2RequestRequestTypeDef(BaseValidatorModel):
     TargetArn: Optional[str] = None
     InstanceId: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1201,35 +1201,35 @@ class ListPhoneNumbersV2RequestRequestTypeDef(BaseModel):
     PhoneNumberTypes: Optional[Sequence[PhoneNumberTypeType]] = None
     PhoneNumberPrefix: Optional[str] = None
 
-class ListPredefinedAttributesRequestRequestTypeDef(BaseModel):
+class ListPredefinedAttributesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PredefinedAttributeSummaryTypeDef(BaseModel):
+class PredefinedAttributeSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class ListPromptsRequestRequestTypeDef(BaseModel):
+class ListPromptsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PromptSummaryTypeDef(BaseModel):
+class PromptSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class ListQueueQuickConnectsRequestRequestTypeDef(BaseModel):
+class ListQueueQuickConnectsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class QuickConnectSummaryTypeDef(BaseModel):
+class QuickConnectSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -1237,13 +1237,13 @@ class QuickConnectSummaryTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class ListQueuesRequestRequestTypeDef(BaseModel):
+class ListQueuesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueTypes: Optional[Sequence[QueueTypeType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class QueueSummaryTypeDef(BaseModel):
+class QueueSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -1251,13 +1251,13 @@ class QueueSummaryTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class ListQuickConnectsRequestRequestTypeDef(BaseModel):
+class ListQuickConnectsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     QuickConnectTypes: Optional[Sequence[QuickConnectTypeType]] = None
 
-class ListRealtimeContactAnalysisSegmentsV2RequestRequestTypeDef(BaseModel):
+class ListRealtimeContactAnalysisSegmentsV2RequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     OutputType: RealTimeContactAnalysisOutputTypeType
@@ -1265,13 +1265,13 @@ class ListRealtimeContactAnalysisSegmentsV2RequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListRoutingProfileQueuesRequestRequestTypeDef(BaseModel):
+class ListRoutingProfileQueuesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class RoutingProfileQueueConfigSummaryTypeDef(BaseModel):
+class RoutingProfileQueueConfigSummaryTypeDef(BaseValidatorModel):
     QueueId: str
     QueueArn: str
     QueueName: str
@@ -1279,70 +1279,70 @@ class RoutingProfileQueueConfigSummaryTypeDef(BaseModel):
     Delay: int
     Channel: ChannelType
 
-class ListRoutingProfilesRequestRequestTypeDef(BaseModel):
+class ListRoutingProfilesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class RoutingProfileSummaryTypeDef(BaseModel):
+class RoutingProfileSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class ListRulesRequestRequestTypeDef(BaseModel):
+class ListRulesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     PublishStatus: Optional[RulePublishStatusType] = None
     EventSourceName: Optional[EventSourceNameType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListSecurityKeysRequestRequestTypeDef(BaseModel):
+class ListSecurityKeysRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class SecurityKeyTypeDef(BaseModel):
+class SecurityKeyTypeDef(BaseValidatorModel):
     AssociationId: Optional[str] = None
     Key: Optional[str] = None
     CreationTime: Optional[datetime] = None
 
-class ListSecurityProfileApplicationsRequestRequestTypeDef(BaseModel):
+class ListSecurityProfileApplicationsRequestRequestTypeDef(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListSecurityProfilePermissionsRequestRequestTypeDef(BaseModel):
+class ListSecurityProfilePermissionsRequestRequestTypeDef(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListSecurityProfilesRequestRequestTypeDef(BaseModel):
+class ListSecurityProfilesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class SecurityProfileSummaryTypeDef(BaseModel):
+class SecurityProfileSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListTaskTemplatesRequestRequestTypeDef(BaseModel):
+class ListTaskTemplatesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Status: Optional[TaskTemplateStatusType] = None
     Name: Optional[str] = None
 
-class TaskTemplateMetadataTypeDef(BaseModel):
+class TaskTemplateMetadataTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -1351,20 +1351,20 @@ class TaskTemplateMetadataTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     CreatedTime: Optional[datetime] = None
 
-class ListTrafficDistributionGroupUsersRequestRequestTypeDef(BaseModel):
+class ListTrafficDistributionGroupUsersRequestRequestTypeDef(BaseValidatorModel):
     TrafficDistributionGroupId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class TrafficDistributionGroupUserSummaryTypeDef(BaseModel):
+class TrafficDistributionGroupUserSummaryTypeDef(BaseValidatorModel):
     UserId: Optional[str] = None
 
-class ListTrafficDistributionGroupsRequestRequestTypeDef(BaseModel):
+class ListTrafficDistributionGroupsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     InstanceId: Optional[str] = None
 
-class TrafficDistributionGroupSummaryTypeDef(BaseModel):
+class TrafficDistributionGroupSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -1372,47 +1372,47 @@ class TrafficDistributionGroupSummaryTypeDef(BaseModel):
     Status: Optional[TrafficDistributionGroupStatusType] = None
     IsDefault: Optional[bool] = None
 
-class ListUseCasesRequestRequestTypeDef(BaseModel):
+class ListUseCasesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     IntegrationAssociationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class UseCaseTypeDef(BaseModel):
+class UseCaseTypeDef(BaseValidatorModel):
     UseCaseId: Optional[str] = None
     UseCaseArn: Optional[str] = None
     UseCaseType: Optional[UseCaseTypeType] = None
 
-class ListUserHierarchyGroupsRequestRequestTypeDef(BaseModel):
+class ListUserHierarchyGroupsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListUserProficienciesRequestRequestTypeDef(BaseModel):
+class ListUserProficienciesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     UserId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListUsersRequestRequestTypeDef(BaseModel):
+class ListUsersRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class UserSummaryTypeDef(BaseModel):
+class UserSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Username: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class ListViewVersionsRequestRequestTypeDef(BaseModel):
+class ListViewVersionsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ViewId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ViewVersionSummaryTypeDef(BaseModel):
+class ViewVersionSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Description: Optional[str] = None
@@ -1421,13 +1421,13 @@ class ViewVersionSummaryTypeDef(BaseModel):
     Version: Optional[int] = None
     VersionDescription: Optional[str] = None
 
-class ListViewsRequestRequestTypeDef(BaseModel):
+class ListViewsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Type: Optional[ViewTypeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ViewSummaryTypeDef(BaseModel):
+class ViewSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -1435,144 +1435,144 @@ class ViewSummaryTypeDef(BaseModel):
     Status: Optional[ViewStatusType] = None
     Description: Optional[str] = None
 
-class MediaPlacementTypeDef(BaseModel):
+class MediaPlacementTypeDef(BaseValidatorModel):
     AudioHostUrl: Optional[str] = None
     AudioFallbackUrl: Optional[str] = None
     SignalingUrl: Optional[str] = None
     TurnControlUrl: Optional[str] = None
     EventIngestionUrl: Optional[str] = None
 
-class MetricFilterV2OutputTypeDef(BaseModel):
+class MetricFilterV2OutputTypeDef(BaseValidatorModel):
     MetricFilterKey: Optional[str] = None
     MetricFilterValues: Optional[List[str]] = None
     Negate: Optional[bool] = None
 
-class MetricFilterV2TypeDef(BaseModel):
+class MetricFilterV2TypeDef(BaseValidatorModel):
     MetricFilterKey: Optional[str] = None
     MetricFilterValues: Optional[Sequence[str]] = None
     Negate: Optional[bool] = None
 
-class MetricIntervalTypeDef(BaseModel):
+class MetricIntervalTypeDef(BaseValidatorModel):
     Interval: Optional[IntervalPeriodType] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
-class ThresholdV2TypeDef(BaseModel):
+class ThresholdV2TypeDef(BaseValidatorModel):
     Comparison: Optional[str] = None
     ThresholdValue: Optional[float] = None
 
-class MonitorContactRequestRequestTypeDef(BaseModel):
+class MonitorContactRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     UserId: str
     AllowedMonitorCapabilities: Optional[Sequence[MonitorCapabilityType]] = None
     ClientToken: Optional[str] = None
 
-class ParticipantDetailsTypeDef(BaseModel):
+class ParticipantDetailsTypeDef(BaseValidatorModel):
     DisplayName: str
 
-class NotificationRecipientTypeOutputTypeDef(BaseModel):
+class NotificationRecipientTypeOutputTypeDef(BaseValidatorModel):
     UserTags: Optional[Dict[str, str]] = None
     UserIds: Optional[List[str]] = None
 
-class NotificationRecipientTypeTypeDef(BaseModel):
+class NotificationRecipientTypeTypeDef(BaseValidatorModel):
     UserTags: Optional[Mapping[str, str]] = None
     UserIds: Optional[Sequence[str]] = None
 
-class NumberReferenceTypeDef(BaseModel):
+class NumberReferenceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class ParticipantTimerValueTypeDef(BaseModel):
+class ParticipantTimerValueTypeDef(BaseValidatorModel):
     ParticipantTimerAction: Optional[Literal["Unset"]] = None
     ParticipantTimerDurationInMinutes: Optional[int] = None
 
-class PauseContactRequestRequestTypeDef(BaseModel):
+class PauseContactRequestRequestTypeDef(BaseValidatorModel):
     ContactId: str
     InstanceId: str
     ContactFlowId: Optional[str] = None
 
-class PersistentChatTypeDef(BaseModel):
+class PersistentChatTypeDef(BaseValidatorModel):
     RehydrationType: Optional[RehydrationTypeType] = None
     SourceContactId: Optional[str] = None
 
-class PhoneNumberQuickConnectConfigTypeDef(BaseModel):
+class PhoneNumberQuickConnectConfigTypeDef(BaseValidatorModel):
     PhoneNumber: str
 
-class PredefinedAttributeValuesOutputTypeDef(BaseModel):
+class PredefinedAttributeValuesOutputTypeDef(BaseValidatorModel):
     StringList: Optional[List[str]] = None
 
-class PredefinedAttributeValuesExtraOutputTypeDef(BaseModel):
+class PredefinedAttributeValuesExtraOutputTypeDef(BaseValidatorModel):
     StringList: Optional[List[str]] = None
 
-class PutUserStatusRequestRequestTypeDef(BaseModel):
+class PutUserStatusRequestRequestTypeDef(BaseValidatorModel):
     UserId: str
     InstanceId: str
     AgentStatusId: str
 
-class QueueQuickConnectConfigTypeDef(BaseModel):
+class QueueQuickConnectConfigTypeDef(BaseValidatorModel):
     QueueId: str
     ContactFlowId: str
 
-class UserQuickConnectConfigTypeDef(BaseModel):
+class UserQuickConnectConfigTypeDef(BaseValidatorModel):
     UserId: str
     ContactFlowId: str
 
-class RealTimeContactAnalysisAttachmentTypeDef(BaseModel):
+class RealTimeContactAnalysisAttachmentTypeDef(BaseValidatorModel):
     AttachmentName: str
     AttachmentId: str
     ContentType: Optional[str] = None
     Status: Optional[ArtifactStatusType] = None
 
-class RealTimeContactAnalysisCharacterIntervalTypeDef(BaseModel):
+class RealTimeContactAnalysisCharacterIntervalTypeDef(BaseValidatorModel):
     BeginOffsetChar: int
     EndOffsetChar: int
 
-class RealTimeContactAnalysisTimeDataTypeDef(BaseModel):
+class RealTimeContactAnalysisTimeDataTypeDef(BaseValidatorModel):
     AbsoluteTime: Optional[datetime] = None
 
-class StringReferenceTypeDef(BaseModel):
+class StringReferenceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class UrlReferenceTypeDef(BaseModel):
+class UrlReferenceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class ReferenceTypeDef(BaseModel):
+class ReferenceTypeDef(BaseValidatorModel):
     Value: str
     Type: ReferenceTypeType
 
-class ReleasePhoneNumberRequestRequestTypeDef(BaseModel):
+class ReleasePhoneNumberRequestRequestTypeDef(BaseValidatorModel):
     PhoneNumberId: str
     ClientToken: Optional[str] = None
 
-class ReplicateInstanceRequestRequestTypeDef(BaseModel):
+class ReplicateInstanceRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ReplicaRegion: str
     ReplicaAlias: str
     ClientToken: Optional[str] = None
 
-class TagSearchConditionTypeDef(BaseModel):
+class TagSearchConditionTypeDef(BaseValidatorModel):
     tagKey: Optional[str] = None
     tagValue: Optional[str] = None
     tagKeyComparisonType: Optional[StringComparisonTypeType] = None
     tagValueComparisonType: Optional[StringComparisonTypeType] = None
 
-class ResumeContactRecordingRequestRequestTypeDef(BaseModel):
+class ResumeContactRecordingRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     InitialContactId: str
 
-class ResumeContactRequestRequestTypeDef(BaseModel):
+class ResumeContactRequestRequestTypeDef(BaseValidatorModel):
     ContactId: str
     InstanceId: str
     ContactFlowId: Optional[str] = None
 
-class SubmitAutoEvaluationActionDefinitionTypeDef(BaseModel):
+class SubmitAutoEvaluationActionDefinitionTypeDef(BaseValidatorModel):
     EvaluationFormId: str
 
-class SearchAvailablePhoneNumbersRequestRequestTypeDef(BaseModel):
+class SearchAvailablePhoneNumbersRequestRequestTypeDef(BaseValidatorModel):
     PhoneNumberCountryCode: PhoneNumberCountryCodeType
     PhoneNumberType: PhoneNumberTypeType
     TargetArn: Optional[str] = None
@@ -1581,21 +1581,21 @@ class SearchAvailablePhoneNumbersRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class SortTypeDef(BaseModel):
+class SortTypeDef(BaseValidatorModel):
     FieldName: SortableFieldNameType
     Order: SortOrderType
 
-class SearchPredefinedAttributesRequestRequestTypeDef(BaseModel):
+class SearchPredefinedAttributesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchCriteria: Optional["PredefinedAttributeSearchCriteriaTypeDef"] = None
 
-class TagSetTypeDef(BaseModel):
+class TagSetTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
-class SecurityProfileSearchSummaryTypeDef(BaseModel):
+class SecurityProfileSearchSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     OrganizationResourceId: Optional[str] = None
     Arn: Optional[str] = None
@@ -1603,7 +1603,7 @@ class SecurityProfileSearchSummaryTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class SearchVocabulariesRequestRequestTypeDef(BaseModel):
+class SearchVocabulariesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1611,7 +1611,7 @@ class SearchVocabulariesRequestRequestTypeDef(BaseModel):
     NameStartsWith: Optional[str] = None
     LanguageCode: Optional[VocabularyLanguageCodeType] = None
 
-class VocabularySummaryTypeDef(BaseModel):
+class VocabularySummaryTypeDef(BaseValidatorModel):
     Name: str
     Id: str
     Arn: str
@@ -1620,58 +1620,58 @@ class VocabularySummaryTypeDef(BaseModel):
     LastModifiedTime: datetime
     FailureReason: Optional[str] = None
 
-class SearchableContactAttributesCriteriaTypeDef(BaseModel):
+class SearchableContactAttributesCriteriaTypeDef(BaseValidatorModel):
     Key: str
     Values: Sequence[str]
 
-class SignInDistributionTypeDef(BaseModel):
+class SignInDistributionTypeDef(BaseValidatorModel):
     Region: str
     Enabled: bool
 
-class UploadUrlMetadataTypeDef(BaseModel):
+class UploadUrlMetadataTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
     UrlExpiry: Optional[str] = None
     HeadersToInclude: Optional[Dict[str, str]] = None
 
-class StartContactEvaluationRequestRequestTypeDef(BaseModel):
+class StartContactEvaluationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     EvaluationFormId: str
     ClientToken: Optional[str] = None
 
-class VoiceRecordingConfigurationTypeDef(BaseModel):
+class VoiceRecordingConfigurationTypeDef(BaseValidatorModel):
     VoiceRecordingTrack: Optional[VoiceRecordingTrackType] = None
 
-class StopContactRecordingRequestRequestTypeDef(BaseModel):
+class StopContactRecordingRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     InitialContactId: str
 
-class StopContactStreamingRequestRequestTypeDef(BaseModel):
+class StopContactStreamingRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     StreamingId: str
 
-class SuspendContactRecordingRequestRequestTypeDef(BaseModel):
+class SuspendContactRecordingRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     InitialContactId: str
 
-class TagContactRequestRequestTypeDef(BaseModel):
+class TagContactRequestRequestTypeDef(BaseValidatorModel):
     ContactId: str
     InstanceId: str
     Tags: Mapping[str, str]
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TranscriptCriteriaTypeDef(BaseModel):
+class TranscriptCriteriaTypeDef(BaseValidatorModel):
     ParticipantRole: ParticipantRoleType
     SearchText: Sequence[str]
     MatchType: SearchContactsMatchTypeType
 
-class TransferContactRequestRequestTypeDef(BaseModel):
+class TransferContactRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     ContactFlowId: str
@@ -1679,16 +1679,16 @@ class TransferContactRequestRequestTypeDef(BaseModel):
     UserId: Optional[str] = None
     ClientToken: Optional[str] = None
 
-class UntagContactRequestRequestTypeDef(BaseModel):
+class UntagContactRequestRequestTypeDef(BaseValidatorModel):
     ContactId: str
     InstanceId: str
     TagKeys: Sequence[str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateAgentStatusRequestRequestTypeDef(BaseModel):
+class UpdateAgentStatusRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AgentStatusId: str
     Name: Optional[str] = None
@@ -1697,7 +1697,7 @@ class UpdateAgentStatusRequestRequestTypeDef(BaseModel):
     DisplayOrder: Optional[int] = None
     ResetOrderNumber: Optional[bool] = None
 
-class UpdateAuthenticationProfileRequestRequestTypeDef(BaseModel):
+class UpdateAuthenticationProfileRequestRequestTypeDef(BaseValidatorModel):
     AuthenticationProfileId: str
     InstanceId: str
     Name: Optional[str] = None
@@ -1706,153 +1706,153 @@ class UpdateAuthenticationProfileRequestRequestTypeDef(BaseModel):
     BlockedIps: Optional[Sequence[str]] = None
     PeriodicSessionDuration: Optional[int] = None
 
-class UpdateContactAttributesRequestRequestTypeDef(BaseModel):
+class UpdateContactAttributesRequestRequestTypeDef(BaseValidatorModel):
     InitialContactId: str
     InstanceId: str
     Attributes: Mapping[str, str]
 
-class UpdateContactFlowContentRequestRequestTypeDef(BaseModel):
+class UpdateContactFlowContentRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
     Content: str
 
-class UpdateContactFlowMetadataRequestRequestTypeDef(BaseModel):
+class UpdateContactFlowMetadataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     ContactFlowState: Optional[ContactFlowStateType] = None
 
-class UpdateContactFlowModuleContentRequestRequestTypeDef(BaseModel):
+class UpdateContactFlowModuleContentRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowModuleId: str
     Content: str
 
-class UpdateContactFlowModuleMetadataRequestRequestTypeDef(BaseModel):
+class UpdateContactFlowModuleMetadataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowModuleId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     State: Optional[ContactFlowModuleStateType] = None
 
-class UpdateContactFlowNameRequestRequestTypeDef(BaseModel):
+class UpdateContactFlowNameRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
-class UpdateContactRoutingDataRequestRequestTypeDef(BaseModel):
+class UpdateContactRoutingDataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     QueueTimeAdjustmentSeconds: Optional[int] = None
     QueuePriority: Optional[int] = None
 
-class UpdateInstanceAttributeRequestRequestTypeDef(BaseModel):
+class UpdateInstanceAttributeRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AttributeType: InstanceAttributeTypeType
     Value: str
 
-class UpdatePhoneNumberMetadataRequestRequestTypeDef(BaseModel):
+class UpdatePhoneNumberMetadataRequestRequestTypeDef(BaseValidatorModel):
     PhoneNumberId: str
     PhoneNumberDescription: Optional[str] = None
     ClientToken: Optional[str] = None
 
-class UpdatePhoneNumberRequestRequestTypeDef(BaseModel):
+class UpdatePhoneNumberRequestRequestTypeDef(BaseValidatorModel):
     PhoneNumberId: str
     TargetArn: Optional[str] = None
     InstanceId: Optional[str] = None
     ClientToken: Optional[str] = None
 
-class UpdatePromptRequestRequestTypeDef(BaseModel):
+class UpdatePromptRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     PromptId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     S3Uri: Optional[str] = None
 
-class UpdateQueueHoursOfOperationRequestRequestTypeDef(BaseModel):
+class UpdateQueueHoursOfOperationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     HoursOfOperationId: str
 
-class UpdateQueueMaxContactsRequestRequestTypeDef(BaseModel):
+class UpdateQueueMaxContactsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     MaxContacts: Optional[int] = None
 
-class UpdateQueueNameRequestRequestTypeDef(BaseModel):
+class UpdateQueueNameRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
-class UpdateQueueStatusRequestRequestTypeDef(BaseModel):
+class UpdateQueueStatusRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     Status: QueueStatusType
 
-class UpdateQuickConnectNameRequestRequestTypeDef(BaseModel):
+class UpdateQuickConnectNameRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QuickConnectId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
-class UpdateRoutingProfileAgentAvailabilityTimerRequestRequestTypeDef(BaseModel):
+class UpdateRoutingProfileAgentAvailabilityTimerRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     AgentAvailabilityTimer: AgentAvailabilityTimerType
 
-class UpdateRoutingProfileDefaultOutboundQueueRequestRequestTypeDef(BaseModel):
+class UpdateRoutingProfileDefaultOutboundQueueRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     DefaultOutboundQueueId: str
 
-class UpdateRoutingProfileNameRequestRequestTypeDef(BaseModel):
+class UpdateRoutingProfileNameRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
-class UpdateUserHierarchyGroupNameRequestRequestTypeDef(BaseModel):
+class UpdateUserHierarchyGroupNameRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     HierarchyGroupId: str
     InstanceId: str
 
-class UpdateUserHierarchyRequestRequestTypeDef(BaseModel):
+class UpdateUserHierarchyRequestRequestTypeDef(BaseValidatorModel):
     UserId: str
     InstanceId: str
     HierarchyGroupId: Optional[str] = None
 
-class UpdateUserRoutingProfileRequestRequestTypeDef(BaseModel):
+class UpdateUserRoutingProfileRequestRequestTypeDef(BaseValidatorModel):
     RoutingProfileId: str
     UserId: str
     InstanceId: str
 
-class UpdateUserSecurityProfilesRequestRequestTypeDef(BaseModel):
+class UpdateUserSecurityProfilesRequestRequestTypeDef(BaseValidatorModel):
     SecurityProfileIds: Sequence[str]
     UserId: str
     InstanceId: str
 
-class UpdateViewMetadataRequestRequestTypeDef(BaseModel):
+class UpdateViewMetadataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ViewId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
-class UserReferenceTypeDef(BaseModel):
+class UserReferenceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
 
-class UserIdentityInfoLiteTypeDef(BaseModel):
+class UserIdentityInfoLiteTypeDef(BaseValidatorModel):
     FirstName: Optional[str] = None
     LastName: Optional[str] = None
 
-class ViewContentTypeDef(BaseModel):
+class ViewContentTypeDef(BaseValidatorModel):
     InputSchema: Optional[str] = None
     Template: Optional[str] = None
     Actions: Optional[List[str]] = None
 
-class RuleSummaryTypeDef(BaseModel):
+class RuleSummaryTypeDef(BaseValidatorModel):
     Name: str
     RuleId: str
     RuleArn: str
@@ -1862,272 +1862,272 @@ class RuleSummaryTypeDef(BaseModel):
     CreatedTime: datetime
     LastUpdatedTime: datetime
 
-class ActivateEvaluationFormResponseTypeDef(BaseModel):
+class ActivateEvaluationFormResponseTypeDef(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormArn: str
     EvaluationFormVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateAnalyticsDataSetResponseTypeDef(BaseModel):
+class AssociateAnalyticsDataSetResponseTypeDef(BaseValidatorModel):
     DataSetId: str
     TargetAccountId: str
     ResourceShareId: str
     ResourceShareArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateInstanceStorageConfigResponseTypeDef(BaseModel):
+class AssociateInstanceStorageConfigResponseTypeDef(BaseValidatorModel):
     AssociationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateSecurityKeyResponseTypeDef(BaseModel):
+class AssociateSecurityKeyResponseTypeDef(BaseValidatorModel):
     AssociationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ClaimPhoneNumberResponseTypeDef(BaseModel):
+class ClaimPhoneNumberResponseTypeDef(BaseValidatorModel):
     PhoneNumberId: str
     PhoneNumberArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAgentStatusResponseTypeDef(BaseModel):
+class CreateAgentStatusResponseTypeDef(BaseValidatorModel):
     AgentStatusARN: str
     AgentStatusId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateContactFlowModuleResponseTypeDef(BaseModel):
+class CreateContactFlowModuleResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateContactFlowResponseTypeDef(BaseModel):
+class CreateContactFlowResponseTypeDef(BaseValidatorModel):
     ContactFlowId: str
     ContactFlowArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEvaluationFormResponseTypeDef(BaseModel):
+class CreateEvaluationFormResponseTypeDef(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHoursOfOperationResponseTypeDef(BaseModel):
+class CreateHoursOfOperationResponseTypeDef(BaseValidatorModel):
     HoursOfOperationId: str
     HoursOfOperationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceResponseTypeDef(BaseModel):
+class CreateInstanceResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateIntegrationAssociationResponseTypeDef(BaseModel):
+class CreateIntegrationAssociationResponseTypeDef(BaseValidatorModel):
     IntegrationAssociationId: str
     IntegrationAssociationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePersistentContactAssociationResponseTypeDef(BaseModel):
+class CreatePersistentContactAssociationResponseTypeDef(BaseValidatorModel):
     ContinuedFromContactId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePromptResponseTypeDef(BaseModel):
+class CreatePromptResponseTypeDef(BaseValidatorModel):
     PromptARN: str
     PromptId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateQueueResponseTypeDef(BaseModel):
+class CreateQueueResponseTypeDef(BaseValidatorModel):
     QueueArn: str
     QueueId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateQuickConnectResponseTypeDef(BaseModel):
+class CreateQuickConnectResponseTypeDef(BaseValidatorModel):
     QuickConnectARN: str
     QuickConnectId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRoutingProfileResponseTypeDef(BaseModel):
+class CreateRoutingProfileResponseTypeDef(BaseValidatorModel):
     RoutingProfileArn: str
     RoutingProfileId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRuleResponseTypeDef(BaseModel):
+class CreateRuleResponseTypeDef(BaseValidatorModel):
     RuleArn: str
     RuleId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSecurityProfileResponseTypeDef(BaseModel):
+class CreateSecurityProfileResponseTypeDef(BaseValidatorModel):
     SecurityProfileId: str
     SecurityProfileArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTaskTemplateResponseTypeDef(BaseModel):
+class CreateTaskTemplateResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrafficDistributionGroupResponseTypeDef(BaseModel):
+class CreateTrafficDistributionGroupResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUseCaseResponseTypeDef(BaseModel):
+class CreateUseCaseResponseTypeDef(BaseValidatorModel):
     UseCaseId: str
     UseCaseArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserHierarchyGroupResponseTypeDef(BaseModel):
+class CreateUserHierarchyGroupResponseTypeDef(BaseValidatorModel):
     HierarchyGroupId: str
     HierarchyGroupArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserResponseTypeDef(BaseModel):
+class CreateUserResponseTypeDef(BaseValidatorModel):
     UserId: str
     UserArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVocabularyResponseTypeDef(BaseModel):
+class CreateVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyArn: str
     VocabularyId: str
     State: VocabularyStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeactivateEvaluationFormResponseTypeDef(BaseModel):
+class DeactivateEvaluationFormResponseTypeDef(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormArn: str
     EvaluationFormVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVocabularyResponseTypeDef(BaseModel):
+class DeleteVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyArn: str
     VocabularyId: str
     State: VocabularyStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContactAttributesResponseTypeDef(BaseModel):
+class GetContactAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFlowAssociationResponseTypeDef(BaseModel):
+class GetFlowAssociationResponseTypeDef(BaseValidatorModel):
     ResourceId: str
     FlowId: str
     ResourceType: Literal["SMS_PHONE_NUMBER"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPromptFileResponseTypeDef(BaseModel):
+class GetPromptFileResponseTypeDef(BaseValidatorModel):
     PromptPresignedUrl: str
     LastModifiedTime: datetime
     LastModifiedRegion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportPhoneNumberResponseTypeDef(BaseModel):
+class ImportPhoneNumberResponseTypeDef(BaseValidatorModel):
     PhoneNumberId: str
     PhoneNumberArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApprovedOriginsResponseTypeDef(BaseModel):
+class ListApprovedOriginsResponseTypeDef(BaseValidatorModel):
     Origins: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListLambdaFunctionsResponseTypeDef(BaseModel):
+class ListLambdaFunctionsResponseTypeDef(BaseValidatorModel):
     LambdaFunctions: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSecurityProfilePermissionsResponseTypeDef(BaseModel):
+class ListSecurityProfilePermissionsResponseTypeDef(BaseValidatorModel):
     Permissions: List[str]
     LastModifiedTime: datetime
     LastModifiedRegion: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MonitorContactResponseTypeDef(BaseModel):
+class MonitorContactResponseTypeDef(BaseValidatorModel):
     ContactId: str
     ContactArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplicateInstanceResponseTypeDef(BaseModel):
+class ReplicateInstanceResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendChatIntegrationEventResponseTypeDef(BaseModel):
+class SendChatIntegrationEventResponseTypeDef(BaseValidatorModel):
     InitialContactId: str
     NewChatCreated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartChatContactResponseTypeDef(BaseModel):
+class StartChatContactResponseTypeDef(BaseValidatorModel):
     ContactId: str
     ParticipantId: str
     ParticipantToken: str
     ContinuedFromContactId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartContactEvaluationResponseTypeDef(BaseModel):
+class StartContactEvaluationResponseTypeDef(BaseValidatorModel):
     EvaluationId: str
     EvaluationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartContactStreamingResponseTypeDef(BaseModel):
+class StartContactStreamingResponseTypeDef(BaseValidatorModel):
     StreamingId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartOutboundVoiceContactResponseTypeDef(BaseModel):
+class StartOutboundVoiceContactResponseTypeDef(BaseValidatorModel):
     ContactId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTaskContactResponseTypeDef(BaseModel):
+class StartTaskContactResponseTypeDef(BaseValidatorModel):
     ContactId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubmitContactEvaluationResponseTypeDef(BaseModel):
+class SubmitContactEvaluationResponseTypeDef(BaseValidatorModel):
     EvaluationId: str
     EvaluationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TransferContactResponseTypeDef(BaseModel):
+class TransferContactResponseTypeDef(BaseValidatorModel):
     ContactId: str
     ContactArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateContactEvaluationResponseTypeDef(BaseModel):
+class UpdateContactEvaluationResponseTypeDef(BaseValidatorModel):
     EvaluationId: str
     EvaluationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEvaluationFormResponseTypeDef(BaseModel):
+class UpdateEvaluationFormResponseTypeDef(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormArn: str
     EvaluationFormVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePhoneNumberResponseTypeDef(BaseModel):
+class UpdatePhoneNumberResponseTypeDef(BaseValidatorModel):
     PhoneNumberId: str
     PhoneNumberArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePromptResponseTypeDef(BaseModel):
+class UpdatePromptResponseTypeDef(BaseValidatorModel):
     PromptARN: str
     PromptId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AgentConfigOutputTypeDef(BaseModel):
+class AgentConfigOutputTypeDef(BaseValidatorModel):
     Distributions: List[DistributionTypeDef]
 
-class AgentConfigTypeDef(BaseModel):
+class AgentConfigTypeDef(BaseValidatorModel):
     Distributions: Sequence[DistributionTypeDef]
 
-class TelephonyConfigOutputTypeDef(BaseModel):
+class TelephonyConfigOutputTypeDef(BaseValidatorModel):
     Distributions: List[DistributionTypeDef]
 
-class TelephonyConfigTypeDef(BaseModel):
+class TelephonyConfigTypeDef(BaseValidatorModel):
     Distributions: Sequence[DistributionTypeDef]
 
-class AgentContactReferenceTypeDef(BaseModel):
+class AgentContactReferenceTypeDef(BaseValidatorModel):
     ContactId: Optional[str] = None
     Channel: Optional[ChannelType] = None
     InitiationMethod: Optional[ContactInitiationMethodType] = None
@@ -2136,92 +2136,92 @@ class AgentContactReferenceTypeDef(BaseModel):
     ConnectedToAgentTimestamp: Optional[datetime] = None
     Queue: Optional[QueueReferenceTypeDef] = None
 
-class HierarchyGroupsTypeDef(BaseModel):
+class HierarchyGroupsTypeDef(BaseValidatorModel):
     Level1: Optional[AgentHierarchyGroupTypeDef] = None
     Level2: Optional[AgentHierarchyGroupTypeDef] = None
     Level3: Optional[AgentHierarchyGroupTypeDef] = None
     Level4: Optional[AgentHierarchyGroupTypeDef] = None
     Level5: Optional[AgentHierarchyGroupTypeDef] = None
 
-class AllowedCapabilitiesTypeDef(BaseModel):
+class AllowedCapabilitiesTypeDef(BaseValidatorModel):
     Customer: Optional[ParticipantCapabilitiesTypeDef] = None
     Agent: Optional[ParticipantCapabilitiesTypeDef] = None
 
-class CustomerTypeDef(BaseModel):
+class CustomerTypeDef(BaseValidatorModel):
     DeviceInfo: Optional[DeviceInfoTypeDef] = None
     Capabilities: Optional[ParticipantCapabilitiesTypeDef] = None
 
-class AgentQualityMetricsTypeDef(BaseModel):
+class AgentQualityMetricsTypeDef(BaseValidatorModel):
     Audio: Optional[AudioQualityMetricsInfoTypeDef] = None
 
-class CustomerQualityMetricsTypeDef(BaseModel):
+class CustomerQualityMetricsTypeDef(BaseValidatorModel):
     Audio: Optional[AudioQualityMetricsInfoTypeDef] = None
 
-class ListAgentStatusResponseTypeDef(BaseModel):
+class ListAgentStatusResponseTypeDef(BaseValidatorModel):
     AgentStatusSummaryList: List[AgentStatusSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeAgentStatusResponseTypeDef(BaseModel):
+class DescribeAgentStatusResponseTypeDef(BaseValidatorModel):
     AgentStatus: AgentStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MatchCriteriaTypeDef(BaseModel):
+class MatchCriteriaTypeDef(BaseValidatorModel):
     AgentsCriteria: Optional[AgentsCriteriaTypeDef] = None
 
-class ListAnalyticsDataAssociationsResponseTypeDef(BaseModel):
+class ListAnalyticsDataAssociationsResponseTypeDef(BaseValidatorModel):
     Results: List[AnalyticsDataAssociationResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSecurityProfileApplicationsResponseTypeDef(BaseModel):
+class ListSecurityProfileApplicationsResponseTypeDef(BaseValidatorModel):
     Applications: List[ApplicationOutputTypeDef]
     LastModifiedTime: datetime
     LastModifiedRegion: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AssociateLexBotRequestRequestTypeDef(BaseModel):
+class AssociateLexBotRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     LexBot: LexBotTypeDef
 
-class ListLexBotsResponseTypeDef(BaseModel):
+class ListLexBotsResponseTypeDef(BaseValidatorModel):
     LexBots: List[LexBotTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AssociateBotRequestRequestTypeDef(BaseModel):
+class AssociateBotRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     LexBot: Optional[LexBotTypeDef] = None
     LexV2Bot: Optional[LexV2BotTypeDef] = None
 
-class DisassociateBotRequestRequestTypeDef(BaseModel):
+class DisassociateBotRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     LexBot: Optional[LexBotTypeDef] = None
     LexV2Bot: Optional[LexV2BotTypeDef] = None
 
-class LexBotConfigTypeDef(BaseModel):
+class LexBotConfigTypeDef(BaseValidatorModel):
     LexBot: Optional[LexBotTypeDef] = None
     LexV2Bot: Optional[LexV2BotTypeDef] = None
 
-class AssociateUserProficienciesRequestRequestTypeDef(BaseModel):
+class AssociateUserProficienciesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     UserId: str
     UserProficiencies: Sequence[UserProficiencyTypeDef]
 
-class ListUserProficienciesResponseTypeDef(BaseModel):
+class ListUserProficienciesResponseTypeDef(BaseValidatorModel):
     UserProficiencyList: List[UserProficiencyTypeDef]
     LastModifiedTime: datetime
     LastModifiedRegion: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateUserProficienciesRequestRequestTypeDef(BaseModel):
+class UpdateUserProficienciesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     UserId: str
     UserProficiencies: Sequence[UserProficiencyTypeDef]
 
-class AttachedFileTypeDef(BaseModel):
+class AttachedFileTypeDef(BaseValidatorModel):
     CreationTime: str
     FileArn: str
     FileId: str
@@ -2233,7 +2233,7 @@ class AttachedFileTypeDef(BaseModel):
     AssociatedResourceArn: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class StartAttachedFileUploadRequestRequestTypeDef(BaseModel):
+class StartAttachedFileUploadRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     FileName: str
     FileSizeInBytes: int
@@ -2244,72 +2244,72 @@ class StartAttachedFileUploadRequestRequestTypeDef(BaseModel):
     CreatedBy: Optional[CreatedByInfoTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class AttributeAndConditionTypeDef(BaseModel):
+class AttributeAndConditionTypeDef(BaseValidatorModel):
     TagConditions: Optional[Sequence[TagConditionTypeDef]] = None
     HierarchyGroupCondition: Optional[HierarchyGroupConditionTypeDef] = None
 
-class ControlPlaneTagFilterTypeDef(BaseModel):
+class ControlPlaneTagFilterTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Sequence[TagConditionTypeDef]]] = None
     AndConditions: Optional[Sequence[TagConditionTypeDef]] = None
     TagCondition: Optional[TagConditionTypeDef] = None
 
-class DescribeInstanceAttributeResponseTypeDef(BaseModel):
+class DescribeInstanceAttributeResponseTypeDef(BaseValidatorModel):
     Attribute: AttributeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInstanceAttributesResponseTypeDef(BaseModel):
+class ListInstanceAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: List[AttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class MeetingFeaturesConfigurationTypeDef(BaseModel):
+class MeetingFeaturesConfigurationTypeDef(BaseValidatorModel):
     Audio: Optional[AudioFeaturesTypeDef] = None
 
-class ListAuthenticationProfilesResponseTypeDef(BaseModel):
+class ListAuthenticationProfilesResponseTypeDef(BaseValidatorModel):
     AuthenticationProfileSummaryList: List[AuthenticationProfileSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeAuthenticationProfileResponseTypeDef(BaseModel):
+class DescribeAuthenticationProfileResponseTypeDef(BaseValidatorModel):
     AuthenticationProfile: AuthenticationProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchAvailablePhoneNumbersResponseTypeDef(BaseModel):
+class SearchAvailablePhoneNumbersResponseTypeDef(BaseValidatorModel):
     AvailableNumbersList: List[AvailableNumberSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchAssociateAnalyticsDataSetResponseTypeDef(BaseModel):
+class BatchAssociateAnalyticsDataSetResponseTypeDef(BaseValidatorModel):
     Created: List[AnalyticsDataAssociationResultTypeDef]
     Errors: List[ErrorResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDisassociateAnalyticsDataSetResponseTypeDef(BaseModel):
+class BatchDisassociateAnalyticsDataSetResponseTypeDef(BaseValidatorModel):
     Deleted: List[str]
     Errors: List[ErrorResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetFlowAssociationResponseTypeDef(BaseModel):
+class BatchGetFlowAssociationResponseTypeDef(BaseValidatorModel):
     FlowAssociationSummaryList: List[FlowAssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFlowAssociationsResponseTypeDef(BaseModel):
+class ListFlowAssociationsResponseTypeDef(BaseValidatorModel):
     FlowAssociationSummaryList: List[FlowAssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchPutContactResponseTypeDef(BaseModel):
+class BatchPutContactResponseTypeDef(BaseValidatorModel):
     SuccessfulRequestList: List[SuccessfulRequestTypeDef]
     FailedRequestList: List[FailedRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartContactStreamingRequestRequestTypeDef(BaseModel):
+class StartContactStreamingRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     ChatStreamingConfiguration: ChatStreamingConfigurationTypeDef
     ClientToken: str
 
-class ClaimedPhoneNumberSummaryTypeDef(BaseModel):
+class ClaimedPhoneNumberSummaryTypeDef(BaseValidatorModel):
     PhoneNumberId: Optional[str] = None
     PhoneNumberArn: Optional[str] = None
     PhoneNumber: Optional[str] = None
@@ -2322,7 +2322,7 @@ class ClaimedPhoneNumberSummaryTypeDef(BaseModel):
     PhoneNumberStatus: Optional[PhoneNumberStatusTypeDef] = None
     SourcePhoneNumberArn: Optional[str] = None
 
-class ContactDataRequestTypeDef(BaseModel):
+class ContactDataRequestTypeDef(BaseValidatorModel):
     SystemEndpoint: Optional[EndpointTypeDef] = None
     CustomerEndpoint: Optional[EndpointTypeDef] = None
     RequestIdentifier: Optional[str] = None
@@ -2330,19 +2330,19 @@ class ContactDataRequestTypeDef(BaseModel):
     Attributes: Optional[Mapping[str, str]] = None
     Campaign: Optional[CampaignTypeDef] = None
 
-class UserDataFiltersTypeDef(BaseModel):
+class UserDataFiltersTypeDef(BaseValidatorModel):
     Queues: Optional[Sequence[str]] = None
     ContactFilter: Optional[ContactFilterTypeDef] = None
     RoutingProfiles: Optional[Sequence[str]] = None
     Agents: Optional[Sequence[str]] = None
     UserHierarchyGroups: Optional[Sequence[str]] = None
 
-class ContactFlowModuleSearchCriteriaTypeDef(BaseModel):
+class ContactFlowModuleSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
 
-class ContactFlowSearchCriteriaTypeDef(BaseModel):
+class ContactFlowSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
@@ -2350,79 +2350,79 @@ class ContactFlowSearchCriteriaTypeDef(BaseModel):
     StateCondition: Optional[ContactFlowStateType] = None
     StatusCondition: Optional[ContactFlowStatusType] = None
 
-class HoursOfOperationSearchCriteriaTypeDef(BaseModel):
+class HoursOfOperationSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
 
-class PredefinedAttributeSearchCriteriaTypeDef(BaseModel):
+class PredefinedAttributeSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
 
-class PromptSearchCriteriaTypeDef(BaseModel):
+class PromptSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
 
-class QueueSearchCriteriaTypeDef(BaseModel):
+class QueueSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
     QueueTypeCondition: Optional[Literal["STANDARD"]] = None
 
-class QuickConnectSearchCriteriaTypeDef(BaseModel):
+class QuickConnectSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
 
-class RoutingProfileSearchCriteriaTypeDef(BaseModel):
+class RoutingProfileSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
 
-class SecurityProfileSearchCriteriaTypeDef(BaseModel):
+class SecurityProfileSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
 
-class UserSearchCriteriaTypeDef(BaseModel):
+class UserSearchCriteriaTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[Dict[str, Any]]] = None
     AndConditions: Optional[Sequence[Dict[str, Any]]] = None
     StringCondition: Optional[StringConditionTypeDef] = None
     HierarchyGroupCondition: Optional[HierarchyGroupConditionTypeDef] = None
 
-class ListContactFlowModulesResponseTypeDef(BaseModel):
+class ListContactFlowModulesResponseTypeDef(BaseValidatorModel):
     ContactFlowModulesSummaryList: List[ContactFlowModuleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeContactFlowModuleResponseTypeDef(BaseModel):
+class DescribeContactFlowModuleResponseTypeDef(BaseValidatorModel):
     ContactFlowModule: ContactFlowModuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchContactFlowModulesResponseTypeDef(BaseModel):
+class SearchContactFlowModulesResponseTypeDef(BaseValidatorModel):
     ContactFlowModules: List[ContactFlowModuleTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListContactFlowsResponseTypeDef(BaseModel):
+class ListContactFlowsResponseTypeDef(BaseValidatorModel):
     ContactFlowSummaryList: List[ContactFlowSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeContactFlowResponseTypeDef(BaseModel):
+class DescribeContactFlowResponseTypeDef(BaseValidatorModel):
     ContactFlow: ContactFlowTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchContactFlowsResponseTypeDef(BaseModel):
+class SearchContactFlowsResponseTypeDef(BaseValidatorModel):
     ContactFlows: List[ContactFlowTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ContactSearchSummaryTypeDef(BaseModel):
+class ContactSearchSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     InitialContactId: Optional[str] = None
@@ -2435,7 +2435,7 @@ class ContactSearchSummaryTypeDef(BaseModel):
     DisconnectTimestamp: Optional[datetime] = None
     ScheduledTimestamp: Optional[datetime] = None
 
-class CreateEvaluationFormRequestRequestTypeDef(BaseModel):
+class CreateEvaluationFormRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Title: str
     Items: Sequence[EvaluationFormItemUnionTypeDef]
@@ -2443,7 +2443,7 @@ class CreateEvaluationFormRequestRequestTypeDef(BaseModel):
     ScoringStrategy: Optional[EvaluationFormScoringStrategyTypeDef] = None
     ClientToken: Optional[str] = None
 
-class EvaluationFormContentTypeDef(BaseModel):
+class EvaluationFormContentTypeDef(BaseValidatorModel):
     EvaluationFormVersion: int
     EvaluationFormId: str
     EvaluationFormArn: str
@@ -2452,7 +2452,7 @@ class EvaluationFormContentTypeDef(BaseModel):
     Description: Optional[str] = None
     ScoringStrategy: Optional[EvaluationFormScoringStrategyTypeDef] = None
 
-class EvaluationFormTypeDef(BaseModel):
+class EvaluationFormTypeDef(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormVersion: int
     Locked: bool
@@ -2468,7 +2468,7 @@ class EvaluationFormTypeDef(BaseModel):
     ScoringStrategy: Optional[EvaluationFormScoringStrategyTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
 
-class UpdateEvaluationFormRequestRequestTypeDef(BaseModel):
+class UpdateEvaluationFormRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
     EvaluationFormVersion: int
@@ -2479,28 +2479,28 @@ class UpdateEvaluationFormRequestRequestTypeDef(BaseModel):
     ScoringStrategy: Optional[EvaluationFormScoringStrategyTypeDef] = None
     ClientToken: Optional[str] = None
 
-class CreateParticipantRequestRequestTypeDef(BaseModel):
+class CreateParticipantRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     ParticipantDetails: ParticipantDetailsToAddTypeDef
     ClientToken: Optional[str] = None
 
-class CreateParticipantResponseTypeDef(BaseModel):
+class CreateParticipantResponseTypeDef(BaseValidatorModel):
     ParticipantCredentials: ParticipantTokenCredentialsTypeDef
     ParticipantId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePredefinedAttributeRequestRequestTypeDef(BaseModel):
+class CreatePredefinedAttributeRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     Values: PredefinedAttributeValuesTypeDef
 
-class UpdatePredefinedAttributeRequestRequestTypeDef(BaseModel):
+class UpdatePredefinedAttributeRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     Values: Optional[PredefinedAttributeValuesTypeDef] = None
 
-class CreateQueueRequestRequestTypeDef(BaseModel):
+class CreateQueueRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     HoursOfOperationId: str
@@ -2510,7 +2510,7 @@ class CreateQueueRequestRequestTypeDef(BaseModel):
     QuickConnectIds: Optional[Sequence[str]] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class QueueTypeDef(BaseModel):
+class QueueTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     QueueArn: Optional[str] = None
     QueueId: Optional[str] = None
@@ -2523,17 +2523,17 @@ class QueueTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class UpdateQueueOutboundCallerConfigRequestRequestTypeDef(BaseModel):
+class UpdateQueueOutboundCallerConfigRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     OutboundCallerConfig: OutboundCallerConfigTypeDef
 
-class UpdateUserIdentityInfoRequestRequestTypeDef(BaseModel):
+class UpdateUserIdentityInfoRequestRequestTypeDef(BaseValidatorModel):
     IdentityInfo: UserIdentityInfoTypeDef
     UserId: str
     InstanceId: str
 
-class CreateUserRequestRequestTypeDef(BaseModel):
+class CreateUserRequestRequestTypeDef(BaseValidatorModel):
     Username: str
     PhoneConfig: UserPhoneConfigTypeDef
     SecurityProfileIds: Sequence[str]
@@ -2545,12 +2545,12 @@ class CreateUserRequestRequestTypeDef(BaseModel):
     HierarchyGroupId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateUserPhoneConfigRequestRequestTypeDef(BaseModel):
+class UpdateUserPhoneConfigRequestRequestTypeDef(BaseValidatorModel):
     PhoneConfig: UserPhoneConfigTypeDef
     UserId: str
     InstanceId: str
 
-class UserTypeDef(BaseModel):
+class UserTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Username: Optional[str] = None
@@ -2564,7 +2564,7 @@ class UserTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class CreateViewRequestRequestTypeDef(BaseModel):
+class CreateViewRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Status: ViewStatusType
     Content: ViewInputContentTypeDef
@@ -2573,82 +2573,82 @@ class CreateViewRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateViewContentRequestRequestTypeDef(BaseModel):
+class UpdateViewContentRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ViewId: str
     Status: ViewStatusType
     Content: ViewInputContentTypeDef
 
-class GetFederationTokenResponseTypeDef(BaseModel):
+class GetFederationTokenResponseTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
     SignInUrl: str
     UserArn: str
     UserId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MediaConcurrencyTypeDef(BaseModel):
+class MediaConcurrencyTypeDef(BaseValidatorModel):
     Channel: ChannelType
     Concurrency: int
     CrossChannelBehavior: Optional[CrossChannelBehaviorTypeDef] = None
 
-class CurrentMetricDataTypeDef(BaseModel):
+class CurrentMetricDataTypeDef(BaseValidatorModel):
     Metric: Optional[CurrentMetricTypeDef] = None
     Value: Optional[float] = None
 
-class ListDefaultVocabulariesResponseTypeDef(BaseModel):
+class ListDefaultVocabulariesResponseTypeDef(BaseValidatorModel):
     DefaultVocabularyList: List[DefaultVocabularyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribePromptResponseTypeDef(BaseModel):
+class DescribePromptResponseTypeDef(BaseValidatorModel):
     Prompt: PromptTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchPromptsResponseTypeDef(BaseModel):
+class SearchPromptsResponseTypeDef(BaseValidatorModel):
     Prompts: List[PromptTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeSecurityProfileResponseTypeDef(BaseModel):
+class DescribeSecurityProfileResponseTypeDef(BaseValidatorModel):
     SecurityProfile: SecurityProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTrafficDistributionGroupResponseTypeDef(BaseModel):
+class DescribeTrafficDistributionGroupResponseTypeDef(BaseValidatorModel):
     TrafficDistributionGroup: TrafficDistributionGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVocabularyResponseTypeDef(BaseModel):
+class DescribeVocabularyResponseTypeDef(BaseValidatorModel):
     Vocabulary: VocabularyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DimensionsTypeDef(BaseModel):
+class DimensionsTypeDef(BaseValidatorModel):
     Queue: Optional[QueueReferenceTypeDef] = None
     Channel: Optional[ChannelType] = None
     RoutingProfile: Optional[RoutingProfileReferenceTypeDef] = None
     RoutingStepExpression: Optional[str] = None
 
-class DisassociateRoutingProfileQueuesRequestRequestTypeDef(BaseModel):
+class DisassociateRoutingProfileQueuesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     QueueReferences: Sequence[RoutingProfileQueueReferenceTypeDef]
 
-class RoutingProfileQueueConfigTypeDef(BaseModel):
+class RoutingProfileQueueConfigTypeDef(BaseValidatorModel):
     QueueReference: RoutingProfileQueueReferenceTypeDef
     Priority: int
     Delay: int
 
-class DisassociateUserProficienciesRequestRequestTypeDef(BaseModel):
+class DisassociateUserProficienciesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     UserId: str
     UserProficiencies: Sequence[UserProficiencyDisassociateTypeDef]
 
-class StopContactRequestRequestTypeDef(BaseModel):
+class StopContactRequestRequestTypeDef(BaseValidatorModel):
     ContactId: str
     InstanceId: str
     DisconnectReason: Optional[DisconnectReasonTypeDef] = None
 
-class GetAttachedFileResponseTypeDef(BaseModel):
+class GetAttachedFileResponseTypeDef(BaseValidatorModel):
     FileArn: str
     FileId: str
     CreationTime: str
@@ -2662,46 +2662,46 @@ class GetAttachedFileResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class KinesisVideoStreamConfigTypeDef(BaseModel):
+class KinesisVideoStreamConfigTypeDef(BaseValidatorModel):
     Prefix: str
     RetentionPeriodHours: int
     EncryptionConfig: EncryptionConfigTypeDef
 
-class S3ConfigTypeDef(BaseModel):
+class S3ConfigTypeDef(BaseValidatorModel):
     BucketName: str
     BucketPrefix: str
     EncryptionConfig: Optional[EncryptionConfigTypeDef] = None
 
-class EvaluationAnswerInputTypeDef(BaseModel):
+class EvaluationAnswerInputTypeDef(BaseValidatorModel):
     Value: Optional[EvaluationAnswerDataTypeDef] = None
 
-class EvaluationAnswerOutputTypeDef(BaseModel):
+class EvaluationAnswerOutputTypeDef(BaseValidatorModel):
     Value: Optional[EvaluationAnswerDataTypeDef] = None
     SystemSuggestedValue: Optional[EvaluationAnswerDataTypeDef] = None
 
-class EvaluationFormNumericQuestionAutomationTypeDef(BaseModel):
+class EvaluationFormNumericQuestionAutomationTypeDef(BaseValidatorModel):
     PropertyValue: Optional[NumericQuestionPropertyValueAutomationTypeDef] = None
 
-class EvaluationFormSingleSelectQuestionAutomationOptionTypeDef(BaseModel):
+class EvaluationFormSingleSelectQuestionAutomationOptionTypeDef(BaseValidatorModel):
     RuleCategory: Optional[SingleSelectQuestionRuleCategoryAutomationTypeDef] = None
 
-class ListEvaluationFormsResponseTypeDef(BaseModel):
+class ListEvaluationFormsResponseTypeDef(BaseValidatorModel):
     EvaluationFormSummaryList: List[EvaluationFormSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListEvaluationFormVersionsResponseTypeDef(BaseModel):
+class ListEvaluationFormVersionsResponseTypeDef(BaseValidatorModel):
     EvaluationFormVersionSummaryList: List[EvaluationFormVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class EvaluationMetadataTypeDef(BaseModel):
+class EvaluationMetadataTypeDef(BaseValidatorModel):
     ContactId: str
     EvaluatorArn: str
     ContactAgentId: Optional[str] = None
     Score: Optional[EvaluationScoreTypeDef] = None
 
-class EvaluationSummaryTypeDef(BaseModel):
+class EvaluationSummaryTypeDef(BaseValidatorModel):
     EvaluationId: str
     EvaluationArn: str
     EvaluationFormTitle: str
@@ -2712,20 +2712,20 @@ class EvaluationSummaryTypeDef(BaseModel):
     LastModifiedTime: datetime
     Score: Optional[EvaluationScoreTypeDef] = None
 
-class StepTypeDef(BaseModel):
+class StepTypeDef(BaseValidatorModel):
     Expiry: Optional[ExpiryTypeDef] = None
     Expression: Optional["ExpressionTypeDef"] = None
     Status: Optional[RoutingCriteriaStepStatusType] = None
 
-class FieldValueOutputTypeDef(BaseModel):
+class FieldValueOutputTypeDef(BaseValidatorModel):
     Id: str
     Value: FieldValueUnionOutputTypeDef
 
-class FieldValueTypeDef(BaseModel):
+class FieldValueTypeDef(BaseValidatorModel):
     Id: str
     Value: FieldValueUnionTypeDef
 
-class GetCurrentMetricDataRequestRequestTypeDef(BaseModel):
+class GetCurrentMetricDataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Filters: FiltersTypeDef
     CurrentMetrics: Sequence[CurrentMetricTypeDef]
@@ -2734,101 +2734,101 @@ class GetCurrentMetricDataRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     SortCriteria: Optional[Sequence[CurrentMetricSortCriteriaTypeDef]] = None
 
-class ListAgentStatusRequestListAgentStatusesPaginateTypeDef(BaseModel):
+class ListAgentStatusRequestListAgentStatusesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     AgentStatusTypes: Optional[Sequence[AgentStatusTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListApprovedOriginsRequestListApprovedOriginsPaginateTypeDef(BaseModel):
+class ListApprovedOriginsRequestListApprovedOriginsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAuthenticationProfilesRequestListAuthenticationProfilesPaginateTypeDef(BaseModel):
+class ListAuthenticationProfilesRequestListAuthenticationProfilesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBotsRequestListBotsPaginateTypeDef(BaseModel):
+class ListBotsRequestListBotsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     LexVersion: LexVersionType
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListContactEvaluationsRequestListContactEvaluationsPaginateTypeDef(BaseModel):
+class ListContactEvaluationsRequestListContactEvaluationsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListContactFlowModulesRequestListContactFlowModulesPaginateTypeDef(BaseModel):
+class ListContactFlowModulesRequestListContactFlowModulesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowModuleState: Optional[ContactFlowModuleStateType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListContactFlowsRequestListContactFlowsPaginateTypeDef(BaseModel):
+class ListContactFlowsRequestListContactFlowsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowTypes: Optional[Sequence[ContactFlowTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListContactReferencesRequestListContactReferencesPaginateTypeDef(BaseModel):
+class ListContactReferencesRequestListContactReferencesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     ReferenceTypes: Sequence[ReferenceTypeType]
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDefaultVocabulariesRequestListDefaultVocabulariesPaginateTypeDef(BaseModel):
+class ListDefaultVocabulariesRequestListDefaultVocabulariesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     LanguageCode: Optional[VocabularyLanguageCodeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEvaluationFormVersionsRequestListEvaluationFormVersionsPaginateTypeDef(BaseModel):
+class ListEvaluationFormVersionsRequestListEvaluationFormVersionsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEvaluationFormsRequestListEvaluationFormsPaginateTypeDef(BaseModel):
+class ListEvaluationFormsRequestListEvaluationFormsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFlowAssociationsRequestListFlowAssociationsPaginateTypeDef(BaseModel):
+class ListFlowAssociationsRequestListFlowAssociationsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceType: Optional[Literal["VOICE_PHONE_NUMBER"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHoursOfOperationsRequestListHoursOfOperationsPaginateTypeDef(BaseModel):
+class ListHoursOfOperationsRequestListHoursOfOperationsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInstanceAttributesRequestListInstanceAttributesPaginateTypeDef(BaseModel):
+class ListInstanceAttributesRequestListInstanceAttributesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInstanceStorageConfigsRequestListInstanceStorageConfigsPaginateTypeDef(BaseModel):
+class ListInstanceStorageConfigsRequestListInstanceStorageConfigsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceType: InstanceStorageResourceTypeType
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInstancesRequestListInstancesPaginateTypeDef(BaseModel):
+class ListInstancesRequestListInstancesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIntegrationAssociationsRequestListIntegrationAssociationsPaginateTypeDef(BaseModel):
+class ListIntegrationAssociationsRequestListIntegrationAssociationsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     IntegrationType: Optional[IntegrationTypeType] = None
     IntegrationArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLambdaFunctionsRequestListLambdaFunctionsPaginateTypeDef(BaseModel):
+class ListLambdaFunctionsRequestListLambdaFunctionsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLexBotsRequestListLexBotsPaginateTypeDef(BaseModel):
+class ListLexBotsRequestListLexBotsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPhoneNumbersRequestListPhoneNumbersPaginateTypeDef(BaseModel):
+class ListPhoneNumbersRequestListPhoneNumbersPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PhoneNumberTypes: Optional[Sequence[PhoneNumberTypeType]] = None
     PhoneNumberCountryCodes: Optional[Sequence[PhoneNumberCountryCodeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPhoneNumbersV2RequestListPhoneNumbersV2PaginateTypeDef(BaseModel):
+class ListPhoneNumbersV2RequestListPhoneNumbersV2PaginateTypeDef(BaseValidatorModel):
     TargetArn: Optional[str] = None
     InstanceId: Optional[str] = None
     PhoneNumberCountryCodes: Optional[Sequence[PhoneNumberCountryCodeType]] = None
@@ -2836,101 +2836,101 @@ class ListPhoneNumbersV2RequestListPhoneNumbersV2PaginateTypeDef(BaseModel):
     PhoneNumberPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPredefinedAttributesRequestListPredefinedAttributesPaginateTypeDef(BaseModel):
+class ListPredefinedAttributesRequestListPredefinedAttributesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPromptsRequestListPromptsPaginateTypeDef(BaseModel):
+class ListPromptsRequestListPromptsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueueQuickConnectsRequestListQueueQuickConnectsPaginateTypeDef(BaseModel):
+class ListQueueQuickConnectsRequestListQueueQuickConnectsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueuesRequestListQueuesPaginateTypeDef(BaseModel):
+class ListQueuesRequestListQueuesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     QueueTypes: Optional[Sequence[QueueTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQuickConnectsRequestListQuickConnectsPaginateTypeDef(BaseModel):
+class ListQuickConnectsRequestListQuickConnectsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     QuickConnectTypes: Optional[Sequence[QuickConnectTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRoutingProfileQueuesRequestListRoutingProfileQueuesPaginateTypeDef(BaseModel):
+class ListRoutingProfileQueuesRequestListRoutingProfileQueuesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRoutingProfilesRequestListRoutingProfilesPaginateTypeDef(BaseModel):
+class ListRoutingProfilesRequestListRoutingProfilesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRulesRequestListRulesPaginateTypeDef(BaseModel):
+class ListRulesRequestListRulesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PublishStatus: Optional[RulePublishStatusType] = None
     EventSourceName: Optional[EventSourceNameType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSecurityKeysRequestListSecurityKeysPaginateTypeDef(BaseModel):
+class ListSecurityKeysRequestListSecurityKeysPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSecurityProfileApplicationsRequestListSecurityProfileApplicationsPaginateTypeDef(BaseModel):
+class ListSecurityProfileApplicationsRequestListSecurityProfileApplicationsPaginateTypeDef(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSecurityProfilePermissionsRequestListSecurityProfilePermissionsPaginateTypeDef(BaseModel):
+class ListSecurityProfilePermissionsRequestListSecurityProfilePermissionsPaginateTypeDef(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSecurityProfilesRequestListSecurityProfilesPaginateTypeDef(BaseModel):
+class ListSecurityProfilesRequestListSecurityProfilesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTaskTemplatesRequestListTaskTemplatesPaginateTypeDef(BaseModel):
+class ListTaskTemplatesRequestListTaskTemplatesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     Status: Optional[TaskTemplateStatusType] = None
     Name: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTrafficDistributionGroupsRequestListTrafficDistributionGroupsPaginateTypeDef(BaseModel):
+class ListTrafficDistributionGroupsRequestListTrafficDistributionGroupsPaginateTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUseCasesRequestListUseCasesPaginateTypeDef(BaseModel):
+class ListUseCasesRequestListUseCasesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     IntegrationAssociationId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUserHierarchyGroupsRequestListUserHierarchyGroupsPaginateTypeDef(BaseModel):
+class ListUserHierarchyGroupsRequestListUserHierarchyGroupsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUserProficienciesRequestListUserProficienciesPaginateTypeDef(BaseModel):
+class ListUserProficienciesRequestListUserProficienciesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     UserId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsersRequestListUsersPaginateTypeDef(BaseModel):
+class ListUsersRequestListUsersPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListViewVersionsRequestListViewVersionsPaginateTypeDef(BaseModel):
+class ListViewVersionsRequestListViewVersionsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     ViewId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListViewsRequestListViewsPaginateTypeDef(BaseModel):
+class ListViewsRequestListViewsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     Type: Optional[ViewTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchAvailablePhoneNumbersRequestSearchAvailablePhoneNumbersPaginateTypeDef(BaseModel):
+class SearchAvailablePhoneNumbersRequestSearchAvailablePhoneNumbersPaginateTypeDef(BaseValidatorModel):
     PhoneNumberCountryCode: PhoneNumberCountryCodeType
     PhoneNumberType: PhoneNumberTypeType
     TargetArn: Optional[str] = None
@@ -2938,73 +2938,73 @@ class SearchAvailablePhoneNumbersRequestSearchAvailablePhoneNumbersPaginateTypeD
     PhoneNumberPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchVocabulariesRequestSearchVocabulariesPaginateTypeDef(BaseModel):
+class SearchVocabulariesRequestSearchVocabulariesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     State: Optional[VocabularyStateType] = None
     NameStartsWith: Optional[str] = None
     LanguageCode: Optional[VocabularyLanguageCodeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchContactsTimeRangeTypeDef(BaseModel):
+class SearchContactsTimeRangeTypeDef(BaseValidatorModel):
     Type: SearchContactsTimeRangeTypeType
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
 
-class UpdateContactScheduleRequestRequestTypeDef(BaseModel):
+class UpdateContactScheduleRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     ScheduledTime: TimestampTypeDef
 
-class HierarchyPathReferenceTypeDef(BaseModel):
+class HierarchyPathReferenceTypeDef(BaseValidatorModel):
     LevelOne: Optional[HierarchyGroupSummaryReferenceTypeDef] = None
     LevelTwo: Optional[HierarchyGroupSummaryReferenceTypeDef] = None
     LevelThree: Optional[HierarchyGroupSummaryReferenceTypeDef] = None
     LevelFour: Optional[HierarchyGroupSummaryReferenceTypeDef] = None
     LevelFive: Optional[HierarchyGroupSummaryReferenceTypeDef] = None
 
-class HierarchyPathTypeDef(BaseModel):
+class HierarchyPathTypeDef(BaseValidatorModel):
     LevelOne: Optional[HierarchyGroupSummaryTypeDef] = None
     LevelTwo: Optional[HierarchyGroupSummaryTypeDef] = None
     LevelThree: Optional[HierarchyGroupSummaryTypeDef] = None
     LevelFour: Optional[HierarchyGroupSummaryTypeDef] = None
     LevelFive: Optional[HierarchyGroupSummaryTypeDef] = None
 
-class ListUserHierarchyGroupsResponseTypeDef(BaseModel):
+class ListUserHierarchyGroupsResponseTypeDef(BaseValidatorModel):
     UserHierarchyGroupSummaryList: List[HierarchyGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class HierarchyStructureTypeDef(BaseModel):
+class HierarchyStructureTypeDef(BaseValidatorModel):
     LevelOne: Optional[HierarchyLevelTypeDef] = None
     LevelTwo: Optional[HierarchyLevelTypeDef] = None
     LevelThree: Optional[HierarchyLevelTypeDef] = None
     LevelFour: Optional[HierarchyLevelTypeDef] = None
     LevelFive: Optional[HierarchyLevelTypeDef] = None
 
-class HierarchyStructureUpdateTypeDef(BaseModel):
+class HierarchyStructureUpdateTypeDef(BaseValidatorModel):
     LevelOne: Optional[HierarchyLevelUpdateTypeDef] = None
     LevelTwo: Optional[HierarchyLevelUpdateTypeDef] = None
     LevelThree: Optional[HierarchyLevelUpdateTypeDef] = None
     LevelFour: Optional[HierarchyLevelUpdateTypeDef] = None
     LevelFive: Optional[HierarchyLevelUpdateTypeDef] = None
 
-class HistoricalMetricTypeDef(BaseModel):
+class HistoricalMetricTypeDef(BaseValidatorModel):
     Name: Optional[HistoricalMetricNameType] = None
     Threshold: Optional[ThresholdTypeDef] = None
     Statistic: Optional[StatisticType] = None
     Unit: Optional[UnitType] = None
 
-class HoursOfOperationConfigTypeDef(BaseModel):
+class HoursOfOperationConfigTypeDef(BaseValidatorModel):
     Day: HoursOfOperationDaysType
     StartTime: HoursOfOperationTimeSliceTypeDef
     EndTime: HoursOfOperationTimeSliceTypeDef
 
-class ListHoursOfOperationsResponseTypeDef(BaseModel):
+class ListHoursOfOperationsResponseTypeDef(BaseValidatorModel):
     HoursOfOperationSummaryList: List[HoursOfOperationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class InstanceTypeDef(BaseModel):
+class InstanceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     IdentityManagementType: Optional[DirectoryTypeType] = None
@@ -3018,171 +3018,171 @@ class InstanceTypeDef(BaseModel):
     InstanceAccessUrl: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ListInstancesResponseTypeDef(BaseModel):
+class ListInstancesResponseTypeDef(BaseValidatorModel):
     InstanceSummaryList: List[InstanceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListIntegrationAssociationsResponseTypeDef(BaseModel):
+class ListIntegrationAssociationsResponseTypeDef(BaseValidatorModel):
     IntegrationAssociationSummaryList: List[IntegrationAssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class InvisibleFieldInfoTypeDef(BaseModel):
+class InvisibleFieldInfoTypeDef(BaseValidatorModel):
     Id: Optional[TaskTemplateFieldIdentifierTypeDef] = None
 
-class ReadOnlyFieldInfoTypeDef(BaseModel):
+class ReadOnlyFieldInfoTypeDef(BaseValidatorModel):
     Id: Optional[TaskTemplateFieldIdentifierTypeDef] = None
 
-class RequiredFieldInfoTypeDef(BaseModel):
+class RequiredFieldInfoTypeDef(BaseValidatorModel):
     Id: Optional[TaskTemplateFieldIdentifierTypeDef] = None
 
-class TaskTemplateDefaultFieldValueTypeDef(BaseModel):
+class TaskTemplateDefaultFieldValueTypeDef(BaseValidatorModel):
     Id: Optional[TaskTemplateFieldIdentifierTypeDef] = None
     DefaultValue: Optional[str] = None
 
-class TaskTemplateFieldOutputTypeDef(BaseModel):
+class TaskTemplateFieldOutputTypeDef(BaseValidatorModel):
     Id: TaskTemplateFieldIdentifierTypeDef
     Description: Optional[str] = None
     Type: Optional[TaskTemplateFieldTypeType] = None
     SingleSelectOptions: Optional[List[str]] = None
 
-class TaskTemplateFieldTypeDef(BaseModel):
+class TaskTemplateFieldTypeDef(BaseValidatorModel):
     Id: TaskTemplateFieldIdentifierTypeDef
     Description: Optional[str] = None
     Type: Optional[TaskTemplateFieldTypeType] = None
     SingleSelectOptions: Optional[Sequence[str]] = None
 
-class ListPhoneNumbersResponseTypeDef(BaseModel):
+class ListPhoneNumbersResponseTypeDef(BaseValidatorModel):
     PhoneNumberSummaryList: List[PhoneNumberSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPhoneNumbersV2ResponseTypeDef(BaseModel):
+class ListPhoneNumbersV2ResponseTypeDef(BaseValidatorModel):
     ListPhoneNumbersSummaryList: List[ListPhoneNumbersSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPredefinedAttributesResponseTypeDef(BaseModel):
+class ListPredefinedAttributesResponseTypeDef(BaseValidatorModel):
     PredefinedAttributeSummaryList: List[PredefinedAttributeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPromptsResponseTypeDef(BaseModel):
+class ListPromptsResponseTypeDef(BaseValidatorModel):
     PromptSummaryList: List[PromptSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListQueueQuickConnectsResponseTypeDef(BaseModel):
+class ListQueueQuickConnectsResponseTypeDef(BaseValidatorModel):
     QuickConnectSummaryList: List[QuickConnectSummaryTypeDef]
     LastModifiedTime: datetime
     LastModifiedRegion: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListQuickConnectsResponseTypeDef(BaseModel):
+class ListQuickConnectsResponseTypeDef(BaseValidatorModel):
     QuickConnectSummaryList: List[QuickConnectSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListQueuesResponseTypeDef(BaseModel):
+class ListQueuesResponseTypeDef(BaseValidatorModel):
     QueueSummaryList: List[QueueSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListRoutingProfileQueuesResponseTypeDef(BaseModel):
+class ListRoutingProfileQueuesResponseTypeDef(BaseValidatorModel):
     RoutingProfileQueueConfigSummaryList: List[RoutingProfileQueueConfigSummaryTypeDef]
     LastModifiedTime: datetime
     LastModifiedRegion: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListRoutingProfilesResponseTypeDef(BaseModel):
+class ListRoutingProfilesResponseTypeDef(BaseValidatorModel):
     RoutingProfileSummaryList: List[RoutingProfileSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSecurityKeysResponseTypeDef(BaseModel):
+class ListSecurityKeysResponseTypeDef(BaseValidatorModel):
     SecurityKeys: List[SecurityKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSecurityProfilesResponseTypeDef(BaseModel):
+class ListSecurityProfilesResponseTypeDef(BaseValidatorModel):
     SecurityProfileSummaryList: List[SecurityProfileSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTaskTemplatesResponseTypeDef(BaseModel):
+class ListTaskTemplatesResponseTypeDef(BaseValidatorModel):
     TaskTemplates: List[TaskTemplateMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTrafficDistributionGroupUsersResponseTypeDef(BaseModel):
+class ListTrafficDistributionGroupUsersResponseTypeDef(BaseValidatorModel):
     TrafficDistributionGroupUserSummaryList: List[TrafficDistributionGroupUserSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTrafficDistributionGroupsResponseTypeDef(BaseModel):
+class ListTrafficDistributionGroupsResponseTypeDef(BaseValidatorModel):
     TrafficDistributionGroupSummaryList: List[TrafficDistributionGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListUseCasesResponseTypeDef(BaseModel):
+class ListUseCasesResponseTypeDef(BaseValidatorModel):
     UseCaseSummaryList: List[UseCaseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListUsersResponseTypeDef(BaseModel):
+class ListUsersResponseTypeDef(BaseValidatorModel):
     UserSummaryList: List[UserSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListViewVersionsResponseTypeDef(BaseModel):
+class ListViewVersionsResponseTypeDef(BaseValidatorModel):
     ViewVersionSummaryList: List[ViewVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListViewsResponseTypeDef(BaseModel):
+class ListViewsResponseTypeDef(BaseValidatorModel):
     ViewsSummaryList: List[ViewSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class MetricV2OutputTypeDef(BaseModel):
+class MetricV2OutputTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Threshold: Optional[List[ThresholdV2TypeDef]] = None
     MetricFilters: Optional[List[MetricFilterV2OutputTypeDef]] = None
 
-class MetricV2TypeDef(BaseModel):
+class MetricV2TypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Threshold: Optional[Sequence[ThresholdV2TypeDef]] = None
     MetricFilters: Optional[Sequence[MetricFilterV2TypeDef]] = None
 
-class NewSessionDetailsTypeDef(BaseModel):
+class NewSessionDetailsTypeDef(BaseValidatorModel):
     SupportedMessagingContentTypes: Optional[Sequence[str]] = None
     ParticipantDetails: Optional[ParticipantDetailsTypeDef] = None
     Attributes: Optional[Mapping[str, str]] = None
     StreamingConfiguration: Optional[ChatStreamingConfigurationTypeDef] = None
 
-class SendNotificationActionDefinitionOutputTypeDef(BaseModel):
+class SendNotificationActionDefinitionOutputTypeDef(BaseValidatorModel):
     DeliveryMethod: Literal["EMAIL"]
     Content: str
     ContentType: Literal["PLAIN_TEXT"]
     Recipient: NotificationRecipientTypeOutputTypeDef
     Subject: Optional[str] = None
 
-class SendNotificationActionDefinitionTypeDef(BaseModel):
+class SendNotificationActionDefinitionTypeDef(BaseValidatorModel):
     DeliveryMethod: Literal["EMAIL"]
     Content: str
     ContentType: Literal["PLAIN_TEXT"]
     Recipient: NotificationRecipientTypeTypeDef
     Subject: Optional[str] = None
 
-class ParticipantTimerConfigurationTypeDef(BaseModel):
+class ParticipantTimerConfigurationTypeDef(BaseValidatorModel):
     ParticipantRole: TimerEligibleParticipantRolesType
     TimerType: ParticipantTimerTypeType
     TimerValue: ParticipantTimerValueTypeDef
 
-class StartChatContactRequestRequestTypeDef(BaseModel):
+class StartChatContactRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
     ParticipantDetails: ParticipantDetailsTypeDef
@@ -3195,31 +3195,31 @@ class StartChatContactRequestRequestTypeDef(BaseModel):
     RelatedContactId: Optional[str] = None
     SegmentAttributes: Optional[Mapping[str, SegmentAttributeValueTypeDef]] = None
 
-class PredefinedAttributeTypeDef(BaseModel):
+class PredefinedAttributeTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Values: Optional[PredefinedAttributeValuesOutputTypeDef] = None
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class QuickConnectConfigTypeDef(BaseModel):
+class QuickConnectConfigTypeDef(BaseValidatorModel):
     QuickConnectType: QuickConnectTypeType
     UserConfig: Optional[UserQuickConnectConfigTypeDef] = None
     QueueConfig: Optional[QueueQuickConnectConfigTypeDef] = None
     PhoneConfig: Optional[PhoneNumberQuickConnectConfigTypeDef] = None
 
-class RealTimeContactAnalysisTranscriptItemRedactionTypeDef(BaseModel):
+class RealTimeContactAnalysisTranscriptItemRedactionTypeDef(BaseValidatorModel):
     CharacterOffsets: Optional[List[RealTimeContactAnalysisCharacterIntervalTypeDef]] = None
 
-class RealTimeContactAnalysisTranscriptItemWithCharacterOffsetsTypeDef(BaseModel):
+class RealTimeContactAnalysisTranscriptItemWithCharacterOffsetsTypeDef(BaseValidatorModel):
     Id: str
     CharacterOffsets: Optional[RealTimeContactAnalysisCharacterIntervalTypeDef] = None
 
-class RealTimeContactAnalysisTranscriptItemWithContentTypeDef(BaseModel):
+class RealTimeContactAnalysisTranscriptItemWithContentTypeDef(BaseValidatorModel):
     Id: str
     Content: Optional[str] = None
     CharacterOffsets: Optional[RealTimeContactAnalysisCharacterIntervalTypeDef] = None
 
-class RealTimeContactAnalysisSegmentAttachmentsTypeDef(BaseModel):
+class RealTimeContactAnalysisSegmentAttachmentsTypeDef(BaseValidatorModel):
     Id: str
     ParticipantId: str
     ParticipantRole: ParticipantRoleType
@@ -3227,7 +3227,7 @@ class RealTimeContactAnalysisSegmentAttachmentsTypeDef(BaseModel):
     Time: RealTimeContactAnalysisTimeDataTypeDef
     DisplayName: Optional[str] = None
 
-class RealTimeContactAnalysisSegmentEventTypeDef(BaseModel):
+class RealTimeContactAnalysisSegmentEventTypeDef(BaseValidatorModel):
     Id: str
     EventType: str
     Time: RealTimeContactAnalysisTimeDataTypeDef
@@ -3235,7 +3235,7 @@ class RealTimeContactAnalysisSegmentEventTypeDef(BaseModel):
     ParticipantRole: Optional[ParticipantRoleType] = None
     DisplayName: Optional[str] = None
 
-class ReferenceSummaryTypeDef(BaseModel):
+class ReferenceSummaryTypeDef(BaseValidatorModel):
     Url: Optional[UrlReferenceTypeDef] = None
     Attachment: Optional[AttachmentReferenceTypeDef] = None
     String: Optional[StringReferenceTypeDef] = None
@@ -3243,7 +3243,7 @@ class ReferenceSummaryTypeDef(BaseModel):
     Date: Optional[DateReferenceTypeDef] = None
     Email: Optional[EmailReferenceTypeDef] = None
 
-class StartOutboundVoiceContactRequestRequestTypeDef(BaseModel):
+class StartOutboundVoiceContactRequestRequestTypeDef(BaseValidatorModel):
     DestinationPhoneNumber: str
     ContactFlowId: str
     InstanceId: str
@@ -3259,7 +3259,7 @@ class StartOutboundVoiceContactRequestRequestTypeDef(BaseModel):
     CampaignId: Optional[str] = None
     TrafficType: Optional[TrafficTypeType] = None
 
-class StartTaskContactRequestRequestTypeDef(BaseModel):
+class StartTaskContactRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     PreviousContactId: Optional[str] = None
@@ -3273,55 +3273,55 @@ class StartTaskContactRequestRequestTypeDef(BaseModel):
     QuickConnectId: Optional[str] = None
     RelatedContactId: Optional[str] = None
 
-class TaskActionDefinitionOutputTypeDef(BaseModel):
+class TaskActionDefinitionOutputTypeDef(BaseValidatorModel):
     Name: str
     ContactFlowId: str
     Description: Optional[str] = None
     References: Optional[Dict[str, ReferenceTypeDef]] = None
 
-class TaskActionDefinitionTypeDef(BaseModel):
+class TaskActionDefinitionTypeDef(BaseValidatorModel):
     Name: str
     ContactFlowId: str
     Description: Optional[str] = None
     References: Optional[Mapping[str, ReferenceTypeDef]] = None
 
-class UpdateContactRequestRequestTypeDef(BaseModel):
+class UpdateContactRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     References: Optional[Mapping[str, ReferenceTypeDef]] = None
 
-class ResourceTagsSearchCriteriaTypeDef(BaseModel):
+class ResourceTagsSearchCriteriaTypeDef(BaseValidatorModel):
     TagSearchCondition: Optional[TagSearchConditionTypeDef] = None
 
-class SearchResourceTagsResponseTypeDef(BaseModel):
+class SearchResourceTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagSetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SearchSecurityProfilesResponseTypeDef(BaseModel):
+class SearchSecurityProfilesResponseTypeDef(BaseValidatorModel):
     SecurityProfiles: List[SecurityProfileSearchSummaryTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SearchVocabulariesResponseTypeDef(BaseModel):
+class SearchVocabulariesResponseTypeDef(BaseValidatorModel):
     VocabularySummaryList: List[VocabularySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SearchableContactAttributesTypeDef(BaseModel):
+class SearchableContactAttributesTypeDef(BaseValidatorModel):
     Criteria: Sequence[SearchableContactAttributesCriteriaTypeDef]
     MatchType: Optional[SearchContactsMatchTypeType] = None
 
-class SignInConfigOutputTypeDef(BaseModel):
+class SignInConfigOutputTypeDef(BaseValidatorModel):
     Distributions: List[SignInDistributionTypeDef]
 
-class SignInConfigTypeDef(BaseModel):
+class SignInConfigTypeDef(BaseValidatorModel):
     Distributions: Sequence[SignInDistributionTypeDef]
 
-class StartAttachedFileUploadResponseTypeDef(BaseModel):
+class StartAttachedFileUploadResponseTypeDef(BaseValidatorModel):
     FileArn: str
     FileId: str
     CreationTime: str
@@ -3330,17 +3330,17 @@ class StartAttachedFileUploadResponseTypeDef(BaseModel):
     UploadUrlMetadata: UploadUrlMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartContactRecordingRequestRequestTypeDef(BaseModel):
+class StartContactRecordingRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     InitialContactId: str
     VoiceRecordingConfiguration: VoiceRecordingConfigurationTypeDef
 
-class TranscriptTypeDef(BaseModel):
+class TranscriptTypeDef(BaseValidatorModel):
     Criteria: Sequence[TranscriptCriteriaTypeDef]
     MatchType: Optional[SearchContactsMatchTypeType] = None
 
-class UserSearchSummaryTypeDef(BaseModel):
+class UserSearchSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     DirectoryUserId: Optional[str] = None
     HierarchyGroupId: Optional[str] = None
@@ -3352,7 +3352,7 @@ class UserSearchSummaryTypeDef(BaseModel):
     Tags: Optional[Dict[str, str]] = None
     Username: Optional[str] = None
 
-class ViewTypeDef(BaseModel):
+class ViewTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -3367,12 +3367,12 @@ class ViewTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     ViewContentSha256: Optional[str] = None
 
-class ListRulesResponseTypeDef(BaseModel):
+class ListRulesResponseTypeDef(BaseValidatorModel):
     RuleSummaryList: List[RuleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AgentInfoTypeDef(BaseModel):
+class AgentInfoTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     ConnectedToAgentTimestamp: Optional[datetime] = None
     AgentPauseDurationInSeconds: Optional[int] = None
@@ -3380,7 +3380,7 @@ class AgentInfoTypeDef(BaseModel):
     DeviceInfo: Optional[DeviceInfoTypeDef] = None
     Capabilities: Optional[ParticipantCapabilitiesTypeDef] = None
 
-class StartWebRTCContactRequestRequestTypeDef(BaseModel):
+class StartWebRTCContactRequestRequestTypeDef(BaseValidatorModel):
     ContactFlowId: str
     InstanceId: str
     ParticipantDetails: ParticipantDetailsTypeDef
@@ -3391,18 +3391,18 @@ class StartWebRTCContactRequestRequestTypeDef(BaseModel):
     References: Optional[Mapping[str, ReferenceTypeDef]] = None
     Description: Optional[str] = None
 
-class QualityMetricsTypeDef(BaseModel):
+class QualityMetricsTypeDef(BaseValidatorModel):
     Agent: Optional[AgentQualityMetricsTypeDef] = None
     Customer: Optional[CustomerQualityMetricsTypeDef] = None
 
-class AttributeConditionTypeDef(BaseModel):
+class AttributeConditionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
     ProficiencyLevel: Optional[float] = None
     MatchCriteria: Optional[MatchCriteriaTypeDef] = None
     ComparisonOperator: Optional[str] = None
 
-class CreateSecurityProfileRequestRequestTypeDef(BaseModel):
+class CreateSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     SecurityProfileName: str
     InstanceId: str
     Description: Optional[str] = None
@@ -3414,7 +3414,7 @@ class CreateSecurityProfileRequestRequestTypeDef(BaseModel):
     HierarchyRestrictedResources: Optional[Sequence[str]] = None
     AllowedAccessControlHierarchyGroupId: Optional[str] = None
 
-class UpdateSecurityProfileRequestRequestTypeDef(BaseModel):
+class UpdateSecurityProfileRequestRequestTypeDef(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
     Description: Optional[str] = None
@@ -3425,97 +3425,97 @@ class UpdateSecurityProfileRequestRequestTypeDef(BaseModel):
     HierarchyRestrictedResources: Optional[Sequence[str]] = None
     AllowedAccessControlHierarchyGroupId: Optional[str] = None
 
-class ListBotsResponseTypeDef(BaseModel):
+class ListBotsResponseTypeDef(BaseValidatorModel):
     LexBots: List[LexBotConfigTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchGetAttachedFileMetadataResponseTypeDef(BaseModel):
+class BatchGetAttachedFileMetadataResponseTypeDef(BaseValidatorModel):
     Files: List[AttachedFileTypeDef]
     Errors: List[AttachedFileErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ControlPlaneUserAttributeFilterTypeDef(BaseModel):
+class ControlPlaneUserAttributeFilterTypeDef(BaseValidatorModel):
     OrConditions: Optional[Sequence[AttributeAndConditionTypeDef]] = None
     AndCondition: Optional[AttributeAndConditionTypeDef] = None
     TagCondition: Optional[TagConditionTypeDef] = None
     HierarchyGroupCondition: Optional[HierarchyGroupConditionTypeDef] = None
 
-class ContactFlowModuleSearchFilterTypeDef(BaseModel):
+class ContactFlowModuleSearchFilterTypeDef(BaseValidatorModel):
     TagFilter: Optional[ControlPlaneTagFilterTypeDef] = None
 
-class ContactFlowSearchFilterTypeDef(BaseModel):
+class ContactFlowSearchFilterTypeDef(BaseValidatorModel):
     TagFilter: Optional[ControlPlaneTagFilterTypeDef] = None
 
-class HoursOfOperationSearchFilterTypeDef(BaseModel):
+class HoursOfOperationSearchFilterTypeDef(BaseValidatorModel):
     TagFilter: Optional[ControlPlaneTagFilterTypeDef] = None
 
-class PromptSearchFilterTypeDef(BaseModel):
+class PromptSearchFilterTypeDef(BaseValidatorModel):
     TagFilter: Optional[ControlPlaneTagFilterTypeDef] = None
 
-class QueueSearchFilterTypeDef(BaseModel):
+class QueueSearchFilterTypeDef(BaseValidatorModel):
     TagFilter: Optional[ControlPlaneTagFilterTypeDef] = None
 
-class QuickConnectSearchFilterTypeDef(BaseModel):
+class QuickConnectSearchFilterTypeDef(BaseValidatorModel):
     TagFilter: Optional[ControlPlaneTagFilterTypeDef] = None
 
-class RoutingProfileSearchFilterTypeDef(BaseModel):
+class RoutingProfileSearchFilterTypeDef(BaseValidatorModel):
     TagFilter: Optional[ControlPlaneTagFilterTypeDef] = None
 
-class SecurityProfilesSearchFilterTypeDef(BaseModel):
+class SecurityProfilesSearchFilterTypeDef(BaseValidatorModel):
     TagFilter: Optional[ControlPlaneTagFilterTypeDef] = None
 
-class MeetingTypeDef(BaseModel):
+class MeetingTypeDef(BaseValidatorModel):
     MediaRegion: Optional[str] = None
     MediaPlacement: Optional[MediaPlacementTypeDef] = None
     MeetingFeatures: Optional[MeetingFeaturesConfigurationTypeDef] = None
     MeetingId: Optional[str] = None
 
-class DescribePhoneNumberResponseTypeDef(BaseModel):
+class DescribePhoneNumberResponseTypeDef(BaseValidatorModel):
     ClaimedPhoneNumberSummary: ClaimedPhoneNumberSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchPutContactRequestRequestTypeDef(BaseModel):
+class BatchPutContactRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactDataRequestList: Sequence[ContactDataRequestTypeDef]
     ClientToken: Optional[str] = None
 
-class GetCurrentUserDataRequestRequestTypeDef(BaseModel):
+class GetCurrentUserDataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Filters: UserDataFiltersTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class SearchPredefinedAttributesRequestSearchPredefinedAttributesPaginateTypeDef(BaseModel):
+class SearchPredefinedAttributesRequestSearchPredefinedAttributesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchCriteria: Optional[PredefinedAttributeSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchContactsResponseTypeDef(BaseModel):
+class SearchContactsResponseTypeDef(BaseValidatorModel):
     Contacts: List[ContactSearchSummaryTypeDef]
     TotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeEvaluationFormResponseTypeDef(BaseModel):
+class DescribeEvaluationFormResponseTypeDef(BaseValidatorModel):
     EvaluationForm: EvaluationFormTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeQueueResponseTypeDef(BaseModel):
+class DescribeQueueResponseTypeDef(BaseValidatorModel):
     Queue: QueueTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchQueuesResponseTypeDef(BaseModel):
+class SearchQueuesResponseTypeDef(BaseValidatorModel):
     Queues: List[QueueTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeUserResponseTypeDef(BaseModel):
+class DescribeUserResponseTypeDef(BaseValidatorModel):
     User: UserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RoutingProfileTypeDef(BaseModel):
+class RoutingProfileTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     Name: Optional[str] = None
     RoutingProfileArn: Optional[str] = None
@@ -3532,21 +3532,21 @@ class RoutingProfileTypeDef(BaseModel):
     IsDefault: Optional[bool] = None
     AssociatedQueueIds: Optional[List[str]] = None
 
-class UpdateRoutingProfileConcurrencyRequestRequestTypeDef(BaseModel):
+class UpdateRoutingProfileConcurrencyRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     MediaConcurrencies: Sequence[MediaConcurrencyTypeDef]
 
-class CurrentMetricResultTypeDef(BaseModel):
+class CurrentMetricResultTypeDef(BaseValidatorModel):
     Dimensions: Optional[DimensionsTypeDef] = None
     Collections: Optional[List[CurrentMetricDataTypeDef]] = None
 
-class AssociateRoutingProfileQueuesRequestRequestTypeDef(BaseModel):
+class AssociateRoutingProfileQueuesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     QueueConfigs: Sequence[RoutingProfileQueueConfigTypeDef]
 
-class CreateRoutingProfileRequestRequestTypeDef(BaseModel):
+class CreateRoutingProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     Description: str
@@ -3556,12 +3556,12 @@ class CreateRoutingProfileRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     AgentAvailabilityTimer: Optional[AgentAvailabilityTimerType] = None
 
-class UpdateRoutingProfileQueuesRequestRequestTypeDef(BaseModel):
+class UpdateRoutingProfileQueuesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     QueueConfigs: Sequence[RoutingProfileQueueConfigTypeDef]
 
-class InstanceStorageConfigTypeDef(BaseModel):
+class InstanceStorageConfigTypeDef(BaseValidatorModel):
     StorageType: StorageTypeType
     AssociationId: Optional[str] = None
     S3Config: Optional[S3ConfigTypeDef] = None
@@ -3569,39 +3569,39 @@ class InstanceStorageConfigTypeDef(BaseModel):
     KinesisStreamConfig: Optional[KinesisStreamConfigTypeDef] = None
     KinesisFirehoseConfig: Optional[KinesisFirehoseConfigTypeDef] = None
 
-class SubmitContactEvaluationRequestRequestTypeDef(BaseModel):
+class SubmitContactEvaluationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationId: str
     Answers: Optional[Mapping[str, EvaluationAnswerInputTypeDef]] = None
     Notes: Optional[Mapping[str, EvaluationNoteTypeDef]] = None
 
-class UpdateContactEvaluationRequestRequestTypeDef(BaseModel):
+class UpdateContactEvaluationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     EvaluationId: str
     Answers: Optional[Mapping[str, EvaluationAnswerInputTypeDef]] = None
     Notes: Optional[Mapping[str, EvaluationNoteTypeDef]] = None
 
-class EvaluationFormNumericQuestionPropertiesOutputTypeDef(BaseModel):
+class EvaluationFormNumericQuestionPropertiesOutputTypeDef(BaseValidatorModel):
     MinValue: int
     MaxValue: int
     Options: Optional[List[EvaluationFormNumericQuestionOptionTypeDef]] = None
     Automation: Optional[EvaluationFormNumericQuestionAutomationTypeDef] = None
 
-class EvaluationFormNumericQuestionPropertiesTypeDef(BaseModel):
+class EvaluationFormNumericQuestionPropertiesTypeDef(BaseValidatorModel):
     MinValue: int
     MaxValue: int
     Options: Optional[Sequence[EvaluationFormNumericQuestionOptionTypeDef]] = None
     Automation: Optional[EvaluationFormNumericQuestionAutomationTypeDef] = None
 
-class EvaluationFormSingleSelectQuestionAutomationOutputTypeDef(BaseModel):
+class EvaluationFormSingleSelectQuestionAutomationOutputTypeDef(BaseValidatorModel):
     Options: List[EvaluationFormSingleSelectQuestionAutomationOptionTypeDef]
     DefaultOptionRefId: Optional[str] = None
 
-class EvaluationFormSingleSelectQuestionAutomationTypeDef(BaseModel):
+class EvaluationFormSingleSelectQuestionAutomationTypeDef(BaseValidatorModel):
     Options: Sequence[EvaluationFormSingleSelectQuestionAutomationOptionTypeDef]
     DefaultOptionRefId: Optional[str] = None
 
-class EvaluationTypeDef(BaseModel):
+class EvaluationTypeDef(BaseValidatorModel):
     EvaluationId: str
     EvaluationArn: str
     Metadata: EvaluationMetadataTypeDef
@@ -3613,31 +3613,31 @@ class EvaluationTypeDef(BaseModel):
     Scores: Optional[Dict[str, EvaluationScoreTypeDef]] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ListContactEvaluationsResponseTypeDef(BaseModel):
+class ListContactEvaluationsResponseTypeDef(BaseValidatorModel):
     EvaluationSummaryList: List[EvaluationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class RoutingCriteriaTypeDef(BaseModel):
+class RoutingCriteriaTypeDef(BaseValidatorModel):
     Steps: Optional[List[StepTypeDef]] = None
     ActivationTimestamp: Optional[datetime] = None
     Index: Optional[int] = None
 
-class CreateCaseActionDefinitionOutputTypeDef(BaseModel):
+class CreateCaseActionDefinitionOutputTypeDef(BaseValidatorModel):
     Fields: List[FieldValueOutputTypeDef]
     TemplateId: str
 
-class UpdateCaseActionDefinitionOutputTypeDef(BaseModel):
+class UpdateCaseActionDefinitionOutputTypeDef(BaseValidatorModel):
     Fields: List[FieldValueOutputTypeDef]
 
-class CreateCaseActionDefinitionTypeDef(BaseModel):
+class CreateCaseActionDefinitionTypeDef(BaseValidatorModel):
     Fields: Sequence[FieldValueTypeDef]
     TemplateId: str
 
-class UpdateCaseActionDefinitionTypeDef(BaseModel):
+class UpdateCaseActionDefinitionTypeDef(BaseValidatorModel):
     Fields: Sequence[FieldValueTypeDef]
 
-class UserDataTypeDef(BaseModel):
+class UserDataTypeDef(BaseValidatorModel):
     User: Optional[UserReferenceTypeDef] = None
     RoutingProfile: Optional[RoutingProfileReferenceTypeDef] = None
     HierarchyPath: Optional[HierarchyPathReferenceTypeDef] = None
@@ -3648,7 +3648,7 @@ class UserDataTypeDef(BaseModel):
     Contacts: Optional[List[AgentContactReferenceTypeDef]] = None
     NextStatus: Optional[str] = None
 
-class HierarchyGroupTypeDef(BaseModel):
+class HierarchyGroupTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -3658,15 +3658,15 @@ class HierarchyGroupTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class DescribeUserHierarchyStructureResponseTypeDef(BaseModel):
+class DescribeUserHierarchyStructureResponseTypeDef(BaseValidatorModel):
     HierarchyStructure: HierarchyStructureTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUserHierarchyStructureRequestRequestTypeDef(BaseModel):
+class UpdateUserHierarchyStructureRequestRequestTypeDef(BaseValidatorModel):
     HierarchyStructure: HierarchyStructureUpdateTypeDef
     InstanceId: str
 
-class GetMetricDataRequestGetMetricDataPaginateTypeDef(BaseModel):
+class GetMetricDataRequestGetMetricDataPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
@@ -3675,7 +3675,7 @@ class GetMetricDataRequestGetMetricDataPaginateTypeDef(BaseModel):
     Groupings: Optional[Sequence[GroupingType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetMetricDataRequestRequestTypeDef(BaseModel):
+class GetMetricDataRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
@@ -3685,11 +3685,11 @@ class GetMetricDataRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class HistoricalMetricDataTypeDef(BaseModel):
+class HistoricalMetricDataTypeDef(BaseValidatorModel):
     Metric: Optional[HistoricalMetricTypeDef] = None
     Value: Optional[float] = None
 
-class CreateHoursOfOperationRequestRequestTypeDef(BaseModel):
+class CreateHoursOfOperationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     TimeZone: str
@@ -3697,7 +3697,7 @@ class CreateHoursOfOperationRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class HoursOfOperationTypeDef(BaseModel):
+class HoursOfOperationTypeDef(BaseValidatorModel):
     HoursOfOperationId: Optional[str] = None
     HoursOfOperationArn: Optional[str] = None
     Name: Optional[str] = None
@@ -3708,7 +3708,7 @@ class HoursOfOperationTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class UpdateHoursOfOperationRequestRequestTypeDef(BaseModel):
+class UpdateHoursOfOperationRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
     Name: Optional[str] = None
@@ -3716,58 +3716,58 @@ class UpdateHoursOfOperationRequestRequestTypeDef(BaseModel):
     TimeZone: Optional[str] = None
     Config: Optional[Sequence[HoursOfOperationConfigTypeDef]] = None
 
-class DescribeInstanceResponseTypeDef(BaseModel):
+class DescribeInstanceResponseTypeDef(BaseValidatorModel):
     Instance: InstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TaskTemplateConstraintsOutputTypeDef(BaseModel):
+class TaskTemplateConstraintsOutputTypeDef(BaseValidatorModel):
     RequiredFields: Optional[List[RequiredFieldInfoTypeDef]] = None
     ReadOnlyFields: Optional[List[ReadOnlyFieldInfoTypeDef]] = None
     InvisibleFields: Optional[List[InvisibleFieldInfoTypeDef]] = None
 
-class TaskTemplateConstraintsTypeDef(BaseModel):
+class TaskTemplateConstraintsTypeDef(BaseValidatorModel):
     RequiredFields: Optional[Sequence[RequiredFieldInfoTypeDef]] = None
     ReadOnlyFields: Optional[Sequence[ReadOnlyFieldInfoTypeDef]] = None
     InvisibleFields: Optional[Sequence[InvisibleFieldInfoTypeDef]] = None
 
-class TaskTemplateDefaultsOutputTypeDef(BaseModel):
+class TaskTemplateDefaultsOutputTypeDef(BaseValidatorModel):
     DefaultFieldValues: Optional[List[TaskTemplateDefaultFieldValueTypeDef]] = None
 
-class TaskTemplateDefaultsTypeDef(BaseModel):
+class TaskTemplateDefaultsTypeDef(BaseValidatorModel):
     DefaultFieldValues: Optional[Sequence[TaskTemplateDefaultFieldValueTypeDef]] = None
 
-class MetricDataV2TypeDef(BaseModel):
+class MetricDataV2TypeDef(BaseValidatorModel):
     Metric: Optional[MetricV2OutputTypeDef] = None
     Value: Optional[float] = None
 
-class SendChatIntegrationEventRequestRequestTypeDef(BaseModel):
+class SendChatIntegrationEventRequestRequestTypeDef(BaseValidatorModel):
     SourceId: str
     DestinationId: str
     Event: ChatEventTypeDef
     Subtype: Optional[str] = None
     NewSessionDetails: Optional[NewSessionDetailsTypeDef] = None
 
-class ChatParticipantRoleConfigTypeDef(BaseModel):
+class ChatParticipantRoleConfigTypeDef(BaseValidatorModel):
     ParticipantTimerConfigList: Sequence[ParticipantTimerConfigurationTypeDef]
 
-class DescribePredefinedAttributeResponseTypeDef(BaseModel):
+class DescribePredefinedAttributeResponseTypeDef(BaseValidatorModel):
     PredefinedAttribute: PredefinedAttributeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchPredefinedAttributesResponseTypeDef(BaseModel):
+class SearchPredefinedAttributesResponseTypeDef(BaseValidatorModel):
     PredefinedAttributes: List[PredefinedAttributeTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateQuickConnectRequestRequestTypeDef(BaseModel):
+class CreateQuickConnectRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     QuickConnectConfig: QuickConnectConfigTypeDef
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class QuickConnectTypeDef(BaseModel):
+class QuickConnectTypeDef(BaseValidatorModel):
     QuickConnectARN: Optional[str] = None
     QuickConnectId: Optional[str] = None
     Name: Optional[str] = None
@@ -3777,12 +3777,12 @@ class QuickConnectTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastModifiedRegion: Optional[str] = None
 
-class UpdateQuickConnectConfigRequestRequestTypeDef(BaseModel):
+class UpdateQuickConnectConfigRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     QuickConnectId: str
     QuickConnectConfig: QuickConnectConfigTypeDef
 
-class RealTimeContactAnalysisSegmentTranscriptTypeDef(BaseModel):
+class RealTimeContactAnalysisSegmentTranscriptTypeDef(BaseValidatorModel):
     Id: str
     ParticipantId: str
     ParticipantRole: ParticipantRoleType
@@ -3793,31 +3793,31 @@ class RealTimeContactAnalysisSegmentTranscriptTypeDef(BaseModel):
     Redaction: Optional[RealTimeContactAnalysisTranscriptItemRedactionTypeDef] = None
     Sentiment: Optional[RealTimeContactAnalysisSentimentLabelType] = None
 
-class RealTimeContactAnalysisPointOfInterestTypeDef(BaseModel):
+class RealTimeContactAnalysisPointOfInterestTypeDef(BaseValidatorModel):
     TranscriptItems: Optional[       List[RealTimeContactAnalysisTranscriptItemWithCharacterOffsetsTypeDef]     ] = None
 
-class RealTimeContactAnalysisIssueDetectedTypeDef(BaseModel):
+class RealTimeContactAnalysisIssueDetectedTypeDef(BaseValidatorModel):
     TranscriptItems: List[RealTimeContactAnalysisTranscriptItemWithContentTypeDef]
 
-class ListContactReferencesResponseTypeDef(BaseModel):
+class ListContactReferencesResponseTypeDef(BaseValidatorModel):
     ReferenceSummaryList: List[ReferenceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SearchResourceTagsRequestRequestTypeDef(BaseModel):
+class SearchResourceTagsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceTypes: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchCriteria: Optional[ResourceTagsSearchCriteriaTypeDef] = None
 
-class SearchResourceTagsRequestSearchResourceTagsPaginateTypeDef(BaseModel):
+class SearchResourceTagsRequestSearchResourceTagsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceTypes: Optional[Sequence[str]] = None
     SearchCriteria: Optional[ResourceTagsSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTrafficDistributionResponseTypeDef(BaseModel):
+class GetTrafficDistributionResponseTypeDef(BaseValidatorModel):
     TelephonyConfig: TelephonyConfigOutputTypeDef
     Id: str
     Arn: str
@@ -3825,207 +3825,207 @@ class GetTrafficDistributionResponseTypeDef(BaseModel):
     AgentConfig: AgentConfigOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTrafficDistributionRequestRequestTypeDef(BaseModel):
+class UpdateTrafficDistributionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     TelephonyConfig: Optional[TelephonyConfigTypeDef] = None
     SignInConfig: Optional[SignInConfigTypeDef] = None
     AgentConfig: Optional[AgentConfigTypeDef] = None
 
-class ContactAnalysisTypeDef(BaseModel):
+class ContactAnalysisTypeDef(BaseValidatorModel):
     Transcript: Optional[TranscriptTypeDef] = None
 
-class SearchUsersResponseTypeDef(BaseModel):
+class SearchUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserSearchSummaryTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateViewResponseTypeDef(BaseModel):
+class CreateViewResponseTypeDef(BaseValidatorModel):
     View: ViewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateViewVersionResponseTypeDef(BaseModel):
+class CreateViewVersionResponseTypeDef(BaseValidatorModel):
     View: ViewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeViewResponseTypeDef(BaseModel):
+class DescribeViewResponseTypeDef(BaseValidatorModel):
     View: ViewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateViewContentResponseTypeDef(BaseModel):
+class UpdateViewContentResponseTypeDef(BaseValidatorModel):
     View: ViewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExpressionTypeDef(BaseModel):
+class ExpressionTypeDef(BaseValidatorModel):
     AttributeCondition: Optional[AttributeConditionTypeDef] = None
     AndExpression: Optional[List[Dict[str, Any]]] = None
     OrExpression: Optional[List[Dict[str, Any]]] = None
 
-class UserSearchFilterTypeDef(BaseModel):
+class UserSearchFilterTypeDef(BaseValidatorModel):
     TagFilter: Optional[ControlPlaneTagFilterTypeDef] = None
     UserAttributeFilter: Optional[ControlPlaneUserAttributeFilterTypeDef] = None
 
-class SearchContactFlowModulesRequestRequestTypeDef(BaseModel):
+class SearchContactFlowModulesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[ContactFlowModuleSearchFilterTypeDef] = None
     SearchCriteria: Optional["ContactFlowModuleSearchCriteriaTypeDef"] = None
 
-class SearchContactFlowModulesRequestSearchContactFlowModulesPaginateTypeDef(BaseModel):
+class SearchContactFlowModulesRequestSearchContactFlowModulesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchFilter: Optional[ContactFlowModuleSearchFilterTypeDef] = None
     SearchCriteria: Optional[ContactFlowModuleSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchContactFlowsRequestRequestTypeDef(BaseModel):
+class SearchContactFlowsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[ContactFlowSearchFilterTypeDef] = None
     SearchCriteria: Optional["ContactFlowSearchCriteriaTypeDef"] = None
 
-class SearchContactFlowsRequestSearchContactFlowsPaginateTypeDef(BaseModel):
+class SearchContactFlowsRequestSearchContactFlowsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchFilter: Optional[ContactFlowSearchFilterTypeDef] = None
     SearchCriteria: Optional[ContactFlowSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchHoursOfOperationsRequestRequestTypeDef(BaseModel):
+class SearchHoursOfOperationsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[HoursOfOperationSearchFilterTypeDef] = None
     SearchCriteria: Optional["HoursOfOperationSearchCriteriaTypeDef"] = None
 
-class SearchHoursOfOperationsRequestSearchHoursOfOperationsPaginateTypeDef(BaseModel):
+class SearchHoursOfOperationsRequestSearchHoursOfOperationsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchFilter: Optional[HoursOfOperationSearchFilterTypeDef] = None
     SearchCriteria: Optional[HoursOfOperationSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchPromptsRequestRequestTypeDef(BaseModel):
+class SearchPromptsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[PromptSearchFilterTypeDef] = None
     SearchCriteria: Optional["PromptSearchCriteriaTypeDef"] = None
 
-class SearchPromptsRequestSearchPromptsPaginateTypeDef(BaseModel):
+class SearchPromptsRequestSearchPromptsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchFilter: Optional[PromptSearchFilterTypeDef] = None
     SearchCriteria: Optional[PromptSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchQueuesRequestRequestTypeDef(BaseModel):
+class SearchQueuesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[QueueSearchFilterTypeDef] = None
     SearchCriteria: Optional["QueueSearchCriteriaTypeDef"] = None
 
-class SearchQueuesRequestSearchQueuesPaginateTypeDef(BaseModel):
+class SearchQueuesRequestSearchQueuesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchFilter: Optional[QueueSearchFilterTypeDef] = None
     SearchCriteria: Optional[QueueSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchQuickConnectsRequestRequestTypeDef(BaseModel):
+class SearchQuickConnectsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[QuickConnectSearchFilterTypeDef] = None
     SearchCriteria: Optional["QuickConnectSearchCriteriaTypeDef"] = None
 
-class SearchQuickConnectsRequestSearchQuickConnectsPaginateTypeDef(BaseModel):
+class SearchQuickConnectsRequestSearchQuickConnectsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchFilter: Optional[QuickConnectSearchFilterTypeDef] = None
     SearchCriteria: Optional[QuickConnectSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchRoutingProfilesRequestRequestTypeDef(BaseModel):
+class SearchRoutingProfilesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[RoutingProfileSearchFilterTypeDef] = None
     SearchCriteria: Optional["RoutingProfileSearchCriteriaTypeDef"] = None
 
-class SearchRoutingProfilesRequestSearchRoutingProfilesPaginateTypeDef(BaseModel):
+class SearchRoutingProfilesRequestSearchRoutingProfilesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchFilter: Optional[RoutingProfileSearchFilterTypeDef] = None
     SearchCriteria: Optional[RoutingProfileSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchSecurityProfilesRequestRequestTypeDef(BaseModel):
+class SearchSecurityProfilesRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchCriteria: Optional["SecurityProfileSearchCriteriaTypeDef"] = None
     SearchFilter: Optional[SecurityProfilesSearchFilterTypeDef] = None
 
-class SearchSecurityProfilesRequestSearchSecurityProfilesPaginateTypeDef(BaseModel):
+class SearchSecurityProfilesRequestSearchSecurityProfilesPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchCriteria: Optional[SecurityProfileSearchCriteriaTypeDef] = None
     SearchFilter: Optional[SecurityProfilesSearchFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ConnectionDataTypeDef(BaseModel):
+class ConnectionDataTypeDef(BaseValidatorModel):
     Attendee: Optional[AttendeeTypeDef] = None
     Meeting: Optional[MeetingTypeDef] = None
 
-class DescribeRoutingProfileResponseTypeDef(BaseModel):
+class DescribeRoutingProfileResponseTypeDef(BaseValidatorModel):
     RoutingProfile: RoutingProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchRoutingProfilesResponseTypeDef(BaseModel):
+class SearchRoutingProfilesResponseTypeDef(BaseValidatorModel):
     RoutingProfiles: List[RoutingProfileTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetCurrentMetricDataResponseTypeDef(BaseModel):
+class GetCurrentMetricDataResponseTypeDef(BaseValidatorModel):
     MetricResults: List[CurrentMetricResultTypeDef]
     DataSnapshotTime: datetime
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AssociateInstanceStorageConfigRequestRequestTypeDef(BaseModel):
+class AssociateInstanceStorageConfigRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ResourceType: InstanceStorageResourceTypeType
     StorageConfig: InstanceStorageConfigTypeDef
 
-class DescribeInstanceStorageConfigResponseTypeDef(BaseModel):
+class DescribeInstanceStorageConfigResponseTypeDef(BaseValidatorModel):
     StorageConfig: InstanceStorageConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInstanceStorageConfigsResponseTypeDef(BaseModel):
+class ListInstanceStorageConfigsResponseTypeDef(BaseValidatorModel):
     StorageConfigs: List[InstanceStorageConfigTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateInstanceStorageConfigRequestRequestTypeDef(BaseModel):
+class UpdateInstanceStorageConfigRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     AssociationId: str
     ResourceType: InstanceStorageResourceTypeType
     StorageConfig: InstanceStorageConfigTypeDef
 
-class EvaluationFormSingleSelectQuestionPropertiesOutputTypeDef(BaseModel):
+class EvaluationFormSingleSelectQuestionPropertiesOutputTypeDef(BaseValidatorModel):
     Options: List[EvaluationFormSingleSelectQuestionOptionTypeDef]
     DisplayAs: Optional[EvaluationFormSingleSelectQuestionDisplayModeType] = None
     Automation: Optional[EvaluationFormSingleSelectQuestionAutomationOutputTypeDef] = None
 
-class EvaluationFormSingleSelectQuestionPropertiesTypeDef(BaseModel):
+class EvaluationFormSingleSelectQuestionPropertiesTypeDef(BaseValidatorModel):
     Options: Sequence[EvaluationFormSingleSelectQuestionOptionTypeDef]
     DisplayAs: Optional[EvaluationFormSingleSelectQuestionDisplayModeType] = None
     Automation: Optional[EvaluationFormSingleSelectQuestionAutomationTypeDef] = None
 
-class DescribeContactEvaluationResponseTypeDef(BaseModel):
+class DescribeContactEvaluationResponseTypeDef(BaseValidatorModel):
     Evaluation: EvaluationTypeDef
     EvaluationForm: EvaluationFormContentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ContactTypeDef(BaseModel):
+class ContactTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     InitialContactId: Optional[str] = None
@@ -4059,7 +4059,7 @@ class ContactTypeDef(BaseModel):
     DisconnectDetails: Optional[DisconnectDetailsTypeDef] = None
     SegmentAttributes: Optional[Dict[str, SegmentAttributeValueTypeDef]] = None
 
-class RuleActionOutputTypeDef(BaseModel):
+class RuleActionOutputTypeDef(BaseValidatorModel):
     ActionType: ActionTypeType
     TaskAction: Optional[TaskActionDefinitionOutputTypeDef] = None
     EventBridgeAction: Optional[EventBridgeActionDefinitionTypeDef] = None
@@ -4070,7 +4070,7 @@ class RuleActionOutputTypeDef(BaseModel):
     EndAssociatedTasksAction: Optional[Dict[str, Any]] = None
     SubmitAutoEvaluationAction: Optional[SubmitAutoEvaluationActionDefinitionTypeDef] = None
 
-class RuleActionTypeDef(BaseModel):
+class RuleActionTypeDef(BaseValidatorModel):
     ActionType: ActionTypeType
     TaskAction: Optional[TaskActionDefinitionTypeDef] = None
     EventBridgeAction: Optional[EventBridgeActionDefinitionTypeDef] = None
@@ -4081,31 +4081,31 @@ class RuleActionTypeDef(BaseModel):
     EndAssociatedTasksAction: Optional[Mapping[str, Any]] = None
     SubmitAutoEvaluationAction: Optional[SubmitAutoEvaluationActionDefinitionTypeDef] = None
 
-class GetCurrentUserDataResponseTypeDef(BaseModel):
+class GetCurrentUserDataResponseTypeDef(BaseValidatorModel):
     UserDataList: List[UserDataTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeUserHierarchyGroupResponseTypeDef(BaseModel):
+class DescribeUserHierarchyGroupResponseTypeDef(BaseValidatorModel):
     HierarchyGroup: HierarchyGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HistoricalMetricResultTypeDef(BaseModel):
+class HistoricalMetricResultTypeDef(BaseValidatorModel):
     Dimensions: Optional[DimensionsTypeDef] = None
     Collections: Optional[List[HistoricalMetricDataTypeDef]] = None
 
-class DescribeHoursOfOperationResponseTypeDef(BaseModel):
+class DescribeHoursOfOperationResponseTypeDef(BaseValidatorModel):
     HoursOfOperation: HoursOfOperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchHoursOfOperationsResponseTypeDef(BaseModel):
+class SearchHoursOfOperationsResponseTypeDef(BaseValidatorModel):
     HoursOfOperations: List[HoursOfOperationTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetTaskTemplateResponseTypeDef(BaseModel):
+class GetTaskTemplateResponseTypeDef(BaseValidatorModel):
     InstanceId: str
     Id: str
     Arn: str
@@ -4121,7 +4121,7 @@ class GetTaskTemplateResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTaskTemplateResponseTypeDef(BaseModel):
+class UpdateTaskTemplateResponseTypeDef(BaseValidatorModel):
     InstanceId: str
     Id: str
     Arn: str
@@ -4136,7 +4136,7 @@ class UpdateTaskTemplateResponseTypeDef(BaseModel):
     CreatedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTaskTemplateRequestRequestTypeDef(BaseModel):
+class CreateTaskTemplateRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     Fields: Sequence[TaskTemplateFieldUnionTypeDef]
@@ -4147,7 +4147,7 @@ class CreateTaskTemplateRequestRequestTypeDef(BaseModel):
     Status: Optional[TaskTemplateStatusType] = None
     ClientToken: Optional[str] = None
 
-class UpdateTaskTemplateRequestRequestTypeDef(BaseModel):
+class UpdateTaskTemplateRequestRequestTypeDef(BaseValidatorModel):
     TaskTemplateId: str
     InstanceId: str
     Name: Optional[str] = None
@@ -4158,12 +4158,12 @@ class UpdateTaskTemplateRequestRequestTypeDef(BaseModel):
     Status: Optional[TaskTemplateStatusType] = None
     Fields: Optional[Sequence[TaskTemplateFieldUnionTypeDef]] = None
 
-class MetricResultV2TypeDef(BaseModel):
+class MetricResultV2TypeDef(BaseValidatorModel):
     Dimensions: Optional[Dict[str, str]] = None
     MetricInterval: Optional[MetricIntervalTypeDef] = None
     Collections: Optional[List[MetricDataV2TypeDef]] = None
 
-class GetMetricDataV2RequestRequestTypeDef(BaseModel):
+class GetMetricDataV2RequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
@@ -4174,26 +4174,26 @@ class GetMetricDataV2RequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class UpdateParticipantRoleConfigChannelInfoTypeDef(BaseModel):
+class UpdateParticipantRoleConfigChannelInfoTypeDef(BaseValidatorModel):
     Chat: Optional[ChatParticipantRoleConfigTypeDef] = None
 
-class DescribeQuickConnectResponseTypeDef(BaseModel):
+class DescribeQuickConnectResponseTypeDef(BaseValidatorModel):
     QuickConnect: QuickConnectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchQuickConnectsResponseTypeDef(BaseModel):
+class SearchQuickConnectsResponseTypeDef(BaseValidatorModel):
     QuickConnects: List[QuickConnectTypeDef]
     ApproximateTotalCount: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class RealTimeContactAnalysisCategoryDetailsTypeDef(BaseModel):
+class RealTimeContactAnalysisCategoryDetailsTypeDef(BaseValidatorModel):
     PointsOfInterest: List[RealTimeContactAnalysisPointOfInterestTypeDef]
 
-class RealTimeContactAnalysisSegmentIssuesTypeDef(BaseModel):
+class RealTimeContactAnalysisSegmentIssuesTypeDef(BaseValidatorModel):
     IssuesDetected: List[RealTimeContactAnalysisIssueDetectedTypeDef]
 
-class SearchCriteriaTypeDef(BaseModel):
+class SearchCriteriaTypeDef(BaseValidatorModel):
     AgentIds: Optional[Sequence[str]] = None
     AgentHierarchyGroups: Optional[AgentHierarchyGroupsTypeDef] = None
     Channels: Optional[Sequence[ChannelType]] = None
@@ -4202,39 +4202,39 @@ class SearchCriteriaTypeDef(BaseModel):
     QueueIds: Optional[Sequence[str]] = None
     SearchableContactAttributes: Optional[SearchableContactAttributesTypeDef] = None
 
-class SearchUsersRequestRequestTypeDef(BaseModel):
+class SearchUsersRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SearchFilter: Optional[UserSearchFilterTypeDef] = None
     SearchCriteria: Optional["UserSearchCriteriaTypeDef"] = None
 
-class SearchUsersRequestSearchUsersPaginateTypeDef(BaseModel):
+class SearchUsersRequestSearchUsersPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     SearchFilter: Optional[UserSearchFilterTypeDef] = None
     SearchCriteria: Optional[UserSearchCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class StartWebRTCContactResponseTypeDef(BaseModel):
+class StartWebRTCContactResponseTypeDef(BaseValidatorModel):
     ConnectionData: ConnectionDataTypeDef
     ContactId: str
     ParticipantId: str
     ParticipantToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EvaluationFormQuestionTypePropertiesOutputTypeDef(BaseModel):
+class EvaluationFormQuestionTypePropertiesOutputTypeDef(BaseValidatorModel):
     Numeric: Optional[EvaluationFormNumericQuestionPropertiesOutputTypeDef] = None
     SingleSelect: Optional[EvaluationFormSingleSelectQuestionPropertiesOutputTypeDef] = None
 
-class EvaluationFormQuestionTypePropertiesTypeDef(BaseModel):
+class EvaluationFormQuestionTypePropertiesTypeDef(BaseValidatorModel):
     Numeric: Optional[EvaluationFormNumericQuestionPropertiesTypeDef] = None
     SingleSelect: Optional[EvaluationFormSingleSelectQuestionPropertiesTypeDef] = None
 
-class DescribeContactResponseTypeDef(BaseModel):
+class DescribeContactResponseTypeDef(BaseValidatorModel):
     Contact: ContactTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RuleTypeDef(BaseModel):
+class RuleTypeDef(BaseValidatorModel):
     Name: str
     RuleId: str
     RuleArn: str
@@ -4247,25 +4247,25 @@ class RuleTypeDef(BaseModel):
     LastUpdatedBy: str
     Tags: Optional[Dict[str, str]] = None
 
-class GetMetricDataResponseTypeDef(BaseModel):
+class GetMetricDataResponseTypeDef(BaseValidatorModel):
     MetricResults: List[HistoricalMetricResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetMetricDataV2ResponseTypeDef(BaseModel):
+class GetMetricDataV2ResponseTypeDef(BaseValidatorModel):
     MetricResults: List[MetricResultV2TypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateParticipantRoleConfigRequestRequestTypeDef(BaseModel):
+class UpdateParticipantRoleConfigRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     ChannelConfiguration: UpdateParticipantRoleConfigChannelInfoTypeDef
 
-class RealTimeContactAnalysisSegmentCategoriesTypeDef(BaseModel):
+class RealTimeContactAnalysisSegmentCategoriesTypeDef(BaseValidatorModel):
     MatchedDetails: Dict[str, RealTimeContactAnalysisCategoryDetailsTypeDef]
 
-class SearchContactsRequestRequestTypeDef(BaseModel):
+class SearchContactsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     TimeRange: SearchContactsTimeRangeTypeDef
     SearchCriteria: Optional[SearchCriteriaTypeDef] = None
@@ -4273,14 +4273,14 @@ class SearchContactsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     Sort: Optional[SortTypeDef] = None
 
-class SearchContactsRequestSearchContactsPaginateTypeDef(BaseModel):
+class SearchContactsRequestSearchContactsPaginateTypeDef(BaseValidatorModel):
     InstanceId: str
     TimeRange: SearchContactsTimeRangeTypeDef
     SearchCriteria: Optional[SearchCriteriaTypeDef] = None
     Sort: Optional[SortTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class EvaluationFormQuestionOutputTypeDef(BaseModel):
+class EvaluationFormQuestionOutputTypeDef(BaseValidatorModel):
     Title: str
     RefId: str
     QuestionType: EvaluationFormQuestionTypeType
@@ -4289,7 +4289,7 @@ class EvaluationFormQuestionOutputTypeDef(BaseModel):
     QuestionTypeProperties: Optional[EvaluationFormQuestionTypePropertiesOutputTypeDef] = None
     Weight: Optional[float] = None
 
-class EvaluationFormQuestionTypeDef(BaseModel):
+class EvaluationFormQuestionTypeDef(BaseValidatorModel):
     Title: str
     RefId: str
     QuestionType: EvaluationFormQuestionTypeType
@@ -4298,11 +4298,11 @@ class EvaluationFormQuestionTypeDef(BaseModel):
     QuestionTypeProperties: Optional[EvaluationFormQuestionTypePropertiesTypeDef] = None
     Weight: Optional[float] = None
 
-class DescribeRuleResponseTypeDef(BaseModel):
+class DescribeRuleResponseTypeDef(BaseValidatorModel):
     Rule: RuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRuleRequestRequestTypeDef(BaseModel):
+class CreateRuleRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     Name: str
     TriggerEventSource: RuleTriggerEventSourceTypeDef
@@ -4311,7 +4311,7 @@ class CreateRuleRequestRequestTypeDef(BaseModel):
     PublishStatus: RulePublishStatusType
     ClientToken: Optional[str] = None
 
-class UpdateRuleRequestRequestTypeDef(BaseModel):
+class UpdateRuleRequestRequestTypeDef(BaseValidatorModel):
     RuleId: str
     InstanceId: str
     Name: str
@@ -4319,22 +4319,22 @@ class UpdateRuleRequestRequestTypeDef(BaseModel):
     Actions: Sequence[RuleActionUnionTypeDef]
     PublishStatus: RulePublishStatusType
 
-class RealtimeContactAnalysisSegmentTypeDef(BaseModel):
+class RealtimeContactAnalysisSegmentTypeDef(BaseValidatorModel):
     Transcript: Optional[RealTimeContactAnalysisSegmentTranscriptTypeDef] = None
     Categories: Optional[RealTimeContactAnalysisSegmentCategoriesTypeDef] = None
     Issues: Optional[RealTimeContactAnalysisSegmentIssuesTypeDef] = None
     Event: Optional[RealTimeContactAnalysisSegmentEventTypeDef] = None
     Attachments: Optional[RealTimeContactAnalysisSegmentAttachmentsTypeDef] = None
 
-class EvaluationFormItemOutputTypeDef(BaseModel):
+class EvaluationFormItemOutputTypeDef(BaseValidatorModel):
     Section: Optional[Dict[str, Any]] = None
     Question: Optional[EvaluationFormQuestionOutputTypeDef] = None
 
-class EvaluationFormItemTypeDef(BaseModel):
+class EvaluationFormItemTypeDef(BaseValidatorModel):
     Section: Optional[Dict[str, Any]] = None
     Question: Optional[EvaluationFormQuestionTypeDef] = None
 
-class ListRealtimeContactAnalysisSegmentsV2ResponseTypeDef(BaseModel):
+class ListRealtimeContactAnalysisSegmentsV2ResponseTypeDef(BaseValidatorModel):
     Channel: RealTimeContactAnalysisSupportedChannelType
     Status: RealTimeContactAnalysisStatusType
     Segments: List[RealtimeContactAnalysisSegmentTypeDef]

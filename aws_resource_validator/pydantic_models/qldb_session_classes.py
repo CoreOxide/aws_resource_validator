@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,65 +11,65 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.qldb_session_constants import *
 
-class TimingInformationTypeDef(BaseModel):
+class TimingInformationTypeDef(BaseValidatorModel):
     ProcessingTimeMilliseconds: Optional[int] = None
 
-class IOUsageTypeDef(BaseModel):
+class IOUsageTypeDef(BaseValidatorModel):
     ReadIOs: Optional[int] = None
     WriteIOs: Optional[int] = None
 
-class FetchPageRequestTypeDef(BaseModel):
+class FetchPageRequestTypeDef(BaseValidatorModel):
     TransactionId: str
     NextPageToken: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class StartSessionRequestTypeDef(BaseModel):
+class StartSessionRequestTypeDef(BaseValidatorModel):
     LedgerName: str
 
-class AbortTransactionResultTypeDef(BaseModel):
+class AbortTransactionResultTypeDef(BaseValidatorModel):
     TimingInformation: Optional[TimingInformationTypeDef] = None
 
-class EndSessionResultTypeDef(BaseModel):
+class EndSessionResultTypeDef(BaseValidatorModel):
     TimingInformation: Optional[TimingInformationTypeDef] = None
 
-class StartSessionResultTypeDef(BaseModel):
+class StartSessionResultTypeDef(BaseValidatorModel):
     SessionToken: Optional[str] = None
     TimingInformation: Optional[TimingInformationTypeDef] = None
 
-class StartTransactionResultTypeDef(BaseModel):
+class StartTransactionResultTypeDef(BaseValidatorModel):
     TransactionId: Optional[str] = None
     TimingInformation: Optional[TimingInformationTypeDef] = None
 
-class CommitTransactionRequestTypeDef(BaseModel):
+class CommitTransactionRequestTypeDef(BaseValidatorModel):
     TransactionId: str
     CommitDigest: BlobTypeDef
 
-class ValueHolderTypeDef(BaseModel):
+class ValueHolderTypeDef(BaseValidatorModel):
     IonBinary: Optional[BlobTypeDef] = None
     IonText: Optional[str] = None
 
-class CommitTransactionResultTypeDef(BaseModel):
+class CommitTransactionResultTypeDef(BaseValidatorModel):
     TransactionId: Optional[str] = None
     CommitDigest: Optional[bytes] = None
     TimingInformation: Optional[TimingInformationTypeDef] = None
     ConsumedIOs: Optional[IOUsageTypeDef] = None
 
-class ExecuteStatementRequestTypeDef(BaseModel):
+class ExecuteStatementRequestTypeDef(BaseValidatorModel):
     TransactionId: str
     Statement: str
     Parameters: Optional[Sequence[ValueHolderTypeDef]] = None
 
-class PageTypeDef(BaseModel):
+class PageTypeDef(BaseValidatorModel):
     Values: Optional[List[ValueHolderTypeDef]] = None
     NextPageToken: Optional[str] = None
 
-class SendCommandRequestRequestTypeDef(BaseModel):
+class SendCommandRequestRequestTypeDef(BaseValidatorModel):
     SessionToken: Optional[str] = None
     StartSession: Optional[StartSessionRequestTypeDef] = None
     StartTransaction: Optional[Mapping[str, Any]] = None
@@ -79,17 +79,17 @@ class SendCommandRequestRequestTypeDef(BaseModel):
     ExecuteStatement: Optional[ExecuteStatementRequestTypeDef] = None
     FetchPage: Optional[FetchPageRequestTypeDef] = None
 
-class ExecuteStatementResultTypeDef(BaseModel):
+class ExecuteStatementResultTypeDef(BaseValidatorModel):
     FirstPage: Optional[PageTypeDef] = None
     TimingInformation: Optional[TimingInformationTypeDef] = None
     ConsumedIOs: Optional[IOUsageTypeDef] = None
 
-class FetchPageResultTypeDef(BaseModel):
+class FetchPageResultTypeDef(BaseValidatorModel):
     Page: Optional[PageTypeDef] = None
     TimingInformation: Optional[TimingInformationTypeDef] = None
     ConsumedIOs: Optional[IOUsageTypeDef] = None
 
-class SendCommandResultTypeDef(BaseModel):
+class SendCommandResultTypeDef(BaseValidatorModel):
     StartSession: StartSessionResultTypeDef
     StartTransaction: StartTransactionResultTypeDef
     EndSession: EndSessionResultTypeDef

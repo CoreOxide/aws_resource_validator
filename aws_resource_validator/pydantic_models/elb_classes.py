@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,226 +11,226 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.elb_constants import *
 
-class AccessLogTypeDef(BaseModel):
+class AccessLogTypeDef(BaseValidatorModel):
     Enabled: bool
     S3BucketName: Optional[str] = None
     EmitInterval: Optional[int] = None
     S3BucketPrefix: Optional[str] = None
 
-class AddAvailabilityZonesInputRequestTypeDef(BaseModel):
+class AddAvailabilityZonesInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     AvailabilityZones: Sequence[str]
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
-class AdditionalAttributeTypeDef(BaseModel):
+class AdditionalAttributeTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class AppCookieStickinessPolicyTypeDef(BaseModel):
+class AppCookieStickinessPolicyTypeDef(BaseValidatorModel):
     PolicyName: Optional[str] = None
     CookieName: Optional[str] = None
 
-class ApplySecurityGroupsToLoadBalancerInputRequestTypeDef(BaseModel):
+class ApplySecurityGroupsToLoadBalancerInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     SecurityGroups: Sequence[str]
 
-class AttachLoadBalancerToSubnetsInputRequestTypeDef(BaseModel):
+class AttachLoadBalancerToSubnetsInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Subnets: Sequence[str]
 
-class BackendServerDescriptionTypeDef(BaseModel):
+class BackendServerDescriptionTypeDef(BaseValidatorModel):
     InstancePort: Optional[int] = None
     PolicyNames: Optional[List[str]] = None
 
-class HealthCheckTypeDef(BaseModel):
+class HealthCheckTypeDef(BaseValidatorModel):
     Target: str
     Interval: int
     Timeout: int
     UnhealthyThreshold: int
     HealthyThreshold: int
 
-class ConnectionDrainingTypeDef(BaseModel):
+class ConnectionDrainingTypeDef(BaseValidatorModel):
     Enabled: bool
     Timeout: Optional[int] = None
 
-class ConnectionSettingsTypeDef(BaseModel):
+class ConnectionSettingsTypeDef(BaseValidatorModel):
     IdleTimeout: int
 
-class ListenerTypeDef(BaseModel):
+class ListenerTypeDef(BaseValidatorModel):
     Protocol: str
     LoadBalancerPort: int
     InstancePort: int
     InstanceProtocol: Optional[str] = None
     SSLCertificateId: Optional[str] = None
 
-class CreateAppCookieStickinessPolicyInputRequestTypeDef(BaseModel):
+class CreateAppCookieStickinessPolicyInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     PolicyName: str
     CookieName: str
 
-class CreateLBCookieStickinessPolicyInputRequestTypeDef(BaseModel):
+class CreateLBCookieStickinessPolicyInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     PolicyName: str
     CookieExpirationPeriod: Optional[int] = None
 
-class PolicyAttributeTypeDef(BaseModel):
+class PolicyAttributeTypeDef(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeValue: Optional[str] = None
 
-class CrossZoneLoadBalancingTypeDef(BaseModel):
+class CrossZoneLoadBalancingTypeDef(BaseValidatorModel):
     Enabled: bool
 
-class DeleteAccessPointInputRequestTypeDef(BaseModel):
+class DeleteAccessPointInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
 
-class DeleteLoadBalancerListenerInputRequestTypeDef(BaseModel):
+class DeleteLoadBalancerListenerInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     LoadBalancerPorts: Sequence[int]
 
-class DeleteLoadBalancerPolicyInputRequestTypeDef(BaseModel):
+class DeleteLoadBalancerPolicyInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     PolicyName: str
 
-class InstanceTypeDef(BaseModel):
+class InstanceTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeAccessPointsInputRequestTypeDef(BaseModel):
+class DescribeAccessPointsInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerNames: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
-class DescribeAccountLimitsInputRequestTypeDef(BaseModel):
+class DescribeAccountLimitsInputRequestTypeDef(BaseValidatorModel):
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
-class LimitTypeDef(BaseModel):
+class LimitTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Max: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class InstanceStateTypeDef(BaseModel):
+class InstanceStateTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     State: Optional[str] = None
     ReasonCode: Optional[str] = None
     Description: Optional[str] = None
 
-class DescribeLoadBalancerAttributesInputRequestTypeDef(BaseModel):
+class DescribeLoadBalancerAttributesInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
 
-class DescribeLoadBalancerPoliciesInputRequestTypeDef(BaseModel):
+class DescribeLoadBalancerPoliciesInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: Optional[str] = None
     PolicyNames: Optional[Sequence[str]] = None
 
-class DescribeLoadBalancerPolicyTypesInputRequestTypeDef(BaseModel):
+class DescribeLoadBalancerPolicyTypesInputRequestTypeDef(BaseValidatorModel):
     PolicyTypeNames: Optional[Sequence[str]] = None
 
-class DescribeTagsInputRequestTypeDef(BaseModel):
+class DescribeTagsInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerNames: Sequence[str]
 
-class DetachLoadBalancerFromSubnetsInputRequestTypeDef(BaseModel):
+class DetachLoadBalancerFromSubnetsInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Subnets: Sequence[str]
 
-class LBCookieStickinessPolicyTypeDef(BaseModel):
+class LBCookieStickinessPolicyTypeDef(BaseValidatorModel):
     PolicyName: Optional[str] = None
     CookieExpirationPeriod: Optional[int] = None
 
-class SourceSecurityGroupTypeDef(BaseModel):
+class SourceSecurityGroupTypeDef(BaseValidatorModel):
     OwnerAlias: Optional[str] = None
     GroupName: Optional[str] = None
 
-class PolicyAttributeDescriptionTypeDef(BaseModel):
+class PolicyAttributeDescriptionTypeDef(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeValue: Optional[str] = None
 
-class PolicyAttributeTypeDescriptionTypeDef(BaseModel):
+class PolicyAttributeTypeDescriptionTypeDef(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeType: Optional[str] = None
     Description: Optional[str] = None
     DefaultValue: Optional[str] = None
     Cardinality: Optional[str] = None
 
-class RemoveAvailabilityZonesInputRequestTypeDef(BaseModel):
+class RemoveAvailabilityZonesInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     AvailabilityZones: Sequence[str]
 
-class TagKeyOnlyTypeDef(BaseModel):
+class TagKeyOnlyTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
 
-class SetLoadBalancerListenerSSLCertificateInputRequestTypeDef(BaseModel):
+class SetLoadBalancerListenerSSLCertificateInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     LoadBalancerPort: int
     SSLCertificateId: str
 
-class SetLoadBalancerPoliciesForBackendServerInputRequestTypeDef(BaseModel):
+class SetLoadBalancerPoliciesForBackendServerInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     InstancePort: int
     PolicyNames: Sequence[str]
 
-class SetLoadBalancerPoliciesOfListenerInputRequestTypeDef(BaseModel):
+class SetLoadBalancerPoliciesOfListenerInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     LoadBalancerPort: int
     PolicyNames: Sequence[str]
 
-class AddAvailabilityZonesOutputTypeDef(BaseModel):
+class AddAvailabilityZonesOutputTypeDef(BaseValidatorModel):
     AvailabilityZones: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ApplySecurityGroupsToLoadBalancerOutputTypeDef(BaseModel):
+class ApplySecurityGroupsToLoadBalancerOutputTypeDef(BaseValidatorModel):
     SecurityGroups: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachLoadBalancerToSubnetsOutputTypeDef(BaseModel):
+class AttachLoadBalancerToSubnetsOutputTypeDef(BaseValidatorModel):
     Subnets: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessPointOutputTypeDef(BaseModel):
+class CreateAccessPointOutputTypeDef(BaseValidatorModel):
     DNSName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetachLoadBalancerFromSubnetsOutputTypeDef(BaseModel):
+class DetachLoadBalancerFromSubnetsOutputTypeDef(BaseValidatorModel):
     Subnets: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RemoveAvailabilityZonesOutputTypeDef(BaseModel):
+class RemoveAvailabilityZonesOutputTypeDef(BaseValidatorModel):
     AvailabilityZones: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AddTagsInputRequestTypeDef(BaseModel):
+class AddTagsInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerNames: Sequence[str]
     Tags: Sequence[TagTypeDef]
 
-class TagDescriptionTypeDef(BaseModel):
+class TagDescriptionTypeDef(BaseValidatorModel):
     LoadBalancerName: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ConfigureHealthCheckInputRequestTypeDef(BaseModel):
+class ConfigureHealthCheckInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     HealthCheck: HealthCheckTypeDef
 
-class ConfigureHealthCheckOutputTypeDef(BaseModel):
+class ConfigureHealthCheckOutputTypeDef(BaseValidatorModel):
     HealthCheck: HealthCheckTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessPointInputRequestTypeDef(BaseModel):
+class CreateAccessPointInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Listeners: Sequence[ListenerTypeDef]
     AvailabilityZones: Optional[Sequence[str]] = None
@@ -239,115 +239,115 @@ class CreateAccessPointInputRequestTypeDef(BaseModel):
     Scheme: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateLoadBalancerListenerInputRequestTypeDef(BaseModel):
+class CreateLoadBalancerListenerInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Listeners: Sequence[ListenerTypeDef]
 
-class ListenerDescriptionTypeDef(BaseModel):
+class ListenerDescriptionTypeDef(BaseValidatorModel):
     Listener: Optional[ListenerTypeDef] = None
     PolicyNames: Optional[List[str]] = None
 
-class CreateLoadBalancerPolicyInputRequestTypeDef(BaseModel):
+class CreateLoadBalancerPolicyInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     PolicyName: str
     PolicyTypeName: str
     PolicyAttributes: Optional[Sequence[PolicyAttributeTypeDef]] = None
 
-class LoadBalancerAttributesTypeDef(BaseModel):
+class LoadBalancerAttributesTypeDef(BaseValidatorModel):
     CrossZoneLoadBalancing: Optional[CrossZoneLoadBalancingTypeDef] = None
     AccessLog: Optional[AccessLogTypeDef] = None
     ConnectionDraining: Optional[ConnectionDrainingTypeDef] = None
     ConnectionSettings: Optional[ConnectionSettingsTypeDef] = None
     AdditionalAttributes: Optional[List[AdditionalAttributeTypeDef]] = None
 
-class DeregisterEndPointsInputRequestTypeDef(BaseModel):
+class DeregisterEndPointsInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Instances: Sequence[InstanceTypeDef]
 
-class DeregisterEndPointsOutputTypeDef(BaseModel):
+class DeregisterEndPointsOutputTypeDef(BaseValidatorModel):
     Instances: List[InstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEndPointStateInputRequestTypeDef(BaseModel):
+class DescribeEndPointStateInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Instances: Optional[Sequence[InstanceTypeDef]] = None
 
-class RegisterEndPointsInputRequestTypeDef(BaseModel):
+class RegisterEndPointsInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Instances: Sequence[InstanceTypeDef]
 
-class RegisterEndPointsOutputTypeDef(BaseModel):
+class RegisterEndPointsOutputTypeDef(BaseValidatorModel):
     Instances: List[InstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAccessPointsInputDescribeLoadBalancersPaginateTypeDef(BaseModel):
+class DescribeAccessPointsInputDescribeLoadBalancersPaginateTypeDef(BaseValidatorModel):
     LoadBalancerNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAccountLimitsInputDescribeAccountLimitsPaginateTypeDef(BaseModel):
+class DescribeAccountLimitsInputDescribeAccountLimitsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAccountLimitsOutputTypeDef(BaseModel):
+class DescribeAccountLimitsOutputTypeDef(BaseValidatorModel):
     Limits: List[LimitTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEndPointStateInputAnyInstanceInServiceWaitTypeDef(BaseModel):
+class DescribeEndPointStateInputAnyInstanceInServiceWaitTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Instances: Optional[Sequence[InstanceTypeDef]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeEndPointStateInputInstanceDeregisteredWaitTypeDef(BaseModel):
+class DescribeEndPointStateInputInstanceDeregisteredWaitTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Instances: Optional[Sequence[InstanceTypeDef]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeEndPointStateInputInstanceInServiceWaitTypeDef(BaseModel):
+class DescribeEndPointStateInputInstanceInServiceWaitTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     Instances: Optional[Sequence[InstanceTypeDef]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeEndPointStateOutputTypeDef(BaseModel):
+class DescribeEndPointStateOutputTypeDef(BaseValidatorModel):
     InstanceStates: List[InstanceStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PoliciesTypeDef(BaseModel):
+class PoliciesTypeDef(BaseValidatorModel):
     AppCookieStickinessPolicies: Optional[List[AppCookieStickinessPolicyTypeDef]] = None
     LBCookieStickinessPolicies: Optional[List[LBCookieStickinessPolicyTypeDef]] = None
     OtherPolicies: Optional[List[str]] = None
 
-class PolicyDescriptionTypeDef(BaseModel):
+class PolicyDescriptionTypeDef(BaseValidatorModel):
     PolicyName: Optional[str] = None
     PolicyTypeName: Optional[str] = None
     PolicyAttributeDescriptions: Optional[List[PolicyAttributeDescriptionTypeDef]] = None
 
-class PolicyTypeDescriptionTypeDef(BaseModel):
+class PolicyTypeDescriptionTypeDef(BaseValidatorModel):
     PolicyTypeName: Optional[str] = None
     Description: Optional[str] = None
     PolicyAttributeTypeDescriptions: Optional[List[PolicyAttributeTypeDescriptionTypeDef]] = None
 
-class RemoveTagsInputRequestTypeDef(BaseModel):
+class RemoveTagsInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerNames: Sequence[str]
     Tags: Sequence[TagKeyOnlyTypeDef]
 
-class DescribeTagsOutputTypeDef(BaseModel):
+class DescribeTagsOutputTypeDef(BaseValidatorModel):
     TagDescriptions: List[TagDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLoadBalancerAttributesOutputTypeDef(BaseModel):
+class DescribeLoadBalancerAttributesOutputTypeDef(BaseValidatorModel):
     LoadBalancerAttributes: LoadBalancerAttributesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyLoadBalancerAttributesInputRequestTypeDef(BaseModel):
+class ModifyLoadBalancerAttributesInputRequestTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     LoadBalancerAttributes: LoadBalancerAttributesTypeDef
 
-class ModifyLoadBalancerAttributesOutputTypeDef(BaseModel):
+class ModifyLoadBalancerAttributesOutputTypeDef(BaseValidatorModel):
     LoadBalancerName: str
     LoadBalancerAttributes: LoadBalancerAttributesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoadBalancerDescriptionTypeDef(BaseModel):
+class LoadBalancerDescriptionTypeDef(BaseValidatorModel):
     LoadBalancerName: Optional[str] = None
     DNSName: Optional[str] = None
     CanonicalHostedZoneName: Optional[str] = None
@@ -365,15 +365,15 @@ class LoadBalancerDescriptionTypeDef(BaseModel):
     CreatedTime: Optional[datetime] = None
     Scheme: Optional[str] = None
 
-class DescribeLoadBalancerPoliciesOutputTypeDef(BaseModel):
+class DescribeLoadBalancerPoliciesOutputTypeDef(BaseValidatorModel):
     PolicyDescriptions: List[PolicyDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLoadBalancerPolicyTypesOutputTypeDef(BaseModel):
+class DescribeLoadBalancerPolicyTypesOutputTypeDef(BaseValidatorModel):
     PolicyTypeDescriptions: List[PolicyTypeDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAccessPointsOutputTypeDef(BaseModel):
+class DescribeAccessPointsOutputTypeDef(BaseValidatorModel):
     LoadBalancerDescriptions: List[LoadBalancerDescriptionTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef

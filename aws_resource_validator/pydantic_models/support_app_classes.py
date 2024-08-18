@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.support_app_constants import *
 
-class CreateSlackChannelConfigurationRequestRequestTypeDef(BaseModel):
+class CreateSlackChannelConfigurationRequestRequestTypeDef(BaseValidatorModel):
     channelId: str
     channelRoleArn: str
     notifyOnCaseSeverity: NotificationSeverityLevelType
@@ -21,24 +21,24 @@ class CreateSlackChannelConfigurationRequestRequestTypeDef(BaseModel):
     notifyOnCreateOrReopenCase: Optional[bool] = None
     notifyOnResolveCase: Optional[bool] = None
 
-class DeleteSlackChannelConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteSlackChannelConfigurationRequestRequestTypeDef(BaseValidatorModel):
     channelId: str
     teamId: str
 
-class DeleteSlackWorkspaceConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteSlackWorkspaceConfigurationRequestRequestTypeDef(BaseValidatorModel):
     teamId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class ListSlackChannelConfigurationsRequestRequestTypeDef(BaseModel):
+class ListSlackChannelConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
-class SlackChannelConfigurationTypeDef(BaseModel):
+class SlackChannelConfigurationTypeDef(BaseValidatorModel):
     channelId: str
     teamId: str
     channelName: Optional[str] = None
@@ -48,21 +48,21 @@ class SlackChannelConfigurationTypeDef(BaseModel):
     notifyOnCreateOrReopenCase: Optional[bool] = None
     notifyOnResolveCase: Optional[bool] = None
 
-class ListSlackWorkspaceConfigurationsRequestRequestTypeDef(BaseModel):
+class ListSlackWorkspaceConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
-class SlackWorkspaceConfigurationTypeDef(BaseModel):
+class SlackWorkspaceConfigurationTypeDef(BaseValidatorModel):
     teamId: str
     allowOrganizationMemberAccount: Optional[bool] = None
     teamName: Optional[str] = None
 
-class PutAccountAliasRequestRequestTypeDef(BaseModel):
+class PutAccountAliasRequestRequestTypeDef(BaseValidatorModel):
     accountAlias: str
 
-class RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef(BaseModel):
+class RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef(BaseValidatorModel):
     teamId: str
 
-class UpdateSlackChannelConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateSlackChannelConfigurationRequestRequestTypeDef(BaseValidatorModel):
     channelId: str
     teamId: str
     channelName: Optional[str] = None
@@ -72,17 +72,17 @@ class UpdateSlackChannelConfigurationRequestRequestTypeDef(BaseModel):
     notifyOnCreateOrReopenCase: Optional[bool] = None
     notifyOnResolveCase: Optional[bool] = None
 
-class GetAccountAliasResultTypeDef(BaseModel):
+class GetAccountAliasResultTypeDef(BaseValidatorModel):
     accountAlias: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterSlackWorkspaceForOrganizationResultTypeDef(BaseModel):
+class RegisterSlackWorkspaceForOrganizationResultTypeDef(BaseValidatorModel):
     accountType: AccountTypeType
     teamId: str
     teamName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSlackChannelConfigurationResultTypeDef(BaseModel):
+class UpdateSlackChannelConfigurationResultTypeDef(BaseValidatorModel):
     channelId: str
     channelName: str
     channelRoleArn: str
@@ -93,12 +93,12 @@ class UpdateSlackChannelConfigurationResultTypeDef(BaseModel):
     teamId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSlackChannelConfigurationsResultTypeDef(BaseModel):
+class ListSlackChannelConfigurationsResultTypeDef(BaseValidatorModel):
     nextToken: str
     slackChannelConfigurations: List[SlackChannelConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSlackWorkspaceConfigurationsResultTypeDef(BaseModel):
+class ListSlackWorkspaceConfigurationsResultTypeDef(BaseValidatorModel):
     nextToken: str
     slackWorkspaceConfigurations: List[SlackWorkspaceConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

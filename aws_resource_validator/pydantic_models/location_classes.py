@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,96 +11,96 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.location_constants import *
 
-class ApiKeyFilterTypeDef(BaseModel):
+class ApiKeyFilterTypeDef(BaseValidatorModel):
     KeyStatus: Optional[StatusType] = None
 
-class ApiKeyRestrictionsExtraOutputTypeDef(BaseModel):
+class ApiKeyRestrictionsExtraOutputTypeDef(BaseValidatorModel):
     AllowActions: List[str]
     AllowResources: List[str]
     AllowReferers: Optional[List[str]] = None
 
-class ApiKeyRestrictionsOutputTypeDef(BaseModel):
+class ApiKeyRestrictionsOutputTypeDef(BaseValidatorModel):
     AllowActions: List[str]
     AllowResources: List[str]
     AllowReferers: Optional[List[str]] = None
 
-class ApiKeyRestrictionsTypeDef(BaseModel):
+class ApiKeyRestrictionsTypeDef(BaseValidatorModel):
     AllowActions: Sequence[str]
     AllowResources: Sequence[str]
     AllowReferers: Optional[Sequence[str]] = None
 
-class AssociateTrackerConsumerRequestRequestTypeDef(BaseModel):
+class AssociateTrackerConsumerRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     ConsumerArn: str
 
-class BatchItemErrorTypeDef(BaseModel):
+class BatchItemErrorTypeDef(BaseValidatorModel):
     Code: Optional[BatchItemErrorCodeType] = None
     Message: Optional[str] = None
 
-class BatchDeleteDevicePositionHistoryRequestRequestTypeDef(BaseModel):
+class BatchDeleteDevicePositionHistoryRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     DeviceIds: Sequence[str]
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class BatchDeleteGeofenceRequestRequestTypeDef(BaseModel):
+class BatchDeleteGeofenceRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
     GeofenceIds: Sequence[str]
 
-class BatchGetDevicePositionRequestRequestTypeDef(BaseModel):
+class BatchGetDevicePositionRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     DeviceIds: Sequence[str]
 
-class BatchPutGeofenceSuccessTypeDef(BaseModel):
+class BatchPutGeofenceSuccessTypeDef(BaseValidatorModel):
     GeofenceId: str
     CreateTime: datetime
     UpdateTime: datetime
 
-class CalculateRouteCarModeOptionsTypeDef(BaseModel):
+class CalculateRouteCarModeOptionsTypeDef(BaseValidatorModel):
     AvoidFerries: Optional[bool] = None
     AvoidTolls: Optional[bool] = None
 
-class CalculateRouteMatrixSummaryTypeDef(BaseModel):
+class CalculateRouteMatrixSummaryTypeDef(BaseValidatorModel):
     DataSource: str
     RouteCount: int
     ErrorCount: int
     DistanceUnit: DistanceUnitType
 
-class CalculateRouteSummaryTypeDef(BaseModel):
+class CalculateRouteSummaryTypeDef(BaseValidatorModel):
     RouteBBox: List[float]
     DataSource: str
     Distance: float
     DurationSeconds: float
     DistanceUnit: DistanceUnitType
 
-class TruckDimensionsTypeDef(BaseModel):
+class TruckDimensionsTypeDef(BaseValidatorModel):
     Length: Optional[float] = None
     Height: Optional[float] = None
     Width: Optional[float] = None
     Unit: Optional[DimensionUnitType] = None
 
-class TruckWeightTypeDef(BaseModel):
+class TruckWeightTypeDef(BaseValidatorModel):
     Total: Optional[float] = None
     Unit: Optional[VehicleWeightUnitType] = None
 
-class CircleExtraOutputTypeDef(BaseModel):
+class CircleExtraOutputTypeDef(BaseValidatorModel):
     Center: List[float]
     Radius: float
 
-class CircleOutputTypeDef(BaseModel):
+class CircleOutputTypeDef(BaseValidatorModel):
     Center: List[float]
     Radius: float
 
-class CircleTypeDef(BaseModel):
+class CircleTypeDef(BaseValidatorModel):
     Center: Sequence[float]
     Radius: float
 
-class CreateGeofenceCollectionRequestRequestTypeDef(BaseModel):
+class CreateGeofenceCollectionRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
     PricingPlan: Optional[PricingPlanType] = None
     PricingPlanDataSource: Optional[str] = None
@@ -108,22 +108,22 @@ class CreateGeofenceCollectionRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     KmsKeyId: Optional[str] = None
 
-class MapConfigurationTypeDef(BaseModel):
+class MapConfigurationTypeDef(BaseValidatorModel):
     Style: str
     PoliticalView: Optional[str] = None
     CustomLayers: Optional[Sequence[str]] = None
 
-class DataSourceConfigurationTypeDef(BaseModel):
+class DataSourceConfigurationTypeDef(BaseValidatorModel):
     IntendedUse: Optional[IntendedUseType] = None
 
-class CreateRouteCalculatorRequestRequestTypeDef(BaseModel):
+class CreateRouteCalculatorRequestRequestTypeDef(BaseValidatorModel):
     CalculatorName: str
     DataSource: str
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateTrackerRequestRequestTypeDef(BaseModel):
+class CreateTrackerRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     PricingPlan: Optional[PricingPlanType] = None
     KmsKeyId: Optional[str] = None
@@ -134,69 +134,69 @@ class CreateTrackerRequestRequestTypeDef(BaseModel):
     EventBridgeEnabled: Optional[bool] = None
     KmsKeyEnableGeospatialQueries: Optional[bool] = None
 
-class DeleteGeofenceCollectionRequestRequestTypeDef(BaseModel):
+class DeleteGeofenceCollectionRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
 
-class DeleteKeyRequestRequestTypeDef(BaseModel):
+class DeleteKeyRequestRequestTypeDef(BaseValidatorModel):
     KeyName: str
     ForceDelete: Optional[bool] = None
 
-class DeleteMapRequestRequestTypeDef(BaseModel):
+class DeleteMapRequestRequestTypeDef(BaseValidatorModel):
     MapName: str
 
-class DeletePlaceIndexRequestRequestTypeDef(BaseModel):
+class DeletePlaceIndexRequestRequestTypeDef(BaseValidatorModel):
     IndexName: str
 
-class DeleteRouteCalculatorRequestRequestTypeDef(BaseModel):
+class DeleteRouteCalculatorRequestRequestTypeDef(BaseValidatorModel):
     CalculatorName: str
 
-class DeleteTrackerRequestRequestTypeDef(BaseModel):
+class DeleteTrackerRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
 
-class DescribeGeofenceCollectionRequestRequestTypeDef(BaseModel):
+class DescribeGeofenceCollectionRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
 
-class DescribeKeyRequestRequestTypeDef(BaseModel):
+class DescribeKeyRequestRequestTypeDef(BaseValidatorModel):
     KeyName: str
 
-class DescribeMapRequestRequestTypeDef(BaseModel):
+class DescribeMapRequestRequestTypeDef(BaseValidatorModel):
     MapName: str
 
-class MapConfigurationOutputTypeDef(BaseModel):
+class MapConfigurationOutputTypeDef(BaseValidatorModel):
     Style: str
     PoliticalView: Optional[str] = None
     CustomLayers: Optional[List[str]] = None
 
-class DescribePlaceIndexRequestRequestTypeDef(BaseModel):
+class DescribePlaceIndexRequestRequestTypeDef(BaseValidatorModel):
     IndexName: str
 
-class DescribeRouteCalculatorRequestRequestTypeDef(BaseModel):
+class DescribeRouteCalculatorRequestRequestTypeDef(BaseValidatorModel):
     CalculatorName: str
 
-class DescribeTrackerRequestRequestTypeDef(BaseModel):
+class DescribeTrackerRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
 
-class PositionalAccuracyTypeDef(BaseModel):
+class PositionalAccuracyTypeDef(BaseValidatorModel):
     Horizontal: float
 
-class WiFiAccessPointTypeDef(BaseModel):
+class WiFiAccessPointTypeDef(BaseValidatorModel):
     MacAddress: str
     Rss: int
 
-class DisassociateTrackerConsumerRequestRequestTypeDef(BaseModel):
+class DisassociateTrackerConsumerRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     ConsumerArn: str
 
-class ForecastGeofenceEventsDeviceStateTypeDef(BaseModel):
+class ForecastGeofenceEventsDeviceStateTypeDef(BaseValidatorModel):
     Position: Sequence[float]
     Speed: Optional[float] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ForecastedEventTypeDef(BaseModel):
+class ForecastedEventTypeDef(BaseValidatorModel):
     EventId: str
     GeofenceId: str
     IsDeviceInGeofence: bool
@@ -205,60 +205,60 @@ class ForecastedEventTypeDef(BaseModel):
     ForecastedBreachTime: Optional[datetime] = None
     GeofenceProperties: Optional[Dict[str, str]] = None
 
-class GetDevicePositionRequestRequestTypeDef(BaseModel):
+class GetDevicePositionRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     DeviceId: str
 
-class GetGeofenceRequestRequestTypeDef(BaseModel):
+class GetGeofenceRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
     GeofenceId: str
 
-class GetMapGlyphsRequestRequestTypeDef(BaseModel):
+class GetMapGlyphsRequestRequestTypeDef(BaseValidatorModel):
     MapName: str
     FontStack: str
     FontUnicodeRange: str
     Key: Optional[str] = None
 
-class GetMapSpritesRequestRequestTypeDef(BaseModel):
+class GetMapSpritesRequestRequestTypeDef(BaseValidatorModel):
     MapName: str
     FileName: str
     Key: Optional[str] = None
 
-class GetMapStyleDescriptorRequestRequestTypeDef(BaseModel):
+class GetMapStyleDescriptorRequestRequestTypeDef(BaseValidatorModel):
     MapName: str
     Key: Optional[str] = None
 
-class GetMapTileRequestRequestTypeDef(BaseModel):
+class GetMapTileRequestRequestTypeDef(BaseValidatorModel):
     MapName: str
     Z: str
     X: str
     Y: str
     Key: Optional[str] = None
 
-class GetPlaceRequestRequestTypeDef(BaseModel):
+class GetPlaceRequestRequestTypeDef(BaseValidatorModel):
     IndexName: str
     PlaceId: str
     Language: Optional[str] = None
     Key: Optional[str] = None
 
-class LegGeometryTypeDef(BaseModel):
+class LegGeometryTypeDef(BaseValidatorModel):
     LineString: Optional[List[List[float]]] = None
 
-class StepTypeDef(BaseModel):
+class StepTypeDef(BaseValidatorModel):
     StartPosition: List[float]
     EndPosition: List[float]
     Distance: float
     DurationSeconds: float
     GeometryOffset: Optional[int] = None
 
-class TrackingFilterGeometryTypeDef(BaseModel):
+class TrackingFilterGeometryTypeDef(BaseValidatorModel):
     Polygon: Optional[Sequence[Sequence[Sequence[float]]]] = None
 
-class ListGeofenceCollectionsRequestRequestTypeDef(BaseModel):
+class ListGeofenceCollectionsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListGeofenceCollectionsResponseEntryTypeDef(BaseModel):
+class ListGeofenceCollectionsResponseEntryTypeDef(BaseValidatorModel):
     CollectionName: str
     Description: str
     CreateTime: datetime
@@ -266,16 +266,16 @@ class ListGeofenceCollectionsResponseEntryTypeDef(BaseModel):
     PricingPlan: Optional[PricingPlanType] = None
     PricingPlanDataSource: Optional[str] = None
 
-class ListGeofencesRequestRequestTypeDef(BaseModel):
+class ListGeofencesRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListMapsRequestRequestTypeDef(BaseModel):
+class ListMapsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListMapsResponseEntryTypeDef(BaseModel):
+class ListMapsResponseEntryTypeDef(BaseValidatorModel):
     MapName: str
     Description: str
     DataSource: str
@@ -283,11 +283,11 @@ class ListMapsResponseEntryTypeDef(BaseModel):
     UpdateTime: datetime
     PricingPlan: Optional[PricingPlanType] = None
 
-class ListPlaceIndexesRequestRequestTypeDef(BaseModel):
+class ListPlaceIndexesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListPlaceIndexesResponseEntryTypeDef(BaseModel):
+class ListPlaceIndexesResponseEntryTypeDef(BaseValidatorModel):
     IndexName: str
     Description: str
     DataSource: str
@@ -295,11 +295,11 @@ class ListPlaceIndexesResponseEntryTypeDef(BaseModel):
     UpdateTime: datetime
     PricingPlan: Optional[PricingPlanType] = None
 
-class ListRouteCalculatorsRequestRequestTypeDef(BaseModel):
+class ListRouteCalculatorsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListRouteCalculatorsResponseEntryTypeDef(BaseModel):
+class ListRouteCalculatorsResponseEntryTypeDef(BaseValidatorModel):
     CalculatorName: str
     Description: str
     DataSource: str
@@ -307,19 +307,19 @@ class ListRouteCalculatorsResponseEntryTypeDef(BaseModel):
     UpdateTime: datetime
     PricingPlan: Optional[PricingPlanType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListTrackerConsumersRequestRequestTypeDef(BaseModel):
+class ListTrackerConsumersRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTrackersRequestRequestTypeDef(BaseModel):
+class ListTrackersRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTrackersResponseEntryTypeDef(BaseModel):
+class ListTrackersResponseEntryTypeDef(BaseValidatorModel):
     TrackerName: str
     Description: str
     CreateTime: datetime
@@ -327,52 +327,52 @@ class ListTrackersResponseEntryTypeDef(BaseModel):
     PricingPlan: Optional[PricingPlanType] = None
     PricingPlanDataSource: Optional[str] = None
 
-class LteLocalIdTypeDef(BaseModel):
+class LteLocalIdTypeDef(BaseValidatorModel):
     Earfcn: int
     Pci: int
 
-class LteNetworkMeasurementsTypeDef(BaseModel):
+class LteNetworkMeasurementsTypeDef(BaseValidatorModel):
     Earfcn: int
     CellId: int
     Pci: int
     Rsrp: Optional[int] = None
     Rsrq: Optional[float] = None
 
-class MapConfigurationUpdateTypeDef(BaseModel):
+class MapConfigurationUpdateTypeDef(BaseValidatorModel):
     PoliticalView: Optional[str] = None
     CustomLayers: Optional[Sequence[str]] = None
 
-class PlaceGeometryTypeDef(BaseModel):
+class PlaceGeometryTypeDef(BaseValidatorModel):
     Point: Optional[List[float]] = None
 
-class TimeZoneTypeDef(BaseModel):
+class TimeZoneTypeDef(BaseValidatorModel):
     Name: str
     Offset: Optional[int] = None
 
-class RouteMatrixEntryErrorTypeDef(BaseModel):
+class RouteMatrixEntryErrorTypeDef(BaseValidatorModel):
     Code: RouteMatrixErrorCodeType
     Message: Optional[str] = None
 
-class SearchForSuggestionsResultTypeDef(BaseModel):
+class SearchForSuggestionsResultTypeDef(BaseValidatorModel):
     Text: str
     PlaceId: Optional[str] = None
     Categories: Optional[List[str]] = None
     SupplementalCategories: Optional[List[str]] = None
 
-class SearchPlaceIndexForPositionRequestRequestTypeDef(BaseModel):
+class SearchPlaceIndexForPositionRequestRequestTypeDef(BaseValidatorModel):
     IndexName: str
     Position: Sequence[float]
     MaxResults: Optional[int] = None
     Language: Optional[str] = None
     Key: Optional[str] = None
 
-class SearchPlaceIndexForPositionSummaryTypeDef(BaseModel):
+class SearchPlaceIndexForPositionSummaryTypeDef(BaseValidatorModel):
     Position: List[float]
     DataSource: str
     MaxResults: Optional[int] = None
     Language: Optional[str] = None
 
-class SearchPlaceIndexForSuggestionsRequestRequestTypeDef(BaseModel):
+class SearchPlaceIndexForSuggestionsRequestRequestTypeDef(BaseValidatorModel):
     IndexName: str
     Text: str
     BiasPosition: Optional[Sequence[float]] = None
@@ -383,7 +383,7 @@ class SearchPlaceIndexForSuggestionsRequestRequestTypeDef(BaseModel):
     FilterCategories: Optional[Sequence[str]] = None
     Key: Optional[str] = None
 
-class SearchPlaceIndexForSuggestionsSummaryTypeDef(BaseModel):
+class SearchPlaceIndexForSuggestionsSummaryTypeDef(BaseValidatorModel):
     Text: str
     DataSource: str
     BiasPosition: Optional[List[float]] = None
@@ -393,7 +393,7 @@ class SearchPlaceIndexForSuggestionsSummaryTypeDef(BaseModel):
     Language: Optional[str] = None
     FilterCategories: Optional[List[str]] = None
 
-class SearchPlaceIndexForTextRequestRequestTypeDef(BaseModel):
+class SearchPlaceIndexForTextRequestRequestTypeDef(BaseValidatorModel):
     IndexName: str
     Text: str
     BiasPosition: Optional[Sequence[float]] = None
@@ -404,7 +404,7 @@ class SearchPlaceIndexForTextRequestRequestTypeDef(BaseModel):
     FilterCategories: Optional[Sequence[str]] = None
     Key: Optional[str] = None
 
-class SearchPlaceIndexForTextSummaryTypeDef(BaseModel):
+class SearchPlaceIndexForTextSummaryTypeDef(BaseValidatorModel):
     Text: str
     DataSource: str
     BiasPosition: Optional[List[float]] = None
@@ -415,26 +415,26 @@ class SearchPlaceIndexForTextSummaryTypeDef(BaseModel):
     Language: Optional[str] = None
     FilterCategories: Optional[List[str]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateGeofenceCollectionRequestRequestTypeDef(BaseModel):
+class UpdateGeofenceCollectionRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
     PricingPlan: Optional[PricingPlanType] = None
     PricingPlanDataSource: Optional[str] = None
     Description: Optional[str] = None
 
-class UpdateRouteCalculatorRequestRequestTypeDef(BaseModel):
+class UpdateRouteCalculatorRequestRequestTypeDef(BaseValidatorModel):
     CalculatorName: str
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
 
-class UpdateTrackerRequestRequestTypeDef(BaseModel):
+class UpdateTrackerRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     PricingPlan: Optional[PricingPlanType] = None
     PricingPlanDataSource: Optional[str] = None
@@ -443,12 +443,12 @@ class UpdateTrackerRequestRequestTypeDef(BaseModel):
     EventBridgeEnabled: Optional[bool] = None
     KmsKeyEnableGeospatialQueries: Optional[bool] = None
 
-class ListKeysRequestRequestTypeDef(BaseModel):
+class ListKeysRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filter: Optional[ApiKeyFilterTypeDef] = None
 
-class ListKeysResponseEntryTypeDef(BaseModel):
+class ListKeysResponseEntryTypeDef(BaseValidatorModel):
     KeyName: str
     ExpireTime: datetime
     Restrictions: ApiKeyRestrictionsOutputTypeDef
@@ -456,70 +456,70 @@ class ListKeysResponseEntryTypeDef(BaseModel):
     UpdateTime: datetime
     Description: Optional[str] = None
 
-class BatchDeleteDevicePositionHistoryErrorTypeDef(BaseModel):
+class BatchDeleteDevicePositionHistoryErrorTypeDef(BaseValidatorModel):
     DeviceId: str
     Error: BatchItemErrorTypeDef
 
-class BatchDeleteGeofenceErrorTypeDef(BaseModel):
+class BatchDeleteGeofenceErrorTypeDef(BaseValidatorModel):
     GeofenceId: str
     Error: BatchItemErrorTypeDef
 
-class BatchEvaluateGeofencesErrorTypeDef(BaseModel):
+class BatchEvaluateGeofencesErrorTypeDef(BaseValidatorModel):
     DeviceId: str
     SampleTime: datetime
     Error: BatchItemErrorTypeDef
 
-class BatchGetDevicePositionErrorTypeDef(BaseModel):
+class BatchGetDevicePositionErrorTypeDef(BaseValidatorModel):
     DeviceId: str
     Error: BatchItemErrorTypeDef
 
-class BatchPutGeofenceErrorTypeDef(BaseModel):
+class BatchPutGeofenceErrorTypeDef(BaseValidatorModel):
     GeofenceId: str
     Error: BatchItemErrorTypeDef
 
-class BatchUpdateDevicePositionErrorTypeDef(BaseModel):
+class BatchUpdateDevicePositionErrorTypeDef(BaseValidatorModel):
     DeviceId: str
     SampleTime: datetime
     Error: BatchItemErrorTypeDef
 
-class CreateGeofenceCollectionResponseTypeDef(BaseModel):
+class CreateGeofenceCollectionResponseTypeDef(BaseValidatorModel):
     CollectionName: str
     CollectionArn: str
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateKeyResponseTypeDef(BaseModel):
+class CreateKeyResponseTypeDef(BaseValidatorModel):
     Key: str
     KeyArn: str
     KeyName: str
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMapResponseTypeDef(BaseModel):
+class CreateMapResponseTypeDef(BaseValidatorModel):
     MapName: str
     MapArn: str
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePlaceIndexResponseTypeDef(BaseModel):
+class CreatePlaceIndexResponseTypeDef(BaseValidatorModel):
     IndexName: str
     IndexArn: str
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRouteCalculatorResponseTypeDef(BaseModel):
+class CreateRouteCalculatorResponseTypeDef(BaseValidatorModel):
     CalculatorName: str
     CalculatorArn: str
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrackerResponseTypeDef(BaseModel):
+class CreateTrackerResponseTypeDef(BaseValidatorModel):
     TrackerName: str
     TrackerArn: str
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeGeofenceCollectionResponseTypeDef(BaseModel):
+class DescribeGeofenceCollectionResponseTypeDef(BaseValidatorModel):
     CollectionName: str
     CollectionArn: str
     Description: str
@@ -532,7 +532,7 @@ class DescribeGeofenceCollectionResponseTypeDef(BaseModel):
     GeofenceCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeKeyResponseTypeDef(BaseModel):
+class DescribeKeyResponseTypeDef(BaseValidatorModel):
     Key: str
     KeyArn: str
     KeyName: str
@@ -544,7 +544,7 @@ class DescribeKeyResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRouteCalculatorResponseTypeDef(BaseModel):
+class DescribeRouteCalculatorResponseTypeDef(BaseValidatorModel):
     CalculatorName: str
     CalculatorArn: str
     PricingPlan: PricingPlanType
@@ -555,7 +555,7 @@ class DescribeRouteCalculatorResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTrackerResponseTypeDef(BaseModel):
+class DescribeTrackerResponseTypeDef(BaseValidatorModel):
     TrackerName: str
     TrackerArn: str
     Description: str
@@ -570,82 +570,82 @@ class DescribeTrackerResponseTypeDef(BaseModel):
     KmsKeyEnableGeospatialQueries: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMapGlyphsResponseTypeDef(BaseModel):
+class GetMapGlyphsResponseTypeDef(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
     CacheControl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMapSpritesResponseTypeDef(BaseModel):
+class GetMapSpritesResponseTypeDef(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
     CacheControl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMapStyleDescriptorResponseTypeDef(BaseModel):
+class GetMapStyleDescriptorResponseTypeDef(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
     CacheControl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMapTileResponseTypeDef(BaseModel):
+class GetMapTileResponseTypeDef(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
     CacheControl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTrackerConsumersResponseTypeDef(BaseModel):
+class ListTrackerConsumersResponseTypeDef(BaseValidatorModel):
     ConsumerArns: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutGeofenceResponseTypeDef(BaseModel):
+class PutGeofenceResponseTypeDef(BaseValidatorModel):
     GeofenceId: str
     CreateTime: datetime
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGeofenceCollectionResponseTypeDef(BaseModel):
+class UpdateGeofenceCollectionResponseTypeDef(BaseValidatorModel):
     CollectionName: str
     CollectionArn: str
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateKeyResponseTypeDef(BaseModel):
+class UpdateKeyResponseTypeDef(BaseValidatorModel):
     KeyArn: str
     KeyName: str
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMapResponseTypeDef(BaseModel):
+class UpdateMapResponseTypeDef(BaseValidatorModel):
     MapName: str
     MapArn: str
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePlaceIndexResponseTypeDef(BaseModel):
+class UpdatePlaceIndexResponseTypeDef(BaseValidatorModel):
     IndexName: str
     IndexArn: str
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRouteCalculatorResponseTypeDef(BaseModel):
+class UpdateRouteCalculatorResponseTypeDef(BaseValidatorModel):
     CalculatorName: str
     CalculatorArn: str
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTrackerResponseTypeDef(BaseModel):
+class UpdateTrackerResponseTypeDef(BaseValidatorModel):
     TrackerName: str
     TrackerArn: str
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateKeyRequestRequestTypeDef(BaseModel):
+class CreateKeyRequestRequestTypeDef(BaseValidatorModel):
     KeyName: str
     Restrictions: ApiKeyRestrictionsTypeDef
     Description: Optional[str] = None
@@ -653,7 +653,7 @@ class CreateKeyRequestRequestTypeDef(BaseModel):
     NoExpiry: Optional[bool] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class GetDevicePositionHistoryRequestRequestTypeDef(BaseModel):
+class GetDevicePositionHistoryRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     DeviceId: str
     NextToken: Optional[str] = None
@@ -661,7 +661,7 @@ class GetDevicePositionHistoryRequestRequestTypeDef(BaseModel):
     EndTimeExclusive: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
 
-class UpdateKeyRequestRequestTypeDef(BaseModel):
+class UpdateKeyRequestRequestTypeDef(BaseValidatorModel):
     KeyName: str
     Description: Optional[str] = None
     ExpireTime: Optional[TimestampTypeDef] = None
@@ -669,35 +669,35 @@ class UpdateKeyRequestRequestTypeDef(BaseModel):
     ForceUpdate: Optional[bool] = None
     Restrictions: Optional[ApiKeyRestrictionsTypeDef] = None
 
-class CalculateRouteTruckModeOptionsTypeDef(BaseModel):
+class CalculateRouteTruckModeOptionsTypeDef(BaseValidatorModel):
     AvoidFerries: Optional[bool] = None
     AvoidTolls: Optional[bool] = None
     Dimensions: Optional[TruckDimensionsTypeDef] = None
     Weight: Optional[TruckWeightTypeDef] = None
 
-class GeofenceGeometryExtraOutputTypeDef(BaseModel):
+class GeofenceGeometryExtraOutputTypeDef(BaseValidatorModel):
     Polygon: Optional[List[List[List[float]]]] = None
     Circle: Optional[CircleExtraOutputTypeDef] = None
     Geobuf: Optional[bytes] = None
 
-class GeofenceGeometryOutputTypeDef(BaseModel):
+class GeofenceGeometryOutputTypeDef(BaseValidatorModel):
     Polygon: Optional[List[List[List[float]]]] = None
     Circle: Optional[CircleOutputTypeDef] = None
     Geobuf: Optional[bytes] = None
 
-class GeofenceGeometryTypeDef(BaseModel):
+class GeofenceGeometryTypeDef(BaseValidatorModel):
     Polygon: Optional[Sequence[Sequence[Sequence[float]]]] = None
     Circle: Optional[CircleTypeDef] = None
     Geobuf: Optional[BlobTypeDef] = None
 
-class CreateMapRequestRequestTypeDef(BaseModel):
+class CreateMapRequestRequestTypeDef(BaseValidatorModel):
     MapName: str
     Configuration: MapConfigurationTypeDef
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreatePlaceIndexRequestRequestTypeDef(BaseModel):
+class CreatePlaceIndexRequestRequestTypeDef(BaseValidatorModel):
     IndexName: str
     DataSource: str
     PricingPlan: Optional[PricingPlanType] = None
@@ -705,7 +705,7 @@ class CreatePlaceIndexRequestRequestTypeDef(BaseModel):
     DataSourceConfiguration: Optional[DataSourceConfigurationTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class DescribePlaceIndexResponseTypeDef(BaseModel):
+class DescribePlaceIndexResponseTypeDef(BaseValidatorModel):
     IndexName: str
     IndexArn: str
     PricingPlan: PricingPlanType
@@ -717,13 +717,13 @@ class DescribePlaceIndexResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePlaceIndexRequestRequestTypeDef(BaseModel):
+class UpdatePlaceIndexRequestRequestTypeDef(BaseValidatorModel):
     IndexName: str
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
     DataSourceConfiguration: Optional[DataSourceConfigurationTypeDef] = None
 
-class DescribeMapResponseTypeDef(BaseModel):
+class DescribeMapResponseTypeDef(BaseValidatorModel):
     MapName: str
     MapArn: str
     PricingPlan: PricingPlanType
@@ -735,7 +735,7 @@ class DescribeMapResponseTypeDef(BaseModel):
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DevicePositionTypeDef(BaseModel):
+class DevicePositionTypeDef(BaseValidatorModel):
     SampleTime: datetime
     ReceivedTime: datetime
     Position: List[float]
@@ -743,14 +743,14 @@ class DevicePositionTypeDef(BaseModel):
     Accuracy: Optional[PositionalAccuracyTypeDef] = None
     PositionProperties: Optional[Dict[str, str]] = None
 
-class DevicePositionUpdateTypeDef(BaseModel):
+class DevicePositionUpdateTypeDef(BaseValidatorModel):
     DeviceId: str
     SampleTime: TimestampTypeDef
     Position: Sequence[float]
     Accuracy: Optional[PositionalAccuracyTypeDef] = None
     PositionProperties: Optional[Mapping[str, str]] = None
 
-class GetDevicePositionResponseTypeDef(BaseModel):
+class GetDevicePositionResponseTypeDef(BaseValidatorModel):
     DeviceId: str
     SampleTime: datetime
     ReceivedTime: datetime
@@ -759,20 +759,20 @@ class GetDevicePositionResponseTypeDef(BaseModel):
     PositionProperties: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InferredStateTypeDef(BaseModel):
+class InferredStateTypeDef(BaseValidatorModel):
     ProxyDetected: bool
     Position: Optional[List[float]] = None
     Accuracy: Optional[PositionalAccuracyTypeDef] = None
     DeviationDistance: Optional[float] = None
 
-class ListDevicePositionsResponseEntryTypeDef(BaseModel):
+class ListDevicePositionsResponseEntryTypeDef(BaseValidatorModel):
     DeviceId: str
     SampleTime: datetime
     Position: List[float]
     Accuracy: Optional[PositionalAccuracyTypeDef] = None
     PositionProperties: Optional[Dict[str, str]] = None
 
-class ForecastGeofenceEventsRequestRequestTypeDef(BaseModel):
+class ForecastGeofenceEventsRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
     DeviceState: ForecastGeofenceEventsDeviceStateTypeDef
     TimeHorizonMinutes: Optional[float] = None
@@ -781,7 +781,7 @@ class ForecastGeofenceEventsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ForecastGeofenceEventsRequestForecastGeofenceEventsPaginateTypeDef(BaseModel):
+class ForecastGeofenceEventsRequestForecastGeofenceEventsPaginateTypeDef(BaseValidatorModel):
     CollectionName: str
     DeviceState: ForecastGeofenceEventsDeviceStateTypeDef
     TimeHorizonMinutes: Optional[float] = None
@@ -789,48 +789,48 @@ class ForecastGeofenceEventsRequestForecastGeofenceEventsPaginateTypeDef(BaseMod
     SpeedUnit: Optional[SpeedUnitType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDevicePositionHistoryRequestGetDevicePositionHistoryPaginateTypeDef(BaseModel):
+class GetDevicePositionHistoryRequestGetDevicePositionHistoryPaginateTypeDef(BaseValidatorModel):
     TrackerName: str
     DeviceId: str
     StartTimeInclusive: Optional[TimestampTypeDef] = None
     EndTimeExclusive: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGeofenceCollectionsRequestListGeofenceCollectionsPaginateTypeDef(BaseModel):
+class ListGeofenceCollectionsRequestListGeofenceCollectionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGeofencesRequestListGeofencesPaginateTypeDef(BaseModel):
+class ListGeofencesRequestListGeofencesPaginateTypeDef(BaseValidatorModel):
     CollectionName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListKeysRequestListKeysPaginateTypeDef(BaseModel):
+class ListKeysRequestListKeysPaginateTypeDef(BaseValidatorModel):
     Filter: Optional[ApiKeyFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMapsRequestListMapsPaginateTypeDef(BaseModel):
+class ListMapsRequestListMapsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPlaceIndexesRequestListPlaceIndexesPaginateTypeDef(BaseModel):
+class ListPlaceIndexesRequestListPlaceIndexesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRouteCalculatorsRequestListRouteCalculatorsPaginateTypeDef(BaseModel):
+class ListRouteCalculatorsRequestListRouteCalculatorsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTrackerConsumersRequestListTrackerConsumersPaginateTypeDef(BaseModel):
+class ListTrackerConsumersRequestListTrackerConsumersPaginateTypeDef(BaseValidatorModel):
     TrackerName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTrackersRequestListTrackersPaginateTypeDef(BaseModel):
+class ListTrackersRequestListTrackersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ForecastGeofenceEventsResponseTypeDef(BaseModel):
+class ForecastGeofenceEventsResponseTypeDef(BaseValidatorModel):
     ForecastedEvents: List[ForecastedEventTypeDef]
     DistanceUnit: DistanceUnitType
     SpeedUnit: SpeedUnitType
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LegTypeDef(BaseModel):
+class LegTypeDef(BaseValidatorModel):
     StartPosition: List[float]
     EndPosition: List[float]
     Distance: float
@@ -838,43 +838,43 @@ class LegTypeDef(BaseModel):
     Steps: List[StepTypeDef]
     Geometry: Optional[LegGeometryTypeDef] = None
 
-class ListDevicePositionsRequestListDevicePositionsPaginateTypeDef(BaseModel):
+class ListDevicePositionsRequestListDevicePositionsPaginateTypeDef(BaseValidatorModel):
     TrackerName: str
     FilterGeometry: Optional[TrackingFilterGeometryTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDevicePositionsRequestRequestTypeDef(BaseModel):
+class ListDevicePositionsRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     FilterGeometry: Optional[TrackingFilterGeometryTypeDef] = None
 
-class ListGeofenceCollectionsResponseTypeDef(BaseModel):
+class ListGeofenceCollectionsResponseTypeDef(BaseValidatorModel):
     Entries: List[ListGeofenceCollectionsResponseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListMapsResponseTypeDef(BaseModel):
+class ListMapsResponseTypeDef(BaseValidatorModel):
     Entries: List[ListMapsResponseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPlaceIndexesResponseTypeDef(BaseModel):
+class ListPlaceIndexesResponseTypeDef(BaseValidatorModel):
     Entries: List[ListPlaceIndexesResponseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListRouteCalculatorsResponseTypeDef(BaseModel):
+class ListRouteCalculatorsResponseTypeDef(BaseValidatorModel):
     Entries: List[ListRouteCalculatorsResponseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTrackersResponseTypeDef(BaseModel):
+class ListTrackersResponseTypeDef(BaseValidatorModel):
     Entries: List[ListTrackersResponseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LteCellDetailsTypeDef(BaseModel):
+class LteCellDetailsTypeDef(BaseValidatorModel):
     CellId: int
     Mcc: int
     Mnc: int
@@ -886,13 +886,13 @@ class LteCellDetailsTypeDef(BaseModel):
     Rsrq: Optional[float] = None
     Tac: Optional[int] = None
 
-class UpdateMapRequestRequestTypeDef(BaseModel):
+class UpdateMapRequestRequestTypeDef(BaseValidatorModel):
     MapName: str
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
     ConfigurationUpdate: Optional[MapConfigurationUpdateTypeDef] = None
 
-class PlaceTypeDef(BaseModel):
+class PlaceTypeDef(BaseValidatorModel):
     Geometry: PlaceGeometryTypeDef
     Label: Optional[str] = None
     AddressNumber: Optional[str] = None
@@ -911,43 +911,43 @@ class PlaceTypeDef(BaseModel):
     SupplementalCategories: Optional[List[str]] = None
     SubMunicipality: Optional[str] = None
 
-class RouteMatrixEntryTypeDef(BaseModel):
+class RouteMatrixEntryTypeDef(BaseValidatorModel):
     Distance: Optional[float] = None
     DurationSeconds: Optional[float] = None
     Error: Optional[RouteMatrixEntryErrorTypeDef] = None
 
-class SearchPlaceIndexForSuggestionsResponseTypeDef(BaseModel):
+class SearchPlaceIndexForSuggestionsResponseTypeDef(BaseValidatorModel):
     Summary: SearchPlaceIndexForSuggestionsSummaryTypeDef
     Results: List[SearchForSuggestionsResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListKeysResponseTypeDef(BaseModel):
+class ListKeysResponseTypeDef(BaseValidatorModel):
     Entries: List[ListKeysResponseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchDeleteDevicePositionHistoryResponseTypeDef(BaseModel):
+class BatchDeleteDevicePositionHistoryResponseTypeDef(BaseValidatorModel):
     Errors: List[BatchDeleteDevicePositionHistoryErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDeleteGeofenceResponseTypeDef(BaseModel):
+class BatchDeleteGeofenceResponseTypeDef(BaseValidatorModel):
     Errors: List[BatchDeleteGeofenceErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchEvaluateGeofencesResponseTypeDef(BaseModel):
+class BatchEvaluateGeofencesResponseTypeDef(BaseValidatorModel):
     Errors: List[BatchEvaluateGeofencesErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchPutGeofenceResponseTypeDef(BaseModel):
+class BatchPutGeofenceResponseTypeDef(BaseValidatorModel):
     Successes: List[BatchPutGeofenceSuccessTypeDef]
     Errors: List[BatchPutGeofenceErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchUpdateDevicePositionResponseTypeDef(BaseModel):
+class BatchUpdateDevicePositionResponseTypeDef(BaseValidatorModel):
     Errors: List[BatchUpdateDevicePositionErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CalculateRouteMatrixRequestRequestTypeDef(BaseModel):
+class CalculateRouteMatrixRequestRequestTypeDef(BaseValidatorModel):
     CalculatorName: str
     DeparturePositions: Sequence[Sequence[float]]
     DestinationPositions: Sequence[Sequence[float]]
@@ -959,7 +959,7 @@ class CalculateRouteMatrixRequestRequestTypeDef(BaseModel):
     TruckModeOptions: Optional[CalculateRouteTruckModeOptionsTypeDef] = None
     Key: Optional[str] = None
 
-class CalculateRouteRequestRequestTypeDef(BaseModel):
+class CalculateRouteRequestRequestTypeDef(BaseValidatorModel):
     CalculatorName: str
     DeparturePosition: Sequence[float]
     DestinationPosition: Sequence[float]
@@ -975,7 +975,7 @@ class CalculateRouteRequestRequestTypeDef(BaseModel):
     OptimizeFor: Optional[OptimizationModeType] = None
     Key: Optional[str] = None
 
-class GetGeofenceResponseTypeDef(BaseModel):
+class GetGeofenceResponseTypeDef(BaseValidatorModel):
     GeofenceId: str
     Geometry: GeofenceGeometryOutputTypeDef
     Status: str
@@ -984,7 +984,7 @@ class GetGeofenceResponseTypeDef(BaseModel):
     GeofenceProperties: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGeofenceResponseEntryTypeDef(BaseModel):
+class ListGeofenceResponseEntryTypeDef(BaseValidatorModel):
     GeofenceId: str
     Geometry: GeofenceGeometryOutputTypeDef
     Status: str
@@ -992,36 +992,36 @@ class ListGeofenceResponseEntryTypeDef(BaseModel):
     UpdateTime: datetime
     GeofenceProperties: Optional[Dict[str, str]] = None
 
-class BatchPutGeofenceRequestEntryTypeDef(BaseModel):
+class BatchPutGeofenceRequestEntryTypeDef(BaseValidatorModel):
     GeofenceId: str
     Geometry: GeofenceGeometryTypeDef
     GeofenceProperties: Optional[Mapping[str, str]] = None
 
-class PutGeofenceRequestRequestTypeDef(BaseModel):
+class PutGeofenceRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
     GeofenceId: str
     Geometry: GeofenceGeometryTypeDef
     GeofenceProperties: Optional[Mapping[str, str]] = None
 
-class BatchGetDevicePositionResponseTypeDef(BaseModel):
+class BatchGetDevicePositionResponseTypeDef(BaseValidatorModel):
     Errors: List[BatchGetDevicePositionErrorTypeDef]
     DevicePositions: List[DevicePositionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDevicePositionHistoryResponseTypeDef(BaseModel):
+class GetDevicePositionHistoryResponseTypeDef(BaseValidatorModel):
     DevicePositions: List[DevicePositionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchEvaluateGeofencesRequestRequestTypeDef(BaseModel):
+class BatchEvaluateGeofencesRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
     DevicePositionUpdates: Sequence[DevicePositionUpdateTypeDef]
 
-class BatchUpdateDevicePositionRequestRequestTypeDef(BaseModel):
+class BatchUpdateDevicePositionRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     Updates: Sequence[DevicePositionUpdateTypeDef]
 
-class VerifyDevicePositionResponseTypeDef(BaseModel):
+class VerifyDevicePositionResponseTypeDef(BaseValidatorModel):
     InferredState: InferredStateTypeDef
     DeviceId: str
     SampleTime: datetime
@@ -1029,51 +1029,51 @@ class VerifyDevicePositionResponseTypeDef(BaseModel):
     DistanceUnit: DistanceUnitType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDevicePositionsResponseTypeDef(BaseModel):
+class ListDevicePositionsResponseTypeDef(BaseValidatorModel):
     Entries: List[ListDevicePositionsResponseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CalculateRouteResponseTypeDef(BaseModel):
+class CalculateRouteResponseTypeDef(BaseValidatorModel):
     Legs: List[LegTypeDef]
     Summary: CalculateRouteSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CellSignalsTypeDef(BaseModel):
+class CellSignalsTypeDef(BaseValidatorModel):
     LteCellDetails: Sequence[LteCellDetailsTypeDef]
 
-class GetPlaceResponseTypeDef(BaseModel):
+class GetPlaceResponseTypeDef(BaseValidatorModel):
     Place: PlaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchForPositionResultTypeDef(BaseModel):
+class SearchForPositionResultTypeDef(BaseValidatorModel):
     Place: PlaceTypeDef
     Distance: float
     PlaceId: Optional[str] = None
 
-class SearchForTextResultTypeDef(BaseModel):
+class SearchForTextResultTypeDef(BaseValidatorModel):
     Place: PlaceTypeDef
     Distance: Optional[float] = None
     Relevance: Optional[float] = None
     PlaceId: Optional[str] = None
 
-class CalculateRouteMatrixResponseTypeDef(BaseModel):
+class CalculateRouteMatrixResponseTypeDef(BaseValidatorModel):
     RouteMatrix: List[List[RouteMatrixEntryTypeDef]]
     SnappedDeparturePositions: List[List[float]]
     SnappedDestinationPositions: List[List[float]]
     Summary: CalculateRouteMatrixSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGeofencesResponseTypeDef(BaseModel):
+class ListGeofencesResponseTypeDef(BaseValidatorModel):
     Entries: List[ListGeofenceResponseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class BatchPutGeofenceRequestRequestTypeDef(BaseModel):
+class BatchPutGeofenceRequestRequestTypeDef(BaseValidatorModel):
     CollectionName: str
     Entries: Sequence[BatchPutGeofenceRequestEntryTypeDef]
 
-class DeviceStateTypeDef(BaseModel):
+class DeviceStateTypeDef(BaseValidatorModel):
     DeviceId: str
     SampleTime: TimestampTypeDef
     Position: Sequence[float]
@@ -1082,17 +1082,17 @@ class DeviceStateTypeDef(BaseModel):
     WiFiAccessPoints: Optional[Sequence[WiFiAccessPointTypeDef]] = None
     CellSignals: Optional[CellSignalsTypeDef] = None
 
-class SearchPlaceIndexForPositionResponseTypeDef(BaseModel):
+class SearchPlaceIndexForPositionResponseTypeDef(BaseValidatorModel):
     Summary: SearchPlaceIndexForPositionSummaryTypeDef
     Results: List[SearchForPositionResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchPlaceIndexForTextResponseTypeDef(BaseModel):
+class SearchPlaceIndexForTextResponseTypeDef(BaseValidatorModel):
     Summary: SearchPlaceIndexForTextSummaryTypeDef
     Results: List[SearchForTextResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifyDevicePositionRequestRequestTypeDef(BaseModel):
+class VerifyDevicePositionRequestRequestTypeDef(BaseValidatorModel):
     TrackerName: str
     DeviceState: DeviceStateTypeDef
     DistanceUnit: Optional[DistanceUnitType] = None

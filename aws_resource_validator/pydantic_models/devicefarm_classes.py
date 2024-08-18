@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,23 +11,23 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.devicefarm_constants import *
 
-class TrialMinutesTypeDef(BaseModel):
+class TrialMinutesTypeDef(BaseValidatorModel):
     total: Optional[float] = None
     remaining: Optional[float] = None
 
-class ArtifactTypeDef(BaseModel):
+class ArtifactTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     type: Optional[ArtifactTypeType] = None
     extension: Optional[str] = None
     url: Optional[str] = None
 
-class CPUTypeDef(BaseModel):
+class CPUTypeDef(BaseValidatorModel):
     frequency: Optional[str] = None
     architecture: Optional[str] = None
     clock: Optional[float] = None
 
-class CountersTypeDef(BaseModel):
+class CountersTypeDef(BaseValidatorModel):
     total: Optional[int] = None
     passed: Optional[int] = None
     failed: Optional[int] = None
@@ -36,26 +36,26 @@ class CountersTypeDef(BaseModel):
     stopped: Optional[int] = None
     skipped: Optional[int] = None
 
-class RuleTypeDef(BaseModel):
+class RuleTypeDef(BaseValidatorModel):
     attribute: Optional[DeviceAttributeType] = None
     operator: Optional[RuleOperatorType] = None
     value: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateInstanceProfileRequestRequestTypeDef(BaseModel):
+class CreateInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     packageCleanup: Optional[bool] = None
     excludeAppPackagesFromCleanup: Optional[Sequence[str]] = None
     rebootAfterUse: Optional[bool] = None
 
-class InstanceProfileTypeDef(BaseModel):
+class InstanceProfileTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     packageCleanup: Optional[bool] = None
     excludeAppPackagesFromCleanup: Optional[List[str]] = None
@@ -63,7 +63,7 @@ class InstanceProfileTypeDef(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
 
-class CreateNetworkProfileRequestRequestTypeDef(BaseModel):
+class CreateNetworkProfileRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
     name: str
     description: Optional[str] = None
@@ -77,7 +77,7 @@ class CreateNetworkProfileRequestRequestTypeDef(BaseModel):
     uplinkLossPercent: Optional[int] = None
     downlinkLossPercent: Optional[int] = None
 
-class NetworkProfileTypeDef(BaseModel):
+class NetworkProfileTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -91,31 +91,31 @@ class NetworkProfileTypeDef(BaseModel):
     uplinkLossPercent: Optional[int] = None
     downlinkLossPercent: Optional[int] = None
 
-class VpcConfigTypeDef(BaseModel):
+class VpcConfigTypeDef(BaseValidatorModel):
     securityGroupIds: Sequence[str]
     subnetIds: Sequence[str]
     vpcId: str
 
-class CreateRemoteAccessSessionConfigurationTypeDef(BaseModel):
+class CreateRemoteAccessSessionConfigurationTypeDef(BaseValidatorModel):
     billingMethod: Optional[BillingMethodType] = None
     vpceConfigurationArns: Optional[Sequence[str]] = None
 
-class TestGridVpcConfigTypeDef(BaseModel):
+class TestGridVpcConfigTypeDef(BaseValidatorModel):
     securityGroupIds: Sequence[str]
     subnetIds: Sequence[str]
     vpcId: str
 
-class CreateTestGridUrlRequestRequestTypeDef(BaseModel):
+class CreateTestGridUrlRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
     expiresInSeconds: int
 
-class CreateUploadRequestRequestTypeDef(BaseModel):
+class CreateUploadRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
     name: str
     type: UploadTypeType
     contentType: Optional[str] = None
 
-class UploadTypeDef(BaseModel):
+class UploadTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     created: Optional[datetime] = None
@@ -127,145 +127,145 @@ class UploadTypeDef(BaseModel):
     message: Optional[str] = None
     category: Optional[UploadCategoryType] = None
 
-class CreateVPCEConfigurationRequestRequestTypeDef(BaseModel):
+class CreateVPCEConfigurationRequestRequestTypeDef(BaseValidatorModel):
     vpceConfigurationName: str
     vpceServiceName: str
     serviceDnsName: str
     vpceConfigurationDescription: Optional[str] = None
 
-class VPCEConfigurationTypeDef(BaseModel):
+class VPCEConfigurationTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     vpceConfigurationName: Optional[str] = None
     vpceServiceName: Optional[str] = None
     serviceDnsName: Optional[str] = None
     vpceConfigurationDescription: Optional[str] = None
 
-class CustomerArtifactPathsOutputTypeDef(BaseModel):
+class CustomerArtifactPathsOutputTypeDef(BaseValidatorModel):
     iosPaths: Optional[List[str]] = None
     androidPaths: Optional[List[str]] = None
     deviceHostPaths: Optional[List[str]] = None
 
-class CustomerArtifactPathsTypeDef(BaseModel):
+class CustomerArtifactPathsTypeDef(BaseValidatorModel):
     iosPaths: Optional[Sequence[str]] = None
     androidPaths: Optional[Sequence[str]] = None
     deviceHostPaths: Optional[Sequence[str]] = None
 
-class DeleteDevicePoolRequestRequestTypeDef(BaseModel):
+class DeleteDevicePoolRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteInstanceProfileRequestRequestTypeDef(BaseModel):
+class DeleteInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteNetworkProfileRequestRequestTypeDef(BaseModel):
+class DeleteNetworkProfileRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteProjectRequestRequestTypeDef(BaseModel):
+class DeleteProjectRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteRemoteAccessSessionRequestRequestTypeDef(BaseModel):
+class DeleteRemoteAccessSessionRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteRunRequestRequestTypeDef(BaseModel):
+class DeleteRunRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteTestGridProjectRequestRequestTypeDef(BaseModel):
+class DeleteTestGridProjectRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
 
-class DeleteUploadRequestRequestTypeDef(BaseModel):
+class DeleteUploadRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteVPCEConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteVPCEConfigurationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeviceFilterExtraOutputTypeDef(BaseModel):
+class DeviceFilterExtraOutputTypeDef(BaseValidatorModel):
     attribute: DeviceFilterAttributeType
     operator: RuleOperatorType
     values: List[str]
 
-class DeviceFilterOutputTypeDef(BaseModel):
+class DeviceFilterOutputTypeDef(BaseValidatorModel):
     attribute: DeviceFilterAttributeType
     operator: RuleOperatorType
     values: List[str]
 
-class DeviceFilterTypeDef(BaseModel):
+class DeviceFilterTypeDef(BaseValidatorModel):
     attribute: DeviceFilterAttributeType
     operator: RuleOperatorType
     values: Sequence[str]
 
-class DeviceMinutesTypeDef(BaseModel):
+class DeviceMinutesTypeDef(BaseValidatorModel):
     total: Optional[float] = None
     metered: Optional[float] = None
     unmetered: Optional[float] = None
 
-class IncompatibilityMessageTypeDef(BaseModel):
+class IncompatibilityMessageTypeDef(BaseValidatorModel):
     message: Optional[str] = None
     type: Optional[DeviceAttributeType] = None
 
-class ResolutionTypeDef(BaseModel):
+class ResolutionTypeDef(BaseValidatorModel):
     width: Optional[int] = None
     height: Optional[int] = None
 
-class ExecutionConfigurationTypeDef(BaseModel):
+class ExecutionConfigurationTypeDef(BaseValidatorModel):
     jobTimeoutMinutes: Optional[int] = None
     accountsCleanup: Optional[bool] = None
     appPackagesCleanup: Optional[bool] = None
     videoCapture: Optional[bool] = None
     skipAppResign: Optional[bool] = None
 
-class GetDeviceInstanceRequestRequestTypeDef(BaseModel):
+class GetDeviceInstanceRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class ScheduleRunTestTypeDef(BaseModel):
+class ScheduleRunTestTypeDef(BaseValidatorModel):
     type: TestTypeType
     testPackageArn: Optional[str] = None
     testSpecArn: Optional[str] = None
     filter: Optional[str] = None
     parameters: Optional[Mapping[str, str]] = None
 
-class GetDevicePoolRequestRequestTypeDef(BaseModel):
+class GetDevicePoolRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetDeviceRequestRequestTypeDef(BaseModel):
+class GetDeviceRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetInstanceProfileRequestRequestTypeDef(BaseModel):
+class GetInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetJobRequestRequestTypeDef(BaseModel):
+class GetJobRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetNetworkProfileRequestRequestTypeDef(BaseModel):
+class GetNetworkProfileRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetOfferingStatusRequestRequestTypeDef(BaseModel):
+class GetOfferingStatusRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
-class GetProjectRequestRequestTypeDef(BaseModel):
+class GetProjectRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetRemoteAccessSessionRequestRequestTypeDef(BaseModel):
+class GetRemoteAccessSessionRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetRunRequestRequestTypeDef(BaseModel):
+class GetRunRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetSuiteRequestRequestTypeDef(BaseModel):
+class GetSuiteRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetTestGridProjectRequestRequestTypeDef(BaseModel):
+class GetTestGridProjectRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
 
-class GetTestGridSessionRequestRequestTypeDef(BaseModel):
+class GetTestGridSessionRequestRequestTypeDef(BaseValidatorModel):
     projectArn: Optional[str] = None
     sessionId: Optional[str] = None
     sessionArn: Optional[str] = None
 
-class TestGridSessionTypeDef(BaseModel):
+class TestGridSessionTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     status: Optional[TestGridSessionStatusType] = None
     created: Optional[datetime] = None
@@ -273,191 +273,191 @@ class TestGridSessionTypeDef(BaseModel):
     billingMinutes: Optional[float] = None
     seleniumProperties: Optional[str] = None
 
-class GetTestRequestRequestTypeDef(BaseModel):
+class GetTestRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetUploadRequestRequestTypeDef(BaseModel):
+class GetUploadRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetVPCEConfigurationRequestRequestTypeDef(BaseModel):
+class GetVPCEConfigurationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class InstallToRemoteAccessSessionRequestRequestTypeDef(BaseModel):
+class InstallToRemoteAccessSessionRequestRequestTypeDef(BaseValidatorModel):
     remoteAccessSessionArn: str
     appArn: str
 
-class ListArtifactsRequestRequestTypeDef(BaseModel):
+class ListArtifactsRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     type: ArtifactCategoryType
     nextToken: Optional[str] = None
 
-class ListDeviceInstancesRequestRequestTypeDef(BaseModel):
+class ListDeviceInstancesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListDevicePoolsRequestRequestTypeDef(BaseModel):
+class ListDevicePoolsRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     type: Optional[DevicePoolTypeType] = None
     nextToken: Optional[str] = None
 
-class ListInstanceProfilesRequestRequestTypeDef(BaseModel):
+class ListInstanceProfilesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListJobsRequestRequestTypeDef(BaseModel):
+class ListJobsRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
-class ListNetworkProfilesRequestRequestTypeDef(BaseModel):
+class ListNetworkProfilesRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     type: Optional[NetworkProfileTypeType] = None
     nextToken: Optional[str] = None
 
-class ListOfferingPromotionsRequestRequestTypeDef(BaseModel):
+class ListOfferingPromotionsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
-class OfferingPromotionTypeDef(BaseModel):
+class OfferingPromotionTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     description: Optional[str] = None
 
-class ListOfferingTransactionsRequestRequestTypeDef(BaseModel):
+class ListOfferingTransactionsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
-class ListOfferingsRequestRequestTypeDef(BaseModel):
+class ListOfferingsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
-class ListProjectsRequestRequestTypeDef(BaseModel):
+class ListProjectsRequestRequestTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     nextToken: Optional[str] = None
 
-class ListRemoteAccessSessionsRequestRequestTypeDef(BaseModel):
+class ListRemoteAccessSessionsRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
-class ListRunsRequestRequestTypeDef(BaseModel):
+class ListRunsRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
-class ListSamplesRequestRequestTypeDef(BaseModel):
+class ListSamplesRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
-class SampleTypeDef(BaseModel):
+class SampleTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     type: Optional[SampleTypeType] = None
     url: Optional[str] = None
 
-class ListSuitesRequestRequestTypeDef(BaseModel):
+class ListSuitesRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ListTestGridProjectsRequestRequestTypeDef(BaseModel):
+class ListTestGridProjectsRequestRequestTypeDef(BaseValidatorModel):
     maxResult: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTestGridSessionActionsRequestRequestTypeDef(BaseModel):
+class ListTestGridSessionActionsRequestRequestTypeDef(BaseValidatorModel):
     sessionArn: str
     maxResult: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TestGridSessionActionTypeDef(BaseModel):
+class TestGridSessionActionTypeDef(BaseValidatorModel):
     action: Optional[str] = None
     started: Optional[datetime] = None
     duration: Optional[int] = None
     statusCode: Optional[str] = None
     requestMethod: Optional[str] = None
 
-class ListTestGridSessionArtifactsRequestRequestTypeDef(BaseModel):
+class ListTestGridSessionArtifactsRequestRequestTypeDef(BaseValidatorModel):
     sessionArn: str
     type: Optional[TestGridSessionArtifactCategoryType] = None
     maxResult: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TestGridSessionArtifactTypeDef(BaseModel):
+class TestGridSessionArtifactTypeDef(BaseValidatorModel):
     filename: Optional[str] = None
     type: Optional[TestGridSessionArtifactTypeType] = None
     url: Optional[str] = None
 
-class ListTestsRequestRequestTypeDef(BaseModel):
+class ListTestsRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
-class ListUniqueProblemsRequestRequestTypeDef(BaseModel):
+class ListUniqueProblemsRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
-class ListUploadsRequestRequestTypeDef(BaseModel):
+class ListUploadsRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     type: Optional[UploadTypeType] = None
     nextToken: Optional[str] = None
 
-class ListVPCEConfigurationsRequestRequestTypeDef(BaseModel):
+class ListVPCEConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class LocationTypeDef(BaseModel):
+class LocationTypeDef(BaseValidatorModel):
     latitude: float
     longitude: float
 
-class MonetaryAmountTypeDef(BaseModel):
+class MonetaryAmountTypeDef(BaseValidatorModel):
     amount: Optional[float] = None
     currencyCode: Optional[Literal["USD"]] = None
 
-class ProblemDetailTypeDef(BaseModel):
+class ProblemDetailTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
 
-class VpcConfigOutputTypeDef(BaseModel):
+class VpcConfigOutputTypeDef(BaseValidatorModel):
     securityGroupIds: List[str]
     subnetIds: List[str]
     vpcId: str
 
-class PurchaseOfferingRequestRequestTypeDef(BaseModel):
+class PurchaseOfferingRequestRequestTypeDef(BaseValidatorModel):
     offeringId: str
     quantity: int
     offeringPromotionId: Optional[str] = None
 
-class RadiosTypeDef(BaseModel):
+class RadiosTypeDef(BaseValidatorModel):
     wifi: Optional[bool] = None
     bluetooth: Optional[bool] = None
     nfc: Optional[bool] = None
     gps: Optional[bool] = None
 
-class RenewOfferingRequestRequestTypeDef(BaseModel):
+class RenewOfferingRequestRequestTypeDef(BaseValidatorModel):
     offeringId: str
     quantity: int
 
-class StopJobRequestRequestTypeDef(BaseModel):
+class StopJobRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class StopRemoteAccessSessionRequestRequestTypeDef(BaseModel):
+class StopRemoteAccessSessionRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class StopRunRequestRequestTypeDef(BaseModel):
+class StopRunRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class TestGridVpcConfigOutputTypeDef(BaseModel):
+class TestGridVpcConfigOutputTypeDef(BaseValidatorModel):
     securityGroupIds: List[str]
     subnetIds: List[str]
     vpcId: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateDeviceInstanceRequestRequestTypeDef(BaseModel):
+class UpdateDeviceInstanceRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     profileArn: Optional[str] = None
     labels: Optional[Sequence[str]] = None
 
-class UpdateInstanceProfileRequestRequestTypeDef(BaseModel):
+class UpdateInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     description: Optional[str] = None
@@ -465,7 +465,7 @@ class UpdateInstanceProfileRequestRequestTypeDef(BaseModel):
     excludeAppPackagesFromCleanup: Optional[Sequence[str]] = None
     rebootAfterUse: Optional[bool] = None
 
-class UpdateNetworkProfileRequestRequestTypeDef(BaseModel):
+class UpdateNetworkProfileRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     description: Optional[str] = None
@@ -479,25 +479,25 @@ class UpdateNetworkProfileRequestRequestTypeDef(BaseModel):
     uplinkLossPercent: Optional[int] = None
     downlinkLossPercent: Optional[int] = None
 
-class UpdateUploadRequestRequestTypeDef(BaseModel):
+class UpdateUploadRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     contentType: Optional[str] = None
     editContent: Optional[bool] = None
 
-class UpdateVPCEConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateVPCEConfigurationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     vpceConfigurationName: Optional[str] = None
     vpceServiceName: Optional[str] = None
     serviceDnsName: Optional[str] = None
     vpceConfigurationDescription: Optional[str] = None
 
-class VpcConfigExtraOutputTypeDef(BaseModel):
+class VpcConfigExtraOutputTypeDef(BaseValidatorModel):
     securityGroupIds: List[str]
     subnetIds: List[str]
     vpcId: str
 
-class AccountSettingsTypeDef(BaseModel):
+class AccountSettingsTypeDef(BaseValidatorModel):
     awsAccountNumber: Optional[str] = None
     unmeteredDevices: Optional[Dict[DevicePlatformType, int]] = None
     unmeteredRemoteAccessDevices: Optional[Dict[DevicePlatformType, int]] = None
@@ -507,14 +507,14 @@ class AccountSettingsTypeDef(BaseModel):
     defaultJobTimeoutMinutes: Optional[int] = None
     skipAppResign: Optional[bool] = None
 
-class CreateDevicePoolRequestRequestTypeDef(BaseModel):
+class CreateDevicePoolRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
     name: str
     rules: Sequence[RuleTypeDef]
     description: Optional[str] = None
     maxDevices: Optional[int] = None
 
-class DevicePoolTypeDef(BaseModel):
+class DevicePoolTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -522,7 +522,7 @@ class DevicePoolTypeDef(BaseModel):
     rules: Optional[List[RuleTypeDef]] = None
     maxDevices: Optional[int] = None
 
-class UpdateDevicePoolRequestRequestTypeDef(BaseModel):
+class UpdateDevicePoolRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     description: Optional[str] = None
@@ -530,21 +530,21 @@ class UpdateDevicePoolRequestRequestTypeDef(BaseModel):
     maxDevices: Optional[int] = None
     clearMaxDevices: Optional[bool] = None
 
-class CreateTestGridUrlResultTypeDef(BaseModel):
+class CreateTestGridUrlResultTypeDef(BaseValidatorModel):
     url: str
     expires: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListArtifactsResultTypeDef(BaseModel):
+class ListArtifactsResultTypeDef(BaseValidatorModel):
     artifacts: List[ArtifactTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceProfileResultTypeDef(BaseModel):
+class CreateInstanceProfileResultTypeDef(BaseValidatorModel):
     instanceProfile: InstanceProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeviceInstanceTypeDef(BaseModel):
+class DeviceInstanceTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     deviceArn: Optional[str] = None
     labels: Optional[List[str]] = None
@@ -552,48 +552,48 @@ class DeviceInstanceTypeDef(BaseModel):
     udid: Optional[str] = None
     instanceProfile: Optional[InstanceProfileTypeDef] = None
 
-class GetInstanceProfileResultTypeDef(BaseModel):
+class GetInstanceProfileResultTypeDef(BaseValidatorModel):
     instanceProfile: InstanceProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInstanceProfilesResultTypeDef(BaseModel):
+class ListInstanceProfilesResultTypeDef(BaseValidatorModel):
     instanceProfiles: List[InstanceProfileTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateInstanceProfileResultTypeDef(BaseModel):
+class UpdateInstanceProfileResultTypeDef(BaseValidatorModel):
     instanceProfile: InstanceProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateNetworkProfileResultTypeDef(BaseModel):
+class CreateNetworkProfileResultTypeDef(BaseValidatorModel):
     networkProfile: NetworkProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetNetworkProfileResultTypeDef(BaseModel):
+class GetNetworkProfileResultTypeDef(BaseValidatorModel):
     networkProfile: NetworkProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListNetworkProfilesResultTypeDef(BaseModel):
+class ListNetworkProfilesResultTypeDef(BaseValidatorModel):
     networkProfiles: List[NetworkProfileTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateNetworkProfileResultTypeDef(BaseModel):
+class UpdateNetworkProfileResultTypeDef(BaseValidatorModel):
     networkProfile: NetworkProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProjectRequestRequestTypeDef(BaseModel):
+class CreateProjectRequestRequestTypeDef(BaseValidatorModel):
     name: str
     defaultJobTimeoutMinutes: Optional[int] = None
     vpcConfig: Optional[VpcConfigTypeDef] = None
 
-class UpdateProjectRequestRequestTypeDef(BaseModel):
+class UpdateProjectRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     defaultJobTimeoutMinutes: Optional[int] = None
     vpcConfig: Optional[VpcConfigTypeDef] = None
 
-class CreateRemoteAccessSessionRequestRequestTypeDef(BaseModel):
+class CreateRemoteAccessSessionRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
     deviceArn: str
     instanceArn: Optional[str] = None
@@ -607,65 +607,65 @@ class CreateRemoteAccessSessionRequestRequestTypeDef(BaseModel):
     interactionMode: Optional[InteractionModeType] = None
     skipAppResign: Optional[bool] = None
 
-class CreateTestGridProjectRequestRequestTypeDef(BaseModel):
+class CreateTestGridProjectRequestRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     vpcConfig: Optional[TestGridVpcConfigTypeDef] = None
 
-class UpdateTestGridProjectRequestRequestTypeDef(BaseModel):
+class UpdateTestGridProjectRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
     name: Optional[str] = None
     description: Optional[str] = None
     vpcConfig: Optional[TestGridVpcConfigTypeDef] = None
 
-class CreateUploadResultTypeDef(BaseModel):
+class CreateUploadResultTypeDef(BaseValidatorModel):
     upload: UploadTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUploadResultTypeDef(BaseModel):
+class GetUploadResultTypeDef(BaseValidatorModel):
     upload: UploadTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InstallToRemoteAccessSessionResultTypeDef(BaseModel):
+class InstallToRemoteAccessSessionResultTypeDef(BaseValidatorModel):
     appUpload: UploadTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUploadsResultTypeDef(BaseModel):
+class ListUploadsResultTypeDef(BaseValidatorModel):
     uploads: List[UploadTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUploadResultTypeDef(BaseModel):
+class UpdateUploadResultTypeDef(BaseValidatorModel):
     upload: UploadTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVPCEConfigurationResultTypeDef(BaseModel):
+class CreateVPCEConfigurationResultTypeDef(BaseValidatorModel):
     vpceConfiguration: VPCEConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVPCEConfigurationResultTypeDef(BaseModel):
+class GetVPCEConfigurationResultTypeDef(BaseValidatorModel):
     vpceConfiguration: VPCEConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVPCEConfigurationsResultTypeDef(BaseModel):
+class ListVPCEConfigurationsResultTypeDef(BaseValidatorModel):
     vpceConfigurations: List[VPCEConfigurationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVPCEConfigurationResultTypeDef(BaseModel):
+class UpdateVPCEConfigurationResultTypeDef(BaseValidatorModel):
     vpceConfiguration: VPCEConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeviceSelectionResultTypeDef(BaseModel):
+class DeviceSelectionResultTypeDef(BaseValidatorModel):
     filters: Optional[List[DeviceFilterOutputTypeDef]] = None
     matchedDevicesCount: Optional[int] = None
     maxDevices: Optional[int] = None
 
-class DeviceSelectionConfigurationTypeDef(BaseModel):
+class DeviceSelectionConfigurationTypeDef(BaseValidatorModel):
     filters: Sequence[DeviceFilterTypeDef]
     maxDevices: int
 
-class SuiteTypeDef(BaseModel):
+class SuiteTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     type: Optional[TestTypeType] = None
@@ -678,7 +678,7 @@ class SuiteTypeDef(BaseModel):
     message: Optional[str] = None
     deviceMinutes: Optional[DeviceMinutesTypeDef] = None
 
-class TestTypeDef(BaseModel):
+class TestTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     type: Optional[TestTypeType] = None
@@ -691,117 +691,117 @@ class TestTypeDef(BaseModel):
     message: Optional[str] = None
     deviceMinutes: Optional[DeviceMinutesTypeDef] = None
 
-class GetOfferingStatusRequestGetOfferingStatusPaginateTypeDef(BaseModel):
+class GetOfferingStatusRequestGetOfferingStatusPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListArtifactsRequestListArtifactsPaginateTypeDef(BaseModel):
+class ListArtifactsRequestListArtifactsPaginateTypeDef(BaseValidatorModel):
     arn: str
     type: ArtifactCategoryType
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDeviceInstancesRequestListDeviceInstancesPaginateTypeDef(BaseModel):
+class ListDeviceInstancesRequestListDeviceInstancesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDevicePoolsRequestListDevicePoolsPaginateTypeDef(BaseModel):
+class ListDevicePoolsRequestListDevicePoolsPaginateTypeDef(BaseValidatorModel):
     arn: str
     type: Optional[DevicePoolTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInstanceProfilesRequestListInstanceProfilesPaginateTypeDef(BaseModel):
+class ListInstanceProfilesRequestListInstanceProfilesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobsRequestListJobsPaginateTypeDef(BaseModel):
+class ListJobsRequestListJobsPaginateTypeDef(BaseValidatorModel):
     arn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListNetworkProfilesRequestListNetworkProfilesPaginateTypeDef(BaseModel):
+class ListNetworkProfilesRequestListNetworkProfilesPaginateTypeDef(BaseValidatorModel):
     arn: str
     type: Optional[NetworkProfileTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOfferingPromotionsRequestListOfferingPromotionsPaginateTypeDef(BaseModel):
+class ListOfferingPromotionsRequestListOfferingPromotionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOfferingTransactionsRequestListOfferingTransactionsPaginateTypeDef(BaseModel):
+class ListOfferingTransactionsRequestListOfferingTransactionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOfferingsRequestListOfferingsPaginateTypeDef(BaseModel):
+class ListOfferingsRequestListOfferingsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectsRequestListProjectsPaginateTypeDef(BaseModel):
+class ListProjectsRequestListProjectsPaginateTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRemoteAccessSessionsRequestListRemoteAccessSessionsPaginateTypeDef(BaseModel):
+class ListRemoteAccessSessionsRequestListRemoteAccessSessionsPaginateTypeDef(BaseValidatorModel):
     arn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRunsRequestListRunsPaginateTypeDef(BaseModel):
+class ListRunsRequestListRunsPaginateTypeDef(BaseValidatorModel):
     arn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSamplesRequestListSamplesPaginateTypeDef(BaseModel):
+class ListSamplesRequestListSamplesPaginateTypeDef(BaseValidatorModel):
     arn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSuitesRequestListSuitesPaginateTypeDef(BaseModel):
+class ListSuitesRequestListSuitesPaginateTypeDef(BaseValidatorModel):
     arn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTestsRequestListTestsPaginateTypeDef(BaseModel):
+class ListTestsRequestListTestsPaginateTypeDef(BaseValidatorModel):
     arn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUniqueProblemsRequestListUniqueProblemsPaginateTypeDef(BaseModel):
+class ListUniqueProblemsRequestListUniqueProblemsPaginateTypeDef(BaseValidatorModel):
     arn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUploadsRequestListUploadsPaginateTypeDef(BaseModel):
+class ListUploadsRequestListUploadsPaginateTypeDef(BaseValidatorModel):
     arn: str
     type: Optional[UploadTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVPCEConfigurationsRequestListVPCEConfigurationsPaginateTypeDef(BaseModel):
+class ListVPCEConfigurationsRequestListVPCEConfigurationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetTestGridSessionResultTypeDef(BaseModel):
+class GetTestGridSessionResultTypeDef(BaseValidatorModel):
     testGridSession: TestGridSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestGridSessionsResultTypeDef(BaseModel):
+class ListTestGridSessionsResultTypeDef(BaseValidatorModel):
     testGridSessions: List[TestGridSessionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOfferingPromotionsResultTypeDef(BaseModel):
+class ListOfferingPromotionsResultTypeDef(BaseValidatorModel):
     offeringPromotions: List[OfferingPromotionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSamplesResultTypeDef(BaseModel):
+class ListSamplesResultTypeDef(BaseValidatorModel):
     samples: List[SampleTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class ListTestGridSessionActionsResultTypeDef(BaseModel):
+class ListTestGridSessionActionsResultTypeDef(BaseValidatorModel):
     actions: List[TestGridSessionActionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestGridSessionArtifactsResultTypeDef(BaseModel):
+class ListTestGridSessionArtifactsResultTypeDef(BaseValidatorModel):
     artifacts: List[TestGridSessionArtifactTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestGridSessionsRequestRequestTypeDef(BaseModel):
+class ListTestGridSessionsRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
     status: Optional[TestGridSessionStatusType] = None
     creationTimeAfter: Optional[TimestampTypeDef] = None
@@ -811,18 +811,18 @@ class ListTestGridSessionsRequestRequestTypeDef(BaseModel):
     maxResult: Optional[int] = None
     nextToken: Optional[str] = None
 
-class RecurringChargeTypeDef(BaseModel):
+class RecurringChargeTypeDef(BaseValidatorModel):
     cost: Optional[MonetaryAmountTypeDef] = None
     frequency: Optional[Literal["MONTHLY"]] = None
 
-class ProjectTypeDef(BaseModel):
+class ProjectTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     defaultJobTimeoutMinutes: Optional[int] = None
     created: Optional[datetime] = None
     vpcConfig: Optional[VpcConfigOutputTypeDef] = None
 
-class ScheduleRunConfigurationTypeDef(BaseModel):
+class ScheduleRunConfigurationTypeDef(BaseValidatorModel):
     extraDataPackageArn: Optional[str] = None
     networkProfileArn: Optional[str] = None
     locale: Optional[str] = None
@@ -833,35 +833,35 @@ class ScheduleRunConfigurationTypeDef(BaseModel):
     auxiliaryApps: Optional[Sequence[str]] = None
     billingMethod: Optional[BillingMethodType] = None
 
-class TestGridProjectTypeDef(BaseModel):
+class TestGridProjectTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
     vpcConfig: Optional[TestGridVpcConfigOutputTypeDef] = None
     created: Optional[datetime] = None
 
-class GetAccountSettingsResultTypeDef(BaseModel):
+class GetAccountSettingsResultTypeDef(BaseValidatorModel):
     accountSettings: AccountSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDevicePoolResultTypeDef(BaseModel):
+class CreateDevicePoolResultTypeDef(BaseValidatorModel):
     devicePool: DevicePoolTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDevicePoolResultTypeDef(BaseModel):
+class GetDevicePoolResultTypeDef(BaseValidatorModel):
     devicePool: DevicePoolTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDevicePoolsResultTypeDef(BaseModel):
+class ListDevicePoolsResultTypeDef(BaseValidatorModel):
     devicePools: List[DevicePoolTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDevicePoolResultTypeDef(BaseModel):
+class UpdateDevicePoolResultTypeDef(BaseValidatorModel):
     devicePool: DevicePoolTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeviceTypeDef(BaseModel):
+class DeviceTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     manufacturer: Optional[str] = None
@@ -884,20 +884,20 @@ class DeviceTypeDef(BaseModel):
     instances: Optional[List[DeviceInstanceTypeDef]] = None
     availability: Optional[DeviceAvailabilityType] = None
 
-class GetDeviceInstanceResultTypeDef(BaseModel):
+class GetDeviceInstanceResultTypeDef(BaseValidatorModel):
     deviceInstance: DeviceInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeviceInstancesResultTypeDef(BaseModel):
+class ListDeviceInstancesResultTypeDef(BaseValidatorModel):
     deviceInstances: List[DeviceInstanceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDeviceInstanceResultTypeDef(BaseModel):
+class UpdateDeviceInstanceResultTypeDef(BaseValidatorModel):
     deviceInstance: DeviceInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RunTypeDef(BaseModel):
+class RunTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     type: Optional[TestTypeType] = None
@@ -931,66 +931,66 @@ class RunTypeDef(BaseModel):
     deviceSelectionResult: Optional[DeviceSelectionResultTypeDef] = None
     vpcConfig: Optional[VpcConfigOutputTypeDef] = None
 
-class ListDevicesRequestListDevicesPaginateTypeDef(BaseModel):
+class ListDevicesRequestListDevicesPaginateTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     filters: Optional[Sequence[DeviceFilterUnionTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDevicesRequestRequestTypeDef(BaseModel):
+class ListDevicesRequestRequestTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     nextToken: Optional[str] = None
     filters: Optional[Sequence[DeviceFilterUnionTypeDef]] = None
 
-class GetSuiteResultTypeDef(BaseModel):
+class GetSuiteResultTypeDef(BaseValidatorModel):
     suite: SuiteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSuitesResultTypeDef(BaseModel):
+class ListSuitesResultTypeDef(BaseValidatorModel):
     suites: List[SuiteTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTestResultTypeDef(BaseModel):
+class GetTestResultTypeDef(BaseValidatorModel):
     test: TestTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestsResultTypeDef(BaseModel):
+class ListTestsResultTypeDef(BaseValidatorModel):
     tests: List[TestTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OfferingTypeDef(BaseModel):
+class OfferingTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     description: Optional[str] = None
     type: Optional[Literal["RECURRING"]] = None
     platform: Optional[DevicePlatformType] = None
     recurringCharges: Optional[List[RecurringChargeTypeDef]] = None
 
-class CreateProjectResultTypeDef(BaseModel):
+class CreateProjectResultTypeDef(BaseValidatorModel):
     project: ProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetProjectResultTypeDef(BaseModel):
+class GetProjectResultTypeDef(BaseValidatorModel):
     project: ProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProjectsResultTypeDef(BaseModel):
+class ListProjectsResultTypeDef(BaseValidatorModel):
     projects: List[ProjectTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProjectResultTypeDef(BaseModel):
+class UpdateProjectResultTypeDef(BaseValidatorModel):
     project: ProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDevicePoolCompatibilityRequestRequestTypeDef(BaseModel):
+class GetDevicePoolCompatibilityRequestRequestTypeDef(BaseValidatorModel):
     devicePoolArn: str
     appArn: Optional[str] = None
     testType: Optional[TestTypeType] = None
     test: Optional[ScheduleRunTestTypeDef] = None
     configuration: Optional[ScheduleRunConfigurationTypeDef] = None
 
-class ScheduleRunRequestRequestTypeDef(BaseModel):
+class ScheduleRunRequestRequestTypeDef(BaseValidatorModel):
     projectArn: str
     test: ScheduleRunTestTypeDef
     appArn: Optional[str] = None
@@ -1000,33 +1000,33 @@ class ScheduleRunRequestRequestTypeDef(BaseModel):
     configuration: Optional[ScheduleRunConfigurationTypeDef] = None
     executionConfiguration: Optional[ExecutionConfigurationTypeDef] = None
 
-class CreateTestGridProjectResultTypeDef(BaseModel):
+class CreateTestGridProjectResultTypeDef(BaseValidatorModel):
     testGridProject: TestGridProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTestGridProjectResultTypeDef(BaseModel):
+class GetTestGridProjectResultTypeDef(BaseValidatorModel):
     testGridProject: TestGridProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTestGridProjectsResultTypeDef(BaseModel):
+class ListTestGridProjectsResultTypeDef(BaseValidatorModel):
     testGridProjects: List[TestGridProjectTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTestGridProjectResultTypeDef(BaseModel):
+class UpdateTestGridProjectResultTypeDef(BaseValidatorModel):
     testGridProject: TestGridProjectTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DevicePoolCompatibilityResultTypeDef(BaseModel):
+class DevicePoolCompatibilityResultTypeDef(BaseValidatorModel):
     device: Optional[DeviceTypeDef] = None
     compatible: Optional[bool] = None
     incompatibilityMessages: Optional[List[IncompatibilityMessageTypeDef]] = None
 
-class GetDeviceResultTypeDef(BaseModel):
+class GetDeviceResultTypeDef(BaseValidatorModel):
     device: DeviceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JobTypeDef(BaseModel):
+class JobTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     type: Optional[TestTypeType] = None
@@ -1043,12 +1043,12 @@ class JobTypeDef(BaseModel):
     videoEndpoint: Optional[str] = None
     videoCapture: Optional[bool] = None
 
-class ListDevicesResultTypeDef(BaseModel):
+class ListDevicesResultTypeDef(BaseValidatorModel):
     devices: List[DeviceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProblemTypeDef(BaseModel):
+class ProblemTypeDef(BaseValidatorModel):
     run: Optional[ProblemDetailTypeDef] = None
     job: Optional[ProblemDetailTypeDef] = None
     suite: Optional[ProblemDetailTypeDef] = None
@@ -1057,7 +1057,7 @@ class ProblemTypeDef(BaseModel):
     result: Optional[ExecutionResultType] = None
     message: Optional[str] = None
 
-class RemoteAccessSessionTypeDef(BaseModel):
+class RemoteAccessSessionTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     created: Optional[datetime] = None
@@ -1081,101 +1081,101 @@ class RemoteAccessSessionTypeDef(BaseModel):
     skipAppResign: Optional[bool] = None
     vpcConfig: Optional[VpcConfigOutputTypeDef] = None
 
-class GetRunResultTypeDef(BaseModel):
+class GetRunResultTypeDef(BaseValidatorModel):
     run: RunTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRunsResultTypeDef(BaseModel):
+class ListRunsResultTypeDef(BaseValidatorModel):
     runs: List[RunTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ScheduleRunResultTypeDef(BaseModel):
+class ScheduleRunResultTypeDef(BaseValidatorModel):
     run: RunTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopRunResultTypeDef(BaseModel):
+class StopRunResultTypeDef(BaseValidatorModel):
     run: RunTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOfferingsResultTypeDef(BaseModel):
+class ListOfferingsResultTypeDef(BaseValidatorModel):
     offerings: List[OfferingTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OfferingStatusTypeDef(BaseModel):
+class OfferingStatusTypeDef(BaseValidatorModel):
     type: Optional[OfferingTransactionTypeType] = None
     offering: Optional[OfferingTypeDef] = None
     quantity: Optional[int] = None
     effectiveOn: Optional[datetime] = None
 
-class GetDevicePoolCompatibilityResultTypeDef(BaseModel):
+class GetDevicePoolCompatibilityResultTypeDef(BaseValidatorModel):
     compatibleDevices: List[DevicePoolCompatibilityResultTypeDef]
     incompatibleDevices: List[DevicePoolCompatibilityResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobResultTypeDef(BaseModel):
+class GetJobResultTypeDef(BaseValidatorModel):
     job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobsResultTypeDef(BaseModel):
+class ListJobsResultTypeDef(BaseValidatorModel):
     jobs: List[JobTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopJobResultTypeDef(BaseModel):
+class StopJobResultTypeDef(BaseValidatorModel):
     job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UniqueProblemTypeDef(BaseModel):
+class UniqueProblemTypeDef(BaseValidatorModel):
     message: Optional[str] = None
     problems: Optional[List[ProblemTypeDef]] = None
 
-class CreateRemoteAccessSessionResultTypeDef(BaseModel):
+class CreateRemoteAccessSessionResultTypeDef(BaseValidatorModel):
     remoteAccessSession: RemoteAccessSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRemoteAccessSessionResultTypeDef(BaseModel):
+class GetRemoteAccessSessionResultTypeDef(BaseValidatorModel):
     remoteAccessSession: RemoteAccessSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRemoteAccessSessionsResultTypeDef(BaseModel):
+class ListRemoteAccessSessionsResultTypeDef(BaseValidatorModel):
     remoteAccessSessions: List[RemoteAccessSessionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopRemoteAccessSessionResultTypeDef(BaseModel):
+class StopRemoteAccessSessionResultTypeDef(BaseValidatorModel):
     remoteAccessSession: RemoteAccessSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOfferingStatusResultTypeDef(BaseModel):
+class GetOfferingStatusResultTypeDef(BaseValidatorModel):
     current: Dict[str, OfferingStatusTypeDef]
     nextPeriod: Dict[str, OfferingStatusTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OfferingTransactionTypeDef(BaseModel):
+class OfferingTransactionTypeDef(BaseValidatorModel):
     offeringStatus: Optional[OfferingStatusTypeDef] = None
     transactionId: Optional[str] = None
     offeringPromotionId: Optional[str] = None
     createdOn: Optional[datetime] = None
     cost: Optional[MonetaryAmountTypeDef] = None
 
-class ListUniqueProblemsResultTypeDef(BaseModel):
+class ListUniqueProblemsResultTypeDef(BaseValidatorModel):
     uniqueProblems: Dict[ExecutionResultType, List[UniqueProblemTypeDef]]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOfferingTransactionsResultTypeDef(BaseModel):
+class ListOfferingTransactionsResultTypeDef(BaseValidatorModel):
     offeringTransactions: List[OfferingTransactionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PurchaseOfferingResultTypeDef(BaseModel):
+class PurchaseOfferingResultTypeDef(BaseValidatorModel):
     offeringTransaction: OfferingTransactionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RenewOfferingResultTypeDef(BaseModel):
+class RenewOfferingResultTypeDef(BaseValidatorModel):
     offeringTransaction: OfferingTransactionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

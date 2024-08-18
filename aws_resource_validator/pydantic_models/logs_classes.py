@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.logs_constants import *
 
-class AccountPolicyTypeDef(BaseModel):
+class AccountPolicyTypeDef(BaseValidatorModel):
     policyName: Optional[str] = None
     policyDocument: Optional[str] = None
     lastUpdatedTime: Optional[int] = None
@@ -20,7 +20,7 @@ class AccountPolicyTypeDef(BaseModel):
     selectionCriteria: Optional[str] = None
     accountId: Optional[str] = None
 
-class AnomalyDetectorTypeDef(BaseModel):
+class AnomalyDetectorTypeDef(BaseValidatorModel):
     anomalyDetectorArn: Optional[str] = None
     detectorName: Optional[str] = None
     logGroupArnList: Optional[List[str]] = None
@@ -32,30 +32,30 @@ class AnomalyDetectorTypeDef(BaseModel):
     lastModifiedTimeStamp: Optional[int] = None
     anomalyVisibilityTime: Optional[int] = None
 
-class LogEventTypeDef(BaseModel):
+class LogEventTypeDef(BaseValidatorModel):
     timestamp: Optional[int] = None
     message: Optional[str] = None
 
-class PatternTokenTypeDef(BaseModel):
+class PatternTokenTypeDef(BaseValidatorModel):
     dynamicTokenPosition: Optional[int] = None
     isDynamic: Optional[bool] = None
     tokenString: Optional[str] = None
     enumerations: Optional[Dict[str, int]] = None
 
-class AssociateKmsKeyRequestRequestTypeDef(BaseModel):
+class AssociateKmsKeyRequestRequestTypeDef(BaseValidatorModel):
     kmsKeyId: str
     logGroupName: Optional[str] = None
     resourceIdentifier: Optional[str] = None
 
-class CancelExportTaskRequestRequestTypeDef(BaseModel):
+class CancelExportTaskRequestRequestTypeDef(BaseValidatorModel):
     taskId: str
 
-class CreateDeliveryRequestRequestTypeDef(BaseModel):
+class CreateDeliveryRequestRequestTypeDef(BaseValidatorModel):
     deliverySourceName: str
     deliveryDestinationArn: str
     tags: Optional[Mapping[str, str]] = None
 
-class DeliveryTypeDef(BaseModel):
+class DeliveryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     arn: Optional[str] = None
     deliverySourceName: Optional[str] = None
@@ -63,14 +63,14 @@ class DeliveryTypeDef(BaseModel):
     deliveryDestinationType: Optional[DeliveryDestinationTypeType] = None
     tags: Optional[Dict[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateExportTaskRequestRequestTypeDef(BaseModel):
+class CreateExportTaskRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     fromTime: int
     to: int
@@ -79,7 +79,7 @@ class CreateExportTaskRequestRequestTypeDef(BaseModel):
     logStreamNamePrefix: Optional[str] = None
     destinationPrefix: Optional[str] = None
 
-class CreateLogAnomalyDetectorRequestRequestTypeDef(BaseModel):
+class CreateLogAnomalyDetectorRequestRequestTypeDef(BaseValidatorModel):
     logGroupArnList: Sequence[str]
     detectorName: Optional[str] = None
     evaluationFrequency: Optional[EvaluationFrequencyType] = None
@@ -88,69 +88,69 @@ class CreateLogAnomalyDetectorRequestRequestTypeDef(BaseModel):
     anomalyVisibilityTime: Optional[int] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateLogGroupRequestRequestTypeDef(BaseModel):
+class CreateLogGroupRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     kmsKeyId: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     logGroupClass: Optional[LogGroupClassType] = None
 
-class CreateLogStreamRequestRequestTypeDef(BaseModel):
+class CreateLogStreamRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     logStreamName: str
 
-class DeleteAccountPolicyRequestRequestTypeDef(BaseModel):
+class DeleteAccountPolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     policyType: PolicyTypeType
 
-class DeleteDataProtectionPolicyRequestRequestTypeDef(BaseModel):
+class DeleteDataProtectionPolicyRequestRequestTypeDef(BaseValidatorModel):
     logGroupIdentifier: str
 
-class DeleteDeliveryDestinationPolicyRequestRequestTypeDef(BaseModel):
+class DeleteDeliveryDestinationPolicyRequestRequestTypeDef(BaseValidatorModel):
     deliveryDestinationName: str
 
-class DeleteDeliveryDestinationRequestRequestTypeDef(BaseModel):
+class DeleteDeliveryDestinationRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteDeliveryRequestRequestTypeDef(BaseModel):
+class DeleteDeliveryRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class DeleteDeliverySourceRequestRequestTypeDef(BaseModel):
+class DeleteDeliverySourceRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteDestinationRequestRequestTypeDef(BaseModel):
+class DeleteDestinationRequestRequestTypeDef(BaseValidatorModel):
     destinationName: str
 
-class DeleteLogAnomalyDetectorRequestRequestTypeDef(BaseModel):
+class DeleteLogAnomalyDetectorRequestRequestTypeDef(BaseValidatorModel):
     anomalyDetectorArn: str
 
-class DeleteLogGroupRequestRequestTypeDef(BaseModel):
+class DeleteLogGroupRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
 
-class DeleteLogStreamRequestRequestTypeDef(BaseModel):
+class DeleteLogStreamRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     logStreamName: str
 
-class DeleteMetricFilterRequestRequestTypeDef(BaseModel):
+class DeleteMetricFilterRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     filterName: str
 
-class DeleteQueryDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteQueryDefinitionRequestRequestTypeDef(BaseValidatorModel):
     queryDefinitionId: str
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseModel):
+class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: Optional[str] = None
 
-class DeleteRetentionPolicyRequestRequestTypeDef(BaseModel):
+class DeleteRetentionPolicyRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
 
-class DeleteSubscriptionFilterRequestRequestTypeDef(BaseModel):
+class DeleteSubscriptionFilterRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     filterName: str
 
-class DeliveryDestinationConfigurationTypeDef(BaseModel):
+class DeliveryDestinationConfigurationTypeDef(BaseValidatorModel):
     destinationResourceArn: str
 
-class DeliverySourceTypeDef(BaseModel):
+class DeliverySourceTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     resourceArns: Optional[List[str]] = None
@@ -158,34 +158,34 @@ class DeliverySourceTypeDef(BaseModel):
     logType: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class DescribeAccountPoliciesRequestRequestTypeDef(BaseModel):
+class DescribeAccountPoliciesRequestRequestTypeDef(BaseValidatorModel):
     policyType: PolicyTypeType
     policyName: Optional[str] = None
     accountIdentifiers: Optional[Sequence[str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeDeliveriesRequestRequestTypeDef(BaseModel):
+class DescribeDeliveriesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
-class DescribeDeliveryDestinationsRequestRequestTypeDef(BaseModel):
+class DescribeDeliveryDestinationsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
-class DescribeDeliverySourcesRequestRequestTypeDef(BaseModel):
+class DescribeDeliverySourcesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
-class DescribeDestinationsRequestRequestTypeDef(BaseModel):
+class DescribeDestinationsRequestRequestTypeDef(BaseValidatorModel):
     DestinationNamePrefix: Optional[str] = None
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
-class DestinationTypeDef(BaseModel):
+class DestinationTypeDef(BaseValidatorModel):
     destinationName: Optional[str] = None
     targetArn: Optional[str] = None
     roleArn: Optional[str] = None
@@ -193,13 +193,13 @@ class DestinationTypeDef(BaseModel):
     arn: Optional[str] = None
     creationTime: Optional[int] = None
 
-class DescribeExportTasksRequestRequestTypeDef(BaseModel):
+class DescribeExportTasksRequestRequestTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     statusCode: Optional[ExportTaskStatusCodeType] = None
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
-class DescribeLogGroupsRequestRequestTypeDef(BaseModel):
+class DescribeLogGroupsRequestRequestTypeDef(BaseValidatorModel):
     accountIdentifiers: Optional[Sequence[str]] = None
     logGroupNamePrefix: Optional[str] = None
     logGroupNamePattern: Optional[str] = None
@@ -208,7 +208,7 @@ class DescribeLogGroupsRequestRequestTypeDef(BaseModel):
     includeLinkedAccounts: Optional[bool] = None
     logGroupClass: Optional[LogGroupClassType] = None
 
-class LogGroupTypeDef(BaseModel):
+class LogGroupTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     creationTime: Optional[int] = None
     retentionInDays: Optional[int] = None
@@ -221,7 +221,7 @@ class LogGroupTypeDef(BaseModel):
     logGroupClass: Optional[LogGroupClassType] = None
     logGroupArn: Optional[str] = None
 
-class DescribeLogStreamsRequestRequestTypeDef(BaseModel):
+class DescribeLogStreamsRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     logGroupIdentifier: Optional[str] = None
     logStreamNamePrefix: Optional[str] = None
@@ -230,7 +230,7 @@ class DescribeLogStreamsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
-class LogStreamTypeDef(BaseModel):
+class LogStreamTypeDef(BaseValidatorModel):
     logStreamName: Optional[str] = None
     creationTime: Optional[int] = None
     firstEventTimestamp: Optional[int] = None
@@ -240,7 +240,7 @@ class LogStreamTypeDef(BaseModel):
     arn: Optional[str] = None
     storedBytes: Optional[int] = None
 
-class DescribeMetricFiltersRequestRequestTypeDef(BaseModel):
+class DescribeMetricFiltersRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     filterNamePrefix: Optional[str] = None
     nextToken: Optional[str] = None
@@ -248,47 +248,47 @@ class DescribeMetricFiltersRequestRequestTypeDef(BaseModel):
     metricName: Optional[str] = None
     metricNamespace: Optional[str] = None
 
-class DescribeQueriesRequestRequestTypeDef(BaseModel):
+class DescribeQueriesRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     status: Optional[QueryStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class QueryInfoTypeDef(BaseModel):
+class QueryInfoTypeDef(BaseValidatorModel):
     queryId: Optional[str] = None
     queryString: Optional[str] = None
     status: Optional[QueryStatusType] = None
     createTime: Optional[int] = None
     logGroupName: Optional[str] = None
 
-class DescribeQueryDefinitionsRequestRequestTypeDef(BaseModel):
+class DescribeQueryDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     queryDefinitionNamePrefix: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class QueryDefinitionTypeDef(BaseModel):
+class QueryDefinitionTypeDef(BaseValidatorModel):
     queryDefinitionId: Optional[str] = None
     name: Optional[str] = None
     queryString: Optional[str] = None
     lastModified: Optional[int] = None
     logGroupNames: Optional[List[str]] = None
 
-class DescribeResourcePoliciesRequestRequestTypeDef(BaseModel):
+class DescribeResourcePoliciesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
-class ResourcePolicyTypeDef(BaseModel):
+class ResourcePolicyTypeDef(BaseValidatorModel):
     policyName: Optional[str] = None
     policyDocument: Optional[str] = None
     lastUpdatedTime: Optional[int] = None
 
-class DescribeSubscriptionFiltersRequestRequestTypeDef(BaseModel):
+class DescribeSubscriptionFiltersRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     filterNamePrefix: Optional[str] = None
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
-class SubscriptionFilterTypeDef(BaseModel):
+class SubscriptionFilterTypeDef(BaseValidatorModel):
     filterName: Optional[str] = None
     logGroupName: Optional[str] = None
     filterPattern: Optional[str] = None
@@ -297,19 +297,19 @@ class SubscriptionFilterTypeDef(BaseModel):
     distribution: Optional[DistributionType] = None
     creationTime: Optional[int] = None
 
-class DisassociateKmsKeyRequestRequestTypeDef(BaseModel):
+class DisassociateKmsKeyRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     resourceIdentifier: Optional[str] = None
 
-class ExportTaskExecutionInfoTypeDef(BaseModel):
+class ExportTaskExecutionInfoTypeDef(BaseValidatorModel):
     creationTime: Optional[int] = None
     completionTime: Optional[int] = None
 
-class ExportTaskStatusTypeDef(BaseModel):
+class ExportTaskStatusTypeDef(BaseValidatorModel):
     code: Optional[ExportTaskStatusCodeType] = None
     message: Optional[str] = None
 
-class FilterLogEventsRequestRequestTypeDef(BaseModel):
+class FilterLogEventsRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     logGroupIdentifier: Optional[str] = None
     logStreamNames: Optional[Sequence[str]] = None
@@ -322,39 +322,39 @@ class FilterLogEventsRequestRequestTypeDef(BaseModel):
     interleaved: Optional[bool] = None
     unmask: Optional[bool] = None
 
-class FilteredLogEventTypeDef(BaseModel):
+class FilteredLogEventTypeDef(BaseValidatorModel):
     logStreamName: Optional[str] = None
     timestamp: Optional[int] = None
     message: Optional[str] = None
     ingestionTime: Optional[int] = None
     eventId: Optional[str] = None
 
-class SearchedLogStreamTypeDef(BaseModel):
+class SearchedLogStreamTypeDef(BaseValidatorModel):
     logStreamName: Optional[str] = None
     searchedCompletely: Optional[bool] = None
 
-class GetDataProtectionPolicyRequestRequestTypeDef(BaseModel):
+class GetDataProtectionPolicyRequestRequestTypeDef(BaseValidatorModel):
     logGroupIdentifier: str
 
-class GetDeliveryDestinationPolicyRequestRequestTypeDef(BaseModel):
+class GetDeliveryDestinationPolicyRequestRequestTypeDef(BaseValidatorModel):
     deliveryDestinationName: str
 
-class PolicyTypeDef(BaseModel):
+class PolicyTypeDef(BaseValidatorModel):
     deliveryDestinationPolicy: Optional[str] = None
 
-class GetDeliveryDestinationRequestRequestTypeDef(BaseModel):
+class GetDeliveryDestinationRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class GetDeliveryRequestRequestTypeDef(BaseModel):
+class GetDeliveryRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class GetDeliverySourceRequestRequestTypeDef(BaseModel):
+class GetDeliverySourceRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class GetLogAnomalyDetectorRequestRequestTypeDef(BaseModel):
+class GetLogAnomalyDetectorRequestRequestTypeDef(BaseValidatorModel):
     anomalyDetectorArn: str
 
-class GetLogEventsRequestRequestTypeDef(BaseModel):
+class GetLogEventsRequestRequestTypeDef(BaseValidatorModel):
     logStreamName: str
     logGroupName: Optional[str] = None
     logGroupIdentifier: Optional[str] = None
@@ -365,68 +365,68 @@ class GetLogEventsRequestRequestTypeDef(BaseModel):
     startFromHead: Optional[bool] = None
     unmask: Optional[bool] = None
 
-class OutputLogEventTypeDef(BaseModel):
+class OutputLogEventTypeDef(BaseValidatorModel):
     timestamp: Optional[int] = None
     message: Optional[str] = None
     ingestionTime: Optional[int] = None
 
-class GetLogGroupFieldsRequestRequestTypeDef(BaseModel):
+class GetLogGroupFieldsRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     time: Optional[int] = None
     logGroupIdentifier: Optional[str] = None
 
-class LogGroupFieldTypeDef(BaseModel):
+class LogGroupFieldTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     percent: Optional[int] = None
 
-class GetLogRecordRequestRequestTypeDef(BaseModel):
+class GetLogRecordRequestRequestTypeDef(BaseValidatorModel):
     logRecordPointer: str
     unmask: Optional[bool] = None
 
-class GetQueryResultsRequestRequestTypeDef(BaseModel):
+class GetQueryResultsRequestRequestTypeDef(BaseValidatorModel):
     queryId: str
 
-class QueryStatisticsTypeDef(BaseModel):
+class QueryStatisticsTypeDef(BaseValidatorModel):
     recordsMatched: Optional[float] = None
     recordsScanned: Optional[float] = None
     bytesScanned: Optional[float] = None
 
-class ResultFieldTypeDef(BaseModel):
+class ResultFieldTypeDef(BaseValidatorModel):
     field: Optional[str] = None
     value: Optional[str] = None
 
-class InputLogEventTypeDef(BaseModel):
+class InputLogEventTypeDef(BaseValidatorModel):
     timestamp: int
     message: str
 
-class ListAnomaliesRequestRequestTypeDef(BaseModel):
+class ListAnomaliesRequestRequestTypeDef(BaseValidatorModel):
     anomalyDetectorArn: Optional[str] = None
     suppressionState: Optional[SuppressionStateType] = None
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListLogAnomalyDetectorsRequestRequestTypeDef(BaseModel):
+class ListLogAnomalyDetectorsRequestRequestTypeDef(BaseValidatorModel):
     filterLogGroupArn: Optional[str] = None
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListTagsLogGroupRequestRequestTypeDef(BaseModel):
+class ListTagsLogGroupRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
 
-class LiveTailSessionLogEventTypeDef(BaseModel):
+class LiveTailSessionLogEventTypeDef(BaseValidatorModel):
     logStreamName: Optional[str] = None
     logGroupIdentifier: Optional[str] = None
     message: Optional[str] = None
     timestamp: Optional[int] = None
     ingestionTime: Optional[int] = None
 
-class LiveTailSessionMetadataTypeDef(BaseModel):
+class LiveTailSessionMetadataTypeDef(BaseValidatorModel):
     sampled: Optional[bool] = None
 
-class LiveTailSessionStartTypeDef(BaseModel):
+class LiveTailSessionStartTypeDef(BaseValidatorModel):
     requestId: Optional[str] = None
     sessionId: Optional[str] = None
     logGroupIdentifiers: Optional[List[str]] = None
@@ -434,12 +434,12 @@ class LiveTailSessionStartTypeDef(BaseModel):
     logStreamNamePrefixes: Optional[List[str]] = None
     logEventFilterPattern: Optional[str] = None
 
-class MetricFilterMatchRecordTypeDef(BaseModel):
+class MetricFilterMatchRecordTypeDef(BaseValidatorModel):
     eventNumber: Optional[int] = None
     eventMessage: Optional[str] = None
     extractedValues: Optional[Dict[str, str]] = None
 
-class MetricTransformationTypeDef(BaseModel):
+class MetricTransformationTypeDef(BaseValidatorModel):
     metricName: str
     metricNamespace: str
     metricValue: str
@@ -447,59 +447,59 @@ class MetricTransformationTypeDef(BaseModel):
     dimensions: Optional[Dict[str, str]] = None
     unit: Optional[StandardUnitType] = None
 
-class PutAccountPolicyRequestRequestTypeDef(BaseModel):
+class PutAccountPolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: str
     policyDocument: str
     policyType: PolicyTypeType
     scope: Optional[Literal["ALL"]] = None
     selectionCriteria: Optional[str] = None
 
-class PutDataProtectionPolicyRequestRequestTypeDef(BaseModel):
+class PutDataProtectionPolicyRequestRequestTypeDef(BaseValidatorModel):
     logGroupIdentifier: str
     policyDocument: str
 
-class PutDeliveryDestinationPolicyRequestRequestTypeDef(BaseModel):
+class PutDeliveryDestinationPolicyRequestRequestTypeDef(BaseValidatorModel):
     deliveryDestinationName: str
     deliveryDestinationPolicy: str
 
-class PutDeliverySourceRequestRequestTypeDef(BaseModel):
+class PutDeliverySourceRequestRequestTypeDef(BaseValidatorModel):
     name: str
     resourceArn: str
     logType: str
     tags: Optional[Mapping[str, str]] = None
 
-class PutDestinationPolicyRequestRequestTypeDef(BaseModel):
+class PutDestinationPolicyRequestRequestTypeDef(BaseValidatorModel):
     destinationName: str
     accessPolicy: str
     forceUpdate: Optional[bool] = None
 
-class PutDestinationRequestRequestTypeDef(BaseModel):
+class PutDestinationRequestRequestTypeDef(BaseValidatorModel):
     destinationName: str
     targetArn: str
     roleArn: str
     tags: Optional[Mapping[str, str]] = None
 
-class RejectedLogEventsInfoTypeDef(BaseModel):
+class RejectedLogEventsInfoTypeDef(BaseValidatorModel):
     tooNewLogEventStartIndex: Optional[int] = None
     tooOldLogEventEndIndex: Optional[int] = None
     expiredLogEventEndIndex: Optional[int] = None
 
-class PutQueryDefinitionRequestRequestTypeDef(BaseModel):
+class PutQueryDefinitionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     queryString: str
     queryDefinitionId: Optional[str] = None
     logGroupNames: Optional[Sequence[str]] = None
     clientToken: Optional[str] = None
 
-class PutResourcePolicyRequestRequestTypeDef(BaseModel):
+class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     policyName: Optional[str] = None
     policyDocument: Optional[str] = None
 
-class PutRetentionPolicyRequestRequestTypeDef(BaseModel):
+class PutRetentionPolicyRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     retentionInDays: int
 
-class PutSubscriptionFilterRequestRequestTypeDef(BaseModel):
+class PutSubscriptionFilterRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     filterName: str
     filterPattern: str
@@ -507,19 +507,19 @@ class PutSubscriptionFilterRequestRequestTypeDef(BaseModel):
     roleArn: Optional[str] = None
     distribution: Optional[DistributionType] = None
 
-class SessionStreamingExceptionTypeDef(BaseModel):
+class SessionStreamingExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class SessionTimeoutExceptionTypeDef(BaseModel):
+class SessionTimeoutExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class StartLiveTailRequestRequestTypeDef(BaseModel):
+class StartLiveTailRequestRequestTypeDef(BaseValidatorModel):
     logGroupIdentifiers: Sequence[str]
     logStreamNames: Optional[Sequence[str]] = None
     logStreamNamePrefixes: Optional[Sequence[str]] = None
     logEventFilterPattern: Optional[str] = None
 
-class StartQueryRequestRequestTypeDef(BaseModel):
+class StartQueryRequestRequestTypeDef(BaseValidatorModel):
     startTime: int
     endTime: int
     queryString: str
@@ -528,41 +528,41 @@ class StartQueryRequestRequestTypeDef(BaseModel):
     logGroupIdentifiers: Optional[Sequence[str]] = None
     limit: Optional[int] = None
 
-class StopQueryRequestRequestTypeDef(BaseModel):
+class StopQueryRequestRequestTypeDef(BaseValidatorModel):
     queryId: str
 
-class SuppressionPeriodTypeDef(BaseModel):
+class SuppressionPeriodTypeDef(BaseValidatorModel):
     value: Optional[int] = None
     suppressionUnit: Optional[SuppressionUnitType] = None
 
-class TagLogGroupRequestRequestTypeDef(BaseModel):
+class TagLogGroupRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     tags: Mapping[str, str]
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TestMetricFilterRequestRequestTypeDef(BaseModel):
+class TestMetricFilterRequestRequestTypeDef(BaseValidatorModel):
     filterPattern: str
     logEventMessages: Sequence[str]
 
-class UntagLogGroupRequestRequestTypeDef(BaseModel):
+class UntagLogGroupRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     tags: Sequence[str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateLogAnomalyDetectorRequestRequestTypeDef(BaseModel):
+class UpdateLogAnomalyDetectorRequestRequestTypeDef(BaseValidatorModel):
     anomalyDetectorArn: str
     enabled: bool
     evaluationFrequency: Optional[EvaluationFrequencyType] = None
     filterPattern: Optional[str] = None
     anomalyVisibilityTime: Optional[int] = None
 
-class AnomalyTypeDef(BaseModel):
+class AnomalyTypeDef(BaseValidatorModel):
     anomalyId: str
     patternId: str
     anomalyDetectorArn: str
@@ -583,45 +583,45 @@ class AnomalyTypeDef(BaseModel):
     suppressedUntil: Optional[int] = None
     isPatternLevelSuppression: Optional[bool] = None
 
-class CreateDeliveryResponseTypeDef(BaseModel):
+class CreateDeliveryResponseTypeDef(BaseValidatorModel):
     delivery: DeliveryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateExportTaskResponseTypeDef(BaseModel):
+class CreateExportTaskResponseTypeDef(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLogAnomalyDetectorResponseTypeDef(BaseModel):
+class CreateLogAnomalyDetectorResponseTypeDef(BaseValidatorModel):
     anomalyDetectorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteQueryDefinitionResponseTypeDef(BaseModel):
+class DeleteQueryDefinitionResponseTypeDef(BaseValidatorModel):
     success: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAccountPoliciesResponseTypeDef(BaseModel):
+class DescribeAccountPoliciesResponseTypeDef(BaseValidatorModel):
     accountPolicies: List[AccountPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDeliveriesResponseTypeDef(BaseModel):
+class DescribeDeliveriesResponseTypeDef(BaseValidatorModel):
     deliveries: List[DeliveryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDataProtectionPolicyResponseTypeDef(BaseModel):
+class GetDataProtectionPolicyResponseTypeDef(BaseValidatorModel):
     logGroupIdentifier: str
     policyDocument: str
     lastUpdatedTime: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDeliveryResponseTypeDef(BaseModel):
+class GetDeliveryResponseTypeDef(BaseValidatorModel):
     delivery: DeliveryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLogAnomalyDetectorResponseTypeDef(BaseModel):
+class GetLogAnomalyDetectorResponseTypeDef(BaseValidatorModel):
     detectorName: str
     logGroupArnList: List[str]
     evaluationFrequency: EvaluationFrequencyType
@@ -633,46 +633,46 @@ class GetLogAnomalyDetectorResponseTypeDef(BaseModel):
     anomalyVisibilityTime: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLogRecordResponseTypeDef(BaseModel):
+class GetLogRecordResponseTypeDef(BaseValidatorModel):
     logRecord: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLogAnomalyDetectorsResponseTypeDef(BaseModel):
+class ListLogAnomalyDetectorsResponseTypeDef(BaseValidatorModel):
     anomalyDetectors: List[AnomalyDetectorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsLogGroupResponseTypeDef(BaseModel):
+class ListTagsLogGroupResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAccountPolicyResponseTypeDef(BaseModel):
+class PutAccountPolicyResponseTypeDef(BaseValidatorModel):
     accountPolicy: AccountPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDataProtectionPolicyResponseTypeDef(BaseModel):
+class PutDataProtectionPolicyResponseTypeDef(BaseValidatorModel):
     logGroupIdentifier: str
     policyDocument: str
     lastUpdatedTime: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutQueryDefinitionResponseTypeDef(BaseModel):
+class PutQueryDefinitionResponseTypeDef(BaseValidatorModel):
     queryDefinitionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartQueryResponseTypeDef(BaseModel):
+class StartQueryResponseTypeDef(BaseValidatorModel):
     queryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopQueryResponseTypeDef(BaseModel):
+class StopQueryResponseTypeDef(BaseValidatorModel):
     success: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeliveryDestinationTypeDef(BaseModel):
+class DeliveryDestinationTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     deliveryDestinationType: Optional[DeliveryDestinationTypeType] = None
@@ -680,44 +680,44 @@ class DeliveryDestinationTypeDef(BaseModel):
     deliveryDestinationConfiguration: Optional[DeliveryDestinationConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class PutDeliveryDestinationRequestRequestTypeDef(BaseModel):
+class PutDeliveryDestinationRequestRequestTypeDef(BaseValidatorModel):
     name: str
     deliveryDestinationConfiguration: DeliveryDestinationConfigurationTypeDef
     outputFormat: Optional[OutputFormatType] = None
     tags: Optional[Mapping[str, str]] = None
 
-class DescribeDeliverySourcesResponseTypeDef(BaseModel):
+class DescribeDeliverySourcesResponseTypeDef(BaseValidatorModel):
     deliverySources: List[DeliverySourceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDeliverySourceResponseTypeDef(BaseModel):
+class GetDeliverySourceResponseTypeDef(BaseValidatorModel):
     deliverySource: DeliverySourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDeliverySourceResponseTypeDef(BaseModel):
+class PutDeliverySourceResponseTypeDef(BaseValidatorModel):
     deliverySource: DeliverySourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDeliveriesRequestDescribeDeliveriesPaginateTypeDef(BaseModel):
+class DescribeDeliveriesRequestDescribeDeliveriesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDeliveryDestinationsRequestDescribeDeliveryDestinationsPaginateTypeDef(BaseModel):
+class DescribeDeliveryDestinationsRequestDescribeDeliveryDestinationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDeliverySourcesRequestDescribeDeliverySourcesPaginateTypeDef(BaseModel):
+class DescribeDeliverySourcesRequestDescribeDeliverySourcesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDestinationsRequestDescribeDestinationsPaginateTypeDef(BaseModel):
+class DescribeDestinationsRequestDescribeDestinationsPaginateTypeDef(BaseValidatorModel):
     DestinationNamePrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeExportTasksRequestDescribeExportTasksPaginateTypeDef(BaseModel):
+class DescribeExportTasksRequestDescribeExportTasksPaginateTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     statusCode: Optional[ExportTaskStatusCodeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLogGroupsRequestDescribeLogGroupsPaginateTypeDef(BaseModel):
+class DescribeLogGroupsRequestDescribeLogGroupsPaginateTypeDef(BaseValidatorModel):
     accountIdentifiers: Optional[Sequence[str]] = None
     logGroupNamePrefix: Optional[str] = None
     logGroupNamePattern: Optional[str] = None
@@ -725,7 +725,7 @@ class DescribeLogGroupsRequestDescribeLogGroupsPaginateTypeDef(BaseModel):
     logGroupClass: Optional[LogGroupClassType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLogStreamsRequestDescribeLogStreamsPaginateTypeDef(BaseModel):
+class DescribeLogStreamsRequestDescribeLogStreamsPaginateTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     logGroupIdentifier: Optional[str] = None
     logStreamNamePrefix: Optional[str] = None
@@ -733,27 +733,27 @@ class DescribeLogStreamsRequestDescribeLogStreamsPaginateTypeDef(BaseModel):
     descending: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeMetricFiltersRequestDescribeMetricFiltersPaginateTypeDef(BaseModel):
+class DescribeMetricFiltersRequestDescribeMetricFiltersPaginateTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     filterNamePrefix: Optional[str] = None
     metricName: Optional[str] = None
     metricNamespace: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeQueriesRequestDescribeQueriesPaginateTypeDef(BaseModel):
+class DescribeQueriesRequestDescribeQueriesPaginateTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     status: Optional[QueryStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeResourcePoliciesRequestDescribeResourcePoliciesPaginateTypeDef(BaseModel):
+class DescribeResourcePoliciesRequestDescribeResourcePoliciesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSubscriptionFiltersRequestDescribeSubscriptionFiltersPaginateTypeDef(BaseModel):
+class DescribeSubscriptionFiltersRequestDescribeSubscriptionFiltersPaginateTypeDef(BaseValidatorModel):
     logGroupName: str
     filterNamePrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class FilterLogEventsRequestFilterLogEventsPaginateTypeDef(BaseModel):
+class FilterLogEventsRequestFilterLogEventsPaginateTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     logGroupIdentifier: Optional[str] = None
     logStreamNames: Optional[Sequence[str]] = None
@@ -765,59 +765,59 @@ class FilterLogEventsRequestFilterLogEventsPaginateTypeDef(BaseModel):
     unmask: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAnomaliesRequestListAnomaliesPaginateTypeDef(BaseModel):
+class ListAnomaliesRequestListAnomaliesPaginateTypeDef(BaseValidatorModel):
     anomalyDetectorArn: Optional[str] = None
     suppressionState: Optional[SuppressionStateType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLogAnomalyDetectorsRequestListLogAnomalyDetectorsPaginateTypeDef(BaseModel):
+class ListLogAnomalyDetectorsRequestListLogAnomalyDetectorsPaginateTypeDef(BaseValidatorModel):
     filterLogGroupArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDestinationsResponseTypeDef(BaseModel):
+class DescribeDestinationsResponseTypeDef(BaseValidatorModel):
     destinations: List[DestinationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDestinationResponseTypeDef(BaseModel):
+class PutDestinationResponseTypeDef(BaseValidatorModel):
     destination: DestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLogGroupsResponseTypeDef(BaseModel):
+class DescribeLogGroupsResponseTypeDef(BaseValidatorModel):
     logGroups: List[LogGroupTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLogStreamsResponseTypeDef(BaseModel):
+class DescribeLogStreamsResponseTypeDef(BaseValidatorModel):
     logStreams: List[LogStreamTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeQueriesResponseTypeDef(BaseModel):
+class DescribeQueriesResponseTypeDef(BaseValidatorModel):
     queries: List[QueryInfoTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeQueryDefinitionsResponseTypeDef(BaseModel):
+class DescribeQueryDefinitionsResponseTypeDef(BaseValidatorModel):
     queryDefinitions: List[QueryDefinitionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeResourcePoliciesResponseTypeDef(BaseModel):
+class DescribeResourcePoliciesResponseTypeDef(BaseValidatorModel):
     resourcePolicies: List[ResourcePolicyTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutResourcePolicyResponseTypeDef(BaseModel):
+class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourcePolicy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSubscriptionFiltersResponseTypeDef(BaseModel):
+class DescribeSubscriptionFiltersResponseTypeDef(BaseValidatorModel):
     subscriptionFilters: List[SubscriptionFilterTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportTaskTypeDef(BaseModel):
+class ExportTaskTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     taskName: Optional[str] = None
     logGroupName: Optional[str] = None
@@ -828,111 +828,111 @@ class ExportTaskTypeDef(BaseModel):
     status: Optional[ExportTaskStatusTypeDef] = None
     executionInfo: Optional[ExportTaskExecutionInfoTypeDef] = None
 
-class FilterLogEventsResponseTypeDef(BaseModel):
+class FilterLogEventsResponseTypeDef(BaseValidatorModel):
     events: List[FilteredLogEventTypeDef]
     searchedLogStreams: List[SearchedLogStreamTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDeliveryDestinationPolicyResponseTypeDef(BaseModel):
+class GetDeliveryDestinationPolicyResponseTypeDef(BaseValidatorModel):
     policy: PolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDeliveryDestinationPolicyResponseTypeDef(BaseModel):
+class PutDeliveryDestinationPolicyResponseTypeDef(BaseValidatorModel):
     policy: PolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLogEventsResponseTypeDef(BaseModel):
+class GetLogEventsResponseTypeDef(BaseValidatorModel):
     events: List[OutputLogEventTypeDef]
     nextForwardToken: str
     nextBackwardToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLogGroupFieldsResponseTypeDef(BaseModel):
+class GetLogGroupFieldsResponseTypeDef(BaseValidatorModel):
     logGroupFields: List[LogGroupFieldTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetQueryResultsResponseTypeDef(BaseModel):
+class GetQueryResultsResponseTypeDef(BaseValidatorModel):
     results: List[List[ResultFieldTypeDef]]
     statistics: QueryStatisticsTypeDef
     status: QueryStatusType
     encryptionKey: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutLogEventsRequestRequestTypeDef(BaseModel):
+class PutLogEventsRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     logStreamName: str
     logEvents: Sequence[InputLogEventTypeDef]
     sequenceToken: Optional[str] = None
 
-class LiveTailSessionUpdateTypeDef(BaseModel):
+class LiveTailSessionUpdateTypeDef(BaseValidatorModel):
     sessionMetadata: Optional[LiveTailSessionMetadataTypeDef] = None
     sessionResults: Optional[List[LiveTailSessionLogEventTypeDef]] = None
 
-class TestMetricFilterResponseTypeDef(BaseModel):
+class TestMetricFilterResponseTypeDef(BaseValidatorModel):
     matches: List[MetricFilterMatchRecordTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetricFilterTypeDef(BaseModel):
+class MetricFilterTypeDef(BaseValidatorModel):
     filterName: Optional[str] = None
     filterPattern: Optional[str] = None
     metricTransformations: Optional[List[MetricTransformationTypeDef]] = None
     creationTime: Optional[int] = None
     logGroupName: Optional[str] = None
 
-class PutMetricFilterRequestRequestTypeDef(BaseModel):
+class PutMetricFilterRequestRequestTypeDef(BaseValidatorModel):
     logGroupName: str
     filterName: str
     filterPattern: str
     metricTransformations: Sequence[MetricTransformationTypeDef]
 
-class PutLogEventsResponseTypeDef(BaseModel):
+class PutLogEventsResponseTypeDef(BaseValidatorModel):
     nextSequenceToken: str
     rejectedLogEventsInfo: RejectedLogEventsInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAnomalyRequestRequestTypeDef(BaseModel):
+class UpdateAnomalyRequestRequestTypeDef(BaseValidatorModel):
     anomalyDetectorArn: str
     anomalyId: Optional[str] = None
     patternId: Optional[str] = None
     suppressionType: Optional[SuppressionTypeType] = None
     suppressionPeriod: Optional[SuppressionPeriodTypeDef] = None
 
-class ListAnomaliesResponseTypeDef(BaseModel):
+class ListAnomaliesResponseTypeDef(BaseValidatorModel):
     anomalies: List[AnomalyTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDeliveryDestinationsResponseTypeDef(BaseModel):
+class DescribeDeliveryDestinationsResponseTypeDef(BaseValidatorModel):
     deliveryDestinations: List[DeliveryDestinationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDeliveryDestinationResponseTypeDef(BaseModel):
+class GetDeliveryDestinationResponseTypeDef(BaseValidatorModel):
     deliveryDestination: DeliveryDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDeliveryDestinationResponseTypeDef(BaseModel):
+class PutDeliveryDestinationResponseTypeDef(BaseValidatorModel):
     deliveryDestination: DeliveryDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeExportTasksResponseTypeDef(BaseModel):
+class DescribeExportTasksResponseTypeDef(BaseValidatorModel):
     exportTasks: List[ExportTaskTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartLiveTailResponseStreamTypeDef(BaseModel):
+class StartLiveTailResponseStreamTypeDef(BaseValidatorModel):
     sessionStart: Optional[LiveTailSessionStartTypeDef] = None
     sessionUpdate: Optional[LiveTailSessionUpdateTypeDef] = None
     SessionTimeoutException: Optional[SessionTimeoutExceptionTypeDef] = None
     SessionStreamingException: Optional[SessionStreamingExceptionTypeDef] = None
 
-class DescribeMetricFiltersResponseTypeDef(BaseModel):
+class DescribeMetricFiltersResponseTypeDef(BaseValidatorModel):
     metricFilters: List[MetricFilterTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartLiveTailResponseTypeDef(BaseModel):
+class StartLiveTailResponseTypeDef(BaseValidatorModel):
     responseStream: "EventStream[StartLiveTailResponseStreamTypeDef]"
     ResponseMetadata: ResponseMetadataTypeDef
 

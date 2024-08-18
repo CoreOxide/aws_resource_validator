@@ -697,7 +697,7 @@ PaginatorName = Literal["get_rate_based_rule_managed_keys",
     "list_subscribed_rule_groups",
     "list_web_acls",
     "list_xss_match_sets",]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 TimestampTypeDef = Union[datetime, str]
 LoggingConfigurationUnionTypeDef = Union[   'LoggingConfigurationTypeDef', 'LoggingConfigurationExtraOutputTypeDef' ]
 TimeWindowUnionTypeDef = Union['TimeWindowTypeDef', 'TimeWindowOutputTypeDef']

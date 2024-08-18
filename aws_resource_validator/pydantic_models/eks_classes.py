@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,11 +11,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.eks_constants import *
 
-class AccessConfigResponseTypeDef(BaseModel):
+class AccessConfigResponseTypeDef(BaseValidatorModel):
     bootstrapClusterCreatorAdminPermissions: Optional[bool] = None
     authenticationMode: Optional[AuthenticationModeType] = None
 
-class AccessEntryTypeDef(BaseModel):
+class AccessEntryTypeDef(BaseValidatorModel):
     clusterName: Optional[str] = None
     principalArn: Optional[str] = None
     kubernetesGroups: Optional[List[str]] = None
@@ -26,52 +26,52 @@ class AccessEntryTypeDef(BaseModel):
     username: Optional[str] = None
     type: Optional[str] = None
 
-class AccessPolicyTypeDef(BaseModel):
+class AccessPolicyTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
 
-class AccessScopeExtraOutputTypeDef(BaseModel):
+class AccessScopeExtraOutputTypeDef(BaseValidatorModel):
     type: Optional[AccessScopeTypeType] = None
     namespaces: Optional[List[str]] = None
 
-class AccessScopeOutputTypeDef(BaseModel):
+class AccessScopeOutputTypeDef(BaseValidatorModel):
     type: Optional[AccessScopeTypeType] = None
     namespaces: Optional[List[str]] = None
 
-class AccessScopeTypeDef(BaseModel):
+class AccessScopeTypeDef(BaseValidatorModel):
     type: Optional[AccessScopeTypeType] = None
     namespaces: Optional[Sequence[str]] = None
 
-class AddonIssueTypeDef(BaseModel):
+class AddonIssueTypeDef(BaseValidatorModel):
     code: Optional[AddonIssueCodeType] = None
     message: Optional[str] = None
     resourceIds: Optional[List[str]] = None
 
-class MarketplaceInformationTypeDef(BaseModel):
+class MarketplaceInformationTypeDef(BaseValidatorModel):
     productId: Optional[str] = None
     productUrl: Optional[str] = None
 
-class AddonPodIdentityAssociationsTypeDef(BaseModel):
+class AddonPodIdentityAssociationsTypeDef(BaseValidatorModel):
     serviceAccount: str
     roleArn: str
 
-class AddonPodIdentityConfigurationTypeDef(BaseModel):
+class AddonPodIdentityConfigurationTypeDef(BaseValidatorModel):
     serviceAccount: Optional[str] = None
     recommendedManagedPolicies: Optional[List[str]] = None
 
-class CompatibilityTypeDef(BaseModel):
+class CompatibilityTypeDef(BaseValidatorModel):
     clusterVersion: Optional[str] = None
     platformVersions: Optional[List[str]] = None
     defaultVersion: Optional[bool] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class OidcIdentityProviderConfigRequestTypeDef(BaseModel):
+class OidcIdentityProviderConfigRequestTypeDef(BaseValidatorModel):
     identityProviderConfigName: str
     issuerUrl: str
     clientId: str
@@ -81,35 +81,35 @@ class OidcIdentityProviderConfigRequestTypeDef(BaseModel):
     groupsPrefix: Optional[str] = None
     requiredClaims: Optional[Mapping[str, str]] = None
 
-class AutoScalingGroupTypeDef(BaseModel):
+class AutoScalingGroupTypeDef(BaseValidatorModel):
     name: Optional[str] = None
 
-class CertificateTypeDef(BaseModel):
+class CertificateTypeDef(BaseValidatorModel):
     data: Optional[str] = None
 
-class ClientStatTypeDef(BaseModel):
+class ClientStatTypeDef(BaseValidatorModel):
     userAgent: Optional[str] = None
     numberOfRequestsLast30Days: Optional[int] = None
     lastRequestTime: Optional[datetime] = None
 
-class ClusterIssueTypeDef(BaseModel):
+class ClusterIssueTypeDef(BaseValidatorModel):
     code: Optional[ClusterIssueCodeType] = None
     message: Optional[str] = None
     resourceIds: Optional[List[str]] = None
 
-class ConnectorConfigResponseTypeDef(BaseModel):
+class ConnectorConfigResponseTypeDef(BaseValidatorModel):
     activationId: Optional[str] = None
     activationCode: Optional[str] = None
     activationExpiry: Optional[datetime] = None
     provider: Optional[str] = None
     roleArn: Optional[str] = None
 
-class KubernetesNetworkConfigResponseTypeDef(BaseModel):
+class KubernetesNetworkConfigResponseTypeDef(BaseValidatorModel):
     serviceIpv4Cidr: Optional[str] = None
     serviceIpv6Cidr: Optional[str] = None
     ipFamily: Optional[IpFamilyType] = None
 
-class VpcConfigResponseTypeDef(BaseModel):
+class VpcConfigResponseTypeDef(BaseValidatorModel):
     subnetIds: Optional[List[str]] = None
     securityGroupIds: Optional[List[str]] = None
     clusterSecurityGroupId: Optional[str] = None
@@ -118,21 +118,21 @@ class VpcConfigResponseTypeDef(BaseModel):
     endpointPrivateAccess: Optional[bool] = None
     publicAccessCidrs: Optional[List[str]] = None
 
-class ConnectorConfigRequestTypeDef(BaseModel):
+class ConnectorConfigRequestTypeDef(BaseValidatorModel):
     roleArn: str
     provider: ConnectorConfigProviderType
 
-class ControlPlanePlacementRequestTypeDef(BaseModel):
+class ControlPlanePlacementRequestTypeDef(BaseValidatorModel):
     groupName: Optional[str] = None
 
-class ControlPlanePlacementResponseTypeDef(BaseModel):
+class ControlPlanePlacementResponseTypeDef(BaseValidatorModel):
     groupName: Optional[str] = None
 
-class CreateAccessConfigRequestTypeDef(BaseModel):
+class CreateAccessConfigRequestTypeDef(BaseValidatorModel):
     bootstrapClusterCreatorAdminPermissions: Optional[bool] = None
     authenticationMode: Optional[AuthenticationModeType] = None
 
-class CreateAccessEntryRequestRequestTypeDef(BaseModel):
+class CreateAccessEntryRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
     kubernetesGroups: Optional[Sequence[str]] = None
@@ -141,45 +141,45 @@ class CreateAccessEntryRequestRequestTypeDef(BaseModel):
     username: Optional[str] = None
     type: Optional[str] = None
 
-class KubernetesNetworkConfigRequestTypeDef(BaseModel):
+class KubernetesNetworkConfigRequestTypeDef(BaseValidatorModel):
     serviceIpv4Cidr: Optional[str] = None
     ipFamily: Optional[IpFamilyType] = None
 
-class VpcConfigRequestTypeDef(BaseModel):
+class VpcConfigRequestTypeDef(BaseValidatorModel):
     subnetIds: Optional[Sequence[str]] = None
     securityGroupIds: Optional[Sequence[str]] = None
     endpointPublicAccess: Optional[bool] = None
     endpointPrivateAccess: Optional[bool] = None
     publicAccessCidrs: Optional[Sequence[str]] = None
 
-class EksAnywhereSubscriptionTermTypeDef(BaseModel):
+class EksAnywhereSubscriptionTermTypeDef(BaseValidatorModel):
     duration: Optional[int] = None
     unit: Optional[Literal["MONTHS"]] = None
 
-class LaunchTemplateSpecificationTypeDef(BaseModel):
+class LaunchTemplateSpecificationTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     version: Optional[str] = None
     id: Optional[str] = None
 
-class NodegroupScalingConfigTypeDef(BaseModel):
+class NodegroupScalingConfigTypeDef(BaseValidatorModel):
     minSize: Optional[int] = None
     maxSize: Optional[int] = None
     desiredSize: Optional[int] = None
 
-class NodegroupUpdateConfigTypeDef(BaseModel):
+class NodegroupUpdateConfigTypeDef(BaseValidatorModel):
     maxUnavailable: Optional[int] = None
     maxUnavailablePercentage: Optional[int] = None
 
-class RemoteAccessConfigTypeDef(BaseModel):
+class RemoteAccessConfigTypeDef(BaseValidatorModel):
     ec2SshKey: Optional[str] = None
     sourceSecurityGroups: Optional[Sequence[str]] = None
 
-class TaintTypeDef(BaseModel):
+class TaintTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
     effect: Optional[TaintEffectType] = None
 
-class CreatePodIdentityAssociationRequestRequestTypeDef(BaseModel):
+class CreatePodIdentityAssociationRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     namespace: str
     serviceAccount: str
@@ -187,7 +187,7 @@ class CreatePodIdentityAssociationRequestRequestTypeDef(BaseModel):
     clientRequestToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class PodIdentityAssociationTypeDef(BaseModel):
+class PodIdentityAssociationTypeDef(BaseValidatorModel):
     clusterName: Optional[str] = None
     namespace: Optional[str] = None
     serviceAccount: Optional[str] = None
@@ -199,58 +199,58 @@ class PodIdentityAssociationTypeDef(BaseModel):
     modifiedAt: Optional[datetime] = None
     ownerArn: Optional[str] = None
 
-class DeleteAccessEntryRequestRequestTypeDef(BaseModel):
+class DeleteAccessEntryRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
 
-class DeleteAddonRequestRequestTypeDef(BaseModel):
+class DeleteAddonRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     addonName: str
     preserve: Optional[bool] = None
 
-class DeleteClusterRequestRequestTypeDef(BaseModel):
+class DeleteClusterRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteEksAnywhereSubscriptionRequestRequestTypeDef(BaseModel):
+class DeleteEksAnywhereSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class DeleteFargateProfileRequestRequestTypeDef(BaseModel):
+class DeleteFargateProfileRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     fargateProfileName: str
 
-class DeleteNodegroupRequestRequestTypeDef(BaseModel):
+class DeleteNodegroupRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
 
-class DeletePodIdentityAssociationRequestRequestTypeDef(BaseModel):
+class DeletePodIdentityAssociationRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     associationId: str
 
-class DeregisterClusterRequestRequestTypeDef(BaseModel):
+class DeregisterClusterRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DescribeAccessEntryRequestRequestTypeDef(BaseModel):
+class DescribeAccessEntryRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
 
-class DescribeAddonConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeAddonConfigurationRequestRequestTypeDef(BaseValidatorModel):
     addonName: str
     addonVersion: str
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeAddonRequestRequestTypeDef(BaseModel):
+class DescribeAddonRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     addonName: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeAddonVersionsRequestRequestTypeDef(BaseModel):
+class DescribeAddonVersionsRequestRequestTypeDef(BaseValidatorModel):
     kubernetesVersion: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -259,65 +259,65 @@ class DescribeAddonVersionsRequestRequestTypeDef(BaseModel):
     publishers: Optional[Sequence[str]] = None
     owners: Optional[Sequence[str]] = None
 
-class DescribeClusterRequestRequestTypeDef(BaseModel):
+class DescribeClusterRequestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DescribeEksAnywhereSubscriptionRequestRequestTypeDef(BaseModel):
+class DescribeEksAnywhereSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class DescribeFargateProfileRequestRequestTypeDef(BaseModel):
+class DescribeFargateProfileRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     fargateProfileName: str
 
-class IdentityProviderConfigTypeDef(BaseModel):
+class IdentityProviderConfigTypeDef(BaseValidatorModel):
     type: str
     name: str
 
-class DescribeInsightRequestRequestTypeDef(BaseModel):
+class DescribeInsightRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     id: str
 
-class DescribeNodegroupRequestRequestTypeDef(BaseModel):
+class DescribeNodegroupRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
 
-class DescribePodIdentityAssociationRequestRequestTypeDef(BaseModel):
+class DescribePodIdentityAssociationRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     associationId: str
 
-class DescribeUpdateRequestRequestTypeDef(BaseModel):
+class DescribeUpdateRequestRequestTypeDef(BaseValidatorModel):
     name: str
     updateId: str
     nodegroupName: Optional[str] = None
     addonName: Optional[str] = None
 
-class DisassociateAccessPolicyRequestRequestTypeDef(BaseModel):
+class DisassociateAccessPolicyRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
     policyArn: str
 
-class ProviderTypeDef(BaseModel):
+class ProviderTypeDef(BaseValidatorModel):
     keyArn: Optional[str] = None
 
-class ErrorDetailTypeDef(BaseModel):
+class ErrorDetailTypeDef(BaseValidatorModel):
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
     resourceIds: Optional[List[str]] = None
 
-class FargateProfileIssueTypeDef(BaseModel):
+class FargateProfileIssueTypeDef(BaseValidatorModel):
     code: Optional[FargateProfileIssueCodeType] = None
     message: Optional[str] = None
     resourceIds: Optional[List[str]] = None
 
-class FargateProfileSelectorOutputTypeDef(BaseModel):
+class FargateProfileSelectorOutputTypeDef(BaseValidatorModel):
     namespace: Optional[str] = None
     labels: Optional[Dict[str, str]] = None
 
-class FargateProfileSelectorTypeDef(BaseModel):
+class FargateProfileSelectorTypeDef(BaseValidatorModel):
     namespace: Optional[str] = None
     labels: Optional[Mapping[str, str]] = None
 
-class OidcIdentityProviderConfigTypeDef(BaseModel):
+class OidcIdentityProviderConfigTypeDef(BaseValidatorModel):
     identityProviderConfigName: Optional[str] = None
     identityProviderConfigArn: Optional[str] = None
     clusterName: Optional[str] = None
@@ -331,77 +331,77 @@ class OidcIdentityProviderConfigTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     status: Optional[ConfigStatusType] = None
 
-class OIDCTypeDef(BaseModel):
+class OIDCTypeDef(BaseValidatorModel):
     issuer: Optional[str] = None
 
-class InsightStatusTypeDef(BaseModel):
+class InsightStatusTypeDef(BaseValidatorModel):
     status: Optional[InsightStatusValueType] = None
     reason: Optional[str] = None
 
-class InsightsFilterTypeDef(BaseModel):
+class InsightsFilterTypeDef(BaseValidatorModel):
     categories: Optional[Sequence[Literal["UPGRADE_READINESS"]]] = None
     kubernetesVersions: Optional[Sequence[str]] = None
     statuses: Optional[Sequence[InsightStatusValueType]] = None
 
-class IssueTypeDef(BaseModel):
+class IssueTypeDef(BaseValidatorModel):
     code: Optional[NodegroupIssueCodeType] = None
     message: Optional[str] = None
     resourceIds: Optional[List[str]] = None
 
-class ListAccessEntriesRequestRequestTypeDef(BaseModel):
+class ListAccessEntriesRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     associatedPolicyArn: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAccessPoliciesRequestRequestTypeDef(BaseModel):
+class ListAccessPoliciesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAddonsRequestRequestTypeDef(BaseModel):
+class ListAddonsRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAssociatedAccessPoliciesRequestRequestTypeDef(BaseModel):
+class ListAssociatedAccessPoliciesRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListClustersRequestRequestTypeDef(BaseModel):
+class ListClustersRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     include: Optional[Sequence[str]] = None
 
-class ListEksAnywhereSubscriptionsRequestRequestTypeDef(BaseModel):
+class ListEksAnywhereSubscriptionsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     includeStatus: Optional[Sequence[EksAnywhereSubscriptionStatusType]] = None
 
-class ListFargateProfilesRequestRequestTypeDef(BaseModel):
+class ListFargateProfilesRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListIdentityProviderConfigsRequestRequestTypeDef(BaseModel):
+class ListIdentityProviderConfigsRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListNodegroupsRequestRequestTypeDef(BaseModel):
+class ListNodegroupsRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListPodIdentityAssociationsRequestRequestTypeDef(BaseModel):
+class ListPodIdentityAssociationsRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     namespace: Optional[str] = None
     serviceAccount: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class PodIdentityAssociationSummaryTypeDef(BaseModel):
+class PodIdentityAssociationSummaryTypeDef(BaseValidatorModel):
     clusterName: Optional[str] = None
     namespace: Optional[str] = None
     serviceAccount: Optional[str] = None
@@ -409,86 +409,86 @@ class PodIdentityAssociationSummaryTypeDef(BaseModel):
     associationId: Optional[str] = None
     ownerArn: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListUpdatesRequestRequestTypeDef(BaseModel):
+class ListUpdatesRequestRequestTypeDef(BaseValidatorModel):
     name: str
     nodegroupName: Optional[str] = None
     addonName: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class LogSetupOutputTypeDef(BaseModel):
+class LogSetupOutputTypeDef(BaseValidatorModel):
     types: Optional[List[LogTypeType]] = None
     enabled: Optional[bool] = None
 
-class LogSetupTypeDef(BaseModel):
+class LogSetupTypeDef(BaseValidatorModel):
     types: Optional[Sequence[LogTypeType]] = None
     enabled: Optional[bool] = None
 
-class RemoteAccessConfigOutputTypeDef(BaseModel):
+class RemoteAccessConfigOutputTypeDef(BaseValidatorModel):
     ec2SshKey: Optional[str] = None
     sourceSecurityGroups: Optional[List[str]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateAccessConfigRequestTypeDef(BaseModel):
+class UpdateAccessConfigRequestTypeDef(BaseValidatorModel):
     authenticationMode: Optional[AuthenticationModeType] = None
 
-class UpdateAccessEntryRequestRequestTypeDef(BaseModel):
+class UpdateAccessEntryRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
     kubernetesGroups: Optional[Sequence[str]] = None
     clientRequestToken: Optional[str] = None
     username: Optional[str] = None
 
-class UpdateClusterVersionRequestRequestTypeDef(BaseModel):
+class UpdateClusterVersionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     version: str
     clientRequestToken: Optional[str] = None
 
-class UpdateEksAnywhereSubscriptionRequestRequestTypeDef(BaseModel):
+class UpdateEksAnywhereSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     id: str
     autoRenew: bool
     clientRequestToken: Optional[str] = None
 
-class UpdateLabelsPayloadTypeDef(BaseModel):
+class UpdateLabelsPayloadTypeDef(BaseValidatorModel):
     addOrUpdateLabels: Optional[Mapping[str, str]] = None
     removeLabels: Optional[Sequence[str]] = None
 
-class UpdateParamTypeDef(BaseModel):
+class UpdateParamTypeDef(BaseValidatorModel):
     type: Optional[UpdateParamTypeType] = None
     value: Optional[str] = None
 
-class UpdatePodIdentityAssociationRequestRequestTypeDef(BaseModel):
+class UpdatePodIdentityAssociationRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     associationId: str
     roleArn: Optional[str] = None
     clientRequestToken: Optional[str] = None
 
-class AssociatedAccessPolicyTypeDef(BaseModel):
+class AssociatedAccessPolicyTypeDef(BaseValidatorModel):
     policyArn: Optional[str] = None
     accessScope: Optional[AccessScopeOutputTypeDef] = None
     associatedAt: Optional[datetime] = None
     modifiedAt: Optional[datetime] = None
 
-class AssociateAccessPolicyRequestRequestTypeDef(BaseModel):
+class AssociateAccessPolicyRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
     policyArn: str
     accessScope: AccessScopeTypeDef
 
-class AddonHealthTypeDef(BaseModel):
+class AddonHealthTypeDef(BaseValidatorModel):
     issues: Optional[List[AddonIssueTypeDef]] = None
 
-class CreateAddonRequestRequestTypeDef(BaseModel):
+class CreateAddonRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     addonName: str
     addonVersion: Optional[str] = None
@@ -499,7 +499,7 @@ class CreateAddonRequestRequestTypeDef(BaseModel):
     configurationValues: Optional[str] = None
     podIdentityAssociations: Optional[Sequence[AddonPodIdentityAssociationsTypeDef]] = None
 
-class UpdateAddonRequestRequestTypeDef(BaseModel):
+class UpdateAddonRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     addonName: str
     addonVersion: Optional[str] = None
@@ -509,108 +509,108 @@ class UpdateAddonRequestRequestTypeDef(BaseModel):
     configurationValues: Optional[str] = None
     podIdentityAssociations: Optional[Sequence[AddonPodIdentityAssociationsTypeDef]] = None
 
-class AddonVersionInfoTypeDef(BaseModel):
+class AddonVersionInfoTypeDef(BaseValidatorModel):
     addonVersion: Optional[str] = None
     architecture: Optional[List[str]] = None
     compatibilities: Optional[List[CompatibilityTypeDef]] = None
     requiresConfiguration: Optional[bool] = None
     requiresIamPermissions: Optional[bool] = None
 
-class CreateAccessEntryResponseTypeDef(BaseModel):
+class CreateAccessEntryResponseTypeDef(BaseValidatorModel):
     accessEntry: AccessEntryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAccessEntryResponseTypeDef(BaseModel):
+class DescribeAccessEntryResponseTypeDef(BaseValidatorModel):
     accessEntry: AccessEntryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAddonConfigurationResponseTypeDef(BaseModel):
+class DescribeAddonConfigurationResponseTypeDef(BaseValidatorModel):
     addonName: str
     addonVersion: str
     configurationSchema: str
     podIdentityConfiguration: List[AddonPodIdentityConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccessEntriesResponseTypeDef(BaseModel):
+class ListAccessEntriesResponseTypeDef(BaseValidatorModel):
     accessEntries: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccessPoliciesResponseTypeDef(BaseModel):
+class ListAccessPoliciesResponseTypeDef(BaseValidatorModel):
     accessPolicies: List[AccessPolicyTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAddonsResponseTypeDef(BaseModel):
+class ListAddonsResponseTypeDef(BaseValidatorModel):
     addons: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListClustersResponseTypeDef(BaseModel):
+class ListClustersResponseTypeDef(BaseValidatorModel):
     clusters: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFargateProfilesResponseTypeDef(BaseModel):
+class ListFargateProfilesResponseTypeDef(BaseValidatorModel):
     fargateProfileNames: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListNodegroupsResponseTypeDef(BaseModel):
+class ListNodegroupsResponseTypeDef(BaseValidatorModel):
     nodegroups: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUpdatesResponseTypeDef(BaseModel):
+class ListUpdatesResponseTypeDef(BaseValidatorModel):
     updateIds: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAccessEntryResponseTypeDef(BaseModel):
+class UpdateAccessEntryResponseTypeDef(BaseValidatorModel):
     accessEntry: AccessEntryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateIdentityProviderConfigRequestRequestTypeDef(BaseModel):
+class AssociateIdentityProviderConfigRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     oidc: OidcIdentityProviderConfigRequestTypeDef
     tags: Optional[Mapping[str, str]] = None
     clientRequestToken: Optional[str] = None
 
-class NodegroupResourcesTypeDef(BaseModel):
+class NodegroupResourcesTypeDef(BaseValidatorModel):
     autoScalingGroups: Optional[List[AutoScalingGroupTypeDef]] = None
     remoteAccessSecurityGroup: Optional[str] = None
 
-class DeprecationDetailTypeDef(BaseModel):
+class DeprecationDetailTypeDef(BaseValidatorModel):
     usage: Optional[str] = None
     replacedWith: Optional[str] = None
     stopServingVersion: Optional[str] = None
     startServingReplacementVersion: Optional[str] = None
     clientStats: Optional[List[ClientStatTypeDef]] = None
 
-class ClusterHealthTypeDef(BaseModel):
+class ClusterHealthTypeDef(BaseValidatorModel):
     issues: Optional[List[ClusterIssueTypeDef]] = None
 
-class RegisterClusterRequestRequestTypeDef(BaseModel):
+class RegisterClusterRequestRequestTypeDef(BaseValidatorModel):
     name: str
     connectorConfig: ConnectorConfigRequestTypeDef
     clientRequestToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class OutpostConfigRequestTypeDef(BaseModel):
+class OutpostConfigRequestTypeDef(BaseValidatorModel):
     outpostArns: Sequence[str]
     controlPlaneInstanceType: str
     controlPlanePlacement: Optional[ControlPlanePlacementRequestTypeDef] = None
 
-class OutpostConfigResponseTypeDef(BaseModel):
+class OutpostConfigResponseTypeDef(BaseValidatorModel):
     outpostArns: List[str]
     controlPlaneInstanceType: str
     controlPlanePlacement: Optional[ControlPlanePlacementResponseTypeDef] = None
 
-class CreateEksAnywhereSubscriptionRequestRequestTypeDef(BaseModel):
+class CreateEksAnywhereSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     name: str
     term: EksAnywhereSubscriptionTermTypeDef
     licenseQuantity: Optional[int] = None
@@ -619,7 +619,7 @@ class CreateEksAnywhereSubscriptionRequestRequestTypeDef(BaseModel):
     clientRequestToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class EksAnywhereSubscriptionTypeDef(BaseModel):
+class EksAnywhereSubscriptionTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -633,7 +633,7 @@ class EksAnywhereSubscriptionTypeDef(BaseModel):
     licenseArns: Optional[List[str]] = None
     tags: Optional[Dict[str, str]] = None
 
-class UpdateNodegroupVersionRequestRequestTypeDef(BaseModel):
+class UpdateNodegroupVersionRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
     version: Optional[str] = None
@@ -642,7 +642,7 @@ class UpdateNodegroupVersionRequestRequestTypeDef(BaseModel):
     force: Optional[bool] = None
     clientRequestToken: Optional[str] = None
 
-class CreateNodegroupRequestRequestTypeDef(BaseModel):
+class CreateNodegroupRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
     subnets: Sequence[str]
@@ -662,65 +662,65 @@ class CreateNodegroupRequestRequestTypeDef(BaseModel):
     version: Optional[str] = None
     releaseVersion: Optional[str] = None
 
-class UpdateTaintsPayloadTypeDef(BaseModel):
+class UpdateTaintsPayloadTypeDef(BaseValidatorModel):
     addOrUpdateTaints: Optional[Sequence[TaintTypeDef]] = None
     removeTaints: Optional[Sequence[TaintTypeDef]] = None
 
-class CreatePodIdentityAssociationResponseTypeDef(BaseModel):
+class CreatePodIdentityAssociationResponseTypeDef(BaseValidatorModel):
     association: PodIdentityAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletePodIdentityAssociationResponseTypeDef(BaseModel):
+class DeletePodIdentityAssociationResponseTypeDef(BaseValidatorModel):
     association: PodIdentityAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePodIdentityAssociationResponseTypeDef(BaseModel):
+class DescribePodIdentityAssociationResponseTypeDef(BaseValidatorModel):
     association: PodIdentityAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePodIdentityAssociationResponseTypeDef(BaseModel):
+class UpdatePodIdentityAssociationResponseTypeDef(BaseValidatorModel):
     association: PodIdentityAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAddonRequestAddonActiveWaitTypeDef(BaseModel):
+class DescribeAddonRequestAddonActiveWaitTypeDef(BaseValidatorModel):
     clusterName: str
     addonName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeAddonRequestAddonDeletedWaitTypeDef(BaseModel):
+class DescribeAddonRequestAddonDeletedWaitTypeDef(BaseValidatorModel):
     clusterName: str
     addonName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeClusterRequestClusterActiveWaitTypeDef(BaseModel):
+class DescribeClusterRequestClusterActiveWaitTypeDef(BaseValidatorModel):
     name: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeClusterRequestClusterDeletedWaitTypeDef(BaseModel):
+class DescribeClusterRequestClusterDeletedWaitTypeDef(BaseValidatorModel):
     name: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeFargateProfileRequestFargateProfileActiveWaitTypeDef(BaseModel):
+class DescribeFargateProfileRequestFargateProfileActiveWaitTypeDef(BaseValidatorModel):
     clusterName: str
     fargateProfileName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeFargateProfileRequestFargateProfileDeletedWaitTypeDef(BaseModel):
+class DescribeFargateProfileRequestFargateProfileDeletedWaitTypeDef(BaseValidatorModel):
     clusterName: str
     fargateProfileName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeNodegroupRequestNodegroupActiveWaitTypeDef(BaseModel):
+class DescribeNodegroupRequestNodegroupActiveWaitTypeDef(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeNodegroupRequestNodegroupDeletedWaitTypeDef(BaseModel):
+class DescribeNodegroupRequestNodegroupDeletedWaitTypeDef(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeAddonVersionsRequestDescribeAddonVersionsPaginateTypeDef(BaseModel):
+class DescribeAddonVersionsRequestDescribeAddonVersionsPaginateTypeDef(BaseValidatorModel):
     kubernetesVersion: Optional[str] = None
     addonName: Optional[str] = None
     types: Optional[Sequence[str]] = None
@@ -728,92 +728,92 @@ class DescribeAddonVersionsRequestDescribeAddonVersionsPaginateTypeDef(BaseModel
     owners: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccessEntriesRequestListAccessEntriesPaginateTypeDef(BaseModel):
+class ListAccessEntriesRequestListAccessEntriesPaginateTypeDef(BaseValidatorModel):
     clusterName: str
     associatedPolicyArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccessPoliciesRequestListAccessPoliciesPaginateTypeDef(BaseModel):
+class ListAccessPoliciesRequestListAccessPoliciesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAddonsRequestListAddonsPaginateTypeDef(BaseModel):
+class ListAddonsRequestListAddonsPaginateTypeDef(BaseValidatorModel):
     clusterName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAssociatedAccessPoliciesRequestListAssociatedAccessPoliciesPaginateTypeDef(BaseModel):
+class ListAssociatedAccessPoliciesRequestListAssociatedAccessPoliciesPaginateTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListClustersRequestListClustersPaginateTypeDef(BaseModel):
+class ListClustersRequestListClustersPaginateTypeDef(BaseValidatorModel):
     include: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEksAnywhereSubscriptionsRequestListEksAnywhereSubscriptionsPaginateTypeDef(BaseModel):
+class ListEksAnywhereSubscriptionsRequestListEksAnywhereSubscriptionsPaginateTypeDef(BaseValidatorModel):
     includeStatus: Optional[Sequence[EksAnywhereSubscriptionStatusType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFargateProfilesRequestListFargateProfilesPaginateTypeDef(BaseModel):
+class ListFargateProfilesRequestListFargateProfilesPaginateTypeDef(BaseValidatorModel):
     clusterName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIdentityProviderConfigsRequestListIdentityProviderConfigsPaginateTypeDef(BaseModel):
+class ListIdentityProviderConfigsRequestListIdentityProviderConfigsPaginateTypeDef(BaseValidatorModel):
     clusterName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListNodegroupsRequestListNodegroupsPaginateTypeDef(BaseModel):
+class ListNodegroupsRequestListNodegroupsPaginateTypeDef(BaseValidatorModel):
     clusterName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPodIdentityAssociationsRequestListPodIdentityAssociationsPaginateTypeDef(BaseModel):
+class ListPodIdentityAssociationsRequestListPodIdentityAssociationsPaginateTypeDef(BaseValidatorModel):
     clusterName: str
     namespace: Optional[str] = None
     serviceAccount: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUpdatesRequestListUpdatesPaginateTypeDef(BaseModel):
+class ListUpdatesRequestListUpdatesPaginateTypeDef(BaseValidatorModel):
     name: str
     nodegroupName: Optional[str] = None
     addonName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeIdentityProviderConfigRequestRequestTypeDef(BaseModel):
+class DescribeIdentityProviderConfigRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     identityProviderConfig: IdentityProviderConfigTypeDef
 
-class DisassociateIdentityProviderConfigRequestRequestTypeDef(BaseModel):
+class DisassociateIdentityProviderConfigRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     identityProviderConfig: IdentityProviderConfigTypeDef
     clientRequestToken: Optional[str] = None
 
-class ListIdentityProviderConfigsResponseTypeDef(BaseModel):
+class ListIdentityProviderConfigsResponseTypeDef(BaseValidatorModel):
     identityProviderConfigs: List[IdentityProviderConfigTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EncryptionConfigOutputTypeDef(BaseModel):
+class EncryptionConfigOutputTypeDef(BaseValidatorModel):
     resources: Optional[List[str]] = None
     provider: Optional[ProviderTypeDef] = None
 
-class EncryptionConfigTypeDef(BaseModel):
+class EncryptionConfigTypeDef(BaseValidatorModel):
     resources: Optional[Sequence[str]] = None
     provider: Optional[ProviderTypeDef] = None
 
-class FargateProfileHealthTypeDef(BaseModel):
+class FargateProfileHealthTypeDef(BaseValidatorModel):
     issues: Optional[List[FargateProfileIssueTypeDef]] = None
 
-class IdentityProviderConfigResponseTypeDef(BaseModel):
+class IdentityProviderConfigResponseTypeDef(BaseValidatorModel):
     oidc: Optional[OidcIdentityProviderConfigTypeDef] = None
 
-class IdentityTypeDef(BaseModel):
+class IdentityTypeDef(BaseValidatorModel):
     oidc: Optional[OIDCTypeDef] = None
 
-class InsightResourceDetailTypeDef(BaseModel):
+class InsightResourceDetailTypeDef(BaseValidatorModel):
     insightStatus: Optional[InsightStatusTypeDef] = None
     kubernetesResourceUri: Optional[str] = None
     arn: Optional[str] = None
 
-class InsightSummaryTypeDef(BaseModel):
+class InsightSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     category: Optional[Literal["UPGRADE_READINESS"]] = None
@@ -823,32 +823,32 @@ class InsightSummaryTypeDef(BaseModel):
     description: Optional[str] = None
     insightStatus: Optional[InsightStatusTypeDef] = None
 
-class ListInsightsRequestListInsightsPaginateTypeDef(BaseModel):
+class ListInsightsRequestListInsightsPaginateTypeDef(BaseValidatorModel):
     clusterName: str
     filter: Optional[InsightsFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInsightsRequestRequestTypeDef(BaseModel):
+class ListInsightsRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     filter: Optional[InsightsFilterTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class NodegroupHealthTypeDef(BaseModel):
+class NodegroupHealthTypeDef(BaseValidatorModel):
     issues: Optional[List[IssueTypeDef]] = None
 
-class ListPodIdentityAssociationsResponseTypeDef(BaseModel):
+class ListPodIdentityAssociationsResponseTypeDef(BaseValidatorModel):
     associations: List[PodIdentityAssociationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoggingOutputTypeDef(BaseModel):
+class LoggingOutputTypeDef(BaseValidatorModel):
     clusterLogging: Optional[List[LogSetupOutputTypeDef]] = None
 
-class LoggingTypeDef(BaseModel):
+class LoggingTypeDef(BaseValidatorModel):
     clusterLogging: Optional[Sequence[LogSetupTypeDef]] = None
 
-class UpdateTypeDef(BaseModel):
+class UpdateTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     status: Optional[UpdateStatusType] = None
     type: Optional[UpdateTypeType] = None
@@ -856,20 +856,20 @@ class UpdateTypeDef(BaseModel):
     createdAt: Optional[datetime] = None
     errors: Optional[List[ErrorDetailTypeDef]] = None
 
-class AssociateAccessPolicyResponseTypeDef(BaseModel):
+class AssociateAccessPolicyResponseTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
     associatedAccessPolicy: AssociatedAccessPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssociatedAccessPoliciesResponseTypeDef(BaseModel):
+class ListAssociatedAccessPoliciesResponseTypeDef(BaseValidatorModel):
     clusterName: str
     principalArn: str
     nextToken: str
     associatedAccessPolicies: List[AssociatedAccessPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AddonTypeDef(BaseModel):
+class AddonTypeDef(BaseValidatorModel):
     addonName: Optional[str] = None
     clusterName: Optional[str] = None
     status: Optional[AddonStatusType] = None
@@ -886,7 +886,7 @@ class AddonTypeDef(BaseModel):
     configurationValues: Optional[str] = None
     podIdentityAssociations: Optional[List[str]] = None
 
-class AddonInfoTypeDef(BaseModel):
+class AddonInfoTypeDef(BaseValidatorModel):
     addonName: Optional[str] = None
     type: Optional[str] = None
     addonVersions: Optional[List[AddonVersionInfoTypeDef]] = None
@@ -894,31 +894,31 @@ class AddonInfoTypeDef(BaseModel):
     owner: Optional[str] = None
     marketplaceInformation: Optional[MarketplaceInformationTypeDef] = None
 
-class InsightCategorySpecificSummaryTypeDef(BaseModel):
+class InsightCategorySpecificSummaryTypeDef(BaseValidatorModel):
     deprecationDetails: Optional[List[DeprecationDetailTypeDef]] = None
 
-class CreateEksAnywhereSubscriptionResponseTypeDef(BaseModel):
+class CreateEksAnywhereSubscriptionResponseTypeDef(BaseValidatorModel):
     subscription: EksAnywhereSubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteEksAnywhereSubscriptionResponseTypeDef(BaseModel):
+class DeleteEksAnywhereSubscriptionResponseTypeDef(BaseValidatorModel):
     subscription: EksAnywhereSubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEksAnywhereSubscriptionResponseTypeDef(BaseModel):
+class DescribeEksAnywhereSubscriptionResponseTypeDef(BaseValidatorModel):
     subscription: EksAnywhereSubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEksAnywhereSubscriptionsResponseTypeDef(BaseModel):
+class ListEksAnywhereSubscriptionsResponseTypeDef(BaseValidatorModel):
     subscriptions: List[EksAnywhereSubscriptionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEksAnywhereSubscriptionResponseTypeDef(BaseModel):
+class UpdateEksAnywhereSubscriptionResponseTypeDef(BaseValidatorModel):
     subscription: EksAnywhereSubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateNodegroupConfigRequestRequestTypeDef(BaseModel):
+class UpdateNodegroupConfigRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
     labels: Optional[UpdateLabelsPayloadTypeDef] = None
@@ -927,7 +927,7 @@ class UpdateNodegroupConfigRequestRequestTypeDef(BaseModel):
     updateConfig: Optional[NodegroupUpdateConfigTypeDef] = None
     clientRequestToken: Optional[str] = None
 
-class FargateProfileTypeDef(BaseModel):
+class FargateProfileTypeDef(BaseValidatorModel):
     fargateProfileName: Optional[str] = None
     fargateProfileArn: Optional[str] = None
     clusterName: Optional[str] = None
@@ -939,7 +939,7 @@ class FargateProfileTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     health: Optional[FargateProfileHealthTypeDef] = None
 
-class CreateFargateProfileRequestRequestTypeDef(BaseModel):
+class CreateFargateProfileRequestRequestTypeDef(BaseValidatorModel):
     fargateProfileName: str
     clusterName: str
     podExecutionRoleArn: str
@@ -948,16 +948,16 @@ class CreateFargateProfileRequestRequestTypeDef(BaseModel):
     clientRequestToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class DescribeIdentityProviderConfigResponseTypeDef(BaseModel):
+class DescribeIdentityProviderConfigResponseTypeDef(BaseValidatorModel):
     identityProviderConfig: IdentityProviderConfigResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInsightsResponseTypeDef(BaseModel):
+class ListInsightsResponseTypeDef(BaseValidatorModel):
     insights: List[InsightSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NodegroupTypeDef(BaseModel):
+class NodegroupTypeDef(BaseValidatorModel):
     nodegroupName: Optional[str] = None
     nodegroupArn: Optional[str] = None
     clusterName: Optional[str] = None
@@ -982,7 +982,7 @@ class NodegroupTypeDef(BaseModel):
     launchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class ClusterTypeDef(BaseModel):
+class ClusterTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -1005,68 +1005,68 @@ class ClusterTypeDef(BaseModel):
     outpostConfig: Optional[OutpostConfigResponseTypeDef] = None
     accessConfig: Optional[AccessConfigResponseTypeDef] = None
 
-class UpdateClusterConfigRequestRequestTypeDef(BaseModel):
+class UpdateClusterConfigRequestRequestTypeDef(BaseValidatorModel):
     name: str
     resourcesVpcConfig: Optional[VpcConfigRequestTypeDef] = None
     logging: Optional[LoggingTypeDef] = None
     clientRequestToken: Optional[str] = None
     accessConfig: Optional[UpdateAccessConfigRequestTypeDef] = None
 
-class AssociateEncryptionConfigResponseTypeDef(BaseModel):
+class AssociateEncryptionConfigResponseTypeDef(BaseValidatorModel):
     update: UpdateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateIdentityProviderConfigResponseTypeDef(BaseModel):
+class AssociateIdentityProviderConfigResponseTypeDef(BaseValidatorModel):
     update: UpdateTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeUpdateResponseTypeDef(BaseModel):
+class DescribeUpdateResponseTypeDef(BaseValidatorModel):
     update: UpdateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateIdentityProviderConfigResponseTypeDef(BaseModel):
+class DisassociateIdentityProviderConfigResponseTypeDef(BaseValidatorModel):
     update: UpdateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAddonResponseTypeDef(BaseModel):
+class UpdateAddonResponseTypeDef(BaseValidatorModel):
     update: UpdateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateClusterConfigResponseTypeDef(BaseModel):
+class UpdateClusterConfigResponseTypeDef(BaseValidatorModel):
     update: UpdateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateClusterVersionResponseTypeDef(BaseModel):
+class UpdateClusterVersionResponseTypeDef(BaseValidatorModel):
     update: UpdateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateNodegroupConfigResponseTypeDef(BaseModel):
+class UpdateNodegroupConfigResponseTypeDef(BaseValidatorModel):
     update: UpdateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateNodegroupVersionResponseTypeDef(BaseModel):
+class UpdateNodegroupVersionResponseTypeDef(BaseValidatorModel):
     update: UpdateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAddonResponseTypeDef(BaseModel):
+class CreateAddonResponseTypeDef(BaseValidatorModel):
     addon: AddonTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAddonResponseTypeDef(BaseModel):
+class DeleteAddonResponseTypeDef(BaseValidatorModel):
     addon: AddonTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAddonResponseTypeDef(BaseModel):
+class DescribeAddonResponseTypeDef(BaseValidatorModel):
     addon: AddonTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAddonVersionsResponseTypeDef(BaseModel):
+class DescribeAddonVersionsResponseTypeDef(BaseValidatorModel):
     addons: List[AddonInfoTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InsightTypeDef(BaseModel):
+class InsightTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     category: Optional[Literal["UPGRADE_READINESS"]] = None
@@ -1080,12 +1080,12 @@ class InsightTypeDef(BaseModel):
     resources: Optional[List[InsightResourceDetailTypeDef]] = None
     categorySpecificSummary: Optional[InsightCategorySpecificSummaryTypeDef] = None
 
-class AssociateEncryptionConfigRequestRequestTypeDef(BaseModel):
+class AssociateEncryptionConfigRequestRequestTypeDef(BaseValidatorModel):
     clusterName: str
     encryptionConfig: Sequence[EncryptionConfigUnionTypeDef]
     clientRequestToken: Optional[str] = None
 
-class CreateClusterRequestRequestTypeDef(BaseModel):
+class CreateClusterRequestRequestTypeDef(BaseValidatorModel):
     name: str
     roleArn: str
     resourcesVpcConfig: VpcConfigRequestTypeDef
@@ -1099,51 +1099,51 @@ class CreateClusterRequestRequestTypeDef(BaseModel):
     accessConfig: Optional[CreateAccessConfigRequestTypeDef] = None
     bootstrapSelfManagedAddons: Optional[bool] = None
 
-class CreateFargateProfileResponseTypeDef(BaseModel):
+class CreateFargateProfileResponseTypeDef(BaseValidatorModel):
     fargateProfile: FargateProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFargateProfileResponseTypeDef(BaseModel):
+class DeleteFargateProfileResponseTypeDef(BaseValidatorModel):
     fargateProfile: FargateProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeFargateProfileResponseTypeDef(BaseModel):
+class DescribeFargateProfileResponseTypeDef(BaseValidatorModel):
     fargateProfile: FargateProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateNodegroupResponseTypeDef(BaseModel):
+class CreateNodegroupResponseTypeDef(BaseValidatorModel):
     nodegroup: NodegroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteNodegroupResponseTypeDef(BaseModel):
+class DeleteNodegroupResponseTypeDef(BaseValidatorModel):
     nodegroup: NodegroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeNodegroupResponseTypeDef(BaseModel):
+class DescribeNodegroupResponseTypeDef(BaseValidatorModel):
     nodegroup: NodegroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateClusterResponseTypeDef(BaseModel):
+class CreateClusterResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteClusterResponseTypeDef(BaseModel):
+class DeleteClusterResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeregisterClusterResponseTypeDef(BaseModel):
+class DeregisterClusterResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeClusterResponseTypeDef(BaseModel):
+class DescribeClusterResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterClusterResponseTypeDef(BaseModel):
+class RegisterClusterResponseTypeDef(BaseValidatorModel):
     cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeInsightResponseTypeDef(BaseModel):
+class DescribeInsightResponseTypeDef(BaseValidatorModel):
     insight: InsightTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

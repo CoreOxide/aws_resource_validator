@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,29 +11,29 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.lexv2_models_constants import *
 
-class ActiveContextTypeDef(BaseModel):
+class ActiveContextTypeDef(BaseValidatorModel):
     name: str
 
-class AdvancedRecognitionSettingTypeDef(BaseModel):
+class AdvancedRecognitionSettingTypeDef(BaseValidatorModel):
     audioRecognitionStrategy: Optional[Literal["UseSlotValuesAsCustomVocabulary"]] = None
 
-class ExecutionErrorDetailsTypeDef(BaseModel):
+class ExecutionErrorDetailsTypeDef(BaseValidatorModel):
     errorCode: str
     errorMessage: str
 
-class AgentTurnSpecificationTypeDef(BaseModel):
+class AgentTurnSpecificationTypeDef(BaseValidatorModel):
     agentPrompt: str
 
-class AggregatedUtterancesFilterTypeDef(BaseModel):
+class AggregatedUtterancesFilterTypeDef(BaseValidatorModel):
     name: Literal["Utterance"]
     values: Sequence[str]
     operator: AggregatedUtterancesFilterOperatorType
 
-class AggregatedUtterancesSortByTypeDef(BaseModel):
+class AggregatedUtterancesSortByTypeDef(BaseValidatorModel):
     attribute: AggregatedUtterancesSortAttributeType
     order: SortOrderType
 
-class AggregatedUtterancesSummaryTypeDef(BaseModel):
+class AggregatedUtterancesSummaryTypeDef(BaseValidatorModel):
     utterance: Optional[str] = None
     hitCount: Optional[int] = None
     missedCount: Optional[int] = None
@@ -41,185 +41,185 @@ class AggregatedUtterancesSummaryTypeDef(BaseModel):
     utteranceLastRecordedInAggregationDuration: Optional[datetime] = None
     containsDataFromDeletedResources: Optional[bool] = None
 
-class AllowedInputTypesTypeDef(BaseModel):
+class AllowedInputTypesTypeDef(BaseValidatorModel):
     allowAudioInput: bool
     allowDTMFInput: bool
 
-class AnalyticsBinBySpecificationTypeDef(BaseModel):
+class AnalyticsBinBySpecificationTypeDef(BaseValidatorModel):
     name: AnalyticsBinByNameType
     interval: AnalyticsIntervalType
     order: Optional[AnalyticsSortOrderType] = None
 
-class AnalyticsBinKeyTypeDef(BaseModel):
+class AnalyticsBinKeyTypeDef(BaseValidatorModel):
     name: Optional[AnalyticsBinByNameType] = None
     value: Optional[int] = None
 
-class AnalyticsIntentFilterTypeDef(BaseModel):
+class AnalyticsIntentFilterTypeDef(BaseValidatorModel):
     name: AnalyticsIntentFilterNameType
     operator: AnalyticsFilterOperatorType
     values: Sequence[str]
 
-class AnalyticsIntentGroupByKeyTypeDef(BaseModel):
+class AnalyticsIntentGroupByKeyTypeDef(BaseValidatorModel):
     name: Optional[AnalyticsIntentFieldType] = None
     value: Optional[str] = None
 
-class AnalyticsIntentGroupBySpecificationTypeDef(BaseModel):
+class AnalyticsIntentGroupBySpecificationTypeDef(BaseValidatorModel):
     name: AnalyticsIntentFieldType
 
-class AnalyticsIntentMetricResultTypeDef(BaseModel):
+class AnalyticsIntentMetricResultTypeDef(BaseValidatorModel):
     name: Optional[AnalyticsIntentMetricNameType] = None
     statistic: Optional[AnalyticsMetricStatisticType] = None
     value: Optional[float] = None
 
-class AnalyticsIntentMetricTypeDef(BaseModel):
+class AnalyticsIntentMetricTypeDef(BaseValidatorModel):
     name: AnalyticsIntentMetricNameType
     statistic: AnalyticsMetricStatisticType
     order: Optional[AnalyticsSortOrderType] = None
 
-class AnalyticsIntentNodeSummaryTypeDef(BaseModel):
+class AnalyticsIntentNodeSummaryTypeDef(BaseValidatorModel):
     intentName: Optional[str] = None
     intentPath: Optional[str] = None
     intentCount: Optional[int] = None
     intentLevel: Optional[int] = None
     nodeType: Optional[AnalyticsNodeTypeType] = None
 
-class AnalyticsIntentStageFilterTypeDef(BaseModel):
+class AnalyticsIntentStageFilterTypeDef(BaseValidatorModel):
     name: AnalyticsIntentStageFilterNameType
     operator: AnalyticsFilterOperatorType
     values: Sequence[str]
 
-class AnalyticsIntentStageGroupByKeyTypeDef(BaseModel):
+class AnalyticsIntentStageGroupByKeyTypeDef(BaseValidatorModel):
     name: Optional[AnalyticsIntentStageFieldType] = None
     value: Optional[str] = None
 
-class AnalyticsIntentStageGroupBySpecificationTypeDef(BaseModel):
+class AnalyticsIntentStageGroupBySpecificationTypeDef(BaseValidatorModel):
     name: AnalyticsIntentStageFieldType
 
-class AnalyticsIntentStageMetricResultTypeDef(BaseModel):
+class AnalyticsIntentStageMetricResultTypeDef(BaseValidatorModel):
     name: Optional[AnalyticsIntentStageMetricNameType] = None
     statistic: Optional[AnalyticsMetricStatisticType] = None
     value: Optional[float] = None
 
-class AnalyticsIntentStageMetricTypeDef(BaseModel):
+class AnalyticsIntentStageMetricTypeDef(BaseValidatorModel):
     name: AnalyticsIntentStageMetricNameType
     statistic: AnalyticsMetricStatisticType
     order: Optional[AnalyticsSortOrderType] = None
 
-class AnalyticsPathFilterTypeDef(BaseModel):
+class AnalyticsPathFilterTypeDef(BaseValidatorModel):
     name: AnalyticsCommonFilterNameType
     operator: AnalyticsFilterOperatorType
     values: Sequence[str]
 
-class AnalyticsSessionFilterTypeDef(BaseModel):
+class AnalyticsSessionFilterTypeDef(BaseValidatorModel):
     name: AnalyticsSessionFilterNameType
     operator: AnalyticsFilterOperatorType
     values: Sequence[str]
 
-class AnalyticsSessionGroupByKeyTypeDef(BaseModel):
+class AnalyticsSessionGroupByKeyTypeDef(BaseValidatorModel):
     name: Optional[AnalyticsSessionFieldType] = None
     value: Optional[str] = None
 
-class AnalyticsSessionGroupBySpecificationTypeDef(BaseModel):
+class AnalyticsSessionGroupBySpecificationTypeDef(BaseValidatorModel):
     name: AnalyticsSessionFieldType
 
-class AnalyticsSessionMetricResultTypeDef(BaseModel):
+class AnalyticsSessionMetricResultTypeDef(BaseValidatorModel):
     name: Optional[AnalyticsSessionMetricNameType] = None
     statistic: Optional[AnalyticsMetricStatisticType] = None
     value: Optional[float] = None
 
-class AnalyticsSessionMetricTypeDef(BaseModel):
+class AnalyticsSessionMetricTypeDef(BaseValidatorModel):
     name: AnalyticsSessionMetricNameType
     statistic: AnalyticsMetricStatisticType
     order: Optional[AnalyticsSortOrderType] = None
 
-class AnalyticsUtteranceAttributeResultTypeDef(BaseModel):
+class AnalyticsUtteranceAttributeResultTypeDef(BaseValidatorModel):
     lastUsedIntent: Optional[str] = None
 
-class AnalyticsUtteranceAttributeTypeDef(BaseModel):
+class AnalyticsUtteranceAttributeTypeDef(BaseValidatorModel):
     name: Literal["LastUsedIntent"]
 
-class AnalyticsUtteranceFilterTypeDef(BaseModel):
+class AnalyticsUtteranceFilterTypeDef(BaseValidatorModel):
     name: AnalyticsUtteranceFilterNameType
     operator: AnalyticsFilterOperatorType
     values: Sequence[str]
 
-class AnalyticsUtteranceGroupByKeyTypeDef(BaseModel):
+class AnalyticsUtteranceGroupByKeyTypeDef(BaseValidatorModel):
     name: Optional[AnalyticsUtteranceFieldType] = None
     value: Optional[str] = None
 
-class AnalyticsUtteranceGroupBySpecificationTypeDef(BaseModel):
+class AnalyticsUtteranceGroupBySpecificationTypeDef(BaseValidatorModel):
     name: AnalyticsUtteranceFieldType
 
-class AnalyticsUtteranceMetricResultTypeDef(BaseModel):
+class AnalyticsUtteranceMetricResultTypeDef(BaseValidatorModel):
     name: Optional[AnalyticsUtteranceMetricNameType] = None
     statistic: Optional[AnalyticsMetricStatisticType] = None
     value: Optional[float] = None
 
-class AnalyticsUtteranceMetricTypeDef(BaseModel):
+class AnalyticsUtteranceMetricTypeDef(BaseValidatorModel):
     name: AnalyticsUtteranceMetricNameType
     statistic: AnalyticsMetricStatisticType
     order: Optional[AnalyticsSortOrderType] = None
 
-class AssociatedTranscriptFilterTypeDef(BaseModel):
+class AssociatedTranscriptFilterTypeDef(BaseValidatorModel):
     name: AssociatedTranscriptFilterNameType
     values: Sequence[str]
 
-class AssociatedTranscriptTypeDef(BaseModel):
+class AssociatedTranscriptTypeDef(BaseValidatorModel):
     transcript: Optional[str] = None
 
-class AudioSpecificationTypeDef(BaseModel):
+class AudioSpecificationTypeDef(BaseValidatorModel):
     maxLengthMs: int
     endTimeoutMs: int
 
-class DTMFSpecificationTypeDef(BaseModel):
+class DTMFSpecificationTypeDef(BaseValidatorModel):
     maxLength: int
     endTimeoutMs: int
     deletionCharacter: str
     endCharacter: str
 
-class S3BucketLogDestinationTypeDef(BaseModel):
+class S3BucketLogDestinationTypeDef(BaseValidatorModel):
     s3BucketArn: str
     logPrefix: str
     kmsKeyArn: Optional[str] = None
 
-class NewCustomVocabularyItemTypeDef(BaseModel):
+class NewCustomVocabularyItemTypeDef(BaseValidatorModel):
     phrase: str
     weight: Optional[int] = None
     displayAs: Optional[str] = None
 
-class CustomVocabularyItemTypeDef(BaseModel):
+class CustomVocabularyItemTypeDef(BaseValidatorModel):
     itemId: str
     phrase: str
     weight: Optional[int] = None
     displayAs: Optional[str] = None
 
-class FailedCustomVocabularyItemTypeDef(BaseModel):
+class FailedCustomVocabularyItemTypeDef(BaseValidatorModel):
     itemId: Optional[str] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[ErrorCodeType] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CustomVocabularyEntryIdTypeDef(BaseModel):
+class CustomVocabularyEntryIdTypeDef(BaseValidatorModel):
     itemId: str
 
-class BedrockKnowledgeStoreConfigurationTypeDef(BaseModel):
+class BedrockKnowledgeStoreConfigurationTypeDef(BaseValidatorModel):
     bedrockKnowledgeBaseArn: str
 
-class BedrockModelSpecificationTypeDef(BaseModel):
+class BedrockModelSpecificationTypeDef(BaseValidatorModel):
     modelArn: str
 
-class BotAliasHistoryEventTypeDef(BaseModel):
+class BotAliasHistoryEventTypeDef(BaseValidatorModel):
     botVersion: Optional[str] = None
     startDate: Optional[datetime] = None
     endDate: Optional[datetime] = None
 
-class BotAliasReplicaSummaryTypeDef(BaseModel):
+class BotAliasReplicaSummaryTypeDef(BaseValidatorModel):
     botAliasId: Optional[str] = None
     botAliasReplicationStatus: Optional[BotAliasReplicationStatusType] = None
     botVersion: Optional[str] = None
@@ -227,7 +227,7 @@ class BotAliasReplicaSummaryTypeDef(BaseModel):
     lastUpdatedDateTime: Optional[datetime] = None
     failureReasons: Optional[List[str]] = None
 
-class BotAliasSummaryTypeDef(BaseModel):
+class BotAliasSummaryTypeDef(BaseValidatorModel):
     botAliasId: Optional[str] = None
     botAliasName: Optional[str] = None
     description: Optional[str] = None
@@ -236,46 +236,46 @@ class BotAliasSummaryTypeDef(BaseModel):
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
-class BotAliasTestExecutionTargetTypeDef(BaseModel):
+class BotAliasTestExecutionTargetTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
 
-class BotExportSpecificationTypeDef(BaseModel):
+class BotExportSpecificationTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
 
-class BotFilterTypeDef(BaseModel):
+class BotFilterTypeDef(BaseValidatorModel):
     name: BotFilterNameType
     values: Sequence[str]
     operator: BotFilterOperatorType
 
-class DataPrivacyTypeDef(BaseModel):
+class DataPrivacyTypeDef(BaseValidatorModel):
     childDirected: bool
 
-class BotLocaleExportSpecificationTypeDef(BaseModel):
+class BotLocaleExportSpecificationTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
-class BotLocaleFilterTypeDef(BaseModel):
+class BotLocaleFilterTypeDef(BaseValidatorModel):
     name: Literal["BotLocaleName"]
     values: Sequence[str]
     operator: BotLocaleFilterOperatorType
 
-class BotLocaleHistoryEventTypeDef(BaseModel):
+class BotLocaleHistoryEventTypeDef(BaseValidatorModel):
     event: str
     eventDate: datetime
 
-class VoiceSettingsTypeDef(BaseModel):
+class VoiceSettingsTypeDef(BaseValidatorModel):
     voiceId: str
     engine: Optional[VoiceEngineType] = None
 
-class BotLocaleSortByTypeDef(BaseModel):
+class BotLocaleSortByTypeDef(BaseValidatorModel):
     attribute: Literal["BotLocaleName"]
     order: SortOrderType
 
-class BotLocaleSummaryTypeDef(BaseModel):
+class BotLocaleSummaryTypeDef(BaseValidatorModel):
     localeId: Optional[str] = None
     localeName: Optional[str] = None
     description: Optional[str] = None
@@ -283,36 +283,36 @@ class BotLocaleSummaryTypeDef(BaseModel):
     lastUpdatedDateTime: Optional[datetime] = None
     lastBuildSubmittedDateTime: Optional[datetime] = None
 
-class BotMemberTypeDef(BaseModel):
+class BotMemberTypeDef(BaseValidatorModel):
     botMemberId: str
     botMemberName: str
     botMemberAliasId: str
     botMemberAliasName: str
     botMemberVersion: str
 
-class IntentStatisticsTypeDef(BaseModel):
+class IntentStatisticsTypeDef(BaseValidatorModel):
     discoveredIntentCount: Optional[int] = None
 
-class SlotTypeStatisticsTypeDef(BaseModel):
+class SlotTypeStatisticsTypeDef(BaseValidatorModel):
     discoveredSlotTypeCount: Optional[int] = None
 
-class BotRecommendationSummaryTypeDef(BaseModel):
+class BotRecommendationSummaryTypeDef(BaseValidatorModel):
     botRecommendationStatus: BotRecommendationStatusType
     botRecommendationId: str
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
-class BotReplicaSummaryTypeDef(BaseModel):
+class BotReplicaSummaryTypeDef(BaseValidatorModel):
     replicaRegion: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     botReplicaStatus: Optional[BotReplicaStatusType] = None
     failureReasons: Optional[List[str]] = None
 
-class BotSortByTypeDef(BaseModel):
+class BotSortByTypeDef(BaseValidatorModel):
     attribute: Literal["BotName"]
     order: SortOrderType
 
-class BotSummaryTypeDef(BaseModel):
+class BotSummaryTypeDef(BaseValidatorModel):
     botId: Optional[str] = None
     botName: Optional[str] = None
     description: Optional[str] = None
@@ -321,387 +321,387 @@ class BotSummaryTypeDef(BaseModel):
     lastUpdatedDateTime: Optional[datetime] = None
     botType: Optional[BotTypeType] = None
 
-class BotVersionLocaleDetailsTypeDef(BaseModel):
+class BotVersionLocaleDetailsTypeDef(BaseValidatorModel):
     sourceBotVersion: str
 
-class BotVersionReplicaSortByTypeDef(BaseModel):
+class BotVersionReplicaSortByTypeDef(BaseValidatorModel):
     attribute: Literal["BotVersion"]
     order: SortOrderType
 
-class BotVersionReplicaSummaryTypeDef(BaseModel):
+class BotVersionReplicaSummaryTypeDef(BaseValidatorModel):
     botVersion: Optional[str] = None
     botVersionReplicationStatus: Optional[BotVersionReplicationStatusType] = None
     creationDateTime: Optional[datetime] = None
     failureReasons: Optional[List[str]] = None
 
-class BotVersionSortByTypeDef(BaseModel):
+class BotVersionSortByTypeDef(BaseValidatorModel):
     attribute: Literal["BotVersion"]
     order: SortOrderType
 
-class BotVersionSummaryTypeDef(BaseModel):
+class BotVersionSummaryTypeDef(BaseValidatorModel):
     botName: Optional[str] = None
     botVersion: Optional[str] = None
     description: Optional[str] = None
     botStatus: Optional[BotStatusType] = None
     creationDateTime: Optional[datetime] = None
 
-class BuildBotLocaleRequestRequestTypeDef(BaseModel):
+class BuildBotLocaleRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
-class BuiltInIntentSortByTypeDef(BaseModel):
+class BuiltInIntentSortByTypeDef(BaseValidatorModel):
     attribute: Literal["IntentSignature"]
     order: SortOrderType
 
-class BuiltInIntentSummaryTypeDef(BaseModel):
+class BuiltInIntentSummaryTypeDef(BaseValidatorModel):
     intentSignature: Optional[str] = None
     description: Optional[str] = None
 
-class BuiltInSlotTypeSortByTypeDef(BaseModel):
+class BuiltInSlotTypeSortByTypeDef(BaseValidatorModel):
     attribute: Literal["SlotTypeSignature"]
     order: SortOrderType
 
-class BuiltInSlotTypeSummaryTypeDef(BaseModel):
+class BuiltInSlotTypeSummaryTypeDef(BaseValidatorModel):
     slotTypeSignature: Optional[str] = None
     description: Optional[str] = None
 
-class ButtonTypeDef(BaseModel):
+class ButtonTypeDef(BaseValidatorModel):
     text: str
     value: str
 
-class CloudWatchLogGroupLogDestinationTypeDef(BaseModel):
+class CloudWatchLogGroupLogDestinationTypeDef(BaseValidatorModel):
     cloudWatchLogGroupArn: str
     logPrefix: str
 
-class LambdaCodeHookTypeDef(BaseModel):
+class LambdaCodeHookTypeDef(BaseValidatorModel):
     lambdaARN: str
     codeHookInterfaceVersion: str
 
-class SubSlotTypeCompositionTypeDef(BaseModel):
+class SubSlotTypeCompositionTypeDef(BaseValidatorModel):
     name: str
     slotTypeId: str
 
-class ConditionTypeDef(BaseModel):
+class ConditionTypeDef(BaseValidatorModel):
     expressionString: str
 
-class ConversationLevelIntentClassificationResultItemTypeDef(BaseModel):
+class ConversationLevelIntentClassificationResultItemTypeDef(BaseValidatorModel):
     intentName: str
     matchResult: TestResultMatchStatusType
 
-class ConversationLevelResultDetailTypeDef(BaseModel):
+class ConversationLevelResultDetailTypeDef(BaseValidatorModel):
     endToEndResult: TestResultMatchStatusType
     speechTranscriptionResult: Optional[TestResultMatchStatusType] = None
 
-class ConversationLevelSlotResolutionResultItemTypeDef(BaseModel):
+class ConversationLevelSlotResolutionResultItemTypeDef(BaseValidatorModel):
     intentName: str
     slotName: str
     matchResult: TestResultMatchStatusType
 
-class ConversationLevelTestResultsFilterByTypeDef(BaseModel):
+class ConversationLevelTestResultsFilterByTypeDef(BaseValidatorModel):
     endToEndResult: Optional[TestResultMatchStatusType] = None
 
-class ConversationLogsDataSourceFilterByTypeDef(BaseModel):
+class ConversationLogsDataSourceFilterByTypeDef(BaseValidatorModel):
     startTime: datetime
     endTime: datetime
     inputMode: ConversationLogsInputModeFilterType
 
-class SentimentAnalysisSettingsTypeDef(BaseModel):
+class SentimentAnalysisSettingsTypeDef(BaseValidatorModel):
     detectSentiment: bool
 
-class CreateBotReplicaRequestRequestTypeDef(BaseModel):
+class CreateBotReplicaRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     replicaRegion: str
 
-class DialogCodeHookSettingsTypeDef(BaseModel):
+class DialogCodeHookSettingsTypeDef(BaseValidatorModel):
     enabled: bool
 
-class InputContextTypeDef(BaseModel):
+class InputContextTypeDef(BaseValidatorModel):
     name: str
 
-class KendraConfigurationTypeDef(BaseModel):
+class KendraConfigurationTypeDef(BaseValidatorModel):
     kendraIndex: str
     queryFilterStringEnabled: Optional[bool] = None
     queryFilterString: Optional[str] = None
 
-class OutputContextTypeDef(BaseModel):
+class OutputContextTypeDef(BaseValidatorModel):
     name: str
     timeToLiveInSeconds: int
     turnsToLive: int
 
-class SampleUtteranceTypeDef(BaseModel):
+class SampleUtteranceTypeDef(BaseValidatorModel):
     utterance: str
 
-class CreateResourcePolicyRequestRequestTypeDef(BaseModel):
+class CreateResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     policy: str
 
-class PrincipalTypeDef(BaseModel):
+class PrincipalTypeDef(BaseValidatorModel):
     service: Optional[str] = None
     arn: Optional[str] = None
 
-class MultipleValuesSettingTypeDef(BaseModel):
+class MultipleValuesSettingTypeDef(BaseValidatorModel):
     allowMultipleValues: Optional[bool] = None
 
-class ObfuscationSettingTypeDef(BaseModel):
+class ObfuscationSettingTypeDef(BaseValidatorModel):
     obfuscationSettingType: ObfuscationSettingTypeType
 
-class CustomPayloadTypeDef(BaseModel):
+class CustomPayloadTypeDef(BaseValidatorModel):
     value: str
 
-class CustomVocabularyExportSpecificationTypeDef(BaseModel):
+class CustomVocabularyExportSpecificationTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
-class CustomVocabularyImportSpecificationTypeDef(BaseModel):
+class CustomVocabularyImportSpecificationTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
-class QnAKendraConfigurationTypeDef(BaseModel):
+class QnAKendraConfigurationTypeDef(BaseValidatorModel):
     kendraIndex: str
     queryFilterStringEnabled: Optional[bool] = None
     queryFilterString: Optional[str] = None
     exactResponse: Optional[bool] = None
 
-class DateRangeFilterTypeDef(BaseModel):
+class DateRangeFilterTypeDef(BaseValidatorModel):
     startDateTime: datetime
     endDateTime: datetime
 
-class DeleteBotAliasRequestRequestTypeDef(BaseModel):
+class DeleteBotAliasRequestRequestTypeDef(BaseValidatorModel):
     botAliasId: str
     botId: str
     skipResourceInUseCheck: Optional[bool] = None
 
-class DeleteBotLocaleRequestRequestTypeDef(BaseModel):
+class DeleteBotLocaleRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
-class DeleteBotReplicaRequestRequestTypeDef(BaseModel):
+class DeleteBotReplicaRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     replicaRegion: str
 
-class DeleteBotRequestRequestTypeDef(BaseModel):
+class DeleteBotRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     skipResourceInUseCheck: Optional[bool] = None
 
-class DeleteBotVersionRequestRequestTypeDef(BaseModel):
+class DeleteBotVersionRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
-class DeleteCustomVocabularyRequestRequestTypeDef(BaseModel):
+class DeleteCustomVocabularyRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
-class DeleteExportRequestRequestTypeDef(BaseModel):
+class DeleteExportRequestRequestTypeDef(BaseValidatorModel):
     exportId: str
 
-class DeleteImportRequestRequestTypeDef(BaseModel):
+class DeleteImportRequestRequestTypeDef(BaseValidatorModel):
     importId: str
 
-class DeleteIntentRequestRequestTypeDef(BaseModel):
+class DeleteIntentRequestRequestTypeDef(BaseValidatorModel):
     intentId: str
     botId: str
     botVersion: str
     localeId: str
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseModel):
+class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     expectedRevisionId: Optional[str] = None
 
-class DeleteResourcePolicyStatementRequestRequestTypeDef(BaseModel):
+class DeleteResourcePolicyStatementRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     statementId: str
     expectedRevisionId: Optional[str] = None
 
-class DeleteSlotRequestRequestTypeDef(BaseModel):
+class DeleteSlotRequestRequestTypeDef(BaseValidatorModel):
     slotId: str
     botId: str
     botVersion: str
     localeId: str
     intentId: str
 
-class DeleteSlotTypeRequestRequestTypeDef(BaseModel):
+class DeleteSlotTypeRequestRequestTypeDef(BaseValidatorModel):
     slotTypeId: str
     botId: str
     botVersion: str
     localeId: str
     skipResourceInUseCheck: Optional[bool] = None
 
-class DeleteTestSetRequestRequestTypeDef(BaseModel):
+class DeleteTestSetRequestRequestTypeDef(BaseValidatorModel):
     testSetId: str
 
-class DeleteUtterancesRequestRequestTypeDef(BaseModel):
+class DeleteUtterancesRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     localeId: Optional[str] = None
     sessionId: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeBotAliasRequestRequestTypeDef(BaseModel):
+class DescribeBotAliasRequestRequestTypeDef(BaseValidatorModel):
     botAliasId: str
     botId: str
 
-class ParentBotNetworkTypeDef(BaseModel):
+class ParentBotNetworkTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
 
-class DescribeBotLocaleRequestRequestTypeDef(BaseModel):
+class DescribeBotLocaleRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
-class DescribeBotRecommendationRequestRequestTypeDef(BaseModel):
+class DescribeBotRecommendationRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     botRecommendationId: str
 
-class EncryptionSettingTypeDef(BaseModel):
+class EncryptionSettingTypeDef(BaseValidatorModel):
     kmsKeyArn: Optional[str] = None
     botLocaleExportPassword: Optional[str] = None
     associatedTranscriptsPassword: Optional[str] = None
 
-class DescribeBotReplicaRequestRequestTypeDef(BaseModel):
+class DescribeBotReplicaRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     replicaRegion: str
 
-class DescribeBotRequestRequestTypeDef(BaseModel):
+class DescribeBotRequestRequestTypeDef(BaseValidatorModel):
     botId: str
 
-class DescribeBotResourceGenerationRequestRequestTypeDef(BaseModel):
+class DescribeBotResourceGenerationRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     generationId: str
 
-class DescribeBotVersionRequestRequestTypeDef(BaseModel):
+class DescribeBotVersionRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
 
-class DescribeCustomVocabularyMetadataRequestRequestTypeDef(BaseModel):
+class DescribeCustomVocabularyMetadataRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
-class DescribeExportRequestRequestTypeDef(BaseModel):
+class DescribeExportRequestRequestTypeDef(BaseValidatorModel):
     exportId: str
 
-class DescribeImportRequestRequestTypeDef(BaseModel):
+class DescribeImportRequestRequestTypeDef(BaseValidatorModel):
     importId: str
 
-class DescribeIntentRequestRequestTypeDef(BaseModel):
+class DescribeIntentRequestRequestTypeDef(BaseValidatorModel):
     intentId: str
     botId: str
     botVersion: str
     localeId: str
 
-class SlotPriorityTypeDef(BaseModel):
+class SlotPriorityTypeDef(BaseValidatorModel):
     priority: int
     slotId: str
 
-class DescribeResourcePolicyRequestRequestTypeDef(BaseModel):
+class DescribeResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class DescribeSlotRequestRequestTypeDef(BaseModel):
+class DescribeSlotRequestRequestTypeDef(BaseValidatorModel):
     slotId: str
     botId: str
     botVersion: str
     localeId: str
     intentId: str
 
-class DescribeSlotTypeRequestRequestTypeDef(BaseModel):
+class DescribeSlotTypeRequestRequestTypeDef(BaseValidatorModel):
     slotTypeId: str
     botId: str
     botVersion: str
     localeId: str
 
-class DescribeTestExecutionRequestRequestTypeDef(BaseModel):
+class DescribeTestExecutionRequestRequestTypeDef(BaseValidatorModel):
     testExecutionId: str
 
-class DescribeTestSetDiscrepancyReportRequestRequestTypeDef(BaseModel):
+class DescribeTestSetDiscrepancyReportRequestRequestTypeDef(BaseValidatorModel):
     testSetDiscrepancyReportId: str
 
-class DescribeTestSetGenerationRequestRequestTypeDef(BaseModel):
+class DescribeTestSetGenerationRequestRequestTypeDef(BaseValidatorModel):
     testSetGenerationId: str
 
-class TestSetStorageLocationTypeDef(BaseModel):
+class TestSetStorageLocationTypeDef(BaseValidatorModel):
     s3BucketName: str
     s3Path: str
     kmsKeyArn: Optional[str] = None
 
-class DescribeTestSetRequestRequestTypeDef(BaseModel):
+class DescribeTestSetRequestRequestTypeDef(BaseValidatorModel):
     testSetId: str
 
-class DialogActionTypeDef(BaseModel):
+class DialogActionTypeDef(BaseValidatorModel):
     type: DialogActionTypeType
     slotToElicit: Optional[str] = None
     suppressNextMessage: Optional[bool] = None
 
-class IntentOverrideTypeDef(BaseModel):
+class IntentOverrideTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     slots: Optional[Mapping[str, "SlotValueOverrideTypeDef"]] = None
 
-class ElicitationCodeHookInvocationSettingTypeDef(BaseModel):
+class ElicitationCodeHookInvocationSettingTypeDef(BaseValidatorModel):
     enableCodeHookInvocation: bool
     invocationLabel: Optional[str] = None
 
-class ExactResponseFieldsTypeDef(BaseModel):
+class ExactResponseFieldsTypeDef(BaseValidatorModel):
     questionField: str
     answerField: str
 
-class ExportFilterTypeDef(BaseModel):
+class ExportFilterTypeDef(BaseValidatorModel):
     name: Literal["ExportResourceType"]
     values: Sequence[str]
     operator: ExportFilterOperatorType
 
-class TestSetExportSpecificationTypeDef(BaseModel):
+class TestSetExportSpecificationTypeDef(BaseValidatorModel):
     testSetId: str
 
-class ExportSortByTypeDef(BaseModel):
+class ExportSortByTypeDef(BaseValidatorModel):
     attribute: Literal["LastUpdatedDateTime"]
     order: SortOrderType
 
-class GenerateBotElementRequestRequestTypeDef(BaseModel):
+class GenerateBotElementRequestRequestTypeDef(BaseValidatorModel):
     intentId: str
     botId: str
     botVersion: str
     localeId: str
 
-class GenerationSortByTypeDef(BaseModel):
+class GenerationSortByTypeDef(BaseValidatorModel):
     attribute: GenerationSortByAttributeType
     order: SortOrderType
 
-class GenerationSummaryTypeDef(BaseModel):
+class GenerationSummaryTypeDef(BaseValidatorModel):
     generationId: Optional[str] = None
     generationStatus: Optional[GenerationStatusType] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
-class GetTestExecutionArtifactsUrlRequestRequestTypeDef(BaseModel):
+class GetTestExecutionArtifactsUrlRequestRequestTypeDef(BaseValidatorModel):
     testExecutionId: str
 
-class GrammarSlotTypeSourceTypeDef(BaseModel):
+class GrammarSlotTypeSourceTypeDef(BaseValidatorModel):
     s3BucketName: str
     s3ObjectKey: str
     kmsKeyArn: Optional[str] = None
 
-class ImportFilterTypeDef(BaseModel):
+class ImportFilterTypeDef(BaseValidatorModel):
     name: Literal["ImportResourceType"]
     values: Sequence[str]
     operator: ImportFilterOperatorType
 
-class ImportSortByTypeDef(BaseModel):
+class ImportSortByTypeDef(BaseValidatorModel):
     attribute: Literal["LastUpdatedDateTime"]
     order: SortOrderType
 
-class ImportSummaryTypeDef(BaseModel):
+class ImportSummaryTypeDef(BaseValidatorModel):
     importId: Optional[str] = None
     importedResourceId: Optional[str] = None
     importedResourceName: Optional[str] = None
@@ -711,55 +711,55 @@ class ImportSummaryTypeDef(BaseModel):
     lastUpdatedDateTime: Optional[datetime] = None
     importedResourceType: Optional[ImportResourceTypeType] = None
 
-class RuntimeHintsTypeDef(BaseModel):
+class RuntimeHintsTypeDef(BaseValidatorModel):
     slotHints: Optional[Dict[str, Dict[str, "RuntimeHintDetailsTypeDef"]]] = None
 
-class IntentClassificationTestResultItemCountsTypeDef(BaseModel):
+class IntentClassificationTestResultItemCountsTypeDef(BaseValidatorModel):
     totalResultCount: int
     intentMatchResultCounts: Dict[TestResultMatchStatusType, int]
     speechTranscriptionResultCounts: Optional[Dict[TestResultMatchStatusType, int]] = None
 
-class IntentFilterTypeDef(BaseModel):
+class IntentFilterTypeDef(BaseValidatorModel):
     name: Literal["IntentName"]
     values: Sequence[str]
     operator: IntentFilterOperatorType
 
-class IntentSortByTypeDef(BaseModel):
+class IntentSortByTypeDef(BaseValidatorModel):
     attribute: IntentSortAttributeType
     order: SortOrderType
 
-class InvokedIntentSampleTypeDef(BaseModel):
+class InvokedIntentSampleTypeDef(BaseValidatorModel):
     intentName: Optional[str] = None
 
-class ListBotAliasReplicasRequestRequestTypeDef(BaseModel):
+class ListBotAliasReplicasRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     replicaRegion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListBotAliasesRequestRequestTypeDef(BaseModel):
+class ListBotAliasesRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListBotRecommendationsRequestRequestTypeDef(BaseModel):
+class ListBotRecommendationsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListBotReplicasRequestRequestTypeDef(BaseModel):
+class ListBotReplicasRequestRequestTypeDef(BaseValidatorModel):
     botId: str
 
-class ListCustomVocabularyItemsRequestRequestTypeDef(BaseModel):
+class ListCustomVocabularyItemsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListRecommendedIntentsRequestRequestTypeDef(BaseModel):
+class ListRecommendedIntentsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -767,25 +767,25 @@ class ListRecommendedIntentsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class RecommendedIntentSummaryTypeDef(BaseModel):
+class RecommendedIntentSummaryTypeDef(BaseValidatorModel):
     intentId: Optional[str] = None
     intentName: Optional[str] = None
     sampleUtterancesCount: Optional[int] = None
 
-class SessionDataSortByTypeDef(BaseModel):
+class SessionDataSortByTypeDef(BaseValidatorModel):
     name: AnalyticsSessionSortByNameType
     order: AnalyticsSortOrderType
 
-class SlotTypeFilterTypeDef(BaseModel):
+class SlotTypeFilterTypeDef(BaseValidatorModel):
     name: SlotTypeFilterNameType
     values: Sequence[str]
     operator: SlotTypeFilterOperatorType
 
-class SlotTypeSortByTypeDef(BaseModel):
+class SlotTypeSortByTypeDef(BaseValidatorModel):
     attribute: SlotTypeSortAttributeType
     order: SortOrderType
 
-class SlotTypeSummaryTypeDef(BaseModel):
+class SlotTypeSummaryTypeDef(BaseValidatorModel):
     slotTypeId: Optional[str] = None
     slotTypeName: Optional[str] = None
     description: Optional[str] = None
@@ -793,173 +793,173 @@ class SlotTypeSummaryTypeDef(BaseModel):
     lastUpdatedDateTime: Optional[datetime] = None
     slotTypeCategory: Optional[SlotTypeCategoryType] = None
 
-class SlotFilterTypeDef(BaseModel):
+class SlotFilterTypeDef(BaseValidatorModel):
     name: Literal["SlotName"]
     values: Sequence[str]
     operator: SlotFilterOperatorType
 
-class SlotSortByTypeDef(BaseModel):
+class SlotSortByTypeDef(BaseValidatorModel):
     attribute: SlotSortAttributeType
     order: SortOrderType
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceARN: str
 
-class TestExecutionSortByTypeDef(BaseModel):
+class TestExecutionSortByTypeDef(BaseValidatorModel):
     attribute: TestExecutionSortAttributeType
     order: SortOrderType
 
-class ListTestSetRecordsRequestRequestTypeDef(BaseModel):
+class ListTestSetRecordsRequestRequestTypeDef(BaseValidatorModel):
     testSetId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TestSetSortByTypeDef(BaseModel):
+class TestSetSortByTypeDef(BaseValidatorModel):
     attribute: TestSetSortAttributeType
     order: SortOrderType
 
-class UtteranceDataSortByTypeDef(BaseModel):
+class UtteranceDataSortByTypeDef(BaseValidatorModel):
     name: Literal["UtteranceTimestamp"]
     order: AnalyticsSortOrderType
 
-class PlainTextMessageTypeDef(BaseModel):
+class PlainTextMessageTypeDef(BaseValidatorModel):
     value: str
 
-class SSMLMessageTypeDef(BaseModel):
+class SSMLMessageTypeDef(BaseValidatorModel):
     value: str
 
-class OverallTestResultItemTypeDef(BaseModel):
+class OverallTestResultItemTypeDef(BaseValidatorModel):
     multiTurnConversation: bool
     totalResultCount: int
     endToEndResultCounts: Dict[TestResultMatchStatusType, int]
     speechTranscriptionResultCounts: Optional[Dict[TestResultMatchStatusType, int]] = None
 
-class PathFormatTypeDef(BaseModel):
+class PathFormatTypeDef(BaseValidatorModel):
     objectPrefixes: Optional[List[str]] = None
 
-class TextInputSpecificationTypeDef(BaseModel):
+class TextInputSpecificationTypeDef(BaseValidatorModel):
     startTimeoutMs: int
 
-class RelativeAggregationDurationTypeDef(BaseModel):
+class RelativeAggregationDurationTypeDef(BaseValidatorModel):
     timeDimension: TimeDimensionType
     timeValue: int
 
-class RuntimeHintValueTypeDef(BaseModel):
+class RuntimeHintValueTypeDef(BaseValidatorModel):
     phrase: str
 
-class SampleValueTypeDef(BaseModel):
+class SampleValueTypeDef(BaseValidatorModel):
     value: str
 
-class SlotDefaultValueTypeDef(BaseModel):
+class SlotDefaultValueTypeDef(BaseValidatorModel):
     defaultValue: str
 
-class SlotResolutionSettingTypeDef(BaseModel):
+class SlotResolutionSettingTypeDef(BaseValidatorModel):
     slotResolutionStrategy: SlotResolutionStrategyType
 
-class SlotResolutionTestResultItemCountsTypeDef(BaseModel):
+class SlotResolutionTestResultItemCountsTypeDef(BaseValidatorModel):
     totalResultCount: int
     slotMatchResultCounts: Dict[TestResultMatchStatusType, int]
     speechTranscriptionResultCounts: Optional[Dict[TestResultMatchStatusType, int]] = None
 
-class SlotValueTypeDef(BaseModel):
+class SlotValueTypeDef(BaseValidatorModel):
     interpretedValue: Optional[str] = None
 
-class SlotValueRegexFilterTypeDef(BaseModel):
+class SlotValueRegexFilterTypeDef(BaseValidatorModel):
     pattern: str
 
-class StartBotResourceGenerationRequestRequestTypeDef(BaseModel):
+class StartBotResourceGenerationRequestRequestTypeDef(BaseValidatorModel):
     generationInputPrompt: str
     botId: str
     botVersion: str
     localeId: str
 
-class StopBotRecommendationRequestRequestTypeDef(BaseModel):
+class StopBotRecommendationRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     botRecommendationId: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceARN: str
     tags: Mapping[str, str]
 
-class TestSetIntentDiscrepancyItemTypeDef(BaseModel):
+class TestSetIntentDiscrepancyItemTypeDef(BaseValidatorModel):
     intentName: str
     errorMessage: str
 
-class TestSetSlotDiscrepancyItemTypeDef(BaseModel):
+class TestSetSlotDiscrepancyItemTypeDef(BaseValidatorModel):
     intentName: str
     slotName: str
     errorMessage: str
 
-class TestSetDiscrepancyReportBotAliasTargetTypeDef(BaseModel):
+class TestSetDiscrepancyReportBotAliasTargetTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
 
-class TestSetImportInputLocationTypeDef(BaseModel):
+class TestSetImportInputLocationTypeDef(BaseValidatorModel):
     s3BucketName: str
     s3Path: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceARN: str
     tagKeys: Sequence[str]
 
-class UpdateExportRequestRequestTypeDef(BaseModel):
+class UpdateExportRequestRequestTypeDef(BaseValidatorModel):
     exportId: str
     filePassword: Optional[str] = None
 
-class UpdateResourcePolicyRequestRequestTypeDef(BaseModel):
+class UpdateResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     policy: str
     expectedRevisionId: Optional[str] = None
 
-class UpdateTestSetRequestRequestTypeDef(BaseModel):
+class UpdateTestSetRequestRequestTypeDef(BaseValidatorModel):
     testSetId: str
     testSetName: str
     description: Optional[str] = None
 
-class UserTurnIntentOutputTypeDef(BaseModel):
+class UserTurnIntentOutputTypeDef(BaseValidatorModel):
     name: str
     slots: Optional[Dict[str, "UserTurnSlotOutputTypeDef"]] = None
 
-class UserTurnSlotOutputTypeDef(BaseModel):
+class UserTurnSlotOutputTypeDef(BaseValidatorModel):
     value: Optional[str] = None
     values: Optional[List[Dict[str, Any]]] = None
     subSlots: Optional[Dict[str, Dict[str, Any]]] = None
 
-class UtteranceAudioInputSpecificationTypeDef(BaseModel):
+class UtteranceAudioInputSpecificationTypeDef(BaseValidatorModel):
     audioFileS3Location: str
 
-class AgentTurnResultTypeDef(BaseModel):
+class AgentTurnResultTypeDef(BaseValidatorModel):
     expectedAgentPrompt: str
     actualAgentPrompt: Optional[str] = None
     errorDetails: Optional[ExecutionErrorDetailsTypeDef] = None
     actualElicitedSlot: Optional[str] = None
     actualIntent: Optional[str] = None
 
-class AnalyticsIntentResultTypeDef(BaseModel):
+class AnalyticsIntentResultTypeDef(BaseValidatorModel):
     binKeys: Optional[List[AnalyticsBinKeyTypeDef]] = None
     groupByKeys: Optional[List[AnalyticsIntentGroupByKeyTypeDef]] = None
     metricsResults: Optional[List[AnalyticsIntentMetricResultTypeDef]] = None
 
-class AnalyticsIntentStageResultTypeDef(BaseModel):
+class AnalyticsIntentStageResultTypeDef(BaseValidatorModel):
     binKeys: Optional[List[AnalyticsBinKeyTypeDef]] = None
     groupByKeys: Optional[List[AnalyticsIntentStageGroupByKeyTypeDef]] = None
     metricsResults: Optional[List[AnalyticsIntentStageMetricResultTypeDef]] = None
 
-class AnalyticsSessionResultTypeDef(BaseModel):
+class AnalyticsSessionResultTypeDef(BaseValidatorModel):
     binKeys: Optional[List[AnalyticsBinKeyTypeDef]] = None
     groupByKeys: Optional[List[AnalyticsSessionGroupByKeyTypeDef]] = None
     metricsResults: Optional[List[AnalyticsSessionMetricResultTypeDef]] = None
 
-class AnalyticsUtteranceResultTypeDef(BaseModel):
+class AnalyticsUtteranceResultTypeDef(BaseValidatorModel):
     binKeys: Optional[List[AnalyticsBinKeyTypeDef]] = None
     groupByKeys: Optional[List[AnalyticsUtteranceGroupByKeyTypeDef]] = None
     metricsResults: Optional[List[AnalyticsUtteranceMetricResultTypeDef]] = None
     attributeResults: Optional[List[AnalyticsUtteranceAttributeResultTypeDef]] = None
 
-class SearchAssociatedTranscriptsRequestRequestTypeDef(BaseModel):
+class SearchAssociatedTranscriptsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -969,27 +969,27 @@ class SearchAssociatedTranscriptsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextIndex: Optional[int] = None
 
-class AudioAndDTMFInputSpecificationTypeDef(BaseModel):
+class AudioAndDTMFInputSpecificationTypeDef(BaseValidatorModel):
     startTimeoutMs: int
     audioSpecification: Optional[AudioSpecificationTypeDef] = None
     dtmfSpecification: Optional[DTMFSpecificationTypeDef] = None
 
-class AudioLogDestinationTypeDef(BaseModel):
+class AudioLogDestinationTypeDef(BaseValidatorModel):
     s3Bucket: S3BucketLogDestinationTypeDef
 
-class BatchCreateCustomVocabularyItemRequestRequestTypeDef(BaseModel):
+class BatchCreateCustomVocabularyItemRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     customVocabularyItemList: Sequence[NewCustomVocabularyItemTypeDef]
 
-class BatchUpdateCustomVocabularyItemRequestRequestTypeDef(BaseModel):
+class BatchUpdateCustomVocabularyItemRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     customVocabularyItemList: Sequence[CustomVocabularyItemTypeDef]
 
-class BatchCreateCustomVocabularyItemResponseTypeDef(BaseModel):
+class BatchCreateCustomVocabularyItemResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -997,7 +997,7 @@ class BatchCreateCustomVocabularyItemResponseTypeDef(BaseModel):
     resources: List[CustomVocabularyItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDeleteCustomVocabularyItemResponseTypeDef(BaseModel):
+class BatchDeleteCustomVocabularyItemResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1005,7 +1005,7 @@ class BatchDeleteCustomVocabularyItemResponseTypeDef(BaseModel):
     resources: List[CustomVocabularyItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchUpdateCustomVocabularyItemResponseTypeDef(BaseModel):
+class BatchUpdateCustomVocabularyItemResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1013,7 +1013,7 @@ class BatchUpdateCustomVocabularyItemResponseTypeDef(BaseModel):
     resources: List[CustomVocabularyItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BuildBotLocaleResponseTypeDef(BaseModel):
+class BuildBotLocaleResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1021,7 +1021,7 @@ class BuildBotLocaleResponseTypeDef(BaseModel):
     lastBuildSubmittedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBotReplicaResponseTypeDef(BaseModel):
+class CreateBotReplicaResponseTypeDef(BaseValidatorModel):
     botId: str
     replicaRegion: str
     sourceRegion: str
@@ -1029,79 +1029,79 @@ class CreateBotReplicaResponseTypeDef(BaseModel):
     botReplicaStatus: BotReplicaStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateResourcePolicyResponseTypeDef(BaseModel):
+class CreateResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateResourcePolicyStatementResponseTypeDef(BaseModel):
+class CreateResourcePolicyStatementResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUploadUrlResponseTypeDef(BaseModel):
+class CreateUploadUrlResponseTypeDef(BaseValidatorModel):
     importId: str
     uploadUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBotAliasResponseTypeDef(BaseModel):
+class DeleteBotAliasResponseTypeDef(BaseValidatorModel):
     botAliasId: str
     botId: str
     botAliasStatus: BotAliasStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBotLocaleResponseTypeDef(BaseModel):
+class DeleteBotLocaleResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     botLocaleStatus: BotLocaleStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBotReplicaResponseTypeDef(BaseModel):
+class DeleteBotReplicaResponseTypeDef(BaseValidatorModel):
     botId: str
     replicaRegion: str
     botReplicaStatus: BotReplicaStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBotResponseTypeDef(BaseModel):
+class DeleteBotResponseTypeDef(BaseValidatorModel):
     botId: str
     botStatus: BotStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBotVersionResponseTypeDef(BaseModel):
+class DeleteBotVersionResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     botStatus: BotStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCustomVocabularyResponseTypeDef(BaseModel):
+class DeleteCustomVocabularyResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     customVocabularyStatus: CustomVocabularyStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteExportResponseTypeDef(BaseModel):
+class DeleteExportResponseTypeDef(BaseValidatorModel):
     exportId: str
     exportStatus: ExportStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteImportResponseTypeDef(BaseModel):
+class DeleteImportResponseTypeDef(BaseValidatorModel):
     importId: str
     importStatus: ImportStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteResourcePolicyResponseTypeDef(BaseModel):
+class DeleteResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteResourcePolicyStatementResponseTypeDef(BaseModel):
+class DeleteResourcePolicyStatementResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeBotReplicaResponseTypeDef(BaseModel):
+class DescribeBotReplicaResponseTypeDef(BaseValidatorModel):
     botId: str
     replicaRegion: str
     sourceRegion: str
@@ -1110,7 +1110,7 @@ class DescribeBotReplicaResponseTypeDef(BaseModel):
     failureReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeBotResourceGenerationResponseTypeDef(BaseModel):
+class DescribeBotResourceGenerationResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1124,7 +1124,7 @@ class DescribeBotResourceGenerationResponseTypeDef(BaseModel):
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCustomVocabularyMetadataResponseTypeDef(BaseModel):
+class DescribeCustomVocabularyMetadataResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1133,21 +1133,21 @@ class DescribeCustomVocabularyMetadataResponseTypeDef(BaseModel):
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeResourcePolicyResponseTypeDef(BaseModel):
+class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     policy: str
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTestExecutionArtifactsUrlResponseTypeDef(BaseModel):
+class GetTestExecutionArtifactsUrlResponseTypeDef(BaseValidatorModel):
     testExecutionId: str
     downloadArtifactsUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCustomVocabularyItemsResponseTypeDef(BaseModel):
+class ListCustomVocabularyItemsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1155,15 +1155,15 @@ class ListCustomVocabularyItemsResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIntentPathsResponseTypeDef(BaseModel):
+class ListIntentPathsResponseTypeDef(BaseValidatorModel):
     nodeSummaries: List[AnalyticsIntentNodeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchAssociatedTranscriptsResponseTypeDef(BaseModel):
+class SearchAssociatedTranscriptsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1173,7 +1173,7 @@ class SearchAssociatedTranscriptsResponseTypeDef(BaseModel):
     totalResults: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartBotResourceGenerationResponseTypeDef(BaseModel):
+class StartBotResourceGenerationResponseTypeDef(BaseValidatorModel):
     generationInputPrompt: str
     generationId: str
     botId: str
@@ -1183,7 +1183,7 @@ class StartBotResourceGenerationResponseTypeDef(BaseModel):
     creationDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopBotRecommendationResponseTypeDef(BaseModel):
+class StopBotRecommendationResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1191,30 +1191,30 @@ class StopBotRecommendationResponseTypeDef(BaseModel):
     botRecommendationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateResourcePolicyResponseTypeDef(BaseModel):
+class UpdateResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDeleteCustomVocabularyItemRequestRequestTypeDef(BaseModel):
+class BatchDeleteCustomVocabularyItemRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     customVocabularyItemList: Sequence[CustomVocabularyEntryIdTypeDef]
 
-class DescriptiveBotBuilderSpecificationTypeDef(BaseModel):
+class DescriptiveBotBuilderSpecificationTypeDef(BaseValidatorModel):
     enabled: bool
     bedrockModelSpecification: Optional[BedrockModelSpecificationTypeDef] = None
 
-class SampleUtteranceGenerationSpecificationTypeDef(BaseModel):
+class SampleUtteranceGenerationSpecificationTypeDef(BaseValidatorModel):
     enabled: bool
     bedrockModelSpecification: Optional[BedrockModelSpecificationTypeDef] = None
 
-class SlotResolutionImprovementSpecificationTypeDef(BaseModel):
+class SlotResolutionImprovementSpecificationTypeDef(BaseValidatorModel):
     enabled: bool
     bedrockModelSpecification: Optional[BedrockModelSpecificationTypeDef] = None
 
-class ListBotAliasReplicasResponseTypeDef(BaseModel):
+class ListBotAliasReplicasResponseTypeDef(BaseValidatorModel):
     botId: str
     sourceRegion: str
     replicaRegion: str
@@ -1222,16 +1222,16 @@ class ListBotAliasReplicasResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBotAliasesResponseTypeDef(BaseModel):
+class ListBotAliasesResponseTypeDef(BaseValidatorModel):
     botAliasSummaries: List[BotAliasSummaryTypeDef]
     nextToken: str
     botId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestExecutionTargetTypeDef(BaseModel):
+class TestExecutionTargetTypeDef(BaseValidatorModel):
     botAliasTarget: Optional[BotAliasTestExecutionTargetTypeDef] = None
 
-class BotImportSpecificationTypeDef(BaseModel):
+class BotImportSpecificationTypeDef(BaseValidatorModel):
     botName: str
     roleArn: str
     dataPrivacy: DataPrivacyTypeDef
@@ -1239,14 +1239,14 @@ class BotImportSpecificationTypeDef(BaseModel):
     botTags: Optional[Dict[str, str]] = None
     testBotAliasTags: Optional[Dict[str, str]] = None
 
-class BotLocaleImportSpecificationTypeDef(BaseModel):
+class BotLocaleImportSpecificationTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     nluIntentConfidenceThreshold: Optional[float] = None
     voiceSettings: Optional[VoiceSettingsTypeDef] = None
 
-class ListBotLocalesRequestRequestTypeDef(BaseModel):
+class ListBotLocalesRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     sortBy: Optional[BotLocaleSortByTypeDef] = None
@@ -1254,14 +1254,14 @@ class ListBotLocalesRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListBotLocalesResponseTypeDef(BaseModel):
+class ListBotLocalesResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     nextToken: str
     botLocaleSummaries: List[BotLocaleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBotRequestRequestTypeDef(BaseModel):
+class CreateBotRequestRequestTypeDef(BaseValidatorModel):
     botName: str
     roleArn: str
     dataPrivacy: DataPrivacyTypeDef
@@ -1272,7 +1272,7 @@ class CreateBotRequestRequestTypeDef(BaseModel):
     botType: Optional[BotTypeType] = None
     botMembers: Optional[Sequence[BotMemberTypeDef]] = None
 
-class CreateBotResponseTypeDef(BaseModel):
+class CreateBotResponseTypeDef(BaseValidatorModel):
     botId: str
     botName: str
     description: str
@@ -1287,7 +1287,7 @@ class CreateBotResponseTypeDef(BaseModel):
     botMembers: List[BotMemberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeBotResponseTypeDef(BaseModel):
+class DescribeBotResponseTypeDef(BaseValidatorModel):
     botId: str
     botName: str
     description: str
@@ -1302,7 +1302,7 @@ class DescribeBotResponseTypeDef(BaseModel):
     failureReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBotRequestRequestTypeDef(BaseModel):
+class UpdateBotRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botName: str
     roleArn: str
@@ -1312,7 +1312,7 @@ class UpdateBotRequestRequestTypeDef(BaseModel):
     botType: Optional[BotTypeType] = None
     botMembers: Optional[Sequence[BotMemberTypeDef]] = None
 
-class UpdateBotResponseTypeDef(BaseModel):
+class UpdateBotResponseTypeDef(BaseValidatorModel):
     botId: str
     botName: str
     description: str
@@ -1326,11 +1326,11 @@ class UpdateBotResponseTypeDef(BaseModel):
     botMembers: List[BotMemberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BotRecommendationResultStatisticsTypeDef(BaseModel):
+class BotRecommendationResultStatisticsTypeDef(BaseValidatorModel):
     intents: Optional[IntentStatisticsTypeDef] = None
     slotTypes: Optional[SlotTypeStatisticsTypeDef] = None
 
-class ListBotRecommendationsResponseTypeDef(BaseModel):
+class ListBotRecommendationsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1338,29 +1338,29 @@ class ListBotRecommendationsResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBotReplicasResponseTypeDef(BaseModel):
+class ListBotReplicasResponseTypeDef(BaseValidatorModel):
     botId: str
     sourceRegion: str
     botReplicaSummaries: List[BotReplicaSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBotsRequestRequestTypeDef(BaseModel):
+class ListBotsRequestRequestTypeDef(BaseValidatorModel):
     sortBy: Optional[BotSortByTypeDef] = None
     filters: Optional[Sequence[BotFilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListBotsResponseTypeDef(BaseModel):
+class ListBotsResponseTypeDef(BaseValidatorModel):
     botSummaries: List[BotSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBotVersionRequestRequestTypeDef(BaseModel):
+class CreateBotVersionRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersionLocaleSpecification: Mapping[str, BotVersionLocaleDetailsTypeDef]
     description: Optional[str] = None
 
-class CreateBotVersionResponseTypeDef(BaseModel):
+class CreateBotVersionResponseTypeDef(BaseValidatorModel):
     botId: str
     description: str
     botVersion: str
@@ -1369,14 +1369,14 @@ class CreateBotVersionResponseTypeDef(BaseModel):
     creationDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBotVersionReplicasRequestRequestTypeDef(BaseModel):
+class ListBotVersionReplicasRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     replicaRegion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortBy: Optional[BotVersionReplicaSortByTypeDef] = None
 
-class ListBotVersionReplicasResponseTypeDef(BaseModel):
+class ListBotVersionReplicasResponseTypeDef(BaseValidatorModel):
     botId: str
     sourceRegion: str
     replicaRegion: str
@@ -1384,75 +1384,75 @@ class ListBotVersionReplicasResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBotVersionsRequestRequestTypeDef(BaseModel):
+class ListBotVersionsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     sortBy: Optional[BotVersionSortByTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListBotVersionsResponseTypeDef(BaseModel):
+class ListBotVersionsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersionSummaries: List[BotVersionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBuiltInIntentsRequestRequestTypeDef(BaseModel):
+class ListBuiltInIntentsRequestRequestTypeDef(BaseValidatorModel):
     localeId: str
     sortBy: Optional[BuiltInIntentSortByTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListBuiltInIntentsResponseTypeDef(BaseModel):
+class ListBuiltInIntentsResponseTypeDef(BaseValidatorModel):
     builtInIntentSummaries: List[BuiltInIntentSummaryTypeDef]
     nextToken: str
     localeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBuiltInSlotTypesRequestRequestTypeDef(BaseModel):
+class ListBuiltInSlotTypesRequestRequestTypeDef(BaseValidatorModel):
     localeId: str
     sortBy: Optional[BuiltInSlotTypeSortByTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListBuiltInSlotTypesResponseTypeDef(BaseModel):
+class ListBuiltInSlotTypesResponseTypeDef(BaseValidatorModel):
     builtInSlotTypeSummaries: List[BuiltInSlotTypeSummaryTypeDef]
     nextToken: str
     localeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImageResponseCardTypeDef(BaseModel):
+class ImageResponseCardTypeDef(BaseValidatorModel):
     title: str
     subtitle: Optional[str] = None
     imageUrl: Optional[str] = None
     buttons: Optional[Sequence[ButtonTypeDef]] = None
 
-class TextLogDestinationTypeDef(BaseModel):
+class TextLogDestinationTypeDef(BaseValidatorModel):
     cloudWatch: CloudWatchLogGroupLogDestinationTypeDef
 
-class CodeHookSpecificationTypeDef(BaseModel):
+class CodeHookSpecificationTypeDef(BaseValidatorModel):
     lambdaCodeHook: LambdaCodeHookTypeDef
 
-class CompositeSlotTypeSettingTypeDef(BaseModel):
+class CompositeSlotTypeSettingTypeDef(BaseValidatorModel):
     subSlots: Optional[Sequence[SubSlotTypeCompositionTypeDef]] = None
 
-class ConversationLevelTestResultItemTypeDef(BaseModel):
+class ConversationLevelTestResultItemTypeDef(BaseValidatorModel):
     conversationId: str
     endToEndResult: TestResultMatchStatusType
     intentClassificationResults: List[ConversationLevelIntentClassificationResultItemTypeDef]
     slotResolutionResults: List[ConversationLevelSlotResolutionResultItemTypeDef]
     speechTranscriptionResult: Optional[TestResultMatchStatusType] = None
 
-class TestExecutionResultFilterByTypeDef(BaseModel):
+class TestExecutionResultFilterByTypeDef(BaseValidatorModel):
     resultTypeFilter: TestResultTypeFilterType
     conversationLevelTestResultsFilterBy: Optional[       ConversationLevelTestResultsFilterByTypeDef     ] = None
 
-class ConversationLogsDataSourceTypeDef(BaseModel):
+class ConversationLogsDataSourceTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     filter: ConversationLogsDataSourceFilterByTypeDef
 
-class IntentSummaryTypeDef(BaseModel):
+class IntentSummaryTypeDef(BaseValidatorModel):
     intentId: Optional[str] = None
     intentName: Optional[str] = None
     description: Optional[str] = None
@@ -1461,7 +1461,7 @@ class IntentSummaryTypeDef(BaseModel):
     outputContexts: Optional[List[OutputContextTypeDef]] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
-class GenerateBotElementResponseTypeDef(BaseModel):
+class GenerateBotElementResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1469,7 +1469,7 @@ class GenerateBotElementResponseTypeDef(BaseModel):
     sampleUtterances: List[SampleUtteranceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateResourcePolicyStatementRequestRequestTypeDef(BaseModel):
+class CreateResourcePolicyStatementRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     statementId: str
     effect: EffectType
@@ -1478,50 +1478,50 @@ class CreateResourcePolicyStatementRequestRequestTypeDef(BaseModel):
     condition: Optional[Mapping[str, Mapping[str, str]]] = None
     expectedRevisionId: Optional[str] = None
 
-class LexTranscriptFilterTypeDef(BaseModel):
+class LexTranscriptFilterTypeDef(BaseValidatorModel):
     dateRangeFilter: Optional[DateRangeFilterTypeDef] = None
 
-class DescribeBotAliasRequestBotAliasAvailableWaitTypeDef(BaseModel):
+class DescribeBotAliasRequestBotAliasAvailableWaitTypeDef(BaseValidatorModel):
     botAliasId: str
     botId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeBotLocaleRequestBotLocaleBuiltWaitTypeDef(BaseModel):
+class DescribeBotLocaleRequestBotLocaleBuiltWaitTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeBotLocaleRequestBotLocaleCreatedWaitTypeDef(BaseModel):
+class DescribeBotLocaleRequestBotLocaleCreatedWaitTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeBotLocaleRequestBotLocaleExpressTestingAvailableWaitTypeDef(BaseModel):
+class DescribeBotLocaleRequestBotLocaleExpressTestingAvailableWaitTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeBotRequestBotAvailableWaitTypeDef(BaseModel):
+class DescribeBotRequestBotAvailableWaitTypeDef(BaseValidatorModel):
     botId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeBotVersionRequestBotVersionAvailableWaitTypeDef(BaseModel):
+class DescribeBotVersionRequestBotVersionAvailableWaitTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeExportRequestBotExportCompletedWaitTypeDef(BaseModel):
+class DescribeExportRequestBotExportCompletedWaitTypeDef(BaseValidatorModel):
     exportId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeImportRequestBotImportCompletedWaitTypeDef(BaseModel):
+class DescribeImportRequestBotImportCompletedWaitTypeDef(BaseValidatorModel):
     importId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeBotVersionResponseTypeDef(BaseModel):
+class DescribeBotVersionResponseTypeDef(BaseValidatorModel):
     botId: str
     botName: str
     botVersion: str
@@ -1537,14 +1537,14 @@ class DescribeBotVersionResponseTypeDef(BaseModel):
     botMembers: List[BotMemberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBotRecommendationRequestRequestTypeDef(BaseModel):
+class UpdateBotRecommendationRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     botRecommendationId: str
     encryptionSetting: EncryptionSettingTypeDef
 
-class DescribeTestSetResponseTypeDef(BaseModel):
+class DescribeTestSetResponseTypeDef(BaseValidatorModel):
     testSetId: str
     testSetName: str
     description: str
@@ -1557,7 +1557,7 @@ class DescribeTestSetResponseTypeDef(BaseModel):
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestSetSummaryTypeDef(BaseModel):
+class TestSetSummaryTypeDef(BaseValidatorModel):
     testSetId: Optional[str] = None
     testSetName: Optional[str] = None
     description: Optional[str] = None
@@ -1569,7 +1569,7 @@ class TestSetSummaryTypeDef(BaseModel):
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
-class UpdateTestSetResponseTypeDef(BaseModel):
+class UpdateTestSetResponseTypeDef(BaseValidatorModel):
     testSetId: str
     testSetName: str
     description: str
@@ -1582,25 +1582,25 @@ class UpdateTestSetResponseTypeDef(BaseModel):
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DialogStateTypeDef(BaseModel):
+class DialogStateTypeDef(BaseValidatorModel):
     dialogAction: Optional[DialogActionTypeDef] = None
     intent: Optional[IntentOverrideTypeDef] = None
     sessionAttributes: Optional[Mapping[str, str]] = None
 
-class OpensearchConfigurationTypeDef(BaseModel):
+class OpensearchConfigurationTypeDef(BaseValidatorModel):
     domainEndpoint: str
     indexName: str
     exactResponse: Optional[bool] = None
     exactResponseFields: Optional[ExactResponseFieldsTypeDef] = None
     includeFields: Optional[Sequence[str]] = None
 
-class ExportResourceSpecificationTypeDef(BaseModel):
+class ExportResourceSpecificationTypeDef(BaseValidatorModel):
     botExportSpecification: Optional[BotExportSpecificationTypeDef] = None
     botLocaleExportSpecification: Optional[BotLocaleExportSpecificationTypeDef] = None
     customVocabularyExportSpecification: Optional[       CustomVocabularyExportSpecificationTypeDef     ] = None
     testSetExportSpecification: Optional[TestSetExportSpecificationTypeDef] = None
 
-class ListExportsRequestRequestTypeDef(BaseModel):
+class ListExportsRequestRequestTypeDef(BaseValidatorModel):
     botId: Optional[str] = None
     botVersion: Optional[str] = None
     sortBy: Optional[ExportSortByTypeDef] = None
@@ -1609,7 +1609,7 @@ class ListExportsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     localeId: Optional[str] = None
 
-class ListBotResourceGenerationsRequestRequestTypeDef(BaseModel):
+class ListBotResourceGenerationsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1617,7 +1617,7 @@ class ListBotResourceGenerationsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListBotResourceGenerationsResponseTypeDef(BaseModel):
+class ListBotResourceGenerationsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1625,10 +1625,10 @@ class ListBotResourceGenerationsResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GrammarSlotTypeSettingTypeDef(BaseModel):
+class GrammarSlotTypeSettingTypeDef(BaseValidatorModel):
     source: Optional[GrammarSlotTypeSourceTypeDef] = None
 
-class ListImportsRequestRequestTypeDef(BaseModel):
+class ListImportsRequestRequestTypeDef(BaseValidatorModel):
     botId: Optional[str] = None
     botVersion: Optional[str] = None
     sortBy: Optional[ImportSortByTypeDef] = None
@@ -1637,7 +1637,7 @@ class ListImportsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     localeId: Optional[str] = None
 
-class ListImportsResponseTypeDef(BaseModel):
+class ListImportsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     importSummaries: List[ImportSummaryTypeDef]
@@ -1645,17 +1645,17 @@ class ListImportsResponseTypeDef(BaseModel):
     localeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InputSessionStateSpecificationTypeDef(BaseModel):
+class InputSessionStateSpecificationTypeDef(BaseValidatorModel):
     sessionAttributes: Optional[Dict[str, str]] = None
     activeContexts: Optional[List[ActiveContextTypeDef]] = None
     runtimeHints: Optional[RuntimeHintsTypeDef] = None
 
-class IntentClassificationTestResultItemTypeDef(BaseModel):
+class IntentClassificationTestResultItemTypeDef(BaseValidatorModel):
     intentName: str
     multiTurnConversation: bool
     resultCounts: IntentClassificationTestResultItemCountsTypeDef
 
-class ListIntentsRequestRequestTypeDef(BaseModel):
+class ListIntentsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1664,7 +1664,7 @@ class ListIntentsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class SessionSpecificationTypeDef(BaseModel):
+class SessionSpecificationTypeDef(BaseValidatorModel):
     botAliasId: Optional[str] = None
     botVersion: Optional[str] = None
     localeId: Optional[str] = None
@@ -1679,7 +1679,7 @@ class SessionSpecificationTypeDef(BaseModel):
     invokedIntentSamples: Optional[List[InvokedIntentSampleTypeDef]] = None
     originatingRequestId: Optional[str] = None
 
-class ListIntentMetricsRequestRequestTypeDef(BaseModel):
+class ListIntentMetricsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
@@ -1690,14 +1690,14 @@ class ListIntentMetricsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListIntentPathsRequestRequestTypeDef(BaseModel):
+class ListIntentPathsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
     intentPath: str
     filters: Optional[Sequence[AnalyticsPathFilterTypeDef]] = None
 
-class ListIntentStageMetricsRequestRequestTypeDef(BaseModel):
+class ListIntentStageMetricsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
@@ -1708,7 +1708,7 @@ class ListIntentStageMetricsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSessionMetricsRequestRequestTypeDef(BaseModel):
+class ListSessionMetricsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
@@ -1719,7 +1719,7 @@ class ListSessionMetricsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListUtteranceMetricsRequestRequestTypeDef(BaseModel):
+class ListUtteranceMetricsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
@@ -1731,7 +1731,7 @@ class ListUtteranceMetricsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListRecommendedIntentsResponseTypeDef(BaseModel):
+class ListRecommendedIntentsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1740,7 +1740,7 @@ class ListRecommendedIntentsResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSessionAnalyticsDataRequestRequestTypeDef(BaseModel):
+class ListSessionAnalyticsDataRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
@@ -1749,7 +1749,7 @@ class ListSessionAnalyticsDataRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSlotTypesRequestRequestTypeDef(BaseModel):
+class ListSlotTypesRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1758,7 +1758,7 @@ class ListSlotTypesRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSlotTypesResponseTypeDef(BaseModel):
+class ListSlotTypesResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1766,7 +1766,7 @@ class ListSlotTypesResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSlotsRequestRequestTypeDef(BaseModel):
+class ListSlotsRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1776,17 +1776,17 @@ class ListSlotsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTestExecutionsRequestRequestTypeDef(BaseModel):
+class ListTestExecutionsRequestRequestTypeDef(BaseValidatorModel):
     sortBy: Optional[TestExecutionSortByTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTestSetsRequestRequestTypeDef(BaseModel):
+class ListTestSetsRequestRequestTypeDef(BaseValidatorModel):
     sortBy: Optional[TestSetSortByTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListUtteranceAnalyticsDataRequestRequestTypeDef(BaseModel):
+class ListUtteranceAnalyticsDataRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     startDateTime: TimestampTypeDef
     endDateTime: TimestampTypeDef
@@ -1795,45 +1795,45 @@ class ListUtteranceAnalyticsDataRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class OverallTestResultsTypeDef(BaseModel):
+class OverallTestResultsTypeDef(BaseValidatorModel):
     items: List[OverallTestResultItemTypeDef]
 
-class UtteranceAggregationDurationTypeDef(BaseModel):
+class UtteranceAggregationDurationTypeDef(BaseValidatorModel):
     relativeAggregationDuration: RelativeAggregationDurationTypeDef
 
-class RuntimeHintDetailsTypeDef(BaseModel):
+class RuntimeHintDetailsTypeDef(BaseValidatorModel):
     runtimeHintValues: Optional[List[RuntimeHintValueTypeDef]] = None
     subSlotHints: Optional[Dict[str, Dict[str, Any]]] = None
 
-class SlotTypeValueTypeDef(BaseModel):
+class SlotTypeValueTypeDef(BaseValidatorModel):
     sampleValue: Optional[SampleValueTypeDef] = None
     synonyms: Optional[Sequence[SampleValueTypeDef]] = None
 
-class SlotDefaultValueSpecificationTypeDef(BaseModel):
+class SlotDefaultValueSpecificationTypeDef(BaseValidatorModel):
     defaultValueList: Sequence[SlotDefaultValueTypeDef]
 
-class SlotResolutionTestResultItemTypeDef(BaseModel):
+class SlotResolutionTestResultItemTypeDef(BaseValidatorModel):
     slotName: str
     resultCounts: SlotResolutionTestResultItemCountsTypeDef
 
-class SlotValueOverrideTypeDef(BaseModel):
+class SlotValueOverrideTypeDef(BaseValidatorModel):
     shape: Optional[SlotShapeType] = None
     value: Optional[SlotValueTypeDef] = None
     values: Optional[Sequence[Dict[str, Any]]] = None
 
-class SlotValueSelectionSettingTypeDef(BaseModel):
+class SlotValueSelectionSettingTypeDef(BaseValidatorModel):
     resolutionStrategy: SlotValueResolutionStrategyType
     regexFilter: Optional[SlotValueRegexFilterTypeDef] = None
     advancedRecognitionSetting: Optional[AdvancedRecognitionSettingTypeDef] = None
 
-class TestSetDiscrepancyErrorsTypeDef(BaseModel):
+class TestSetDiscrepancyErrorsTypeDef(BaseValidatorModel):
     intentDiscrepancies: List[TestSetIntentDiscrepancyItemTypeDef]
     slotDiscrepancies: List[TestSetSlotDiscrepancyItemTypeDef]
 
-class TestSetDiscrepancyReportResourceTargetTypeDef(BaseModel):
+class TestSetDiscrepancyReportResourceTargetTypeDef(BaseValidatorModel):
     botAliasTarget: Optional[TestSetDiscrepancyReportBotAliasTargetTypeDef] = None
 
-class TestSetImportResourceSpecificationTypeDef(BaseModel):
+class TestSetImportResourceSpecificationTypeDef(BaseValidatorModel):
     testSetName: str
     roleArn: str
     storageLocation: TestSetStorageLocationTypeDef
@@ -1842,58 +1842,58 @@ class TestSetImportResourceSpecificationTypeDef(BaseModel):
     description: Optional[str] = None
     testSetTags: Optional[Dict[str, str]] = None
 
-class UserTurnOutputSpecificationTypeDef(BaseModel):
+class UserTurnOutputSpecificationTypeDef(BaseValidatorModel):
     intent: UserTurnIntentOutputTypeDef
     activeContexts: Optional[List[ActiveContextTypeDef]] = None
     transcript: Optional[str] = None
 
-class UtteranceInputSpecificationTypeDef(BaseModel):
+class UtteranceInputSpecificationTypeDef(BaseValidatorModel):
     textInput: Optional[str] = None
     audioInput: Optional[UtteranceAudioInputSpecificationTypeDef] = None
 
-class ListIntentMetricsResponseTypeDef(BaseModel):
+class ListIntentMetricsResponseTypeDef(BaseValidatorModel):
     botId: str
     results: List[AnalyticsIntentResultTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIntentStageMetricsResponseTypeDef(BaseModel):
+class ListIntentStageMetricsResponseTypeDef(BaseValidatorModel):
     botId: str
     results: List[AnalyticsIntentStageResultTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSessionMetricsResponseTypeDef(BaseModel):
+class ListSessionMetricsResponseTypeDef(BaseValidatorModel):
     botId: str
     results: List[AnalyticsSessionResultTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUtteranceMetricsResponseTypeDef(BaseModel):
+class ListUtteranceMetricsResponseTypeDef(BaseValidatorModel):
     botId: str
     results: List[AnalyticsUtteranceResultTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PromptAttemptSpecificationTypeDef(BaseModel):
+class PromptAttemptSpecificationTypeDef(BaseValidatorModel):
     allowedInputTypes: AllowedInputTypesTypeDef
     allowInterrupt: Optional[bool] = None
     audioAndDTMFInputSpecification: Optional[AudioAndDTMFInputSpecificationTypeDef] = None
     textInputSpecification: Optional[TextInputSpecificationTypeDef] = None
 
-class AudioLogSettingTypeDef(BaseModel):
+class AudioLogSettingTypeDef(BaseValidatorModel):
     enabled: bool
     destination: AudioLogDestinationTypeDef
     selectiveLoggingEnabled: Optional[bool] = None
 
-class BuildtimeSettingsTypeDef(BaseModel):
+class BuildtimeSettingsTypeDef(BaseValidatorModel):
     descriptiveBotBuilder: Optional[DescriptiveBotBuilderSpecificationTypeDef] = None
     sampleUtteranceGeneration: Optional[SampleUtteranceGenerationSpecificationTypeDef] = None
 
-class RuntimeSettingsTypeDef(BaseModel):
+class RuntimeSettingsTypeDef(BaseValidatorModel):
     slotResolutionImprovement: Optional[SlotResolutionImprovementSpecificationTypeDef] = None
 
-class DescribeTestExecutionResponseTypeDef(BaseModel):
+class DescribeTestExecutionResponseTypeDef(BaseValidatorModel):
     testExecutionId: str
     creationDateTime: datetime
     lastUpdatedDateTime: datetime
@@ -1906,13 +1906,13 @@ class DescribeTestExecutionResponseTypeDef(BaseModel):
     failureReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTestExecutionRequestRequestTypeDef(BaseModel):
+class StartTestExecutionRequestRequestTypeDef(BaseValidatorModel):
     testSetId: str
     target: TestExecutionTargetTypeDef
     apiMode: TestExecutionApiModeType
     testExecutionModality: Optional[TestExecutionModalityType] = None
 
-class StartTestExecutionResponseTypeDef(BaseModel):
+class StartTestExecutionResponseTypeDef(BaseValidatorModel):
     testExecutionId: str
     creationDateTime: datetime
     testSetId: str
@@ -1921,7 +1921,7 @@ class StartTestExecutionResponseTypeDef(BaseModel):
     testExecutionModality: TestExecutionModalityType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestExecutionSummaryTypeDef(BaseModel):
+class TestExecutionSummaryTypeDef(BaseValidatorModel):
     testExecutionId: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -1932,44 +1932,44 @@ class TestExecutionSummaryTypeDef(BaseModel):
     apiMode: Optional[TestExecutionApiModeType] = None
     testExecutionModality: Optional[TestExecutionModalityType] = None
 
-class BotRecommendationResultsTypeDef(BaseModel):
+class BotRecommendationResultsTypeDef(BaseValidatorModel):
     botLocaleExportUrl: Optional[str] = None
     associatedTranscriptsUrl: Optional[str] = None
     statistics: Optional[BotRecommendationResultStatisticsTypeDef] = None
 
-class MessageTypeDef(BaseModel):
+class MessageTypeDef(BaseValidatorModel):
     plainTextMessage: Optional[PlainTextMessageTypeDef] = None
     customPayload: Optional[CustomPayloadTypeDef] = None
     ssmlMessage: Optional[SSMLMessageTypeDef] = None
     imageResponseCard: Optional[ImageResponseCardTypeDef] = None
 
-class UtteranceBotResponseTypeDef(BaseModel):
+class UtteranceBotResponseTypeDef(BaseValidatorModel):
     content: Optional[str] = None
     contentType: Optional[UtteranceContentTypeType] = None
     imageResponseCard: Optional[ImageResponseCardTypeDef] = None
 
-class TextLogSettingTypeDef(BaseModel):
+class TextLogSettingTypeDef(BaseValidatorModel):
     enabled: bool
     destination: TextLogDestinationTypeDef
     selectiveLoggingEnabled: Optional[bool] = None
 
-class BotAliasLocaleSettingsTypeDef(BaseModel):
+class BotAliasLocaleSettingsTypeDef(BaseValidatorModel):
     enabled: bool
     codeHookSpecification: Optional[CodeHookSpecificationTypeDef] = None
 
-class ConversationLevelTestResultsTypeDef(BaseModel):
+class ConversationLevelTestResultsTypeDef(BaseValidatorModel):
     items: List[ConversationLevelTestResultItemTypeDef]
 
-class ListTestExecutionResultItemsRequestRequestTypeDef(BaseModel):
+class ListTestExecutionResultItemsRequestRequestTypeDef(BaseValidatorModel):
     testExecutionId: str
     resultFilterBy: TestExecutionResultFilterByTypeDef
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TestSetGenerationDataSourceTypeDef(BaseModel):
+class TestSetGenerationDataSourceTypeDef(BaseValidatorModel):
     conversationLogsDataSource: Optional[ConversationLogsDataSourceTypeDef] = None
 
-class ListIntentsResponseTypeDef(BaseModel):
+class ListIntentsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -1977,25 +1977,25 @@ class ListIntentsResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TranscriptFilterTypeDef(BaseModel):
+class TranscriptFilterTypeDef(BaseValidatorModel):
     lexTranscriptFilter: Optional[LexTranscriptFilterTypeDef] = None
 
-class ListTestSetsResponseTypeDef(BaseModel):
+class ListTestSetsResponseTypeDef(BaseValidatorModel):
     testSets: List[TestSetSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataSourceConfigurationTypeDef(BaseModel):
+class DataSourceConfigurationTypeDef(BaseValidatorModel):
     opensearchConfiguration: Optional[OpensearchConfigurationTypeDef] = None
     kendraConfiguration: Optional[QnAKendraConfigurationTypeDef] = None
     bedrockKnowledgeStoreConfiguration: Optional[       BedrockKnowledgeStoreConfigurationTypeDef     ] = None
 
-class CreateExportRequestRequestTypeDef(BaseModel):
+class CreateExportRequestRequestTypeDef(BaseValidatorModel):
     resourceSpecification: ExportResourceSpecificationTypeDef
     fileFormat: ImportExportFileFormatType
     filePassword: Optional[str] = None
 
-class CreateExportResponseTypeDef(BaseModel):
+class CreateExportResponseTypeDef(BaseValidatorModel):
     exportId: str
     resourceSpecification: ExportResourceSpecificationTypeDef
     fileFormat: ImportExportFileFormatType
@@ -2003,7 +2003,7 @@ class CreateExportResponseTypeDef(BaseModel):
     creationDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeExportResponseTypeDef(BaseModel):
+class DescribeExportResponseTypeDef(BaseValidatorModel):
     exportId: str
     resourceSpecification: ExportResourceSpecificationTypeDef
     fileFormat: ImportExportFileFormatType
@@ -2014,7 +2014,7 @@ class DescribeExportResponseTypeDef(BaseModel):
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportSummaryTypeDef(BaseModel):
+class ExportSummaryTypeDef(BaseValidatorModel):
     exportId: Optional[str] = None
     resourceSpecification: Optional[ExportResourceSpecificationTypeDef] = None
     fileFormat: Optional[ImportExportFileFormatType] = None
@@ -2022,7 +2022,7 @@ class ExportSummaryTypeDef(BaseModel):
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
-class UpdateExportResponseTypeDef(BaseModel):
+class UpdateExportResponseTypeDef(BaseValidatorModel):
     exportId: str
     resourceSpecification: ExportResourceSpecificationTypeDef
     fileFormat: ImportExportFileFormatType
@@ -2031,19 +2031,19 @@ class UpdateExportResponseTypeDef(BaseModel):
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExternalSourceSettingTypeDef(BaseModel):
+class ExternalSourceSettingTypeDef(BaseValidatorModel):
     grammarSlotTypeSetting: Optional[GrammarSlotTypeSettingTypeDef] = None
 
-class IntentClassificationTestResultsTypeDef(BaseModel):
+class IntentClassificationTestResultsTypeDef(BaseValidatorModel):
     items: List[IntentClassificationTestResultItemTypeDef]
 
-class ListSessionAnalyticsDataResponseTypeDef(BaseModel):
+class ListSessionAnalyticsDataResponseTypeDef(BaseValidatorModel):
     botId: str
     nextToken: str
     sessions: List[SessionSpecificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAggregatedUtterancesRequestRequestTypeDef(BaseModel):
+class ListAggregatedUtterancesRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     localeId: str
     aggregationDuration: UtteranceAggregationDurationTypeDef
@@ -2054,7 +2054,7 @@ class ListAggregatedUtterancesRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAggregatedUtterancesResponseTypeDef(BaseModel):
+class ListAggregatedUtterancesResponseTypeDef(BaseValidatorModel):
     botId: str
     botAliasId: str
     botVersion: str
@@ -2067,23 +2067,23 @@ class ListAggregatedUtterancesResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IntentLevelSlotResolutionTestResultItemTypeDef(BaseModel):
+class IntentLevelSlotResolutionTestResultItemTypeDef(BaseValidatorModel):
     intentName: str
     multiTurnConversation: bool
     slotResolutionResults: List[SlotResolutionTestResultItemTypeDef]
 
-class CreateTestSetDiscrepancyReportRequestRequestTypeDef(BaseModel):
+class CreateTestSetDiscrepancyReportRequestRequestTypeDef(BaseValidatorModel):
     testSetId: str
     target: TestSetDiscrepancyReportResourceTargetTypeDef
 
-class CreateTestSetDiscrepancyReportResponseTypeDef(BaseModel):
+class CreateTestSetDiscrepancyReportResponseTypeDef(BaseValidatorModel):
     testSetDiscrepancyReportId: str
     creationDateTime: datetime
     testSetId: str
     target: TestSetDiscrepancyReportResourceTargetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTestSetDiscrepancyReportResponseTypeDef(BaseModel):
+class DescribeTestSetDiscrepancyReportResponseTypeDef(BaseValidatorModel):
     testSetDiscrepancyReportId: str
     testSetId: str
     creationDateTime: datetime
@@ -2095,31 +2095,31 @@ class DescribeTestSetDiscrepancyReportResponseTypeDef(BaseModel):
     failureReasons: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportResourceSpecificationTypeDef(BaseModel):
+class ImportResourceSpecificationTypeDef(BaseValidatorModel):
     botImportSpecification: Optional[BotImportSpecificationTypeDef] = None
     botLocaleImportSpecification: Optional[BotLocaleImportSpecificationTypeDef] = None
     customVocabularyImportSpecification: Optional[       CustomVocabularyImportSpecificationTypeDef     ] = None
     testSetImportResourceSpecification: Optional[       TestSetImportResourceSpecificationTypeDef     ] = None
 
-class UserTurnInputSpecificationTypeDef(BaseModel):
+class UserTurnInputSpecificationTypeDef(BaseValidatorModel):
     utteranceInput: UtteranceInputSpecificationTypeDef
     requestAttributes: Optional[Dict[str, str]] = None
     sessionState: Optional[InputSessionStateSpecificationTypeDef] = None
 
-class GenerativeAISettingsTypeDef(BaseModel):
+class GenerativeAISettingsTypeDef(BaseValidatorModel):
     runtimeSettings: Optional[RuntimeSettingsTypeDef] = None
     buildtimeSettings: Optional[BuildtimeSettingsTypeDef] = None
 
-class ListTestExecutionsResponseTypeDef(BaseModel):
+class ListTestExecutionsResponseTypeDef(BaseValidatorModel):
     testExecutions: List[TestExecutionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MessageGroupTypeDef(BaseModel):
+class MessageGroupTypeDef(BaseValidatorModel):
     message: MessageTypeDef
     variations: Optional[Sequence[MessageTypeDef]] = None
 
-class UtteranceSpecificationTypeDef(BaseModel):
+class UtteranceSpecificationTypeDef(BaseValidatorModel):
     botAliasId: Optional[str] = None
     botVersion: Optional[str] = None
     localeId: Optional[str] = None
@@ -2143,11 +2143,11 @@ class UtteranceSpecificationTypeDef(BaseModel):
     utteranceRequestId: Optional[str] = None
     botResponses: Optional[List[UtteranceBotResponseTypeDef]] = None
 
-class ConversationLogSettingsTypeDef(BaseModel):
+class ConversationLogSettingsTypeDef(BaseValidatorModel):
     textLogSettings: Optional[Sequence[TextLogSettingTypeDef]] = None
     audioLogSettings: Optional[Sequence[AudioLogSettingTypeDef]] = None
 
-class DescribeTestSetGenerationResponseTypeDef(BaseModel):
+class DescribeTestSetGenerationResponseTypeDef(BaseValidatorModel):
     testSetGenerationId: str
     testSetGenerationStatus: TestSetGenerationStatusType
     failureReasons: List[str]
@@ -2161,7 +2161,7 @@ class DescribeTestSetGenerationResponseTypeDef(BaseModel):
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTestSetGenerationRequestRequestTypeDef(BaseModel):
+class StartTestSetGenerationRequestRequestTypeDef(BaseValidatorModel):
     testSetName: str
     storageLocation: TestSetStorageLocationTypeDef
     generationDataSource: TestSetGenerationDataSourceTypeDef
@@ -2169,7 +2169,7 @@ class StartTestSetGenerationRequestRequestTypeDef(BaseModel):
     description: Optional[str] = None
     testSetTags: Optional[Mapping[str, str]] = None
 
-class StartTestSetGenerationResponseTypeDef(BaseModel):
+class StartTestSetGenerationResponseTypeDef(BaseValidatorModel):
     testSetGenerationId: str
     creationDateTime: datetime
     testSetGenerationStatus: TestSetGenerationStatusType
@@ -2181,18 +2181,18 @@ class StartTestSetGenerationResponseTypeDef(BaseModel):
     testSetTags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class S3BucketTranscriptSourceTypeDef(BaseModel):
+class S3BucketTranscriptSourceTypeDef(BaseValidatorModel):
     s3BucketName: str
     transcriptFormat: Literal["Lex"]
     pathFormat: Optional[PathFormatTypeDef] = None
     transcriptFilter: Optional[TranscriptFilterTypeDef] = None
     kmsKeyArn: Optional[str] = None
 
-class QnAIntentConfigurationTypeDef(BaseModel):
+class QnAIntentConfigurationTypeDef(BaseValidatorModel):
     dataSourceConfiguration: Optional[DataSourceConfigurationTypeDef] = None
     bedrockModelConfiguration: Optional[BedrockModelSpecificationTypeDef] = None
 
-class ListExportsResponseTypeDef(BaseModel):
+class ListExportsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     exportSummaries: List[ExportSummaryTypeDef]
@@ -2200,7 +2200,7 @@ class ListExportsResponseTypeDef(BaseModel):
     localeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSlotTypeRequestRequestTypeDef(BaseModel):
+class CreateSlotTypeRequestRequestTypeDef(BaseValidatorModel):
     slotTypeName: str
     botId: str
     botVersion: str
@@ -2212,7 +2212,7 @@ class CreateSlotTypeRequestRequestTypeDef(BaseModel):
     externalSourceSetting: Optional[ExternalSourceSettingTypeDef] = None
     compositeSlotTypeSetting: Optional[CompositeSlotTypeSettingTypeDef] = None
 
-class CreateSlotTypeResponseTypeDef(BaseModel):
+class CreateSlotTypeResponseTypeDef(BaseValidatorModel):
     slotTypeId: str
     slotTypeName: str
     description: str
@@ -2227,7 +2227,7 @@ class CreateSlotTypeResponseTypeDef(BaseModel):
     compositeSlotTypeSetting: CompositeSlotTypeSettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSlotTypeResponseTypeDef(BaseModel):
+class DescribeSlotTypeResponseTypeDef(BaseValidatorModel):
     slotTypeId: str
     slotTypeName: str
     description: str
@@ -2243,7 +2243,7 @@ class DescribeSlotTypeResponseTypeDef(BaseModel):
     compositeSlotTypeSetting: CompositeSlotTypeSettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSlotTypeRequestRequestTypeDef(BaseModel):
+class UpdateSlotTypeRequestRequestTypeDef(BaseValidatorModel):
     slotTypeId: str
     slotTypeName: str
     botId: str
@@ -2256,7 +2256,7 @@ class UpdateSlotTypeRequestRequestTypeDef(BaseModel):
     externalSourceSetting: Optional[ExternalSourceSettingTypeDef] = None
     compositeSlotTypeSetting: Optional[CompositeSlotTypeSettingTypeDef] = None
 
-class UpdateSlotTypeResponseTypeDef(BaseModel):
+class UpdateSlotTypeResponseTypeDef(BaseValidatorModel):
     slotTypeId: str
     slotTypeName: str
     description: str
@@ -2272,10 +2272,10 @@ class UpdateSlotTypeResponseTypeDef(BaseModel):
     compositeSlotTypeSetting: CompositeSlotTypeSettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IntentLevelSlotResolutionTestResultsTypeDef(BaseModel):
+class IntentLevelSlotResolutionTestResultsTypeDef(BaseValidatorModel):
     items: List[IntentLevelSlotResolutionTestResultItemTypeDef]
 
-class DescribeImportResponseTypeDef(BaseModel):
+class DescribeImportResponseTypeDef(BaseValidatorModel):
     importId: str
     resourceSpecification: ImportResourceSpecificationTypeDef
     importedResourceId: str
@@ -2287,13 +2287,13 @@ class DescribeImportResponseTypeDef(BaseModel):
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartImportRequestRequestTypeDef(BaseModel):
+class StartImportRequestRequestTypeDef(BaseValidatorModel):
     importId: str
     resourceSpecification: ImportResourceSpecificationTypeDef
     mergeStrategy: MergeStrategyType
     filePassword: Optional[str] = None
 
-class StartImportResponseTypeDef(BaseModel):
+class StartImportResponseTypeDef(BaseValidatorModel):
     importId: str
     resourceSpecification: ImportResourceSpecificationTypeDef
     mergeStrategy: MergeStrategyType
@@ -2301,7 +2301,7 @@ class StartImportResponseTypeDef(BaseModel):
     creationDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UserTurnResultTypeDef(BaseModel):
+class UserTurnResultTypeDef(BaseValidatorModel):
     input: UserTurnInputSpecificationTypeDef
     expectedOutput: UserTurnOutputSpecificationTypeDef
     actualOutput: Optional[UserTurnOutputSpecificationTypeDef] = None
@@ -2312,11 +2312,11 @@ class UserTurnResultTypeDef(BaseModel):
     speechTranscriptionResult: Optional[TestResultMatchStatusType] = None
     conversationLevelResult: Optional[ConversationLevelResultDetailTypeDef] = None
 
-class UserTurnSpecificationTypeDef(BaseModel):
+class UserTurnSpecificationTypeDef(BaseValidatorModel):
     input: UserTurnInputSpecificationTypeDef
     expected: UserTurnOutputSpecificationTypeDef
 
-class CreateBotLocaleRequestRequestTypeDef(BaseModel):
+class CreateBotLocaleRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -2325,7 +2325,7 @@ class CreateBotLocaleRequestRequestTypeDef(BaseModel):
     voiceSettings: Optional[VoiceSettingsTypeDef] = None
     generativeAISettings: Optional[GenerativeAISettingsTypeDef] = None
 
-class CreateBotLocaleResponseTypeDef(BaseModel):
+class CreateBotLocaleResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeName: str
@@ -2338,7 +2338,7 @@ class CreateBotLocaleResponseTypeDef(BaseModel):
     generativeAISettings: GenerativeAISettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeBotLocaleResponseTypeDef(BaseModel):
+class DescribeBotLocaleResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -2358,7 +2358,7 @@ class DescribeBotLocaleResponseTypeDef(BaseModel):
     generativeAISettings: GenerativeAISettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBotLocaleRequestRequestTypeDef(BaseModel):
+class UpdateBotLocaleRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -2367,7 +2367,7 @@ class UpdateBotLocaleRequestRequestTypeDef(BaseModel):
     voiceSettings: Optional[VoiceSettingsTypeDef] = None
     generativeAISettings: Optional[GenerativeAISettingsTypeDef] = None
 
-class UpdateBotLocaleResponseTypeDef(BaseModel):
+class UpdateBotLocaleResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -2383,40 +2383,40 @@ class UpdateBotLocaleResponseTypeDef(BaseModel):
     generativeAISettings: GenerativeAISettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FulfillmentStartResponseSpecificationTypeDef(BaseModel):
+class FulfillmentStartResponseSpecificationTypeDef(BaseValidatorModel):
     delayInSeconds: int
     messageGroups: Sequence[MessageGroupTypeDef]
     allowInterrupt: Optional[bool] = None
 
-class FulfillmentUpdateResponseSpecificationTypeDef(BaseModel):
+class FulfillmentUpdateResponseSpecificationTypeDef(BaseValidatorModel):
     frequencyInSeconds: int
     messageGroups: Sequence[MessageGroupTypeDef]
     allowInterrupt: Optional[bool] = None
 
-class PromptSpecificationTypeDef(BaseModel):
+class PromptSpecificationTypeDef(BaseValidatorModel):
     messageGroups: Sequence[MessageGroupTypeDef]
     maxRetries: int
     allowInterrupt: Optional[bool] = None
     messageSelectionStrategy: Optional[MessageSelectionStrategyType] = None
     promptAttemptsSpecification: Optional[       Mapping[PromptAttemptType, PromptAttemptSpecificationTypeDef] = None
 
-class ResponseSpecificationTypeDef(BaseModel):
+class ResponseSpecificationTypeDef(BaseValidatorModel):
     messageGroups: Sequence[MessageGroupTypeDef]
     allowInterrupt: Optional[bool] = None
 
-class StillWaitingResponseSpecificationTypeDef(BaseModel):
+class StillWaitingResponseSpecificationTypeDef(BaseValidatorModel):
     messageGroups: Sequence[MessageGroupTypeDef]
     frequencyInSeconds: int
     timeoutInSeconds: int
     allowInterrupt: Optional[bool] = None
 
-class ListUtteranceAnalyticsDataResponseTypeDef(BaseModel):
+class ListUtteranceAnalyticsDataResponseTypeDef(BaseValidatorModel):
     botId: str
     nextToken: str
     utterances: List[UtteranceSpecificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBotAliasRequestRequestTypeDef(BaseModel):
+class CreateBotAliasRequestRequestTypeDef(BaseValidatorModel):
     botAliasName: str
     botId: str
     description: Optional[str] = None
@@ -2426,7 +2426,7 @@ class CreateBotAliasRequestRequestTypeDef(BaseModel):
     sentimentAnalysisSettings: Optional[SentimentAnalysisSettingsTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateBotAliasResponseTypeDef(BaseModel):
+class CreateBotAliasResponseTypeDef(BaseValidatorModel):
     botAliasId: str
     botAliasName: str
     description: str
@@ -2440,7 +2440,7 @@ class CreateBotAliasResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeBotAliasResponseTypeDef(BaseModel):
+class DescribeBotAliasResponseTypeDef(BaseValidatorModel):
     botAliasId: str
     botAliasName: str
     description: str
@@ -2456,7 +2456,7 @@ class DescribeBotAliasResponseTypeDef(BaseModel):
     parentBotNetworks: List[ParentBotNetworkTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBotAliasRequestRequestTypeDef(BaseModel):
+class UpdateBotAliasRequestRequestTypeDef(BaseValidatorModel):
     botAliasId: str
     botAliasName: str
     botId: str
@@ -2466,7 +2466,7 @@ class UpdateBotAliasRequestRequestTypeDef(BaseModel):
     conversationLogSettings: Optional[ConversationLogSettingsTypeDef] = None
     sentimentAnalysisSettings: Optional[SentimentAnalysisSettingsTypeDef] = None
 
-class UpdateBotAliasResponseTypeDef(BaseModel):
+class UpdateBotAliasResponseTypeDef(BaseValidatorModel):
     botAliasId: str
     botAliasName: str
     description: str
@@ -2480,24 +2480,24 @@ class UpdateBotAliasResponseTypeDef(BaseModel):
     lastUpdatedDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TranscriptSourceSettingTypeDef(BaseModel):
+class TranscriptSourceSettingTypeDef(BaseValidatorModel):
     s3BucketTranscriptSource: Optional[S3BucketTranscriptSourceTypeDef] = None
 
-class TestSetTurnResultTypeDef(BaseModel):
+class TestSetTurnResultTypeDef(BaseValidatorModel):
     agent: Optional[AgentTurnResultTypeDef] = None
     user: Optional[UserTurnResultTypeDef] = None
 
-class TurnSpecificationTypeDef(BaseModel):
+class TurnSpecificationTypeDef(BaseValidatorModel):
     agentTurn: Optional[AgentTurnSpecificationTypeDef] = None
     userTurn: Optional[UserTurnSpecificationTypeDef] = None
 
-class FulfillmentUpdatesSpecificationTypeDef(BaseModel):
+class FulfillmentUpdatesSpecificationTypeDef(BaseValidatorModel):
     active: bool
     startResponse: Optional[FulfillmentStartResponseSpecificationTypeDef] = None
     updateResponse: Optional[FulfillmentUpdateResponseSpecificationTypeDef] = None
     timeoutInSeconds: Optional[int] = None
 
-class SlotSummaryTypeDef(BaseModel):
+class SlotSummaryTypeDef(BaseValidatorModel):
     slotId: Optional[str] = None
     slotName: Optional[str] = None
     description: Optional[str] = None
@@ -2506,23 +2506,23 @@ class SlotSummaryTypeDef(BaseModel):
     valueElicitationPromptSpecification: Optional[PromptSpecificationTypeDef] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
-class ConditionalBranchTypeDef(BaseModel):
+class ConditionalBranchTypeDef(BaseValidatorModel):
     name: str
     condition: ConditionTypeDef
     nextStep: DialogStateTypeDef
     response: Optional[ResponseSpecificationTypeDef] = None
 
-class DefaultConditionalBranchTypeDef(BaseModel):
+class DefaultConditionalBranchTypeDef(BaseValidatorModel):
     nextStep: Optional[DialogStateTypeDef] = None
     response: Optional[ResponseSpecificationTypeDef] = None
 
-class WaitAndContinueSpecificationTypeDef(BaseModel):
+class WaitAndContinueSpecificationTypeDef(BaseValidatorModel):
     waitingResponse: ResponseSpecificationTypeDef
     continueResponse: ResponseSpecificationTypeDef
     stillWaitingResponse: Optional[StillWaitingResponseSpecificationTypeDef] = None
     active: Optional[bool] = None
 
-class DescribeBotRecommendationResponseTypeDef(BaseModel):
+class DescribeBotRecommendationResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -2536,14 +2536,14 @@ class DescribeBotRecommendationResponseTypeDef(BaseModel):
     botRecommendationResults: BotRecommendationResultsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartBotRecommendationRequestRequestTypeDef(BaseModel):
+class StartBotRecommendationRequestRequestTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
     transcriptSourceSetting: TranscriptSourceSettingTypeDef
     encryptionSetting: Optional[EncryptionSettingTypeDef] = None
 
-class StartBotRecommendationResponseTypeDef(BaseModel):
+class StartBotRecommendationResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -2554,7 +2554,7 @@ class StartBotRecommendationResponseTypeDef(BaseModel):
     encryptionSetting: EncryptionSettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBotRecommendationResponseTypeDef(BaseModel):
+class UpdateBotRecommendationResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -2566,18 +2566,18 @@ class UpdateBotRecommendationResponseTypeDef(BaseModel):
     encryptionSetting: EncryptionSettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UtteranceLevelTestResultItemTypeDef(BaseModel):
+class UtteranceLevelTestResultItemTypeDef(BaseValidatorModel):
     recordNumber: int
     turnResult: TestSetTurnResultTypeDef
     conversationId: Optional[str] = None
 
-class TestSetTurnRecordTypeDef(BaseModel):
+class TestSetTurnRecordTypeDef(BaseValidatorModel):
     recordNumber: int
     turnSpecification: TurnSpecificationTypeDef
     conversationId: Optional[str] = None
     turnNumber: Optional[int] = None
 
-class ListSlotsResponseTypeDef(BaseModel):
+class ListSlotsResponseTypeDef(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
@@ -2586,32 +2586,32 @@ class ListSlotsResponseTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConditionalSpecificationTypeDef(BaseModel):
+class ConditionalSpecificationTypeDef(BaseValidatorModel):
     active: bool
     conditionalBranches: Sequence[ConditionalBranchTypeDef]
     defaultBranch: DefaultConditionalBranchTypeDef
 
-class SubSlotValueElicitationSettingTypeDef(BaseModel):
+class SubSlotValueElicitationSettingTypeDef(BaseValidatorModel):
     promptSpecification: PromptSpecificationTypeDef
     defaultValueSpecification: Optional[SlotDefaultValueSpecificationTypeDef] = None
     sampleUtterances: Optional[Sequence[SampleUtteranceTypeDef]] = None
     waitAndContinueSpecification: Optional[WaitAndContinueSpecificationTypeDef] = None
 
-class UtteranceLevelTestResultsTypeDef(BaseModel):
+class UtteranceLevelTestResultsTypeDef(BaseValidatorModel):
     items: List[UtteranceLevelTestResultItemTypeDef]
 
-class ListTestSetRecordsResponseTypeDef(BaseModel):
+class ListTestSetRecordsResponseTypeDef(BaseValidatorModel):
     testSetRecords: List[TestSetTurnRecordTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IntentClosingSettingTypeDef(BaseModel):
+class IntentClosingSettingTypeDef(BaseValidatorModel):
     closingResponse: Optional[ResponseSpecificationTypeDef] = None
     active: Optional[bool] = None
     nextStep: Optional[DialogStateTypeDef] = None
     conditional: Optional[ConditionalSpecificationTypeDef] = None
 
-class PostDialogCodeHookInvocationSpecificationTypeDef(BaseModel):
+class PostDialogCodeHookInvocationSpecificationTypeDef(BaseValidatorModel):
     successResponse: Optional[ResponseSpecificationTypeDef] = None
     successNextStep: Optional[DialogStateTypeDef] = None
     successConditional: Optional[ConditionalSpecificationTypeDef] = None
@@ -2622,7 +2622,7 @@ class PostDialogCodeHookInvocationSpecificationTypeDef(BaseModel):
     timeoutNextStep: Optional[DialogStateTypeDef] = None
     timeoutConditional: Optional[ConditionalSpecificationTypeDef] = None
 
-class PostFulfillmentStatusSpecificationTypeDef(BaseModel):
+class PostFulfillmentStatusSpecificationTypeDef(BaseValidatorModel):
     successResponse: Optional[ResponseSpecificationTypeDef] = None
     failureResponse: Optional[ResponseSpecificationTypeDef] = None
     timeoutResponse: Optional[ResponseSpecificationTypeDef] = None
@@ -2633,45 +2633,45 @@ class PostFulfillmentStatusSpecificationTypeDef(BaseModel):
     timeoutNextStep: Optional[DialogStateTypeDef] = None
     timeoutConditional: Optional[ConditionalSpecificationTypeDef] = None
 
-class SpecificationsTypeDef(BaseModel):
+class SpecificationsTypeDef(BaseValidatorModel):
     slotTypeId: str
     valueElicitationSetting: SubSlotValueElicitationSettingTypeDef
 
-class TestExecutionResultItemsTypeDef(BaseModel):
+class TestExecutionResultItemsTypeDef(BaseValidatorModel):
     overallTestResults: Optional[OverallTestResultsTypeDef] = None
     conversationLevelTestResults: Optional[ConversationLevelTestResultsTypeDef] = None
     intentClassificationTestResults: Optional[IntentClassificationTestResultsTypeDef] = None
     intentLevelSlotResolutionTestResults: Optional[       IntentLevelSlotResolutionTestResultsTypeDef     ] = None
     utteranceLevelTestResults: Optional[UtteranceLevelTestResultsTypeDef] = None
 
-class DialogCodeHookInvocationSettingTypeDef(BaseModel):
+class DialogCodeHookInvocationSettingTypeDef(BaseValidatorModel):
     enableCodeHookInvocation: bool
     active: bool
     postCodeHookSpecification: PostDialogCodeHookInvocationSpecificationTypeDef
     invocationLabel: Optional[str] = None
 
-class FulfillmentCodeHookSettingsTypeDef(BaseModel):
+class FulfillmentCodeHookSettingsTypeDef(BaseValidatorModel):
     enabled: bool
     postFulfillmentStatusSpecification: Optional[       PostFulfillmentStatusSpecificationTypeDef     ] = None
     fulfillmentUpdatesSpecification: Optional[FulfillmentUpdatesSpecificationTypeDef] = None
     active: Optional[bool] = None
 
-class SubSlotSettingTypeDef(BaseModel):
+class SubSlotSettingTypeDef(BaseValidatorModel):
     expression: Optional[str] = None
     slotSpecifications: Optional[Mapping[str, SpecificationsTypeDef]] = None
 
-class ListTestExecutionResultItemsResponseTypeDef(BaseModel):
+class ListTestExecutionResultItemsResponseTypeDef(BaseValidatorModel):
     testExecutionResults: TestExecutionResultItemsTypeDef
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InitialResponseSettingTypeDef(BaseModel):
+class InitialResponseSettingTypeDef(BaseValidatorModel):
     initialResponse: Optional[ResponseSpecificationTypeDef] = None
     nextStep: Optional[DialogStateTypeDef] = None
     conditional: Optional[ConditionalSpecificationTypeDef] = None
     codeHook: Optional[DialogCodeHookInvocationSettingTypeDef] = None
 
-class IntentConfirmationSettingTypeDef(BaseModel):
+class IntentConfirmationSettingTypeDef(BaseValidatorModel):
     promptSpecification: PromptSpecificationTypeDef
     declinationResponse: Optional[ResponseSpecificationTypeDef] = None
     active: Optional[bool] = None
@@ -2686,7 +2686,7 @@ class IntentConfirmationSettingTypeDef(BaseModel):
     codeHook: Optional[DialogCodeHookInvocationSettingTypeDef] = None
     elicitationCodeHook: Optional[ElicitationCodeHookInvocationSettingTypeDef] = None
 
-class SlotCaptureSettingTypeDef(BaseModel):
+class SlotCaptureSettingTypeDef(BaseValidatorModel):
     captureResponse: Optional[ResponseSpecificationTypeDef] = None
     captureNextStep: Optional[DialogStateTypeDef] = None
     captureConditional: Optional[ConditionalSpecificationTypeDef] = None
@@ -2696,7 +2696,7 @@ class SlotCaptureSettingTypeDef(BaseModel):
     codeHook: Optional[DialogCodeHookInvocationSettingTypeDef] = None
     elicitationCodeHook: Optional[ElicitationCodeHookInvocationSettingTypeDef] = None
 
-class CreateIntentRequestRequestTypeDef(BaseModel):
+class CreateIntentRequestRequestTypeDef(BaseValidatorModel):
     intentName: str
     botId: str
     botVersion: str
@@ -2714,7 +2714,7 @@ class CreateIntentRequestRequestTypeDef(BaseModel):
     initialResponseSetting: Optional[InitialResponseSettingTypeDef] = None
     qnAIntentConfiguration: Optional[QnAIntentConfigurationTypeDef] = None
 
-class CreateIntentResponseTypeDef(BaseModel):
+class CreateIntentResponseTypeDef(BaseValidatorModel):
     intentId: str
     intentName: str
     description: str
@@ -2735,7 +2735,7 @@ class CreateIntentResponseTypeDef(BaseModel):
     qnAIntentConfiguration: QnAIntentConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIntentResponseTypeDef(BaseModel):
+class DescribeIntentResponseTypeDef(BaseValidatorModel):
     intentId: str
     intentName: str
     description: str
@@ -2758,7 +2758,7 @@ class DescribeIntentResponseTypeDef(BaseModel):
     qnAIntentConfiguration: QnAIntentConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateIntentRequestRequestTypeDef(BaseModel):
+class UpdateIntentRequestRequestTypeDef(BaseValidatorModel):
     intentId: str
     intentName: str
     botId: str
@@ -2778,7 +2778,7 @@ class UpdateIntentRequestRequestTypeDef(BaseModel):
     initialResponseSetting: Optional[InitialResponseSettingTypeDef] = None
     qnAIntentConfiguration: Optional[QnAIntentConfigurationTypeDef] = None
 
-class UpdateIntentResponseTypeDef(BaseModel):
+class UpdateIntentResponseTypeDef(BaseValidatorModel):
     intentId: str
     intentName: str
     description: str
@@ -2801,7 +2801,7 @@ class UpdateIntentResponseTypeDef(BaseModel):
     qnAIntentConfiguration: QnAIntentConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SlotValueElicitationSettingTypeDef(BaseModel):
+class SlotValueElicitationSettingTypeDef(BaseValidatorModel):
     slotConstraint: SlotConstraintType
     defaultValueSpecification: Optional[SlotDefaultValueSpecificationTypeDef] = None
     promptSpecification: Optional[PromptSpecificationTypeDef] = None
@@ -2810,7 +2810,7 @@ class SlotValueElicitationSettingTypeDef(BaseModel):
     slotCaptureSetting: Optional[SlotCaptureSettingTypeDef] = None
     slotResolutionSetting: Optional[SlotResolutionSettingTypeDef] = None
 
-class CreateSlotRequestRequestTypeDef(BaseModel):
+class CreateSlotRequestRequestTypeDef(BaseValidatorModel):
     slotName: str
     valueElicitationSetting: SlotValueElicitationSettingTypeDef
     botId: str
@@ -2823,7 +2823,7 @@ class CreateSlotRequestRequestTypeDef(BaseModel):
     multipleValuesSetting: Optional[MultipleValuesSettingTypeDef] = None
     subSlotSetting: Optional[SubSlotSettingTypeDef] = None
 
-class CreateSlotResponseTypeDef(BaseModel):
+class CreateSlotResponseTypeDef(BaseValidatorModel):
     slotId: str
     slotName: str
     description: str
@@ -2839,7 +2839,7 @@ class CreateSlotResponseTypeDef(BaseModel):
     subSlotSetting: SubSlotSettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSlotResponseTypeDef(BaseModel):
+class DescribeSlotResponseTypeDef(BaseValidatorModel):
     slotId: str
     slotName: str
     description: str
@@ -2856,7 +2856,7 @@ class DescribeSlotResponseTypeDef(BaseModel):
     subSlotSetting: SubSlotSettingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSlotRequestRequestTypeDef(BaseModel):
+class UpdateSlotRequestRequestTypeDef(BaseValidatorModel):
     slotId: str
     slotName: str
     valueElicitationSetting: SlotValueElicitationSettingTypeDef
@@ -2870,7 +2870,7 @@ class UpdateSlotRequestRequestTypeDef(BaseModel):
     multipleValuesSetting: Optional[MultipleValuesSettingTypeDef] = None
     subSlotSetting: Optional[SubSlotSettingTypeDef] = None
 
-class UpdateSlotResponseTypeDef(BaseModel):
+class UpdateSlotResponseTypeDef(BaseValidatorModel):
     slotId: str
     slotName: str
     description: str

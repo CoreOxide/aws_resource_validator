@@ -783,7 +783,7 @@ RegionName = Literal["af-south-1",
     "us-west-1",
     "us-west-2",]
 TimestampTypeDef = Union[datetime, str]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 PatchSourceUnionTypeDef = Union['PatchSourceTypeDef', 'PatchSourceOutputTypeDef']
 MaintenanceWindowTaskParameterValueExpressionUnionTypeDef = Union[   'MaintenanceWindowTaskParameterValueExpressionTypeDef',   'MaintenanceWindowTaskParameterValueExpressionExtraOutputTypeDef', ]
 NotificationConfigUnionTypeDef = Union[   'NotificationConfigTypeDef', 'NotificationConfigExtraOutputTypeDef' ]

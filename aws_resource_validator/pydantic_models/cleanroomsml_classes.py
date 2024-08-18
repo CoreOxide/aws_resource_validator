@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,18 +11,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cleanroomsml_constants import *
 
-class S3ConfigMapTypeDef(BaseModel):
+class S3ConfigMapTypeDef(BaseValidatorModel):
     s3Uri: str
 
-class AudienceSizeTypeDef(BaseModel):
+class AudienceSizeTypeDef(BaseValidatorModel):
     type: AudienceSizeTypeType
     value: int
 
-class StatusDetailsTypeDef(BaseModel):
+class StatusDetailsTypeDef(BaseValidatorModel):
     message: Optional[str] = None
     statusCode: Optional[str] = None
 
-class AudienceGenerationJobSummaryTypeDef(BaseModel):
+class AudienceGenerationJobSummaryTypeDef(BaseValidatorModel):
     audienceGenerationJobArn: str
     configuredAudienceModelArn: str
     createTime: datetime
@@ -33,7 +33,7 @@ class AudienceGenerationJobSummaryTypeDef(BaseModel):
     description: Optional[str] = None
     startedBy: Optional[str] = None
 
-class AudienceModelSummaryTypeDef(BaseModel):
+class AudienceModelSummaryTypeDef(BaseValidatorModel):
     audienceModelArn: str
     createTime: datetime
     name: str
@@ -42,88 +42,88 @@ class AudienceModelSummaryTypeDef(BaseModel):
     updateTime: datetime
     description: Optional[str] = None
 
-class AudienceSizeConfigTypeDef(BaseModel):
+class AudienceSizeConfigTypeDef(BaseValidatorModel):
     audienceSizeBins: Sequence[int]
     audienceSizeType: AudienceSizeTypeType
 
-class ColumnSchemaTypeDef(BaseModel):
+class ColumnSchemaTypeDef(BaseValidatorModel):
     columnName: str
     columnTypes: Sequence[ColumnTypeType]
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class GlueDataSourceTypeDef(BaseModel):
+class GlueDataSourceTypeDef(BaseValidatorModel):
     databaseName: str
     tableName: str
     catalogId: Optional[str] = None
 
-class DeleteAudienceGenerationJobRequestRequestTypeDef(BaseModel):
+class DeleteAudienceGenerationJobRequestRequestTypeDef(BaseValidatorModel):
     audienceGenerationJobArn: str
 
-class DeleteAudienceModelRequestRequestTypeDef(BaseModel):
+class DeleteAudienceModelRequestRequestTypeDef(BaseValidatorModel):
     audienceModelArn: str
 
-class DeleteConfiguredAudienceModelPolicyRequestRequestTypeDef(BaseModel):
+class DeleteConfiguredAudienceModelPolicyRequestRequestTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
 
-class DeleteConfiguredAudienceModelRequestRequestTypeDef(BaseModel):
+class DeleteConfiguredAudienceModelRequestRequestTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
 
-class DeleteTrainingDatasetRequestRequestTypeDef(BaseModel):
+class DeleteTrainingDatasetRequestRequestTypeDef(BaseValidatorModel):
     trainingDatasetArn: str
 
-class GetAudienceGenerationJobRequestRequestTypeDef(BaseModel):
+class GetAudienceGenerationJobRequestRequestTypeDef(BaseValidatorModel):
     audienceGenerationJobArn: str
 
-class GetAudienceModelRequestRequestTypeDef(BaseModel):
+class GetAudienceModelRequestRequestTypeDef(BaseValidatorModel):
     audienceModelArn: str
 
-class GetConfiguredAudienceModelPolicyRequestRequestTypeDef(BaseModel):
+class GetConfiguredAudienceModelPolicyRequestRequestTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
 
-class GetConfiguredAudienceModelRequestRequestTypeDef(BaseModel):
+class GetConfiguredAudienceModelRequestRequestTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
 
-class GetTrainingDatasetRequestRequestTypeDef(BaseModel):
+class GetTrainingDatasetRequestRequestTypeDef(BaseValidatorModel):
     trainingDatasetArn: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAudienceExportJobsRequestRequestTypeDef(BaseModel):
+class ListAudienceExportJobsRequestRequestTypeDef(BaseValidatorModel):
     audienceGenerationJobArn: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAudienceGenerationJobsRequestRequestTypeDef(BaseModel):
+class ListAudienceGenerationJobsRequestRequestTypeDef(BaseValidatorModel):
     collaborationId: Optional[str] = None
     configuredAudienceModelArn: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAudienceModelsRequestRequestTypeDef(BaseModel):
+class ListAudienceModelsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListConfiguredAudienceModelsRequestRequestTypeDef(BaseModel):
+class ListConfiguredAudienceModelsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListTrainingDatasetsRequestRequestTypeDef(BaseModel):
+class ListTrainingDatasetsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TrainingDatasetSummaryTypeDef(BaseModel):
+class TrainingDatasetSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     name: str
     status: Literal["ACTIVE"]
@@ -131,38 +131,38 @@ class TrainingDatasetSummaryTypeDef(BaseModel):
     updateTime: datetime
     description: Optional[str] = None
 
-class PutConfiguredAudienceModelPolicyRequestRequestTypeDef(BaseModel):
+class PutConfiguredAudienceModelPolicyRequestRequestTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
     configuredAudienceModelPolicy: str
     policyExistenceCondition: Optional[PolicyExistenceConditionType] = None
     previousPolicyHash: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class AudienceDestinationTypeDef(BaseModel):
+class AudienceDestinationTypeDef(BaseValidatorModel):
     s3Destination: S3ConfigMapTypeDef
 
-class AudienceGenerationJobDataSourceTypeDef(BaseModel):
+class AudienceGenerationJobDataSourceTypeDef(BaseValidatorModel):
     dataSource: S3ConfigMapTypeDef
     roleArn: str
 
-class RelevanceMetricTypeDef(BaseModel):
+class RelevanceMetricTypeDef(BaseValidatorModel):
     audienceSize: AudienceSizeTypeDef
     score: Optional[float] = None
 
-class StartAudienceExportJobRequestRequestTypeDef(BaseModel):
+class StartAudienceExportJobRequestRequestTypeDef(BaseValidatorModel):
     audienceGenerationJobArn: str
     audienceSize: AudienceSizeTypeDef
     name: str
     description: Optional[str] = None
 
-class AudienceExportJobSummaryTypeDef(BaseModel):
+class AudienceExportJobSummaryTypeDef(BaseValidatorModel):
     audienceGenerationJobArn: str
     audienceSize: AudienceSizeTypeDef
     createTime: datetime
@@ -173,7 +173,7 @@ class AudienceExportJobSummaryTypeDef(BaseModel):
     outputLocation: Optional[str] = None
     statusDetails: Optional[StatusDetailsTypeDef] = None
 
-class CreateAudienceModelRequestRequestTypeDef(BaseModel):
+class CreateAudienceModelRequestRequestTypeDef(BaseValidatorModel):
     name: str
     trainingDatasetArn: str
     description: Optional[str] = None
@@ -182,22 +182,22 @@ class CreateAudienceModelRequestRequestTypeDef(BaseModel):
     trainingDataEndTime: Optional[TimestampTypeDef] = None
     trainingDataStartTime: Optional[TimestampTypeDef] = None
 
-class CreateAudienceModelResponseTypeDef(BaseModel):
+class CreateAudienceModelResponseTypeDef(BaseValidatorModel):
     audienceModelArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConfiguredAudienceModelResponseTypeDef(BaseModel):
+class CreateConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrainingDatasetResponseTypeDef(BaseModel):
+class CreateTrainingDatasetResponseTypeDef(BaseValidatorModel):
     trainingDatasetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAudienceModelResponseTypeDef(BaseModel):
+class GetAudienceModelResponseTypeDef(BaseValidatorModel):
     audienceModelArn: str
     createTime: datetime
     description: str
@@ -212,70 +212,70 @@ class GetAudienceModelResponseTypeDef(BaseModel):
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetConfiguredAudienceModelPolicyResponseTypeDef(BaseModel):
+class GetConfiguredAudienceModelPolicyResponseTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
     configuredAudienceModelPolicy: str
     policyHash: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAudienceGenerationJobsResponseTypeDef(BaseModel):
+class ListAudienceGenerationJobsResponseTypeDef(BaseValidatorModel):
     audienceGenerationJobs: List[AudienceGenerationJobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAudienceModelsResponseTypeDef(BaseModel):
+class ListAudienceModelsResponseTypeDef(BaseValidatorModel):
     audienceModels: List[AudienceModelSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutConfiguredAudienceModelPolicyResponseTypeDef(BaseModel):
+class PutConfiguredAudienceModelPolicyResponseTypeDef(BaseValidatorModel):
     configuredAudienceModelPolicy: str
     policyHash: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartAudienceGenerationJobResponseTypeDef(BaseModel):
+class StartAudienceGenerationJobResponseTypeDef(BaseValidatorModel):
     audienceGenerationJobArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateConfiguredAudienceModelResponseTypeDef(BaseModel):
+class UpdateConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataSourceTypeDef(BaseModel):
+class DataSourceTypeDef(BaseValidatorModel):
     glueDataSource: GlueDataSourceTypeDef
 
-class ListAudienceExportJobsRequestListAudienceExportJobsPaginateTypeDef(BaseModel):
+class ListAudienceExportJobsRequestListAudienceExportJobsPaginateTypeDef(BaseValidatorModel):
     audienceGenerationJobArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAudienceGenerationJobsRequestListAudienceGenerationJobsPaginateTypeDef(BaseModel):
+class ListAudienceGenerationJobsRequestListAudienceGenerationJobsPaginateTypeDef(BaseValidatorModel):
     collaborationId: Optional[str] = None
     configuredAudienceModelArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAudienceModelsRequestListAudienceModelsPaginateTypeDef(BaseModel):
+class ListAudienceModelsRequestListAudienceModelsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListConfiguredAudienceModelsRequestListConfiguredAudienceModelsPaginateTypeDef(BaseModel):
+class ListConfiguredAudienceModelsRequestListConfiguredAudienceModelsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTrainingDatasetsRequestListTrainingDatasetsPaginateTypeDef(BaseModel):
+class ListTrainingDatasetsRequestListTrainingDatasetsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTrainingDatasetsResponseTypeDef(BaseModel):
+class ListTrainingDatasetsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     trainingDatasets: List[TrainingDatasetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfiguredAudienceModelOutputConfigTypeDef(BaseModel):
+class ConfiguredAudienceModelOutputConfigTypeDef(BaseValidatorModel):
     destination: AudienceDestinationTypeDef
     roleArn: str
 
-class StartAudienceGenerationJobRequestRequestTypeDef(BaseModel):
+class StartAudienceGenerationJobRequestRequestTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
     name: str
     seedAudience: AudienceGenerationJobDataSourceTypeDef
@@ -284,20 +284,20 @@ class StartAudienceGenerationJobRequestRequestTypeDef(BaseModel):
     includeSeedInOutput: Optional[bool] = None
     tags: Optional[Mapping[str, str]] = None
 
-class AudienceQualityMetricsTypeDef(BaseModel):
+class AudienceQualityMetricsTypeDef(BaseValidatorModel):
     relevanceMetrics: List[RelevanceMetricTypeDef]
     recallMetric: Optional[float] = None
 
-class ListAudienceExportJobsResponseTypeDef(BaseModel):
+class ListAudienceExportJobsResponseTypeDef(BaseValidatorModel):
     audienceExportJobs: List[AudienceExportJobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DatasetInputConfigTypeDef(BaseModel):
+class DatasetInputConfigTypeDef(BaseValidatorModel):
     dataSource: DataSourceTypeDef
     schema: Sequence[ColumnSchemaTypeDef]
 
-class ConfiguredAudienceModelSummaryTypeDef(BaseModel):
+class ConfiguredAudienceModelSummaryTypeDef(BaseValidatorModel):
     audienceModelArn: str
     configuredAudienceModelArn: str
     createTime: datetime
@@ -307,7 +307,7 @@ class ConfiguredAudienceModelSummaryTypeDef(BaseModel):
     updateTime: datetime
     description: Optional[str] = None
 
-class CreateConfiguredAudienceModelRequestRequestTypeDef(BaseModel):
+class CreateConfiguredAudienceModelRequestRequestTypeDef(BaseValidatorModel):
     audienceModelArn: str
     name: str
     outputConfig: ConfiguredAudienceModelOutputConfigTypeDef
@@ -318,7 +318,7 @@ class CreateConfiguredAudienceModelRequestRequestTypeDef(BaseModel):
     minMatchingSeedSize: Optional[int] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetConfiguredAudienceModelResponseTypeDef(BaseModel):
+class GetConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
     audienceModelArn: str
     audienceSizeConfig: AudienceSizeConfigTypeDef
     childResourceTagOnCreatePolicy: TagOnCreatePolicyType
@@ -334,7 +334,7 @@ class GetConfiguredAudienceModelResponseTypeDef(BaseModel):
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateConfiguredAudienceModelRequestRequestTypeDef(BaseModel):
+class UpdateConfiguredAudienceModelRequestRequestTypeDef(BaseValidatorModel):
     configuredAudienceModelArn: str
     audienceModelArn: Optional[str] = None
     audienceSizeConfig: Optional[AudienceSizeConfigTypeDef] = None
@@ -343,7 +343,7 @@ class UpdateConfiguredAudienceModelRequestRequestTypeDef(BaseModel):
     outputConfig: Optional[ConfiguredAudienceModelOutputConfigTypeDef] = None
     sharedAudienceMetrics: Optional[Sequence[SharedAudienceMetricsType]] = None
 
-class GetAudienceGenerationJobResponseTypeDef(BaseModel):
+class GetAudienceGenerationJobResponseTypeDef(BaseValidatorModel):
     audienceGenerationJobArn: str
     collaborationId: str
     configuredAudienceModelArn: str
@@ -360,23 +360,23 @@ class GetAudienceGenerationJobResponseTypeDef(BaseModel):
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DatasetTypeDef(BaseModel):
+class DatasetTypeDef(BaseValidatorModel):
     inputConfig: DatasetInputConfigTypeDef
     type: Literal["INTERACTIONS"]
 
-class ListConfiguredAudienceModelsResponseTypeDef(BaseModel):
+class ListConfiguredAudienceModelsResponseTypeDef(BaseValidatorModel):
     configuredAudienceModels: List[ConfiguredAudienceModelSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrainingDatasetRequestRequestTypeDef(BaseModel):
+class CreateTrainingDatasetRequestRequestTypeDef(BaseValidatorModel):
     name: str
     roleArn: str
     trainingData: Sequence[DatasetTypeDef]
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetTrainingDatasetResponseTypeDef(BaseModel):
+class GetTrainingDatasetResponseTypeDef(BaseValidatorModel):
     createTime: datetime
     description: str
     name: str

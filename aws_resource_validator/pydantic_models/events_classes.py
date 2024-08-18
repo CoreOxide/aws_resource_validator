@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,10 +11,10 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.events_constants import *
 
-class ActivateEventSourceRequestRequestTypeDef(BaseModel):
+class ActivateEventSourceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class ApiDestinationTypeDef(BaseModel):
+class ApiDestinationTypeDef(BaseValidatorModel):
     ApiDestinationArn: Optional[str] = None
     Name: Optional[str] = None
     ApiDestinationState: Optional[ApiDestinationStateType] = None
@@ -25,10 +25,10 @@ class ApiDestinationTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
-class AppSyncParametersTypeDef(BaseModel):
+class AppSyncParametersTypeDef(BaseValidatorModel):
     GraphQLOperation: Optional[str] = None
 
-class ArchiveTypeDef(BaseModel):
+class ArchiveTypeDef(BaseValidatorModel):
     ArchiveName: Optional[str] = None
     EventSourceArn: Optional[str] = None
     State: Optional[ArchiveStateType] = None
@@ -38,72 +38,72 @@ class ArchiveTypeDef(BaseModel):
     EventCount: Optional[int] = None
     CreationTime: Optional[datetime] = None
 
-class AwsVpcConfigurationExtraOutputTypeDef(BaseModel):
+class AwsVpcConfigurationExtraOutputTypeDef(BaseValidatorModel):
     Subnets: List[str]
     SecurityGroups: Optional[List[str]] = None
     AssignPublicIp: Optional[AssignPublicIpType] = None
 
-class AwsVpcConfigurationOutputTypeDef(BaseModel):
+class AwsVpcConfigurationOutputTypeDef(BaseValidatorModel):
     Subnets: List[str]
     SecurityGroups: Optional[List[str]] = None
     AssignPublicIp: Optional[AssignPublicIpType] = None
 
-class AwsVpcConfigurationTypeDef(BaseModel):
+class AwsVpcConfigurationTypeDef(BaseValidatorModel):
     Subnets: Sequence[str]
     SecurityGroups: Optional[Sequence[str]] = None
     AssignPublicIp: Optional[AssignPublicIpType] = None
 
-class BatchArrayPropertiesTypeDef(BaseModel):
+class BatchArrayPropertiesTypeDef(BaseValidatorModel):
     Size: Optional[int] = None
 
-class BatchRetryStrategyTypeDef(BaseModel):
+class BatchRetryStrategyTypeDef(BaseValidatorModel):
     Attempts: Optional[int] = None
 
-class CancelReplayRequestRequestTypeDef(BaseModel):
+class CancelReplayRequestRequestTypeDef(BaseValidatorModel):
     ReplayName: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CapacityProviderStrategyItemTypeDef(BaseModel):
+class CapacityProviderStrategyItemTypeDef(BaseValidatorModel):
     capacityProvider: str
     weight: Optional[int] = None
     base: Optional[int] = None
 
-class ConditionTypeDef(BaseModel):
+class ConditionTypeDef(BaseValidatorModel):
     Type: str
     Key: str
     Value: str
 
-class ConnectionApiKeyAuthResponseParametersTypeDef(BaseModel):
+class ConnectionApiKeyAuthResponseParametersTypeDef(BaseValidatorModel):
     ApiKeyName: Optional[str] = None
 
-class ConnectionBasicAuthResponseParametersTypeDef(BaseModel):
+class ConnectionBasicAuthResponseParametersTypeDef(BaseValidatorModel):
     Username: Optional[str] = None
 
-class ConnectionBodyParameterTypeDef(BaseModel):
+class ConnectionBodyParameterTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
     IsValueSecret: Optional[bool] = None
 
-class ConnectionHeaderParameterTypeDef(BaseModel):
+class ConnectionHeaderParameterTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
     IsValueSecret: Optional[bool] = None
 
-class ConnectionQueryStringParameterTypeDef(BaseModel):
+class ConnectionQueryStringParameterTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
     IsValueSecret: Optional[bool] = None
 
-class ConnectionOAuthClientResponseParametersTypeDef(BaseModel):
+class ConnectionOAuthClientResponseParametersTypeDef(BaseValidatorModel):
     ClientID: Optional[str] = None
 
-class ConnectionTypeDef(BaseModel):
+class ConnectionTypeDef(BaseValidatorModel):
     ConnectionArn: Optional[str] = None
     Name: Optional[str] = None
     ConnectionState: Optional[ConnectionStateType] = None
@@ -113,7 +113,7 @@ class ConnectionTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     LastAuthorizedTime: Optional[datetime] = None
 
-class CreateApiDestinationRequestRequestTypeDef(BaseModel):
+class CreateApiDestinationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     ConnectionArn: str
     InvocationEndpoint: str
@@ -121,122 +121,122 @@ class CreateApiDestinationRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     InvocationRateLimitPerSecond: Optional[int] = None
 
-class CreateArchiveRequestRequestTypeDef(BaseModel):
+class CreateArchiveRequestRequestTypeDef(BaseValidatorModel):
     ArchiveName: str
     EventSourceArn: str
     Description: Optional[str] = None
     EventPattern: Optional[str] = None
     RetentionDays: Optional[int] = None
 
-class CreateConnectionApiKeyAuthRequestParametersTypeDef(BaseModel):
+class CreateConnectionApiKeyAuthRequestParametersTypeDef(BaseValidatorModel):
     ApiKeyName: str
     ApiKeyValue: str
 
-class CreateConnectionBasicAuthRequestParametersTypeDef(BaseModel):
+class CreateConnectionBasicAuthRequestParametersTypeDef(BaseValidatorModel):
     Username: str
     Password: str
 
-class CreateConnectionOAuthClientRequestParametersTypeDef(BaseModel):
+class CreateConnectionOAuthClientRequestParametersTypeDef(BaseValidatorModel):
     ClientID: str
     ClientSecret: str
 
-class EndpointEventBusTypeDef(BaseModel):
+class EndpointEventBusTypeDef(BaseValidatorModel):
     EventBusArn: str
 
-class ReplicationConfigTypeDef(BaseModel):
+class ReplicationConfigTypeDef(BaseValidatorModel):
     State: Optional[ReplicationStateType] = None
 
-class DeadLetterConfigTypeDef(BaseModel):
+class DeadLetterConfigTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class CreatePartnerEventSourceRequestRequestTypeDef(BaseModel):
+class CreatePartnerEventSourceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Account: str
 
-class DeactivateEventSourceRequestRequestTypeDef(BaseModel):
+class DeactivateEventSourceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeauthorizeConnectionRequestRequestTypeDef(BaseModel):
+class DeauthorizeConnectionRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteApiDestinationRequestRequestTypeDef(BaseModel):
+class DeleteApiDestinationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteArchiveRequestRequestTypeDef(BaseModel):
+class DeleteArchiveRequestRequestTypeDef(BaseValidatorModel):
     ArchiveName: str
 
-class DeleteConnectionRequestRequestTypeDef(BaseModel):
+class DeleteConnectionRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteEndpointRequestRequestTypeDef(BaseModel):
+class DeleteEndpointRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteEventBusRequestRequestTypeDef(BaseModel):
+class DeleteEventBusRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeletePartnerEventSourceRequestRequestTypeDef(BaseModel):
+class DeletePartnerEventSourceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Account: str
 
-class DeleteRuleRequestRequestTypeDef(BaseModel):
+class DeleteRuleRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     EventBusName: Optional[str] = None
     Force: Optional[bool] = None
 
-class DescribeApiDestinationRequestRequestTypeDef(BaseModel):
+class DescribeApiDestinationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DescribeArchiveRequestRequestTypeDef(BaseModel):
+class DescribeArchiveRequestRequestTypeDef(BaseValidatorModel):
     ArchiveName: str
 
-class DescribeConnectionRequestRequestTypeDef(BaseModel):
+class DescribeConnectionRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DescribeEndpointRequestRequestTypeDef(BaseModel):
+class DescribeEndpointRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     HomeRegion: Optional[str] = None
 
-class DescribeEventBusRequestRequestTypeDef(BaseModel):
+class DescribeEventBusRequestRequestTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class DescribeEventSourceRequestRequestTypeDef(BaseModel):
+class DescribeEventSourceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DescribePartnerEventSourceRequestRequestTypeDef(BaseModel):
+class DescribePartnerEventSourceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DescribeReplayRequestRequestTypeDef(BaseModel):
+class DescribeReplayRequestRequestTypeDef(BaseValidatorModel):
     ReplayName: str
 
-class ReplayDestinationOutputTypeDef(BaseModel):
+class ReplayDestinationOutputTypeDef(BaseValidatorModel):
     Arn: str
     FilterArns: Optional[List[str]] = None
 
-class DescribeRuleRequestRequestTypeDef(BaseModel):
+class DescribeRuleRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     EventBusName: Optional[str] = None
 
-class DisableRuleRequestRequestTypeDef(BaseModel):
+class DisableRuleRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     EventBusName: Optional[str] = None
 
-class PlacementConstraintTypeDef(BaseModel):
+class PlacementConstraintTypeDef(BaseValidatorModel):
     type: Optional[PlacementConstraintTypeType] = None
     expression: Optional[str] = None
 
-class PlacementStrategyTypeDef(BaseModel):
+class PlacementStrategyTypeDef(BaseValidatorModel):
     type: Optional[PlacementStrategyTypeType] = None
     field: Optional[str] = None
 
-class EnableRuleRequestRequestTypeDef(BaseModel):
+class EnableRuleRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     EventBusName: Optional[str] = None
 
-class EventBusTypeDef(BaseModel):
+class EventBusTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     Description: Optional[str] = None
@@ -244,7 +244,7 @@ class EventBusTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
-class EventSourceTypeDef(BaseModel):
+class EventSourceTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedBy: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -252,105 +252,105 @@ class EventSourceTypeDef(BaseModel):
     Name: Optional[str] = None
     State: Optional[EventSourceStateType] = None
 
-class PrimaryTypeDef(BaseModel):
+class PrimaryTypeDef(BaseValidatorModel):
     HealthCheck: str
 
-class SecondaryTypeDef(BaseModel):
+class SecondaryTypeDef(BaseValidatorModel):
     Route: str
 
-class HttpParametersExtraOutputTypeDef(BaseModel):
+class HttpParametersExtraOutputTypeDef(BaseValidatorModel):
     PathParameterValues: Optional[List[str]] = None
     HeaderParameters: Optional[Dict[str, str]] = None
     QueryStringParameters: Optional[Dict[str, str]] = None
 
-class HttpParametersOutputTypeDef(BaseModel):
+class HttpParametersOutputTypeDef(BaseValidatorModel):
     PathParameterValues: Optional[List[str]] = None
     HeaderParameters: Optional[Dict[str, str]] = None
     QueryStringParameters: Optional[Dict[str, str]] = None
 
-class HttpParametersTypeDef(BaseModel):
+class HttpParametersTypeDef(BaseValidatorModel):
     PathParameterValues: Optional[Sequence[str]] = None
     HeaderParameters: Optional[Mapping[str, str]] = None
     QueryStringParameters: Optional[Mapping[str, str]] = None
 
-class InputTransformerExtraOutputTypeDef(BaseModel):
+class InputTransformerExtraOutputTypeDef(BaseValidatorModel):
     InputTemplate: str
     InputPathsMap: Optional[Dict[str, str]] = None
 
-class InputTransformerOutputTypeDef(BaseModel):
+class InputTransformerOutputTypeDef(BaseValidatorModel):
     InputTemplate: str
     InputPathsMap: Optional[Dict[str, str]] = None
 
-class InputTransformerTypeDef(BaseModel):
+class InputTransformerTypeDef(BaseValidatorModel):
     InputTemplate: str
     InputPathsMap: Optional[Mapping[str, str]] = None
 
-class KinesisParametersTypeDef(BaseModel):
+class KinesisParametersTypeDef(BaseValidatorModel):
     PartitionKeyPath: str
 
-class ListApiDestinationsRequestRequestTypeDef(BaseModel):
+class ListApiDestinationsRequestRequestTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     ConnectionArn: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListArchivesRequestRequestTypeDef(BaseModel):
+class ListArchivesRequestRequestTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     EventSourceArn: Optional[str] = None
     State: Optional[ArchiveStateType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListConnectionsRequestRequestTypeDef(BaseModel):
+class ListConnectionsRequestRequestTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     ConnectionState: Optional[ConnectionStateType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListEndpointsRequestRequestTypeDef(BaseModel):
+class ListEndpointsRequestRequestTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     HomeRegion: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListEventBusesRequestRequestTypeDef(BaseModel):
+class ListEventBusesRequestRequestTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListEventSourcesRequestRequestTypeDef(BaseModel):
+class ListEventSourcesRequestRequestTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListPartnerEventSourceAccountsRequestRequestTypeDef(BaseModel):
+class ListPartnerEventSourceAccountsRequestRequestTypeDef(BaseValidatorModel):
     EventSourceName: str
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class PartnerEventSourceAccountTypeDef(BaseModel):
+class PartnerEventSourceAccountTypeDef(BaseValidatorModel):
     Account: Optional[str] = None
     CreationTime: Optional[datetime] = None
     ExpirationTime: Optional[datetime] = None
     State: Optional[EventSourceStateType] = None
 
-class ListPartnerEventSourcesRequestRequestTypeDef(BaseModel):
+class ListPartnerEventSourcesRequestRequestTypeDef(BaseValidatorModel):
     NamePrefix: str
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class PartnerEventSourceTypeDef(BaseModel):
+class PartnerEventSourceTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class ListReplaysRequestRequestTypeDef(BaseModel):
+class ListReplaysRequestRequestTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     State: Optional[ReplayStateType] = None
     EventSourceArn: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class ReplayTypeDef(BaseModel):
+class ReplayTypeDef(BaseValidatorModel):
     ReplayName: Optional[str] = None
     EventSourceArn: Optional[str] = None
     State: Optional[ReplayStateType] = None
@@ -361,24 +361,24 @@ class ReplayTypeDef(BaseModel):
     ReplayStartTime: Optional[datetime] = None
     ReplayEndTime: Optional[datetime] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListRuleNamesByTargetRequestRequestTypeDef(BaseModel):
+class ListRuleNamesByTargetRequestRequestTypeDef(BaseValidatorModel):
     TargetArn: str
     EventBusName: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListRulesRequestRequestTypeDef(BaseModel):
+class ListRulesRequestRequestTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     EventBusName: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class RuleTypeDef(BaseModel):
+class RuleTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     EventPattern: Optional[str] = None
@@ -389,31 +389,31 @@ class RuleTypeDef(BaseModel):
     ManagedBy: Optional[str] = None
     EventBusName: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class ListTargetsByRuleRequestRequestTypeDef(BaseModel):
+class ListTargetsByRuleRequestRequestTypeDef(BaseValidatorModel):
     Rule: str
     EventBusName: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class PutEventsResultEntryTypeDef(BaseModel):
+class PutEventsResultEntryTypeDef(BaseValidatorModel):
     EventId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class PutPartnerEventsResultEntryTypeDef(BaseModel):
+class PutPartnerEventsResultEntryTypeDef(BaseValidatorModel):
     EventId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class PutTargetsResultEntryTypeDef(BaseModel):
+class PutTargetsResultEntryTypeDef(BaseValidatorModel):
     TargetId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class RedshiftDataParametersExtraOutputTypeDef(BaseModel):
+class RedshiftDataParametersExtraOutputTypeDef(BaseValidatorModel):
     Database: str
     SecretManagerArn: Optional[str] = None
     DbUser: Optional[str] = None
@@ -422,7 +422,7 @@ class RedshiftDataParametersExtraOutputTypeDef(BaseModel):
     WithEvent: Optional[bool] = None
     Sqls: Optional[List[str]] = None
 
-class RedshiftDataParametersOutputTypeDef(BaseModel):
+class RedshiftDataParametersOutputTypeDef(BaseValidatorModel):
     Database: str
     SecretManagerArn: Optional[str] = None
     DbUser: Optional[str] = None
@@ -431,7 +431,7 @@ class RedshiftDataParametersOutputTypeDef(BaseModel):
     WithEvent: Optional[bool] = None
     Sqls: Optional[List[str]] = None
 
-class RedshiftDataParametersTypeDef(BaseModel):
+class RedshiftDataParametersTypeDef(BaseValidatorModel):
     Database: str
     SecretManagerArn: Optional[str] = None
     DbUser: Optional[str] = None
@@ -440,58 +440,58 @@ class RedshiftDataParametersTypeDef(BaseModel):
     WithEvent: Optional[bool] = None
     Sqls: Optional[Sequence[str]] = None
 
-class RemovePermissionRequestRequestTypeDef(BaseModel):
+class RemovePermissionRequestRequestTypeDef(BaseValidatorModel):
     StatementId: Optional[str] = None
     RemoveAllPermissions: Optional[bool] = None
     EventBusName: Optional[str] = None
 
-class RemoveTargetsRequestRequestTypeDef(BaseModel):
+class RemoveTargetsRequestRequestTypeDef(BaseValidatorModel):
     Rule: str
     Ids: Sequence[str]
     EventBusName: Optional[str] = None
     Force: Optional[bool] = None
 
-class RemoveTargetsResultEntryTypeDef(BaseModel):
+class RemoveTargetsResultEntryTypeDef(BaseValidatorModel):
     TargetId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class ReplayDestinationTypeDef(BaseModel):
+class ReplayDestinationTypeDef(BaseValidatorModel):
     Arn: str
     FilterArns: Optional[Sequence[str]] = None
 
-class RetryPolicyTypeDef(BaseModel):
+class RetryPolicyTypeDef(BaseValidatorModel):
     MaximumRetryAttempts: Optional[int] = None
     MaximumEventAgeInSeconds: Optional[int] = None
 
-class RunCommandTargetExtraOutputTypeDef(BaseModel):
+class RunCommandTargetExtraOutputTypeDef(BaseValidatorModel):
     Key: str
     Values: List[str]
 
-class RunCommandTargetOutputTypeDef(BaseModel):
+class RunCommandTargetOutputTypeDef(BaseValidatorModel):
     Key: str
     Values: List[str]
 
-class RunCommandTargetTypeDef(BaseModel):
+class RunCommandTargetTypeDef(BaseValidatorModel):
     Key: str
     Values: Sequence[str]
 
-class SageMakerPipelineParameterTypeDef(BaseModel):
+class SageMakerPipelineParameterTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class SqsParametersTypeDef(BaseModel):
+class SqsParametersTypeDef(BaseValidatorModel):
     MessageGroupId: Optional[str] = None
 
-class TestEventPatternRequestRequestTypeDef(BaseModel):
+class TestEventPatternRequestRequestTypeDef(BaseValidatorModel):
     EventPattern: str
     Event: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateApiDestinationRequestRequestTypeDef(BaseModel):
+class UpdateApiDestinationRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     ConnectionArn: Optional[str] = None
@@ -499,71 +499,71 @@ class UpdateApiDestinationRequestRequestTypeDef(BaseModel):
     HttpMethod: Optional[ApiDestinationHttpMethodType] = None
     InvocationRateLimitPerSecond: Optional[int] = None
 
-class UpdateArchiveRequestRequestTypeDef(BaseModel):
+class UpdateArchiveRequestRequestTypeDef(BaseValidatorModel):
     ArchiveName: str
     Description: Optional[str] = None
     EventPattern: Optional[str] = None
     RetentionDays: Optional[int] = None
 
-class UpdateConnectionApiKeyAuthRequestParametersTypeDef(BaseModel):
+class UpdateConnectionApiKeyAuthRequestParametersTypeDef(BaseValidatorModel):
     ApiKeyName: Optional[str] = None
     ApiKeyValue: Optional[str] = None
 
-class UpdateConnectionBasicAuthRequestParametersTypeDef(BaseModel):
+class UpdateConnectionBasicAuthRequestParametersTypeDef(BaseValidatorModel):
     Username: Optional[str] = None
     Password: Optional[str] = None
 
-class UpdateConnectionOAuthClientRequestParametersTypeDef(BaseModel):
+class UpdateConnectionOAuthClientRequestParametersTypeDef(BaseValidatorModel):
     ClientID: Optional[str] = None
     ClientSecret: Optional[str] = None
 
-class NetworkConfigurationExtraOutputTypeDef(BaseModel):
+class NetworkConfigurationExtraOutputTypeDef(BaseValidatorModel):
     awsvpcConfiguration: Optional[AwsVpcConfigurationExtraOutputTypeDef] = None
 
-class NetworkConfigurationOutputTypeDef(BaseModel):
+class NetworkConfigurationOutputTypeDef(BaseValidatorModel):
     awsvpcConfiguration: Optional[AwsVpcConfigurationOutputTypeDef] = None
 
-class NetworkConfigurationTypeDef(BaseModel):
+class NetworkConfigurationTypeDef(BaseValidatorModel):
     awsvpcConfiguration: Optional[AwsVpcConfigurationTypeDef] = None
 
-class BatchParametersTypeDef(BaseModel):
+class BatchParametersTypeDef(BaseValidatorModel):
     JobDefinition: str
     JobName: str
     ArrayProperties: Optional[BatchArrayPropertiesTypeDef] = None
     RetryStrategy: Optional[BatchRetryStrategyTypeDef] = None
 
-class CancelReplayResponseTypeDef(BaseModel):
+class CancelReplayResponseTypeDef(BaseValidatorModel):
     ReplayArn: str
     State: ReplayStateType
     StateReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateApiDestinationResponseTypeDef(BaseModel):
+class CreateApiDestinationResponseTypeDef(BaseValidatorModel):
     ApiDestinationArn: str
     ApiDestinationState: ApiDestinationStateType
     CreationTime: datetime
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateArchiveResponseTypeDef(BaseModel):
+class CreateArchiveResponseTypeDef(BaseValidatorModel):
     ArchiveArn: str
     State: ArchiveStateType
     StateReason: str
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConnectionResponseTypeDef(BaseModel):
+class CreateConnectionResponseTypeDef(BaseValidatorModel):
     ConnectionArn: str
     ConnectionState: ConnectionStateType
     CreationTime: datetime
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePartnerEventSourceResponseTypeDef(BaseModel):
+class CreatePartnerEventSourceResponseTypeDef(BaseValidatorModel):
     EventSourceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeauthorizeConnectionResponseTypeDef(BaseModel):
+class DeauthorizeConnectionResponseTypeDef(BaseValidatorModel):
     ConnectionArn: str
     ConnectionState: ConnectionStateType
     CreationTime: datetime
@@ -571,7 +571,7 @@ class DeauthorizeConnectionResponseTypeDef(BaseModel):
     LastAuthorizedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteConnectionResponseTypeDef(BaseModel):
+class DeleteConnectionResponseTypeDef(BaseValidatorModel):
     ConnectionArn: str
     ConnectionState: ConnectionStateType
     CreationTime: datetime
@@ -579,7 +579,7 @@ class DeleteConnectionResponseTypeDef(BaseModel):
     LastAuthorizedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeApiDestinationResponseTypeDef(BaseModel):
+class DescribeApiDestinationResponseTypeDef(BaseValidatorModel):
     ApiDestinationArn: str
     Name: str
     Description: str
@@ -592,7 +592,7 @@ class DescribeApiDestinationResponseTypeDef(BaseModel):
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeArchiveResponseTypeDef(BaseModel):
+class DescribeArchiveResponseTypeDef(BaseValidatorModel):
     ArchiveArn: str
     ArchiveName: str
     EventSourceArn: str
@@ -606,7 +606,7 @@ class DescribeArchiveResponseTypeDef(BaseModel):
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEventSourceResponseTypeDef(BaseModel):
+class DescribeEventSourceResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedBy: str
     CreationTime: datetime
@@ -615,12 +615,12 @@ class DescribeEventSourceResponseTypeDef(BaseModel):
     State: EventSourceStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePartnerEventSourceResponseTypeDef(BaseModel):
+class DescribePartnerEventSourceResponseTypeDef(BaseValidatorModel):
     Arn: str
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRuleResponseTypeDef(BaseModel):
+class DescribeRuleResponseTypeDef(BaseValidatorModel):
     Name: str
     Arn: str
     EventPattern: str
@@ -633,54 +633,54 @@ class DescribeRuleResponseTypeDef(BaseModel):
     CreatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApiDestinationsResponseTypeDef(BaseModel):
+class ListApiDestinationsResponseTypeDef(BaseValidatorModel):
     ApiDestinations: List[ApiDestinationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListArchivesResponseTypeDef(BaseModel):
+class ListArchivesResponseTypeDef(BaseValidatorModel):
     Archives: List[ArchiveTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListRuleNamesByTargetResponseTypeDef(BaseModel):
+class ListRuleNamesByTargetResponseTypeDef(BaseValidatorModel):
     RuleNames: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutRuleResponseTypeDef(BaseModel):
+class PutRuleResponseTypeDef(BaseValidatorModel):
     RuleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartReplayResponseTypeDef(BaseModel):
+class StartReplayResponseTypeDef(BaseValidatorModel):
     ReplayArn: str
     State: ReplayStateType
     StateReason: str
     ReplayStartTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestEventPatternResponseTypeDef(BaseModel):
+class TestEventPatternResponseTypeDef(BaseValidatorModel):
     Result: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApiDestinationResponseTypeDef(BaseModel):
+class UpdateApiDestinationResponseTypeDef(BaseValidatorModel):
     ApiDestinationArn: str
     ApiDestinationState: ApiDestinationStateType
     CreationTime: datetime
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateArchiveResponseTypeDef(BaseModel):
+class UpdateArchiveResponseTypeDef(BaseValidatorModel):
     ArchiveArn: str
     State: ArchiveStateType
     StateReason: str
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateConnectionResponseTypeDef(BaseModel):
+class UpdateConnectionResponseTypeDef(BaseValidatorModel):
     ConnectionArn: str
     ConnectionState: ConnectionStateType
     CreationTime: datetime
@@ -688,7 +688,7 @@ class UpdateConnectionResponseTypeDef(BaseModel):
     LastAuthorizedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutPermissionRequestRequestTypeDef(BaseModel):
+class PutPermissionRequestRequestTypeDef(BaseValidatorModel):
     EventBusName: Optional[str] = None
     Action: Optional[str] = None
     Principal: Optional[str] = None
@@ -696,29 +696,29 @@ class PutPermissionRequestRequestTypeDef(BaseModel):
     Condition: Optional[ConditionTypeDef] = None
     Policy: Optional[str] = None
 
-class ConnectionHttpParametersOutputTypeDef(BaseModel):
+class ConnectionHttpParametersOutputTypeDef(BaseValidatorModel):
     HeaderParameters: Optional[List[ConnectionHeaderParameterTypeDef]] = None
     QueryStringParameters: Optional[List[ConnectionQueryStringParameterTypeDef]] = None
     BodyParameters: Optional[List[ConnectionBodyParameterTypeDef]] = None
 
-class ConnectionHttpParametersTypeDef(BaseModel):
+class ConnectionHttpParametersTypeDef(BaseValidatorModel):
     HeaderParameters: Optional[Sequence[ConnectionHeaderParameterTypeDef]] = None
     QueryStringParameters: Optional[Sequence[ConnectionQueryStringParameterTypeDef]] = None
     BodyParameters: Optional[Sequence[ConnectionBodyParameterTypeDef]] = None
 
-class ListConnectionsResponseTypeDef(BaseModel):
+class ListConnectionsResponseTypeDef(BaseValidatorModel):
     Connections: List[ConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateEventBusResponseTypeDef(BaseModel):
+class CreateEventBusResponseTypeDef(BaseValidatorModel):
     EventBusArn: str
     Description: str
     KmsKeyIdentifier: str
     DeadLetterConfig: DeadLetterConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEventBusResponseTypeDef(BaseModel):
+class DescribeEventBusResponseTypeDef(BaseValidatorModel):
     Name: str
     Arn: str
     Description: str
@@ -729,13 +729,13 @@ class DescribeEventBusResponseTypeDef(BaseModel):
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEventBusRequestRequestTypeDef(BaseModel):
+class UpdateEventBusRequestRequestTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     KmsKeyIdentifier: Optional[str] = None
     Description: Optional[str] = None
     DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
 
-class UpdateEventBusResponseTypeDef(BaseModel):
+class UpdateEventBusResponseTypeDef(BaseValidatorModel):
     Arn: str
     Name: str
     KmsKeyIdentifier: str
@@ -743,7 +743,7 @@ class UpdateEventBusResponseTypeDef(BaseModel):
     DeadLetterConfig: DeadLetterConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEventBusRequestRequestTypeDef(BaseModel):
+class CreateEventBusRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     EventSourceName: Optional[str] = None
     Description: Optional[str] = None
@@ -751,11 +751,11 @@ class CreateEventBusRequestRequestTypeDef(BaseModel):
     DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRuleRequestRequestTypeDef(BaseModel):
+class PutRuleRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     ScheduleExpression: Optional[str] = None
     EventPattern: Optional[str] = None
@@ -765,11 +765,11 @@ class PutRuleRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     EventBusName: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class DescribeReplayResponseTypeDef(BaseModel):
+class DescribeReplayResponseTypeDef(BaseValidatorModel):
     ReplayName: str
     ReplayArn: str
     Description: str
@@ -784,56 +784,56 @@ class DescribeReplayResponseTypeDef(BaseModel):
     ReplayEndTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEventBusesResponseTypeDef(BaseModel):
+class ListEventBusesResponseTypeDef(BaseValidatorModel):
     EventBuses: List[EventBusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListEventSourcesResponseTypeDef(BaseModel):
+class ListEventSourcesResponseTypeDef(BaseValidatorModel):
     EventSources: List[EventSourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class FailoverConfigTypeDef(BaseModel):
+class FailoverConfigTypeDef(BaseValidatorModel):
     Primary: PrimaryTypeDef
     Secondary: SecondaryTypeDef
 
-class ListPartnerEventSourceAccountsResponseTypeDef(BaseModel):
+class ListPartnerEventSourceAccountsResponseTypeDef(BaseValidatorModel):
     PartnerEventSourceAccounts: List[PartnerEventSourceAccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPartnerEventSourcesResponseTypeDef(BaseModel):
+class ListPartnerEventSourcesResponseTypeDef(BaseValidatorModel):
     PartnerEventSources: List[PartnerEventSourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListReplaysResponseTypeDef(BaseModel):
+class ListReplaysResponseTypeDef(BaseValidatorModel):
     Replays: List[ReplayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListRuleNamesByTargetRequestListRuleNamesByTargetPaginateTypeDef(BaseModel):
+class ListRuleNamesByTargetRequestListRuleNamesByTargetPaginateTypeDef(BaseValidatorModel):
     TargetArn: str
     EventBusName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRulesRequestListRulesPaginateTypeDef(BaseModel):
+class ListRulesRequestListRulesPaginateTypeDef(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     EventBusName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTargetsByRuleRequestListTargetsByRulePaginateTypeDef(BaseModel):
+class ListTargetsByRuleRequestListTargetsByRulePaginateTypeDef(BaseValidatorModel):
     Rule: str
     EventBusName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRulesResponseTypeDef(BaseModel):
+class ListRulesResponseTypeDef(BaseValidatorModel):
     Rules: List[RuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutEventsRequestEntryTypeDef(BaseModel):
+class PutEventsRequestEntryTypeDef(BaseValidatorModel):
     Time: Optional[TimestampTypeDef] = None
     Source: Optional[str] = None
     Resources: Optional[Sequence[str]] = None
@@ -842,34 +842,34 @@ class PutEventsRequestEntryTypeDef(BaseModel):
     EventBusName: Optional[str] = None
     TraceHeader: Optional[str] = None
 
-class PutPartnerEventsRequestEntryTypeDef(BaseModel):
+class PutPartnerEventsRequestEntryTypeDef(BaseValidatorModel):
     Time: Optional[TimestampTypeDef] = None
     Source: Optional[str] = None
     Resources: Optional[Sequence[str]] = None
     DetailType: Optional[str] = None
     Detail: Optional[str] = None
 
-class PutEventsResponseTypeDef(BaseModel):
+class PutEventsResponseTypeDef(BaseValidatorModel):
     FailedEntryCount: int
     Entries: List[PutEventsResultEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutPartnerEventsResponseTypeDef(BaseModel):
+class PutPartnerEventsResponseTypeDef(BaseValidatorModel):
     FailedEntryCount: int
     Entries: List[PutPartnerEventsResultEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutTargetsResponseTypeDef(BaseModel):
+class PutTargetsResponseTypeDef(BaseValidatorModel):
     FailedEntryCount: int
     FailedEntries: List[PutTargetsResultEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RemoveTargetsResponseTypeDef(BaseModel):
+class RemoveTargetsResponseTypeDef(BaseValidatorModel):
     FailedEntryCount: int
     FailedEntries: List[RemoveTargetsResultEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartReplayRequestRequestTypeDef(BaseModel):
+class StartReplayRequestRequestTypeDef(BaseValidatorModel):
     ReplayName: str
     EventSourceArn: str
     EventStartTime: TimestampTypeDef
@@ -877,25 +877,25 @@ class StartReplayRequestRequestTypeDef(BaseModel):
     Destination: ReplayDestinationTypeDef
     Description: Optional[str] = None
 
-class RunCommandParametersExtraOutputTypeDef(BaseModel):
+class RunCommandParametersExtraOutputTypeDef(BaseValidatorModel):
     RunCommandTargets: List[RunCommandTargetExtraOutputTypeDef]
 
-class RunCommandParametersOutputTypeDef(BaseModel):
+class RunCommandParametersOutputTypeDef(BaseValidatorModel):
     RunCommandTargets: List[RunCommandTargetOutputTypeDef]
 
-class RunCommandParametersTypeDef(BaseModel):
+class RunCommandParametersTypeDef(BaseValidatorModel):
     RunCommandTargets: Sequence[RunCommandTargetTypeDef]
 
-class SageMakerPipelineParametersExtraOutputTypeDef(BaseModel):
+class SageMakerPipelineParametersExtraOutputTypeDef(BaseValidatorModel):
     PipelineParameterList: Optional[List[SageMakerPipelineParameterTypeDef]] = None
 
-class SageMakerPipelineParametersOutputTypeDef(BaseModel):
+class SageMakerPipelineParametersOutputTypeDef(BaseValidatorModel):
     PipelineParameterList: Optional[List[SageMakerPipelineParameterTypeDef]] = None
 
-class SageMakerPipelineParametersTypeDef(BaseModel):
+class SageMakerPipelineParametersTypeDef(BaseValidatorModel):
     PipelineParameterList: Optional[Sequence[SageMakerPipelineParameterTypeDef]] = None
 
-class EcsParametersExtraOutputTypeDef(BaseModel):
+class EcsParametersExtraOutputTypeDef(BaseValidatorModel):
     TaskDefinitionArn: str
     TaskCount: Optional[int] = None
     LaunchType: Optional[LaunchTypeType] = None
@@ -911,7 +911,7 @@ class EcsParametersExtraOutputTypeDef(BaseModel):
     ReferenceId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class EcsParametersOutputTypeDef(BaseModel):
+class EcsParametersOutputTypeDef(BaseValidatorModel):
     TaskDefinitionArn: str
     TaskCount: Optional[int] = None
     LaunchType: Optional[LaunchTypeType] = None
@@ -927,7 +927,7 @@ class EcsParametersOutputTypeDef(BaseModel):
     ReferenceId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class EcsParametersTypeDef(BaseModel):
+class EcsParametersTypeDef(BaseValidatorModel):
     TaskDefinitionArn: str
     TaskCount: Optional[int] = None
     LaunchType: Optional[LaunchTypeType] = None
@@ -943,35 +943,35 @@ class EcsParametersTypeDef(BaseModel):
     ReferenceId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ConnectionOAuthResponseParametersTypeDef(BaseModel):
+class ConnectionOAuthResponseParametersTypeDef(BaseValidatorModel):
     ClientParameters: Optional[ConnectionOAuthClientResponseParametersTypeDef] = None
     AuthorizationEndpoint: Optional[str] = None
     HttpMethod: Optional[ConnectionOAuthHttpMethodType] = None
     OAuthHttpParameters: Optional[ConnectionHttpParametersOutputTypeDef] = None
 
-class CreateConnectionOAuthRequestParametersTypeDef(BaseModel):
+class CreateConnectionOAuthRequestParametersTypeDef(BaseValidatorModel):
     ClientParameters: CreateConnectionOAuthClientRequestParametersTypeDef
     AuthorizationEndpoint: str
     HttpMethod: ConnectionOAuthHttpMethodType
     OAuthHttpParameters: Optional[ConnectionHttpParametersTypeDef] = None
 
-class UpdateConnectionOAuthRequestParametersTypeDef(BaseModel):
+class UpdateConnectionOAuthRequestParametersTypeDef(BaseValidatorModel):
     ClientParameters: Optional[UpdateConnectionOAuthClientRequestParametersTypeDef] = None
     AuthorizationEndpoint: Optional[str] = None
     HttpMethod: Optional[ConnectionOAuthHttpMethodType] = None
     OAuthHttpParameters: Optional[ConnectionHttpParametersTypeDef] = None
 
-class RoutingConfigTypeDef(BaseModel):
+class RoutingConfigTypeDef(BaseValidatorModel):
     FailoverConfig: FailoverConfigTypeDef
 
-class PutEventsRequestRequestTypeDef(BaseModel):
+class PutEventsRequestRequestTypeDef(BaseValidatorModel):
     Entries: Sequence[PutEventsRequestEntryTypeDef]
     EndpointId: Optional[str] = None
 
-class PutPartnerEventsRequestRequestTypeDef(BaseModel):
+class PutPartnerEventsRequestRequestTypeDef(BaseValidatorModel):
     Entries: Sequence[PutPartnerEventsRequestEntryTypeDef]
 
-class TargetExtraOutputTypeDef(BaseModel):
+class TargetExtraOutputTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     RoleArn: Optional[str] = None
@@ -990,7 +990,7 @@ class TargetExtraOutputTypeDef(BaseModel):
     RetryPolicy: Optional[RetryPolicyTypeDef] = None
     AppSyncParameters: Optional[AppSyncParametersTypeDef] = None
 
-class TargetOutputTypeDef(BaseModel):
+class TargetOutputTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     RoleArn: Optional[str] = None
@@ -1009,7 +1009,7 @@ class TargetOutputTypeDef(BaseModel):
     RetryPolicy: Optional[RetryPolicyTypeDef] = None
     AppSyncParameters: Optional[AppSyncParametersTypeDef] = None
 
-class TargetTypeDef(BaseModel):
+class TargetTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
     RoleArn: Optional[str] = None
@@ -1028,25 +1028,25 @@ class TargetTypeDef(BaseModel):
     RetryPolicy: Optional[RetryPolicyTypeDef] = None
     AppSyncParameters: Optional[AppSyncParametersTypeDef] = None
 
-class ConnectionAuthResponseParametersTypeDef(BaseModel):
+class ConnectionAuthResponseParametersTypeDef(BaseValidatorModel):
     BasicAuthParameters: Optional[ConnectionBasicAuthResponseParametersTypeDef] = None
     OAuthParameters: Optional[ConnectionOAuthResponseParametersTypeDef] = None
     ApiKeyAuthParameters: Optional[ConnectionApiKeyAuthResponseParametersTypeDef] = None
     InvocationHttpParameters: Optional[ConnectionHttpParametersOutputTypeDef] = None
 
-class CreateConnectionAuthRequestParametersTypeDef(BaseModel):
+class CreateConnectionAuthRequestParametersTypeDef(BaseValidatorModel):
     BasicAuthParameters: Optional[CreateConnectionBasicAuthRequestParametersTypeDef] = None
     OAuthParameters: Optional[CreateConnectionOAuthRequestParametersTypeDef] = None
     ApiKeyAuthParameters: Optional[CreateConnectionApiKeyAuthRequestParametersTypeDef] = None
     InvocationHttpParameters: Optional[ConnectionHttpParametersTypeDef] = None
 
-class UpdateConnectionAuthRequestParametersTypeDef(BaseModel):
+class UpdateConnectionAuthRequestParametersTypeDef(BaseValidatorModel):
     BasicAuthParameters: Optional[UpdateConnectionBasicAuthRequestParametersTypeDef] = None
     OAuthParameters: Optional[UpdateConnectionOAuthRequestParametersTypeDef] = None
     ApiKeyAuthParameters: Optional[UpdateConnectionApiKeyAuthRequestParametersTypeDef] = None
     InvocationHttpParameters: Optional[ConnectionHttpParametersTypeDef] = None
 
-class CreateEndpointRequestRequestTypeDef(BaseModel):
+class CreateEndpointRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     RoutingConfig: RoutingConfigTypeDef
     EventBuses: Sequence[EndpointEventBusTypeDef]
@@ -1054,7 +1054,7 @@ class CreateEndpointRequestRequestTypeDef(BaseModel):
     ReplicationConfig: Optional[ReplicationConfigTypeDef] = None
     RoleArn: Optional[str] = None
 
-class CreateEndpointResponseTypeDef(BaseModel):
+class CreateEndpointResponseTypeDef(BaseValidatorModel):
     Name: str
     Arn: str
     RoutingConfig: RoutingConfigTypeDef
@@ -1064,7 +1064,7 @@ class CreateEndpointResponseTypeDef(BaseModel):
     State: EndpointStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEndpointResponseTypeDef(BaseModel):
+class DescribeEndpointResponseTypeDef(BaseValidatorModel):
     Name: str
     Description: str
     Arn: str
@@ -1080,7 +1080,7 @@ class DescribeEndpointResponseTypeDef(BaseModel):
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EndpointTypeDef(BaseModel):
+class EndpointTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Arn: Optional[str] = None
@@ -1095,7 +1095,7 @@ class EndpointTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
-class UpdateEndpointRequestRequestTypeDef(BaseModel):
+class UpdateEndpointRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     RoutingConfig: Optional[RoutingConfigTypeDef] = None
@@ -1103,7 +1103,7 @@ class UpdateEndpointRequestRequestTypeDef(BaseModel):
     EventBuses: Optional[Sequence[EndpointEventBusTypeDef]] = None
     RoleArn: Optional[str] = None
 
-class UpdateEndpointResponseTypeDef(BaseModel):
+class UpdateEndpointResponseTypeDef(BaseValidatorModel):
     Name: str
     Arn: str
     RoutingConfig: RoutingConfigTypeDef
@@ -1115,12 +1115,12 @@ class UpdateEndpointResponseTypeDef(BaseModel):
     State: EndpointStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTargetsByRuleResponseTypeDef(BaseModel):
+class ListTargetsByRuleResponseTypeDef(BaseValidatorModel):
     Targets: List[TargetOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeConnectionResponseTypeDef(BaseModel):
+class DescribeConnectionResponseTypeDef(BaseValidatorModel):
     ConnectionArn: str
     Name: str
     Description: str
@@ -1134,24 +1134,24 @@ class DescribeConnectionResponseTypeDef(BaseModel):
     LastAuthorizedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConnectionRequestRequestTypeDef(BaseModel):
+class CreateConnectionRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     AuthorizationType: ConnectionAuthorizationTypeType
     AuthParameters: CreateConnectionAuthRequestParametersTypeDef
     Description: Optional[str] = None
 
-class UpdateConnectionRequestRequestTypeDef(BaseModel):
+class UpdateConnectionRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     AuthorizationType: Optional[ConnectionAuthorizationTypeType] = None
     AuthParameters: Optional[UpdateConnectionAuthRequestParametersTypeDef] = None
 
-class ListEndpointsResponseTypeDef(BaseModel):
+class ListEndpointsResponseTypeDef(BaseValidatorModel):
     Endpoints: List[EndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutTargetsRequestRequestTypeDef(BaseModel):
+class PutTargetsRequestRequestTypeDef(BaseValidatorModel):
     Rule: str
     Targets: Sequence[TargetUnionTypeDef]
     EventBusName: Optional[str] = None

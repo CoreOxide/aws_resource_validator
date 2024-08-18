@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.dynamodbstreams_constants import *
 
-class AttributeValueTypeDef(BaseModel):
+class AttributeValueTypeDef(BaseValidatorModel):
     S: Optional[str] = None
     N: Optional[str] = None
     B: Optional[bytes] = None
@@ -23,47 +23,47 @@ class AttributeValueTypeDef(BaseModel):
     NULL: Optional[bool] = None
     BOOL: Optional[bool] = None
 
-class DescribeStreamInputRequestTypeDef(BaseModel):
+class DescribeStreamInputRequestTypeDef(BaseValidatorModel):
     StreamArn: str
     Limit: Optional[int] = None
     ExclusiveStartShardId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class GetRecordsInputRequestTypeDef(BaseModel):
+class GetRecordsInputRequestTypeDef(BaseValidatorModel):
     ShardIterator: str
     Limit: Optional[int] = None
 
-class GetShardIteratorInputRequestTypeDef(BaseModel):
+class GetShardIteratorInputRequestTypeDef(BaseValidatorModel):
     StreamArn: str
     ShardId: str
     ShardIteratorType: ShardIteratorTypeType
     SequenceNumber: Optional[str] = None
 
-class IdentityTypeDef(BaseModel):
+class IdentityTypeDef(BaseValidatorModel):
     PrincipalId: Optional[str] = None
     Type: Optional[str] = None
 
-class KeySchemaElementTypeDef(BaseModel):
+class KeySchemaElementTypeDef(BaseValidatorModel):
     AttributeName: str
     KeyType: KeyTypeType
 
-class ListStreamsInputRequestTypeDef(BaseModel):
+class ListStreamsInputRequestTypeDef(BaseValidatorModel):
     TableName: Optional[str] = None
     Limit: Optional[int] = None
     ExclusiveStartStreamArn: Optional[str] = None
 
-class StreamTypeDef(BaseModel):
+class StreamTypeDef(BaseValidatorModel):
     StreamArn: Optional[str] = None
     TableName: Optional[str] = None
     StreamLabel: Optional[str] = None
 
-class StreamRecordTypeDef(BaseModel):
+class StreamRecordTypeDef(BaseValidatorModel):
     ApproximateCreationDateTime: Optional[datetime] = None
     Keys: Optional[Dict[str, "AttributeValueTypeDef"]] = None
     NewImage: Optional[Dict[str, "AttributeValueTypeDef"]] = None
@@ -72,20 +72,20 @@ class StreamRecordTypeDef(BaseModel):
     SizeBytes: Optional[int] = None
     StreamViewType: Optional[StreamViewTypeType] = None
 
-class SequenceNumberRangeTypeDef(BaseModel):
+class SequenceNumberRangeTypeDef(BaseValidatorModel):
     StartingSequenceNumber: Optional[str] = None
     EndingSequenceNumber: Optional[str] = None
 
-class GetShardIteratorOutputTypeDef(BaseModel):
+class GetShardIteratorOutputTypeDef(BaseValidatorModel):
     ShardIterator: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStreamsOutputTypeDef(BaseModel):
+class ListStreamsOutputTypeDef(BaseValidatorModel):
     Streams: List[StreamTypeDef]
     LastEvaluatedStreamArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RecordTypeDef(BaseModel):
+class RecordTypeDef(BaseValidatorModel):
     eventID: Optional[str] = None
     eventName: Optional[OperationTypeType] = None
     eventVersion: Optional[str] = None
@@ -94,17 +94,17 @@ class RecordTypeDef(BaseModel):
     dynamodb: Optional[StreamRecordTypeDef] = None
     userIdentity: Optional[IdentityTypeDef] = None
 
-class ShardTypeDef(BaseModel):
+class ShardTypeDef(BaseValidatorModel):
     ShardId: Optional[str] = None
     SequenceNumberRange: Optional[SequenceNumberRangeTypeDef] = None
     ParentShardId: Optional[str] = None
 
-class GetRecordsOutputTypeDef(BaseModel):
+class GetRecordsOutputTypeDef(BaseValidatorModel):
     Records: List[RecordTypeDef]
     NextShardIterator: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StreamDescriptionTypeDef(BaseModel):
+class StreamDescriptionTypeDef(BaseValidatorModel):
     StreamArn: Optional[str] = None
     StreamLabel: Optional[str] = None
     StreamStatus: Optional[StreamStatusType] = None
@@ -115,7 +115,7 @@ class StreamDescriptionTypeDef(BaseModel):
     Shards: Optional[List[ShardTypeDef]] = None
     LastEvaluatedShardId: Optional[str] = None
 
-class DescribeStreamOutputTypeDef(BaseModel):
+class DescribeStreamOutputTypeDef(BaseValidatorModel):
     StreamDescription: StreamDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

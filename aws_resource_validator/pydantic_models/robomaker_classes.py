@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,180 +11,180 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.robomaker_constants import *
 
-class BatchDeleteWorldsRequestRequestTypeDef(BaseModel):
+class BatchDeleteWorldsRequestRequestTypeDef(BaseValidatorModel):
     worlds: Sequence[str]
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class BatchDescribeSimulationJobRequestRequestTypeDef(BaseModel):
+class BatchDescribeSimulationJobRequestRequestTypeDef(BaseValidatorModel):
     jobs: Sequence[str]
 
-class BatchPolicyTypeDef(BaseModel):
+class BatchPolicyTypeDef(BaseValidatorModel):
     timeoutInSeconds: Optional[int] = None
     maxConcurrency: Optional[int] = None
 
-class CancelDeploymentJobRequestRequestTypeDef(BaseModel):
+class CancelDeploymentJobRequestRequestTypeDef(BaseValidatorModel):
     job: str
 
-class CancelSimulationJobBatchRequestRequestTypeDef(BaseModel):
+class CancelSimulationJobBatchRequestRequestTypeDef(BaseValidatorModel):
     batch: str
 
-class CancelSimulationJobRequestRequestTypeDef(BaseModel):
+class CancelSimulationJobRequestRequestTypeDef(BaseValidatorModel):
     job: str
 
-class CancelWorldExportJobRequestRequestTypeDef(BaseModel):
+class CancelWorldExportJobRequestRequestTypeDef(BaseValidatorModel):
     job: str
 
-class CancelWorldGenerationJobRequestRequestTypeDef(BaseModel):
+class CancelWorldGenerationJobRequestRequestTypeDef(BaseValidatorModel):
     job: str
 
-class ComputeResponseTypeDef(BaseModel):
+class ComputeResponseTypeDef(BaseValidatorModel):
     simulationUnitLimit: Optional[int] = None
     computeType: Optional[ComputeTypeType] = None
     gpuUnitLimit: Optional[int] = None
 
-class ComputeTypeDef(BaseModel):
+class ComputeTypeDef(BaseValidatorModel):
     simulationUnitLimit: Optional[int] = None
     computeType: Optional[ComputeTypeType] = None
     gpuUnitLimit: Optional[int] = None
 
-class CreateFleetRequestRequestTypeDef(BaseModel):
+class CreateFleetRequestRequestTypeDef(BaseValidatorModel):
     name: str
     tags: Optional[Mapping[str, str]] = None
 
-class EnvironmentTypeDef(BaseModel):
+class EnvironmentTypeDef(BaseValidatorModel):
     uri: Optional[str] = None
 
-class RobotSoftwareSuiteTypeDef(BaseModel):
+class RobotSoftwareSuiteTypeDef(BaseValidatorModel):
     name: Optional[RobotSoftwareSuiteTypeType] = None
     version: Optional[RobotSoftwareSuiteVersionTypeType] = None
 
-class SourceConfigTypeDef(BaseModel):
+class SourceConfigTypeDef(BaseValidatorModel):
     s3Bucket: Optional[str] = None
     s3Key: Optional[str] = None
     architecture: Optional[ArchitectureType] = None
 
-class SourceTypeDef(BaseModel):
+class SourceTypeDef(BaseValidatorModel):
     s3Bucket: Optional[str] = None
     s3Key: Optional[str] = None
     etag: Optional[str] = None
     architecture: Optional[ArchitectureType] = None
 
-class CreateRobotApplicationVersionRequestRequestTypeDef(BaseModel):
+class CreateRobotApplicationVersionRequestRequestTypeDef(BaseValidatorModel):
     application: str
     currentRevisionId: Optional[str] = None
     s3Etags: Optional[Sequence[str]] = None
     imageDigest: Optional[str] = None
 
-class CreateRobotRequestRequestTypeDef(BaseModel):
+class CreateRobotRequestRequestTypeDef(BaseValidatorModel):
     name: str
     architecture: ArchitectureType
     greengrassGroupId: str
     tags: Optional[Mapping[str, str]] = None
 
-class RenderingEngineTypeDef(BaseModel):
+class RenderingEngineTypeDef(BaseValidatorModel):
     name: Optional[Literal["OGRE"]] = None
     version: Optional[str] = None
 
-class SimulationSoftwareSuiteTypeDef(BaseModel):
+class SimulationSoftwareSuiteTypeDef(BaseValidatorModel):
     name: Optional[SimulationSoftwareSuiteTypeType] = None
     version: Optional[str] = None
 
-class CreateSimulationApplicationVersionRequestRequestTypeDef(BaseModel):
+class CreateSimulationApplicationVersionRequestRequestTypeDef(BaseValidatorModel):
     application: str
     currentRevisionId: Optional[str] = None
     s3Etags: Optional[Sequence[str]] = None
     imageDigest: Optional[str] = None
 
-class DataSourceConfigTypeDef(BaseModel):
+class DataSourceConfigTypeDef(BaseValidatorModel):
     name: str
     s3Bucket: str
     s3Keys: Sequence[str]
     type: Optional[DataSourceTypeType] = None
     destination: Optional[str] = None
 
-class LoggingConfigTypeDef(BaseModel):
+class LoggingConfigTypeDef(BaseValidatorModel):
     recordAllRosTopics: Optional[bool] = None
 
-class OutputLocationTypeDef(BaseModel):
+class OutputLocationTypeDef(BaseValidatorModel):
     s3Bucket: Optional[str] = None
     s3Prefix: Optional[str] = None
 
-class VPCConfigTypeDef(BaseModel):
+class VPCConfigTypeDef(BaseValidatorModel):
     subnets: Sequence[str]
     securityGroups: Optional[Sequence[str]] = None
     assignPublicIp: Optional[bool] = None
 
-class VPCConfigResponseTypeDef(BaseModel):
+class VPCConfigResponseTypeDef(BaseValidatorModel):
     subnets: Optional[List[str]] = None
     securityGroups: Optional[List[str]] = None
     vpcId: Optional[str] = None
     assignPublicIp: Optional[bool] = None
 
-class WorldCountTypeDef(BaseModel):
+class WorldCountTypeDef(BaseValidatorModel):
     floorplanCount: Optional[int] = None
     interiorCountPerFloorplan: Optional[int] = None
 
-class TemplateLocationTypeDef(BaseModel):
+class TemplateLocationTypeDef(BaseValidatorModel):
     s3Bucket: str
     s3Key: str
 
-class S3KeyOutputTypeDef(BaseModel):
+class S3KeyOutputTypeDef(BaseValidatorModel):
     s3Key: Optional[str] = None
     etag: Optional[str] = None
 
-class DeleteFleetRequestRequestTypeDef(BaseModel):
+class DeleteFleetRequestRequestTypeDef(BaseValidatorModel):
     fleet: str
 
-class DeleteRobotApplicationRequestRequestTypeDef(BaseModel):
+class DeleteRobotApplicationRequestRequestTypeDef(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
-class DeleteRobotRequestRequestTypeDef(BaseModel):
+class DeleteRobotRequestRequestTypeDef(BaseValidatorModel):
     robot: str
 
-class DeleteSimulationApplicationRequestRequestTypeDef(BaseModel):
+class DeleteSimulationApplicationRequestRequestTypeDef(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
-class DeleteWorldTemplateRequestRequestTypeDef(BaseModel):
+class DeleteWorldTemplateRequestRequestTypeDef(BaseValidatorModel):
     template: str
 
-class DeploymentLaunchConfigPaginatorTypeDef(BaseModel):
+class DeploymentLaunchConfigPaginatorTypeDef(BaseValidatorModel):
     packageName: str
     launchFile: str
     preLaunchFile: Optional[str] = None
     postLaunchFile: Optional[str] = None
     environmentVariables: Optional[Dict[str, str]] = None
 
-class DeploymentLaunchConfigTypeDef(BaseModel):
+class DeploymentLaunchConfigTypeDef(BaseValidatorModel):
     packageName: str
     launchFile: str
     preLaunchFile: Optional[str] = None
     postLaunchFile: Optional[str] = None
     environmentVariables: Optional[Mapping[str, str]] = None
 
-class S3ObjectTypeDef(BaseModel):
+class S3ObjectTypeDef(BaseValidatorModel):
     bucket: str
     key: str
     etag: Optional[str] = None
 
-class DeregisterRobotRequestRequestTypeDef(BaseModel):
+class DeregisterRobotRequestRequestTypeDef(BaseValidatorModel):
     fleet: str
     robot: str
 
-class DescribeDeploymentJobRequestRequestTypeDef(BaseModel):
+class DescribeDeploymentJobRequestRequestTypeDef(BaseValidatorModel):
     job: str
 
-class DescribeFleetRequestRequestTypeDef(BaseModel):
+class DescribeFleetRequestRequestTypeDef(BaseValidatorModel):
     fleet: str
 
-class RobotTypeDef(BaseModel):
+class RobotTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     fleetArn: Optional[str] = None
@@ -195,21 +195,21 @@ class RobotTypeDef(BaseModel):
     lastDeploymentJob: Optional[str] = None
     lastDeploymentTime: Optional[datetime] = None
 
-class DescribeRobotApplicationRequestRequestTypeDef(BaseModel):
+class DescribeRobotApplicationRequestRequestTypeDef(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
-class DescribeRobotRequestRequestTypeDef(BaseModel):
+class DescribeRobotRequestRequestTypeDef(BaseValidatorModel):
     robot: str
 
-class DescribeSimulationApplicationRequestRequestTypeDef(BaseModel):
+class DescribeSimulationApplicationRequestRequestTypeDef(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
-class DescribeSimulationJobBatchRequestRequestTypeDef(BaseModel):
+class DescribeSimulationJobBatchRequestRequestTypeDef(BaseValidatorModel):
     batch: str
 
-class SimulationJobSummaryTypeDef(BaseModel):
+class SimulationJobSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
     name: Optional[str] = None
@@ -219,36 +219,36 @@ class SimulationJobSummaryTypeDef(BaseModel):
     dataSourceNames: Optional[List[str]] = None
     computeType: Optional[ComputeTypeType] = None
 
-class DescribeSimulationJobRequestRequestTypeDef(BaseModel):
+class DescribeSimulationJobRequestRequestTypeDef(BaseValidatorModel):
     job: str
 
-class NetworkInterfaceTypeDef(BaseModel):
+class NetworkInterfaceTypeDef(BaseValidatorModel):
     networkInterfaceId: Optional[str] = None
     privateIpAddress: Optional[str] = None
     publicIpAddress: Optional[str] = None
 
-class DescribeWorldExportJobRequestRequestTypeDef(BaseModel):
+class DescribeWorldExportJobRequestRequestTypeDef(BaseValidatorModel):
     job: str
 
-class DescribeWorldGenerationJobRequestRequestTypeDef(BaseModel):
+class DescribeWorldGenerationJobRequestRequestTypeDef(BaseValidatorModel):
     job: str
 
-class DescribeWorldRequestRequestTypeDef(BaseModel):
+class DescribeWorldRequestRequestTypeDef(BaseValidatorModel):
     world: str
 
-class DescribeWorldTemplateRequestRequestTypeDef(BaseModel):
+class DescribeWorldTemplateRequestRequestTypeDef(BaseValidatorModel):
     template: str
 
-class WorldFailureTypeDef(BaseModel):
+class WorldFailureTypeDef(BaseValidatorModel):
     failureCode: Optional[WorldGenerationJobErrorCodeType] = None
     sampleFailureReason: Optional[str] = None
     failureCount: Optional[int] = None
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     values: Optional[Sequence[str]] = None
 
-class FleetTypeDef(BaseModel):
+class FleetTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -256,16 +256,16 @@ class FleetTypeDef(BaseModel):
     lastDeploymentJob: Optional[str] = None
     lastDeploymentTime: Optional[datetime] = None
 
-class GetWorldTemplateBodyRequestRequestTypeDef(BaseModel):
+class GetWorldTemplateBodyRequestRequestTypeDef(BaseValidatorModel):
     template: Optional[str] = None
     generationJob: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class SimulationJobBatchSummaryTypeDef(BaseModel):
+class SimulationJobBatchSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
     createdAt: Optional[datetime] = None
@@ -274,83 +274,83 @@ class SimulationJobBatchSummaryTypeDef(BaseModel):
     pendingRequestCount: Optional[int] = None
     createdRequestCount: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListWorldTemplatesRequestRequestTypeDef(BaseModel):
+class ListWorldTemplatesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TemplateSummaryTypeDef(BaseModel):
+class TemplateSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
     name: Optional[str] = None
     version: Optional[str] = None
 
-class WorldSummaryTypeDef(BaseModel):
+class WorldSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     generationJob: Optional[str] = None
     template: Optional[str] = None
 
-class PortMappingTypeDef(BaseModel):
+class PortMappingTypeDef(BaseValidatorModel):
     jobPort: int
     applicationPort: int
     enableOnPublicIp: Optional[bool] = None
 
-class ProgressDetailTypeDef(BaseModel):
+class ProgressDetailTypeDef(BaseValidatorModel):
     currentProgress: Optional[RobotDeploymentStepType] = None
     percentDone: Optional[float] = None
     estimatedTimeRemainingSeconds: Optional[int] = None
     targetResource: Optional[str] = None
 
-class RegisterRobotRequestRequestTypeDef(BaseModel):
+class RegisterRobotRequestRequestTypeDef(BaseValidatorModel):
     fleet: str
     robot: str
 
-class RestartSimulationJobRequestRequestTypeDef(BaseModel):
+class RestartSimulationJobRequestRequestTypeDef(BaseValidatorModel):
     job: str
 
-class ToolTypeDef(BaseModel):
+class ToolTypeDef(BaseValidatorModel):
     name: str
     command: str
     streamUI: Optional[bool] = None
     streamOutputToCloudWatch: Optional[bool] = None
     exitBehavior: Optional[ExitBehaviorType] = None
 
-class UploadConfigurationTypeDef(BaseModel):
+class UploadConfigurationTypeDef(BaseValidatorModel):
     name: str
     path: str
     uploadBehavior: UploadBehaviorType
 
-class WorldConfigTypeDef(BaseModel):
+class WorldConfigTypeDef(BaseValidatorModel):
     world: Optional[str] = None
 
-class SyncDeploymentJobRequestRequestTypeDef(BaseModel):
+class SyncDeploymentJobRequestRequestTypeDef(BaseValidatorModel):
     clientRequestToken: str
     fleet: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class BatchDeleteWorldsResponseTypeDef(BaseModel):
+class BatchDeleteWorldsResponseTypeDef(BaseValidatorModel):
     unprocessedWorlds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFleetResponseTypeDef(BaseModel):
+class CreateFleetResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     createdAt: datetime
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRobotResponseTypeDef(BaseModel):
+class CreateRobotResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     createdAt: datetime
@@ -359,7 +359,7 @@ class CreateRobotResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWorldTemplateResponseTypeDef(BaseModel):
+class CreateWorldTemplateResponseTypeDef(BaseValidatorModel):
     arn: str
     clientRequestToken: str
     createdAt: datetime
@@ -367,12 +367,12 @@ class CreateWorldTemplateResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeregisterRobotResponseTypeDef(BaseModel):
+class DeregisterRobotResponseTypeDef(BaseValidatorModel):
     fleet: str
     robot: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRobotResponseTypeDef(BaseModel):
+class DescribeRobotResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     fleetArn: str
@@ -385,7 +385,7 @@ class DescribeRobotResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWorldResponseTypeDef(BaseModel):
+class DescribeWorldResponseTypeDef(BaseValidatorModel):
     arn: str
     generationJob: str
     template: str
@@ -394,7 +394,7 @@ class DescribeWorldResponseTypeDef(BaseModel):
     worldDescriptionBody: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWorldTemplateResponseTypeDef(BaseModel):
+class DescribeWorldTemplateResponseTypeDef(BaseValidatorModel):
     arn: str
     clientRequestToken: str
     name: str
@@ -404,48 +404,48 @@ class DescribeWorldTemplateResponseTypeDef(BaseModel):
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWorldTemplateBodyResponseTypeDef(BaseModel):
+class GetWorldTemplateBodyResponseTypeDef(BaseValidatorModel):
     templateBody: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterRobotResponseTypeDef(BaseModel):
+class RegisterRobotResponseTypeDef(BaseValidatorModel):
     fleet: str
     robot: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateWorldTemplateResponseTypeDef(BaseModel):
+class UpdateWorldTemplateResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     createdAt: datetime
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RobotApplicationSummaryTypeDef(BaseModel):
+class RobotApplicationSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     version: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
     robotSoftwareSuite: Optional[RobotSoftwareSuiteTypeDef] = None
 
-class CreateRobotApplicationRequestRequestTypeDef(BaseModel):
+class CreateRobotApplicationRequestRequestTypeDef(BaseValidatorModel):
     name: str
     robotSoftwareSuite: RobotSoftwareSuiteTypeDef
     sources: Optional[Sequence[SourceConfigTypeDef]] = None
     tags: Optional[Mapping[str, str]] = None
     environment: Optional[EnvironmentTypeDef] = None
 
-class UpdateRobotApplicationRequestRequestTypeDef(BaseModel):
+class UpdateRobotApplicationRequestRequestTypeDef(BaseValidatorModel):
     application: str
     robotSoftwareSuite: RobotSoftwareSuiteTypeDef
     sources: Optional[Sequence[SourceConfigTypeDef]] = None
     currentRevisionId: Optional[str] = None
     environment: Optional[EnvironmentTypeDef] = None
 
-class CreateRobotApplicationResponseTypeDef(BaseModel):
+class CreateRobotApplicationResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     version: str
@@ -457,7 +457,7 @@ class CreateRobotApplicationResponseTypeDef(BaseModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRobotApplicationVersionResponseTypeDef(BaseModel):
+class CreateRobotApplicationVersionResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     version: str
@@ -468,7 +468,7 @@ class CreateRobotApplicationVersionResponseTypeDef(BaseModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRobotApplicationResponseTypeDef(BaseModel):
+class DescribeRobotApplicationResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     version: str
@@ -481,7 +481,7 @@ class DescribeRobotApplicationResponseTypeDef(BaseModel):
     imageDigest: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRobotApplicationResponseTypeDef(BaseModel):
+class UpdateRobotApplicationResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     version: str
@@ -492,7 +492,7 @@ class UpdateRobotApplicationResponseTypeDef(BaseModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSimulationApplicationRequestRequestTypeDef(BaseModel):
+class CreateSimulationApplicationRequestRequestTypeDef(BaseValidatorModel):
     name: str
     simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
     robotSoftwareSuite: RobotSoftwareSuiteTypeDef
@@ -501,7 +501,7 @@ class CreateSimulationApplicationRequestRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     environment: Optional[EnvironmentTypeDef] = None
 
-class CreateSimulationApplicationResponseTypeDef(BaseModel):
+class CreateSimulationApplicationResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     version: str
@@ -515,7 +515,7 @@ class CreateSimulationApplicationResponseTypeDef(BaseModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSimulationApplicationVersionResponseTypeDef(BaseModel):
+class CreateSimulationApplicationVersionResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     version: str
@@ -528,7 +528,7 @@ class CreateSimulationApplicationVersionResponseTypeDef(BaseModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSimulationApplicationResponseTypeDef(BaseModel):
+class DescribeSimulationApplicationResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     version: str
@@ -543,7 +543,7 @@ class DescribeSimulationApplicationResponseTypeDef(BaseModel):
     imageDigest: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SimulationApplicationSummaryTypeDef(BaseModel):
+class SimulationApplicationSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     version: Optional[str] = None
@@ -551,7 +551,7 @@ class SimulationApplicationSummaryTypeDef(BaseModel):
     robotSoftwareSuite: Optional[RobotSoftwareSuiteTypeDef] = None
     simulationSoftwareSuite: Optional[SimulationSoftwareSuiteTypeDef] = None
 
-class UpdateSimulationApplicationRequestRequestTypeDef(BaseModel):
+class UpdateSimulationApplicationRequestRequestTypeDef(BaseValidatorModel):
     application: str
     simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
     robotSoftwareSuite: RobotSoftwareSuiteTypeDef
@@ -560,7 +560,7 @@ class UpdateSimulationApplicationRequestRequestTypeDef(BaseModel):
     currentRevisionId: Optional[str] = None
     environment: Optional[EnvironmentTypeDef] = None
 
-class UpdateSimulationApplicationResponseTypeDef(BaseModel):
+class UpdateSimulationApplicationResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     version: str
@@ -573,14 +573,14 @@ class UpdateSimulationApplicationResponseTypeDef(BaseModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWorldExportJobRequestRequestTypeDef(BaseModel):
+class CreateWorldExportJobRequestRequestTypeDef(BaseValidatorModel):
     worlds: Sequence[str]
     outputLocation: OutputLocationTypeDef
     iamRole: str
     clientRequestToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateWorldExportJobResponseTypeDef(BaseModel):
+class CreateWorldExportJobResponseTypeDef(BaseValidatorModel):
     arn: str
     status: WorldExportJobStatusType
     createdAt: datetime
@@ -591,7 +591,7 @@ class CreateWorldExportJobResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWorldExportJobResponseTypeDef(BaseModel):
+class DescribeWorldExportJobResponseTypeDef(BaseValidatorModel):
     arn: str
     status: WorldExportJobStatusType
     createdAt: datetime
@@ -604,21 +604,21 @@ class DescribeWorldExportJobResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WorldExportJobSummaryTypeDef(BaseModel):
+class WorldExportJobSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     status: Optional[WorldExportJobStatusType] = None
     createdAt: Optional[datetime] = None
     worlds: Optional[List[str]] = None
     outputLocation: Optional[OutputLocationTypeDef] = None
 
-class CreateWorldGenerationJobRequestRequestTypeDef(BaseModel):
+class CreateWorldGenerationJobRequestRequestTypeDef(BaseValidatorModel):
     template: str
     worldCount: WorldCountTypeDef
     clientRequestToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     worldTags: Optional[Mapping[str, str]] = None
 
-class CreateWorldGenerationJobResponseTypeDef(BaseModel):
+class CreateWorldGenerationJobResponseTypeDef(BaseValidatorModel):
     arn: str
     status: WorldGenerationJobStatusType
     createdAt: datetime
@@ -630,7 +630,7 @@ class CreateWorldGenerationJobResponseTypeDef(BaseModel):
     worldTags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WorldGenerationJobSummaryTypeDef(BaseModel):
+class WorldGenerationJobSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     template: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -639,43 +639,43 @@ class WorldGenerationJobSummaryTypeDef(BaseModel):
     succeededWorldCount: Optional[int] = None
     failedWorldCount: Optional[int] = None
 
-class CreateWorldTemplateRequestRequestTypeDef(BaseModel):
+class CreateWorldTemplateRequestRequestTypeDef(BaseValidatorModel):
     clientRequestToken: Optional[str] = None
     name: Optional[str] = None
     templateBody: Optional[str] = None
     templateLocation: Optional[TemplateLocationTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateWorldTemplateRequestRequestTypeDef(BaseModel):
+class UpdateWorldTemplateRequestRequestTypeDef(BaseValidatorModel):
     template: str
     name: Optional[str] = None
     templateBody: Optional[str] = None
     templateLocation: Optional[TemplateLocationTypeDef] = None
 
-class DataSourceTypeDef(BaseModel):
+class DataSourceTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     s3Bucket: Optional[str] = None
     s3Keys: Optional[List[S3KeyOutputTypeDef]] = None
     type: Optional[DataSourceTypeType] = None
     destination: Optional[str] = None
 
-class DeploymentApplicationConfigPaginatorTypeDef(BaseModel):
+class DeploymentApplicationConfigPaginatorTypeDef(BaseValidatorModel):
     application: str
     applicationVersion: str
     launchConfig: DeploymentLaunchConfigPaginatorTypeDef
 
-class DeploymentApplicationConfigTypeDef(BaseModel):
+class DeploymentApplicationConfigTypeDef(BaseValidatorModel):
     application: str
     applicationVersion: str
     launchConfig: DeploymentLaunchConfigTypeDef
 
-class DeploymentConfigTypeDef(BaseModel):
+class DeploymentConfigTypeDef(BaseValidatorModel):
     concurrentDeploymentPercentage: Optional[int] = None
     failureThresholdPercentage: Optional[int] = None
     robotDeploymentTimeoutInSeconds: Optional[int] = None
     downloadConditionFile: Optional[S3ObjectTypeDef] = None
 
-class DescribeFleetResponseTypeDef(BaseModel):
+class DescribeFleetResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     robots: List[RobotTypeDef]
@@ -686,141 +686,141 @@ class DescribeFleetResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRobotsResponseTypeDef(BaseModel):
+class ListRobotsResponseTypeDef(BaseValidatorModel):
     robots: List[RobotTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSimulationJobsResponseTypeDef(BaseModel):
+class ListSimulationJobsResponseTypeDef(BaseValidatorModel):
     simulationJobSummaries: List[SimulationJobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FailureSummaryTypeDef(BaseModel):
+class FailureSummaryTypeDef(BaseValidatorModel):
     totalFailureCount: Optional[int] = None
     failures: Optional[List[WorldFailureTypeDef]] = None
 
-class ListDeploymentJobsRequestRequestTypeDef(BaseModel):
+class ListDeploymentJobsRequestRequestTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListFleetsRequestRequestTypeDef(BaseModel):
+class ListFleetsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListRobotApplicationsRequestRequestTypeDef(BaseModel):
+class ListRobotApplicationsRequestRequestTypeDef(BaseValidatorModel):
     versionQualifier: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListRobotsRequestRequestTypeDef(BaseModel):
+class ListRobotsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListSimulationApplicationsRequestRequestTypeDef(BaseModel):
+class ListSimulationApplicationsRequestRequestTypeDef(BaseValidatorModel):
     versionQualifier: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListSimulationJobBatchesRequestRequestTypeDef(BaseModel):
+class ListSimulationJobBatchesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListSimulationJobsRequestRequestTypeDef(BaseModel):
+class ListSimulationJobsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListWorldExportJobsRequestRequestTypeDef(BaseModel):
+class ListWorldExportJobsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListWorldGenerationJobsRequestRequestTypeDef(BaseModel):
+class ListWorldGenerationJobsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListWorldsRequestRequestTypeDef(BaseModel):
+class ListWorldsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListFleetsResponseTypeDef(BaseModel):
+class ListFleetsResponseTypeDef(BaseValidatorModel):
     fleetDetails: List[FleetTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeploymentJobsRequestListDeploymentJobsPaginateTypeDef(BaseModel):
+class ListDeploymentJobsRequestListDeploymentJobsPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFleetsRequestListFleetsPaginateTypeDef(BaseModel):
+class ListFleetsRequestListFleetsPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRobotApplicationsRequestListRobotApplicationsPaginateTypeDef(BaseModel):
+class ListRobotApplicationsRequestListRobotApplicationsPaginateTypeDef(BaseValidatorModel):
     versionQualifier: Optional[str] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRobotsRequestListRobotsPaginateTypeDef(BaseModel):
+class ListRobotsRequestListRobotsPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSimulationApplicationsRequestListSimulationApplicationsPaginateTypeDef(BaseModel):
+class ListSimulationApplicationsRequestListSimulationApplicationsPaginateTypeDef(BaseValidatorModel):
     versionQualifier: Optional[str] = None
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSimulationJobBatchesRequestListSimulationJobBatchesPaginateTypeDef(BaseModel):
+class ListSimulationJobBatchesRequestListSimulationJobBatchesPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSimulationJobsRequestListSimulationJobsPaginateTypeDef(BaseModel):
+class ListSimulationJobsRequestListSimulationJobsPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorldExportJobsRequestListWorldExportJobsPaginateTypeDef(BaseModel):
+class ListWorldExportJobsRequestListWorldExportJobsPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorldGenerationJobsRequestListWorldGenerationJobsPaginateTypeDef(BaseModel):
+class ListWorldGenerationJobsRequestListWorldGenerationJobsPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorldTemplatesRequestListWorldTemplatesPaginateTypeDef(BaseModel):
+class ListWorldTemplatesRequestListWorldTemplatesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorldsRequestListWorldsPaginateTypeDef(BaseModel):
+class ListWorldsRequestListWorldsPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSimulationJobBatchesResponseTypeDef(BaseModel):
+class ListSimulationJobBatchesResponseTypeDef(BaseValidatorModel):
     simulationJobBatchSummaries: List[SimulationJobBatchSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorldTemplatesResponseTypeDef(BaseModel):
+class ListWorldTemplatesResponseTypeDef(BaseValidatorModel):
     templateSummaries: List[TemplateSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorldsResponseTypeDef(BaseModel):
+class ListWorldsResponseTypeDef(BaseValidatorModel):
     worldSummaries: List[WorldSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PortForwardingConfigTypeDef(BaseModel):
+class PortForwardingConfigTypeDef(BaseValidatorModel):
     portMappings: Optional[List[PortMappingTypeDef]] = None
 
-class RobotDeploymentTypeDef(BaseModel):
+class RobotDeploymentTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     deploymentStartTime: Optional[datetime] = None
     deploymentFinishTime: Optional[datetime] = None
@@ -829,34 +829,34 @@ class RobotDeploymentTypeDef(BaseModel):
     failureReason: Optional[str] = None
     failureCode: Optional[DeploymentJobErrorCodeType] = None
 
-class ListRobotApplicationsResponseTypeDef(BaseModel):
+class ListRobotApplicationsResponseTypeDef(BaseValidatorModel):
     robotApplicationSummaries: List[RobotApplicationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSimulationApplicationsResponseTypeDef(BaseModel):
+class ListSimulationApplicationsResponseTypeDef(BaseValidatorModel):
     simulationApplicationSummaries: List[SimulationApplicationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorldExportJobsResponseTypeDef(BaseModel):
+class ListWorldExportJobsResponseTypeDef(BaseValidatorModel):
     worldExportJobSummaries: List[WorldExportJobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorldGenerationJobsResponseTypeDef(BaseModel):
+class ListWorldGenerationJobsResponseTypeDef(BaseValidatorModel):
     worldGenerationJobSummaries: List[WorldGenerationJobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDeploymentJobRequestRequestTypeDef(BaseModel):
+class CreateDeploymentJobRequestRequestTypeDef(BaseValidatorModel):
     clientRequestToken: str
     fleet: str
     deploymentApplicationConfigs: Sequence[DeploymentApplicationConfigTypeDef]
     deploymentConfig: Optional[DeploymentConfigTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateDeploymentJobResponseTypeDef(BaseModel):
+class CreateDeploymentJobResponseTypeDef(BaseValidatorModel):
     arn: str
     fleet: str
     status: DeploymentStatusType
@@ -868,7 +868,7 @@ class CreateDeploymentJobResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeploymentJobPaginatorTypeDef(BaseModel):
+class DeploymentJobPaginatorTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     fleet: Optional[str] = None
     status: Optional[DeploymentStatusType] = None
@@ -878,7 +878,7 @@ class DeploymentJobPaginatorTypeDef(BaseModel):
     failureCode: Optional[DeploymentJobErrorCodeType] = None
     createdAt: Optional[datetime] = None
 
-class DeploymentJobTypeDef(BaseModel):
+class DeploymentJobTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     fleet: Optional[str] = None
     status: Optional[DeploymentStatusType] = None
@@ -888,7 +888,7 @@ class DeploymentJobTypeDef(BaseModel):
     failureCode: Optional[DeploymentJobErrorCodeType] = None
     createdAt: Optional[datetime] = None
 
-class SyncDeploymentJobResponseTypeDef(BaseModel):
+class SyncDeploymentJobResponseTypeDef(BaseValidatorModel):
     arn: str
     fleet: str
     status: DeploymentStatusType
@@ -899,12 +899,12 @@ class SyncDeploymentJobResponseTypeDef(BaseModel):
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FinishedWorldsSummaryTypeDef(BaseModel):
+class FinishedWorldsSummaryTypeDef(BaseValidatorModel):
     finishedCount: Optional[int] = None
     succeededWorlds: Optional[List[str]] = None
     failureSummary: Optional[FailureSummaryTypeDef] = None
 
-class LaunchConfigTypeDef(BaseModel):
+class LaunchConfigTypeDef(BaseValidatorModel):
     packageName: Optional[str] = None
     launchFile: Optional[str] = None
     environmentVariables: Optional[Dict[str, str]] = None
@@ -912,7 +912,7 @@ class LaunchConfigTypeDef(BaseModel):
     streamUI: Optional[bool] = None
     command: Optional[List[str]] = None
 
-class DescribeDeploymentJobResponseTypeDef(BaseModel):
+class DescribeDeploymentJobResponseTypeDef(BaseValidatorModel):
     arn: str
     fleet: str
     status: DeploymentStatusType
@@ -925,17 +925,17 @@ class DescribeDeploymentJobResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeploymentJobsResponsePaginatorTypeDef(BaseModel):
+class ListDeploymentJobsResponsePaginatorTypeDef(BaseValidatorModel):
     deploymentJobs: List[DeploymentJobPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeploymentJobsResponseTypeDef(BaseModel):
+class ListDeploymentJobsResponseTypeDef(BaseValidatorModel):
     deploymentJobs: List[DeploymentJobTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWorldGenerationJobResponseTypeDef(BaseModel):
+class DescribeWorldGenerationJobResponseTypeDef(BaseValidatorModel):
     arn: str
     status: WorldGenerationJobStatusType
     createdAt: datetime
@@ -949,7 +949,7 @@ class DescribeWorldGenerationJobResponseTypeDef(BaseModel):
     worldTags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RobotApplicationConfigTypeDef(BaseModel):
+class RobotApplicationConfigTypeDef(BaseValidatorModel):
     application: str
     launchConfig: LaunchConfigTypeDef
     applicationVersion: Optional[str] = None
@@ -958,7 +958,7 @@ class RobotApplicationConfigTypeDef(BaseModel):
     tools: Optional[List[ToolTypeDef]] = None
     useDefaultTools: Optional[bool] = None
 
-class SimulationApplicationConfigTypeDef(BaseModel):
+class SimulationApplicationConfigTypeDef(BaseValidatorModel):
     application: str
     launchConfig: LaunchConfigTypeDef
     applicationVersion: Optional[str] = None
@@ -968,7 +968,7 @@ class SimulationApplicationConfigTypeDef(BaseModel):
     tools: Optional[List[ToolTypeDef]] = None
     useDefaultTools: Optional[bool] = None
 
-class CreateSimulationJobRequestRequestTypeDef(BaseModel):
+class CreateSimulationJobRequestRequestTypeDef(BaseValidatorModel):
     maxJobDurationInSeconds: int
     iamRole: str
     clientRequestToken: Optional[str] = None
@@ -982,7 +982,7 @@ class CreateSimulationJobRequestRequestTypeDef(BaseModel):
     vpcConfig: Optional[VPCConfigTypeDef] = None
     compute: Optional[ComputeTypeDef] = None
 
-class CreateSimulationJobResponseTypeDef(BaseModel):
+class CreateSimulationJobResponseTypeDef(BaseValidatorModel):
     arn: str
     status: SimulationJobStatusType
     lastStartedAt: datetime
@@ -1003,7 +1003,7 @@ class CreateSimulationJobResponseTypeDef(BaseModel):
     compute: ComputeResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSimulationJobResponseTypeDef(BaseModel):
+class DescribeSimulationJobResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     status: SimulationJobStatusType
@@ -1027,7 +1027,7 @@ class DescribeSimulationJobResponseTypeDef(BaseModel):
     compute: ComputeResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SimulationJobRequestTypeDef(BaseModel):
+class SimulationJobRequestTypeDef(BaseValidatorModel):
     maxJobDurationInSeconds: int
     outputLocation: Optional[OutputLocationTypeDef] = None
     loggingConfig: Optional[LoggingConfigTypeDef] = None
@@ -1041,7 +1041,7 @@ class SimulationJobRequestTypeDef(BaseModel):
     compute: Optional[ComputeTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class SimulationJobTypeDef(BaseModel):
+class SimulationJobTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     status: Optional[SimulationJobStatusType] = None
@@ -1064,24 +1064,24 @@ class SimulationJobTypeDef(BaseModel):
     networkInterface: Optional[NetworkInterfaceTypeDef] = None
     compute: Optional[ComputeResponseTypeDef] = None
 
-class FailedCreateSimulationJobRequestTypeDef(BaseModel):
+class FailedCreateSimulationJobRequestTypeDef(BaseValidatorModel):
     request: Optional[SimulationJobRequestTypeDef] = None
     failureReason: Optional[str] = None
     failureCode: Optional[SimulationJobErrorCodeType] = None
     failedAt: Optional[datetime] = None
 
-class StartSimulationJobBatchRequestRequestTypeDef(BaseModel):
+class StartSimulationJobBatchRequestRequestTypeDef(BaseValidatorModel):
     createSimulationJobRequests: Sequence[SimulationJobRequestTypeDef]
     clientRequestToken: Optional[str] = None
     batchPolicy: Optional[BatchPolicyTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class BatchDescribeSimulationJobResponseTypeDef(BaseModel):
+class BatchDescribeSimulationJobResponseTypeDef(BaseValidatorModel):
     jobs: List[SimulationJobTypeDef]
     unprocessedJobs: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSimulationJobBatchResponseTypeDef(BaseModel):
+class DescribeSimulationJobBatchResponseTypeDef(BaseValidatorModel):
     arn: str
     status: SimulationJobBatchStatusType
     lastUpdatedAt: datetime
@@ -1096,7 +1096,7 @@ class DescribeSimulationJobBatchResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSimulationJobBatchResponseTypeDef(BaseModel):
+class StartSimulationJobBatchResponseTypeDef(BaseValidatorModel):
     arn: str
     status: SimulationJobBatchStatusType
     createdAt: datetime

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,45 +11,45 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ivs_realtime_constants import *
 
-class AutoParticipantRecordingConfigurationOutputTypeDef(BaseModel):
+class AutoParticipantRecordingConfigurationOutputTypeDef(BaseValidatorModel):
     storageConfigurationArn: str
     mediaTypes: Optional[List[ParticipantRecordingMediaTypeType]] = None
 
-class AutoParticipantRecordingConfigurationTypeDef(BaseModel):
+class AutoParticipantRecordingConfigurationTypeDef(BaseValidatorModel):
     storageConfigurationArn: str
     mediaTypes: Optional[Sequence[ParticipantRecordingMediaTypeType]] = None
 
-class ChannelDestinationConfigurationTypeDef(BaseModel):
+class ChannelDestinationConfigurationTypeDef(BaseValidatorModel):
     channelArn: str
     encoderConfigurationArn: Optional[str] = None
 
-class DestinationSummaryTypeDef(BaseModel):
+class DestinationSummaryTypeDef(BaseValidatorModel):
     id: str
     state: DestinationStateType
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
-class VideoTypeDef(BaseModel):
+class VideoTypeDef(BaseValidatorModel):
     width: Optional[int] = None
     height: Optional[int] = None
     framerate: Optional[float] = None
     bitrate: Optional[int] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateParticipantTokenRequestRequestTypeDef(BaseModel):
+class CreateParticipantTokenRequestRequestTypeDef(BaseValidatorModel):
     stageArn: str
     duration: Optional[int] = None
     userId: Optional[str] = None
     attributes: Optional[Mapping[str, str]] = None
     capabilities: Optional[Sequence[ParticipantTokenCapabilityType]] = None
 
-class ParticipantTokenTypeDef(BaseModel):
+class ParticipantTokenTypeDef(BaseValidatorModel):
     participantId: Optional[str] = None
     token: Optional[str] = None
     userId: Optional[str] = None
@@ -58,59 +58,59 @@ class ParticipantTokenTypeDef(BaseModel):
     capabilities: Optional[List[ParticipantTokenCapabilityType]] = None
     expirationTime: Optional[datetime] = None
 
-class ParticipantTokenConfigurationTypeDef(BaseModel):
+class ParticipantTokenConfigurationTypeDef(BaseValidatorModel):
     duration: Optional[int] = None
     userId: Optional[str] = None
     attributes: Optional[Mapping[str, str]] = None
     capabilities: Optional[Sequence[ParticipantTokenCapabilityType]] = None
 
-class S3StorageConfigurationTypeDef(BaseModel):
+class S3StorageConfigurationTypeDef(BaseValidatorModel):
     bucketName: str
 
-class DeleteEncoderConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteEncoderConfigurationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeletePublicKeyRequestRequestTypeDef(BaseModel):
+class DeletePublicKeyRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteStageRequestRequestTypeDef(BaseModel):
+class DeleteStageRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteStorageConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteStorageConfigurationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class S3DetailTypeDef(BaseModel):
+class S3DetailTypeDef(BaseValidatorModel):
     recordingPrefix: str
 
-class DisconnectParticipantRequestRequestTypeDef(BaseModel):
+class DisconnectParticipantRequestRequestTypeDef(BaseValidatorModel):
     stageArn: str
     participantId: str
     reason: Optional[str] = None
 
-class EncoderConfigurationSummaryTypeDef(BaseModel):
+class EncoderConfigurationSummaryTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class EventTypeDef(BaseModel):
+class EventTypeDef(BaseValidatorModel):
     name: Optional[EventNameType] = None
     participantId: Optional[str] = None
     eventTime: Optional[datetime] = None
     remoteParticipantId: Optional[str] = None
     errorCode: Optional[EventErrorCodeType] = None
 
-class GetCompositionRequestRequestTypeDef(BaseModel):
+class GetCompositionRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetEncoderConfigurationRequestRequestTypeDef(BaseModel):
+class GetEncoderConfigurationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetParticipantRequestRequestTypeDef(BaseModel):
+class GetParticipantRequestRequestTypeDef(BaseValidatorModel):
     stageArn: str
     sessionId: str
     participantId: str
 
-class ParticipantTypeDef(BaseModel):
+class ParticipantTypeDef(BaseValidatorModel):
     participantId: Optional[str] = None
     userId: Optional[str] = None
     state: Optional[ParticipantStateType] = None
@@ -127,44 +127,44 @@ class ParticipantTypeDef(BaseModel):
     recordingS3Prefix: Optional[str] = None
     recordingState: Optional[ParticipantRecordingStateType] = None
 
-class GetPublicKeyRequestRequestTypeDef(BaseModel):
+class GetPublicKeyRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class PublicKeyTypeDef(BaseModel):
+class PublicKeyTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     publicKeyMaterial: Optional[str] = None
     fingerprint: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class GetStageRequestRequestTypeDef(BaseModel):
+class GetStageRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GetStageSessionRequestRequestTypeDef(BaseModel):
+class GetStageSessionRequestRequestTypeDef(BaseValidatorModel):
     stageArn: str
     sessionId: str
 
-class StageSessionTypeDef(BaseModel):
+class StageSessionTypeDef(BaseValidatorModel):
     sessionId: Optional[str] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
-class GetStorageConfigurationRequestRequestTypeDef(BaseModel):
+class GetStorageConfigurationRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class GridConfigurationTypeDef(BaseModel):
+class GridConfigurationTypeDef(BaseValidatorModel):
     featuredParticipantAttribute: Optional[str] = None
     omitStoppedVideo: Optional[bool] = None
     videoAspectRatio: Optional[VideoAspectRatioType] = None
     videoFillMode: Optional[VideoFillModeType] = None
     gridGap: Optional[int] = None
 
-class ImportPublicKeyRequestRequestTypeDef(BaseModel):
+class ImportPublicKeyRequestRequestTypeDef(BaseValidatorModel):
     publicKeyMaterial: str
     name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class PipConfigurationTypeDef(BaseModel):
+class PipConfigurationTypeDef(BaseValidatorModel):
     featuredParticipantAttribute: Optional[str] = None
     omitStoppedVideo: Optional[bool] = None
     videoFillMode: Optional[VideoFillModeType] = None
@@ -176,24 +176,24 @@ class PipConfigurationTypeDef(BaseModel):
     pipWidth: Optional[int] = None
     pipHeight: Optional[int] = None
 
-class ListCompositionsRequestRequestTypeDef(BaseModel):
+class ListCompositionsRequestRequestTypeDef(BaseValidatorModel):
     filterByStageArn: Optional[str] = None
     filterByEncoderConfigurationArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListEncoderConfigurationsRequestRequestTypeDef(BaseModel):
+class ListEncoderConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListParticipantEventsRequestRequestTypeDef(BaseModel):
+class ListParticipantEventsRequestRequestTypeDef(BaseValidatorModel):
     stageArn: str
     sessionId: str
     participantId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListParticipantsRequestRequestTypeDef(BaseModel):
+class ListParticipantsRequestRequestTypeDef(BaseValidatorModel):
     stageArn: str
     sessionId: str
     filterByUserId: Optional[str] = None
@@ -203,7 +203,7 @@ class ListParticipantsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     filterByRecordingState: Optional[ParticipantRecordingFilterByRecordingStateType] = None
 
-class ParticipantSummaryTypeDef(BaseModel):
+class ParticipantSummaryTypeDef(BaseValidatorModel):
     participantId: Optional[str] = None
     userId: Optional[str] = None
     state: Optional[ParticipantStateType] = None
@@ -211,71 +211,71 @@ class ParticipantSummaryTypeDef(BaseModel):
     published: Optional[bool] = None
     recordingState: Optional[ParticipantRecordingStateType] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListPublicKeysRequestRequestTypeDef(BaseModel):
+class ListPublicKeysRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class PublicKeySummaryTypeDef(BaseModel):
+class PublicKeySummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListStageSessionsRequestRequestTypeDef(BaseModel):
+class ListStageSessionsRequestRequestTypeDef(BaseValidatorModel):
     stageArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class StageSessionSummaryTypeDef(BaseModel):
+class StageSessionSummaryTypeDef(BaseValidatorModel):
     sessionId: Optional[str] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
-class ListStagesRequestRequestTypeDef(BaseModel):
+class ListStagesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class StageSummaryTypeDef(BaseModel):
+class StageSummaryTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     activeSessionId: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListStorageConfigurationsRequestRequestTypeDef(BaseModel):
+class ListStorageConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class RecordingConfigurationTypeDef(BaseModel):
+class RecordingConfigurationTypeDef(BaseValidatorModel):
     format: Optional[Literal["HLS"]] = None
 
-class StageEndpointsTypeDef(BaseModel):
+class StageEndpointsTypeDef(BaseValidatorModel):
     events: Optional[str] = None
     whip: Optional[str] = None
 
-class StopCompositionRequestRequestTypeDef(BaseModel):
+class StopCompositionRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateStageRequestRequestTypeDef(BaseModel):
+class UpdateStageRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     autoParticipantRecordingConfiguration: Optional[       AutoParticipantRecordingConfigurationTypeDef     ] = None
 
-class CompositionSummaryTypeDef(BaseModel):
+class CompositionSummaryTypeDef(BaseValidatorModel):
     arn: str
     stageArn: str
     destinations: List[DestinationSummaryTypeDef]
@@ -284,115 +284,115 @@ class CompositionSummaryTypeDef(BaseModel):
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
-class CreateEncoderConfigurationRequestRequestTypeDef(BaseModel):
+class CreateEncoderConfigurationRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     video: Optional[VideoTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class EncoderConfigurationTypeDef(BaseModel):
+class EncoderConfigurationTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     video: Optional[VideoTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateParticipantTokenResponseTypeDef(BaseModel):
+class CreateParticipantTokenResponseTypeDef(BaseValidatorModel):
     participantToken: ParticipantTokenTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStageRequestRequestTypeDef(BaseModel):
+class CreateStageRequestRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     participantTokenConfigurations: Optional[       Sequence[ParticipantTokenConfigurationTypeDef]     ] = None
     tags: Optional[Mapping[str, str]] = None
     autoParticipantRecordingConfiguration: Optional[       AutoParticipantRecordingConfigurationTypeDef     ] = None
 
-class CreateStorageConfigurationRequestRequestTypeDef(BaseModel):
+class CreateStorageConfigurationRequestRequestTypeDef(BaseValidatorModel):
     s3: S3StorageConfigurationTypeDef
     name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class StorageConfigurationSummaryTypeDef(BaseModel):
+class StorageConfigurationSummaryTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     s3: Optional[S3StorageConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class StorageConfigurationTypeDef(BaseModel):
+class StorageConfigurationTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     s3: Optional[S3StorageConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class DestinationDetailTypeDef(BaseModel):
+class DestinationDetailTypeDef(BaseValidatorModel):
     s3: Optional[S3DetailTypeDef] = None
 
-class ListEncoderConfigurationsResponseTypeDef(BaseModel):
+class ListEncoderConfigurationsResponseTypeDef(BaseValidatorModel):
     encoderConfigurations: List[EncoderConfigurationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListParticipantEventsResponseTypeDef(BaseModel):
+class ListParticipantEventsResponseTypeDef(BaseValidatorModel):
     events: List[EventTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetParticipantResponseTypeDef(BaseModel):
+class GetParticipantResponseTypeDef(BaseValidatorModel):
     participant: ParticipantTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPublicKeyResponseTypeDef(BaseModel):
+class GetPublicKeyResponseTypeDef(BaseValidatorModel):
     publicKey: PublicKeyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportPublicKeyResponseTypeDef(BaseModel):
+class ImportPublicKeyResponseTypeDef(BaseValidatorModel):
     publicKey: PublicKeyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStageSessionResponseTypeDef(BaseModel):
+class GetStageSessionResponseTypeDef(BaseValidatorModel):
     stageSession: StageSessionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LayoutConfigurationTypeDef(BaseModel):
+class LayoutConfigurationTypeDef(BaseValidatorModel):
     grid: Optional[GridConfigurationTypeDef] = None
     pip: Optional[PipConfigurationTypeDef] = None
 
-class ListParticipantsResponseTypeDef(BaseModel):
+class ListParticipantsResponseTypeDef(BaseValidatorModel):
     participants: List[ParticipantSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPublicKeysRequestListPublicKeysPaginateTypeDef(BaseModel):
+class ListPublicKeysRequestListPublicKeysPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPublicKeysResponseTypeDef(BaseModel):
+class ListPublicKeysResponseTypeDef(BaseValidatorModel):
     publicKeys: List[PublicKeySummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStageSessionsResponseTypeDef(BaseModel):
+class ListStageSessionsResponseTypeDef(BaseValidatorModel):
     stageSessions: List[StageSessionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStagesResponseTypeDef(BaseModel):
+class ListStagesResponseTypeDef(BaseValidatorModel):
     stages: List[StageSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class S3DestinationConfigurationOutputTypeDef(BaseModel):
+class S3DestinationConfigurationOutputTypeDef(BaseValidatorModel):
     storageConfigurationArn: str
     encoderConfigurationArns: List[str]
     recordingConfiguration: Optional[RecordingConfigurationTypeDef] = None
 
-class S3DestinationConfigurationTypeDef(BaseModel):
+class S3DestinationConfigurationTypeDef(BaseValidatorModel):
     storageConfigurationArn: str
     encoderConfigurationArns: Sequence[str]
     recordingConfiguration: Optional[RecordingConfigurationTypeDef] = None
 
-class StageTypeDef(BaseModel):
+class StageTypeDef(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
     activeSessionId: Optional[str] = None
@@ -400,56 +400,56 @@ class StageTypeDef(BaseModel):
     autoParticipantRecordingConfiguration: Optional[       AutoParticipantRecordingConfigurationOutputTypeDef     ] = None
     endpoints: Optional[StageEndpointsTypeDef] = None
 
-class ListCompositionsResponseTypeDef(BaseModel):
+class ListCompositionsResponseTypeDef(BaseValidatorModel):
     compositions: List[CompositionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEncoderConfigurationResponseTypeDef(BaseModel):
+class CreateEncoderConfigurationResponseTypeDef(BaseValidatorModel):
     encoderConfiguration: EncoderConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEncoderConfigurationResponseTypeDef(BaseModel):
+class GetEncoderConfigurationResponseTypeDef(BaseValidatorModel):
     encoderConfiguration: EncoderConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStorageConfigurationsResponseTypeDef(BaseModel):
+class ListStorageConfigurationsResponseTypeDef(BaseValidatorModel):
     storageConfigurations: List[StorageConfigurationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStorageConfigurationResponseTypeDef(BaseModel):
+class CreateStorageConfigurationResponseTypeDef(BaseValidatorModel):
     storageConfiguration: StorageConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStorageConfigurationResponseTypeDef(BaseModel):
+class GetStorageConfigurationResponseTypeDef(BaseValidatorModel):
     storageConfiguration: StorageConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DestinationConfigurationOutputTypeDef(BaseModel):
+class DestinationConfigurationOutputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     channel: Optional[ChannelDestinationConfigurationTypeDef] = None
     s3: Optional[S3DestinationConfigurationOutputTypeDef] = None
 
-class DestinationConfigurationTypeDef(BaseModel):
+class DestinationConfigurationTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     channel: Optional[ChannelDestinationConfigurationTypeDef] = None
     s3: Optional[S3DestinationConfigurationTypeDef] = None
 
-class CreateStageResponseTypeDef(BaseModel):
+class CreateStageResponseTypeDef(BaseValidatorModel):
     stage: StageTypeDef
     participantTokens: List[ParticipantTokenTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStageResponseTypeDef(BaseModel):
+class GetStageResponseTypeDef(BaseValidatorModel):
     stage: StageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateStageResponseTypeDef(BaseModel):
+class UpdateStageResponseTypeDef(BaseValidatorModel):
     stage: StageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DestinationTypeDef(BaseModel):
+class DestinationTypeDef(BaseValidatorModel):
     id: str
     state: DestinationStateType
     configuration: DestinationConfigurationOutputTypeDef
@@ -457,7 +457,7 @@ class DestinationTypeDef(BaseModel):
     endTime: Optional[datetime] = None
     detail: Optional[DestinationDetailTypeDef] = None
 
-class CompositionTypeDef(BaseModel):
+class CompositionTypeDef(BaseValidatorModel):
     arn: str
     stageArn: str
     state: CompositionStateType
@@ -467,18 +467,18 @@ class CompositionTypeDef(BaseModel):
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
-class StartCompositionRequestRequestTypeDef(BaseModel):
+class StartCompositionRequestRequestTypeDef(BaseValidatorModel):
     stageArn: str
     destinations: Sequence[DestinationConfigurationUnionTypeDef]
     idempotencyToken: Optional[str] = None
     layout: Optional[LayoutConfigurationTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetCompositionResponseTypeDef(BaseModel):
+class GetCompositionResponseTypeDef(BaseValidatorModel):
     composition: CompositionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartCompositionResponseTypeDef(BaseModel):
+class StartCompositionResponseTypeDef(BaseValidatorModel):
     composition: CompositionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

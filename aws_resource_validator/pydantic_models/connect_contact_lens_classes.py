@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,38 +11,38 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.connect_contact_lens_constants import *
 
-class PointOfInterestTypeDef(BaseModel):
+class PointOfInterestTypeDef(BaseValidatorModel):
     BeginOffsetMillis: int
     EndOffsetMillis: int
 
-class CharacterOffsetsTypeDef(BaseModel):
+class CharacterOffsetsTypeDef(BaseValidatorModel):
     BeginOffsetChar: int
     EndOffsetChar: int
 
-class ListRealtimeContactAnalysisSegmentsRequestRequestTypeDef(BaseModel):
+class ListRealtimeContactAnalysisSegmentsRequestRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CategoryDetailsTypeDef(BaseModel):
+class CategoryDetailsTypeDef(BaseValidatorModel):
     PointsOfInterest: List[PointOfInterestTypeDef]
 
-class IssueDetectedTypeDef(BaseModel):
+class IssueDetectedTypeDef(BaseValidatorModel):
     CharacterOffsets: CharacterOffsetsTypeDef
 
-class CategoriesTypeDef(BaseModel):
+class CategoriesTypeDef(BaseValidatorModel):
     MatchedCategories: List[str]
     MatchedDetails: Dict[str, CategoryDetailsTypeDef]
 
-class TranscriptTypeDef(BaseModel):
+class TranscriptTypeDef(BaseValidatorModel):
     Id: str
     ParticipantId: str
     ParticipantRole: str
@@ -52,11 +52,11 @@ class TranscriptTypeDef(BaseModel):
     Sentiment: SentimentValueType
     IssuesDetected: Optional[List[IssueDetectedTypeDef]] = None
 
-class RealtimeContactAnalysisSegmentTypeDef(BaseModel):
+class RealtimeContactAnalysisSegmentTypeDef(BaseValidatorModel):
     Transcript: Optional[TranscriptTypeDef] = None
     Categories: Optional[CategoriesTypeDef] = None
 
-class ListRealtimeContactAnalysisSegmentsResponseTypeDef(BaseModel):
+class ListRealtimeContactAnalysisSegmentsResponseTypeDef(BaseValidatorModel):
     Segments: List[RealtimeContactAnalysisSegmentTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

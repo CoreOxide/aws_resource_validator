@@ -416,5 +416,5 @@ ResourceServiceName = Literal["cloudformation",
     "sns",
     "sqs",]
 PaginatorName = Literal["list_datastores", "list_dicom_import_jobs", "list_image_set_versions", "search_image_sets"]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 TimestampTypeDef = Union[datetime, str]

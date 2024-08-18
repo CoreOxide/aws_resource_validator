@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,40 +11,40 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.acm_pca_constants import *
 
-class CustomAttributeTypeDef(BaseModel):
+class CustomAttributeTypeDef(BaseValidatorModel):
     ObjectIdentifier: str
     Value: str
 
-class AccessMethodTypeDef(BaseModel):
+class AccessMethodTypeDef(BaseValidatorModel):
     CustomObjectIdentifier: Optional[str] = None
     AccessMethodType: Optional[AccessMethodTypeType] = None
 
-class CreateCertificateAuthorityAuditReportRequestRequestTypeDef(BaseModel):
+class CreateCertificateAuthorityAuditReportRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     S3BucketName: str
     AuditReportResponseFormat: AuditReportResponseFormatType
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
-class CreatePermissionRequestRequestTypeDef(BaseModel):
+class CreatePermissionRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     Principal: str
     Actions: Sequence[ActionTypeType]
     SourceAccount: Optional[str] = None
 
-class CrlDistributionPointExtensionConfigurationTypeDef(BaseModel):
+class CrlDistributionPointExtensionConfigurationTypeDef(BaseValidatorModel):
     OmitExtension: bool
 
-class KeyUsageTypeDef(BaseModel):
+class KeyUsageTypeDef(BaseValidatorModel):
     DigitalSignature: Optional[bool] = None
     NonRepudiation: Optional[bool] = None
     KeyEncipherment: Optional[bool] = None
@@ -55,79 +55,79 @@ class KeyUsageTypeDef(BaseModel):
     EncipherOnly: Optional[bool] = None
     DecipherOnly: Optional[bool] = None
 
-class CustomExtensionTypeDef(BaseModel):
+class CustomExtensionTypeDef(BaseValidatorModel):
     ObjectIdentifier: str
     Value: str
     Critical: Optional[bool] = None
 
-class DeleteCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class DeleteCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     PermanentDeletionTimeInDays: Optional[int] = None
 
-class DeletePermissionRequestRequestTypeDef(BaseModel):
+class DeletePermissionRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     Principal: str
     SourceAccount: Optional[str] = None
 
-class DeletePolicyRequestRequestTypeDef(BaseModel):
+class DeletePolicyRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeCertificateAuthorityAuditReportRequestRequestTypeDef(BaseModel):
+class DescribeCertificateAuthorityAuditReportRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     AuditReportId: str
 
-class DescribeCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class DescribeCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
 
-class EdiPartyNameTypeDef(BaseModel):
+class EdiPartyNameTypeDef(BaseValidatorModel):
     PartyName: str
     NameAssigner: Optional[str] = None
 
-class ExtendedKeyUsageTypeDef(BaseModel):
+class ExtendedKeyUsageTypeDef(BaseValidatorModel):
     ExtendedKeyUsageType: Optional[ExtendedKeyUsageTypeType] = None
     ExtendedKeyUsageObjectIdentifier: Optional[str] = None
 
-class OtherNameTypeDef(BaseModel):
+class OtherNameTypeDef(BaseValidatorModel):
     TypeId: str
     Value: str
 
-class GetCertificateAuthorityCertificateRequestRequestTypeDef(BaseModel):
+class GetCertificateAuthorityCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
 
-class GetCertificateAuthorityCsrRequestRequestTypeDef(BaseModel):
+class GetCertificateAuthorityCsrRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
 
-class GetCertificateRequestRequestTypeDef(BaseModel):
+class GetCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     CertificateArn: str
 
-class GetPolicyRequestRequestTypeDef(BaseModel):
+class GetPolicyRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ValidityTypeDef(BaseModel):
+class ValidityTypeDef(BaseValidatorModel):
     Value: int
     Type: ValidityPeriodTypeType
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListCertificateAuthoritiesRequestRequestTypeDef(BaseModel):
+class ListCertificateAuthoritiesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ResourceOwner: Optional[ResourceOwnerType] = None
 
-class ListPermissionsRequestRequestTypeDef(BaseModel):
+class ListPermissionsRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PermissionTypeDef(BaseModel):
+class PermissionTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     Principal: Optional[str] = None
@@ -135,31 +135,31 @@ class PermissionTypeDef(BaseModel):
     Actions: Optional[List[ActionTypeType]] = None
     Policy: Optional[str] = None
 
-class ListTagsRequestRequestTypeDef(BaseModel):
+class ListTagsRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class OcspConfigurationTypeDef(BaseModel):
+class OcspConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
     OcspCustomCname: Optional[str] = None
 
-class QualifierTypeDef(BaseModel):
+class QualifierTypeDef(BaseValidatorModel):
     CpsUri: str
 
-class PutPolicyRequestRequestTypeDef(BaseModel):
+class PutPolicyRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Policy: str
 
-class RestoreCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class RestoreCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
 
-class RevokeCertificateRequestRequestTypeDef(BaseModel):
+class RevokeCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     CertificateSerial: str
     RevocationReason: RevocationReasonType
 
-class ASN1SubjectExtraOutputTypeDef(BaseModel):
+class ASN1SubjectExtraOutputTypeDef(BaseValidatorModel):
     Country: Optional[str] = None
     Organization: Optional[str] = None
     OrganizationalUnit: Optional[str] = None
@@ -176,7 +176,7 @@ class ASN1SubjectExtraOutputTypeDef(BaseModel):
     GenerationQualifier: Optional[str] = None
     CustomAttributes: Optional[List[CustomAttributeTypeDef]] = None
 
-class ASN1SubjectOutputTypeDef(BaseModel):
+class ASN1SubjectOutputTypeDef(BaseValidatorModel):
     Country: Optional[str] = None
     Organization: Optional[str] = None
     OrganizationalUnit: Optional[str] = None
@@ -193,7 +193,7 @@ class ASN1SubjectOutputTypeDef(BaseModel):
     GenerationQualifier: Optional[str] = None
     CustomAttributes: Optional[List[CustomAttributeTypeDef]] = None
 
-class ASN1SubjectTypeDef(BaseModel):
+class ASN1SubjectTypeDef(BaseValidatorModel):
     Country: Optional[str] = None
     Organization: Optional[str] = None
     OrganizationalUnit: Optional[str] = None
@@ -210,66 +210,66 @@ class ASN1SubjectTypeDef(BaseModel):
     GenerationQualifier: Optional[str] = None
     CustomAttributes: Optional[Sequence[CustomAttributeTypeDef]] = None
 
-class ImportCertificateAuthorityCertificateRequestRequestTypeDef(BaseModel):
+class ImportCertificateAuthorityCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     Certificate: BlobTypeDef
     CertificateChain: Optional[BlobTypeDef] = None
 
-class CreateCertificateAuthorityAuditReportResponseTypeDef(BaseModel):
+class CreateCertificateAuthorityAuditReportResponseTypeDef(BaseValidatorModel):
     AuditReportId: str
     S3Key: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCertificateAuthorityResponseTypeDef(BaseModel):
+class CreateCertificateAuthorityResponseTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCertificateAuthorityAuditReportResponseTypeDef(BaseModel):
+class DescribeCertificateAuthorityAuditReportResponseTypeDef(BaseValidatorModel):
     AuditReportStatus: AuditReportStatusType
     S3BucketName: str
     S3Key: str
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCertificateAuthorityCertificateResponseTypeDef(BaseModel):
+class GetCertificateAuthorityCertificateResponseTypeDef(BaseValidatorModel):
     Certificate: str
     CertificateChain: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCertificateAuthorityCsrResponseTypeDef(BaseModel):
+class GetCertificateAuthorityCsrResponseTypeDef(BaseValidatorModel):
     Csr: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCertificateResponseTypeDef(BaseModel):
+class GetCertificateResponseTypeDef(BaseValidatorModel):
     Certificate: str
     CertificateChain: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPolicyResponseTypeDef(BaseModel):
+class GetPolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IssueCertificateResponseTypeDef(BaseModel):
+class IssueCertificateResponseTypeDef(BaseValidatorModel):
     CertificateArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsResponseTypeDef(BaseModel):
+class ListTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TagCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class TagCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     Tags: Sequence[TagTypeDef]
 
-class UntagCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class UntagCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     Tags: Sequence[TagTypeDef]
 
-class CrlConfigurationTypeDef(BaseModel):
+class CrlConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
     ExpirationInDays: Optional[int] = None
     CustomCname: Optional[str] = None
@@ -277,42 +277,42 @@ class CrlConfigurationTypeDef(BaseModel):
     S3ObjectAcl: Optional[S3ObjectAclType] = None
     CrlDistributionPointExtensionConfiguration: Optional[       CrlDistributionPointExtensionConfigurationTypeDef     ] = None
 
-class DescribeCertificateAuthorityAuditReportRequestAuditReportCreatedWaitTypeDef(BaseModel):
+class DescribeCertificateAuthorityAuditReportRequestAuditReportCreatedWaitTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     AuditReportId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetCertificateAuthorityCsrRequestCertificateAuthorityCSRCreatedWaitTypeDef(BaseModel):
+class GetCertificateAuthorityCsrRequestCertificateAuthorityCSRCreatedWaitTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetCertificateRequestCertificateIssuedWaitTypeDef(BaseModel):
+class GetCertificateRequestCertificateIssuedWaitTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     CertificateArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class ListCertificateAuthoritiesRequestListCertificateAuthoritiesPaginateTypeDef(BaseModel):
+class ListCertificateAuthoritiesRequestListCertificateAuthoritiesPaginateTypeDef(BaseValidatorModel):
     ResourceOwner: Optional[ResourceOwnerType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPermissionsRequestListPermissionsPaginateTypeDef(BaseModel):
+class ListPermissionsRequestListPermissionsPaginateTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsRequestListTagsPaginateTypeDef(BaseModel):
+class ListTagsRequestListTagsPaginateTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPermissionsResponseTypeDef(BaseModel):
+class ListPermissionsResponseTypeDef(BaseValidatorModel):
     Permissions: List[PermissionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PolicyQualifierInfoTypeDef(BaseModel):
+class PolicyQualifierInfoTypeDef(BaseValidatorModel):
     PolicyQualifierId: Literal["CPS"]
     Qualifier: QualifierTypeDef
 
-class GeneralNameExtraOutputTypeDef(BaseModel):
+class GeneralNameExtraOutputTypeDef(BaseValidatorModel):
     OtherName: Optional[OtherNameTypeDef] = None
     Rfc822Name: Optional[str] = None
     DnsName: Optional[str] = None
@@ -322,7 +322,7 @@ class GeneralNameExtraOutputTypeDef(BaseModel):
     IpAddress: Optional[str] = None
     RegisteredId: Optional[str] = None
 
-class GeneralNameOutputTypeDef(BaseModel):
+class GeneralNameOutputTypeDef(BaseValidatorModel):
     OtherName: Optional[OtherNameTypeDef] = None
     Rfc822Name: Optional[str] = None
     DnsName: Optional[str] = None
@@ -332,7 +332,7 @@ class GeneralNameOutputTypeDef(BaseModel):
     IpAddress: Optional[str] = None
     RegisteredId: Optional[str] = None
 
-class GeneralNameTypeDef(BaseModel):
+class GeneralNameTypeDef(BaseValidatorModel):
     OtherName: Optional[OtherNameTypeDef] = None
     Rfc822Name: Optional[str] = None
     DnsName: Optional[str] = None
@@ -342,73 +342,73 @@ class GeneralNameTypeDef(BaseModel):
     IpAddress: Optional[str] = None
     RegisteredId: Optional[str] = None
 
-class RevocationConfigurationTypeDef(BaseModel):
+class RevocationConfigurationTypeDef(BaseValidatorModel):
     CrlConfiguration: Optional[CrlConfigurationTypeDef] = None
     OcspConfiguration: Optional[OcspConfigurationTypeDef] = None
 
-class PolicyInformationTypeDef(BaseModel):
+class PolicyInformationTypeDef(BaseValidatorModel):
     CertPolicyId: str
     PolicyQualifiers: Optional[Sequence[PolicyQualifierInfoTypeDef]] = None
 
-class AccessDescriptionExtraOutputTypeDef(BaseModel):
+class AccessDescriptionExtraOutputTypeDef(BaseValidatorModel):
     AccessMethod: AccessMethodTypeDef
     AccessLocation: GeneralNameExtraOutputTypeDef
 
-class AccessDescriptionOutputTypeDef(BaseModel):
+class AccessDescriptionOutputTypeDef(BaseValidatorModel):
     AccessMethod: AccessMethodTypeDef
     AccessLocation: GeneralNameOutputTypeDef
 
-class AccessDescriptionTypeDef(BaseModel):
+class AccessDescriptionTypeDef(BaseValidatorModel):
     AccessMethod: AccessMethodTypeDef
     AccessLocation: GeneralNameTypeDef
 
-class UpdateCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class UpdateCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     RevocationConfiguration: Optional[RevocationConfigurationTypeDef] = None
     Status: Optional[CertificateAuthorityStatusType] = None
 
-class ExtensionsTypeDef(BaseModel):
+class ExtensionsTypeDef(BaseValidatorModel):
     CertificatePolicies: Optional[Sequence[PolicyInformationTypeDef]] = None
     ExtendedKeyUsage: Optional[Sequence[ExtendedKeyUsageTypeDef]] = None
     KeyUsage: Optional[KeyUsageTypeDef] = None
     SubjectAlternativeNames: Optional[Sequence[GeneralNameTypeDef]] = None
     CustomExtensions: Optional[Sequence[CustomExtensionTypeDef]] = None
 
-class CsrExtensionsExtraOutputTypeDef(BaseModel):
+class CsrExtensionsExtraOutputTypeDef(BaseValidatorModel):
     KeyUsage: Optional[KeyUsageTypeDef] = None
     SubjectInformationAccess: Optional[List[AccessDescriptionExtraOutputTypeDef]] = None
 
-class CsrExtensionsOutputTypeDef(BaseModel):
+class CsrExtensionsOutputTypeDef(BaseValidatorModel):
     KeyUsage: Optional[KeyUsageTypeDef] = None
     SubjectInformationAccess: Optional[List[AccessDescriptionOutputTypeDef]] = None
 
-class CsrExtensionsTypeDef(BaseModel):
+class CsrExtensionsTypeDef(BaseValidatorModel):
     KeyUsage: Optional[KeyUsageTypeDef] = None
     SubjectInformationAccess: Optional[Sequence[AccessDescriptionTypeDef]] = None
 
-class ApiPassthroughTypeDef(BaseModel):
+class ApiPassthroughTypeDef(BaseValidatorModel):
     Extensions: Optional[ExtensionsTypeDef] = None
     Subject: Optional[ASN1SubjectTypeDef] = None
 
-class CertificateAuthorityConfigurationExtraOutputTypeDef(BaseModel):
+class CertificateAuthorityConfigurationExtraOutputTypeDef(BaseValidatorModel):
     KeyAlgorithm: KeyAlgorithmType
     SigningAlgorithm: SigningAlgorithmType
     Subject: ASN1SubjectExtraOutputTypeDef
     CsrExtensions: Optional[CsrExtensionsExtraOutputTypeDef] = None
 
-class CertificateAuthorityConfigurationOutputTypeDef(BaseModel):
+class CertificateAuthorityConfigurationOutputTypeDef(BaseValidatorModel):
     KeyAlgorithm: KeyAlgorithmType
     SigningAlgorithm: SigningAlgorithmType
     Subject: ASN1SubjectOutputTypeDef
     CsrExtensions: Optional[CsrExtensionsOutputTypeDef] = None
 
-class CertificateAuthorityConfigurationTypeDef(BaseModel):
+class CertificateAuthorityConfigurationTypeDef(BaseValidatorModel):
     KeyAlgorithm: KeyAlgorithmType
     SigningAlgorithm: SigningAlgorithmType
     Subject: ASN1SubjectTypeDef
     CsrExtensions: Optional[CsrExtensionsTypeDef] = None
 
-class IssueCertificateRequestRequestTypeDef(BaseModel):
+class IssueCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityArn: str
     Csr: BlobTypeDef
     SigningAlgorithm: SigningAlgorithmType
@@ -418,7 +418,7 @@ class IssueCertificateRequestRequestTypeDef(BaseModel):
     ValidityNotBefore: Optional[ValidityTypeDef] = None
     IdempotencyToken: Optional[str] = None
 
-class CertificateAuthorityTypeDef(BaseModel):
+class CertificateAuthorityTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     OwnerAccount: Optional[str] = None
     CreatedAt: Optional[datetime] = None
@@ -435,7 +435,7 @@ class CertificateAuthorityTypeDef(BaseModel):
     KeyStorageSecurityStandard: Optional[KeyStorageSecurityStandardType] = None
     UsageMode: Optional[CertificateAuthorityUsageModeType] = None
 
-class CreateCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class CreateCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityConfiguration: CertificateAuthorityConfigurationTypeDef
     CertificateAuthorityType: CertificateAuthorityTypeType
     RevocationConfiguration: Optional[RevocationConfigurationTypeDef] = None
@@ -444,11 +444,11 @@ class CreateCertificateAuthorityRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     UsageMode: Optional[CertificateAuthorityUsageModeType] = None
 
-class DescribeCertificateAuthorityResponseTypeDef(BaseModel):
+class DescribeCertificateAuthorityResponseTypeDef(BaseValidatorModel):
     CertificateAuthority: CertificateAuthorityTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCertificateAuthoritiesResponseTypeDef(BaseModel):
+class ListCertificateAuthoritiesResponseTypeDef(BaseValidatorModel):
     CertificateAuthorities: List[CertificateAuthorityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

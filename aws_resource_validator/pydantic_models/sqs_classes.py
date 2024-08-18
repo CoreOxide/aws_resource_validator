@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,100 +11,100 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sqs_constants import *
 
-class AddPermissionRequestQueueAddPermissionTypeDef(BaseModel):
+class AddPermissionRequestQueueAddPermissionTypeDef(BaseValidatorModel):
     Label: str
     AWSAccountIds: Sequence[str]
     Actions: Sequence[str]
 
-class AddPermissionRequestRequestTypeDef(BaseModel):
+class AddPermissionRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     Label: str
     AWSAccountIds: Sequence[str]
     Actions: Sequence[str]
 
-class BatchResultErrorEntryTypeDef(BaseModel):
+class BatchResultErrorEntryTypeDef(BaseValidatorModel):
     Id: str
     SenderFault: bool
     Code: str
     Message: Optional[str] = None
 
-class CancelMessageMoveTaskRequestRequestTypeDef(BaseModel):
+class CancelMessageMoveTaskRequestRequestTypeDef(BaseValidatorModel):
     TaskHandle: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ChangeMessageVisibilityBatchRequestEntryTypeDef(BaseModel):
+class ChangeMessageVisibilityBatchRequestEntryTypeDef(BaseValidatorModel):
     Id: str
     ReceiptHandle: str
     VisibilityTimeout: Optional[int] = None
 
-class ChangeMessageVisibilityBatchResultEntryTypeDef(BaseModel):
+class ChangeMessageVisibilityBatchResultEntryTypeDef(BaseValidatorModel):
     Id: str
 
-class ChangeMessageVisibilityRequestMessageChangeVisibilityTypeDef(BaseModel):
+class ChangeMessageVisibilityRequestMessageChangeVisibilityTypeDef(BaseValidatorModel):
     VisibilityTimeout: int
 
-class ChangeMessageVisibilityRequestRequestTypeDef(BaseModel):
+class ChangeMessageVisibilityRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     ReceiptHandle: str
     VisibilityTimeout: int
 
-class CreateQueueRequestRequestTypeDef(BaseModel):
+class CreateQueueRequestRequestTypeDef(BaseValidatorModel):
     QueueName: str
     Attributes: Optional[Mapping[QueueAttributeNameType, str]] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateQueueRequestServiceResourceCreateQueueTypeDef(BaseModel):
+class CreateQueueRequestServiceResourceCreateQueueTypeDef(BaseValidatorModel):
     QueueName: str
     Attributes: Optional[Mapping[QueueAttributeNameType, str]] = None
     tags: Optional[Mapping[str, str]] = None
 
-class DeleteMessageBatchRequestEntryTypeDef(BaseModel):
+class DeleteMessageBatchRequestEntryTypeDef(BaseValidatorModel):
     Id: str
     ReceiptHandle: str
 
-class DeleteMessageBatchResultEntryTypeDef(BaseModel):
+class DeleteMessageBatchResultEntryTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteMessageRequestRequestTypeDef(BaseModel):
+class DeleteMessageRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     ReceiptHandle: str
 
-class DeleteQueueRequestRequestTypeDef(BaseModel):
+class DeleteQueueRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
 
-class GetQueueAttributesRequestRequestTypeDef(BaseModel):
+class GetQueueAttributesRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     AttributeNames: Optional[Sequence[QueueAttributeFilterType]] = None
 
-class GetQueueUrlRequestRequestTypeDef(BaseModel):
+class GetQueueUrlRequestRequestTypeDef(BaseValidatorModel):
     QueueName: str
     QueueOwnerAWSAccountId: Optional[str] = None
 
-class GetQueueUrlRequestServiceResourceGetQueueByNameTypeDef(BaseModel):
+class GetQueueUrlRequestServiceResourceGetQueueByNameTypeDef(BaseValidatorModel):
     QueueName: str
     QueueOwnerAWSAccountId: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListDeadLetterSourceQueuesRequestRequestTypeDef(BaseModel):
+class ListDeadLetterSourceQueuesRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListMessageMoveTasksRequestRequestTypeDef(BaseModel):
+class ListMessageMoveTasksRequestRequestTypeDef(BaseValidatorModel):
     SourceArn: str
     MaxResults: Optional[int] = None
 
-class ListMessageMoveTasksResultEntryTypeDef(BaseModel):
+class ListMessageMoveTasksResultEntryTypeDef(BaseValidatorModel):
     TaskHandle: Optional[str] = None
     Status: Optional[str] = None
     SourceArn: Optional[str] = None
@@ -115,32 +115,32 @@ class ListMessageMoveTasksResultEntryTypeDef(BaseModel):
     FailureReason: Optional[str] = None
     StartedTimestamp: Optional[int] = None
 
-class ListQueueTagsRequestRequestTypeDef(BaseModel):
+class ListQueueTagsRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
 
-class ListQueuesRequestRequestTypeDef(BaseModel):
+class ListQueuesRequestRequestTypeDef(BaseValidatorModel):
     QueueNamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MessageAttributeValueExtraOutputTypeDef(BaseModel):
+class MessageAttributeValueExtraOutputTypeDef(BaseValidatorModel):
     DataType: str
     StringValue: Optional[str] = None
     BinaryValue: Optional[bytes] = None
     StringListValues: Optional[List[str]] = None
     BinaryListValues: Optional[List[bytes]] = None
 
-class MessageAttributeValueOutputTypeDef(BaseModel):
+class MessageAttributeValueOutputTypeDef(BaseValidatorModel):
     DataType: str
     StringValue: Optional[str] = None
     BinaryValue: Optional[bytes] = None
     StringListValues: Optional[List[str]] = None
     BinaryListValues: Optional[List[bytes]] = None
 
-class PurgeQueueRequestRequestTypeDef(BaseModel):
+class PurgeQueueRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
 
-class ReceiveMessageRequestQueueReceiveMessagesTypeDef(BaseModel):
+class ReceiveMessageRequestQueueReceiveMessagesTypeDef(BaseValidatorModel):
     AttributeNames: Optional[Sequence[QueueAttributeFilterType]] = None
     MessageSystemAttributeNames: Optional[Sequence[MessageSystemAttributeNameType]] = None
     MessageAttributeNames: Optional[Sequence[str]] = None
@@ -149,7 +149,7 @@ class ReceiveMessageRequestQueueReceiveMessagesTypeDef(BaseModel):
     WaitTimeSeconds: Optional[int] = None
     ReceiveRequestAttemptId: Optional[str] = None
 
-class ReceiveMessageRequestRequestTypeDef(BaseModel):
+class ReceiveMessageRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     AttributeNames: Optional[Sequence[QueueAttributeFilterType]] = None
     MessageSystemAttributeNames: Optional[Sequence[MessageSystemAttributeNameType]] = None
@@ -159,14 +159,14 @@ class ReceiveMessageRequestRequestTypeDef(BaseModel):
     WaitTimeSeconds: Optional[int] = None
     ReceiveRequestAttemptId: Optional[str] = None
 
-class RemovePermissionRequestQueueRemovePermissionTypeDef(BaseModel):
+class RemovePermissionRequestQueueRemovePermissionTypeDef(BaseValidatorModel):
     Label: str
 
-class RemovePermissionRequestRequestTypeDef(BaseModel):
+class RemovePermissionRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     Label: str
 
-class SendMessageBatchResultEntryTypeDef(BaseModel):
+class SendMessageBatchResultEntryTypeDef(BaseValidatorModel):
     Id: str
     MessageId: str
     MD5OfMessageBody: str
@@ -174,74 +174,74 @@ class SendMessageBatchResultEntryTypeDef(BaseModel):
     MD5OfMessageSystemAttributes: Optional[str] = None
     SequenceNumber: Optional[str] = None
 
-class SetQueueAttributesRequestQueueSetAttributesTypeDef(BaseModel):
+class SetQueueAttributesRequestQueueSetAttributesTypeDef(BaseValidatorModel):
     Attributes: Mapping[QueueAttributeNameType, str]
 
-class SetQueueAttributesRequestRequestTypeDef(BaseModel):
+class SetQueueAttributesRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     Attributes: Mapping[QueueAttributeNameType, str]
 
-class StartMessageMoveTaskRequestRequestTypeDef(BaseModel):
+class StartMessageMoveTaskRequestRequestTypeDef(BaseValidatorModel):
     SourceArn: str
     DestinationArn: Optional[str] = None
     MaxNumberOfMessagesPerSecond: Optional[int] = None
 
-class TagQueueRequestRequestTypeDef(BaseModel):
+class TagQueueRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     Tags: Mapping[str, str]
 
-class UntagQueueRequestRequestTypeDef(BaseModel):
+class UntagQueueRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     TagKeys: Sequence[str]
 
-class MessageAttributeValueTypeDef(BaseModel):
+class MessageAttributeValueTypeDef(BaseValidatorModel):
     DataType: str
     StringValue: Optional[str] = None
     BinaryValue: Optional[BlobTypeDef] = None
     StringListValues: Optional[Sequence[str]] = None
     BinaryListValues: Optional[Sequence[BlobTypeDef]] = None
 
-class MessageSystemAttributeValueTypeDef(BaseModel):
+class MessageSystemAttributeValueTypeDef(BaseValidatorModel):
     DataType: str
     StringValue: Optional[str] = None
     BinaryValue: Optional[BlobTypeDef] = None
     StringListValues: Optional[Sequence[str]] = None
     BinaryListValues: Optional[Sequence[BlobTypeDef]] = None
 
-class CancelMessageMoveTaskResultTypeDef(BaseModel):
+class CancelMessageMoveTaskResultTypeDef(BaseValidatorModel):
     ApproximateNumberOfMessagesMoved: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateQueueResultTypeDef(BaseModel):
+class CreateQueueResultTypeDef(BaseValidatorModel):
     QueueUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetQueueAttributesResultTypeDef(BaseModel):
+class GetQueueAttributesResultTypeDef(BaseValidatorModel):
     Attributes: Dict[QueueAttributeNameType, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetQueueUrlResultTypeDef(BaseModel):
+class GetQueueUrlResultTypeDef(BaseValidatorModel):
     QueueUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeadLetterSourceQueuesResultTypeDef(BaseModel):
+class ListDeadLetterSourceQueuesResultTypeDef(BaseValidatorModel):
     queueUrls: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListQueueTagsResultTypeDef(BaseModel):
+class ListQueueTagsResultTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListQueuesResultTypeDef(BaseModel):
+class ListQueuesResultTypeDef(BaseValidatorModel):
     QueueUrls: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SendMessageResultTypeDef(BaseModel):
+class SendMessageResultTypeDef(BaseValidatorModel):
     MD5OfMessageBody: str
     MD5OfMessageAttributes: str
     MD5OfMessageSystemAttributes: str
@@ -249,47 +249,47 @@ class SendMessageResultTypeDef(BaseModel):
     SequenceNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMessageMoveTaskResultTypeDef(BaseModel):
+class StartMessageMoveTaskResultTypeDef(BaseValidatorModel):
     TaskHandle: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ChangeMessageVisibilityBatchRequestQueueChangeMessageVisibilityBatchTypeDef(BaseModel):
+class ChangeMessageVisibilityBatchRequestQueueChangeMessageVisibilityBatchTypeDef(BaseValidatorModel):
     Entries: Sequence[ChangeMessageVisibilityBatchRequestEntryTypeDef]
 
-class ChangeMessageVisibilityBatchRequestRequestTypeDef(BaseModel):
+class ChangeMessageVisibilityBatchRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     Entries: Sequence[ChangeMessageVisibilityBatchRequestEntryTypeDef]
 
-class ChangeMessageVisibilityBatchResultTypeDef(BaseModel):
+class ChangeMessageVisibilityBatchResultTypeDef(BaseValidatorModel):
     Successful: List[ChangeMessageVisibilityBatchResultEntryTypeDef]
     Failed: List[BatchResultErrorEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteMessageBatchRequestQueueDeleteMessagesTypeDef(BaseModel):
+class DeleteMessageBatchRequestQueueDeleteMessagesTypeDef(BaseValidatorModel):
     Entries: Sequence[DeleteMessageBatchRequestEntryTypeDef]
 
-class DeleteMessageBatchRequestRequestTypeDef(BaseModel):
+class DeleteMessageBatchRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     Entries: Sequence[DeleteMessageBatchRequestEntryTypeDef]
 
-class DeleteMessageBatchResultTypeDef(BaseModel):
+class DeleteMessageBatchResultTypeDef(BaseValidatorModel):
     Successful: List[DeleteMessageBatchResultEntryTypeDef]
     Failed: List[BatchResultErrorEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeadLetterSourceQueuesRequestListDeadLetterSourceQueuesPaginateTypeDef(BaseModel):
+class ListDeadLetterSourceQueuesRequestListDeadLetterSourceQueuesPaginateTypeDef(BaseValidatorModel):
     QueueUrl: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueuesRequestListQueuesPaginateTypeDef(BaseModel):
+class ListQueuesRequestListQueuesPaginateTypeDef(BaseValidatorModel):
     QueueNamePrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMessageMoveTasksResultTypeDef(BaseModel):
+class ListMessageMoveTasksResultTypeDef(BaseValidatorModel):
     Results: List[ListMessageMoveTasksResultEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MessageTypeDef(BaseModel):
+class MessageTypeDef(BaseValidatorModel):
     MessageId: Optional[str] = None
     ReceiptHandle: Optional[str] = None
     MD5OfBody: Optional[str] = None
@@ -298,12 +298,12 @@ class MessageTypeDef(BaseModel):
     MD5OfMessageAttributes: Optional[str] = None
     MessageAttributes: Optional[Dict[str, MessageAttributeValueOutputTypeDef]] = None
 
-class SendMessageBatchResultTypeDef(BaseModel):
+class SendMessageBatchResultTypeDef(BaseValidatorModel):
     Successful: List[SendMessageBatchResultEntryTypeDef]
     Failed: List[BatchResultErrorEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendMessageBatchRequestEntryTypeDef(BaseModel):
+class SendMessageBatchRequestEntryTypeDef(BaseValidatorModel):
     Id: str
     MessageBody: str
     DelaySeconds: Optional[int] = None
@@ -312,7 +312,7 @@ class SendMessageBatchRequestEntryTypeDef(BaseModel):
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 
-class SendMessageRequestQueueSendMessageTypeDef(BaseModel):
+class SendMessageRequestQueueSendMessageTypeDef(BaseValidatorModel):
     MessageBody: str
     DelaySeconds: Optional[int] = None
     MessageAttributes: Optional[Mapping[str, MessageAttributeValueTypeDef]] = None
@@ -320,11 +320,11 @@ class SendMessageRequestQueueSendMessageTypeDef(BaseModel):
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 
-class ReceiveMessageResultTypeDef(BaseModel):
+class ReceiveMessageResultTypeDef(BaseValidatorModel):
     Messages: List[MessageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendMessageRequestRequestTypeDef(BaseModel):
+class SendMessageRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     MessageBody: str
     DelaySeconds: Optional[int] = None
@@ -333,10 +333,10 @@ class SendMessageRequestRequestTypeDef(BaseModel):
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 
-class SendMessageBatchRequestQueueSendMessagesTypeDef(BaseModel):
+class SendMessageBatchRequestQueueSendMessagesTypeDef(BaseValidatorModel):
     Entries: Sequence[SendMessageBatchRequestEntryTypeDef]
 
-class SendMessageBatchRequestRequestTypeDef(BaseModel):
+class SendMessageBatchRequestRequestTypeDef(BaseValidatorModel):
     QueueUrl: str
     Entries: Sequence[SendMessageBatchRequestEntryTypeDef]
 

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sso_oidc_constants import *
 
-class CreateTokenRequestRequestTypeDef(BaseModel):
+class CreateTokenRequestRequestTypeDef(BaseValidatorModel):
     clientId: str
     clientSecret: str
     grantType: str
@@ -22,14 +22,14 @@ class CreateTokenRequestRequestTypeDef(BaseModel):
     redirectUri: Optional[str] = None
     codeVerifier: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateTokenWithIAMRequestRequestTypeDef(BaseModel):
+class CreateTokenWithIAMRequestRequestTypeDef(BaseValidatorModel):
     clientId: str
     grantType: str
     code: Optional[str] = None
@@ -42,7 +42,7 @@ class CreateTokenWithIAMRequestRequestTypeDef(BaseModel):
     requestedTokenType: Optional[str] = None
     codeVerifier: Optional[str] = None
 
-class RegisterClientRequestRequestTypeDef(BaseModel):
+class RegisterClientRequestRequestTypeDef(BaseValidatorModel):
     clientName: str
     clientType: str
     scopes: Optional[Sequence[str]] = None
@@ -51,12 +51,12 @@ class RegisterClientRequestRequestTypeDef(BaseModel):
     issuerUrl: Optional[str] = None
     entitledApplicationArn: Optional[str] = None
 
-class StartDeviceAuthorizationRequestRequestTypeDef(BaseModel):
+class StartDeviceAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     clientId: str
     clientSecret: str
     startUrl: str
 
-class CreateTokenResponseTypeDef(BaseModel):
+class CreateTokenResponseTypeDef(BaseValidatorModel):
     accessToken: str
     tokenType: str
     expiresIn: int
@@ -64,7 +64,7 @@ class CreateTokenResponseTypeDef(BaseModel):
     idToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTokenWithIAMResponseTypeDef(BaseModel):
+class CreateTokenWithIAMResponseTypeDef(BaseValidatorModel):
     accessToken: str
     tokenType: str
     expiresIn: int
@@ -74,7 +74,7 @@ class CreateTokenWithIAMResponseTypeDef(BaseModel):
     scope: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterClientResponseTypeDef(BaseModel):
+class RegisterClientResponseTypeDef(BaseValidatorModel):
     clientId: str
     clientSecret: str
     clientIdIssuedAt: int
@@ -83,7 +83,7 @@ class RegisterClientResponseTypeDef(BaseModel):
     tokenEndpoint: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartDeviceAuthorizationResponseTypeDef(BaseModel):
+class StartDeviceAuthorizationResponseTypeDef(BaseValidatorModel):
     deviceCode: str
     userCode: str
     verificationUri: str

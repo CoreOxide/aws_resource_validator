@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,73 +11,73 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.emr_containers_constants import *
 
-class CancelJobRunRequestRequestTypeDef(BaseModel):
+class CancelJobRunRequestRequestTypeDef(BaseValidatorModel):
     id: str
     virtualClusterId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CertificateTypeDef(BaseModel):
+class CertificateTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
     certificateData: Optional[str] = None
 
-class CloudWatchMonitoringConfigurationTypeDef(BaseModel):
+class CloudWatchMonitoringConfigurationTypeDef(BaseValidatorModel):
     logGroupName: str
     logStreamNamePrefix: Optional[str] = None
 
-class ConfigurationPaginatorTypeDef(BaseModel):
+class ConfigurationPaginatorTypeDef(BaseValidatorModel):
     classification: str
     properties: Optional[Dict[str, str]] = None
     configurations: Optional[List[Dict[str, Any]]] = None
 
-class ConfigurationTypeDef(BaseModel):
+class ConfigurationTypeDef(BaseValidatorModel):
     classification: str
     properties: Optional[Mapping[str, str]] = None
     configurations: Optional[Sequence[Dict[str, Any]]] = None
 
-class EksInfoTypeDef(BaseModel):
+class EksInfoTypeDef(BaseValidatorModel):
     namespace: Optional[str] = None
 
-class ContainerLogRotationConfigurationTypeDef(BaseModel):
+class ContainerLogRotationConfigurationTypeDef(BaseValidatorModel):
     rotationSize: str
     maxFilesToKeep: int
 
-class CredentialsTypeDef(BaseModel):
+class CredentialsTypeDef(BaseValidatorModel):
     token: Optional[str] = None
 
-class DeleteJobTemplateRequestRequestTypeDef(BaseModel):
+class DeleteJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class DeleteManagedEndpointRequestRequestTypeDef(BaseModel):
-    id: str
-    virtualClusterId: str
-
-class DeleteVirtualClusterRequestRequestTypeDef(BaseModel):
-    id: str
-
-class DescribeJobRunRequestRequestTypeDef(BaseModel):
+class DeleteManagedEndpointRequestRequestTypeDef(BaseValidatorModel):
     id: str
     virtualClusterId: str
 
-class DescribeJobTemplateRequestRequestTypeDef(BaseModel):
+class DeleteVirtualClusterRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class DescribeManagedEndpointRequestRequestTypeDef(BaseModel):
+class DescribeJobRunRequestRequestTypeDef(BaseValidatorModel):
     id: str
     virtualClusterId: str
 
-class DescribeSecurityConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class DescribeVirtualClusterRequestRequestTypeDef(BaseModel):
+class DescribeManagedEndpointRequestRequestTypeDef(BaseValidatorModel):
+    id: str
+    virtualClusterId: str
+
+class DescribeSecurityConfigurationRequestRequestTypeDef(BaseValidatorModel):
     id: str
 
-class GetManagedEndpointSessionCredentialsRequestRequestTypeDef(BaseModel):
+class DescribeVirtualClusterRequestRequestTypeDef(BaseValidatorModel):
+    id: str
+
+class GetManagedEndpointSessionCredentialsRequestRequestTypeDef(BaseValidatorModel):
     endpointIdentifier: str
     virtualClusterIdentifier: str
     executionRoleArn: str
@@ -86,146 +86,146 @@ class GetManagedEndpointSessionCredentialsRequestRequestTypeDef(BaseModel):
     logContext: Optional[str] = None
     clientToken: Optional[str] = None
 
-class TLSCertificateConfigurationTypeDef(BaseModel):
+class TLSCertificateConfigurationTypeDef(BaseValidatorModel):
     certificateProviderType: Optional[Literal["PEM"]] = None
     publicCertificateSecretArn: Optional[str] = None
     privateCertificateSecretArn: Optional[str] = None
 
-class SparkSqlJobDriverTypeDef(BaseModel):
+class SparkSqlJobDriverTypeDef(BaseValidatorModel):
     entryPoint: Optional[str] = None
     sparkSqlParameters: Optional[str] = None
 
-class SparkSubmitJobDriverPaginatorTypeDef(BaseModel):
+class SparkSubmitJobDriverPaginatorTypeDef(BaseValidatorModel):
     entryPoint: str
     entryPointArguments: Optional[List[str]] = None
     sparkSubmitParameters: Optional[str] = None
 
-class SparkSubmitJobDriverTypeDef(BaseModel):
+class SparkSubmitJobDriverTypeDef(BaseValidatorModel):
     entryPoint: str
     entryPointArguments: Optional[Sequence[str]] = None
     sparkSubmitParameters: Optional[str] = None
 
-class RetryPolicyConfigurationTypeDef(BaseModel):
+class RetryPolicyConfigurationTypeDef(BaseValidatorModel):
     maxAttempts: int
 
-class RetryPolicyExecutionTypeDef(BaseModel):
+class RetryPolicyExecutionTypeDef(BaseValidatorModel):
     currentAttemptCount: int
 
-class TemplateParameterConfigurationTypeDef(BaseModel):
+class TemplateParameterConfigurationTypeDef(BaseValidatorModel):
     type: Optional[TemplateParameterDataTypeType] = None
     defaultValue: Optional[str] = None
 
-class SecureNamespaceInfoTypeDef(BaseModel):
+class SecureNamespaceInfoTypeDef(BaseValidatorModel):
     clusterId: Optional[str] = None
     namespace: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class S3MonitoringConfigurationTypeDef(BaseModel):
+class S3MonitoringConfigurationTypeDef(BaseValidatorModel):
     logUri: str
 
-class ParametricCloudWatchMonitoringConfigurationTypeDef(BaseModel):
+class ParametricCloudWatchMonitoringConfigurationTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     logStreamNamePrefix: Optional[str] = None
 
-class ParametricS3MonitoringConfigurationTypeDef(BaseModel):
+class ParametricS3MonitoringConfigurationTypeDef(BaseValidatorModel):
     logUri: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class CancelJobRunResponseTypeDef(BaseModel):
+class CancelJobRunResponseTypeDef(BaseValidatorModel):
     id: str
     virtualClusterId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJobTemplateResponseTypeDef(BaseModel):
+class CreateJobTemplateResponseTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateManagedEndpointResponseTypeDef(BaseModel):
+class CreateManagedEndpointResponseTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
     virtualClusterId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSecurityConfigurationResponseTypeDef(BaseModel):
+class CreateSecurityConfigurationResponseTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVirtualClusterResponseTypeDef(BaseModel):
+class CreateVirtualClusterResponseTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteJobTemplateResponseTypeDef(BaseModel):
+class DeleteJobTemplateResponseTypeDef(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteManagedEndpointResponseTypeDef(BaseModel):
+class DeleteManagedEndpointResponseTypeDef(BaseValidatorModel):
     id: str
     virtualClusterId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVirtualClusterResponseTypeDef(BaseModel):
+class DeleteVirtualClusterResponseTypeDef(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartJobRunResponseTypeDef(BaseModel):
+class StartJobRunResponseTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
     virtualClusterId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ContainerInfoTypeDef(BaseModel):
+class ContainerInfoTypeDef(BaseValidatorModel):
     eksInfo: Optional[EksInfoTypeDef] = None
 
-class GetManagedEndpointSessionCredentialsResponseTypeDef(BaseModel):
+class GetManagedEndpointSessionCredentialsResponseTypeDef(BaseValidatorModel):
     id: str
     credentials: CredentialsTypeDef
     expiresAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InTransitEncryptionConfigurationTypeDef(BaseModel):
+class InTransitEncryptionConfigurationTypeDef(BaseValidatorModel):
     tlsCertificateConfiguration: Optional[TLSCertificateConfigurationTypeDef] = None
 
-class JobDriverPaginatorTypeDef(BaseModel):
+class JobDriverPaginatorTypeDef(BaseValidatorModel):
     sparkSubmitJobDriver: Optional[SparkSubmitJobDriverPaginatorTypeDef] = None
     sparkSqlJobDriver: Optional[SparkSqlJobDriverTypeDef] = None
 
-class JobDriverTypeDef(BaseModel):
+class JobDriverTypeDef(BaseValidatorModel):
     sparkSubmitJobDriver: Optional[SparkSubmitJobDriverTypeDef] = None
     sparkSqlJobDriver: Optional[SparkSqlJobDriverTypeDef] = None
 
-class LakeFormationConfigurationTypeDef(BaseModel):
+class LakeFormationConfigurationTypeDef(BaseValidatorModel):
     authorizedSessionTagValue: Optional[str] = None
     secureNamespaceInfo: Optional[SecureNamespaceInfoTypeDef] = None
     queryEngineRoleArn: Optional[str] = None
 
-class ListJobRunsRequestListJobRunsPaginateTypeDef(BaseModel):
+class ListJobRunsRequestListJobRunsPaginateTypeDef(BaseValidatorModel):
     virtualClusterId: str
     createdBefore: Optional[TimestampTypeDef] = None
     createdAfter: Optional[TimestampTypeDef] = None
@@ -233,7 +233,7 @@ class ListJobRunsRequestListJobRunsPaginateTypeDef(BaseModel):
     states: Optional[Sequence[JobRunStateType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobRunsRequestRequestTypeDef(BaseModel):
+class ListJobRunsRequestRequestTypeDef(BaseValidatorModel):
     virtualClusterId: str
     createdBefore: Optional[TimestampTypeDef] = None
     createdAfter: Optional[TimestampTypeDef] = None
@@ -242,18 +242,18 @@ class ListJobRunsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListJobTemplatesRequestListJobTemplatesPaginateTypeDef(BaseModel):
+class ListJobTemplatesRequestListJobTemplatesPaginateTypeDef(BaseValidatorModel):
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobTemplatesRequestRequestTypeDef(BaseModel):
+class ListJobTemplatesRequestRequestTypeDef(BaseValidatorModel):
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListManagedEndpointsRequestListManagedEndpointsPaginateTypeDef(BaseModel):
+class ListManagedEndpointsRequestListManagedEndpointsPaginateTypeDef(BaseValidatorModel):
     virtualClusterId: str
     createdBefore: Optional[TimestampTypeDef] = None
     createdAfter: Optional[TimestampTypeDef] = None
@@ -261,7 +261,7 @@ class ListManagedEndpointsRequestListManagedEndpointsPaginateTypeDef(BaseModel):
     states: Optional[Sequence[EndpointStateType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListManagedEndpointsRequestRequestTypeDef(BaseModel):
+class ListManagedEndpointsRequestRequestTypeDef(BaseValidatorModel):
     virtualClusterId: str
     createdBefore: Optional[TimestampTypeDef] = None
     createdAfter: Optional[TimestampTypeDef] = None
@@ -270,18 +270,18 @@ class ListManagedEndpointsRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSecurityConfigurationsRequestListSecurityConfigurationsPaginateTypeDef(BaseModel):
+class ListSecurityConfigurationsRequestListSecurityConfigurationsPaginateTypeDef(BaseValidatorModel):
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSecurityConfigurationsRequestRequestTypeDef(BaseModel):
+class ListSecurityConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListVirtualClustersRequestListVirtualClustersPaginateTypeDef(BaseModel):
+class ListVirtualClustersRequestListVirtualClustersPaginateTypeDef(BaseValidatorModel):
     containerProviderId: Optional[str] = None
     containerProviderType: Optional[Literal["EKS"]] = None
     createdAfter: Optional[TimestampTypeDef] = None
@@ -290,7 +290,7 @@ class ListVirtualClustersRequestListVirtualClustersPaginateTypeDef(BaseModel):
     eksAccessEntryIntegrated: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVirtualClustersRequestRequestTypeDef(BaseModel):
+class ListVirtualClustersRequestRequestTypeDef(BaseValidatorModel):
     containerProviderId: Optional[str] = None
     containerProviderType: Optional[Literal["EKS"]] = None
     createdAfter: Optional[TimestampTypeDef] = None
@@ -300,49 +300,49 @@ class ListVirtualClustersRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     eksAccessEntryIntegrated: Optional[bool] = None
 
-class MonitoringConfigurationTypeDef(BaseModel):
+class MonitoringConfigurationTypeDef(BaseValidatorModel):
     persistentAppUI: Optional[PersistentAppUIType] = None
     cloudWatchMonitoringConfiguration: Optional[CloudWatchMonitoringConfigurationTypeDef] = None
     s3MonitoringConfiguration: Optional[S3MonitoringConfigurationTypeDef] = None
     containerLogRotationConfiguration: Optional[ContainerLogRotationConfigurationTypeDef] = None
 
-class ParametricMonitoringConfigurationTypeDef(BaseModel):
+class ParametricMonitoringConfigurationTypeDef(BaseValidatorModel):
     persistentAppUI: Optional[str] = None
     cloudWatchMonitoringConfiguration: Optional[       ParametricCloudWatchMonitoringConfigurationTypeDef     ] = None
     s3MonitoringConfiguration: Optional[ParametricS3MonitoringConfigurationTypeDef] = None
 
-class ContainerProviderTypeDef(BaseModel):
+class ContainerProviderTypeDef(BaseValidatorModel):
     type: Literal["EKS"]
     id: str
     info: Optional[ContainerInfoTypeDef] = None
 
-class EncryptionConfigurationTypeDef(BaseModel):
+class EncryptionConfigurationTypeDef(BaseValidatorModel):
     inTransitEncryptionConfiguration: Optional[InTransitEncryptionConfigurationTypeDef] = None
 
-class ConfigurationOverridesPaginatorTypeDef(BaseModel):
+class ConfigurationOverridesPaginatorTypeDef(BaseValidatorModel):
     applicationConfiguration: Optional[List["ConfigurationPaginatorTypeDef"]] = None
     monitoringConfiguration: Optional[MonitoringConfigurationTypeDef] = None
 
-class ConfigurationOverridesTypeDef(BaseModel):
+class ConfigurationOverridesTypeDef(BaseValidatorModel):
     applicationConfiguration: Optional[Sequence["ConfigurationTypeDef"]] = None
     monitoringConfiguration: Optional[MonitoringConfigurationTypeDef] = None
 
-class ParametricConfigurationOverridesPaginatorTypeDef(BaseModel):
+class ParametricConfigurationOverridesPaginatorTypeDef(BaseValidatorModel):
     applicationConfiguration: Optional[List["ConfigurationPaginatorTypeDef"]] = None
     monitoringConfiguration: Optional[ParametricMonitoringConfigurationTypeDef] = None
 
-class ParametricConfigurationOverridesTypeDef(BaseModel):
+class ParametricConfigurationOverridesTypeDef(BaseValidatorModel):
     applicationConfiguration: Optional[Sequence["ConfigurationTypeDef"]] = None
     monitoringConfiguration: Optional[ParametricMonitoringConfigurationTypeDef] = None
 
-class CreateVirtualClusterRequestRequestTypeDef(BaseModel):
+class CreateVirtualClusterRequestRequestTypeDef(BaseValidatorModel):
     name: str
     containerProvider: ContainerProviderTypeDef
     clientToken: str
     tags: Optional[Mapping[str, str]] = None
     securityConfigurationId: Optional[str] = None
 
-class VirtualClusterTypeDef(BaseModel):
+class VirtualClusterTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     arn: Optional[str] = None
@@ -352,11 +352,11 @@ class VirtualClusterTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     securityConfigurationId: Optional[str] = None
 
-class AuthorizationConfigurationTypeDef(BaseModel):
+class AuthorizationConfigurationTypeDef(BaseValidatorModel):
     lakeFormationConfiguration: Optional[LakeFormationConfigurationTypeDef] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class EndpointPaginatorTypeDef(BaseModel):
+class EndpointPaginatorTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     arn: Optional[str] = None
@@ -376,7 +376,7 @@ class EndpointPaginatorTypeDef(BaseModel):
     failureReason: Optional[FailureReasonType] = None
     tags: Optional[Dict[str, str]] = None
 
-class JobRunPaginatorTypeDef(BaseModel):
+class JobRunPaginatorTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     virtualClusterId: Optional[str] = None
@@ -396,7 +396,7 @@ class JobRunPaginatorTypeDef(BaseModel):
     retryPolicyConfiguration: Optional[RetryPolicyConfigurationTypeDef] = None
     retryPolicyExecution: Optional[RetryPolicyExecutionTypeDef] = None
 
-class CreateManagedEndpointRequestRequestTypeDef(BaseModel):
+class CreateManagedEndpointRequestRequestTypeDef(BaseValidatorModel):
     name: str
     virtualClusterId: str
     type: str
@@ -407,7 +407,7 @@ class CreateManagedEndpointRequestRequestTypeDef(BaseModel):
     configurationOverrides: Optional[ConfigurationOverridesTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class EndpointTypeDef(BaseModel):
+class EndpointTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     arn: Optional[str] = None
@@ -427,7 +427,7 @@ class EndpointTypeDef(BaseModel):
     failureReason: Optional[FailureReasonType] = None
     tags: Optional[Dict[str, str]] = None
 
-class JobRunTypeDef(BaseModel):
+class JobRunTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     virtualClusterId: Optional[str] = None
@@ -447,7 +447,7 @@ class JobRunTypeDef(BaseModel):
     retryPolicyConfiguration: Optional[RetryPolicyConfigurationTypeDef] = None
     retryPolicyExecution: Optional[RetryPolicyExecutionTypeDef] = None
 
-class StartJobRunRequestRequestTypeDef(BaseModel):
+class StartJobRunRequestRequestTypeDef(BaseValidatorModel):
     virtualClusterId: str
     clientToken: str
     name: Optional[str] = None
@@ -460,7 +460,7 @@ class StartJobRunRequestRequestTypeDef(BaseModel):
     jobTemplateParameters: Optional[Mapping[str, str]] = None
     retryPolicyConfiguration: Optional[RetryPolicyConfigurationTypeDef] = None
 
-class JobTemplateDataPaginatorTypeDef(BaseModel):
+class JobTemplateDataPaginatorTypeDef(BaseValidatorModel):
     executionRoleArn: str
     releaseLabel: str
     jobDriver: JobDriverPaginatorTypeDef
@@ -468,7 +468,7 @@ class JobTemplateDataPaginatorTypeDef(BaseModel):
     parameterConfiguration: Optional[Dict[str, TemplateParameterConfigurationTypeDef]] = None
     jobTags: Optional[Dict[str, str]] = None
 
-class JobTemplateDataTypeDef(BaseModel):
+class JobTemplateDataTypeDef(BaseValidatorModel):
     executionRoleArn: str
     releaseLabel: str
     jobDriver: JobDriverTypeDef
@@ -476,47 +476,47 @@ class JobTemplateDataTypeDef(BaseModel):
     parameterConfiguration: Optional[Mapping[str, TemplateParameterConfigurationTypeDef]] = None
     jobTags: Optional[Mapping[str, str]] = None
 
-class DescribeVirtualClusterResponseTypeDef(BaseModel):
+class DescribeVirtualClusterResponseTypeDef(BaseValidatorModel):
     virtualCluster: VirtualClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVirtualClustersResponseTypeDef(BaseModel):
+class ListVirtualClustersResponseTypeDef(BaseValidatorModel):
     virtualClusters: List[VirtualClusterTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SecurityConfigurationDataTypeDef(BaseModel):
+class SecurityConfigurationDataTypeDef(BaseValidatorModel):
     authorizationConfiguration: Optional[AuthorizationConfigurationTypeDef] = None
 
-class ListManagedEndpointsResponsePaginatorTypeDef(BaseModel):
+class ListManagedEndpointsResponsePaginatorTypeDef(BaseValidatorModel):
     endpoints: List[EndpointPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobRunsResponsePaginatorTypeDef(BaseModel):
+class ListJobRunsResponsePaginatorTypeDef(BaseValidatorModel):
     jobRuns: List[JobRunPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeManagedEndpointResponseTypeDef(BaseModel):
+class DescribeManagedEndpointResponseTypeDef(BaseValidatorModel):
     endpoint: EndpointTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListManagedEndpointsResponseTypeDef(BaseModel):
+class ListManagedEndpointsResponseTypeDef(BaseValidatorModel):
     endpoints: List[EndpointTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeJobRunResponseTypeDef(BaseModel):
+class DescribeJobRunResponseTypeDef(BaseValidatorModel):
     jobRun: JobRunTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobRunsResponseTypeDef(BaseModel):
+class ListJobRunsResponseTypeDef(BaseValidatorModel):
     jobRuns: List[JobRunTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JobTemplatePaginatorTypeDef(BaseModel):
+class JobTemplatePaginatorTypeDef(BaseValidatorModel):
     jobTemplateData: JobTemplateDataPaginatorTypeDef
     name: Optional[str] = None
     id: Optional[str] = None
@@ -527,14 +527,14 @@ class JobTemplatePaginatorTypeDef(BaseModel):
     kmsKeyArn: Optional[str] = None
     decryptionError: Optional[str] = None
 
-class CreateJobTemplateRequestRequestTypeDef(BaseModel):
+class CreateJobTemplateRequestRequestTypeDef(BaseValidatorModel):
     name: str
     clientToken: str
     jobTemplateData: JobTemplateDataTypeDef
     tags: Optional[Mapping[str, str]] = None
     kmsKeyArn: Optional[str] = None
 
-class JobTemplateTypeDef(BaseModel):
+class JobTemplateTypeDef(BaseValidatorModel):
     jobTemplateData: JobTemplateDataTypeDef
     name: Optional[str] = None
     id: Optional[str] = None
@@ -545,13 +545,13 @@ class JobTemplateTypeDef(BaseModel):
     kmsKeyArn: Optional[str] = None
     decryptionError: Optional[str] = None
 
-class CreateSecurityConfigurationRequestRequestTypeDef(BaseModel):
+class CreateSecurityConfigurationRequestRequestTypeDef(BaseValidatorModel):
     clientToken: str
     name: str
     securityConfigurationData: SecurityConfigurationDataTypeDef
     tags: Optional[Mapping[str, str]] = None
 
-class SecurityConfigurationTypeDef(BaseModel):
+class SecurityConfigurationTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     arn: Optional[str] = None
@@ -560,25 +560,25 @@ class SecurityConfigurationTypeDef(BaseModel):
     securityConfigurationData: Optional[SecurityConfigurationDataTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListJobTemplatesResponsePaginatorTypeDef(BaseModel):
+class ListJobTemplatesResponsePaginatorTypeDef(BaseValidatorModel):
     templates: List[JobTemplatePaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeJobTemplateResponseTypeDef(BaseModel):
+class DescribeJobTemplateResponseTypeDef(BaseValidatorModel):
     jobTemplate: JobTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobTemplatesResponseTypeDef(BaseModel):
+class ListJobTemplatesResponseTypeDef(BaseValidatorModel):
     templates: List[JobTemplateTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSecurityConfigurationResponseTypeDef(BaseModel):
+class DescribeSecurityConfigurationResponseTypeDef(BaseValidatorModel):
     securityConfiguration: SecurityConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSecurityConfigurationsResponseTypeDef(BaseModel):
+class ListSecurityConfigurationsResponseTypeDef(BaseValidatorModel):
     securityConfigurations: List[SecurityConfigurationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

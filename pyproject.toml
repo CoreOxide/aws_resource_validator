@@ -4,7 +4,7 @@ priority = "primary"
 
 [tool.poetry]
 name = "aws-resource-validator"
-version = "0.2.1"
+version = "0.2.2"
 description = "Validate, get validation patterns and generate valid AWS resource names (for testing \\ mocks)"
 authors = ["Alexy Grabov <alexy.grabov@gmail.com>"]
 license = "Apache License 2.0"

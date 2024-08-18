@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,51 +11,51 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.application_autoscaling_constants import *
 
-class AlarmTypeDef(BaseModel):
+class AlarmTypeDef(BaseValidatorModel):
     AlarmName: str
     AlarmARN: str
 
-class MetricDimensionTypeDef(BaseModel):
+class MetricDimensionTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class DeleteScalingPolicyRequestRequestTypeDef(BaseModel):
+class DeleteScalingPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyName: str
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
     ScalableDimension: ScalableDimensionType
 
-class DeleteScheduledActionRequestRequestTypeDef(BaseModel):
+class DeleteScheduledActionRequestRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ScheduledActionName: str
     ResourceId: str
     ScalableDimension: ScalableDimensionType
 
-class DeregisterScalableTargetRequestRequestTypeDef(BaseModel):
+class DeregisterScalableTargetRequestRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
     ScalableDimension: ScalableDimensionType
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeScalableTargetsRequestRequestTypeDef(BaseModel):
+class DescribeScalableTargetsRequestRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceIds: Optional[Sequence[str]] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DescribeScalingActivitiesRequestRequestTypeDef(BaseModel):
+class DescribeScalingActivitiesRequestRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: Optional[str] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
@@ -63,7 +63,7 @@ class DescribeScalingActivitiesRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     IncludeNotScaledActivities: Optional[bool] = None
 
-class DescribeScalingPoliciesRequestRequestTypeDef(BaseModel):
+class DescribeScalingPoliciesRequestRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     PolicyNames: Optional[Sequence[str]] = None
     ResourceId: Optional[str] = None
@@ -71,7 +71,7 @@ class DescribeScalingPoliciesRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeScheduledActionsRequestRequestTypeDef(BaseModel):
+class DescribeScheduledActionsRequestRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ScheduledActionNames: Optional[Sequence[str]] = None
     ResourceId: Optional[str] = None
@@ -79,86 +79,86 @@ class DescribeScheduledActionsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class NotScaledReasonTypeDef(BaseModel):
+class NotScaledReasonTypeDef(BaseValidatorModel):
     Code: str
     MaxCapacity: Optional[int] = None
     MinCapacity: Optional[int] = None
     CurrentCapacity: Optional[int] = None
 
-class PredefinedMetricSpecificationTypeDef(BaseModel):
+class PredefinedMetricSpecificationTypeDef(BaseValidatorModel):
     PredefinedMetricType: MetricTypeType
     ResourceLabel: Optional[str] = None
 
-class ScalableTargetActionTypeDef(BaseModel):
+class ScalableTargetActionTypeDef(BaseValidatorModel):
     MinCapacity: Optional[int] = None
     MaxCapacity: Optional[int] = None
 
-class SuspendedStateTypeDef(BaseModel):
+class SuspendedStateTypeDef(BaseValidatorModel):
     DynamicScalingInSuspended: Optional[bool] = None
     DynamicScalingOutSuspended: Optional[bool] = None
     ScheduledScalingSuspended: Optional[bool] = None
 
-class StepAdjustmentTypeDef(BaseModel):
+class StepAdjustmentTypeDef(BaseValidatorModel):
     ScalingAdjustment: int
     MetricIntervalLowerBound: Optional[float] = None
     MetricIntervalUpperBound: Optional[float] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Mapping[str, str]
 
-class TargetTrackingMetricDimensionTypeDef(BaseModel):
+class TargetTrackingMetricDimensionTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class DescribeScalableTargetsRequestDescribeScalableTargetsPaginateTypeDef(BaseModel):
+class DescribeScalableTargetsRequestDescribeScalableTargetsPaginateTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceIds: Optional[Sequence[str]] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeScalingActivitiesRequestDescribeScalingActivitiesPaginateTypeDef(BaseModel):
+class DescribeScalingActivitiesRequestDescribeScalingActivitiesPaginateTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: Optional[str] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     IncludeNotScaledActivities: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeScalingPoliciesRequestDescribeScalingPoliciesPaginateTypeDef(BaseModel):
+class DescribeScalingPoliciesRequestDescribeScalingPoliciesPaginateTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     PolicyNames: Optional[Sequence[str]] = None
     ResourceId: Optional[str] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeScheduledActionsRequestDescribeScheduledActionsPaginateTypeDef(BaseModel):
+class DescribeScheduledActionsRequestDescribeScheduledActionsPaginateTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ScheduledActionNames: Optional[Sequence[str]] = None
     ResourceId: Optional[str] = None
     ScalableDimension: Optional[ScalableDimensionType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutScalingPolicyResponseTypeDef(BaseModel):
+class PutScalingPolicyResponseTypeDef(BaseValidatorModel):
     PolicyARN: str
     Alarms: List[AlarmTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterScalableTargetResponseTypeDef(BaseModel):
+class RegisterScalableTargetResponseTypeDef(BaseValidatorModel):
     ScalableTargetARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ScalingActivityTypeDef(BaseModel):
+class ScalingActivityTypeDef(BaseValidatorModel):
     ActivityId: str
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
@@ -172,7 +172,7 @@ class ScalingActivityTypeDef(BaseModel):
     Details: Optional[str] = None
     NotScaledReasons: Optional[List[NotScaledReasonTypeDef]] = None
 
-class ScheduledActionTypeDef(BaseModel):
+class ScheduledActionTypeDef(BaseValidatorModel):
     ScheduledActionName: str
     ScheduledActionARN: str
     ServiceNamespace: ServiceNamespaceType
@@ -185,7 +185,7 @@ class ScheduledActionTypeDef(BaseModel):
     EndTime: Optional[datetime] = None
     ScalableTargetAction: Optional[ScalableTargetActionTypeDef] = None
 
-class PutScheduledActionRequestRequestTypeDef(BaseModel):
+class PutScheduledActionRequestRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ScheduledActionName: str
     ResourceId: str
@@ -196,7 +196,7 @@ class PutScheduledActionRequestRequestTypeDef(BaseModel):
     EndTime: Optional[TimestampTypeDef] = None
     ScalableTargetAction: Optional[ScalableTargetActionTypeDef] = None
 
-class RegisterScalableTargetRequestRequestTypeDef(BaseModel):
+class RegisterScalableTargetRequestRequestTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
     ScalableDimension: ScalableDimensionType
@@ -206,7 +206,7 @@ class RegisterScalableTargetRequestRequestTypeDef(BaseModel):
     SuspendedState: Optional[SuspendedStateTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ScalableTargetTypeDef(BaseModel):
+class ScalableTargetTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
     ScalableDimension: ScalableDimensionType
@@ -217,94 +217,94 @@ class ScalableTargetTypeDef(BaseModel):
     SuspendedState: Optional[SuspendedStateTypeDef] = None
     ScalableTargetARN: Optional[str] = None
 
-class StepScalingPolicyConfigurationExtraOutputTypeDef(BaseModel):
+class StepScalingPolicyConfigurationExtraOutputTypeDef(BaseValidatorModel):
     AdjustmentType: Optional[AdjustmentTypeType] = None
     StepAdjustments: Optional[List[StepAdjustmentTypeDef]] = None
     MinAdjustmentMagnitude: Optional[int] = None
     Cooldown: Optional[int] = None
     MetricAggregationType: Optional[MetricAggregationTypeType] = None
 
-class StepScalingPolicyConfigurationOutputTypeDef(BaseModel):
+class StepScalingPolicyConfigurationOutputTypeDef(BaseValidatorModel):
     AdjustmentType: Optional[AdjustmentTypeType] = None
     StepAdjustments: Optional[List[StepAdjustmentTypeDef]] = None
     MinAdjustmentMagnitude: Optional[int] = None
     Cooldown: Optional[int] = None
     MetricAggregationType: Optional[MetricAggregationTypeType] = None
 
-class StepScalingPolicyConfigurationTypeDef(BaseModel):
+class StepScalingPolicyConfigurationTypeDef(BaseValidatorModel):
     AdjustmentType: Optional[AdjustmentTypeType] = None
     StepAdjustments: Optional[Sequence[StepAdjustmentTypeDef]] = None
     MinAdjustmentMagnitude: Optional[int] = None
     Cooldown: Optional[int] = None
     MetricAggregationType: Optional[MetricAggregationTypeType] = None
 
-class TargetTrackingMetricExtraOutputTypeDef(BaseModel):
+class TargetTrackingMetricExtraOutputTypeDef(BaseValidatorModel):
     Dimensions: Optional[List[TargetTrackingMetricDimensionTypeDef]] = None
     MetricName: Optional[str] = None
     Namespace: Optional[str] = None
 
-class TargetTrackingMetricOutputTypeDef(BaseModel):
+class TargetTrackingMetricOutputTypeDef(BaseValidatorModel):
     Dimensions: Optional[List[TargetTrackingMetricDimensionTypeDef]] = None
     MetricName: Optional[str] = None
     Namespace: Optional[str] = None
 
-class TargetTrackingMetricTypeDef(BaseModel):
+class TargetTrackingMetricTypeDef(BaseValidatorModel):
     Dimensions: Optional[Sequence[TargetTrackingMetricDimensionTypeDef]] = None
     MetricName: Optional[str] = None
     Namespace: Optional[str] = None
 
-class DescribeScalingActivitiesResponseTypeDef(BaseModel):
+class DescribeScalingActivitiesResponseTypeDef(BaseValidatorModel):
     ScalingActivities: List[ScalingActivityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeScheduledActionsResponseTypeDef(BaseModel):
+class DescribeScheduledActionsResponseTypeDef(BaseValidatorModel):
     ScheduledActions: List[ScheduledActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeScalableTargetsResponseTypeDef(BaseModel):
+class DescribeScalableTargetsResponseTypeDef(BaseValidatorModel):
     ScalableTargets: List[ScalableTargetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TargetTrackingMetricStatExtraOutputTypeDef(BaseModel):
+class TargetTrackingMetricStatExtraOutputTypeDef(BaseValidatorModel):
     Metric: TargetTrackingMetricExtraOutputTypeDef
     Stat: str
     Unit: Optional[str] = None
 
-class TargetTrackingMetricStatOutputTypeDef(BaseModel):
+class TargetTrackingMetricStatOutputTypeDef(BaseValidatorModel):
     Metric: TargetTrackingMetricOutputTypeDef
     Stat: str
     Unit: Optional[str] = None
 
-class TargetTrackingMetricStatTypeDef(BaseModel):
+class TargetTrackingMetricStatTypeDef(BaseValidatorModel):
     Metric: TargetTrackingMetricTypeDef
     Stat: str
     Unit: Optional[str] = None
 
-class TargetTrackingMetricDataQueryExtraOutputTypeDef(BaseModel):
+class TargetTrackingMetricDataQueryExtraOutputTypeDef(BaseValidatorModel):
     Id: str
     Expression: Optional[str] = None
     Label: Optional[str] = None
     MetricStat: Optional[TargetTrackingMetricStatExtraOutputTypeDef] = None
     ReturnData: Optional[bool] = None
 
-class TargetTrackingMetricDataQueryOutputTypeDef(BaseModel):
+class TargetTrackingMetricDataQueryOutputTypeDef(BaseValidatorModel):
     Id: str
     Expression: Optional[str] = None
     Label: Optional[str] = None
     MetricStat: Optional[TargetTrackingMetricStatOutputTypeDef] = None
     ReturnData: Optional[bool] = None
 
-class TargetTrackingMetricDataQueryTypeDef(BaseModel):
+class TargetTrackingMetricDataQueryTypeDef(BaseValidatorModel):
     Id: str
     Expression: Optional[str] = None
     Label: Optional[str] = None
     MetricStat: Optional[TargetTrackingMetricStatTypeDef] = None
     ReturnData: Optional[bool] = None
 
-class CustomizedMetricSpecificationExtraOutputTypeDef(BaseModel):
+class CustomizedMetricSpecificationExtraOutputTypeDef(BaseValidatorModel):
     MetricName: Optional[str] = None
     Namespace: Optional[str] = None
     Dimensions: Optional[List[MetricDimensionTypeDef]] = None
@@ -312,7 +312,7 @@ class CustomizedMetricSpecificationExtraOutputTypeDef(BaseModel):
     Unit: Optional[str] = None
     Metrics: Optional[List[TargetTrackingMetricDataQueryExtraOutputTypeDef]] = None
 
-class CustomizedMetricSpecificationOutputTypeDef(BaseModel):
+class CustomizedMetricSpecificationOutputTypeDef(BaseValidatorModel):
     MetricName: Optional[str] = None
     Namespace: Optional[str] = None
     Dimensions: Optional[List[MetricDimensionTypeDef]] = None
@@ -320,7 +320,7 @@ class CustomizedMetricSpecificationOutputTypeDef(BaseModel):
     Unit: Optional[str] = None
     Metrics: Optional[List[TargetTrackingMetricDataQueryOutputTypeDef]] = None
 
-class CustomizedMetricSpecificationTypeDef(BaseModel):
+class CustomizedMetricSpecificationTypeDef(BaseValidatorModel):
     MetricName: Optional[str] = None
     Namespace: Optional[str] = None
     Dimensions: Optional[Sequence[MetricDimensionTypeDef]] = None
@@ -328,7 +328,7 @@ class CustomizedMetricSpecificationTypeDef(BaseModel):
     Unit: Optional[str] = None
     Metrics: Optional[Sequence[TargetTrackingMetricDataQueryTypeDef]] = None
 
-class TargetTrackingScalingPolicyConfigurationExtraOutputTypeDef(BaseModel):
+class TargetTrackingScalingPolicyConfigurationExtraOutputTypeDef(BaseValidatorModel):
     TargetValue: float
     PredefinedMetricSpecification: Optional[PredefinedMetricSpecificationTypeDef] = None
     CustomizedMetricSpecification: Optional[       CustomizedMetricSpecificationExtraOutputTypeDef     ] = None
@@ -336,7 +336,7 @@ class TargetTrackingScalingPolicyConfigurationExtraOutputTypeDef(BaseModel):
     ScaleInCooldown: Optional[int] = None
     DisableScaleIn: Optional[bool] = None
 
-class TargetTrackingScalingPolicyConfigurationOutputTypeDef(BaseModel):
+class TargetTrackingScalingPolicyConfigurationOutputTypeDef(BaseValidatorModel):
     TargetValue: float
     PredefinedMetricSpecification: Optional[PredefinedMetricSpecificationTypeDef] = None
     CustomizedMetricSpecification: Optional[CustomizedMetricSpecificationOutputTypeDef] = None
@@ -344,7 +344,7 @@ class TargetTrackingScalingPolicyConfigurationOutputTypeDef(BaseModel):
     ScaleInCooldown: Optional[int] = None
     DisableScaleIn: Optional[bool] = None
 
-class TargetTrackingScalingPolicyConfigurationTypeDef(BaseModel):
+class TargetTrackingScalingPolicyConfigurationTypeDef(BaseValidatorModel):
     TargetValue: float
     PredefinedMetricSpecification: Optional[PredefinedMetricSpecificationTypeDef] = None
     CustomizedMetricSpecification: Optional[CustomizedMetricSpecificationTypeDef] = None
@@ -352,7 +352,7 @@ class TargetTrackingScalingPolicyConfigurationTypeDef(BaseModel):
     ScaleInCooldown: Optional[int] = None
     DisableScaleIn: Optional[bool] = None
 
-class ScalingPolicyTypeDef(BaseModel):
+class ScalingPolicyTypeDef(BaseValidatorModel):
     PolicyARN: str
     PolicyName: str
     ServiceNamespace: ServiceNamespaceType
@@ -364,7 +364,7 @@ class ScalingPolicyTypeDef(BaseModel):
     TargetTrackingScalingPolicyConfiguration: Optional[       TargetTrackingScalingPolicyConfigurationOutputTypeDef     ] = None
     Alarms: Optional[List[AlarmTypeDef]] = None
 
-class PutScalingPolicyRequestRequestTypeDef(BaseModel):
+class PutScalingPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyName: str
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
@@ -373,7 +373,7 @@ class PutScalingPolicyRequestRequestTypeDef(BaseModel):
     StepScalingPolicyConfiguration: Optional[StepScalingPolicyConfigurationTypeDef] = None
     TargetTrackingScalingPolicyConfiguration: Optional[       TargetTrackingScalingPolicyConfigurationTypeDef     ] = None
 
-class DescribeScalingPoliciesResponseTypeDef(BaseModel):
+class DescribeScalingPoliciesResponseTypeDef(BaseValidatorModel):
     ScalingPolicies: List[ScalingPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

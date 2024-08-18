@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,152 +11,152 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.rekognition_constants import *
 
-class AgeRangeTypeDef(BaseModel):
+class AgeRangeTypeDef(BaseValidatorModel):
     Low: Optional[int] = None
     High: Optional[int] = None
 
-class AssociateFacesRequestRequestTypeDef(BaseModel):
+class AssociateFacesRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     UserId: str
     FaceIds: Sequence[str]
     UserMatchThreshold: Optional[float] = None
     ClientRequestToken: Optional[str] = None
 
-class AssociatedFaceTypeDef(BaseModel):
+class AssociatedFaceTypeDef(BaseValidatorModel):
     FaceId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class UnsuccessfulFaceAssociationTypeDef(BaseModel):
+class UnsuccessfulFaceAssociationTypeDef(BaseValidatorModel):
     FaceId: Optional[str] = None
     UserId: Optional[str] = None
     Confidence: Optional[float] = None
     Reasons: Optional[List[UnsuccessfulFaceAssociationReasonType]] = None
 
-class AudioMetadataTypeDef(BaseModel):
+class AudioMetadataTypeDef(BaseValidatorModel):
     Codec: Optional[str] = None
     DurationMillis: Optional[int] = None
     SampleRate: Optional[int] = None
     NumberOfChannels: Optional[int] = None
 
-class BoundingBoxTypeDef(BaseModel):
+class BoundingBoxTypeDef(BaseValidatorModel):
     Width: Optional[float] = None
     Height: Optional[float] = None
     Left: Optional[float] = None
     Top: Optional[float] = None
 
-class S3ObjectTypeDef(BaseModel):
+class S3ObjectTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     Name: Optional[str] = None
     Version: Optional[str] = None
 
-class BeardTypeDef(BaseModel):
+class BeardTypeDef(BaseValidatorModel):
     Value: Optional[bool] = None
     Confidence: Optional[float] = None
 
-class BlackFrameTypeDef(BaseModel):
+class BlackFrameTypeDef(BaseValidatorModel):
     MaxPixelThreshold: Optional[float] = None
     MinCoveragePercentage: Optional[float] = None
 
-class KnownGenderTypeDef(BaseModel):
+class KnownGenderTypeDef(BaseValidatorModel):
     Type: Optional[KnownGenderTypeType] = None
 
-class EmotionTypeDef(BaseModel):
+class EmotionTypeDef(BaseValidatorModel):
     Type: Optional[EmotionNameType] = None
     Confidence: Optional[float] = None
 
-class ImageQualityTypeDef(BaseModel):
+class ImageQualityTypeDef(BaseValidatorModel):
     Brightness: Optional[float] = None
     Sharpness: Optional[float] = None
 
-class LandmarkTypeDef(BaseModel):
+class LandmarkTypeDef(BaseValidatorModel):
     Type: Optional[LandmarkTypeType] = None
     X: Optional[float] = None
     Y: Optional[float] = None
 
-class PoseTypeDef(BaseModel):
+class PoseTypeDef(BaseValidatorModel):
     Roll: Optional[float] = None
     Yaw: Optional[float] = None
     Pitch: Optional[float] = None
 
-class SmileTypeDef(BaseModel):
+class SmileTypeDef(BaseValidatorModel):
     Value: Optional[bool] = None
     Confidence: Optional[float] = None
 
-class ConnectedHomeSettingsForUpdateTypeDef(BaseModel):
+class ConnectedHomeSettingsForUpdateTypeDef(BaseValidatorModel):
     Labels: Optional[Sequence[str]] = None
     MinConfidence: Optional[float] = None
 
-class ConnectedHomeSettingsOutputTypeDef(BaseModel):
+class ConnectedHomeSettingsOutputTypeDef(BaseValidatorModel):
     Labels: List[str]
     MinConfidence: Optional[float] = None
 
-class ConnectedHomeSettingsTypeDef(BaseModel):
+class ConnectedHomeSettingsTypeDef(BaseValidatorModel):
     Labels: Sequence[str]
     MinConfidence: Optional[float] = None
 
-class ContentTypeTypeDef(BaseModel):
+class ContentTypeTypeDef(BaseValidatorModel):
     Confidence: Optional[float] = None
     Name: Optional[str] = None
 
-class ModerationLabelTypeDef(BaseModel):
+class ModerationLabelTypeDef(BaseValidatorModel):
     Confidence: Optional[float] = None
     Name: Optional[str] = None
     ParentName: Optional[str] = None
     TaxonomyLevel: Optional[int] = None
 
-class OutputConfigTypeDef(BaseModel):
+class OutputConfigTypeDef(BaseValidatorModel):
     S3Bucket: Optional[str] = None
     S3KeyPrefix: Optional[str] = None
 
-class CoversBodyPartTypeDef(BaseModel):
+class CoversBodyPartTypeDef(BaseValidatorModel):
     Confidence: Optional[float] = None
     Value: Optional[bool] = None
 
-class CreateCollectionRequestRequestTypeDef(BaseModel):
+class CreateCollectionRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     Tags: Optional[Mapping[str, str]] = None
 
-class LivenessOutputConfigTypeDef(BaseModel):
+class LivenessOutputConfigTypeDef(BaseValidatorModel):
     S3Bucket: str
     S3KeyPrefix: Optional[str] = None
 
-class CreateProjectRequestRequestTypeDef(BaseModel):
+class CreateProjectRequestRequestTypeDef(BaseValidatorModel):
     ProjectName: str
     Feature: Optional[CustomizationFeatureType] = None
     AutoUpdate: Optional[ProjectAutoUpdateType] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class StreamProcessorDataSharingPreferenceTypeDef(BaseModel):
+class StreamProcessorDataSharingPreferenceTypeDef(BaseValidatorModel):
     OptIn: bool
 
-class StreamProcessorNotificationChannelTypeDef(BaseModel):
+class StreamProcessorNotificationChannelTypeDef(BaseValidatorModel):
     SNSTopicArn: str
 
-class CreateUserRequestRequestTypeDef(BaseModel):
+class CreateUserRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     UserId: str
     ClientRequestToken: Optional[str] = None
 
-class CustomizationFeatureContentModerationConfigTypeDef(BaseModel):
+class CustomizationFeatureContentModerationConfigTypeDef(BaseValidatorModel):
     ConfidenceThreshold: Optional[float] = None
 
-class DatasetStatsTypeDef(BaseModel):
+class DatasetStatsTypeDef(BaseValidatorModel):
     LabeledEntries: Optional[int] = None
     TotalEntries: Optional[int] = None
     TotalLabels: Optional[int] = None
     ErrorEntries: Optional[int] = None
 
-class DatasetLabelStatsTypeDef(BaseModel):
+class DatasetLabelStatsTypeDef(BaseValidatorModel):
     EntryCount: Optional[int] = None
     BoundingBoxCount: Optional[int] = None
 
-class DatasetMetadataTypeDef(BaseModel):
+class DatasetMetadataTypeDef(BaseValidatorModel):
     CreationTimestamp: Optional[datetime] = None
     DatasetType: Optional[DatasetTypeType] = None
     DatasetArn: Optional[str] = None
@@ -164,76 +164,76 @@ class DatasetMetadataTypeDef(BaseModel):
     StatusMessage: Optional[str] = None
     StatusMessageCode: Optional[DatasetStatusMessageCodeType] = None
 
-class DeleteCollectionRequestRequestTypeDef(BaseModel):
+class DeleteCollectionRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
 
-class DeleteDatasetRequestRequestTypeDef(BaseModel):
+class DeleteDatasetRequestRequestTypeDef(BaseValidatorModel):
     DatasetArn: str
 
-class DeleteFacesRequestRequestTypeDef(BaseModel):
+class DeleteFacesRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     FaceIds: Sequence[str]
 
-class UnsuccessfulFaceDeletionTypeDef(BaseModel):
+class UnsuccessfulFaceDeletionTypeDef(BaseValidatorModel):
     FaceId: Optional[str] = None
     UserId: Optional[str] = None
     Reasons: Optional[List[UnsuccessfulFaceDeletionReasonType]] = None
 
-class DeleteProjectPolicyRequestRequestTypeDef(BaseModel):
+class DeleteProjectPolicyRequestRequestTypeDef(BaseValidatorModel):
     ProjectArn: str
     PolicyName: str
     PolicyRevisionId: Optional[str] = None
 
-class DeleteProjectRequestRequestTypeDef(BaseModel):
+class DeleteProjectRequestRequestTypeDef(BaseValidatorModel):
     ProjectArn: str
 
-class DeleteProjectVersionRequestRequestTypeDef(BaseModel):
+class DeleteProjectVersionRequestRequestTypeDef(BaseValidatorModel):
     ProjectVersionArn: str
 
-class DeleteStreamProcessorRequestRequestTypeDef(BaseModel):
+class DeleteStreamProcessorRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteUserRequestRequestTypeDef(BaseModel):
+class DeleteUserRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     UserId: str
     ClientRequestToken: Optional[str] = None
 
-class DescribeCollectionRequestRequestTypeDef(BaseModel):
+class DescribeCollectionRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
 
-class DescribeDatasetRequestRequestTypeDef(BaseModel):
+class DescribeDatasetRequestRequestTypeDef(BaseValidatorModel):
     DatasetArn: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeProjectVersionsRequestRequestTypeDef(BaseModel):
+class DescribeProjectVersionsRequestRequestTypeDef(BaseValidatorModel):
     ProjectArn: str
     VersionNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeProjectsRequestRequestTypeDef(BaseModel):
+class DescribeProjectsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ProjectNames: Optional[Sequence[str]] = None
     Features: Optional[Sequence[CustomizationFeatureType]] = None
 
-class DescribeStreamProcessorRequestRequestTypeDef(BaseModel):
+class DescribeStreamProcessorRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DetectLabelsImageQualityTypeDef(BaseModel):
+class DetectLabelsImageQualityTypeDef(BaseValidatorModel):
     Brightness: Optional[float] = None
     Sharpness: Optional[float] = None
     Contrast: Optional[float] = None
 
-class DominantColorTypeDef(BaseModel):
+class DominantColorTypeDef(BaseValidatorModel):
     Red: Optional[int] = None
     Blue: Optional[int] = None
     Green: Optional[int] = None
@@ -242,102 +242,102 @@ class DominantColorTypeDef(BaseModel):
     SimplifiedColor: Optional[str] = None
     PixelPercent: Optional[float] = None
 
-class DetectLabelsImagePropertiesSettingsTypeDef(BaseModel):
+class DetectLabelsImagePropertiesSettingsTypeDef(BaseValidatorModel):
     MaxDominantColors: Optional[int] = None
 
-class GeneralLabelsSettingsTypeDef(BaseModel):
+class GeneralLabelsSettingsTypeDef(BaseValidatorModel):
     LabelInclusionFilters: Optional[Sequence[str]] = None
     LabelExclusionFilters: Optional[Sequence[str]] = None
     LabelCategoryInclusionFilters: Optional[Sequence[str]] = None
     LabelCategoryExclusionFilters: Optional[Sequence[str]] = None
 
-class HumanLoopActivationOutputTypeDef(BaseModel):
+class HumanLoopActivationOutputTypeDef(BaseValidatorModel):
     HumanLoopArn: Optional[str] = None
     HumanLoopActivationReasons: Optional[List[str]] = None
     HumanLoopActivationConditionsEvaluationResults: Optional[str] = None
 
-class ProtectiveEquipmentSummarizationAttributesTypeDef(BaseModel):
+class ProtectiveEquipmentSummarizationAttributesTypeDef(BaseValidatorModel):
     MinConfidence: float
     RequiredEquipmentTypes: Sequence[ProtectiveEquipmentTypeType]
 
-class ProtectiveEquipmentSummaryTypeDef(BaseModel):
+class ProtectiveEquipmentSummaryTypeDef(BaseValidatorModel):
     PersonsWithRequiredEquipment: Optional[List[int]] = None
     PersonsWithoutRequiredEquipment: Optional[List[int]] = None
     PersonsIndeterminate: Optional[List[int]] = None
 
-class DetectionFilterTypeDef(BaseModel):
+class DetectionFilterTypeDef(BaseValidatorModel):
     MinConfidence: Optional[float] = None
     MinBoundingBoxHeight: Optional[float] = None
     MinBoundingBoxWidth: Optional[float] = None
 
-class DisassociateFacesRequestRequestTypeDef(BaseModel):
+class DisassociateFacesRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     UserId: str
     FaceIds: Sequence[str]
     ClientRequestToken: Optional[str] = None
 
-class DisassociatedFaceTypeDef(BaseModel):
+class DisassociatedFaceTypeDef(BaseValidatorModel):
     FaceId: Optional[str] = None
 
-class UnsuccessfulFaceDisassociationTypeDef(BaseModel):
+class UnsuccessfulFaceDisassociationTypeDef(BaseValidatorModel):
     FaceId: Optional[str] = None
     UserId: Optional[str] = None
     Reasons: Optional[List[UnsuccessfulFaceDisassociationReasonType]] = None
 
-class DistributeDatasetTypeDef(BaseModel):
+class DistributeDatasetTypeDef(BaseValidatorModel):
     Arn: str
 
-class EyeDirectionTypeDef(BaseModel):
+class EyeDirectionTypeDef(BaseValidatorModel):
     Yaw: Optional[float] = None
     Pitch: Optional[float] = None
     Confidence: Optional[float] = None
 
-class EyeOpenTypeDef(BaseModel):
+class EyeOpenTypeDef(BaseValidatorModel):
     Value: Optional[bool] = None
     Confidence: Optional[float] = None
 
-class EyeglassesTypeDef(BaseModel):
+class EyeglassesTypeDef(BaseValidatorModel):
     Value: Optional[bool] = None
     Confidence: Optional[float] = None
 
-class FaceOccludedTypeDef(BaseModel):
+class FaceOccludedTypeDef(BaseValidatorModel):
     Value: Optional[bool] = None
     Confidence: Optional[float] = None
 
-class GenderTypeDef(BaseModel):
+class GenderTypeDef(BaseValidatorModel):
     Value: Optional[GenderTypeType] = None
     Confidence: Optional[float] = None
 
-class MouthOpenTypeDef(BaseModel):
+class MouthOpenTypeDef(BaseValidatorModel):
     Value: Optional[bool] = None
     Confidence: Optional[float] = None
 
-class MustacheTypeDef(BaseModel):
+class MustacheTypeDef(BaseValidatorModel):
     Value: Optional[bool] = None
     Confidence: Optional[float] = None
 
-class SunglassesTypeDef(BaseModel):
+class SunglassesTypeDef(BaseValidatorModel):
     Value: Optional[bool] = None
     Confidence: Optional[float] = None
 
-class FaceSearchSettingsTypeDef(BaseModel):
+class FaceSearchSettingsTypeDef(BaseValidatorModel):
     CollectionId: Optional[str] = None
     FaceMatchThreshold: Optional[float] = None
 
-class PointTypeDef(BaseModel):
+class PointTypeDef(BaseValidatorModel):
     X: Optional[float] = None
     Y: Optional[float] = None
 
-class GetCelebrityInfoRequestRequestTypeDef(BaseModel):
+class GetCelebrityInfoRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetCelebrityRecognitionRequestRequestTypeDef(BaseModel):
+class GetCelebrityRecognitionRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[CelebrityRecognitionSortByType] = None
 
-class VideoMetadataTypeDef(BaseModel):
+class VideoMetadataTypeDef(BaseValidatorModel):
     Codec: Optional[str] = None
     DurationMillis: Optional[int] = None
     Format: Optional[str] = None
@@ -346,100 +346,100 @@ class VideoMetadataTypeDef(BaseModel):
     FrameWidth: Optional[int] = None
     ColorRange: Optional[VideoColorRangeType] = None
 
-class GetContentModerationRequestMetadataTypeDef(BaseModel):
+class GetContentModerationRequestMetadataTypeDef(BaseValidatorModel):
     SortBy: Optional[ContentModerationSortByType] = None
     AggregateBy: Optional[ContentModerationAggregateByType] = None
 
-class GetContentModerationRequestRequestTypeDef(BaseModel):
+class GetContentModerationRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[ContentModerationSortByType] = None
     AggregateBy: Optional[ContentModerationAggregateByType] = None
 
-class GetFaceDetectionRequestRequestTypeDef(BaseModel):
+class GetFaceDetectionRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetFaceLivenessSessionResultsRequestRequestTypeDef(BaseModel):
+class GetFaceLivenessSessionResultsRequestRequestTypeDef(BaseValidatorModel):
     SessionId: str
 
-class GetFaceSearchRequestRequestTypeDef(BaseModel):
+class GetFaceSearchRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[FaceSearchSortByType] = None
 
-class GetLabelDetectionRequestMetadataTypeDef(BaseModel):
+class GetLabelDetectionRequestMetadataTypeDef(BaseValidatorModel):
     SortBy: Optional[LabelDetectionSortByType] = None
     AggregateBy: Optional[LabelDetectionAggregateByType] = None
 
-class GetLabelDetectionRequestRequestTypeDef(BaseModel):
+class GetLabelDetectionRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[LabelDetectionSortByType] = None
     AggregateBy: Optional[LabelDetectionAggregateByType] = None
 
-class GetMediaAnalysisJobRequestRequestTypeDef(BaseModel):
+class GetMediaAnalysisJobRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
 
-class MediaAnalysisJobFailureDetailsTypeDef(BaseModel):
+class MediaAnalysisJobFailureDetailsTypeDef(BaseValidatorModel):
     Code: Optional[MediaAnalysisJobFailureCodeType] = None
     Message: Optional[str] = None
 
-class MediaAnalysisOutputConfigTypeDef(BaseModel):
+class MediaAnalysisOutputConfigTypeDef(BaseValidatorModel):
     S3Bucket: str
     S3KeyPrefix: Optional[str] = None
 
-class GetPersonTrackingRequestRequestTypeDef(BaseModel):
+class GetPersonTrackingRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[PersonTrackingSortByType] = None
 
-class GetSegmentDetectionRequestRequestTypeDef(BaseModel):
+class GetSegmentDetectionRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class SegmentTypeInfoTypeDef(BaseModel):
+class SegmentTypeInfoTypeDef(BaseValidatorModel):
     Type: Optional[SegmentTypeType] = None
     ModelVersion: Optional[str] = None
 
-class GetTextDetectionRequestRequestTypeDef(BaseModel):
+class GetTextDetectionRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class HumanLoopDataAttributesTypeDef(BaseModel):
+class HumanLoopDataAttributesTypeDef(BaseValidatorModel):
     ContentClassifiers: Optional[Sequence[ContentClassifierType]] = None
 
-class KinesisDataStreamTypeDef(BaseModel):
+class KinesisDataStreamTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
-class KinesisVideoStreamStartSelectorTypeDef(BaseModel):
+class KinesisVideoStreamStartSelectorTypeDef(BaseValidatorModel):
     ProducerTimestamp: Optional[int] = None
     FragmentNumber: Optional[str] = None
 
-class KinesisVideoStreamTypeDef(BaseModel):
+class KinesisVideoStreamTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
-class LabelAliasTypeDef(BaseModel):
+class LabelAliasTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class LabelCategoryTypeDef(BaseModel):
+class LabelCategoryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class ParentTypeDef(BaseModel):
+class ParentTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class ListCollectionsRequestRequestTypeDef(BaseModel):
+class ListCollectionsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDatasetEntriesRequestRequestTypeDef(BaseModel):
+class ListDatasetEntriesRequestRequestTypeDef(BaseValidatorModel):
     DatasetArn: str
     ContainsLabels: Optional[Sequence[str]] = None
     Labeled: Optional[bool] = None
@@ -448,28 +448,28 @@ class ListDatasetEntriesRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDatasetLabelsRequestRequestTypeDef(BaseModel):
+class ListDatasetLabelsRequestRequestTypeDef(BaseValidatorModel):
     DatasetArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListFacesRequestRequestTypeDef(BaseModel):
+class ListFacesRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     UserId: Optional[str] = None
     FaceIds: Optional[Sequence[str]] = None
 
-class ListMediaAnalysisJobsRequestRequestTypeDef(BaseModel):
+class ListMediaAnalysisJobsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListProjectPoliciesRequestRequestTypeDef(BaseModel):
+class ListProjectPoliciesRequestRequestTypeDef(BaseValidatorModel):
     ProjectArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ProjectPolicyTypeDef(BaseModel):
+class ProjectPolicyTypeDef(BaseValidatorModel):
     ProjectArn: Optional[str] = None
     PolicyName: Optional[str] = None
     PolicyRevisionId: Optional[str] = None
@@ -477,146 +477,146 @@ class ProjectPolicyTypeDef(BaseModel):
     CreationTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
 
-class ListStreamProcessorsRequestRequestTypeDef(BaseModel):
+class ListStreamProcessorsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class StreamProcessorTypeDef(BaseModel):
+class StreamProcessorTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[StreamProcessorStatusType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListUsersRequestRequestTypeDef(BaseModel):
+class ListUsersRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class UserTypeDef(BaseModel):
+class UserTypeDef(BaseValidatorModel):
     UserId: Optional[str] = None
     UserStatus: Optional[UserStatusType] = None
 
-class MatchedUserTypeDef(BaseModel):
+class MatchedUserTypeDef(BaseValidatorModel):
     UserId: Optional[str] = None
     UserStatus: Optional[UserStatusType] = None
 
-class MediaAnalysisDetectModerationLabelsConfigTypeDef(BaseModel):
+class MediaAnalysisDetectModerationLabelsConfigTypeDef(BaseValidatorModel):
     MinConfidence: Optional[float] = None
     ProjectVersion: Optional[str] = None
 
-class MediaAnalysisModelVersionsTypeDef(BaseModel):
+class MediaAnalysisModelVersionsTypeDef(BaseValidatorModel):
     Moderation: Optional[str] = None
 
-class NotificationChannelTypeDef(BaseModel):
+class NotificationChannelTypeDef(BaseValidatorModel):
     SNSTopicArn: str
     RoleArn: str
 
-class PutProjectPolicyRequestRequestTypeDef(BaseModel):
+class PutProjectPolicyRequestRequestTypeDef(BaseValidatorModel):
     ProjectArn: str
     PolicyName: str
     PolicyDocument: str
     PolicyRevisionId: Optional[str] = None
 
-class S3DestinationTypeDef(BaseModel):
+class S3DestinationTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     KeyPrefix: Optional[str] = None
 
-class SearchFacesRequestRequestTypeDef(BaseModel):
+class SearchFacesRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     FaceId: str
     MaxFaces: Optional[int] = None
     FaceMatchThreshold: Optional[float] = None
 
-class SearchUsersRequestRequestTypeDef(BaseModel):
+class SearchUsersRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     UserId: Optional[str] = None
     FaceId: Optional[str] = None
     UserMatchThreshold: Optional[float] = None
     MaxUsers: Optional[int] = None
 
-class SearchedFaceTypeDef(BaseModel):
+class SearchedFaceTypeDef(BaseValidatorModel):
     FaceId: Optional[str] = None
 
-class SearchedUserTypeDef(BaseModel):
+class SearchedUserTypeDef(BaseValidatorModel):
     UserId: Optional[str] = None
 
-class ShotSegmentTypeDef(BaseModel):
+class ShotSegmentTypeDef(BaseValidatorModel):
     Index: Optional[int] = None
     Confidence: Optional[float] = None
 
-class TechnicalCueSegmentTypeDef(BaseModel):
+class TechnicalCueSegmentTypeDef(BaseValidatorModel):
     Type: Optional[TechnicalCueTypeType] = None
     Confidence: Optional[float] = None
 
-class StartProjectVersionRequestRequestTypeDef(BaseModel):
+class StartProjectVersionRequestRequestTypeDef(BaseValidatorModel):
     ProjectVersionArn: str
     MinInferenceUnits: int
     MaxInferenceUnits: Optional[int] = None
 
-class StartShotDetectionFilterTypeDef(BaseModel):
+class StartShotDetectionFilterTypeDef(BaseValidatorModel):
     MinSegmentConfidence: Optional[float] = None
 
-class StreamProcessingStopSelectorTypeDef(BaseModel):
+class StreamProcessingStopSelectorTypeDef(BaseValidatorModel):
     MaxDurationInSeconds: Optional[int] = None
 
-class StopProjectVersionRequestRequestTypeDef(BaseModel):
+class StopProjectVersionRequestRequestTypeDef(BaseValidatorModel):
     ProjectVersionArn: str
 
-class StopStreamProcessorRequestRequestTypeDef(BaseModel):
+class StopStreamProcessorRequestRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class CopyProjectVersionResponseTypeDef(BaseModel):
+class CopyProjectVersionResponseTypeDef(BaseValidatorModel):
     ProjectVersionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCollectionResponseTypeDef(BaseModel):
+class CreateCollectionResponseTypeDef(BaseValidatorModel):
     StatusCode: int
     CollectionArn: str
     FaceModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDatasetResponseTypeDef(BaseModel):
+class CreateDatasetResponseTypeDef(BaseValidatorModel):
     DatasetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFaceLivenessSessionResponseTypeDef(BaseModel):
+class CreateFaceLivenessSessionResponseTypeDef(BaseValidatorModel):
     SessionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProjectResponseTypeDef(BaseModel):
+class CreateProjectResponseTypeDef(BaseValidatorModel):
     ProjectArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProjectVersionResponseTypeDef(BaseModel):
+class CreateProjectVersionResponseTypeDef(BaseValidatorModel):
     ProjectVersionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateStreamProcessorResponseTypeDef(BaseModel):
+class CreateStreamProcessorResponseTypeDef(BaseValidatorModel):
     StreamProcessorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCollectionResponseTypeDef(BaseModel):
+class DeleteCollectionResponseTypeDef(BaseValidatorModel):
     StatusCode: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteProjectResponseTypeDef(BaseModel):
+class DeleteProjectResponseTypeDef(BaseValidatorModel):
     Status: ProjectStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteProjectVersionResponseTypeDef(BaseModel):
+class DeleteProjectVersionResponseTypeDef(BaseValidatorModel):
     Status: ProjectVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCollectionResponseTypeDef(BaseModel):
+class DescribeCollectionResponseTypeDef(BaseValidatorModel):
     FaceCount: int
     FaceModelVersion: str
     CollectionARN: str
@@ -624,84 +624,84 @@ class DescribeCollectionResponseTypeDef(BaseModel):
     UserCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCollectionsResponseTypeDef(BaseModel):
+class ListCollectionsResponseTypeDef(BaseValidatorModel):
     CollectionIds: List[str]
     FaceModelVersions: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListDatasetEntriesResponseTypeDef(BaseModel):
+class ListDatasetEntriesResponseTypeDef(BaseValidatorModel):
     DatasetEntries: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutProjectPolicyResponseTypeDef(BaseModel):
+class PutProjectPolicyResponseTypeDef(BaseValidatorModel):
     PolicyRevisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartCelebrityRecognitionResponseTypeDef(BaseModel):
+class StartCelebrityRecognitionResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartContentModerationResponseTypeDef(BaseModel):
+class StartContentModerationResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartFaceDetectionResponseTypeDef(BaseModel):
+class StartFaceDetectionResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartFaceSearchResponseTypeDef(BaseModel):
+class StartFaceSearchResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartLabelDetectionResponseTypeDef(BaseModel):
+class StartLabelDetectionResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMediaAnalysisJobResponseTypeDef(BaseModel):
+class StartMediaAnalysisJobResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartPersonTrackingResponseTypeDef(BaseModel):
+class StartPersonTrackingResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartProjectVersionResponseTypeDef(BaseModel):
+class StartProjectVersionResponseTypeDef(BaseValidatorModel):
     Status: ProjectVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSegmentDetectionResponseTypeDef(BaseModel):
+class StartSegmentDetectionResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartStreamProcessorResponseTypeDef(BaseModel):
+class StartStreamProcessorResponseTypeDef(BaseValidatorModel):
     SessionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTextDetectionResponseTypeDef(BaseModel):
+class StartTextDetectionResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopProjectVersionResponseTypeDef(BaseModel):
+class StopProjectVersionResponseTypeDef(BaseValidatorModel):
     Status: ProjectVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateFacesResponseTypeDef(BaseModel):
+class AssociateFacesResponseTypeDef(BaseValidatorModel):
     AssociatedFaces: List[AssociatedFaceTypeDef]
     UnsuccessfulFaceAssociations: List[UnsuccessfulFaceAssociationTypeDef]
     UserStatus: UserStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ComparedSourceImageFaceTypeDef(BaseModel):
+class ComparedSourceImageFaceTypeDef(BaseValidatorModel):
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Confidence: Optional[float] = None
 
-class FaceTypeDef(BaseModel):
+class FaceTypeDef(BaseValidatorModel):
     FaceId: Optional[str] = None
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     ImageId: Optional[str] = None
@@ -710,44 +710,44 @@ class FaceTypeDef(BaseModel):
     IndexFacesModelVersion: Optional[str] = None
     UserId: Optional[str] = None
 
-class AuditImageTypeDef(BaseModel):
+class AuditImageTypeDef(BaseValidatorModel):
     Bytes: Optional[bytes] = None
     S3Object: Optional[S3ObjectTypeDef] = None
     BoundingBox: Optional[BoundingBoxTypeDef] = None
 
-class GroundTruthManifestTypeDef(BaseModel):
+class GroundTruthManifestTypeDef(BaseValidatorModel):
     S3Object: Optional[S3ObjectTypeDef] = None
 
-class MediaAnalysisInputTypeDef(BaseModel):
+class MediaAnalysisInputTypeDef(BaseValidatorModel):
     S3Object: S3ObjectTypeDef
 
-class MediaAnalysisManifestSummaryTypeDef(BaseModel):
+class MediaAnalysisManifestSummaryTypeDef(BaseValidatorModel):
     S3Object: Optional[S3ObjectTypeDef] = None
 
-class SummaryTypeDef(BaseModel):
+class SummaryTypeDef(BaseValidatorModel):
     S3Object: Optional[S3ObjectTypeDef] = None
 
-class VideoTypeDef(BaseModel):
+class VideoTypeDef(BaseValidatorModel):
     S3Object: Optional[S3ObjectTypeDef] = None
 
-class StartTechnicalCueDetectionFilterTypeDef(BaseModel):
+class StartTechnicalCueDetectionFilterTypeDef(BaseValidatorModel):
     MinSegmentConfidence: Optional[float] = None
     BlackFrame: Optional[BlackFrameTypeDef] = None
 
-class DatasetChangesTypeDef(BaseModel):
+class DatasetChangesTypeDef(BaseValidatorModel):
     GroundTruth: BlobTypeDef
 
-class ImageTypeDef(BaseModel):
+class ImageTypeDef(BaseValidatorModel):
     Bytes: Optional[BlobTypeDef] = None
     S3Object: Optional[S3ObjectTypeDef] = None
 
-class GetCelebrityInfoResponseTypeDef(BaseModel):
+class GetCelebrityInfoResponseTypeDef(BaseValidatorModel):
     Urls: List[str]
     Name: str
     KnownGender: KnownGenderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ComparedFaceTypeDef(BaseModel):
+class ComparedFaceTypeDef(BaseValidatorModel):
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Confidence: Optional[float] = None
     Landmarks: Optional[List[LandmarkTypeDef]] = None
@@ -756,10 +756,10 @@ class ComparedFaceTypeDef(BaseModel):
     Emotions: Optional[List[EmotionTypeDef]] = None
     Smile: Optional[SmileTypeDef] = None
 
-class StreamProcessorSettingsForUpdateTypeDef(BaseModel):
+class StreamProcessorSettingsForUpdateTypeDef(BaseValidatorModel):
     ConnectedHomeForUpdate: Optional[ConnectedHomeSettingsForUpdateTypeDef] = None
 
-class ContentModerationDetectionTypeDef(BaseModel):
+class ContentModerationDetectionTypeDef(BaseValidatorModel):
     Timestamp: Optional[int] = None
     ModerationLabel: Optional[ModerationLabelTypeDef] = None
     StartTimestampMillis: Optional[int] = None
@@ -767,7 +767,7 @@ class ContentModerationDetectionTypeDef(BaseModel):
     DurationMillis: Optional[int] = None
     ContentTypes: Optional[List[ContentTypeTypeDef]] = None
 
-class CopyProjectVersionRequestRequestTypeDef(BaseModel):
+class CopyProjectVersionRequestRequestTypeDef(BaseValidatorModel):
     SourceProjectArn: str
     SourceProjectVersionArn: str
     DestinationProjectArn: str
@@ -776,20 +776,20 @@ class CopyProjectVersionRequestRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     KmsKeyId: Optional[str] = None
 
-class EquipmentDetectionTypeDef(BaseModel):
+class EquipmentDetectionTypeDef(BaseValidatorModel):
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Confidence: Optional[float] = None
     Type: Optional[ProtectiveEquipmentTypeType] = None
     CoversBodyPart: Optional[CoversBodyPartTypeDef] = None
 
-class CreateFaceLivenessSessionRequestSettingsTypeDef(BaseModel):
+class CreateFaceLivenessSessionRequestSettingsTypeDef(BaseValidatorModel):
     OutputConfig: Optional[LivenessOutputConfigTypeDef] = None
     AuditImagesLimit: Optional[int] = None
 
-class CustomizationFeatureConfigTypeDef(BaseModel):
+class CustomizationFeatureConfigTypeDef(BaseValidatorModel):
     ContentModeration: Optional[CustomizationFeatureContentModerationConfigTypeDef] = None
 
-class DatasetDescriptionTypeDef(BaseModel):
+class DatasetDescriptionTypeDef(BaseValidatorModel):
     CreationTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
     Status: Optional[DatasetStatusType] = None
@@ -797,11 +797,11 @@ class DatasetDescriptionTypeDef(BaseModel):
     StatusMessageCode: Optional[DatasetStatusMessageCodeType] = None
     DatasetStats: Optional[DatasetStatsTypeDef] = None
 
-class DatasetLabelDescriptionTypeDef(BaseModel):
+class DatasetLabelDescriptionTypeDef(BaseValidatorModel):
     LabelName: Optional[str] = None
     LabelStats: Optional[DatasetLabelStatsTypeDef] = None
 
-class ProjectDescriptionTypeDef(BaseModel):
+class ProjectDescriptionTypeDef(BaseValidatorModel):
     ProjectArn: Optional[str] = None
     CreationTimestamp: Optional[datetime] = None
     Status: Optional[ProjectStatusType] = None
@@ -809,25 +809,25 @@ class ProjectDescriptionTypeDef(BaseModel):
     Feature: Optional[CustomizationFeatureType] = None
     AutoUpdate: Optional[ProjectAutoUpdateType] = None
 
-class DeleteFacesResponseTypeDef(BaseModel):
+class DeleteFacesResponseTypeDef(BaseValidatorModel):
     DeletedFaces: List[str]
     UnsuccessfulFaceDeletions: List[UnsuccessfulFaceDeletionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeProjectVersionsRequestDescribeProjectVersionsPaginateTypeDef(BaseModel):
+class DescribeProjectVersionsRequestDescribeProjectVersionsPaginateTypeDef(BaseValidatorModel):
     ProjectArn: str
     VersionNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeProjectsRequestDescribeProjectsPaginateTypeDef(BaseModel):
+class DescribeProjectsRequestDescribeProjectsPaginateTypeDef(BaseValidatorModel):
     ProjectNames: Optional[Sequence[str]] = None
     Features: Optional[Sequence[CustomizationFeatureType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCollectionsRequestListCollectionsPaginateTypeDef(BaseModel):
+class ListCollectionsRequestListCollectionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDatasetEntriesRequestListDatasetEntriesPaginateTypeDef(BaseModel):
+class ListDatasetEntriesRequestListDatasetEntriesPaginateTypeDef(BaseValidatorModel):
     DatasetArn: str
     ContainsLabels: Optional[Sequence[str]] = None
     Labeled: Optional[bool] = None
@@ -835,62 +835,62 @@ class ListDatasetEntriesRequestListDatasetEntriesPaginateTypeDef(BaseModel):
     HasErrors: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDatasetLabelsRequestListDatasetLabelsPaginateTypeDef(BaseModel):
+class ListDatasetLabelsRequestListDatasetLabelsPaginateTypeDef(BaseValidatorModel):
     DatasetArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFacesRequestListFacesPaginateTypeDef(BaseModel):
+class ListFacesRequestListFacesPaginateTypeDef(BaseValidatorModel):
     CollectionId: str
     UserId: Optional[str] = None
     FaceIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectPoliciesRequestListProjectPoliciesPaginateTypeDef(BaseModel):
+class ListProjectPoliciesRequestListProjectPoliciesPaginateTypeDef(BaseValidatorModel):
     ProjectArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStreamProcessorsRequestListStreamProcessorsPaginateTypeDef(BaseModel):
+class ListStreamProcessorsRequestListStreamProcessorsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsersRequestListUsersPaginateTypeDef(BaseModel):
+class ListUsersRequestListUsersPaginateTypeDef(BaseValidatorModel):
     CollectionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeProjectVersionsRequestProjectVersionRunningWaitTypeDef(BaseModel):
+class DescribeProjectVersionsRequestProjectVersionRunningWaitTypeDef(BaseValidatorModel):
     ProjectArn: str
     VersionNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeProjectVersionsRequestProjectVersionTrainingCompletedWaitTypeDef(BaseModel):
+class DescribeProjectVersionsRequestProjectVersionTrainingCompletedWaitTypeDef(BaseValidatorModel):
     ProjectArn: str
     VersionNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DetectLabelsImageBackgroundTypeDef(BaseModel):
+class DetectLabelsImageBackgroundTypeDef(BaseValidatorModel):
     Quality: Optional[DetectLabelsImageQualityTypeDef] = None
     DominantColors: Optional[List[DominantColorTypeDef]] = None
 
-class DetectLabelsImageForegroundTypeDef(BaseModel):
+class DetectLabelsImageForegroundTypeDef(BaseValidatorModel):
     Quality: Optional[DetectLabelsImageQualityTypeDef] = None
     DominantColors: Optional[List[DominantColorTypeDef]] = None
 
-class InstanceTypeDef(BaseModel):
+class InstanceTypeDef(BaseValidatorModel):
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Confidence: Optional[float] = None
     DominantColors: Optional[List[DominantColorTypeDef]] = None
 
-class DetectLabelsSettingsTypeDef(BaseModel):
+class DetectLabelsSettingsTypeDef(BaseValidatorModel):
     GeneralLabels: Optional[GeneralLabelsSettingsTypeDef] = None
     ImageProperties: Optional[DetectLabelsImagePropertiesSettingsTypeDef] = None
 
-class LabelDetectionSettingsTypeDef(BaseModel):
+class LabelDetectionSettingsTypeDef(BaseValidatorModel):
     GeneralLabels: Optional[GeneralLabelsSettingsTypeDef] = None
 
-class DetectModerationLabelsResponseTypeDef(BaseModel):
+class DetectModerationLabelsResponseTypeDef(BaseValidatorModel):
     ModerationLabels: List[ModerationLabelTypeDef]
     ModerationModelVersion: str
     HumanLoopActivationOutput: HumanLoopActivationOutputTypeDef
@@ -898,16 +898,16 @@ class DetectModerationLabelsResponseTypeDef(BaseModel):
     ContentTypes: List[ContentTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateFacesResponseTypeDef(BaseModel):
+class DisassociateFacesResponseTypeDef(BaseValidatorModel):
     DisassociatedFaces: List[DisassociatedFaceTypeDef]
     UnsuccessfulFaceDisassociations: List[UnsuccessfulFaceDisassociationTypeDef]
     UserStatus: UserStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DistributeDatasetEntriesRequestRequestTypeDef(BaseModel):
+class DistributeDatasetEntriesRequestRequestTypeDef(BaseValidatorModel):
     Datasets: Sequence[DistributeDatasetTypeDef]
 
-class FaceDetailTypeDef(BaseModel):
+class FaceDetailTypeDef(BaseValidatorModel):
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     AgeRange: Optional[AgeRangeTypeDef] = None
     Smile: Optional[SmileTypeDef] = None
@@ -926,68 +926,68 @@ class FaceDetailTypeDef(BaseModel):
     FaceOccluded: Optional[FaceOccludedTypeDef] = None
     EyeDirection: Optional[EyeDirectionTypeDef] = None
 
-class StreamProcessorSettingsOutputTypeDef(BaseModel):
+class StreamProcessorSettingsOutputTypeDef(BaseValidatorModel):
     FaceSearch: Optional[FaceSearchSettingsTypeDef] = None
     ConnectedHome: Optional[ConnectedHomeSettingsOutputTypeDef] = None
 
-class StreamProcessorSettingsTypeDef(BaseModel):
+class StreamProcessorSettingsTypeDef(BaseValidatorModel):
     FaceSearch: Optional[FaceSearchSettingsTypeDef] = None
     ConnectedHome: Optional[ConnectedHomeSettingsTypeDef] = None
 
-class GeometryTypeDef(BaseModel):
+class GeometryTypeDef(BaseValidatorModel):
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Polygon: Optional[List[PointTypeDef]] = None
 
-class RegionOfInterestOutputTypeDef(BaseModel):
+class RegionOfInterestOutputTypeDef(BaseValidatorModel):
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Polygon: Optional[List[PointTypeDef]] = None
 
-class RegionOfInterestTypeDef(BaseModel):
+class RegionOfInterestTypeDef(BaseValidatorModel):
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Polygon: Optional[Sequence[PointTypeDef]] = None
 
-class HumanLoopConfigTypeDef(BaseModel):
+class HumanLoopConfigTypeDef(BaseValidatorModel):
     HumanLoopName: str
     FlowDefinitionArn: str
     DataAttributes: Optional[HumanLoopDataAttributesTypeDef] = None
 
-class StreamProcessingStartSelectorTypeDef(BaseModel):
+class StreamProcessingStartSelectorTypeDef(BaseValidatorModel):
     KVSStreamStartSelector: Optional[KinesisVideoStreamStartSelectorTypeDef] = None
 
-class StreamProcessorInputTypeDef(BaseModel):
+class StreamProcessorInputTypeDef(BaseValidatorModel):
     KinesisVideoStream: Optional[KinesisVideoStreamTypeDef] = None
 
-class ListProjectPoliciesResponseTypeDef(BaseModel):
+class ListProjectPoliciesResponseTypeDef(BaseValidatorModel):
     ProjectPolicies: List[ProjectPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListStreamProcessorsResponseTypeDef(BaseModel):
+class ListStreamProcessorsResponseTypeDef(BaseValidatorModel):
     StreamProcessors: List[StreamProcessorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListUsersResponseTypeDef(BaseModel):
+class ListUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UserMatchTypeDef(BaseModel):
+class UserMatchTypeDef(BaseValidatorModel):
     Similarity: Optional[float] = None
     User: Optional[MatchedUserTypeDef] = None
 
-class MediaAnalysisOperationsConfigTypeDef(BaseModel):
+class MediaAnalysisOperationsConfigTypeDef(BaseValidatorModel):
     DetectModerationLabels: Optional[MediaAnalysisDetectModerationLabelsConfigTypeDef] = None
 
-class MediaAnalysisResultsTypeDef(BaseModel):
+class MediaAnalysisResultsTypeDef(BaseValidatorModel):
     S3Object: Optional[S3ObjectTypeDef] = None
     ModelVersions: Optional[MediaAnalysisModelVersionsTypeDef] = None
 
-class StreamProcessorOutputTypeDef(BaseModel):
+class StreamProcessorOutputTypeDef(BaseValidatorModel):
     KinesisDataStream: Optional[KinesisDataStreamTypeDef] = None
     S3Destination: Optional[S3DestinationTypeDef] = None
 
-class SegmentDetectionTypeDef(BaseModel):
+class SegmentDetectionTypeDef(BaseValidatorModel):
     Type: Optional[SegmentTypeType] = None
     StartTimestampMillis: Optional[int] = None
     EndTimestampMillis: Optional[int] = None
@@ -1001,17 +1001,17 @@ class SegmentDetectionTypeDef(BaseModel):
     EndFrameNumber: Optional[int] = None
     DurationFrames: Optional[int] = None
 
-class FaceMatchTypeDef(BaseModel):
+class FaceMatchTypeDef(BaseValidatorModel):
     Similarity: Optional[float] = None
     Face: Optional[FaceTypeDef] = None
 
-class ListFacesResponseTypeDef(BaseModel):
+class ListFacesResponseTypeDef(BaseValidatorModel):
     Faces: List[FaceTypeDef]
     FaceModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetFaceLivenessSessionResultsResponseTypeDef(BaseModel):
+class GetFaceLivenessSessionResultsResponseTypeDef(BaseValidatorModel):
     SessionId: str
     Status: LivenessSessionStatusType
     Confidence: float
@@ -1019,38 +1019,38 @@ class GetFaceLivenessSessionResultsResponseTypeDef(BaseModel):
     AuditImages: List[AuditImageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssetTypeDef(BaseModel):
+class AssetTypeDef(BaseValidatorModel):
     GroundTruthManifest: Optional[GroundTruthManifestTypeDef] = None
 
-class DatasetSourceTypeDef(BaseModel):
+class DatasetSourceTypeDef(BaseValidatorModel):
     GroundTruthManifest: Optional[GroundTruthManifestTypeDef] = None
     DatasetArn: Optional[str] = None
 
-class EvaluationResultTypeDef(BaseModel):
+class EvaluationResultTypeDef(BaseValidatorModel):
     F1Score: Optional[float] = None
     Summary: Optional[SummaryTypeDef] = None
 
-class StartCelebrityRecognitionRequestRequestTypeDef(BaseModel):
+class StartCelebrityRecognitionRequestRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     ClientRequestToken: Optional[str] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     JobTag: Optional[str] = None
 
-class StartContentModerationRequestRequestTypeDef(BaseModel):
+class StartContentModerationRequestRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     MinConfidence: Optional[float] = None
     ClientRequestToken: Optional[str] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     JobTag: Optional[str] = None
 
-class StartFaceDetectionRequestRequestTypeDef(BaseModel):
+class StartFaceDetectionRequestRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     ClientRequestToken: Optional[str] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     FaceAttributes: Optional[FaceAttributesType] = None
     JobTag: Optional[str] = None
 
-class StartFaceSearchRequestRequestTypeDef(BaseModel):
+class StartFaceSearchRequestRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     CollectionId: str
     ClientRequestToken: Optional[str] = None
@@ -1058,41 +1058,41 @@ class StartFaceSearchRequestRequestTypeDef(BaseModel):
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     JobTag: Optional[str] = None
 
-class StartPersonTrackingRequestRequestTypeDef(BaseModel):
+class StartPersonTrackingRequestRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     ClientRequestToken: Optional[str] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     JobTag: Optional[str] = None
 
-class StartSegmentDetectionFiltersTypeDef(BaseModel):
+class StartSegmentDetectionFiltersTypeDef(BaseValidatorModel):
     TechnicalCueFilter: Optional[StartTechnicalCueDetectionFilterTypeDef] = None
     ShotFilter: Optional[StartShotDetectionFilterTypeDef] = None
 
-class UpdateDatasetEntriesRequestRequestTypeDef(BaseModel):
+class UpdateDatasetEntriesRequestRequestTypeDef(BaseValidatorModel):
     DatasetArn: str
     Changes: DatasetChangesTypeDef
 
-class CompareFacesRequestRequestTypeDef(BaseModel):
+class CompareFacesRequestRequestTypeDef(BaseValidatorModel):
     SourceImage: ImageTypeDef
     TargetImage: ImageTypeDef
     SimilarityThreshold: Optional[float] = None
     QualityFilter: Optional[QualityFilterType] = None
 
-class DetectCustomLabelsRequestRequestTypeDef(BaseModel):
+class DetectCustomLabelsRequestRequestTypeDef(BaseValidatorModel):
     ProjectVersionArn: str
     Image: ImageTypeDef
     MaxResults: Optional[int] = None
     MinConfidence: Optional[float] = None
 
-class DetectFacesRequestRequestTypeDef(BaseModel):
+class DetectFacesRequestRequestTypeDef(BaseValidatorModel):
     Image: ImageTypeDef
     Attributes: Optional[Sequence[AttributeType]] = None
 
-class DetectProtectiveEquipmentRequestRequestTypeDef(BaseModel):
+class DetectProtectiveEquipmentRequestRequestTypeDef(BaseValidatorModel):
     Image: ImageTypeDef
     SummarizationAttributes: Optional[ProtectiveEquipmentSummarizationAttributesTypeDef] = None
 
-class IndexFacesRequestRequestTypeDef(BaseModel):
+class IndexFacesRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     Image: ImageTypeDef
     ExternalImageId: Optional[str] = None
@@ -1100,24 +1100,24 @@ class IndexFacesRequestRequestTypeDef(BaseModel):
     MaxFaces: Optional[int] = None
     QualityFilter: Optional[QualityFilterType] = None
 
-class RecognizeCelebritiesRequestRequestTypeDef(BaseModel):
+class RecognizeCelebritiesRequestRequestTypeDef(BaseValidatorModel):
     Image: ImageTypeDef
 
-class SearchFacesByImageRequestRequestTypeDef(BaseModel):
+class SearchFacesByImageRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     Image: ImageTypeDef
     MaxFaces: Optional[int] = None
     FaceMatchThreshold: Optional[float] = None
     QualityFilter: Optional[QualityFilterType] = None
 
-class SearchUsersByImageRequestRequestTypeDef(BaseModel):
+class SearchUsersByImageRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     Image: ImageTypeDef
     UserMatchThreshold: Optional[float] = None
     MaxUsers: Optional[int] = None
     QualityFilter: Optional[QualityFilterType] = None
 
-class CelebrityTypeDef(BaseModel):
+class CelebrityTypeDef(BaseValidatorModel):
     Urls: Optional[List[str]] = None
     Name: Optional[str] = None
     Id: Optional[str] = None
@@ -1125,11 +1125,11 @@ class CelebrityTypeDef(BaseModel):
     MatchConfidence: Optional[float] = None
     KnownGender: Optional[KnownGenderTypeDef] = None
 
-class CompareFacesMatchTypeDef(BaseModel):
+class CompareFacesMatchTypeDef(BaseValidatorModel):
     Similarity: Optional[float] = None
     Face: Optional[ComparedFaceTypeDef] = None
 
-class GetContentModerationResponseTypeDef(BaseModel):
+class GetContentModerationResponseTypeDef(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
@@ -1142,37 +1142,37 @@ class GetContentModerationResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ProtectiveEquipmentBodyPartTypeDef(BaseModel):
+class ProtectiveEquipmentBodyPartTypeDef(BaseValidatorModel):
     Name: Optional[BodyPartType] = None
     Confidence: Optional[float] = None
     EquipmentDetections: Optional[List[EquipmentDetectionTypeDef]] = None
 
-class CreateFaceLivenessSessionRequestRequestTypeDef(BaseModel):
+class CreateFaceLivenessSessionRequestRequestTypeDef(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
     Settings: Optional[CreateFaceLivenessSessionRequestSettingsTypeDef] = None
     ClientRequestToken: Optional[str] = None
 
-class DescribeDatasetResponseTypeDef(BaseModel):
+class DescribeDatasetResponseTypeDef(BaseValidatorModel):
     DatasetDescription: DatasetDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDatasetLabelsResponseTypeDef(BaseModel):
+class ListDatasetLabelsResponseTypeDef(BaseValidatorModel):
     DatasetLabelDescriptions: List[DatasetLabelDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeProjectsResponseTypeDef(BaseModel):
+class DescribeProjectsResponseTypeDef(BaseValidatorModel):
     ProjectDescriptions: List[ProjectDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DetectLabelsImagePropertiesTypeDef(BaseModel):
+class DetectLabelsImagePropertiesTypeDef(BaseValidatorModel):
     Quality: Optional[DetectLabelsImageQualityTypeDef] = None
     DominantColors: Optional[List[DominantColorTypeDef]] = None
     Foreground: Optional[DetectLabelsImageForegroundTypeDef] = None
     Background: Optional[DetectLabelsImageBackgroundTypeDef] = None
 
-class LabelTypeDef(BaseModel):
+class LabelTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Confidence: Optional[float] = None
     Instances: Optional[List[InstanceTypeDef]] = None
@@ -1180,14 +1180,14 @@ class LabelTypeDef(BaseModel):
     Aliases: Optional[List[LabelAliasTypeDef]] = None
     Categories: Optional[List[LabelCategoryTypeDef]] = None
 
-class DetectLabelsRequestRequestTypeDef(BaseModel):
+class DetectLabelsRequestRequestTypeDef(BaseValidatorModel):
     Image: ImageTypeDef
     MaxLabels: Optional[int] = None
     MinConfidence: Optional[float] = None
     Features: Optional[Sequence[DetectLabelsFeatureNameType]] = None
     Settings: Optional[DetectLabelsSettingsTypeDef] = None
 
-class StartLabelDetectionRequestRequestTypeDef(BaseModel):
+class StartLabelDetectionRequestRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     ClientRequestToken: Optional[str] = None
     MinConfidence: Optional[float] = None
@@ -1196,7 +1196,7 @@ class StartLabelDetectionRequestRequestTypeDef(BaseModel):
     Features: Optional[Sequence[Literal["GENERAL_LABELS"]]] = None
     Settings: Optional[LabelDetectionSettingsTypeDef] = None
 
-class CelebrityDetailTypeDef(BaseModel):
+class CelebrityDetailTypeDef(BaseValidatorModel):
     Urls: Optional[List[str]] = None
     Name: Optional[str] = None
     Id: Optional[str] = None
@@ -1205,41 +1205,41 @@ class CelebrityDetailTypeDef(BaseModel):
     Face: Optional[FaceDetailTypeDef] = None
     KnownGender: Optional[KnownGenderTypeDef] = None
 
-class DetectFacesResponseTypeDef(BaseModel):
+class DetectFacesResponseTypeDef(BaseValidatorModel):
     FaceDetails: List[FaceDetailTypeDef]
     OrientationCorrection: OrientationCorrectionType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FaceDetectionTypeDef(BaseModel):
+class FaceDetectionTypeDef(BaseValidatorModel):
     Timestamp: Optional[int] = None
     Face: Optional[FaceDetailTypeDef] = None
 
-class FaceRecordTypeDef(BaseModel):
+class FaceRecordTypeDef(BaseValidatorModel):
     Face: Optional[FaceTypeDef] = None
     FaceDetail: Optional[FaceDetailTypeDef] = None
 
-class PersonDetailTypeDef(BaseModel):
+class PersonDetailTypeDef(BaseValidatorModel):
     Index: Optional[int] = None
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Face: Optional[FaceDetailTypeDef] = None
 
-class SearchedFaceDetailsTypeDef(BaseModel):
+class SearchedFaceDetailsTypeDef(BaseValidatorModel):
     FaceDetail: Optional[FaceDetailTypeDef] = None
 
-class UnindexedFaceTypeDef(BaseModel):
+class UnindexedFaceTypeDef(BaseValidatorModel):
     Reasons: Optional[List[ReasonType]] = None
     FaceDetail: Optional[FaceDetailTypeDef] = None
 
-class UnsearchedFaceTypeDef(BaseModel):
+class UnsearchedFaceTypeDef(BaseValidatorModel):
     FaceDetails: Optional[FaceDetailTypeDef] = None
     Reasons: Optional[List[UnsearchedFaceReasonType]] = None
 
-class CustomLabelTypeDef(BaseModel):
+class CustomLabelTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Confidence: Optional[float] = None
     Geometry: Optional[GeometryTypeDef] = None
 
-class TextDetectionTypeDef(BaseModel):
+class TextDetectionTypeDef(BaseValidatorModel):
     DetectedText: Optional[str] = None
     Type: Optional[TextTypesType] = None
     Id: Optional[int] = None
@@ -1247,33 +1247,33 @@ class TextDetectionTypeDef(BaseModel):
     Confidence: Optional[float] = None
     Geometry: Optional[GeometryTypeDef] = None
 
-class DetectTextFiltersTypeDef(BaseModel):
+class DetectTextFiltersTypeDef(BaseValidatorModel):
     WordFilter: Optional[DetectionFilterTypeDef] = None
     RegionsOfInterest: Optional[Sequence[RegionOfInterestTypeDef]] = None
 
-class StartTextDetectionFiltersTypeDef(BaseModel):
+class StartTextDetectionFiltersTypeDef(BaseValidatorModel):
     WordFilter: Optional[DetectionFilterTypeDef] = None
     RegionsOfInterest: Optional[Sequence[RegionOfInterestTypeDef]] = None
 
-class DetectModerationLabelsRequestRequestTypeDef(BaseModel):
+class DetectModerationLabelsRequestRequestTypeDef(BaseValidatorModel):
     Image: ImageTypeDef
     MinConfidence: Optional[float] = None
     HumanLoopConfig: Optional[HumanLoopConfigTypeDef] = None
     ProjectVersion: Optional[str] = None
 
-class StartStreamProcessorRequestRequestTypeDef(BaseModel):
+class StartStreamProcessorRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     StartSelector: Optional[StreamProcessingStartSelectorTypeDef] = None
     StopSelector: Optional[StreamProcessingStopSelectorTypeDef] = None
 
-class SearchUsersResponseTypeDef(BaseModel):
+class SearchUsersResponseTypeDef(BaseValidatorModel):
     UserMatches: List[UserMatchTypeDef]
     FaceModelVersion: str
     SearchedFace: SearchedFaceTypeDef
     SearchedUser: SearchedUserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMediaAnalysisJobRequestRequestTypeDef(BaseModel):
+class StartMediaAnalysisJobRequestRequestTypeDef(BaseValidatorModel):
     OperationsConfig: MediaAnalysisOperationsConfigTypeDef
     Input: MediaAnalysisInputTypeDef
     OutputConfig: MediaAnalysisOutputConfigTypeDef
@@ -1281,7 +1281,7 @@ class StartMediaAnalysisJobRequestRequestTypeDef(BaseModel):
     JobName: Optional[str] = None
     KmsKeyId: Optional[str] = None
 
-class GetMediaAnalysisJobResponseTypeDef(BaseModel):
+class GetMediaAnalysisJobResponseTypeDef(BaseValidatorModel):
     JobId: str
     JobName: str
     OperationsConfig: MediaAnalysisOperationsConfigTypeDef
@@ -1296,7 +1296,7 @@ class GetMediaAnalysisJobResponseTypeDef(BaseModel):
     ManifestSummary: MediaAnalysisManifestSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MediaAnalysisJobDescriptionTypeDef(BaseModel):
+class MediaAnalysisJobDescriptionTypeDef(BaseValidatorModel):
     JobId: str
     OperationsConfig: MediaAnalysisOperationsConfigTypeDef
     Status: MediaAnalysisJobStatusType
@@ -1310,7 +1310,7 @@ class MediaAnalysisJobDescriptionTypeDef(BaseModel):
     Results: Optional[MediaAnalysisResultsTypeDef] = None
     ManifestSummary: Optional[MediaAnalysisManifestSummaryTypeDef] = None
 
-class DescribeStreamProcessorResponseTypeDef(BaseModel):
+class DescribeStreamProcessorResponseTypeDef(BaseValidatorModel):
     Name: str
     StreamProcessorArn: str
     Status: StreamProcessorStatusType
@@ -1327,7 +1327,7 @@ class DescribeStreamProcessorResponseTypeDef(BaseModel):
     DataSharingPreference: StreamProcessorDataSharingPreferenceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSegmentDetectionResponseTypeDef(BaseModel):
+class GetSegmentDetectionResponseTypeDef(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
     VideoMetadata: List[VideoMetadataTypeDef]
@@ -1340,50 +1340,50 @@ class GetSegmentDetectionResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SearchFacesByImageResponseTypeDef(BaseModel):
+class SearchFacesByImageResponseTypeDef(BaseValidatorModel):
     SearchedFaceBoundingBox: BoundingBoxTypeDef
     SearchedFaceConfidence: float
     FaceMatches: List[FaceMatchTypeDef]
     FaceModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchFacesResponseTypeDef(BaseModel):
+class SearchFacesResponseTypeDef(BaseValidatorModel):
     SearchedFaceId: str
     FaceMatches: List[FaceMatchTypeDef]
     FaceModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestingDataExtraOutputTypeDef(BaseModel):
+class TestingDataExtraOutputTypeDef(BaseValidatorModel):
     Assets: Optional[List[AssetTypeDef]] = None
     AutoCreate: Optional[bool] = None
 
-class TestingDataOutputTypeDef(BaseModel):
+class TestingDataOutputTypeDef(BaseValidatorModel):
     Assets: Optional[List[AssetTypeDef]] = None
     AutoCreate: Optional[bool] = None
 
-class TestingDataTypeDef(BaseModel):
+class TestingDataTypeDef(BaseValidatorModel):
     Assets: Optional[Sequence[AssetTypeDef]] = None
     AutoCreate: Optional[bool] = None
 
-class TrainingDataExtraOutputTypeDef(BaseModel):
+class TrainingDataExtraOutputTypeDef(BaseValidatorModel):
     Assets: Optional[List[AssetTypeDef]] = None
 
-class TrainingDataOutputTypeDef(BaseModel):
+class TrainingDataOutputTypeDef(BaseValidatorModel):
     Assets: Optional[List[AssetTypeDef]] = None
 
-class TrainingDataTypeDef(BaseModel):
+class TrainingDataTypeDef(BaseValidatorModel):
     Assets: Optional[Sequence[AssetTypeDef]] = None
 
-class ValidationDataTypeDef(BaseModel):
+class ValidationDataTypeDef(BaseValidatorModel):
     Assets: Optional[List[AssetTypeDef]] = None
 
-class CreateDatasetRequestRequestTypeDef(BaseModel):
+class CreateDatasetRequestRequestTypeDef(BaseValidatorModel):
     DatasetType: DatasetTypeType
     ProjectArn: str
     DatasetSource: Optional[DatasetSourceTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class StartSegmentDetectionRequestRequestTypeDef(BaseModel):
+class StartSegmentDetectionRequestRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     SegmentTypes: Sequence[SegmentTypeType]
     ClientRequestToken: Optional[str] = None
@@ -1391,13 +1391,13 @@ class StartSegmentDetectionRequestRequestTypeDef(BaseModel):
     JobTag: Optional[str] = None
     Filters: Optional[StartSegmentDetectionFiltersTypeDef] = None
 
-class RecognizeCelebritiesResponseTypeDef(BaseModel):
+class RecognizeCelebritiesResponseTypeDef(BaseValidatorModel):
     CelebrityFaces: List[CelebrityTypeDef]
     UnrecognizedFaces: List[ComparedFaceTypeDef]
     OrientationCorrection: OrientationCorrectionType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CompareFacesResponseTypeDef(BaseModel):
+class CompareFacesResponseTypeDef(BaseValidatorModel):
     SourceImageFace: ComparedSourceImageFaceTypeDef
     FaceMatches: List[CompareFacesMatchTypeDef]
     UnmatchedFaces: List[ComparedFaceTypeDef]
@@ -1405,31 +1405,31 @@ class CompareFacesResponseTypeDef(BaseModel):
     TargetImageOrientationCorrection: OrientationCorrectionType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProtectiveEquipmentPersonTypeDef(BaseModel):
+class ProtectiveEquipmentPersonTypeDef(BaseValidatorModel):
     BodyParts: Optional[List[ProtectiveEquipmentBodyPartTypeDef]] = None
     BoundingBox: Optional[BoundingBoxTypeDef] = None
     Confidence: Optional[float] = None
     Id: Optional[int] = None
 
-class DetectLabelsResponseTypeDef(BaseModel):
+class DetectLabelsResponseTypeDef(BaseValidatorModel):
     Labels: List[LabelTypeDef]
     OrientationCorrection: OrientationCorrectionType
     LabelModelVersion: str
     ImageProperties: DetectLabelsImagePropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LabelDetectionTypeDef(BaseModel):
+class LabelDetectionTypeDef(BaseValidatorModel):
     Timestamp: Optional[int] = None
     Label: Optional[LabelTypeDef] = None
     StartTimestampMillis: Optional[int] = None
     EndTimestampMillis: Optional[int] = None
     DurationMillis: Optional[int] = None
 
-class CelebrityRecognitionTypeDef(BaseModel):
+class CelebrityRecognitionTypeDef(BaseValidatorModel):
     Timestamp: Optional[int] = None
     Celebrity: Optional[CelebrityDetailTypeDef] = None
 
-class GetFaceDetectionResponseTypeDef(BaseModel):
+class GetFaceDetectionResponseTypeDef(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
@@ -1440,47 +1440,47 @@ class GetFaceDetectionResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PersonDetectionTypeDef(BaseModel):
+class PersonDetectionTypeDef(BaseValidatorModel):
     Timestamp: Optional[int] = None
     Person: Optional[PersonDetailTypeDef] = None
 
-class PersonMatchTypeDef(BaseModel):
+class PersonMatchTypeDef(BaseValidatorModel):
     Timestamp: Optional[int] = None
     Person: Optional[PersonDetailTypeDef] = None
     FaceMatches: Optional[List[FaceMatchTypeDef]] = None
 
-class IndexFacesResponseTypeDef(BaseModel):
+class IndexFacesResponseTypeDef(BaseValidatorModel):
     FaceRecords: List[FaceRecordTypeDef]
     OrientationCorrection: OrientationCorrectionType
     FaceModelVersion: str
     UnindexedFaces: List[UnindexedFaceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchUsersByImageResponseTypeDef(BaseModel):
+class SearchUsersByImageResponseTypeDef(BaseValidatorModel):
     UserMatches: List[UserMatchTypeDef]
     FaceModelVersion: str
     SearchedFace: SearchedFaceDetailsTypeDef
     UnsearchedFaces: List[UnsearchedFaceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetectCustomLabelsResponseTypeDef(BaseModel):
+class DetectCustomLabelsResponseTypeDef(BaseValidatorModel):
     CustomLabels: List[CustomLabelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetectTextResponseTypeDef(BaseModel):
+class DetectTextResponseTypeDef(BaseValidatorModel):
     TextDetections: List[TextDetectionTypeDef]
     TextModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TextDetectionResultTypeDef(BaseModel):
+class TextDetectionResultTypeDef(BaseValidatorModel):
     Timestamp: Optional[int] = None
     TextDetection: Optional[TextDetectionTypeDef] = None
 
-class DetectTextRequestRequestTypeDef(BaseModel):
+class DetectTextRequestRequestTypeDef(BaseValidatorModel):
     Image: ImageTypeDef
     Filters: Optional[DetectTextFiltersTypeDef] = None
 
-class CreateStreamProcessorRequestRequestTypeDef(BaseModel):
+class CreateStreamProcessorRequestRequestTypeDef(BaseValidatorModel):
     Input: StreamProcessorInputTypeDef
     Output: StreamProcessorOutputTypeDef
     Name: str
@@ -1492,26 +1492,26 @@ class CreateStreamProcessorRequestRequestTypeDef(BaseModel):
     RegionsOfInterest: Optional[Sequence[RegionOfInterestUnionTypeDef]] = None
     DataSharingPreference: Optional[StreamProcessorDataSharingPreferenceTypeDef] = None
 
-class UpdateStreamProcessorRequestRequestTypeDef(BaseModel):
+class UpdateStreamProcessorRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     SettingsForUpdate: Optional[StreamProcessorSettingsForUpdateTypeDef] = None
     RegionsOfInterestForUpdate: Optional[Sequence[RegionOfInterestUnionTypeDef]] = None
     DataSharingPreferenceForUpdate: Optional[StreamProcessorDataSharingPreferenceTypeDef] = None
     ParametersToDelete: Optional[Sequence[StreamProcessorParameterToDeleteType]] = None
 
-class StartTextDetectionRequestRequestTypeDef(BaseModel):
+class StartTextDetectionRequestRequestTypeDef(BaseValidatorModel):
     Video: VideoTypeDef
     ClientRequestToken: Optional[str] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     JobTag: Optional[str] = None
     Filters: Optional[StartTextDetectionFiltersTypeDef] = None
 
-class ListMediaAnalysisJobsResponseTypeDef(BaseModel):
+class ListMediaAnalysisJobsResponseTypeDef(BaseValidatorModel):
     MediaAnalysisJobs: List[MediaAnalysisJobDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateProjectVersionRequestRequestTypeDef(BaseModel):
+class CreateProjectVersionRequestRequestTypeDef(BaseValidatorModel):
     ProjectArn: str
     VersionName: str
     OutputConfig: OutputConfigTypeDef
@@ -1522,23 +1522,23 @@ class CreateProjectVersionRequestRequestTypeDef(BaseModel):
     VersionDescription: Optional[str] = None
     FeatureConfig: Optional[CustomizationFeatureConfigTypeDef] = None
 
-class TestingDataResultTypeDef(BaseModel):
+class TestingDataResultTypeDef(BaseValidatorModel):
     Input: Optional[TestingDataOutputTypeDef] = None
     Output: Optional[TestingDataOutputTypeDef] = None
     Validation: Optional[ValidationDataTypeDef] = None
 
-class TrainingDataResultTypeDef(BaseModel):
+class TrainingDataResultTypeDef(BaseValidatorModel):
     Input: Optional[TrainingDataOutputTypeDef] = None
     Output: Optional[TrainingDataOutputTypeDef] = None
     Validation: Optional[ValidationDataTypeDef] = None
 
-class DetectProtectiveEquipmentResponseTypeDef(BaseModel):
+class DetectProtectiveEquipmentResponseTypeDef(BaseValidatorModel):
     ProtectiveEquipmentModelVersion: str
     Persons: List[ProtectiveEquipmentPersonTypeDef]
     Summary: ProtectiveEquipmentSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLabelDetectionResponseTypeDef(BaseModel):
+class GetLabelDetectionResponseTypeDef(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
@@ -1551,7 +1551,7 @@ class GetLabelDetectionResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetCelebrityRecognitionResponseTypeDef(BaseModel):
+class GetCelebrityRecognitionResponseTypeDef(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
@@ -1562,7 +1562,7 @@ class GetCelebrityRecognitionResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetPersonTrackingResponseTypeDef(BaseModel):
+class GetPersonTrackingResponseTypeDef(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
@@ -1573,7 +1573,7 @@ class GetPersonTrackingResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetFaceSearchResponseTypeDef(BaseModel):
+class GetFaceSearchResponseTypeDef(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
@@ -1584,7 +1584,7 @@ class GetFaceSearchResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetTextDetectionResponseTypeDef(BaseModel):
+class GetTextDetectionResponseTypeDef(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
     VideoMetadata: VideoMetadataTypeDef
@@ -1596,7 +1596,7 @@ class GetTextDetectionResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ProjectVersionDescriptionTypeDef(BaseModel):
+class ProjectVersionDescriptionTypeDef(BaseValidatorModel):
     ProjectVersionArn: Optional[str] = None
     CreationTimestamp: Optional[datetime] = None
     MinInferenceUnits: Optional[int] = None
@@ -1614,10 +1614,10 @@ class ProjectVersionDescriptionTypeDef(BaseModel):
     SourceProjectVersionArn: Optional[str] = None
     VersionDescription: Optional[str] = None
     Feature: Optional[CustomizationFeatureType] = None
-    BaseModelVersion: Optional[str] = None
+    BaseValidatorModelVersion: Optional[str] = None
     FeatureConfig: Optional[CustomizationFeatureConfigTypeDef] = None
 
-class DescribeProjectVersionsResponseTypeDef(BaseModel):
+class DescribeProjectVersionsResponseTypeDef(BaseValidatorModel):
     ProjectVersionDescriptions: List[ProjectVersionDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

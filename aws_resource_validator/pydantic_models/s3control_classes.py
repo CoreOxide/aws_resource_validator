@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,276 +11,276 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.s3control_constants import *
 
-class AbortIncompleteMultipartUploadTypeDef(BaseModel):
+class AbortIncompleteMultipartUploadTypeDef(BaseValidatorModel):
     DaysAfterInitiation: Optional[int] = None
 
-class AccessControlTranslationTypeDef(BaseModel):
+class AccessControlTranslationTypeDef(BaseValidatorModel):
     Owner: Literal["Destination"]
 
-class AccessGrantsLocationConfigurationTypeDef(BaseModel):
+class AccessGrantsLocationConfigurationTypeDef(BaseValidatorModel):
     S3SubPrefix: Optional[str] = None
 
-class VpcConfigurationTypeDef(BaseModel):
+class VpcConfigurationTypeDef(BaseValidatorModel):
     VpcId: str
 
-class ActivityMetricsTypeDef(BaseModel):
+class ActivityMetricsTypeDef(BaseValidatorModel):
     IsEnabled: Optional[bool] = None
 
-class AdvancedCostOptimizationMetricsTypeDef(BaseModel):
+class AdvancedCostOptimizationMetricsTypeDef(BaseValidatorModel):
     IsEnabled: Optional[bool] = None
 
-class AdvancedDataProtectionMetricsTypeDef(BaseModel):
+class AdvancedDataProtectionMetricsTypeDef(BaseValidatorModel):
     IsEnabled: Optional[bool] = None
 
-class DetailedStatusCodesMetricsTypeDef(BaseModel):
+class DetailedStatusCodesMetricsTypeDef(BaseValidatorModel):
     IsEnabled: Optional[bool] = None
 
-class AssociateAccessGrantsIdentityCenterRequestRequestTypeDef(BaseModel):
+class AssociateAccessGrantsIdentityCenterRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     IdentityCenterArn: str
 
-class AsyncErrorDetailsTypeDef(BaseModel):
+class AsyncErrorDetailsTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
     Resource: Optional[str] = None
     RequestId: Optional[str] = None
 
-class DeleteMultiRegionAccessPointInputTypeDef(BaseModel):
+class DeleteMultiRegionAccessPointInputTypeDef(BaseValidatorModel):
     Name: str
 
-class PutMultiRegionAccessPointPolicyInputTypeDef(BaseModel):
+class PutMultiRegionAccessPointPolicyInputTypeDef(BaseValidatorModel):
     Name: str
     Policy: str
 
-class AwsLambdaTransformationTypeDef(BaseModel):
+class AwsLambdaTransformationTypeDef(BaseValidatorModel):
     FunctionArn: str
     FunctionPayload: Optional[str] = None
 
-class CloudWatchMetricsTypeDef(BaseModel):
+class CloudWatchMetricsTypeDef(BaseValidatorModel):
     IsEnabled: bool
 
-class GranteeTypeDef(BaseModel):
+class GranteeTypeDef(BaseValidatorModel):
     GranteeType: Optional[GranteeTypeType] = None
     GranteeIdentifier: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ObjectLambdaAccessPointAliasTypeDef(BaseModel):
+class ObjectLambdaAccessPointAliasTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     Status: Optional[ObjectLambdaAccessPointAliasStatusType] = None
 
-class PublicAccessBlockConfigurationTypeDef(BaseModel):
+class PublicAccessBlockConfigurationTypeDef(BaseValidatorModel):
     BlockPublicAcls: Optional[bool] = None
     IgnorePublicAcls: Optional[bool] = None
     BlockPublicPolicy: Optional[bool] = None
     RestrictPublicBuckets: Optional[bool] = None
 
-class CreateBucketConfigurationTypeDef(BaseModel):
+class CreateBucketConfigurationTypeDef(BaseValidatorModel):
     LocationConstraint: Optional[BucketLocationConstraintType] = None
 
-class JobReportTypeDef(BaseModel):
+class JobReportTypeDef(BaseValidatorModel):
     Enabled: bool
     Bucket: Optional[str] = None
     Format: Optional[Literal["Report_CSV_20180820"]] = None
     Prefix: Optional[str] = None
     ReportScope: Optional[JobReportScopeType] = None
 
-class S3TagTypeDef(BaseModel):
+class S3TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class RegionTypeDef(BaseModel):
+class RegionTypeDef(BaseValidatorModel):
     Bucket: str
     BucketAccountId: Optional[str] = None
 
-class CredentialsTypeDef(BaseModel):
+class CredentialsTypeDef(BaseValidatorModel):
     AccessKeyId: Optional[str] = None
     SecretAccessKey: Optional[str] = None
     SessionToken: Optional[str] = None
     Expiration: Optional[datetime] = None
 
-class DeleteAccessGrantRequestRequestTypeDef(BaseModel):
+class DeleteAccessGrantRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     AccessGrantId: str
 
-class DeleteAccessGrantsInstanceRequestRequestTypeDef(BaseModel):
+class DeleteAccessGrantsInstanceRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class DeleteAccessGrantsInstanceResourcePolicyRequestRequestTypeDef(BaseModel):
+class DeleteAccessGrantsInstanceResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class DeleteAccessGrantsLocationRequestRequestTypeDef(BaseModel):
+class DeleteAccessGrantsLocationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     AccessGrantsLocationId: str
 
-class DeleteAccessPointForObjectLambdaRequestRequestTypeDef(BaseModel):
+class DeleteAccessPointForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class DeleteAccessPointPolicyForObjectLambdaRequestRequestTypeDef(BaseModel):
+class DeleteAccessPointPolicyForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class DeleteAccessPointPolicyRequestRequestTypeDef(BaseModel):
+class DeleteAccessPointPolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class DeleteAccessPointRequestRequestTypeDef(BaseModel):
+class DeleteAccessPointRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class DeleteBucketLifecycleConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteBucketLifecycleConfigurationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class DeleteBucketPolicyRequestRequestTypeDef(BaseModel):
+class DeleteBucketPolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class DeleteBucketReplicationRequestRequestTypeDef(BaseModel):
+class DeleteBucketReplicationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class DeleteBucketRequestRequestTypeDef(BaseModel):
+class DeleteBucketRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class DeleteBucketTaggingRequestRequestTypeDef(BaseModel):
+class DeleteBucketTaggingRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class DeleteJobTaggingRequestRequestTypeDef(BaseModel):
+class DeleteJobTaggingRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     JobId: str
 
-class DeleteMarkerReplicationTypeDef(BaseModel):
+class DeleteMarkerReplicationTypeDef(BaseValidatorModel):
     Status: DeleteMarkerReplicationStatusType
 
-class DeletePublicAccessBlockRequestRequestTypeDef(BaseModel):
+class DeletePublicAccessBlockRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class DeleteStorageLensConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteStorageLensConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ConfigId: str
     AccountId: str
 
-class DeleteStorageLensConfigurationTaggingRequestRequestTypeDef(BaseModel):
+class DeleteStorageLensConfigurationTaggingRequestRequestTypeDef(BaseValidatorModel):
     ConfigId: str
     AccountId: str
 
-class DeleteStorageLensGroupRequestRequestTypeDef(BaseModel):
+class DeleteStorageLensGroupRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     AccountId: str
 
-class DescribeJobRequestRequestTypeDef(BaseModel):
+class DescribeJobRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     JobId: str
 
-class DescribeMultiRegionAccessPointOperationRequestRequestTypeDef(BaseModel):
+class DescribeMultiRegionAccessPointOperationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     RequestTokenARN: str
 
-class EncryptionConfigurationTypeDef(BaseModel):
+class EncryptionConfigurationTypeDef(BaseValidatorModel):
     ReplicaKmsKeyID: Optional[str] = None
 
-class DissociateAccessGrantsIdentityCenterRequestRequestTypeDef(BaseModel):
+class DissociateAccessGrantsIdentityCenterRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class EstablishedMultiRegionAccessPointPolicyTypeDef(BaseModel):
+class EstablishedMultiRegionAccessPointPolicyTypeDef(BaseValidatorModel):
     Policy: Optional[str] = None
 
-class ExcludeTypeDef(BaseModel):
+class ExcludeTypeDef(BaseValidatorModel):
     Buckets: Optional[List[str]] = None
     Regions: Optional[List[str]] = None
 
-class ExistingObjectReplicationTypeDef(BaseModel):
+class ExistingObjectReplicationTypeDef(BaseValidatorModel):
     Status: ExistingObjectReplicationStatusType
 
-class SSEKMSEncryptionTypeDef(BaseModel):
+class SSEKMSEncryptionTypeDef(BaseValidatorModel):
     KeyId: str
 
-class GetAccessGrantRequestRequestTypeDef(BaseModel):
+class GetAccessGrantRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     AccessGrantId: str
 
-class GetAccessGrantsInstanceForPrefixRequestRequestTypeDef(BaseModel):
+class GetAccessGrantsInstanceForPrefixRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     S3Prefix: str
 
-class GetAccessGrantsInstanceRequestRequestTypeDef(BaseModel):
+class GetAccessGrantsInstanceRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class GetAccessGrantsInstanceResourcePolicyRequestRequestTypeDef(BaseModel):
+class GetAccessGrantsInstanceResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class GetAccessGrantsLocationRequestRequestTypeDef(BaseModel):
+class GetAccessGrantsLocationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     AccessGrantsLocationId: str
 
-class GetAccessPointConfigurationForObjectLambdaRequestRequestTypeDef(BaseModel):
+class GetAccessPointConfigurationForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class GetAccessPointForObjectLambdaRequestRequestTypeDef(BaseModel):
+class GetAccessPointForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class GetAccessPointPolicyForObjectLambdaRequestRequestTypeDef(BaseModel):
+class GetAccessPointPolicyForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class GetAccessPointPolicyRequestRequestTypeDef(BaseModel):
+class GetAccessPointPolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class GetAccessPointPolicyStatusForObjectLambdaRequestRequestTypeDef(BaseModel):
+class GetAccessPointPolicyStatusForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class PolicyStatusTypeDef(BaseModel):
+class PolicyStatusTypeDef(BaseValidatorModel):
     IsPublic: Optional[bool] = None
 
-class GetAccessPointPolicyStatusRequestRequestTypeDef(BaseModel):
+class GetAccessPointPolicyStatusRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class GetAccessPointRequestRequestTypeDef(BaseModel):
+class GetAccessPointRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class GetBucketLifecycleConfigurationRequestRequestTypeDef(BaseModel):
+class GetBucketLifecycleConfigurationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class GetBucketPolicyRequestRequestTypeDef(BaseModel):
+class GetBucketPolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class GetBucketReplicationRequestRequestTypeDef(BaseModel):
+class GetBucketReplicationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class GetBucketRequestRequestTypeDef(BaseModel):
+class GetBucketRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class GetBucketTaggingRequestRequestTypeDef(BaseModel):
+class GetBucketTaggingRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class GetBucketVersioningRequestRequestTypeDef(BaseModel):
+class GetBucketVersioningRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
-class GetDataAccessRequestRequestTypeDef(BaseModel):
+class GetDataAccessRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Target: str
     Permission: PermissionType
@@ -288,127 +288,127 @@ class GetDataAccessRequestRequestTypeDef(BaseModel):
     Privilege: Optional[PrivilegeType] = None
     TargetType: Optional[Literal["Object"]] = None
 
-class GetJobTaggingRequestRequestTypeDef(BaseModel):
+class GetJobTaggingRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     JobId: str
 
-class GetMultiRegionAccessPointPolicyRequestRequestTypeDef(BaseModel):
+class GetMultiRegionAccessPointPolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class GetMultiRegionAccessPointPolicyStatusRequestRequestTypeDef(BaseModel):
+class GetMultiRegionAccessPointPolicyStatusRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class GetMultiRegionAccessPointRequestRequestTypeDef(BaseModel):
+class GetMultiRegionAccessPointRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
 
-class GetMultiRegionAccessPointRoutesRequestRequestTypeDef(BaseModel):
+class GetMultiRegionAccessPointRoutesRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Mrap: str
 
-class MultiRegionAccessPointRouteTypeDef(BaseModel):
+class MultiRegionAccessPointRouteTypeDef(BaseValidatorModel):
     TrafficDialPercentage: int
     Bucket: Optional[str] = None
     Region: Optional[str] = None
 
-class GetPublicAccessBlockRequestRequestTypeDef(BaseModel):
+class GetPublicAccessBlockRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
 
-class GetStorageLensConfigurationRequestRequestTypeDef(BaseModel):
+class GetStorageLensConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ConfigId: str
     AccountId: str
 
-class GetStorageLensConfigurationTaggingRequestRequestTypeDef(BaseModel):
+class GetStorageLensConfigurationTaggingRequestRequestTypeDef(BaseValidatorModel):
     ConfigId: str
     AccountId: str
 
-class StorageLensTagTypeDef(BaseModel):
+class StorageLensTagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class GetStorageLensGroupRequestRequestTypeDef(BaseModel):
+class GetStorageLensGroupRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     AccountId: str
 
-class IncludeTypeDef(BaseModel):
+class IncludeTypeDef(BaseValidatorModel):
     Buckets: Optional[List[str]] = None
     Regions: Optional[List[str]] = None
 
-class JobFailureTypeDef(BaseModel):
+class JobFailureTypeDef(BaseValidatorModel):
     FailureCode: Optional[str] = None
     FailureReason: Optional[str] = None
 
-class KeyNameConstraintTypeDef(BaseModel):
+class KeyNameConstraintTypeDef(BaseValidatorModel):
     MatchAnyPrefix: Optional[Sequence[str]] = None
     MatchAnySuffix: Optional[Sequence[str]] = None
     MatchAnySubstring: Optional[Sequence[str]] = None
 
-class JobManifestLocationTypeDef(BaseModel):
+class JobManifestLocationTypeDef(BaseValidatorModel):
     ObjectArn: str
     ETag: str
     ObjectVersionId: Optional[str] = None
 
-class JobManifestSpecTypeDef(BaseModel):
+class JobManifestSpecTypeDef(BaseValidatorModel):
     Format: JobManifestFormatType
     Fields: Optional[Sequence[JobManifestFieldNameType]] = None
 
-class LambdaInvokeOperationTypeDef(BaseModel):
+class LambdaInvokeOperationTypeDef(BaseValidatorModel):
     FunctionArn: Optional[str] = None
     InvocationSchemaVersion: Optional[str] = None
     UserArguments: Optional[Mapping[str, str]] = None
 
-class S3InitiateRestoreObjectOperationTypeDef(BaseModel):
+class S3InitiateRestoreObjectOperationTypeDef(BaseValidatorModel):
     ExpirationInDays: Optional[int] = None
     GlacierJobTier: Optional[S3GlacierJobTierType] = None
 
-class JobTimersTypeDef(BaseModel):
+class JobTimersTypeDef(BaseValidatorModel):
     ElapsedTimeInActiveSeconds: Optional[int] = None
 
-class LifecycleExpirationTypeDef(BaseModel):
+class LifecycleExpirationTypeDef(BaseValidatorModel):
     Date: Optional[datetime] = None
     Days: Optional[int] = None
     ExpiredObjectDeleteMarker: Optional[bool] = None
 
-class NoncurrentVersionExpirationTypeDef(BaseModel):
+class NoncurrentVersionExpirationTypeDef(BaseValidatorModel):
     NoncurrentDays: Optional[int] = None
     NewerNoncurrentVersions: Optional[int] = None
 
-class NoncurrentVersionTransitionTypeDef(BaseModel):
+class NoncurrentVersionTransitionTypeDef(BaseValidatorModel):
     NoncurrentDays: Optional[int] = None
     StorageClass: Optional[TransitionStorageClassType] = None
 
-class TransitionTypeDef(BaseModel):
+class TransitionTypeDef(BaseValidatorModel):
     Date: Optional[datetime] = None
     Days: Optional[int] = None
     StorageClass: Optional[TransitionStorageClassType] = None
 
-class ListAccessGrantsInstanceEntryTypeDef(BaseModel):
+class ListAccessGrantsInstanceEntryTypeDef(BaseValidatorModel):
     AccessGrantsInstanceId: Optional[str] = None
     AccessGrantsInstanceArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     IdentityCenterArn: Optional[str] = None
 
-class ListAccessGrantsInstancesRequestRequestTypeDef(BaseModel):
+class ListAccessGrantsInstancesRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListAccessGrantsLocationsEntryTypeDef(BaseModel):
+class ListAccessGrantsLocationsEntryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     AccessGrantsLocationId: Optional[str] = None
     AccessGrantsLocationArn: Optional[str] = None
     LocationScope: Optional[str] = None
     IAMRoleArn: Optional[str] = None
 
-class ListAccessGrantsLocationsRequestRequestTypeDef(BaseModel):
+class ListAccessGrantsLocationsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     LocationScope: Optional[str] = None
 
-class ListAccessGrantsRequestRequestTypeDef(BaseModel):
+class ListAccessGrantsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -418,172 +418,172 @@ class ListAccessGrantsRequestRequestTypeDef(BaseModel):
     GrantScope: Optional[str] = None
     ApplicationArn: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAccessPointsForObjectLambdaRequestRequestTypeDef(BaseModel):
+class ListAccessPointsForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListAccessPointsRequestRequestTypeDef(BaseModel):
+class ListAccessPointsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListJobsRequestRequestTypeDef(BaseModel):
+class ListJobsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     JobStatuses: Optional[Sequence[JobStatusType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListMultiRegionAccessPointsRequestRequestTypeDef(BaseModel):
+class ListMultiRegionAccessPointsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListRegionalBucketsRequestRequestTypeDef(BaseModel):
+class ListRegionalBucketsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     OutpostId: Optional[str] = None
 
-class RegionalBucketTypeDef(BaseModel):
+class RegionalBucketTypeDef(BaseValidatorModel):
     Bucket: str
     PublicAccessBlockEnabled: bool
     CreationDate: datetime
     BucketArn: Optional[str] = None
     OutpostId: Optional[str] = None
 
-class ListStorageLensConfigurationEntryTypeDef(BaseModel):
+class ListStorageLensConfigurationEntryTypeDef(BaseValidatorModel):
     Id: str
     StorageLensArn: str
     HomeRegion: str
     IsEnabled: Optional[bool] = None
 
-class ListStorageLensConfigurationsRequestRequestTypeDef(BaseModel):
+class ListStorageLensConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
 
-class ListStorageLensGroupEntryTypeDef(BaseModel):
+class ListStorageLensGroupEntryTypeDef(BaseValidatorModel):
     Name: str
     StorageLensGroupArn: str
     HomeRegion: str
 
-class ListStorageLensGroupsRequestRequestTypeDef(BaseModel):
+class ListStorageLensGroupsRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ResourceArn: str
 
-class MatchObjectAgeTypeDef(BaseModel):
+class MatchObjectAgeTypeDef(BaseValidatorModel):
     DaysGreaterThan: Optional[int] = None
     DaysLessThan: Optional[int] = None
 
-class MatchObjectSizeTypeDef(BaseModel):
+class MatchObjectSizeTypeDef(BaseValidatorModel):
     BytesGreaterThan: Optional[int] = None
     BytesLessThan: Optional[int] = None
 
-class ReplicationTimeValueTypeDef(BaseModel):
+class ReplicationTimeValueTypeDef(BaseValidatorModel):
     Minutes: Optional[int] = None
 
-class ProposedMultiRegionAccessPointPolicyTypeDef(BaseModel):
+class ProposedMultiRegionAccessPointPolicyTypeDef(BaseValidatorModel):
     Policy: Optional[str] = None
 
-class MultiRegionAccessPointRegionalResponseTypeDef(BaseModel):
+class MultiRegionAccessPointRegionalResponseTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     RequestStatus: Optional[str] = None
 
-class RegionReportTypeDef(BaseModel):
+class RegionReportTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     Region: Optional[str] = None
     BucketAccountId: Optional[str] = None
 
-class SelectionCriteriaTypeDef(BaseModel):
+class SelectionCriteriaTypeDef(BaseValidatorModel):
     Delimiter: Optional[str] = None
     MaxDepth: Optional[int] = None
     MinStorageBytesPercentage: Optional[float] = None
 
-class PutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef(BaseModel):
+class PutAccessGrantsInstanceResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Policy: str
     Organization: Optional[str] = None
 
-class PutAccessPointPolicyForObjectLambdaRequestRequestTypeDef(BaseModel):
+class PutAccessPointPolicyForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
     Policy: str
 
-class PutAccessPointPolicyRequestRequestTypeDef(BaseModel):
+class PutAccessPointPolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
     Policy: str
 
-class PutBucketPolicyRequestRequestTypeDef(BaseModel):
+class PutBucketPolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
     Policy: str
     ConfirmRemoveSelfBucketAccess: Optional[bool] = None
 
-class VersioningConfigurationTypeDef(BaseModel):
+class VersioningConfigurationTypeDef(BaseValidatorModel):
     MFADelete: Optional[MFADeleteType] = None
     Status: Optional[BucketVersioningStatusType] = None
 
-class ReplicaModificationsTypeDef(BaseModel):
+class ReplicaModificationsTypeDef(BaseValidatorModel):
     Status: ReplicaModificationsStatusType
 
-class S3ObjectOwnerTypeDef(BaseModel):
+class S3ObjectOwnerTypeDef(BaseValidatorModel):
     ID: Optional[str] = None
     DisplayName: Optional[str] = None
 
-class S3GranteeTypeDef(BaseModel):
+class S3GranteeTypeDef(BaseValidatorModel):
     TypeIdentifier: Optional[S3GranteeTypeIdentifierType] = None
     Identifier: Optional[str] = None
     DisplayName: Optional[str] = None
 
-class S3ObjectLockLegalHoldTypeDef(BaseModel):
+class S3ObjectLockLegalHoldTypeDef(BaseValidatorModel):
     Status: S3ObjectLockLegalHoldStatusType
 
-class SSEKMSTypeDef(BaseModel):
+class SSEKMSTypeDef(BaseValidatorModel):
     KeyId: str
 
-class SseKmsEncryptedObjectsTypeDef(BaseModel):
+class SseKmsEncryptedObjectsTypeDef(BaseValidatorModel):
     Status: SseKmsEncryptedObjectsStatusType
 
-class StorageLensAwsOrgTypeDef(BaseModel):
+class StorageLensAwsOrgTypeDef(BaseValidatorModel):
     Arn: str
 
-class StorageLensGroupLevelSelectionCriteriaTypeDef(BaseModel):
+class StorageLensGroupLevelSelectionCriteriaTypeDef(BaseValidatorModel):
     Include: Optional[List[str]] = None
     Exclude: Optional[List[str]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateAccessGrantsLocationRequestRequestTypeDef(BaseModel):
+class UpdateAccessGrantsLocationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     AccessGrantsLocationId: str
     IAMRoleArn: str
 
-class UpdateJobPriorityRequestRequestTypeDef(BaseModel):
+class UpdateJobPriorityRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     JobId: str
     Priority: int
 
-class UpdateJobStatusRequestRequestTypeDef(BaseModel):
+class UpdateJobStatusRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     JobId: str
     RequestedJobStatus: RequestedJobStatusType
     StatusUpdateReason: Optional[str] = None
 
-class AccessPointTypeDef(BaseModel):
+class AccessPointTypeDef(BaseValidatorModel):
     Name: str
     NetworkOrigin: NetworkOriginType
     Bucket: str
@@ -592,20 +592,20 @@ class AccessPointTypeDef(BaseModel):
     Alias: Optional[str] = None
     BucketAccountId: Optional[str] = None
 
-class DeleteMultiRegionAccessPointRequestRequestTypeDef(BaseModel):
+class DeleteMultiRegionAccessPointRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ClientToken: str
     Details: DeleteMultiRegionAccessPointInputTypeDef
 
-class PutMultiRegionAccessPointPolicyRequestRequestTypeDef(BaseModel):
+class PutMultiRegionAccessPointPolicyRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ClientToken: str
     Details: PutMultiRegionAccessPointPolicyInputTypeDef
 
-class ObjectLambdaContentTransformationTypeDef(BaseModel):
+class ObjectLambdaContentTransformationTypeDef(BaseValidatorModel):
     AwsLambda: Optional[AwsLambdaTransformationTypeDef] = None
 
-class ListAccessGrantEntryTypeDef(BaseModel):
+class ListAccessGrantEntryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     AccessGrantId: Optional[str] = None
     AccessGrantArn: Optional[str] = None
@@ -616,7 +616,7 @@ class ListAccessGrantEntryTypeDef(BaseModel):
     GrantScope: Optional[str] = None
     ApplicationArn: Optional[str] = None
 
-class CreateAccessGrantRequestRequestTypeDef(BaseModel):
+class CreateAccessGrantRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     AccessGrantsLocationId: str
     Grantee: GranteeTypeDef
@@ -626,23 +626,23 @@ class CreateAccessGrantRequestRequestTypeDef(BaseModel):
     S3PrefixType: Optional[Literal["Object"]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateAccessGrantsInstanceRequestRequestTypeDef(BaseModel):
+class CreateAccessGrantsInstanceRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     IdentityCenterArn: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateAccessGrantsLocationRequestRequestTypeDef(BaseModel):
+class CreateAccessGrantsLocationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     LocationScope: str
     IAMRoleArn: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class CreateAccessGrantResultTypeDef(BaseModel):
+class CreateAccessGrantResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantId: str
     AccessGrantArn: str
@@ -654,14 +654,14 @@ class CreateAccessGrantResultTypeDef(BaseModel):
     GrantScope: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessGrantsInstanceResultTypeDef(BaseModel):
+class CreateAccessGrantsInstanceResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantsInstanceId: str
     AccessGrantsInstanceArn: str
     IdentityCenterArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessGrantsLocationResultTypeDef(BaseModel):
+class CreateAccessGrantsLocationResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantsLocationId: str
     AccessGrantsLocationArn: str
@@ -669,32 +669,32 @@ class CreateAccessGrantsLocationResultTypeDef(BaseModel):
     IAMRoleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessPointResultTypeDef(BaseModel):
+class CreateAccessPointResultTypeDef(BaseValidatorModel):
     AccessPointArn: str
     Alias: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBucketResultTypeDef(BaseModel):
+class CreateBucketResultTypeDef(BaseValidatorModel):
     Location: str
     BucketArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJobResultTypeDef(BaseModel):
+class CreateJobResultTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMultiRegionAccessPointResultTypeDef(BaseModel):
+class CreateMultiRegionAccessPointResultTypeDef(BaseValidatorModel):
     RequestTokenARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteMultiRegionAccessPointResultTypeDef(BaseModel):
+class DeleteMultiRegionAccessPointResultTypeDef(BaseValidatorModel):
     RequestTokenARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessGrantResultTypeDef(BaseModel):
+class GetAccessGrantResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantId: str
     AccessGrantArn: str
@@ -706,25 +706,25 @@ class GetAccessGrantResultTypeDef(BaseModel):
     ApplicationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessGrantsInstanceForPrefixResultTypeDef(BaseModel):
+class GetAccessGrantsInstanceForPrefixResultTypeDef(BaseValidatorModel):
     AccessGrantsInstanceArn: str
     AccessGrantsInstanceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessGrantsInstanceResourcePolicyResultTypeDef(BaseModel):
+class GetAccessGrantsInstanceResourcePolicyResultTypeDef(BaseValidatorModel):
     Policy: str
     Organization: str
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessGrantsInstanceResultTypeDef(BaseModel):
+class GetAccessGrantsInstanceResultTypeDef(BaseValidatorModel):
     AccessGrantsInstanceArn: str
     AccessGrantsInstanceId: str
     IdentityCenterArn: str
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessGrantsLocationResultTypeDef(BaseModel):
+class GetAccessGrantsLocationResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantsLocationId: str
     AccessGrantsLocationArn: str
@@ -732,44 +732,44 @@ class GetAccessGrantsLocationResultTypeDef(BaseModel):
     IAMRoleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessPointPolicyForObjectLambdaResultTypeDef(BaseModel):
+class GetAccessPointPolicyForObjectLambdaResultTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessPointPolicyResultTypeDef(BaseModel):
+class GetAccessPointPolicyResultTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketPolicyResultTypeDef(BaseModel):
+class GetBucketPolicyResultTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketResultTypeDef(BaseModel):
+class GetBucketResultTypeDef(BaseValidatorModel):
     Bucket: str
     PublicAccessBlockEnabled: bool
     CreationDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketVersioningResultTypeDef(BaseModel):
+class GetBucketVersioningResultTypeDef(BaseValidatorModel):
     Status: BucketVersioningStatusType
     MFADelete: MFADeleteStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResultTypeDef(BaseModel):
+class ListTagsForResourceResultTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAccessGrantsInstanceResourcePolicyResultTypeDef(BaseModel):
+class PutAccessGrantsInstanceResourcePolicyResultTypeDef(BaseValidatorModel):
     Policy: str
     Organization: str
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutMultiRegionAccessPointPolicyResultTypeDef(BaseModel):
+class PutMultiRegionAccessPointPolicyResultTypeDef(BaseValidatorModel):
     RequestTokenARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAccessGrantsLocationResultTypeDef(BaseModel):
+class UpdateAccessGrantsLocationResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantsLocationId: str
     AccessGrantsLocationArn: str
@@ -777,28 +777,28 @@ class UpdateAccessGrantsLocationResultTypeDef(BaseModel):
     IAMRoleArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateJobPriorityResultTypeDef(BaseModel):
+class UpdateJobPriorityResultTypeDef(BaseValidatorModel):
     JobId: str
     Priority: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateJobStatusResultTypeDef(BaseModel):
+class UpdateJobStatusResultTypeDef(BaseValidatorModel):
     JobId: str
     Status: JobStatusType
     StatusUpdateReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessPointForObjectLambdaResultTypeDef(BaseModel):
+class CreateAccessPointForObjectLambdaResultTypeDef(BaseValidatorModel):
     ObjectLambdaAccessPointArn: str
     Alias: ObjectLambdaAccessPointAliasTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ObjectLambdaAccessPointTypeDef(BaseModel):
+class ObjectLambdaAccessPointTypeDef(BaseValidatorModel):
     Name: str
     ObjectLambdaAccessPointArn: Optional[str] = None
     Alias: Optional[ObjectLambdaAccessPointAliasTypeDef] = None
 
-class CreateAccessPointRequestRequestTypeDef(BaseModel):
+class CreateAccessPointRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
     Bucket: str
@@ -806,14 +806,14 @@ class CreateAccessPointRequestRequestTypeDef(BaseModel):
     PublicAccessBlockConfiguration: Optional[PublicAccessBlockConfigurationTypeDef] = None
     BucketAccountId: Optional[str] = None
 
-class GetAccessPointForObjectLambdaResultTypeDef(BaseModel):
+class GetAccessPointForObjectLambdaResultTypeDef(BaseValidatorModel):
     Name: str
     PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
     CreationDate: datetime
     Alias: ObjectLambdaAccessPointAliasTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessPointResultTypeDef(BaseModel):
+class GetAccessPointResultTypeDef(BaseValidatorModel):
     Name: str
     Bucket: str
     NetworkOrigin: NetworkOriginType
@@ -826,15 +826,15 @@ class GetAccessPointResultTypeDef(BaseModel):
     BucketAccountId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPublicAccessBlockOutputTypeDef(BaseModel):
+class GetPublicAccessBlockOutputTypeDef(BaseValidatorModel):
     PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutPublicAccessBlockRequestRequestTypeDef(BaseModel):
+class PutPublicAccessBlockRequestRequestTypeDef(BaseValidatorModel):
     PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
     AccountId: str
 
-class CreateBucketRequestRequestTypeDef(BaseModel):
+class CreateBucketRequestRequestTypeDef(BaseValidatorModel):
     Bucket: str
     ACL: Optional[BucketCannedACLType] = None
     CreateBucketConfiguration: Optional[CreateBucketConfigurationTypeDef] = None
@@ -846,81 +846,81 @@ class CreateBucketRequestRequestTypeDef(BaseModel):
     ObjectLockEnabledForBucket: Optional[bool] = None
     OutpostId: Optional[str] = None
 
-class GetBucketTaggingResultTypeDef(BaseModel):
+class GetBucketTaggingResultTypeDef(BaseValidatorModel):
     TagSet: List[S3TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobTaggingResultTypeDef(BaseModel):
+class GetJobTaggingResultTypeDef(BaseValidatorModel):
     Tags: List[S3TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LifecycleRuleAndOperatorTypeDef(BaseModel):
+class LifecycleRuleAndOperatorTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[List[S3TagTypeDef]] = None
     ObjectSizeGreaterThan: Optional[int] = None
     ObjectSizeLessThan: Optional[int] = None
 
-class PutJobTaggingRequestRequestTypeDef(BaseModel):
+class PutJobTaggingRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     JobId: str
     Tags: Sequence[S3TagTypeDef]
 
-class ReplicationRuleAndOperatorTypeDef(BaseModel):
+class ReplicationRuleAndOperatorTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tags: Optional[List[S3TagTypeDef]] = None
 
-class S3SetObjectTaggingOperationTypeDef(BaseModel):
+class S3SetObjectTaggingOperationTypeDef(BaseValidatorModel):
     TagSet: Optional[Sequence[S3TagTypeDef]] = None
 
-class TaggingTypeDef(BaseModel):
+class TaggingTypeDef(BaseValidatorModel):
     TagSet: Sequence[S3TagTypeDef]
 
-class CreateMultiRegionAccessPointInputTypeDef(BaseModel):
+class CreateMultiRegionAccessPointInputTypeDef(BaseValidatorModel):
     Name: str
     Regions: Sequence[RegionTypeDef]
     PublicAccessBlock: Optional[PublicAccessBlockConfigurationTypeDef] = None
 
-class GetDataAccessResultTypeDef(BaseModel):
+class GetDataAccessResultTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
     MatchedGrantTarget: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GeneratedManifestEncryptionTypeDef(BaseModel):
+class GeneratedManifestEncryptionTypeDef(BaseValidatorModel):
     SSES3: Optional[Mapping[str, Any]] = None
     SSEKMS: Optional[SSEKMSEncryptionTypeDef] = None
 
-class GetAccessPointPolicyStatusForObjectLambdaResultTypeDef(BaseModel):
+class GetAccessPointPolicyStatusForObjectLambdaResultTypeDef(BaseValidatorModel):
     PolicyStatus: PolicyStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessPointPolicyStatusResultTypeDef(BaseModel):
+class GetAccessPointPolicyStatusResultTypeDef(BaseValidatorModel):
     PolicyStatus: PolicyStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMultiRegionAccessPointPolicyStatusResultTypeDef(BaseModel):
+class GetMultiRegionAccessPointPolicyStatusResultTypeDef(BaseValidatorModel):
     Established: PolicyStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMultiRegionAccessPointRoutesResultTypeDef(BaseModel):
+class GetMultiRegionAccessPointRoutesResultTypeDef(BaseValidatorModel):
     Mrap: str
     Routes: List[MultiRegionAccessPointRouteTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubmitMultiRegionAccessPointRoutesRequestRequestTypeDef(BaseModel):
+class SubmitMultiRegionAccessPointRoutesRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Mrap: str
     RouteUpdates: Sequence[MultiRegionAccessPointRouteTypeDef]
 
-class GetStorageLensConfigurationTaggingResultTypeDef(BaseModel):
+class GetStorageLensConfigurationTaggingResultTypeDef(BaseValidatorModel):
     Tags: List[StorageLensTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutStorageLensConfigurationTaggingRequestRequestTypeDef(BaseModel):
+class PutStorageLensConfigurationTaggingRequestRequestTypeDef(BaseValidatorModel):
     ConfigId: str
     AccountId: str
     Tags: Sequence[StorageLensTagTypeDef]
 
-class JobManifestGeneratorFilterTypeDef(BaseModel):
+class JobManifestGeneratorFilterTypeDef(BaseValidatorModel):
     EligibleForReplication: Optional[bool] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
@@ -930,7 +930,7 @@ class JobManifestGeneratorFilterTypeDef(BaseModel):
     ObjectSizeLessThanBytes: Optional[int] = None
     MatchAnyStorageClass: Optional[Sequence[S3StorageClassType]] = None
 
-class S3ObjectMetadataTypeDef(BaseModel):
+class S3ObjectMetadataTypeDef(BaseValidatorModel):
     CacheControl: Optional[str] = None
     ContentDisposition: Optional[str] = None
     ContentEncoding: Optional[str] = None
@@ -943,83 +943,83 @@ class S3ObjectMetadataTypeDef(BaseModel):
     RequesterCharged: Optional[bool] = None
     SSEAlgorithm: Optional[S3SSEAlgorithmType] = None
 
-class S3RetentionTypeDef(BaseModel):
+class S3RetentionTypeDef(BaseValidatorModel):
     RetainUntilDate: Optional[TimestampTypeDef] = None
     Mode: Optional[S3ObjectLockRetentionModeType] = None
 
-class S3GeneratedManifestDescriptorTypeDef(BaseModel):
+class S3GeneratedManifestDescriptorTypeDef(BaseValidatorModel):
     Format: Optional[Literal["S3InventoryReport_CSV_20211130"]] = None
     Location: Optional[JobManifestLocationTypeDef] = None
 
-class JobManifestTypeDef(BaseModel):
+class JobManifestTypeDef(BaseValidatorModel):
     Spec: JobManifestSpecTypeDef
     Location: JobManifestLocationTypeDef
 
-class JobProgressSummaryTypeDef(BaseModel):
+class JobProgressSummaryTypeDef(BaseValidatorModel):
     TotalNumberOfTasks: Optional[int] = None
     NumberOfTasksSucceeded: Optional[int] = None
     NumberOfTasksFailed: Optional[int] = None
     Timers: Optional[JobTimersTypeDef] = None
 
-class ListAccessGrantsInstancesResultTypeDef(BaseModel):
+class ListAccessGrantsInstancesResultTypeDef(BaseValidatorModel):
     NextToken: str
     AccessGrantsInstancesList: List[ListAccessGrantsInstanceEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccessGrantsLocationsResultTypeDef(BaseModel):
+class ListAccessGrantsLocationsResultTypeDef(BaseValidatorModel):
     NextToken: str
     AccessGrantsLocationsList: List[ListAccessGrantsLocationsEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccessPointsForObjectLambdaRequestListAccessPointsForObjectLambdaPaginateTypeDef(BaseModel):
+class ListAccessPointsForObjectLambdaRequestListAccessPointsForObjectLambdaPaginateTypeDef(BaseValidatorModel):
     AccountId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRegionalBucketsResultTypeDef(BaseModel):
+class ListRegionalBucketsResultTypeDef(BaseValidatorModel):
     RegionalBucketList: List[RegionalBucketTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStorageLensConfigurationsResultTypeDef(BaseModel):
+class ListStorageLensConfigurationsResultTypeDef(BaseValidatorModel):
     NextToken: str
     StorageLensConfigurationList: List[ListStorageLensConfigurationEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStorageLensGroupsResultTypeDef(BaseModel):
+class ListStorageLensGroupsResultTypeDef(BaseValidatorModel):
     NextToken: str
     StorageLensGroupList: List[ListStorageLensGroupEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StorageLensGroupAndOperatorTypeDef(BaseModel):
+class StorageLensGroupAndOperatorTypeDef(BaseValidatorModel):
     MatchAnyPrefix: Optional[Sequence[str]] = None
     MatchAnySuffix: Optional[Sequence[str]] = None
     MatchAnyTag: Optional[Sequence[S3TagTypeDef]] = None
     MatchObjectAge: Optional[MatchObjectAgeTypeDef] = None
     MatchObjectSize: Optional[MatchObjectSizeTypeDef] = None
 
-class StorageLensGroupOrOperatorTypeDef(BaseModel):
+class StorageLensGroupOrOperatorTypeDef(BaseValidatorModel):
     MatchAnyPrefix: Optional[Sequence[str]] = None
     MatchAnySuffix: Optional[Sequence[str]] = None
     MatchAnyTag: Optional[Sequence[S3TagTypeDef]] = None
     MatchObjectAge: Optional[MatchObjectAgeTypeDef] = None
     MatchObjectSize: Optional[MatchObjectSizeTypeDef] = None
 
-class MetricsTypeDef(BaseModel):
+class MetricsTypeDef(BaseValidatorModel):
     Status: MetricsStatusType
     EventThreshold: Optional[ReplicationTimeValueTypeDef] = None
 
-class ReplicationTimeTypeDef(BaseModel):
+class ReplicationTimeTypeDef(BaseValidatorModel):
     Status: ReplicationTimeStatusType
     Time: ReplicationTimeValueTypeDef
 
-class MultiRegionAccessPointPolicyDocumentTypeDef(BaseModel):
+class MultiRegionAccessPointPolicyDocumentTypeDef(BaseValidatorModel):
     Established: Optional[EstablishedMultiRegionAccessPointPolicyTypeDef] = None
     Proposed: Optional[ProposedMultiRegionAccessPointPolicyTypeDef] = None
 
-class MultiRegionAccessPointsAsyncResponseTypeDef(BaseModel):
+class MultiRegionAccessPointsAsyncResponseTypeDef(BaseValidatorModel):
     Regions: Optional[List[MultiRegionAccessPointRegionalResponseTypeDef]] = None
 
-class MultiRegionAccessPointReportTypeDef(BaseModel):
+class MultiRegionAccessPointReportTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Alias: Optional[str] = None
     CreatedAt: Optional[datetime] = None
@@ -1027,92 +1027,92 @@ class MultiRegionAccessPointReportTypeDef(BaseModel):
     Status: Optional[MultiRegionAccessPointStatusType] = None
     Regions: Optional[List[RegionReportTypeDef]] = None
 
-class PrefixLevelStorageMetricsTypeDef(BaseModel):
+class PrefixLevelStorageMetricsTypeDef(BaseValidatorModel):
     IsEnabled: Optional[bool] = None
     SelectionCriteria: Optional[SelectionCriteriaTypeDef] = None
 
-class PutBucketVersioningRequestRequestTypeDef(BaseModel):
+class PutBucketVersioningRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
     VersioningConfiguration: VersioningConfigurationTypeDef
     MFA: Optional[str] = None
 
-class S3GrantTypeDef(BaseModel):
+class S3GrantTypeDef(BaseValidatorModel):
     Grantee: Optional[S3GranteeTypeDef] = None
     Permission: Optional[S3PermissionType] = None
 
-class S3SetObjectLegalHoldOperationTypeDef(BaseModel):
+class S3SetObjectLegalHoldOperationTypeDef(BaseValidatorModel):
     LegalHold: S3ObjectLockLegalHoldTypeDef
 
-class StorageLensDataExportEncryptionTypeDef(BaseModel):
+class StorageLensDataExportEncryptionTypeDef(BaseValidatorModel):
     SSES3: Optional[Dict[str, Any]] = None
     SSEKMS: Optional[SSEKMSTypeDef] = None
 
-class SourceSelectionCriteriaTypeDef(BaseModel):
+class SourceSelectionCriteriaTypeDef(BaseValidatorModel):
     SseKmsEncryptedObjects: Optional[SseKmsEncryptedObjectsTypeDef] = None
     ReplicaModifications: Optional[ReplicaModificationsTypeDef] = None
 
-class StorageLensGroupLevelTypeDef(BaseModel):
+class StorageLensGroupLevelTypeDef(BaseValidatorModel):
     SelectionCriteria: Optional[StorageLensGroupLevelSelectionCriteriaTypeDef] = None
 
-class ListAccessPointsResultTypeDef(BaseModel):
+class ListAccessPointsResultTypeDef(BaseValidatorModel):
     AccessPointList: List[AccessPointTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ObjectLambdaTransformationConfigurationTypeDef(BaseModel):
+class ObjectLambdaTransformationConfigurationTypeDef(BaseValidatorModel):
     Actions: Sequence[ObjectLambdaTransformationConfigurationActionType]
     ContentTransformation: ObjectLambdaContentTransformationTypeDef
 
-class ListAccessGrantsResultTypeDef(BaseModel):
+class ListAccessGrantsResultTypeDef(BaseValidatorModel):
     NextToken: str
     AccessGrantsList: List[ListAccessGrantEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccessPointsForObjectLambdaResultTypeDef(BaseModel):
+class ListAccessPointsForObjectLambdaResultTypeDef(BaseValidatorModel):
     ObjectLambdaAccessPointList: List[ObjectLambdaAccessPointTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LifecycleRuleFilterTypeDef(BaseModel):
+class LifecycleRuleFilterTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[S3TagTypeDef] = None
     And: Optional[LifecycleRuleAndOperatorTypeDef] = None
     ObjectSizeGreaterThan: Optional[int] = None
     ObjectSizeLessThan: Optional[int] = None
 
-class ReplicationRuleFilterTypeDef(BaseModel):
+class ReplicationRuleFilterTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Tag: Optional[S3TagTypeDef] = None
     And: Optional[ReplicationRuleAndOperatorTypeDef] = None
 
-class PutBucketTaggingRequestRequestTypeDef(BaseModel):
+class PutBucketTaggingRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
     Tagging: TaggingTypeDef
 
-class AsyncRequestParametersTypeDef(BaseModel):
+class AsyncRequestParametersTypeDef(BaseValidatorModel):
     CreateMultiRegionAccessPointRequest: Optional[       CreateMultiRegionAccessPointInputTypeDef     ] = None
     DeleteMultiRegionAccessPointRequest: Optional[       DeleteMultiRegionAccessPointInputTypeDef     ] = None
     PutMultiRegionAccessPointPolicyRequest: Optional[       PutMultiRegionAccessPointPolicyInputTypeDef     ] = None
 
-class CreateMultiRegionAccessPointRequestRequestTypeDef(BaseModel):
+class CreateMultiRegionAccessPointRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     ClientToken: str
     Details: CreateMultiRegionAccessPointInputTypeDef
 
-class S3ManifestOutputLocationTypeDef(BaseModel):
+class S3ManifestOutputLocationTypeDef(BaseValidatorModel):
     Bucket: str
     ManifestFormat: Literal["S3InventoryReport_CSV_20211130"]
     ExpectedManifestBucketOwner: Optional[str] = None
     ManifestPrefix: Optional[str] = None
     ManifestEncryption: Optional[GeneratedManifestEncryptionTypeDef] = None
 
-class S3SetObjectRetentionOperationTypeDef(BaseModel):
+class S3SetObjectRetentionOperationTypeDef(BaseValidatorModel):
     Retention: S3RetentionTypeDef
     BypassGovernanceRetention: Optional[bool] = None
 
-class JobListDescriptorTypeDef(BaseModel):
+class JobListDescriptorTypeDef(BaseValidatorModel):
     JobId: Optional[str] = None
     Description: Optional[str] = None
     Operation: Optional[OperationNameType] = None
@@ -1122,7 +1122,7 @@ class JobListDescriptorTypeDef(BaseModel):
     TerminationDate: Optional[datetime] = None
     ProgressSummary: Optional[JobProgressSummaryTypeDef] = None
 
-class StorageLensGroupFilterTypeDef(BaseModel):
+class StorageLensGroupFilterTypeDef(BaseValidatorModel):
     MatchAnyPrefix: Optional[Sequence[str]] = None
     MatchAnySuffix: Optional[Sequence[str]] = None
     MatchAnyTag: Optional[Sequence[S3TagTypeDef]] = None
@@ -1131,7 +1131,7 @@ class StorageLensGroupFilterTypeDef(BaseModel):
     And: Optional[StorageLensGroupAndOperatorTypeDef] = None
     Or: Optional[StorageLensGroupOrOperatorTypeDef] = None
 
-class DestinationTypeDef(BaseModel):
+class DestinationTypeDef(BaseValidatorModel):
     Bucket: str
     Account: Optional[str] = None
     ReplicationTime: Optional[ReplicationTimeTypeDef] = None
@@ -1140,31 +1140,31 @@ class DestinationTypeDef(BaseModel):
     Metrics: Optional[MetricsTypeDef] = None
     StorageClass: Optional[ReplicationStorageClassType] = None
 
-class GetMultiRegionAccessPointPolicyResultTypeDef(BaseModel):
+class GetMultiRegionAccessPointPolicyResultTypeDef(BaseValidatorModel):
     Policy: MultiRegionAccessPointPolicyDocumentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AsyncResponseDetailsTypeDef(BaseModel):
+class AsyncResponseDetailsTypeDef(BaseValidatorModel):
     MultiRegionAccessPointDetails: Optional[MultiRegionAccessPointsAsyncResponseTypeDef] = None
     ErrorDetails: Optional[AsyncErrorDetailsTypeDef] = None
 
-class GetMultiRegionAccessPointResultTypeDef(BaseModel):
+class GetMultiRegionAccessPointResultTypeDef(BaseValidatorModel):
     AccessPoint: MultiRegionAccessPointReportTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMultiRegionAccessPointsResultTypeDef(BaseModel):
+class ListMultiRegionAccessPointsResultTypeDef(BaseValidatorModel):
     AccessPoints: List[MultiRegionAccessPointReportTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PrefixLevelTypeDef(BaseModel):
+class PrefixLevelTypeDef(BaseValidatorModel):
     StorageMetrics: PrefixLevelStorageMetricsTypeDef
 
-class S3AccessControlListTypeDef(BaseModel):
+class S3AccessControlListTypeDef(BaseValidatorModel):
     Owner: S3ObjectOwnerTypeDef
     Grants: Optional[Sequence[S3GrantTypeDef]] = None
 
-class S3CopyObjectOperationTypeDef(BaseModel):
+class S3CopyObjectOperationTypeDef(BaseValidatorModel):
     TargetResource: Optional[str] = None
     CannedAccessControlList: Optional[S3CannedAccessControlListType] = None
     AccessControlGrants: Optional[Sequence[S3GrantTypeDef]] = None
@@ -1184,7 +1184,7 @@ class S3CopyObjectOperationTypeDef(BaseModel):
     BucketKeyEnabled: Optional[bool] = None
     ChecksumAlgorithm: Optional[S3ChecksumAlgorithmType] = None
 
-class S3BucketDestinationTypeDef(BaseModel):
+class S3BucketDestinationTypeDef(BaseValidatorModel):
     Format: FormatType
     OutputSchemaVersion: Literal["V_1"]
     AccountId: str
@@ -1192,13 +1192,13 @@ class S3BucketDestinationTypeDef(BaseModel):
     Prefix: Optional[str] = None
     Encryption: Optional[StorageLensDataExportEncryptionTypeDef] = None
 
-class ObjectLambdaConfigurationTypeDef(BaseModel):
+class ObjectLambdaConfigurationTypeDef(BaseValidatorModel):
     SupportingAccessPoint: str
     TransformationConfigurations: Sequence[ObjectLambdaTransformationConfigurationTypeDef]
     CloudWatchMetricsEnabled: Optional[bool] = None
     AllowedFeatures: Optional[Sequence[ObjectLambdaAllowedFeatureType]] = None
 
-class LifecycleRuleTypeDef(BaseModel):
+class LifecycleRuleTypeDef(BaseValidatorModel):
     Status: ExpirationStatusType
     Expiration: Optional[LifecycleExpirationTypeDef] = None
     ID: Optional[str] = None
@@ -1208,24 +1208,24 @@ class LifecycleRuleTypeDef(BaseModel):
     NoncurrentVersionExpiration: Optional[NoncurrentVersionExpirationTypeDef] = None
     AbortIncompleteMultipartUpload: Optional[AbortIncompleteMultipartUploadTypeDef] = None
 
-class S3JobManifestGeneratorTypeDef(BaseModel):
+class S3JobManifestGeneratorTypeDef(BaseValidatorModel):
     SourceBucket: str
     EnableManifestOutput: bool
     ExpectedBucketOwner: Optional[str] = None
     ManifestOutputLocation: Optional[S3ManifestOutputLocationTypeDef] = None
     Filter: Optional[JobManifestGeneratorFilterTypeDef] = None
 
-class ListJobsResultTypeDef(BaseModel):
+class ListJobsResultTypeDef(BaseValidatorModel):
     NextToken: str
     Jobs: List[JobListDescriptorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StorageLensGroupTypeDef(BaseModel):
+class StorageLensGroupTypeDef(BaseValidatorModel):
     Name: str
     Filter: StorageLensGroupFilterTypeDef
     StorageLensGroupArn: Optional[str] = None
 
-class ReplicationRuleTypeDef(BaseModel):
+class ReplicationRuleTypeDef(BaseValidatorModel):
     Status: ReplicationRuleStatusType
     Destination: DestinationTypeDef
     Bucket: str
@@ -1237,7 +1237,7 @@ class ReplicationRuleTypeDef(BaseModel):
     ExistingObjectReplication: Optional[ExistingObjectReplicationTypeDef] = None
     DeleteMarkerReplication: Optional[DeleteMarkerReplicationTypeDef] = None
 
-class AsyncOperationTypeDef(BaseModel):
+class AsyncOperationTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     Operation: Optional[AsyncOperationNameType] = None
     RequestTokenARN: Optional[str] = None
@@ -1245,68 +1245,68 @@ class AsyncOperationTypeDef(BaseModel):
     RequestStatus: Optional[str] = None
     ResponseDetails: Optional[AsyncResponseDetailsTypeDef] = None
 
-class BucketLevelTypeDef(BaseModel):
+class BucketLevelTypeDef(BaseValidatorModel):
     ActivityMetrics: Optional[ActivityMetricsTypeDef] = None
     PrefixLevel: Optional[PrefixLevelTypeDef] = None
     AdvancedCostOptimizationMetrics: Optional[AdvancedCostOptimizationMetricsTypeDef] = None
     AdvancedDataProtectionMetrics: Optional[AdvancedDataProtectionMetricsTypeDef] = None
     DetailedStatusCodesMetrics: Optional[DetailedStatusCodesMetricsTypeDef] = None
 
-class S3AccessControlPolicyTypeDef(BaseModel):
+class S3AccessControlPolicyTypeDef(BaseValidatorModel):
     AccessControlList: Optional[S3AccessControlListTypeDef] = None
     CannedAccessControlList: Optional[S3CannedAccessControlListType] = None
 
-class StorageLensDataExportTypeDef(BaseModel):
+class StorageLensDataExportTypeDef(BaseValidatorModel):
     S3BucketDestination: Optional[S3BucketDestinationTypeDef] = None
     CloudWatchMetrics: Optional[CloudWatchMetricsTypeDef] = None
 
-class CreateAccessPointForObjectLambdaRequestRequestTypeDef(BaseModel):
+class CreateAccessPointForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
     Configuration: ObjectLambdaConfigurationTypeDef
 
-class GetAccessPointConfigurationForObjectLambdaResultTypeDef(BaseModel):
+class GetAccessPointConfigurationForObjectLambdaResultTypeDef(BaseValidatorModel):
     Configuration: ObjectLambdaConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAccessPointConfigurationForObjectLambdaRequestRequestTypeDef(BaseModel):
+class PutAccessPointConfigurationForObjectLambdaRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Name: str
     Configuration: ObjectLambdaConfigurationTypeDef
 
-class GetBucketLifecycleConfigurationResultTypeDef(BaseModel):
+class GetBucketLifecycleConfigurationResultTypeDef(BaseValidatorModel):
     Rules: List[LifecycleRuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LifecycleConfigurationTypeDef(BaseModel):
+class LifecycleConfigurationTypeDef(BaseValidatorModel):
     Rules: Optional[Sequence[LifecycleRuleTypeDef]] = None
 
-class JobManifestGeneratorTypeDef(BaseModel):
+class JobManifestGeneratorTypeDef(BaseValidatorModel):
     S3JobManifestGenerator: Optional[S3JobManifestGeneratorTypeDef] = None
 
-class CreateStorageLensGroupRequestRequestTypeDef(BaseModel):
+class CreateStorageLensGroupRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     StorageLensGroup: StorageLensGroupTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class GetStorageLensGroupResultTypeDef(BaseModel):
+class GetStorageLensGroupResultTypeDef(BaseValidatorModel):
     StorageLensGroup: StorageLensGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateStorageLensGroupRequestRequestTypeDef(BaseModel):
+class UpdateStorageLensGroupRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     AccountId: str
     StorageLensGroup: StorageLensGroupTypeDef
 
-class ReplicationConfigurationTypeDef(BaseModel):
+class ReplicationConfigurationTypeDef(BaseValidatorModel):
     Role: str
     Rules: List[ReplicationRuleTypeDef]
 
-class DescribeMultiRegionAccessPointOperationResultTypeDef(BaseModel):
+class DescribeMultiRegionAccessPointOperationResultTypeDef(BaseValidatorModel):
     AsyncOperation: AsyncOperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AccountLevelTypeDef(BaseModel):
+class AccountLevelTypeDef(BaseValidatorModel):
     BucketLevel: BucketLevelTypeDef
     ActivityMetrics: Optional[ActivityMetricsTypeDef] = None
     AdvancedCostOptimizationMetrics: Optional[AdvancedCostOptimizationMetricsTypeDef] = None
@@ -1314,24 +1314,24 @@ class AccountLevelTypeDef(BaseModel):
     DetailedStatusCodesMetrics: Optional[DetailedStatusCodesMetricsTypeDef] = None
     StorageLensGroupLevel: Optional[StorageLensGroupLevelTypeDef] = None
 
-class S3SetObjectAclOperationTypeDef(BaseModel):
+class S3SetObjectAclOperationTypeDef(BaseValidatorModel):
     AccessControlPolicy: Optional[S3AccessControlPolicyTypeDef] = None
 
-class PutBucketLifecycleConfigurationRequestRequestTypeDef(BaseModel):
+class PutBucketLifecycleConfigurationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
     LifecycleConfiguration: Optional[LifecycleConfigurationTypeDef] = None
 
-class GetBucketReplicationResultTypeDef(BaseModel):
+class GetBucketReplicationResultTypeDef(BaseValidatorModel):
     ReplicationConfiguration: ReplicationConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBucketReplicationRequestRequestTypeDef(BaseModel):
+class PutBucketReplicationRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Bucket: str
     ReplicationConfiguration: ReplicationConfigurationTypeDef
 
-class StorageLensConfigurationTypeDef(BaseModel):
+class StorageLensConfigurationTypeDef(BaseValidatorModel):
     Id: str
     AccountLevel: AccountLevelTypeDef
     IsEnabled: bool
@@ -1341,7 +1341,7 @@ class StorageLensConfigurationTypeDef(BaseModel):
     AwsOrg: Optional[StorageLensAwsOrgTypeDef] = None
     StorageLensArn: Optional[str] = None
 
-class JobOperationTypeDef(BaseModel):
+class JobOperationTypeDef(BaseValidatorModel):
     LambdaInvoke: Optional[LambdaInvokeOperationTypeDef] = None
     S3PutObjectCopy: Optional[S3CopyObjectOperationTypeDef] = None
     S3PutObjectAcl: Optional[S3SetObjectAclOperationTypeDef] = None
@@ -1352,17 +1352,17 @@ class JobOperationTypeDef(BaseModel):
     S3PutObjectRetention: Optional[S3SetObjectRetentionOperationTypeDef] = None
     S3ReplicateObject: Optional[Mapping[str, Any]] = None
 
-class GetStorageLensConfigurationResultTypeDef(BaseModel):
+class GetStorageLensConfigurationResultTypeDef(BaseValidatorModel):
     StorageLensConfiguration: StorageLensConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutStorageLensConfigurationRequestRequestTypeDef(BaseModel):
+class PutStorageLensConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ConfigId: str
     AccountId: str
     StorageLensConfiguration: StorageLensConfigurationTypeDef
     Tags: Optional[Sequence[StorageLensTagTypeDef]] = None
 
-class CreateJobRequestRequestTypeDef(BaseModel):
+class CreateJobRequestRequestTypeDef(BaseValidatorModel):
     AccountId: str
     Operation: JobOperationTypeDef
     Report: JobReportTypeDef
@@ -1375,7 +1375,7 @@ class CreateJobRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[S3TagTypeDef]] = None
     ManifestGenerator: Optional[JobManifestGeneratorTypeDef] = None
 
-class JobDescriptorTypeDef(BaseModel):
+class JobDescriptorTypeDef(BaseValidatorModel):
     JobId: Optional[str] = None
     ConfirmationRequired: Optional[bool] = None
     Description: Optional[str] = None
@@ -1396,7 +1396,7 @@ class JobDescriptorTypeDef(BaseModel):
     ManifestGenerator: Optional[JobManifestGeneratorTypeDef] = None
     GeneratedManifestDescriptor: Optional[S3GeneratedManifestDescriptorTypeDef] = None
 
-class DescribeJobResultTypeDef(BaseModel):
+class DescribeJobResultTypeDef(BaseValidatorModel):
     Job: JobDescriptorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

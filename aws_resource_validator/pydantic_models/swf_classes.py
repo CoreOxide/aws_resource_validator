@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,178 +11,178 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.swf_constants import *
 
-class ActivityTaskCancelRequestedEventAttributesTypeDef(BaseModel):
+class ActivityTaskCancelRequestedEventAttributesTypeDef(BaseValidatorModel):
     decisionTaskCompletedEventId: int
     activityId: str
 
-class ActivityTaskCanceledEventAttributesTypeDef(BaseModel):
+class ActivityTaskCanceledEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
     startedEventId: int
     details: Optional[str] = None
     latestCancelRequestedEventId: Optional[int] = None
 
-class ActivityTaskCompletedEventAttributesTypeDef(BaseModel):
+class ActivityTaskCompletedEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
     startedEventId: int
     result: Optional[str] = None
 
-class ActivityTaskFailedEventAttributesTypeDef(BaseModel):
+class ActivityTaskFailedEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
     startedEventId: int
     reason: Optional[str] = None
     details: Optional[str] = None
 
-class ActivityTypeTypeDef(BaseModel):
+class ActivityTypeTypeDef(BaseValidatorModel):
     name: str
     version: str
 
-class TaskListTypeDef(BaseModel):
+class TaskListTypeDef(BaseValidatorModel):
     name: str
 
-class ActivityTaskStartedEventAttributesTypeDef(BaseModel):
+class ActivityTaskStartedEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
     identity: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ActivityTaskTimedOutEventAttributesTypeDef(BaseModel):
+class ActivityTaskTimedOutEventAttributesTypeDef(BaseValidatorModel):
     timeoutType: ActivityTaskTimeoutTypeType
     scheduledEventId: int
     startedEventId: int
     details: Optional[str] = None
 
-class WorkflowExecutionTypeDef(BaseModel):
+class WorkflowExecutionTypeDef(BaseValidatorModel):
     workflowId: str
     runId: str
 
-class CancelTimerDecisionAttributesTypeDef(BaseModel):
+class CancelTimerDecisionAttributesTypeDef(BaseValidatorModel):
     timerId: str
 
-class CancelTimerFailedEventAttributesTypeDef(BaseModel):
+class CancelTimerFailedEventAttributesTypeDef(BaseValidatorModel):
     timerId: str
     cause: CancelTimerFailedCauseType
     decisionTaskCompletedEventId: int
 
-class CancelWorkflowExecutionDecisionAttributesTypeDef(BaseModel):
+class CancelWorkflowExecutionDecisionAttributesTypeDef(BaseValidatorModel):
     details: Optional[str] = None
 
-class CancelWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
+class CancelWorkflowExecutionFailedEventAttributesTypeDef(BaseValidatorModel):
     cause: CancelWorkflowExecutionFailedCauseType
     decisionTaskCompletedEventId: int
 
-class WorkflowTypeTypeDef(BaseModel):
+class WorkflowTypeTypeDef(BaseValidatorModel):
     name: str
     version: str
 
-class CloseStatusFilterTypeDef(BaseModel):
+class CloseStatusFilterTypeDef(BaseValidatorModel):
     status: CloseStatusType
 
-class CompleteWorkflowExecutionDecisionAttributesTypeDef(BaseModel):
+class CompleteWorkflowExecutionDecisionAttributesTypeDef(BaseValidatorModel):
     result: Optional[str] = None
 
-class CompleteWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
+class CompleteWorkflowExecutionFailedEventAttributesTypeDef(BaseValidatorModel):
     cause: CompleteWorkflowExecutionFailedCauseType
     decisionTaskCompletedEventId: int
 
-class ContinueAsNewWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
+class ContinueAsNewWorkflowExecutionFailedEventAttributesTypeDef(BaseValidatorModel):
     cause: ContinueAsNewWorkflowExecutionFailedCauseType
     decisionTaskCompletedEventId: int
 
-class TagFilterTypeDef(BaseModel):
+class TagFilterTypeDef(BaseValidatorModel):
     tag: str
 
-class WorkflowExecutionFilterTypeDef(BaseModel):
+class WorkflowExecutionFilterTypeDef(BaseValidatorModel):
     workflowId: str
 
-class WorkflowTypeFilterTypeDef(BaseModel):
+class WorkflowTypeFilterTypeDef(BaseValidatorModel):
     name: str
     version: Optional[str] = None
 
-class DecisionTaskStartedEventAttributesTypeDef(BaseModel):
+class DecisionTaskStartedEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
     identity: Optional[str] = None
 
-class DecisionTaskTimedOutEventAttributesTypeDef(BaseModel):
+class DecisionTaskTimedOutEventAttributesTypeDef(BaseValidatorModel):
     timeoutType: DecisionTaskTimeoutTypeType
     scheduledEventId: int
     startedEventId: int
 
-class FailWorkflowExecutionDecisionAttributesTypeDef(BaseModel):
+class FailWorkflowExecutionDecisionAttributesTypeDef(BaseValidatorModel):
     reason: Optional[str] = None
     details: Optional[str] = None
 
-class RecordMarkerDecisionAttributesTypeDef(BaseModel):
+class RecordMarkerDecisionAttributesTypeDef(BaseValidatorModel):
     markerName: str
     details: Optional[str] = None
 
-class RequestCancelActivityTaskDecisionAttributesTypeDef(BaseModel):
+class RequestCancelActivityTaskDecisionAttributesTypeDef(BaseValidatorModel):
     activityId: str
 
-class RequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef(BaseModel):
+class RequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef(BaseValidatorModel):
     workflowId: str
     runId: Optional[str] = None
     control: Optional[str] = None
 
-class ScheduleLambdaFunctionDecisionAttributesTypeDef(BaseModel):
+class ScheduleLambdaFunctionDecisionAttributesTypeDef(BaseValidatorModel):
     id: str
     name: str
     control: Optional[str] = None
     input: Optional[str] = None
     startToCloseTimeout: Optional[str] = None
 
-class SignalExternalWorkflowExecutionDecisionAttributesTypeDef(BaseModel):
+class SignalExternalWorkflowExecutionDecisionAttributesTypeDef(BaseValidatorModel):
     workflowId: str
     signalName: str
     runId: Optional[str] = None
     input: Optional[str] = None
     control: Optional[str] = None
 
-class StartTimerDecisionAttributesTypeDef(BaseModel):
+class StartTimerDecisionAttributesTypeDef(BaseValidatorModel):
     timerId: str
     startToFireTimeout: str
     control: Optional[str] = None
 
-class DeprecateDomainInputRequestTypeDef(BaseModel):
+class DeprecateDomainInputRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DescribeDomainInputRequestTypeDef(BaseModel):
+class DescribeDomainInputRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DomainConfigurationTypeDef(BaseModel):
+class DomainConfigurationTypeDef(BaseValidatorModel):
     workflowExecutionRetentionPeriodInDays: str
 
-class DomainInfoTypeDef(BaseModel):
+class DomainInfoTypeDef(BaseValidatorModel):
     name: str
     status: RegistrationStatusType
     description: Optional[str] = None
     arn: Optional[str] = None
 
-class FailWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
+class FailWorkflowExecutionFailedEventAttributesTypeDef(BaseValidatorModel):
     cause: FailWorkflowExecutionFailedCauseType
     decisionTaskCompletedEventId: int
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class LambdaFunctionCompletedEventAttributesTypeDef(BaseModel):
+class LambdaFunctionCompletedEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
     startedEventId: int
     result: Optional[str] = None
 
-class LambdaFunctionFailedEventAttributesTypeDef(BaseModel):
+class LambdaFunctionFailedEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
     startedEventId: int
     reason: Optional[str] = None
     details: Optional[str] = None
 
-class LambdaFunctionScheduledEventAttributesTypeDef(BaseModel):
+class LambdaFunctionScheduledEventAttributesTypeDef(BaseValidatorModel):
     id: str
     name: str
     decisionTaskCompletedEventId: int
@@ -190,30 +190,30 @@ class LambdaFunctionScheduledEventAttributesTypeDef(BaseModel):
     input: Optional[str] = None
     startToCloseTimeout: Optional[str] = None
 
-class LambdaFunctionStartedEventAttributesTypeDef(BaseModel):
+class LambdaFunctionStartedEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
 
-class LambdaFunctionTimedOutEventAttributesTypeDef(BaseModel):
+class LambdaFunctionTimedOutEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
     startedEventId: int
     timeoutType: Optional[Literal["START_TO_CLOSE"]] = None
 
-class MarkerRecordedEventAttributesTypeDef(BaseModel):
+class MarkerRecordedEventAttributesTypeDef(BaseValidatorModel):
     markerName: str
     decisionTaskCompletedEventId: int
     details: Optional[str] = None
 
-class RecordMarkerFailedEventAttributesTypeDef(BaseModel):
+class RecordMarkerFailedEventAttributesTypeDef(BaseValidatorModel):
     markerName: str
     cause: Literal["OPERATION_NOT_PERMITTED"]
     decisionTaskCompletedEventId: int
 
-class RequestCancelActivityTaskFailedEventAttributesTypeDef(BaseModel):
+class RequestCancelActivityTaskFailedEventAttributesTypeDef(BaseValidatorModel):
     activityId: str
     cause: RequestCancelActivityTaskFailedCauseType
     decisionTaskCompletedEventId: int
 
-class RequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
+class RequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef(BaseValidatorModel):
     workflowId: str
     cause: RequestCancelExternalWorkflowExecutionFailedCauseType
     initiatedEventId: int
@@ -221,19 +221,19 @@ class RequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef(BaseMod
     runId: Optional[str] = None
     control: Optional[str] = None
 
-class RequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef(BaseModel):
+class RequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef(BaseValidatorModel):
     workflowId: str
     decisionTaskCompletedEventId: int
     runId: Optional[str] = None
     control: Optional[str] = None
 
-class ScheduleLambdaFunctionFailedEventAttributesTypeDef(BaseModel):
+class ScheduleLambdaFunctionFailedEventAttributesTypeDef(BaseValidatorModel):
     id: str
     name: str
     cause: ScheduleLambdaFunctionFailedCauseType
     decisionTaskCompletedEventId: int
 
-class SignalExternalWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
+class SignalExternalWorkflowExecutionFailedEventAttributesTypeDef(BaseValidatorModel):
     workflowId: str
     cause: SignalExternalWorkflowExecutionFailedCauseType
     initiatedEventId: int
@@ -241,7 +241,7 @@ class SignalExternalWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
     runId: Optional[str] = None
     control: Optional[str] = None
 
-class SignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef(BaseModel):
+class SignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef(BaseValidatorModel):
     workflowId: str
     signalName: str
     decisionTaskCompletedEventId: int
@@ -249,55 +249,55 @@ class SignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef(BaseModel):
     input: Optional[str] = None
     control: Optional[str] = None
 
-class StartLambdaFunctionFailedEventAttributesTypeDef(BaseModel):
+class StartLambdaFunctionFailedEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: Optional[int] = None
     cause: Optional[Literal["ASSUME_ROLE_FAILED"]] = None
     message: Optional[str] = None
 
-class StartTimerFailedEventAttributesTypeDef(BaseModel):
+class StartTimerFailedEventAttributesTypeDef(BaseValidatorModel):
     timerId: str
     cause: StartTimerFailedCauseType
     decisionTaskCompletedEventId: int
 
-class TimerCanceledEventAttributesTypeDef(BaseModel):
+class TimerCanceledEventAttributesTypeDef(BaseValidatorModel):
     timerId: str
     startedEventId: int
     decisionTaskCompletedEventId: int
 
-class TimerFiredEventAttributesTypeDef(BaseModel):
+class TimerFiredEventAttributesTypeDef(BaseValidatorModel):
     timerId: str
     startedEventId: int
 
-class TimerStartedEventAttributesTypeDef(BaseModel):
+class TimerStartedEventAttributesTypeDef(BaseValidatorModel):
     timerId: str
     startToFireTimeout: str
     decisionTaskCompletedEventId: int
     control: Optional[str] = None
 
-class WorkflowExecutionCanceledEventAttributesTypeDef(BaseModel):
+class WorkflowExecutionCanceledEventAttributesTypeDef(BaseValidatorModel):
     decisionTaskCompletedEventId: int
     details: Optional[str] = None
 
-class WorkflowExecutionCompletedEventAttributesTypeDef(BaseModel):
+class WorkflowExecutionCompletedEventAttributesTypeDef(BaseValidatorModel):
     decisionTaskCompletedEventId: int
     result: Optional[str] = None
 
-class WorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
+class WorkflowExecutionFailedEventAttributesTypeDef(BaseValidatorModel):
     decisionTaskCompletedEventId: int
     reason: Optional[str] = None
     details: Optional[str] = None
 
-class WorkflowExecutionTerminatedEventAttributesTypeDef(BaseModel):
+class WorkflowExecutionTerminatedEventAttributesTypeDef(BaseValidatorModel):
     childPolicy: ChildPolicyType
     reason: Optional[str] = None
     details: Optional[str] = None
     cause: Optional[WorkflowExecutionTerminatedCauseType] = None
 
-class WorkflowExecutionTimedOutEventAttributesTypeDef(BaseModel):
+class WorkflowExecutionTimedOutEventAttributesTypeDef(BaseValidatorModel):
     timeoutType: Literal["START_TO_CLOSE"]
     childPolicy: ChildPolicyType
 
-class ListActivityTypesInputRequestTypeDef(BaseModel):
+class ListActivityTypesInputRequestTypeDef(BaseValidatorModel):
     domain: str
     registrationStatus: RegistrationStatusType
     name: Optional[str] = None
@@ -305,20 +305,20 @@ class ListActivityTypesInputRequestTypeDef(BaseModel):
     maximumPageSize: Optional[int] = None
     reverseOrder: Optional[bool] = None
 
-class ListDomainsInputRequestTypeDef(BaseModel):
+class ListDomainsInputRequestTypeDef(BaseValidatorModel):
     registrationStatus: RegistrationStatusType
     nextPageToken: Optional[str] = None
     maximumPageSize: Optional[int] = None
     reverseOrder: Optional[bool] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ResourceTagTypeDef(BaseModel):
+class ResourceTagTypeDef(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
-class ListWorkflowTypesInputRequestTypeDef(BaseModel):
+class ListWorkflowTypesInputRequestTypeDef(BaseValidatorModel):
     domain: str
     registrationStatus: RegistrationStatusType
     name: Optional[str] = None
@@ -326,36 +326,36 @@ class ListWorkflowTypesInputRequestTypeDef(BaseModel):
     maximumPageSize: Optional[int] = None
     reverseOrder: Optional[bool] = None
 
-class RecordActivityTaskHeartbeatInputRequestTypeDef(BaseModel):
+class RecordActivityTaskHeartbeatInputRequestTypeDef(BaseValidatorModel):
     taskToken: str
     details: Optional[str] = None
 
-class RequestCancelWorkflowExecutionInputRequestTypeDef(BaseModel):
+class RequestCancelWorkflowExecutionInputRequestTypeDef(BaseValidatorModel):
     domain: str
     workflowId: str
     runId: Optional[str] = None
 
-class RespondActivityTaskCanceledInputRequestTypeDef(BaseModel):
+class RespondActivityTaskCanceledInputRequestTypeDef(BaseValidatorModel):
     taskToken: str
     details: Optional[str] = None
 
-class RespondActivityTaskCompletedInputRequestTypeDef(BaseModel):
+class RespondActivityTaskCompletedInputRequestTypeDef(BaseValidatorModel):
     taskToken: str
     result: Optional[str] = None
 
-class RespondActivityTaskFailedInputRequestTypeDef(BaseModel):
+class RespondActivityTaskFailedInputRequestTypeDef(BaseValidatorModel):
     taskToken: str
     reason: Optional[str] = None
     details: Optional[str] = None
 
-class SignalWorkflowExecutionInputRequestTypeDef(BaseModel):
+class SignalWorkflowExecutionInputRequestTypeDef(BaseValidatorModel):
     domain: str
     workflowId: str
     signalName: str
     runId: Optional[str] = None
     input: Optional[str] = None
 
-class TerminateWorkflowExecutionInputRequestTypeDef(BaseModel):
+class TerminateWorkflowExecutionInputRequestTypeDef(BaseValidatorModel):
     domain: str
     workflowId: str
     runId: Optional[str] = None
@@ -363,50 +363,50 @@ class TerminateWorkflowExecutionInputRequestTypeDef(BaseModel):
     details: Optional[str] = None
     childPolicy: Optional[ChildPolicyType] = None
 
-class UndeprecateDomainInputRequestTypeDef(BaseModel):
+class UndeprecateDomainInputRequestTypeDef(BaseValidatorModel):
     name: str
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class WorkflowExecutionOpenCountsTypeDef(BaseModel):
+class WorkflowExecutionOpenCountsTypeDef(BaseValidatorModel):
     openActivityTasks: int
     openDecisionTasks: int
     openTimers: int
     openChildWorkflowExecutions: int
     openLambdaFunctions: Optional[int] = None
 
-class ActivityTypeInfoTypeDef(BaseModel):
+class ActivityTypeInfoTypeDef(BaseValidatorModel):
     activityType: ActivityTypeTypeDef
     status: RegistrationStatusType
     creationDate: datetime
     description: Optional[str] = None
     deprecationDate: Optional[datetime] = None
 
-class DeleteActivityTypeInputRequestTypeDef(BaseModel):
+class DeleteActivityTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     activityType: ActivityTypeTypeDef
 
-class DeprecateActivityTypeInputRequestTypeDef(BaseModel):
+class DeprecateActivityTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     activityType: ActivityTypeTypeDef
 
-class DescribeActivityTypeInputRequestTypeDef(BaseModel):
+class DescribeActivityTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     activityType: ActivityTypeTypeDef
 
-class ScheduleActivityTaskFailedEventAttributesTypeDef(BaseModel):
+class ScheduleActivityTaskFailedEventAttributesTypeDef(BaseValidatorModel):
     activityType: ActivityTypeTypeDef
     activityId: str
     cause: ScheduleActivityTaskFailedCauseType
     decisionTaskCompletedEventId: int
 
-class UndeprecateActivityTypeInputRequestTypeDef(BaseModel):
+class UndeprecateActivityTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     activityType: ActivityTypeTypeDef
 
-class ActivityTaskScheduledEventAttributesTypeDef(BaseModel):
+class ActivityTaskScheduledEventAttributesTypeDef(BaseValidatorModel):
     activityType: ActivityTypeTypeDef
     activityId: str
     taskList: TaskListTypeDef
@@ -419,7 +419,7 @@ class ActivityTaskScheduledEventAttributesTypeDef(BaseModel):
     taskPriority: Optional[str] = None
     heartbeatTimeout: Optional[str] = None
 
-class ActivityTypeConfigurationTypeDef(BaseModel):
+class ActivityTypeConfigurationTypeDef(BaseValidatorModel):
     defaultTaskStartToCloseTimeout: Optional[str] = None
     defaultTaskHeartbeatTimeout: Optional[str] = None
     defaultTaskList: Optional[TaskListTypeDef] = None
@@ -427,7 +427,7 @@ class ActivityTypeConfigurationTypeDef(BaseModel):
     defaultTaskScheduleToStartTimeout: Optional[str] = None
     defaultTaskScheduleToCloseTimeout: Optional[str] = None
 
-class ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef(BaseModel):
+class ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef(BaseValidatorModel):
     input: Optional[str] = None
     executionStartToCloseTimeout: Optional[str] = None
     taskList: Optional[TaskListTypeDef] = None
@@ -438,33 +438,33 @@ class ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef(BaseModel):
     workflowTypeVersion: Optional[str] = None
     lambdaRole: Optional[str] = None
 
-class CountPendingActivityTasksInputRequestTypeDef(BaseModel):
+class CountPendingActivityTasksInputRequestTypeDef(BaseValidatorModel):
     domain: str
     taskList: TaskListTypeDef
 
-class CountPendingDecisionTasksInputRequestTypeDef(BaseModel):
+class CountPendingDecisionTasksInputRequestTypeDef(BaseValidatorModel):
     domain: str
     taskList: TaskListTypeDef
 
-class DecisionTaskCompletedEventAttributesTypeDef(BaseModel):
+class DecisionTaskCompletedEventAttributesTypeDef(BaseValidatorModel):
     scheduledEventId: int
     startedEventId: int
     executionContext: Optional[str] = None
     taskList: Optional[TaskListTypeDef] = None
     taskListScheduleToStartTimeout: Optional[str] = None
 
-class DecisionTaskScheduledEventAttributesTypeDef(BaseModel):
+class DecisionTaskScheduledEventAttributesTypeDef(BaseValidatorModel):
     taskList: TaskListTypeDef
     taskPriority: Optional[str] = None
     startToCloseTimeout: Optional[str] = None
     scheduleToStartTimeout: Optional[str] = None
 
-class PollForActivityTaskInputRequestTypeDef(BaseModel):
+class PollForActivityTaskInputRequestTypeDef(BaseValidatorModel):
     domain: str
     taskList: TaskListTypeDef
     identity: Optional[str] = None
 
-class PollForDecisionTaskInputRequestTypeDef(BaseModel):
+class PollForDecisionTaskInputRequestTypeDef(BaseValidatorModel):
     domain: str
     taskList: TaskListTypeDef
     identity: Optional[str] = None
@@ -473,7 +473,7 @@ class PollForDecisionTaskInputRequestTypeDef(BaseModel):
     reverseOrder: Optional[bool] = None
     startAtPreviousStartedEvent: Optional[bool] = None
 
-class RegisterActivityTypeInputRequestTypeDef(BaseModel):
+class RegisterActivityTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     name: str
     version: str
@@ -485,7 +485,7 @@ class RegisterActivityTypeInputRequestTypeDef(BaseModel):
     defaultTaskScheduleToStartTimeout: Optional[str] = None
     defaultTaskScheduleToCloseTimeout: Optional[str] = None
 
-class RegisterWorkflowTypeInputRequestTypeDef(BaseModel):
+class RegisterWorkflowTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     name: str
     version: str
@@ -497,7 +497,7 @@ class RegisterWorkflowTypeInputRequestTypeDef(BaseModel):
     defaultChildPolicy: Optional[ChildPolicyType] = None
     defaultLambdaRole: Optional[str] = None
 
-class ScheduleActivityTaskDecisionAttributesTypeDef(BaseModel):
+class ScheduleActivityTaskDecisionAttributesTypeDef(BaseValidatorModel):
     activityType: ActivityTypeTypeDef
     activityId: str
     control: Optional[str] = None
@@ -509,7 +509,7 @@ class ScheduleActivityTaskDecisionAttributesTypeDef(BaseModel):
     startToCloseTimeout: Optional[str] = None
     heartbeatTimeout: Optional[str] = None
 
-class WorkflowExecutionConfigurationTypeDef(BaseModel):
+class WorkflowExecutionConfigurationTypeDef(BaseValidatorModel):
     taskStartToCloseTimeout: str
     executionStartToCloseTimeout: str
     taskList: TaskListTypeDef
@@ -517,7 +517,7 @@ class WorkflowExecutionConfigurationTypeDef(BaseModel):
     taskPriority: Optional[str] = None
     lambdaRole: Optional[str] = None
 
-class WorkflowTypeConfigurationTypeDef(BaseModel):
+class WorkflowTypeConfigurationTypeDef(BaseValidatorModel):
     defaultTaskStartToCloseTimeout: Optional[str] = None
     defaultExecutionStartToCloseTimeout: Optional[str] = None
     defaultTaskList: Optional[TaskListTypeDef] = None
@@ -525,28 +525,28 @@ class WorkflowTypeConfigurationTypeDef(BaseModel):
     defaultChildPolicy: Optional[ChildPolicyType] = None
     defaultLambdaRole: Optional[str] = None
 
-class ActivityTaskStatusTypeDef(BaseModel):
+class ActivityTaskStatusTypeDef(BaseValidatorModel):
     cancelRequested: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PendingTaskCountTypeDef(BaseModel):
+class PendingTaskCountTypeDef(BaseValidatorModel):
     count: int
     truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RunTypeDef(BaseModel):
+class RunTypeDef(BaseValidatorModel):
     runId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WorkflowExecutionCountTypeDef(BaseModel):
+class WorkflowExecutionCountTypeDef(BaseValidatorModel):
     count: int
     truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ActivityTaskTypeDef(BaseModel):
+class ActivityTaskTypeDef(BaseValidatorModel):
     taskToken: str
     activityId: str
     startedEventId: int
@@ -555,51 +555,51 @@ class ActivityTaskTypeDef(BaseModel):
     input: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWorkflowExecutionInputRequestTypeDef(BaseModel):
+class DescribeWorkflowExecutionInputRequestTypeDef(BaseValidatorModel):
     domain: str
     execution: WorkflowExecutionTypeDef
 
-class ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef(BaseModel):
+class ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef(BaseValidatorModel):
     workflowExecution: WorkflowExecutionTypeDef
     initiatedEventId: int
 
-class ExternalWorkflowExecutionSignaledEventAttributesTypeDef(BaseModel):
+class ExternalWorkflowExecutionSignaledEventAttributesTypeDef(BaseValidatorModel):
     workflowExecution: WorkflowExecutionTypeDef
     initiatedEventId: int
 
-class GetWorkflowExecutionHistoryInputRequestTypeDef(BaseModel):
+class GetWorkflowExecutionHistoryInputRequestTypeDef(BaseValidatorModel):
     domain: str
     execution: WorkflowExecutionTypeDef
     nextPageToken: Optional[str] = None
     maximumPageSize: Optional[int] = None
     reverseOrder: Optional[bool] = None
 
-class WorkflowExecutionCancelRequestedEventAttributesTypeDef(BaseModel):
+class WorkflowExecutionCancelRequestedEventAttributesTypeDef(BaseValidatorModel):
     externalWorkflowExecution: Optional[WorkflowExecutionTypeDef] = None
     externalInitiatedEventId: Optional[int] = None
     cause: Optional[Literal["CHILD_POLICY_APPLIED"]] = None
 
-class WorkflowExecutionSignaledEventAttributesTypeDef(BaseModel):
+class WorkflowExecutionSignaledEventAttributesTypeDef(BaseValidatorModel):
     signalName: str
     input: Optional[str] = None
     externalWorkflowExecution: Optional[WorkflowExecutionTypeDef] = None
     externalInitiatedEventId: Optional[int] = None
 
-class ChildWorkflowExecutionCanceledEventAttributesTypeDef(BaseModel):
+class ChildWorkflowExecutionCanceledEventAttributesTypeDef(BaseValidatorModel):
     workflowExecution: WorkflowExecutionTypeDef
     workflowType: WorkflowTypeTypeDef
     initiatedEventId: int
     startedEventId: int
     details: Optional[str] = None
 
-class ChildWorkflowExecutionCompletedEventAttributesTypeDef(BaseModel):
+class ChildWorkflowExecutionCompletedEventAttributesTypeDef(BaseValidatorModel):
     workflowExecution: WorkflowExecutionTypeDef
     workflowType: WorkflowTypeTypeDef
     initiatedEventId: int
     startedEventId: int
     result: Optional[str] = None
 
-class ChildWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
+class ChildWorkflowExecutionFailedEventAttributesTypeDef(BaseValidatorModel):
     workflowExecution: WorkflowExecutionTypeDef
     workflowType: WorkflowTypeTypeDef
     initiatedEventId: int
@@ -607,37 +607,37 @@ class ChildWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
     reason: Optional[str] = None
     details: Optional[str] = None
 
-class ChildWorkflowExecutionStartedEventAttributesTypeDef(BaseModel):
+class ChildWorkflowExecutionStartedEventAttributesTypeDef(BaseValidatorModel):
     workflowExecution: WorkflowExecutionTypeDef
     workflowType: WorkflowTypeTypeDef
     initiatedEventId: int
 
-class ChildWorkflowExecutionTerminatedEventAttributesTypeDef(BaseModel):
+class ChildWorkflowExecutionTerminatedEventAttributesTypeDef(BaseValidatorModel):
     workflowExecution: WorkflowExecutionTypeDef
     workflowType: WorkflowTypeTypeDef
     initiatedEventId: int
     startedEventId: int
 
-class ChildWorkflowExecutionTimedOutEventAttributesTypeDef(BaseModel):
+class ChildWorkflowExecutionTimedOutEventAttributesTypeDef(BaseValidatorModel):
     workflowExecution: WorkflowExecutionTypeDef
     workflowType: WorkflowTypeTypeDef
     timeoutType: Literal["START_TO_CLOSE"]
     initiatedEventId: int
     startedEventId: int
 
-class DeleteWorkflowTypeInputRequestTypeDef(BaseModel):
+class DeleteWorkflowTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     workflowType: WorkflowTypeTypeDef
 
-class DeprecateWorkflowTypeInputRequestTypeDef(BaseModel):
+class DeprecateWorkflowTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     workflowType: WorkflowTypeTypeDef
 
-class DescribeWorkflowTypeInputRequestTypeDef(BaseModel):
+class DescribeWorkflowTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     workflowType: WorkflowTypeTypeDef
 
-class StartChildWorkflowExecutionDecisionAttributesTypeDef(BaseModel):
+class StartChildWorkflowExecutionDecisionAttributesTypeDef(BaseValidatorModel):
     workflowType: WorkflowTypeTypeDef
     workflowId: str
     control: Optional[str] = None
@@ -650,7 +650,7 @@ class StartChildWorkflowExecutionDecisionAttributesTypeDef(BaseModel):
     tagList: Optional[Sequence[str]] = None
     lambdaRole: Optional[str] = None
 
-class StartChildWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
+class StartChildWorkflowExecutionFailedEventAttributesTypeDef(BaseValidatorModel):
     workflowType: WorkflowTypeTypeDef
     cause: StartChildWorkflowExecutionFailedCauseType
     workflowId: str
@@ -658,7 +658,7 @@ class StartChildWorkflowExecutionFailedEventAttributesTypeDef(BaseModel):
     decisionTaskCompletedEventId: int
     control: Optional[str] = None
 
-class StartChildWorkflowExecutionInitiatedEventAttributesTypeDef(BaseModel):
+class StartChildWorkflowExecutionInitiatedEventAttributesTypeDef(BaseValidatorModel):
     workflowId: str
     workflowType: WorkflowTypeTypeDef
     taskList: TaskListTypeDef
@@ -672,7 +672,7 @@ class StartChildWorkflowExecutionInitiatedEventAttributesTypeDef(BaseModel):
     tagList: Optional[List[str]] = None
     lambdaRole: Optional[str] = None
 
-class StartWorkflowExecutionInputRequestTypeDef(BaseModel):
+class StartWorkflowExecutionInputRequestTypeDef(BaseValidatorModel):
     domain: str
     workflowId: str
     workflowType: WorkflowTypeTypeDef
@@ -685,11 +685,11 @@ class StartWorkflowExecutionInputRequestTypeDef(BaseModel):
     childPolicy: Optional[ChildPolicyType] = None
     lambdaRole: Optional[str] = None
 
-class UndeprecateWorkflowTypeInputRequestTypeDef(BaseModel):
+class UndeprecateWorkflowTypeInputRequestTypeDef(BaseValidatorModel):
     domain: str
     workflowType: WorkflowTypeTypeDef
 
-class WorkflowExecutionContinuedAsNewEventAttributesTypeDef(BaseModel):
+class WorkflowExecutionContinuedAsNewEventAttributesTypeDef(BaseValidatorModel):
     decisionTaskCompletedEventId: int
     newExecutionRunId: str
     taskList: TaskListTypeDef
@@ -702,7 +702,7 @@ class WorkflowExecutionContinuedAsNewEventAttributesTypeDef(BaseModel):
     tagList: Optional[List[str]] = None
     lambdaRole: Optional[str] = None
 
-class WorkflowExecutionInfoTypeDef(BaseModel):
+class WorkflowExecutionInfoTypeDef(BaseValidatorModel):
     execution: WorkflowExecutionTypeDef
     workflowType: WorkflowTypeTypeDef
     startTimestamp: datetime
@@ -713,7 +713,7 @@ class WorkflowExecutionInfoTypeDef(BaseModel):
     tagList: Optional[List[str]] = None
     cancelRequested: Optional[bool] = None
 
-class WorkflowExecutionStartedEventAttributesTypeDef(BaseModel):
+class WorkflowExecutionStartedEventAttributesTypeDef(BaseValidatorModel):
     childPolicy: ChildPolicyType
     taskList: TaskListTypeDef
     workflowType: WorkflowTypeTypeDef
@@ -727,53 +727,53 @@ class WorkflowExecutionStartedEventAttributesTypeDef(BaseModel):
     parentInitiatedEventId: Optional[int] = None
     lambdaRole: Optional[str] = None
 
-class WorkflowTypeInfoTypeDef(BaseModel):
+class WorkflowTypeInfoTypeDef(BaseValidatorModel):
     workflowType: WorkflowTypeTypeDef
     status: RegistrationStatusType
     creationDate: datetime
     description: Optional[str] = None
     deprecationDate: Optional[datetime] = None
 
-class DomainDetailTypeDef(BaseModel):
+class DomainDetailTypeDef(BaseValidatorModel):
     domainInfo: DomainInfoTypeDef
     configuration: DomainConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DomainInfosTypeDef(BaseModel):
+class DomainInfosTypeDef(BaseValidatorModel):
     domainInfos: List[DomainInfoTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecutionTimeFilterTypeDef(BaseModel):
+class ExecutionTimeFilterTypeDef(BaseValidatorModel):
     oldestDate: TimestampTypeDef
     latestDate: Optional[TimestampTypeDef] = None
 
-class GetWorkflowExecutionHistoryInputGetWorkflowExecutionHistoryPaginateTypeDef(BaseModel):
+class GetWorkflowExecutionHistoryInputGetWorkflowExecutionHistoryPaginateTypeDef(BaseValidatorModel):
     domain: str
     execution: WorkflowExecutionTypeDef
     reverseOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListActivityTypesInputListActivityTypesPaginateTypeDef(BaseModel):
+class ListActivityTypesInputListActivityTypesPaginateTypeDef(BaseValidatorModel):
     domain: str
     registrationStatus: RegistrationStatusType
     name: Optional[str] = None
     reverseOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDomainsInputListDomainsPaginateTypeDef(BaseModel):
+class ListDomainsInputListDomainsPaginateTypeDef(BaseValidatorModel):
     registrationStatus: RegistrationStatusType
     reverseOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkflowTypesInputListWorkflowTypesPaginateTypeDef(BaseModel):
+class ListWorkflowTypesInputListWorkflowTypesPaginateTypeDef(BaseValidatorModel):
     domain: str
     registrationStatus: RegistrationStatusType
     name: Optional[str] = None
     reverseOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class PollForDecisionTaskInputPollForDecisionTaskPaginateTypeDef(BaseModel):
+class PollForDecisionTaskInputPollForDecisionTaskPaginateTypeDef(BaseValidatorModel):
     domain: str
     taskList: TaskListTypeDef
     identity: Optional[str] = None
@@ -781,31 +781,31 @@ class PollForDecisionTaskInputPollForDecisionTaskPaginateTypeDef(BaseModel):
     startAtPreviousStartedEvent: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     tags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterDomainInputRequestTypeDef(BaseModel):
+class RegisterDomainInputRequestTypeDef(BaseValidatorModel):
     name: str
     workflowExecutionRetentionPeriodInDays: str
     description: Optional[str] = None
     tags: Optional[Sequence[ResourceTagTypeDef]] = None
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[ResourceTagTypeDef]
 
-class ActivityTypeInfosTypeDef(BaseModel):
+class ActivityTypeInfosTypeDef(BaseValidatorModel):
     typeInfos: List[ActivityTypeInfoTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ActivityTypeDetailTypeDef(BaseModel):
+class ActivityTypeDetailTypeDef(BaseValidatorModel):
     typeInfo: ActivityTypeInfoTypeDef
     configuration: ActivityTypeConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DecisionTypeDef(BaseModel):
+class DecisionTypeDef(BaseValidatorModel):
     decisionType: DecisionTypeType
     scheduleActivityTaskDecisionAttributes: Optional[       ScheduleActivityTaskDecisionAttributesTypeDef     ] = None
     requestCancelActivityTaskDecisionAttributes: Optional[       RequestCancelActivityTaskDecisionAttributesTypeDef     ] = None
@@ -821,7 +821,7 @@ class DecisionTypeDef(BaseModel):
     startChildWorkflowExecutionDecisionAttributes: Optional[       StartChildWorkflowExecutionDecisionAttributesTypeDef     ] = None
     scheduleLambdaFunctionDecisionAttributes: Optional[       ScheduleLambdaFunctionDecisionAttributesTypeDef     ] = None
 
-class WorkflowExecutionDetailTypeDef(BaseModel):
+class WorkflowExecutionDetailTypeDef(BaseValidatorModel):
     executionInfo: WorkflowExecutionInfoTypeDef
     executionConfiguration: WorkflowExecutionConfigurationTypeDef
     openCounts: WorkflowExecutionOpenCountsTypeDef
@@ -829,12 +829,12 @@ class WorkflowExecutionDetailTypeDef(BaseModel):
     latestExecutionContext: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WorkflowExecutionInfosTypeDef(BaseModel):
+class WorkflowExecutionInfosTypeDef(BaseValidatorModel):
     executionInfos: List[WorkflowExecutionInfoTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HistoryEventTypeDef(BaseModel):
+class HistoryEventTypeDef(BaseValidatorModel):
     eventTimestamp: datetime
     eventType: EventTypeType
     eventId: int
@@ -893,17 +893,17 @@ class HistoryEventTypeDef(BaseModel):
     scheduleLambdaFunctionFailedEventAttributes: Optional[       ScheduleLambdaFunctionFailedEventAttributesTypeDef     ] = None
     startLambdaFunctionFailedEventAttributes: Optional[       StartLambdaFunctionFailedEventAttributesTypeDef     ] = None
 
-class WorkflowTypeDetailTypeDef(BaseModel):
+class WorkflowTypeDetailTypeDef(BaseValidatorModel):
     typeInfo: WorkflowTypeInfoTypeDef
     configuration: WorkflowTypeConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WorkflowTypeInfosTypeDef(BaseModel):
+class WorkflowTypeInfosTypeDef(BaseValidatorModel):
     typeInfos: List[WorkflowTypeInfoTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CountClosedWorkflowExecutionsInputRequestTypeDef(BaseModel):
+class CountClosedWorkflowExecutionsInputRequestTypeDef(BaseValidatorModel):
     domain: str
     startTimeFilter: Optional[ExecutionTimeFilterTypeDef] = None
     closeTimeFilter: Optional[ExecutionTimeFilterTypeDef] = None
@@ -912,14 +912,14 @@ class CountClosedWorkflowExecutionsInputRequestTypeDef(BaseModel):
     tagFilter: Optional[TagFilterTypeDef] = None
     closeStatusFilter: Optional[CloseStatusFilterTypeDef] = None
 
-class CountOpenWorkflowExecutionsInputRequestTypeDef(BaseModel):
+class CountOpenWorkflowExecutionsInputRequestTypeDef(BaseValidatorModel):
     domain: str
     startTimeFilter: ExecutionTimeFilterTypeDef
     typeFilter: Optional[WorkflowTypeFilterTypeDef] = None
     tagFilter: Optional[TagFilterTypeDef] = None
     executionFilter: Optional[WorkflowExecutionFilterTypeDef] = None
 
-class ListClosedWorkflowExecutionsInputListClosedWorkflowExecutionsPaginateTypeDef(BaseModel):
+class ListClosedWorkflowExecutionsInputListClosedWorkflowExecutionsPaginateTypeDef(BaseValidatorModel):
     domain: str
     startTimeFilter: Optional[ExecutionTimeFilterTypeDef] = None
     closeTimeFilter: Optional[ExecutionTimeFilterTypeDef] = None
@@ -930,7 +930,7 @@ class ListClosedWorkflowExecutionsInputListClosedWorkflowExecutionsPaginateTypeD
     reverseOrder: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListClosedWorkflowExecutionsInputRequestTypeDef(BaseModel):
+class ListClosedWorkflowExecutionsInputRequestTypeDef(BaseValidatorModel):
     domain: str
     startTimeFilter: Optional[ExecutionTimeFilterTypeDef] = None
     closeTimeFilter: Optional[ExecutionTimeFilterTypeDef] = None
@@ -942,7 +942,7 @@ class ListClosedWorkflowExecutionsInputRequestTypeDef(BaseModel):
     maximumPageSize: Optional[int] = None
     reverseOrder: Optional[bool] = None
 
-class ListOpenWorkflowExecutionsInputListOpenWorkflowExecutionsPaginateTypeDef(BaseModel):
+class ListOpenWorkflowExecutionsInputListOpenWorkflowExecutionsPaginateTypeDef(BaseValidatorModel):
     domain: str
     startTimeFilter: ExecutionTimeFilterTypeDef
     typeFilter: Optional[WorkflowTypeFilterTypeDef] = None
@@ -951,7 +951,7 @@ class ListOpenWorkflowExecutionsInputListOpenWorkflowExecutionsPaginateTypeDef(B
     executionFilter: Optional[WorkflowExecutionFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOpenWorkflowExecutionsInputRequestTypeDef(BaseModel):
+class ListOpenWorkflowExecutionsInputRequestTypeDef(BaseValidatorModel):
     domain: str
     startTimeFilter: ExecutionTimeFilterTypeDef
     typeFilter: Optional[WorkflowTypeFilterTypeDef] = None
@@ -961,14 +961,14 @@ class ListOpenWorkflowExecutionsInputRequestTypeDef(BaseModel):
     reverseOrder: Optional[bool] = None
     executionFilter: Optional[WorkflowExecutionFilterTypeDef] = None
 
-class RespondDecisionTaskCompletedInputRequestTypeDef(BaseModel):
+class RespondDecisionTaskCompletedInputRequestTypeDef(BaseValidatorModel):
     taskToken: str
     decisions: Optional[Sequence[DecisionTypeDef]] = None
     executionContext: Optional[str] = None
     taskList: Optional[TaskListTypeDef] = None
     taskListScheduleToStartTimeout: Optional[str] = None
 
-class DecisionTaskTypeDef(BaseModel):
+class DecisionTaskTypeDef(BaseValidatorModel):
     taskToken: str
     startedEventId: int
     workflowExecution: WorkflowExecutionTypeDef
@@ -978,7 +978,7 @@ class DecisionTaskTypeDef(BaseModel):
     previousStartedEventId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HistoryTypeDef(BaseModel):
+class HistoryTypeDef(BaseValidatorModel):
     events: List[HistoryEventTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef

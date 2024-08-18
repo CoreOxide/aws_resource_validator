@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.signer_constants import *
 
-class AddProfilePermissionRequestRequestTypeDef(BaseModel):
+class AddProfilePermissionRequestRequestTypeDef(BaseValidatorModel):
     profileName: str
     action: str
     principal: str
@@ -19,184 +19,184 @@ class AddProfilePermissionRequestRequestTypeDef(BaseModel):
     profileVersion: Optional[str] = None
     revisionId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CancelSigningProfileRequestRequestTypeDef(BaseModel):
+class CancelSigningProfileRequestRequestTypeDef(BaseValidatorModel):
     profileName: str
 
-class DescribeSigningJobRequestRequestTypeDef(BaseModel):
+class DescribeSigningJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class SigningJobRevocationRecordTypeDef(BaseModel):
+class SigningJobRevocationRecordTypeDef(BaseValidatorModel):
     reason: Optional[str] = None
     revokedAt: Optional[datetime] = None
     revokedBy: Optional[str] = None
 
-class SigningMaterialTypeDef(BaseModel):
+class SigningMaterialTypeDef(BaseValidatorModel):
     certificateArn: str
 
-class S3DestinationTypeDef(BaseModel):
+class S3DestinationTypeDef(BaseValidatorModel):
     bucketName: Optional[str] = None
     prefix: Optional[str] = None
 
-class EncryptionAlgorithmOptionsTypeDef(BaseModel):
+class EncryptionAlgorithmOptionsTypeDef(BaseValidatorModel):
     allowedValues: List[EncryptionAlgorithmType]
     defaultValue: EncryptionAlgorithmType
 
-class GetSigningPlatformRequestRequestTypeDef(BaseModel):
+class GetSigningPlatformRequestRequestTypeDef(BaseValidatorModel):
     platformId: str
 
-class SigningImageFormatTypeDef(BaseModel):
+class SigningImageFormatTypeDef(BaseValidatorModel):
     supportedFormats: List[ImageFormatType]
     defaultFormat: ImageFormatType
 
-class GetSigningProfileRequestRequestTypeDef(BaseModel):
+class GetSigningProfileRequestRequestTypeDef(BaseValidatorModel):
     profileName: str
     profileOwner: Optional[str] = None
 
-class SignatureValidityPeriodTypeDef(BaseModel):
+class SignatureValidityPeriodTypeDef(BaseValidatorModel):
     value: Optional[int] = None
     type: Optional[ValidityTypeType] = None
 
-class SigningProfileRevocationRecordTypeDef(BaseModel):
+class SigningProfileRevocationRecordTypeDef(BaseValidatorModel):
     revocationEffectiveFrom: Optional[datetime] = None
     revokedAt: Optional[datetime] = None
     revokedBy: Optional[str] = None
 
-class HashAlgorithmOptionsTypeDef(BaseModel):
+class HashAlgorithmOptionsTypeDef(BaseValidatorModel):
     allowedValues: List[HashAlgorithmType]
     defaultValue: HashAlgorithmType
 
-class ListProfilePermissionsRequestRequestTypeDef(BaseModel):
+class ListProfilePermissionsRequestRequestTypeDef(BaseValidatorModel):
     profileName: str
     nextToken: Optional[str] = None
 
-class PermissionTypeDef(BaseModel):
+class PermissionTypeDef(BaseValidatorModel):
     action: Optional[str] = None
     principal: Optional[str] = None
     statementId: Optional[str] = None
     profileVersion: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListSigningPlatformsRequestRequestTypeDef(BaseModel):
+class ListSigningPlatformsRequestRequestTypeDef(BaseValidatorModel):
     category: Optional[str] = None
     partner: Optional[str] = None
     target: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSigningProfilesRequestRequestTypeDef(BaseModel):
+class ListSigningProfilesRequestRequestTypeDef(BaseValidatorModel):
     includeCanceled: Optional[bool] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     platformId: Optional[str] = None
     statuses: Optional[Sequence[SigningProfileStatusType]] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class RemoveProfilePermissionRequestRequestTypeDef(BaseModel):
+class RemoveProfilePermissionRequestRequestTypeDef(BaseValidatorModel):
     profileName: str
     revisionId: str
     statementId: str
 
-class RevokeSignatureRequestRequestTypeDef(BaseModel):
+class RevokeSignatureRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     reason: str
     jobOwner: Optional[str] = None
 
-class S3SignedObjectTypeDef(BaseModel):
+class S3SignedObjectTypeDef(BaseValidatorModel):
     bucketName: Optional[str] = None
     key: Optional[str] = None
 
-class S3SourceTypeDef(BaseModel):
+class S3SourceTypeDef(BaseValidatorModel):
     bucketName: str
     key: str
     version: str
 
-class SigningConfigurationOverridesTypeDef(BaseModel):
+class SigningConfigurationOverridesTypeDef(BaseValidatorModel):
     encryptionAlgorithm: Optional[EncryptionAlgorithmType] = None
     hashAlgorithm: Optional[HashAlgorithmType] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class AddProfilePermissionResponseTypeDef(BaseModel):
+class AddProfilePermissionResponseTypeDef(BaseValidatorModel):
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRevocationStatusResponseTypeDef(BaseModel):
+class GetRevocationStatusResponseTypeDef(BaseValidatorModel):
     revokedEntities: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSigningProfileResponseTypeDef(BaseModel):
+class PutSigningProfileResponseTypeDef(BaseValidatorModel):
     arn: str
     profileVersion: str
     profileVersionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RemoveProfilePermissionResponseTypeDef(BaseModel):
+class RemoveProfilePermissionResponseTypeDef(BaseValidatorModel):
     revisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SignPayloadResponseTypeDef(BaseModel):
+class SignPayloadResponseTypeDef(BaseValidatorModel):
     jobId: str
     jobOwner: str
     metadata: Dict[str, str]
     signature: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSigningJobResponseTypeDef(BaseModel):
+class StartSigningJobResponseTypeDef(BaseValidatorModel):
     jobId: str
     jobOwner: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SignPayloadRequestRequestTypeDef(BaseModel):
+class SignPayloadRequestRequestTypeDef(BaseValidatorModel):
     profileName: str
     payload: BlobTypeDef
     payloadFormat: str
     profileOwner: Optional[str] = None
 
-class DescribeSigningJobRequestSuccessfulSigningJobWaitTypeDef(BaseModel):
+class DescribeSigningJobRequestSuccessfulSigningJobWaitTypeDef(BaseValidatorModel):
     jobId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DestinationTypeDef(BaseModel):
+class DestinationTypeDef(BaseValidatorModel):
     s3: Optional[S3DestinationTypeDef] = None
 
-class GetRevocationStatusRequestRequestTypeDef(BaseModel):
+class GetRevocationStatusRequestRequestTypeDef(BaseValidatorModel):
     signatureTimestamp: TimestampTypeDef
     platformId: str
     profileVersionArn: str
     jobArn: str
     certificateHashes: Sequence[str]
 
-class ListSigningJobsRequestRequestTypeDef(BaseModel):
+class ListSigningJobsRequestRequestTypeDef(BaseValidatorModel):
     status: Optional[SigningStatusType] = None
     platformId: Optional[str] = None
     requestedBy: Optional[str] = None
@@ -207,13 +207,13 @@ class ListSigningJobsRequestRequestTypeDef(BaseModel):
     signatureExpiresAfter: Optional[TimestampTypeDef] = None
     jobInvoker: Optional[str] = None
 
-class RevokeSigningProfileRequestRequestTypeDef(BaseModel):
+class RevokeSigningProfileRequestRequestTypeDef(BaseValidatorModel):
     profileName: str
     profileVersion: str
     reason: str
     effectiveTime: TimestampTypeDef
 
-class SigningProfileTypeDef(BaseModel):
+class SigningProfileTypeDef(BaseValidatorModel):
     profileName: Optional[str] = None
     profileVersion: Optional[str] = None
     profileVersionArn: Optional[str] = None
@@ -226,18 +226,18 @@ class SigningProfileTypeDef(BaseModel):
     arn: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class SigningConfigurationTypeDef(BaseModel):
+class SigningConfigurationTypeDef(BaseValidatorModel):
     encryptionAlgorithmOptions: EncryptionAlgorithmOptionsTypeDef
     hashAlgorithmOptions: HashAlgorithmOptionsTypeDef
 
-class ListProfilePermissionsResponseTypeDef(BaseModel):
+class ListProfilePermissionsResponseTypeDef(BaseValidatorModel):
     revisionId: str
     policySizeBytes: int
     permissions: List[PermissionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSigningJobsRequestListSigningJobsPaginateTypeDef(BaseModel):
+class ListSigningJobsRequestListSigningJobsPaginateTypeDef(BaseValidatorModel):
     status: Optional[SigningStatusType] = None
     platformId: Optional[str] = None
     requestedBy: Optional[str] = None
@@ -247,34 +247,34 @@ class ListSigningJobsRequestListSigningJobsPaginateTypeDef(BaseModel):
     jobInvoker: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSigningPlatformsRequestListSigningPlatformsPaginateTypeDef(BaseModel):
+class ListSigningPlatformsRequestListSigningPlatformsPaginateTypeDef(BaseValidatorModel):
     category: Optional[str] = None
     partner: Optional[str] = None
     target: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSigningProfilesRequestListSigningProfilesPaginateTypeDef(BaseModel):
+class ListSigningProfilesRequestListSigningProfilesPaginateTypeDef(BaseValidatorModel):
     includeCanceled: Optional[bool] = None
     platformId: Optional[str] = None
     statuses: Optional[Sequence[SigningProfileStatusType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SignedObjectTypeDef(BaseModel):
+class SignedObjectTypeDef(BaseValidatorModel):
     s3: Optional[S3SignedObjectTypeDef] = None
 
-class SourceTypeDef(BaseModel):
+class SourceTypeDef(BaseValidatorModel):
     s3: Optional[S3SourceTypeDef] = None
 
-class SigningPlatformOverridesTypeDef(BaseModel):
+class SigningPlatformOverridesTypeDef(BaseValidatorModel):
     signingConfiguration: Optional[SigningConfigurationOverridesTypeDef] = None
     signingImageFormat: Optional[ImageFormatType] = None
 
-class ListSigningProfilesResponseTypeDef(BaseModel):
+class ListSigningProfilesResponseTypeDef(BaseValidatorModel):
     profiles: List[SigningProfileTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSigningPlatformResponseTypeDef(BaseModel):
+class GetSigningPlatformResponseTypeDef(BaseValidatorModel):
     platformId: str
     displayName: str
     partner: str
@@ -286,7 +286,7 @@ class GetSigningPlatformResponseTypeDef(BaseModel):
     revocationSupported: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SigningPlatformTypeDef(BaseModel):
+class SigningPlatformTypeDef(BaseValidatorModel):
     platformId: Optional[str] = None
     displayName: Optional[str] = None
     partner: Optional[str] = None
@@ -297,7 +297,7 @@ class SigningPlatformTypeDef(BaseModel):
     maxSizeInMB: Optional[int] = None
     revocationSupported: Optional[bool] = None
 
-class SigningJobTypeDef(BaseModel):
+class SigningJobTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     source: Optional[SourceTypeDef] = None
     signedObject: Optional[SignedObjectTypeDef] = None
@@ -313,14 +313,14 @@ class SigningJobTypeDef(BaseModel):
     jobOwner: Optional[str] = None
     jobInvoker: Optional[str] = None
 
-class StartSigningJobRequestRequestTypeDef(BaseModel):
+class StartSigningJobRequestRequestTypeDef(BaseValidatorModel):
     source: SourceTypeDef
     destination: DestinationTypeDef
     profileName: str
     clientRequestToken: str
     profileOwner: Optional[str] = None
 
-class DescribeSigningJobResponseTypeDef(BaseModel):
+class DescribeSigningJobResponseTypeDef(BaseValidatorModel):
     jobId: str
     source: SourceTypeDef
     signingMaterial: SigningMaterialTypeDef
@@ -342,7 +342,7 @@ class DescribeSigningJobResponseTypeDef(BaseModel):
     jobInvoker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSigningProfileResponseTypeDef(BaseModel):
+class GetSigningProfileResponseTypeDef(BaseValidatorModel):
     profileName: str
     profileVersion: str
     profileVersionArn: str
@@ -359,7 +359,7 @@ class GetSigningProfileResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSigningProfileRequestRequestTypeDef(BaseModel):
+class PutSigningProfileRequestRequestTypeDef(BaseValidatorModel):
     profileName: str
     platformId: str
     signingMaterial: Optional[SigningMaterialTypeDef] = None
@@ -368,12 +368,12 @@ class PutSigningProfileRequestRequestTypeDef(BaseModel):
     signingParameters: Optional[Mapping[str, str]] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ListSigningPlatformsResponseTypeDef(BaseModel):
+class ListSigningPlatformsResponseTypeDef(BaseValidatorModel):
     platforms: List[SigningPlatformTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSigningJobsResponseTypeDef(BaseModel):
+class ListSigningJobsResponseTypeDef(BaseValidatorModel):
     jobs: List[SigningJobTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

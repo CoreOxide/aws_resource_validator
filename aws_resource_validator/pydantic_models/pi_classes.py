@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,11 +11,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.pi_constants import *
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class AnalysisReportTypeDef(BaseModel):
+class AnalysisReportTypeDef(BaseValidatorModel):
     AnalysisReportId: str
     Identifier: Optional[str] = None
     ServiceType: Optional[ServiceTypeType] = None
@@ -25,76 +25,76 @@ class AnalysisReportTypeDef(BaseModel):
     Status: Optional[AnalysisStatusType] = None
     Insights: Optional[List["InsightTypeDef"]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DataPointTypeDef(BaseModel):
+class DataPointTypeDef(BaseValidatorModel):
     Timestamp: datetime
     Value: float
 
-class PerformanceInsightsMetricTypeDef(BaseModel):
+class PerformanceInsightsMetricTypeDef(BaseValidatorModel):
     Metric: Optional[str] = None
     DisplayName: Optional[str] = None
     Dimensions: Optional[Dict[str, str]] = None
     Value: Optional[float] = None
 
-class DeletePerformanceAnalysisReportRequestRequestTypeDef(BaseModel):
+class DeletePerformanceAnalysisReportRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
     AnalysisReportId: str
 
-class DimensionGroupTypeDef(BaseModel):
+class DimensionGroupTypeDef(BaseValidatorModel):
     Group: str
     Dimensions: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
 
-class DimensionKeyDescriptionTypeDef(BaseModel):
+class DimensionKeyDescriptionTypeDef(BaseValidatorModel):
     Dimensions: Optional[Dict[str, str]] = None
     Total: Optional[float] = None
     AdditionalMetrics: Optional[Dict[str, float]] = None
     Partitions: Optional[List[float]] = None
 
-class ResponsePartitionKeyTypeDef(BaseModel):
+class ResponsePartitionKeyTypeDef(BaseValidatorModel):
     Dimensions: Dict[str, str]
 
-class DimensionDetailTypeDef(BaseModel):
+class DimensionDetailTypeDef(BaseValidatorModel):
     Identifier: Optional[str] = None
 
-class DimensionKeyDetailTypeDef(BaseModel):
+class DimensionKeyDetailTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     Dimension: Optional[str] = None
     Status: Optional[DetailStatusType] = None
 
-class FeatureMetadataTypeDef(BaseModel):
+class FeatureMetadataTypeDef(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
 
-class GetDimensionKeyDetailsRequestRequestTypeDef(BaseModel):
+class GetDimensionKeyDetailsRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
     Group: str
     GroupIdentifier: str
     RequestedDimensions: Optional[Sequence[str]] = None
 
-class GetPerformanceAnalysisReportRequestRequestTypeDef(BaseModel):
+class GetPerformanceAnalysisReportRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
     AnalysisReportId: str
     TextFormat: Optional[TextFormatType] = None
     AcceptLanguage: Optional[Literal["EN_US"]] = None
 
-class GetResourceMetadataRequestRequestTypeDef(BaseModel):
+class GetResourceMetadataRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
 
-class RecommendationTypeDef(BaseModel):
+class RecommendationTypeDef(BaseValidatorModel):
     RecommendationId: Optional[str] = None
     RecommendationDescription: Optional[str] = None
 
-class ListAvailableResourceDimensionsRequestRequestTypeDef(BaseModel):
+class ListAvailableResourceDimensionsRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
     Metrics: Sequence[str]
@@ -102,39 +102,39 @@ class ListAvailableResourceDimensionsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     AuthorizedActions: Optional[Sequence[FineGrainedActionType]] = None
 
-class ListAvailableResourceMetricsRequestRequestTypeDef(BaseModel):
+class ListAvailableResourceMetricsRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
     MetricTypes: Sequence[str]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ResponseResourceMetricTypeDef(BaseModel):
+class ResponseResourceMetricTypeDef(BaseValidatorModel):
     Metric: Optional[str] = None
     Description: Optional[str] = None
     Unit: Optional[str] = None
 
-class ListPerformanceAnalysisReportsRequestRequestTypeDef(BaseModel):
+class ListPerformanceAnalysisReportsRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ListTags: Optional[bool] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     ResourceARN: str
 
-class ResponseResourceMetricKeyTypeDef(BaseModel):
+class ResponseResourceMetricKeyTypeDef(BaseValidatorModel):
     Metric: str
     Dimensions: Optional[Dict[str, str]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class AnalysisReportSummaryTypeDef(BaseModel):
+class AnalysisReportSummaryTypeDef(BaseValidatorModel):
     AnalysisReportId: Optional[str] = None
     CreateTime: Optional[datetime] = None
     StartTime: Optional[datetime] = None
@@ -142,34 +142,34 @@ class AnalysisReportSummaryTypeDef(BaseModel):
     Status: Optional[AnalysisStatusType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class CreatePerformanceAnalysisReportRequestRequestTypeDef(BaseModel):
+class CreatePerformanceAnalysisReportRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreatePerformanceAnalysisReportResponseTypeDef(BaseModel):
+class CreatePerformanceAnalysisReportResponseTypeDef(BaseValidatorModel):
     AnalysisReportId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPerformanceAnalysisReportResponseTypeDef(BaseModel):
+class GetPerformanceAnalysisReportResponseTypeDef(BaseValidatorModel):
     AnalysisReport: AnalysisReportTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataTypeDef(BaseModel):
+class DataTypeDef(BaseValidatorModel):
     PerformanceInsightsMetric: Optional[PerformanceInsightsMetricTypeDef] = None
 
-class DescribeDimensionKeysRequestRequestTypeDef(BaseModel):
+class DescribeDimensionKeysRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
     StartTime: TimestampTypeDef
@@ -183,12 +183,12 @@ class DescribeDimensionKeysRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class MetricQueryTypeDef(BaseModel):
+class MetricQueryTypeDef(BaseValidatorModel):
     Metric: str
     GroupBy: Optional[DimensionGroupTypeDef] = None
     Filter: Optional[Mapping[str, str]] = None
 
-class DescribeDimensionKeysResponseTypeDef(BaseModel):
+class DescribeDimensionKeysResponseTypeDef(BaseValidatorModel):
     AlignedStartTime: datetime
     AlignedEndTime: datetime
     PartitionKeys: List[ResponsePartitionKeyTypeDef]
@@ -196,34 +196,34 @@ class DescribeDimensionKeysResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DimensionGroupDetailTypeDef(BaseModel):
+class DimensionGroupDetailTypeDef(BaseValidatorModel):
     Group: Optional[str] = None
     Dimensions: Optional[List[DimensionDetailTypeDef]] = None
 
-class GetDimensionKeyDetailsResponseTypeDef(BaseModel):
+class GetDimensionKeyDetailsResponseTypeDef(BaseValidatorModel):
     Dimensions: List[DimensionKeyDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourceMetadataResponseTypeDef(BaseModel):
+class GetResourceMetadataResponseTypeDef(BaseValidatorModel):
     Identifier: str
     Features: Dict[str, FeatureMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAvailableResourceMetricsResponseTypeDef(BaseModel):
+class ListAvailableResourceMetricsResponseTypeDef(BaseValidatorModel):
     Metrics: List[ResponseResourceMetricTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class MetricKeyDataPointsTypeDef(BaseModel):
+class MetricKeyDataPointsTypeDef(BaseValidatorModel):
     Key: Optional[ResponseResourceMetricKeyTypeDef] = None
     DataPoints: Optional[List[DataPointTypeDef]] = None
 
-class ListPerformanceAnalysisReportsResponseTypeDef(BaseModel):
+class ListPerformanceAnalysisReportsResponseTypeDef(BaseValidatorModel):
     AnalysisReports: List[AnalysisReportSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class InsightTypeDef(BaseModel):
+class InsightTypeDef(BaseValidatorModel):
     InsightId: str
     InsightType: Optional[str] = None
     Context: Optional[ContextTypeType] = None
@@ -236,7 +236,7 @@ class InsightTypeDef(BaseModel):
     InsightData: Optional[List[DataTypeDef]] = None
     BaselineData: Optional[List[DataTypeDef]] = None
 
-class GetResourceMetricsRequestRequestTypeDef(BaseModel):
+class GetResourceMetricsRequestRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
     MetricQueries: Sequence[MetricQueryTypeDef]
@@ -247,11 +247,11 @@ class GetResourceMetricsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     PeriodAlignment: Optional[PeriodAlignmentType] = None
 
-class MetricDimensionGroupsTypeDef(BaseModel):
+class MetricDimensionGroupsTypeDef(BaseValidatorModel):
     Metric: Optional[str] = None
     Groups: Optional[List[DimensionGroupDetailTypeDef]] = None
 
-class GetResourceMetricsResponseTypeDef(BaseModel):
+class GetResourceMetricsResponseTypeDef(BaseValidatorModel):
     AlignedStartTime: datetime
     AlignedEndTime: datetime
     Identifier: str
@@ -259,7 +259,7 @@ class GetResourceMetricsResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListAvailableResourceDimensionsResponseTypeDef(BaseModel):
+class ListAvailableResourceDimensionsResponseTypeDef(BaseValidatorModel):
     MetricDimensions: List[MetricDimensionGroupsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

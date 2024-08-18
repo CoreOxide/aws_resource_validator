@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,22 +11,22 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.appflow_constants import *
 
-class AggregationConfigTypeDef(BaseModel):
+class AggregationConfigTypeDef(BaseValidatorModel):
     aggregationType: Optional[AggregationTypeType] = None
     targetFileSize: Optional[int] = None
 
-class AmplitudeConnectorProfileCredentialsTypeDef(BaseModel):
+class AmplitudeConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     apiKey: str
     secretKey: str
 
-class AmplitudeSourcePropertiesTypeDef(BaseModel):
+class AmplitudeSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class ApiKeyCredentialsTypeDef(BaseModel):
+class ApiKeyCredentialsTypeDef(BaseValidatorModel):
     apiKey: str
     apiSecretKey: Optional[str] = None
 
-class AuthParameterTypeDef(BaseModel):
+class AuthParameterTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     isRequired: Optional[bool] = None
     label: Optional[str] = None
@@ -34,22 +34,22 @@ class AuthParameterTypeDef(BaseModel):
     isSensitiveField: Optional[bool] = None
     connectorSuppliedValues: Optional[List[str]] = None
 
-class BasicAuthCredentialsTypeDef(BaseModel):
+class BasicAuthCredentialsTypeDef(BaseValidatorModel):
     username: str
     password: str
 
-class CancelFlowExecutionsRequestRequestTypeDef(BaseModel):
+class CancelFlowExecutionsRequestRequestTypeDef(BaseValidatorModel):
     flowName: str
     executionIds: Optional[Sequence[str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class ConnectorRuntimeSettingTypeDef(BaseModel):
+class ConnectorRuntimeSettingTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     dataType: Optional[str] = None
     isRequired: Optional[bool] = None
@@ -58,11 +58,11 @@ class ConnectorRuntimeSettingTypeDef(BaseModel):
     scope: Optional[str] = None
     connectorSuppliedValueOptions: Optional[List[str]] = None
 
-class DataTransferApiTypeDef(BaseModel):
+class DataTransferApiTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Type: Optional[DataTransferApiTypeType] = None
 
-class ConnectorDetailTypeDef(BaseModel):
+class ConnectorDetailTypeDef(BaseValidatorModel):
     connectorDescription: Optional[str] = None
     connectorName: Optional[str] = None
     connectorOwner: Optional[str] = None
@@ -76,7 +76,7 @@ class ConnectorDetailTypeDef(BaseModel):
     connectorModes: Optional[List[str]] = None
     supportedDataTransferTypes: Optional[List[SupportedDataTransferTypeType]] = None
 
-class DestinationFieldPropertiesTypeDef(BaseModel):
+class DestinationFieldPropertiesTypeDef(BaseValidatorModel):
     isCreatable: Optional[bool] = None
     isNullable: Optional[bool] = None
     isUpsertable: Optional[bool] = None
@@ -84,41 +84,41 @@ class DestinationFieldPropertiesTypeDef(BaseModel):
     isDefaultedOnCreate: Optional[bool] = None
     supportedWriteOperations: Optional[List[WriteOperationTypeType]] = None
 
-class SourceFieldPropertiesTypeDef(BaseModel):
+class SourceFieldPropertiesTypeDef(BaseValidatorModel):
     isRetrievable: Optional[bool] = None
     isQueryable: Optional[bool] = None
     isTimestampFieldForIncrementalQueries: Optional[bool] = None
 
-class ConnectorEntityTypeDef(BaseModel):
+class ConnectorEntityTypeDef(BaseValidatorModel):
     name: str
     label: Optional[str] = None
     hasNestedEntities: Optional[bool] = None
 
-class GoogleAnalyticsMetadataTypeDef(BaseModel):
+class GoogleAnalyticsMetadataTypeDef(BaseValidatorModel):
     oAuthScopes: Optional[List[str]] = None
 
-class HoneycodeMetadataTypeDef(BaseModel):
+class HoneycodeMetadataTypeDef(BaseValidatorModel):
     oAuthScopes: Optional[List[str]] = None
 
-class SalesforceMetadataTypeDef(BaseModel):
+class SalesforceMetadataTypeDef(BaseValidatorModel):
     oAuthScopes: Optional[List[str]] = None
     dataTransferApis: Optional[List[SalesforceDataTransferApiType]] = None
     oauth2GrantTypesSupported: Optional[List[OAuth2GrantTypeType]] = None
 
-class SlackMetadataTypeDef(BaseModel):
+class SlackMetadataTypeDef(BaseValidatorModel):
     oAuthScopes: Optional[List[str]] = None
 
-class SnowflakeMetadataTypeDef(BaseModel):
+class SnowflakeMetadataTypeDef(BaseValidatorModel):
     supportedRegions: Optional[List[str]] = None
 
-class ZendeskMetadataTypeDef(BaseModel):
+class ZendeskMetadataTypeDef(BaseValidatorModel):
     oAuthScopes: Optional[List[str]] = None
 
-class ConnectorOAuthRequestTypeDef(BaseModel):
+class ConnectorOAuthRequestTypeDef(BaseValidatorModel):
     authCode: Optional[str] = None
     redirectUri: Optional[str] = None
 
-class ConnectorOperatorTypeDef(BaseModel):
+class ConnectorOperatorTypeDef(BaseValidatorModel):
     Amplitude: Optional[Literal["BETWEEN"]] = None
     Datadog: Optional[DatadogConnectorOperatorType] = None
     Dynatrace: Optional[DynatraceConnectorOperatorType] = None
@@ -137,55 +137,55 @@ class ConnectorOperatorTypeDef(BaseModel):
     CustomConnector: Optional[OperatorType] = None
     Pardot: Optional[PardotConnectorOperatorType] = None
 
-class DatadogConnectorProfileCredentialsTypeDef(BaseModel):
+class DatadogConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     apiKey: str
     applicationKey: str
 
-class DynatraceConnectorProfileCredentialsTypeDef(BaseModel):
+class DynatraceConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     apiToken: str
 
-class InforNexusConnectorProfileCredentialsTypeDef(BaseModel):
+class InforNexusConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     accessKeyId: str
     userId: str
     secretAccessKey: str
     datakey: str
 
-class RedshiftConnectorProfileCredentialsTypeDef(BaseModel):
+class RedshiftConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     username: Optional[str] = None
     password: Optional[str] = None
 
-class SingularConnectorProfileCredentialsTypeDef(BaseModel):
+class SingularConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     apiKey: str
 
-class SnowflakeConnectorProfileCredentialsTypeDef(BaseModel):
+class SnowflakeConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     username: str
     password: str
 
-class TrendmicroConnectorProfileCredentialsTypeDef(BaseModel):
+class TrendmicroConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     apiSecretKey: str
 
-class VeevaConnectorProfileCredentialsTypeDef(BaseModel):
+class VeevaConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     username: str
     password: str
 
-class DatadogConnectorProfilePropertiesTypeDef(BaseModel):
+class DatadogConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: str
 
-class DynatraceConnectorProfilePropertiesTypeDef(BaseModel):
+class DynatraceConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: str
 
-class InforNexusConnectorProfilePropertiesTypeDef(BaseModel):
+class InforNexusConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: str
 
-class MarketoConnectorProfilePropertiesTypeDef(BaseModel):
+class MarketoConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: str
 
-class PardotConnectorProfilePropertiesTypeDef(BaseModel):
+class PardotConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: Optional[str] = None
     isSandboxEnvironment: Optional[bool] = None
     businessUnitId: Optional[str] = None
 
-class RedshiftConnectorProfilePropertiesTypeDef(BaseModel):
+class RedshiftConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     bucketName: str
     roleArn: str
     databaseUrl: Optional[str] = None
@@ -196,18 +196,18 @@ class RedshiftConnectorProfilePropertiesTypeDef(BaseModel):
     workgroupName: Optional[str] = None
     databaseName: Optional[str] = None
 
-class SalesforceConnectorProfilePropertiesTypeDef(BaseModel):
+class SalesforceConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: Optional[str] = None
     isSandboxEnvironment: Optional[bool] = None
     usePrivateLinkForMetadataAndAuthorization: Optional[bool] = None
 
-class ServiceNowConnectorProfilePropertiesTypeDef(BaseModel):
+class ServiceNowConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: str
 
-class SlackConnectorProfilePropertiesTypeDef(BaseModel):
+class SlackConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: str
 
-class SnowflakeConnectorProfilePropertiesTypeDef(BaseModel):
+class SnowflakeConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     warehouse: str
     stage: str
     bucketName: str
@@ -216,110 +216,110 @@ class SnowflakeConnectorProfilePropertiesTypeDef(BaseModel):
     accountName: Optional[str] = None
     region: Optional[str] = None
 
-class VeevaConnectorProfilePropertiesTypeDef(BaseModel):
+class VeevaConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: str
 
-class ZendeskConnectorProfilePropertiesTypeDef(BaseModel):
+class ZendeskConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     instanceUrl: str
 
-class PrivateConnectionProvisioningStateTypeDef(BaseModel):
+class PrivateConnectionProvisioningStateTypeDef(BaseValidatorModel):
     status: Optional[PrivateConnectionProvisioningStatusType] = None
     failureMessage: Optional[str] = None
     failureCause: Optional[PrivateConnectionProvisioningFailureCauseType] = None
 
-class LambdaConnectorProvisioningConfigTypeDef(BaseModel):
+class LambdaConnectorProvisioningConfigTypeDef(BaseValidatorModel):
     lambdaArn: str
 
-class CustomAuthCredentialsTypeDef(BaseModel):
+class CustomAuthCredentialsTypeDef(BaseValidatorModel):
     customAuthenticationType: str
     credentialsMap: Optional[Mapping[str, str]] = None
 
-class ErrorHandlingConfigTypeDef(BaseModel):
+class ErrorHandlingConfigTypeDef(BaseValidatorModel):
     failOnFirstDestinationError: Optional[bool] = None
     bucketPrefix: Optional[str] = None
     bucketName: Optional[str] = None
 
-class OAuth2PropertiesTypeDef(BaseModel):
+class OAuth2PropertiesTypeDef(BaseValidatorModel):
     tokenUrl: str
     oAuth2GrantType: OAuth2GrantTypeType
     tokenUrlCustomProperties: Optional[Mapping[str, str]] = None
 
-class CustomerProfilesDestinationPropertiesTypeDef(BaseModel):
+class CustomerProfilesDestinationPropertiesTypeDef(BaseValidatorModel):
     domainName: str
     objectTypeName: Optional[str] = None
 
-class DatadogSourcePropertiesTypeDef(BaseModel):
+class DatadogSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class DeleteConnectorProfileRequestRequestTypeDef(BaseModel):
+class DeleteConnectorProfileRequestRequestTypeDef(BaseValidatorModel):
     connectorProfileName: str
     forceDelete: Optional[bool] = None
 
-class DeleteFlowRequestRequestTypeDef(BaseModel):
+class DeleteFlowRequestRequestTypeDef(BaseValidatorModel):
     flowName: str
     forceDelete: Optional[bool] = None
 
-class DescribeConnectorEntityRequestRequestTypeDef(BaseModel):
+class DescribeConnectorEntityRequestRequestTypeDef(BaseValidatorModel):
     connectorEntityName: str
     connectorType: Optional[ConnectorTypeType] = None
     connectorProfileName: Optional[str] = None
     apiVersion: Optional[str] = None
 
-class DescribeConnectorProfilesRequestRequestTypeDef(BaseModel):
+class DescribeConnectorProfilesRequestRequestTypeDef(BaseValidatorModel):
     connectorProfileNames: Optional[Sequence[str]] = None
     connectorType: Optional[ConnectorTypeType] = None
     connectorLabel: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeConnectorRequestRequestTypeDef(BaseModel):
+class DescribeConnectorRequestRequestTypeDef(BaseValidatorModel):
     connectorType: ConnectorTypeType
     connectorLabel: Optional[str] = None
 
-class DescribeConnectorsRequestRequestTypeDef(BaseModel):
+class DescribeConnectorsRequestRequestTypeDef(BaseValidatorModel):
     connectorTypes: Optional[Sequence[ConnectorTypeType]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeFlowExecutionRecordsRequestRequestTypeDef(BaseModel):
+class DescribeFlowExecutionRecordsRequestRequestTypeDef(BaseValidatorModel):
     flowName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeFlowRequestRequestTypeDef(BaseModel):
+class DescribeFlowRequestRequestTypeDef(BaseValidatorModel):
     flowName: str
 
-class ExecutionDetailsTypeDef(BaseModel):
+class ExecutionDetailsTypeDef(BaseValidatorModel):
     mostRecentExecutionMessage: Optional[str] = None
     mostRecentExecutionTime: Optional[datetime] = None
     mostRecentExecutionStatus: Optional[ExecutionStatusType] = None
 
-class DynatraceSourcePropertiesTypeDef(BaseModel):
+class DynatraceSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class ErrorInfoTypeDef(BaseModel):
+class ErrorInfoTypeDef(BaseValidatorModel):
     putFailuresCount: Optional[int] = None
     executionMessage: Optional[str] = None
 
-class RangeTypeDef(BaseModel):
+class RangeTypeDef(BaseValidatorModel):
     maximum: Optional[float] = None
     minimum: Optional[float] = None
 
-class GlueDataCatalogConfigTypeDef(BaseModel):
+class GlueDataCatalogConfigTypeDef(BaseValidatorModel):
     roleArn: str
     databaseName: str
     tablePrefix: str
 
-class GoogleAnalyticsSourcePropertiesTypeDef(BaseModel):
+class GoogleAnalyticsSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class IncrementalPullConfigTypeDef(BaseModel):
+class IncrementalPullConfigTypeDef(BaseValidatorModel):
     datetimeTypeFieldName: Optional[str] = None
 
-class InforNexusSourcePropertiesTypeDef(BaseModel):
+class InforNexusSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class ListConnectorEntitiesRequestRequestTypeDef(BaseModel):
+class ListConnectorEntitiesRequestRequestTypeDef(BaseValidatorModel):
     connectorProfileName: Optional[str] = None
     connectorType: Optional[ConnectorTypeType] = None
     entitiesPath: Optional[str] = None
@@ -327,26 +327,26 @@ class ListConnectorEntitiesRequestRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListConnectorsRequestRequestTypeDef(BaseModel):
+class ListConnectorsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListFlowsRequestRequestTypeDef(BaseModel):
+class ListFlowsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class MarketoSourcePropertiesTypeDef(BaseModel):
+class MarketoSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class RegistrationOutputTypeDef(BaseModel):
+class RegistrationOutputTypeDef(BaseValidatorModel):
     message: Optional[str] = None
     result: Optional[str] = None
     status: Optional[ExecutionStatusType] = None
 
-class OAuth2CustomParameterTypeDef(BaseModel):
+class OAuth2CustomParameterTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     isRequired: Optional[bool] = None
     label: Optional[str] = None
@@ -355,150 +355,150 @@ class OAuth2CustomParameterTypeDef(BaseModel):
     connectorSuppliedValues: Optional[List[str]] = None
     type: Optional[OAuth2CustomPropTypeType] = None
 
-class OAuthPropertiesTypeDef(BaseModel):
+class OAuthPropertiesTypeDef(BaseValidatorModel):
     tokenUrl: str
     authCodeUrl: str
     oAuthScopes: Sequence[str]
 
-class PardotSourcePropertiesTypeDef(BaseModel):
+class PardotSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class PrefixConfigTypeDef(BaseModel):
+class PrefixConfigTypeDef(BaseValidatorModel):
     prefixType: Optional[PrefixTypeType] = None
     prefixFormat: Optional[PrefixFormatType] = None
     pathPrefixHierarchy: Optional[Sequence[PathPrefixType]] = None
 
-class ResetConnectorMetadataCacheRequestRequestTypeDef(BaseModel):
+class ResetConnectorMetadataCacheRequestRequestTypeDef(BaseValidatorModel):
     connectorProfileName: Optional[str] = None
     connectorType: Optional[ConnectorTypeType] = None
     connectorEntityName: Optional[str] = None
     entitiesPath: Optional[str] = None
     apiVersion: Optional[str] = None
 
-class S3InputFormatConfigTypeDef(BaseModel):
+class S3InputFormatConfigTypeDef(BaseValidatorModel):
     s3InputFileType: Optional[S3InputFileTypeType] = None
 
-class SuccessResponseHandlingConfigTypeDef(BaseModel):
+class SuccessResponseHandlingConfigTypeDef(BaseValidatorModel):
     bucketPrefix: Optional[str] = None
     bucketName: Optional[str] = None
 
-class SAPODataPaginationConfigTypeDef(BaseModel):
+class SAPODataPaginationConfigTypeDef(BaseValidatorModel):
     maxPageSize: int
 
-class SAPODataParallelismConfigTypeDef(BaseModel):
+class SAPODataParallelismConfigTypeDef(BaseValidatorModel):
     maxParallelism: int
 
-class SalesforceSourcePropertiesTypeDef(BaseModel):
+class SalesforceSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
     enableDynamicFieldUpdate: Optional[bool] = None
     includeDeletedRecords: Optional[bool] = None
     dataTransferApi: Optional[SalesforceDataTransferApiType] = None
 
-class ServiceNowSourcePropertiesTypeDef(BaseModel):
+class ServiceNowSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class SingularSourcePropertiesTypeDef(BaseModel):
+class SingularSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class SlackSourcePropertiesTypeDef(BaseModel):
+class SlackSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class TrendmicroSourcePropertiesTypeDef(BaseModel):
+class TrendmicroSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class VeevaSourcePropertiesTypeDef(BaseModel):
+class VeevaSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
     documentType: Optional[str] = None
     includeSourceFiles: Optional[bool] = None
     includeRenditions: Optional[bool] = None
     includeAllVersions: Optional[bool] = None
 
-class ZendeskSourcePropertiesTypeDef(BaseModel):
+class ZendeskSourcePropertiesTypeDef(BaseValidatorModel):
     object: str
 
-class StartFlowRequestRequestTypeDef(BaseModel):
+class StartFlowRequestRequestTypeDef(BaseValidatorModel):
     flowName: str
     clientToken: Optional[str] = None
 
-class StopFlowRequestRequestTypeDef(BaseModel):
+class StopFlowRequestRequestTypeDef(BaseValidatorModel):
     flowName: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UnregisterConnectorRequestRequestTypeDef(BaseModel):
+class UnregisterConnectorRequestRequestTypeDef(BaseValidatorModel):
     connectorLabel: str
     forceDelete: Optional[bool] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class CustomAuthConfigTypeDef(BaseModel):
+class CustomAuthConfigTypeDef(BaseValidatorModel):
     customAuthenticationType: Optional[str] = None
     authParameters: Optional[List[AuthParameterTypeDef]] = None
 
-class CancelFlowExecutionsResponseTypeDef(BaseModel):
+class CancelFlowExecutionsResponseTypeDef(BaseValidatorModel):
     invalidExecutions: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConnectorProfileResponseTypeDef(BaseModel):
+class CreateConnectorProfileResponseTypeDef(BaseValidatorModel):
     connectorProfileArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFlowResponseTypeDef(BaseModel):
+class CreateFlowResponseTypeDef(BaseValidatorModel):
     flowArn: str
     flowStatus: FlowStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterConnectorResponseTypeDef(BaseModel):
+class RegisterConnectorResponseTypeDef(BaseValidatorModel):
     connectorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartFlowResponseTypeDef(BaseModel):
+class StartFlowResponseTypeDef(BaseValidatorModel):
     flowArn: str
     flowStatus: FlowStatusType
     executionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopFlowResponseTypeDef(BaseModel):
+class StopFlowResponseTypeDef(BaseValidatorModel):
     flowArn: str
     flowStatus: FlowStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateConnectorProfileResponseTypeDef(BaseModel):
+class UpdateConnectorProfileResponseTypeDef(BaseValidatorModel):
     connectorProfileArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateConnectorRegistrationResponseTypeDef(BaseModel):
+class UpdateConnectorRegistrationResponseTypeDef(BaseValidatorModel):
     connectorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFlowResponseTypeDef(BaseModel):
+class UpdateFlowResponseTypeDef(BaseValidatorModel):
     flowStatus: FlowStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CustomConnectorSourcePropertiesTypeDef(BaseModel):
+class CustomConnectorSourcePropertiesTypeDef(BaseValidatorModel):
     entityName: str
     customProperties: Optional[Mapping[str, str]] = None
     dataTransferApi: Optional[DataTransferApiTypeDef] = None
 
-class ListConnectorsResponseTypeDef(BaseModel):
+class ListConnectorsResponseTypeDef(BaseValidatorModel):
     connectors: List[ConnectorDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListConnectorEntitiesResponseTypeDef(BaseModel):
+class ListConnectorEntitiesResponseTypeDef(BaseValidatorModel):
     connectorEntityMap: Dict[str, List[ConnectorEntityTypeDef]]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConnectorMetadataTypeDef(BaseModel):
+class ConnectorMetadataTypeDef(BaseValidatorModel):
     Amplitude: Optional[Dict[str, Any]] = None
     Datadog: Optional[Dict[str, Any]] = None
     Dynatrace: Optional[Dict[str, Any]] = None
@@ -522,45 +522,45 @@ class ConnectorMetadataTypeDef(BaseModel):
     SAPOData: Optional[Dict[str, Any]] = None
     Pardot: Optional[Dict[str, Any]] = None
 
-class GoogleAnalyticsConnectorProfileCredentialsTypeDef(BaseModel):
+class GoogleAnalyticsConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     clientId: str
     clientSecret: str
     accessToken: Optional[str] = None
     refreshToken: Optional[str] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
-class HoneycodeConnectorProfileCredentialsTypeDef(BaseModel):
+class HoneycodeConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     accessToken: Optional[str] = None
     refreshToken: Optional[str] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
-class MarketoConnectorProfileCredentialsTypeDef(BaseModel):
+class MarketoConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     clientId: str
     clientSecret: str
     accessToken: Optional[str] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
-class OAuth2CredentialsTypeDef(BaseModel):
+class OAuth2CredentialsTypeDef(BaseValidatorModel):
     clientId: Optional[str] = None
     clientSecret: Optional[str] = None
     accessToken: Optional[str] = None
     refreshToken: Optional[str] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
-class OAuthCredentialsTypeDef(BaseModel):
+class OAuthCredentialsTypeDef(BaseValidatorModel):
     clientId: str
     clientSecret: str
     accessToken: Optional[str] = None
     refreshToken: Optional[str] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
-class PardotConnectorProfileCredentialsTypeDef(BaseModel):
+class PardotConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     accessToken: Optional[str] = None
     refreshToken: Optional[str] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
     clientCredentialsArn: Optional[str] = None
 
-class SalesforceConnectorProfileCredentialsTypeDef(BaseModel):
+class SalesforceConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     accessToken: Optional[str] = None
     refreshToken: Optional[str] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
@@ -568,77 +568,77 @@ class SalesforceConnectorProfileCredentialsTypeDef(BaseModel):
     oAuth2GrantType: Optional[OAuth2GrantTypeType] = None
     jwtToken: Optional[str] = None
 
-class SlackConnectorProfileCredentialsTypeDef(BaseModel):
+class SlackConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     clientId: str
     clientSecret: str
     accessToken: Optional[str] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
-class ZendeskConnectorProfileCredentialsTypeDef(BaseModel):
+class ZendeskConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     clientId: str
     clientSecret: str
     accessToken: Optional[str] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
-class TaskTypeDef(BaseModel):
+class TaskTypeDef(BaseValidatorModel):
     sourceFields: Sequence[str]
     taskType: TaskTypeType
     connectorOperator: Optional[ConnectorOperatorTypeDef] = None
     destinationField: Optional[str] = None
     taskProperties: Optional[Mapping[OperatorPropertiesKeysType, str]] = None
 
-class ConnectorProvisioningConfigTypeDef(BaseModel):
+class ConnectorProvisioningConfigTypeDef(BaseValidatorModel):
     lambda: Optional[LambdaConnectorProvisioningConfigTypeDef] = None
 
-class CustomConnectorDestinationPropertiesTypeDef(BaseModel):
+class CustomConnectorDestinationPropertiesTypeDef(BaseValidatorModel):
     entityName: str
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
     writeOperationType: Optional[WriteOperationTypeType] = None
     idFieldNames: Optional[Sequence[str]] = None
     customProperties: Optional[Mapping[str, str]] = None
 
-class EventBridgeDestinationPropertiesTypeDef(BaseModel):
+class EventBridgeDestinationPropertiesTypeDef(BaseValidatorModel):
     object: str
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
-class HoneycodeDestinationPropertiesTypeDef(BaseModel):
+class HoneycodeDestinationPropertiesTypeDef(BaseValidatorModel):
     object: str
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
-class MarketoDestinationPropertiesTypeDef(BaseModel):
+class MarketoDestinationPropertiesTypeDef(BaseValidatorModel):
     object: str
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
-class RedshiftDestinationPropertiesTypeDef(BaseModel):
+class RedshiftDestinationPropertiesTypeDef(BaseValidatorModel):
     object: str
     intermediateBucketName: str
     bucketPrefix: Optional[str] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
-class SalesforceDestinationPropertiesTypeDef(BaseModel):
+class SalesforceDestinationPropertiesTypeDef(BaseValidatorModel):
     object: str
     idFieldNames: Optional[Sequence[str]] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
     writeOperationType: Optional[WriteOperationTypeType] = None
     dataTransferApi: Optional[SalesforceDataTransferApiType] = None
 
-class SnowflakeDestinationPropertiesTypeDef(BaseModel):
+class SnowflakeDestinationPropertiesTypeDef(BaseValidatorModel):
     object: str
     intermediateBucketName: str
     bucketPrefix: Optional[str] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
-class ZendeskDestinationPropertiesTypeDef(BaseModel):
+class ZendeskDestinationPropertiesTypeDef(BaseValidatorModel):
     object: str
     idFieldNames: Optional[Sequence[str]] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
     writeOperationType: Optional[WriteOperationTypeType] = None
 
-class CustomConnectorProfilePropertiesTypeDef(BaseModel):
+class CustomConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     profileProperties: Optional[Mapping[str, str]] = None
     oAuth2Properties: Optional[OAuth2PropertiesTypeDef] = None
 
-class FlowDefinitionTypeDef(BaseModel):
+class FlowDefinitionTypeDef(BaseValidatorModel):
     flowArn: Optional[str] = None
     description: Optional[str] = None
     flowName: Optional[str] = None
@@ -655,7 +655,7 @@ class FlowDefinitionTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     lastRunExecutionDetails: Optional[ExecutionDetailsTypeDef] = None
 
-class ExecutionResultTypeDef(BaseModel):
+class ExecutionResultTypeDef(BaseValidatorModel):
     errorInfo: Optional[ErrorInfoTypeDef] = None
     bytesProcessed: Optional[int] = None
     bytesWritten: Optional[int] = None
@@ -663,7 +663,7 @@ class ExecutionResultTypeDef(BaseModel):
     numParallelProcesses: Optional[int] = None
     maxPageSize: Optional[int] = None
 
-class FieldTypeDetailsTypeDef(BaseModel):
+class FieldTypeDetailsTypeDef(BaseValidatorModel):
     fieldType: str
     filterOperators: List[OperatorType]
     supportedValues: Optional[List[str]] = None
@@ -672,23 +672,23 @@ class FieldTypeDetailsTypeDef(BaseModel):
     fieldValueRange: Optional[RangeTypeDef] = None
     fieldLengthRange: Optional[RangeTypeDef] = None
 
-class MetadataCatalogConfigTypeDef(BaseModel):
+class MetadataCatalogConfigTypeDef(BaseValidatorModel):
     glueDataCatalog: Optional[GlueDataCatalogConfigTypeDef] = None
 
-class MetadataCatalogDetailTypeDef(BaseModel):
+class MetadataCatalogDetailTypeDef(BaseValidatorModel):
     catalogType: Optional[Literal["GLUE"]] = None
     tableName: Optional[str] = None
     tableRegistrationOutput: Optional[RegistrationOutputTypeDef] = None
     partitionRegistrationOutput: Optional[RegistrationOutputTypeDef] = None
 
-class OAuth2DefaultsTypeDef(BaseModel):
+class OAuth2DefaultsTypeDef(BaseValidatorModel):
     oauthScopes: Optional[List[str]] = None
     tokenUrls: Optional[List[str]] = None
     authCodeUrls: Optional[List[str]] = None
     oauth2GrantTypesSupported: Optional[List[OAuth2GrantTypeType]] = None
     oauth2CustomProperties: Optional[List[OAuth2CustomParameterTypeDef]] = None
 
-class SAPODataConnectorProfilePropertiesTypeDef(BaseModel):
+class SAPODataConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     applicationHostUrl: str
     applicationServicePath: str
     portNumber: int
@@ -698,35 +698,35 @@ class SAPODataConnectorProfilePropertiesTypeDef(BaseModel):
     oAuthProperties: Optional[OAuthPropertiesTypeDef] = None
     disableSSO: Optional[bool] = None
 
-class S3OutputFormatConfigTypeDef(BaseModel):
+class S3OutputFormatConfigTypeDef(BaseValidatorModel):
     fileType: Optional[FileTypeType] = None
     prefixConfig: Optional[PrefixConfigTypeDef] = None
     aggregationConfig: Optional[AggregationConfigTypeDef] = None
     preserveSourceDataTyping: Optional[bool] = None
 
-class UpsolverS3OutputFormatConfigTypeDef(BaseModel):
+class UpsolverS3OutputFormatConfigTypeDef(BaseValidatorModel):
     prefixConfig: PrefixConfigTypeDef
     fileType: Optional[FileTypeType] = None
     aggregationConfig: Optional[AggregationConfigTypeDef] = None
 
-class S3SourcePropertiesTypeDef(BaseModel):
+class S3SourcePropertiesTypeDef(BaseValidatorModel):
     bucketName: str
     bucketPrefix: Optional[str] = None
     s3InputFormatConfig: Optional[S3InputFormatConfigTypeDef] = None
 
-class SAPODataDestinationPropertiesTypeDef(BaseModel):
+class SAPODataDestinationPropertiesTypeDef(BaseValidatorModel):
     objectPath: str
     successResponseHandlingConfig: Optional[SuccessResponseHandlingConfigTypeDef] = None
     idFieldNames: Optional[Sequence[str]] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
     writeOperationType: Optional[WriteOperationTypeType] = None
 
-class SAPODataSourcePropertiesTypeDef(BaseModel):
+class SAPODataSourcePropertiesTypeDef(BaseValidatorModel):
     objectPath: Optional[str] = None
     parallelismConfig: Optional[SAPODataParallelismConfigTypeDef] = None
     paginationConfig: Optional[SAPODataPaginationConfigTypeDef] = None
 
-class ScheduledTriggerPropertiesTypeDef(BaseModel):
+class ScheduledTriggerPropertiesTypeDef(BaseValidatorModel):
     scheduleExpression: str
     dataPullMode: Optional[DataPullModeType] = None
     scheduleStartTime: Optional[TimestampTypeDef] = None
@@ -736,44 +736,44 @@ class ScheduledTriggerPropertiesTypeDef(BaseModel):
     firstExecutionFrom: Optional[TimestampTypeDef] = None
     flowErrorDeactivationThreshold: Optional[int] = None
 
-class CustomConnectorProfileCredentialsTypeDef(BaseModel):
+class CustomConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     authenticationType: AuthenticationTypeType
     basic: Optional[BasicAuthCredentialsTypeDef] = None
     oauth2: Optional[OAuth2CredentialsTypeDef] = None
     apiKey: Optional[ApiKeyCredentialsTypeDef] = None
     custom: Optional[CustomAuthCredentialsTypeDef] = None
 
-class ServiceNowConnectorProfileCredentialsTypeDef(BaseModel):
+class ServiceNowConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     username: Optional[str] = None
     password: Optional[str] = None
     oAuth2Credentials: Optional[OAuth2CredentialsTypeDef] = None
 
-class SAPODataConnectorProfileCredentialsTypeDef(BaseModel):
+class SAPODataConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     basicAuthCredentials: Optional[BasicAuthCredentialsTypeDef] = None
     oAuthCredentials: Optional[OAuthCredentialsTypeDef] = None
 
-class RegisterConnectorRequestRequestTypeDef(BaseModel):
+class RegisterConnectorRequestRequestTypeDef(BaseValidatorModel):
     connectorLabel: Optional[str] = None
     description: Optional[str] = None
     connectorProvisioningType: Optional[Literal["LAMBDA"]] = None
     connectorProvisioningConfig: Optional[ConnectorProvisioningConfigTypeDef] = None
     clientToken: Optional[str] = None
 
-class UpdateConnectorRegistrationRequestRequestTypeDef(BaseModel):
+class UpdateConnectorRegistrationRequestRequestTypeDef(BaseValidatorModel):
     connectorLabel: str
     description: Optional[str] = None
     connectorProvisioningConfig: Optional[ConnectorProvisioningConfigTypeDef] = None
     clientToken: Optional[str] = None
 
-class ListFlowsResponseTypeDef(BaseModel):
+class ListFlowsResponseTypeDef(BaseValidatorModel):
     flows: List[FlowDefinitionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SupportedFieldTypeDetailsTypeDef(BaseModel):
+class SupportedFieldTypeDetailsTypeDef(BaseValidatorModel):
     v1: FieldTypeDetailsTypeDef
 
-class ExecutionRecordTypeDef(BaseModel):
+class ExecutionRecordTypeDef(BaseValidatorModel):
     executionId: Optional[str] = None
     executionStatus: Optional[ExecutionStatusType] = None
     executionResult: Optional[ExecutionResultTypeDef] = None
@@ -783,7 +783,7 @@ class ExecutionRecordTypeDef(BaseModel):
     dataPullEndTime: Optional[datetime] = None
     metadataCatalogDetails: Optional[List[MetadataCatalogDetailTypeDef]] = None
 
-class AuthenticationConfigTypeDef(BaseModel):
+class AuthenticationConfigTypeDef(BaseValidatorModel):
     isBasicAuthSupported: Optional[bool] = None
     isApiKeyAuthSupported: Optional[bool] = None
     isOAuth2Supported: Optional[bool] = None
@@ -791,7 +791,7 @@ class AuthenticationConfigTypeDef(BaseModel):
     oAuth2Defaults: Optional[OAuth2DefaultsTypeDef] = None
     customAuthConfigs: Optional[List[CustomAuthConfigTypeDef]] = None
 
-class ConnectorProfilePropertiesTypeDef(BaseModel):
+class ConnectorProfilePropertiesTypeDef(BaseValidatorModel):
     Amplitude: Optional[Mapping[str, Any]] = None
     Datadog: Optional[DatadogConnectorProfilePropertiesTypeDef] = None
     Dynatrace: Optional[DynatraceConnectorProfilePropertiesTypeDef] = None
@@ -812,17 +812,17 @@ class ConnectorProfilePropertiesTypeDef(BaseModel):
     CustomConnector: Optional[CustomConnectorProfilePropertiesTypeDef] = None
     Pardot: Optional[PardotConnectorProfilePropertiesTypeDef] = None
 
-class S3DestinationPropertiesTypeDef(BaseModel):
+class S3DestinationPropertiesTypeDef(BaseValidatorModel):
     bucketName: str
     bucketPrefix: Optional[str] = None
     s3OutputFormatConfig: Optional[S3OutputFormatConfigTypeDef] = None
 
-class UpsolverDestinationPropertiesTypeDef(BaseModel):
+class UpsolverDestinationPropertiesTypeDef(BaseValidatorModel):
     bucketName: str
     s3OutputFormatConfig: UpsolverS3OutputFormatConfigTypeDef
     bucketPrefix: Optional[str] = None
 
-class SourceConnectorPropertiesTypeDef(BaseModel):
+class SourceConnectorPropertiesTypeDef(BaseValidatorModel):
     Amplitude: Optional[AmplitudeSourcePropertiesTypeDef] = None
     Datadog: Optional[DatadogSourcePropertiesTypeDef] = None
     Dynatrace: Optional[DynatraceSourcePropertiesTypeDef] = None
@@ -841,10 +841,10 @@ class SourceConnectorPropertiesTypeDef(BaseModel):
     CustomConnector: Optional[CustomConnectorSourcePropertiesTypeDef] = None
     Pardot: Optional[PardotSourcePropertiesTypeDef] = None
 
-class TriggerPropertiesTypeDef(BaseModel):
+class TriggerPropertiesTypeDef(BaseValidatorModel):
     Scheduled: Optional[ScheduledTriggerPropertiesTypeDef] = None
 
-class ConnectorProfileCredentialsTypeDef(BaseModel):
+class ConnectorProfileCredentialsTypeDef(BaseValidatorModel):
     Amplitude: Optional[AmplitudeConnectorProfileCredentialsTypeDef] = None
     Datadog: Optional[DatadogConnectorProfileCredentialsTypeDef] = None
     Dynatrace: Optional[DynatraceConnectorProfileCredentialsTypeDef] = None
@@ -865,7 +865,7 @@ class ConnectorProfileCredentialsTypeDef(BaseModel):
     CustomConnector: Optional[CustomConnectorProfileCredentialsTypeDef] = None
     Pardot: Optional[PardotConnectorProfileCredentialsTypeDef] = None
 
-class ConnectorEntityFieldTypeDef(BaseModel):
+class ConnectorEntityFieldTypeDef(BaseValidatorModel):
     identifier: str
     parentIdentifier: Optional[str] = None
     label: Optional[str] = None
@@ -878,12 +878,12 @@ class ConnectorEntityFieldTypeDef(BaseModel):
     destinationProperties: Optional[DestinationFieldPropertiesTypeDef] = None
     customProperties: Optional[Dict[str, str]] = None
 
-class DescribeFlowExecutionRecordsResponseTypeDef(BaseModel):
+class DescribeFlowExecutionRecordsResponseTypeDef(BaseValidatorModel):
     flowExecutions: List[ExecutionRecordTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConnectorConfigurationTypeDef(BaseModel):
+class ConnectorConfigurationTypeDef(BaseValidatorModel):
     canUseAsSource: Optional[bool] = None
     canUseAsDestination: Optional[bool] = None
     supportedDestinationConnectors: Optional[List[ConnectorTypeType]] = None
@@ -913,7 +913,7 @@ class ConnectorConfigurationTypeDef(BaseModel):
     supportedDataTransferTypes: Optional[List[SupportedDataTransferTypeType]] = None
     supportedDataTransferApis: Optional[List[DataTransferApiTypeDef]] = None
 
-class ConnectorProfileTypeDef(BaseModel):
+class ConnectorProfileTypeDef(BaseValidatorModel):
     connectorProfileArn: Optional[str] = None
     connectorProfileName: Optional[str] = None
     connectorType: Optional[ConnectorTypeType] = None
@@ -925,7 +925,7 @@ class ConnectorProfileTypeDef(BaseModel):
     lastUpdatedAt: Optional[datetime] = None
     privateConnectionProvisioningState: Optional[       PrivateConnectionProvisioningStateTypeDef     ] = None
 
-class DestinationConnectorPropertiesTypeDef(BaseModel):
+class DestinationConnectorPropertiesTypeDef(BaseValidatorModel):
     Redshift: Optional[RedshiftDestinationPropertiesTypeDef] = None
     S3: Optional[S3DestinationPropertiesTypeDef] = None
     Salesforce: Optional[SalesforceDestinationPropertiesTypeDef] = None
@@ -940,47 +940,47 @@ class DestinationConnectorPropertiesTypeDef(BaseModel):
     CustomConnector: Optional[CustomConnectorDestinationPropertiesTypeDef] = None
     SAPOData: Optional[SAPODataDestinationPropertiesTypeDef] = None
 
-class SourceFlowConfigTypeDef(BaseModel):
+class SourceFlowConfigTypeDef(BaseValidatorModel):
     connectorType: ConnectorTypeType
     sourceConnectorProperties: SourceConnectorPropertiesTypeDef
     apiVersion: Optional[str] = None
     connectorProfileName: Optional[str] = None
     incrementalPullConfig: Optional[IncrementalPullConfigTypeDef] = None
 
-class TriggerConfigTypeDef(BaseModel):
+class TriggerConfigTypeDef(BaseValidatorModel):
     triggerType: TriggerTypeType
     triggerProperties: Optional[TriggerPropertiesTypeDef] = None
 
-class ConnectorProfileConfigTypeDef(BaseModel):
+class ConnectorProfileConfigTypeDef(BaseValidatorModel):
     connectorProfileProperties: ConnectorProfilePropertiesTypeDef
     connectorProfileCredentials: Optional[ConnectorProfileCredentialsTypeDef] = None
 
-class DescribeConnectorEntityResponseTypeDef(BaseModel):
+class DescribeConnectorEntityResponseTypeDef(BaseValidatorModel):
     connectorEntityFields: List[ConnectorEntityFieldTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeConnectorResponseTypeDef(BaseModel):
+class DescribeConnectorResponseTypeDef(BaseValidatorModel):
     connectorConfiguration: ConnectorConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeConnectorsResponseTypeDef(BaseModel):
+class DescribeConnectorsResponseTypeDef(BaseValidatorModel):
     connectorConfigurations: Dict[ConnectorTypeType, ConnectorConfigurationTypeDef]
     connectors: List[ConnectorDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeConnectorProfilesResponseTypeDef(BaseModel):
+class DescribeConnectorProfilesResponseTypeDef(BaseValidatorModel):
     connectorProfileDetails: List[ConnectorProfileTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DestinationFlowConfigTypeDef(BaseModel):
+class DestinationFlowConfigTypeDef(BaseValidatorModel):
     connectorType: ConnectorTypeType
     destinationConnectorProperties: DestinationConnectorPropertiesTypeDef
     apiVersion: Optional[str] = None
     connectorProfileName: Optional[str] = None
 
-class CreateConnectorProfileRequestRequestTypeDef(BaseModel):
+class CreateConnectorProfileRequestRequestTypeDef(BaseValidatorModel):
     connectorProfileName: str
     connectorType: ConnectorTypeType
     connectionMode: ConnectionModeType
@@ -989,13 +989,13 @@ class CreateConnectorProfileRequestRequestTypeDef(BaseModel):
     connectorLabel: Optional[str] = None
     clientToken: Optional[str] = None
 
-class UpdateConnectorProfileRequestRequestTypeDef(BaseModel):
+class UpdateConnectorProfileRequestRequestTypeDef(BaseValidatorModel):
     connectorProfileName: str
     connectionMode: ConnectionModeType
     connectorProfileConfig: ConnectorProfileConfigTypeDef
     clientToken: Optional[str] = None
 
-class CreateFlowRequestRequestTypeDef(BaseModel):
+class CreateFlowRequestRequestTypeDef(BaseValidatorModel):
     flowName: str
     triggerConfig: TriggerConfigTypeDef
     sourceFlowConfig: SourceFlowConfigTypeDef
@@ -1007,7 +1007,7 @@ class CreateFlowRequestRequestTypeDef(BaseModel):
     metadataCatalogConfig: Optional[MetadataCatalogConfigTypeDef] = None
     clientToken: Optional[str] = None
 
-class DescribeFlowResponseTypeDef(BaseModel):
+class DescribeFlowResponseTypeDef(BaseValidatorModel):
     flowArn: str
     description: str
     flowName: str
@@ -1029,7 +1029,7 @@ class DescribeFlowResponseTypeDef(BaseModel):
     schemaVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFlowRequestRequestTypeDef(BaseModel):
+class UpdateFlowRequestRequestTypeDef(BaseValidatorModel):
     flowName: str
     triggerConfig: TriggerConfigTypeDef
     sourceFlowConfig: SourceFlowConfigTypeDef

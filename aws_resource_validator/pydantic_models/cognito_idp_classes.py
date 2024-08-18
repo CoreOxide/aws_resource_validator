@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,101 +11,101 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cognito_idp_constants import *
 
-class RecoveryOptionTypeTypeDef(BaseModel):
+class RecoveryOptionTypeTypeDef(BaseValidatorModel):
     Priority: int
     Name: RecoveryOptionNameTypeType
 
-class AccountTakeoverActionTypeTypeDef(BaseModel):
+class AccountTakeoverActionTypeTypeDef(BaseValidatorModel):
     Notify: bool
     EventAction: AccountTakeoverEventActionTypeType
 
-class AdminAddUserToGroupRequestRequestTypeDef(BaseModel):
+class AdminAddUserToGroupRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     GroupName: str
 
-class AdminConfirmSignUpRequestRequestTypeDef(BaseModel):
+class AdminConfirmSignUpRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class MessageTemplateTypeTypeDef(BaseModel):
+class MessageTemplateTypeTypeDef(BaseValidatorModel):
     SMSMessage: Optional[str] = None
     EmailMessage: Optional[str] = None
     EmailSubject: Optional[str] = None
 
-class AttributeTypeTypeDef(BaseModel):
+class AttributeTypeTypeDef(BaseValidatorModel):
     Name: str
     Value: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AdminDeleteUserAttributesRequestRequestTypeDef(BaseModel):
+class AdminDeleteUserAttributesRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     UserAttributeNames: Sequence[str]
 
-class AdminDeleteUserRequestRequestTypeDef(BaseModel):
+class AdminDeleteUserRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
 
-class ProviderUserIdentifierTypeTypeDef(BaseModel):
+class ProviderUserIdentifierTypeTypeDef(BaseValidatorModel):
     ProviderName: Optional[str] = None
     ProviderAttributeName: Optional[str] = None
     ProviderAttributeValue: Optional[str] = None
 
-class AdminDisableUserRequestRequestTypeDef(BaseModel):
+class AdminDisableUserRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
 
-class AdminEnableUserRequestRequestTypeDef(BaseModel):
+class AdminEnableUserRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
 
-class AdminForgetDeviceRequestRequestTypeDef(BaseModel):
+class AdminForgetDeviceRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     DeviceKey: str
 
-class AdminGetDeviceRequestRequestTypeDef(BaseModel):
+class AdminGetDeviceRequestRequestTypeDef(BaseValidatorModel):
     DeviceKey: str
     UserPoolId: str
     Username: str
 
-class AdminGetUserRequestRequestTypeDef(BaseModel):
+class AdminGetUserRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
 
-class MFAOptionTypeTypeDef(BaseModel):
+class MFAOptionTypeTypeDef(BaseValidatorModel):
     DeliveryMedium: Optional[DeliveryMediumTypeType] = None
     AttributeName: Optional[str] = None
 
-class AnalyticsMetadataTypeTypeDef(BaseModel):
+class AnalyticsMetadataTypeTypeDef(BaseValidatorModel):
     AnalyticsEndpointId: Optional[str] = None
 
-class AdminListDevicesRequestRequestTypeDef(BaseModel):
+class AdminListDevicesRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     Limit: Optional[int] = None
     PaginationToken: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class AdminListGroupsForUserRequestRequestTypeDef(BaseModel):
+class AdminListGroupsForUserRequestRequestTypeDef(BaseValidatorModel):
     Username: str
     UserPoolId: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GroupTypeTypeDef(BaseModel):
+class GroupTypeTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     UserPoolId: Optional[str] = None
     Description: Optional[str] = None
@@ -114,124 +114,124 @@ class GroupTypeTypeDef(BaseModel):
     LastModifiedDate: Optional[datetime] = None
     CreationDate: Optional[datetime] = None
 
-class AdminListUserAuthEventsRequestRequestTypeDef(BaseModel):
+class AdminListUserAuthEventsRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class AdminRemoveUserFromGroupRequestRequestTypeDef(BaseModel):
+class AdminRemoveUserFromGroupRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     GroupName: str
 
-class AdminResetUserPasswordRequestRequestTypeDef(BaseModel):
+class AdminResetUserPasswordRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class SMSMfaSettingsTypeTypeDef(BaseModel):
+class SMSMfaSettingsTypeTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     PreferredMfa: Optional[bool] = None
 
-class SoftwareTokenMfaSettingsTypeTypeDef(BaseModel):
+class SoftwareTokenMfaSettingsTypeTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     PreferredMfa: Optional[bool] = None
 
-class AdminSetUserPasswordRequestRequestTypeDef(BaseModel):
+class AdminSetUserPasswordRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     Password: str
     Permanent: Optional[bool] = None
 
-class AdminUpdateAuthEventFeedbackRequestRequestTypeDef(BaseModel):
+class AdminUpdateAuthEventFeedbackRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     EventId: str
     FeedbackValue: FeedbackValueTypeType
 
-class AdminUpdateDeviceStatusRequestRequestTypeDef(BaseModel):
+class AdminUpdateDeviceStatusRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     DeviceKey: str
     DeviceRememberedStatus: Optional[DeviceRememberedStatusTypeType] = None
 
-class AdminUserGlobalSignOutRequestRequestTypeDef(BaseModel):
+class AdminUserGlobalSignOutRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
 
-class AnalyticsConfigurationTypeTypeDef(BaseModel):
+class AnalyticsConfigurationTypeTypeDef(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ApplicationArn: Optional[str] = None
     RoleArn: Optional[str] = None
     ExternalId: Optional[str] = None
     UserDataShared: Optional[bool] = None
 
-class AssociateSoftwareTokenRequestRequestTypeDef(BaseModel):
+class AssociateSoftwareTokenRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: Optional[str] = None
     Session: Optional[str] = None
 
-class ChallengeResponseTypeTypeDef(BaseModel):
+class ChallengeResponseTypeTypeDef(BaseValidatorModel):
     ChallengeName: Optional[ChallengeNameType] = None
     ChallengeResponse: Optional[ChallengeResponseType] = None
 
-class EventContextDataTypeTypeDef(BaseModel):
+class EventContextDataTypeTypeDef(BaseValidatorModel):
     IpAddress: Optional[str] = None
     DeviceName: Optional[str] = None
     Timezone: Optional[str] = None
     City: Optional[str] = None
     Country: Optional[str] = None
 
-class EventFeedbackTypeTypeDef(BaseModel):
+class EventFeedbackTypeTypeDef(BaseValidatorModel):
     FeedbackValue: FeedbackValueTypeType
     Provider: str
     FeedbackDate: Optional[datetime] = None
 
-class EventRiskTypeTypeDef(BaseModel):
+class EventRiskTypeTypeDef(BaseValidatorModel):
     RiskDecision: Optional[RiskDecisionTypeType] = None
     RiskLevel: Optional[RiskLevelTypeType] = None
     CompromisedCredentialsDetected: Optional[bool] = None
 
-class NewDeviceMetadataTypeTypeDef(BaseModel):
+class NewDeviceMetadataTypeTypeDef(BaseValidatorModel):
     DeviceKey: Optional[str] = None
     DeviceGroupKey: Optional[str] = None
 
-class ChangePasswordRequestRequestTypeDef(BaseModel):
+class ChangePasswordRequestRequestTypeDef(BaseValidatorModel):
     PreviousPassword: str
     ProposedPassword: str
     AccessToken: str
 
-class CloudWatchLogsConfigurationTypeTypeDef(BaseModel):
+class CloudWatchLogsConfigurationTypeTypeDef(BaseValidatorModel):
     LogGroupArn: Optional[str] = None
 
-class CodeDeliveryDetailsTypeTypeDef(BaseModel):
+class CodeDeliveryDetailsTypeTypeDef(BaseValidatorModel):
     Destination: Optional[str] = None
     DeliveryMedium: Optional[DeliveryMediumTypeType] = None
     AttributeName: Optional[str] = None
 
-class CompromisedCredentialsActionsTypeTypeDef(BaseModel):
+class CompromisedCredentialsActionsTypeTypeDef(BaseValidatorModel):
     EventAction: CompromisedCredentialsEventActionTypeType
 
-class DeviceSecretVerifierConfigTypeTypeDef(BaseModel):
+class DeviceSecretVerifierConfigTypeTypeDef(BaseValidatorModel):
     PasswordVerifier: Optional[str] = None
     Salt: Optional[str] = None
 
-class UserContextDataTypeTypeDef(BaseModel):
+class UserContextDataTypeTypeDef(BaseValidatorModel):
     IpAddress: Optional[str] = None
     EncodedData: Optional[str] = None
 
-class HttpHeaderTypeDef(BaseModel):
+class HttpHeaderTypeDef(BaseValidatorModel):
     headerName: Optional[str] = None
     headerValue: Optional[str] = None
 
-class CreateGroupRequestRequestTypeDef(BaseModel):
+class CreateGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     UserPoolId: str
     Description: Optional[str] = None
     RoleArn: Optional[str] = None
     Precedence: Optional[int] = None
 
-class CreateIdentityProviderRequestRequestTypeDef(BaseModel):
+class CreateIdentityProviderRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ProviderName: str
     ProviderType: IdentityProviderTypeTypeType
@@ -239,7 +239,7 @@ class CreateIdentityProviderRequestRequestTypeDef(BaseModel):
     AttributeMapping: Optional[Mapping[str, str]] = None
     IdpIdentifiers: Optional[Sequence[str]] = None
 
-class IdentityProviderTypeTypeDef(BaseModel):
+class IdentityProviderTypeTypeDef(BaseValidatorModel):
     UserPoolId: Optional[str] = None
     ProviderName: Optional[str] = None
     ProviderType: Optional[IdentityProviderTypeTypeType] = None
@@ -249,16 +249,16 @@ class IdentityProviderTypeTypeDef(BaseModel):
     LastModifiedDate: Optional[datetime] = None
     CreationDate: Optional[datetime] = None
 
-class ResourceServerScopeTypeTypeDef(BaseModel):
+class ResourceServerScopeTypeTypeDef(BaseValidatorModel):
     ScopeName: str
     ScopeDescription: str
 
-class CreateUserImportJobRequestRequestTypeDef(BaseModel):
+class CreateUserImportJobRequestRequestTypeDef(BaseValidatorModel):
     JobName: str
     UserPoolId: str
     CloudWatchLogsRoleArn: str
 
-class UserImportJobTypeTypeDef(BaseModel):
+class UserImportJobTypeTypeDef(BaseValidatorModel):
     JobName: Optional[str] = None
     JobId: Optional[str] = None
     UserPoolId: Optional[str] = None
@@ -273,40 +273,40 @@ class UserImportJobTypeTypeDef(BaseModel):
     FailedUsers: Optional[int] = None
     CompletionMessage: Optional[str] = None
 
-class TokenValidityUnitsTypeTypeDef(BaseModel):
+class TokenValidityUnitsTypeTypeDef(BaseValidatorModel):
     AccessToken: Optional[TimeUnitsTypeType] = None
     IdToken: Optional[TimeUnitsTypeType] = None
     RefreshToken: Optional[TimeUnitsTypeType] = None
 
-class CustomDomainConfigTypeTypeDef(BaseModel):
+class CustomDomainConfigTypeTypeDef(BaseValidatorModel):
     CertificateArn: str
 
-class DeviceConfigurationTypeTypeDef(BaseModel):
+class DeviceConfigurationTypeTypeDef(BaseValidatorModel):
     ChallengeRequiredOnNewDevice: Optional[bool] = None
     DeviceOnlyRememberedOnUserPrompt: Optional[bool] = None
 
-class EmailConfigurationTypeTypeDef(BaseModel):
+class EmailConfigurationTypeTypeDef(BaseValidatorModel):
     SourceArn: Optional[str] = None
     ReplyToEmailAddress: Optional[str] = None
     EmailSendingAccount: Optional[EmailSendingAccountTypeType] = None
     From: Optional[str] = None
     ConfigurationSet: Optional[str] = None
 
-class SmsConfigurationTypeTypeDef(BaseModel):
+class SmsConfigurationTypeTypeDef(BaseValidatorModel):
     SnsCallerArn: str
     ExternalId: Optional[str] = None
     SnsRegion: Optional[str] = None
 
-class UserAttributeUpdateSettingsTypeTypeDef(BaseModel):
+class UserAttributeUpdateSettingsTypeTypeDef(BaseValidatorModel):
     AttributesRequireVerificationBeforeUpdate: Optional[       Sequence[VerifiedAttributeTypeType]     ] = None
 
-class UserPoolAddOnsTypeTypeDef(BaseModel):
+class UserPoolAddOnsTypeTypeDef(BaseValidatorModel):
     AdvancedSecurityMode: AdvancedSecurityModeTypeType
 
-class UsernameConfigurationTypeTypeDef(BaseModel):
+class UsernameConfigurationTypeTypeDef(BaseValidatorModel):
     CaseSensitive: bool
 
-class VerificationMessageTemplateTypeTypeDef(BaseModel):
+class VerificationMessageTemplateTypeTypeDef(BaseValidatorModel):
     SmsMessage: Optional[str] = None
     EmailMessage: Optional[str] = None
     EmailSubject: Optional[str] = None
@@ -314,100 +314,100 @@ class VerificationMessageTemplateTypeTypeDef(BaseModel):
     EmailSubjectByLink: Optional[str] = None
     DefaultEmailOption: Optional[DefaultEmailOptionTypeType] = None
 
-class CustomEmailLambdaVersionConfigTypeTypeDef(BaseModel):
+class CustomEmailLambdaVersionConfigTypeTypeDef(BaseValidatorModel):
     LambdaVersion: Literal["V1_0"]
     LambdaArn: str
 
-class CustomSMSLambdaVersionConfigTypeTypeDef(BaseModel):
+class CustomSMSLambdaVersionConfigTypeTypeDef(BaseValidatorModel):
     LambdaVersion: Literal["V1_0"]
     LambdaArn: str
 
-class DeleteGroupRequestRequestTypeDef(BaseModel):
+class DeleteGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     UserPoolId: str
 
-class DeleteIdentityProviderRequestRequestTypeDef(BaseModel):
+class DeleteIdentityProviderRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ProviderName: str
 
-class DeleteResourceServerRequestRequestTypeDef(BaseModel):
+class DeleteResourceServerRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Identifier: str
 
-class DeleteUserAttributesRequestRequestTypeDef(BaseModel):
+class DeleteUserAttributesRequestRequestTypeDef(BaseValidatorModel):
     UserAttributeNames: Sequence[str]
     AccessToken: str
 
-class DeleteUserPoolClientRequestRequestTypeDef(BaseModel):
+class DeleteUserPoolClientRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
 
-class DeleteUserPoolDomainRequestRequestTypeDef(BaseModel):
+class DeleteUserPoolDomainRequestRequestTypeDef(BaseValidatorModel):
     Domain: str
     UserPoolId: str
 
-class DeleteUserPoolRequestRequestTypeDef(BaseModel):
+class DeleteUserPoolRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
 
-class DeleteUserRequestRequestTypeDef(BaseModel):
+class DeleteUserRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
 
-class DescribeIdentityProviderRequestRequestTypeDef(BaseModel):
+class DescribeIdentityProviderRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ProviderName: str
 
-class DescribeResourceServerRequestRequestTypeDef(BaseModel):
+class DescribeResourceServerRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Identifier: str
 
-class DescribeRiskConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeRiskConfigurationRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientId: Optional[str] = None
 
-class DescribeUserImportJobRequestRequestTypeDef(BaseModel):
+class DescribeUserImportJobRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     JobId: str
 
-class DescribeUserPoolClientRequestRequestTypeDef(BaseModel):
+class DescribeUserPoolClientRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
 
-class DescribeUserPoolDomainRequestRequestTypeDef(BaseModel):
+class DescribeUserPoolDomainRequestRequestTypeDef(BaseValidatorModel):
     Domain: str
 
-class DescribeUserPoolRequestRequestTypeDef(BaseModel):
+class DescribeUserPoolRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
 
-class ForgetDeviceRequestRequestTypeDef(BaseModel):
+class ForgetDeviceRequestRequestTypeDef(BaseValidatorModel):
     DeviceKey: str
     AccessToken: Optional[str] = None
 
-class GetCSVHeaderRequestRequestTypeDef(BaseModel):
+class GetCSVHeaderRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
 
-class GetDeviceRequestRequestTypeDef(BaseModel):
+class GetDeviceRequestRequestTypeDef(BaseValidatorModel):
     DeviceKey: str
     AccessToken: Optional[str] = None
 
-class GetGroupRequestRequestTypeDef(BaseModel):
+class GetGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     UserPoolId: str
 
-class GetIdentityProviderByIdentifierRequestRequestTypeDef(BaseModel):
+class GetIdentityProviderByIdentifierRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     IdpIdentifier: str
 
-class GetLogDeliveryConfigurationRequestRequestTypeDef(BaseModel):
+class GetLogDeliveryConfigurationRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
 
-class GetSigningCertificateRequestRequestTypeDef(BaseModel):
+class GetSigningCertificateRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
 
-class GetUICustomizationRequestRequestTypeDef(BaseModel):
+class GetUICustomizationRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientId: Optional[str] = None
 
-class UICustomizationTypeTypeDef(BaseModel):
+class UICustomizationTypeTypeDef(BaseValidatorModel):
     UserPoolId: Optional[str] = None
     ClientId: Optional[str] = None
     ImageUrl: Optional[str] = None
@@ -416,98 +416,98 @@ class UICustomizationTypeTypeDef(BaseModel):
     LastModifiedDate: Optional[datetime] = None
     CreationDate: Optional[datetime] = None
 
-class GetUserAttributeVerificationCodeRequestRequestTypeDef(BaseModel):
+class GetUserAttributeVerificationCodeRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
     AttributeName: str
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class GetUserPoolMfaConfigRequestRequestTypeDef(BaseModel):
+class GetUserPoolMfaConfigRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
 
-class SoftwareTokenMfaConfigTypeTypeDef(BaseModel):
+class SoftwareTokenMfaConfigTypeTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class GetUserRequestRequestTypeDef(BaseModel):
+class GetUserRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
 
-class GlobalSignOutRequestRequestTypeDef(BaseModel):
+class GlobalSignOutRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
 
-class PreTokenGenerationVersionConfigTypeTypeDef(BaseModel):
+class PreTokenGenerationVersionConfigTypeTypeDef(BaseValidatorModel):
     LambdaVersion: PreTokenGenerationLambdaVersionTypeType
     LambdaArn: str
 
-class ListDevicesRequestRequestTypeDef(BaseModel):
+class ListDevicesRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
     Limit: Optional[int] = None
     PaginationToken: Optional[str] = None
 
-class ListGroupsRequestRequestTypeDef(BaseModel):
+class ListGroupsRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListIdentityProvidersRequestRequestTypeDef(BaseModel):
+class ListIdentityProvidersRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ProviderDescriptionTypeDef(BaseModel):
+class ProviderDescriptionTypeDef(BaseValidatorModel):
     ProviderName: Optional[str] = None
     ProviderType: Optional[IdentityProviderTypeTypeType] = None
     LastModifiedDate: Optional[datetime] = None
     CreationDate: Optional[datetime] = None
 
-class ListResourceServersRequestRequestTypeDef(BaseModel):
+class ListResourceServersRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListUserImportJobsRequestRequestTypeDef(BaseModel):
+class ListUserImportJobsRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     MaxResults: int
     PaginationToken: Optional[str] = None
 
-class ListUserPoolClientsRequestRequestTypeDef(BaseModel):
+class ListUserPoolClientsRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class UserPoolClientDescriptionTypeDef(BaseModel):
+class UserPoolClientDescriptionTypeDef(BaseValidatorModel):
     ClientId: Optional[str] = None
     UserPoolId: Optional[str] = None
     ClientName: Optional[str] = None
 
-class ListUserPoolsRequestRequestTypeDef(BaseModel):
+class ListUserPoolsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: int
     NextToken: Optional[str] = None
 
-class ListUsersInGroupRequestRequestTypeDef(BaseModel):
+class ListUsersInGroupRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     GroupName: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListUsersRequestRequestTypeDef(BaseModel):
+class ListUsersRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     AttributesToGet: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     PaginationToken: Optional[str] = None
     Filter: Optional[str] = None
 
-class NotifyEmailTypeTypeDef(BaseModel):
+class NotifyEmailTypeTypeDef(BaseValidatorModel):
     Subject: str
     HtmlBody: Optional[str] = None
     TextBody: Optional[str] = None
 
-class NumberAttributeConstraintsTypeTypeDef(BaseModel):
+class NumberAttributeConstraintsTypeTypeDef(BaseValidatorModel):
     MinValue: Optional[str] = None
     MaxValue: Optional[str] = None
 
-class PasswordPolicyTypeTypeDef(BaseModel):
+class PasswordPolicyTypeTypeDef(BaseValidatorModel):
     MinimumLength: Optional[int] = None
     RequireUppercase: Optional[bool] = None
     RequireLowercase: Optional[bool] = None
@@ -515,96 +515,96 @@ class PasswordPolicyTypeTypeDef(BaseModel):
     RequireSymbols: Optional[bool] = None
     TemporaryPasswordValidityDays: Optional[int] = None
 
-class RevokeTokenRequestRequestTypeDef(BaseModel):
+class RevokeTokenRequestRequestTypeDef(BaseValidatorModel):
     Token: str
     ClientId: str
     ClientSecret: Optional[str] = None
 
-class RiskExceptionConfigurationTypeOutputTypeDef(BaseModel):
+class RiskExceptionConfigurationTypeOutputTypeDef(BaseValidatorModel):
     BlockedIPRangeList: Optional[List[str]] = None
     SkippedIPRangeList: Optional[List[str]] = None
 
-class RiskExceptionConfigurationTypeTypeDef(BaseModel):
+class RiskExceptionConfigurationTypeTypeDef(BaseValidatorModel):
     BlockedIPRangeList: Optional[Sequence[str]] = None
     SkippedIPRangeList: Optional[Sequence[str]] = None
 
-class StringAttributeConstraintsTypeTypeDef(BaseModel):
+class StringAttributeConstraintsTypeTypeDef(BaseValidatorModel):
     MinLength: Optional[str] = None
     MaxLength: Optional[str] = None
 
-class StartUserImportJobRequestRequestTypeDef(BaseModel):
+class StartUserImportJobRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     JobId: str
 
-class StopUserImportJobRequestRequestTypeDef(BaseModel):
+class StopUserImportJobRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     JobId: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateAuthEventFeedbackRequestRequestTypeDef(BaseModel):
+class UpdateAuthEventFeedbackRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     EventId: str
     FeedbackToken: str
     FeedbackValue: FeedbackValueTypeType
 
-class UpdateDeviceStatusRequestRequestTypeDef(BaseModel):
+class UpdateDeviceStatusRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
     DeviceKey: str
     DeviceRememberedStatus: Optional[DeviceRememberedStatusTypeType] = None
 
-class UpdateGroupRequestRequestTypeDef(BaseModel):
+class UpdateGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     UserPoolId: str
     Description: Optional[str] = None
     RoleArn: Optional[str] = None
     Precedence: Optional[int] = None
 
-class UpdateIdentityProviderRequestRequestTypeDef(BaseModel):
+class UpdateIdentityProviderRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ProviderName: str
     ProviderDetails: Optional[Mapping[str, str]] = None
     AttributeMapping: Optional[Mapping[str, str]] = None
     IdpIdentifiers: Optional[Sequence[str]] = None
 
-class UserAttributeUpdateSettingsTypeOutputTypeDef(BaseModel):
+class UserAttributeUpdateSettingsTypeOutputTypeDef(BaseValidatorModel):
     AttributesRequireVerificationBeforeUpdate: Optional[List[VerifiedAttributeTypeType]] = None
 
-class VerifySoftwareTokenRequestRequestTypeDef(BaseModel):
+class VerifySoftwareTokenRequestRequestTypeDef(BaseValidatorModel):
     UserCode: str
     AccessToken: Optional[str] = None
     Session: Optional[str] = None
     FriendlyDeviceName: Optional[str] = None
 
-class VerifyUserAttributeRequestRequestTypeDef(BaseModel):
+class VerifyUserAttributeRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
     AttributeName: str
     Code: str
 
-class AccountRecoverySettingTypeOutputTypeDef(BaseModel):
+class AccountRecoverySettingTypeOutputTypeDef(BaseValidatorModel):
     RecoveryMechanisms: Optional[List[RecoveryOptionTypeTypeDef]] = None
 
-class AccountRecoverySettingTypeTypeDef(BaseModel):
+class AccountRecoverySettingTypeTypeDef(BaseValidatorModel):
     RecoveryMechanisms: Optional[Sequence[RecoveryOptionTypeTypeDef]] = None
 
-class AccountTakeoverActionsTypeTypeDef(BaseModel):
+class AccountTakeoverActionsTypeTypeDef(BaseValidatorModel):
     LowAction: Optional[AccountTakeoverActionTypeTypeDef] = None
     MediumAction: Optional[AccountTakeoverActionTypeTypeDef] = None
     HighAction: Optional[AccountTakeoverActionTypeTypeDef] = None
 
-class AdminCreateUserConfigTypeTypeDef(BaseModel):
+class AdminCreateUserConfigTypeTypeDef(BaseValidatorModel):
     AllowAdminCreateUserOnly: Optional[bool] = None
     UnusedAccountValidityDays: Optional[int] = None
     InviteMessageTemplate: Optional[MessageTemplateTypeTypeDef] = None
 
-class AdminCreateUserRequestRequestTypeDef(BaseModel):
+class AdminCreateUserRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     UserAttributes: Optional[Sequence[AttributeTypeTypeDef]] = None
@@ -615,72 +615,72 @@ class AdminCreateUserRequestRequestTypeDef(BaseModel):
     DesiredDeliveryMediums: Optional[Sequence[DeliveryMediumTypeType]] = None
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class AdminUpdateUserAttributesRequestRequestTypeDef(BaseModel):
+class AdminUpdateUserAttributesRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     UserAttributes: Sequence[AttributeTypeTypeDef]
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class DeviceTypeTypeDef(BaseModel):
+class DeviceTypeTypeDef(BaseValidatorModel):
     DeviceKey: Optional[str] = None
     DeviceAttributes: Optional[List[AttributeTypeTypeDef]] = None
     DeviceCreateDate: Optional[datetime] = None
     DeviceLastModifiedDate: Optional[datetime] = None
     DeviceLastAuthenticatedDate: Optional[datetime] = None
 
-class UpdateUserAttributesRequestRequestTypeDef(BaseModel):
+class UpdateUserAttributesRequestRequestTypeDef(BaseValidatorModel):
     UserAttributes: Sequence[AttributeTypeTypeDef]
     AccessToken: str
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class AssociateSoftwareTokenResponseTypeDef(BaseModel):
+class AssociateSoftwareTokenResponseTypeDef(BaseValidatorModel):
     SecretCode: str
     Session: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfirmDeviceResponseTypeDef(BaseModel):
+class ConfirmDeviceResponseTypeDef(BaseValidatorModel):
     UserConfirmationNecessary: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserPoolDomainResponseTypeDef(BaseModel):
+class CreateUserPoolDomainResponseTypeDef(BaseValidatorModel):
     CloudFrontDomain: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCSVHeaderResponseTypeDef(BaseModel):
+class GetCSVHeaderResponseTypeDef(BaseValidatorModel):
     UserPoolId: str
     CSVHeader: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSigningCertificateResponseTypeDef(BaseModel):
+class GetSigningCertificateResponseTypeDef(BaseValidatorModel):
     Certificate: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUserPoolDomainResponseTypeDef(BaseModel):
+class UpdateUserPoolDomainResponseTypeDef(BaseValidatorModel):
     CloudFrontDomain: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifySoftwareTokenResponseTypeDef(BaseModel):
+class VerifySoftwareTokenResponseTypeDef(BaseValidatorModel):
     Status: VerifySoftwareTokenResponseTypeType
     Session: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AdminDisableProviderForUserRequestRequestTypeDef(BaseModel):
+class AdminDisableProviderForUserRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     User: ProviderUserIdentifierTypeTypeDef
 
-class AdminLinkProviderForUserRequestRequestTypeDef(BaseModel):
+class AdminLinkProviderForUserRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     DestinationUser: ProviderUserIdentifierTypeTypeDef
     SourceUser: ProviderUserIdentifierTypeTypeDef
 
-class AdminGetUserResponseTypeDef(BaseModel):
+class AdminGetUserResponseTypeDef(BaseValidatorModel):
     Username: str
     UserAttributes: List[AttributeTypeTypeDef]
     UserCreateDate: datetime
@@ -692,12 +692,12 @@ class AdminGetUserResponseTypeDef(BaseModel):
     UserMFASettingList: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AdminSetUserSettingsRequestRequestTypeDef(BaseModel):
+class AdminSetUserSettingsRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     MFAOptions: Sequence[MFAOptionTypeTypeDef]
 
-class GetUserResponseTypeDef(BaseModel):
+class GetUserResponseTypeDef(BaseValidatorModel):
     Username: str
     UserAttributes: List[AttributeTypeTypeDef]
     MFAOptions: List[MFAOptionTypeTypeDef]
@@ -705,11 +705,11 @@ class GetUserResponseTypeDef(BaseModel):
     UserMFASettingList: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetUserSettingsRequestRequestTypeDef(BaseModel):
+class SetUserSettingsRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
     MFAOptions: Sequence[MFAOptionTypeTypeDef]
 
-class UserTypeTypeDef(BaseModel):
+class UserTypeTypeDef(BaseValidatorModel):
     Username: Optional[str] = None
     Attributes: Optional[List[AttributeTypeTypeDef]] = None
     UserCreateDate: Optional[datetime] = None
@@ -718,80 +718,80 @@ class UserTypeTypeDef(BaseModel):
     UserStatus: Optional[UserStatusTypeType] = None
     MFAOptions: Optional[List[MFAOptionTypeTypeDef]] = None
 
-class AdminListGroupsForUserRequestAdminListGroupsForUserPaginateTypeDef(BaseModel):
+class AdminListGroupsForUserRequestAdminListGroupsForUserPaginateTypeDef(BaseValidatorModel):
     Username: str
     UserPoolId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class AdminListUserAuthEventsRequestAdminListUserAuthEventsPaginateTypeDef(BaseModel):
+class AdminListUserAuthEventsRequestAdminListUserAuthEventsPaginateTypeDef(BaseValidatorModel):
     UserPoolId: str
     Username: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGroupsRequestListGroupsPaginateTypeDef(BaseModel):
+class ListGroupsRequestListGroupsPaginateTypeDef(BaseValidatorModel):
     UserPoolId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIdentityProvidersRequestListIdentityProvidersPaginateTypeDef(BaseModel):
+class ListIdentityProvidersRequestListIdentityProvidersPaginateTypeDef(BaseValidatorModel):
     UserPoolId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourceServersRequestListResourceServersPaginateTypeDef(BaseModel):
+class ListResourceServersRequestListResourceServersPaginateTypeDef(BaseValidatorModel):
     UserPoolId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUserPoolClientsRequestListUserPoolClientsPaginateTypeDef(BaseModel):
+class ListUserPoolClientsRequestListUserPoolClientsPaginateTypeDef(BaseValidatorModel):
     UserPoolId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUserPoolsRequestListUserPoolsPaginateTypeDef(BaseModel):
+class ListUserPoolsRequestListUserPoolsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsersInGroupRequestListUsersInGroupPaginateTypeDef(BaseModel):
+class ListUsersInGroupRequestListUsersInGroupPaginateTypeDef(BaseValidatorModel):
     UserPoolId: str
     GroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsersRequestListUsersPaginateTypeDef(BaseModel):
+class ListUsersRequestListUsersPaginateTypeDef(BaseValidatorModel):
     UserPoolId: str
     AttributesToGet: Optional[Sequence[str]] = None
     Filter: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class AdminListGroupsForUserResponseTypeDef(BaseModel):
+class AdminListGroupsForUserResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateGroupResponseTypeDef(BaseModel):
+class CreateGroupResponseTypeDef(BaseValidatorModel):
     Group: GroupTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupResponseTypeDef(BaseModel):
+class GetGroupResponseTypeDef(BaseValidatorModel):
     Group: GroupTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGroupsResponseTypeDef(BaseModel):
+class ListGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateGroupResponseTypeDef(BaseModel):
+class UpdateGroupResponseTypeDef(BaseValidatorModel):
     Group: GroupTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AdminSetUserMFAPreferenceRequestRequestTypeDef(BaseModel):
+class AdminSetUserMFAPreferenceRequestRequestTypeDef(BaseValidatorModel):
     Username: str
     UserPoolId: str
     SMSMfaSettings: Optional[SMSMfaSettingsTypeTypeDef] = None
     SoftwareTokenMfaSettings: Optional[SoftwareTokenMfaSettingsTypeTypeDef] = None
 
-class SetUserMFAPreferenceRequestRequestTypeDef(BaseModel):
+class SetUserMFAPreferenceRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
     SMSMfaSettings: Optional[SMSMfaSettingsTypeTypeDef] = None
     SoftwareTokenMfaSettings: Optional[SoftwareTokenMfaSettingsTypeTypeDef] = None
 
-class AuthEventTypeTypeDef(BaseModel):
+class AuthEventTypeTypeDef(BaseValidatorModel):
     EventId: Optional[str] = None
     EventType: Optional[EventTypeType] = None
     CreationDate: Optional[datetime] = None
@@ -801,7 +801,7 @@ class AuthEventTypeTypeDef(BaseModel):
     EventContextData: Optional[EventContextDataTypeTypeDef] = None
     EventFeedback: Optional[EventFeedbackTypeTypeDef] = None
 
-class AuthenticationResultTypeTypeDef(BaseModel):
+class AuthenticationResultTypeTypeDef(BaseValidatorModel):
     AccessToken: Optional[str] = None
     ExpiresIn: Optional[int] = None
     TokenType: Optional[str] = None
@@ -809,54 +809,54 @@ class AuthenticationResultTypeTypeDef(BaseModel):
     IdToken: Optional[str] = None
     NewDeviceMetadata: Optional[NewDeviceMetadataTypeTypeDef] = None
 
-class SetUICustomizationRequestRequestTypeDef(BaseModel):
+class SetUICustomizationRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientId: Optional[str] = None
     CSS: Optional[str] = None
     ImageFile: Optional[BlobTypeDef] = None
 
-class LogConfigurationTypeTypeDef(BaseModel):
+class LogConfigurationTypeTypeDef(BaseValidatorModel):
     LogLevel: Literal["ERROR"]
     EventSource: Literal["userNotification"]
     CloudWatchLogsConfiguration: Optional[CloudWatchLogsConfigurationTypeTypeDef] = None
 
-class ForgotPasswordResponseTypeDef(BaseModel):
+class ForgotPasswordResponseTypeDef(BaseValidatorModel):
     CodeDeliveryDetails: CodeDeliveryDetailsTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUserAttributeVerificationCodeResponseTypeDef(BaseModel):
+class GetUserAttributeVerificationCodeResponseTypeDef(BaseValidatorModel):
     CodeDeliveryDetails: CodeDeliveryDetailsTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResendConfirmationCodeResponseTypeDef(BaseModel):
+class ResendConfirmationCodeResponseTypeDef(BaseValidatorModel):
     CodeDeliveryDetails: CodeDeliveryDetailsTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SignUpResponseTypeDef(BaseModel):
+class SignUpResponseTypeDef(BaseValidatorModel):
     UserConfirmed: bool
     CodeDeliveryDetails: CodeDeliveryDetailsTypeTypeDef
     UserSub: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUserAttributesResponseTypeDef(BaseModel):
+class UpdateUserAttributesResponseTypeDef(BaseValidatorModel):
     CodeDeliveryDetailsList: List[CodeDeliveryDetailsTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CompromisedCredentialsRiskConfigurationTypeOutputTypeDef(BaseModel):
+class CompromisedCredentialsRiskConfigurationTypeOutputTypeDef(BaseValidatorModel):
     Actions: CompromisedCredentialsActionsTypeTypeDef
     EventFilter: Optional[List[EventFilterTypeType]] = None
 
-class CompromisedCredentialsRiskConfigurationTypeTypeDef(BaseModel):
+class CompromisedCredentialsRiskConfigurationTypeTypeDef(BaseValidatorModel):
     Actions: CompromisedCredentialsActionsTypeTypeDef
     EventFilter: Optional[Sequence[EventFilterTypeType]] = None
 
-class ConfirmDeviceRequestRequestTypeDef(BaseModel):
+class ConfirmDeviceRequestRequestTypeDef(BaseValidatorModel):
     AccessToken: str
     DeviceKey: str
     DeviceSecretVerifierConfig: Optional[DeviceSecretVerifierConfigTypeTypeDef] = None
     DeviceName: Optional[str] = None
 
-class ConfirmForgotPasswordRequestRequestTypeDef(BaseModel):
+class ConfirmForgotPasswordRequestRequestTypeDef(BaseValidatorModel):
     ClientId: str
     Username: str
     ConfirmationCode: str
@@ -866,7 +866,7 @@ class ConfirmForgotPasswordRequestRequestTypeDef(BaseModel):
     UserContextData: Optional[UserContextDataTypeTypeDef] = None
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class ConfirmSignUpRequestRequestTypeDef(BaseModel):
+class ConfirmSignUpRequestRequestTypeDef(BaseValidatorModel):
     ClientId: str
     Username: str
     ConfirmationCode: str
@@ -876,7 +876,7 @@ class ConfirmSignUpRequestRequestTypeDef(BaseModel):
     UserContextData: Optional[UserContextDataTypeTypeDef] = None
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class ForgotPasswordRequestRequestTypeDef(BaseModel):
+class ForgotPasswordRequestRequestTypeDef(BaseValidatorModel):
     ClientId: str
     Username: str
     SecretHash: Optional[str] = None
@@ -884,7 +884,7 @@ class ForgotPasswordRequestRequestTypeDef(BaseModel):
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class InitiateAuthRequestRequestTypeDef(BaseModel):
+class InitiateAuthRequestRequestTypeDef(BaseValidatorModel):
     AuthFlow: AuthFlowTypeType
     ClientId: str
     AuthParameters: Optional[Mapping[str, str]] = None
@@ -892,7 +892,7 @@ class InitiateAuthRequestRequestTypeDef(BaseModel):
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
     UserContextData: Optional[UserContextDataTypeTypeDef] = None
 
-class ResendConfirmationCodeRequestRequestTypeDef(BaseModel):
+class ResendConfirmationCodeRequestRequestTypeDef(BaseValidatorModel):
     ClientId: str
     Username: str
     SecretHash: Optional[str] = None
@@ -900,7 +900,7 @@ class ResendConfirmationCodeRequestRequestTypeDef(BaseModel):
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class RespondToAuthChallengeRequestRequestTypeDef(BaseModel):
+class RespondToAuthChallengeRequestRequestTypeDef(BaseValidatorModel):
     ClientId: str
     ChallengeName: ChallengeNameTypeType
     Session: Optional[str] = None
@@ -909,7 +909,7 @@ class RespondToAuthChallengeRequestRequestTypeDef(BaseModel):
     UserContextData: Optional[UserContextDataTypeTypeDef] = None
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class SignUpRequestRequestTypeDef(BaseModel):
+class SignUpRequestRequestTypeDef(BaseValidatorModel):
     ClientId: str
     Username: str
     Password: str
@@ -920,69 +920,69 @@ class SignUpRequestRequestTypeDef(BaseModel):
     UserContextData: Optional[UserContextDataTypeTypeDef] = None
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class ContextDataTypeTypeDef(BaseModel):
+class ContextDataTypeTypeDef(BaseValidatorModel):
     IpAddress: str
     ServerName: str
     ServerPath: str
     HttpHeaders: Sequence[HttpHeaderTypeDef]
     EncodedData: Optional[str] = None
 
-class CreateIdentityProviderResponseTypeDef(BaseModel):
+class CreateIdentityProviderResponseTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIdentityProviderResponseTypeDef(BaseModel):
+class DescribeIdentityProviderResponseTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIdentityProviderByIdentifierResponseTypeDef(BaseModel):
+class GetIdentityProviderByIdentifierResponseTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateIdentityProviderResponseTypeDef(BaseModel):
+class UpdateIdentityProviderResponseTypeDef(BaseValidatorModel):
     IdentityProvider: IdentityProviderTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateResourceServerRequestRequestTypeDef(BaseModel):
+class CreateResourceServerRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Identifier: str
     Name: str
     Scopes: Optional[Sequence[ResourceServerScopeTypeTypeDef]] = None
 
-class ResourceServerTypeTypeDef(BaseModel):
+class ResourceServerTypeTypeDef(BaseValidatorModel):
     UserPoolId: Optional[str] = None
     Identifier: Optional[str] = None
     Name: Optional[str] = None
     Scopes: Optional[List[ResourceServerScopeTypeTypeDef]] = None
 
-class UpdateResourceServerRequestRequestTypeDef(BaseModel):
+class UpdateResourceServerRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Identifier: str
     Name: str
     Scopes: Optional[Sequence[ResourceServerScopeTypeTypeDef]] = None
 
-class CreateUserImportJobResponseTypeDef(BaseModel):
+class CreateUserImportJobResponseTypeDef(BaseValidatorModel):
     UserImportJob: UserImportJobTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeUserImportJobResponseTypeDef(BaseModel):
+class DescribeUserImportJobResponseTypeDef(BaseValidatorModel):
     UserImportJob: UserImportJobTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUserImportJobsResponseTypeDef(BaseModel):
+class ListUserImportJobsResponseTypeDef(BaseValidatorModel):
     UserImportJobs: List[UserImportJobTypeTypeDef]
     PaginationToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartUserImportJobResponseTypeDef(BaseModel):
+class StartUserImportJobResponseTypeDef(BaseValidatorModel):
     UserImportJob: UserImportJobTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopUserImportJobResponseTypeDef(BaseModel):
+class StopUserImportJobResponseTypeDef(BaseValidatorModel):
     UserImportJob: UserImportJobTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserPoolClientRequestRequestTypeDef(BaseModel):
+class CreateUserPoolClientRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientName: str
     GenerateSecret: Optional[bool] = None
@@ -1006,7 +1006,7 @@ class CreateUserPoolClientRequestRequestTypeDef(BaseModel):
     EnablePropagateAdditionalUserContextData: Optional[bool] = None
     AuthSessionValidity: Optional[int] = None
 
-class UpdateUserPoolClientRequestRequestTypeDef(BaseModel):
+class UpdateUserPoolClientRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
     ClientName: Optional[str] = None
@@ -1030,7 +1030,7 @@ class UpdateUserPoolClientRequestRequestTypeDef(BaseModel):
     EnablePropagateAdditionalUserContextData: Optional[bool] = None
     AuthSessionValidity: Optional[int] = None
 
-class UserPoolClientTypeTypeDef(BaseModel):
+class UserPoolClientTypeTypeDef(BaseValidatorModel):
     UserPoolId: Optional[str] = None
     ClientName: Optional[str] = None
     ClientId: Optional[str] = None
@@ -1057,12 +1057,12 @@ class UserPoolClientTypeTypeDef(BaseModel):
     EnablePropagateAdditionalUserContextData: Optional[bool] = None
     AuthSessionValidity: Optional[int] = None
 
-class CreateUserPoolDomainRequestRequestTypeDef(BaseModel):
+class CreateUserPoolDomainRequestRequestTypeDef(BaseValidatorModel):
     Domain: str
     UserPoolId: str
     CustomDomainConfig: Optional[CustomDomainConfigTypeTypeDef] = None
 
-class DomainDescriptionTypeTypeDef(BaseModel):
+class DomainDescriptionTypeTypeDef(BaseValidatorModel):
     UserPoolId: Optional[str] = None
     AWSAccountId: Optional[str] = None
     Domain: Optional[str] = None
@@ -1072,24 +1072,24 @@ class DomainDescriptionTypeTypeDef(BaseModel):
     Status: Optional[DomainStatusTypeType] = None
     CustomDomainConfig: Optional[CustomDomainConfigTypeTypeDef] = None
 
-class UpdateUserPoolDomainRequestRequestTypeDef(BaseModel):
+class UpdateUserPoolDomainRequestRequestTypeDef(BaseValidatorModel):
     Domain: str
     UserPoolId: str
     CustomDomainConfig: CustomDomainConfigTypeTypeDef
 
-class SmsMfaConfigTypeTypeDef(BaseModel):
+class SmsMfaConfigTypeTypeDef(BaseValidatorModel):
     SmsAuthenticationMessage: Optional[str] = None
     SmsConfiguration: Optional[SmsConfigurationTypeTypeDef] = None
 
-class GetUICustomizationResponseTypeDef(BaseModel):
+class GetUICustomizationResponseTypeDef(BaseValidatorModel):
     UICustomization: UICustomizationTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetUICustomizationResponseTypeDef(BaseModel):
+class SetUICustomizationResponseTypeDef(BaseValidatorModel):
     UICustomization: UICustomizationTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LambdaConfigTypeTypeDef(BaseModel):
+class LambdaConfigTypeTypeDef(BaseValidatorModel):
     PreSignUp: Optional[str] = None
     CustomMessage: Optional[str] = None
     PostConfirmation: Optional[str] = None
@@ -1105,17 +1105,17 @@ class LambdaConfigTypeTypeDef(BaseModel):
     CustomEmailSender: Optional[CustomEmailLambdaVersionConfigTypeTypeDef] = None
     KMSKeyID: Optional[str] = None
 
-class ListIdentityProvidersResponseTypeDef(BaseModel):
+class ListIdentityProvidersResponseTypeDef(BaseValidatorModel):
     Providers: List[ProviderDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListUserPoolClientsResponseTypeDef(BaseModel):
+class ListUserPoolClientsResponseTypeDef(BaseValidatorModel):
     UserPoolClients: List[UserPoolClientDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class NotifyConfigurationTypeTypeDef(BaseModel):
+class NotifyConfigurationTypeTypeDef(BaseValidatorModel):
     SourceArn: str
     From: Optional[str] = None
     ReplyTo: Optional[str] = None
@@ -1123,10 +1123,10 @@ class NotifyConfigurationTypeTypeDef(BaseModel):
     NoActionEmail: Optional[NotifyEmailTypeTypeDef] = None
     MfaEmail: Optional[NotifyEmailTypeTypeDef] = None
 
-class UserPoolPolicyTypeTypeDef(BaseModel):
+class UserPoolPolicyTypeTypeDef(BaseValidatorModel):
     PasswordPolicy: Optional[PasswordPolicyTypeTypeDef] = None
 
-class SchemaAttributeTypeTypeDef(BaseModel):
+class SchemaAttributeTypeTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     AttributeDataType: Optional[AttributeDataTypeType] = None
     DeveloperOnlyAttribute: Optional[bool] = None
@@ -1135,80 +1135,80 @@ class SchemaAttributeTypeTypeDef(BaseModel):
     NumberAttributeConstraints: Optional[NumberAttributeConstraintsTypeTypeDef] = None
     StringAttributeConstraints: Optional[StringAttributeConstraintsTypeTypeDef] = None
 
-class AdminGetDeviceResponseTypeDef(BaseModel):
+class AdminGetDeviceResponseTypeDef(BaseValidatorModel):
     Device: DeviceTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AdminListDevicesResponseTypeDef(BaseModel):
+class AdminListDevicesResponseTypeDef(BaseValidatorModel):
     Devices: List[DeviceTypeTypeDef]
     PaginationToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDeviceResponseTypeDef(BaseModel):
+class GetDeviceResponseTypeDef(BaseValidatorModel):
     Device: DeviceTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDevicesResponseTypeDef(BaseModel):
+class ListDevicesResponseTypeDef(BaseValidatorModel):
     Devices: List[DeviceTypeTypeDef]
     PaginationToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AdminCreateUserResponseTypeDef(BaseModel):
+class AdminCreateUserResponseTypeDef(BaseValidatorModel):
     User: UserTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUsersInGroupResponseTypeDef(BaseModel):
+class ListUsersInGroupResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListUsersResponseTypeDef(BaseModel):
+class ListUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeTypeDef]
     PaginationToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AdminListUserAuthEventsResponseTypeDef(BaseModel):
+class AdminListUserAuthEventsResponseTypeDef(BaseValidatorModel):
     AuthEvents: List[AuthEventTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class AdminInitiateAuthResponseTypeDef(BaseModel):
+class AdminInitiateAuthResponseTypeDef(BaseValidatorModel):
     ChallengeName: ChallengeNameTypeType
     Session: str
     ChallengeParameters: Dict[str, str]
     AuthenticationResult: AuthenticationResultTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AdminRespondToAuthChallengeResponseTypeDef(BaseModel):
+class AdminRespondToAuthChallengeResponseTypeDef(BaseValidatorModel):
     ChallengeName: ChallengeNameTypeType
     Session: str
     ChallengeParameters: Dict[str, str]
     AuthenticationResult: AuthenticationResultTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InitiateAuthResponseTypeDef(BaseModel):
+class InitiateAuthResponseTypeDef(BaseValidatorModel):
     ChallengeName: ChallengeNameTypeType
     Session: str
     ChallengeParameters: Dict[str, str]
     AuthenticationResult: AuthenticationResultTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RespondToAuthChallengeResponseTypeDef(BaseModel):
+class RespondToAuthChallengeResponseTypeDef(BaseValidatorModel):
     ChallengeName: ChallengeNameTypeType
     Session: str
     ChallengeParameters: Dict[str, str]
     AuthenticationResult: AuthenticationResultTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LogDeliveryConfigurationTypeTypeDef(BaseModel):
+class LogDeliveryConfigurationTypeTypeDef(BaseValidatorModel):
     UserPoolId: str
     LogConfigurations: List[LogConfigurationTypeTypeDef]
 
-class SetLogDeliveryConfigurationRequestRequestTypeDef(BaseModel):
+class SetLogDeliveryConfigurationRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     LogConfigurations: Sequence[LogConfigurationTypeTypeDef]
 
-class AdminInitiateAuthRequestRequestTypeDef(BaseModel):
+class AdminInitiateAuthRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
     AuthFlow: AuthFlowTypeType
@@ -1217,7 +1217,7 @@ class AdminInitiateAuthRequestRequestTypeDef(BaseModel):
     AnalyticsMetadata: Optional[AnalyticsMetadataTypeTypeDef] = None
     ContextData: Optional[ContextDataTypeTypeDef] = None
 
-class AdminRespondToAuthChallengeRequestRequestTypeDef(BaseModel):
+class AdminRespondToAuthChallengeRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
     ChallengeName: ChallengeNameTypeType
@@ -1227,58 +1227,58 @@ class AdminRespondToAuthChallengeRequestRequestTypeDef(BaseModel):
     ContextData: Optional[ContextDataTypeTypeDef] = None
     ClientMetadata: Optional[Mapping[str, str]] = None
 
-class CreateResourceServerResponseTypeDef(BaseModel):
+class CreateResourceServerResponseTypeDef(BaseValidatorModel):
     ResourceServer: ResourceServerTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeResourceServerResponseTypeDef(BaseModel):
+class DescribeResourceServerResponseTypeDef(BaseValidatorModel):
     ResourceServer: ResourceServerTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourceServersResponseTypeDef(BaseModel):
+class ListResourceServersResponseTypeDef(BaseValidatorModel):
     ResourceServers: List[ResourceServerTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class UpdateResourceServerResponseTypeDef(BaseModel):
+class UpdateResourceServerResponseTypeDef(BaseValidatorModel):
     ResourceServer: ResourceServerTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserPoolClientResponseTypeDef(BaseModel):
+class CreateUserPoolClientResponseTypeDef(BaseValidatorModel):
     UserPoolClient: UserPoolClientTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeUserPoolClientResponseTypeDef(BaseModel):
+class DescribeUserPoolClientResponseTypeDef(BaseValidatorModel):
     UserPoolClient: UserPoolClientTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUserPoolClientResponseTypeDef(BaseModel):
+class UpdateUserPoolClientResponseTypeDef(BaseValidatorModel):
     UserPoolClient: UserPoolClientTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeUserPoolDomainResponseTypeDef(BaseModel):
+class DescribeUserPoolDomainResponseTypeDef(BaseValidatorModel):
     DomainDescription: DomainDescriptionTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUserPoolMfaConfigResponseTypeDef(BaseModel):
+class GetUserPoolMfaConfigResponseTypeDef(BaseValidatorModel):
     SmsMfaConfiguration: SmsMfaConfigTypeTypeDef
     SoftwareTokenMfaConfiguration: SoftwareTokenMfaConfigTypeTypeDef
     MfaConfiguration: UserPoolMfaTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetUserPoolMfaConfigRequestRequestTypeDef(BaseModel):
+class SetUserPoolMfaConfigRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     SmsMfaConfiguration: Optional[SmsMfaConfigTypeTypeDef] = None
     SoftwareTokenMfaConfiguration: Optional[SoftwareTokenMfaConfigTypeTypeDef] = None
     MfaConfiguration: Optional[UserPoolMfaTypeType] = None
 
-class SetUserPoolMfaConfigResponseTypeDef(BaseModel):
+class SetUserPoolMfaConfigResponseTypeDef(BaseValidatorModel):
     SmsMfaConfiguration: SmsMfaConfigTypeTypeDef
     SoftwareTokenMfaConfiguration: SoftwareTokenMfaConfigTypeTypeDef
     MfaConfiguration: UserPoolMfaTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UserPoolDescriptionTypeTypeDef(BaseModel):
+class UserPoolDescriptionTypeTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     LambdaConfig: Optional[LambdaConfigTypeTypeDef] = None
@@ -1286,11 +1286,11 @@ class UserPoolDescriptionTypeTypeDef(BaseModel):
     LastModifiedDate: Optional[datetime] = None
     CreationDate: Optional[datetime] = None
 
-class AccountTakeoverRiskConfigurationTypeTypeDef(BaseModel):
+class AccountTakeoverRiskConfigurationTypeTypeDef(BaseValidatorModel):
     Actions: AccountTakeoverActionsTypeTypeDef
     NotifyConfiguration: Optional[NotifyConfigurationTypeTypeDef] = None
 
-class UpdateUserPoolRequestRequestTypeDef(BaseModel):
+class UpdateUserPoolRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     Policies: Optional[UserPoolPolicyTypeTypeDef] = None
     DeletionProtection: Optional[DeletionProtectionTypeType] = None
@@ -1311,11 +1311,11 @@ class UpdateUserPoolRequestRequestTypeDef(BaseModel):
     UserPoolAddOns: Optional[UserPoolAddOnsTypeTypeDef] = None
     AccountRecoverySetting: Optional[AccountRecoverySettingTypeTypeDef] = None
 
-class AddCustomAttributesRequestRequestTypeDef(BaseModel):
+class AddCustomAttributesRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     CustomAttributes: Sequence[SchemaAttributeTypeTypeDef]
 
-class CreateUserPoolRequestRequestTypeDef(BaseModel):
+class CreateUserPoolRequestRequestTypeDef(BaseValidatorModel):
     PoolName: str
     Policies: Optional[UserPoolPolicyTypeTypeDef] = None
     DeletionProtection: Optional[DeletionProtectionTypeType] = None
@@ -1340,7 +1340,7 @@ class CreateUserPoolRequestRequestTypeDef(BaseModel):
     UsernameConfiguration: Optional[UsernameConfigurationTypeTypeDef] = None
     AccountRecoverySetting: Optional[AccountRecoverySettingTypeTypeDef] = None
 
-class UserPoolTypeTypeDef(BaseModel):
+class UserPoolTypeTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Policies: Optional[UserPoolPolicyTypeTypeDef] = None
@@ -1375,20 +1375,20 @@ class UserPoolTypeTypeDef(BaseModel):
     Arn: Optional[str] = None
     AccountRecoverySetting: Optional[AccountRecoverySettingTypeOutputTypeDef] = None
 
-class GetLogDeliveryConfigurationResponseTypeDef(BaseModel):
+class GetLogDeliveryConfigurationResponseTypeDef(BaseValidatorModel):
     LogDeliveryConfiguration: LogDeliveryConfigurationTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetLogDeliveryConfigurationResponseTypeDef(BaseModel):
+class SetLogDeliveryConfigurationResponseTypeDef(BaseValidatorModel):
     LogDeliveryConfiguration: LogDeliveryConfigurationTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUserPoolsResponseTypeDef(BaseModel):
+class ListUserPoolsResponseTypeDef(BaseValidatorModel):
     UserPools: List[UserPoolDescriptionTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class RiskConfigurationTypeTypeDef(BaseModel):
+class RiskConfigurationTypeTypeDef(BaseValidatorModel):
     UserPoolId: Optional[str] = None
     ClientId: Optional[str] = None
     CompromisedCredentialsRiskConfiguration: Optional[       CompromisedCredentialsRiskConfigurationTypeOutputTypeDef     ] = None
@@ -1396,26 +1396,26 @@ class RiskConfigurationTypeTypeDef(BaseModel):
     RiskExceptionConfiguration: Optional[RiskExceptionConfigurationTypeOutputTypeDef] = None
     LastModifiedDate: Optional[datetime] = None
 
-class SetRiskConfigurationRequestRequestTypeDef(BaseModel):
+class SetRiskConfigurationRequestRequestTypeDef(BaseValidatorModel):
     UserPoolId: str
     ClientId: Optional[str] = None
     CompromisedCredentialsRiskConfiguration: Optional[       CompromisedCredentialsRiskConfigurationTypeTypeDef     ] = None
     AccountTakeoverRiskConfiguration: Optional[       AccountTakeoverRiskConfigurationTypeTypeDef     ] = None
     RiskExceptionConfiguration: Optional[RiskExceptionConfigurationTypeTypeDef] = None
 
-class CreateUserPoolResponseTypeDef(BaseModel):
+class CreateUserPoolResponseTypeDef(BaseValidatorModel):
     UserPool: UserPoolTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeUserPoolResponseTypeDef(BaseModel):
+class DescribeUserPoolResponseTypeDef(BaseValidatorModel):
     UserPool: UserPoolTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRiskConfigurationResponseTypeDef(BaseModel):
+class DescribeRiskConfigurationResponseTypeDef(BaseValidatorModel):
     RiskConfiguration: RiskConfigurationTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetRiskConfigurationResponseTypeDef(BaseModel):
+class SetRiskConfigurationResponseTypeDef(BaseValidatorModel):
     RiskConfiguration: RiskConfigurationTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

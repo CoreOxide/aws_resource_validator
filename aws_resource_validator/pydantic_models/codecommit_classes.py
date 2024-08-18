@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,16 +11,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codecommit_constants import *
 
-class ApprovalRuleEventMetadataTypeDef(BaseModel):
+class ApprovalRuleEventMetadataTypeDef(BaseValidatorModel):
     approvalRuleName: Optional[str] = None
     approvalRuleId: Optional[str] = None
     approvalRuleContent: Optional[str] = None
 
-class ApprovalRuleOverriddenEventMetadataTypeDef(BaseModel):
+class ApprovalRuleOverriddenEventMetadataTypeDef(BaseValidatorModel):
     revisionId: Optional[str] = None
     overrideStatus: Optional[OverrideStatusType] = None
 
-class ApprovalRuleTemplateTypeDef(BaseModel):
+class ApprovalRuleTemplateTypeDef(BaseValidatorModel):
     approvalRuleTemplateId: Optional[str] = None
     approvalRuleTemplateName: Optional[str] = None
     approvalRuleTemplateDescription: Optional[str] = None
@@ -30,44 +30,44 @@ class ApprovalRuleTemplateTypeDef(BaseModel):
     creationDate: Optional[datetime] = None
     lastModifiedUser: Optional[str] = None
 
-class OriginApprovalRuleTemplateTypeDef(BaseModel):
+class OriginApprovalRuleTemplateTypeDef(BaseValidatorModel):
     approvalRuleTemplateId: Optional[str] = None
     approvalRuleTemplateName: Optional[str] = None
 
-class ApprovalStateChangedEventMetadataTypeDef(BaseModel):
+class ApprovalStateChangedEventMetadataTypeDef(BaseValidatorModel):
     revisionId: Optional[str] = None
     approvalStatus: Optional[ApprovalStateType] = None
 
-class ApprovalTypeDef(BaseModel):
+class ApprovalTypeDef(BaseValidatorModel):
     userArn: Optional[str] = None
     approvalState: Optional[ApprovalStateType] = None
 
-class AssociateApprovalRuleTemplateWithRepositoryInputRequestTypeDef(BaseModel):
+class AssociateApprovalRuleTemplateWithRepositoryInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
     repositoryName: str
 
-class BatchAssociateApprovalRuleTemplateWithRepositoriesErrorTypeDef(BaseModel):
+class BatchAssociateApprovalRuleTemplateWithRepositoriesErrorTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
-class BatchAssociateApprovalRuleTemplateWithRepositoriesInputRequestTypeDef(BaseModel):
+class BatchAssociateApprovalRuleTemplateWithRepositoriesInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
     repositoryNames: Sequence[str]
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class BatchDescribeMergeConflictsErrorTypeDef(BaseModel):
+class BatchDescribeMergeConflictsErrorTypeDef(BaseValidatorModel):
     filePath: str
     exceptionName: str
     message: str
 
-class BatchDescribeMergeConflictsInputRequestTypeDef(BaseModel):
+class BatchDescribeMergeConflictsInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     destinationCommitSpecifier: str
     sourceCommitSpecifier: str
@@ -79,34 +79,34 @@ class BatchDescribeMergeConflictsInputRequestTypeDef(BaseModel):
     conflictResolutionStrategy: Optional[ConflictResolutionStrategyTypeEnumType] = None
     nextToken: Optional[str] = None
 
-class BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorTypeDef(BaseModel):
+class BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
-class BatchDisassociateApprovalRuleTemplateFromRepositoriesInputRequestTypeDef(BaseModel):
+class BatchDisassociateApprovalRuleTemplateFromRepositoriesInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
     repositoryNames: Sequence[str]
 
-class BatchGetCommitsErrorTypeDef(BaseModel):
+class BatchGetCommitsErrorTypeDef(BaseValidatorModel):
     commitId: Optional[str] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
-class BatchGetCommitsInputRequestTypeDef(BaseModel):
+class BatchGetCommitsInputRequestTypeDef(BaseValidatorModel):
     commitIds: Sequence[str]
     repositoryName: str
 
-class BatchGetRepositoriesErrorTypeDef(BaseModel):
+class BatchGetRepositoriesErrorTypeDef(BaseValidatorModel):
     repositoryId: Optional[str] = None
     repositoryName: Optional[str] = None
     errorCode: Optional[BatchGetRepositoriesErrorCodeEnumType] = None
     errorMessage: Optional[str] = None
 
-class BatchGetRepositoriesInputRequestTypeDef(BaseModel):
+class BatchGetRepositoriesInputRequestTypeDef(BaseValidatorModel):
     repositoryNames: Sequence[str]
 
-class RepositoryMetadataTypeDef(BaseModel):
+class RepositoryMetadataTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
     repositoryId: Optional[str] = None
     repositoryName: Optional[str] = None
@@ -119,16 +119,16 @@ class RepositoryMetadataTypeDef(BaseModel):
     Arn: Optional[str] = None
     kmsKeyId: Optional[str] = None
 
-class BlobMetadataTypeDef(BaseModel):
+class BlobMetadataTypeDef(BaseValidatorModel):
     blobId: Optional[str] = None
     path: Optional[str] = None
     mode: Optional[str] = None
 
-class BranchInfoTypeDef(BaseModel):
+class BranchInfoTypeDef(BaseValidatorModel):
     branchName: Optional[str] = None
     commitId: Optional[str] = None
 
-class CommentTypeDef(BaseModel):
+class CommentTypeDef(BaseValidatorModel):
     commentId: Optional[str] = None
     content: Optional[str] = None
     inReplyTo: Optional[str] = None
@@ -140,89 +140,89 @@ class CommentTypeDef(BaseModel):
     callerReactions: Optional[List[str]] = None
     reactionCounts: Optional[Dict[str, int]] = None
 
-class LocationTypeDef(BaseModel):
+class LocationTypeDef(BaseValidatorModel):
     filePath: Optional[str] = None
     filePosition: Optional[int] = None
     relativeFileVersion: Optional[RelativeFileVersionEnumType] = None
 
-class UserInfoTypeDef(BaseModel):
+class UserInfoTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     email: Optional[str] = None
     date: Optional[str] = None
 
-class FileModesTypeDef(BaseModel):
+class FileModesTypeDef(BaseValidatorModel):
     source: Optional[FileModeTypeEnumType] = None
     destination: Optional[FileModeTypeEnumType] = None
     base: Optional[FileModeTypeEnumType] = None
 
-class FileSizesTypeDef(BaseModel):
+class FileSizesTypeDef(BaseValidatorModel):
     source: Optional[int] = None
     destination: Optional[int] = None
     base: Optional[int] = None
 
-class IsBinaryFileTypeDef(BaseModel):
+class IsBinaryFileTypeDef(BaseValidatorModel):
     source: Optional[bool] = None
     destination: Optional[bool] = None
     base: Optional[bool] = None
 
-class MergeOperationsTypeDef(BaseModel):
+class MergeOperationsTypeDef(BaseValidatorModel):
     source: Optional[ChangeTypeEnumType] = None
     destination: Optional[ChangeTypeEnumType] = None
 
-class ObjectTypesTypeDef(BaseModel):
+class ObjectTypesTypeDef(BaseValidatorModel):
     source: Optional[ObjectTypeEnumType] = None
     destination: Optional[ObjectTypeEnumType] = None
     base: Optional[ObjectTypeEnumType] = None
 
-class DeleteFileEntryTypeDef(BaseModel):
+class DeleteFileEntryTypeDef(BaseValidatorModel):
     filePath: str
 
-class SetFileModeEntryTypeDef(BaseModel):
+class SetFileModeEntryTypeDef(BaseValidatorModel):
     filePath: str
     fileMode: FileModeTypeEnumType
 
-class CreateApprovalRuleTemplateInputRequestTypeDef(BaseModel):
+class CreateApprovalRuleTemplateInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
     approvalRuleTemplateContent: str
     approvalRuleTemplateDescription: Optional[str] = None
 
-class CreateBranchInputRequestTypeDef(BaseModel):
+class CreateBranchInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     branchName: str
     commitId: str
 
-class FileMetadataTypeDef(BaseModel):
+class FileMetadataTypeDef(BaseValidatorModel):
     absolutePath: Optional[str] = None
     blobId: Optional[str] = None
     fileMode: Optional[FileModeTypeEnumType] = None
 
-class CreatePullRequestApprovalRuleInputRequestTypeDef(BaseModel):
+class CreatePullRequestApprovalRuleInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     approvalRuleName: str
     approvalRuleContent: str
 
-class TargetTypeDef(BaseModel):
+class TargetTypeDef(BaseValidatorModel):
     repositoryName: str
     sourceReference: str
     destinationReference: Optional[str] = None
 
-class CreateRepositoryInputRequestTypeDef(BaseModel):
+class CreateRepositoryInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     repositoryDescription: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     kmsKeyId: Optional[str] = None
 
-class DeleteApprovalRuleTemplateInputRequestTypeDef(BaseModel):
+class DeleteApprovalRuleTemplateInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
 
-class DeleteBranchInputRequestTypeDef(BaseModel):
+class DeleteBranchInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     branchName: str
 
-class DeleteCommentContentInputRequestTypeDef(BaseModel):
+class DeleteCommentContentInputRequestTypeDef(BaseValidatorModel):
     commentId: str
 
-class DeleteFileInputRequestTypeDef(BaseModel):
+class DeleteFileInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     branchName: str
     filePath: str
@@ -232,14 +232,14 @@ class DeleteFileInputRequestTypeDef(BaseModel):
     name: Optional[str] = None
     email: Optional[str] = None
 
-class DeletePullRequestApprovalRuleInputRequestTypeDef(BaseModel):
+class DeletePullRequestApprovalRuleInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     approvalRuleName: str
 
-class DeleteRepositoryInputRequestTypeDef(BaseModel):
+class DeleteRepositoryInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
 
-class DescribeMergeConflictsInputRequestTypeDef(BaseModel):
+class DescribeMergeConflictsInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     destinationCommitSpecifier: str
     sourceCommitSpecifier: str
@@ -250,71 +250,71 @@ class DescribeMergeConflictsInputRequestTypeDef(BaseModel):
     conflictResolutionStrategy: Optional[ConflictResolutionStrategyTypeEnumType] = None
     nextToken: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribePullRequestEventsInputRequestTypeDef(BaseModel):
+class DescribePullRequestEventsInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     pullRequestEventType: Optional[PullRequestEventTypeType] = None
     actorArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class DisassociateApprovalRuleTemplateFromRepositoryInputRequestTypeDef(BaseModel):
+class DisassociateApprovalRuleTemplateFromRepositoryInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
     repositoryName: str
 
-class EvaluatePullRequestApprovalRulesInputRequestTypeDef(BaseModel):
+class EvaluatePullRequestApprovalRulesInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
 
-class EvaluationTypeDef(BaseModel):
+class EvaluationTypeDef(BaseValidatorModel):
     approved: Optional[bool] = None
     overridden: Optional[bool] = None
     approvalRulesSatisfied: Optional[List[str]] = None
     approvalRulesNotSatisfied: Optional[List[str]] = None
 
-class FileTypeDef(BaseModel):
+class FileTypeDef(BaseValidatorModel):
     blobId: Optional[str] = None
     absolutePath: Optional[str] = None
     relativePath: Optional[str] = None
     fileMode: Optional[FileModeTypeEnumType] = None
 
-class FolderTypeDef(BaseModel):
+class FolderTypeDef(BaseValidatorModel):
     treeId: Optional[str] = None
     absolutePath: Optional[str] = None
     relativePath: Optional[str] = None
 
-class GetApprovalRuleTemplateInputRequestTypeDef(BaseModel):
+class GetApprovalRuleTemplateInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
 
-class GetBlobInputRequestTypeDef(BaseModel):
+class GetBlobInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     blobId: str
 
-class GetBranchInputRequestTypeDef(BaseModel):
+class GetBranchInputRequestTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     branchName: Optional[str] = None
 
-class GetCommentInputRequestTypeDef(BaseModel):
+class GetCommentInputRequestTypeDef(BaseValidatorModel):
     commentId: str
 
-class GetCommentReactionsInputRequestTypeDef(BaseModel):
+class GetCommentReactionsInputRequestTypeDef(BaseValidatorModel):
     commentId: str
     reactionUserArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetCommentsForComparedCommitInputRequestTypeDef(BaseModel):
+class GetCommentsForComparedCommitInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     afterCommitId: str
     beforeCommitId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetCommentsForPullRequestInputRequestTypeDef(BaseModel):
+class GetCommentsForPullRequestInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     repositoryName: Optional[str] = None
     beforeCommitId: Optional[str] = None
@@ -322,11 +322,11 @@ class GetCommentsForPullRequestInputRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetCommitInputRequestTypeDef(BaseModel):
+class GetCommitInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     commitId: str
 
-class GetDifferencesInputRequestTypeDef(BaseModel):
+class GetDifferencesInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     afterCommitSpecifier: str
     beforeCommitSpecifier: Optional[str] = None
@@ -335,35 +335,35 @@ class GetDifferencesInputRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetFileInputRequestTypeDef(BaseModel):
+class GetFileInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     filePath: str
     commitSpecifier: Optional[str] = None
 
-class GetFolderInputRequestTypeDef(BaseModel):
+class GetFolderInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     folderPath: str
     commitSpecifier: Optional[str] = None
 
-class SubModuleTypeDef(BaseModel):
+class SubModuleTypeDef(BaseValidatorModel):
     commitId: Optional[str] = None
     absolutePath: Optional[str] = None
     relativePath: Optional[str] = None
 
-class SymbolicLinkTypeDef(BaseModel):
+class SymbolicLinkTypeDef(BaseValidatorModel):
     blobId: Optional[str] = None
     absolutePath: Optional[str] = None
     relativePath: Optional[str] = None
     fileMode: Optional[FileModeTypeEnumType] = None
 
-class GetMergeCommitInputRequestTypeDef(BaseModel):
+class GetMergeCommitInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
     conflictDetailLevel: Optional[ConflictDetailLevelTypeEnumType] = None
     conflictResolutionStrategy: Optional[ConflictResolutionStrategyTypeEnumType] = None
 
-class GetMergeConflictsInputRequestTypeDef(BaseModel):
+class GetMergeConflictsInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     destinationCommitSpecifier: str
     sourceCommitSpecifier: str
@@ -373,211 +373,211 @@ class GetMergeConflictsInputRequestTypeDef(BaseModel):
     conflictResolutionStrategy: Optional[ConflictResolutionStrategyTypeEnumType] = None
     nextToken: Optional[str] = None
 
-class GetMergeOptionsInputRequestTypeDef(BaseModel):
+class GetMergeOptionsInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
     conflictDetailLevel: Optional[ConflictDetailLevelTypeEnumType] = None
     conflictResolutionStrategy: Optional[ConflictResolutionStrategyTypeEnumType] = None
 
-class GetPullRequestApprovalStatesInputRequestTypeDef(BaseModel):
+class GetPullRequestApprovalStatesInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
 
-class GetPullRequestInputRequestTypeDef(BaseModel):
+class GetPullRequestInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
 
-class GetPullRequestOverrideStateInputRequestTypeDef(BaseModel):
+class GetPullRequestOverrideStateInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
 
-class GetRepositoryInputRequestTypeDef(BaseModel):
+class GetRepositoryInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
 
-class GetRepositoryTriggersInputRequestTypeDef(BaseModel):
+class GetRepositoryTriggersInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
 
-class RepositoryTriggerTypeDef(BaseModel):
+class RepositoryTriggerTypeDef(BaseValidatorModel):
     name: str
     destinationArn: str
     events: List[RepositoryTriggerEventEnumType]
     customData: Optional[str] = None
     branches: Optional[List[str]] = None
 
-class ListApprovalRuleTemplatesInputRequestTypeDef(BaseModel):
+class ListApprovalRuleTemplatesInputRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListAssociatedApprovalRuleTemplatesForRepositoryInputRequestTypeDef(BaseModel):
+class ListAssociatedApprovalRuleTemplatesForRepositoryInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListBranchesInputRequestTypeDef(BaseModel):
+class ListBranchesInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     nextToken: Optional[str] = None
 
-class ListFileCommitHistoryRequestRequestTypeDef(BaseModel):
+class ListFileCommitHistoryRequestRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     filePath: str
     commitSpecifier: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListPullRequestsInputRequestTypeDef(BaseModel):
+class ListPullRequestsInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     authorArn: Optional[str] = None
     pullRequestStatus: Optional[PullRequestStatusEnumType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListRepositoriesForApprovalRuleTemplateInputRequestTypeDef(BaseModel):
+class ListRepositoriesForApprovalRuleTemplateInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListRepositoriesInputRequestTypeDef(BaseModel):
+class ListRepositoriesInputRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     sortBy: Optional[SortByEnumType] = None
     order: Optional[OrderEnumType] = None
 
-class RepositoryNameIdPairTypeDef(BaseModel):
+class RepositoryNameIdPairTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     repositoryId: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
 
-class MergeBranchesByFastForwardInputRequestTypeDef(BaseModel):
+class MergeBranchesByFastForwardInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
     targetBranch: Optional[str] = None
 
-class MergeHunkDetailTypeDef(BaseModel):
+class MergeHunkDetailTypeDef(BaseValidatorModel):
     startLine: Optional[int] = None
     endLine: Optional[int] = None
     hunkContent: Optional[str] = None
 
-class MergeMetadataTypeDef(BaseModel):
+class MergeMetadataTypeDef(BaseValidatorModel):
     isMerged: Optional[bool] = None
     mergedBy: Optional[str] = None
     mergeCommitId: Optional[str] = None
     mergeOption: Optional[MergeOptionTypeEnumType] = None
 
-class MergePullRequestByFastForwardInputRequestTypeDef(BaseModel):
+class MergePullRequestByFastForwardInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     repositoryName: str
     sourceCommitId: Optional[str] = None
 
-class OverridePullRequestApprovalRulesInputRequestTypeDef(BaseModel):
+class OverridePullRequestApprovalRulesInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
     overrideStatus: OverrideStatusType
 
-class PostCommentReplyInputRequestTypeDef(BaseModel):
+class PostCommentReplyInputRequestTypeDef(BaseValidatorModel):
     inReplyTo: str
     content: str
     clientRequestToken: Optional[str] = None
 
-class PullRequestCreatedEventMetadataTypeDef(BaseModel):
+class PullRequestCreatedEventMetadataTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     sourceCommitId: Optional[str] = None
     destinationCommitId: Optional[str] = None
     mergeBase: Optional[str] = None
 
-class PullRequestSourceReferenceUpdatedEventMetadataTypeDef(BaseModel):
+class PullRequestSourceReferenceUpdatedEventMetadataTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     beforeCommitId: Optional[str] = None
     afterCommitId: Optional[str] = None
     mergeBase: Optional[str] = None
 
-class PullRequestStatusChangedEventMetadataTypeDef(BaseModel):
+class PullRequestStatusChangedEventMetadataTypeDef(BaseValidatorModel):
     pullRequestStatus: Optional[PullRequestStatusEnumType] = None
 
-class PutCommentReactionInputRequestTypeDef(BaseModel):
+class PutCommentReactionInputRequestTypeDef(BaseValidatorModel):
     commentId: str
     reactionValue: str
 
-class SourceFileSpecifierTypeDef(BaseModel):
+class SourceFileSpecifierTypeDef(BaseValidatorModel):
     filePath: str
     isMove: Optional[bool] = None
 
-class ReactionValueFormatsTypeDef(BaseModel):
+class ReactionValueFormatsTypeDef(BaseValidatorModel):
     emoji: Optional[str] = None
     shortCode: Optional[str] = None
     unicode: Optional[str] = None
 
-class RepositoryTriggerExecutionFailureTypeDef(BaseModel):
+class RepositoryTriggerExecutionFailureTypeDef(BaseValidatorModel):
     trigger: Optional[str] = None
     failureMessage: Optional[str] = None
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateApprovalRuleTemplateContentInputRequestTypeDef(BaseModel):
+class UpdateApprovalRuleTemplateContentInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
     newRuleContent: str
     existingRuleContentSha256: Optional[str] = None
 
-class UpdateApprovalRuleTemplateDescriptionInputRequestTypeDef(BaseModel):
+class UpdateApprovalRuleTemplateDescriptionInputRequestTypeDef(BaseValidatorModel):
     approvalRuleTemplateName: str
     approvalRuleTemplateDescription: str
 
-class UpdateApprovalRuleTemplateNameInputRequestTypeDef(BaseModel):
+class UpdateApprovalRuleTemplateNameInputRequestTypeDef(BaseValidatorModel):
     oldApprovalRuleTemplateName: str
     newApprovalRuleTemplateName: str
 
-class UpdateCommentInputRequestTypeDef(BaseModel):
+class UpdateCommentInputRequestTypeDef(BaseValidatorModel):
     commentId: str
     content: str
 
-class UpdateDefaultBranchInputRequestTypeDef(BaseModel):
+class UpdateDefaultBranchInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     defaultBranchName: str
 
-class UpdatePullRequestApprovalRuleContentInputRequestTypeDef(BaseModel):
+class UpdatePullRequestApprovalRuleContentInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     approvalRuleName: str
     newRuleContent: str
     existingRuleContentSha256: Optional[str] = None
 
-class UpdatePullRequestApprovalStateInputRequestTypeDef(BaseModel):
+class UpdatePullRequestApprovalStateInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
     approvalState: ApprovalStateType
 
-class UpdatePullRequestDescriptionInputRequestTypeDef(BaseModel):
+class UpdatePullRequestDescriptionInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     description: str
 
-class UpdatePullRequestStatusInputRequestTypeDef(BaseModel):
+class UpdatePullRequestStatusInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     pullRequestStatus: PullRequestStatusEnumType
 
-class UpdatePullRequestTitleInputRequestTypeDef(BaseModel):
+class UpdatePullRequestTitleInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     title: str
 
-class UpdateRepositoryDescriptionInputRequestTypeDef(BaseModel):
+class UpdateRepositoryDescriptionInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     repositoryDescription: Optional[str] = None
 
-class UpdateRepositoryEncryptionKeyInputRequestTypeDef(BaseModel):
+class UpdateRepositoryEncryptionKeyInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     kmsKeyId: str
 
-class UpdateRepositoryNameInputRequestTypeDef(BaseModel):
+class UpdateRepositoryNameInputRequestTypeDef(BaseValidatorModel):
     oldName: str
     newName: str
 
-class ApprovalRuleTypeDef(BaseModel):
+class ApprovalRuleTypeDef(BaseValidatorModel):
     approvalRuleId: Optional[str] = None
     approvalRuleName: Optional[str] = None
     approvalRuleContent: Optional[str] = None
@@ -587,51 +587,51 @@ class ApprovalRuleTypeDef(BaseModel):
     lastModifiedUser: Optional[str] = None
     originApprovalRuleTemplate: Optional[OriginApprovalRuleTemplateTypeDef] = None
 
-class BatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef(BaseModel):
+class BatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef(BaseValidatorModel):
     associatedRepositoryNames: List[str]
     errors: List[BatchAssociateApprovalRuleTemplateWithRepositoriesErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateApprovalRuleTemplateOutputTypeDef(BaseModel):
+class CreateApprovalRuleTemplateOutputTypeDef(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUnreferencedMergeCommitOutputTypeDef(BaseModel):
+class CreateUnreferencedMergeCommitOutputTypeDef(BaseValidatorModel):
     commitId: str
     treeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteApprovalRuleTemplateOutputTypeDef(BaseModel):
+class DeleteApprovalRuleTemplateOutputTypeDef(BaseValidatorModel):
     approvalRuleTemplateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFileOutputTypeDef(BaseModel):
+class DeleteFileOutputTypeDef(BaseValidatorModel):
     commitId: str
     blobId: str
     treeId: str
     filePath: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletePullRequestApprovalRuleOutputTypeDef(BaseModel):
+class DeletePullRequestApprovalRuleOutputTypeDef(BaseValidatorModel):
     approvalRuleId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRepositoryOutputTypeDef(BaseModel):
+class DeleteRepositoryOutputTypeDef(BaseValidatorModel):
     repositoryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApprovalRuleTemplateOutputTypeDef(BaseModel):
+class GetApprovalRuleTemplateOutputTypeDef(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBlobOutputTypeDef(BaseModel):
+class GetBlobOutputTypeDef(BaseValidatorModel):
     content: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFileOutputTypeDef(BaseModel):
+class GetFileOutputTypeDef(BaseValidatorModel):
     commitId: str
     blobId: str
     filePath: str
@@ -640,127 +640,127 @@ class GetFileOutputTypeDef(BaseModel):
     fileContent: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMergeCommitOutputTypeDef(BaseModel):
+class GetMergeCommitOutputTypeDef(BaseValidatorModel):
     sourceCommitId: str
     destinationCommitId: str
     baseCommitId: str
     mergedCommitId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMergeOptionsOutputTypeDef(BaseModel):
+class GetMergeOptionsOutputTypeDef(BaseValidatorModel):
     mergeOptions: List[MergeOptionTypeEnumType]
     sourceCommitId: str
     destinationCommitId: str
     baseCommitId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPullRequestApprovalStatesOutputTypeDef(BaseModel):
+class GetPullRequestApprovalStatesOutputTypeDef(BaseValidatorModel):
     approvals: List[ApprovalTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPullRequestOverrideStateOutputTypeDef(BaseModel):
+class GetPullRequestOverrideStateOutputTypeDef(BaseValidatorModel):
     overridden: bool
     overrider: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApprovalRuleTemplatesOutputTypeDef(BaseModel):
+class ListApprovalRuleTemplatesOutputTypeDef(BaseValidatorModel):
     approvalRuleTemplateNames: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssociatedApprovalRuleTemplatesForRepositoryOutputTypeDef(BaseModel):
+class ListAssociatedApprovalRuleTemplatesForRepositoryOutputTypeDef(BaseValidatorModel):
     approvalRuleTemplateNames: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBranchesOutputTypeDef(BaseModel):
+class ListBranchesOutputTypeDef(BaseValidatorModel):
     branches: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPullRequestsOutputTypeDef(BaseModel):
+class ListPullRequestsOutputTypeDef(BaseValidatorModel):
     pullRequestIds: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRepositoriesForApprovalRuleTemplateOutputTypeDef(BaseModel):
+class ListRepositoriesForApprovalRuleTemplateOutputTypeDef(BaseValidatorModel):
     repositoryNames: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MergeBranchesByFastForwardOutputTypeDef(BaseModel):
+class MergeBranchesByFastForwardOutputTypeDef(BaseValidatorModel):
     commitId: str
     treeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MergeBranchesBySquashOutputTypeDef(BaseModel):
+class MergeBranchesBySquashOutputTypeDef(BaseValidatorModel):
     commitId: str
     treeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MergeBranchesByThreeWayOutputTypeDef(BaseModel):
+class MergeBranchesByThreeWayOutputTypeDef(BaseValidatorModel):
     commitId: str
     treeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutFileOutputTypeDef(BaseModel):
+class PutFileOutputTypeDef(BaseValidatorModel):
     commitId: str
     blobId: str
     treeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRepositoryTriggersOutputTypeDef(BaseModel):
+class PutRepositoryTriggersOutputTypeDef(BaseValidatorModel):
     configurationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApprovalRuleTemplateContentOutputTypeDef(BaseModel):
+class UpdateApprovalRuleTemplateContentOutputTypeDef(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApprovalRuleTemplateDescriptionOutputTypeDef(BaseModel):
+class UpdateApprovalRuleTemplateDescriptionOutputTypeDef(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApprovalRuleTemplateNameOutputTypeDef(BaseModel):
+class UpdateApprovalRuleTemplateNameOutputTypeDef(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRepositoryEncryptionKeyOutputTypeDef(BaseModel):
+class UpdateRepositoryEncryptionKeyOutputTypeDef(BaseValidatorModel):
     repositoryId: str
     kmsKeyId: str
     originalKmsKeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef(BaseModel):
+class BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef(BaseValidatorModel):
     disassociatedRepositoryNames: List[str]
     errors: List[BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetRepositoriesOutputTypeDef(BaseModel):
+class BatchGetRepositoriesOutputTypeDef(BaseValidatorModel):
     repositories: List[RepositoryMetadataTypeDef]
     repositoriesNotFound: List[str]
     errors: List[BatchGetRepositoriesErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRepositoryOutputTypeDef(BaseModel):
+class CreateRepositoryOutputTypeDef(BaseValidatorModel):
     repositoryMetadata: RepositoryMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRepositoryOutputTypeDef(BaseModel):
+class GetRepositoryOutputTypeDef(BaseValidatorModel):
     repositoryMetadata: RepositoryMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DifferenceTypeDef(BaseModel):
+class DifferenceTypeDef(BaseValidatorModel):
     beforeBlob: Optional[BlobMetadataTypeDef] = None
     afterBlob: Optional[BlobMetadataTypeDef] = None
     changeType: Optional[ChangeTypeEnumType] = None
 
-class PutFileInputRequestTypeDef(BaseModel):
+class PutFileInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     branchName: str
     fileContent: BlobTypeDef
@@ -771,37 +771,37 @@ class PutFileInputRequestTypeDef(BaseModel):
     name: Optional[str] = None
     email: Optional[str] = None
 
-class ReplaceContentEntryTypeDef(BaseModel):
+class ReplaceContentEntryTypeDef(BaseValidatorModel):
     filePath: str
     replacementType: ReplacementTypeEnumType
     content: Optional[BlobTypeDef] = None
     fileMode: Optional[FileModeTypeEnumType] = None
 
-class DeleteBranchOutputTypeDef(BaseModel):
+class DeleteBranchOutputTypeDef(BaseValidatorModel):
     deletedBranch: BranchInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBranchOutputTypeDef(BaseModel):
+class GetBranchOutputTypeDef(BaseValidatorModel):
     branch: BranchInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCommentContentOutputTypeDef(BaseModel):
+class DeleteCommentContentOutputTypeDef(BaseValidatorModel):
     comment: CommentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCommentOutputTypeDef(BaseModel):
+class GetCommentOutputTypeDef(BaseValidatorModel):
     comment: CommentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PostCommentReplyOutputTypeDef(BaseModel):
+class PostCommentReplyOutputTypeDef(BaseValidatorModel):
     comment: CommentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateCommentOutputTypeDef(BaseModel):
+class UpdateCommentOutputTypeDef(BaseValidatorModel):
     comment: CommentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CommentsForComparedCommitTypeDef(BaseModel):
+class CommentsForComparedCommitTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     beforeCommitId: Optional[str] = None
     afterCommitId: Optional[str] = None
@@ -810,7 +810,7 @@ class CommentsForComparedCommitTypeDef(BaseModel):
     location: Optional[LocationTypeDef] = None
     comments: Optional[List[CommentTypeDef]] = None
 
-class CommentsForPullRequestTypeDef(BaseModel):
+class CommentsForPullRequestTypeDef(BaseValidatorModel):
     pullRequestId: Optional[str] = None
     repositoryName: Optional[str] = None
     beforeCommitId: Optional[str] = None
@@ -820,7 +820,7 @@ class CommentsForPullRequestTypeDef(BaseModel):
     location: Optional[LocationTypeDef] = None
     comments: Optional[List[CommentTypeDef]] = None
 
-class PostCommentForComparedCommitInputRequestTypeDef(BaseModel):
+class PostCommentForComparedCommitInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     afterCommitId: str
     content: str
@@ -828,7 +828,7 @@ class PostCommentForComparedCommitInputRequestTypeDef(BaseModel):
     location: Optional[LocationTypeDef] = None
     clientRequestToken: Optional[str] = None
 
-class PostCommentForComparedCommitOutputTypeDef(BaseModel):
+class PostCommentForComparedCommitOutputTypeDef(BaseValidatorModel):
     repositoryName: str
     beforeCommitId: str
     afterCommitId: str
@@ -838,7 +838,7 @@ class PostCommentForComparedCommitOutputTypeDef(BaseModel):
     comment: CommentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PostCommentForPullRequestInputRequestTypeDef(BaseModel):
+class PostCommentForPullRequestInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     repositoryName: str
     beforeCommitId: str
@@ -847,7 +847,7 @@ class PostCommentForPullRequestInputRequestTypeDef(BaseModel):
     location: Optional[LocationTypeDef] = None
     clientRequestToken: Optional[str] = None
 
-class PostCommentForPullRequestOutputTypeDef(BaseModel):
+class PostCommentForPullRequestOutputTypeDef(BaseValidatorModel):
     repositoryName: str
     pullRequestId: str
     beforeCommitId: str
@@ -858,7 +858,7 @@ class PostCommentForPullRequestOutputTypeDef(BaseModel):
     comment: CommentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CommitTypeDef(BaseModel):
+class CommitTypeDef(BaseValidatorModel):
     commitId: Optional[str] = None
     treeId: Optional[str] = None
     parents: Optional[List[str]] = None
@@ -867,7 +867,7 @@ class CommitTypeDef(BaseModel):
     committer: Optional[UserInfoTypeDef] = None
     additionalData: Optional[str] = None
 
-class ConflictMetadataTypeDef(BaseModel):
+class ConflictMetadataTypeDef(BaseValidatorModel):
     filePath: Optional[str] = None
     fileSizes: Optional[FileSizesTypeDef] = None
     fileModes: Optional[FileModesTypeDef] = None
@@ -879,7 +879,7 @@ class ConflictMetadataTypeDef(BaseModel):
     objectTypeConflict: Optional[bool] = None
     mergeOperations: Optional[MergeOperationsTypeDef] = None
 
-class CreateCommitOutputTypeDef(BaseModel):
+class CreateCommitOutputTypeDef(BaseValidatorModel):
     commitId: str
     treeId: str
     filesAdded: List[FileMetadataTypeDef]
@@ -887,32 +887,32 @@ class CreateCommitOutputTypeDef(BaseModel):
     filesDeleted: List[FileMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePullRequestInputRequestTypeDef(BaseModel):
+class CreatePullRequestInputRequestTypeDef(BaseValidatorModel):
     title: str
     targets: Sequence[TargetTypeDef]
     description: Optional[str] = None
     clientRequestToken: Optional[str] = None
 
-class DescribePullRequestEventsInputDescribePullRequestEventsPaginateTypeDef(BaseModel):
+class DescribePullRequestEventsInputDescribePullRequestEventsPaginateTypeDef(BaseValidatorModel):
     pullRequestId: str
     pullRequestEventType: Optional[PullRequestEventTypeType] = None
     actorArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetCommentsForComparedCommitInputGetCommentsForComparedCommitPaginateTypeDef(BaseModel):
+class GetCommentsForComparedCommitInputGetCommentsForComparedCommitPaginateTypeDef(BaseValidatorModel):
     repositoryName: str
     afterCommitId: str
     beforeCommitId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetCommentsForPullRequestInputGetCommentsForPullRequestPaginateTypeDef(BaseModel):
+class GetCommentsForPullRequestInputGetCommentsForPullRequestPaginateTypeDef(BaseValidatorModel):
     pullRequestId: str
     repositoryName: Optional[str] = None
     beforeCommitId: Optional[str] = None
     afterCommitId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDifferencesInputGetDifferencesPaginateTypeDef(BaseModel):
+class GetDifferencesInputGetDifferencesPaginateTypeDef(BaseValidatorModel):
     repositoryName: str
     afterCommitSpecifier: str
     beforeCommitSpecifier: Optional[str] = None
@@ -920,26 +920,26 @@ class GetDifferencesInputGetDifferencesPaginateTypeDef(BaseModel):
     afterPath: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBranchesInputListBranchesPaginateTypeDef(BaseModel):
+class ListBranchesInputListBranchesPaginateTypeDef(BaseValidatorModel):
     repositoryName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPullRequestsInputListPullRequestsPaginateTypeDef(BaseModel):
+class ListPullRequestsInputListPullRequestsPaginateTypeDef(BaseValidatorModel):
     repositoryName: str
     authorArn: Optional[str] = None
     pullRequestStatus: Optional[PullRequestStatusEnumType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRepositoriesInputListRepositoriesPaginateTypeDef(BaseModel):
+class ListRepositoriesInputListRepositoriesPaginateTypeDef(BaseValidatorModel):
     sortBy: Optional[SortByEnumType] = None
     order: Optional[OrderEnumType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class EvaluatePullRequestApprovalRulesOutputTypeDef(BaseModel):
+class EvaluatePullRequestApprovalRulesOutputTypeDef(BaseValidatorModel):
     evaluation: EvaluationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFolderOutputTypeDef(BaseModel):
+class GetFolderOutputTypeDef(BaseValidatorModel):
     commitId: str
     folderPath: str
     treeId: str
@@ -949,36 +949,36 @@ class GetFolderOutputTypeDef(BaseModel):
     subModules: List[SubModuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRepositoryTriggersOutputTypeDef(BaseModel):
+class GetRepositoryTriggersOutputTypeDef(BaseValidatorModel):
     configurationId: str
     triggers: List[RepositoryTriggerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRepositoryTriggersInputRequestTypeDef(BaseModel):
+class PutRepositoryTriggersInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     triggers: Sequence[RepositoryTriggerTypeDef]
 
-class TestRepositoryTriggersInputRequestTypeDef(BaseModel):
+class TestRepositoryTriggersInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     triggers: Sequence[RepositoryTriggerTypeDef]
 
-class ListRepositoriesOutputTypeDef(BaseModel):
+class ListRepositoriesOutputTypeDef(BaseValidatorModel):
     repositories: List[RepositoryNameIdPairTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MergeHunkTypeDef(BaseModel):
+class MergeHunkTypeDef(BaseValidatorModel):
     isConflict: Optional[bool] = None
     source: Optional[MergeHunkDetailTypeDef] = None
     destination: Optional[MergeHunkDetailTypeDef] = None
     base: Optional[MergeHunkDetailTypeDef] = None
 
-class PullRequestMergedStateChangedEventMetadataTypeDef(BaseModel):
+class PullRequestMergedStateChangedEventMetadataTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     destinationReference: Optional[str] = None
     mergeMetadata: Optional[MergeMetadataTypeDef] = None
 
-class PullRequestTargetTypeDef(BaseModel):
+class PullRequestTargetTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     sourceReference: Optional[str] = None
     destinationReference: Optional[str] = None
@@ -987,66 +987,66 @@ class PullRequestTargetTypeDef(BaseModel):
     mergeBase: Optional[str] = None
     mergeMetadata: Optional[MergeMetadataTypeDef] = None
 
-class PutFileEntryTypeDef(BaseModel):
+class PutFileEntryTypeDef(BaseValidatorModel):
     filePath: str
     fileMode: Optional[FileModeTypeEnumType] = None
     fileContent: Optional[BlobTypeDef] = None
     sourceFile: Optional[SourceFileSpecifierTypeDef] = None
 
-class ReactionForCommentTypeDef(BaseModel):
+class ReactionForCommentTypeDef(BaseValidatorModel):
     reaction: Optional[ReactionValueFormatsTypeDef] = None
     reactionUsers: Optional[List[str]] = None
     reactionsFromDeletedUsersCount: Optional[int] = None
 
-class TestRepositoryTriggersOutputTypeDef(BaseModel):
+class TestRepositoryTriggersOutputTypeDef(BaseValidatorModel):
     successfulExecutions: List[str]
     failedExecutions: List[RepositoryTriggerExecutionFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePullRequestApprovalRuleOutputTypeDef(BaseModel):
+class CreatePullRequestApprovalRuleOutputTypeDef(BaseValidatorModel):
     approvalRule: ApprovalRuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePullRequestApprovalRuleContentOutputTypeDef(BaseModel):
+class UpdatePullRequestApprovalRuleContentOutputTypeDef(BaseValidatorModel):
     approvalRule: ApprovalRuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDifferencesOutputTypeDef(BaseModel):
+class GetDifferencesOutputTypeDef(BaseValidatorModel):
     differences: List[DifferenceTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConflictResolutionTypeDef(BaseModel):
+class ConflictResolutionTypeDef(BaseValidatorModel):
     replaceContents: Optional[Sequence[ReplaceContentEntryTypeDef]] = None
     deleteFiles: Optional[Sequence[DeleteFileEntryTypeDef]] = None
     setFileModes: Optional[Sequence[SetFileModeEntryTypeDef]] = None
 
-class GetCommentsForComparedCommitOutputTypeDef(BaseModel):
+class GetCommentsForComparedCommitOutputTypeDef(BaseValidatorModel):
     commentsForComparedCommitData: List[CommentsForComparedCommitTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCommentsForPullRequestOutputTypeDef(BaseModel):
+class GetCommentsForPullRequestOutputTypeDef(BaseValidatorModel):
     commentsForPullRequestData: List[CommentsForPullRequestTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetCommitsOutputTypeDef(BaseModel):
+class BatchGetCommitsOutputTypeDef(BaseValidatorModel):
     commits: List[CommitTypeDef]
     errors: List[BatchGetCommitsErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FileVersionTypeDef(BaseModel):
+class FileVersionTypeDef(BaseValidatorModel):
     commit: Optional[CommitTypeDef] = None
     blobId: Optional[str] = None
     path: Optional[str] = None
     revisionChildren: Optional[List[str]] = None
 
-class GetCommitOutputTypeDef(BaseModel):
+class GetCommitOutputTypeDef(BaseValidatorModel):
     commit: CommitTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMergeConflictsOutputTypeDef(BaseModel):
+class GetMergeConflictsOutputTypeDef(BaseValidatorModel):
     mergeable: bool
     destinationCommitId: str
     sourceCommitId: str
@@ -1055,11 +1055,11 @@ class GetMergeConflictsOutputTypeDef(BaseModel):
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConflictTypeDef(BaseModel):
+class ConflictTypeDef(BaseValidatorModel):
     conflictMetadata: Optional[ConflictMetadataTypeDef] = None
     mergeHunks: Optional[List[MergeHunkTypeDef]] = None
 
-class DescribeMergeConflictsOutputTypeDef(BaseModel):
+class DescribeMergeConflictsOutputTypeDef(BaseValidatorModel):
     conflictMetadata: ConflictMetadataTypeDef
     mergeHunks: List[MergeHunkTypeDef]
     nextToken: str
@@ -1068,7 +1068,7 @@ class DescribeMergeConflictsOutputTypeDef(BaseModel):
     baseCommitId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PullRequestEventTypeDef(BaseModel):
+class PullRequestEventTypeDef(BaseValidatorModel):
     pullRequestId: Optional[str] = None
     eventDate: Optional[datetime] = None
     pullRequestEventType: Optional[PullRequestEventTypeType] = None
@@ -1081,7 +1081,7 @@ class PullRequestEventTypeDef(BaseModel):
     approvalStateChangedEventMetadata: Optional[ApprovalStateChangedEventMetadataTypeDef] = None
     approvalRuleOverriddenEventMetadata: Optional[       ApprovalRuleOverriddenEventMetadataTypeDef     ] = None
 
-class PullRequestTypeDef(BaseModel):
+class PullRequestTypeDef(BaseValidatorModel):
     pullRequestId: Optional[str] = None
     title: Optional[str] = None
     description: Optional[str] = None
@@ -1094,7 +1094,7 @@ class PullRequestTypeDef(BaseModel):
     revisionId: Optional[str] = None
     approvalRules: Optional[List[ApprovalRuleTypeDef]] = None
 
-class CreateCommitInputRequestTypeDef(BaseModel):
+class CreateCommitInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     branchName: str
     parentCommitId: Optional[str] = None
@@ -1106,12 +1106,12 @@ class CreateCommitInputRequestTypeDef(BaseModel):
     deleteFiles: Optional[Sequence[DeleteFileEntryTypeDef]] = None
     setFileModes: Optional[Sequence[SetFileModeEntryTypeDef]] = None
 
-class GetCommentReactionsOutputTypeDef(BaseModel):
+class GetCommentReactionsOutputTypeDef(BaseValidatorModel):
     reactionsForComment: List[ReactionForCommentTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUnreferencedMergeCommitInputRequestTypeDef(BaseModel):
+class CreateUnreferencedMergeCommitInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
@@ -1124,7 +1124,7 @@ class CreateUnreferencedMergeCommitInputRequestTypeDef(BaseModel):
     keepEmptyFolders: Optional[bool] = None
     conflictResolution: Optional[ConflictResolutionTypeDef] = None
 
-class MergeBranchesBySquashInputRequestTypeDef(BaseModel):
+class MergeBranchesBySquashInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
@@ -1137,7 +1137,7 @@ class MergeBranchesBySquashInputRequestTypeDef(BaseModel):
     keepEmptyFolders: Optional[bool] = None
     conflictResolution: Optional[ConflictResolutionTypeDef] = None
 
-class MergeBranchesByThreeWayInputRequestTypeDef(BaseModel):
+class MergeBranchesByThreeWayInputRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
     destinationCommitSpecifier: str
@@ -1150,7 +1150,7 @@ class MergeBranchesByThreeWayInputRequestTypeDef(BaseModel):
     keepEmptyFolders: Optional[bool] = None
     conflictResolution: Optional[ConflictResolutionTypeDef] = None
 
-class MergePullRequestBySquashInputRequestTypeDef(BaseModel):
+class MergePullRequestBySquashInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     repositoryName: str
     sourceCommitId: Optional[str] = None
@@ -1162,7 +1162,7 @@ class MergePullRequestBySquashInputRequestTypeDef(BaseModel):
     keepEmptyFolders: Optional[bool] = None
     conflictResolution: Optional[ConflictResolutionTypeDef] = None
 
-class MergePullRequestByThreeWayInputRequestTypeDef(BaseModel):
+class MergePullRequestByThreeWayInputRequestTypeDef(BaseValidatorModel):
     pullRequestId: str
     repositoryName: str
     sourceCommitId: Optional[str] = None
@@ -1174,12 +1174,12 @@ class MergePullRequestByThreeWayInputRequestTypeDef(BaseModel):
     keepEmptyFolders: Optional[bool] = None
     conflictResolution: Optional[ConflictResolutionTypeDef] = None
 
-class ListFileCommitHistoryResponseTypeDef(BaseModel):
+class ListFileCommitHistoryResponseTypeDef(BaseValidatorModel):
     revisionDag: List[FileVersionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDescribeMergeConflictsOutputTypeDef(BaseModel):
+class BatchDescribeMergeConflictsOutputTypeDef(BaseValidatorModel):
     conflicts: List[ConflictTypeDef]
     nextToken: str
     errors: List[BatchDescribeMergeConflictsErrorTypeDef]
@@ -1188,40 +1188,40 @@ class BatchDescribeMergeConflictsOutputTypeDef(BaseModel):
     baseCommitId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePullRequestEventsOutputTypeDef(BaseModel):
+class DescribePullRequestEventsOutputTypeDef(BaseValidatorModel):
     pullRequestEvents: List[PullRequestEventTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePullRequestOutputTypeDef(BaseModel):
+class CreatePullRequestOutputTypeDef(BaseValidatorModel):
     pullRequest: PullRequestTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPullRequestOutputTypeDef(BaseModel):
+class GetPullRequestOutputTypeDef(BaseValidatorModel):
     pullRequest: PullRequestTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MergePullRequestByFastForwardOutputTypeDef(BaseModel):
+class MergePullRequestByFastForwardOutputTypeDef(BaseValidatorModel):
     pullRequest: PullRequestTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MergePullRequestBySquashOutputTypeDef(BaseModel):
+class MergePullRequestBySquashOutputTypeDef(BaseValidatorModel):
     pullRequest: PullRequestTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MergePullRequestByThreeWayOutputTypeDef(BaseModel):
+class MergePullRequestByThreeWayOutputTypeDef(BaseValidatorModel):
     pullRequest: PullRequestTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePullRequestDescriptionOutputTypeDef(BaseModel):
+class UpdatePullRequestDescriptionOutputTypeDef(BaseValidatorModel):
     pullRequest: PullRequestTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePullRequestStatusOutputTypeDef(BaseModel):
+class UpdatePullRequestStatusOutputTypeDef(BaseValidatorModel):
     pullRequest: PullRequestTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePullRequestTitleOutputTypeDef(BaseModel):
+class UpdatePullRequestTitleOutputTypeDef(BaseValidatorModel):
     pullRequest: PullRequestTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

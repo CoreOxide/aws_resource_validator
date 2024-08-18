@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,33 +11,33 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudtrail_data_constants import *
 
-class AuditEventResultEntryTypeDef(BaseModel):
+class AuditEventResultEntryTypeDef(BaseValidatorModel):
     eventID: str
     id: str
 
-class AuditEventTypeDef(BaseModel):
+class AuditEventTypeDef(BaseValidatorModel):
     eventData: str
     id: str
     eventDataChecksum: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class ResultErrorEntryTypeDef(BaseModel):
+class ResultErrorEntryTypeDef(BaseValidatorModel):
     errorCode: str
     errorMessage: str
     id: str
 
-class PutAuditEventsRequestRequestTypeDef(BaseModel):
+class PutAuditEventsRequestRequestTypeDef(BaseValidatorModel):
     auditEvents: Sequence[AuditEventTypeDef]
     channelArn: str
     externalId: Optional[str] = None
 
-class PutAuditEventsResponseTypeDef(BaseModel):
+class PutAuditEventsResponseTypeDef(BaseValidatorModel):
     failed: List[ResultErrorEntryTypeDef]
     successful: List[AuditEventResultEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

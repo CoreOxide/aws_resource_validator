@@ -398,5 +398,5 @@ ResourceServiceName = Literal["cloudformation",
     "sns",
     "sqs",]
 PaginatorName = Literal["describe_cases", "describe_communications"]
-BlobTypeDef = Union[str, bytes, IO[Any]
+BlobTypeDef = Union[str, bytes, IO[Any]]
 AttachmentUnionTypeDef = Union['AttachmentTypeDef', 'AttachmentOutputTypeDef']

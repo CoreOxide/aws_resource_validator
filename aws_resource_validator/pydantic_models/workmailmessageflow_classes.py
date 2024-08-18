@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,29 +11,29 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.workmailmessageflow_constants import *
 
-class GetRawMessageContentRequestRequestTypeDef(BaseModel):
+class GetRawMessageContentRequestRequestTypeDef(BaseValidatorModel):
     messageId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class S3ReferenceTypeDef(BaseModel):
+class S3ReferenceTypeDef(BaseValidatorModel):
     bucket: str
     key: str
     objectVersion: Optional[str] = None
 
-class GetRawMessageContentResponseTypeDef(BaseModel):
+class GetRawMessageContentResponseTypeDef(BaseValidatorModel):
     messageContent: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RawMessageContentTypeDef(BaseModel):
+class RawMessageContentTypeDef(BaseValidatorModel):
     s3Reference: S3ReferenceTypeDef
 
-class PutRawMessageContentRequestRequestTypeDef(BaseModel):
+class PutRawMessageContentRequestRequestTypeDef(BaseValidatorModel):
     messageId: str
     content: RawMessageContentTypeDef
 

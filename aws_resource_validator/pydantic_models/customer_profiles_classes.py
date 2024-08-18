@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,24 +11,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.customer_profiles_constants import *
 
-class AddProfileKeyRequestRequestTypeDef(BaseModel):
+class AddProfileKeyRequestRequestTypeDef(BaseValidatorModel):
     ProfileId: str
     KeyName: str
     Values: Sequence[str]
     DomainName: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AdditionalSearchKeyTypeDef(BaseModel):
+class AdditionalSearchKeyTypeDef(BaseValidatorModel):
     KeyName: str
     Values: Sequence[str]
 
-class AddressTypeDef(BaseModel):
+class AddressTypeDef(BaseValidatorModel):
     Address1: Optional[str] = None
     Address2: Optional[str] = None
     Address3: Optional[str] = None
@@ -40,17 +40,17 @@ class AddressTypeDef(BaseModel):
     Country: Optional[str] = None
     PostalCode: Optional[str] = None
 
-class AppflowIntegrationWorkflowAttributesTypeDef(BaseModel):
+class AppflowIntegrationWorkflowAttributesTypeDef(BaseValidatorModel):
     SourceConnectorType: SourceConnectorTypeType
     ConnectorProfileName: str
     RoleArn: Optional[str] = None
 
-class AppflowIntegrationWorkflowMetricsTypeDef(BaseModel):
+class AppflowIntegrationWorkflowMetricsTypeDef(BaseValidatorModel):
     RecordsProcessed: int
     StepsCompleted: int
     TotalSteps: int
 
-class AppflowIntegrationWorkflowStepTypeDef(BaseModel):
+class AppflowIntegrationWorkflowStepTypeDef(BaseValidatorModel):
     FlowName: str
     Status: StatusType
     ExecutionMessage: str
@@ -60,130 +60,130 @@ class AppflowIntegrationWorkflowStepTypeDef(BaseModel):
     CreatedAt: datetime
     LastUpdatedAt: datetime
 
-class AttributeItemTypeDef(BaseModel):
+class AttributeItemTypeDef(BaseValidatorModel):
     Name: str
 
-class AttributeTypesSelectorOutputTypeDef(BaseModel):
+class AttributeTypesSelectorOutputTypeDef(BaseValidatorModel):
     AttributeMatchingModel: AttributeMatchingModelType
     Address: Optional[List[str]] = None
     PhoneNumber: Optional[List[str]] = None
     EmailAddress: Optional[List[str]] = None
 
-class AttributeTypesSelectorTypeDef(BaseModel):
+class AttributeTypesSelectorTypeDef(BaseValidatorModel):
     AttributeMatchingModel: AttributeMatchingModelType
     Address: Optional[Sequence[str]] = None
     PhoneNumber: Optional[Sequence[str]] = None
     EmailAddress: Optional[Sequence[str]] = None
 
-class ConflictResolutionTypeDef(BaseModel):
+class ConflictResolutionTypeDef(BaseValidatorModel):
     ConflictResolvingModel: ConflictResolvingModelType
     SourceName: Optional[str] = None
 
-class ConsolidationOutputTypeDef(BaseModel):
+class ConsolidationOutputTypeDef(BaseValidatorModel):
     MatchingAttributesList: List[List[str]]
 
-class ConsolidationTypeDef(BaseModel):
+class ConsolidationTypeDef(BaseValidatorModel):
     MatchingAttributesList: Sequence[Sequence[str]]
 
-class RangeTypeDef(BaseModel):
+class RangeTypeDef(BaseValidatorModel):
     Value: int
     Unit: Literal["DAYS"]
 
-class ThresholdTypeDef(BaseModel):
+class ThresholdTypeDef(BaseValidatorModel):
     Value: str
     Operator: OperatorType
 
-class ConnectorOperatorTypeDef(BaseModel):
+class ConnectorOperatorTypeDef(BaseValidatorModel):
     Marketo: Optional[MarketoConnectorOperatorType] = None
     S3: Optional[S3ConnectorOperatorType] = None
     Salesforce: Optional[SalesforceConnectorOperatorType] = None
     ServiceNow: Optional[ServiceNowConnectorOperatorType] = None
     Zendesk: Optional[ZendeskConnectorOperatorType] = None
 
-class CreateEventStreamRequestRequestTypeDef(BaseModel):
+class CreateEventStreamRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Uri: str
     EventStreamName: str
     Tags: Optional[Mapping[str, str]] = None
 
-class DeleteCalculatedAttributeDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteCalculatedAttributeDefinitionRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
 
-class DeleteDomainRequestRequestTypeDef(BaseModel):
+class DeleteDomainRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
 
-class DeleteEventStreamRequestRequestTypeDef(BaseModel):
+class DeleteEventStreamRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     EventStreamName: str
 
-class DeleteIntegrationRequestRequestTypeDef(BaseModel):
+class DeleteIntegrationRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Uri: str
 
-class DeleteProfileKeyRequestRequestTypeDef(BaseModel):
+class DeleteProfileKeyRequestRequestTypeDef(BaseValidatorModel):
     ProfileId: str
     KeyName: str
     Values: Sequence[str]
     DomainName: str
 
-class DeleteProfileObjectRequestRequestTypeDef(BaseModel):
+class DeleteProfileObjectRequestRequestTypeDef(BaseValidatorModel):
     ProfileId: str
     ProfileObjectUniqueKey: str
     ObjectTypeName: str
     DomainName: str
 
-class DeleteProfileObjectTypeRequestRequestTypeDef(BaseModel):
+class DeleteProfileObjectTypeRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
 
-class DeleteProfileRequestRequestTypeDef(BaseModel):
+class DeleteProfileRequestRequestTypeDef(BaseValidatorModel):
     ProfileId: str
     DomainName: str
 
-class DeleteWorkflowRequestRequestTypeDef(BaseModel):
+class DeleteWorkflowRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     WorkflowId: str
 
-class DestinationSummaryTypeDef(BaseModel):
+class DestinationSummaryTypeDef(BaseValidatorModel):
     Uri: str
     Status: EventStreamDestinationStatusType
     UnhealthySince: Optional[datetime] = None
 
-class DetectProfileObjectTypeRequestRequestTypeDef(BaseModel):
+class DetectProfileObjectTypeRequestRequestTypeDef(BaseValidatorModel):
     Objects: Sequence[str]
     DomainName: str
 
-class ObjectTypeFieldTypeDef(BaseModel):
+class ObjectTypeFieldTypeDef(BaseValidatorModel):
     Source: Optional[str] = None
     Target: Optional[str] = None
     ContentType: Optional[FieldContentTypeType] = None
 
-class ObjectTypeKeyOutputTypeDef(BaseModel):
+class ObjectTypeKeyOutputTypeDef(BaseValidatorModel):
     StandardIdentifiers: Optional[List[StandardIdentifierType]] = None
     FieldNames: Optional[List[str]] = None
 
-class DomainStatsTypeDef(BaseModel):
+class DomainStatsTypeDef(BaseValidatorModel):
     ProfileCount: Optional[int] = None
     MeteringProfileCount: Optional[int] = None
     ObjectCount: Optional[int] = None
     TotalSize: Optional[int] = None
 
-class EventStreamDestinationDetailsTypeDef(BaseModel):
+class EventStreamDestinationDetailsTypeDef(BaseValidatorModel):
     Uri: str
     Status: EventStreamDestinationStatusType
     UnhealthySince: Optional[datetime] = None
     Message: Optional[str] = None
 
-class S3ExportingConfigTypeDef(BaseModel):
+class S3ExportingConfigTypeDef(BaseValidatorModel):
     S3BucketName: str
     S3KeyName: Optional[str] = None
 
-class S3ExportingLocationTypeDef(BaseModel):
+class S3ExportingLocationTypeDef(BaseValidatorModel):
     S3BucketName: Optional[str] = None
     S3KeyName: Optional[str] = None
 
-class FieldSourceProfileIdsTypeDef(BaseModel):
+class FieldSourceProfileIdsTypeDef(BaseValidatorModel):
     AccountNumber: Optional[str] = None
     AdditionalInformation: Optional[str] = None
     PartyType: Optional[str] = None
@@ -206,57 +206,57 @@ class FieldSourceProfileIdsTypeDef(BaseModel):
     BillingAddress: Optional[str] = None
     Attributes: Optional[Mapping[str, str]] = None
 
-class FoundByKeyValueTypeDef(BaseModel):
+class FoundByKeyValueTypeDef(BaseValidatorModel):
     KeyName: Optional[str] = None
     Values: Optional[List[str]] = None
 
-class GetCalculatedAttributeDefinitionRequestRequestTypeDef(BaseModel):
+class GetCalculatedAttributeDefinitionRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
 
-class GetCalculatedAttributeForProfileRequestRequestTypeDef(BaseModel):
+class GetCalculatedAttributeForProfileRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ProfileId: str
     CalculatedAttributeName: str
 
-class GetDomainRequestRequestTypeDef(BaseModel):
+class GetDomainRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
 
-class GetEventStreamRequestRequestTypeDef(BaseModel):
+class GetEventStreamRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     EventStreamName: str
 
-class GetIdentityResolutionJobRequestRequestTypeDef(BaseModel):
+class GetIdentityResolutionJobRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     JobId: str
 
-class JobStatsTypeDef(BaseModel):
+class JobStatsTypeDef(BaseValidatorModel):
     NumberOfProfilesReviewed: Optional[int] = None
     NumberOfMatchesFound: Optional[int] = None
     NumberOfMergesDone: Optional[int] = None
 
-class GetIntegrationRequestRequestTypeDef(BaseModel):
+class GetIntegrationRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Uri: str
 
-class GetMatchesRequestRequestTypeDef(BaseModel):
+class GetMatchesRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MatchItemTypeDef(BaseModel):
+class MatchItemTypeDef(BaseValidatorModel):
     MatchId: Optional[str] = None
     ProfileIds: Optional[List[str]] = None
     ConfidenceScore: Optional[float] = None
 
-class GetProfileObjectTypeRequestRequestTypeDef(BaseModel):
+class GetProfileObjectTypeRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
 
-class GetProfileObjectTypeTemplateRequestRequestTypeDef(BaseModel):
+class GetProfileObjectTypeTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateId: str
 
-class GetSimilarProfilesRequestRequestTypeDef(BaseModel):
+class GetSimilarProfilesRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     MatchType: MatchTypeType
     SearchKey: str
@@ -264,30 +264,30 @@ class GetSimilarProfilesRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetWorkflowRequestRequestTypeDef(BaseModel):
+class GetWorkflowRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     WorkflowId: str
 
-class GetWorkflowStepsRequestRequestTypeDef(BaseModel):
+class GetWorkflowStepsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     WorkflowId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class IncrementalPullConfigTypeDef(BaseModel):
+class IncrementalPullConfigTypeDef(BaseValidatorModel):
     DatetimeTypeFieldName: Optional[str] = None
 
-class JobScheduleTypeDef(BaseModel):
+class JobScheduleTypeDef(BaseValidatorModel):
     DayOfTheWeek: JobScheduleDayOfTheWeekType
     Time: str
 
-class ListAccountIntegrationsRequestRequestTypeDef(BaseModel):
+class ListAccountIntegrationsRequestRequestTypeDef(BaseValidatorModel):
     Uri: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     IncludeHidden: Optional[bool] = None
 
-class ListIntegrationItemTypeDef(BaseModel):
+class ListIntegrationItemTypeDef(BaseValidatorModel):
     DomainName: str
     Uri: str
     CreatedAt: datetime
@@ -298,7 +298,7 @@ class ListIntegrationItemTypeDef(BaseModel):
     WorkflowId: Optional[str] = None
     IsUnstructured: Optional[bool] = None
 
-class ListCalculatedAttributeDefinitionItemTypeDef(BaseModel):
+class ListCalculatedAttributeDefinitionItemTypeDef(BaseValidatorModel):
     CalculatedAttributeName: Optional[str] = None
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
@@ -306,55 +306,55 @@ class ListCalculatedAttributeDefinitionItemTypeDef(BaseModel):
     LastUpdatedAt: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ListCalculatedAttributeDefinitionsRequestRequestTypeDef(BaseModel):
+class ListCalculatedAttributeDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListCalculatedAttributeForProfileItemTypeDef(BaseModel):
+class ListCalculatedAttributeForProfileItemTypeDef(BaseValidatorModel):
     CalculatedAttributeName: Optional[str] = None
     DisplayName: Optional[str] = None
     IsDataPartial: Optional[str] = None
     Value: Optional[str] = None
 
-class ListCalculatedAttributesForProfileRequestRequestTypeDef(BaseModel):
+class ListCalculatedAttributesForProfileRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ProfileId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDomainItemTypeDef(BaseModel):
+class ListDomainItemTypeDef(BaseValidatorModel):
     DomainName: str
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Optional[Dict[str, str]] = None
 
-class ListDomainsRequestRequestTypeDef(BaseModel):
+class ListDomainsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListEventStreamsRequestRequestTypeDef(BaseModel):
+class ListEventStreamsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListIdentityResolutionJobsRequestRequestTypeDef(BaseModel):
+class ListIdentityResolutionJobsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListIntegrationsRequestRequestTypeDef(BaseModel):
+class ListIntegrationsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     IncludeHidden: Optional[bool] = None
 
-class ListProfileObjectTypeItemTypeDef(BaseModel):
+class ListProfileObjectTypeItemTypeDef(BaseValidatorModel):
     ObjectTypeName: str
     Description: str
     CreatedAt: Optional[datetime] = None
@@ -363,38 +363,38 @@ class ListProfileObjectTypeItemTypeDef(BaseModel):
     MaxAvailableProfileObjectCount: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ListProfileObjectTypeTemplateItemTypeDef(BaseModel):
+class ListProfileObjectTypeTemplateItemTypeDef(BaseValidatorModel):
     TemplateId: Optional[str] = None
     SourceName: Optional[str] = None
     SourceObject: Optional[str] = None
 
-class ListProfileObjectTypeTemplatesRequestRequestTypeDef(BaseModel):
+class ListProfileObjectTypeTemplatesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListProfileObjectTypesRequestRequestTypeDef(BaseModel):
+class ListProfileObjectTypesRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListProfileObjectsItemTypeDef(BaseModel):
+class ListProfileObjectsItemTypeDef(BaseValidatorModel):
     ObjectTypeName: Optional[str] = None
     ProfileObjectUniqueKey: Optional[str] = None
     Object: Optional[str] = None
 
-class ObjectFilterTypeDef(BaseModel):
+class ObjectFilterTypeDef(BaseValidatorModel):
     KeyName: str
     Values: Sequence[str]
 
-class ListRuleBasedMatchesRequestRequestTypeDef(BaseModel):
+class ListRuleBasedMatchesRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListWorkflowsItemTypeDef(BaseModel):
+class ListWorkflowsItemTypeDef(BaseValidatorModel):
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
     WorkflowId: str
     Status: StatusType
@@ -402,48 +402,48 @@ class ListWorkflowsItemTypeDef(BaseModel):
     CreatedAt: datetime
     LastUpdatedAt: datetime
 
-class MarketoSourcePropertiesTypeDef(BaseModel):
+class MarketoSourcePropertiesTypeDef(BaseValidatorModel):
     Object: str
 
-class MatchingRuleOutputTypeDef(BaseModel):
+class MatchingRuleOutputTypeDef(BaseValidatorModel):
     Rule: List[str]
 
-class MatchingRuleTypeDef(BaseModel):
+class MatchingRuleTypeDef(BaseValidatorModel):
     Rule: Sequence[str]
 
-class ObjectTypeKeyTypeDef(BaseModel):
+class ObjectTypeKeyTypeDef(BaseValidatorModel):
     StandardIdentifiers: Optional[Sequence[StandardIdentifierType]] = None
     FieldNames: Optional[Sequence[str]] = None
 
-class PutProfileObjectRequestRequestTypeDef(BaseModel):
+class PutProfileObjectRequestRequestTypeDef(BaseValidatorModel):
     ObjectTypeName: str
     Object: str
     DomainName: str
 
-class S3SourcePropertiesTypeDef(BaseModel):
+class S3SourcePropertiesTypeDef(BaseValidatorModel):
     BucketName: str
     BucketPrefix: Optional[str] = None
 
-class SalesforceSourcePropertiesTypeDef(BaseModel):
+class SalesforceSourcePropertiesTypeDef(BaseValidatorModel):
     Object: str
     EnableDynamicFieldUpdate: Optional[bool] = None
     IncludeDeletedRecords: Optional[bool] = None
 
-class ServiceNowSourcePropertiesTypeDef(BaseModel):
+class ServiceNowSourcePropertiesTypeDef(BaseValidatorModel):
     Object: str
 
-class ZendeskSourcePropertiesTypeDef(BaseModel):
+class ZendeskSourcePropertiesTypeDef(BaseValidatorModel):
     Object: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateAddressTypeDef(BaseModel):
+class UpdateAddressTypeDef(BaseValidatorModel):
     Address1: Optional[str] = None
     Address2: Optional[str] = None
     Address3: Optional[str] = None
@@ -455,64 +455,64 @@ class UpdateAddressTypeDef(BaseModel):
     Country: Optional[str] = None
     PostalCode: Optional[str] = None
 
-class AddProfileKeyResponseTypeDef(BaseModel):
+class AddProfileKeyResponseTypeDef(BaseValidatorModel):
     KeyName: str
     Values: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEventStreamResponseTypeDef(BaseModel):
+class CreateEventStreamResponseTypeDef(BaseValidatorModel):
     EventStreamArn: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateIntegrationWorkflowResponseTypeDef(BaseModel):
+class CreateIntegrationWorkflowResponseTypeDef(BaseValidatorModel):
     WorkflowId: str
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProfileResponseTypeDef(BaseModel):
+class CreateProfileResponseTypeDef(BaseValidatorModel):
     ProfileId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDomainResponseTypeDef(BaseModel):
+class DeleteDomainResponseTypeDef(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteIntegrationResponseTypeDef(BaseModel):
+class DeleteIntegrationResponseTypeDef(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteProfileKeyResponseTypeDef(BaseModel):
+class DeleteProfileKeyResponseTypeDef(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteProfileObjectResponseTypeDef(BaseModel):
+class DeleteProfileObjectResponseTypeDef(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteProfileObjectTypeResponseTypeDef(BaseModel):
+class DeleteProfileObjectTypeResponseTypeDef(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteProfileResponseTypeDef(BaseModel):
+class DeleteProfileResponseTypeDef(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAutoMergingPreviewResponseTypeDef(BaseModel):
+class GetAutoMergingPreviewResponseTypeDef(BaseValidatorModel):
     DomainName: str
     NumberOfMatchesInSample: int
     NumberOfProfilesInSample: int
     NumberOfProfilesWillBeMerged: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCalculatedAttributeForProfileResponseTypeDef(BaseModel):
+class GetCalculatedAttributeForProfileResponseTypeDef(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
     IsDataPartial: str
     Value: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIntegrationResponseTypeDef(BaseModel):
+class GetIntegrationResponseTypeDef(BaseValidatorModel):
     DomainName: str
     Uri: str
     ObjectTypeName: str
@@ -524,7 +524,7 @@ class GetIntegrationResponseTypeDef(BaseModel):
     IsUnstructured: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSimilarProfilesResponseTypeDef(BaseModel):
+class GetSimilarProfilesResponseTypeDef(BaseValidatorModel):
     ProfileIds: List[str]
     MatchId: str
     MatchType: MatchTypeType
@@ -533,20 +533,20 @@ class GetSimilarProfilesResponseTypeDef(BaseModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListRuleBasedMatchesResponseTypeDef(BaseModel):
+class ListRuleBasedMatchesResponseTypeDef(BaseValidatorModel):
     MatchIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MergeProfilesResponseTypeDef(BaseModel):
+class MergeProfilesResponseTypeDef(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutIntegrationResponseTypeDef(BaseModel):
+class PutIntegrationResponseTypeDef(BaseValidatorModel):
     DomainName: str
     Uri: str
     ObjectTypeName: str
@@ -558,15 +558,15 @@ class PutIntegrationResponseTypeDef(BaseModel):
     IsUnstructured: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutProfileObjectResponseTypeDef(BaseModel):
+class PutProfileObjectResponseTypeDef(BaseValidatorModel):
     ProfileObjectUniqueKey: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProfileResponseTypeDef(BaseModel):
+class UpdateProfileResponseTypeDef(BaseValidatorModel):
     ProfileId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchProfilesRequestRequestTypeDef(BaseModel):
+class SearchProfilesRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     KeyName: str
     Values: Sequence[str]
@@ -575,7 +575,7 @@ class SearchProfilesRequestRequestTypeDef(BaseModel):
     AdditionalSearchKeys: Optional[Sequence[AdditionalSearchKeyTypeDef]] = None
     LogicalOperator: Optional[LogicalOperatorType] = None
 
-class CreateProfileRequestRequestTypeDef(BaseModel):
+class CreateProfileRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     AccountNumber: Optional[str] = None
     AdditionalInformation: Optional[str] = None
@@ -601,46 +601,46 @@ class CreateProfileRequestRequestTypeDef(BaseModel):
     PartyTypeString: Optional[str] = None
     GenderString: Optional[str] = None
 
-class WorkflowAttributesTypeDef(BaseModel):
+class WorkflowAttributesTypeDef(BaseValidatorModel):
     AppflowIntegration: Optional[AppflowIntegrationWorkflowAttributesTypeDef] = None
 
-class WorkflowMetricsTypeDef(BaseModel):
+class WorkflowMetricsTypeDef(BaseValidatorModel):
     AppflowIntegration: Optional[AppflowIntegrationWorkflowMetricsTypeDef] = None
 
-class WorkflowStepItemTypeDef(BaseModel):
+class WorkflowStepItemTypeDef(BaseValidatorModel):
     AppflowIntegration: Optional[AppflowIntegrationWorkflowStepTypeDef] = None
 
-class AttributeDetailsOutputTypeDef(BaseModel):
+class AttributeDetailsOutputTypeDef(BaseValidatorModel):
     Attributes: List[AttributeItemTypeDef]
     Expression: str
 
-class AttributeDetailsTypeDef(BaseModel):
+class AttributeDetailsTypeDef(BaseValidatorModel):
     Attributes: Sequence[AttributeItemTypeDef]
     Expression: str
 
-class AutoMergingOutputTypeDef(BaseModel):
+class AutoMergingOutputTypeDef(BaseValidatorModel):
     Enabled: bool
     Consolidation: Optional[ConsolidationOutputTypeDef] = None
     ConflictResolution: Optional[ConflictResolutionTypeDef] = None
     MinAllowedConfidenceScoreForMerging: Optional[float] = None
 
-class AutoMergingTypeDef(BaseModel):
+class AutoMergingTypeDef(BaseValidatorModel):
     Enabled: bool
     Consolidation: Optional[ConsolidationTypeDef] = None
     ConflictResolution: Optional[ConflictResolutionTypeDef] = None
     MinAllowedConfidenceScoreForMerging: Optional[float] = None
 
-class GetAutoMergingPreviewRequestRequestTypeDef(BaseModel):
+class GetAutoMergingPreviewRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Consolidation: ConsolidationTypeDef
     ConflictResolution: ConflictResolutionTypeDef
     MinAllowedConfidenceScoreForMerging: Optional[float] = None
 
-class BatchTypeDef(BaseModel):
+class BatchTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
 
-class ListWorkflowsRequestRequestTypeDef(BaseModel):
+class ListWorkflowsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     WorkflowType: Optional[Literal["APPFLOW_INTEGRATION"]] = None
     Status: Optional[StatusType] = None
@@ -649,7 +649,7 @@ class ListWorkflowsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ScheduledTriggerPropertiesTypeDef(BaseModel):
+class ScheduledTriggerPropertiesTypeDef(BaseValidatorModel):
     ScheduleExpression: str
     DataPullMode: Optional[DataPullModeType] = None
     ScheduleStartTime: Optional[TimestampTypeDef] = None
@@ -658,19 +658,19 @@ class ScheduledTriggerPropertiesTypeDef(BaseModel):
     ScheduleOffset: Optional[int] = None
     FirstExecutionFrom: Optional[TimestampTypeDef] = None
 
-class ConditionsTypeDef(BaseModel):
+class ConditionsTypeDef(BaseValidatorModel):
     Range: Optional[RangeTypeDef] = None
     ObjectCount: Optional[int] = None
     Threshold: Optional[ThresholdTypeDef] = None
 
-class TaskTypeDef(BaseModel):
+class TaskTypeDef(BaseValidatorModel):
     SourceFields: Sequence[str]
     TaskType: TaskTypeType
     ConnectorOperator: Optional[ConnectorOperatorTypeDef] = None
     DestinationField: Optional[str] = None
     TaskProperties: Optional[Mapping[OperatorPropertiesKeysType, str]] = None
 
-class EventStreamSummaryTypeDef(BaseModel):
+class EventStreamSummaryTypeDef(BaseValidatorModel):
     DomainName: str
     EventStreamName: str
     EventStreamArn: str
@@ -679,12 +679,12 @@ class EventStreamSummaryTypeDef(BaseModel):
     DestinationSummary: Optional[DestinationSummaryTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
 
-class DetectedProfileObjectTypeTypeDef(BaseModel):
+class DetectedProfileObjectTypeTypeDef(BaseValidatorModel):
     SourceLastUpdatedTimestampFormat: Optional[str] = None
     Fields: Optional[Dict[str, ObjectTypeFieldTypeDef]] = None
     Keys: Optional[Dict[str, List[ObjectTypeKeyOutputTypeDef]]] = None
 
-class GetProfileObjectTypeResponseTypeDef(BaseModel):
+class GetProfileObjectTypeResponseTypeDef(BaseValidatorModel):
     ObjectTypeName: str
     Description: str
     TemplateId: str
@@ -701,7 +701,7 @@ class GetProfileObjectTypeResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetProfileObjectTypeTemplateResponseTypeDef(BaseModel):
+class GetProfileObjectTypeTemplateResponseTypeDef(BaseValidatorModel):
     TemplateId: str
     SourceName: str
     SourceObject: str
@@ -711,7 +711,7 @@ class GetProfileObjectTypeTemplateResponseTypeDef(BaseModel):
     Keys: Dict[str, List[ObjectTypeKeyOutputTypeDef]]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutProfileObjectTypeResponseTypeDef(BaseModel):
+class PutProfileObjectTypeResponseTypeDef(BaseValidatorModel):
     ObjectTypeName: str
     Description: str
     TemplateId: str
@@ -728,7 +728,7 @@ class PutProfileObjectTypeResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEventStreamResponseTypeDef(BaseModel):
+class GetEventStreamResponseTypeDef(BaseValidatorModel):
     DomainName: str
     EventStreamArn: str
     CreatedAt: datetime
@@ -738,19 +738,19 @@ class GetEventStreamResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportingConfigTypeDef(BaseModel):
+class ExportingConfigTypeDef(BaseValidatorModel):
     S3Exporting: Optional[S3ExportingConfigTypeDef] = None
 
-class ExportingLocationTypeDef(BaseModel):
+class ExportingLocationTypeDef(BaseValidatorModel):
     S3Exporting: Optional[S3ExportingLocationTypeDef] = None
 
-class MergeProfilesRequestRequestTypeDef(BaseModel):
+class MergeProfilesRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     MainProfileId: str
     ProfileIdsToBeMerged: Sequence[str]
     FieldSourceProfileIds: Optional[FieldSourceProfileIdsTypeDef] = None
 
-class ProfileTypeDef(BaseModel):
+class ProfileTypeDef(BaseValidatorModel):
     ProfileId: Optional[str] = None
     AccountNumber: Optional[str] = None
     AdditionalInformation: Optional[str] = None
@@ -777,58 +777,58 @@ class ProfileTypeDef(BaseModel):
     PartyTypeString: Optional[str] = None
     GenderString: Optional[str] = None
 
-class GetMatchesResponseTypeDef(BaseModel):
+class GetMatchesResponseTypeDef(BaseValidatorModel):
     MatchGenerationDate: datetime
     PotentialMatches: int
     Matches: List[MatchItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListAccountIntegrationsResponseTypeDef(BaseModel):
+class ListAccountIntegrationsResponseTypeDef(BaseValidatorModel):
     Items: List[ListIntegrationItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListIntegrationsResponseTypeDef(BaseModel):
+class ListIntegrationsResponseTypeDef(BaseValidatorModel):
     Items: List[ListIntegrationItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListCalculatedAttributeDefinitionsResponseTypeDef(BaseModel):
+class ListCalculatedAttributeDefinitionsResponseTypeDef(BaseValidatorModel):
     Items: List[ListCalculatedAttributeDefinitionItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListCalculatedAttributesForProfileResponseTypeDef(BaseModel):
+class ListCalculatedAttributesForProfileResponseTypeDef(BaseValidatorModel):
     Items: List[ListCalculatedAttributeForProfileItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListDomainsResponseTypeDef(BaseModel):
+class ListDomainsResponseTypeDef(BaseValidatorModel):
     Items: List[ListDomainItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListEventStreamsRequestListEventStreamsPaginateTypeDef(BaseModel):
+class ListEventStreamsRequestListEventStreamsPaginateTypeDef(BaseValidatorModel):
     DomainName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProfileObjectTypesResponseTypeDef(BaseModel):
+class ListProfileObjectTypesResponseTypeDef(BaseValidatorModel):
     Items: List[ListProfileObjectTypeItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListProfileObjectTypeTemplatesResponseTypeDef(BaseModel):
+class ListProfileObjectTypeTemplatesResponseTypeDef(BaseValidatorModel):
     Items: List[ListProfileObjectTypeTemplateItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListProfileObjectsResponseTypeDef(BaseModel):
+class ListProfileObjectsResponseTypeDef(BaseValidatorModel):
     Items: List[ListProfileObjectsItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListProfileObjectsRequestRequestTypeDef(BaseModel):
+class ListProfileObjectsRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
     ProfileId: str
@@ -836,19 +836,19 @@ class ListProfileObjectsRequestRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     ObjectFilter: Optional[ObjectFilterTypeDef] = None
 
-class ListWorkflowsResponseTypeDef(BaseModel):
+class ListWorkflowsResponseTypeDef(BaseValidatorModel):
     Items: List[ListWorkflowsItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class SourceConnectorPropertiesTypeDef(BaseModel):
+class SourceConnectorPropertiesTypeDef(BaseValidatorModel):
     Marketo: Optional[MarketoSourcePropertiesTypeDef] = None
     S3: Optional[S3SourcePropertiesTypeDef] = None
     Salesforce: Optional[SalesforceSourcePropertiesTypeDef] = None
     ServiceNow: Optional[ServiceNowSourcePropertiesTypeDef] = None
     Zendesk: Optional[ZendeskSourcePropertiesTypeDef] = None
 
-class UpdateProfileRequestRequestTypeDef(BaseModel):
+class UpdateProfileRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ProfileId: str
     AdditionalInformation: Optional[str] = None
@@ -875,7 +875,7 @@ class UpdateProfileRequestRequestTypeDef(BaseModel):
     PartyTypeString: Optional[str] = None
     GenderString: Optional[str] = None
 
-class GetWorkflowResponseTypeDef(BaseModel):
+class GetWorkflowResponseTypeDef(BaseValidatorModel):
     WorkflowId: str
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
     Status: StatusType
@@ -886,17 +886,17 @@ class GetWorkflowResponseTypeDef(BaseModel):
     Metrics: WorkflowMetricsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWorkflowStepsResponseTypeDef(BaseModel):
+class GetWorkflowStepsResponseTypeDef(BaseValidatorModel):
     WorkflowId: str
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
     Items: List[WorkflowStepItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TriggerPropertiesTypeDef(BaseModel):
+class TriggerPropertiesTypeDef(BaseValidatorModel):
     Scheduled: Optional[ScheduledTriggerPropertiesTypeDef] = None
 
-class CreateCalculatedAttributeDefinitionRequestRequestTypeDef(BaseModel):
+class CreateCalculatedAttributeDefinitionRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
     AttributeDetails: AttributeDetailsTypeDef
@@ -906,7 +906,7 @@ class CreateCalculatedAttributeDefinitionRequestRequestTypeDef(BaseModel):
     Conditions: Optional[ConditionsTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateCalculatedAttributeDefinitionResponseTypeDef(BaseModel):
+class CreateCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
     Description: str
@@ -918,7 +918,7 @@ class CreateCalculatedAttributeDefinitionResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCalculatedAttributeDefinitionResponseTypeDef(BaseModel):
+class GetCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
     Description: str
@@ -930,14 +930,14 @@ class GetCalculatedAttributeDefinitionResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateCalculatedAttributeDefinitionRequestRequestTypeDef(BaseModel):
+class UpdateCalculatedAttributeDefinitionRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
     Conditions: Optional[ConditionsTypeDef] = None
 
-class UpdateCalculatedAttributeDefinitionResponseTypeDef(BaseModel):
+class UpdateCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
     Description: str
@@ -949,28 +949,28 @@ class UpdateCalculatedAttributeDefinitionResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEventStreamsResponseTypeDef(BaseModel):
+class ListEventStreamsResponseTypeDef(BaseValidatorModel):
     Items: List[EventStreamSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DetectProfileObjectTypeResponseTypeDef(BaseModel):
+class DetectProfileObjectTypeResponseTypeDef(BaseValidatorModel):
     DetectedProfileObjectTypes: List[DetectedProfileObjectTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MatchingRequestTypeDef(BaseModel):
+class MatchingRequestTypeDef(BaseValidatorModel):
     Enabled: bool
     JobSchedule: Optional[JobScheduleTypeDef] = None
     AutoMerging: Optional[AutoMergingTypeDef] = None
     ExportingConfig: Optional[ExportingConfigTypeDef] = None
 
-class MatchingResponseTypeDef(BaseModel):
+class MatchingResponseTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     JobSchedule: Optional[JobScheduleTypeDef] = None
     AutoMerging: Optional[AutoMergingOutputTypeDef] = None
     ExportingConfig: Optional[ExportingConfigTypeDef] = None
 
-class RuleBasedMatchingRequestTypeDef(BaseModel):
+class RuleBasedMatchingRequestTypeDef(BaseValidatorModel):
     Enabled: bool
     MatchingRules: Optional[Sequence[MatchingRuleTypeDef]] = None
     MaxAllowedRuleLevelForMerging: Optional[int] = None
@@ -979,7 +979,7 @@ class RuleBasedMatchingRequestTypeDef(BaseModel):
     ConflictResolution: Optional[ConflictResolutionTypeDef] = None
     ExportingConfig: Optional[ExportingConfigTypeDef] = None
 
-class RuleBasedMatchingResponseTypeDef(BaseModel):
+class RuleBasedMatchingResponseTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     MatchingRules: Optional[List[MatchingRuleOutputTypeDef]] = None
     Status: Optional[RuleBasedMatchingStatusType] = None
@@ -989,7 +989,7 @@ class RuleBasedMatchingResponseTypeDef(BaseModel):
     ConflictResolution: Optional[ConflictResolutionTypeDef] = None
     ExportingConfig: Optional[ExportingConfigTypeDef] = None
 
-class GetIdentityResolutionJobResponseTypeDef(BaseModel):
+class GetIdentityResolutionJobResponseTypeDef(BaseValidatorModel):
     DomainName: str
     JobId: str
     Status: IdentityResolutionJobStatusType
@@ -1003,7 +1003,7 @@ class GetIdentityResolutionJobResponseTypeDef(BaseModel):
     JobStats: JobStatsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IdentityResolutionJobTypeDef(BaseModel):
+class IdentityResolutionJobTypeDef(BaseValidatorModel):
     DomainName: Optional[str] = None
     JobId: Optional[str] = None
     Status: Optional[IdentityResolutionJobStatusType] = None
@@ -1013,12 +1013,12 @@ class IdentityResolutionJobTypeDef(BaseModel):
     ExportingLocation: Optional[ExportingLocationTypeDef] = None
     Message: Optional[str] = None
 
-class SearchProfilesResponseTypeDef(BaseModel):
+class SearchProfilesResponseTypeDef(BaseValidatorModel):
     Items: List[ProfileTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PutProfileObjectTypeRequestRequestTypeDef(BaseModel):
+class PutProfileObjectTypeRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
     Description: str
@@ -1032,17 +1032,17 @@ class PutProfileObjectTypeRequestRequestTypeDef(BaseModel):
     Keys: Optional[Mapping[str, Sequence[ObjectTypeKeyUnionTypeDef]]] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class SourceFlowConfigTypeDef(BaseModel):
+class SourceFlowConfigTypeDef(BaseValidatorModel):
     ConnectorType: SourceConnectorTypeType
     SourceConnectorProperties: SourceConnectorPropertiesTypeDef
     ConnectorProfileName: Optional[str] = None
     IncrementalPullConfig: Optional[IncrementalPullConfigTypeDef] = None
 
-class TriggerConfigTypeDef(BaseModel):
+class TriggerConfigTypeDef(BaseValidatorModel):
     TriggerType: TriggerTypeType
     TriggerProperties: Optional[TriggerPropertiesTypeDef] = None
 
-class CreateDomainRequestRequestTypeDef(BaseModel):
+class CreateDomainRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
     DefaultEncryptionKey: Optional[str] = None
@@ -1051,7 +1051,7 @@ class CreateDomainRequestRequestTypeDef(BaseModel):
     RuleBasedMatching: Optional[RuleBasedMatchingRequestTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateDomainRequestRequestTypeDef(BaseModel):
+class UpdateDomainRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: Optional[int] = None
     DefaultEncryptionKey: Optional[str] = None
@@ -1060,7 +1060,7 @@ class UpdateDomainRequestRequestTypeDef(BaseModel):
     RuleBasedMatching: Optional[RuleBasedMatchingRequestTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateDomainResponseTypeDef(BaseModel):
+class CreateDomainResponseTypeDef(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
     DefaultEncryptionKey: str
@@ -1072,7 +1072,7 @@ class CreateDomainResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDomainResponseTypeDef(BaseModel):
+class GetDomainResponseTypeDef(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
     DefaultEncryptionKey: str
@@ -1085,7 +1085,7 @@ class GetDomainResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDomainResponseTypeDef(BaseModel):
+class UpdateDomainResponseTypeDef(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
     DefaultEncryptionKey: str
@@ -1097,12 +1097,12 @@ class UpdateDomainResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIdentityResolutionJobsResponseTypeDef(BaseModel):
+class ListIdentityResolutionJobsResponseTypeDef(BaseValidatorModel):
     IdentityResolutionJobsList: List[IdentityResolutionJobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class FlowDefinitionTypeDef(BaseModel):
+class FlowDefinitionTypeDef(BaseValidatorModel):
     FlowName: str
     KmsArn: str
     SourceFlowConfig: SourceFlowConfigTypeDef
@@ -1110,11 +1110,11 @@ class FlowDefinitionTypeDef(BaseModel):
     TriggerConfig: TriggerConfigTypeDef
     Description: Optional[str] = None
 
-class AppflowIntegrationTypeDef(BaseModel):
+class AppflowIntegrationTypeDef(BaseValidatorModel):
     FlowDefinition: FlowDefinitionTypeDef
     Batches: Optional[Sequence[BatchTypeDef]] = None
 
-class PutIntegrationRequestRequestTypeDef(BaseModel):
+class PutIntegrationRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     Uri: Optional[str] = None
     ObjectTypeName: Optional[str] = None
@@ -1122,10 +1122,10 @@ class PutIntegrationRequestRequestTypeDef(BaseModel):
     FlowDefinition: Optional[FlowDefinitionTypeDef] = None
     ObjectTypeNames: Optional[Mapping[str, str]] = None
 
-class IntegrationConfigTypeDef(BaseModel):
+class IntegrationConfigTypeDef(BaseValidatorModel):
     AppflowIntegration: Optional[AppflowIntegrationTypeDef] = None
 
-class CreateIntegrationWorkflowRequestRequestTypeDef(BaseModel):
+class CreateIntegrationWorkflowRequestRequestTypeDef(BaseValidatorModel):
     DomainName: str
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
     IntegrationConfig: IntegrationConfigTypeDef

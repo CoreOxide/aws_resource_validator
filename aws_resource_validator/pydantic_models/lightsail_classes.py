@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,29 +11,29 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.lightsail_constants import *
 
-class AccessKeyLastUsedTypeDef(BaseModel):
+class AccessKeyLastUsedTypeDef(BaseValidatorModel):
     lastUsedDate: Optional[datetime] = None
     region: Optional[str] = None
     serviceName: Optional[str] = None
 
-class AccessRulesTypeDef(BaseModel):
+class AccessRulesTypeDef(BaseValidatorModel):
     getObject: Optional[AccessTypeType] = None
     allowPublicOverrides: Optional[bool] = None
 
-class AccountLevelBpaSyncTypeDef(BaseModel):
+class AccountLevelBpaSyncTypeDef(BaseValidatorModel):
     status: Optional[AccountLevelBpaSyncStatusType] = None
     lastSyncedAt: Optional[datetime] = None
     message: Optional[BPAStatusMessageType] = None
     bpaImpactsLightsail: Optional[bool] = None
 
-class AutoSnapshotAddOnRequestTypeDef(BaseModel):
+class AutoSnapshotAddOnRequestTypeDef(BaseValidatorModel):
     snapshotTimeOfDay: Optional[str] = None
 
-class StopInstanceOnIdleRequestTypeDef(BaseModel):
+class StopInstanceOnIdleRequestTypeDef(BaseValidatorModel):
     threshold: Optional[str] = None
     duration: Optional[str] = None
 
-class AddOnTypeDef(BaseModel):
+class AddOnTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     status: Optional[str] = None
     snapshotTimeOfDay: Optional[str] = None
@@ -41,56 +41,56 @@ class AddOnTypeDef(BaseModel):
     threshold: Optional[str] = None
     duration: Optional[str] = None
 
-class MonitoredResourceInfoTypeDef(BaseModel):
+class MonitoredResourceInfoTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     resourceType: Optional[ResourceTypeType] = None
 
-class ResourceLocationTypeDef(BaseModel):
+class ResourceLocationTypeDef(BaseValidatorModel):
     availabilityZone: Optional[str] = None
     regionName: Optional[RegionNameType] = None
 
-class AllocateStaticIpRequestRequestTypeDef(BaseModel):
+class AllocateStaticIpRequestRequestTypeDef(BaseValidatorModel):
     staticIpName: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AttachCertificateToDistributionRequestRequestTypeDef(BaseModel):
+class AttachCertificateToDistributionRequestRequestTypeDef(BaseValidatorModel):
     distributionName: str
     certificateName: str
 
-class AttachDiskRequestRequestTypeDef(BaseModel):
+class AttachDiskRequestRequestTypeDef(BaseValidatorModel):
     diskName: str
     instanceName: str
     diskPath: str
     autoMounting: Optional[bool] = None
 
-class AttachInstancesToLoadBalancerRequestRequestTypeDef(BaseModel):
+class AttachInstancesToLoadBalancerRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
     instanceNames: Sequence[str]
 
-class AttachLoadBalancerTlsCertificateRequestRequestTypeDef(BaseModel):
+class AttachLoadBalancerTlsCertificateRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
     certificateName: str
 
-class AttachStaticIpRequestRequestTypeDef(BaseModel):
+class AttachStaticIpRequestRequestTypeDef(BaseValidatorModel):
     staticIpName: str
     instanceName: str
 
-class AttachedDiskTypeDef(BaseModel):
+class AttachedDiskTypeDef(BaseValidatorModel):
     path: Optional[str] = None
     sizeInGb: Optional[int] = None
 
-class AvailabilityZoneTypeDef(BaseModel):
+class AvailabilityZoneTypeDef(BaseValidatorModel):
     zoneName: Optional[str] = None
     state: Optional[str] = None
 
-class BlueprintTypeDef(BaseModel):
+class BlueprintTypeDef(BaseValidatorModel):
     blueprintId: Optional[str] = None
     name: Optional[str] = None
     group: Optional[str] = None
@@ -105,12 +105,12 @@ class BlueprintTypeDef(BaseModel):
     platform: Optional[InstancePlatformType] = None
     appCategory: Optional[Literal["LfR"]] = None
 
-class BucketAccessLogConfigTypeDef(BaseModel):
+class BucketAccessLogConfigTypeDef(BaseValidatorModel):
     enabled: bool
     destination: Optional[str] = None
     prefix: Optional[str] = None
 
-class BucketBundleTypeDef(BaseModel):
+class BucketBundleTypeDef(BaseValidatorModel):
     bundleId: Optional[str] = None
     name: Optional[str] = None
     price: Optional[float] = None
@@ -118,19 +118,19 @@ class BucketBundleTypeDef(BaseModel):
     transferPerMonthInGb: Optional[int] = None
     isActive: Optional[bool] = None
 
-class BucketStateTypeDef(BaseModel):
+class BucketStateTypeDef(BaseValidatorModel):
     code: Optional[str] = None
     message: Optional[str] = None
 
-class ResourceReceivingAccessTypeDef(BaseModel):
+class ResourceReceivingAccessTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     resourceType: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
-class BundleTypeDef(BaseModel):
+class BundleTypeDef(BaseValidatorModel):
     price: Optional[float] = None
     cpuCount: Optional[int] = None
     diskSizeInGb: Optional[int] = None
@@ -145,38 +145,38 @@ class BundleTypeDef(BaseModel):
     supportedAppCategories: Optional[List[Literal["LfR"]]] = None
     publicIpv4AddressCount: Optional[int] = None
 
-class CacheBehaviorPerPathTypeDef(BaseModel):
+class CacheBehaviorPerPathTypeDef(BaseValidatorModel):
     path: Optional[str] = None
     behavior: Optional[BehaviorEnumType] = None
 
-class CacheBehaviorTypeDef(BaseModel):
+class CacheBehaviorTypeDef(BaseValidatorModel):
     behavior: Optional[BehaviorEnumType] = None
 
-class CookieObjectOutputTypeDef(BaseModel):
+class CookieObjectOutputTypeDef(BaseValidatorModel):
     option: Optional[ForwardValuesType] = None
     cookiesAllowList: Optional[List[str]] = None
 
-class HeaderObjectOutputTypeDef(BaseModel):
+class HeaderObjectOutputTypeDef(BaseValidatorModel):
     option: Optional[ForwardValuesType] = None
     headersAllowList: Optional[List[HeaderEnumType]] = None
 
-class QueryStringObjectOutputTypeDef(BaseModel):
+class QueryStringObjectOutputTypeDef(BaseValidatorModel):
     option: Optional[bool] = None
     queryStringsAllowList: Optional[List[str]] = None
 
-class CookieObjectTypeDef(BaseModel):
+class CookieObjectTypeDef(BaseValidatorModel):
     option: Optional[ForwardValuesType] = None
     cookiesAllowList: Optional[Sequence[str]] = None
 
-class HeaderObjectTypeDef(BaseModel):
+class HeaderObjectTypeDef(BaseValidatorModel):
     option: Optional[ForwardValuesType] = None
     headersAllowList: Optional[Sequence[HeaderEnumType]] = None
 
-class QueryStringObjectTypeDef(BaseModel):
+class QueryStringObjectTypeDef(BaseValidatorModel):
     option: Optional[bool] = None
     queryStringsAllowList: Optional[Sequence[str]] = None
 
-class PortInfoTypeDef(BaseModel):
+class PortInfoTypeDef(BaseValidatorModel):
     fromPort: Optional[int] = None
     toPort: Optional[int] = None
     protocol: Optional[NetworkProtocolType] = None
@@ -184,40 +184,40 @@ class PortInfoTypeDef(BaseModel):
     ipv6Cidrs: Optional[Sequence[str]] = None
     cidrListAliases: Optional[Sequence[str]] = None
 
-class CloudFormationStackRecordSourceInfoTypeDef(BaseModel):
+class CloudFormationStackRecordSourceInfoTypeDef(BaseValidatorModel):
     resourceType: Optional[Literal["ExportSnapshotRecord"]] = None
     name: Optional[str] = None
     arn: Optional[str] = None
 
-class DestinationInfoTypeDef(BaseModel):
+class DestinationInfoTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     service: Optional[str] = None
 
-class ContainerImageTypeDef(BaseModel):
+class ContainerImageTypeDef(BaseValidatorModel):
     image: Optional[str] = None
     digest: Optional[str] = None
     createdAt: Optional[datetime] = None
 
-class ContainerOutputTypeDef(BaseModel):
+class ContainerOutputTypeDef(BaseValidatorModel):
     image: Optional[str] = None
     command: Optional[List[str]] = None
     environment: Optional[Dict[str, str]] = None
     ports: Optional[Dict[str, ContainerServiceProtocolType]] = None
 
-class ContainerTypeDef(BaseModel):
+class ContainerTypeDef(BaseValidatorModel):
     image: Optional[str] = None
     command: Optional[Sequence[str]] = None
     environment: Optional[Mapping[str, str]] = None
     ports: Optional[Mapping[str, ContainerServiceProtocolType]] = None
 
-class ContainerServiceECRImagePullerRoleRequestTypeDef(BaseModel):
+class ContainerServiceECRImagePullerRoleRequestTypeDef(BaseValidatorModel):
     isActive: Optional[bool] = None
 
-class ContainerServiceECRImagePullerRoleTypeDef(BaseModel):
+class ContainerServiceECRImagePullerRoleTypeDef(BaseValidatorModel):
     isActive: Optional[bool] = None
     principalArn: Optional[str] = None
 
-class ContainerServiceHealthCheckConfigTypeDef(BaseModel):
+class ContainerServiceHealthCheckConfigTypeDef(BaseValidatorModel):
     healthyThreshold: Optional[int] = None
     unhealthyThreshold: Optional[int] = None
     timeoutSeconds: Optional[int] = None
@@ -225,11 +225,11 @@ class ContainerServiceHealthCheckConfigTypeDef(BaseModel):
     path: Optional[str] = None
     successCodes: Optional[str] = None
 
-class ContainerServiceLogEventTypeDef(BaseModel):
+class ContainerServiceLogEventTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     message: Optional[str] = None
 
-class ContainerServicePowerTypeDef(BaseModel):
+class ContainerServicePowerTypeDef(BaseValidatorModel):
     powerId: Optional[str] = None
     price: Optional[float] = None
     cpuCount: Optional[float] = None
@@ -237,17 +237,17 @@ class ContainerServicePowerTypeDef(BaseModel):
     name: Optional[str] = None
     isActive: Optional[bool] = None
 
-class ContainerServiceRegistryLoginTypeDef(BaseModel):
+class ContainerServiceRegistryLoginTypeDef(BaseValidatorModel):
     username: Optional[str] = None
     password: Optional[str] = None
     expiresAt: Optional[datetime] = None
     registry: Optional[str] = None
 
-class ContainerServiceStateDetailTypeDef(BaseModel):
+class ContainerServiceStateDetailTypeDef(BaseValidatorModel):
     code: Optional[ContainerServiceStateDetailCodeType] = None
     message: Optional[str] = None
 
-class CopySnapshotRequestRequestTypeDef(BaseModel):
+class CopySnapshotRequestRequestTypeDef(BaseValidatorModel):
     targetSnapshotName: str
     sourceRegion: RegionNameType
     sourceSnapshotName: Optional[str] = None
@@ -255,27 +255,27 @@ class CopySnapshotRequestRequestTypeDef(BaseModel):
     restoreDate: Optional[str] = None
     useLatestRestorableAutoSnapshot: Optional[bool] = None
 
-class CreateBucketAccessKeyRequestRequestTypeDef(BaseModel):
+class CreateBucketAccessKeyRequestRequestTypeDef(BaseValidatorModel):
     bucketName: str
 
-class InstanceEntryTypeDef(BaseModel):
+class InstanceEntryTypeDef(BaseValidatorModel):
     sourceName: str
     instanceType: str
     portInfoSource: PortInfoSourceTypeType
     availabilityZone: str
     userData: Optional[str] = None
 
-class CreateContactMethodRequestRequestTypeDef(BaseModel):
+class CreateContactMethodRequestRequestTypeDef(BaseValidatorModel):
     protocol: ContactProtocolType
     contactEndpoint: str
 
-class InputOriginTypeDef(BaseModel):
+class InputOriginTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     regionName: Optional[RegionNameType] = None
     protocolPolicy: Optional[OriginProtocolPolicyEnumType] = None
     responseTimeout: Optional[int] = None
 
-class DomainEntryTypeDef(BaseModel):
+class DomainEntryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     target: Optional[str] = None
@@ -283,127 +283,127 @@ class DomainEntryTypeDef(BaseModel):
     type: Optional[str] = None
     options: Optional[Mapping[str, str]] = None
 
-class CreateGUISessionAccessDetailsRequestRequestTypeDef(BaseModel):
+class CreateGUISessionAccessDetailsRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
 
-class SessionTypeDef(BaseModel):
+class SessionTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     url: Optional[str] = None
     isPrimary: Optional[bool] = None
 
-class DiskMapTypeDef(BaseModel):
+class DiskMapTypeDef(BaseValidatorModel):
     originalDiskPath: Optional[str] = None
     newDiskName: Optional[str] = None
 
-class DeleteAlarmRequestRequestTypeDef(BaseModel):
+class DeleteAlarmRequestRequestTypeDef(BaseValidatorModel):
     alarmName: str
 
-class DeleteAutoSnapshotRequestRequestTypeDef(BaseModel):
+class DeleteAutoSnapshotRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
     date: str
 
-class DeleteBucketAccessKeyRequestRequestTypeDef(BaseModel):
+class DeleteBucketAccessKeyRequestRequestTypeDef(BaseValidatorModel):
     bucketName: str
     accessKeyId: str
 
-class DeleteBucketRequestRequestTypeDef(BaseModel):
+class DeleteBucketRequestRequestTypeDef(BaseValidatorModel):
     bucketName: str
     forceDelete: Optional[bool] = None
 
-class DeleteCertificateRequestRequestTypeDef(BaseModel):
+class DeleteCertificateRequestRequestTypeDef(BaseValidatorModel):
     certificateName: str
 
-class DeleteContactMethodRequestRequestTypeDef(BaseModel):
+class DeleteContactMethodRequestRequestTypeDef(BaseValidatorModel):
     protocol: ContactProtocolType
 
-class DeleteContainerImageRequestRequestTypeDef(BaseModel):
+class DeleteContainerImageRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
     image: str
 
-class DeleteContainerServiceRequestRequestTypeDef(BaseModel):
+class DeleteContainerServiceRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
 
-class DeleteDiskRequestRequestTypeDef(BaseModel):
+class DeleteDiskRequestRequestTypeDef(BaseValidatorModel):
     diskName: str
     forceDeleteAddOns: Optional[bool] = None
 
-class DeleteDiskSnapshotRequestRequestTypeDef(BaseModel):
+class DeleteDiskSnapshotRequestRequestTypeDef(BaseValidatorModel):
     diskSnapshotName: str
 
-class DeleteDistributionRequestRequestTypeDef(BaseModel):
+class DeleteDistributionRequestRequestTypeDef(BaseValidatorModel):
     distributionName: Optional[str] = None
 
-class DeleteDomainRequestRequestTypeDef(BaseModel):
+class DeleteDomainRequestRequestTypeDef(BaseValidatorModel):
     domainName: str
 
-class DeleteInstanceRequestRequestTypeDef(BaseModel):
+class DeleteInstanceRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
     forceDeleteAddOns: Optional[bool] = None
 
-class DeleteInstanceSnapshotRequestRequestTypeDef(BaseModel):
+class DeleteInstanceSnapshotRequestRequestTypeDef(BaseValidatorModel):
     instanceSnapshotName: str
 
-class DeleteKeyPairRequestRequestTypeDef(BaseModel):
+class DeleteKeyPairRequestRequestTypeDef(BaseValidatorModel):
     keyPairName: str
     expectedFingerprint: Optional[str] = None
 
-class DeleteKnownHostKeysRequestRequestTypeDef(BaseModel):
+class DeleteKnownHostKeysRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
 
-class DeleteLoadBalancerRequestRequestTypeDef(BaseModel):
+class DeleteLoadBalancerRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
 
-class DeleteLoadBalancerTlsCertificateRequestRequestTypeDef(BaseModel):
+class DeleteLoadBalancerTlsCertificateRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
     certificateName: str
     force: Optional[bool] = None
 
-class DeleteRelationalDatabaseRequestRequestTypeDef(BaseModel):
+class DeleteRelationalDatabaseRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     skipFinalSnapshot: Optional[bool] = None
     finalRelationalDatabaseSnapshotName: Optional[str] = None
 
-class DeleteRelationalDatabaseSnapshotRequestRequestTypeDef(BaseModel):
+class DeleteRelationalDatabaseSnapshotRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseSnapshotName: str
 
-class DetachCertificateFromDistributionRequestRequestTypeDef(BaseModel):
+class DetachCertificateFromDistributionRequestRequestTypeDef(BaseValidatorModel):
     distributionName: str
 
-class DetachDiskRequestRequestTypeDef(BaseModel):
+class DetachDiskRequestRequestTypeDef(BaseValidatorModel):
     diskName: str
 
-class DetachInstancesFromLoadBalancerRequestRequestTypeDef(BaseModel):
+class DetachInstancesFromLoadBalancerRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
     instanceNames: Sequence[str]
 
-class DetachStaticIpRequestRequestTypeDef(BaseModel):
+class DetachStaticIpRequestRequestTypeDef(BaseValidatorModel):
     staticIpName: str
 
-class DisableAddOnRequestRequestTypeDef(BaseModel):
+class DisableAddOnRequestRequestTypeDef(BaseValidatorModel):
     addOnType: AddOnTypeType
     resourceName: str
 
-class DiskInfoTypeDef(BaseModel):
+class DiskInfoTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     path: Optional[str] = None
     sizeInGb: Optional[int] = None
     isSystemDisk: Optional[bool] = None
 
-class DiskSnapshotInfoTypeDef(BaseModel):
+class DiskSnapshotInfoTypeDef(BaseValidatorModel):
     sizeInGb: Optional[int] = None
 
-class DistributionBundleTypeDef(BaseModel):
+class DistributionBundleTypeDef(BaseValidatorModel):
     bundleId: Optional[str] = None
     name: Optional[str] = None
     price: Optional[float] = None
     transferPerMonthInGb: Optional[int] = None
     isActive: Optional[bool] = None
 
-class DnsRecordCreationStateTypeDef(BaseModel):
+class DnsRecordCreationStateTypeDef(BaseValidatorModel):
     code: Optional[DnsRecordCreationStateCodeType] = None
     message: Optional[str] = None
 
-class DomainEntryExtraOutputTypeDef(BaseModel):
+class DomainEntryExtraOutputTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     target: Optional[str] = None
@@ -411,7 +411,7 @@ class DomainEntryExtraOutputTypeDef(BaseModel):
     type: Optional[str] = None
     options: Optional[Dict[str, str]] = None
 
-class DomainEntryOutputTypeDef(BaseModel):
+class DomainEntryOutputTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     target: Optional[str] = None
@@ -419,46 +419,46 @@ class DomainEntryOutputTypeDef(BaseModel):
     type: Optional[str] = None
     options: Optional[Dict[str, str]] = None
 
-class ResourceRecordTypeDef(BaseModel):
+class ResourceRecordTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     type: Optional[str] = None
     value: Optional[str] = None
 
-class TimePeriodTypeDef(BaseModel):
+class TimePeriodTypeDef(BaseValidatorModel):
     start: Optional[datetime] = None
     end: Optional[datetime] = None
 
-class ExportSnapshotRequestRequestTypeDef(BaseModel):
+class ExportSnapshotRequestRequestTypeDef(BaseValidatorModel):
     sourceSnapshotName: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetActiveNamesRequestRequestTypeDef(BaseModel):
+class GetActiveNamesRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetAlarmsRequestRequestTypeDef(BaseModel):
+class GetAlarmsRequestRequestTypeDef(BaseValidatorModel):
     alarmName: Optional[str] = None
     pageToken: Optional[str] = None
     monitoredResourceName: Optional[str] = None
 
-class GetAutoSnapshotsRequestRequestTypeDef(BaseModel):
+class GetAutoSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
 
-class GetBlueprintsRequestRequestTypeDef(BaseModel):
+class GetBlueprintsRequestRequestTypeDef(BaseValidatorModel):
     includeInactive: Optional[bool] = None
     pageToken: Optional[str] = None
     appCategory: Optional[Literal["LfR"]] = None
 
-class GetBucketAccessKeysRequestRequestTypeDef(BaseModel):
+class GetBucketAccessKeysRequestRequestTypeDef(BaseValidatorModel):
     bucketName: str
 
-class GetBucketBundlesRequestRequestTypeDef(BaseModel):
+class GetBucketBundlesRequestRequestTypeDef(BaseValidatorModel):
     includeInactive: Optional[bool] = None
 
-class MetricDatapointTypeDef(BaseModel):
+class MetricDatapointTypeDef(BaseValidatorModel):
     average: Optional[float] = None
     maximum: Optional[float] = None
     minimum: Optional[float] = None
@@ -467,73 +467,73 @@ class MetricDatapointTypeDef(BaseModel):
     timestamp: Optional[datetime] = None
     unit: Optional[MetricUnitType] = None
 
-class GetBucketsRequestRequestTypeDef(BaseModel):
+class GetBucketsRequestRequestTypeDef(BaseValidatorModel):
     bucketName: Optional[str] = None
     pageToken: Optional[str] = None
     includeConnectedResources: Optional[bool] = None
 
-class GetBundlesRequestRequestTypeDef(BaseModel):
+class GetBundlesRequestRequestTypeDef(BaseValidatorModel):
     includeInactive: Optional[bool] = None
     pageToken: Optional[str] = None
     appCategory: Optional[Literal["LfR"]] = None
 
-class GetCertificatesRequestRequestTypeDef(BaseModel):
+class GetCertificatesRequestRequestTypeDef(BaseValidatorModel):
     certificateStatuses: Optional[Sequence[CertificateStatusType]] = None
     includeCertificateDetails: Optional[bool] = None
     certificateName: Optional[str] = None
     pageToken: Optional[str] = None
 
-class GetCloudFormationStackRecordsRequestRequestTypeDef(BaseModel):
+class GetCloudFormationStackRecordsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetContactMethodsRequestRequestTypeDef(BaseModel):
+class GetContactMethodsRequestRequestTypeDef(BaseValidatorModel):
     protocols: Optional[Sequence[ContactProtocolType]] = None
 
-class GetContainerImagesRequestRequestTypeDef(BaseModel):
+class GetContainerImagesRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
 
-class GetContainerServiceDeploymentsRequestRequestTypeDef(BaseModel):
+class GetContainerServiceDeploymentsRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
 
-class GetContainerServicesRequestRequestTypeDef(BaseModel):
+class GetContainerServicesRequestRequestTypeDef(BaseValidatorModel):
     serviceName: Optional[str] = None
 
-class GetDiskRequestRequestTypeDef(BaseModel):
+class GetDiskRequestRequestTypeDef(BaseValidatorModel):
     diskName: str
 
-class GetDiskSnapshotRequestRequestTypeDef(BaseModel):
+class GetDiskSnapshotRequestRequestTypeDef(BaseValidatorModel):
     diskSnapshotName: str
 
-class GetDiskSnapshotsRequestRequestTypeDef(BaseModel):
+class GetDiskSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetDisksRequestRequestTypeDef(BaseModel):
+class GetDisksRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetDistributionLatestCacheResetRequestRequestTypeDef(BaseModel):
+class GetDistributionLatestCacheResetRequestRequestTypeDef(BaseValidatorModel):
     distributionName: Optional[str] = None
 
-class GetDistributionsRequestRequestTypeDef(BaseModel):
+class GetDistributionsRequestRequestTypeDef(BaseValidatorModel):
     distributionName: Optional[str] = None
     pageToken: Optional[str] = None
 
-class GetDomainRequestRequestTypeDef(BaseModel):
+class GetDomainRequestRequestTypeDef(BaseValidatorModel):
     domainName: str
 
-class GetDomainsRequestRequestTypeDef(BaseModel):
+class GetDomainsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetExportSnapshotRecordsRequestRequestTypeDef(BaseModel):
+class GetExportSnapshotRecordsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetInstanceAccessDetailsRequestRequestTypeDef(BaseModel):
+class GetInstanceAccessDetailsRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
     protocol: Optional[InstanceAccessProtocolType] = None
 
-class GetInstancePortStatesRequestRequestTypeDef(BaseModel):
+class GetInstancePortStatesRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
 
-class InstancePortStateTypeDef(BaseModel):
+class InstancePortStateTypeDef(BaseValidatorModel):
     fromPort: Optional[int] = None
     toPort: Optional[int] = None
     protocol: Optional[NetworkProtocolType] = None
@@ -542,69 +542,69 @@ class InstancePortStateTypeDef(BaseModel):
     ipv6Cidrs: Optional[List[str]] = None
     cidrListAliases: Optional[List[str]] = None
 
-class GetInstanceRequestRequestTypeDef(BaseModel):
+class GetInstanceRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
 
-class GetInstanceSnapshotRequestRequestTypeDef(BaseModel):
+class GetInstanceSnapshotRequestRequestTypeDef(BaseValidatorModel):
     instanceSnapshotName: str
 
-class GetInstanceSnapshotsRequestRequestTypeDef(BaseModel):
+class GetInstanceSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetInstanceStateRequestRequestTypeDef(BaseModel):
+class GetInstanceStateRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
 
-class InstanceStateTypeDef(BaseModel):
+class InstanceStateTypeDef(BaseValidatorModel):
     code: Optional[int] = None
     name: Optional[str] = None
 
-class GetInstancesRequestRequestTypeDef(BaseModel):
+class GetInstancesRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetKeyPairRequestRequestTypeDef(BaseModel):
+class GetKeyPairRequestRequestTypeDef(BaseValidatorModel):
     keyPairName: str
 
-class GetKeyPairsRequestRequestTypeDef(BaseModel):
+class GetKeyPairsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
     includeDefaultKeyPair: Optional[bool] = None
 
-class GetLoadBalancerRequestRequestTypeDef(BaseModel):
+class GetLoadBalancerRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
 
-class GetLoadBalancerTlsCertificatesRequestRequestTypeDef(BaseModel):
+class GetLoadBalancerTlsCertificatesRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
 
-class GetLoadBalancerTlsPoliciesRequestRequestTypeDef(BaseModel):
+class GetLoadBalancerTlsPoliciesRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class LoadBalancerTlsPolicyTypeDef(BaseModel):
+class LoadBalancerTlsPolicyTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     isDefault: Optional[bool] = None
     description: Optional[str] = None
     protocols: Optional[List[str]] = None
     ciphers: Optional[List[str]] = None
 
-class GetLoadBalancersRequestRequestTypeDef(BaseModel):
+class GetLoadBalancersRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetOperationRequestRequestTypeDef(BaseModel):
+class GetOperationRequestRequestTypeDef(BaseValidatorModel):
     operationId: str
 
-class GetOperationsForResourceRequestRequestTypeDef(BaseModel):
+class GetOperationsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
     pageToken: Optional[str] = None
 
-class GetOperationsRequestRequestTypeDef(BaseModel):
+class GetOperationsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetRegionsRequestRequestTypeDef(BaseModel):
+class GetRegionsRequestRequestTypeDef(BaseValidatorModel):
     includeAvailabilityZones: Optional[bool] = None
     includeRelationalDatabaseAvailabilityZones: Optional[bool] = None
 
-class GetRelationalDatabaseBlueprintsRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseBlueprintsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class RelationalDatabaseBlueprintTypeDef(BaseModel):
+class RelationalDatabaseBlueprintTypeDef(BaseValidatorModel):
     blueprintId: Optional[str] = None
     engine: Optional[Literal["mysql"]] = None
     engineVersion: Optional[str] = None
@@ -612,11 +612,11 @@ class RelationalDatabaseBlueprintTypeDef(BaseModel):
     engineVersionDescription: Optional[str] = None
     isEngineDefault: Optional[bool] = None
 
-class GetRelationalDatabaseBundlesRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseBundlesRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
     includeInactive: Optional[bool] = None
 
-class RelationalDatabaseBundleTypeDef(BaseModel):
+class RelationalDatabaseBundleTypeDef(BaseValidatorModel):
     bundleId: Optional[str] = None
     name: Optional[str] = None
     price: Optional[float] = None
@@ -627,33 +627,33 @@ class RelationalDatabaseBundleTypeDef(BaseModel):
     isEncrypted: Optional[bool] = None
     isActive: Optional[bool] = None
 
-class GetRelationalDatabaseEventsRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseEventsRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     durationInMinutes: Optional[int] = None
     pageToken: Optional[str] = None
 
-class RelationalDatabaseEventTypeDef(BaseModel):
+class RelationalDatabaseEventTypeDef(BaseValidatorModel):
     resource: Optional[str] = None
     createdAt: Optional[datetime] = None
     message: Optional[str] = None
     eventCategories: Optional[List[str]] = None
 
-class LogEventTypeDef(BaseModel):
+class LogEventTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     message: Optional[str] = None
 
-class GetRelationalDatabaseLogStreamsRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseLogStreamsRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
 
-class GetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     passwordVersion: Optional[RelationalDatabasePasswordVersionType] = None
 
-class GetRelationalDatabaseParametersRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseParametersRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     pageToken: Optional[str] = None
 
-class RelationalDatabaseParameterTypeDef(BaseModel):
+class RelationalDatabaseParameterTypeDef(BaseValidatorModel):
     allowedValues: Optional[str] = None
     applyMethod: Optional[str] = None
     applyType: Optional[str] = None
@@ -663,29 +663,29 @@ class RelationalDatabaseParameterTypeDef(BaseModel):
     parameterName: Optional[str] = None
     parameterValue: Optional[str] = None
 
-class GetRelationalDatabaseRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
 
-class GetRelationalDatabaseSnapshotRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseSnapshotRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseSnapshotName: str
 
-class GetRelationalDatabaseSnapshotsRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetRelationalDatabasesRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabasesRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class GetSetupHistoryRequestRequestTypeDef(BaseModel):
+class GetSetupHistoryRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
     pageToken: Optional[str] = None
 
-class GetStaticIpRequestRequestTypeDef(BaseModel):
+class GetStaticIpRequestRequestTypeDef(BaseValidatorModel):
     staticIpName: str
 
-class GetStaticIpsRequestRequestTypeDef(BaseModel):
+class GetStaticIpsRequestRequestTypeDef(BaseValidatorModel):
     pageToken: Optional[str] = None
 
-class HostKeyAttributesTypeDef(BaseModel):
+class HostKeyAttributesTypeDef(BaseValidatorModel):
     algorithm: Optional[str] = None
     publicKey: Optional[str] = None
     witnessedAt: Optional[datetime] = None
@@ -694,27 +694,27 @@ class HostKeyAttributesTypeDef(BaseModel):
     notValidBefore: Optional[datetime] = None
     notValidAfter: Optional[datetime] = None
 
-class ImportKeyPairRequestRequestTypeDef(BaseModel):
+class ImportKeyPairRequestRequestTypeDef(BaseValidatorModel):
     keyPairName: str
     publicKeyBase64: str
 
-class PasswordDataTypeDef(BaseModel):
+class PasswordDataTypeDef(BaseValidatorModel):
     ciphertext: Optional[str] = None
     keyPairName: Optional[str] = None
 
-class InstanceHealthSummaryTypeDef(BaseModel):
+class InstanceHealthSummaryTypeDef(BaseValidatorModel):
     instanceName: Optional[str] = None
     instanceHealth: Optional[InstanceHealthStateType] = None
     instanceHealthReason: Optional[InstanceHealthReasonType] = None
 
-class InstanceMetadataOptionsTypeDef(BaseModel):
+class InstanceMetadataOptionsTypeDef(BaseValidatorModel):
     state: Optional[InstanceMetadataStateType] = None
     httpTokens: Optional[HttpTokensType] = None
     httpEndpoint: Optional[HttpEndpointType] = None
     httpPutResponseHopLimit: Optional[int] = None
     httpProtocolIpv6: Optional[HttpProtocolIpv6Type] = None
 
-class InstancePortInfoTypeDef(BaseModel):
+class InstancePortInfoTypeDef(BaseValidatorModel):
     fromPort: Optional[int] = None
     toPort: Optional[int] = None
     protocol: Optional[NetworkProtocolType] = None
@@ -726,43 +726,43 @@ class InstancePortInfoTypeDef(BaseModel):
     ipv6Cidrs: Optional[List[str]] = None
     cidrListAliases: Optional[List[str]] = None
 
-class MonthlyTransferTypeDef(BaseModel):
+class MonthlyTransferTypeDef(BaseValidatorModel):
     gbPerMonthAllocated: Optional[int] = None
 
-class OriginTypeDef(BaseModel):
+class OriginTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     resourceType: Optional[ResourceTypeType] = None
     regionName: Optional[RegionNameType] = None
     protocolPolicy: Optional[OriginProtocolPolicyEnumType] = None
     responseTimeout: Optional[int] = None
 
-class LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef(BaseModel):
+class LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef(BaseValidatorModel):
     code: Optional[LoadBalancerTlsCertificateDnsRecordCreationStateCodeType] = None
     message: Optional[str] = None
 
-class LoadBalancerTlsCertificateDomainValidationOptionTypeDef(BaseModel):
+class LoadBalancerTlsCertificateDomainValidationOptionTypeDef(BaseValidatorModel):
     domainName: Optional[str] = None
     validationStatus: Optional[LoadBalancerTlsCertificateDomainStatusType] = None
 
-class LoadBalancerTlsCertificateSummaryTypeDef(BaseModel):
+class LoadBalancerTlsCertificateSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     isAttached: Optional[bool] = None
 
-class NameServersUpdateStateTypeDef(BaseModel):
+class NameServersUpdateStateTypeDef(BaseValidatorModel):
     code: Optional[NameServersUpdateStateCodeType] = None
     message: Optional[str] = None
 
-class PendingMaintenanceActionTypeDef(BaseModel):
+class PendingMaintenanceActionTypeDef(BaseValidatorModel):
     action: Optional[str] = None
     description: Optional[str] = None
     currentApplyDate: Optional[datetime] = None
 
-class PendingModifiedRelationalDatabaseValuesTypeDef(BaseModel):
+class PendingModifiedRelationalDatabaseValuesTypeDef(BaseValidatorModel):
     masterUserPassword: Optional[str] = None
     engineVersion: Optional[str] = None
     backupRetentionEnabled: Optional[bool] = None
 
-class PutAlarmRequestRequestTypeDef(BaseModel):
+class PutAlarmRequestRequestTypeDef(BaseValidatorModel):
     alarmName: str
     metricName: MetricNameType
     monitoredResourceName: str
@@ -775,51 +775,51 @@ class PutAlarmRequestRequestTypeDef(BaseModel):
     notificationTriggers: Optional[Sequence[AlarmStateType]] = None
     notificationEnabled: Optional[bool] = None
 
-class R53HostedZoneDeletionStateTypeDef(BaseModel):
+class R53HostedZoneDeletionStateTypeDef(BaseValidatorModel):
     code: Optional[R53HostedZoneDeletionStateCodeType] = None
     message: Optional[str] = None
 
-class RebootInstanceRequestRequestTypeDef(BaseModel):
+class RebootInstanceRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
 
-class RebootRelationalDatabaseRequestRequestTypeDef(BaseModel):
+class RebootRelationalDatabaseRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
 
-class RegisterContainerImageRequestRequestTypeDef(BaseModel):
+class RegisterContainerImageRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
     label: str
     digest: str
 
-class RelationalDatabaseEndpointTypeDef(BaseModel):
+class RelationalDatabaseEndpointTypeDef(BaseValidatorModel):
     port: Optional[int] = None
     address: Optional[str] = None
 
-class RelationalDatabaseHardwareTypeDef(BaseModel):
+class RelationalDatabaseHardwareTypeDef(BaseValidatorModel):
     cpuCount: Optional[int] = None
     diskSizeInGb: Optional[int] = None
     ramSizeInGb: Optional[float] = None
 
-class ReleaseStaticIpRequestRequestTypeDef(BaseModel):
+class ReleaseStaticIpRequestRequestTypeDef(BaseValidatorModel):
     staticIpName: str
 
-class ResetDistributionCacheRequestRequestTypeDef(BaseModel):
+class ResetDistributionCacheRequestRequestTypeDef(BaseValidatorModel):
     distributionName: Optional[str] = None
 
-class SendContactMethodVerificationRequestRequestTypeDef(BaseModel):
+class SendContactMethodVerificationRequestRequestTypeDef(BaseValidatorModel):
     protocol: Literal["Email"]
 
-class SetIpAddressTypeRequestRequestTypeDef(BaseModel):
+class SetIpAddressTypeRequestRequestTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     resourceName: str
     ipAddressType: IpAddressTypeType
     acceptBundleUpdate: Optional[bool] = None
 
-class SetResourceAccessForBucketRequestRequestTypeDef(BaseModel):
+class SetResourceAccessForBucketRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
     bucketName: str
     access: ResourceBucketAccessType
 
-class SetupExecutionDetailsTypeDef(BaseModel):
+class SetupExecutionDetailsTypeDef(BaseValidatorModel):
     command: Optional[str] = None
     dateTime: Optional[datetime] = None
     name: Optional[str] = None
@@ -828,67 +828,67 @@ class SetupExecutionDetailsTypeDef(BaseModel):
     standardOutput: Optional[str] = None
     version: Optional[str] = None
 
-class SetupRequestTypeDef(BaseModel):
+class SetupRequestTypeDef(BaseValidatorModel):
     instanceName: Optional[str] = None
     domainNames: Optional[List[str]] = None
     certificateProvider: Optional[Literal["LetsEncrypt"]] = None
 
-class SetupInstanceHttpsRequestRequestTypeDef(BaseModel):
+class SetupInstanceHttpsRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
     emailAddress: str
     domainNames: Sequence[str]
     certificateProvider: Literal["LetsEncrypt"]
 
-class StartGUISessionRequestRequestTypeDef(BaseModel):
+class StartGUISessionRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
 
-class StartInstanceRequestRequestTypeDef(BaseModel):
+class StartInstanceRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
 
-class StartRelationalDatabaseRequestRequestTypeDef(BaseModel):
+class StartRelationalDatabaseRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
 
-class StopGUISessionRequestRequestTypeDef(BaseModel):
+class StopGUISessionRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
 
-class StopInstanceRequestRequestTypeDef(BaseModel):
+class StopInstanceRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
     force: Optional[bool] = None
 
-class StopRelationalDatabaseRequestRequestTypeDef(BaseModel):
+class StopRelationalDatabaseRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     relationalDatabaseSnapshotName: Optional[str] = None
 
-class TestAlarmRequestRequestTypeDef(BaseModel):
+class TestAlarmRequestRequestTypeDef(BaseValidatorModel):
     alarmName: str
     state: AlarmStateType
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
     tagKeys: Sequence[str]
     resourceArn: Optional[str] = None
 
-class UpdateBucketBundleRequestRequestTypeDef(BaseModel):
+class UpdateBucketBundleRequestRequestTypeDef(BaseValidatorModel):
     bucketName: str
     bundleId: str
 
-class UpdateDistributionBundleRequestRequestTypeDef(BaseModel):
+class UpdateDistributionBundleRequestRequestTypeDef(BaseValidatorModel):
     distributionName: Optional[str] = None
     bundleId: Optional[str] = None
 
-class UpdateInstanceMetadataOptionsRequestRequestTypeDef(BaseModel):
+class UpdateInstanceMetadataOptionsRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
     httpTokens: Optional[HttpTokensType] = None
     httpEndpoint: Optional[HttpEndpointType] = None
     httpPutResponseHopLimit: Optional[int] = None
     httpProtocolIpv6: Optional[HttpProtocolIpv6Type] = None
 
-class UpdateLoadBalancerAttributeRequestRequestTypeDef(BaseModel):
+class UpdateLoadBalancerAttributeRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
     attributeName: LoadBalancerAttributeNameType
     attributeValue: str
 
-class UpdateRelationalDatabaseRequestRequestTypeDef(BaseModel):
+class UpdateRelationalDatabaseRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     masterUserPassword: Optional[str] = None
     rotateMasterUserPassword: Optional[bool] = None
@@ -901,19 +901,19 @@ class UpdateRelationalDatabaseRequestRequestTypeDef(BaseModel):
     caCertificateIdentifier: Optional[str] = None
     relationalDatabaseBlueprintId: Optional[str] = None
 
-class AccessKeyTypeDef(BaseModel):
+class AccessKeyTypeDef(BaseValidatorModel):
     accessKeyId: Optional[str] = None
     secretAccessKey: Optional[str] = None
     status: Optional[StatusTypeType] = None
     createdAt: Optional[datetime] = None
     lastUsed: Optional[AccessKeyLastUsedTypeDef] = None
 
-class AddOnRequestTypeDef(BaseModel):
+class AddOnRequestTypeDef(BaseValidatorModel):
     addOnType: AddOnTypeType
     autoSnapshotAddOnRequest: Optional[AutoSnapshotAddOnRequestTypeDef] = None
     stopInstanceOnIdleRequest: Optional[StopInstanceOnIdleRequestTypeDef] = None
 
-class AlarmTypeDef(BaseModel):
+class AlarmTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -935,7 +935,7 @@ class AlarmTypeDef(BaseModel):
     notificationTriggers: Optional[List[AlarmStateType]] = None
     notificationEnabled: Optional[bool] = None
 
-class ContactMethodTypeDef(BaseModel):
+class ContactMethodTypeDef(BaseValidatorModel):
     contactEndpoint: Optional[str] = None
     status: Optional[ContactMethodStatusType] = None
     protocol: Optional[ContactProtocolType] = None
@@ -946,7 +946,7 @@ class ContactMethodTypeDef(BaseModel):
     resourceType: Optional[ResourceTypeType] = None
     supportCode: Optional[str] = None
 
-class OperationTypeDef(BaseModel):
+class OperationTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     resourceName: Optional[str] = None
     resourceType: Optional[ResourceTypeType] = None
@@ -960,14 +960,14 @@ class OperationTypeDef(BaseModel):
     errorCode: Optional[str] = None
     errorDetails: Optional[str] = None
 
-class SetupHistoryResourceTypeDef(BaseModel):
+class SetupHistoryResourceTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
 
-class StaticIpTypeDef(BaseModel):
+class StaticIpTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -978,46 +978,46 @@ class StaticIpTypeDef(BaseModel):
     attachedTo: Optional[str] = None
     isAttached: Optional[bool] = None
 
-class DownloadDefaultKeyPairResultTypeDef(BaseModel):
+class DownloadDefaultKeyPairResultTypeDef(BaseValidatorModel):
     publicKeyBase64: str
     privateKeyBase64: str
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetActiveNamesResultTypeDef(BaseModel):
+class GetActiveNamesResultTypeDef(BaseValidatorModel):
     activeNames: List[str]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContainerAPIMetadataResultTypeDef(BaseModel):
+class GetContainerAPIMetadataResultTypeDef(BaseValidatorModel):
     metadata: List[Dict[str, str]]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDistributionLatestCacheResetResultTypeDef(BaseModel):
+class GetDistributionLatestCacheResetResultTypeDef(BaseValidatorModel):
     status: str
     createTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseLogStreamsResultTypeDef(BaseModel):
+class GetRelationalDatabaseLogStreamsResultTypeDef(BaseValidatorModel):
     logStreams: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseMasterUserPasswordResultTypeDef(BaseModel):
+class GetRelationalDatabaseMasterUserPasswordResultTypeDef(BaseValidatorModel):
     masterUserPassword: str
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IsVpcPeeredResultTypeDef(BaseModel):
+class IsVpcPeeredResultTypeDef(BaseValidatorModel):
     isPeered: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AutoSnapshotDetailsTypeDef(BaseModel):
+class AutoSnapshotDetailsTypeDef(BaseValidatorModel):
     date: Optional[str] = None
     createdAt: Optional[datetime] = None
     status: Optional[AutoSnapshotStatusType] = None
     fromAttachedDisks: Optional[List[AttachedDiskTypeDef]] = None
 
-class RegionTypeDef(BaseModel):
+class RegionTypeDef(BaseValidatorModel):
     continentCode: Optional[str] = None
     description: Optional[str] = None
     displayName: Optional[str] = None
@@ -1025,23 +1025,23 @@ class RegionTypeDef(BaseModel):
     availabilityZones: Optional[List[AvailabilityZoneTypeDef]] = None
     relationalDatabaseAvailabilityZones: Optional[List[AvailabilityZoneTypeDef]] = None
 
-class GetBlueprintsResultTypeDef(BaseModel):
+class GetBlueprintsResultTypeDef(BaseValidatorModel):
     blueprints: List[BlueprintTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBucketRequestRequestTypeDef(BaseModel):
+class UpdateBucketRequestRequestTypeDef(BaseValidatorModel):
     bucketName: str
     accessRules: Optional[AccessRulesTypeDef] = None
     versioning: Optional[str] = None
     readonlyAccessAccounts: Optional[Sequence[str]] = None
     accessLogConfig: Optional[BucketAccessLogConfigTypeDef] = None
 
-class GetBucketBundlesResultTypeDef(BaseModel):
+class GetBucketBundlesResultTypeDef(BaseValidatorModel):
     bundles: List[BucketBundleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BucketTypeDef(BaseModel):
+class BucketTypeDef(BaseValidatorModel):
     resourceType: Optional[str] = None
     accessRules: Optional[AccessRulesTypeDef] = None
     arn: Optional[str] = None
@@ -1059,38 +1059,38 @@ class BucketTypeDef(BaseModel):
     state: Optional[BucketStateTypeDef] = None
     accessLogConfig: Optional[BucketAccessLogConfigTypeDef] = None
 
-class CreateBucketRequestRequestTypeDef(BaseModel):
+class CreateBucketRequestRequestTypeDef(BaseValidatorModel):
     bucketName: str
     bundleId: str
     tags: Optional[Sequence[TagTypeDef]] = None
     enableObjectVersioning: Optional[bool] = None
 
-class CreateCertificateRequestRequestTypeDef(BaseModel):
+class CreateCertificateRequestRequestTypeDef(BaseValidatorModel):
     certificateName: str
     domainName: str
     subjectAlternativeNames: Optional[Sequence[str]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateDiskSnapshotRequestRequestTypeDef(BaseModel):
+class CreateDiskSnapshotRequestRequestTypeDef(BaseValidatorModel):
     diskSnapshotName: str
     diskName: Optional[str] = None
     instanceName: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateDomainRequestRequestTypeDef(BaseModel):
+class CreateDomainRequestRequestTypeDef(BaseValidatorModel):
     domainName: str
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateInstanceSnapshotRequestRequestTypeDef(BaseModel):
+class CreateInstanceSnapshotRequestRequestTypeDef(BaseValidatorModel):
     instanceSnapshotName: str
     instanceName: str
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateKeyPairRequestRequestTypeDef(BaseModel):
+class CreateKeyPairRequestRequestTypeDef(BaseValidatorModel):
     keyPairName: str
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateLoadBalancerRequestRequestTypeDef(BaseModel):
+class CreateLoadBalancerRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
     instancePort: int
     healthCheckPath: Optional[str] = None
@@ -1101,14 +1101,14 @@ class CreateLoadBalancerRequestRequestTypeDef(BaseModel):
     ipAddressType: Optional[IpAddressTypeType] = None
     tlsPolicyName: Optional[str] = None
 
-class CreateLoadBalancerTlsCertificateRequestRequestTypeDef(BaseModel):
+class CreateLoadBalancerTlsCertificateRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
     certificateName: str
     certificateDomainName: str
     certificateAlternativeNames: Optional[Sequence[str]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRelationalDatabaseRequestRequestTypeDef(BaseModel):
+class CreateRelationalDatabaseRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     relationalDatabaseBlueprintId: str
     relationalDatabaseBundleId: str
@@ -1121,12 +1121,12 @@ class CreateRelationalDatabaseRequestRequestTypeDef(BaseModel):
     publiclyAccessible: Optional[bool] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRelationalDatabaseSnapshotRequestRequestTypeDef(BaseModel):
+class CreateRelationalDatabaseSnapshotRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     relationalDatabaseSnapshotName: str
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class DiskSnapshotTypeDef(BaseModel):
+class DiskSnapshotTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -1143,7 +1143,7 @@ class DiskSnapshotTypeDef(BaseModel):
     fromInstanceArn: Optional[str] = None
     isFromAutoSnapshot: Optional[bool] = None
 
-class DiskTypeDef(BaseModel):
+class DiskTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -1163,7 +1163,7 @@ class DiskTypeDef(BaseModel):
     gbInUse: Optional[int] = None
     autoMountStatus: Optional[AutoMountStatusType] = None
 
-class KeyPairTypeDef(BaseModel):
+class KeyPairTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -1173,7 +1173,7 @@ class KeyPairTypeDef(BaseModel):
     tags: Optional[List[TagTypeDef]] = None
     fingerprint: Optional[str] = None
 
-class RelationalDatabaseSnapshotTypeDef(BaseModel):
+class RelationalDatabaseSnapshotTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -1190,17 +1190,17 @@ class RelationalDatabaseSnapshotTypeDef(BaseModel):
     fromRelationalDatabaseBundleId: Optional[str] = None
     fromRelationalDatabaseBlueprintId: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
     tags: Sequence[TagTypeDef]
     resourceArn: Optional[str] = None
 
-class GetBundlesResultTypeDef(BaseModel):
+class GetBundlesResultTypeDef(BaseValidatorModel):
     bundles: List[BundleTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CacheSettingsOutputTypeDef(BaseModel):
+class CacheSettingsOutputTypeDef(BaseValidatorModel):
     defaultTTL: Optional[int] = None
     minimumTTL: Optional[int] = None
     maximumTTL: Optional[int] = None
@@ -1210,7 +1210,7 @@ class CacheSettingsOutputTypeDef(BaseModel):
     forwardedHeaders: Optional[HeaderObjectOutputTypeDef] = None
     forwardedQueryStrings: Optional[QueryStringObjectOutputTypeDef] = None
 
-class CacheSettingsTypeDef(BaseModel):
+class CacheSettingsTypeDef(BaseValidatorModel):
     defaultTTL: Optional[int] = None
     minimumTTL: Optional[int] = None
     maximumTTL: Optional[int] = None
@@ -1220,19 +1220,19 @@ class CacheSettingsTypeDef(BaseModel):
     forwardedHeaders: Optional[HeaderObjectTypeDef] = None
     forwardedQueryStrings: Optional[QueryStringObjectTypeDef] = None
 
-class CloseInstancePublicPortsRequestRequestTypeDef(BaseModel):
+class CloseInstancePublicPortsRequestRequestTypeDef(BaseValidatorModel):
     portInfo: PortInfoTypeDef
     instanceName: str
 
-class OpenInstancePublicPortsRequestRequestTypeDef(BaseModel):
+class OpenInstancePublicPortsRequestRequestTypeDef(BaseValidatorModel):
     portInfo: PortInfoTypeDef
     instanceName: str
 
-class PutInstancePublicPortsRequestRequestTypeDef(BaseModel):
+class PutInstancePublicPortsRequestRequestTypeDef(BaseValidatorModel):
     portInfos: Sequence[PortInfoTypeDef]
     instanceName: str
 
-class CloudFormationStackRecordTypeDef(BaseModel):
+class CloudFormationStackRecordTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -1242,59 +1242,59 @@ class CloudFormationStackRecordTypeDef(BaseModel):
     sourceInfo: Optional[List[CloudFormationStackRecordSourceInfoTypeDef]] = None
     destinationInfo: Optional[DestinationInfoTypeDef] = None
 
-class GetContainerImagesResultTypeDef(BaseModel):
+class GetContainerImagesResultTypeDef(BaseValidatorModel):
     containerImages: List[ContainerImageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterContainerImageResultTypeDef(BaseModel):
+class RegisterContainerImageResultTypeDef(BaseValidatorModel):
     containerImage: ContainerImageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PrivateRegistryAccessRequestTypeDef(BaseModel):
+class PrivateRegistryAccessRequestTypeDef(BaseValidatorModel):
     ecrImagePullerRole: Optional[ContainerServiceECRImagePullerRoleRequestTypeDef] = None
 
-class PrivateRegistryAccessTypeDef(BaseModel):
+class PrivateRegistryAccessTypeDef(BaseValidatorModel):
     ecrImagePullerRole: Optional[ContainerServiceECRImagePullerRoleTypeDef] = None
 
-class ContainerServiceEndpointTypeDef(BaseModel):
+class ContainerServiceEndpointTypeDef(BaseValidatorModel):
     containerName: Optional[str] = None
     containerPort: Optional[int] = None
     healthCheck: Optional[ContainerServiceHealthCheckConfigTypeDef] = None
 
-class EndpointRequestTypeDef(BaseModel):
+class EndpointRequestTypeDef(BaseValidatorModel):
     containerName: str
     containerPort: int
     healthCheck: Optional[ContainerServiceHealthCheckConfigTypeDef] = None
 
-class GetContainerLogResultTypeDef(BaseModel):
+class GetContainerLogResultTypeDef(BaseValidatorModel):
     logEvents: List[ContainerServiceLogEventTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContainerServicePowersResultTypeDef(BaseModel):
+class GetContainerServicePowersResultTypeDef(BaseValidatorModel):
     powers: List[ContainerServicePowerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateContainerServiceRegistryLoginResultTypeDef(BaseModel):
+class CreateContainerServiceRegistryLoginResultTypeDef(BaseValidatorModel):
     registryLogin: ContainerServiceRegistryLoginTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCloudFormationStackRequestRequestTypeDef(BaseModel):
+class CreateCloudFormationStackRequestRequestTypeDef(BaseValidatorModel):
     instances: Sequence[InstanceEntryTypeDef]
 
-class CreateDomainEntryRequestRequestTypeDef(BaseModel):
+class CreateDomainEntryRequestRequestTypeDef(BaseValidatorModel):
     domainName: str
     domainEntry: DomainEntryTypeDef
 
-class DeleteDomainEntryRequestRequestTypeDef(BaseModel):
+class DeleteDomainEntryRequestRequestTypeDef(BaseValidatorModel):
     domainName: str
     domainEntry: DomainEntryTypeDef
 
-class UpdateDomainEntryRequestRequestTypeDef(BaseModel):
+class UpdateDomainEntryRequestRequestTypeDef(BaseValidatorModel):
     domainName: str
     domainEntry: DomainEntryTypeDef
 
-class CreateGUISessionAccessDetailsResultTypeDef(BaseModel):
+class CreateGUISessionAccessDetailsResultTypeDef(BaseValidatorModel):
     resourceName: str
     status: StatusType
     percentageComplete: int
@@ -1302,7 +1302,7 @@ class CreateGUISessionAccessDetailsResultTypeDef(BaseModel):
     sessions: List[SessionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRelationalDatabaseFromSnapshotRequestRequestTypeDef(BaseModel):
+class CreateRelationalDatabaseFromSnapshotRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     availabilityZone: Optional[str] = None
     publiclyAccessible: Optional[bool] = None
@@ -1313,7 +1313,7 @@ class CreateRelationalDatabaseFromSnapshotRequestRequestTypeDef(BaseModel):
     useLatestRestorableTime: Optional[bool] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class GetBucketMetricDataRequestRequestTypeDef(BaseModel):
+class GetBucketMetricDataRequestRequestTypeDef(BaseValidatorModel):
     bucketName: str
     metricName: BucketMetricNameType
     startTime: TimestampTypeDef
@@ -1322,7 +1322,7 @@ class GetBucketMetricDataRequestRequestTypeDef(BaseModel):
     statistics: Sequence[MetricStatisticType]
     unit: MetricUnitType
 
-class GetContainerLogRequestRequestTypeDef(BaseModel):
+class GetContainerLogRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
     containerName: str
     startTime: Optional[TimestampTypeDef] = None
@@ -1330,7 +1330,7 @@ class GetContainerLogRequestRequestTypeDef(BaseModel):
     filterPattern: Optional[str] = None
     pageToken: Optional[str] = None
 
-class GetContainerServiceMetricDataRequestRequestTypeDef(BaseModel):
+class GetContainerServiceMetricDataRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
     metricName: ContainerServiceMetricNameType
     startTime: TimestampTypeDef
@@ -1338,12 +1338,12 @@ class GetContainerServiceMetricDataRequestRequestTypeDef(BaseModel):
     period: int
     statistics: Sequence[MetricStatisticType]
 
-class GetCostEstimateRequestRequestTypeDef(BaseModel):
+class GetCostEstimateRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
 
-class GetDistributionMetricDataRequestRequestTypeDef(BaseModel):
+class GetDistributionMetricDataRequestRequestTypeDef(BaseValidatorModel):
     distributionName: str
     metricName: DistributionMetricNameType
     startTime: TimestampTypeDef
@@ -1352,7 +1352,7 @@ class GetDistributionMetricDataRequestRequestTypeDef(BaseModel):
     unit: MetricUnitType
     statistics: Sequence[MetricStatisticType]
 
-class GetInstanceMetricDataRequestRequestTypeDef(BaseModel):
+class GetInstanceMetricDataRequestRequestTypeDef(BaseValidatorModel):
     instanceName: str
     metricName: InstanceMetricNameType
     period: int
@@ -1361,7 +1361,7 @@ class GetInstanceMetricDataRequestRequestTypeDef(BaseModel):
     unit: MetricUnitType
     statistics: Sequence[MetricStatisticType]
 
-class GetLoadBalancerMetricDataRequestRequestTypeDef(BaseModel):
+class GetLoadBalancerMetricDataRequestRequestTypeDef(BaseValidatorModel):
     loadBalancerName: str
     metricName: LoadBalancerMetricNameType
     period: int
@@ -1370,7 +1370,7 @@ class GetLoadBalancerMetricDataRequestRequestTypeDef(BaseModel):
     unit: MetricUnitType
     statistics: Sequence[MetricStatisticType]
 
-class GetRelationalDatabaseLogEventsRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseLogEventsRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     logStreamName: str
     startTime: Optional[TimestampTypeDef] = None
@@ -1378,7 +1378,7 @@ class GetRelationalDatabaseLogEventsRequestRequestTypeDef(BaseModel):
     startFromHead: Optional[bool] = None
     pageToken: Optional[str] = None
 
-class GetRelationalDatabaseMetricDataRequestRequestTypeDef(BaseModel):
+class GetRelationalDatabaseMetricDataRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     metricName: RelationalDatabaseMetricNameType
     period: int
@@ -1387,171 +1387,171 @@ class GetRelationalDatabaseMetricDataRequestRequestTypeDef(BaseModel):
     unit: MetricUnitType
     statistics: Sequence[MetricStatisticType]
 
-class InstanceSnapshotInfoTypeDef(BaseModel):
+class InstanceSnapshotInfoTypeDef(BaseValidatorModel):
     fromBundleId: Optional[str] = None
     fromBlueprintId: Optional[str] = None
     fromDiskInfo: Optional[List[DiskInfoTypeDef]] = None
 
-class GetDistributionBundlesResultTypeDef(BaseModel):
+class GetDistributionBundlesResultTypeDef(BaseValidatorModel):
     bundles: List[DistributionBundleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DomainValidationRecordTypeDef(BaseModel):
+class DomainValidationRecordTypeDef(BaseValidatorModel):
     domainName: Optional[str] = None
     resourceRecord: Optional[ResourceRecordTypeDef] = None
     dnsRecordCreationState: Optional[DnsRecordCreationStateTypeDef] = None
     validationStatus: Optional[CertificateDomainValidationStatusType] = None
 
-class EstimateByTimeTypeDef(BaseModel):
+class EstimateByTimeTypeDef(BaseValidatorModel):
     usageCost: Optional[float] = None
     pricingUnit: Optional[PricingUnitType] = None
     unit: Optional[float] = None
     currency: Optional[Literal["USD"]] = None
     timePeriod: Optional[TimePeriodTypeDef] = None
 
-class GetActiveNamesRequestGetActiveNamesPaginateTypeDef(BaseModel):
+class GetActiveNamesRequestGetActiveNamesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetBlueprintsRequestGetBlueprintsPaginateTypeDef(BaseModel):
+class GetBlueprintsRequestGetBlueprintsPaginateTypeDef(BaseValidatorModel):
     includeInactive: Optional[bool] = None
     appCategory: Optional[Literal["LfR"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetBundlesRequestGetBundlesPaginateTypeDef(BaseModel):
+class GetBundlesRequestGetBundlesPaginateTypeDef(BaseValidatorModel):
     includeInactive: Optional[bool] = None
     appCategory: Optional[Literal["LfR"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetCloudFormationStackRecordsRequestGetCloudFormationStackRecordsPaginateTypeDef(BaseModel):
+class GetCloudFormationStackRecordsRequestGetCloudFormationStackRecordsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDiskSnapshotsRequestGetDiskSnapshotsPaginateTypeDef(BaseModel):
+class GetDiskSnapshotsRequestGetDiskSnapshotsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDisksRequestGetDisksPaginateTypeDef(BaseModel):
+class GetDisksRequestGetDisksPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDomainsRequestGetDomainsPaginateTypeDef(BaseModel):
+class GetDomainsRequestGetDomainsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetExportSnapshotRecordsRequestGetExportSnapshotRecordsPaginateTypeDef(BaseModel):
+class GetExportSnapshotRecordsRequestGetExportSnapshotRecordsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetInstanceSnapshotsRequestGetInstanceSnapshotsPaginateTypeDef(BaseModel):
+class GetInstanceSnapshotsRequestGetInstanceSnapshotsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetInstancesRequestGetInstancesPaginateTypeDef(BaseModel):
+class GetInstancesRequestGetInstancesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetKeyPairsRequestGetKeyPairsPaginateTypeDef(BaseModel):
+class GetKeyPairsRequestGetKeyPairsPaginateTypeDef(BaseValidatorModel):
     includeDefaultKeyPair: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetLoadBalancersRequestGetLoadBalancersPaginateTypeDef(BaseModel):
+class GetLoadBalancersRequestGetLoadBalancersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetOperationsRequestGetOperationsPaginateTypeDef(BaseModel):
+class GetOperationsRequestGetOperationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRelationalDatabaseBlueprintsRequestGetRelationalDatabaseBlueprintsPaginateTypeDef(BaseModel):
+class GetRelationalDatabaseBlueprintsRequestGetRelationalDatabaseBlueprintsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRelationalDatabaseBundlesRequestGetRelationalDatabaseBundlesPaginateTypeDef(BaseModel):
+class GetRelationalDatabaseBundlesRequestGetRelationalDatabaseBundlesPaginateTypeDef(BaseValidatorModel):
     includeInactive: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRelationalDatabaseEventsRequestGetRelationalDatabaseEventsPaginateTypeDef(BaseModel):
+class GetRelationalDatabaseEventsRequestGetRelationalDatabaseEventsPaginateTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     durationInMinutes: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRelationalDatabaseParametersRequestGetRelationalDatabaseParametersPaginateTypeDef(BaseModel):
+class GetRelationalDatabaseParametersRequestGetRelationalDatabaseParametersPaginateTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRelationalDatabaseSnapshotsRequestGetRelationalDatabaseSnapshotsPaginateTypeDef(BaseModel):
+class GetRelationalDatabaseSnapshotsRequestGetRelationalDatabaseSnapshotsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRelationalDatabasesRequestGetRelationalDatabasesPaginateTypeDef(BaseModel):
+class GetRelationalDatabasesRequestGetRelationalDatabasesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetStaticIpsRequestGetStaticIpsPaginateTypeDef(BaseModel):
+class GetStaticIpsRequestGetStaticIpsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetBucketMetricDataResultTypeDef(BaseModel):
+class GetBucketMetricDataResultTypeDef(BaseValidatorModel):
     metricName: BucketMetricNameType
     metricData: List[MetricDatapointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContainerServiceMetricDataResultTypeDef(BaseModel):
+class GetContainerServiceMetricDataResultTypeDef(BaseValidatorModel):
     metricName: ContainerServiceMetricNameType
     metricData: List[MetricDatapointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDistributionMetricDataResultTypeDef(BaseModel):
+class GetDistributionMetricDataResultTypeDef(BaseValidatorModel):
     metricName: DistributionMetricNameType
     metricData: List[MetricDatapointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceMetricDataResultTypeDef(BaseModel):
+class GetInstanceMetricDataResultTypeDef(BaseValidatorModel):
     metricName: InstanceMetricNameType
     metricData: List[MetricDatapointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLoadBalancerMetricDataResultTypeDef(BaseModel):
+class GetLoadBalancerMetricDataResultTypeDef(BaseValidatorModel):
     metricName: LoadBalancerMetricNameType
     metricData: List[MetricDatapointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseMetricDataResultTypeDef(BaseModel):
+class GetRelationalDatabaseMetricDataResultTypeDef(BaseValidatorModel):
     metricName: RelationalDatabaseMetricNameType
     metricData: List[MetricDatapointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstancePortStatesResultTypeDef(BaseModel):
+class GetInstancePortStatesResultTypeDef(BaseValidatorModel):
     portStates: List[InstancePortStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceStateResultTypeDef(BaseModel):
+class GetInstanceStateResultTypeDef(BaseValidatorModel):
     state: InstanceStateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLoadBalancerTlsPoliciesResultTypeDef(BaseModel):
+class GetLoadBalancerTlsPoliciesResultTypeDef(BaseValidatorModel):
     tlsPolicies: List[LoadBalancerTlsPolicyTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseBlueprintsResultTypeDef(BaseModel):
+class GetRelationalDatabaseBlueprintsResultTypeDef(BaseValidatorModel):
     blueprints: List[RelationalDatabaseBlueprintTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseBundlesResultTypeDef(BaseModel):
+class GetRelationalDatabaseBundlesResultTypeDef(BaseValidatorModel):
     bundles: List[RelationalDatabaseBundleTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseEventsResultTypeDef(BaseModel):
+class GetRelationalDatabaseEventsResultTypeDef(BaseValidatorModel):
     relationalDatabaseEvents: List[RelationalDatabaseEventTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseLogEventsResultTypeDef(BaseModel):
+class GetRelationalDatabaseLogEventsResultTypeDef(BaseValidatorModel):
     resourceLogEvents: List[LogEventTypeDef]
     nextBackwardToken: str
     nextForwardToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseParametersResultTypeDef(BaseModel):
+class GetRelationalDatabaseParametersResultTypeDef(BaseValidatorModel):
     parameters: List[RelationalDatabaseParameterTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRelationalDatabaseParametersRequestRequestTypeDef(BaseModel):
+class UpdateRelationalDatabaseParametersRequestRequestTypeDef(BaseValidatorModel):
     relationalDatabaseName: str
     parameters: Sequence[RelationalDatabaseParameterTypeDef]
 
-class InstanceAccessDetailsTypeDef(BaseModel):
+class InstanceAccessDetailsTypeDef(BaseValidatorModel):
     certKey: Optional[str] = None
     expiresAt: Optional[datetime] = None
     ipAddress: Optional[str] = None
@@ -1564,11 +1564,11 @@ class InstanceAccessDetailsTypeDef(BaseModel):
     username: Optional[str] = None
     hostKeys: Optional[List[HostKeyAttributesTypeDef]] = None
 
-class InstanceNetworkingTypeDef(BaseModel):
+class InstanceNetworkingTypeDef(BaseValidatorModel):
     monthlyTransfer: Optional[MonthlyTransferTypeDef] = None
     ports: Optional[List[InstancePortInfoTypeDef]] = None
 
-class LoadBalancerTlsCertificateDomainValidationRecordTypeDef(BaseModel):
+class LoadBalancerTlsCertificateDomainValidationRecordTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     type: Optional[str] = None
     value: Optional[str] = None
@@ -1576,11 +1576,11 @@ class LoadBalancerTlsCertificateDomainValidationRecordTypeDef(BaseModel):
     domainName: Optional[str] = None
     dnsRecordCreationState: Optional[       LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef     ] = None
 
-class LoadBalancerTlsCertificateRenewalSummaryTypeDef(BaseModel):
+class LoadBalancerTlsCertificateRenewalSummaryTypeDef(BaseValidatorModel):
     renewalStatus: Optional[LoadBalancerTlsCertificateRenewalStatusType] = None
     domainValidationOptions: Optional[       List[LoadBalancerTlsCertificateDomainValidationOptionTypeDef]     ] = None
 
-class LoadBalancerTypeDef(BaseModel):
+class LoadBalancerTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -1601,11 +1601,11 @@ class LoadBalancerTypeDef(BaseModel):
     httpsRedirectionEnabled: Optional[bool] = None
     tlsPolicyName: Optional[str] = None
 
-class RegisteredDomainDelegationInfoTypeDef(BaseModel):
+class RegisteredDomainDelegationInfoTypeDef(BaseValidatorModel):
     nameServersUpdateState: Optional[NameServersUpdateStateTypeDef] = None
     r53HostedZoneDeletionState: Optional[R53HostedZoneDeletionStateTypeDef] = None
 
-class RelationalDatabaseTypeDef(BaseModel):
+class RelationalDatabaseTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -1633,11 +1633,11 @@ class RelationalDatabaseTypeDef(BaseModel):
     pendingMaintenanceActions: Optional[List[PendingMaintenanceActionTypeDef]] = None
     caCertificateIdentifier: Optional[str] = None
 
-class GetBucketAccessKeysResultTypeDef(BaseModel):
+class GetBucketAccessKeysResultTypeDef(BaseValidatorModel):
     accessKeys: List[AccessKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDiskFromSnapshotRequestRequestTypeDef(BaseModel):
+class CreateDiskFromSnapshotRequestRequestTypeDef(BaseValidatorModel):
     diskName: str
     availabilityZone: str
     sizeInGb: int
@@ -1648,14 +1648,14 @@ class CreateDiskFromSnapshotRequestRequestTypeDef(BaseModel):
     restoreDate: Optional[str] = None
     useLatestRestorableAutoSnapshot: Optional[bool] = None
 
-class CreateDiskRequestRequestTypeDef(BaseModel):
+class CreateDiskRequestRequestTypeDef(BaseValidatorModel):
     diskName: str
     availabilityZone: str
     sizeInGb: int
     tags: Optional[Sequence[TagTypeDef]] = None
     addOns: Optional[Sequence[AddOnRequestTypeDef]] = None
 
-class CreateInstancesFromSnapshotRequestRequestTypeDef(BaseModel):
+class CreateInstancesFromSnapshotRequestRequestTypeDef(BaseValidatorModel):
     instanceNames: Sequence[str]
     availabilityZone: str
     bundleId: str
@@ -1670,7 +1670,7 @@ class CreateInstancesFromSnapshotRequestRequestTypeDef(BaseModel):
     restoreDate: Optional[str] = None
     useLatestRestorableAutoSnapshot: Optional[bool] = None
 
-class CreateInstancesRequestRequestTypeDef(BaseModel):
+class CreateInstancesRequestRequestTypeDef(BaseValidatorModel):
     instanceNames: Sequence[str]
     availabilityZone: str
     blueprintId: str
@@ -1682,427 +1682,427 @@ class CreateInstancesRequestRequestTypeDef(BaseModel):
     addOns: Optional[Sequence[AddOnRequestTypeDef]] = None
     ipAddressType: Optional[IpAddressTypeType] = None
 
-class EnableAddOnRequestRequestTypeDef(BaseModel):
+class EnableAddOnRequestRequestTypeDef(BaseValidatorModel):
     resourceName: str
     addOnRequest: AddOnRequestTypeDef
 
-class GetAlarmsResultTypeDef(BaseModel):
+class GetAlarmsResultTypeDef(BaseValidatorModel):
     alarms: List[AlarmTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContactMethodsResultTypeDef(BaseModel):
+class GetContactMethodsResultTypeDef(BaseValidatorModel):
     contactMethods: List[ContactMethodTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AllocateStaticIpResultTypeDef(BaseModel):
+class AllocateStaticIpResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachCertificateToDistributionResultTypeDef(BaseModel):
+class AttachCertificateToDistributionResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachDiskResultTypeDef(BaseModel):
+class AttachDiskResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachInstancesToLoadBalancerResultTypeDef(BaseModel):
+class AttachInstancesToLoadBalancerResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachLoadBalancerTlsCertificateResultTypeDef(BaseModel):
+class AttachLoadBalancerTlsCertificateResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachStaticIpResultTypeDef(BaseModel):
+class AttachStaticIpResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CloseInstancePublicPortsResultTypeDef(BaseModel):
+class CloseInstancePublicPortsResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CopySnapshotResultTypeDef(BaseModel):
+class CopySnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBucketAccessKeyResultTypeDef(BaseModel):
+class CreateBucketAccessKeyResultTypeDef(BaseValidatorModel):
     accessKey: AccessKeyTypeDef
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCloudFormationStackResultTypeDef(BaseModel):
+class CreateCloudFormationStackResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateContactMethodResultTypeDef(BaseModel):
+class CreateContactMethodResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDiskFromSnapshotResultTypeDef(BaseModel):
+class CreateDiskFromSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDiskResultTypeDef(BaseModel):
+class CreateDiskResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDiskSnapshotResultTypeDef(BaseModel):
+class CreateDiskSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDomainEntryResultTypeDef(BaseModel):
+class CreateDomainEntryResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDomainResultTypeDef(BaseModel):
+class CreateDomainResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceSnapshotResultTypeDef(BaseModel):
+class CreateInstanceSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstancesFromSnapshotResultTypeDef(BaseModel):
+class CreateInstancesFromSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstancesResultTypeDef(BaseModel):
+class CreateInstancesResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLoadBalancerResultTypeDef(BaseModel):
+class CreateLoadBalancerResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLoadBalancerTlsCertificateResultTypeDef(BaseModel):
+class CreateLoadBalancerTlsCertificateResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRelationalDatabaseFromSnapshotResultTypeDef(BaseModel):
+class CreateRelationalDatabaseFromSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRelationalDatabaseResultTypeDef(BaseModel):
+class CreateRelationalDatabaseResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRelationalDatabaseSnapshotResultTypeDef(BaseModel):
+class CreateRelationalDatabaseSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAlarmResultTypeDef(BaseModel):
+class DeleteAlarmResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAutoSnapshotResultTypeDef(BaseModel):
+class DeleteAutoSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBucketAccessKeyResultTypeDef(BaseModel):
+class DeleteBucketAccessKeyResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBucketResultTypeDef(BaseModel):
+class DeleteBucketResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCertificateResultTypeDef(BaseModel):
+class DeleteCertificateResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteContactMethodResultTypeDef(BaseModel):
+class DeleteContactMethodResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDiskResultTypeDef(BaseModel):
+class DeleteDiskResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDiskSnapshotResultTypeDef(BaseModel):
+class DeleteDiskSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDistributionResultTypeDef(BaseModel):
+class DeleteDistributionResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDomainEntryResultTypeDef(BaseModel):
+class DeleteDomainEntryResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDomainResultTypeDef(BaseModel):
+class DeleteDomainResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteInstanceResultTypeDef(BaseModel):
+class DeleteInstanceResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteInstanceSnapshotResultTypeDef(BaseModel):
+class DeleteInstanceSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteKeyPairResultTypeDef(BaseModel):
+class DeleteKeyPairResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteKnownHostKeysResultTypeDef(BaseModel):
+class DeleteKnownHostKeysResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLoadBalancerResultTypeDef(BaseModel):
+class DeleteLoadBalancerResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLoadBalancerTlsCertificateResultTypeDef(BaseModel):
+class DeleteLoadBalancerTlsCertificateResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRelationalDatabaseResultTypeDef(BaseModel):
+class DeleteRelationalDatabaseResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRelationalDatabaseSnapshotResultTypeDef(BaseModel):
+class DeleteRelationalDatabaseSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetachCertificateFromDistributionResultTypeDef(BaseModel):
+class DetachCertificateFromDistributionResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetachDiskResultTypeDef(BaseModel):
+class DetachDiskResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetachInstancesFromLoadBalancerResultTypeDef(BaseModel):
+class DetachInstancesFromLoadBalancerResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DetachStaticIpResultTypeDef(BaseModel):
+class DetachStaticIpResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableAddOnResultTypeDef(BaseModel):
+class DisableAddOnResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableAddOnResultTypeDef(BaseModel):
+class EnableAddOnResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportSnapshotResultTypeDef(BaseModel):
+class ExportSnapshotResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOperationResultTypeDef(BaseModel):
+class GetOperationResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOperationsForResourceResultTypeDef(BaseModel):
+class GetOperationsForResourceResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     nextPageCount: str
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOperationsResultTypeDef(BaseModel):
+class GetOperationsResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportKeyPairResultTypeDef(BaseModel):
+class ImportKeyPairResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OpenInstancePublicPortsResultTypeDef(BaseModel):
+class OpenInstancePublicPortsResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PeerVpcResultTypeDef(BaseModel):
+class PeerVpcResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAlarmResultTypeDef(BaseModel):
+class PutAlarmResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutInstancePublicPortsResultTypeDef(BaseModel):
+class PutInstancePublicPortsResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RebootInstanceResultTypeDef(BaseModel):
+class RebootInstanceResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RebootRelationalDatabaseResultTypeDef(BaseModel):
+class RebootRelationalDatabaseResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReleaseStaticIpResultTypeDef(BaseModel):
+class ReleaseStaticIpResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetDistributionCacheResultTypeDef(BaseModel):
+class ResetDistributionCacheResultTypeDef(BaseValidatorModel):
     status: str
     createTime: datetime
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendContactMethodVerificationResultTypeDef(BaseModel):
+class SendContactMethodVerificationResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetIpAddressTypeResultTypeDef(BaseModel):
+class SetIpAddressTypeResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetResourceAccessForBucketResultTypeDef(BaseModel):
+class SetResourceAccessForBucketResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetupInstanceHttpsResultTypeDef(BaseModel):
+class SetupInstanceHttpsResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartGUISessionResultTypeDef(BaseModel):
+class StartGUISessionResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartInstanceResultTypeDef(BaseModel):
+class StartInstanceResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartRelationalDatabaseResultTypeDef(BaseModel):
+class StartRelationalDatabaseResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopGUISessionResultTypeDef(BaseModel):
+class StopGUISessionResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopInstanceResultTypeDef(BaseModel):
+class StopInstanceResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopRelationalDatabaseResultTypeDef(BaseModel):
+class StopRelationalDatabaseResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceResultTypeDef(BaseModel):
+class TagResourceResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestAlarmResultTypeDef(BaseModel):
+class TestAlarmResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UnpeerVpcResultTypeDef(BaseModel):
+class UnpeerVpcResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UntagResourceResultTypeDef(BaseModel):
+class UntagResourceResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBucketBundleResultTypeDef(BaseModel):
+class UpdateBucketBundleResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDistributionBundleResultTypeDef(BaseModel):
+class UpdateDistributionBundleResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDistributionResultTypeDef(BaseModel):
+class UpdateDistributionResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDomainEntryResultTypeDef(BaseModel):
+class UpdateDomainEntryResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateInstanceMetadataOptionsResultTypeDef(BaseModel):
+class UpdateInstanceMetadataOptionsResultTypeDef(BaseValidatorModel):
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLoadBalancerAttributeResultTypeDef(BaseModel):
+class UpdateLoadBalancerAttributeResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRelationalDatabaseParametersResultTypeDef(BaseModel):
+class UpdateRelationalDatabaseParametersResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRelationalDatabaseResultTypeDef(BaseModel):
+class UpdateRelationalDatabaseResultTypeDef(BaseValidatorModel):
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetupHistoryTypeDef(BaseModel):
+class SetupHistoryTypeDef(BaseValidatorModel):
     operationId: Optional[str] = None
     request: Optional[SetupRequestTypeDef] = None
     resource: Optional[SetupHistoryResourceTypeDef] = None
     executionDetails: Optional[List[SetupExecutionDetailsTypeDef]] = None
     status: Optional[SetupStatusType] = None
 
-class GetStaticIpResultTypeDef(BaseModel):
+class GetStaticIpResultTypeDef(BaseValidatorModel):
     staticIp: StaticIpTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetStaticIpsResultTypeDef(BaseModel):
+class GetStaticIpsResultTypeDef(BaseValidatorModel):
     staticIps: List[StaticIpTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAutoSnapshotsResultTypeDef(BaseModel):
+class GetAutoSnapshotsResultTypeDef(BaseValidatorModel):
     resourceName: str
     resourceType: ResourceTypeType
     autoSnapshots: List[AutoSnapshotDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRegionsResultTypeDef(BaseModel):
+class GetRegionsResultTypeDef(BaseValidatorModel):
     regions: List[RegionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBucketResultTypeDef(BaseModel):
+class CreateBucketResultTypeDef(BaseValidatorModel):
     bucket: BucketTypeDef
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBucketsResultTypeDef(BaseModel):
+class GetBucketsResultTypeDef(BaseValidatorModel):
     buckets: List[BucketTypeDef]
     nextPageToken: str
     accountLevelBpaSync: AccountLevelBpaSyncTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBucketResultTypeDef(BaseModel):
+class UpdateBucketResultTypeDef(BaseValidatorModel):
     bucket: BucketTypeDef
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDiskSnapshotResultTypeDef(BaseModel):
+class GetDiskSnapshotResultTypeDef(BaseValidatorModel):
     diskSnapshot: DiskSnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDiskSnapshotsResultTypeDef(BaseModel):
+class GetDiskSnapshotsResultTypeDef(BaseValidatorModel):
     diskSnapshots: List[DiskSnapshotTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDiskResultTypeDef(BaseModel):
+class GetDiskResultTypeDef(BaseValidatorModel):
     disk: DiskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDisksResultTypeDef(BaseModel):
+class GetDisksResultTypeDef(BaseValidatorModel):
     disks: List[DiskTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InstanceHardwareTypeDef(BaseModel):
+class InstanceHardwareTypeDef(BaseValidatorModel):
     cpuCount: Optional[int] = None
     disks: Optional[List[DiskTypeDef]] = None
     ramSizeInGb: Optional[float] = None
 
-class InstanceSnapshotTypeDef(BaseModel):
+class InstanceSnapshotTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -2120,32 +2120,32 @@ class InstanceSnapshotTypeDef(BaseModel):
     isFromAutoSnapshot: Optional[bool] = None
     sizeInGb: Optional[int] = None
 
-class CreateKeyPairResultTypeDef(BaseModel):
+class CreateKeyPairResultTypeDef(BaseValidatorModel):
     keyPair: KeyPairTypeDef
     publicKeyBase64: str
     privateKeyBase64: str
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetKeyPairResultTypeDef(BaseModel):
+class GetKeyPairResultTypeDef(BaseValidatorModel):
     keyPair: KeyPairTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetKeyPairsResultTypeDef(BaseModel):
+class GetKeyPairsResultTypeDef(BaseValidatorModel):
     keyPairs: List[KeyPairTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseSnapshotResultTypeDef(BaseModel):
+class GetRelationalDatabaseSnapshotResultTypeDef(BaseValidatorModel):
     relationalDatabaseSnapshot: RelationalDatabaseSnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabaseSnapshotsResultTypeDef(BaseModel):
+class GetRelationalDatabaseSnapshotsResultTypeDef(BaseValidatorModel):
     relationalDatabaseSnapshots: List[RelationalDatabaseSnapshotTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LightsailDistributionTypeDef(BaseModel):
+class LightsailDistributionTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -2168,7 +2168,7 @@ class LightsailDistributionTypeDef(BaseModel):
     tags: Optional[List[TagTypeDef]] = None
     viewerMinimumTlsProtocolVersion: Optional[str] = None
 
-class CreateDistributionRequestRequestTypeDef(BaseModel):
+class CreateDistributionRequestRequestTypeDef(BaseValidatorModel):
     distributionName: str
     origin: InputOriginTypeDef
     defaultCacheBehavior: CacheBehaviorTypeDef
@@ -2180,7 +2180,7 @@ class CreateDistributionRequestRequestTypeDef(BaseModel):
     certificateName: Optional[str] = None
     viewerMinimumTlsProtocolVersion: Optional[ViewerMinimumTlsProtocolVersionEnumType] = None
 
-class UpdateDistributionRequestRequestTypeDef(BaseModel):
+class UpdateDistributionRequestRequestTypeDef(BaseValidatorModel):
     distributionName: str
     origin: Optional[InputOriginTypeDef] = None
     defaultCacheBehavior: Optional[CacheBehaviorTypeDef] = None
@@ -2191,12 +2191,12 @@ class UpdateDistributionRequestRequestTypeDef(BaseModel):
     certificateName: Optional[str] = None
     useDefaultCertificate: Optional[bool] = None
 
-class GetCloudFormationStackRecordsResultTypeDef(BaseModel):
+class GetCloudFormationStackRecordsResultTypeDef(BaseValidatorModel):
     cloudFormationStackRecords: List[CloudFormationStackRecordTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateContainerServiceRequestRequestTypeDef(BaseModel):
+class UpdateContainerServiceRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
     power: Optional[ContainerServicePowerNameType] = None
     scale: Optional[int] = None
@@ -2204,23 +2204,23 @@ class UpdateContainerServiceRequestRequestTypeDef(BaseModel):
     publicDomainNames: Optional[Mapping[str, Sequence[str]]] = None
     privateRegistryAccess: Optional[PrivateRegistryAccessRequestTypeDef] = None
 
-class ContainerServiceDeploymentTypeDef(BaseModel):
+class ContainerServiceDeploymentTypeDef(BaseValidatorModel):
     version: Optional[int] = None
     state: Optional[ContainerServiceDeploymentStateType] = None
     containers: Optional[Dict[str, ContainerOutputTypeDef]] = None
     publicEndpoint: Optional[ContainerServiceEndpointTypeDef] = None
     createdAt: Optional[datetime] = None
 
-class ContainerServiceDeploymentRequestTypeDef(BaseModel):
+class ContainerServiceDeploymentRequestTypeDef(BaseValidatorModel):
     containers: Optional[Mapping[str, ContainerTypeDef]] = None
     publicEndpoint: Optional[EndpointRequestTypeDef] = None
 
-class CreateContainerServiceDeploymentRequestRequestTypeDef(BaseModel):
+class CreateContainerServiceDeploymentRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
     containers: Optional[Mapping[str, ContainerUnionTypeDef]] = None
     publicEndpoint: Optional[EndpointRequestTypeDef] = None
 
-class ExportSnapshotRecordSourceInfoTypeDef(BaseModel):
+class ExportSnapshotRecordSourceInfoTypeDef(BaseValidatorModel):
     resourceType: Optional[ExportSnapshotRecordSourceTypeType] = None
     createdAt: Optional[datetime] = None
     name: Optional[str] = None
@@ -2230,21 +2230,21 @@ class ExportSnapshotRecordSourceInfoTypeDef(BaseModel):
     instanceSnapshotInfo: Optional[InstanceSnapshotInfoTypeDef] = None
     diskSnapshotInfo: Optional[DiskSnapshotInfoTypeDef] = None
 
-class RenewalSummaryTypeDef(BaseModel):
+class RenewalSummaryTypeDef(BaseValidatorModel):
     domainValidationRecords: Optional[List[DomainValidationRecordTypeDef]] = None
     renewalStatus: Optional[RenewalStatusType] = None
     renewalStatusReason: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
-class CostEstimateTypeDef(BaseModel):
+class CostEstimateTypeDef(BaseValidatorModel):
     usageType: Optional[str] = None
     resultsByTime: Optional[List[EstimateByTimeTypeDef]] = None
 
-class GetInstanceAccessDetailsResultTypeDef(BaseModel):
+class GetInstanceAccessDetailsResultTypeDef(BaseValidatorModel):
     accessDetails: InstanceAccessDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoadBalancerTlsCertificateTypeDef(BaseModel):
+class LoadBalancerTlsCertificateTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -2271,16 +2271,16 @@ class LoadBalancerTlsCertificateTypeDef(BaseModel):
     subject: Optional[str] = None
     subjectAlternativeNames: Optional[List[str]] = None
 
-class GetLoadBalancerResultTypeDef(BaseModel):
+class GetLoadBalancerResultTypeDef(BaseValidatorModel):
     loadBalancer: LoadBalancerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLoadBalancersResultTypeDef(BaseModel):
+class GetLoadBalancersResultTypeDef(BaseValidatorModel):
     loadBalancers: List[LoadBalancerTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DomainTypeDef(BaseModel):
+class DomainTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -2291,21 +2291,21 @@ class DomainTypeDef(BaseModel):
     domainEntries: Optional[List[DomainEntryOutputTypeDef]] = None
     registeredDomainDelegationInfo: Optional[RegisteredDomainDelegationInfoTypeDef] = None
 
-class GetRelationalDatabaseResultTypeDef(BaseModel):
+class GetRelationalDatabaseResultTypeDef(BaseValidatorModel):
     relationalDatabase: RelationalDatabaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRelationalDatabasesResultTypeDef(BaseModel):
+class GetRelationalDatabasesResultTypeDef(BaseValidatorModel):
     relationalDatabases: List[RelationalDatabaseTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSetupHistoryResultTypeDef(BaseModel):
+class GetSetupHistoryResultTypeDef(BaseValidatorModel):
     setupHistory: List[SetupHistoryTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InstanceTypeDef(BaseModel):
+class InstanceTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     supportCode: Optional[str] = None
@@ -2329,26 +2329,26 @@ class InstanceTypeDef(BaseModel):
     sshKeyName: Optional[str] = None
     metadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
 
-class GetInstanceSnapshotResultTypeDef(BaseModel):
+class GetInstanceSnapshotResultTypeDef(BaseValidatorModel):
     instanceSnapshot: InstanceSnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceSnapshotsResultTypeDef(BaseModel):
+class GetInstanceSnapshotsResultTypeDef(BaseValidatorModel):
     instanceSnapshots: List[InstanceSnapshotTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDistributionResultTypeDef(BaseModel):
+class CreateDistributionResultTypeDef(BaseValidatorModel):
     distribution: LightsailDistributionTypeDef
     operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDistributionsResultTypeDef(BaseModel):
+class GetDistributionsResultTypeDef(BaseValidatorModel):
     distributions: List[LightsailDistributionTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ContainerServiceTypeDef(BaseModel):
+class ContainerServiceTypeDef(BaseValidatorModel):
     containerServiceName: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -2369,11 +2369,11 @@ class ContainerServiceTypeDef(BaseModel):
     url: Optional[str] = None
     privateRegistryAccess: Optional[PrivateRegistryAccessTypeDef] = None
 
-class GetContainerServiceDeploymentsResultTypeDef(BaseModel):
+class GetContainerServiceDeploymentsResultTypeDef(BaseValidatorModel):
     deployments: List[ContainerServiceDeploymentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateContainerServiceRequestRequestTypeDef(BaseModel):
+class CreateContainerServiceRequestRequestTypeDef(BaseValidatorModel):
     serviceName: str
     power: ContainerServicePowerNameType
     scale: int
@@ -2382,7 +2382,7 @@ class CreateContainerServiceRequestRequestTypeDef(BaseModel):
     deployment: Optional[ContainerServiceDeploymentRequestTypeDef] = None
     privateRegistryAccess: Optional[PrivateRegistryAccessRequestTypeDef] = None
 
-class ExportSnapshotRecordTypeDef(BaseModel):
+class ExportSnapshotRecordTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -2392,7 +2392,7 @@ class ExportSnapshotRecordTypeDef(BaseModel):
     sourceInfo: Optional[ExportSnapshotRecordSourceInfoTypeDef] = None
     destinationInfo: Optional[DestinationInfoTypeDef] = None
 
-class CertificateTypeDef(BaseModel):
+class CertificateTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     domainName: Optional[str] = None
@@ -2415,73 +2415,73 @@ class CertificateTypeDef(BaseModel):
     tags: Optional[List[TagTypeDef]] = None
     supportCode: Optional[str] = None
 
-class ResourceBudgetEstimateTypeDef(BaseModel):
+class ResourceBudgetEstimateTypeDef(BaseValidatorModel):
     resourceName: Optional[str] = None
     resourceType: Optional[ResourceTypeType] = None
     costEstimates: Optional[List[CostEstimateTypeDef]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
-class GetLoadBalancerTlsCertificatesResultTypeDef(BaseModel):
+class GetLoadBalancerTlsCertificatesResultTypeDef(BaseValidatorModel):
     tlsCertificates: List[LoadBalancerTlsCertificateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDomainResultTypeDef(BaseModel):
+class GetDomainResultTypeDef(BaseValidatorModel):
     domain: DomainTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDomainsResultTypeDef(BaseModel):
+class GetDomainsResultTypeDef(BaseValidatorModel):
     domains: List[DomainTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceResultTypeDef(BaseModel):
+class GetInstanceResultTypeDef(BaseValidatorModel):
     instance: InstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstancesResultTypeDef(BaseModel):
+class GetInstancesResultTypeDef(BaseValidatorModel):
     instances: List[InstanceTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ContainerServicesListResultTypeDef(BaseModel):
+class ContainerServicesListResultTypeDef(BaseValidatorModel):
     containerServices: List[ContainerServiceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateContainerServiceDeploymentResultTypeDef(BaseModel):
+class CreateContainerServiceDeploymentResultTypeDef(BaseValidatorModel):
     containerService: ContainerServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateContainerServiceResultTypeDef(BaseModel):
+class CreateContainerServiceResultTypeDef(BaseValidatorModel):
     containerService: ContainerServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateContainerServiceResultTypeDef(BaseModel):
+class UpdateContainerServiceResultTypeDef(BaseValidatorModel):
     containerService: ContainerServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetExportSnapshotRecordsResultTypeDef(BaseModel):
+class GetExportSnapshotRecordsResultTypeDef(BaseValidatorModel):
     exportSnapshotRecords: List[ExportSnapshotRecordTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CertificateSummaryTypeDef(BaseModel):
+class CertificateSummaryTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
     certificateName: Optional[str] = None
     domainName: Optional[str] = None
     certificateDetail: Optional[CertificateTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class GetCostEstimateResultTypeDef(BaseModel):
+class GetCostEstimateResultTypeDef(BaseValidatorModel):
     resourcesBudgetEstimate: List[ResourceBudgetEstimateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCertificateResultTypeDef(BaseModel):
+class CreateCertificateResultTypeDef(BaseValidatorModel):
     certificate: CertificateSummaryTypeDef
     operations: List[OperationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCertificatesResultTypeDef(BaseModel):
+class GetCertificatesResultTypeDef(BaseValidatorModel):
     certificates: List[CertificateSummaryTypeDef]
     nextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef

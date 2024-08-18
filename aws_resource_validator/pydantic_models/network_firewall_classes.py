@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,135 +11,135 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.network_firewall_constants import *
 
-class AddressTypeDef(BaseModel):
+class AddressTypeDef(BaseValidatorModel):
     AddressDefinition: str
 
-class AnalysisResultTypeDef(BaseModel):
+class AnalysisResultTypeDef(BaseValidatorModel):
     IdentifiedRuleIds: Optional[List[str]] = None
     IdentifiedType: Optional[IdentifiedTypeType] = None
     AnalysisDetail: Optional[str] = None
 
-class AssociateFirewallPolicyRequestRequestTypeDef(BaseModel):
+class AssociateFirewallPolicyRequestRequestTypeDef(BaseValidatorModel):
     FirewallPolicyArn: str
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class SubnetMappingTypeDef(BaseModel):
+class SubnetMappingTypeDef(BaseValidatorModel):
     SubnetId: str
     IPAddressType: Optional[IPAddressTypeType] = None
 
-class AttachmentTypeDef(BaseModel):
+class AttachmentTypeDef(BaseValidatorModel):
     SubnetId: Optional[str] = None
     EndpointId: Optional[str] = None
     Status: Optional[AttachmentStatusType] = None
     StatusMessage: Optional[str] = None
 
-class IPSetMetadataTypeDef(BaseModel):
+class IPSetMetadataTypeDef(BaseValidatorModel):
     ResolvedCIDRCount: Optional[int] = None
 
-class CheckCertificateRevocationStatusActionsTypeDef(BaseModel):
+class CheckCertificateRevocationStatusActionsTypeDef(BaseValidatorModel):
     RevokedStatusAction: Optional[RevocationCheckActionType] = None
     UnknownStatusAction: Optional[RevocationCheckActionType] = None
 
-class EncryptionConfigurationTypeDef(BaseModel):
+class EncryptionConfigurationTypeDef(BaseValidatorModel):
     Type: EncryptionTypeType
     KeyId: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class SourceMetadataTypeDef(BaseModel):
+class SourceMetadataTypeDef(BaseValidatorModel):
     SourceArn: Optional[str] = None
     SourceUpdateToken: Optional[str] = None
 
-class DeleteFirewallPolicyRequestRequestTypeDef(BaseModel):
+class DeleteFirewallPolicyRequestRequestTypeDef(BaseValidatorModel):
     FirewallPolicyName: Optional[str] = None
     FirewallPolicyArn: Optional[str] = None
 
-class DeleteFirewallRequestRequestTypeDef(BaseModel):
+class DeleteFirewallRequestRequestTypeDef(BaseValidatorModel):
     FirewallName: Optional[str] = None
     FirewallArn: Optional[str] = None
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseModel):
+class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DeleteRuleGroupRequestRequestTypeDef(BaseModel):
+class DeleteRuleGroupRequestRequestTypeDef(BaseValidatorModel):
     RuleGroupName: Optional[str] = None
     RuleGroupArn: Optional[str] = None
     Type: Optional[RuleGroupTypeType] = None
 
-class DeleteTLSInspectionConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteTLSInspectionConfigurationRequestRequestTypeDef(BaseValidatorModel):
     TLSInspectionConfigurationArn: Optional[str] = None
     TLSInspectionConfigurationName: Optional[str] = None
 
-class DescribeFirewallPolicyRequestRequestTypeDef(BaseModel):
+class DescribeFirewallPolicyRequestRequestTypeDef(BaseValidatorModel):
     FirewallPolicyName: Optional[str] = None
     FirewallPolicyArn: Optional[str] = None
 
-class DescribeFirewallRequestRequestTypeDef(BaseModel):
+class DescribeFirewallRequestRequestTypeDef(BaseValidatorModel):
     FirewallName: Optional[str] = None
     FirewallArn: Optional[str] = None
 
-class DescribeLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
 
-class DescribeResourcePolicyRequestRequestTypeDef(BaseModel):
+class DescribeResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DescribeRuleGroupMetadataRequestRequestTypeDef(BaseModel):
+class DescribeRuleGroupMetadataRequestRequestTypeDef(BaseValidatorModel):
     RuleGroupName: Optional[str] = None
     RuleGroupArn: Optional[str] = None
     Type: Optional[RuleGroupTypeType] = None
 
-class StatefulRuleOptionsTypeDef(BaseModel):
+class StatefulRuleOptionsTypeDef(BaseValidatorModel):
     RuleOrder: Optional[RuleOrderType] = None
 
-class DescribeRuleGroupRequestRequestTypeDef(BaseModel):
+class DescribeRuleGroupRequestRequestTypeDef(BaseValidatorModel):
     RuleGroupName: Optional[str] = None
     RuleGroupArn: Optional[str] = None
     Type: Optional[RuleGroupTypeType] = None
     AnalyzeRuleGroup: Optional[bool] = None
 
-class DescribeTLSInspectionConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeTLSInspectionConfigurationRequestRequestTypeDef(BaseValidatorModel):
     TLSInspectionConfigurationArn: Optional[str] = None
     TLSInspectionConfigurationName: Optional[str] = None
 
-class DimensionTypeDef(BaseModel):
+class DimensionTypeDef(BaseValidatorModel):
     Value: str
 
-class DisassociateSubnetsRequestRequestTypeDef(BaseModel):
+class DisassociateSubnetsRequestRequestTypeDef(BaseValidatorModel):
     SubnetIds: Sequence[str]
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
 
-class FirewallMetadataTypeDef(BaseModel):
+class FirewallMetadataTypeDef(BaseValidatorModel):
     FirewallName: Optional[str] = None
     FirewallArn: Optional[str] = None
 
-class FirewallPolicyMetadataTypeDef(BaseModel):
+class FirewallPolicyMetadataTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
 
-class StatefulEngineOptionsTypeDef(BaseModel):
+class StatefulEngineOptionsTypeDef(BaseValidatorModel):
     RuleOrder: Optional[RuleOrderType] = None
     StreamExceptionPolicy: Optional[StreamExceptionPolicyType] = None
 
-class StatelessRuleGroupReferenceTypeDef(BaseModel):
+class StatelessRuleGroupReferenceTypeDef(BaseValidatorModel):
     ResourceArn: str
     Priority: int
 
-class HeaderTypeDef(BaseModel):
+class HeaderTypeDef(BaseValidatorModel):
     Protocol: StatefulRuleProtocolType
     Source: str
     SourcePort: str
@@ -147,201 +147,201 @@ class HeaderTypeDef(BaseModel):
     Destination: str
     DestinationPort: str
 
-class IPSetReferenceTypeDef(BaseModel):
+class IPSetReferenceTypeDef(BaseValidatorModel):
     ReferenceArn: Optional[str] = None
 
-class IPSetTypeDef(BaseModel):
+class IPSetTypeDef(BaseValidatorModel):
     Definition: Sequence[str]
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListFirewallPoliciesRequestRequestTypeDef(BaseModel):
+class ListFirewallPoliciesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListFirewallsRequestRequestTypeDef(BaseModel):
+class ListFirewallsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     VpcIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
 
-class ListRuleGroupsRequestRequestTypeDef(BaseModel):
+class ListRuleGroupsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Scope: Optional[ResourceManagedStatusType] = None
     ManagedType: Optional[ResourceManagedTypeType] = None
     Type: Optional[RuleGroupTypeType] = None
 
-class RuleGroupMetadataTypeDef(BaseModel):
+class RuleGroupMetadataTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
 
-class ListTLSInspectionConfigurationsRequestRequestTypeDef(BaseModel):
+class ListTLSInspectionConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class TLSInspectionConfigurationMetadataTypeDef(BaseModel):
+class TLSInspectionConfigurationMetadataTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class LogDestinationConfigTypeDef(BaseModel):
+class LogDestinationConfigTypeDef(BaseValidatorModel):
     LogType: LogTypeType
     LogDestinationType: LogDestinationTypeType
     LogDestination: Dict[str, str]
 
-class PortRangeTypeDef(BaseModel):
+class PortRangeTypeDef(BaseValidatorModel):
     FromPort: int
     ToPort: int
 
-class TCPFlagFieldTypeDef(BaseModel):
+class TCPFlagFieldTypeDef(BaseValidatorModel):
     Flags: Sequence[TCPFlagType]
     Masks: Optional[Sequence[TCPFlagType]] = None
 
-class PerObjectStatusTypeDef(BaseModel):
+class PerObjectStatusTypeDef(BaseValidatorModel):
     SyncStatus: Optional[PerObjectSyncStatusType] = None
     UpdateToken: Optional[str] = None
 
-class PortSetTypeDef(BaseModel):
+class PortSetTypeDef(BaseValidatorModel):
     Definition: Optional[Sequence[str]] = None
 
-class PutResourcePolicyRequestRequestTypeDef(BaseModel):
+class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Policy: str
 
-class RuleOptionTypeDef(BaseModel):
+class RuleOptionTypeDef(BaseValidatorModel):
     Keyword: str
     Settings: Optional[Sequence[str]] = None
 
-class RulesSourceListTypeDef(BaseModel):
+class RulesSourceListTypeDef(BaseValidatorModel):
     Targets: Sequence[str]
     TargetTypes: Sequence[TargetTypeType]
     GeneratedRulesType: GeneratedRulesTypeType
 
-class ServerCertificateTypeDef(BaseModel):
+class ServerCertificateTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
-class StatefulRuleGroupOverrideTypeDef(BaseModel):
+class StatefulRuleGroupOverrideTypeDef(BaseValidatorModel):
     Action: Optional[Literal["DROP_TO_ALERT"]] = None
 
-class TlsCertificateDataTypeDef(BaseModel):
+class TlsCertificateDataTypeDef(BaseValidatorModel):
     CertificateArn: Optional[str] = None
     CertificateSerial: Optional[str] = None
     Status: Optional[str] = None
     StatusMessage: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateFirewallDeleteProtectionRequestRequestTypeDef(BaseModel):
+class UpdateFirewallDeleteProtectionRequestRequestTypeDef(BaseValidatorModel):
     DeleteProtection: bool
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
 
-class UpdateFirewallDescriptionRequestRequestTypeDef(BaseModel):
+class UpdateFirewallDescriptionRequestRequestTypeDef(BaseValidatorModel):
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
     Description: Optional[str] = None
 
-class UpdateFirewallPolicyChangeProtectionRequestRequestTypeDef(BaseModel):
+class UpdateFirewallPolicyChangeProtectionRequestRequestTypeDef(BaseValidatorModel):
     FirewallPolicyChangeProtection: bool
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
 
-class UpdateSubnetChangeProtectionRequestRequestTypeDef(BaseModel):
+class UpdateSubnetChangeProtectionRequestRequestTypeDef(BaseValidatorModel):
     SubnetChangeProtection: bool
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
 
-class AssociateFirewallPolicyResponseTypeDef(BaseModel):
+class AssociateFirewallPolicyResponseTypeDef(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
     FirewallPolicyArn: str
     UpdateToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeResourcePolicyResponseTypeDef(BaseModel):
+class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFirewallDeleteProtectionResponseTypeDef(BaseModel):
+class UpdateFirewallDeleteProtectionResponseTypeDef(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
     DeleteProtection: bool
     UpdateToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFirewallDescriptionResponseTypeDef(BaseModel):
+class UpdateFirewallDescriptionResponseTypeDef(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
     Description: str
     UpdateToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFirewallPolicyChangeProtectionResponseTypeDef(BaseModel):
+class UpdateFirewallPolicyChangeProtectionResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     FirewallArn: str
     FirewallName: str
     FirewallPolicyChangeProtection: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSubnetChangeProtectionResponseTypeDef(BaseModel):
+class UpdateSubnetChangeProtectionResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     FirewallArn: str
     FirewallName: str
     SubnetChangeProtection: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateSubnetsRequestRequestTypeDef(BaseModel):
+class AssociateSubnetsRequestRequestTypeDef(BaseValidatorModel):
     SubnetMappings: Sequence[SubnetMappingTypeDef]
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
 
-class AssociateSubnetsResponseTypeDef(BaseModel):
+class AssociateSubnetsResponseTypeDef(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
     SubnetMappings: List[SubnetMappingTypeDef]
     UpdateToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateSubnetsResponseTypeDef(BaseModel):
+class DisassociateSubnetsResponseTypeDef(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
     SubnetMappings: List[SubnetMappingTypeDef]
     UpdateToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CIDRSummaryTypeDef(BaseModel):
+class CIDRSummaryTypeDef(BaseValidatorModel):
     AvailableCIDRCount: Optional[int] = None
     UtilizedCIDRCount: Optional[int] = None
     IPSetReferences: Optional[Dict[str, IPSetMetadataTypeDef]] = None
 
-class UpdateFirewallEncryptionConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateFirewallEncryptionConfigurationRequestRequestTypeDef(BaseValidatorModel):
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class UpdateFirewallEncryptionConfigurationResponseTypeDef(BaseModel):
+class UpdateFirewallEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
     UpdateToken: str
     EncryptionConfiguration: EncryptionConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFirewallRequestRequestTypeDef(BaseModel):
+class CreateFirewallRequestRequestTypeDef(BaseValidatorModel):
     FirewallName: str
     FirewallPolicyArn: str
     VpcId: str
@@ -353,7 +353,7 @@ class CreateFirewallRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class FirewallPolicyResponseTypeDef(BaseModel):
+class FirewallPolicyResponseTypeDef(BaseValidatorModel):
     FirewallPolicyName: str
     FirewallPolicyArn: str
     FirewallPolicyId: str
@@ -366,7 +366,7 @@ class FirewallPolicyResponseTypeDef(BaseModel):
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     LastModifiedTime: Optional[datetime] = None
 
-class FirewallTypeDef(BaseModel):
+class FirewallTypeDef(BaseValidatorModel):
     FirewallPolicyArn: str
     VpcId: str
     SubnetMappings: List[SubnetMappingTypeDef]
@@ -380,16 +380,16 @@ class FirewallTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class RuleGroupResponseTypeDef(BaseModel):
+class RuleGroupResponseTypeDef(BaseValidatorModel):
     RuleGroupArn: str
     RuleGroupName: str
     RuleGroupId: str
@@ -406,7 +406,7 @@ class RuleGroupResponseTypeDef(BaseModel):
     LastModifiedTime: Optional[datetime] = None
     AnalysisResults: Optional[List[AnalysisResultTypeDef]] = None
 
-class DescribeRuleGroupMetadataResponseTypeDef(BaseModel):
+class DescribeRuleGroupMetadataResponseTypeDef(BaseValidatorModel):
     RuleGroupArn: str
     RuleGroupName: str
     Description: str
@@ -416,66 +416,66 @@ class DescribeRuleGroupMetadataResponseTypeDef(BaseModel):
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PublishMetricActionTypeDef(BaseModel):
+class PublishMetricActionTypeDef(BaseValidatorModel):
     Dimensions: Sequence[DimensionTypeDef]
 
-class ListFirewallsResponseTypeDef(BaseModel):
+class ListFirewallsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Firewalls: List[FirewallMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFirewallPoliciesResponseTypeDef(BaseModel):
+class ListFirewallPoliciesResponseTypeDef(BaseValidatorModel):
     NextToken: str
     FirewallPolicies: List[FirewallPolicyMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReferenceSetsTypeDef(BaseModel):
+class ReferenceSetsTypeDef(BaseValidatorModel):
     IPSetReferences: Optional[Mapping[str, IPSetReferenceTypeDef]] = None
 
-class PolicyVariablesTypeDef(BaseModel):
+class PolicyVariablesTypeDef(BaseValidatorModel):
     RuleVariables: Optional[Mapping[str, IPSetTypeDef]] = None
 
-class ListFirewallPoliciesRequestListFirewallPoliciesPaginateTypeDef(BaseModel):
+class ListFirewallPoliciesRequestListFirewallPoliciesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFirewallsRequestListFirewallsPaginateTypeDef(BaseModel):
+class ListFirewallsRequestListFirewallsPaginateTypeDef(BaseValidatorModel):
     VpcIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRuleGroupsRequestListRuleGroupsPaginateTypeDef(BaseModel):
+class ListRuleGroupsRequestListRuleGroupsPaginateTypeDef(BaseValidatorModel):
     Scope: Optional[ResourceManagedStatusType] = None
     ManagedType: Optional[ResourceManagedTypeType] = None
     Type: Optional[RuleGroupTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTLSInspectionConfigurationsRequestListTLSInspectionConfigurationsPaginateTypeDef(BaseModel):
+class ListTLSInspectionConfigurationsRequestListTLSInspectionConfigurationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     ResourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRuleGroupsResponseTypeDef(BaseModel):
+class ListRuleGroupsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     RuleGroups: List[RuleGroupMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTLSInspectionConfigurationsResponseTypeDef(BaseModel):
+class ListTLSInspectionConfigurationsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     TLSInspectionConfigurations: List[TLSInspectionConfigurationMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoggingConfigurationTypeDef(BaseModel):
+class LoggingConfigurationTypeDef(BaseValidatorModel):
     LogDestinationConfigs: List[LogDestinationConfigTypeDef]
 
-class ServerCertificateScopeTypeDef(BaseModel):
+class ServerCertificateScopeTypeDef(BaseValidatorModel):
     Sources: Optional[Sequence[AddressTypeDef]] = None
     Destinations: Optional[Sequence[AddressTypeDef]] = None
     SourcePorts: Optional[Sequence[PortRangeTypeDef]] = None
     DestinationPorts: Optional[Sequence[PortRangeTypeDef]] = None
     Protocols: Optional[Sequence[int]] = None
 
-class MatchAttributesTypeDef(BaseModel):
+class MatchAttributesTypeDef(BaseValidatorModel):
     Sources: Optional[Sequence[AddressTypeDef]] = None
     Destinations: Optional[Sequence[AddressTypeDef]] = None
     SourcePorts: Optional[Sequence[PortRangeTypeDef]] = None
@@ -483,25 +483,25 @@ class MatchAttributesTypeDef(BaseModel):
     Protocols: Optional[Sequence[int]] = None
     TCPFlags: Optional[Sequence[TCPFlagFieldTypeDef]] = None
 
-class SyncStateTypeDef(BaseModel):
+class SyncStateTypeDef(BaseValidatorModel):
     Attachment: Optional[AttachmentTypeDef] = None
     Config: Optional[Dict[str, PerObjectStatusTypeDef]] = None
 
-class RuleVariablesTypeDef(BaseModel):
+class RuleVariablesTypeDef(BaseValidatorModel):
     IPSets: Optional[Mapping[str, IPSetTypeDef]] = None
     PortSets: Optional[Mapping[str, PortSetTypeDef]] = None
 
-class StatefulRuleTypeDef(BaseModel):
+class StatefulRuleTypeDef(BaseValidatorModel):
     Action: StatefulActionType
     Header: HeaderTypeDef
     RuleOptions: Sequence[RuleOptionTypeDef]
 
-class StatefulRuleGroupReferenceTypeDef(BaseModel):
+class StatefulRuleGroupReferenceTypeDef(BaseValidatorModel):
     ResourceArn: str
     Priority: Optional[int] = None
     Override: Optional[StatefulRuleGroupOverrideTypeDef] = None
 
-class TLSInspectionConfigurationResponseTypeDef(BaseModel):
+class TLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
     TLSInspectionConfigurationArn: str
     TLSInspectionConfigurationName: str
     TLSInspectionConfigurationId: str
@@ -514,114 +514,114 @@ class TLSInspectionConfigurationResponseTypeDef(BaseModel):
     Certificates: Optional[List[TlsCertificateDataTypeDef]] = None
     CertificateAuthority: Optional[TlsCertificateDataTypeDef] = None
 
-class CapacityUsageSummaryTypeDef(BaseModel):
+class CapacityUsageSummaryTypeDef(BaseValidatorModel):
     CIDRs: Optional[CIDRSummaryTypeDef] = None
 
-class CreateFirewallPolicyResponseTypeDef(BaseModel):
+class CreateFirewallPolicyResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     FirewallPolicyResponse: FirewallPolicyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFirewallPolicyResponseTypeDef(BaseModel):
+class DeleteFirewallPolicyResponseTypeDef(BaseValidatorModel):
     FirewallPolicyResponse: FirewallPolicyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFirewallPolicyResponseTypeDef(BaseModel):
+class UpdateFirewallPolicyResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     FirewallPolicyResponse: FirewallPolicyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRuleGroupResponseTypeDef(BaseModel):
+class CreateRuleGroupResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     RuleGroupResponse: RuleGroupResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRuleGroupResponseTypeDef(BaseModel):
+class DeleteRuleGroupResponseTypeDef(BaseValidatorModel):
     RuleGroupResponse: RuleGroupResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRuleGroupResponseTypeDef(BaseModel):
+class UpdateRuleGroupResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     RuleGroupResponse: RuleGroupResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ActionDefinitionTypeDef(BaseModel):
+class ActionDefinitionTypeDef(BaseValidatorModel):
     PublishMetricAction: Optional[PublishMetricActionTypeDef] = None
 
-class DescribeLoggingConfigurationResponseTypeDef(BaseModel):
+class DescribeLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     FirewallArn: str
     LoggingConfiguration: LoggingConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
     LoggingConfiguration: Optional[LoggingConfigurationTypeDef] = None
 
-class UpdateLoggingConfigurationResponseTypeDef(BaseModel):
+class UpdateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
     LoggingConfiguration: LoggingConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ServerCertificateConfigurationTypeDef(BaseModel):
+class ServerCertificateConfigurationTypeDef(BaseValidatorModel):
     ServerCertificates: Optional[Sequence[ServerCertificateTypeDef]] = None
     Scopes: Optional[Sequence[ServerCertificateScopeTypeDef]] = None
     CertificateAuthorityArn: Optional[str] = None
     CheckCertificateRevocationStatus: Optional[       CheckCertificateRevocationStatusActionsTypeDef     ] = None
 
-class RuleDefinitionTypeDef(BaseModel):
+class RuleDefinitionTypeDef(BaseValidatorModel):
     MatchAttributes: MatchAttributesTypeDef
     Actions: Sequence[str]
 
-class CreateTLSInspectionConfigurationResponseTypeDef(BaseModel):
+class CreateTLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTLSInspectionConfigurationResponseTypeDef(BaseModel):
+class DeleteTLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTLSInspectionConfigurationResponseTypeDef(BaseModel):
+class UpdateTLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FirewallStatusTypeDef(BaseModel):
+class FirewallStatusTypeDef(BaseValidatorModel):
     Status: FirewallStatusValueType
     ConfigurationSyncStateSummary: ConfigurationSyncStateType
     SyncStates: Optional[Dict[str, SyncStateTypeDef]] = None
     CapacityUsageSummary: Optional[CapacityUsageSummaryTypeDef] = None
 
-class CustomActionTypeDef(BaseModel):
+class CustomActionTypeDef(BaseValidatorModel):
     ActionName: str
     ActionDefinition: ActionDefinitionTypeDef
 
-class TLSInspectionConfigurationTypeDef(BaseModel):
+class TLSInspectionConfigurationTypeDef(BaseValidatorModel):
     ServerCertificateConfigurations: Optional[       Sequence[ServerCertificateConfigurationTypeDef]     ] = None
 
-class StatelessRuleTypeDef(BaseModel):
+class StatelessRuleTypeDef(BaseValidatorModel):
     RuleDefinition: RuleDefinitionTypeDef
     Priority: int
 
-class CreateFirewallResponseTypeDef(BaseModel):
+class CreateFirewallResponseTypeDef(BaseValidatorModel):
     Firewall: FirewallTypeDef
     FirewallStatus: FirewallStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFirewallResponseTypeDef(BaseModel):
+class DeleteFirewallResponseTypeDef(BaseValidatorModel):
     Firewall: FirewallTypeDef
     FirewallStatus: FirewallStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeFirewallResponseTypeDef(BaseModel):
+class DescribeFirewallResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     Firewall: FirewallTypeDef
     FirewallStatus: FirewallStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FirewallPolicyTypeDef(BaseModel):
+class FirewallPolicyTypeDef(BaseValidatorModel):
     StatelessDefaultActions: Sequence[str]
     StatelessFragmentDefaultActions: Sequence[str]
     StatelessRuleGroupReferences: Optional[Sequence[StatelessRuleGroupReferenceTypeDef]] = None
@@ -632,20 +632,20 @@ class FirewallPolicyTypeDef(BaseModel):
     TLSInspectionConfigurationArn: Optional[str] = None
     PolicyVariables: Optional[PolicyVariablesTypeDef] = None
 
-class CreateTLSInspectionConfigurationRequestRequestTypeDef(BaseModel):
+class CreateTLSInspectionConfigurationRequestRequestTypeDef(BaseValidatorModel):
     TLSInspectionConfigurationName: str
     TLSInspectionConfiguration: TLSInspectionConfigurationTypeDef
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class DescribeTLSInspectionConfigurationResponseTypeDef(BaseModel):
+class DescribeTLSInspectionConfigurationResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     TLSInspectionConfiguration: TLSInspectionConfigurationTypeDef
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTLSInspectionConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateTLSInspectionConfigurationRequestRequestTypeDef(BaseValidatorModel):
     TLSInspectionConfiguration: TLSInspectionConfigurationTypeDef
     UpdateToken: str
     TLSInspectionConfigurationArn: Optional[str] = None
@@ -653,11 +653,11 @@ class UpdateTLSInspectionConfigurationRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class StatelessRulesAndCustomActionsTypeDef(BaseModel):
+class StatelessRulesAndCustomActionsTypeDef(BaseValidatorModel):
     StatelessRules: Sequence[StatelessRuleTypeDef]
     CustomActions: Optional[Sequence[CustomActionTypeDef]] = None
 
-class CreateFirewallPolicyRequestRequestTypeDef(BaseModel):
+class CreateFirewallPolicyRequestRequestTypeDef(BaseValidatorModel):
     FirewallPolicyName: str
     FirewallPolicy: FirewallPolicyTypeDef
     Description: Optional[str] = None
@@ -665,13 +665,13 @@ class CreateFirewallPolicyRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class DescribeFirewallPolicyResponseTypeDef(BaseModel):
+class DescribeFirewallPolicyResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     FirewallPolicyResponse: FirewallPolicyResponseTypeDef
     FirewallPolicy: FirewallPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFirewallPolicyRequestRequestTypeDef(BaseModel):
+class UpdateFirewallPolicyRequestRequestTypeDef(BaseValidatorModel):
     UpdateToken: str
     FirewallPolicy: FirewallPolicyTypeDef
     FirewallPolicyArn: Optional[str] = None
@@ -680,19 +680,19 @@ class UpdateFirewallPolicyRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class RulesSourceTypeDef(BaseModel):
+class RulesSourceTypeDef(BaseValidatorModel):
     RulesString: Optional[str] = None
     RulesSourceList: Optional[RulesSourceListTypeDef] = None
     StatefulRules: Optional[Sequence[StatefulRuleTypeDef]] = None
     StatelessRulesAndCustomActions: Optional[StatelessRulesAndCustomActionsTypeDef] = None
 
-class RuleGroupTypeDef(BaseModel):
+class RuleGroupTypeDef(BaseValidatorModel):
     RulesSource: RulesSourceTypeDef
     RuleVariables: Optional[RuleVariablesTypeDef] = None
     ReferenceSets: Optional[ReferenceSetsTypeDef] = None
     StatefulRuleOptions: Optional[StatefulRuleOptionsTypeDef] = None
 
-class CreateRuleGroupRequestRequestTypeDef(BaseModel):
+class CreateRuleGroupRequestRequestTypeDef(BaseValidatorModel):
     RuleGroupName: str
     Type: RuleGroupTypeType
     Capacity: int
@@ -705,13 +705,13 @@ class CreateRuleGroupRequestRequestTypeDef(BaseModel):
     SourceMetadata: Optional[SourceMetadataTypeDef] = None
     AnalyzeRuleGroup: Optional[bool] = None
 
-class DescribeRuleGroupResponseTypeDef(BaseModel):
+class DescribeRuleGroupResponseTypeDef(BaseValidatorModel):
     UpdateToken: str
     RuleGroup: RuleGroupTypeDef
     RuleGroupResponse: RuleGroupResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRuleGroupRequestRequestTypeDef(BaseModel):
+class UpdateRuleGroupRequestRequestTypeDef(BaseValidatorModel):
     UpdateToken: str
     RuleGroupArn: Optional[str] = None
     RuleGroupName: Optional[str] = None

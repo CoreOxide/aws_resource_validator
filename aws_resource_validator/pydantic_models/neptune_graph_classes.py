@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,50 +11,50 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.neptune_graph_constants import *
 
-class CancelImportTaskInputRequestTypeDef(BaseModel):
+class CancelImportTaskInputRequestTypeDef(BaseValidatorModel):
     taskIdentifier: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CancelQueryInputRequestTypeDef(BaseModel):
+class CancelQueryInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     queryId: str
 
-class VectorSearchConfigurationTypeDef(BaseModel):
+class VectorSearchConfigurationTypeDef(BaseValidatorModel):
     dimension: int
 
-class CreateGraphSnapshotInputRequestTypeDef(BaseModel):
+class CreateGraphSnapshotInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     snapshotName: str
     tags: Optional[Mapping[str, str]] = None
 
-class CreatePrivateGraphEndpointInputRequestTypeDef(BaseModel):
+class CreatePrivateGraphEndpointInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     vpcId: Optional[str] = None
     subnetIds: Optional[Sequence[str]] = None
     vpcSecurityGroupIds: Optional[Sequence[str]] = None
 
-class DeleteGraphInputRequestTypeDef(BaseModel):
+class DeleteGraphInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     skipSnapshot: bool
 
-class DeleteGraphSnapshotInputRequestTypeDef(BaseModel):
+class DeleteGraphSnapshotInputRequestTypeDef(BaseValidatorModel):
     snapshotIdentifier: str
 
-class DeletePrivateGraphEndpointInputRequestTypeDef(BaseModel):
+class DeletePrivateGraphEndpointInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
 
-class EdgeStructureTypeDef(BaseModel):
+class EdgeStructureTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     edgeProperties: Optional[List[str]] = None
 
-class ExecuteQueryInputRequestTypeDef(BaseModel):
+class ExecuteQueryInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     queryString: str
     language: Literal["OPEN_CYPHER"]
@@ -63,24 +63,24 @@ class ExecuteQueryInputRequestTypeDef(BaseModel):
     explainMode: Optional[ExplainModeType] = None
     queryTimeoutMilliseconds: Optional[int] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class GetGraphInputRequestTypeDef(BaseModel):
+class GetGraphInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
 
-class GetGraphSnapshotInputRequestTypeDef(BaseModel):
+class GetGraphSnapshotInputRequestTypeDef(BaseValidatorModel):
     snapshotIdentifier: str
 
-class GetGraphSummaryInputRequestTypeDef(BaseModel):
+class GetGraphSummaryInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     mode: Optional[GraphSummaryModeType] = None
 
-class GetImportTaskInputRequestTypeDef(BaseModel):
+class GetImportTaskInputRequestTypeDef(BaseValidatorModel):
     taskIdentifier: str
 
-class ImportTaskDetailsTypeDef(BaseModel):
+class ImportTaskDetailsTypeDef(BaseValidatorModel):
     status: str
     startTime: datetime
     timeElapsedSeconds: int
@@ -90,20 +90,20 @@ class ImportTaskDetailsTypeDef(BaseModel):
     dictionaryEntryCount: int
     errorDetails: Optional[str] = None
 
-class GetPrivateGraphEndpointInputRequestTypeDef(BaseModel):
+class GetPrivateGraphEndpointInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
 
-class GetQueryInputRequestTypeDef(BaseModel):
+class GetQueryInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     queryId: str
 
-class NodeStructureTypeDef(BaseModel):
+class NodeStructureTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     nodeProperties: Optional[List[str]] = None
     distinctOutgoingEdgeLabels: Optional[List[str]] = None
 
-class GraphSnapshotSummaryTypeDef(BaseModel):
+class GraphSnapshotSummaryTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -112,7 +112,7 @@ class GraphSnapshotSummaryTypeDef(BaseModel):
     status: Optional[SnapshotStatusType] = None
     kmsKeyIdentifier: Optional[str] = None
 
-class GraphSummaryTypeDef(BaseModel):
+class GraphSummaryTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -124,13 +124,13 @@ class GraphSummaryTypeDef(BaseModel):
     kmsKeyIdentifier: Optional[str] = None
     deletionProtection: Optional[bool] = None
 
-class NeptuneImportOptionsTypeDef(BaseModel):
+class NeptuneImportOptionsTypeDef(BaseValidatorModel):
     s3ExportPath: str
     s3ExportKmsKeyId: str
     preserveDefaultVertexLabels: Optional[bool] = None
     preserveEdgeIds: Optional[bool] = None
 
-class ImportTaskSummaryTypeDef(BaseModel):
+class ImportTaskSummaryTypeDef(BaseValidatorModel):
     taskId: str
     source: str
     roleArn: str
@@ -138,55 +138,55 @@ class ImportTaskSummaryTypeDef(BaseModel):
     graphId: Optional[str] = None
     format: Optional[FormatType] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListGraphSnapshotsInputRequestTypeDef(BaseModel):
+class ListGraphSnapshotsInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListGraphsInputRequestTypeDef(BaseModel):
+class ListGraphsInputRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListImportTasksInputRequestTypeDef(BaseModel):
+class ListImportTasksInputRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListPrivateGraphEndpointsInputRequestTypeDef(BaseModel):
+class ListPrivateGraphEndpointsInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class PrivateGraphEndpointSummaryTypeDef(BaseModel):
+class PrivateGraphEndpointSummaryTypeDef(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
     status: PrivateGraphEndpointStatusType
     vpcEndpointId: Optional[str] = None
 
-class ListQueriesInputRequestTypeDef(BaseModel):
+class ListQueriesInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     maxResults: int
     state: Optional[QueryStateInputType] = None
 
-class QuerySummaryTypeDef(BaseModel):
+class QuerySummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     queryString: Optional[str] = None
     waited: Optional[int] = None
     elapsed: Optional[int] = None
     state: Optional[QueryStateType] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseModel):
+class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ResetGraphInputRequestTypeDef(BaseModel):
+class ResetGraphInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     skipSnapshot: bool
 
-class RestoreGraphFromSnapshotInputRequestTypeDef(BaseModel):
+class RestoreGraphFromSnapshotInputRequestTypeDef(BaseValidatorModel):
     snapshotIdentifier: str
     graphName: str
     provisionedMemory: Optional[int] = None
@@ -195,21 +195,21 @@ class RestoreGraphFromSnapshotInputRequestTypeDef(BaseModel):
     replicaCount: Optional[int] = None
     publicConnectivity: Optional[bool] = None
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateGraphInputRequestTypeDef(BaseModel):
+class UpdateGraphInputRequestTypeDef(BaseValidatorModel):
     graphIdentifier: str
     publicConnectivity: Optional[bool] = None
     provisionedMemory: Optional[int] = None
     deletionProtection: Optional[bool] = None
 
-class CancelImportTaskOutputTypeDef(BaseModel):
+class CancelImportTaskOutputTypeDef(BaseValidatorModel):
     graphId: str
     taskId: str
     source: str
@@ -218,7 +218,7 @@ class CancelImportTaskOutputTypeDef(BaseModel):
     status: ImportTaskStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGraphSnapshotOutputTypeDef(BaseModel):
+class CreateGraphSnapshotOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -228,14 +228,14 @@ class CreateGraphSnapshotOutputTypeDef(BaseModel):
     kmsKeyIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePrivateGraphEndpointOutputTypeDef(BaseModel):
+class CreatePrivateGraphEndpointOutputTypeDef(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
     status: PrivateGraphEndpointStatusType
     vpcEndpointId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteGraphSnapshotOutputTypeDef(BaseModel):
+class DeleteGraphSnapshotOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -245,21 +245,21 @@ class DeleteGraphSnapshotOutputTypeDef(BaseModel):
     kmsKeyIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletePrivateGraphEndpointOutputTypeDef(BaseModel):
+class DeletePrivateGraphEndpointOutputTypeDef(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
     status: PrivateGraphEndpointStatusType
     vpcEndpointId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecuteQueryOutputTypeDef(BaseModel):
+class ExecuteQueryOutputTypeDef(BaseValidatorModel):
     payload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGraphSnapshotOutputTypeDef(BaseModel):
+class GetGraphSnapshotOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -269,14 +269,14 @@ class GetGraphSnapshotOutputTypeDef(BaseModel):
     kmsKeyIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPrivateGraphEndpointOutputTypeDef(BaseModel):
+class GetPrivateGraphEndpointOutputTypeDef(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
     status: PrivateGraphEndpointStatusType
     vpcEndpointId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetQueryOutputTypeDef(BaseModel):
+class GetQueryOutputTypeDef(BaseValidatorModel):
     id: str
     queryString: str
     waited: int
@@ -284,11 +284,11 @@ class GetQueryOutputTypeDef(BaseModel):
     state: QueryStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceOutputTypeDef(BaseModel):
+class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGraphInputRequestTypeDef(BaseModel):
+class CreateGraphInputRequestTypeDef(BaseValidatorModel):
     graphName: str
     provisionedMemory: int
     tags: Optional[Mapping[str, str]] = None
@@ -298,7 +298,7 @@ class CreateGraphInputRequestTypeDef(BaseModel):
     replicaCount: Optional[int] = None
     deletionProtection: Optional[bool] = None
 
-class CreateGraphOutputTypeDef(BaseModel):
+class CreateGraphOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -316,7 +316,7 @@ class CreateGraphOutputTypeDef(BaseModel):
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteGraphOutputTypeDef(BaseModel):
+class DeleteGraphOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -334,7 +334,7 @@ class DeleteGraphOutputTypeDef(BaseModel):
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGraphOutputTypeDef(BaseModel):
+class GetGraphOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -352,7 +352,7 @@ class GetGraphOutputTypeDef(BaseModel):
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetGraphOutputTypeDef(BaseModel):
+class ResetGraphOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -370,7 +370,7 @@ class ResetGraphOutputTypeDef(BaseModel):
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreGraphFromSnapshotOutputTypeDef(BaseModel):
+class RestoreGraphFromSnapshotOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -388,7 +388,7 @@ class RestoreGraphFromSnapshotOutputTypeDef(BaseModel):
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGraphOutputTypeDef(BaseModel):
+class UpdateGraphOutputTypeDef(BaseValidatorModel):
     id: str
     name: str
     arn: str
@@ -406,41 +406,41 @@ class UpdateGraphOutputTypeDef(BaseModel):
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGraphInputGraphAvailableWaitTypeDef(BaseModel):
+class GetGraphInputGraphAvailableWaitTypeDef(BaseValidatorModel):
     graphIdentifier: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetGraphInputGraphDeletedWaitTypeDef(BaseModel):
+class GetGraphInputGraphDeletedWaitTypeDef(BaseValidatorModel):
     graphIdentifier: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetGraphSnapshotInputGraphSnapshotAvailableWaitTypeDef(BaseModel):
+class GetGraphSnapshotInputGraphSnapshotAvailableWaitTypeDef(BaseValidatorModel):
     snapshotIdentifier: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetGraphSnapshotInputGraphSnapshotDeletedWaitTypeDef(BaseModel):
+class GetGraphSnapshotInputGraphSnapshotDeletedWaitTypeDef(BaseValidatorModel):
     snapshotIdentifier: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetImportTaskInputImportTaskCancelledWaitTypeDef(BaseModel):
+class GetImportTaskInputImportTaskCancelledWaitTypeDef(BaseValidatorModel):
     taskIdentifier: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetImportTaskInputImportTaskSuccessfulWaitTypeDef(BaseModel):
+class GetImportTaskInputImportTaskSuccessfulWaitTypeDef(BaseValidatorModel):
     taskIdentifier: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetPrivateGraphEndpointInputPrivateGraphEndpointAvailableWaitTypeDef(BaseModel):
+class GetPrivateGraphEndpointInputPrivateGraphEndpointAvailableWaitTypeDef(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetPrivateGraphEndpointInputPrivateGraphEndpointDeletedWaitTypeDef(BaseModel):
+class GetPrivateGraphEndpointInputPrivateGraphEndpointDeletedWaitTypeDef(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GraphDataSummaryTypeDef(BaseModel):
+class GraphDataSummaryTypeDef(BaseValidatorModel):
     numNodes: Optional[int] = None
     numEdges: Optional[int] = None
     numNodeLabels: Optional[int] = None
@@ -456,54 +456,54 @@ class GraphDataSummaryTypeDef(BaseModel):
     nodeStructures: Optional[List[NodeStructureTypeDef]] = None
     edgeStructures: Optional[List[EdgeStructureTypeDef]] = None
 
-class ListGraphSnapshotsOutputTypeDef(BaseModel):
+class ListGraphSnapshotsOutputTypeDef(BaseValidatorModel):
     graphSnapshots: List[GraphSnapshotSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGraphsOutputTypeDef(BaseModel):
+class ListGraphsOutputTypeDef(BaseValidatorModel):
     graphs: List[GraphSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportOptionsTypeDef(BaseModel):
+class ImportOptionsTypeDef(BaseValidatorModel):
     neptune: Optional[NeptuneImportOptionsTypeDef] = None
 
-class ListImportTasksOutputTypeDef(BaseModel):
+class ListImportTasksOutputTypeDef(BaseValidatorModel):
     tasks: List[ImportTaskSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGraphSnapshotsInputListGraphSnapshotsPaginateTypeDef(BaseModel):
+class ListGraphSnapshotsInputListGraphSnapshotsPaginateTypeDef(BaseValidatorModel):
     graphIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGraphsInputListGraphsPaginateTypeDef(BaseModel):
+class ListGraphsInputListGraphsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListImportTasksInputListImportTasksPaginateTypeDef(BaseModel):
+class ListImportTasksInputListImportTasksPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPrivateGraphEndpointsInputListPrivateGraphEndpointsPaginateTypeDef(BaseModel):
+class ListPrivateGraphEndpointsInputListPrivateGraphEndpointsPaginateTypeDef(BaseValidatorModel):
     graphIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPrivateGraphEndpointsOutputTypeDef(BaseModel):
+class ListPrivateGraphEndpointsOutputTypeDef(BaseValidatorModel):
     privateGraphEndpoints: List[PrivateGraphEndpointSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListQueriesOutputTypeDef(BaseModel):
+class ListQueriesOutputTypeDef(BaseValidatorModel):
     queries: List[QuerySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGraphSummaryOutputTypeDef(BaseModel):
+class GetGraphSummaryOutputTypeDef(BaseValidatorModel):
     version: str
     lastStatisticsComputationTime: datetime
     graphSummary: GraphDataSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGraphUsingImportTaskInputRequestTypeDef(BaseModel):
+class CreateGraphUsingImportTaskInputRequestTypeDef(BaseValidatorModel):
     graphName: str
     source: str
     roleArn: str
@@ -519,7 +519,7 @@ class CreateGraphUsingImportTaskInputRequestTypeDef(BaseModel):
     failOnError: Optional[bool] = None
     format: Optional[FormatType] = None
 
-class CreateGraphUsingImportTaskOutputTypeDef(BaseModel):
+class CreateGraphUsingImportTaskOutputTypeDef(BaseValidatorModel):
     graphId: str
     taskId: str
     source: str
@@ -529,7 +529,7 @@ class CreateGraphUsingImportTaskOutputTypeDef(BaseModel):
     importOptions: ImportOptionsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImportTaskOutputTypeDef(BaseModel):
+class GetImportTaskOutputTypeDef(BaseValidatorModel):
     graphId: str
     taskId: str
     source: str
@@ -542,7 +542,7 @@ class GetImportTaskOutputTypeDef(BaseModel):
     statusReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartImportTaskInputRequestTypeDef(BaseModel):
+class StartImportTaskInputRequestTypeDef(BaseValidatorModel):
     source: str
     graphIdentifier: str
     roleArn: str
@@ -550,7 +550,7 @@ class StartImportTaskInputRequestTypeDef(BaseModel):
     failOnError: Optional[bool] = None
     format: Optional[FormatType] = None
 
-class StartImportTaskOutputTypeDef(BaseModel):
+class StartImportTaskOutputTypeDef(BaseValidatorModel):
     graphId: str
     taskId: str
     source: str

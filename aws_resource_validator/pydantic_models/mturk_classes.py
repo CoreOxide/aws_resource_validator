@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,16 +11,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mturk_constants import *
 
-class AcceptQualificationRequestRequestRequestTypeDef(BaseModel):
+class AcceptQualificationRequestRequestRequestTypeDef(BaseValidatorModel):
     QualificationRequestId: str
     IntegerValue: Optional[int] = None
 
-class ApproveAssignmentRequestRequestTypeDef(BaseModel):
+class ApproveAssignmentRequestRequestTypeDef(BaseValidatorModel):
     AssignmentId: str
     RequesterFeedback: Optional[str] = None
     OverrideRejection: Optional[bool] = None
 
-class AssignmentTypeDef(BaseModel):
+class AssignmentTypeDef(BaseValidatorModel):
     AssignmentId: Optional[str] = None
     WorkerId: Optional[str] = None
     HITId: Optional[str] = None
@@ -34,36 +34,36 @@ class AssignmentTypeDef(BaseModel):
     Answer: Optional[str] = None
     RequesterFeedback: Optional[str] = None
 
-class AssociateQualificationWithWorkerRequestRequestTypeDef(BaseModel):
+class AssociateQualificationWithWorkerRequestRequestTypeDef(BaseValidatorModel):
     QualificationTypeId: str
     WorkerId: str
     IntegerValue: Optional[int] = None
     SendNotification: Optional[bool] = None
 
-class BonusPaymentTypeDef(BaseModel):
+class BonusPaymentTypeDef(BaseValidatorModel):
     WorkerId: Optional[str] = None
     BonusAmount: Optional[str] = None
     AssignmentId: Optional[str] = None
     Reason: Optional[str] = None
     GrantTime: Optional[datetime] = None
 
-class CreateAdditionalAssignmentsForHITRequestRequestTypeDef(BaseModel):
+class CreateAdditionalAssignmentsForHITRequestRequestTypeDef(BaseValidatorModel):
     HITId: str
     NumberOfAdditionalAssignments: int
     UniqueRequestToken: Optional[str] = None
 
-class HITLayoutParameterTypeDef(BaseModel):
+class HITLayoutParameterTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateQualificationTypeRequestRequestTypeDef(BaseModel):
+class CreateQualificationTypeRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: str
     QualificationTypeStatus: QualificationTypeStatusType
@@ -75,7 +75,7 @@ class CreateQualificationTypeRequestRequestTypeDef(BaseModel):
     AutoGranted: Optional[bool] = None
     AutoGrantedValue: Optional[int] = None
 
-class QualificationTypeTypeDef(BaseModel):
+class QualificationTypeTypeDef(BaseValidatorModel):
     QualificationTypeId: Optional[str] = None
     CreationTime: Optional[datetime] = None
     Name: Optional[str] = None
@@ -90,74 +90,74 @@ class QualificationTypeTypeDef(BaseModel):
     AutoGranted: Optional[bool] = None
     AutoGrantedValue: Optional[int] = None
 
-class CreateWorkerBlockRequestRequestTypeDef(BaseModel):
+class CreateWorkerBlockRequestRequestTypeDef(BaseValidatorModel):
     WorkerId: str
     Reason: str
 
-class DeleteHITRequestRequestTypeDef(BaseModel):
+class DeleteHITRequestRequestTypeDef(BaseValidatorModel):
     HITId: str
 
-class DeleteQualificationTypeRequestRequestTypeDef(BaseModel):
+class DeleteQualificationTypeRequestRequestTypeDef(BaseValidatorModel):
     QualificationTypeId: str
 
-class DeleteWorkerBlockRequestRequestTypeDef(BaseModel):
+class DeleteWorkerBlockRequestRequestTypeDef(BaseValidatorModel):
     WorkerId: str
     Reason: Optional[str] = None
 
-class DisassociateQualificationFromWorkerRequestRequestTypeDef(BaseModel):
+class DisassociateQualificationFromWorkerRequestRequestTypeDef(BaseValidatorModel):
     WorkerId: str
     QualificationTypeId: str
     Reason: Optional[str] = None
 
-class GetAssignmentRequestRequestTypeDef(BaseModel):
+class GetAssignmentRequestRequestTypeDef(BaseValidatorModel):
     AssignmentId: str
 
-class GetFileUploadURLRequestRequestTypeDef(BaseModel):
+class GetFileUploadURLRequestRequestTypeDef(BaseValidatorModel):
     AssignmentId: str
     QuestionIdentifier: str
 
-class GetHITRequestRequestTypeDef(BaseModel):
+class GetHITRequestRequestTypeDef(BaseValidatorModel):
     HITId: str
 
-class GetQualificationScoreRequestRequestTypeDef(BaseModel):
+class GetQualificationScoreRequestRequestTypeDef(BaseValidatorModel):
     QualificationTypeId: str
     WorkerId: str
 
-class GetQualificationTypeRequestRequestTypeDef(BaseModel):
+class GetQualificationTypeRequestRequestTypeDef(BaseValidatorModel):
     QualificationTypeId: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAssignmentsForHITRequestRequestTypeDef(BaseModel):
+class ListAssignmentsForHITRequestRequestTypeDef(BaseValidatorModel):
     HITId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     AssignmentStatuses: Optional[Sequence[AssignmentStatusType]] = None
 
-class ListBonusPaymentsRequestRequestTypeDef(BaseModel):
+class ListBonusPaymentsRequestRequestTypeDef(BaseValidatorModel):
     HITId: Optional[str] = None
     AssignmentId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListHITsForQualificationTypeRequestRequestTypeDef(BaseModel):
+class ListHITsForQualificationTypeRequestRequestTypeDef(BaseValidatorModel):
     QualificationTypeId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListHITsRequestRequestTypeDef(BaseModel):
+class ListHITsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListQualificationRequestsRequestRequestTypeDef(BaseModel):
+class ListQualificationRequestsRequestRequestTypeDef(BaseValidatorModel):
     QualificationTypeId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class QualificationRequestTypeDef(BaseModel):
+class QualificationRequestTypeDef(BaseValidatorModel):
     QualificationRequestId: Optional[str] = None
     QualificationTypeId: Optional[str] = None
     WorkerId: Optional[str] = None
@@ -165,14 +165,14 @@ class QualificationRequestTypeDef(BaseModel):
     Answer: Optional[str] = None
     SubmitTime: Optional[datetime] = None
 
-class ListQualificationTypesRequestRequestTypeDef(BaseModel):
+class ListQualificationTypesRequestRequestTypeDef(BaseValidatorModel):
     MustBeRequestable: bool
     Query: Optional[str] = None
     MustBeOwnedByCaller: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListReviewPolicyResultsForHITRequestRequestTypeDef(BaseModel):
+class ListReviewPolicyResultsForHITRequestRequestTypeDef(BaseValidatorModel):
     HITId: str
     PolicyLevels: Optional[Sequence[ReviewPolicyLevelType]] = None
     RetrieveActions: Optional[bool] = None
@@ -180,59 +180,59 @@ class ListReviewPolicyResultsForHITRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListReviewableHITsRequestRequestTypeDef(BaseModel):
+class ListReviewableHITsRequestRequestTypeDef(BaseValidatorModel):
     HITTypeId: Optional[str] = None
     Status: Optional[ReviewableHITStatusType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListWorkerBlocksRequestRequestTypeDef(BaseModel):
+class ListWorkerBlocksRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class WorkerBlockTypeDef(BaseModel):
+class WorkerBlockTypeDef(BaseValidatorModel):
     WorkerId: Optional[str] = None
     Reason: Optional[str] = None
 
-class ListWorkersWithQualificationTypeRequestRequestTypeDef(BaseModel):
+class ListWorkersWithQualificationTypeRequestRequestTypeDef(BaseValidatorModel):
     QualificationTypeId: str
     Status: Optional[QualificationStatusType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class LocaleTypeDef(BaseModel):
+class LocaleTypeDef(BaseValidatorModel):
     Country: str
     Subdivision: Optional[str] = None
 
-class NotificationSpecificationTypeDef(BaseModel):
+class NotificationSpecificationTypeDef(BaseValidatorModel):
     Destination: str
     Transport: NotificationTransportType
     Version: str
     EventTypes: Sequence[EventTypeType]
 
-class NotifyWorkersFailureStatusTypeDef(BaseModel):
+class NotifyWorkersFailureStatusTypeDef(BaseValidatorModel):
     NotifyWorkersFailureCode: Optional[NotifyWorkersFailureCodeType] = None
     NotifyWorkersFailureMessage: Optional[str] = None
     WorkerId: Optional[str] = None
 
-class NotifyWorkersRequestRequestTypeDef(BaseModel):
+class NotifyWorkersRequestRequestTypeDef(BaseValidatorModel):
     Subject: str
     MessageText: str
     WorkerIds: Sequence[str]
 
-class ParameterMapEntryTypeDef(BaseModel):
+class ParameterMapEntryTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
-class RejectAssignmentRequestRequestTypeDef(BaseModel):
+class RejectAssignmentRequestRequestTypeDef(BaseValidatorModel):
     AssignmentId: str
     RequesterFeedback: str
 
-class RejectQualificationRequestRequestRequestTypeDef(BaseModel):
+class RejectQualificationRequestRequestRequestTypeDef(BaseValidatorModel):
     QualificationRequestId: str
     Reason: Optional[str] = None
 
-class ReviewActionDetailTypeDef(BaseModel):
+class ReviewActionDetailTypeDef(BaseValidatorModel):
     ActionId: Optional[str] = None
     ActionName: Optional[str] = None
     TargetId: Optional[str] = None
@@ -242,7 +242,7 @@ class ReviewActionDetailTypeDef(BaseModel):
     Result: Optional[str] = None
     ErrorCode: Optional[str] = None
 
-class ReviewResultDetailTypeDef(BaseModel):
+class ReviewResultDetailTypeDef(BaseValidatorModel):
     ActionId: Optional[str] = None
     SubjectId: Optional[str] = None
     SubjectType: Optional[str] = None
@@ -250,22 +250,22 @@ class ReviewResultDetailTypeDef(BaseModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class SendBonusRequestRequestTypeDef(BaseModel):
+class SendBonusRequestRequestTypeDef(BaseValidatorModel):
     WorkerId: str
     BonusAmount: str
     AssignmentId: str
     Reason: str
     UniqueRequestToken: Optional[str] = None
 
-class UpdateHITReviewStatusRequestRequestTypeDef(BaseModel):
+class UpdateHITReviewStatusRequestRequestTypeDef(BaseValidatorModel):
     HITId: str
     Revert: Optional[bool] = None
 
-class UpdateHITTypeOfHITRequestRequestTypeDef(BaseModel):
+class UpdateHITTypeOfHITRequestRequestTypeDef(BaseValidatorModel):
     HITId: str
     HITTypeId: str
 
-class UpdateQualificationTypeRequestRequestTypeDef(BaseModel):
+class UpdateQualificationTypeRequestRequestTypeDef(BaseValidatorModel):
     QualificationTypeId: str
     Description: Optional[str] = None
     QualificationTypeStatus: Optional[QualificationTypeStatusType] = None
@@ -276,102 +276,102 @@ class UpdateQualificationTypeRequestRequestTypeDef(BaseModel):
     AutoGranted: Optional[bool] = None
     AutoGrantedValue: Optional[int] = None
 
-class CreateHITTypeResponseTypeDef(BaseModel):
+class CreateHITTypeResponseTypeDef(BaseValidatorModel):
     HITTypeId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccountBalanceResponseTypeDef(BaseModel):
+class GetAccountBalanceResponseTypeDef(BaseValidatorModel):
     AvailableBalance: str
     OnHoldBalance: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFileUploadURLResponseTypeDef(BaseModel):
+class GetFileUploadURLResponseTypeDef(BaseValidatorModel):
     FileUploadURL: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssignmentsForHITResponseTypeDef(BaseModel):
+class ListAssignmentsForHITResponseTypeDef(BaseValidatorModel):
     NextToken: str
     NumResults: int
     Assignments: List[AssignmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBonusPaymentsResponseTypeDef(BaseModel):
+class ListBonusPaymentsResponseTypeDef(BaseValidatorModel):
     NumResults: int
     NextToken: str
     BonusPayments: List[BonusPaymentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateQualificationTypeResponseTypeDef(BaseModel):
+class CreateQualificationTypeResponseTypeDef(BaseValidatorModel):
     QualificationType: QualificationTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetQualificationTypeResponseTypeDef(BaseModel):
+class GetQualificationTypeResponseTypeDef(BaseValidatorModel):
     QualificationType: QualificationTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListQualificationTypesResponseTypeDef(BaseModel):
+class ListQualificationTypesResponseTypeDef(BaseValidatorModel):
     NumResults: int
     NextToken: str
     QualificationTypes: List[QualificationTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateQualificationTypeResponseTypeDef(BaseModel):
+class UpdateQualificationTypeResponseTypeDef(BaseValidatorModel):
     QualificationType: QualificationTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssignmentsForHITRequestListAssignmentsForHITPaginateTypeDef(BaseModel):
+class ListAssignmentsForHITRequestListAssignmentsForHITPaginateTypeDef(BaseValidatorModel):
     HITId: str
     AssignmentStatuses: Optional[Sequence[AssignmentStatusType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBonusPaymentsRequestListBonusPaymentsPaginateTypeDef(BaseModel):
+class ListBonusPaymentsRequestListBonusPaymentsPaginateTypeDef(BaseValidatorModel):
     HITId: Optional[str] = None
     AssignmentId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHITsForQualificationTypeRequestListHITsForQualificationTypePaginateTypeDef(BaseModel):
+class ListHITsForQualificationTypeRequestListHITsForQualificationTypePaginateTypeDef(BaseValidatorModel):
     QualificationTypeId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHITsRequestListHITsPaginateTypeDef(BaseModel):
+class ListHITsRequestListHITsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQualificationRequestsRequestListQualificationRequestsPaginateTypeDef(BaseModel):
+class ListQualificationRequestsRequestListQualificationRequestsPaginateTypeDef(BaseValidatorModel):
     QualificationTypeId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQualificationTypesRequestListQualificationTypesPaginateTypeDef(BaseModel):
+class ListQualificationTypesRequestListQualificationTypesPaginateTypeDef(BaseValidatorModel):
     MustBeRequestable: bool
     Query: Optional[str] = None
     MustBeOwnedByCaller: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListReviewableHITsRequestListReviewableHITsPaginateTypeDef(BaseModel):
+class ListReviewableHITsRequestListReviewableHITsPaginateTypeDef(BaseValidatorModel):
     HITTypeId: Optional[str] = None
     Status: Optional[ReviewableHITStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkerBlocksRequestListWorkerBlocksPaginateTypeDef(BaseModel):
+class ListWorkerBlocksRequestListWorkerBlocksPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkersWithQualificationTypeRequestListWorkersWithQualificationTypePaginateTypeDef(BaseModel):
+class ListWorkersWithQualificationTypeRequestListWorkersWithQualificationTypePaginateTypeDef(BaseValidatorModel):
     QualificationTypeId: str
     Status: Optional[QualificationStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQualificationRequestsResponseTypeDef(BaseModel):
+class ListQualificationRequestsResponseTypeDef(BaseValidatorModel):
     NumResults: int
     NextToken: str
     QualificationRequests: List[QualificationRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorkerBlocksResponseTypeDef(BaseModel):
+class ListWorkerBlocksResponseTypeDef(BaseValidatorModel):
     NextToken: str
     NumResults: int
     WorkerBlocks: List[WorkerBlockTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class QualificationRequirementPaginatorTypeDef(BaseModel):
+class QualificationRequirementPaginatorTypeDef(BaseValidatorModel):
     QualificationTypeId: str
     Comparator: ComparatorType
     IntegerValues: Optional[List[int]] = None
@@ -379,7 +379,7 @@ class QualificationRequirementPaginatorTypeDef(BaseModel):
     RequiredToPreview: Optional[bool] = None
     ActionsGuarded: Optional[HITAccessActionsType] = None
 
-class QualificationRequirementTypeDef(BaseModel):
+class QualificationRequirementTypeDef(BaseValidatorModel):
     QualificationTypeId: str
     Comparator: ComparatorType
     IntegerValues: Optional[Sequence[int]] = None
@@ -387,7 +387,7 @@ class QualificationRequirementTypeDef(BaseModel):
     RequiredToPreview: Optional[bool] = None
     ActionsGuarded: Optional[HITAccessActionsType] = None
 
-class QualificationTypeDef(BaseModel):
+class QualificationTypeDef(BaseValidatorModel):
     QualificationTypeId: Optional[str] = None
     WorkerId: Optional[str] = None
     GrantTime: Optional[datetime] = None
@@ -395,33 +395,33 @@ class QualificationTypeDef(BaseModel):
     LocaleValue: Optional[LocaleTypeDef] = None
     Status: Optional[QualificationStatusType] = None
 
-class SendTestEventNotificationRequestRequestTypeDef(BaseModel):
+class SendTestEventNotificationRequestRequestTypeDef(BaseValidatorModel):
     Notification: NotificationSpecificationTypeDef
     TestEventType: EventTypeType
 
-class UpdateNotificationSettingsRequestRequestTypeDef(BaseModel):
+class UpdateNotificationSettingsRequestRequestTypeDef(BaseValidatorModel):
     HITTypeId: str
     Notification: Optional[NotificationSpecificationTypeDef] = None
     Active: Optional[bool] = None
 
-class NotifyWorkersResponseTypeDef(BaseModel):
+class NotifyWorkersResponseTypeDef(BaseValidatorModel):
     NotifyWorkersFailureStatuses: List[NotifyWorkersFailureStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PolicyParameterTypeDef(BaseModel):
+class PolicyParameterTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
     MapEntries: Optional[Sequence[ParameterMapEntryTypeDef]] = None
 
-class ReviewReportTypeDef(BaseModel):
+class ReviewReportTypeDef(BaseValidatorModel):
     ReviewResults: Optional[List[ReviewResultDetailTypeDef]] = None
     ReviewActions: Optional[List[ReviewActionDetailTypeDef]] = None
 
-class UpdateExpirationForHITRequestRequestTypeDef(BaseModel):
+class UpdateExpirationForHITRequestRequestTypeDef(BaseValidatorModel):
     HITId: str
     ExpireAt: TimestampTypeDef
 
-class HITPaginatorTypeDef(BaseModel):
+class HITPaginatorTypeDef(BaseValidatorModel):
     HITId: Optional[str] = None
     HITTypeId: Optional[str] = None
     HITGroupId: Optional[str] = None
@@ -444,7 +444,7 @@ class HITPaginatorTypeDef(BaseModel):
     NumberOfAssignmentsAvailable: Optional[int] = None
     NumberOfAssignmentsCompleted: Optional[int] = None
 
-class CreateHITTypeRequestRequestTypeDef(BaseModel):
+class CreateHITTypeRequestRequestTypeDef(BaseValidatorModel):
     AssignmentDurationInSeconds: int
     Reward: str
     Title: str
@@ -453,7 +453,7 @@ class CreateHITTypeRequestRequestTypeDef(BaseModel):
     Keywords: Optional[str] = None
     QualificationRequirements: Optional[Sequence[QualificationRequirementTypeDef]] = None
 
-class HITTypeDef(BaseModel):
+class HITTypeDef(BaseValidatorModel):
     HITId: Optional[str] = None
     HITTypeId: Optional[str] = None
     HITGroupId: Optional[str] = None
@@ -476,74 +476,74 @@ class HITTypeDef(BaseModel):
     NumberOfAssignmentsAvailable: Optional[int] = None
     NumberOfAssignmentsCompleted: Optional[int] = None
 
-class GetQualificationScoreResponseTypeDef(BaseModel):
+class GetQualificationScoreResponseTypeDef(BaseValidatorModel):
     Qualification: QualificationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorkersWithQualificationTypeResponseTypeDef(BaseModel):
+class ListWorkersWithQualificationTypeResponseTypeDef(BaseValidatorModel):
     NextToken: str
     NumResults: int
     Qualifications: List[QualificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReviewPolicyTypeDef(BaseModel):
+class ReviewPolicyTypeDef(BaseValidatorModel):
     PolicyName: str
     Parameters: Optional[Sequence[PolicyParameterTypeDef]] = None
 
-class ListHITsForQualificationTypeResponsePaginatorTypeDef(BaseModel):
+class ListHITsForQualificationTypeResponsePaginatorTypeDef(BaseValidatorModel):
     NextToken: str
     NumResults: int
     HITs: List[HITPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHITsResponsePaginatorTypeDef(BaseModel):
+class ListHITsResponsePaginatorTypeDef(BaseValidatorModel):
     NextToken: str
     NumResults: int
     HITs: List[HITPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReviewableHITsResponsePaginatorTypeDef(BaseModel):
+class ListReviewableHITsResponsePaginatorTypeDef(BaseValidatorModel):
     NextToken: str
     NumResults: int
     HITs: List[HITPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHITResponseTypeDef(BaseModel):
+class CreateHITResponseTypeDef(BaseValidatorModel):
     HIT: HITTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHITWithHITTypeResponseTypeDef(BaseModel):
+class CreateHITWithHITTypeResponseTypeDef(BaseValidatorModel):
     HIT: HITTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAssignmentResponseTypeDef(BaseModel):
+class GetAssignmentResponseTypeDef(BaseValidatorModel):
     Assignment: AssignmentTypeDef
     HIT: HITTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetHITResponseTypeDef(BaseModel):
+class GetHITResponseTypeDef(BaseValidatorModel):
     HIT: HITTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHITsForQualificationTypeResponseTypeDef(BaseModel):
+class ListHITsForQualificationTypeResponseTypeDef(BaseValidatorModel):
     NextToken: str
     NumResults: int
     HITs: List[HITTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHITsResponseTypeDef(BaseModel):
+class ListHITsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     NumResults: int
     HITs: List[HITTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReviewableHITsResponseTypeDef(BaseModel):
+class ListReviewableHITsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     NumResults: int
     HITs: List[HITTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHITRequestRequestTypeDef(BaseModel):
+class CreateHITRequestRequestTypeDef(BaseValidatorModel):
     LifetimeInSeconds: int
     AssignmentDurationInSeconds: int
     Reward: str
@@ -561,7 +561,7 @@ class CreateHITRequestRequestTypeDef(BaseModel):
     HITLayoutId: Optional[str] = None
     HITLayoutParameters: Optional[Sequence[HITLayoutParameterTypeDef]] = None
 
-class CreateHITWithHITTypeRequestRequestTypeDef(BaseModel):
+class CreateHITWithHITTypeRequestRequestTypeDef(BaseValidatorModel):
     HITTypeId: str
     LifetimeInSeconds: int
     MaxAssignments: Optional[int] = None
@@ -573,7 +573,7 @@ class CreateHITWithHITTypeRequestRequestTypeDef(BaseModel):
     HITLayoutId: Optional[str] = None
     HITLayoutParameters: Optional[Sequence[HITLayoutParameterTypeDef]] = None
 
-class ListReviewPolicyResultsForHITResponseTypeDef(BaseModel):
+class ListReviewPolicyResultsForHITResponseTypeDef(BaseValidatorModel):
     HITId: str
     AssignmentReviewPolicy: ReviewPolicyTypeDef
     HITReviewPolicy: ReviewPolicyTypeDef

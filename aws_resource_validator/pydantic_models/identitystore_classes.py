@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.identitystore_constants import *
 
-class AddressTypeDef(BaseModel):
+class AddressTypeDef(BaseValidatorModel):
     StreetAddress: Optional[str] = None
     Locality: Optional[str] = None
     Region: Optional[str] = None
@@ -21,39 +21,39 @@ class AddressTypeDef(BaseModel):
     Type: Optional[str] = None
     Primary: Optional[bool] = None
 
-class ExternalIdTypeDef(BaseModel):
+class ExternalIdTypeDef(BaseValidatorModel):
     Issuer: str
     Id: str
 
-class UniqueAttributeTypeDef(BaseModel):
+class UniqueAttributeTypeDef(BaseValidatorModel):
     AttributePath: str
     AttributeValue: Mapping[str, Any]
 
-class AttributeOperationTypeDef(BaseModel):
+class AttributeOperationTypeDef(BaseValidatorModel):
     AttributePath: str
     AttributeValue: Optional[Mapping[str, Any]] = None
 
-class MemberIdTypeDef(BaseModel):
+class MemberIdTypeDef(BaseValidatorModel):
     UserId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateGroupRequestRequestTypeDef(BaseModel):
+class CreateGroupRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
 
-class EmailTypeDef(BaseModel):
+class EmailTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     Type: Optional[str] = None
     Primary: Optional[bool] = None
 
-class NameTypeDef(BaseModel):
+class NameTypeDef(BaseValidatorModel):
     Formatted: Optional[str] = None
     FamilyName: Optional[str] = None
     GivenName: Optional[str] = None
@@ -61,126 +61,126 @@ class NameTypeDef(BaseModel):
     HonorificPrefix: Optional[str] = None
     HonorificSuffix: Optional[str] = None
 
-class PhoneNumberTypeDef(BaseModel):
+class PhoneNumberTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     Type: Optional[str] = None
     Primary: Optional[bool] = None
 
-class DeleteGroupMembershipRequestRequestTypeDef(BaseModel):
+class DeleteGroupMembershipRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     MembershipId: str
 
-class DeleteGroupRequestRequestTypeDef(BaseModel):
+class DeleteGroupRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
 
-class DeleteUserRequestRequestTypeDef(BaseModel):
+class DeleteUserRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     UserId: str
 
-class DescribeGroupMembershipRequestRequestTypeDef(BaseModel):
+class DescribeGroupMembershipRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     MembershipId: str
 
-class DescribeGroupRequestRequestTypeDef(BaseModel):
+class DescribeGroupRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
 
-class DescribeUserRequestRequestTypeDef(BaseModel):
+class DescribeUserRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     UserId: str
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     AttributePath: str
     AttributeValue: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListGroupMembershipsRequestRequestTypeDef(BaseModel):
+class ListGroupMembershipsRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GroupTypeDef(BaseModel):
+class GroupTypeDef(BaseValidatorModel):
     GroupId: str
     IdentityStoreId: str
     DisplayName: Optional[str] = None
     ExternalIds: Optional[List[ExternalIdTypeDef]] = None
     Description: Optional[str] = None
 
-class AlternateIdentifierTypeDef(BaseModel):
+class AlternateIdentifierTypeDef(BaseValidatorModel):
     ExternalId: Optional[ExternalIdTypeDef] = None
     UniqueAttribute: Optional[UniqueAttributeTypeDef] = None
 
-class UpdateGroupRequestRequestTypeDef(BaseModel):
+class UpdateGroupRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
     Operations: Sequence[AttributeOperationTypeDef]
 
-class UpdateUserRequestRequestTypeDef(BaseModel):
+class UpdateUserRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     UserId: str
     Operations: Sequence[AttributeOperationTypeDef]
 
-class CreateGroupMembershipRequestRequestTypeDef(BaseModel):
+class CreateGroupMembershipRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
     MemberId: MemberIdTypeDef
 
-class GetGroupMembershipIdRequestRequestTypeDef(BaseModel):
+class GetGroupMembershipIdRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
     MemberId: MemberIdTypeDef
 
-class GroupMembershipExistenceResultTypeDef(BaseModel):
+class GroupMembershipExistenceResultTypeDef(BaseValidatorModel):
     GroupId: Optional[str] = None
     MemberId: Optional[MemberIdTypeDef] = None
     MembershipExists: Optional[bool] = None
 
-class GroupMembershipTypeDef(BaseModel):
+class GroupMembershipTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     MembershipId: Optional[str] = None
     GroupId: Optional[str] = None
     MemberId: Optional[MemberIdTypeDef] = None
 
-class IsMemberInGroupsRequestRequestTypeDef(BaseModel):
+class IsMemberInGroupsRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     MemberId: MemberIdTypeDef
     GroupIds: Sequence[str]
 
-class ListGroupMembershipsForMemberRequestRequestTypeDef(BaseModel):
+class ListGroupMembershipsForMemberRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     MemberId: MemberIdTypeDef
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class CreateGroupMembershipResponseTypeDef(BaseModel):
+class CreateGroupMembershipResponseTypeDef(BaseValidatorModel):
     MembershipId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGroupResponseTypeDef(BaseModel):
+class CreateGroupResponseTypeDef(BaseValidatorModel):
     GroupId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserResponseTypeDef(BaseModel):
+class CreateUserResponseTypeDef(BaseValidatorModel):
     UserId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeGroupMembershipResponseTypeDef(BaseModel):
+class DescribeGroupMembershipResponseTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     MembershipId: str
     GroupId: str
     MemberId: MemberIdTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeGroupResponseTypeDef(BaseModel):
+class DescribeGroupResponseTypeDef(BaseValidatorModel):
     GroupId: str
     DisplayName: str
     ExternalIds: List[ExternalIdTypeDef]
@@ -188,22 +188,22 @@ class DescribeGroupResponseTypeDef(BaseModel):
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupIdResponseTypeDef(BaseModel):
+class GetGroupIdResponseTypeDef(BaseValidatorModel):
     GroupId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupMembershipIdResponseTypeDef(BaseModel):
+class GetGroupMembershipIdResponseTypeDef(BaseValidatorModel):
     MembershipId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUserIdResponseTypeDef(BaseModel):
+class GetUserIdResponseTypeDef(BaseValidatorModel):
     UserId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserRequestRequestTypeDef(BaseModel):
+class CreateUserRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     UserName: Optional[str] = None
     Name: Optional[NameTypeDef] = None
@@ -219,7 +219,7 @@ class CreateUserRequestRequestTypeDef(BaseModel):
     Locale: Optional[str] = None
     Timezone: Optional[str] = None
 
-class DescribeUserResponseTypeDef(BaseModel):
+class DescribeUserResponseTypeDef(BaseValidatorModel):
     UserName: str
     UserId: str
     ExternalIds: List[ExternalIdTypeDef]
@@ -238,7 +238,7 @@ class DescribeUserResponseTypeDef(BaseModel):
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UserTypeDef(BaseModel):
+class UserTypeDef(BaseValidatorModel):
     UserId: str
     IdentityStoreId: str
     UserName: Optional[str] = None
@@ -256,66 +256,66 @@ class UserTypeDef(BaseModel):
     Locale: Optional[str] = None
     Timezone: Optional[str] = None
 
-class ListGroupsRequestRequestTypeDef(BaseModel):
+class ListGroupsRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListUsersRequestRequestTypeDef(BaseModel):
+class ListUsersRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class ListGroupMembershipsForMemberRequestListGroupMembershipsForMemberPaginateTypeDef(BaseModel):
+class ListGroupMembershipsForMemberRequestListGroupMembershipsForMemberPaginateTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     MemberId: MemberIdTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGroupMembershipsRequestListGroupMembershipsPaginateTypeDef(BaseModel):
+class ListGroupMembershipsRequestListGroupMembershipsPaginateTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGroupsRequestListGroupsPaginateTypeDef(BaseModel):
+class ListGroupsRequestListGroupsPaginateTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsersRequestListUsersPaginateTypeDef(BaseModel):
+class ListUsersRequestListUsersPaginateTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGroupsResponseTypeDef(BaseModel):
+class ListGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupIdRequestRequestTypeDef(BaseModel):
+class GetGroupIdRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     AlternateIdentifier: AlternateIdentifierTypeDef
 
-class GetUserIdRequestRequestTypeDef(BaseModel):
+class GetUserIdRequestRequestTypeDef(BaseValidatorModel):
     IdentityStoreId: str
     AlternateIdentifier: AlternateIdentifierTypeDef
 
-class IsMemberInGroupsResponseTypeDef(BaseModel):
+class IsMemberInGroupsResponseTypeDef(BaseValidatorModel):
     Results: List[GroupMembershipExistenceResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGroupMembershipsForMemberResponseTypeDef(BaseModel):
+class ListGroupMembershipsForMemberResponseTypeDef(BaseValidatorModel):
     GroupMemberships: List[GroupMembershipTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGroupMembershipsResponseTypeDef(BaseModel):
+class ListGroupMembershipsResponseTypeDef(BaseValidatorModel):
     GroupMemberships: List[GroupMembershipTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUsersResponseTypeDef(BaseModel):
+class ListUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

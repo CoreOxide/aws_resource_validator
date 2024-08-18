@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.emr_serverless_constants import *
 
-class ApplicationSummaryTypeDef(BaseModel):
+class ApplicationSummaryTypeDef(BaseValidatorModel):
     id: str
     arn: str
     releaseLabel: str
@@ -23,110 +23,110 @@ class ApplicationSummaryTypeDef(BaseModel):
     stateDetails: Optional[str] = None
     architecture: Optional[ArchitectureType] = None
 
-class AutoStartConfigTypeDef(BaseModel):
+class AutoStartConfigTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
 
-class AutoStopConfigTypeDef(BaseModel):
+class AutoStopConfigTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
     idleTimeoutMinutes: Optional[int] = None
 
-class ImageConfigurationTypeDef(BaseModel):
+class ImageConfigurationTypeDef(BaseValidatorModel):
     imageUri: str
     resolvedImageDigest: Optional[str] = None
 
-class InteractiveConfigurationTypeDef(BaseModel):
+class InteractiveConfigurationTypeDef(BaseValidatorModel):
     studioEnabled: Optional[bool] = None
     livyEndpointEnabled: Optional[bool] = None
 
-class MaximumAllowedResourcesTypeDef(BaseModel):
+class MaximumAllowedResourcesTypeDef(BaseValidatorModel):
     cpu: str
     memory: str
     disk: Optional[str] = None
 
-class NetworkConfigurationOutputTypeDef(BaseModel):
+class NetworkConfigurationOutputTypeDef(BaseValidatorModel):
     subnetIds: Optional[List[str]] = None
     securityGroupIds: Optional[List[str]] = None
 
-class CancelJobRunRequestRequestTypeDef(BaseModel):
+class CancelJobRunRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
     jobRunId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CloudWatchLoggingConfigurationOutputTypeDef(BaseModel):
+class CloudWatchLoggingConfigurationOutputTypeDef(BaseValidatorModel):
     enabled: bool
     logGroupName: Optional[str] = None
     logStreamNamePrefix: Optional[str] = None
     encryptionKeyArn: Optional[str] = None
     logTypes: Optional[Dict[str, List[str]]] = None
 
-class CloudWatchLoggingConfigurationTypeDef(BaseModel):
+class CloudWatchLoggingConfigurationTypeDef(BaseValidatorModel):
     enabled: bool
     logGroupName: Optional[str] = None
     logStreamNamePrefix: Optional[str] = None
     encryptionKeyArn: Optional[str] = None
     logTypes: Optional[Mapping[str, Sequence[str]]] = None
 
-class ConfigurationOutputTypeDef(BaseModel):
+class ConfigurationOutputTypeDef(BaseValidatorModel):
     classification: str
     properties: Optional[Dict[str, str]] = None
     configurations: Optional[List[Dict[str, Any]]] = None
 
-class ConfigurationTypeDef(BaseModel):
+class ConfigurationTypeDef(BaseValidatorModel):
     classification: str
     properties: Optional[Mapping[str, str]] = None
     configurations: Optional[Sequence[Dict[str, Any]]] = None
 
-class ImageConfigurationInputTypeDef(BaseModel):
+class ImageConfigurationInputTypeDef(BaseValidatorModel):
     imageUri: Optional[str] = None
 
-class NetworkConfigurationTypeDef(BaseModel):
+class NetworkConfigurationTypeDef(BaseValidatorModel):
     subnetIds: Optional[Sequence[str]] = None
     securityGroupIds: Optional[Sequence[str]] = None
 
-class DeleteApplicationRequestRequestTypeDef(BaseModel):
+class DeleteApplicationRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
 
-class GetApplicationRequestRequestTypeDef(BaseModel):
+class GetApplicationRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
 
-class GetDashboardForJobRunRequestRequestTypeDef(BaseModel):
-    applicationId: str
-    jobRunId: str
-    attempt: Optional[int] = None
-
-class GetJobRunRequestRequestTypeDef(BaseModel):
+class GetDashboardForJobRunRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
     jobRunId: str
     attempt: Optional[int] = None
 
-class HiveTypeDef(BaseModel):
+class GetJobRunRequestRequestTypeDef(BaseValidatorModel):
+    applicationId: str
+    jobRunId: str
+    attempt: Optional[int] = None
+
+class HiveTypeDef(BaseValidatorModel):
     query: str
     initQueryFile: Optional[str] = None
     parameters: Optional[str] = None
 
-class WorkerResourceConfigTypeDef(BaseModel):
+class WorkerResourceConfigTypeDef(BaseValidatorModel):
     cpu: str
     memory: str
     disk: Optional[str] = None
     diskType: Optional[str] = None
 
-class SparkSubmitOutputTypeDef(BaseModel):
+class SparkSubmitOutputTypeDef(BaseValidatorModel):
     entryPoint: str
     entryPointArguments: Optional[List[str]] = None
     sparkSubmitParameters: Optional[str] = None
 
-class SparkSubmitTypeDef(BaseModel):
+class SparkSubmitTypeDef(BaseValidatorModel):
     entryPoint: str
     entryPointArguments: Optional[Sequence[str]] = None
     sparkSubmitParameters: Optional[str] = None
 
-class JobRunAttemptSummaryTypeDef(BaseModel):
+class JobRunAttemptSummaryTypeDef(BaseValidatorModel):
     applicationId: str
     id: str
     arn: str
@@ -143,7 +143,7 @@ class JobRunAttemptSummaryTypeDef(BaseModel):
     type: Optional[str] = None
     attempt: Optional[int] = None
 
-class JobRunSummaryTypeDef(BaseModel):
+class JobRunSummaryTypeDef(BaseValidatorModel):
     applicationId: str
     id: str
     arn: str
@@ -161,132 +161,132 @@ class JobRunSummaryTypeDef(BaseModel):
     attemptCreatedAt: Optional[datetime] = None
     attemptUpdatedAt: Optional[datetime] = None
 
-class ResourceUtilizationTypeDef(BaseModel):
+class ResourceUtilizationTypeDef(BaseValidatorModel):
     vCPUHour: Optional[float] = None
     memoryGBHour: Optional[float] = None
     storageGBHour: Optional[float] = None
 
-class RetryPolicyTypeDef(BaseModel):
+class RetryPolicyTypeDef(BaseValidatorModel):
     maxAttempts: Optional[int] = None
     maxFailedAttemptsPerHour: Optional[int] = None
 
-class TotalResourceUtilizationTypeDef(BaseModel):
+class TotalResourceUtilizationTypeDef(BaseValidatorModel):
     vCPUHour: Optional[float] = None
     memoryGBHour: Optional[float] = None
     storageGBHour: Optional[float] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListApplicationsRequestRequestTypeDef(BaseModel):
+class ListApplicationsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     states: Optional[Sequence[ApplicationStateType]] = None
 
-class ListJobRunAttemptsRequestRequestTypeDef(BaseModel):
+class ListJobRunAttemptsRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
     jobRunId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ManagedPersistenceMonitoringConfigurationTypeDef(BaseModel):
+class ManagedPersistenceMonitoringConfigurationTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
     encryptionKeyArn: Optional[str] = None
 
-class PrometheusMonitoringConfigurationTypeDef(BaseModel):
+class PrometheusMonitoringConfigurationTypeDef(BaseValidatorModel):
     remoteWriteUrl: Optional[str] = None
 
-class S3MonitoringConfigurationTypeDef(BaseModel):
+class S3MonitoringConfigurationTypeDef(BaseValidatorModel):
     logUri: Optional[str] = None
     encryptionKeyArn: Optional[str] = None
 
-class StartApplicationRequestRequestTypeDef(BaseModel):
+class StartApplicationRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
 
-class StopApplicationRequestRequestTypeDef(BaseModel):
+class StopApplicationRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class WorkerTypeSpecificationTypeDef(BaseModel):
+class WorkerTypeSpecificationTypeDef(BaseValidatorModel):
     imageConfiguration: Optional[ImageConfigurationTypeDef] = None
 
-class CancelJobRunResponseTypeDef(BaseModel):
+class CancelJobRunResponseTypeDef(BaseValidatorModel):
     applicationId: str
     jobRunId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateApplicationResponseTypeDef(BaseModel):
+class CreateApplicationResponseTypeDef(BaseValidatorModel):
     applicationId: str
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDashboardForJobRunResponseTypeDef(BaseModel):
+class GetDashboardForJobRunResponseTypeDef(BaseValidatorModel):
     url: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationsResponseTypeDef(BaseModel):
+class ListApplicationsResponseTypeDef(BaseValidatorModel):
     applications: List[ApplicationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartJobRunResponseTypeDef(BaseModel):
+class StartJobRunResponseTypeDef(BaseValidatorModel):
     applicationId: str
     jobRunId: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WorkerTypeSpecificationInputTypeDef(BaseModel):
+class WorkerTypeSpecificationInputTypeDef(BaseValidatorModel):
     imageConfiguration: Optional[ImageConfigurationInputTypeDef] = None
 
-class InitialCapacityConfigTypeDef(BaseModel):
+class InitialCapacityConfigTypeDef(BaseValidatorModel):
     workerCount: int
     workerConfiguration: Optional[WorkerResourceConfigTypeDef] = None
 
-class JobDriverOutputTypeDef(BaseModel):
+class JobDriverOutputTypeDef(BaseValidatorModel):
     sparkSubmit: Optional[SparkSubmitOutputTypeDef] = None
     hive: Optional[HiveTypeDef] = None
 
-class JobDriverTypeDef(BaseModel):
+class JobDriverTypeDef(BaseValidatorModel):
     sparkSubmit: Optional[SparkSubmitTypeDef] = None
     hive: Optional[HiveTypeDef] = None
 
-class ListJobRunAttemptsResponseTypeDef(BaseModel):
+class ListJobRunAttemptsResponseTypeDef(BaseValidatorModel):
     jobRunAttempts: List[JobRunAttemptSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobRunsResponseTypeDef(BaseModel):
+class ListJobRunsResponseTypeDef(BaseValidatorModel):
     jobRuns: List[JobRunSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationsRequestListApplicationsPaginateTypeDef(BaseModel):
+class ListApplicationsRequestListApplicationsPaginateTypeDef(BaseValidatorModel):
     states: Optional[Sequence[ApplicationStateType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobRunAttemptsRequestListJobRunAttemptsPaginateTypeDef(BaseModel):
+class ListJobRunAttemptsRequestListJobRunAttemptsPaginateTypeDef(BaseValidatorModel):
     applicationId: str
     jobRunId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobRunsRequestListJobRunsPaginateTypeDef(BaseModel):
+class ListJobRunsRequestListJobRunsPaginateTypeDef(BaseValidatorModel):
     applicationId: str
     createdAtAfter: Optional[TimestampTypeDef] = None
     createdAtBefore: Optional[TimestampTypeDef] = None
@@ -294,7 +294,7 @@ class ListJobRunsRequestListJobRunsPaginateTypeDef(BaseModel):
     mode: Optional[JobRunModeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobRunsRequestRequestTypeDef(BaseModel):
+class ListJobRunsRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -303,19 +303,19 @@ class ListJobRunsRequestRequestTypeDef(BaseModel):
     states: Optional[Sequence[JobRunStateType]] = None
     mode: Optional[JobRunModeType] = None
 
-class MonitoringConfigurationOutputTypeDef(BaseModel):
+class MonitoringConfigurationOutputTypeDef(BaseValidatorModel):
     s3MonitoringConfiguration: Optional[S3MonitoringConfigurationTypeDef] = None
     managedPersistenceMonitoringConfiguration: Optional[       ManagedPersistenceMonitoringConfigurationTypeDef     ] = None
     cloudWatchLoggingConfiguration: Optional[CloudWatchLoggingConfigurationOutputTypeDef] = None
     prometheusMonitoringConfiguration: Optional[PrometheusMonitoringConfigurationTypeDef] = None
 
-class MonitoringConfigurationTypeDef(BaseModel):
+class MonitoringConfigurationTypeDef(BaseValidatorModel):
     s3MonitoringConfiguration: Optional[S3MonitoringConfigurationTypeDef] = None
     managedPersistenceMonitoringConfiguration: Optional[       ManagedPersistenceMonitoringConfigurationTypeDef     ] = None
     cloudWatchLoggingConfiguration: Optional[CloudWatchLoggingConfigurationTypeDef] = None
     prometheusMonitoringConfiguration: Optional[PrometheusMonitoringConfigurationTypeDef] = None
 
-class ApplicationTypeDef(BaseModel):
+class ApplicationTypeDef(BaseValidatorModel):
     applicationId: str
     arn: str
     releaseLabel: str
@@ -338,15 +338,15 @@ class ApplicationTypeDef(BaseModel):
     monitoringConfiguration: Optional[MonitoringConfigurationOutputTypeDef] = None
     interactiveConfiguration: Optional[InteractiveConfigurationTypeDef] = None
 
-class ConfigurationOverridesOutputTypeDef(BaseModel):
+class ConfigurationOverridesOutputTypeDef(BaseValidatorModel):
     applicationConfiguration: Optional[List["ConfigurationOutputTypeDef"]] = None
     monitoringConfiguration: Optional[MonitoringConfigurationOutputTypeDef] = None
 
-class ConfigurationOverridesTypeDef(BaseModel):
+class ConfigurationOverridesTypeDef(BaseValidatorModel):
     applicationConfiguration: Optional[Sequence["ConfigurationTypeDef"]] = None
     monitoringConfiguration: Optional[MonitoringConfigurationTypeDef] = None
 
-class CreateApplicationRequestRequestTypeDef(BaseModel):
+class CreateApplicationRequestRequestTypeDef(BaseValidatorModel):
     releaseLabel: str
     type: str
     clientToken: str
@@ -364,7 +364,7 @@ class CreateApplicationRequestRequestTypeDef(BaseModel):
     monitoringConfiguration: Optional[MonitoringConfigurationTypeDef] = None
     interactiveConfiguration: Optional[InteractiveConfigurationTypeDef] = None
 
-class UpdateApplicationRequestRequestTypeDef(BaseModel):
+class UpdateApplicationRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
     clientToken: str
     initialCapacity: Optional[Mapping[str, InitialCapacityConfigTypeDef]] = None
@@ -380,15 +380,15 @@ class UpdateApplicationRequestRequestTypeDef(BaseModel):
     runtimeConfiguration: Optional[Sequence[ConfigurationUnionTypeDef]] = None
     monitoringConfiguration: Optional[MonitoringConfigurationTypeDef] = None
 
-class GetApplicationResponseTypeDef(BaseModel):
+class GetApplicationResponseTypeDef(BaseValidatorModel):
     application: ApplicationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApplicationResponseTypeDef(BaseModel):
+class UpdateApplicationResponseTypeDef(BaseValidatorModel):
     application: ApplicationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JobRunTypeDef(BaseModel):
+class JobRunTypeDef(BaseValidatorModel):
     applicationId: str
     jobRunId: str
     arn: str
@@ -414,7 +414,7 @@ class JobRunTypeDef(BaseModel):
     attemptCreatedAt: Optional[datetime] = None
     attemptUpdatedAt: Optional[datetime] = None
 
-class StartJobRunRequestRequestTypeDef(BaseModel):
+class StartJobRunRequestRequestTypeDef(BaseValidatorModel):
     applicationId: str
     clientToken: str
     executionRoleArn: str
@@ -426,7 +426,7 @@ class StartJobRunRequestRequestTypeDef(BaseModel):
     mode: Optional[JobRunModeType] = None
     retryPolicy: Optional[RetryPolicyTypeDef] = None
 
-class GetJobRunResponseTypeDef(BaseModel):
+class GetJobRunResponseTypeDef(BaseValidatorModel):
     jobRun: JobRunTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

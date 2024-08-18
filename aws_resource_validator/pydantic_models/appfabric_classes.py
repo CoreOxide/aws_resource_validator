@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,44 +11,44 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.appfabric_constants import *
 
-class ApiKeyCredentialTypeDef(BaseModel):
+class ApiKeyCredentialTypeDef(BaseValidatorModel):
     apiKey: str
 
-class TenantTypeDef(BaseModel):
+class TenantTypeDef(BaseValidatorModel):
     tenantIdentifier: str
     tenantDisplayName: str
 
-class AppBundleSummaryTypeDef(BaseModel):
+class AppBundleSummaryTypeDef(BaseValidatorModel):
     arn: str
 
-class AppBundleTypeDef(BaseModel):
+class AppBundleTypeDef(BaseValidatorModel):
     arn: str
     customerManagedKeyArn: Optional[str] = None
 
-class AuditLogProcessingConfigurationTypeDef(BaseModel):
+class AuditLogProcessingConfigurationTypeDef(BaseValidatorModel):
     schema: SchemaType
     format: FormatType
 
-class AuthRequestTypeDef(BaseModel):
+class AuthRequestTypeDef(BaseValidatorModel):
     redirectUri: str
     code: str
 
-class BatchGetUserAccessTasksRequestRequestTypeDef(BaseModel):
+class BatchGetUserAccessTasksRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     taskIdList: Sequence[str]
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class IngestionTypeDef(BaseModel):
+class IngestionTypeDef(BaseValidatorModel):
     arn: str
     appBundleArn: str
     app: str
@@ -58,107 +58,107 @@ class IngestionTypeDef(BaseModel):
     state: IngestionStateType
     ingestionType: Literal["auditLog"]
 
-class Oauth2CredentialTypeDef(BaseModel):
+class Oauth2CredentialTypeDef(BaseValidatorModel):
     clientId: str
     clientSecret: str
 
-class DeleteAppAuthorizationRequestRequestTypeDef(BaseModel):
+class DeleteAppAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
 
-class DeleteAppBundleRequestRequestTypeDef(BaseModel):
+class DeleteAppBundleRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
 
-class DeleteIngestionDestinationRequestRequestTypeDef(BaseModel):
+class DeleteIngestionDestinationRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     ingestionDestinationIdentifier: str
 
-class DeleteIngestionRequestRequestTypeDef(BaseModel):
+class DeleteIngestionRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
 
-class FirehoseStreamTypeDef(BaseModel):
+class FirehoseStreamTypeDef(BaseValidatorModel):
     streamName: str
 
-class S3BucketTypeDef(BaseModel):
+class S3BucketTypeDef(BaseValidatorModel):
     bucketName: str
     prefix: Optional[str] = None
 
-class GetAppAuthorizationRequestRequestTypeDef(BaseModel):
+class GetAppAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
 
-class GetAppBundleRequestRequestTypeDef(BaseModel):
+class GetAppBundleRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
 
-class GetIngestionDestinationRequestRequestTypeDef(BaseModel):
+class GetIngestionDestinationRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     ingestionDestinationIdentifier: str
 
-class GetIngestionRequestRequestTypeDef(BaseModel):
+class GetIngestionRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
 
-class IngestionDestinationSummaryTypeDef(BaseModel):
+class IngestionDestinationSummaryTypeDef(BaseValidatorModel):
     arn: str
 
-class IngestionSummaryTypeDef(BaseModel):
+class IngestionSummaryTypeDef(BaseValidatorModel):
     arn: str
     app: str
     tenantId: str
     state: IngestionStateType
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAppAuthorizationsRequestRequestTypeDef(BaseModel):
+class ListAppAuthorizationsRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAppBundlesRequestRequestTypeDef(BaseModel):
+class ListAppBundlesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListIngestionDestinationsRequestRequestTypeDef(BaseModel):
+class ListIngestionDestinationsRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListIngestionsRequestRequestTypeDef(BaseModel):
+class ListIngestionsRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class StartIngestionRequestRequestTypeDef(BaseModel):
+class StartIngestionRequestRequestTypeDef(BaseValidatorModel):
     ingestionIdentifier: str
     appBundleIdentifier: str
 
-class StartUserAccessTasksRequestRequestTypeDef(BaseModel):
+class StartUserAccessTasksRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     email: str
 
-class StopIngestionRequestRequestTypeDef(BaseModel):
+class StopIngestionRequestRequestTypeDef(BaseValidatorModel):
     ingestionIdentifier: str
     appBundleIdentifier: str
 
-class TaskErrorTypeDef(BaseModel):
+class TaskErrorTypeDef(BaseValidatorModel):
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class AppAuthorizationSummaryTypeDef(BaseModel):
+class AppAuthorizationSummaryTypeDef(BaseValidatorModel):
     appAuthorizationArn: str
     appBundleArn: str
     app: str
@@ -166,7 +166,7 @@ class AppAuthorizationSummaryTypeDef(BaseModel):
     status: AppAuthorizationStatusType
     updatedAt: datetime
 
-class AppAuthorizationTypeDef(BaseModel):
+class AppAuthorizationTypeDef(BaseValidatorModel):
     appAuthorizationArn: str
     appBundleArn: str
     app: str
@@ -178,33 +178,33 @@ class AppAuthorizationTypeDef(BaseModel):
     persona: Optional[PersonaType] = None
     authUrl: Optional[str] = None
 
-class ProcessingConfigurationTypeDef(BaseModel):
+class ProcessingConfigurationTypeDef(BaseValidatorModel):
     auditLog: Optional[AuditLogProcessingConfigurationTypeDef] = None
 
-class ConnectAppAuthorizationRequestRequestTypeDef(BaseModel):
+class ConnectAppAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
     authRequest: Optional[AuthRequestTypeDef] = None
 
-class CreateAppBundleResponseTypeDef(BaseModel):
+class CreateAppBundleResponseTypeDef(BaseValidatorModel):
     appBundle: AppBundleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAppBundleResponseTypeDef(BaseModel):
+class GetAppBundleResponseTypeDef(BaseValidatorModel):
     appBundle: AppBundleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAppBundlesResponseTypeDef(BaseModel):
+class ListAppBundlesResponseTypeDef(BaseValidatorModel):
     appBundleSummaryList: List[AppBundleSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAppBundleRequestRequestTypeDef(BaseModel):
+class CreateAppBundleRequestRequestTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
     customerManagedKeyIdentifier: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateIngestionRequestRequestTypeDef(BaseModel):
+class CreateIngestionRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     app: str
     tenantId: str
@@ -212,57 +212,57 @@ class CreateIngestionRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class CreateIngestionResponseTypeDef(BaseModel):
+class CreateIngestionResponseTypeDef(BaseValidatorModel):
     ingestion: IngestionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIngestionResponseTypeDef(BaseModel):
+class GetIngestionResponseTypeDef(BaseValidatorModel):
     ingestion: IngestionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CredentialTypeDef(BaseModel):
+class CredentialTypeDef(BaseValidatorModel):
     oauth2Credential: Optional[Oauth2CredentialTypeDef] = None
     apiKeyCredential: Optional[ApiKeyCredentialTypeDef] = None
 
-class DestinationTypeDef(BaseModel):
+class DestinationTypeDef(BaseValidatorModel):
     s3Bucket: Optional[S3BucketTypeDef] = None
     firehoseStream: Optional[FirehoseStreamTypeDef] = None
 
-class ListIngestionDestinationsResponseTypeDef(BaseModel):
+class ListIngestionDestinationsResponseTypeDef(BaseValidatorModel):
     ingestionDestinations: List[IngestionDestinationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIngestionsResponseTypeDef(BaseModel):
+class ListIngestionsResponseTypeDef(BaseValidatorModel):
     ingestions: List[IngestionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAppAuthorizationsRequestListAppAuthorizationsPaginateTypeDef(BaseModel):
+class ListAppAuthorizationsRequestListAppAuthorizationsPaginateTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAppBundlesRequestListAppBundlesPaginateTypeDef(BaseModel):
+class ListAppBundlesRequestListAppBundlesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIngestionDestinationsRequestListIngestionDestinationsPaginateTypeDef(BaseModel):
+class ListIngestionDestinationsRequestListIngestionDestinationsPaginateTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIngestionsRequestListIngestionsPaginateTypeDef(BaseModel):
+class ListIngestionsRequestListIngestionsPaginateTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class UserAccessResultItemTypeDef(BaseModel):
+class UserAccessResultItemTypeDef(BaseValidatorModel):
     app: Optional[str] = None
     tenantId: Optional[str] = None
     tenantDisplayName: Optional[str] = None
@@ -276,34 +276,34 @@ class UserAccessResultItemTypeDef(BaseModel):
     userStatus: Optional[str] = None
     taskError: Optional[TaskErrorTypeDef] = None
 
-class UserAccessTaskItemTypeDef(BaseModel):
+class UserAccessTaskItemTypeDef(BaseValidatorModel):
     app: str
     tenantId: str
     taskId: Optional[str] = None
     error: Optional[TaskErrorTypeDef] = None
 
-class ConnectAppAuthorizationResponseTypeDef(BaseModel):
+class ConnectAppAuthorizationResponseTypeDef(BaseValidatorModel):
     appAuthorizationSummary: AppAuthorizationSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAppAuthorizationsResponseTypeDef(BaseModel):
+class ListAppAuthorizationsResponseTypeDef(BaseValidatorModel):
     appAuthorizationSummaryList: List[AppAuthorizationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAppAuthorizationResponseTypeDef(BaseModel):
+class CreateAppAuthorizationResponseTypeDef(BaseValidatorModel):
     appAuthorization: AppAuthorizationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAppAuthorizationResponseTypeDef(BaseModel):
+class GetAppAuthorizationResponseTypeDef(BaseValidatorModel):
     appAuthorization: AppAuthorizationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAppAuthorizationResponseTypeDef(BaseModel):
+class UpdateAppAuthorizationResponseTypeDef(BaseValidatorModel):
     appAuthorization: AppAuthorizationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAppAuthorizationRequestRequestTypeDef(BaseModel):
+class CreateAppAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     app: str
     credential: CredentialTypeDef
@@ -312,27 +312,27 @@ class CreateAppAuthorizationRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateAppAuthorizationRequestRequestTypeDef(BaseModel):
+class UpdateAppAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
     credential: Optional[CredentialTypeDef] = None
     tenant: Optional[TenantTypeDef] = None
 
-class AuditLogDestinationConfigurationTypeDef(BaseModel):
+class AuditLogDestinationConfigurationTypeDef(BaseValidatorModel):
     destination: DestinationTypeDef
 
-class BatchGetUserAccessTasksResponseTypeDef(BaseModel):
+class BatchGetUserAccessTasksResponseTypeDef(BaseValidatorModel):
     userAccessResultsList: List[UserAccessResultItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartUserAccessTasksResponseTypeDef(BaseModel):
+class StartUserAccessTasksResponseTypeDef(BaseValidatorModel):
     userAccessTasksList: List[UserAccessTaskItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DestinationConfigurationTypeDef(BaseModel):
+class DestinationConfigurationTypeDef(BaseValidatorModel):
     auditLog: Optional[AuditLogDestinationConfigurationTypeDef] = None
 
-class CreateIngestionDestinationRequestRequestTypeDef(BaseModel):
+class CreateIngestionDestinationRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     processingConfiguration: ProcessingConfigurationTypeDef
@@ -340,7 +340,7 @@ class CreateIngestionDestinationRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class IngestionDestinationTypeDef(BaseModel):
+class IngestionDestinationTypeDef(BaseValidatorModel):
     arn: str
     ingestionArn: str
     processingConfiguration: ProcessingConfigurationTypeDef
@@ -350,21 +350,21 @@ class IngestionDestinationTypeDef(BaseModel):
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
-class UpdateIngestionDestinationRequestRequestTypeDef(BaseModel):
+class UpdateIngestionDestinationRequestRequestTypeDef(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     ingestionDestinationIdentifier: str
     destinationConfiguration: DestinationConfigurationTypeDef
 
-class CreateIngestionDestinationResponseTypeDef(BaseModel):
+class CreateIngestionDestinationResponseTypeDef(BaseValidatorModel):
     ingestionDestination: IngestionDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIngestionDestinationResponseTypeDef(BaseModel):
+class GetIngestionDestinationResponseTypeDef(BaseValidatorModel):
     ingestionDestination: IngestionDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateIngestionDestinationResponseTypeDef(BaseModel):
+class UpdateIngestionDestinationResponseTypeDef(BaseValidatorModel):
     ingestionDestination: IngestionDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

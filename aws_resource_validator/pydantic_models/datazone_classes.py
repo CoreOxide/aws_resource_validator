@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,37 +11,37 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.datazone_constants import *
 
-class AcceptChoiceTypeDef(BaseModel):
+class AcceptChoiceTypeDef(BaseValidatorModel):
     predictionTarget: str
     editedValue: Optional[str] = None
     predictionChoice: Optional[int] = None
 
-class AcceptRuleTypeDef(BaseModel):
+class AcceptRuleTypeDef(BaseValidatorModel):
     rule: Optional[AcceptRuleBehaviorType] = None
     threshold: Optional[float] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AcceptSubscriptionRequestInputRequestTypeDef(BaseModel):
+class AcceptSubscriptionRequestInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     decisionComment: Optional[str] = None
 
-class AwsConsoleLinkParametersTypeDef(BaseModel):
+class AwsConsoleLinkParametersTypeDef(BaseValidatorModel):
     uri: Optional[str] = None
 
-class FormOutputTypeDef(BaseModel):
+class FormOutputTypeDef(BaseValidatorModel):
     formName: str
     content: Optional[str] = None
     typeName: Optional[str] = None
     typeRevision: Optional[str] = None
 
-class TimeSeriesDataPointSummaryFormOutputTypeDef(BaseModel):
+class TimeSeriesDataPointSummaryFormOutputTypeDef(BaseValidatorModel):
     formName: str
     timestamp: datetime
     typeIdentifier: str
@@ -49,84 +49,84 @@ class TimeSeriesDataPointSummaryFormOutputTypeDef(BaseModel):
     id: Optional[str] = None
     typeRevision: Optional[str] = None
 
-class AssetListingDetailsTypeDef(BaseModel):
+class AssetListingDetailsTypeDef(BaseValidatorModel):
     listingId: str
     listingStatus: ListingStatusType
 
-class DetailedGlossaryTermTypeDef(BaseModel):
+class DetailedGlossaryTermTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     shortDescription: Optional[str] = None
 
-class AssetRevisionTypeDef(BaseModel):
+class AssetRevisionTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     domainId: Optional[str] = None
     id: Optional[str] = None
     revision: Optional[str] = None
 
-class AssetTargetNameMapTypeDef(BaseModel):
+class AssetTargetNameMapTypeDef(BaseValidatorModel):
     assetId: str
     targetName: str
 
-class FormEntryOutputTypeDef(BaseModel):
+class FormEntryOutputTypeDef(BaseValidatorModel):
     typeName: str
     typeRevision: str
     required: Optional[bool] = None
 
-class AssociateEnvironmentRoleInputRequestTypeDef(BaseModel):
+class AssociateEnvironmentRoleInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     environmentRoleArn: str
 
-class BusinessNameGenerationConfigurationTypeDef(BaseModel):
+class BusinessNameGenerationConfigurationTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
 
-class CancelMetadataGenerationRunInputRequestTypeDef(BaseModel):
+class CancelMetadataGenerationRunInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class CancelSubscriptionInputRequestTypeDef(BaseModel):
+class CancelSubscriptionInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class CloudFormationPropertiesTypeDef(BaseModel):
+class CloudFormationPropertiesTypeDef(BaseValidatorModel):
     templateUrl: str
 
-class ConfigurableActionParameterTypeDef(BaseModel):
+class ConfigurableActionParameterTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
-class FormInputTypeDef(BaseModel):
+class FormInputTypeDef(BaseValidatorModel):
     formName: str
     content: Optional[str] = None
     typeIdentifier: Optional[str] = None
     typeRevision: Optional[str] = None
 
-class FormEntryInputTypeDef(BaseModel):
+class FormEntryInputTypeDef(BaseValidatorModel):
     typeIdentifier: str
     typeRevision: str
     required: Optional[bool] = None
 
-class RecommendationConfigurationTypeDef(BaseModel):
+class RecommendationConfigurationTypeDef(BaseValidatorModel):
     enableBusinessNameGeneration: Optional[bool] = None
 
-class ScheduleConfigurationTypeDef(BaseModel):
+class ScheduleConfigurationTypeDef(BaseValidatorModel):
     schedule: Optional[str] = None
     timezone: Optional[TimezoneType] = None
 
-class DataSourceErrorMessageTypeDef(BaseModel):
+class DataSourceErrorMessageTypeDef(BaseValidatorModel):
     errorType: DataSourceErrorTypeType
     errorDetail: Optional[str] = None
 
-class SingleSignOnTypeDef(BaseModel):
+class SingleSignOnTypeDef(BaseValidatorModel):
     type: Optional[AuthTypeType] = None
     userAssignment: Optional[UserAssignmentType] = None
 
-class EnvironmentParameterTypeDef(BaseModel):
+class EnvironmentParameterTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
 
-class CustomParameterTypeDef(BaseModel):
+class CustomParameterTypeDef(BaseValidatorModel):
     fieldType: str
     keyName: str
     defaultValue: Optional[str] = None
@@ -134,20 +134,20 @@ class CustomParameterTypeDef(BaseModel):
     isEditable: Optional[bool] = None
     isOptional: Optional[bool] = None
 
-class DeploymentPropertiesTypeDef(BaseModel):
+class DeploymentPropertiesTypeDef(BaseValidatorModel):
     endTimeoutMinutes: Optional[int] = None
     startTimeoutMinutes: Optional[int] = None
 
-class ResourceTypeDef(BaseModel):
+class ResourceTypeDef(BaseValidatorModel):
     type: str
     value: str
     name: Optional[str] = None
     provider: Optional[str] = None
 
-class ModelTypeDef(BaseModel):
+class ModelTypeDef(BaseValidatorModel):
     smithy: Optional[str] = None
 
-class CreateGlossaryInputRequestTypeDef(BaseModel):
+class CreateGlossaryInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     name: str
     owningProjectIdentifier: str
@@ -155,20 +155,20 @@ class CreateGlossaryInputRequestTypeDef(BaseModel):
     description: Optional[str] = None
     status: Optional[GlossaryStatusType] = None
 
-class TermRelationsTypeDef(BaseModel):
+class TermRelationsTypeDef(BaseValidatorModel):
     classifies: Optional[Sequence[str]] = None
     isA: Optional[Sequence[str]] = None
 
-class TermRelationsOutputTypeDef(BaseModel):
+class TermRelationsOutputTypeDef(BaseValidatorModel):
     classifies: Optional[List[str]] = None
     isA: Optional[List[str]] = None
 
-class CreateGroupProfileInputRequestTypeDef(BaseModel):
+class CreateGroupProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: str
     clientToken: Optional[str] = None
 
-class CreateListingChangeSetInputRequestTypeDef(BaseModel):
+class CreateListingChangeSetInputRequestTypeDef(BaseValidatorModel):
     action: ChangeActionType
     domainIdentifier: str
     entityIdentifier: str
@@ -176,131 +176,131 @@ class CreateListingChangeSetInputRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     entityRevision: Optional[str] = None
 
-class CreateProjectInputRequestTypeDef(BaseModel):
+class CreateProjectInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     name: str
     description: Optional[str] = None
     glossaryTerms: Optional[Sequence[str]] = None
 
-class MemberTypeDef(BaseModel):
+class MemberTypeDef(BaseValidatorModel):
     groupIdentifier: Optional[str] = None
     userIdentifier: Optional[str] = None
 
-class ProjectDeletionErrorTypeDef(BaseModel):
+class ProjectDeletionErrorTypeDef(BaseValidatorModel):
     code: Optional[str] = None
     message: Optional[str] = None
 
-class SubscribedListingInputTypeDef(BaseModel):
+class SubscribedListingInputTypeDef(BaseValidatorModel):
     identifier: str
 
-class SubscriptionTargetFormTypeDef(BaseModel):
+class SubscriptionTargetFormTypeDef(BaseValidatorModel):
     content: str
     formName: str
 
-class CreateUserProfileInputRequestTypeDef(BaseModel):
+class CreateUserProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     userIdentifier: str
     clientToken: Optional[str] = None
     userType: Optional[UserTypeType] = None
 
-class DataProductItemTypeDef(BaseModel):
+class DataProductItemTypeDef(BaseValidatorModel):
     domainId: Optional[str] = None
     itemId: Optional[str] = None
 
-class RunStatisticsForAssetsTypeDef(BaseModel):
+class RunStatisticsForAssetsTypeDef(BaseValidatorModel):
     added: Optional[int] = None
     failed: Optional[int] = None
     skipped: Optional[int] = None
     unchanged: Optional[int] = None
     updated: Optional[int] = None
 
-class DeleteAssetInputRequestTypeDef(BaseModel):
+class DeleteAssetInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class DeleteAssetTypeInputRequestTypeDef(BaseModel):
+class DeleteAssetTypeInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class DeleteDataSourceInputRequestTypeDef(BaseModel):
+class DeleteDataSourceInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     clientToken: Optional[str] = None
     retainPermissionsOnRevokeFailure: Optional[bool] = None
 
-class DeleteDomainInputRequestTypeDef(BaseModel):
+class DeleteDomainInputRequestTypeDef(BaseValidatorModel):
     identifier: str
     clientToken: Optional[str] = None
     skipDeletionCheck: Optional[bool] = None
 
-class DeleteEnvironmentActionInputRequestTypeDef(BaseModel):
+class DeleteEnvironmentActionInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
-class DeleteEnvironmentBlueprintConfigurationInputRequestTypeDef(BaseModel):
+class DeleteEnvironmentBlueprintConfigurationInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentBlueprintIdentifier: str
 
-class DeleteEnvironmentInputRequestTypeDef(BaseModel):
+class DeleteEnvironmentInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class DeleteEnvironmentProfileInputRequestTypeDef(BaseModel):
+class DeleteEnvironmentProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class DeleteFormTypeInputRequestTypeDef(BaseModel):
+class DeleteFormTypeInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     formTypeIdentifier: str
 
-class DeleteGlossaryInputRequestTypeDef(BaseModel):
+class DeleteGlossaryInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class DeleteGlossaryTermInputRequestTypeDef(BaseModel):
+class DeleteGlossaryTermInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class DeleteListingInputRequestTypeDef(BaseModel):
+class DeleteListingInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class DeleteProjectInputRequestTypeDef(BaseModel):
+class DeleteProjectInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     skipDeletionCheck: Optional[bool] = None
 
-class DeleteSubscriptionGrantInputRequestTypeDef(BaseModel):
+class DeleteSubscriptionGrantInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class DeleteSubscriptionRequestInputRequestTypeDef(BaseModel):
+class DeleteSubscriptionRequestInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class DeleteSubscriptionTargetInputRequestTypeDef(BaseModel):
+class DeleteSubscriptionTargetInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
-class DeleteTimeSeriesDataPointsInputRequestTypeDef(BaseModel):
+class DeleteTimeSeriesDataPointsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
     formName: str
     clientToken: Optional[str] = None
 
-class EnvironmentErrorTypeDef(BaseModel):
+class EnvironmentErrorTypeDef(BaseValidatorModel):
     message: str
     code: Optional[str] = None
 
-class DisassociateEnvironmentRoleInputRequestTypeDef(BaseModel):
+class DisassociateEnvironmentRoleInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     environmentRoleArn: str
 
-class DomainSummaryTypeDef(BaseModel):
+class DomainSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     id: str
@@ -311,7 +311,7 @@ class DomainSummaryTypeDef(BaseModel):
     lastUpdatedAt: Optional[datetime] = None
     portalUrl: Optional[str] = None
 
-class EnvironmentBlueprintConfigurationItemTypeDef(BaseModel):
+class EnvironmentBlueprintConfigurationItemTypeDef(BaseValidatorModel):
     domainId: str
     environmentBlueprintId: str
     createdAt: Optional[datetime] = None
@@ -321,7 +321,7 @@ class EnvironmentBlueprintConfigurationItemTypeDef(BaseModel):
     regionalParameters: Optional[Dict[str, Dict[str, str]]] = None
     updatedAt: Optional[datetime] = None
 
-class EnvironmentProfileSummaryTypeDef(BaseModel):
+class EnvironmentProfileSummaryTypeDef(BaseValidatorModel):
     createdBy: str
     domainId: str
     environmentBlueprintId: str
@@ -334,7 +334,7 @@ class EnvironmentProfileSummaryTypeDef(BaseModel):
     projectId: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
-class EnvironmentSummaryTypeDef(BaseModel):
+class EnvironmentSummaryTypeDef(BaseValidatorModel):
     createdBy: str
     domainId: str
     name: str
@@ -349,130 +349,130 @@ class EnvironmentSummaryTypeDef(BaseModel):
     status: Optional[EnvironmentStatusType] = None
     updatedAt: Optional[datetime] = None
 
-class FailureCauseTypeDef(BaseModel):
+class FailureCauseTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class FilterTypeDef(BaseModel):
+class FilterTypeDef(BaseValidatorModel):
     attribute: str
     value: str
 
-class FilterExpressionTypeDef(BaseModel):
+class FilterExpressionTypeDef(BaseValidatorModel):
     expression: str
     type: FilterExpressionTypeType
 
-class ImportTypeDef(BaseModel):
+class ImportTypeDef(BaseValidatorModel):
     name: str
     revision: str
 
-class GetAssetInputRequestTypeDef(BaseModel):
+class GetAssetInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
-class GetAssetTypeInputRequestTypeDef(BaseModel):
+class GetAssetTypeInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
-class GetDataSourceInputRequestTypeDef(BaseModel):
+class GetDataSourceInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetDataSourceRunInputRequestTypeDef(BaseModel):
+class GetDataSourceRunInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetDomainInputRequestTypeDef(BaseModel):
+class GetDomainInputRequestTypeDef(BaseValidatorModel):
     identifier: str
 
-class GetEnvironmentActionInputRequestTypeDef(BaseModel):
+class GetEnvironmentActionInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
-class GetEnvironmentBlueprintConfigurationInputRequestTypeDef(BaseModel):
+class GetEnvironmentBlueprintConfigurationInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentBlueprintIdentifier: str
 
-class GetEnvironmentBlueprintInputRequestTypeDef(BaseModel):
+class GetEnvironmentBlueprintInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetEnvironmentInputRequestTypeDef(BaseModel):
+class GetEnvironmentInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetEnvironmentProfileInputRequestTypeDef(BaseModel):
+class GetEnvironmentProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetFormTypeInputRequestTypeDef(BaseModel):
+class GetFormTypeInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     formTypeIdentifier: str
     revision: Optional[str] = None
 
-class GetGlossaryInputRequestTypeDef(BaseModel):
+class GetGlossaryInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetGlossaryTermInputRequestTypeDef(BaseModel):
+class GetGlossaryTermInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetGroupProfileInputRequestTypeDef(BaseModel):
+class GetGroupProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: str
 
-class GetIamPortalLoginUrlInputRequestTypeDef(BaseModel):
+class GetIamPortalLoginUrlInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
 
-class LineageNodeReferenceTypeDef(BaseModel):
+class LineageNodeReferenceTypeDef(BaseValidatorModel):
     eventTimestamp: Optional[datetime] = None
     id: Optional[str] = None
 
-class GetListingInputRequestTypeDef(BaseModel):
+class GetListingInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     listingRevision: Optional[str] = None
 
-class GetMetadataGenerationRunInputRequestTypeDef(BaseModel):
+class GetMetadataGenerationRunInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class MetadataGenerationRunTargetTypeDef(BaseModel):
+class MetadataGenerationRunTargetTypeDef(BaseValidatorModel):
     identifier: str
     type: Literal["ASSET"]
     revision: Optional[str] = None
 
-class GetProjectInputRequestTypeDef(BaseModel):
+class GetProjectInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetSubscriptionGrantInputRequestTypeDef(BaseModel):
+class GetSubscriptionGrantInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetSubscriptionInputRequestTypeDef(BaseModel):
+class GetSubscriptionInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetSubscriptionRequestDetailsInputRequestTypeDef(BaseModel):
+class GetSubscriptionRequestDetailsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
-class GetSubscriptionTargetInputRequestTypeDef(BaseModel):
+class GetSubscriptionTargetInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
-class GetTimeSeriesDataPointInputRequestTypeDef(BaseModel):
+class GetTimeSeriesDataPointInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
     formName: str
     identifier: str
 
-class TimeSeriesDataPointFormOutputTypeDef(BaseModel):
+class TimeSeriesDataPointFormOutputTypeDef(BaseValidatorModel):
     formName: str
     timestamp: datetime
     typeIdentifier: str
@@ -480,12 +480,12 @@ class TimeSeriesDataPointFormOutputTypeDef(BaseModel):
     id: Optional[str] = None
     typeRevision: Optional[str] = None
 
-class GetUserProfileInputRequestTypeDef(BaseModel):
+class GetUserProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     userIdentifier: str
     type: Optional[UserProfileTypeType] = None
 
-class GlossaryItemTypeDef(BaseModel):
+class GlossaryItemTypeDef(BaseValidatorModel):
     domainId: str
     id: str
     name: str
@@ -497,33 +497,33 @@ class GlossaryItemTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class SelfGrantStatusDetailTypeDef(BaseModel):
+class SelfGrantStatusDetailTypeDef(BaseValidatorModel):
     databaseName: str
     status: SelfGrantStatusType
     failureCause: Optional[str] = None
     schemaName: Optional[str] = None
 
-class ListingRevisionInputTypeDef(BaseModel):
+class ListingRevisionInputTypeDef(BaseValidatorModel):
     identifier: str
     revision: str
 
-class ListingRevisionTypeDef(BaseModel):
+class ListingRevisionTypeDef(BaseValidatorModel):
     id: str
     revision: str
 
-class GroupDetailsTypeDef(BaseModel):
+class GroupDetailsTypeDef(BaseValidatorModel):
     groupId: str
 
-class GroupProfileSummaryTypeDef(BaseModel):
+class GroupProfileSummaryTypeDef(BaseValidatorModel):
     domainId: Optional[str] = None
     groupName: Optional[str] = None
     id: Optional[str] = None
     status: Optional[GroupProfileStatusType] = None
 
-class IamUserProfileDetailsTypeDef(BaseModel):
+class IamUserProfileDetailsTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
 
-class LineageNodeSummaryTypeDef(BaseModel):
+class LineageNodeSummaryTypeDef(BaseValidatorModel):
     domainId: str
     id: str
     typeName: str
@@ -537,32 +537,32 @@ class LineageNodeSummaryTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAssetRevisionsInputRequestTypeDef(BaseModel):
+class ListAssetRevisionsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListDataSourceRunActivitiesInputRequestTypeDef(BaseModel):
+class ListDataSourceRunActivitiesInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[DataAssetActivityStatusType] = None
 
-class ListDataSourceRunsInputRequestTypeDef(BaseModel):
+class ListDataSourceRunsInputRequestTypeDef(BaseValidatorModel):
     dataSourceIdentifier: str
     domainIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[DataSourceRunStatusType] = None
 
-class ListDataSourcesInputRequestTypeDef(BaseModel):
+class ListDataSourcesInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     environmentIdentifier: Optional[str] = None
@@ -572,30 +572,30 @@ class ListDataSourcesInputRequestTypeDef(BaseModel):
     status: Optional[DataSourceStatusType] = None
     type: Optional[str] = None
 
-class ListDomainsInputRequestTypeDef(BaseModel):
+class ListDomainsInputRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[DomainStatusType] = None
 
-class ListEnvironmentActionsInputRequestTypeDef(BaseModel):
+class ListEnvironmentActionsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListEnvironmentBlueprintConfigurationsInputRequestTypeDef(BaseModel):
+class ListEnvironmentBlueprintConfigurationsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListEnvironmentBlueprintsInputRequestTypeDef(BaseModel):
+class ListEnvironmentBlueprintsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     managed: Optional[bool] = None
     maxResults: Optional[int] = None
     name: Optional[str] = None
     nextToken: Optional[str] = None
 
-class ListEnvironmentProfilesInputRequestTypeDef(BaseModel):
+class ListEnvironmentProfilesInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     awsAccountId: Optional[str] = None
     awsAccountRegion: Optional[str] = None
@@ -605,7 +605,7 @@ class ListEnvironmentProfilesInputRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     projectIdentifier: Optional[str] = None
 
-class ListEnvironmentsInputRequestTypeDef(BaseModel):
+class ListEnvironmentsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     awsAccountId: Optional[str] = None
@@ -618,14 +618,14 @@ class ListEnvironmentsInputRequestTypeDef(BaseModel):
     provider: Optional[str] = None
     status: Optional[EnvironmentStatusType] = None
 
-class ListMetadataGenerationRunsInputRequestTypeDef(BaseModel):
+class ListMetadataGenerationRunsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[MetadataGenerationRunStatusType] = None
     type: Optional[Literal["BUSINESS_DESCRIPTIONS"]] = None
 
-class ListProjectMembershipsInputRequestTypeDef(BaseModel):
+class ListProjectMembershipsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     maxResults: Optional[int] = None
@@ -633,7 +633,7 @@ class ListProjectMembershipsInputRequestTypeDef(BaseModel):
     sortBy: Optional[Literal["NAME"]] = None
     sortOrder: Optional[SortOrderType] = None
 
-class ListProjectsInputRequestTypeDef(BaseModel):
+class ListProjectsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: Optional[str] = None
     maxResults: Optional[int] = None
@@ -641,7 +641,7 @@ class ListProjectsInputRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     userIdentifier: Optional[str] = None
 
-class ListSubscriptionGrantsInputRequestTypeDef(BaseModel):
+class ListSubscriptionGrantsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentId: Optional[str] = None
     maxResults: Optional[int] = None
@@ -652,7 +652,7 @@ class ListSubscriptionGrantsInputRequestTypeDef(BaseModel):
     subscriptionId: Optional[str] = None
     subscriptionTargetId: Optional[str] = None
 
-class ListSubscriptionRequestsInputRequestTypeDef(BaseModel):
+class ListSubscriptionRequestsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
     maxResults: Optional[int] = None
@@ -663,7 +663,7 @@ class ListSubscriptionRequestsInputRequestTypeDef(BaseModel):
     status: Optional[SubscriptionRequestStatusType] = None
     subscribedListingId: Optional[str] = None
 
-class ListSubscriptionTargetsInputRequestTypeDef(BaseModel):
+class ListSubscriptionTargetsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     maxResults: Optional[int] = None
@@ -671,7 +671,7 @@ class ListSubscriptionTargetsInputRequestTypeDef(BaseModel):
     sortBy: Optional[SortKeyType] = None
     sortOrder: Optional[SortOrderType] = None
 
-class ListSubscriptionsInputRequestTypeDef(BaseModel):
+class ListSubscriptionsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
     maxResults: Optional[int] = None
@@ -683,18 +683,18 @@ class ListSubscriptionsInputRequestTypeDef(BaseModel):
     subscribedListingId: Optional[str] = None
     subscriptionRequestIdentifier: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class UserDetailsTypeDef(BaseModel):
+class UserDetailsTypeDef(BaseValidatorModel):
     userId: str
 
-class NotificationResourceTypeDef(BaseModel):
+class NotificationResourceTypeDef(BaseValidatorModel):
     id: str
     type: Literal["PROJECT"]
     name: Optional[str] = None
 
-class PutEnvironmentBlueprintConfigurationInputRequestTypeDef(BaseModel):
+class PutEnvironmentBlueprintConfigurationInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     enabledRegions: Sequence[str]
     environmentBlueprintIdentifier: str
@@ -702,91 +702,91 @@ class PutEnvironmentBlueprintConfigurationInputRequestTypeDef(BaseModel):
     provisioningRoleArn: Optional[str] = None
     regionalParameters: Optional[Mapping[str, Mapping[str, str]]] = None
 
-class RedshiftClusterStorageTypeDef(BaseModel):
+class RedshiftClusterStorageTypeDef(BaseValidatorModel):
     clusterName: str
 
-class RedshiftCredentialConfigurationTypeDef(BaseModel):
+class RedshiftCredentialConfigurationTypeDef(BaseValidatorModel):
     secretManagerArn: str
 
-class RedshiftServerlessStorageTypeDef(BaseModel):
+class RedshiftServerlessStorageTypeDef(BaseValidatorModel):
     workgroupName: str
 
-class RejectChoiceTypeDef(BaseModel):
+class RejectChoiceTypeDef(BaseValidatorModel):
     predictionTarget: str
     predictionChoices: Optional[Sequence[int]] = None
 
-class RejectRuleTypeDef(BaseModel):
+class RejectRuleTypeDef(BaseValidatorModel):
     rule: Optional[RejectRuleBehaviorType] = None
     threshold: Optional[float] = None
 
-class RejectSubscriptionRequestInputRequestTypeDef(BaseModel):
+class RejectSubscriptionRequestInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     decisionComment: Optional[str] = None
 
-class RevokeSubscriptionInputRequestTypeDef(BaseModel):
+class RevokeSubscriptionInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     retainPermissions: Optional[bool] = None
 
-class SearchGroupProfilesInputRequestTypeDef(BaseModel):
+class SearchGroupProfilesInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     groupType: GroupSearchTypeType
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     searchText: Optional[str] = None
 
-class SearchInItemTypeDef(BaseModel):
+class SearchInItemTypeDef(BaseValidatorModel):
     attribute: str
 
-class SearchSortTypeDef(BaseModel):
+class SearchSortTypeDef(BaseValidatorModel):
     attribute: str
     order: Optional[SortOrderType] = None
 
-class SearchUserProfilesInputRequestTypeDef(BaseModel):
+class SearchUserProfilesInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     userType: UserSearchTypeType
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     searchText: Optional[str] = None
 
-class SsoUserProfileDetailsTypeDef(BaseModel):
+class SsoUserProfileDetailsTypeDef(BaseValidatorModel):
     firstName: Optional[str] = None
     lastName: Optional[str] = None
     username: Optional[str] = None
 
-class StartDataSourceRunInputRequestTypeDef(BaseModel):
+class StartDataSourceRunInputRequestTypeDef(BaseValidatorModel):
     dataSourceIdentifier: str
     domainIdentifier: str
     clientToken: Optional[str] = None
 
-class SubscribedProjectInputTypeDef(BaseModel):
+class SubscribedProjectInputTypeDef(BaseValidatorModel):
     identifier: Optional[str] = None
 
-class SubscribedProjectTypeDef(BaseModel):
+class SubscribedProjectTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TermRelationsExtraOutputTypeDef(BaseModel):
+class TermRelationsExtraOutputTypeDef(BaseValidatorModel):
     classifies: Optional[List[str]] = None
     isA: Optional[List[str]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateEnvironmentInputRequestTypeDef(BaseModel):
+class UpdateEnvironmentInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     description: Optional[str] = None
     glossaryTerms: Optional[Sequence[str]] = None
     name: Optional[str] = None
 
-class UpdateGlossaryInputRequestTypeDef(BaseModel):
+class UpdateGlossaryInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     clientToken: Optional[str] = None
@@ -794,30 +794,30 @@ class UpdateGlossaryInputRequestTypeDef(BaseModel):
     name: Optional[str] = None
     status: Optional[GlossaryStatusType] = None
 
-class UpdateGroupProfileInputRequestTypeDef(BaseModel):
+class UpdateGroupProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: str
     status: GroupProfileStatusType
 
-class UpdateProjectInputRequestTypeDef(BaseModel):
+class UpdateProjectInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     description: Optional[str] = None
     glossaryTerms: Optional[Sequence[str]] = None
     name: Optional[str] = None
 
-class UpdateSubscriptionRequestInputRequestTypeDef(BaseModel):
+class UpdateSubscriptionRequestInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     requestReason: str
 
-class UpdateUserProfileInputRequestTypeDef(BaseModel):
+class UpdateUserProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     status: UserProfileStatusType
     userIdentifier: str
     type: Optional[UserProfileTypeType] = None
 
-class AcceptPredictionsInputRequestTypeDef(BaseModel):
+class AcceptPredictionsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     acceptChoices: Optional[Sequence[AcceptChoiceTypeDef]] = None
@@ -825,13 +825,13 @@ class AcceptPredictionsInputRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     revision: Optional[str] = None
 
-class AcceptPredictionsOutputTypeDef(BaseModel):
+class AcceptPredictionsOutputTypeDef(BaseValidatorModel):
     assetId: str
     domainId: str
     revision: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFormTypeOutputTypeDef(BaseModel):
+class CreateFormTypeOutputTypeDef(BaseValidatorModel):
     description: str
     domainId: str
     name: str
@@ -841,7 +841,7 @@ class CreateFormTypeOutputTypeDef(BaseModel):
     revision: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGlossaryOutputTypeDef(BaseModel):
+class CreateGlossaryOutputTypeDef(BaseValidatorModel):
     description: str
     domainId: str
     id: str
@@ -850,27 +850,27 @@ class CreateGlossaryOutputTypeDef(BaseModel):
     status: GlossaryStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGroupProfileOutputTypeDef(BaseModel):
+class CreateGroupProfileOutputTypeDef(BaseValidatorModel):
     domainId: str
     groupName: str
     id: str
     status: GroupProfileStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateListingChangeSetOutputTypeDef(BaseModel):
+class CreateListingChangeSetOutputTypeDef(BaseValidatorModel):
     listingId: str
     listingRevision: str
     status: ListingStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDomainOutputTypeDef(BaseModel):
+class DeleteDomainOutputTypeDef(BaseValidatorModel):
     status: DomainStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEnvironmentBlueprintConfigurationOutputTypeDef(BaseModel):
+class GetEnvironmentBlueprintConfigurationOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     domainId: str
     enabledRegions: List[str]
@@ -881,7 +881,7 @@ class GetEnvironmentBlueprintConfigurationOutputTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGlossaryOutputTypeDef(BaseModel):
+class GetGlossaryOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -894,23 +894,23 @@ class GetGlossaryOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupProfileOutputTypeDef(BaseModel):
+class GetGroupProfileOutputTypeDef(BaseValidatorModel):
     domainId: str
     groupName: str
     id: str
     status: GroupProfileStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetIamPortalLoginUrlOutputTypeDef(BaseModel):
+class GetIamPortalLoginUrlOutputTypeDef(BaseValidatorModel):
     authCodeUrl: str
     userProfileId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutEnvironmentBlueprintConfigurationOutputTypeDef(BaseModel):
+class PutEnvironmentBlueprintConfigurationOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     domainId: str
     enabledRegions: List[str]
@@ -921,13 +921,13 @@ class PutEnvironmentBlueprintConfigurationOutputTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RejectPredictionsOutputTypeDef(BaseModel):
+class RejectPredictionsOutputTypeDef(BaseValidatorModel):
     assetId: str
     assetRevision: str
     domainId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMetadataGenerationRunOutputTypeDef(BaseModel):
+class StartMetadataGenerationRunOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     domainId: str
@@ -937,7 +937,7 @@ class StartMetadataGenerationRunOutputTypeDef(BaseModel):
     type: Literal["BUSINESS_DESCRIPTIONS"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGlossaryOutputTypeDef(BaseModel):
+class UpdateGlossaryOutputTypeDef(BaseValidatorModel):
     description: str
     domainId: str
     id: str
@@ -946,31 +946,31 @@ class UpdateGlossaryOutputTypeDef(BaseModel):
     status: GlossaryStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGroupProfileOutputTypeDef(BaseModel):
+class UpdateGroupProfileOutputTypeDef(BaseValidatorModel):
     domainId: str
     groupName: str
     id: str
     status: GroupProfileStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ActionParametersTypeDef(BaseModel):
+class ActionParametersTypeDef(BaseValidatorModel):
     awsConsoleLink: Optional[AwsConsoleLinkParametersTypeDef] = None
 
-class AssetItemAdditionalAttributesTypeDef(BaseModel):
+class AssetItemAdditionalAttributesTypeDef(BaseValidatorModel):
     formsOutput: Optional[List[FormOutputTypeDef]] = None
     latestTimeSeriesDataPointFormsOutput: Optional[       List[TimeSeriesDataPointSummaryFormOutputTypeDef]     ] = None
     readOnlyFormsOutput: Optional[List[FormOutputTypeDef]] = None
 
-class AssetListingItemAdditionalAttributesTypeDef(BaseModel):
+class AssetListingItemAdditionalAttributesTypeDef(BaseValidatorModel):
     forms: Optional[str] = None
     latestTimeSeriesDataPointForms: Optional[       List[TimeSeriesDataPointSummaryFormOutputTypeDef]     ] = None
 
-class ListTimeSeriesDataPointsOutputTypeDef(BaseModel):
+class ListTimeSeriesDataPointsOutputTypeDef(BaseValidatorModel):
     items: List[TimeSeriesDataPointSummaryFormOutputTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAssetOutputTypeDef(BaseModel):
+class GetAssetOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -991,7 +991,7 @@ class GetAssetOutputTypeDef(BaseModel):
     typeRevision: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssetListingTypeDef(BaseModel):
+class AssetListingTypeDef(BaseValidatorModel):
     assetId: Optional[str] = None
     assetRevision: Optional[str] = None
     assetType: Optional[str] = None
@@ -1001,19 +1001,19 @@ class AssetListingTypeDef(BaseModel):
     latestTimeSeriesDataPointForms: Optional[       List[TimeSeriesDataPointSummaryFormOutputTypeDef]     ] = None
     owningProjectId: Optional[str] = None
 
-class SubscribedAssetListingTypeDef(BaseModel):
+class SubscribedAssetListingTypeDef(BaseValidatorModel):
     entityId: Optional[str] = None
     entityRevision: Optional[str] = None
     entityType: Optional[str] = None
     forms: Optional[str] = None
     glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
 
-class ListAssetRevisionsOutputTypeDef(BaseModel):
+class ListAssetRevisionsOutputTypeDef(BaseValidatorModel):
     items: List[AssetRevisionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssetTypeItemTypeDef(BaseModel):
+class AssetTypeItemTypeDef(BaseValidatorModel):
     domainId: str
     formsOutput: Dict[str, FormEntryOutputTypeDef]
     name: str
@@ -1027,7 +1027,7 @@ class AssetTypeItemTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class CreateAssetTypeOutputTypeDef(BaseModel):
+class CreateAssetTypeOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -1042,7 +1042,7 @@ class CreateAssetTypeOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAssetTypeOutputTypeDef(BaseModel):
+class GetAssetTypeOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -1057,7 +1057,7 @@ class GetAssetTypeOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LineageNodeTypeItemTypeDef(BaseModel):
+class LineageNodeTypeItemTypeDef(BaseValidatorModel):
     domainId: str
     formsOutput: Dict[str, FormEntryOutputTypeDef]
     revision: str
@@ -1068,30 +1068,30 @@ class LineageNodeTypeItemTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class PostLineageEventInputRequestTypeDef(BaseModel):
+class PostLineageEventInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     event: BlobTypeDef
     clientToken: Optional[str] = None
 
-class PredictionConfigurationTypeDef(BaseModel):
+class PredictionConfigurationTypeDef(BaseValidatorModel):
     businessNameGeneration: Optional[BusinessNameGenerationConfigurationTypeDef] = None
 
-class ProvisioningPropertiesTypeDef(BaseModel):
+class ProvisioningPropertiesTypeDef(BaseValidatorModel):
     cloudFormation: Optional[CloudFormationPropertiesTypeDef] = None
 
-class ConfigurableEnvironmentActionTypeDef(BaseModel):
+class ConfigurableEnvironmentActionTypeDef(BaseValidatorModel):
     parameters: List[ConfigurableActionParameterTypeDef]
     type: str
     auth: Optional[ConfigurableActionTypeAuthorizationType] = None
 
-class CreateAssetTypeInputRequestTypeDef(BaseModel):
+class CreateAssetTypeInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     formsInput: Mapping[str, FormEntryInputTypeDef]
     name: str
     owningProjectIdentifier: str
     description: Optional[str] = None
 
-class DataSourceRunActivityTypeDef(BaseModel):
+class DataSourceRunActivityTypeDef(BaseValidatorModel):
     createdAt: datetime
     dataAssetStatus: DataAssetActivityStatusType
     dataSourceRunId: str
@@ -1103,7 +1103,7 @@ class DataSourceRunActivityTypeDef(BaseModel):
     errorMessage: Optional[DataSourceErrorMessageTypeDef] = None
     technicalDescription: Optional[str] = None
 
-class DataSourceSummaryTypeDef(BaseModel):
+class DataSourceSummaryTypeDef(BaseValidatorModel):
     dataSourceId: str
     domainId: str
     environmentId: str
@@ -1119,7 +1119,7 @@ class DataSourceSummaryTypeDef(BaseModel):
     schedule: Optional[ScheduleConfigurationTypeDef] = None
     updatedAt: Optional[datetime] = None
 
-class CreateDomainInputRequestTypeDef(BaseModel):
+class CreateDomainInputRequestTypeDef(BaseValidatorModel):
     domainExecutionRole: str
     name: str
     clientToken: Optional[str] = None
@@ -1128,7 +1128,7 @@ class CreateDomainInputRequestTypeDef(BaseModel):
     singleSignOn: Optional[SingleSignOnTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateDomainOutputTypeDef(BaseModel):
+class CreateDomainOutputTypeDef(BaseValidatorModel):
     arn: str
     description: str
     domainExecutionRole: str
@@ -1141,7 +1141,7 @@ class CreateDomainOutputTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDomainOutputTypeDef(BaseModel):
+class GetDomainOutputTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     description: str
@@ -1156,7 +1156,7 @@ class GetDomainOutputTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDomainInputRequestTypeDef(BaseModel):
+class UpdateDomainInputRequestTypeDef(BaseValidatorModel):
     identifier: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
@@ -1164,7 +1164,7 @@ class UpdateDomainInputRequestTypeDef(BaseModel):
     name: Optional[str] = None
     singleSignOn: Optional[SingleSignOnTypeDef] = None
 
-class UpdateDomainOutputTypeDef(BaseModel):
+class UpdateDomainOutputTypeDef(BaseValidatorModel):
     description: str
     domainExecutionRole: str
     id: str
@@ -1173,7 +1173,7 @@ class UpdateDomainOutputTypeDef(BaseModel):
     singleSignOn: SingleSignOnTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEnvironmentInputRequestTypeDef(BaseModel):
+class CreateEnvironmentInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentProfileIdentifier: str
     name: str
@@ -1185,7 +1185,7 @@ class CreateEnvironmentInputRequestTypeDef(BaseModel):
     glossaryTerms: Optional[Sequence[str]] = None
     userParameters: Optional[Sequence[EnvironmentParameterTypeDef]] = None
 
-class CreateEnvironmentProfileInputRequestTypeDef(BaseModel):
+class CreateEnvironmentProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentBlueprintIdentifier: str
     name: str
@@ -1195,7 +1195,7 @@ class CreateEnvironmentProfileInputRequestTypeDef(BaseModel):
     description: Optional[str] = None
     userParameters: Optional[Sequence[EnvironmentParameterTypeDef]] = None
 
-class UpdateEnvironmentProfileInputRequestTypeDef(BaseModel):
+class UpdateEnvironmentProfileInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     awsAccountId: Optional[str] = None
@@ -1204,7 +1204,7 @@ class UpdateEnvironmentProfileInputRequestTypeDef(BaseModel):
     name: Optional[str] = None
     userParameters: Optional[Sequence[EnvironmentParameterTypeDef]] = None
 
-class CreateEnvironmentProfileOutputTypeDef(BaseModel):
+class CreateEnvironmentProfileOutputTypeDef(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
     createdAt: datetime
@@ -1219,7 +1219,7 @@ class CreateEnvironmentProfileOutputTypeDef(BaseModel):
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEnvironmentProfileOutputTypeDef(BaseModel):
+class GetEnvironmentProfileOutputTypeDef(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
     createdAt: datetime
@@ -1234,7 +1234,7 @@ class GetEnvironmentProfileOutputTypeDef(BaseModel):
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEnvironmentProfileOutputTypeDef(BaseModel):
+class UpdateEnvironmentProfileOutputTypeDef(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
     createdAt: datetime
@@ -1249,7 +1249,7 @@ class UpdateEnvironmentProfileOutputTypeDef(BaseModel):
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFormTypeInputRequestTypeDef(BaseModel):
+class CreateFormTypeInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     model: ModelTypeDef
     name: str
@@ -1257,7 +1257,7 @@ class CreateFormTypeInputRequestTypeDef(BaseModel):
     description: Optional[str] = None
     status: Optional[FormTypeStatusType] = None
 
-class CreateGlossaryTermInputRequestTypeDef(BaseModel):
+class CreateGlossaryTermInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     glossaryIdentifier: str
     name: str
@@ -1267,7 +1267,7 @@ class CreateGlossaryTermInputRequestTypeDef(BaseModel):
     status: Optional[GlossaryTermStatusType] = None
     termRelations: Optional[TermRelationsTypeDef] = None
 
-class UpdateGlossaryTermInputRequestTypeDef(BaseModel):
+class UpdateGlossaryTermInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     glossaryIdentifier: Optional[str] = None
@@ -1277,7 +1277,7 @@ class UpdateGlossaryTermInputRequestTypeDef(BaseModel):
     status: Optional[GlossaryTermStatusType] = None
     termRelations: Optional[TermRelationsTypeDef] = None
 
-class CreateGlossaryTermOutputTypeDef(BaseModel):
+class CreateGlossaryTermOutputTypeDef(BaseValidatorModel):
     domainId: str
     glossaryId: str
     id: str
@@ -1288,7 +1288,7 @@ class CreateGlossaryTermOutputTypeDef(BaseModel):
     termRelations: TermRelationsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGlossaryTermOutputTypeDef(BaseModel):
+class GetGlossaryTermOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     domainId: str
@@ -1303,7 +1303,7 @@ class GetGlossaryTermOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GlossaryTermItemTypeDef(BaseModel):
+class GlossaryTermItemTypeDef(BaseValidatorModel):
     domainId: str
     glossaryId: str
     id: str
@@ -1317,7 +1317,7 @@ class GlossaryTermItemTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class UpdateGlossaryTermOutputTypeDef(BaseModel):
+class UpdateGlossaryTermOutputTypeDef(BaseValidatorModel):
     domainId: str
     glossaryId: str
     id: str
@@ -1328,18 +1328,18 @@ class UpdateGlossaryTermOutputTypeDef(BaseModel):
     termRelations: TermRelationsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProjectMembershipInputRequestTypeDef(BaseModel):
+class CreateProjectMembershipInputRequestTypeDef(BaseValidatorModel):
     designation: UserDesignationType
     domainIdentifier: str
     member: MemberTypeDef
     projectIdentifier: str
 
-class DeleteProjectMembershipInputRequestTypeDef(BaseModel):
+class DeleteProjectMembershipInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     member: MemberTypeDef
     projectIdentifier: str
 
-class CreateProjectOutputTypeDef(BaseModel):
+class CreateProjectOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -1352,7 +1352,7 @@ class CreateProjectOutputTypeDef(BaseModel):
     projectStatus: ProjectStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetProjectOutputTypeDef(BaseModel):
+class GetProjectOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -1365,7 +1365,7 @@ class GetProjectOutputTypeDef(BaseModel):
     projectStatus: ProjectStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProjectSummaryTypeDef(BaseModel):
+class ProjectSummaryTypeDef(BaseValidatorModel):
     createdBy: str
     domainId: str
     id: str
@@ -1376,7 +1376,7 @@ class ProjectSummaryTypeDef(BaseModel):
     projectStatus: Optional[ProjectStatusType] = None
     updatedAt: Optional[datetime] = None
 
-class UpdateProjectOutputTypeDef(BaseModel):
+class UpdateProjectOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -1389,7 +1389,7 @@ class UpdateProjectOutputTypeDef(BaseModel):
     projectStatus: ProjectStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSubscriptionTargetInputRequestTypeDef(BaseModel):
+class CreateSubscriptionTargetInputRequestTypeDef(BaseValidatorModel):
     applicableAssetTypes: Sequence[str]
     authorizedPrincipals: Sequence[str]
     domainIdentifier: str
@@ -1401,7 +1401,7 @@ class CreateSubscriptionTargetInputRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     provider: Optional[str] = None
 
-class CreateSubscriptionTargetOutputTypeDef(BaseModel):
+class CreateSubscriptionTargetOutputTypeDef(BaseValidatorModel):
     applicableAssetTypes: List[str]
     authorizedPrincipals: List[str]
     createdAt: datetime
@@ -1419,7 +1419,7 @@ class CreateSubscriptionTargetOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSubscriptionTargetOutputTypeDef(BaseModel):
+class GetSubscriptionTargetOutputTypeDef(BaseValidatorModel):
     applicableAssetTypes: List[str]
     authorizedPrincipals: List[str]
     createdAt: datetime
@@ -1437,7 +1437,7 @@ class GetSubscriptionTargetOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubscriptionTargetSummaryTypeDef(BaseModel):
+class SubscriptionTargetSummaryTypeDef(BaseValidatorModel):
     applicableAssetTypes: List[str]
     authorizedPrincipals: List[str]
     createdAt: datetime
@@ -1454,7 +1454,7 @@ class SubscriptionTargetSummaryTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class UpdateSubscriptionTargetInputRequestTypeDef(BaseModel):
+class UpdateSubscriptionTargetInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
@@ -1465,7 +1465,7 @@ class UpdateSubscriptionTargetInputRequestTypeDef(BaseModel):
     provider: Optional[str] = None
     subscriptionTargetConfig: Optional[Sequence[SubscriptionTargetFormTypeDef]] = None
 
-class UpdateSubscriptionTargetOutputTypeDef(BaseModel):
+class UpdateSubscriptionTargetOutputTypeDef(BaseValidatorModel):
     applicableAssetTypes: List[str]
     authorizedPrincipals: List[str]
     createdAt: datetime
@@ -1483,7 +1483,7 @@ class UpdateSubscriptionTargetOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataProductSummaryTypeDef(BaseModel):
+class DataProductSummaryTypeDef(BaseValidatorModel):
     domainId: str
     id: str
     name: str
@@ -1496,7 +1496,7 @@ class DataProductSummaryTypeDef(BaseModel):
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class DataSourceRunSummaryTypeDef(BaseModel):
+class DataSourceRunSummaryTypeDef(BaseValidatorModel):
     createdAt: datetime
     dataSourceId: str
     id: str
@@ -1509,7 +1509,7 @@ class DataSourceRunSummaryTypeDef(BaseModel):
     startedAt: Optional[datetime] = None
     stoppedAt: Optional[datetime] = None
 
-class GetDataSourceRunOutputTypeDef(BaseModel):
+class GetDataSourceRunOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     dataSourceConfigurationSnapshot: str
     dataSourceId: str
@@ -1525,7 +1525,7 @@ class GetDataSourceRunOutputTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartDataSourceRunOutputTypeDef(BaseModel):
+class StartDataSourceRunOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     dataSourceConfigurationSnapshot: str
     dataSourceId: str
@@ -1541,7 +1541,7 @@ class StartDataSourceRunOutputTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeploymentTypeDef(BaseModel):
+class DeploymentTypeDef(BaseValidatorModel):
     deploymentId: Optional[str] = None
     deploymentStatus: Optional[DeploymentStatusType] = None
     deploymentType: Optional[DeploymentTypeType] = None
@@ -1549,27 +1549,27 @@ class DeploymentTypeDef(BaseModel):
     isDeploymentComplete: Optional[bool] = None
     messages: Optional[List[str]] = None
 
-class ListDomainsOutputTypeDef(BaseModel):
+class ListDomainsOutputTypeDef(BaseValidatorModel):
     items: List[DomainSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEnvironmentBlueprintConfigurationsOutputTypeDef(BaseModel):
+class ListEnvironmentBlueprintConfigurationsOutputTypeDef(BaseValidatorModel):
     items: List[EnvironmentBlueprintConfigurationItemTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEnvironmentProfilesOutputTypeDef(BaseModel):
+class ListEnvironmentProfilesOutputTypeDef(BaseValidatorModel):
     items: List[EnvironmentProfileSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEnvironmentsOutputTypeDef(BaseModel):
+class ListEnvironmentsOutputTypeDef(BaseValidatorModel):
     items: List[EnvironmentSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubscribedAssetTypeDef(BaseModel):
+class SubscribedAssetTypeDef(BaseValidatorModel):
     assetId: str
     assetRevision: str
     status: SubscriptionGrantStatusType
@@ -1578,7 +1578,7 @@ class SubscribedAssetTypeDef(BaseModel):
     grantedTimestamp: Optional[datetime] = None
     targetName: Optional[str] = None
 
-class UpdateSubscriptionGrantStatusInputRequestTypeDef(BaseModel):
+class UpdateSubscriptionGrantStatusInputRequestTypeDef(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
     identifier: str
@@ -1586,22 +1586,22 @@ class UpdateSubscriptionGrantStatusInputRequestTypeDef(BaseModel):
     failureCause: Optional[FailureCauseTypeDef] = None
     targetName: Optional[str] = None
 
-class FilterClauseTypeDef(BaseModel):
+class FilterClauseTypeDef(BaseValidatorModel):
     and: Optional[Sequence[Dict[str, Any]]] = None
     filter: Optional[FilterTypeDef] = None
     or: Optional[Sequence[Dict[str, Any]]] = None
 
-class RelationalFilterConfigurationOutputTypeDef(BaseModel):
+class RelationalFilterConfigurationOutputTypeDef(BaseValidatorModel):
     databaseName: str
     filterExpressions: Optional[List[FilterExpressionTypeDef]] = None
     schemaName: Optional[str] = None
 
-class RelationalFilterConfigurationTypeDef(BaseModel):
+class RelationalFilterConfigurationTypeDef(BaseValidatorModel):
     databaseName: str
     filterExpressions: Optional[Sequence[FilterExpressionTypeDef]] = None
     schemaName: Optional[str] = None
 
-class FormTypeDataTypeDef(BaseModel):
+class FormTypeDataTypeDef(BaseValidatorModel):
     domainId: str
     name: str
     revision: str
@@ -1615,7 +1615,7 @@ class FormTypeDataTypeDef(BaseModel):
     owningProjectId: Optional[str] = None
     status: Optional[FormTypeStatusType] = None
 
-class GetFormTypeOutputTypeDef(BaseModel):
+class GetFormTypeOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -1630,12 +1630,12 @@ class GetFormTypeOutputTypeDef(BaseModel):
     status: FormTypeStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLineageNodeInputRequestTypeDef(BaseModel):
+class GetLineageNodeInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     eventTimestamp: Optional[TimestampTypeDef] = None
 
-class ListLineageNodeHistoryInputRequestTypeDef(BaseModel):
+class ListLineageNodeHistoryInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     direction: Optional[EdgeDirectionType] = None
@@ -1645,7 +1645,7 @@ class ListLineageNodeHistoryInputRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     sortOrder: Optional[SortOrderType] = None
 
-class ListNotificationsInputRequestTypeDef(BaseModel):
+class ListNotificationsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     type: NotificationTypeType
     afterTimestamp: Optional[TimestampTypeDef] = None
@@ -1655,7 +1655,7 @@ class ListNotificationsInputRequestTypeDef(BaseModel):
     subjects: Optional[Sequence[str]] = None
     taskStatus: Optional[TaskStatusType] = None
 
-class ListTimeSeriesDataPointsInputRequestTypeDef(BaseModel):
+class ListTimeSeriesDataPointsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
@@ -1665,14 +1665,14 @@ class ListTimeSeriesDataPointsInputRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     startedAt: Optional[TimestampTypeDef] = None
 
-class TimeSeriesDataPointFormInputTypeDef(BaseModel):
+class TimeSeriesDataPointFormInputTypeDef(BaseValidatorModel):
     formName: str
     timestamp: TimestampTypeDef
     typeIdentifier: str
     content: Optional[str] = None
     typeRevision: Optional[str] = None
 
-class GetLineageNodeOutputTypeDef(BaseModel):
+class GetLineageNodeOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -1690,7 +1690,7 @@ class GetLineageNodeOutputTypeDef(BaseModel):
     upstreamNodes: List[LineageNodeReferenceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMetadataGenerationRunOutputTypeDef(BaseModel):
+class GetMetadataGenerationRunOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     domainId: str
@@ -1701,7 +1701,7 @@ class GetMetadataGenerationRunOutputTypeDef(BaseModel):
     type: Literal["BUSINESS_DESCRIPTIONS"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MetadataGenerationRunItemTypeDef(BaseModel):
+class MetadataGenerationRunItemTypeDef(BaseValidatorModel):
     domainId: str
     id: str
     owningProjectId: str
@@ -1711,14 +1711,14 @@ class MetadataGenerationRunItemTypeDef(BaseModel):
     target: Optional[MetadataGenerationRunTargetTypeDef] = None
     type: Optional[Literal["BUSINESS_DESCRIPTIONS"]] = None
 
-class StartMetadataGenerationRunInputRequestTypeDef(BaseModel):
+class StartMetadataGenerationRunInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     owningProjectIdentifier: str
     target: MetadataGenerationRunTargetTypeDef
     type: Literal["BUSINESS_DESCRIPTIONS"]
     clientToken: Optional[str] = None
 
-class GetTimeSeriesDataPointOutputTypeDef(BaseModel):
+class GetTimeSeriesDataPointOutputTypeDef(BaseValidatorModel):
     domainId: str
     entityId: str
     entityType: TimeSeriesEntityTypeType
@@ -1726,53 +1726,53 @@ class GetTimeSeriesDataPointOutputTypeDef(BaseModel):
     formName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PostTimeSeriesDataPointsOutputTypeDef(BaseModel):
+class PostTimeSeriesDataPointsOutputTypeDef(BaseValidatorModel):
     domainId: str
     entityId: str
     entityType: TimeSeriesEntityTypeType
     forms: List[TimeSeriesDataPointFormOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GlueSelfGrantStatusOutputTypeDef(BaseModel):
+class GlueSelfGrantStatusOutputTypeDef(BaseValidatorModel):
     selfGrantStatusDetails: List[SelfGrantStatusDetailTypeDef]
 
-class RedshiftSelfGrantStatusOutputTypeDef(BaseModel):
+class RedshiftSelfGrantStatusOutputTypeDef(BaseValidatorModel):
     selfGrantStatusDetails: List[SelfGrantStatusDetailTypeDef]
 
-class GrantedEntityInputTypeDef(BaseModel):
+class GrantedEntityInputTypeDef(BaseValidatorModel):
     listing: Optional[ListingRevisionInputTypeDef] = None
 
-class GrantedEntityTypeDef(BaseModel):
+class GrantedEntityTypeDef(BaseValidatorModel):
     listing: Optional[ListingRevisionTypeDef] = None
 
-class SearchGroupProfilesOutputTypeDef(BaseModel):
+class SearchGroupProfilesOutputTypeDef(BaseValidatorModel):
     items: List[GroupProfileSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLineageNodeHistoryOutputTypeDef(BaseModel):
+class ListLineageNodeHistoryOutputTypeDef(BaseValidatorModel):
     nextToken: str
     nodes: List[LineageNodeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssetRevisionsInputListAssetRevisionsPaginateTypeDef(BaseModel):
+class ListAssetRevisionsInputListAssetRevisionsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDataSourceRunActivitiesInputListDataSourceRunActivitiesPaginateTypeDef(BaseModel):
+class ListDataSourceRunActivitiesInputListDataSourceRunActivitiesPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     status: Optional[DataAssetActivityStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDataSourceRunsInputListDataSourceRunsPaginateTypeDef(BaseModel):
+class ListDataSourceRunsInputListDataSourceRunsPaginateTypeDef(BaseValidatorModel):
     dataSourceIdentifier: str
     domainIdentifier: str
     status: Optional[DataSourceRunStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDataSourcesInputListDataSourcesPaginateTypeDef(BaseModel):
+class ListDataSourcesInputListDataSourcesPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     environmentIdentifier: Optional[str] = None
@@ -1781,26 +1781,26 @@ class ListDataSourcesInputListDataSourcesPaginateTypeDef(BaseModel):
     type: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDomainsInputListDomainsPaginateTypeDef(BaseModel):
+class ListDomainsInputListDomainsPaginateTypeDef(BaseValidatorModel):
     status: Optional[DomainStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentActionsInputListEnvironmentActionsPaginateTypeDef(BaseModel):
+class ListEnvironmentActionsInputListEnvironmentActionsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentBlueprintConfigurationsInputListEnvironmentBlueprintConfigurationsPaginateTypeDef(BaseModel):
+class ListEnvironmentBlueprintConfigurationsInputListEnvironmentBlueprintConfigurationsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentBlueprintsInputListEnvironmentBlueprintsPaginateTypeDef(BaseModel):
+class ListEnvironmentBlueprintsInputListEnvironmentBlueprintsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     managed: Optional[bool] = None
     name: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentProfilesInputListEnvironmentProfilesPaginateTypeDef(BaseModel):
+class ListEnvironmentProfilesInputListEnvironmentProfilesPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     awsAccountId: Optional[str] = None
     awsAccountRegion: Optional[str] = None
@@ -1809,7 +1809,7 @@ class ListEnvironmentProfilesInputListEnvironmentProfilesPaginateTypeDef(BaseMod
     projectIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentsInputListEnvironmentsPaginateTypeDef(BaseModel):
+class ListEnvironmentsInputListEnvironmentsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     awsAccountId: Optional[str] = None
@@ -1821,7 +1821,7 @@ class ListEnvironmentsInputListEnvironmentsPaginateTypeDef(BaseModel):
     status: Optional[EnvironmentStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLineageNodeHistoryInputListLineageNodeHistoryPaginateTypeDef(BaseModel):
+class ListLineageNodeHistoryInputListLineageNodeHistoryPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     direction: Optional[EdgeDirectionType] = None
@@ -1830,13 +1830,13 @@ class ListLineageNodeHistoryInputListLineageNodeHistoryPaginateTypeDef(BaseModel
     sortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMetadataGenerationRunsInputListMetadataGenerationRunsPaginateTypeDef(BaseModel):
+class ListMetadataGenerationRunsInputListMetadataGenerationRunsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     status: Optional[MetadataGenerationRunStatusType] = None
     type: Optional[Literal["BUSINESS_DESCRIPTIONS"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListNotificationsInputListNotificationsPaginateTypeDef(BaseModel):
+class ListNotificationsInputListNotificationsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     type: NotificationTypeType
     afterTimestamp: Optional[TimestampTypeDef] = None
@@ -1845,21 +1845,21 @@ class ListNotificationsInputListNotificationsPaginateTypeDef(BaseModel):
     taskStatus: Optional[TaskStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectMembershipsInputListProjectMembershipsPaginateTypeDef(BaseModel):
+class ListProjectMembershipsInputListProjectMembershipsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     sortBy: Optional[Literal["NAME"]] = None
     sortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProjectsInputListProjectsPaginateTypeDef(BaseModel):
+class ListProjectsInputListProjectsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: Optional[str] = None
     name: Optional[str] = None
     userIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubscriptionGrantsInputListSubscriptionGrantsPaginateTypeDef(BaseModel):
+class ListSubscriptionGrantsInputListSubscriptionGrantsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentId: Optional[str] = None
     sortBy: Optional[SortKeyType] = None
@@ -1869,7 +1869,7 @@ class ListSubscriptionGrantsInputListSubscriptionGrantsPaginateTypeDef(BaseModel
     subscriptionTargetId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubscriptionRequestsInputListSubscriptionRequestsPaginateTypeDef(BaseModel):
+class ListSubscriptionRequestsInputListSubscriptionRequestsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
     owningProjectId: Optional[str] = None
@@ -1879,14 +1879,14 @@ class ListSubscriptionRequestsInputListSubscriptionRequestsPaginateTypeDef(BaseM
     subscribedListingId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubscriptionTargetsInputListSubscriptionTargetsPaginateTypeDef(BaseModel):
+class ListSubscriptionTargetsInputListSubscriptionTargetsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     sortBy: Optional[SortKeyType] = None
     sortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubscriptionsInputListSubscriptionsPaginateTypeDef(BaseModel):
+class ListSubscriptionsInputListSubscriptionsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
     owningProjectId: Optional[str] = None
@@ -1897,7 +1897,7 @@ class ListSubscriptionsInputListSubscriptionsPaginateTypeDef(BaseModel):
     subscriptionRequestIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTimeSeriesDataPointsInputListTimeSeriesDataPointsPaginateTypeDef(BaseModel):
+class ListTimeSeriesDataPointsInputListTimeSeriesDataPointsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
@@ -1906,32 +1906,32 @@ class ListTimeSeriesDataPointsInputListTimeSeriesDataPointsPaginateTypeDef(BaseM
     startedAt: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchGroupProfilesInputSearchGroupProfilesPaginateTypeDef(BaseModel):
+class SearchGroupProfilesInputSearchGroupProfilesPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     groupType: GroupSearchTypeType
     searchText: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchUserProfilesInputSearchUserProfilesPaginateTypeDef(BaseModel):
+class SearchUserProfilesInputSearchUserProfilesPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     userType: UserSearchTypeType
     searchText: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class MemberDetailsTypeDef(BaseModel):
+class MemberDetailsTypeDef(BaseValidatorModel):
     group: Optional[GroupDetailsTypeDef] = None
     user: Optional[UserDetailsTypeDef] = None
 
-class TopicTypeDef(BaseModel):
+class TopicTypeDef(BaseValidatorModel):
     resource: NotificationResourceTypeDef
     role: NotificationRoleType
     subject: str
 
-class RedshiftStorageTypeDef(BaseModel):
+class RedshiftStorageTypeDef(BaseValidatorModel):
     redshiftClusterSource: Optional[RedshiftClusterStorageTypeDef] = None
     redshiftServerlessSource: Optional[RedshiftServerlessStorageTypeDef] = None
 
-class RejectPredictionsInputRequestTypeDef(BaseModel):
+class RejectPredictionsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     clientToken: Optional[str] = None
@@ -1939,7 +1939,7 @@ class RejectPredictionsInputRequestTypeDef(BaseModel):
     rejectRule: Optional[RejectRuleTypeDef] = None
     revision: Optional[str] = None
 
-class SearchInputRequestTypeDef(BaseModel):
+class SearchInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     searchScope: InventorySearchScopeType
     additionalAttributes: Optional[Sequence[SearchOutputAdditionalAttributeType]] = None
@@ -1951,7 +1951,7 @@ class SearchInputRequestTypeDef(BaseModel):
     searchText: Optional[str] = None
     sort: Optional[SearchSortTypeDef] = None
 
-class SearchListingsInputRequestTypeDef(BaseModel):
+class SearchListingsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     additionalAttributes: Optional[Sequence[SearchOutputAdditionalAttributeType]] = None
     filters: Optional["FilterClauseTypeDef"] = None
@@ -1961,7 +1961,7 @@ class SearchListingsInputRequestTypeDef(BaseModel):
     searchText: Optional[str] = None
     sort: Optional[SearchSortTypeDef] = None
 
-class SearchTypesInputRequestTypeDef(BaseModel):
+class SearchTypesInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     managed: bool
     searchScope: TypesSearchScopeType
@@ -1972,24 +1972,24 @@ class SearchTypesInputRequestTypeDef(BaseModel):
     searchText: Optional[str] = None
     sort: Optional[SearchSortTypeDef] = None
 
-class UserProfileDetailsTypeDef(BaseModel):
+class UserProfileDetailsTypeDef(BaseValidatorModel):
     iam: Optional[IamUserProfileDetailsTypeDef] = None
     sso: Optional[SsoUserProfileDetailsTypeDef] = None
 
-class SubscribedPrincipalInputTypeDef(BaseModel):
+class SubscribedPrincipalInputTypeDef(BaseValidatorModel):
     project: Optional[SubscribedProjectInputTypeDef] = None
 
-class SubscribedPrincipalTypeDef(BaseModel):
+class SubscribedPrincipalTypeDef(BaseValidatorModel):
     project: Optional[SubscribedProjectTypeDef] = None
 
-class CreateEnvironmentActionInputRequestTypeDef(BaseModel):
+class CreateEnvironmentActionInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     name: str
     parameters: ActionParametersTypeDef
     description: Optional[str] = None
 
-class CreateEnvironmentActionOutputTypeDef(BaseModel):
+class CreateEnvironmentActionOutputTypeDef(BaseValidatorModel):
     description: str
     domainId: str
     environmentId: str
@@ -1998,7 +1998,7 @@ class CreateEnvironmentActionOutputTypeDef(BaseModel):
     parameters: ActionParametersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnvironmentActionSummaryTypeDef(BaseModel):
+class EnvironmentActionSummaryTypeDef(BaseValidatorModel):
     domainId: str
     environmentId: str
     id: str
@@ -2006,7 +2006,7 @@ class EnvironmentActionSummaryTypeDef(BaseModel):
     parameters: ActionParametersTypeDef
     description: Optional[str] = None
 
-class GetEnvironmentActionOutputTypeDef(BaseModel):
+class GetEnvironmentActionOutputTypeDef(BaseValidatorModel):
     description: str
     domainId: str
     environmentId: str
@@ -2015,7 +2015,7 @@ class GetEnvironmentActionOutputTypeDef(BaseModel):
     parameters: ActionParametersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEnvironmentActionInputRequestTypeDef(BaseModel):
+class UpdateEnvironmentActionInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
@@ -2023,7 +2023,7 @@ class UpdateEnvironmentActionInputRequestTypeDef(BaseModel):
     name: Optional[str] = None
     parameters: Optional[ActionParametersTypeDef] = None
 
-class UpdateEnvironmentActionOutputTypeDef(BaseModel):
+class UpdateEnvironmentActionOutputTypeDef(BaseValidatorModel):
     description: str
     domainId: str
     environmentId: str
@@ -2032,7 +2032,7 @@ class UpdateEnvironmentActionOutputTypeDef(BaseModel):
     parameters: ActionParametersTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssetItemTypeDef(BaseModel):
+class AssetItemTypeDef(BaseValidatorModel):
     domainId: str
     identifier: str
     name: str
@@ -2048,7 +2048,7 @@ class AssetItemTypeDef(BaseModel):
     firstRevisionCreatedBy: Optional[str] = None
     glossaryTerms: Optional[List[str]] = None
 
-class AssetListingItemTypeDef(BaseModel):
+class AssetListingItemTypeDef(BaseValidatorModel):
     additionalAttributes: Optional[AssetListingItemAdditionalAttributesTypeDef] = None
     createdAt: Optional[datetime] = None
     description: Optional[str] = None
@@ -2063,13 +2063,13 @@ class AssetListingItemTypeDef(BaseModel):
     name: Optional[str] = None
     owningProjectId: Optional[str] = None
 
-class ListingItemTypeDef(BaseModel):
+class ListingItemTypeDef(BaseValidatorModel):
     assetListing: Optional[AssetListingTypeDef] = None
 
-class SubscribedListingItemTypeDef(BaseModel):
+class SubscribedListingItemTypeDef(BaseValidatorModel):
     assetListing: Optional[SubscribedAssetListingTypeDef] = None
 
-class CreateAssetInputRequestTypeDef(BaseModel):
+class CreateAssetInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     name: str
     owningProjectIdentifier: str
@@ -2082,7 +2082,7 @@ class CreateAssetInputRequestTypeDef(BaseModel):
     predictionConfiguration: Optional[PredictionConfigurationTypeDef] = None
     typeRevision: Optional[str] = None
 
-class CreateAssetOutputTypeDef(BaseModel):
+class CreateAssetOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -2104,7 +2104,7 @@ class CreateAssetOutputTypeDef(BaseModel):
     typeRevision: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAssetRevisionInputRequestTypeDef(BaseModel):
+class CreateAssetRevisionInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     name: str
@@ -2115,7 +2115,7 @@ class CreateAssetRevisionInputRequestTypeDef(BaseModel):
     predictionConfiguration: Optional[PredictionConfigurationTypeDef] = None
     typeRevision: Optional[str] = None
 
-class CreateAssetRevisionOutputTypeDef(BaseModel):
+class CreateAssetRevisionOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -2137,7 +2137,7 @@ class CreateAssetRevisionOutputTypeDef(BaseModel):
     typeRevision: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnvironmentBlueprintSummaryTypeDef(BaseModel):
+class EnvironmentBlueprintSummaryTypeDef(BaseValidatorModel):
     id: str
     name: str
     provider: str
@@ -2146,7 +2146,7 @@ class EnvironmentBlueprintSummaryTypeDef(BaseModel):
     description: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
-class GetEnvironmentBlueprintOutputTypeDef(BaseModel):
+class GetEnvironmentBlueprintOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     deploymentProperties: DeploymentPropertiesTypeDef
     description: str
@@ -2159,32 +2159,32 @@ class GetEnvironmentBlueprintOutputTypeDef(BaseModel):
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataSourceRunActivitiesOutputTypeDef(BaseModel):
+class ListDataSourceRunActivitiesOutputTypeDef(BaseValidatorModel):
     items: List[DataSourceRunActivityTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataSourcesOutputTypeDef(BaseModel):
+class ListDataSourcesOutputTypeDef(BaseValidatorModel):
     items: List[DataSourceSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProjectsOutputTypeDef(BaseModel):
+class ListProjectsOutputTypeDef(BaseValidatorModel):
     items: List[ProjectSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSubscriptionTargetsOutputTypeDef(BaseModel):
+class ListSubscriptionTargetsOutputTypeDef(BaseValidatorModel):
     items: List[SubscriptionTargetSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataSourceRunsOutputTypeDef(BaseModel):
+class ListDataSourceRunsOutputTypeDef(BaseValidatorModel):
     items: List[DataSourceRunSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEnvironmentOutputTypeDef(BaseModel):
+class CreateEnvironmentOutputTypeDef(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
     createdAt: datetime
@@ -2208,7 +2208,7 @@ class CreateEnvironmentOutputTypeDef(BaseModel):
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEnvironmentOutputTypeDef(BaseModel):
+class GetEnvironmentOutputTypeDef(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
     createdAt: datetime
@@ -2232,7 +2232,7 @@ class GetEnvironmentOutputTypeDef(BaseModel):
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEnvironmentOutputTypeDef(BaseModel):
+class UpdateEnvironmentOutputTypeDef(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
     createdAt: datetime
@@ -2256,7 +2256,7 @@ class UpdateEnvironmentOutputTypeDef(BaseModel):
     userParameters: List[CustomParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchInputSearchPaginateTypeDef(BaseModel):
+class SearchInputSearchPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     searchScope: InventorySearchScopeType
     additionalAttributes: Optional[Sequence[SearchOutputAdditionalAttributeType]] = None
@@ -2267,7 +2267,7 @@ class SearchInputSearchPaginateTypeDef(BaseModel):
     sort: Optional[SearchSortTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchListingsInputSearchListingsPaginateTypeDef(BaseModel):
+class SearchListingsInputSearchListingsPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     additionalAttributes: Optional[Sequence[SearchOutputAdditionalAttributeType]] = None
     filters: Optional[FilterClauseTypeDef] = None
@@ -2276,7 +2276,7 @@ class SearchListingsInputSearchListingsPaginateTypeDef(BaseModel):
     sort: Optional[SearchSortTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchTypesInputSearchTypesPaginateTypeDef(BaseModel):
+class SearchTypesInputSearchTypesPaginateTypeDef(BaseValidatorModel):
     domainIdentifier: str
     managed: bool
     searchScope: TypesSearchScopeType
@@ -2286,40 +2286,40 @@ class SearchTypesInputSearchTypesPaginateTypeDef(BaseModel):
     sort: Optional[SearchSortTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GlueRunConfigurationOutputTypeDef(BaseModel):
+class GlueRunConfigurationOutputTypeDef(BaseValidatorModel):
     relationalFilterConfigurations: List[RelationalFilterConfigurationOutputTypeDef]
     accountId: Optional[str] = None
     autoImportDataQualityResult: Optional[bool] = None
     dataAccessRole: Optional[str] = None
     region: Optional[str] = None
 
-class GlueRunConfigurationInputTypeDef(BaseModel):
+class GlueRunConfigurationInputTypeDef(BaseValidatorModel):
     relationalFilterConfigurations: Sequence[RelationalFilterConfigurationTypeDef]
     autoImportDataQualityResult: Optional[bool] = None
     dataAccessRole: Optional[str] = None
 
-class SearchTypesResultItemTypeDef(BaseModel):
+class SearchTypesResultItemTypeDef(BaseValidatorModel):
     assetTypeItem: Optional[AssetTypeItemTypeDef] = None
     formTypeItem: Optional[FormTypeDataTypeDef] = None
     lineageNodeTypeItem: Optional[LineageNodeTypeItemTypeDef] = None
 
-class PostTimeSeriesDataPointsInputRequestTypeDef(BaseModel):
+class PostTimeSeriesDataPointsInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
     forms: Sequence[TimeSeriesDataPointFormInputTypeDef]
     clientToken: Optional[str] = None
 
-class ListMetadataGenerationRunsOutputTypeDef(BaseModel):
+class ListMetadataGenerationRunsOutputTypeDef(BaseValidatorModel):
     items: List[MetadataGenerationRunItemTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SelfGrantStatusOutputTypeDef(BaseModel):
+class SelfGrantStatusOutputTypeDef(BaseValidatorModel):
     glueSelfGrantStatus: Optional[GlueSelfGrantStatusOutputTypeDef] = None
     redshiftSelfGrantStatus: Optional[RedshiftSelfGrantStatusOutputTypeDef] = None
 
-class CreateSubscriptionGrantInputRequestTypeDef(BaseModel):
+class CreateSubscriptionGrantInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     grantedEntity: GrantedEntityInputTypeDef
@@ -2327,7 +2327,7 @@ class CreateSubscriptionGrantInputRequestTypeDef(BaseModel):
     assetTargetNames: Optional[Sequence[AssetTargetNameMapTypeDef]] = None
     clientToken: Optional[str] = None
 
-class CreateSubscriptionGrantOutputTypeDef(BaseModel):
+class CreateSubscriptionGrantOutputTypeDef(BaseValidatorModel):
     assets: List[SubscribedAssetTypeDef]
     createdAt: datetime
     createdBy: str
@@ -2341,7 +2341,7 @@ class CreateSubscriptionGrantOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSubscriptionGrantOutputTypeDef(BaseModel):
+class DeleteSubscriptionGrantOutputTypeDef(BaseValidatorModel):
     assets: List[SubscribedAssetTypeDef]
     createdAt: datetime
     createdBy: str
@@ -2355,7 +2355,7 @@ class DeleteSubscriptionGrantOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSubscriptionGrantOutputTypeDef(BaseModel):
+class GetSubscriptionGrantOutputTypeDef(BaseValidatorModel):
     assets: List[SubscribedAssetTypeDef]
     createdAt: datetime
     createdBy: str
@@ -2369,7 +2369,7 @@ class GetSubscriptionGrantOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubscriptionGrantSummaryTypeDef(BaseModel):
+class SubscriptionGrantSummaryTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     domainId: str
@@ -2382,7 +2382,7 @@ class SubscriptionGrantSummaryTypeDef(BaseModel):
     subscriptionId: Optional[str] = None
     updatedBy: Optional[str] = None
 
-class UpdateSubscriptionGrantStatusOutputTypeDef(BaseModel):
+class UpdateSubscriptionGrantStatusOutputTypeDef(BaseValidatorModel):
     assets: List[SubscribedAssetTypeDef]
     createdAt: datetime
     createdBy: str
@@ -2396,11 +2396,11 @@ class UpdateSubscriptionGrantStatusOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProjectMemberTypeDef(BaseModel):
+class ProjectMemberTypeDef(BaseValidatorModel):
     designation: UserDesignationType
     memberDetails: MemberDetailsTypeDef
 
-class NotificationOutputTypeDef(BaseModel):
+class NotificationOutputTypeDef(BaseValidatorModel):
     actionLink: str
     creationTimestamp: datetime
     domainIdentifier: str
@@ -2413,13 +2413,13 @@ class NotificationOutputTypeDef(BaseModel):
     metadata: Optional[Dict[str, str]] = None
     status: Optional[TaskStatusType] = None
 
-class RedshiftRunConfigurationInputTypeDef(BaseModel):
+class RedshiftRunConfigurationInputTypeDef(BaseValidatorModel):
     redshiftCredentialConfiguration: RedshiftCredentialConfigurationTypeDef
     redshiftStorage: RedshiftStorageTypeDef
     relationalFilterConfigurations: Sequence[RelationalFilterConfigurationTypeDef]
     dataAccessRole: Optional[str] = None
 
-class RedshiftRunConfigurationOutputTypeDef(BaseModel):
+class RedshiftRunConfigurationOutputTypeDef(BaseValidatorModel):
     redshiftCredentialConfiguration: RedshiftCredentialConfigurationTypeDef
     redshiftStorage: RedshiftStorageTypeDef
     relationalFilterConfigurations: List[RelationalFilterConfigurationOutputTypeDef]
@@ -2427,7 +2427,7 @@ class RedshiftRunConfigurationOutputTypeDef(BaseModel):
     dataAccessRole: Optional[str] = None
     region: Optional[str] = None
 
-class CreateUserProfileOutputTypeDef(BaseModel):
+class CreateUserProfileOutputTypeDef(BaseValidatorModel):
     details: UserProfileDetailsTypeDef
     domainId: str
     id: str
@@ -2435,7 +2435,7 @@ class CreateUserProfileOutputTypeDef(BaseModel):
     type: UserProfileTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUserProfileOutputTypeDef(BaseModel):
+class GetUserProfileOutputTypeDef(BaseValidatorModel):
     details: UserProfileDetailsTypeDef
     domainId: str
     id: str
@@ -2443,7 +2443,7 @@ class GetUserProfileOutputTypeDef(BaseModel):
     type: UserProfileTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUserProfileOutputTypeDef(BaseModel):
+class UpdateUserProfileOutputTypeDef(BaseValidatorModel):
     details: UserProfileDetailsTypeDef
     domainId: str
     id: str
@@ -2451,35 +2451,35 @@ class UpdateUserProfileOutputTypeDef(BaseModel):
     type: UserProfileTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UserProfileSummaryTypeDef(BaseModel):
+class UserProfileSummaryTypeDef(BaseValidatorModel):
     details: Optional[UserProfileDetailsTypeDef] = None
     domainId: Optional[str] = None
     id: Optional[str] = None
     status: Optional[UserProfileStatusType] = None
     type: Optional[UserProfileTypeType] = None
 
-class CreateSubscriptionRequestInputRequestTypeDef(BaseModel):
+class CreateSubscriptionRequestInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     requestReason: str
     subscribedListings: Sequence[SubscribedListingInputTypeDef]
     subscribedPrincipals: Sequence[SubscribedPrincipalInputTypeDef]
     clientToken: Optional[str] = None
 
-class ListEnvironmentActionsOutputTypeDef(BaseModel):
+class ListEnvironmentActionsOutputTypeDef(BaseValidatorModel):
     items: List[EnvironmentActionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchInventoryResultItemTypeDef(BaseModel):
+class SearchInventoryResultItemTypeDef(BaseValidatorModel):
     assetItem: Optional[AssetItemTypeDef] = None
     dataProductItem: Optional[DataProductSummaryTypeDef] = None
     glossaryItem: Optional[GlossaryItemTypeDef] = None
     glossaryTermItem: Optional[GlossaryTermItemTypeDef] = None
 
-class SearchResultItemTypeDef(BaseModel):
+class SearchResultItemTypeDef(BaseValidatorModel):
     assetListing: Optional[AssetListingItemTypeDef] = None
 
-class GetListingOutputTypeDef(BaseModel):
+class GetListingOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
@@ -2493,7 +2493,7 @@ class GetListingOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubscribedListingTypeDef(BaseModel):
+class SubscribedListingTypeDef(BaseValidatorModel):
     description: str
     id: str
     item: SubscribedListingItemTypeDef
@@ -2502,58 +2502,58 @@ class SubscribedListingTypeDef(BaseModel):
     ownerProjectName: Optional[str] = None
     revision: Optional[str] = None
 
-class ListEnvironmentBlueprintsOutputTypeDef(BaseModel):
+class ListEnvironmentBlueprintsOutputTypeDef(BaseValidatorModel):
     items: List[EnvironmentBlueprintSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchTypesOutputTypeDef(BaseModel):
+class SearchTypesOutputTypeDef(BaseValidatorModel):
     items: List[SearchTypesResultItemTypeDef]
     nextToken: str
     totalMatchCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSubscriptionGrantsOutputTypeDef(BaseModel):
+class ListSubscriptionGrantsOutputTypeDef(BaseValidatorModel):
     items: List[SubscriptionGrantSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProjectMembershipsOutputTypeDef(BaseModel):
+class ListProjectMembershipsOutputTypeDef(BaseValidatorModel):
     members: List[ProjectMemberTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListNotificationsOutputTypeDef(BaseModel):
+class ListNotificationsOutputTypeDef(BaseValidatorModel):
     nextToken: str
     notifications: List[NotificationOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataSourceConfigurationInputTypeDef(BaseModel):
+class DataSourceConfigurationInputTypeDef(BaseValidatorModel):
     glueRunConfiguration: Optional[GlueRunConfigurationInputTypeDef] = None
     redshiftRunConfiguration: Optional[RedshiftRunConfigurationInputTypeDef] = None
 
-class DataSourceConfigurationOutputTypeDef(BaseModel):
+class DataSourceConfigurationOutputTypeDef(BaseValidatorModel):
     glueRunConfiguration: Optional[GlueRunConfigurationOutputTypeDef] = None
     redshiftRunConfiguration: Optional[RedshiftRunConfigurationOutputTypeDef] = None
 
-class SearchUserProfilesOutputTypeDef(BaseModel):
+class SearchUserProfilesOutputTypeDef(BaseValidatorModel):
     items: List[UserProfileSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchOutputTypeDef(BaseModel):
+class SearchOutputTypeDef(BaseValidatorModel):
     items: List[SearchInventoryResultItemTypeDef]
     nextToken: str
     totalMatchCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchListingsOutputTypeDef(BaseModel):
+class SearchListingsOutputTypeDef(BaseValidatorModel):
     items: List[SearchResultItemTypeDef]
     nextToken: str
     totalMatchCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AcceptSubscriptionRequestOutputTypeDef(BaseModel):
+class AcceptSubscriptionRequestOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     decisionComment: str
@@ -2568,7 +2568,7 @@ class AcceptSubscriptionRequestOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelSubscriptionOutputTypeDef(BaseModel):
+class CancelSubscriptionOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     domainId: str
@@ -2582,7 +2582,7 @@ class CancelSubscriptionOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSubscriptionRequestOutputTypeDef(BaseModel):
+class CreateSubscriptionRequestOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     decisionComment: str
@@ -2597,7 +2597,7 @@ class CreateSubscriptionRequestOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSubscriptionOutputTypeDef(BaseModel):
+class GetSubscriptionOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     domainId: str
@@ -2611,7 +2611,7 @@ class GetSubscriptionOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSubscriptionRequestDetailsOutputTypeDef(BaseModel):
+class GetSubscriptionRequestDetailsOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     decisionComment: str
@@ -2626,7 +2626,7 @@ class GetSubscriptionRequestDetailsOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RejectSubscriptionRequestOutputTypeDef(BaseModel):
+class RejectSubscriptionRequestOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     decisionComment: str
@@ -2641,7 +2641,7 @@ class RejectSubscriptionRequestOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RevokeSubscriptionOutputTypeDef(BaseModel):
+class RevokeSubscriptionOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     domainId: str
@@ -2655,7 +2655,7 @@ class RevokeSubscriptionOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubscriptionRequestSummaryTypeDef(BaseModel):
+class SubscriptionRequestSummaryTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     domainId: str
@@ -2669,7 +2669,7 @@ class SubscriptionRequestSummaryTypeDef(BaseModel):
     reviewerId: Optional[str] = None
     updatedBy: Optional[str] = None
 
-class SubscriptionSummaryTypeDef(BaseModel):
+class SubscriptionSummaryTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     domainId: str
@@ -2682,7 +2682,7 @@ class SubscriptionSummaryTypeDef(BaseModel):
     subscriptionRequestId: Optional[str] = None
     updatedBy: Optional[str] = None
 
-class UpdateSubscriptionRequestOutputTypeDef(BaseModel):
+class UpdateSubscriptionRequestOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     decisionComment: str
@@ -2697,7 +2697,7 @@ class UpdateSubscriptionRequestOutputTypeDef(BaseModel):
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDataSourceInputRequestTypeDef(BaseModel):
+class CreateDataSourceInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     name: str
@@ -2712,7 +2712,7 @@ class CreateDataSourceInputRequestTypeDef(BaseModel):
     recommendation: Optional[RecommendationConfigurationTypeDef] = None
     schedule: Optional[ScheduleConfigurationTypeDef] = None
 
-class UpdateDataSourceInputRequestTypeDef(BaseModel):
+class UpdateDataSourceInputRequestTypeDef(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     assetFormsInput: Optional[Sequence[FormInputTypeDef]] = None
@@ -2725,7 +2725,7 @@ class UpdateDataSourceInputRequestTypeDef(BaseModel):
     retainPermissionsOnRevokeFailure: Optional[bool] = None
     schedule: Optional[ScheduleConfigurationTypeDef] = None
 
-class CreateDataSourceOutputTypeDef(BaseModel):
+class CreateDataSourceOutputTypeDef(BaseValidatorModel):
     assetFormsOutput: List[FormOutputTypeDef]
     configuration: DataSourceConfigurationOutputTypeDef
     createdAt: datetime
@@ -2748,7 +2748,7 @@ class CreateDataSourceOutputTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDataSourceOutputTypeDef(BaseModel):
+class DeleteDataSourceOutputTypeDef(BaseValidatorModel):
     assetFormsOutput: List[FormOutputTypeDef]
     configuration: DataSourceConfigurationOutputTypeDef
     createdAt: datetime
@@ -2772,7 +2772,7 @@ class DeleteDataSourceOutputTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDataSourceOutputTypeDef(BaseModel):
+class GetDataSourceOutputTypeDef(BaseValidatorModel):
     assetFormsOutput: List[FormOutputTypeDef]
     configuration: DataSourceConfigurationOutputTypeDef
     createdAt: datetime
@@ -2797,7 +2797,7 @@ class GetDataSourceOutputTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDataSourceOutputTypeDef(BaseModel):
+class UpdateDataSourceOutputTypeDef(BaseValidatorModel):
     assetFormsOutput: List[FormOutputTypeDef]
     configuration: DataSourceConfigurationOutputTypeDef
     createdAt: datetime
@@ -2822,12 +2822,12 @@ class UpdateDataSourceOutputTypeDef(BaseModel):
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSubscriptionRequestsOutputTypeDef(BaseModel):
+class ListSubscriptionRequestsOutputTypeDef(BaseValidatorModel):
     items: List[SubscriptionRequestSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSubscriptionsOutputTypeDef(BaseModel):
+class ListSubscriptionsOutputTypeDef(BaseValidatorModel):
     items: List[SubscriptionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

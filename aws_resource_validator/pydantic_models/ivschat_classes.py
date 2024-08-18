@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,104 +11,104 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ivschat_constants import *
 
-class CloudWatchLogsDestinationConfigurationTypeDef(BaseModel):
+class CloudWatchLogsDestinationConfigurationTypeDef(BaseValidatorModel):
     logGroupName: str
 
-class CreateChatTokenRequestRequestTypeDef(BaseModel):
+class CreateChatTokenRequestRequestTypeDef(BaseValidatorModel):
     roomIdentifier: str
     userId: str
     attributes: Optional[Mapping[str, str]] = None
     capabilities: Optional[Sequence[ChatTokenCapabilityType]] = None
     sessionDurationInMinutes: Optional[int] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class MessageReviewHandlerTypeDef(BaseModel):
+class MessageReviewHandlerTypeDef(BaseValidatorModel):
     fallbackResult: Optional[FallbackResultType] = None
     uri: Optional[str] = None
 
-class DeleteLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     identifier: str
 
-class DeleteMessageRequestRequestTypeDef(BaseModel):
+class DeleteMessageRequestRequestTypeDef(BaseValidatorModel):
     id: str
     roomIdentifier: str
     reason: Optional[str] = None
 
-class DeleteRoomRequestRequestTypeDef(BaseModel):
+class DeleteRoomRequestRequestTypeDef(BaseValidatorModel):
     identifier: str
 
-class FirehoseDestinationConfigurationTypeDef(BaseModel):
+class FirehoseDestinationConfigurationTypeDef(BaseValidatorModel):
     deliveryStreamName: str
 
-class S3DestinationConfigurationTypeDef(BaseModel):
+class S3DestinationConfigurationTypeDef(BaseValidatorModel):
     bucketName: str
 
-class DisconnectUserRequestRequestTypeDef(BaseModel):
+class DisconnectUserRequestRequestTypeDef(BaseValidatorModel):
     roomIdentifier: str
     userId: str
     reason: Optional[str] = None
 
-class GetLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class GetLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     identifier: str
 
-class GetRoomRequestRequestTypeDef(BaseModel):
+class GetRoomRequestRequestTypeDef(BaseValidatorModel):
     identifier: str
 
-class ListLoggingConfigurationsRequestRequestTypeDef(BaseModel):
+class ListLoggingConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListRoomsRequestRequestTypeDef(BaseModel):
+class ListRoomsRequestRequestTypeDef(BaseValidatorModel):
     loggingConfigurationIdentifier: Optional[str] = None
     maxResults: Optional[int] = None
     messageReviewHandlerUri: Optional[str] = None
     name: Optional[str] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class SendEventRequestRequestTypeDef(BaseModel):
+class SendEventRequestRequestTypeDef(BaseValidatorModel):
     eventName: str
     roomIdentifier: str
     attributes: Optional[Mapping[str, str]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class CreateChatTokenResponseTypeDef(BaseModel):
+class CreateChatTokenResponseTypeDef(BaseValidatorModel):
     sessionExpirationTime: datetime
     token: str
     tokenExpirationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteMessageResponseTypeDef(BaseModel):
+class DeleteMessageResponseTypeDef(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendEventResponseTypeDef(BaseModel):
+class SendEventResponseTypeDef(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRoomRequestRequestTypeDef(BaseModel):
+class CreateRoomRequestRequestTypeDef(BaseValidatorModel):
     loggingConfigurationIdentifiers: Optional[Sequence[str]] = None
     maximumMessageLength: Optional[int] = None
     maximumMessageRatePerSecond: Optional[int] = None
@@ -116,7 +116,7 @@ class CreateRoomRequestRequestTypeDef(BaseModel):
     name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateRoomResponseTypeDef(BaseModel):
+class CreateRoomResponseTypeDef(BaseValidatorModel):
     arn: str
     createTime: datetime
     id: str
@@ -129,7 +129,7 @@ class CreateRoomResponseTypeDef(BaseModel):
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRoomResponseTypeDef(BaseModel):
+class GetRoomResponseTypeDef(BaseValidatorModel):
     arn: str
     createTime: datetime
     id: str
@@ -142,7 +142,7 @@ class GetRoomResponseTypeDef(BaseModel):
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RoomSummaryTypeDef(BaseModel):
+class RoomSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createTime: Optional[datetime] = None
     id: Optional[str] = None
@@ -152,7 +152,7 @@ class RoomSummaryTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     updateTime: Optional[datetime] = None
 
-class UpdateRoomRequestRequestTypeDef(BaseModel):
+class UpdateRoomRequestRequestTypeDef(BaseValidatorModel):
     identifier: str
     loggingConfigurationIdentifiers: Optional[Sequence[str]] = None
     maximumMessageLength: Optional[int] = None
@@ -160,7 +160,7 @@ class UpdateRoomRequestRequestTypeDef(BaseModel):
     messageReviewHandler: Optional[MessageReviewHandlerTypeDef] = None
     name: Optional[str] = None
 
-class UpdateRoomResponseTypeDef(BaseModel):
+class UpdateRoomResponseTypeDef(BaseValidatorModel):
     arn: str
     createTime: datetime
     id: str
@@ -173,22 +173,22 @@ class UpdateRoomResponseTypeDef(BaseModel):
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DestinationConfigurationTypeDef(BaseModel):
+class DestinationConfigurationTypeDef(BaseValidatorModel):
     cloudWatchLogs: Optional[CloudWatchLogsDestinationConfigurationTypeDef] = None
     firehose: Optional[FirehoseDestinationConfigurationTypeDef] = None
     s3: Optional[S3DestinationConfigurationTypeDef] = None
 
-class ListRoomsResponseTypeDef(BaseModel):
+class ListRoomsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     rooms: List[RoomSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class CreateLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     destinationConfiguration: DestinationConfigurationTypeDef
     name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateLoggingConfigurationResponseTypeDef(BaseModel):
+class CreateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     arn: str
     createTime: datetime
     destinationConfiguration: DestinationConfigurationTypeDef
@@ -199,7 +199,7 @@ class CreateLoggingConfigurationResponseTypeDef(BaseModel):
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLoggingConfigurationResponseTypeDef(BaseModel):
+class GetLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     arn: str
     createTime: datetime
     destinationConfiguration: DestinationConfigurationTypeDef
@@ -210,7 +210,7 @@ class GetLoggingConfigurationResponseTypeDef(BaseModel):
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoggingConfigurationSummaryTypeDef(BaseModel):
+class LoggingConfigurationSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createTime: Optional[datetime] = None
     destinationConfiguration: Optional[DestinationConfigurationTypeDef] = None
@@ -220,12 +220,12 @@ class LoggingConfigurationSummaryTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     updateTime: Optional[datetime] = None
 
-class UpdateLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     identifier: str
     destinationConfiguration: Optional[DestinationConfigurationTypeDef] = None
     name: Optional[str] = None
 
-class UpdateLoggingConfigurationResponseTypeDef(BaseModel):
+class UpdateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     arn: str
     createTime: datetime
     destinationConfiguration: DestinationConfigurationTypeDef
@@ -236,7 +236,7 @@ class UpdateLoggingConfigurationResponseTypeDef(BaseModel):
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLoggingConfigurationsResponseTypeDef(BaseModel):
+class ListLoggingConfigurationsResponseTypeDef(BaseValidatorModel):
     loggingConfigurations: List[LoggingConfigurationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

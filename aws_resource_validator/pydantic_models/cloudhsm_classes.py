@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,21 +11,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudhsm_constants import *
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateHapgRequestRequestTypeDef(BaseModel):
+class CreateHapgRequestRequestTypeDef(BaseValidatorModel):
     Label: str
 
-class CreateHsmRequestRequestTypeDef(BaseModel):
+class CreateHsmRequestRequestTypeDef(BaseValidatorModel):
     SubnetId: str
     SshKey: str
     IamRoleArn: str
@@ -35,58 +35,58 @@ class CreateHsmRequestRequestTypeDef(BaseModel):
     ClientToken: Optional[str] = None
     SyslogIp: Optional[str] = None
 
-class CreateLunaClientRequestRequestTypeDef(BaseModel):
+class CreateLunaClientRequestRequestTypeDef(BaseValidatorModel):
     Certificate: str
     Label: Optional[str] = None
 
-class DeleteHapgRequestRequestTypeDef(BaseModel):
+class DeleteHapgRequestRequestTypeDef(BaseValidatorModel):
     HapgArn: str
 
-class DeleteHsmRequestRequestTypeDef(BaseModel):
+class DeleteHsmRequestRequestTypeDef(BaseValidatorModel):
     HsmArn: str
 
-class DeleteLunaClientRequestRequestTypeDef(BaseModel):
+class DeleteLunaClientRequestRequestTypeDef(BaseValidatorModel):
     ClientArn: str
 
-class DescribeHapgRequestRequestTypeDef(BaseModel):
+class DescribeHapgRequestRequestTypeDef(BaseValidatorModel):
     HapgArn: str
 
-class DescribeHsmRequestRequestTypeDef(BaseModel):
+class DescribeHsmRequestRequestTypeDef(BaseValidatorModel):
     HsmArn: Optional[str] = None
     HsmSerialNumber: Optional[str] = None
 
-class DescribeLunaClientRequestRequestTypeDef(BaseModel):
+class DescribeLunaClientRequestRequestTypeDef(BaseValidatorModel):
     ClientArn: Optional[str] = None
     CertificateFingerprint: Optional[str] = None
 
-class GetConfigRequestRequestTypeDef(BaseModel):
+class GetConfigRequestRequestTypeDef(BaseValidatorModel):
     ClientArn: str
     ClientVersion: ClientVersionType
     HapgList: Sequence[str]
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListHapgsRequestRequestTypeDef(BaseModel):
+class ListHapgsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class ListHsmsRequestRequestTypeDef(BaseModel):
+class ListHsmsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class ListLunaClientsRequestRequestTypeDef(BaseModel):
+class ListLunaClientsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ModifyHapgRequestRequestTypeDef(BaseModel):
+class ModifyHapgRequestRequestTypeDef(BaseValidatorModel):
     HapgArn: str
     Label: Optional[str] = None
     PartitionSerialList: Optional[Sequence[str]] = None
 
-class ModifyHsmRequestRequestTypeDef(BaseModel):
+class ModifyHsmRequestRequestTypeDef(BaseValidatorModel):
     HsmArn: str
     SubnetId: Optional[str] = None
     EniIp: Optional[str] = None
@@ -94,47 +94,47 @@ class ModifyHsmRequestRequestTypeDef(BaseModel):
     ExternalId: Optional[str] = None
     SyslogIp: Optional[str] = None
 
-class ModifyLunaClientRequestRequestTypeDef(BaseModel):
+class ModifyLunaClientRequestRequestTypeDef(BaseValidatorModel):
     ClientArn: str
     Certificate: str
 
-class RemoveTagsFromResourceRequestRequestTypeDef(BaseModel):
+class RemoveTagsFromResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeyList: Sequence[str]
 
-class AddTagsToResourceRequestRequestTypeDef(BaseModel):
+class AddTagsToResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagList: Sequence[TagTypeDef]
 
-class AddTagsToResourceResponseTypeDef(BaseModel):
+class AddTagsToResourceResponseTypeDef(BaseValidatorModel):
     Status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHapgResponseTypeDef(BaseModel):
+class CreateHapgResponseTypeDef(BaseValidatorModel):
     HapgArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHsmResponseTypeDef(BaseModel):
+class CreateHsmResponseTypeDef(BaseValidatorModel):
     HsmArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLunaClientResponseTypeDef(BaseModel):
+class CreateLunaClientResponseTypeDef(BaseValidatorModel):
     ClientArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteHapgResponseTypeDef(BaseModel):
+class DeleteHapgResponseTypeDef(BaseValidatorModel):
     Status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteHsmResponseTypeDef(BaseModel):
+class DeleteHsmResponseTypeDef(BaseValidatorModel):
     Status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteLunaClientResponseTypeDef(BaseModel):
+class DeleteLunaClientResponseTypeDef(BaseValidatorModel):
     Status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeHapgResponseTypeDef(BaseModel):
+class DescribeHapgResponseTypeDef(BaseValidatorModel):
     HapgArn: str
     HapgSerial: str
     HsmsLastActionFailed: List[str]
@@ -146,7 +146,7 @@ class DescribeHapgResponseTypeDef(BaseModel):
     State: CloudHsmObjectStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeHsmResponseTypeDef(BaseModel):
+class DescribeHsmResponseTypeDef(BaseValidatorModel):
     HsmArn: str
     Status: HsmStatusType
     StatusDetails: str
@@ -170,7 +170,7 @@ class DescribeHsmResponseTypeDef(BaseModel):
     Partitions: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLunaClientResponseTypeDef(BaseModel):
+class DescribeLunaClientResponseTypeDef(BaseValidatorModel):
     ClientArn: str
     Certificate: str
     CertificateFingerprint: str
@@ -178,57 +178,57 @@ class DescribeLunaClientResponseTypeDef(BaseModel):
     Label: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetConfigResponseTypeDef(BaseModel):
+class GetConfigResponseTypeDef(BaseValidatorModel):
     ConfigType: str
     ConfigFile: str
     ConfigCred: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAvailableZonesResponseTypeDef(BaseModel):
+class ListAvailableZonesResponseTypeDef(BaseValidatorModel):
     AZList: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHapgsResponseTypeDef(BaseModel):
+class ListHapgsResponseTypeDef(BaseValidatorModel):
     HapgList: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHsmsResponseTypeDef(BaseModel):
+class ListHsmsResponseTypeDef(BaseValidatorModel):
     HsmList: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLunaClientsResponseTypeDef(BaseModel):
+class ListLunaClientsResponseTypeDef(BaseValidatorModel):
     ClientList: List[str]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     TagList: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyHapgResponseTypeDef(BaseModel):
+class ModifyHapgResponseTypeDef(BaseValidatorModel):
     HapgArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyHsmResponseTypeDef(BaseModel):
+class ModifyHsmResponseTypeDef(BaseValidatorModel):
     HsmArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyLunaClientResponseTypeDef(BaseModel):
+class ModifyLunaClientResponseTypeDef(BaseValidatorModel):
     ClientArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RemoveTagsFromResourceResponseTypeDef(BaseModel):
+class RemoveTagsFromResourceResponseTypeDef(BaseValidatorModel):
     Status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHapgsRequestListHapgsPaginateTypeDef(BaseModel):
+class ListHapgsRequestListHapgsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHsmsRequestListHsmsPaginateTypeDef(BaseModel):
+class ListHsmsRequestListHsmsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLunaClientsRequestListLunaClientsPaginateTypeDef(BaseModel):
+class ListLunaClientsRequestListLunaClientsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 

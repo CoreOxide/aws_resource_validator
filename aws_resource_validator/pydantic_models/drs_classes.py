@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,53 +11,53 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.drs_constants import *
 
-class AccountTypeDef(BaseModel):
+class AccountTypeDef(BaseValidatorModel):
     accountID: Optional[str] = None
 
-class AssociateSourceNetworkStackRequestRequestTypeDef(BaseModel):
+class AssociateSourceNetworkStackRequestRequestTypeDef(BaseValidatorModel):
     cfnStackName: str
     sourceNetworkID: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CPUTypeDef(BaseModel):
+class CPUTypeDef(BaseValidatorModel):
     cores: Optional[int] = None
     modelName: Optional[str] = None
 
-class ProductCodeTypeDef(BaseModel):
+class ProductCodeTypeDef(BaseValidatorModel):
     productCodeId: Optional[str] = None
     productCodeMode: Optional[ProductCodeModeType] = None
 
-class CreateExtendedSourceServerRequestRequestTypeDef(BaseModel):
+class CreateExtendedSourceServerRequestRequestTypeDef(BaseValidatorModel):
     sourceServerArn: str
     tags: Optional[Mapping[str, str]] = None
 
-class LicensingTypeDef(BaseModel):
+class LicensingTypeDef(BaseValidatorModel):
     osByol: Optional[bool] = None
 
-class PITPolicyRuleTypeDef(BaseModel):
+class PITPolicyRuleTypeDef(BaseValidatorModel):
     interval: int
     retentionDuration: int
     units: PITPolicyRuleUnitsType
     enabled: Optional[bool] = None
     ruleID: Optional[int] = None
 
-class CreateSourceNetworkRequestRequestTypeDef(BaseModel):
+class CreateSourceNetworkRequestRequestTypeDef(BaseValidatorModel):
     originAccountID: str
     originRegion: str
     vpcID: str
     tags: Optional[Mapping[str, str]] = None
 
-class DataReplicationErrorTypeDef(BaseModel):
+class DataReplicationErrorTypeDef(BaseValidatorModel):
     error: Optional[DataReplicationErrorStringType] = None
     rawError: Optional[str] = None
 
-class DataReplicationInfoReplicatedDiskTypeDef(BaseModel):
+class DataReplicationInfoReplicatedDiskTypeDef(BaseValidatorModel):
     backloggedStorageBytes: Optional[int] = None
     deviceName: Optional[str] = None
     replicatedStorageBytes: Optional[int] = None
@@ -65,180 +65,180 @@ class DataReplicationInfoReplicatedDiskTypeDef(BaseModel):
     totalStorageBytes: Optional[int] = None
     volumeStatus: Optional[VolumeStatusType] = None
 
-class DataReplicationInitiationStepTypeDef(BaseModel):
+class DataReplicationInitiationStepTypeDef(BaseValidatorModel):
     name: Optional[DataReplicationInitiationStepNameType] = None
     status: Optional[DataReplicationInitiationStepStatusType] = None
 
-class DeleteJobRequestRequestTypeDef(BaseModel):
+class DeleteJobRequestRequestTypeDef(BaseValidatorModel):
     jobID: str
 
-class DeleteLaunchActionRequestRequestTypeDef(BaseModel):
+class DeleteLaunchActionRequestRequestTypeDef(BaseValidatorModel):
     actionId: str
     resourceId: str
 
-class DeleteLaunchConfigurationTemplateRequestRequestTypeDef(BaseModel):
+class DeleteLaunchConfigurationTemplateRequestRequestTypeDef(BaseValidatorModel):
     launchConfigurationTemplateID: str
 
-class DeleteRecoveryInstanceRequestRequestTypeDef(BaseModel):
+class DeleteRecoveryInstanceRequestRequestTypeDef(BaseValidatorModel):
     recoveryInstanceID: str
 
-class DeleteReplicationConfigurationTemplateRequestRequestTypeDef(BaseModel):
+class DeleteReplicationConfigurationTemplateRequestRequestTypeDef(BaseValidatorModel):
     replicationConfigurationTemplateID: str
 
-class DeleteSourceNetworkRequestRequestTypeDef(BaseModel):
+class DeleteSourceNetworkRequestRequestTypeDef(BaseValidatorModel):
     sourceNetworkID: str
 
-class DeleteSourceServerRequestRequestTypeDef(BaseModel):
+class DeleteSourceServerRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeJobLogItemsRequestRequestTypeDef(BaseModel):
+class DescribeJobLogItemsRequestRequestTypeDef(BaseValidatorModel):
     jobID: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeJobsRequestFiltersTypeDef(BaseModel):
+class DescribeJobsRequestFiltersTypeDef(BaseValidatorModel):
     fromDate: Optional[str] = None
     jobIDs: Optional[Sequence[str]] = None
     toDate: Optional[str] = None
 
-class DescribeLaunchConfigurationTemplatesRequestRequestTypeDef(BaseModel):
+class DescribeLaunchConfigurationTemplatesRequestRequestTypeDef(BaseValidatorModel):
     launchConfigurationTemplateIDs: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeRecoveryInstancesRequestFiltersTypeDef(BaseModel):
+class DescribeRecoveryInstancesRequestFiltersTypeDef(BaseValidatorModel):
     recoveryInstanceIDs: Optional[Sequence[str]] = None
     sourceServerIDs: Optional[Sequence[str]] = None
 
-class DescribeRecoverySnapshotsRequestFiltersTypeDef(BaseModel):
+class DescribeRecoverySnapshotsRequestFiltersTypeDef(BaseValidatorModel):
     fromDateTime: Optional[str] = None
     toDateTime: Optional[str] = None
 
-class RecoverySnapshotTypeDef(BaseModel):
+class RecoverySnapshotTypeDef(BaseValidatorModel):
     expectedTimestamp: str
     snapshotID: str
     sourceServerID: str
     ebsSnapshots: Optional[List[str]] = None
     timestamp: Optional[str] = None
 
-class DescribeReplicationConfigurationTemplatesRequestRequestTypeDef(BaseModel):
+class DescribeReplicationConfigurationTemplatesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     replicationConfigurationTemplateIDs: Optional[Sequence[str]] = None
 
-class DescribeSourceNetworksRequestFiltersTypeDef(BaseModel):
+class DescribeSourceNetworksRequestFiltersTypeDef(BaseValidatorModel):
     originAccountID: Optional[str] = None
     originRegion: Optional[str] = None
     sourceNetworkIDs: Optional[Sequence[str]] = None
 
-class DescribeSourceServersRequestFiltersTypeDef(BaseModel):
+class DescribeSourceServersRequestFiltersTypeDef(BaseValidatorModel):
     hardwareId: Optional[str] = None
     sourceServerIDs: Optional[Sequence[str]] = None
     stagingAccountIDs: Optional[Sequence[str]] = None
 
-class DisconnectRecoveryInstanceRequestRequestTypeDef(BaseModel):
+class DisconnectRecoveryInstanceRequestRequestTypeDef(BaseValidatorModel):
     recoveryInstanceID: str
 
-class DisconnectSourceServerRequestRequestTypeDef(BaseModel):
+class DisconnectSourceServerRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
 
-class DiskTypeDef(BaseModel):
+class DiskTypeDef(BaseValidatorModel):
     bytes: Optional[int] = None
     deviceName: Optional[str] = None
 
-class SourceNetworkDataTypeDef(BaseModel):
+class SourceNetworkDataTypeDef(BaseValidatorModel):
     sourceNetworkID: Optional[str] = None
     sourceVpc: Optional[str] = None
     stackName: Optional[str] = None
     targetVpc: Optional[str] = None
 
-class ExportSourceNetworkCfnTemplateRequestRequestTypeDef(BaseModel):
+class ExportSourceNetworkCfnTemplateRequestRequestTypeDef(BaseValidatorModel):
     sourceNetworkID: str
 
-class GetFailbackReplicationConfigurationRequestRequestTypeDef(BaseModel):
+class GetFailbackReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     recoveryInstanceID: str
 
-class GetLaunchConfigurationRequestRequestTypeDef(BaseModel):
+class GetLaunchConfigurationRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
 
-class GetReplicationConfigurationRequestRequestTypeDef(BaseModel):
+class GetReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
 
-class IdentificationHintsTypeDef(BaseModel):
+class IdentificationHintsTypeDef(BaseValidatorModel):
     awsInstanceID: Optional[str] = None
     fqdn: Optional[str] = None
     hostname: Optional[str] = None
     vmWareUuid: Optional[str] = None
 
-class LaunchActionParameterTypeDef(BaseModel):
+class LaunchActionParameterTypeDef(BaseValidatorModel):
     type: Optional[LaunchActionParameterTypeType] = None
     value: Optional[str] = None
 
-class LaunchActionsRequestFiltersTypeDef(BaseModel):
+class LaunchActionsRequestFiltersTypeDef(BaseValidatorModel):
     actionIds: Optional[Sequence[str]] = None
 
-class LaunchIntoInstancePropertiesTypeDef(BaseModel):
+class LaunchIntoInstancePropertiesTypeDef(BaseValidatorModel):
     launchIntoEC2InstanceID: Optional[str] = None
 
-class LifeCycleLastLaunchInitiatedTypeDef(BaseModel):
+class LifeCycleLastLaunchInitiatedTypeDef(BaseValidatorModel):
     apiCallDateTime: Optional[str] = None
     jobID: Optional[str] = None
     type: Optional[LastLaunchTypeType] = None
 
-class ListExtensibleSourceServersRequestRequestTypeDef(BaseModel):
+class ListExtensibleSourceServersRequestRequestTypeDef(BaseValidatorModel):
     stagingAccountID: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class StagingSourceServerTypeDef(BaseModel):
+class StagingSourceServerTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     hostname: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListStagingAccountsRequestRequestTypeDef(BaseModel):
+class ListStagingAccountsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class NetworkInterfaceTypeDef(BaseModel):
+class NetworkInterfaceTypeDef(BaseValidatorModel):
     ips: Optional[List[str]] = None
     isPrimary: Optional[bool] = None
     macAddress: Optional[str] = None
 
-class OSTypeDef(BaseModel):
+class OSTypeDef(BaseValidatorModel):
     fullString: Optional[str] = None
 
-class ParticipatingResourceIDTypeDef(BaseModel):
+class ParticipatingResourceIDTypeDef(BaseValidatorModel):
     sourceNetworkID: Optional[str] = None
 
-class RecoveryInstanceDataReplicationErrorTypeDef(BaseModel):
+class RecoveryInstanceDataReplicationErrorTypeDef(BaseValidatorModel):
     error: Optional[FailbackReplicationErrorType] = None
     rawError: Optional[str] = None
 
-class RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef(BaseModel):
+class RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef(BaseValidatorModel):
     backloggedStorageBytes: Optional[int] = None
     deviceName: Optional[str] = None
     replicatedStorageBytes: Optional[int] = None
     rescannedStorageBytes: Optional[int] = None
     totalStorageBytes: Optional[int] = None
 
-class RecoveryInstanceDataReplicationInitiationStepTypeDef(BaseModel):
+class RecoveryInstanceDataReplicationInitiationStepTypeDef(BaseValidatorModel):
     name: Optional[RecoveryInstanceDataReplicationInitiationStepNameType] = None
     status: Optional[RecoveryInstanceDataReplicationInitiationStepStatusType] = None
 
-class RecoveryInstanceDiskTypeDef(BaseModel):
+class RecoveryInstanceDiskTypeDef(BaseValidatorModel):
     bytes: Optional[int] = None
     ebsVolumeID: Optional[str] = None
     internalDeviceName: Optional[str] = None
 
-class RecoveryInstanceFailbackTypeDef(BaseModel):
+class RecoveryInstanceFailbackTypeDef(BaseValidatorModel):
     agentLastSeenByServiceDateTime: Optional[str] = None
     elapsedReplicationDuration: Optional[str] = None
     failbackClientID: Optional[str] = None
@@ -250,12 +250,12 @@ class RecoveryInstanceFailbackTypeDef(BaseModel):
     firstByteDateTime: Optional[str] = None
     state: Optional[FailbackStateType] = None
 
-class RecoveryLifeCycleTypeDef(BaseModel):
+class RecoveryLifeCycleTypeDef(BaseValidatorModel):
     apiCallDateTime: Optional[datetime] = None
     jobID: Optional[str] = None
     lastRecoveryResult: Optional[RecoveryResultType] = None
 
-class ReplicationConfigurationReplicatedDiskTypeDef(BaseModel):
+class ReplicationConfigurationReplicatedDiskTypeDef(BaseValidatorModel):
     deviceName: Optional[str] = None
     iops: Optional[int] = None
     isBootDisk: Optional[bool] = None
@@ -263,100 +263,100 @@ class ReplicationConfigurationReplicatedDiskTypeDef(BaseModel):
     stagingDiskType: Optional[ReplicationConfigurationReplicatedDiskStagingDiskTypeType] = None
     throughput: Optional[int] = None
 
-class RetryDataReplicationRequestRequestTypeDef(BaseModel):
+class RetryDataReplicationRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
 
-class ReverseReplicationRequestRequestTypeDef(BaseModel):
+class ReverseReplicationRequestRequestTypeDef(BaseValidatorModel):
     recoveryInstanceID: str
 
-class SourceCloudPropertiesTypeDef(BaseModel):
+class SourceCloudPropertiesTypeDef(BaseValidatorModel):
     originAccountID: Optional[str] = None
     originAvailabilityZone: Optional[str] = None
     originRegion: Optional[str] = None
     sourceOutpostArn: Optional[str] = None
 
-class StagingAreaTypeDef(BaseModel):
+class StagingAreaTypeDef(BaseValidatorModel):
     errorMessage: Optional[str] = None
     stagingAccountID: Optional[str] = None
     stagingSourceServerArn: Optional[str] = None
     status: Optional[ExtensionStatusType] = None
 
-class StartFailbackLaunchRequestRequestTypeDef(BaseModel):
+class StartFailbackLaunchRequestRequestTypeDef(BaseValidatorModel):
     recoveryInstanceIDs: Sequence[str]
     tags: Optional[Mapping[str, str]] = None
 
-class StartRecoveryRequestSourceServerTypeDef(BaseModel):
+class StartRecoveryRequestSourceServerTypeDef(BaseValidatorModel):
     sourceServerID: str
     recoverySnapshotID: Optional[str] = None
 
-class StartReplicationRequestRequestTypeDef(BaseModel):
+class StartReplicationRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
 
-class StartSourceNetworkRecoveryRequestNetworkEntryTypeDef(BaseModel):
+class StartSourceNetworkRecoveryRequestNetworkEntryTypeDef(BaseValidatorModel):
     sourceNetworkID: str
     cfnStackName: Optional[str] = None
 
-class StartSourceNetworkReplicationRequestRequestTypeDef(BaseModel):
+class StartSourceNetworkReplicationRequestRequestTypeDef(BaseValidatorModel):
     sourceNetworkID: str
 
-class StopFailbackRequestRequestTypeDef(BaseModel):
+class StopFailbackRequestRequestTypeDef(BaseValidatorModel):
     recoveryInstanceID: str
 
-class StopReplicationRequestRequestTypeDef(BaseModel):
+class StopReplicationRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
 
-class StopSourceNetworkReplicationRequestRequestTypeDef(BaseModel):
+class StopSourceNetworkReplicationRequestRequestTypeDef(BaseValidatorModel):
     sourceNetworkID: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TerminateRecoveryInstancesRequestRequestTypeDef(BaseModel):
+class TerminateRecoveryInstancesRequestRequestTypeDef(BaseValidatorModel):
     recoveryInstanceIDs: Sequence[str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateFailbackReplicationConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateFailbackReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     recoveryInstanceID: str
     bandwidthThrottling: Optional[int] = None
     name: Optional[str] = None
     usePrivateIP: Optional[bool] = None
 
-class CreateSourceNetworkResponseTypeDef(BaseModel):
+class CreateSourceNetworkResponseTypeDef(BaseValidatorModel):
     sourceNetworkID: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportSourceNetworkCfnTemplateResponseTypeDef(BaseModel):
+class ExportSourceNetworkCfnTemplateResponseTypeDef(BaseValidatorModel):
     s3DestinationUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFailbackReplicationConfigurationResponseTypeDef(BaseModel):
+class GetFailbackReplicationConfigurationResponseTypeDef(BaseValidatorModel):
     bandwidthThrottling: int
     name: str
     recoveryInstanceID: str
     usePrivateIP: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListStagingAccountsResponseTypeDef(BaseModel):
+class ListStagingAccountsResponseTypeDef(BaseValidatorModel):
     accounts: List[AccountTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReverseReplicationResponseTypeDef(BaseModel):
+class ReverseReplicationResponseTypeDef(BaseValidatorModel):
     reversedDirectionSourceServerArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConversionPropertiesTypeDef(BaseModel):
+class ConversionPropertiesTypeDef(BaseValidatorModel):
     dataTimestamp: Optional[str] = None
     forceUefi: Optional[bool] = None
     rootVolumeName: Optional[str] = None
@@ -364,7 +364,7 @@ class ConversionPropertiesTypeDef(BaseModel):
     volumeToProductCodes: Optional[Dict[str, List[ProductCodeTypeDef]]] = None
     volumeToVolumeSize: Optional[Dict[str, int]] = None
 
-class CreateLaunchConfigurationTemplateRequestRequestTypeDef(BaseModel):
+class CreateLaunchConfigurationTemplateRequestRequestTypeDef(BaseValidatorModel):
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
     exportBucketArn: Optional[str] = None
@@ -375,7 +375,7 @@ class CreateLaunchConfigurationTemplateRequestRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
-class LaunchConfigurationTemplateTypeDef(BaseModel):
+class LaunchConfigurationTemplateTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
@@ -388,7 +388,7 @@ class LaunchConfigurationTemplateTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
-class UpdateLaunchConfigurationTemplateRequestRequestTypeDef(BaseModel):
+class UpdateLaunchConfigurationTemplateRequestRequestTypeDef(BaseValidatorModel):
     launchConfigurationTemplateID: str
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
@@ -399,7 +399,7 @@ class UpdateLaunchConfigurationTemplateRequestRequestTypeDef(BaseModel):
     postLaunchEnabled: Optional[bool] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
-class CreateReplicationConfigurationTemplateRequestRequestTypeDef(BaseModel):
+class CreateReplicationConfigurationTemplateRequestRequestTypeDef(BaseValidatorModel):
     associateDefaultSecurityGroup: bool
     bandwidthThrottling: int
     createPublicIP: bool
@@ -416,7 +416,7 @@ class CreateReplicationConfigurationTemplateRequestRequestTypeDef(BaseModel):
     ebsEncryptionKeyArn: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ReplicationConfigurationTemplateResponseTypeDef(BaseModel):
+class ReplicationConfigurationTemplateResponseTypeDef(BaseValidatorModel):
     arn: str
     associateDefaultSecurityGroup: bool
     autoReplicateNewDisks: bool
@@ -436,7 +436,7 @@ class ReplicationConfigurationTemplateResponseTypeDef(BaseModel):
     useDedicatedReplicationServer: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplicationConfigurationTemplateTypeDef(BaseModel):
+class ReplicationConfigurationTemplateTypeDef(BaseValidatorModel):
     replicationConfigurationTemplateID: str
     arn: Optional[str] = None
     associateDefaultSecurityGroup: Optional[bool] = None
@@ -455,7 +455,7 @@ class ReplicationConfigurationTemplateTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     useDedicatedReplicationServer: Optional[bool] = None
 
-class UpdateReplicationConfigurationTemplateRequestRequestTypeDef(BaseModel):
+class UpdateReplicationConfigurationTemplateRequestRequestTypeDef(BaseValidatorModel):
     replicationConfigurationTemplateID: str
     arn: Optional[str] = None
     associateDefaultSecurityGroup: Optional[bool] = None
@@ -473,88 +473,88 @@ class UpdateReplicationConfigurationTemplateRequestRequestTypeDef(BaseModel):
     stagingAreaTags: Optional[Mapping[str, str]] = None
     useDedicatedReplicationServer: Optional[bool] = None
 
-class DataReplicationInitiationTypeDef(BaseModel):
+class DataReplicationInitiationTypeDef(BaseValidatorModel):
     nextAttemptDateTime: Optional[str] = None
     startDateTime: Optional[str] = None
     steps: Optional[List[DataReplicationInitiationStepTypeDef]] = None
 
-class DescribeJobLogItemsRequestDescribeJobLogItemsPaginateTypeDef(BaseModel):
+class DescribeJobLogItemsRequestDescribeJobLogItemsPaginateTypeDef(BaseValidatorModel):
     jobID: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLaunchConfigurationTemplatesRequestDescribeLaunchConfigurationTemplatesPaginateTypeDef(BaseModel):
+class DescribeLaunchConfigurationTemplatesRequestDescribeLaunchConfigurationTemplatesPaginateTypeDef(BaseValidatorModel):
     launchConfigurationTemplateIDs: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReplicationConfigurationTemplatesRequestDescribeReplicationConfigurationTemplatesPaginateTypeDef(BaseModel):
+class DescribeReplicationConfigurationTemplatesRequestDescribeReplicationConfigurationTemplatesPaginateTypeDef(BaseValidatorModel):
     replicationConfigurationTemplateIDs: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListExtensibleSourceServersRequestListExtensibleSourceServersPaginateTypeDef(BaseModel):
+class ListExtensibleSourceServersRequestListExtensibleSourceServersPaginateTypeDef(BaseValidatorModel):
     stagingAccountID: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStagingAccountsRequestListStagingAccountsPaginateTypeDef(BaseModel):
+class ListStagingAccountsRequestListStagingAccountsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeJobsRequestDescribeJobsPaginateTypeDef(BaseModel):
+class DescribeJobsRequestDescribeJobsPaginateTypeDef(BaseValidatorModel):
     filters: Optional[DescribeJobsRequestFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeJobsRequestRequestTypeDef(BaseModel):
+class DescribeJobsRequestRequestTypeDef(BaseValidatorModel):
     filters: Optional[DescribeJobsRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeRecoveryInstancesRequestDescribeRecoveryInstancesPaginateTypeDef(BaseModel):
+class DescribeRecoveryInstancesRequestDescribeRecoveryInstancesPaginateTypeDef(BaseValidatorModel):
     filters: Optional[DescribeRecoveryInstancesRequestFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRecoveryInstancesRequestRequestTypeDef(BaseModel):
+class DescribeRecoveryInstancesRequestRequestTypeDef(BaseValidatorModel):
     filters: Optional[DescribeRecoveryInstancesRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeRecoverySnapshotsRequestDescribeRecoverySnapshotsPaginateTypeDef(BaseModel):
+class DescribeRecoverySnapshotsRequestDescribeRecoverySnapshotsPaginateTypeDef(BaseValidatorModel):
     sourceServerID: str
     filters: Optional[DescribeRecoverySnapshotsRequestFiltersTypeDef] = None
     order: Optional[RecoverySnapshotsOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRecoverySnapshotsRequestRequestTypeDef(BaseModel):
+class DescribeRecoverySnapshotsRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
     filters: Optional[DescribeRecoverySnapshotsRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     order: Optional[RecoverySnapshotsOrderType] = None
 
-class DescribeRecoverySnapshotsResponseTypeDef(BaseModel):
+class DescribeRecoverySnapshotsResponseTypeDef(BaseValidatorModel):
     items: List[RecoverySnapshotTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSourceNetworksRequestDescribeSourceNetworksPaginateTypeDef(BaseModel):
+class DescribeSourceNetworksRequestDescribeSourceNetworksPaginateTypeDef(BaseValidatorModel):
     filters: Optional[DescribeSourceNetworksRequestFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSourceNetworksRequestRequestTypeDef(BaseModel):
+class DescribeSourceNetworksRequestRequestTypeDef(BaseValidatorModel):
     filters: Optional[DescribeSourceNetworksRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeSourceServersRequestDescribeSourceServersPaginateTypeDef(BaseModel):
+class DescribeSourceServersRequestDescribeSourceServersPaginateTypeDef(BaseValidatorModel):
     filters: Optional[DescribeSourceServersRequestFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSourceServersRequestRequestTypeDef(BaseModel):
+class DescribeSourceServersRequestRequestTypeDef(BaseValidatorModel):
     filters: Optional[DescribeSourceServersRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class EventResourceDataTypeDef(BaseModel):
+class EventResourceDataTypeDef(BaseValidatorModel):
     sourceNetworkData: Optional[SourceNetworkDataTypeDef] = None
 
-class LaunchActionTypeDef(BaseModel):
+class LaunchActionTypeDef(BaseValidatorModel):
     actionCode: Optional[str] = None
     actionId: Optional[str] = None
     actionVersion: Optional[str] = None
@@ -567,7 +567,7 @@ class LaunchActionTypeDef(BaseModel):
     parameters: Optional[Dict[str, LaunchActionParameterTypeDef]] = None
     type: Optional[LaunchActionTypeType] = None
 
-class PutLaunchActionRequestRequestTypeDef(BaseModel):
+class PutLaunchActionRequestRequestTypeDef(BaseValidatorModel):
     actionCode: str
     actionId: str
     actionVersion: str
@@ -580,7 +580,7 @@ class PutLaunchActionRequestRequestTypeDef(BaseModel):
     resourceId: str
     parameters: Optional[Mapping[str, LaunchActionParameterTypeDef]] = None
 
-class PutLaunchActionResponseTypeDef(BaseModel):
+class PutLaunchActionResponseTypeDef(BaseValidatorModel):
     actionCode: str
     actionId: str
     actionVersion: str
@@ -595,18 +595,18 @@ class PutLaunchActionResponseTypeDef(BaseModel):
     type: LaunchActionTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLaunchActionsRequestListLaunchActionsPaginateTypeDef(BaseModel):
+class ListLaunchActionsRequestListLaunchActionsPaginateTypeDef(BaseValidatorModel):
     resourceId: str
     filters: Optional[LaunchActionsRequestFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLaunchActionsRequestRequestTypeDef(BaseModel):
+class ListLaunchActionsRequestRequestTypeDef(BaseValidatorModel):
     resourceId: str
     filters: Optional[LaunchActionsRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class LaunchConfigurationTypeDef(BaseModel):
+class LaunchConfigurationTypeDef(BaseValidatorModel):
     copyPrivateIp: bool
     copyTags: bool
     ec2LaunchTemplateID: str
@@ -619,7 +619,7 @@ class LaunchConfigurationTypeDef(BaseModel):
     targetInstanceTypeRightSizingMethod: TargetInstanceTypeRightSizingMethodType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLaunchConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateLaunchConfigurationRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
@@ -630,16 +630,16 @@ class UpdateLaunchConfigurationRequestRequestTypeDef(BaseModel):
     postLaunchEnabled: Optional[bool] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
-class LifeCycleLastLaunchTypeDef(BaseModel):
+class LifeCycleLastLaunchTypeDef(BaseValidatorModel):
     initiated: Optional[LifeCycleLastLaunchInitiatedTypeDef] = None
     status: Optional[LaunchStatusType] = None
 
-class ListExtensibleSourceServersResponseTypeDef(BaseModel):
+class ListExtensibleSourceServersResponseTypeDef(BaseValidatorModel):
     items: List[StagingSourceServerTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SourcePropertiesTypeDef(BaseModel):
+class SourcePropertiesTypeDef(BaseValidatorModel):
     cpus: Optional[List[CPUTypeDef]] = None
     disks: Optional[List[DiskTypeDef]] = None
     identificationHints: Optional[IdentificationHintsTypeDef] = None
@@ -650,15 +650,15 @@ class SourcePropertiesTypeDef(BaseModel):
     recommendedInstanceType: Optional[str] = None
     supportsNitroInstances: Optional[bool] = None
 
-class ParticipatingResourceTypeDef(BaseModel):
+class ParticipatingResourceTypeDef(BaseValidatorModel):
     launchStatus: Optional[LaunchStatusType] = None
     participatingResourceID: Optional[ParticipatingResourceIDTypeDef] = None
 
-class RecoveryInstanceDataReplicationInitiationTypeDef(BaseModel):
+class RecoveryInstanceDataReplicationInitiationTypeDef(BaseValidatorModel):
     startDateTime: Optional[str] = None
     steps: Optional[List[RecoveryInstanceDataReplicationInitiationStepTypeDef]] = None
 
-class RecoveryInstancePropertiesTypeDef(BaseModel):
+class RecoveryInstancePropertiesTypeDef(BaseValidatorModel):
     cpus: Optional[List[CPUTypeDef]] = None
     disks: Optional[List[RecoveryInstanceDiskTypeDef]] = None
     identificationHints: Optional[IdentificationHintsTypeDef] = None
@@ -667,7 +667,7 @@ class RecoveryInstancePropertiesTypeDef(BaseModel):
     os: Optional[OSTypeDef] = None
     ramBytes: Optional[int] = None
 
-class SourceNetworkTypeDef(BaseModel):
+class SourceNetworkTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     cfnStackName: Optional[str] = None
     lastRecovery: Optional[RecoveryLifeCycleTypeDef] = None
@@ -680,7 +680,7 @@ class SourceNetworkTypeDef(BaseModel):
     sourceVpcID: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class ReplicationConfigurationTypeDef(BaseModel):
+class ReplicationConfigurationTypeDef(BaseValidatorModel):
     associateDefaultSecurityGroup: bool
     autoReplicateNewDisks: bool
     bandwidthThrottling: int
@@ -700,7 +700,7 @@ class ReplicationConfigurationTypeDef(BaseModel):
     useDedicatedReplicationServer: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateReplicationConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
     sourceServerID: str
     associateDefaultSecurityGroup: Optional[bool] = None
     autoReplicateNewDisks: Optional[bool] = None
@@ -719,35 +719,35 @@ class UpdateReplicationConfigurationRequestRequestTypeDef(BaseModel):
     stagingAreaTags: Optional[Mapping[str, str]] = None
     useDedicatedReplicationServer: Optional[bool] = None
 
-class StartRecoveryRequestRequestTypeDef(BaseModel):
+class StartRecoveryRequestRequestTypeDef(BaseValidatorModel):
     sourceServers: Sequence[StartRecoveryRequestSourceServerTypeDef]
     isDrill: Optional[bool] = None
     tags: Optional[Mapping[str, str]] = None
 
-class StartSourceNetworkRecoveryRequestRequestTypeDef(BaseModel):
+class StartSourceNetworkRecoveryRequestRequestTypeDef(BaseValidatorModel):
     sourceNetworks: Sequence[StartSourceNetworkRecoveryRequestNetworkEntryTypeDef]
     deployAsNew: Optional[bool] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateLaunchConfigurationTemplateResponseTypeDef(BaseModel):
+class CreateLaunchConfigurationTemplateResponseTypeDef(BaseValidatorModel):
     launchConfigurationTemplate: LaunchConfigurationTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLaunchConfigurationTemplatesResponseTypeDef(BaseModel):
+class DescribeLaunchConfigurationTemplatesResponseTypeDef(BaseValidatorModel):
     items: List[LaunchConfigurationTemplateTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLaunchConfigurationTemplateResponseTypeDef(BaseModel):
+class UpdateLaunchConfigurationTemplateResponseTypeDef(BaseValidatorModel):
     launchConfigurationTemplate: LaunchConfigurationTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeReplicationConfigurationTemplatesResponseTypeDef(BaseModel):
+class DescribeReplicationConfigurationTemplatesResponseTypeDef(BaseValidatorModel):
     items: List[ReplicationConfigurationTemplateTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataReplicationInfoTypeDef(BaseModel):
+class DataReplicationInfoTypeDef(BaseValidatorModel):
     dataReplicationError: Optional[DataReplicationErrorTypeDef] = None
     dataReplicationInitiation: Optional[DataReplicationInitiationTypeDef] = None
     dataReplicationState: Optional[DataReplicationStateType] = None
@@ -757,7 +757,7 @@ class DataReplicationInfoTypeDef(BaseModel):
     stagingAvailabilityZone: Optional[str] = None
     stagingOutpostArn: Optional[str] = None
 
-class JobLogEventDataTypeDef(BaseModel):
+class JobLogEventDataTypeDef(BaseValidatorModel):
     conversionProperties: Optional[ConversionPropertiesTypeDef] = None
     conversionServerID: Optional[str] = None
     eventResourceData: Optional[EventResourceDataTypeDef] = None
@@ -765,25 +765,25 @@ class JobLogEventDataTypeDef(BaseModel):
     sourceServerID: Optional[str] = None
     targetInstanceID: Optional[str] = None
 
-class LaunchActionRunTypeDef(BaseModel):
+class LaunchActionRunTypeDef(BaseValidatorModel):
     action: Optional[LaunchActionTypeDef] = None
     failureReason: Optional[str] = None
     runId: Optional[str] = None
     status: Optional[LaunchActionRunStatusType] = None
 
-class ListLaunchActionsResponseTypeDef(BaseModel):
+class ListLaunchActionsResponseTypeDef(BaseValidatorModel):
     items: List[LaunchActionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LifeCycleTypeDef(BaseModel):
+class LifeCycleTypeDef(BaseValidatorModel):
     addedToServiceDateTime: Optional[str] = None
     elapsedReplicationDuration: Optional[str] = None
     firstByteDateTime: Optional[str] = None
     lastLaunch: Optional[LifeCycleLastLaunchTypeDef] = None
     lastSeenByServiceDateTime: Optional[str] = None
 
-class RecoveryInstanceDataReplicationInfoTypeDef(BaseModel):
+class RecoveryInstanceDataReplicationInfoTypeDef(BaseValidatorModel):
     dataReplicationError: Optional[RecoveryInstanceDataReplicationErrorTypeDef] = None
     dataReplicationInitiation: Optional[RecoveryInstanceDataReplicationInitiationTypeDef] = None
     dataReplicationState: Optional[RecoveryInstanceDataReplicationStateType] = None
@@ -793,29 +793,29 @@ class RecoveryInstanceDataReplicationInfoTypeDef(BaseModel):
     stagingAvailabilityZone: Optional[str] = None
     stagingOutpostArn: Optional[str] = None
 
-class DescribeSourceNetworksResponseTypeDef(BaseModel):
+class DescribeSourceNetworksResponseTypeDef(BaseValidatorModel):
     items: List[SourceNetworkTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSourceNetworkReplicationResponseTypeDef(BaseModel):
+class StartSourceNetworkReplicationResponseTypeDef(BaseValidatorModel):
     sourceNetwork: SourceNetworkTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopSourceNetworkReplicationResponseTypeDef(BaseModel):
+class StopSourceNetworkReplicationResponseTypeDef(BaseValidatorModel):
     sourceNetwork: SourceNetworkTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JobLogTypeDef(BaseModel):
+class JobLogTypeDef(BaseValidatorModel):
     event: Optional[JobLogEventType] = None
     eventData: Optional[JobLogEventDataTypeDef] = None
     logDateTime: Optional[str] = None
 
-class LaunchActionsStatusTypeDef(BaseModel):
+class LaunchActionsStatusTypeDef(BaseValidatorModel):
     runs: Optional[List[LaunchActionRunTypeDef]] = None
     ssmAgentDiscoveryDatetime: Optional[str] = None
 
-class SourceServerResponseTypeDef(BaseModel):
+class SourceServerResponseTypeDef(BaseValidatorModel):
     agentVersion: str
     arn: str
     dataReplicationInfo: DataReplicationInfoTypeDef
@@ -832,7 +832,7 @@ class SourceServerResponseTypeDef(BaseModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SourceServerTypeDef(BaseModel):
+class SourceServerTypeDef(BaseValidatorModel):
     agentVersion: Optional[str] = None
     arn: Optional[str] = None
     dataReplicationInfo: Optional[DataReplicationInfoTypeDef] = None
@@ -848,7 +848,7 @@ class SourceServerTypeDef(BaseModel):
     stagingArea: Optional[StagingAreaTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class RecoveryInstanceTypeDef(BaseModel):
+class RecoveryInstanceTypeDef(BaseValidatorModel):
     agentVersion: Optional[str] = None
     arn: Optional[str] = None
     dataReplicationInfo: Optional[RecoveryInstanceDataReplicationInfoTypeDef] = None
@@ -866,40 +866,40 @@ class RecoveryInstanceTypeDef(BaseModel):
     sourceServerID: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class DescribeJobLogItemsResponseTypeDef(BaseModel):
+class DescribeJobLogItemsResponseTypeDef(BaseValidatorModel):
     items: List[JobLogTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ParticipatingServerTypeDef(BaseModel):
+class ParticipatingServerTypeDef(BaseValidatorModel):
     launchActionsStatus: Optional[LaunchActionsStatusTypeDef] = None
     launchStatus: Optional[LaunchStatusType] = None
     recoveryInstanceID: Optional[str] = None
     sourceServerID: Optional[str] = None
 
-class CreateExtendedSourceServerResponseTypeDef(BaseModel):
+class CreateExtendedSourceServerResponseTypeDef(BaseValidatorModel):
     sourceServer: SourceServerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeSourceServersResponseTypeDef(BaseModel):
+class DescribeSourceServersResponseTypeDef(BaseValidatorModel):
     items: List[SourceServerTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartReplicationResponseTypeDef(BaseModel):
+class StartReplicationResponseTypeDef(BaseValidatorModel):
     sourceServer: SourceServerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopReplicationResponseTypeDef(BaseModel):
+class StopReplicationResponseTypeDef(BaseValidatorModel):
     sourceServer: SourceServerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRecoveryInstancesResponseTypeDef(BaseModel):
+class DescribeRecoveryInstancesResponseTypeDef(BaseValidatorModel):
     items: List[RecoveryInstanceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JobTypeDef(BaseModel):
+class JobTypeDef(BaseValidatorModel):
     jobID: str
     arn: Optional[str] = None
     creationDateTime: Optional[str] = None
@@ -911,28 +911,28 @@ class JobTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     type: Optional[JobTypeType] = None
 
-class AssociateSourceNetworkStackResponseTypeDef(BaseModel):
+class AssociateSourceNetworkStackResponseTypeDef(BaseValidatorModel):
     job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeJobsResponseTypeDef(BaseModel):
+class DescribeJobsResponseTypeDef(BaseValidatorModel):
     items: List[JobTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartFailbackLaunchResponseTypeDef(BaseModel):
+class StartFailbackLaunchResponseTypeDef(BaseValidatorModel):
     job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartRecoveryResponseTypeDef(BaseModel):
+class StartRecoveryResponseTypeDef(BaseValidatorModel):
     job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSourceNetworkRecoveryResponseTypeDef(BaseModel):
+class StartSourceNetworkRecoveryResponseTypeDef(BaseValidatorModel):
     job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TerminateRecoveryInstancesResponseTypeDef(BaseModel):
+class TerminateRecoveryInstancesResponseTypeDef(BaseValidatorModel):
     job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

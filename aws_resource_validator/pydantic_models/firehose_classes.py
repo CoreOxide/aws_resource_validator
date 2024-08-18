@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,72 +11,72 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.firehose_constants import *
 
-class AmazonOpenSearchServerlessBufferingHintsTypeDef(BaseModel):
+class AmazonOpenSearchServerlessBufferingHintsTypeDef(BaseValidatorModel):
     IntervalInSeconds: Optional[int] = None
     SizeInMBs: Optional[int] = None
 
-class AmazonOpenSearchServerlessRetryOptionsTypeDef(BaseModel):
+class AmazonOpenSearchServerlessRetryOptionsTypeDef(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
 
-class CloudWatchLoggingOptionsTypeDef(BaseModel):
+class CloudWatchLoggingOptionsTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     LogGroupName: Optional[str] = None
     LogStreamName: Optional[str] = None
 
-class VpcConfigurationTypeDef(BaseModel):
+class VpcConfigurationTypeDef(BaseValidatorModel):
     SubnetIds: Sequence[str]
     RoleARN: str
     SecurityGroupIds: Sequence[str]
 
-class VpcConfigurationDescriptionTypeDef(BaseModel):
+class VpcConfigurationDescriptionTypeDef(BaseValidatorModel):
     SubnetIds: List[str]
     RoleARN: str
     SecurityGroupIds: List[str]
     VpcId: str
 
-class AmazonopensearchserviceBufferingHintsTypeDef(BaseModel):
+class AmazonopensearchserviceBufferingHintsTypeDef(BaseValidatorModel):
     IntervalInSeconds: Optional[int] = None
     SizeInMBs: Optional[int] = None
 
-class AmazonopensearchserviceRetryOptionsTypeDef(BaseModel):
+class AmazonopensearchserviceRetryOptionsTypeDef(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
 
-class DocumentIdOptionsTypeDef(BaseModel):
+class DocumentIdOptionsTypeDef(BaseValidatorModel):
     DefaultDocumentIdFormat: DefaultDocumentIdFormatType
 
-class AuthenticationConfigurationTypeDef(BaseModel):
+class AuthenticationConfigurationTypeDef(BaseValidatorModel):
     RoleARN: str
     Connectivity: ConnectivityType
 
-class BufferingHintsTypeDef(BaseModel):
+class BufferingHintsTypeDef(BaseValidatorModel):
     SizeInMBs: Optional[int] = None
     IntervalInSeconds: Optional[int] = None
 
-class CopyCommandTypeDef(BaseModel):
+class CopyCommandTypeDef(BaseValidatorModel):
     DataTableName: str
     DataTableColumns: Optional[str] = None
     CopyOptions: Optional[str] = None
 
-class DeliveryStreamEncryptionConfigurationInputTypeDef(BaseModel):
+class DeliveryStreamEncryptionConfigurationInputTypeDef(BaseValidatorModel):
     KeyType: KeyTypeType
     KeyARN: Optional[str] = None
 
-class KinesisStreamSourceConfigurationTypeDef(BaseModel):
+class KinesisStreamSourceConfigurationTypeDef(BaseValidatorModel):
     KinesisStreamARN: str
     RoleARN: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class SchemaConfigurationTypeDef(BaseModel):
+class SchemaConfigurationTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     CatalogId: Optional[str] = None
     DatabaseName: Optional[str] = None
@@ -84,89 +84,89 @@ class SchemaConfigurationTypeDef(BaseModel):
     Region: Optional[str] = None
     VersionId: Optional[str] = None
 
-class DeleteDeliveryStreamInputRequestTypeDef(BaseModel):
+class DeleteDeliveryStreamInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     AllowForceDelete: Optional[bool] = None
 
-class FailureDescriptionTypeDef(BaseModel):
+class FailureDescriptionTypeDef(BaseValidatorModel):
     Type: DeliveryStreamFailureTypeType
     Details: str
 
-class DescribeDeliveryStreamInputRequestTypeDef(BaseModel):
+class DescribeDeliveryStreamInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     Limit: Optional[int] = None
     ExclusiveStartDestinationId: Optional[str] = None
 
-class HiveJsonSerDeOutputTypeDef(BaseModel):
+class HiveJsonSerDeOutputTypeDef(BaseValidatorModel):
     TimestampFormats: Optional[List[str]] = None
 
-class OpenXJsonSerDeOutputTypeDef(BaseModel):
+class OpenXJsonSerDeOutputTypeDef(BaseValidatorModel):
     ConvertDotsInJsonKeysToUnderscores: Optional[bool] = None
     CaseInsensitive: Optional[bool] = None
     ColumnToJsonKeyMappings: Optional[Dict[str, str]] = None
 
-class HiveJsonSerDeTypeDef(BaseModel):
+class HiveJsonSerDeTypeDef(BaseValidatorModel):
     TimestampFormats: Optional[Sequence[str]] = None
 
-class OpenXJsonSerDeTypeDef(BaseModel):
+class OpenXJsonSerDeTypeDef(BaseValidatorModel):
     ConvertDotsInJsonKeysToUnderscores: Optional[bool] = None
     CaseInsensitive: Optional[bool] = None
     ColumnToJsonKeyMappings: Optional[Mapping[str, str]] = None
 
-class RetryOptionsTypeDef(BaseModel):
+class RetryOptionsTypeDef(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
 
-class ElasticsearchBufferingHintsTypeDef(BaseModel):
+class ElasticsearchBufferingHintsTypeDef(BaseValidatorModel):
     IntervalInSeconds: Optional[int] = None
     SizeInMBs: Optional[int] = None
 
-class ElasticsearchRetryOptionsTypeDef(BaseModel):
+class ElasticsearchRetryOptionsTypeDef(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
 
-class KMSEncryptionConfigTypeDef(BaseModel):
+class KMSEncryptionConfigTypeDef(BaseValidatorModel):
     AWSKMSKeyARN: str
 
-class HttpEndpointBufferingHintsTypeDef(BaseModel):
+class HttpEndpointBufferingHintsTypeDef(BaseValidatorModel):
     SizeInMBs: Optional[int] = None
     IntervalInSeconds: Optional[int] = None
 
-class HttpEndpointCommonAttributeTypeDef(BaseModel):
+class HttpEndpointCommonAttributeTypeDef(BaseValidatorModel):
     AttributeName: str
     AttributeValue: str
 
-class HttpEndpointConfigurationTypeDef(BaseModel):
+class HttpEndpointConfigurationTypeDef(BaseValidatorModel):
     Url: str
     Name: Optional[str] = None
     AccessKey: Optional[str] = None
 
-class HttpEndpointDescriptionTypeDef(BaseModel):
+class HttpEndpointDescriptionTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
     Name: Optional[str] = None
 
-class HttpEndpointRetryOptionsTypeDef(BaseModel):
+class HttpEndpointRetryOptionsTypeDef(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
 
-class SecretsManagerConfigurationTypeDef(BaseModel):
+class SecretsManagerConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
     SecretARN: Optional[str] = None
     RoleARN: Optional[str] = None
 
-class KinesisStreamSourceDescriptionTypeDef(BaseModel):
+class KinesisStreamSourceDescriptionTypeDef(BaseValidatorModel):
     KinesisStreamARN: Optional[str] = None
     RoleARN: Optional[str] = None
     DeliveryStartTimestamp: Optional[datetime] = None
 
-class ListDeliveryStreamsInputRequestTypeDef(BaseModel):
+class ListDeliveryStreamsInputRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
     DeliveryStreamType: Optional[DeliveryStreamTypeType] = None
     ExclusiveStartDeliveryStreamName: Optional[str] = None
 
-class ListTagsForDeliveryStreamInputRequestTypeDef(BaseModel):
+class ListTagsForDeliveryStreamInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     ExclusiveStartTagKey: Optional[str] = None
     Limit: Optional[int] = None
 
-class OrcSerDeOutputTypeDef(BaseModel):
+class OrcSerDeOutputTypeDef(BaseValidatorModel):
     StripeSizeBytes: Optional[int] = None
     BlockSizeBytes: Optional[int] = None
     RowIndexStride: Optional[int] = None
@@ -178,7 +178,7 @@ class OrcSerDeOutputTypeDef(BaseModel):
     DictionaryKeyThreshold: Optional[float] = None
     FormatVersion: Optional[OrcFormatVersionType] = None
 
-class OrcSerDeTypeDef(BaseModel):
+class OrcSerDeTypeDef(BaseValidatorModel):
     StripeSizeBytes: Optional[int] = None
     BlockSizeBytes: Optional[int] = None
     RowIndexStride: Optional[int] = None
@@ -190,7 +190,7 @@ class OrcSerDeTypeDef(BaseModel):
     DictionaryKeyThreshold: Optional[float] = None
     FormatVersion: Optional[OrcFormatVersionType] = None
 
-class ParquetSerDeTypeDef(BaseModel):
+class ParquetSerDeTypeDef(BaseValidatorModel):
     BlockSizeBytes: Optional[int] = None
     PageSizeBytes: Optional[int] = None
     Compression: Optional[ParquetCompressionType] = None
@@ -198,154 +198,154 @@ class ParquetSerDeTypeDef(BaseModel):
     MaxPaddingBytes: Optional[int] = None
     WriterVersion: Optional[ParquetWriterVersionType] = None
 
-class ProcessorParameterTypeDef(BaseModel):
+class ProcessorParameterTypeDef(BaseValidatorModel):
     ParameterName: ProcessorParameterNameType
     ParameterValue: str
 
-class PutRecordBatchResponseEntryTypeDef(BaseModel):
+class PutRecordBatchResponseEntryTypeDef(BaseValidatorModel):
     RecordId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class RedshiftRetryOptionsTypeDef(BaseModel):
+class RedshiftRetryOptionsTypeDef(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
 
-class SnowflakeRetryOptionsTypeDef(BaseModel):
+class SnowflakeRetryOptionsTypeDef(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
 
-class SnowflakeRoleConfigurationTypeDef(BaseModel):
+class SnowflakeRoleConfigurationTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     SnowflakeRole: Optional[str] = None
 
-class SnowflakeVpcConfigurationTypeDef(BaseModel):
+class SnowflakeVpcConfigurationTypeDef(BaseValidatorModel):
     PrivateLinkVpceId: str
 
-class SplunkBufferingHintsTypeDef(BaseModel):
+class SplunkBufferingHintsTypeDef(BaseValidatorModel):
     IntervalInSeconds: Optional[int] = None
     SizeInMBs: Optional[int] = None
 
-class SplunkRetryOptionsTypeDef(BaseModel):
+class SplunkRetryOptionsTypeDef(BaseValidatorModel):
     DurationInSeconds: Optional[int] = None
 
-class StopDeliveryStreamEncryptionInputRequestTypeDef(BaseModel):
+class StopDeliveryStreamEncryptionInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
 
-class UntagDeliveryStreamInputRequestTypeDef(BaseModel):
+class UntagDeliveryStreamInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     TagKeys: Sequence[str]
 
-class MSKSourceConfigurationTypeDef(BaseModel):
+class MSKSourceConfigurationTypeDef(BaseValidatorModel):
     MSKClusterARN: str
     TopicName: str
     AuthenticationConfiguration: AuthenticationConfigurationTypeDef
 
-class MSKSourceDescriptionTypeDef(BaseModel):
+class MSKSourceDescriptionTypeDef(BaseValidatorModel):
     MSKClusterARN: Optional[str] = None
     TopicName: Optional[str] = None
     AuthenticationConfiguration: Optional[AuthenticationConfigurationTypeDef] = None
     DeliveryStartTimestamp: Optional[datetime] = None
 
-class RecordTypeDef(BaseModel):
+class RecordTypeDef(BaseValidatorModel):
     Data: BlobTypeDef
 
-class StartDeliveryStreamEncryptionInputRequestTypeDef(BaseModel):
+class StartDeliveryStreamEncryptionInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     DeliveryStreamEncryptionConfigurationInput: Optional[       DeliveryStreamEncryptionConfigurationInputTypeDef     ] = None
 
-class TagDeliveryStreamInputRequestTypeDef(BaseModel):
+class TagDeliveryStreamInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     Tags: Sequence[TagTypeDef]
 
-class CreateDeliveryStreamOutputTypeDef(BaseModel):
+class CreateDeliveryStreamOutputTypeDef(BaseValidatorModel):
     DeliveryStreamARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDeliveryStreamsOutputTypeDef(BaseModel):
+class ListDeliveryStreamsOutputTypeDef(BaseValidatorModel):
     DeliveryStreamNames: List[str]
     HasMoreDeliveryStreams: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForDeliveryStreamOutputTypeDef(BaseModel):
+class ListTagsForDeliveryStreamOutputTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     HasMoreTags: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRecordOutputTypeDef(BaseModel):
+class PutRecordOutputTypeDef(BaseValidatorModel):
     RecordId: str
     Encrypted: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeliveryStreamEncryptionConfigurationTypeDef(BaseModel):
+class DeliveryStreamEncryptionConfigurationTypeDef(BaseValidatorModel):
     KeyARN: Optional[str] = None
     KeyType: Optional[KeyTypeType] = None
     Status: Optional[DeliveryStreamEncryptionStatusType] = None
     FailureDescription: Optional[FailureDescriptionTypeDef] = None
 
-class DeserializerOutputTypeDef(BaseModel):
+class DeserializerOutputTypeDef(BaseValidatorModel):
     OpenXJsonSerDe: Optional[OpenXJsonSerDeOutputTypeDef] = None
     HiveJsonSerDe: Optional[HiveJsonSerDeOutputTypeDef] = None
 
-class DeserializerTypeDef(BaseModel):
+class DeserializerTypeDef(BaseValidatorModel):
     OpenXJsonSerDe: Optional[OpenXJsonSerDeTypeDef] = None
     HiveJsonSerDe: Optional[HiveJsonSerDeTypeDef] = None
 
-class DynamicPartitioningConfigurationTypeDef(BaseModel):
+class DynamicPartitioningConfigurationTypeDef(BaseValidatorModel):
     RetryOptions: Optional[RetryOptionsTypeDef] = None
     Enabled: Optional[bool] = None
 
-class EncryptionConfigurationTypeDef(BaseModel):
+class EncryptionConfigurationTypeDef(BaseValidatorModel):
     NoEncryptionConfig: Optional[Literal["NoEncryption"]] = None
     KMSEncryptionConfig: Optional[KMSEncryptionConfigTypeDef] = None
 
-class HttpEndpointRequestConfigurationOutputTypeDef(BaseModel):
+class HttpEndpointRequestConfigurationOutputTypeDef(BaseValidatorModel):
     ContentEncoding: Optional[ContentEncodingType] = None
     CommonAttributes: Optional[List[HttpEndpointCommonAttributeTypeDef]] = None
 
-class HttpEndpointRequestConfigurationTypeDef(BaseModel):
+class HttpEndpointRequestConfigurationTypeDef(BaseValidatorModel):
     ContentEncoding: Optional[ContentEncodingType] = None
     CommonAttributes: Optional[Sequence[HttpEndpointCommonAttributeTypeDef]] = None
 
-class SerializerOutputTypeDef(BaseModel):
+class SerializerOutputTypeDef(BaseValidatorModel):
     ParquetSerDe: Optional[ParquetSerDeTypeDef] = None
     OrcSerDe: Optional[OrcSerDeOutputTypeDef] = None
 
-class SerializerTypeDef(BaseModel):
+class SerializerTypeDef(BaseValidatorModel):
     ParquetSerDe: Optional[ParquetSerDeTypeDef] = None
     OrcSerDe: Optional[OrcSerDeTypeDef] = None
 
-class ProcessorOutputTypeDef(BaseModel):
+class ProcessorOutputTypeDef(BaseValidatorModel):
     Type: ProcessorTypeType
     Parameters: Optional[List[ProcessorParameterTypeDef]] = None
 
-class ProcessorTypeDef(BaseModel):
+class ProcessorTypeDef(BaseValidatorModel):
     Type: ProcessorTypeType
     Parameters: Optional[Sequence[ProcessorParameterTypeDef]] = None
 
-class PutRecordBatchOutputTypeDef(BaseModel):
+class PutRecordBatchOutputTypeDef(BaseValidatorModel):
     FailedPutCount: int
     Encrypted: bool
     RequestResponses: List[PutRecordBatchResponseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SourceDescriptionTypeDef(BaseModel):
+class SourceDescriptionTypeDef(BaseValidatorModel):
     KinesisStreamSourceDescription: Optional[KinesisStreamSourceDescriptionTypeDef] = None
     MSKSourceDescription: Optional[MSKSourceDescriptionTypeDef] = None
 
-class PutRecordBatchInputRequestTypeDef(BaseModel):
+class PutRecordBatchInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     Records: Sequence[RecordTypeDef]
 
-class PutRecordInputRequestTypeDef(BaseModel):
+class PutRecordInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     Record: RecordTypeDef
 
-class InputFormatConfigurationOutputTypeDef(BaseModel):
+class InputFormatConfigurationOutputTypeDef(BaseValidatorModel):
     Deserializer: Optional[DeserializerOutputTypeDef] = None
 
-class InputFormatConfigurationTypeDef(BaseModel):
+class InputFormatConfigurationTypeDef(BaseValidatorModel):
     Deserializer: Optional[DeserializerTypeDef] = None
 
-class S3DestinationConfigurationTypeDef(BaseModel):
+class S3DestinationConfigurationTypeDef(BaseValidatorModel):
     RoleARN: str
     BucketARN: str
     Prefix: Optional[str] = None
@@ -355,7 +355,7 @@ class S3DestinationConfigurationTypeDef(BaseModel):
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
 
-class S3DestinationDescriptionTypeDef(BaseModel):
+class S3DestinationDescriptionTypeDef(BaseValidatorModel):
     RoleARN: str
     BucketARN: str
     BufferingHints: BufferingHintsTypeDef
@@ -365,7 +365,7 @@ class S3DestinationDescriptionTypeDef(BaseModel):
     ErrorOutputPrefix: Optional[str] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
 
-class S3DestinationUpdateTypeDef(BaseModel):
+class S3DestinationUpdateTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     BucketARN: Optional[str] = None
     Prefix: Optional[str] = None
@@ -375,33 +375,33 @@ class S3DestinationUpdateTypeDef(BaseModel):
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
 
-class OutputFormatConfigurationOutputTypeDef(BaseModel):
+class OutputFormatConfigurationOutputTypeDef(BaseValidatorModel):
     Serializer: Optional[SerializerOutputTypeDef] = None
 
-class OutputFormatConfigurationTypeDef(BaseModel):
+class OutputFormatConfigurationTypeDef(BaseValidatorModel):
     Serializer: Optional[SerializerTypeDef] = None
 
-class ProcessingConfigurationOutputTypeDef(BaseModel):
+class ProcessingConfigurationOutputTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     Processors: Optional[List[ProcessorOutputTypeDef]] = None
 
-class ProcessingConfigurationTypeDef(BaseModel):
+class ProcessingConfigurationTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     Processors: Optional[Sequence[ProcessorTypeDef]] = None
 
-class DataFormatConversionConfigurationOutputTypeDef(BaseModel):
+class DataFormatConversionConfigurationOutputTypeDef(BaseValidatorModel):
     SchemaConfiguration: Optional[SchemaConfigurationTypeDef] = None
     InputFormatConfiguration: Optional[InputFormatConfigurationOutputTypeDef] = None
     OutputFormatConfiguration: Optional[OutputFormatConfigurationOutputTypeDef] = None
     Enabled: Optional[bool] = None
 
-class DataFormatConversionConfigurationTypeDef(BaseModel):
+class DataFormatConversionConfigurationTypeDef(BaseValidatorModel):
     SchemaConfiguration: Optional[SchemaConfigurationTypeDef] = None
     InputFormatConfiguration: Optional[InputFormatConfigurationTypeDef] = None
     OutputFormatConfiguration: Optional[OutputFormatConfigurationTypeDef] = None
     Enabled: Optional[bool] = None
 
-class AmazonOpenSearchServerlessDestinationDescriptionTypeDef(BaseModel):
+class AmazonOpenSearchServerlessDestinationDescriptionTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     CollectionEndpoint: Optional[str] = None
     IndexName: Optional[str] = None
@@ -413,7 +413,7 @@ class AmazonOpenSearchServerlessDestinationDescriptionTypeDef(BaseModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     VpcConfigurationDescription: Optional[VpcConfigurationDescriptionTypeDef] = None
 
-class AmazonopensearchserviceDestinationDescriptionTypeDef(BaseModel):
+class AmazonopensearchserviceDestinationDescriptionTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     DomainARN: Optional[str] = None
     ClusterEndpoint: Optional[str] = None
@@ -429,7 +429,7 @@ class AmazonopensearchserviceDestinationDescriptionTypeDef(BaseModel):
     VpcConfigurationDescription: Optional[VpcConfigurationDescriptionTypeDef] = None
     DocumentIdOptions: Optional[DocumentIdOptionsTypeDef] = None
 
-class ElasticsearchDestinationDescriptionTypeDef(BaseModel):
+class ElasticsearchDestinationDescriptionTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     DomainARN: Optional[str] = None
     ClusterEndpoint: Optional[str] = None
@@ -445,7 +445,7 @@ class ElasticsearchDestinationDescriptionTypeDef(BaseModel):
     VpcConfigurationDescription: Optional[VpcConfigurationDescriptionTypeDef] = None
     DocumentIdOptions: Optional[DocumentIdOptionsTypeDef] = None
 
-class HttpEndpointDestinationDescriptionTypeDef(BaseModel):
+class HttpEndpointDestinationDescriptionTypeDef(BaseValidatorModel):
     EndpointConfiguration: Optional[HttpEndpointDescriptionTypeDef] = None
     BufferingHints: Optional[HttpEndpointBufferingHintsTypeDef] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
@@ -457,7 +457,7 @@ class HttpEndpointDestinationDescriptionTypeDef(BaseModel):
     S3DestinationDescription: Optional[S3DestinationDescriptionTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class RedshiftDestinationDescriptionTypeDef(BaseModel):
+class RedshiftDestinationDescriptionTypeDef(BaseValidatorModel):
     RoleARN: str
     ClusterJDBCURL: str
     CopyCommand: CopyCommandTypeDef
@@ -470,7 +470,7 @@ class RedshiftDestinationDescriptionTypeDef(BaseModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class SnowflakeDestinationDescriptionTypeDef(BaseModel):
+class SnowflakeDestinationDescriptionTypeDef(BaseValidatorModel):
     AccountUrl: Optional[str] = None
     User: Optional[str] = None
     Database: Optional[str] = None
@@ -489,7 +489,7 @@ class SnowflakeDestinationDescriptionTypeDef(BaseModel):
     S3DestinationDescription: Optional[S3DestinationDescriptionTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class SplunkDestinationDescriptionTypeDef(BaseModel):
+class SplunkDestinationDescriptionTypeDef(BaseValidatorModel):
     HECEndpoint: Optional[str] = None
     HECEndpointType: Optional[HECEndpointTypeType] = None
     HECToken: Optional[str] = None
@@ -502,7 +502,7 @@ class SplunkDestinationDescriptionTypeDef(BaseModel):
     BufferingHints: Optional[SplunkBufferingHintsTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class AmazonOpenSearchServerlessDestinationConfigurationTypeDef(BaseModel):
+class AmazonOpenSearchServerlessDestinationConfigurationTypeDef(BaseValidatorModel):
     RoleARN: str
     IndexName: str
     S3Configuration: S3DestinationConfigurationTypeDef
@@ -514,7 +514,7 @@ class AmazonOpenSearchServerlessDestinationConfigurationTypeDef(BaseModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     VpcConfiguration: Optional[VpcConfigurationTypeDef] = None
 
-class AmazonOpenSearchServerlessDestinationUpdateTypeDef(BaseModel):
+class AmazonOpenSearchServerlessDestinationUpdateTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     CollectionEndpoint: Optional[str] = None
     IndexName: Optional[str] = None
@@ -524,7 +524,7 @@ class AmazonOpenSearchServerlessDestinationUpdateTypeDef(BaseModel):
     ProcessingConfiguration: Optional[ProcessingConfigurationTypeDef] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
 
-class AmazonopensearchserviceDestinationConfigurationTypeDef(BaseModel):
+class AmazonopensearchserviceDestinationConfigurationTypeDef(BaseValidatorModel):
     RoleARN: str
     IndexName: str
     S3Configuration: S3DestinationConfigurationTypeDef
@@ -540,7 +540,7 @@ class AmazonopensearchserviceDestinationConfigurationTypeDef(BaseModel):
     VpcConfiguration: Optional[VpcConfigurationTypeDef] = None
     DocumentIdOptions: Optional[DocumentIdOptionsTypeDef] = None
 
-class AmazonopensearchserviceDestinationUpdateTypeDef(BaseModel):
+class AmazonopensearchserviceDestinationUpdateTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     DomainARN: Optional[str] = None
     ClusterEndpoint: Optional[str] = None
@@ -554,7 +554,7 @@ class AmazonopensearchserviceDestinationUpdateTypeDef(BaseModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     DocumentIdOptions: Optional[DocumentIdOptionsTypeDef] = None
 
-class ElasticsearchDestinationConfigurationTypeDef(BaseModel):
+class ElasticsearchDestinationConfigurationTypeDef(BaseValidatorModel):
     RoleARN: str
     IndexName: str
     S3Configuration: S3DestinationConfigurationTypeDef
@@ -570,7 +570,7 @@ class ElasticsearchDestinationConfigurationTypeDef(BaseModel):
     VpcConfiguration: Optional[VpcConfigurationTypeDef] = None
     DocumentIdOptions: Optional[DocumentIdOptionsTypeDef] = None
 
-class ElasticsearchDestinationUpdateTypeDef(BaseModel):
+class ElasticsearchDestinationUpdateTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     DomainARN: Optional[str] = None
     ClusterEndpoint: Optional[str] = None
@@ -584,7 +584,7 @@ class ElasticsearchDestinationUpdateTypeDef(BaseModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     DocumentIdOptions: Optional[DocumentIdOptionsTypeDef] = None
 
-class HttpEndpointDestinationConfigurationTypeDef(BaseModel):
+class HttpEndpointDestinationConfigurationTypeDef(BaseValidatorModel):
     EndpointConfiguration: HttpEndpointConfigurationTypeDef
     S3Configuration: S3DestinationConfigurationTypeDef
     BufferingHints: Optional[HttpEndpointBufferingHintsTypeDef] = None
@@ -596,7 +596,7 @@ class HttpEndpointDestinationConfigurationTypeDef(BaseModel):
     S3BackupMode: Optional[HttpEndpointS3BackupModeType] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class HttpEndpointDestinationUpdateTypeDef(BaseModel):
+class HttpEndpointDestinationUpdateTypeDef(BaseValidatorModel):
     EndpointConfiguration: Optional[HttpEndpointConfigurationTypeDef] = None
     BufferingHints: Optional[HttpEndpointBufferingHintsTypeDef] = None
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
@@ -608,7 +608,7 @@ class HttpEndpointDestinationUpdateTypeDef(BaseModel):
     S3Update: Optional[S3DestinationUpdateTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class RedshiftDestinationConfigurationTypeDef(BaseModel):
+class RedshiftDestinationConfigurationTypeDef(BaseValidatorModel):
     RoleARN: str
     ClusterJDBCURL: str
     CopyCommand: CopyCommandTypeDef
@@ -622,7 +622,7 @@ class RedshiftDestinationConfigurationTypeDef(BaseModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class RedshiftDestinationUpdateTypeDef(BaseModel):
+class RedshiftDestinationUpdateTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     ClusterJDBCURL: Optional[str] = None
     CopyCommand: Optional[CopyCommandTypeDef] = None
@@ -636,7 +636,7 @@ class RedshiftDestinationUpdateTypeDef(BaseModel):
     CloudWatchLoggingOptions: Optional[CloudWatchLoggingOptionsTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class SnowflakeDestinationConfigurationTypeDef(BaseModel):
+class SnowflakeDestinationConfigurationTypeDef(BaseValidatorModel):
     AccountUrl: str
     Database: str
     Schema: str
@@ -657,7 +657,7 @@ class SnowflakeDestinationConfigurationTypeDef(BaseModel):
     S3BackupMode: Optional[SnowflakeS3BackupModeType] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class SnowflakeDestinationUpdateTypeDef(BaseModel):
+class SnowflakeDestinationUpdateTypeDef(BaseValidatorModel):
     AccountUrl: Optional[str] = None
     PrivateKey: Optional[str] = None
     KeyPassphrase: Optional[str] = None
@@ -677,7 +677,7 @@ class SnowflakeDestinationUpdateTypeDef(BaseModel):
     S3Update: Optional[S3DestinationUpdateTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class SplunkDestinationConfigurationTypeDef(BaseModel):
+class SplunkDestinationConfigurationTypeDef(BaseValidatorModel):
     HECEndpoint: str
     HECEndpointType: HECEndpointTypeType
     S3Configuration: S3DestinationConfigurationTypeDef
@@ -690,7 +690,7 @@ class SplunkDestinationConfigurationTypeDef(BaseModel):
     BufferingHints: Optional[SplunkBufferingHintsTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class SplunkDestinationUpdateTypeDef(BaseModel):
+class SplunkDestinationUpdateTypeDef(BaseValidatorModel):
     HECEndpoint: Optional[str] = None
     HECEndpointType: Optional[HECEndpointTypeType] = None
     HECToken: Optional[str] = None
@@ -703,7 +703,7 @@ class SplunkDestinationUpdateTypeDef(BaseModel):
     BufferingHints: Optional[SplunkBufferingHintsTypeDef] = None
     SecretsManagerConfiguration: Optional[SecretsManagerConfigurationTypeDef] = None
 
-class ExtendedS3DestinationDescriptionTypeDef(BaseModel):
+class ExtendedS3DestinationDescriptionTypeDef(BaseValidatorModel):
     RoleARN: str
     BucketARN: str
     BufferingHints: BufferingHintsTypeDef
@@ -720,7 +720,7 @@ class ExtendedS3DestinationDescriptionTypeDef(BaseModel):
     FileExtension: Optional[str] = None
     CustomTimeZone: Optional[str] = None
 
-class ExtendedS3DestinationConfigurationTypeDef(BaseModel):
+class ExtendedS3DestinationConfigurationTypeDef(BaseValidatorModel):
     RoleARN: str
     BucketARN: str
     Prefix: Optional[str] = None
@@ -737,7 +737,7 @@ class ExtendedS3DestinationConfigurationTypeDef(BaseModel):
     FileExtension: Optional[str] = None
     CustomTimeZone: Optional[str] = None
 
-class ExtendedS3DestinationUpdateTypeDef(BaseModel):
+class ExtendedS3DestinationUpdateTypeDef(BaseValidatorModel):
     RoleARN: Optional[str] = None
     BucketARN: Optional[str] = None
     Prefix: Optional[str] = None
@@ -754,7 +754,7 @@ class ExtendedS3DestinationUpdateTypeDef(BaseModel):
     FileExtension: Optional[str] = None
     CustomTimeZone: Optional[str] = None
 
-class DestinationDescriptionTypeDef(BaseModel):
+class DestinationDescriptionTypeDef(BaseValidatorModel):
     DestinationId: str
     S3DestinationDescription: Optional[S3DestinationDescriptionTypeDef] = None
     ExtendedS3DestinationDescription: Optional[ExtendedS3DestinationDescriptionTypeDef] = None
@@ -766,7 +766,7 @@ class DestinationDescriptionTypeDef(BaseModel):
     SnowflakeDestinationDescription: Optional[SnowflakeDestinationDescriptionTypeDef] = None
     AmazonOpenSearchServerlessDestinationDescription: Optional[       AmazonOpenSearchServerlessDestinationDescriptionTypeDef     ] = None
 
-class CreateDeliveryStreamInputRequestTypeDef(BaseModel):
+class CreateDeliveryStreamInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     DeliveryStreamType: Optional[DeliveryStreamTypeType] = None
     KinesisStreamSourceConfiguration: Optional[KinesisStreamSourceConfigurationTypeDef] = None
@@ -783,7 +783,7 @@ class CreateDeliveryStreamInputRequestTypeDef(BaseModel):
     MSKSourceConfiguration: Optional[MSKSourceConfigurationTypeDef] = None
     SnowflakeDestinationConfiguration: Optional[SnowflakeDestinationConfigurationTypeDef] = None
 
-class UpdateDestinationInputRequestTypeDef(BaseModel):
+class UpdateDestinationInputRequestTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     CurrentDeliveryStreamVersionId: str
     DestinationId: str
@@ -797,7 +797,7 @@ class UpdateDestinationInputRequestTypeDef(BaseModel):
     AmazonOpenSearchServerlessDestinationUpdate: Optional[       AmazonOpenSearchServerlessDestinationUpdateTypeDef     ] = None
     SnowflakeDestinationUpdate: Optional[SnowflakeDestinationUpdateTypeDef] = None
 
-class DeliveryStreamDescriptionTypeDef(BaseModel):
+class DeliveryStreamDescriptionTypeDef(BaseValidatorModel):
     DeliveryStreamName: str
     DeliveryStreamARN: str
     DeliveryStreamStatus: DeliveryStreamStatusType
@@ -811,7 +811,7 @@ class DeliveryStreamDescriptionTypeDef(BaseModel):
     LastUpdateTimestamp: Optional[datetime] = None
     Source: Optional[SourceDescriptionTypeDef] = None
 
-class DescribeDeliveryStreamOutputTypeDef(BaseModel):
+class DescribeDeliveryStreamOutputTypeDef(BaseValidatorModel):
     DeliveryStreamDescription: DeliveryStreamDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

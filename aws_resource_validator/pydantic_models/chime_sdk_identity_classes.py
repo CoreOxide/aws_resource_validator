@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,162 +11,162 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.chime_sdk_identity_constants import *
 
-class IdentityTypeDef(BaseModel):
+class IdentityTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
-class AppInstanceBotSummaryTypeDef(BaseModel):
+class AppInstanceBotSummaryTypeDef(BaseValidatorModel):
     AppInstanceBotArn: Optional[str] = None
     Name: Optional[str] = None
     Metadata: Optional[str] = None
 
-class ChannelRetentionSettingsTypeDef(BaseModel):
+class ChannelRetentionSettingsTypeDef(BaseValidatorModel):
     RetentionDays: Optional[int] = None
 
-class AppInstanceSummaryTypeDef(BaseModel):
+class AppInstanceSummaryTypeDef(BaseValidatorModel):
     AppInstanceArn: Optional[str] = None
     Name: Optional[str] = None
     Metadata: Optional[str] = None
 
-class AppInstanceTypeDef(BaseModel):
+class AppInstanceTypeDef(BaseValidatorModel):
     AppInstanceArn: Optional[str] = None
     Name: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
     Metadata: Optional[str] = None
 
-class EndpointStateTypeDef(BaseModel):
+class EndpointStateTypeDef(BaseValidatorModel):
     Status: EndpointStatusType
     StatusReason: Optional[EndpointStatusReasonType] = None
 
-class EndpointAttributesTypeDef(BaseModel):
+class EndpointAttributesTypeDef(BaseValidatorModel):
     DeviceToken: str
     VoipDeviceToken: Optional[str] = None
 
-class AppInstanceUserSummaryTypeDef(BaseModel):
+class AppInstanceUserSummaryTypeDef(BaseValidatorModel):
     AppInstanceUserArn: Optional[str] = None
     Name: Optional[str] = None
     Metadata: Optional[str] = None
 
-class ExpirationSettingsTypeDef(BaseModel):
+class ExpirationSettingsTypeDef(BaseValidatorModel):
     ExpirationDays: int
     ExpirationCriterion: Literal["CREATED_TIMESTAMP"]
 
-class CreateAppInstanceAdminRequestRequestTypeDef(BaseModel):
+class CreateAppInstanceAdminRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceAdminArn: str
     AppInstanceArn: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class DeleteAppInstanceAdminRequestRequestTypeDef(BaseModel):
+class DeleteAppInstanceAdminRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceAdminArn: str
     AppInstanceArn: str
 
-class DeleteAppInstanceBotRequestRequestTypeDef(BaseModel):
+class DeleteAppInstanceBotRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceBotArn: str
 
-class DeleteAppInstanceRequestRequestTypeDef(BaseModel):
+class DeleteAppInstanceRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
 
-class DeleteAppInstanceUserRequestRequestTypeDef(BaseModel):
+class DeleteAppInstanceUserRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
 
-class DeregisterAppInstanceUserEndpointRequestRequestTypeDef(BaseModel):
+class DeregisterAppInstanceUserEndpointRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     EndpointId: str
 
-class DescribeAppInstanceAdminRequestRequestTypeDef(BaseModel):
+class DescribeAppInstanceAdminRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceAdminArn: str
     AppInstanceArn: str
 
-class DescribeAppInstanceBotRequestRequestTypeDef(BaseModel):
+class DescribeAppInstanceBotRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceBotArn: str
 
-class DescribeAppInstanceRequestRequestTypeDef(BaseModel):
+class DescribeAppInstanceRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
 
-class DescribeAppInstanceUserEndpointRequestRequestTypeDef(BaseModel):
+class DescribeAppInstanceUserEndpointRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     EndpointId: str
 
-class DescribeAppInstanceUserRequestRequestTypeDef(BaseModel):
+class DescribeAppInstanceUserRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
 
-class GetAppInstanceRetentionSettingsRequestRequestTypeDef(BaseModel):
+class GetAppInstanceRetentionSettingsRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
 
-class InvokedByTypeDef(BaseModel):
+class InvokedByTypeDef(BaseValidatorModel):
     StandardMessages: StandardMessagesType
     TargetedMessages: TargetedMessagesType
 
-class ListAppInstanceAdminsRequestRequestTypeDef(BaseModel):
+class ListAppInstanceAdminsRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListAppInstanceBotsRequestRequestTypeDef(BaseModel):
+class ListAppInstanceBotsRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListAppInstanceUserEndpointsRequestRequestTypeDef(BaseModel):
+class ListAppInstanceUserEndpointsRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListAppInstanceUsersRequestRequestTypeDef(BaseModel):
+class ListAppInstanceUsersRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListAppInstancesRequestRequestTypeDef(BaseModel):
+class ListAppInstancesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateAppInstanceRequestRequestTypeDef(BaseModel):
+class UpdateAppInstanceRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     Name: str
     Metadata: str
 
-class UpdateAppInstanceUserEndpointRequestRequestTypeDef(BaseModel):
+class UpdateAppInstanceUserEndpointRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     EndpointId: str
     Name: Optional[str] = None
     AllowMessages: Optional[AllowMessagesType] = None
 
-class UpdateAppInstanceUserRequestRequestTypeDef(BaseModel):
+class UpdateAppInstanceUserRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     Name: str
     Metadata: str
 
-class AppInstanceAdminSummaryTypeDef(BaseModel):
+class AppInstanceAdminSummaryTypeDef(BaseValidatorModel):
     Admin: Optional[IdentityTypeDef] = None
 
-class AppInstanceAdminTypeDef(BaseModel):
+class AppInstanceAdminTypeDef(BaseValidatorModel):
     Admin: Optional[IdentityTypeDef] = None
     AppInstanceArn: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
 
-class AppInstanceRetentionSettingsTypeDef(BaseModel):
+class AppInstanceRetentionSettingsTypeDef(BaseValidatorModel):
     ChannelRetentionSettings: Optional[ChannelRetentionSettingsTypeDef] = None
 
-class AppInstanceUserEndpointSummaryTypeDef(BaseModel):
+class AppInstanceUserEndpointSummaryTypeDef(BaseValidatorModel):
     AppInstanceUserArn: Optional[str] = None
     EndpointId: Optional[str] = None
     Name: Optional[str] = None
@@ -174,7 +174,7 @@ class AppInstanceUserEndpointSummaryTypeDef(BaseModel):
     AllowMessages: Optional[AllowMessagesType] = None
     EndpointState: Optional[EndpointStateTypeDef] = None
 
-class AppInstanceUserEndpointTypeDef(BaseModel):
+class AppInstanceUserEndpointTypeDef(BaseValidatorModel):
     AppInstanceUserArn: Optional[str] = None
     EndpointId: Optional[str] = None
     Name: Optional[str] = None
@@ -186,7 +186,7 @@ class AppInstanceUserEndpointTypeDef(BaseModel):
     AllowMessages: Optional[AllowMessagesType] = None
     EndpointState: Optional[EndpointStateTypeDef] = None
 
-class RegisterAppInstanceUserEndpointRequestRequestTypeDef(BaseModel):
+class RegisterAppInstanceUserEndpointRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     Type: AppInstanceUserEndpointTypeType
     ResourceArn: str
@@ -195,7 +195,7 @@ class RegisterAppInstanceUserEndpointRequestRequestTypeDef(BaseModel):
     Name: Optional[str] = None
     AllowMessages: Optional[AllowMessagesType] = None
 
-class AppInstanceUserTypeDef(BaseModel):
+class AppInstanceUserTypeDef(BaseValidatorModel):
     AppInstanceUserArn: Optional[str] = None
     Name: Optional[str] = None
     Metadata: Optional[str] = None
@@ -203,85 +203,85 @@ class AppInstanceUserTypeDef(BaseModel):
     LastUpdatedTimestamp: Optional[datetime] = None
     ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
 
-class PutAppInstanceUserExpirationSettingsRequestRequestTypeDef(BaseModel):
+class PutAppInstanceUserExpirationSettingsRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
 
-class CreateAppInstanceAdminResponseTypeDef(BaseModel):
+class CreateAppInstanceAdminResponseTypeDef(BaseValidatorModel):
     AppInstanceAdmin: IdentityTypeDef
     AppInstanceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAppInstanceBotResponseTypeDef(BaseModel):
+class CreateAppInstanceBotResponseTypeDef(BaseValidatorModel):
     AppInstanceBotArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAppInstanceResponseTypeDef(BaseModel):
+class CreateAppInstanceResponseTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAppInstanceUserResponseTypeDef(BaseModel):
+class CreateAppInstanceUserResponseTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAppInstanceResponseTypeDef(BaseModel):
+class DescribeAppInstanceResponseTypeDef(BaseValidatorModel):
     AppInstance: AppInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAppInstanceBotsResponseTypeDef(BaseModel):
+class ListAppInstanceBotsResponseTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     AppInstanceBots: List[AppInstanceBotSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAppInstanceUsersResponseTypeDef(BaseModel):
+class ListAppInstanceUsersResponseTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     AppInstanceUsers: List[AppInstanceUserSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAppInstancesResponseTypeDef(BaseModel):
+class ListAppInstancesResponseTypeDef(BaseValidatorModel):
     AppInstances: List[AppInstanceSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAppInstanceUserExpirationSettingsResponseTypeDef(BaseModel):
+class PutAppInstanceUserExpirationSettingsResponseTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     ExpirationSettings: ExpirationSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterAppInstanceUserEndpointResponseTypeDef(BaseModel):
+class RegisterAppInstanceUserEndpointResponseTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     EndpointId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAppInstanceBotResponseTypeDef(BaseModel):
+class UpdateAppInstanceBotResponseTypeDef(BaseValidatorModel):
     AppInstanceBotArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAppInstanceResponseTypeDef(BaseModel):
+class UpdateAppInstanceResponseTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAppInstanceUserEndpointResponseTypeDef(BaseModel):
+class UpdateAppInstanceUserEndpointResponseTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     EndpointId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAppInstanceUserResponseTypeDef(BaseModel):
+class UpdateAppInstanceUserResponseTypeDef(BaseValidatorModel):
     AppInstanceUserArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAppInstanceRequestRequestTypeDef(BaseModel):
+class CreateAppInstanceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     ClientRequestToken: str
     Metadata: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateAppInstanceUserRequestRequestTypeDef(BaseModel):
+class CreateAppInstanceUserRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     AppInstanceUserId: str
     Name: str
@@ -290,62 +290,62 @@ class CreateAppInstanceUserRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class LexConfigurationTypeDef(BaseModel):
+class LexConfigurationTypeDef(BaseValidatorModel):
     LexBotAliasArn: str
     LocaleId: str
     RespondsTo: Optional[Literal["STANDARD_MESSAGES"]] = None
     InvokedBy: Optional[InvokedByTypeDef] = None
     WelcomeIntent: Optional[str] = None
 
-class ListAppInstanceAdminsResponseTypeDef(BaseModel):
+class ListAppInstanceAdminsResponseTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     AppInstanceAdmins: List[AppInstanceAdminSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAppInstanceAdminResponseTypeDef(BaseModel):
+class DescribeAppInstanceAdminResponseTypeDef(BaseValidatorModel):
     AppInstanceAdmin: AppInstanceAdminTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAppInstanceRetentionSettingsResponseTypeDef(BaseModel):
+class GetAppInstanceRetentionSettingsResponseTypeDef(BaseValidatorModel):
     AppInstanceRetentionSettings: AppInstanceRetentionSettingsTypeDef
     InitiateDeletionTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAppInstanceRetentionSettingsRequestRequestTypeDef(BaseModel):
+class PutAppInstanceRetentionSettingsRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     AppInstanceRetentionSettings: AppInstanceRetentionSettingsTypeDef
 
-class PutAppInstanceRetentionSettingsResponseTypeDef(BaseModel):
+class PutAppInstanceRetentionSettingsResponseTypeDef(BaseValidatorModel):
     AppInstanceRetentionSettings: AppInstanceRetentionSettingsTypeDef
     InitiateDeletionTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAppInstanceUserEndpointsResponseTypeDef(BaseModel):
+class ListAppInstanceUserEndpointsResponseTypeDef(BaseValidatorModel):
     AppInstanceUserEndpoints: List[AppInstanceUserEndpointSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAppInstanceUserEndpointResponseTypeDef(BaseModel):
+class DescribeAppInstanceUserEndpointResponseTypeDef(BaseValidatorModel):
     AppInstanceUserEndpoint: AppInstanceUserEndpointTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAppInstanceUserResponseTypeDef(BaseModel):
+class DescribeAppInstanceUserResponseTypeDef(BaseValidatorModel):
     AppInstanceUser: AppInstanceUserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfigurationTypeDef(BaseModel):
+class ConfigurationTypeDef(BaseValidatorModel):
     Lex: LexConfigurationTypeDef
 
-class AppInstanceBotTypeDef(BaseModel):
+class AppInstanceBotTypeDef(BaseValidatorModel):
     AppInstanceBotArn: Optional[str] = None
     Name: Optional[str] = None
     Configuration: Optional[ConfigurationTypeDef] = None
@@ -353,7 +353,7 @@ class AppInstanceBotTypeDef(BaseModel):
     LastUpdatedTimestamp: Optional[datetime] = None
     Metadata: Optional[str] = None
 
-class CreateAppInstanceBotRequestRequestTypeDef(BaseModel):
+class CreateAppInstanceBotRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceArn: str
     ClientRequestToken: str
     Configuration: ConfigurationTypeDef
@@ -361,13 +361,13 @@ class CreateAppInstanceBotRequestRequestTypeDef(BaseModel):
     Metadata: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateAppInstanceBotRequestRequestTypeDef(BaseModel):
+class UpdateAppInstanceBotRequestRequestTypeDef(BaseValidatorModel):
     AppInstanceBotArn: str
     Name: str
     Metadata: str
     Configuration: Optional[ConfigurationTypeDef] = None
 
-class DescribeAppInstanceBotResponseTypeDef(BaseModel):
+class DescribeAppInstanceBotResponseTypeDef(BaseValidatorModel):
     AppInstanceBot: AppInstanceBotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

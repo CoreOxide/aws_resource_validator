@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,23 +11,23 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.accessanalyzer_constants import *
 
-class AccessPreviewStatusReasonTypeDef(BaseModel):
+class AccessPreviewStatusReasonTypeDef(BaseValidatorModel):
     code: AccessPreviewStatusReasonCodeType
 
-class AccessTypeDef(BaseModel):
+class AccessTypeDef(BaseValidatorModel):
     actions: Optional[Sequence[str]] = None
     resources: Optional[Sequence[str]] = None
 
-class AclGranteeTypeDef(BaseModel):
+class AclGranteeTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     uri: Optional[str] = None
 
-class AnalyzedResourceSummaryTypeDef(BaseModel):
+class AnalyzedResourceSummaryTypeDef(BaseValidatorModel):
     resourceArn: str
     resourceOwnerAccount: str
     resourceType: ResourceTypeType
 
-class AnalyzedResourceTypeDef(BaseModel):
+class AnalyzedResourceTypeDef(BaseValidatorModel):
     resourceArn: str
     resourceType: ResourceTypeType
     createdAt: datetime
@@ -40,131 +40,131 @@ class AnalyzedResourceTypeDef(BaseModel):
     status: Optional[FindingStatusType] = None
     error: Optional[str] = None
 
-class UnusedAccessConfigurationTypeDef(BaseModel):
+class UnusedAccessConfigurationTypeDef(BaseValidatorModel):
     unusedAccessAge: Optional[int] = None
 
-class StatusReasonTypeDef(BaseModel):
+class StatusReasonTypeDef(BaseValidatorModel):
     code: ReasonCodeType
 
-class ApplyArchiveRuleRequestRequestTypeDef(BaseModel):
+class ApplyArchiveRuleRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     ruleName: str
     clientToken: Optional[str] = None
 
-class CriterionOutputTypeDef(BaseModel):
+class CriterionOutputTypeDef(BaseValidatorModel):
     eq: Optional[List[str]] = None
     neq: Optional[List[str]] = None
     contains: Optional[List[str]] = None
     exists: Optional[bool] = None
 
-class CancelPolicyGenerationRequestRequestTypeDef(BaseModel):
+class CancelPolicyGenerationRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
 
-class ReasonSummaryTypeDef(BaseModel):
+class ReasonSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     statementIndex: Optional[int] = None
     statementId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CheckNoNewAccessRequestRequestTypeDef(BaseModel):
+class CheckNoNewAccessRequestRequestTypeDef(BaseValidatorModel):
     newPolicyDocument: str
     existingPolicyDocument: str
     policyType: AccessCheckPolicyTypeType
 
-class CheckNoPublicAccessRequestRequestTypeDef(BaseModel):
+class CheckNoPublicAccessRequestRequestTypeDef(BaseValidatorModel):
     policyDocument: str
     resourceType: AccessCheckResourceTypeType
 
-class TrailTypeDef(BaseModel):
+class TrailTypeDef(BaseValidatorModel):
     cloudTrailArn: str
     regions: Optional[Sequence[str]] = None
     allRegions: Optional[bool] = None
 
-class TrailPropertiesTypeDef(BaseModel):
+class TrailPropertiesTypeDef(BaseValidatorModel):
     cloudTrailArn: str
     regions: Optional[List[str]] = None
     allRegions: Optional[bool] = None
 
-class DynamodbStreamConfigurationTypeDef(BaseModel):
+class DynamodbStreamConfigurationTypeDef(BaseValidatorModel):
     streamPolicy: Optional[str] = None
 
-class DynamodbTableConfigurationTypeDef(BaseModel):
+class DynamodbTableConfigurationTypeDef(BaseValidatorModel):
     tablePolicy: Optional[str] = None
 
-class EbsSnapshotConfigurationOutputTypeDef(BaseModel):
+class EbsSnapshotConfigurationOutputTypeDef(BaseValidatorModel):
     userIds: Optional[List[str]] = None
     groups: Optional[List[str]] = None
     kmsKeyId: Optional[str] = None
 
-class EcrRepositoryConfigurationTypeDef(BaseModel):
+class EcrRepositoryConfigurationTypeDef(BaseValidatorModel):
     repositoryPolicy: Optional[str] = None
 
-class EfsFileSystemConfigurationTypeDef(BaseModel):
+class EfsFileSystemConfigurationTypeDef(BaseValidatorModel):
     fileSystemPolicy: Optional[str] = None
 
-class IamRoleConfigurationTypeDef(BaseModel):
+class IamRoleConfigurationTypeDef(BaseValidatorModel):
     trustPolicy: Optional[str] = None
 
-class S3ExpressDirectoryBucketConfigurationTypeDef(BaseModel):
+class S3ExpressDirectoryBucketConfigurationTypeDef(BaseValidatorModel):
     bucketPolicy: Optional[str] = None
 
-class SecretsManagerSecretConfigurationTypeDef(BaseModel):
+class SecretsManagerSecretConfigurationTypeDef(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
     secretPolicy: Optional[str] = None
 
-class SnsTopicConfigurationTypeDef(BaseModel):
+class SnsTopicConfigurationTypeDef(BaseValidatorModel):
     topicPolicy: Optional[str] = None
 
-class SqsQueueConfigurationTypeDef(BaseModel):
+class SqsQueueConfigurationTypeDef(BaseValidatorModel):
     queuePolicy: Optional[str] = None
 
-class EbsSnapshotConfigurationTypeDef(BaseModel):
+class EbsSnapshotConfigurationTypeDef(BaseValidatorModel):
     userIds: Optional[Sequence[str]] = None
     groups: Optional[Sequence[str]] = None
     kmsKeyId: Optional[str] = None
 
-class CriterionExtraOutputTypeDef(BaseModel):
+class CriterionExtraOutputTypeDef(BaseValidatorModel):
     eq: Optional[List[str]] = None
     neq: Optional[List[str]] = None
     contains: Optional[List[str]] = None
     exists: Optional[bool] = None
 
-class CriterionTypeDef(BaseModel):
+class CriterionTypeDef(BaseValidatorModel):
     eq: Optional[Sequence[str]] = None
     neq: Optional[Sequence[str]] = None
     contains: Optional[Sequence[str]] = None
     exists: Optional[bool] = None
 
-class DeleteAnalyzerRequestRequestTypeDef(BaseModel):
+class DeleteAnalyzerRequestRequestTypeDef(BaseValidatorModel):
     analyzerName: str
     clientToken: Optional[str] = None
 
-class DeleteArchiveRuleRequestRequestTypeDef(BaseModel):
+class DeleteArchiveRuleRequestRequestTypeDef(BaseValidatorModel):
     analyzerName: str
     ruleName: str
     clientToken: Optional[str] = None
 
-class UnusedIamRoleDetailsTypeDef(BaseModel):
+class UnusedIamRoleDetailsTypeDef(BaseValidatorModel):
     lastAccessed: Optional[datetime] = None
 
-class UnusedIamUserAccessKeyDetailsTypeDef(BaseModel):
+class UnusedIamUserAccessKeyDetailsTypeDef(BaseValidatorModel):
     accessKeyId: str
     lastAccessed: Optional[datetime] = None
 
-class UnusedIamUserPasswordDetailsTypeDef(BaseModel):
+class UnusedIamUserPasswordDetailsTypeDef(BaseValidatorModel):
     lastAccessed: Optional[datetime] = None
 
-class FindingSourceDetailTypeDef(BaseModel):
+class FindingSourceDetailTypeDef(BaseValidatorModel):
     accessPointArn: Optional[str] = None
     accessPointAccount: Optional[str] = None
 
-class FindingSummaryV2TypeDef(BaseModel):
+class FindingSummaryV2TypeDef(BaseValidatorModel):
     analyzedAt: datetime
     createdAt: datetime
     id: str
@@ -176,172 +176,172 @@ class FindingSummaryV2TypeDef(BaseModel):
     resource: Optional[str] = None
     findingType: Optional[FindingTypeType] = None
 
-class GenerateFindingRecommendationRequestRequestTypeDef(BaseModel):
+class GenerateFindingRecommendationRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     id: str
 
-class GeneratedPolicyTypeDef(BaseModel):
+class GeneratedPolicyTypeDef(BaseValidatorModel):
     policy: str
 
-class GetAccessPreviewRequestRequestTypeDef(BaseModel):
+class GetAccessPreviewRequestRequestTypeDef(BaseValidatorModel):
     accessPreviewId: str
     analyzerArn: str
 
-class GetAnalyzedResourceRequestRequestTypeDef(BaseModel):
+class GetAnalyzedResourceRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     resourceArn: str
 
-class GetAnalyzerRequestRequestTypeDef(BaseModel):
+class GetAnalyzerRequestRequestTypeDef(BaseValidatorModel):
     analyzerName: str
 
-class GetArchiveRuleRequestRequestTypeDef(BaseModel):
+class GetArchiveRuleRequestRequestTypeDef(BaseValidatorModel):
     analyzerName: str
     ruleName: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetFindingRecommendationRequestRequestTypeDef(BaseModel):
+class GetFindingRecommendationRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     id: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class RecommendationErrorTypeDef(BaseModel):
+class RecommendationErrorTypeDef(BaseValidatorModel):
     code: str
     message: str
 
-class GetFindingRequestRequestTypeDef(BaseModel):
+class GetFindingRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     id: str
 
-class GetFindingV2RequestRequestTypeDef(BaseModel):
+class GetFindingV2RequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     id: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class GetGeneratedPolicyRequestRequestTypeDef(BaseModel):
+class GetGeneratedPolicyRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     includeResourcePlaceholders: Optional[bool] = None
     includeServiceLevelTemplate: Optional[bool] = None
 
-class JobErrorTypeDef(BaseModel):
+class JobErrorTypeDef(BaseValidatorModel):
     code: JobErrorCodeType
     message: str
 
-class KmsGrantConstraintsOutputTypeDef(BaseModel):
+class KmsGrantConstraintsOutputTypeDef(BaseValidatorModel):
     encryptionContextEquals: Optional[Dict[str, str]] = None
     encryptionContextSubset: Optional[Dict[str, str]] = None
 
-class KmsGrantConstraintsTypeDef(BaseModel):
+class KmsGrantConstraintsTypeDef(BaseValidatorModel):
     encryptionContextEquals: Optional[Mapping[str, str]] = None
     encryptionContextSubset: Optional[Mapping[str, str]] = None
 
-class ListAccessPreviewsRequestRequestTypeDef(BaseModel):
+class ListAccessPreviewsRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListAnalyzedResourcesRequestRequestTypeDef(BaseModel):
+class ListAnalyzedResourcesRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     resourceType: Optional[ResourceTypeType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListAnalyzersRequestRequestTypeDef(BaseModel):
+class ListAnalyzersRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     type: Optional[TypeType] = None
 
-class ListArchiveRulesRequestRequestTypeDef(BaseModel):
+class ListArchiveRulesRequestRequestTypeDef(BaseValidatorModel):
     analyzerName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class SortCriteriaTypeDef(BaseModel):
+class SortCriteriaTypeDef(BaseValidatorModel):
     attributeName: Optional[str] = None
     orderBy: Optional[OrderByType] = None
 
-class ListPolicyGenerationsRequestRequestTypeDef(BaseModel):
+class ListPolicyGenerationsRequestRequestTypeDef(BaseValidatorModel):
     principalArn: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class PolicyGenerationTypeDef(BaseModel):
+class PolicyGenerationTypeDef(BaseValidatorModel):
     jobId: str
     principalArn: str
     status: JobStatusType
     startedOn: datetime
     completedOn: Optional[datetime] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class VpcConfigurationTypeDef(BaseModel):
+class VpcConfigurationTypeDef(BaseValidatorModel):
     vpcId: str
 
-class SubstringTypeDef(BaseModel):
+class SubstringTypeDef(BaseValidatorModel):
     start: int
     length: int
 
-class PolicyGenerationDetailsTypeDef(BaseModel):
+class PolicyGenerationDetailsTypeDef(BaseValidatorModel):
     principalArn: str
 
-class PositionTypeDef(BaseModel):
+class PositionTypeDef(BaseValidatorModel):
     line: int
     column: int
     offset: int
 
-class RdsDbClusterSnapshotAttributeValueOutputTypeDef(BaseModel):
+class RdsDbClusterSnapshotAttributeValueOutputTypeDef(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
 
-class RdsDbClusterSnapshotAttributeValueTypeDef(BaseModel):
+class RdsDbClusterSnapshotAttributeValueTypeDef(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
 
-class RdsDbSnapshotAttributeValueOutputTypeDef(BaseModel):
+class RdsDbSnapshotAttributeValueOutputTypeDef(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
 
-class RdsDbSnapshotAttributeValueTypeDef(BaseModel):
+class RdsDbSnapshotAttributeValueTypeDef(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
 
-class UnusedPermissionsRecommendedStepTypeDef(BaseModel):
+class UnusedPermissionsRecommendedStepTypeDef(BaseValidatorModel):
     recommendedAction: RecommendedRemediationActionType
     policyUpdatedAt: Optional[datetime] = None
     recommendedPolicy: Optional[str] = None
     existingPolicyId: Optional[str] = None
 
-class S3PublicAccessBlockConfigurationTypeDef(BaseModel):
+class S3PublicAccessBlockConfigurationTypeDef(BaseValidatorModel):
     ignorePublicAcls: bool
     restrictPublicBuckets: bool
 
-class StartResourceScanRequestRequestTypeDef(BaseModel):
+class StartResourceScanRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     resourceArn: str
     resourceOwnerAccount: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UnusedActionTypeDef(BaseModel):
+class UnusedActionTypeDef(BaseValidatorModel):
     action: str
     lastAccessed: Optional[datetime] = None
 
-class UpdateFindingsRequestRequestTypeDef(BaseModel):
+class UpdateFindingsRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     status: FindingStatusUpdateType
     ids: Optional[Sequence[str]] = None
     resourceArn: Optional[str] = None
     clientToken: Optional[str] = None
 
-class ValidatePolicyRequestRequestTypeDef(BaseModel):
+class ValidatePolicyRequestRequestTypeDef(BaseValidatorModel):
     policyDocument: str
     policyType: PolicyTypeType
     locale: Optional[LocaleType] = None
@@ -349,213 +349,213 @@ class ValidatePolicyRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     validatePolicyResourceType: Optional[ValidatePolicyResourceTypeType] = None
 
-class AccessPreviewSummaryTypeDef(BaseModel):
+class AccessPreviewSummaryTypeDef(BaseValidatorModel):
     id: str
     analyzerArn: str
     createdAt: datetime
     status: AccessPreviewStatusType
     statusReason: Optional[AccessPreviewStatusReasonTypeDef] = None
 
-class CheckAccessNotGrantedRequestRequestTypeDef(BaseModel):
+class CheckAccessNotGrantedRequestRequestTypeDef(BaseValidatorModel):
     policyDocument: str
     access: Sequence[AccessTypeDef]
     policyType: AccessCheckPolicyTypeType
 
-class S3BucketAclGrantConfigurationTypeDef(BaseModel):
+class S3BucketAclGrantConfigurationTypeDef(BaseValidatorModel):
     permission: AclPermissionType
     grantee: AclGranteeTypeDef
 
-class AnalyzerConfigurationTypeDef(BaseModel):
+class AnalyzerConfigurationTypeDef(BaseValidatorModel):
     unusedAccess: Optional[UnusedAccessConfigurationTypeDef] = None
 
-class ArchiveRuleSummaryTypeDef(BaseModel):
+class ArchiveRuleSummaryTypeDef(BaseValidatorModel):
     ruleName: str
     filter: Dict[str, CriterionOutputTypeDef]
     createdAt: datetime
     updatedAt: datetime
 
-class CheckAccessNotGrantedResponseTypeDef(BaseModel):
+class CheckAccessNotGrantedResponseTypeDef(BaseValidatorModel):
     result: CheckAccessNotGrantedResultType
     message: str
     reasons: List[ReasonSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CheckNoNewAccessResponseTypeDef(BaseModel):
+class CheckNoNewAccessResponseTypeDef(BaseValidatorModel):
     result: CheckNoNewAccessResultType
     message: str
     reasons: List[ReasonSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CheckNoPublicAccessResponseTypeDef(BaseModel):
+class CheckNoPublicAccessResponseTypeDef(BaseValidatorModel):
     result: CheckNoPublicAccessResultType
     message: str
     reasons: List[ReasonSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessPreviewResponseTypeDef(BaseModel):
+class CreateAccessPreviewResponseTypeDef(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAnalyzerResponseTypeDef(BaseModel):
+class CreateAnalyzerResponseTypeDef(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAnalyzedResourceResponseTypeDef(BaseModel):
+class GetAnalyzedResourceResponseTypeDef(BaseValidatorModel):
     resource: AnalyzedResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAnalyzedResourcesResponseTypeDef(BaseModel):
+class ListAnalyzedResourcesResponseTypeDef(BaseValidatorModel):
     analyzedResources: List[AnalyzedResourceSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartPolicyGenerationResponseTypeDef(BaseModel):
+class StartPolicyGenerationResponseTypeDef(BaseValidatorModel):
     jobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CloudTrailDetailsTypeDef(BaseModel):
+class CloudTrailDetailsTypeDef(BaseValidatorModel):
     trails: Sequence[TrailTypeDef]
     accessRole: str
     startTime: TimestampTypeDef
     endTime: Optional[TimestampTypeDef] = None
 
-class CloudTrailPropertiesTypeDef(BaseModel):
+class CloudTrailPropertiesTypeDef(BaseValidatorModel):
     trailProperties: List[TrailPropertiesTypeDef]
     startTime: datetime
     endTime: datetime
 
-class InlineArchiveRuleTypeDef(BaseModel):
+class InlineArchiveRuleTypeDef(BaseValidatorModel):
     ruleName: str
     filter: Mapping[str, CriterionTypeDef]
 
-class FindingSourceTypeDef(BaseModel):
+class FindingSourceTypeDef(BaseValidatorModel):
     type: FindingSourceTypeType
     detail: Optional[FindingSourceDetailTypeDef] = None
 
-class ListFindingsV2ResponseTypeDef(BaseModel):
+class ListFindingsV2ResponseTypeDef(BaseValidatorModel):
     findings: List[FindingSummaryV2TypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFindingRecommendationRequestGetFindingRecommendationPaginateTypeDef(BaseModel):
+class GetFindingRecommendationRequestGetFindingRecommendationPaginateTypeDef(BaseValidatorModel):
     analyzerArn: str
     id: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetFindingV2RequestGetFindingV2PaginateTypeDef(BaseModel):
+class GetFindingV2RequestGetFindingV2PaginateTypeDef(BaseValidatorModel):
     analyzerArn: str
     id: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccessPreviewsRequestListAccessPreviewsPaginateTypeDef(BaseModel):
+class ListAccessPreviewsRequestListAccessPreviewsPaginateTypeDef(BaseValidatorModel):
     analyzerArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAnalyzedResourcesRequestListAnalyzedResourcesPaginateTypeDef(BaseModel):
+class ListAnalyzedResourcesRequestListAnalyzedResourcesPaginateTypeDef(BaseValidatorModel):
     analyzerArn: str
     resourceType: Optional[ResourceTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAnalyzersRequestListAnalyzersPaginateTypeDef(BaseModel):
+class ListAnalyzersRequestListAnalyzersPaginateTypeDef(BaseValidatorModel):
     type: Optional[TypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListArchiveRulesRequestListArchiveRulesPaginateTypeDef(BaseModel):
+class ListArchiveRulesRequestListArchiveRulesPaginateTypeDef(BaseValidatorModel):
     analyzerName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPolicyGenerationsRequestListPolicyGenerationsPaginateTypeDef(BaseModel):
+class ListPolicyGenerationsRequestListPolicyGenerationsPaginateTypeDef(BaseValidatorModel):
     principalArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ValidatePolicyRequestValidatePolicyPaginateTypeDef(BaseModel):
+class ValidatePolicyRequestValidatePolicyPaginateTypeDef(BaseValidatorModel):
     policyDocument: str
     policyType: PolicyTypeType
     locale: Optional[LocaleType] = None
     validatePolicyResourceType: Optional[ValidatePolicyResourceTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class JobDetailsTypeDef(BaseModel):
+class JobDetailsTypeDef(BaseValidatorModel):
     jobId: str
     status: JobStatusType
     startedOn: datetime
     completedOn: Optional[datetime] = None
     jobError: Optional[JobErrorTypeDef] = None
 
-class KmsGrantConfigurationOutputTypeDef(BaseModel):
+class KmsGrantConfigurationOutputTypeDef(BaseValidatorModel):
     operations: List[KmsGrantOperationType]
     granteePrincipal: str
     issuingAccount: str
     retiringPrincipal: Optional[str] = None
     constraints: Optional[KmsGrantConstraintsOutputTypeDef] = None
 
-class KmsGrantConfigurationTypeDef(BaseModel):
+class KmsGrantConfigurationTypeDef(BaseValidatorModel):
     operations: Sequence[KmsGrantOperationType]
     granteePrincipal: str
     issuingAccount: str
     retiringPrincipal: Optional[str] = None
     constraints: Optional[KmsGrantConstraintsTypeDef] = None
 
-class ListPolicyGenerationsResponseTypeDef(BaseModel):
+class ListPolicyGenerationsResponseTypeDef(BaseValidatorModel):
     policyGenerations: List[PolicyGenerationTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NetworkOriginConfigurationOutputTypeDef(BaseModel):
+class NetworkOriginConfigurationOutputTypeDef(BaseValidatorModel):
     vpcConfiguration: Optional[VpcConfigurationTypeDef] = None
     internetConfiguration: Optional[Dict[str, Any]] = None
 
-class NetworkOriginConfigurationTypeDef(BaseModel):
+class NetworkOriginConfigurationTypeDef(BaseValidatorModel):
     vpcConfiguration: Optional[VpcConfigurationTypeDef] = None
     internetConfiguration: Optional[Mapping[str, Any]] = None
 
-class PathElementTypeDef(BaseModel):
+class PathElementTypeDef(BaseValidatorModel):
     index: Optional[int] = None
     key: Optional[str] = None
     substring: Optional[SubstringTypeDef] = None
     value: Optional[str] = None
 
-class SpanTypeDef(BaseModel):
+class SpanTypeDef(BaseValidatorModel):
     start: PositionTypeDef
     end: PositionTypeDef
 
-class RdsDbClusterSnapshotConfigurationOutputTypeDef(BaseModel):
+class RdsDbClusterSnapshotConfigurationOutputTypeDef(BaseValidatorModel):
     attributes: Optional[Dict[str, RdsDbClusterSnapshotAttributeValueOutputTypeDef]] = None
     kmsKeyId: Optional[str] = None
 
-class RdsDbClusterSnapshotConfigurationTypeDef(BaseModel):
+class RdsDbClusterSnapshotConfigurationTypeDef(BaseValidatorModel):
     attributes: Optional[Mapping[str, RdsDbClusterSnapshotAttributeValueTypeDef]] = None
     kmsKeyId: Optional[str] = None
 
-class RdsDbSnapshotConfigurationOutputTypeDef(BaseModel):
+class RdsDbSnapshotConfigurationOutputTypeDef(BaseValidatorModel):
     attributes: Optional[Dict[str, RdsDbSnapshotAttributeValueOutputTypeDef]] = None
     kmsKeyId: Optional[str] = None
 
-class RdsDbSnapshotConfigurationTypeDef(BaseModel):
+class RdsDbSnapshotConfigurationTypeDef(BaseValidatorModel):
     attributes: Optional[Mapping[str, RdsDbSnapshotAttributeValueTypeDef]] = None
     kmsKeyId: Optional[str] = None
 
-class RecommendedStepTypeDef(BaseModel):
+class RecommendedStepTypeDef(BaseValidatorModel):
     unusedPermissionsRecommendedStep: Optional[UnusedPermissionsRecommendedStepTypeDef] = None
 
-class UnusedPermissionDetailsTypeDef(BaseModel):
+class UnusedPermissionDetailsTypeDef(BaseValidatorModel):
     serviceNamespace: str
     actions: Optional[List[UnusedActionTypeDef]] = None
     lastAccessed: Optional[datetime] = None
 
-class ListAccessPreviewsResponseTypeDef(BaseModel):
+class ListAccessPreviewsResponseTypeDef(BaseValidatorModel):
     accessPreviews: List[AccessPreviewSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AnalyzerSummaryTypeDef(BaseModel):
+class AnalyzerSummaryTypeDef(BaseValidatorModel):
     arn: str
     name: str
     type: TypeType
@@ -567,77 +567,77 @@ class AnalyzerSummaryTypeDef(BaseModel):
     statusReason: Optional[StatusReasonTypeDef] = None
     configuration: Optional[AnalyzerConfigurationTypeDef] = None
 
-class GetArchiveRuleResponseTypeDef(BaseModel):
+class GetArchiveRuleResponseTypeDef(BaseValidatorModel):
     archiveRule: ArchiveRuleSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListArchiveRulesResponseTypeDef(BaseModel):
+class ListArchiveRulesResponseTypeDef(BaseValidatorModel):
     archiveRules: List[ArchiveRuleSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartPolicyGenerationRequestRequestTypeDef(BaseModel):
+class StartPolicyGenerationRequestRequestTypeDef(BaseValidatorModel):
     policyGenerationDetails: PolicyGenerationDetailsTypeDef
     cloudTrailDetails: Optional[CloudTrailDetailsTypeDef] = None
     clientToken: Optional[str] = None
 
-class GeneratedPolicyPropertiesTypeDef(BaseModel):
+class GeneratedPolicyPropertiesTypeDef(BaseValidatorModel):
     principalArn: str
     isComplete: Optional[bool] = None
     cloudTrailProperties: Optional[CloudTrailPropertiesTypeDef] = None
 
-class CreateArchiveRuleRequestRequestTypeDef(BaseModel):
+class CreateArchiveRuleRequestRequestTypeDef(BaseValidatorModel):
     analyzerName: str
     ruleName: str
     filter: Mapping[str, CriterionUnionTypeDef]
     clientToken: Optional[str] = None
 
-class ListAccessPreviewFindingsRequestListAccessPreviewFindingsPaginateTypeDef(BaseModel):
+class ListAccessPreviewFindingsRequestListAccessPreviewFindingsPaginateTypeDef(BaseValidatorModel):
     accessPreviewId: str
     analyzerArn: str
     filter: Optional[Mapping[str, CriterionUnionTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccessPreviewFindingsRequestRequestTypeDef(BaseModel):
+class ListAccessPreviewFindingsRequestRequestTypeDef(BaseValidatorModel):
     accessPreviewId: str
     analyzerArn: str
     filter: Optional[Mapping[str, CriterionUnionTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListFindingsRequestListFindingsPaginateTypeDef(BaseModel):
+class ListFindingsRequestListFindingsPaginateTypeDef(BaseValidatorModel):
     analyzerArn: str
     filter: Optional[Mapping[str, CriterionUnionTypeDef]] = None
     sort: Optional[SortCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFindingsRequestRequestTypeDef(BaseModel):
+class ListFindingsRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     filter: Optional[Mapping[str, CriterionUnionTypeDef]] = None
     sort: Optional[SortCriteriaTypeDef] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListFindingsV2RequestListFindingsV2PaginateTypeDef(BaseModel):
+class ListFindingsV2RequestListFindingsV2PaginateTypeDef(BaseValidatorModel):
     analyzerArn: str
     filter: Optional[Mapping[str, CriterionUnionTypeDef]] = None
     sort: Optional[SortCriteriaTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFindingsV2RequestRequestTypeDef(BaseModel):
+class ListFindingsV2RequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     filter: Optional[Mapping[str, CriterionUnionTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sort: Optional[SortCriteriaTypeDef] = None
 
-class UpdateArchiveRuleRequestRequestTypeDef(BaseModel):
+class UpdateArchiveRuleRequestRequestTypeDef(BaseValidatorModel):
     analyzerName: str
     ruleName: str
     filter: Mapping[str, CriterionUnionTypeDef]
     clientToken: Optional[str] = None
 
-class CreateAnalyzerRequestRequestTypeDef(BaseModel):
+class CreateAnalyzerRequestRequestTypeDef(BaseValidatorModel):
     analyzerName: str
     type: TypeType
     archiveRules: Optional[Sequence[InlineArchiveRuleTypeDef]] = None
@@ -645,7 +645,7 @@ class CreateAnalyzerRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     configuration: Optional[AnalyzerConfigurationTypeDef] = None
 
-class AccessPreviewFindingTypeDef(BaseModel):
+class AccessPreviewFindingTypeDef(BaseValidatorModel):
     id: str
     resourceType: ResourceTypeType
     createdAt: datetime
@@ -662,14 +662,14 @@ class AccessPreviewFindingTypeDef(BaseModel):
     error: Optional[str] = None
     sources: Optional[List[FindingSourceTypeDef]] = None
 
-class ExternalAccessDetailsTypeDef(BaseModel):
+class ExternalAccessDetailsTypeDef(BaseValidatorModel):
     condition: Dict[str, str]
     action: Optional[List[str]] = None
     isPublic: Optional[bool] = None
     principal: Optional[Dict[str, str]] = None
     sources: Optional[List[FindingSourceTypeDef]] = None
 
-class FindingSummaryTypeDef(BaseModel):
+class FindingSummaryTypeDef(BaseValidatorModel):
     id: str
     resourceType: ResourceTypeType
     condition: Dict[str, str]
@@ -685,7 +685,7 @@ class FindingSummaryTypeDef(BaseModel):
     error: Optional[str] = None
     sources: Optional[List[FindingSourceTypeDef]] = None
 
-class FindingTypeDef(BaseModel):
+class FindingTypeDef(BaseValidatorModel):
     id: str
     resourceType: ResourceTypeType
     condition: Dict[str, str]
@@ -701,29 +701,29 @@ class FindingTypeDef(BaseModel):
     error: Optional[str] = None
     sources: Optional[List[FindingSourceTypeDef]] = None
 
-class KmsKeyConfigurationOutputTypeDef(BaseModel):
+class KmsKeyConfigurationOutputTypeDef(BaseValidatorModel):
     keyPolicies: Optional[Dict[str, str]] = None
     grants: Optional[List[KmsGrantConfigurationOutputTypeDef]] = None
 
-class KmsKeyConfigurationTypeDef(BaseModel):
+class KmsKeyConfigurationTypeDef(BaseValidatorModel):
     keyPolicies: Optional[Mapping[str, str]] = None
     grants: Optional[Sequence[KmsGrantConfigurationTypeDef]] = None
 
-class S3AccessPointConfigurationOutputTypeDef(BaseModel):
+class S3AccessPointConfigurationOutputTypeDef(BaseValidatorModel):
     accessPointPolicy: Optional[str] = None
     publicAccessBlock: Optional[S3PublicAccessBlockConfigurationTypeDef] = None
     networkOrigin: Optional[NetworkOriginConfigurationOutputTypeDef] = None
 
-class S3AccessPointConfigurationTypeDef(BaseModel):
+class S3AccessPointConfigurationTypeDef(BaseValidatorModel):
     accessPointPolicy: Optional[str] = None
     publicAccessBlock: Optional[S3PublicAccessBlockConfigurationTypeDef] = None
     networkOrigin: Optional[NetworkOriginConfigurationTypeDef] = None
 
-class LocationTypeDef(BaseModel):
+class LocationTypeDef(BaseValidatorModel):
     path: List[PathElementTypeDef]
     span: SpanTypeDef
 
-class GetFindingRecommendationResponseTypeDef(BaseModel):
+class GetFindingRecommendationResponseTypeDef(BaseValidatorModel):
     startedAt: datetime
     completedAt: datetime
     nextToken: str
@@ -734,65 +734,65 @@ class GetFindingRecommendationResponseTypeDef(BaseModel):
     status: StatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAnalyzerResponseTypeDef(BaseModel):
+class GetAnalyzerResponseTypeDef(BaseValidatorModel):
     analyzer: AnalyzerSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAnalyzersResponseTypeDef(BaseModel):
+class ListAnalyzersResponseTypeDef(BaseValidatorModel):
     analyzers: List[AnalyzerSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GeneratedPolicyResultTypeDef(BaseModel):
+class GeneratedPolicyResultTypeDef(BaseValidatorModel):
     properties: GeneratedPolicyPropertiesTypeDef
     generatedPolicies: Optional[List[GeneratedPolicyTypeDef]] = None
 
-class ListAccessPreviewFindingsResponseTypeDef(BaseModel):
+class ListAccessPreviewFindingsResponseTypeDef(BaseValidatorModel):
     findings: List[AccessPreviewFindingTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FindingDetailsTypeDef(BaseModel):
+class FindingDetailsTypeDef(BaseValidatorModel):
     externalAccessDetails: Optional[ExternalAccessDetailsTypeDef] = None
     unusedPermissionDetails: Optional[UnusedPermissionDetailsTypeDef] = None
     unusedIamUserAccessKeyDetails: Optional[UnusedIamUserAccessKeyDetailsTypeDef] = None
     unusedIamRoleDetails: Optional[UnusedIamRoleDetailsTypeDef] = None
     unusedIamUserPasswordDetails: Optional[UnusedIamUserPasswordDetailsTypeDef] = None
 
-class ListFindingsResponseTypeDef(BaseModel):
+class ListFindingsResponseTypeDef(BaseValidatorModel):
     findings: List[FindingSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFindingResponseTypeDef(BaseModel):
+class GetFindingResponseTypeDef(BaseValidatorModel):
     finding: FindingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class S3BucketConfigurationOutputTypeDef(BaseModel):
+class S3BucketConfigurationOutputTypeDef(BaseValidatorModel):
     bucketPolicy: Optional[str] = None
     bucketAclGrants: Optional[List[S3BucketAclGrantConfigurationTypeDef]] = None
     bucketPublicAccessBlock: Optional[S3PublicAccessBlockConfigurationTypeDef] = None
     accessPoints: Optional[Dict[str, S3AccessPointConfigurationOutputTypeDef]] = None
 
-class S3BucketConfigurationTypeDef(BaseModel):
+class S3BucketConfigurationTypeDef(BaseValidatorModel):
     bucketPolicy: Optional[str] = None
     bucketAclGrants: Optional[Sequence[S3BucketAclGrantConfigurationTypeDef]] = None
     bucketPublicAccessBlock: Optional[S3PublicAccessBlockConfigurationTypeDef] = None
     accessPoints: Optional[Mapping[str, S3AccessPointConfigurationTypeDef]] = None
 
-class ValidatePolicyFindingTypeDef(BaseModel):
+class ValidatePolicyFindingTypeDef(BaseValidatorModel):
     findingDetails: str
     findingType: ValidatePolicyFindingTypeType
     issueCode: str
     learnMoreLink: str
     locations: List[LocationTypeDef]
 
-class GetGeneratedPolicyResponseTypeDef(BaseModel):
+class GetGeneratedPolicyResponseTypeDef(BaseValidatorModel):
     jobDetails: JobDetailsTypeDef
     generatedPolicyResult: GeneratedPolicyResultTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFindingV2ResponseTypeDef(BaseModel):
+class GetFindingV2ResponseTypeDef(BaseValidatorModel):
     analyzedAt: datetime
     createdAt: datetime
     error: str
@@ -807,7 +807,7 @@ class GetFindingV2ResponseTypeDef(BaseModel):
     findingType: FindingTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfigurationOutputTypeDef(BaseModel):
+class ConfigurationOutputTypeDef(BaseValidatorModel):
     ebsSnapshot: Optional[EbsSnapshotConfigurationOutputTypeDef] = None
     ecrRepository: Optional[EcrRepositoryConfigurationTypeDef] = None
     iamRole: Optional[IamRoleConfigurationTypeDef] = None
@@ -823,7 +823,7 @@ class ConfigurationOutputTypeDef(BaseModel):
     dynamodbStream: Optional[DynamodbStreamConfigurationTypeDef] = None
     dynamodbTable: Optional[DynamodbTableConfigurationTypeDef] = None
 
-class ConfigurationTypeDef(BaseModel):
+class ConfigurationTypeDef(BaseValidatorModel):
     ebsSnapshot: Optional[EbsSnapshotConfigurationTypeDef] = None
     ecrRepository: Optional[EcrRepositoryConfigurationTypeDef] = None
     iamRole: Optional[IamRoleConfigurationTypeDef] = None
@@ -839,12 +839,12 @@ class ConfigurationTypeDef(BaseModel):
     dynamodbStream: Optional[DynamodbStreamConfigurationTypeDef] = None
     dynamodbTable: Optional[DynamodbTableConfigurationTypeDef] = None
 
-class ValidatePolicyResponseTypeDef(BaseModel):
+class ValidatePolicyResponseTypeDef(BaseValidatorModel):
     findings: List[ValidatePolicyFindingTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AccessPreviewTypeDef(BaseModel):
+class AccessPreviewTypeDef(BaseValidatorModel):
     id: str
     analyzerArn: str
     configurations: Dict[str, ConfigurationOutputTypeDef]
@@ -852,11 +852,11 @@ class AccessPreviewTypeDef(BaseModel):
     status: AccessPreviewStatusType
     statusReason: Optional[AccessPreviewStatusReasonTypeDef] = None
 
-class GetAccessPreviewResponseTypeDef(BaseModel):
+class GetAccessPreviewResponseTypeDef(BaseValidatorModel):
     accessPreview: AccessPreviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessPreviewRequestRequestTypeDef(BaseModel):
+class CreateAccessPreviewRequestRequestTypeDef(BaseValidatorModel):
     analyzerArn: str
     configurations: Mapping[str, ConfigurationUnionTypeDef]
     clientToken: Optional[str] = None

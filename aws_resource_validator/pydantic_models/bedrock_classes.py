@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,65 +11,65 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.bedrock_constants import *
 
-class S3ConfigTypeDef(BaseModel):
+class S3ConfigTypeDef(BaseValidatorModel):
     bucketName: str
     keyPrefix: Optional[str] = None
 
-class EvaluationOutputDataConfigTypeDef(BaseModel):
+class EvaluationOutputDataConfigTypeDef(BaseValidatorModel):
     s3Uri: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateGuardrailVersionRequestRequestTypeDef(BaseModel):
+class CreateGuardrailVersionRequestRequestTypeDef(BaseValidatorModel):
     guardrailIdentifier: str
     description: Optional[str] = None
     clientRequestToken: Optional[str] = None
 
-class OutputDataConfigTypeDef(BaseModel):
+class OutputDataConfigTypeDef(BaseValidatorModel):
     s3Uri: str
 
-class TrainingDataConfigTypeDef(BaseModel):
+class TrainingDataConfigTypeDef(BaseValidatorModel):
     s3Uri: str
 
-class VpcConfigTypeDef(BaseModel):
+class VpcConfigTypeDef(BaseValidatorModel):
     subnetIds: Sequence[str]
     securityGroupIds: Sequence[str]
 
-class CustomModelSummaryTypeDef(BaseModel):
+class CustomModelSummaryTypeDef(BaseValidatorModel):
     modelArn: str
     modelName: str
     creationTime: datetime
-    baseModelArn: str
-    baseModelName: str
+    BaseValidatorModelArn: str
+    BaseValidatorModelName: str
     customizationType: Optional[CustomizationTypeType] = None
 
-class DeleteCustomModelRequestRequestTypeDef(BaseModel):
+class DeleteCustomModelRequestRequestTypeDef(BaseValidatorModel):
     modelIdentifier: str
 
-class DeleteGuardrailRequestRequestTypeDef(BaseModel):
+class DeleteGuardrailRequestRequestTypeDef(BaseValidatorModel):
     guardrailIdentifier: str
     guardrailVersion: Optional[str] = None
 
-class DeleteProvisionedModelThroughputRequestRequestTypeDef(BaseModel):
+class DeleteProvisionedModelThroughputRequestRequestTypeDef(BaseValidatorModel):
     provisionedModelId: str
 
-class EvaluationBedrockModelTypeDef(BaseModel):
+class EvaluationBedrockModelTypeDef(BaseValidatorModel):
     modelIdentifier: str
     inferenceParams: str
 
-class EvaluationDatasetLocationTypeDef(BaseModel):
+class EvaluationDatasetLocationTypeDef(BaseValidatorModel):
     s3Uri: Optional[str] = None
 
-class EvaluationSummaryTypeDef(BaseModel):
+class EvaluationSummaryTypeDef(BaseValidatorModel):
     jobArn: str
     jobName: str
     status: EvaluationJobStatusType
@@ -78,83 +78,83 @@ class EvaluationSummaryTypeDef(BaseModel):
     evaluationTaskTypes: List[EvaluationTaskTypeType]
     modelIdentifiers: List[str]
 
-class FoundationModelLifecycleTypeDef(BaseModel):
+class FoundationModelLifecycleTypeDef(BaseValidatorModel):
     status: FoundationModelLifecycleStatusType
 
-class GetCustomModelRequestRequestTypeDef(BaseModel):
+class GetCustomModelRequestRequestTypeDef(BaseValidatorModel):
     modelIdentifier: str
 
-class TrainingMetricsTypeDef(BaseModel):
+class TrainingMetricsTypeDef(BaseValidatorModel):
     trainingLoss: Optional[float] = None
 
-class ValidatorMetricTypeDef(BaseModel):
+class ValidatorMetricTypeDef(BaseValidatorModel):
     validationLoss: Optional[float] = None
 
-class GetEvaluationJobRequestRequestTypeDef(BaseModel):
+class GetEvaluationJobRequestRequestTypeDef(BaseValidatorModel):
     jobIdentifier: str
 
-class GetFoundationModelRequestRequestTypeDef(BaseModel):
+class GetFoundationModelRequestRequestTypeDef(BaseValidatorModel):
     modelIdentifier: str
 
-class GetGuardrailRequestRequestTypeDef(BaseModel):
+class GetGuardrailRequestRequestTypeDef(BaseValidatorModel):
     guardrailIdentifier: str
     guardrailVersion: Optional[str] = None
 
-class GetModelCustomizationJobRequestRequestTypeDef(BaseModel):
+class GetModelCustomizationJobRequestRequestTypeDef(BaseValidatorModel):
     jobIdentifier: str
 
-class VpcConfigOutputTypeDef(BaseModel):
+class VpcConfigOutputTypeDef(BaseValidatorModel):
     subnetIds: List[str]
     securityGroupIds: List[str]
 
-class GetProvisionedModelThroughputRequestRequestTypeDef(BaseModel):
+class GetProvisionedModelThroughputRequestRequestTypeDef(BaseValidatorModel):
     provisionedModelId: str
 
-class GuardrailContentFilterConfigTypeDef(BaseModel):
+class GuardrailContentFilterConfigTypeDef(BaseValidatorModel):
     type: GuardrailContentFilterTypeType
     inputStrength: GuardrailFilterStrengthType
     outputStrength: GuardrailFilterStrengthType
 
-class GuardrailContentFilterTypeDef(BaseModel):
+class GuardrailContentFilterTypeDef(BaseValidatorModel):
     type: GuardrailContentFilterTypeType
     inputStrength: GuardrailFilterStrengthType
     outputStrength: GuardrailFilterStrengthType
 
-class GuardrailContextualGroundingFilterConfigTypeDef(BaseModel):
+class GuardrailContextualGroundingFilterConfigTypeDef(BaseValidatorModel):
     type: GuardrailContextualGroundingFilterTypeType
     threshold: float
 
-class GuardrailContextualGroundingFilterTypeDef(BaseModel):
+class GuardrailContextualGroundingFilterTypeDef(BaseValidatorModel):
     type: GuardrailContextualGroundingFilterTypeType
     threshold: float
 
-class GuardrailManagedWordsConfigTypeDef(BaseModel):
+class GuardrailManagedWordsConfigTypeDef(BaseValidatorModel):
     type: Literal["PROFANITY"]
 
-class GuardrailManagedWordsTypeDef(BaseModel):
+class GuardrailManagedWordsTypeDef(BaseValidatorModel):
     type: Literal["PROFANITY"]
 
-class GuardrailPiiEntityConfigTypeDef(BaseModel):
+class GuardrailPiiEntityConfigTypeDef(BaseValidatorModel):
     type: GuardrailPiiEntityTypeType
     action: GuardrailSensitiveInformationActionType
 
-class GuardrailPiiEntityTypeDef(BaseModel):
+class GuardrailPiiEntityTypeDef(BaseValidatorModel):
     type: GuardrailPiiEntityTypeType
     action: GuardrailSensitiveInformationActionType
 
-class GuardrailRegexConfigTypeDef(BaseModel):
+class GuardrailRegexConfigTypeDef(BaseValidatorModel):
     name: str
     pattern: str
     action: GuardrailSensitiveInformationActionType
     description: Optional[str] = None
 
-class GuardrailRegexTypeDef(BaseModel):
+class GuardrailRegexTypeDef(BaseValidatorModel):
     name: str
     pattern: str
     action: GuardrailSensitiveInformationActionType
     description: Optional[str] = None
 
-class GuardrailSummaryTypeDef(BaseModel):
+class GuardrailSummaryTypeDef(BaseValidatorModel):
     id: str
     arn: str
     status: GuardrailStatusType
@@ -164,52 +164,52 @@ class GuardrailSummaryTypeDef(BaseModel):
     updatedAt: datetime
     description: Optional[str] = None
 
-class GuardrailTopicConfigTypeDef(BaseModel):
+class GuardrailTopicConfigTypeDef(BaseValidatorModel):
     name: str
     definition: str
     type: Literal["DENY"]
     examples: Optional[Sequence[str]] = None
 
-class GuardrailTopicTypeDef(BaseModel):
+class GuardrailTopicTypeDef(BaseValidatorModel):
     name: str
     definition: str
     examples: Optional[List[str]] = None
     type: Optional[Literal["DENY"]] = None
 
-class GuardrailWordConfigTypeDef(BaseModel):
+class GuardrailWordConfigTypeDef(BaseValidatorModel):
     text: str
 
-class GuardrailWordTypeDef(BaseModel):
+class GuardrailWordTypeDef(BaseValidatorModel):
     text: str
 
-class HumanEvaluationCustomMetricTypeDef(BaseModel):
+class HumanEvaluationCustomMetricTypeDef(BaseValidatorModel):
     name: str
     ratingMethod: str
     description: Optional[str] = None
 
-class HumanWorkflowConfigTypeDef(BaseModel):
+class HumanWorkflowConfigTypeDef(BaseValidatorModel):
     flowDefinitionArn: str
     instructions: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListFoundationModelsRequestRequestTypeDef(BaseModel):
+class ListFoundationModelsRequestRequestTypeDef(BaseValidatorModel):
     byProvider: Optional[str] = None
     byCustomizationType: Optional[ModelCustomizationType] = None
     byOutputModality: Optional[ModelModalityType] = None
     byInferenceType: Optional[InferenceTypeType] = None
 
-class ListGuardrailsRequestRequestTypeDef(BaseModel):
+class ListGuardrailsRequestRequestTypeDef(BaseValidatorModel):
     guardrailIdentifier: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ModelCustomizationJobSummaryTypeDef(BaseModel):
+class ModelCustomizationJobSummaryTypeDef(BaseValidatorModel):
     jobArn: str
-    baseModelArn: str
+    BaseValidatorModelArn: str
     jobName: str
     status: ModelCustomizationJobStatusType
     creationTime: datetime
@@ -219,7 +219,7 @@ class ModelCustomizationJobSummaryTypeDef(BaseModel):
     customModelName: Optional[str] = None
     customizationType: Optional[CustomizationTypeType] = None
 
-class ProvisionedModelSummaryTypeDef(BaseModel):
+class ProvisionedModelSummaryTypeDef(BaseValidatorModel):
     provisionedModelName: str
     provisionedModelArn: str
     modelArn: str
@@ -233,33 +233,33 @@ class ProvisionedModelSummaryTypeDef(BaseModel):
     commitmentDuration: Optional[CommitmentDurationType] = None
     commitmentExpirationTime: Optional[datetime] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceARN: str
 
-class StopEvaluationJobRequestRequestTypeDef(BaseModel):
+class StopEvaluationJobRequestRequestTypeDef(BaseValidatorModel):
     jobIdentifier: str
 
-class StopModelCustomizationJobRequestRequestTypeDef(BaseModel):
+class StopModelCustomizationJobRequestRequestTypeDef(BaseValidatorModel):
     jobIdentifier: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceARN: str
     tagKeys: Sequence[str]
 
-class UpdateProvisionedModelThroughputRequestRequestTypeDef(BaseModel):
+class UpdateProvisionedModelThroughputRequestRequestTypeDef(BaseValidatorModel):
     provisionedModelId: str
     desiredProvisionedModelName: Optional[str] = None
     desiredModelId: Optional[str] = None
 
-class ValidatorTypeDef(BaseModel):
+class ValidatorTypeDef(BaseValidatorModel):
     s3Uri: str
 
-class CloudWatchConfigTypeDef(BaseModel):
+class CloudWatchConfigTypeDef(BaseValidatorModel):
     logGroupName: str
     roleArn: str
     largeDataDeliveryS3Config: Optional[S3ConfigTypeDef] = None
 
-class CreateProvisionedModelThroughputRequestRequestTypeDef(BaseModel):
+class CreateProvisionedModelThroughputRequestRequestTypeDef(BaseValidatorModel):
     modelUnits: int
     provisionedModelName: str
     modelId: str
@@ -267,35 +267,35 @@ class CreateProvisionedModelThroughputRequestRequestTypeDef(BaseModel):
     commitmentDuration: Optional[CommitmentDurationType] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceARN: str
     tags: Sequence[TagTypeDef]
 
-class CreateEvaluationJobResponseTypeDef(BaseModel):
+class CreateEvaluationJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGuardrailResponseTypeDef(BaseModel):
+class CreateGuardrailResponseTypeDef(BaseValidatorModel):
     guardrailId: str
     guardrailArn: str
     version: str
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGuardrailVersionResponseTypeDef(BaseModel):
+class CreateGuardrailVersionResponseTypeDef(BaseValidatorModel):
     guardrailId: str
     version: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateModelCustomizationJobResponseTypeDef(BaseModel):
+class CreateModelCustomizationJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProvisionedModelThroughputResponseTypeDef(BaseModel):
+class CreateProvisionedModelThroughputResponseTypeDef(BaseValidatorModel):
     provisionedModelArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetProvisionedModelThroughputResponseTypeDef(BaseModel):
+class GetProvisionedModelThroughputResponseTypeDef(BaseValidatorModel):
     modelUnits: int
     desiredModelUnits: int
     provisionedModelName: str
@@ -311,35 +311,35 @@ class GetProvisionedModelThroughputResponseTypeDef(BaseModel):
     commitmentExpirationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGuardrailResponseTypeDef(BaseModel):
+class UpdateGuardrailResponseTypeDef(BaseValidatorModel):
     guardrailId: str
     guardrailArn: str
     version: str
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCustomModelsResponseTypeDef(BaseModel):
+class ListCustomModelsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     modelSummaries: List[CustomModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EvaluationModelConfigTypeDef(BaseModel):
+class EvaluationModelConfigTypeDef(BaseValidatorModel):
     bedrockModel: Optional[EvaluationBedrockModelTypeDef] = None
 
-class EvaluationDatasetTypeDef(BaseModel):
+class EvaluationDatasetTypeDef(BaseValidatorModel):
     name: str
     datasetLocation: Optional[EvaluationDatasetLocationTypeDef] = None
 
-class ListEvaluationJobsResponseTypeDef(BaseModel):
+class ListEvaluationJobsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     jobSummaries: List[EvaluationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FoundationModelDetailsTypeDef(BaseModel):
+class FoundationModelDetailsTypeDef(BaseValidatorModel):
     modelArn: str
     modelId: str
     modelName: Optional[str] = None
@@ -351,7 +351,7 @@ class FoundationModelDetailsTypeDef(BaseModel):
     inferenceTypesSupported: Optional[List[InferenceTypeType]] = None
     modelLifecycle: Optional[FoundationModelLifecycleTypeDef] = None
 
-class FoundationModelSummaryTypeDef(BaseModel):
+class FoundationModelSummaryTypeDef(BaseValidatorModel):
     modelArn: str
     modelId: str
     modelName: Optional[str] = None
@@ -363,71 +363,71 @@ class FoundationModelSummaryTypeDef(BaseModel):
     inferenceTypesSupported: Optional[List[InferenceTypeType]] = None
     modelLifecycle: Optional[FoundationModelLifecycleTypeDef] = None
 
-class GuardrailContentPolicyConfigTypeDef(BaseModel):
+class GuardrailContentPolicyConfigTypeDef(BaseValidatorModel):
     filtersConfig: Sequence[GuardrailContentFilterConfigTypeDef]
 
-class GuardrailContentPolicyTypeDef(BaseModel):
+class GuardrailContentPolicyTypeDef(BaseValidatorModel):
     filters: Optional[List[GuardrailContentFilterTypeDef]] = None
 
-class GuardrailContextualGroundingPolicyConfigTypeDef(BaseModel):
+class GuardrailContextualGroundingPolicyConfigTypeDef(BaseValidatorModel):
     filtersConfig: Sequence[GuardrailContextualGroundingFilterConfigTypeDef]
 
-class GuardrailContextualGroundingPolicyTypeDef(BaseModel):
+class GuardrailContextualGroundingPolicyTypeDef(BaseValidatorModel):
     filters: List[GuardrailContextualGroundingFilterTypeDef]
 
-class GuardrailSensitiveInformationPolicyConfigTypeDef(BaseModel):
+class GuardrailSensitiveInformationPolicyConfigTypeDef(BaseValidatorModel):
     piiEntitiesConfig: Optional[Sequence[GuardrailPiiEntityConfigTypeDef]] = None
     regexesConfig: Optional[Sequence[GuardrailRegexConfigTypeDef]] = None
 
-class GuardrailSensitiveInformationPolicyTypeDef(BaseModel):
+class GuardrailSensitiveInformationPolicyTypeDef(BaseValidatorModel):
     piiEntities: Optional[List[GuardrailPiiEntityTypeDef]] = None
     regexes: Optional[List[GuardrailRegexTypeDef]] = None
 
-class ListGuardrailsResponseTypeDef(BaseModel):
+class ListGuardrailsResponseTypeDef(BaseValidatorModel):
     guardrails: List[GuardrailSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GuardrailTopicPolicyConfigTypeDef(BaseModel):
+class GuardrailTopicPolicyConfigTypeDef(BaseValidatorModel):
     topicsConfig: Sequence[GuardrailTopicConfigTypeDef]
 
-class GuardrailTopicPolicyTypeDef(BaseModel):
+class GuardrailTopicPolicyTypeDef(BaseValidatorModel):
     topics: List[GuardrailTopicTypeDef]
 
-class GuardrailWordPolicyConfigTypeDef(BaseModel):
+class GuardrailWordPolicyConfigTypeDef(BaseValidatorModel):
     wordsConfig: Optional[Sequence[GuardrailWordConfigTypeDef]] = None
     managedWordListsConfig: Optional[Sequence[GuardrailManagedWordsConfigTypeDef]] = None
 
-class GuardrailWordPolicyTypeDef(BaseModel):
+class GuardrailWordPolicyTypeDef(BaseValidatorModel):
     words: Optional[List[GuardrailWordTypeDef]] = None
     managedWordLists: Optional[List[GuardrailManagedWordsTypeDef]] = None
 
-class ListGuardrailsRequestListGuardrailsPaginateTypeDef(BaseModel):
+class ListGuardrailsRequestListGuardrailsPaginateTypeDef(BaseValidatorModel):
     guardrailIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCustomModelsRequestListCustomModelsPaginateTypeDef(BaseModel):
+class ListCustomModelsRequestListCustomModelsPaginateTypeDef(BaseValidatorModel):
     creationTimeBefore: Optional[TimestampTypeDef] = None
     creationTimeAfter: Optional[TimestampTypeDef] = None
     nameContains: Optional[str] = None
-    baseModelArnEquals: Optional[str] = None
+    BaseValidatorModelArnEquals: Optional[str] = None
     foundationModelArnEquals: Optional[str] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCustomModelsRequestRequestTypeDef(BaseModel):
+class ListCustomModelsRequestRequestTypeDef(BaseValidatorModel):
     creationTimeBefore: Optional[TimestampTypeDef] = None
     creationTimeAfter: Optional[TimestampTypeDef] = None
     nameContains: Optional[str] = None
-    baseModelArnEquals: Optional[str] = None
+    BaseValidatorModelArnEquals: Optional[str] = None
     foundationModelArnEquals: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
-class ListEvaluationJobsRequestListEvaluationJobsPaginateTypeDef(BaseModel):
+class ListEvaluationJobsRequestListEvaluationJobsPaginateTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[EvaluationJobStatusType] = None
@@ -436,7 +436,7 @@ class ListEvaluationJobsRequestListEvaluationJobsPaginateTypeDef(BaseModel):
     sortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEvaluationJobsRequestRequestTypeDef(BaseModel):
+class ListEvaluationJobsRequestRequestTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[EvaluationJobStatusType] = None
@@ -446,7 +446,7 @@ class ListEvaluationJobsRequestRequestTypeDef(BaseModel):
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
-class ListModelCustomizationJobsRequestListModelCustomizationJobsPaginateTypeDef(BaseModel):
+class ListModelCustomizationJobsRequestListModelCustomizationJobsPaginateTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[FineTuningJobStatusType] = None
@@ -455,7 +455,7 @@ class ListModelCustomizationJobsRequestListModelCustomizationJobsPaginateTypeDef
     sortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListModelCustomizationJobsRequestRequestTypeDef(BaseModel):
+class ListModelCustomizationJobsRequestRequestTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[FineTuningJobStatusType] = None
@@ -465,7 +465,7 @@ class ListModelCustomizationJobsRequestRequestTypeDef(BaseModel):
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
-class ListProvisionedModelThroughputsRequestListProvisionedModelThroughputsPaginateTypeDef(BaseModel):
+class ListProvisionedModelThroughputsRequestListProvisionedModelThroughputsPaginateTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[ProvisionedModelStatusType] = None
@@ -475,7 +475,7 @@ class ListProvisionedModelThroughputsRequestListProvisionedModelThroughputsPagin
     sortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProvisionedModelThroughputsRequestRequestTypeDef(BaseModel):
+class ListProvisionedModelThroughputsRequestRequestTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[ProvisionedModelStatusType] = None
@@ -486,54 +486,54 @@ class ListProvisionedModelThroughputsRequestRequestTypeDef(BaseModel):
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
-class ListModelCustomizationJobsResponseTypeDef(BaseModel):
+class ListModelCustomizationJobsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     modelCustomizationJobSummaries: List[ModelCustomizationJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProvisionedModelThroughputsResponseTypeDef(BaseModel):
+class ListProvisionedModelThroughputsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     provisionedModelSummaries: List[ProvisionedModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ValidationDataConfigOutputTypeDef(BaseModel):
+class ValidationDataConfigOutputTypeDef(BaseValidatorModel):
     validators: List[ValidatorTypeDef]
 
-class ValidationDataConfigTypeDef(BaseModel):
+class ValidationDataConfigTypeDef(BaseValidatorModel):
     validators: Sequence[ValidatorTypeDef]
 
-class LoggingConfigTypeDef(BaseModel):
+class LoggingConfigTypeDef(BaseValidatorModel):
     cloudWatchConfig: Optional[CloudWatchConfigTypeDef] = None
     s3Config: Optional[S3ConfigTypeDef] = None
     textDataDeliveryEnabled: Optional[bool] = None
     imageDataDeliveryEnabled: Optional[bool] = None
     embeddingDataDeliveryEnabled: Optional[bool] = None
 
-class EvaluationInferenceConfigOutputTypeDef(BaseModel):
+class EvaluationInferenceConfigOutputTypeDef(BaseValidatorModel):
     models: Optional[List[EvaluationModelConfigTypeDef]] = None
 
-class EvaluationInferenceConfigTypeDef(BaseModel):
+class EvaluationInferenceConfigTypeDef(BaseValidatorModel):
     models: Optional[Sequence[EvaluationModelConfigTypeDef]] = None
 
-class EvaluationDatasetMetricConfigOutputTypeDef(BaseModel):
+class EvaluationDatasetMetricConfigOutputTypeDef(BaseValidatorModel):
     taskType: EvaluationTaskTypeType
     dataset: EvaluationDatasetTypeDef
     metricNames: List[str]
 
-class EvaluationDatasetMetricConfigTypeDef(BaseModel):
+class EvaluationDatasetMetricConfigTypeDef(BaseValidatorModel):
     taskType: EvaluationTaskTypeType
     dataset: EvaluationDatasetTypeDef
     metricNames: Sequence[str]
 
-class GetFoundationModelResponseTypeDef(BaseModel):
+class GetFoundationModelResponseTypeDef(BaseValidatorModel):
     modelDetails: FoundationModelDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFoundationModelsResponseTypeDef(BaseModel):
+class ListFoundationModelsResponseTypeDef(BaseValidatorModel):
     modelSummaries: List[FoundationModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateGuardrailRequestRequestTypeDef(BaseModel):
+class CreateGuardrailRequestRequestTypeDef(BaseValidatorModel):
     name: str
     blockedInputMessaging: str
     blockedOutputsMessaging: str
@@ -547,7 +547,7 @@ class CreateGuardrailRequestRequestTypeDef(BaseModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     clientRequestToken: Optional[str] = None
 
-class UpdateGuardrailRequestRequestTypeDef(BaseModel):
+class UpdateGuardrailRequestRequestTypeDef(BaseValidatorModel):
     guardrailIdentifier: str
     name: str
     blockedInputMessaging: str
@@ -560,7 +560,7 @@ class UpdateGuardrailRequestRequestTypeDef(BaseModel):
     contextualGroundingPolicyConfig: Optional[       GuardrailContextualGroundingPolicyConfigTypeDef     ] = None
     kmsKeyId: Optional[str] = None
 
-class GetGuardrailResponseTypeDef(BaseModel):
+class GetGuardrailResponseTypeDef(BaseValidatorModel):
     name: str
     description: str
     guardrailId: str
@@ -581,12 +581,12 @@ class GetGuardrailResponseTypeDef(BaseModel):
     kmsKeyArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCustomModelResponseTypeDef(BaseModel):
+class GetCustomModelResponseTypeDef(BaseValidatorModel):
     modelArn: str
     modelName: str
     jobName: str
     jobArn: str
-    baseModelArn: str
+    BaseValidatorModelArn: str
     customizationType: CustomizationTypeType
     modelKmsKeyArn: str
     hyperParameters: Dict[str, str]
@@ -598,7 +598,7 @@ class GetCustomModelResponseTypeDef(BaseModel):
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetModelCustomizationJobResponseTypeDef(BaseModel):
+class GetModelCustomizationJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
     jobName: str
     outputModelName: str
@@ -610,7 +610,7 @@ class GetModelCustomizationJobResponseTypeDef(BaseModel):
     creationTime: datetime
     lastModifiedTime: datetime
     endTime: datetime
-    baseModelArn: str
+    BaseValidatorModelArn: str
     hyperParameters: Dict[str, str]
     trainingDataConfig: TrainingDataConfigTypeDef
     validationDataConfig: ValidationDataConfigOutputTypeDef
@@ -622,11 +622,11 @@ class GetModelCustomizationJobResponseTypeDef(BaseModel):
     vpcConfig: VpcConfigOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateModelCustomizationJobRequestRequestTypeDef(BaseModel):
+class CreateModelCustomizationJobRequestRequestTypeDef(BaseValidatorModel):
     jobName: str
     customModelName: str
     roleArn: str
-    baseModelIdentifier: str
+    BaseValidatorModelIdentifier: str
     trainingDataConfig: TrainingDataConfigTypeDef
     outputDataConfig: OutputDataConfigTypeDef
     hyperParameters: Mapping[str, str]
@@ -638,38 +638,38 @@ class CreateModelCustomizationJobRequestRequestTypeDef(BaseModel):
     validationDataConfig: Optional[ValidationDataConfigTypeDef] = None
     vpcConfig: Optional[VpcConfigTypeDef] = None
 
-class GetModelInvocationLoggingConfigurationResponseTypeDef(BaseModel):
+class GetModelInvocationLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     loggingConfig: LoggingConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutModelInvocationLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class PutModelInvocationLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     loggingConfig: LoggingConfigTypeDef
 
-class AutomatedEvaluationConfigOutputTypeDef(BaseModel):
+class AutomatedEvaluationConfigOutputTypeDef(BaseValidatorModel):
     datasetMetricConfigs: List[EvaluationDatasetMetricConfigOutputTypeDef]
 
-class HumanEvaluationConfigOutputTypeDef(BaseModel):
+class HumanEvaluationConfigOutputTypeDef(BaseValidatorModel):
     datasetMetricConfigs: List[EvaluationDatasetMetricConfigOutputTypeDef]
     humanWorkflowConfig: Optional[HumanWorkflowConfigTypeDef] = None
     customMetrics: Optional[List[HumanEvaluationCustomMetricTypeDef]] = None
 
-class AutomatedEvaluationConfigTypeDef(BaseModel):
+class AutomatedEvaluationConfigTypeDef(BaseValidatorModel):
     datasetMetricConfigs: Sequence[EvaluationDatasetMetricConfigTypeDef]
 
-class HumanEvaluationConfigTypeDef(BaseModel):
+class HumanEvaluationConfigTypeDef(BaseValidatorModel):
     datasetMetricConfigs: Sequence[EvaluationDatasetMetricConfigTypeDef]
     humanWorkflowConfig: Optional[HumanWorkflowConfigTypeDef] = None
     customMetrics: Optional[Sequence[HumanEvaluationCustomMetricTypeDef]] = None
 
-class EvaluationConfigOutputTypeDef(BaseModel):
+class EvaluationConfigOutputTypeDef(BaseValidatorModel):
     automated: Optional[AutomatedEvaluationConfigOutputTypeDef] = None
     human: Optional[HumanEvaluationConfigOutputTypeDef] = None
 
-class EvaluationConfigTypeDef(BaseModel):
+class EvaluationConfigTypeDef(BaseValidatorModel):
     automated: Optional[AutomatedEvaluationConfigTypeDef] = None
     human: Optional[HumanEvaluationConfigTypeDef] = None
 
-class GetEvaluationJobResponseTypeDef(BaseModel):
+class GetEvaluationJobResponseTypeDef(BaseValidatorModel):
     jobName: str
     status: EvaluationJobStatusType
     jobArn: str
@@ -685,7 +685,7 @@ class GetEvaluationJobResponseTypeDef(BaseModel):
     failureMessages: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEvaluationJobRequestRequestTypeDef(BaseModel):
+class CreateEvaluationJobRequestRequestTypeDef(BaseValidatorModel):
     jobName: str
     roleArn: str
     evaluationConfig: EvaluationConfigTypeDef

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,26 +11,26 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.elastictranscoder_constants import *
 
-class EncryptionTypeDef(BaseModel):
+class EncryptionTypeDef(BaseValidatorModel):
     Mode: Optional[str] = None
     Key: Optional[str] = None
     KeyMd5: Optional[str] = None
     InitializationVector: Optional[str] = None
 
-class AudioCodecOptionsTypeDef(BaseModel):
+class AudioCodecOptionsTypeDef(BaseValidatorModel):
     Profile: Optional[str] = None
     BitDepth: Optional[str] = None
     BitOrder: Optional[str] = None
     Signed: Optional[str] = None
 
-class CancelJobRequestRequestTypeDef(BaseModel):
+class CancelJobRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class TimeSpanTypeDef(BaseModel):
+class TimeSpanTypeDef(BaseValidatorModel):
     StartTime: Optional[str] = None
     Duration: Optional[str] = None
 
-class HlsContentProtectionTypeDef(BaseModel):
+class HlsContentProtectionTypeDef(BaseValidatorModel):
     Method: Optional[str] = None
     Key: Optional[str] = None
     KeyMd5: Optional[str] = None
@@ -38,7 +38,7 @@ class HlsContentProtectionTypeDef(BaseModel):
     LicenseAcquisitionUrl: Optional[str] = None
     KeyStoragePolicy: Optional[str] = None
 
-class PlayReadyDrmTypeDef(BaseModel):
+class PlayReadyDrmTypeDef(BaseValidatorModel):
     Format: Optional[str] = None
     Key: Optional[str] = None
     KeyMd5: Optional[str] = None
@@ -46,24 +46,24 @@ class PlayReadyDrmTypeDef(BaseModel):
     InitializationVector: Optional[str] = None
     LicenseAcquisitionUrl: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class NotificationsTypeDef(BaseModel):
+class NotificationsTypeDef(BaseValidatorModel):
     Progressing: Optional[str] = None
     Completed: Optional[str] = None
     Warning: Optional[str] = None
     Error: Optional[str] = None
 
-class WarningTypeDef(BaseModel):
+class WarningTypeDef(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
-class ThumbnailsTypeDef(BaseModel):
+class ThumbnailsTypeDef(BaseValidatorModel):
     Format: Optional[str] = None
     Interval: Optional[str] = None
     Resolution: Optional[str] = None
@@ -73,63 +73,63 @@ class ThumbnailsTypeDef(BaseModel):
     SizingPolicy: Optional[str] = None
     PaddingPolicy: Optional[str] = None
 
-class DeletePipelineRequestRequestTypeDef(BaseModel):
+class DeletePipelineRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeletePresetRequestRequestTypeDef(BaseModel):
+class DeletePresetRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DetectedPropertiesTypeDef(BaseModel):
+class DetectedPropertiesTypeDef(BaseValidatorModel):
     Width: Optional[int] = None
     Height: Optional[int] = None
     FrameRate: Optional[str] = None
     FileSize: Optional[int] = None
     DurationMillis: Optional[int] = None
 
-class TimingTypeDef(BaseModel):
+class TimingTypeDef(BaseValidatorModel):
     SubmitTimeMillis: Optional[int] = None
     StartTimeMillis: Optional[int] = None
     FinishTimeMillis: Optional[int] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListJobsByPipelineRequestRequestTypeDef(BaseModel):
+class ListJobsByPipelineRequestRequestTypeDef(BaseValidatorModel):
     PipelineId: str
     Ascending: Optional[str] = None
     PageToken: Optional[str] = None
 
-class ListJobsByStatusRequestRequestTypeDef(BaseModel):
+class ListJobsByStatusRequestRequestTypeDef(BaseValidatorModel):
     Status: str
     Ascending: Optional[str] = None
     PageToken: Optional[str] = None
 
-class ListPipelinesRequestRequestTypeDef(BaseModel):
+class ListPipelinesRequestRequestTypeDef(BaseValidatorModel):
     Ascending: Optional[str] = None
     PageToken: Optional[str] = None
 
-class ListPresetsRequestRequestTypeDef(BaseModel):
+class ListPresetsRequestRequestTypeDef(BaseValidatorModel):
     Ascending: Optional[str] = None
     PageToken: Optional[str] = None
 
-class PermissionExtraOutputTypeDef(BaseModel):
+class PermissionExtraOutputTypeDef(BaseValidatorModel):
     GranteeType: Optional[str] = None
     Grantee: Optional[str] = None
     Access: Optional[List[str]] = None
 
-class PermissionOutputTypeDef(BaseModel):
+class PermissionOutputTypeDef(BaseValidatorModel):
     GranteeType: Optional[str] = None
     Grantee: Optional[str] = None
     Access: Optional[List[str]] = None
 
-class PermissionTypeDef(BaseModel):
+class PermissionTypeDef(BaseValidatorModel):
     GranteeType: Optional[str] = None
     Grantee: Optional[str] = None
     Access: Optional[Sequence[str]] = None
 
-class PresetWatermarkTypeDef(BaseModel):
+class PresetWatermarkTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     MaxWidth: Optional[str] = None
     MaxHeight: Optional[str] = None
@@ -141,30 +141,30 @@ class PresetWatermarkTypeDef(BaseModel):
     Opacity: Optional[str] = None
     Target: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class ReadJobRequestRequestTypeDef(BaseModel):
+class ReadJobRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class ReadPipelineRequestRequestTypeDef(BaseModel):
+class ReadPipelineRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class ReadPresetRequestRequestTypeDef(BaseModel):
+class ReadPresetRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class TestRoleRequestRequestTypeDef(BaseModel):
+class TestRoleRequestRequestTypeDef(BaseValidatorModel):
     Role: str
     InputBucket: str
     OutputBucket: str
     Topics: Sequence[str]
 
-class UpdatePipelineStatusRequestRequestTypeDef(BaseModel):
+class UpdatePipelineStatusRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Status: str
 
-class ArtworkTypeDef(BaseModel):
+class ArtworkTypeDef(BaseValidatorModel):
     InputKey: Optional[str] = None
     MaxWidth: Optional[str] = None
     MaxHeight: Optional[str] = None
@@ -173,24 +173,24 @@ class ArtworkTypeDef(BaseModel):
     AlbumArtFormat: Optional[str] = None
     Encryption: Optional[EncryptionTypeDef] = None
 
-class CaptionFormatTypeDef(BaseModel):
+class CaptionFormatTypeDef(BaseValidatorModel):
     Format: Optional[str] = None
     Pattern: Optional[str] = None
     Encryption: Optional[EncryptionTypeDef] = None
 
-class CaptionSourceTypeDef(BaseModel):
+class CaptionSourceTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Language: Optional[str] = None
     TimeOffset: Optional[str] = None
     Label: Optional[str] = None
     Encryption: Optional[EncryptionTypeDef] = None
 
-class JobWatermarkTypeDef(BaseModel):
+class JobWatermarkTypeDef(BaseValidatorModel):
     PresetWatermarkId: Optional[str] = None
     InputKey: Optional[str] = None
     Encryption: Optional[EncryptionTypeDef] = None
 
-class AudioParametersTypeDef(BaseModel):
+class AudioParametersTypeDef(BaseValidatorModel):
     Codec: Optional[str] = None
     SampleRate: Optional[str] = None
     BitRate: Optional[str] = None
@@ -198,17 +198,17 @@ class AudioParametersTypeDef(BaseModel):
     AudioPackingMode: Optional[str] = None
     CodecOptions: Optional[AudioCodecOptionsTypeDef] = None
 
-class ClipTypeDef(BaseModel):
+class ClipTypeDef(BaseValidatorModel):
     TimeSpan: Optional[TimeSpanTypeDef] = None
 
-class CreateJobPlaylistTypeDef(BaseModel):
+class CreateJobPlaylistTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Format: Optional[str] = None
     OutputKeys: Optional[Sequence[str]] = None
     HlsContentProtection: Optional[HlsContentProtectionTypeDef] = None
     PlayReadyDrm: Optional[PlayReadyDrmTypeDef] = None
 
-class PlaylistTypeDef(BaseModel):
+class PlaylistTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Format: Optional[str] = None
     OutputKeys: Optional[List[str]] = None
@@ -217,49 +217,49 @@ class PlaylistTypeDef(BaseModel):
     Status: Optional[str] = None
     StatusDetail: Optional[str] = None
 
-class TestRoleResponseTypeDef(BaseModel):
+class TestRoleResponseTypeDef(BaseValidatorModel):
     Success: str
     Messages: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePipelineNotificationsRequestRequestTypeDef(BaseModel):
+class UpdatePipelineNotificationsRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Notifications: NotificationsTypeDef
 
-class ListJobsByPipelineRequestListJobsByPipelinePaginateTypeDef(BaseModel):
+class ListJobsByPipelineRequestListJobsByPipelinePaginateTypeDef(BaseValidatorModel):
     PipelineId: str
     Ascending: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobsByStatusRequestListJobsByStatusPaginateTypeDef(BaseModel):
+class ListJobsByStatusRequestListJobsByStatusPaginateTypeDef(BaseValidatorModel):
     Status: str
     Ascending: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPipelinesRequestListPipelinesPaginateTypeDef(BaseModel):
+class ListPipelinesRequestListPipelinesPaginateTypeDef(BaseValidatorModel):
     Ascending: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPresetsRequestListPresetsPaginateTypeDef(BaseModel):
+class ListPresetsRequestListPresetsPaginateTypeDef(BaseValidatorModel):
     Ascending: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class PipelineOutputConfigExtraOutputTypeDef(BaseModel):
+class PipelineOutputConfigExtraOutputTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     StorageClass: Optional[str] = None
     Permissions: Optional[List[PermissionExtraOutputTypeDef]] = None
 
-class PipelineOutputConfigOutputTypeDef(BaseModel):
+class PipelineOutputConfigOutputTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     StorageClass: Optional[str] = None
     Permissions: Optional[List[PermissionOutputTypeDef]] = None
 
-class PipelineOutputConfigTypeDef(BaseModel):
+class PipelineOutputConfigTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     StorageClass: Optional[str] = None
     Permissions: Optional[Sequence[PermissionTypeDef]] = None
 
-class VideoParametersExtraOutputTypeDef(BaseModel):
+class VideoParametersExtraOutputTypeDef(BaseValidatorModel):
     Codec: Optional[str] = None
     CodecOptions: Optional[Dict[str, str]] = None
     KeyframesMaxDist: Optional[str] = None
@@ -276,7 +276,7 @@ class VideoParametersExtraOutputTypeDef(BaseModel):
     PaddingPolicy: Optional[str] = None
     Watermarks: Optional[List[PresetWatermarkTypeDef]] = None
 
-class VideoParametersOutputTypeDef(BaseModel):
+class VideoParametersOutputTypeDef(BaseValidatorModel):
     Codec: Optional[str] = None
     CodecOptions: Optional[Dict[str, str]] = None
     KeyframesMaxDist: Optional[str] = None
@@ -293,7 +293,7 @@ class VideoParametersOutputTypeDef(BaseModel):
     PaddingPolicy: Optional[str] = None
     Watermarks: Optional[List[PresetWatermarkTypeDef]] = None
 
-class VideoParametersTypeDef(BaseModel):
+class VideoParametersTypeDef(BaseValidatorModel):
     Codec: Optional[str] = None
     CodecOptions: Optional[Mapping[str, str]] = None
     KeyframesMaxDist: Optional[str] = None
@@ -310,41 +310,41 @@ class VideoParametersTypeDef(BaseModel):
     PaddingPolicy: Optional[str] = None
     Watermarks: Optional[Sequence[PresetWatermarkTypeDef]] = None
 
-class ReadJobRequestJobCompleteWaitTypeDef(BaseModel):
+class ReadJobRequestJobCompleteWaitTypeDef(BaseValidatorModel):
     Id: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class JobAlbumArtOutputTypeDef(BaseModel):
+class JobAlbumArtOutputTypeDef(BaseValidatorModel):
     MergePolicy: Optional[str] = None
     Artwork: Optional[List[ArtworkTypeDef]] = None
 
-class JobAlbumArtTypeDef(BaseModel):
+class JobAlbumArtTypeDef(BaseValidatorModel):
     MergePolicy: Optional[str] = None
     Artwork: Optional[Sequence[ArtworkTypeDef]] = None
 
-class CaptionsOutputTypeDef(BaseModel):
+class CaptionsOutputTypeDef(BaseValidatorModel):
     MergePolicy: Optional[str] = None
     CaptionSources: Optional[List[CaptionSourceTypeDef]] = None
     CaptionFormats: Optional[List[CaptionFormatTypeDef]] = None
 
-class CaptionsTypeDef(BaseModel):
+class CaptionsTypeDef(BaseValidatorModel):
     MergePolicy: Optional[str] = None
     CaptionSources: Optional[Sequence[CaptionSourceTypeDef]] = None
     CaptionFormats: Optional[Sequence[CaptionFormatTypeDef]] = None
 
-class InputCaptionsExtraOutputTypeDef(BaseModel):
+class InputCaptionsExtraOutputTypeDef(BaseValidatorModel):
     MergePolicy: Optional[str] = None
     CaptionSources: Optional[List[CaptionSourceTypeDef]] = None
 
-class InputCaptionsOutputTypeDef(BaseModel):
+class InputCaptionsOutputTypeDef(BaseValidatorModel):
     MergePolicy: Optional[str] = None
     CaptionSources: Optional[List[CaptionSourceTypeDef]] = None
 
-class InputCaptionsTypeDef(BaseModel):
+class InputCaptionsTypeDef(BaseValidatorModel):
     MergePolicy: Optional[str] = None
     CaptionSources: Optional[Sequence[CaptionSourceTypeDef]] = None
 
-class PipelineTypeDef(BaseModel):
+class PipelineTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -357,7 +357,7 @@ class PipelineTypeDef(BaseModel):
     ContentConfig: Optional[PipelineOutputConfigOutputTypeDef] = None
     ThumbnailConfig: Optional[PipelineOutputConfigOutputTypeDef] = None
 
-class CreatePipelineRequestRequestTypeDef(BaseModel):
+class CreatePipelineRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     InputBucket: str
     Role: str
@@ -367,7 +367,7 @@ class CreatePipelineRequestRequestTypeDef(BaseModel):
     ContentConfig: Optional[PipelineOutputConfigTypeDef] = None
     ThumbnailConfig: Optional[PipelineOutputConfigTypeDef] = None
 
-class UpdatePipelineRequestRequestTypeDef(BaseModel):
+class UpdatePipelineRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
     InputBucket: Optional[str] = None
@@ -377,7 +377,7 @@ class UpdatePipelineRequestRequestTypeDef(BaseModel):
     ContentConfig: Optional[PipelineOutputConfigTypeDef] = None
     ThumbnailConfig: Optional[PipelineOutputConfigTypeDef] = None
 
-class PresetTypeDef(BaseModel):
+class PresetTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -388,7 +388,7 @@ class PresetTypeDef(BaseModel):
     Thumbnails: Optional[ThumbnailsTypeDef] = None
     Type: Optional[str] = None
 
-class CreatePresetRequestRequestTypeDef(BaseModel):
+class CreatePresetRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Container: str
     Description: Optional[str] = None
@@ -396,7 +396,7 @@ class CreatePresetRequestRequestTypeDef(BaseModel):
     Audio: Optional[AudioParametersTypeDef] = None
     Thumbnails: Optional[ThumbnailsTypeDef] = None
 
-class JobOutputTypeDef(BaseModel):
+class JobOutputTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Key: Optional[str] = None
     ThumbnailPattern: Optional[str] = None
@@ -419,7 +419,7 @@ class JobOutputTypeDef(BaseModel):
     Encryption: Optional[EncryptionTypeDef] = None
     AppliedColorSpaceConversion: Optional[str] = None
 
-class CreateJobOutputTypeDef(BaseModel):
+class CreateJobOutputTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     ThumbnailPattern: Optional[str] = None
     ThumbnailEncryption: Optional[EncryptionTypeDef] = None
@@ -432,7 +432,7 @@ class CreateJobOutputTypeDef(BaseModel):
     Captions: Optional[CaptionsTypeDef] = None
     Encryption: Optional[EncryptionTypeDef] = None
 
-class JobInputExtraOutputTypeDef(BaseModel):
+class JobInputExtraOutputTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     FrameRate: Optional[str] = None
     Resolution: Optional[str] = None
@@ -444,7 +444,7 @@ class JobInputExtraOutputTypeDef(BaseModel):
     InputCaptions: Optional[InputCaptionsExtraOutputTypeDef] = None
     DetectedProperties: Optional[DetectedPropertiesTypeDef] = None
 
-class JobInputOutputTypeDef(BaseModel):
+class JobInputOutputTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     FrameRate: Optional[str] = None
     Resolution: Optional[str] = None
@@ -456,7 +456,7 @@ class JobInputOutputTypeDef(BaseModel):
     InputCaptions: Optional[InputCaptionsOutputTypeDef] = None
     DetectedProperties: Optional[DetectedPropertiesTypeDef] = None
 
-class JobInputTypeDef(BaseModel):
+class JobInputTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     FrameRate: Optional[str] = None
     Resolution: Optional[str] = None
@@ -468,49 +468,49 @@ class JobInputTypeDef(BaseModel):
     InputCaptions: Optional[InputCaptionsTypeDef] = None
     DetectedProperties: Optional[DetectedPropertiesTypeDef] = None
 
-class CreatePipelineResponseTypeDef(BaseModel):
+class CreatePipelineResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     Warnings: List[WarningTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPipelinesResponseTypeDef(BaseModel):
+class ListPipelinesResponseTypeDef(BaseValidatorModel):
     Pipelines: List[PipelineTypeDef]
     NextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReadPipelineResponseTypeDef(BaseModel):
+class ReadPipelineResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     Warnings: List[WarningTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePipelineNotificationsResponseTypeDef(BaseModel):
+class UpdatePipelineNotificationsResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePipelineResponseTypeDef(BaseModel):
+class UpdatePipelineResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     Warnings: List[WarningTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePipelineStatusResponseTypeDef(BaseModel):
+class UpdatePipelineStatusResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePresetResponseTypeDef(BaseModel):
+class CreatePresetResponseTypeDef(BaseValidatorModel):
     Preset: PresetTypeDef
     Warning: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPresetsResponseTypeDef(BaseModel):
+class ListPresetsResponseTypeDef(BaseValidatorModel):
     Presets: List[PresetTypeDef]
     NextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReadPresetResponseTypeDef(BaseModel):
+class ReadPresetResponseTypeDef(BaseValidatorModel):
     Preset: PresetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JobTypeDef(BaseModel):
+class JobTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     PipelineId: Optional[str] = None
@@ -524,25 +524,25 @@ class JobTypeDef(BaseModel):
     UserMetadata: Optional[Dict[str, str]] = None
     Timing: Optional[TimingTypeDef] = None
 
-class CreateJobResponseTypeDef(BaseModel):
+class CreateJobResponseTypeDef(BaseValidatorModel):
     Job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobsByPipelineResponseTypeDef(BaseModel):
+class ListJobsByPipelineResponseTypeDef(BaseValidatorModel):
     Jobs: List[JobTypeDef]
     NextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobsByStatusResponseTypeDef(BaseModel):
+class ListJobsByStatusResponseTypeDef(BaseValidatorModel):
     Jobs: List[JobTypeDef]
     NextPageToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReadJobResponseTypeDef(BaseModel):
+class ReadJobResponseTypeDef(BaseValidatorModel):
     Job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJobRequestRequestTypeDef(BaseModel):
+class CreateJobRequestRequestTypeDef(BaseValidatorModel):
     PipelineId: str
     Input: Optional[JobInputTypeDef] = None
     Inputs: Optional[Sequence[JobInputUnionTypeDef]] = None

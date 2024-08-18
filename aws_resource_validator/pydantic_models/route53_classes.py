@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,98 +11,98 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.route53_constants import *
 
-class AccountLimitTypeDef(BaseModel):
+class AccountLimitTypeDef(BaseValidatorModel):
     Type: AccountLimitTypeType
     Value: int
 
-class ActivateKeySigningKeyRequestRequestTypeDef(BaseModel):
+class ActivateKeySigningKeyRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     Name: str
 
-class ChangeInfoTypeDef(BaseModel):
+class ChangeInfoTypeDef(BaseValidatorModel):
     Id: str
     Status: ChangeStatusType
     SubmittedAt: datetime
     Comment: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class AlarmIdentifierTypeDef(BaseModel):
+class AlarmIdentifierTypeDef(BaseValidatorModel):
     Region: CloudWatchRegionType
     Name: str
 
-class AliasTargetTypeDef(BaseModel):
+class AliasTargetTypeDef(BaseValidatorModel):
     HostedZoneId: str
     DNSName: str
     EvaluateTargetHealth: bool
 
-class VPCTypeDef(BaseModel):
+class VPCTypeDef(BaseValidatorModel):
     VPCRegion: Optional[VPCRegionType] = None
     VPCId: Optional[str] = None
 
-class CidrCollectionChangeTypeDef(BaseModel):
+class CidrCollectionChangeTypeDef(BaseValidatorModel):
     LocationName: str
     Action: CidrCollectionChangeActionType
     CidrList: Sequence[str]
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class CidrBlockSummaryTypeDef(BaseModel):
+class CidrBlockSummaryTypeDef(BaseValidatorModel):
     CidrBlock: Optional[str] = None
     LocationName: Optional[str] = None
 
-class CidrCollectionTypeDef(BaseModel):
+class CidrCollectionTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
     Version: Optional[int] = None
 
-class CidrRoutingConfigTypeDef(BaseModel):
+class CidrRoutingConfigTypeDef(BaseValidatorModel):
     CollectionId: str
     LocationName: str
 
-class DimensionTypeDef(BaseModel):
+class DimensionTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class CollectionSummaryTypeDef(BaseModel):
+class CollectionSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
     Version: Optional[int] = None
 
-class CoordinatesTypeDef(BaseModel):
+class CoordinatesTypeDef(BaseValidatorModel):
     Latitude: str
     Longitude: str
 
-class CreateCidrCollectionRequestRequestTypeDef(BaseModel):
+class CreateCidrCollectionRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     CallerReference: str
 
-class HostedZoneConfigTypeDef(BaseModel):
+class HostedZoneConfigTypeDef(BaseValidatorModel):
     Comment: Optional[str] = None
     PrivateZone: Optional[bool] = None
 
-class DelegationSetTypeDef(BaseModel):
+class DelegationSetTypeDef(BaseValidatorModel):
     NameServers: List[str]
     Id: Optional[str] = None
     CallerReference: Optional[str] = None
 
-class CreateKeySigningKeyRequestRequestTypeDef(BaseModel):
+class CreateKeySigningKeyRequestRequestTypeDef(BaseValidatorModel):
     CallerReference: str
     HostedZoneId: str
     KeyManagementServiceArn: str
     Name: str
     Status: str
 
-class KeySigningKeyTypeDef(BaseModel):
+class KeySigningKeyTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     KmsArn: Optional[str] = None
     Flag: Optional[int] = None
@@ -120,27 +120,27 @@ class KeySigningKeyTypeDef(BaseModel):
     CreatedDate: Optional[datetime] = None
     LastModifiedDate: Optional[datetime] = None
 
-class CreateQueryLoggingConfigRequestRequestTypeDef(BaseModel):
+class CreateQueryLoggingConfigRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     CloudWatchLogsLogGroupArn: str
 
-class QueryLoggingConfigTypeDef(BaseModel):
+class QueryLoggingConfigTypeDef(BaseValidatorModel):
     Id: str
     HostedZoneId: str
     CloudWatchLogsLogGroupArn: str
 
-class CreateReusableDelegationSetRequestRequestTypeDef(BaseModel):
+class CreateReusableDelegationSetRequestRequestTypeDef(BaseValidatorModel):
     CallerReference: str
     HostedZoneId: Optional[str] = None
 
-class CreateTrafficPolicyInstanceRequestRequestTypeDef(BaseModel):
+class CreateTrafficPolicyInstanceRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     Name: str
     TTL: int
     TrafficPolicyId: str
     TrafficPolicyVersion: int
 
-class TrafficPolicyInstanceTypeDef(BaseModel):
+class TrafficPolicyInstanceTypeDef(BaseValidatorModel):
     Id: str
     HostedZoneId: str
     Name: str
@@ -151,12 +151,12 @@ class TrafficPolicyInstanceTypeDef(BaseModel):
     TrafficPolicyVersion: int
     TrafficPolicyType: RRTypeType
 
-class CreateTrafficPolicyRequestRequestTypeDef(BaseModel):
+class CreateTrafficPolicyRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Document: str
     Comment: Optional[str] = None
 
-class TrafficPolicyTypeDef(BaseModel):
+class TrafficPolicyTypeDef(BaseValidatorModel):
     Id: str
     Version: int
     Name: str
@@ -164,52 +164,52 @@ class TrafficPolicyTypeDef(BaseModel):
     Document: str
     Comment: Optional[str] = None
 
-class CreateTrafficPolicyVersionRequestRequestTypeDef(BaseModel):
+class CreateTrafficPolicyVersionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Document: str
     Comment: Optional[str] = None
 
-class DNSSECStatusTypeDef(BaseModel):
+class DNSSECStatusTypeDef(BaseValidatorModel):
     ServeSignature: Optional[str] = None
     StatusMessage: Optional[str] = None
 
-class DeactivateKeySigningKeyRequestRequestTypeDef(BaseModel):
+class DeactivateKeySigningKeyRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     Name: str
 
-class DeleteCidrCollectionRequestRequestTypeDef(BaseModel):
+class DeleteCidrCollectionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteHealthCheckRequestRequestTypeDef(BaseModel):
+class DeleteHealthCheckRequestRequestTypeDef(BaseValidatorModel):
     HealthCheckId: str
 
-class DeleteHostedZoneRequestRequestTypeDef(BaseModel):
+class DeleteHostedZoneRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteKeySigningKeyRequestRequestTypeDef(BaseModel):
+class DeleteKeySigningKeyRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     Name: str
 
-class DeleteQueryLoggingConfigRequestRequestTypeDef(BaseModel):
+class DeleteQueryLoggingConfigRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteReusableDelegationSetRequestRequestTypeDef(BaseModel):
+class DeleteReusableDelegationSetRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteTrafficPolicyInstanceRequestRequestTypeDef(BaseModel):
+class DeleteTrafficPolicyInstanceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteTrafficPolicyRequestRequestTypeDef(BaseModel):
+class DeleteTrafficPolicyRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Version: int
 
-class DisableHostedZoneDNSSECRequestRequestTypeDef(BaseModel):
+class DisableHostedZoneDNSSECRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
 
-class EnableHostedZoneDNSSECRequestRequestTypeDef(BaseModel):
+class EnableHostedZoneDNSSECRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
 
-class GeoLocationDetailsTypeDef(BaseModel):
+class GeoLocationDetailsTypeDef(BaseValidatorModel):
     ContinentCode: Optional[str] = None
     ContinentName: Optional[str] = None
     CountryCode: Optional[str] = None
@@ -217,174 +217,174 @@ class GeoLocationDetailsTypeDef(BaseModel):
     SubdivisionCode: Optional[str] = None
     SubdivisionName: Optional[str] = None
 
-class GeoLocationTypeDef(BaseModel):
+class GeoLocationTypeDef(BaseValidatorModel):
     ContinentCode: Optional[str] = None
     CountryCode: Optional[str] = None
     SubdivisionCode: Optional[str] = None
 
-class GetAccountLimitRequestRequestTypeDef(BaseModel):
+class GetAccountLimitRequestRequestTypeDef(BaseValidatorModel):
     Type: AccountLimitTypeType
 
-class GetChangeRequestRequestTypeDef(BaseModel):
+class GetChangeRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class GetDNSSECRequestRequestTypeDef(BaseModel):
+class GetDNSSECRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
 
-class GetGeoLocationRequestRequestTypeDef(BaseModel):
+class GetGeoLocationRequestRequestTypeDef(BaseValidatorModel):
     ContinentCode: Optional[str] = None
     CountryCode: Optional[str] = None
     SubdivisionCode: Optional[str] = None
 
-class GetHealthCheckLastFailureReasonRequestRequestTypeDef(BaseModel):
+class GetHealthCheckLastFailureReasonRequestRequestTypeDef(BaseValidatorModel):
     HealthCheckId: str
 
-class GetHealthCheckRequestRequestTypeDef(BaseModel):
+class GetHealthCheckRequestRequestTypeDef(BaseValidatorModel):
     HealthCheckId: str
 
-class GetHealthCheckStatusRequestRequestTypeDef(BaseModel):
+class GetHealthCheckStatusRequestRequestTypeDef(BaseValidatorModel):
     HealthCheckId: str
 
-class GetHostedZoneLimitRequestRequestTypeDef(BaseModel):
+class GetHostedZoneLimitRequestRequestTypeDef(BaseValidatorModel):
     Type: HostedZoneLimitTypeType
     HostedZoneId: str
 
-class HostedZoneLimitTypeDef(BaseModel):
+class HostedZoneLimitTypeDef(BaseValidatorModel):
     Type: HostedZoneLimitTypeType
     Value: int
 
-class GetHostedZoneRequestRequestTypeDef(BaseModel):
+class GetHostedZoneRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetQueryLoggingConfigRequestRequestTypeDef(BaseModel):
+class GetQueryLoggingConfigRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetReusableDelegationSetLimitRequestRequestTypeDef(BaseModel):
+class GetReusableDelegationSetLimitRequestRequestTypeDef(BaseValidatorModel):
     Type: Literal["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"]
     DelegationSetId: str
 
-class ReusableDelegationSetLimitTypeDef(BaseModel):
+class ReusableDelegationSetLimitTypeDef(BaseValidatorModel):
     Type: Literal["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"]
     Value: int
 
-class GetReusableDelegationSetRequestRequestTypeDef(BaseModel):
+class GetReusableDelegationSetRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetTrafficPolicyInstanceRequestRequestTypeDef(BaseModel):
+class GetTrafficPolicyInstanceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetTrafficPolicyRequestRequestTypeDef(BaseModel):
+class GetTrafficPolicyRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Version: int
 
-class StatusReportTypeDef(BaseModel):
+class StatusReportTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
     CheckedTime: Optional[datetime] = None
 
-class LinkedServiceTypeDef(BaseModel):
+class LinkedServiceTypeDef(BaseValidatorModel):
     ServicePrincipal: Optional[str] = None
     Description: Optional[str] = None
 
-class HostedZoneOwnerTypeDef(BaseModel):
+class HostedZoneOwnerTypeDef(BaseValidatorModel):
     OwningAccount: Optional[str] = None
     OwningService: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListCidrBlocksRequestRequestTypeDef(BaseModel):
+class ListCidrBlocksRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     LocationName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[str] = None
 
-class ListCidrCollectionsRequestRequestTypeDef(BaseModel):
+class ListCidrCollectionsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[str] = None
 
-class ListCidrLocationsRequestRequestTypeDef(BaseModel):
+class ListCidrLocationsRequestRequestTypeDef(BaseValidatorModel):
     CollectionId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[str] = None
 
-class LocationSummaryTypeDef(BaseModel):
+class LocationSummaryTypeDef(BaseValidatorModel):
     LocationName: Optional[str] = None
 
-class ListGeoLocationsRequestRequestTypeDef(BaseModel):
+class ListGeoLocationsRequestRequestTypeDef(BaseValidatorModel):
     StartContinentCode: Optional[str] = None
     StartCountryCode: Optional[str] = None
     StartSubdivisionCode: Optional[str] = None
     MaxItems: Optional[str] = None
 
-class ListHealthChecksRequestRequestTypeDef(BaseModel):
+class ListHealthChecksRequestRequestTypeDef(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
-class ListHostedZonesByNameRequestRequestTypeDef(BaseModel):
+class ListHostedZonesByNameRequestRequestTypeDef(BaseValidatorModel):
     DNSName: Optional[str] = None
     HostedZoneId: Optional[str] = None
     MaxItems: Optional[str] = None
 
-class ListHostedZonesByVPCRequestRequestTypeDef(BaseModel):
+class ListHostedZonesByVPCRequestRequestTypeDef(BaseValidatorModel):
     VPCId: str
     VPCRegion: VPCRegionType
     MaxItems: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListHostedZonesRequestRequestTypeDef(BaseModel):
+class ListHostedZonesRequestRequestTypeDef(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
     DelegationSetId: Optional[str] = None
     HostedZoneType: Optional[Literal["PrivateHostedZone"]] = None
 
-class ListQueryLoggingConfigsRequestRequestTypeDef(BaseModel):
+class ListQueryLoggingConfigsRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[str] = None
 
-class ListResourceRecordSetsRequestRequestTypeDef(BaseModel):
+class ListResourceRecordSetsRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     StartRecordName: Optional[str] = None
     StartRecordType: Optional[RRTypeType] = None
     StartRecordIdentifier: Optional[str] = None
     MaxItems: Optional[str] = None
 
-class ListReusableDelegationSetsRequestRequestTypeDef(BaseModel):
+class ListReusableDelegationSetsRequestRequestTypeDef(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: TagResourceTypeType
     ResourceId: str
 
-class ListTagsForResourcesRequestRequestTypeDef(BaseModel):
+class ListTagsForResourcesRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: TagResourceTypeType
     ResourceIds: Sequence[str]
 
-class ListTrafficPoliciesRequestRequestTypeDef(BaseModel):
+class ListTrafficPoliciesRequestRequestTypeDef(BaseValidatorModel):
     TrafficPolicyIdMarker: Optional[str] = None
     MaxItems: Optional[str] = None
 
-class TrafficPolicySummaryTypeDef(BaseModel):
+class TrafficPolicySummaryTypeDef(BaseValidatorModel):
     Id: str
     Name: str
     Type: RRTypeType
     LatestVersion: int
     TrafficPolicyCount: int
 
-class ListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef(BaseModel):
+class ListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     TrafficPolicyInstanceNameMarker: Optional[str] = None
     TrafficPolicyInstanceTypeMarker: Optional[RRTypeType] = None
     MaxItems: Optional[str] = None
 
-class ListTrafficPolicyInstancesByPolicyRequestRequestTypeDef(BaseModel):
+class ListTrafficPolicyInstancesByPolicyRequestRequestTypeDef(BaseValidatorModel):
     TrafficPolicyId: str
     TrafficPolicyVersion: int
     HostedZoneIdMarker: Optional[str] = None
@@ -392,26 +392,26 @@ class ListTrafficPolicyInstancesByPolicyRequestRequestTypeDef(BaseModel):
     TrafficPolicyInstanceTypeMarker: Optional[RRTypeType] = None
     MaxItems: Optional[str] = None
 
-class ListTrafficPolicyInstancesRequestRequestTypeDef(BaseModel):
+class ListTrafficPolicyInstancesRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneIdMarker: Optional[str] = None
     TrafficPolicyInstanceNameMarker: Optional[str] = None
     TrafficPolicyInstanceTypeMarker: Optional[RRTypeType] = None
     MaxItems: Optional[str] = None
 
-class ListTrafficPolicyVersionsRequestRequestTypeDef(BaseModel):
+class ListTrafficPolicyVersionsRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     TrafficPolicyVersionMarker: Optional[str] = None
     MaxItems: Optional[str] = None
 
-class ListVPCAssociationAuthorizationsRequestRequestTypeDef(BaseModel):
+class ListVPCAssociationAuthorizationsRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[str] = None
 
-class ResourceRecordTypeDef(BaseModel):
+class ResourceRecordTypeDef(BaseValidatorModel):
     Value: str
 
-class TestDNSAnswerRequestRequestTypeDef(BaseModel):
+class TestDNSAnswerRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     RecordName: str
     RecordType: RRTypeType
@@ -419,87 +419,87 @@ class TestDNSAnswerRequestRequestTypeDef(BaseModel):
     EDNS0ClientSubnetIP: Optional[str] = None
     EDNS0ClientSubnetMask: Optional[str] = None
 
-class UpdateHostedZoneCommentRequestRequestTypeDef(BaseModel):
+class UpdateHostedZoneCommentRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Comment: Optional[str] = None
 
-class UpdateTrafficPolicyCommentRequestRequestTypeDef(BaseModel):
+class UpdateTrafficPolicyCommentRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Version: int
     Comment: str
 
-class UpdateTrafficPolicyInstanceRequestRequestTypeDef(BaseModel):
+class UpdateTrafficPolicyInstanceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     TTL: int
     TrafficPolicyId: str
     TrafficPolicyVersion: int
 
-class ActivateKeySigningKeyResponseTypeDef(BaseModel):
+class ActivateKeySigningKeyResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateVPCWithHostedZoneResponseTypeDef(BaseModel):
+class AssociateVPCWithHostedZoneResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ChangeCidrCollectionResponseTypeDef(BaseModel):
+class ChangeCidrCollectionResponseTypeDef(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ChangeResourceRecordSetsResponseTypeDef(BaseModel):
+class ChangeResourceRecordSetsResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeactivateKeySigningKeyResponseTypeDef(BaseModel):
+class DeactivateKeySigningKeyResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteHostedZoneResponseTypeDef(BaseModel):
+class DeleteHostedZoneResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteKeySigningKeyResponseTypeDef(BaseModel):
+class DeleteKeySigningKeyResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableHostedZoneDNSSECResponseTypeDef(BaseModel):
+class DisableHostedZoneDNSSECResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateVPCFromHostedZoneResponseTypeDef(BaseModel):
+class DisassociateVPCFromHostedZoneResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableHostedZoneDNSSECResponseTypeDef(BaseModel):
+class EnableHostedZoneDNSSECResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccountLimitResponseTypeDef(BaseModel):
+class GetAccountLimitResponseTypeDef(BaseValidatorModel):
     Limit: AccountLimitTypeDef
     Count: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetChangeResponseTypeDef(BaseModel):
+class GetChangeResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCheckerIpRangesResponseTypeDef(BaseModel):
+class GetCheckerIpRangesResponseTypeDef(BaseValidatorModel):
     CheckerIpRanges: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetHealthCheckCountResponseTypeDef(BaseModel):
+class GetHealthCheckCountResponseTypeDef(BaseValidatorModel):
     HealthCheckCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetHostedZoneCountResponseTypeDef(BaseModel):
+class GetHostedZoneCountResponseTypeDef(BaseValidatorModel):
     HostedZoneCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTrafficPolicyInstanceCountResponseTypeDef(BaseModel):
+class GetTrafficPolicyInstanceCountResponseTypeDef(BaseValidatorModel):
     TrafficPolicyInstanceCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestDNSAnswerResponseTypeDef(BaseModel):
+class TestDNSAnswerResponseTypeDef(BaseValidatorModel):
     Nameserver: str
     RecordName: str
     RecordType: RRTypeType
@@ -508,7 +508,7 @@ class TestDNSAnswerResponseTypeDef(BaseModel):
     Protocol: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HealthCheckConfigPaginatorTypeDef(BaseModel):
+class HealthCheckConfigPaginatorTypeDef(BaseValidatorModel):
     Type: HealthCheckTypeType
     IPAddress: Optional[str] = None
     Port: Optional[int] = None
@@ -528,7 +528,7 @@ class HealthCheckConfigPaginatorTypeDef(BaseModel):
     InsufficientDataHealthStatus: Optional[InsufficientDataHealthStatusType] = None
     RoutingControlArn: Optional[str] = None
 
-class HealthCheckConfigTypeDef(BaseModel):
+class HealthCheckConfigTypeDef(BaseValidatorModel):
     Type: HealthCheckTypeType
     IPAddress: Optional[str] = None
     Port: Optional[int] = None
@@ -548,7 +548,7 @@ class HealthCheckConfigTypeDef(BaseModel):
     InsufficientDataHealthStatus: Optional[InsufficientDataHealthStatusType] = None
     RoutingControlArn: Optional[str] = None
 
-class UpdateHealthCheckRequestRequestTypeDef(BaseModel):
+class UpdateHealthCheckRequestRequestTypeDef(BaseValidatorModel):
     HealthCheckId: str
     HealthCheckVersion: Optional[int] = None
     IPAddress: Optional[str] = None
@@ -567,62 +567,62 @@ class UpdateHealthCheckRequestRequestTypeDef(BaseModel):
     InsufficientDataHealthStatus: Optional[InsufficientDataHealthStatusType] = None
     ResetElements: Optional[Sequence[ResettableElementNameType]] = None
 
-class AssociateVPCWithHostedZoneRequestRequestTypeDef(BaseModel):
+class AssociateVPCWithHostedZoneRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     VPC: VPCTypeDef
     Comment: Optional[str] = None
 
-class CreateVPCAssociationAuthorizationRequestRequestTypeDef(BaseModel):
+class CreateVPCAssociationAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     VPC: VPCTypeDef
 
-class CreateVPCAssociationAuthorizationResponseTypeDef(BaseModel):
+class CreateVPCAssociationAuthorizationResponseTypeDef(BaseValidatorModel):
     HostedZoneId: str
     VPC: VPCTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVPCAssociationAuthorizationRequestRequestTypeDef(BaseModel):
+class DeleteVPCAssociationAuthorizationRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     VPC: VPCTypeDef
 
-class DisassociateVPCFromHostedZoneRequestRequestTypeDef(BaseModel):
+class DisassociateVPCFromHostedZoneRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     VPC: VPCTypeDef
     Comment: Optional[str] = None
 
-class ListVPCAssociationAuthorizationsResponseTypeDef(BaseModel):
+class ListVPCAssociationAuthorizationsResponseTypeDef(BaseValidatorModel):
     HostedZoneId: str
     NextToken: str
     VPCs: List[VPCTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ChangeCidrCollectionRequestRequestTypeDef(BaseModel):
+class ChangeCidrCollectionRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Changes: Sequence[CidrCollectionChangeTypeDef]
     CollectionVersion: Optional[int] = None
 
-class ChangeTagsForResourceRequestRequestTypeDef(BaseModel):
+class ChangeTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceType: TagResourceTypeType
     ResourceId: str
     AddTags: Optional[Sequence[TagTypeDef]] = None
     RemoveTagKeys: Optional[Sequence[str]] = None
 
-class ResourceTagSetTypeDef(BaseModel):
+class ResourceTagSetTypeDef(BaseValidatorModel):
     ResourceType: Optional[TagResourceTypeType] = None
     ResourceId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ListCidrBlocksResponseTypeDef(BaseModel):
+class ListCidrBlocksResponseTypeDef(BaseValidatorModel):
     NextToken: str
     CidrBlocks: List[CidrBlockSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCidrCollectionResponseTypeDef(BaseModel):
+class CreateCidrCollectionResponseTypeDef(BaseValidatorModel):
     Collection: CidrCollectionTypeDef
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CloudWatchAlarmConfigurationTypeDef(BaseModel):
+class CloudWatchAlarmConfigurationTypeDef(BaseValidatorModel):
     EvaluationPeriods: int
     Threshold: float
     ComparisonOperator: ComparisonOperatorType
@@ -632,34 +632,34 @@ class CloudWatchAlarmConfigurationTypeDef(BaseModel):
     Statistic: StatisticType
     Dimensions: Optional[List[DimensionTypeDef]] = None
 
-class ListCidrCollectionsResponseTypeDef(BaseModel):
+class ListCidrCollectionsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     CidrCollections: List[CollectionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GeoProximityLocationTypeDef(BaseModel):
+class GeoProximityLocationTypeDef(BaseValidatorModel):
     AWSRegion: Optional[str] = None
     LocalZoneGroup: Optional[str] = None
     Coordinates: Optional[CoordinatesTypeDef] = None
     Bias: Optional[int] = None
 
-class CreateHostedZoneRequestRequestTypeDef(BaseModel):
+class CreateHostedZoneRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     CallerReference: str
     VPC: Optional[VPCTypeDef] = None
     HostedZoneConfig: Optional[HostedZoneConfigTypeDef] = None
     DelegationSetId: Optional[str] = None
 
-class CreateReusableDelegationSetResponseTypeDef(BaseModel):
+class CreateReusableDelegationSetResponseTypeDef(BaseValidatorModel):
     DelegationSet: DelegationSetTypeDef
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetReusableDelegationSetResponseTypeDef(BaseModel):
+class GetReusableDelegationSetResponseTypeDef(BaseValidatorModel):
     DelegationSet: DelegationSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReusableDelegationSetsResponseTypeDef(BaseModel):
+class ListReusableDelegationSetsResponseTypeDef(BaseValidatorModel):
     DelegationSets: List[DelegationSetTypeDef]
     Marker: str
     IsTruncated: bool
@@ -667,36 +667,36 @@ class ListReusableDelegationSetsResponseTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateKeySigningKeyResponseTypeDef(BaseModel):
+class CreateKeySigningKeyResponseTypeDef(BaseValidatorModel):
     ChangeInfo: ChangeInfoTypeDef
     KeySigningKey: KeySigningKeyTypeDef
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateQueryLoggingConfigResponseTypeDef(BaseModel):
+class CreateQueryLoggingConfigResponseTypeDef(BaseValidatorModel):
     QueryLoggingConfig: QueryLoggingConfigTypeDef
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetQueryLoggingConfigResponseTypeDef(BaseModel):
+class GetQueryLoggingConfigResponseTypeDef(BaseValidatorModel):
     QueryLoggingConfig: QueryLoggingConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListQueryLoggingConfigsResponseTypeDef(BaseModel):
+class ListQueryLoggingConfigsResponseTypeDef(BaseValidatorModel):
     QueryLoggingConfigs: List[QueryLoggingConfigTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrafficPolicyInstanceResponseTypeDef(BaseModel):
+class CreateTrafficPolicyInstanceResponseTypeDef(BaseValidatorModel):
     TrafficPolicyInstance: TrafficPolicyInstanceTypeDef
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTrafficPolicyInstanceResponseTypeDef(BaseModel):
+class GetTrafficPolicyInstanceResponseTypeDef(BaseValidatorModel):
     TrafficPolicyInstance: TrafficPolicyInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTrafficPolicyInstancesByHostedZoneResponseTypeDef(BaseModel):
+class ListTrafficPolicyInstancesByHostedZoneResponseTypeDef(BaseValidatorModel):
     TrafficPolicyInstances: List[TrafficPolicyInstanceTypeDef]
     TrafficPolicyInstanceNameMarker: str
     TrafficPolicyInstanceTypeMarker: RRTypeType
@@ -704,16 +704,7 @@ class ListTrafficPolicyInstancesByHostedZoneResponseTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTrafficPolicyInstancesByPolicyResponseTypeDef(BaseModel):
-    TrafficPolicyInstances: List[TrafficPolicyInstanceTypeDef]
-    HostedZoneIdMarker: str
-    TrafficPolicyInstanceNameMarker: str
-    TrafficPolicyInstanceTypeMarker: RRTypeType
-    IsTruncated: bool
-    MaxItems: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListTrafficPolicyInstancesResponseTypeDef(BaseModel):
+class ListTrafficPolicyInstancesByPolicyResponseTypeDef(BaseValidatorModel):
     TrafficPolicyInstances: List[TrafficPolicyInstanceTypeDef]
     HostedZoneIdMarker: str
     TrafficPolicyInstanceNameMarker: str
@@ -722,45 +713,54 @@ class ListTrafficPolicyInstancesResponseTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTrafficPolicyInstanceResponseTypeDef(BaseModel):
+class ListTrafficPolicyInstancesResponseTypeDef(BaseValidatorModel):
+    TrafficPolicyInstances: List[TrafficPolicyInstanceTypeDef]
+    HostedZoneIdMarker: str
+    TrafficPolicyInstanceNameMarker: str
+    TrafficPolicyInstanceTypeMarker: RRTypeType
+    IsTruncated: bool
+    MaxItems: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTrafficPolicyInstanceResponseTypeDef(BaseValidatorModel):
     TrafficPolicyInstance: TrafficPolicyInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrafficPolicyResponseTypeDef(BaseModel):
+class CreateTrafficPolicyResponseTypeDef(BaseValidatorModel):
     TrafficPolicy: TrafficPolicyTypeDef
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTrafficPolicyVersionResponseTypeDef(BaseModel):
+class CreateTrafficPolicyVersionResponseTypeDef(BaseValidatorModel):
     TrafficPolicy: TrafficPolicyTypeDef
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTrafficPolicyResponseTypeDef(BaseModel):
+class GetTrafficPolicyResponseTypeDef(BaseValidatorModel):
     TrafficPolicy: TrafficPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTrafficPolicyVersionsResponseTypeDef(BaseModel):
+class ListTrafficPolicyVersionsResponseTypeDef(BaseValidatorModel):
     TrafficPolicies: List[TrafficPolicyTypeDef]
     IsTruncated: bool
     TrafficPolicyVersionMarker: str
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTrafficPolicyCommentResponseTypeDef(BaseModel):
+class UpdateTrafficPolicyCommentResponseTypeDef(BaseValidatorModel):
     TrafficPolicy: TrafficPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDNSSECResponseTypeDef(BaseModel):
+class GetDNSSECResponseTypeDef(BaseValidatorModel):
     Status: DNSSECStatusTypeDef
     KeySigningKeys: List[KeySigningKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGeoLocationResponseTypeDef(BaseModel):
+class GetGeoLocationResponseTypeDef(BaseValidatorModel):
     GeoLocationDetails: GeoLocationDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGeoLocationsResponseTypeDef(BaseModel):
+class ListGeoLocationsResponseTypeDef(BaseValidatorModel):
     GeoLocationDetailsList: List[GeoLocationDetailsTypeDef]
     IsTruncated: bool
     NextContinentCode: str
@@ -769,26 +769,26 @@ class ListGeoLocationsResponseTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetChangeRequestResourceRecordSetsChangedWaitTypeDef(BaseModel):
+class GetChangeRequestResourceRecordSetsChangedWaitTypeDef(BaseValidatorModel):
     Id: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetHostedZoneLimitResponseTypeDef(BaseModel):
+class GetHostedZoneLimitResponseTypeDef(BaseValidatorModel):
     Limit: HostedZoneLimitTypeDef
     Count: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetReusableDelegationSetLimitResponseTypeDef(BaseModel):
+class GetReusableDelegationSetLimitResponseTypeDef(BaseValidatorModel):
     Limit: ReusableDelegationSetLimitTypeDef
     Count: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HealthCheckObservationTypeDef(BaseModel):
+class HealthCheckObservationTypeDef(BaseValidatorModel):
     Region: Optional[HealthCheckRegionType] = None
     IPAddress: Optional[str] = None
     StatusReport: Optional[StatusReportTypeDef] = None
 
-class HostedZoneTypeDef(BaseModel):
+class HostedZoneTypeDef(BaseValidatorModel):
     Id: str
     Name: str
     CallerReference: str
@@ -796,69 +796,69 @@ class HostedZoneTypeDef(BaseModel):
     ResourceRecordSetCount: Optional[int] = None
     LinkedService: Optional[LinkedServiceTypeDef] = None
 
-class HostedZoneSummaryTypeDef(BaseModel):
+class HostedZoneSummaryTypeDef(BaseValidatorModel):
     HostedZoneId: str
     Name: str
     Owner: HostedZoneOwnerTypeDef
 
-class ListCidrBlocksRequestListCidrBlocksPaginateTypeDef(BaseModel):
+class ListCidrBlocksRequestListCidrBlocksPaginateTypeDef(BaseValidatorModel):
     CollectionId: str
     LocationName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCidrCollectionsRequestListCidrCollectionsPaginateTypeDef(BaseModel):
+class ListCidrCollectionsRequestListCidrCollectionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCidrLocationsRequestListCidrLocationsPaginateTypeDef(BaseModel):
+class ListCidrLocationsRequestListCidrLocationsPaginateTypeDef(BaseValidatorModel):
     CollectionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHealthChecksRequestListHealthChecksPaginateTypeDef(BaseModel):
+class ListHealthChecksRequestListHealthChecksPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHostedZonesRequestListHostedZonesPaginateTypeDef(BaseModel):
+class ListHostedZonesRequestListHostedZonesPaginateTypeDef(BaseValidatorModel):
     DelegationSetId: Optional[str] = None
     HostedZoneType: Optional[Literal["PrivateHostedZone"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueryLoggingConfigsRequestListQueryLoggingConfigsPaginateTypeDef(BaseModel):
+class ListQueryLoggingConfigsRequestListQueryLoggingConfigsPaginateTypeDef(BaseValidatorModel):
     HostedZoneId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourceRecordSetsRequestListResourceRecordSetsPaginateTypeDef(BaseModel):
+class ListResourceRecordSetsRequestListResourceRecordSetsPaginateTypeDef(BaseValidatorModel):
     HostedZoneId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVPCAssociationAuthorizationsRequestListVPCAssociationAuthorizationsPaginateTypeDef(BaseModel):
+class ListVPCAssociationAuthorizationsRequestListVPCAssociationAuthorizationsPaginateTypeDef(BaseValidatorModel):
     HostedZoneId: str
     MaxResults: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCidrLocationsResponseTypeDef(BaseModel):
+class ListCidrLocationsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     CidrLocations: List[LocationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTrafficPoliciesResponseTypeDef(BaseModel):
+class ListTrafficPoliciesResponseTypeDef(BaseValidatorModel):
     TrafficPolicySummaries: List[TrafficPolicySummaryTypeDef]
     IsTruncated: bool
     TrafficPolicyIdMarker: str
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHealthCheckRequestRequestTypeDef(BaseModel):
+class CreateHealthCheckRequestRequestTypeDef(BaseValidatorModel):
     CallerReference: str
     HealthCheckConfig: HealthCheckConfigTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     ResourceTagSet: ResourceTagSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourcesResponseTypeDef(BaseModel):
+class ListTagsForResourcesResponseTypeDef(BaseValidatorModel):
     ResourceTagSets: List[ResourceTagSetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class HealthCheckPaginatorTypeDef(BaseModel):
+class HealthCheckPaginatorTypeDef(BaseValidatorModel):
     Id: str
     CallerReference: str
     HealthCheckConfig: HealthCheckConfigPaginatorTypeDef
@@ -866,7 +866,7 @@ class HealthCheckPaginatorTypeDef(BaseModel):
     LinkedService: Optional[LinkedServiceTypeDef] = None
     CloudWatchAlarmConfiguration: Optional[CloudWatchAlarmConfigurationTypeDef] = None
 
-class HealthCheckTypeDef(BaseModel):
+class HealthCheckTypeDef(BaseValidatorModel):
     Id: str
     CallerReference: str
     HealthCheckConfig: HealthCheckConfigTypeDef
@@ -874,7 +874,7 @@ class HealthCheckTypeDef(BaseModel):
     LinkedService: Optional[LinkedServiceTypeDef] = None
     CloudWatchAlarmConfiguration: Optional[CloudWatchAlarmConfigurationTypeDef] = None
 
-class ResourceRecordSetPaginatorTypeDef(BaseModel):
+class ResourceRecordSetPaginatorTypeDef(BaseValidatorModel):
     Name: str
     Type: RRTypeType
     SetIdentifier: Optional[str] = None
@@ -891,7 +891,7 @@ class ResourceRecordSetPaginatorTypeDef(BaseModel):
     CidrRoutingConfig: Optional[CidrRoutingConfigTypeDef] = None
     GeoProximityLocation: Optional[GeoProximityLocationTypeDef] = None
 
-class ResourceRecordSetTypeDef(BaseModel):
+class ResourceRecordSetTypeDef(BaseValidatorModel):
     Name: str
     Type: RRTypeType
     SetIdentifier: Optional[str] = None
@@ -908,15 +908,15 @@ class ResourceRecordSetTypeDef(BaseModel):
     CidrRoutingConfig: Optional[CidrRoutingConfigTypeDef] = None
     GeoProximityLocation: Optional[GeoProximityLocationTypeDef] = None
 
-class GetHealthCheckLastFailureReasonResponseTypeDef(BaseModel):
+class GetHealthCheckLastFailureReasonResponseTypeDef(BaseValidatorModel):
     HealthCheckObservations: List[HealthCheckObservationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetHealthCheckStatusResponseTypeDef(BaseModel):
+class GetHealthCheckStatusResponseTypeDef(BaseValidatorModel):
     HealthCheckObservations: List[HealthCheckObservationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHostedZoneResponseTypeDef(BaseModel):
+class CreateHostedZoneResponseTypeDef(BaseValidatorModel):
     HostedZone: HostedZoneTypeDef
     ChangeInfo: ChangeInfoTypeDef
     DelegationSet: DelegationSetTypeDef
@@ -924,13 +924,13 @@ class CreateHostedZoneResponseTypeDef(BaseModel):
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetHostedZoneResponseTypeDef(BaseModel):
+class GetHostedZoneResponseTypeDef(BaseValidatorModel):
     HostedZone: HostedZoneTypeDef
     DelegationSet: DelegationSetTypeDef
     VPCs: List[VPCTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHostedZonesByNameResponseTypeDef(BaseModel):
+class ListHostedZonesByNameResponseTypeDef(BaseValidatorModel):
     HostedZones: List[HostedZoneTypeDef]
     DNSName: str
     HostedZoneId: str
@@ -940,7 +940,7 @@ class ListHostedZonesByNameResponseTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHostedZonesResponseTypeDef(BaseModel):
+class ListHostedZonesResponseTypeDef(BaseValidatorModel):
     HostedZones: List[HostedZoneTypeDef]
     Marker: str
     IsTruncated: bool
@@ -948,17 +948,17 @@ class ListHostedZonesResponseTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateHostedZoneCommentResponseTypeDef(BaseModel):
+class UpdateHostedZoneCommentResponseTypeDef(BaseValidatorModel):
     HostedZone: HostedZoneTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHostedZonesByVPCResponseTypeDef(BaseModel):
+class ListHostedZonesByVPCResponseTypeDef(BaseValidatorModel):
     HostedZoneSummaries: List[HostedZoneSummaryTypeDef]
     MaxItems: str
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHealthChecksResponsePaginatorTypeDef(BaseModel):
+class ListHealthChecksResponsePaginatorTypeDef(BaseValidatorModel):
     HealthChecks: List[HealthCheckPaginatorTypeDef]
     Marker: str
     IsTruncated: bool
@@ -966,16 +966,16 @@ class ListHealthChecksResponsePaginatorTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateHealthCheckResponseTypeDef(BaseModel):
+class CreateHealthCheckResponseTypeDef(BaseValidatorModel):
     HealthCheck: HealthCheckTypeDef
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetHealthCheckResponseTypeDef(BaseModel):
+class GetHealthCheckResponseTypeDef(BaseValidatorModel):
     HealthCheck: HealthCheckTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListHealthChecksResponseTypeDef(BaseModel):
+class ListHealthChecksResponseTypeDef(BaseValidatorModel):
     HealthChecks: List[HealthCheckTypeDef]
     Marker: str
     IsTruncated: bool
@@ -983,11 +983,11 @@ class ListHealthChecksResponseTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateHealthCheckResponseTypeDef(BaseModel):
+class UpdateHealthCheckResponseTypeDef(BaseValidatorModel):
     HealthCheck: HealthCheckTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourceRecordSetsResponsePaginatorTypeDef(BaseModel):
+class ListResourceRecordSetsResponsePaginatorTypeDef(BaseValidatorModel):
     ResourceRecordSets: List[ResourceRecordSetPaginatorTypeDef]
     IsTruncated: bool
     NextRecordName: str
@@ -996,11 +996,11 @@ class ListResourceRecordSetsResponsePaginatorTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ChangeTypeDef(BaseModel):
+class ChangeTypeDef(BaseValidatorModel):
     Action: ChangeActionType
     ResourceRecordSet: ResourceRecordSetTypeDef
 
-class ListResourceRecordSetsResponseTypeDef(BaseModel):
+class ListResourceRecordSetsResponseTypeDef(BaseValidatorModel):
     ResourceRecordSets: List[ResourceRecordSetTypeDef]
     IsTruncated: bool
     NextRecordName: str
@@ -1009,11 +1009,11 @@ class ListResourceRecordSetsResponseTypeDef(BaseModel):
     MaxItems: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ChangeBatchTypeDef(BaseModel):
+class ChangeBatchTypeDef(BaseValidatorModel):
     Changes: Sequence[ChangeTypeDef]
     Comment: Optional[str] = None
 
-class ChangeResourceRecordSetsRequestRequestTypeDef(BaseModel):
+class ChangeResourceRecordSetsRequestRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     ChangeBatch: ChangeBatchTypeDef
 

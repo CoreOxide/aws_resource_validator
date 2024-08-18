@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,37 +11,37 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.amplifyuibuilder_constants import *
 
-class MutationActionSetStateParameterPaginatorTypeDef(BaseModel):
+class MutationActionSetStateParameterPaginatorTypeDef(BaseValidatorModel):
     componentName: str
     property: str
     set: "ComponentPropertyPaginatorTypeDef"
 
-class MutationActionSetStateParameterTypeDef(BaseModel):
+class MutationActionSetStateParameterTypeDef(BaseValidatorModel):
     componentName: str
     property: str
     set: "ComponentPropertyTypeDef"
 
-class GraphQLRenderConfigTypeDef(BaseModel):
+class GraphQLRenderConfigTypeDef(BaseValidatorModel):
     typesFilePath: str
     queriesFilePath: str
     mutationsFilePath: str
     subscriptionsFilePath: str
     fragmentsFilePath: str
 
-class CodegenDependencyTypeDef(BaseModel):
+class CodegenDependencyTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     supportedVersion: Optional[str] = None
     isSemVer: Optional[bool] = None
     reason: Optional[str] = None
 
-class CodegenFeatureFlagsTypeDef(BaseModel):
+class CodegenFeatureFlagsTypeDef(BaseValidatorModel):
     isRelationshipSupported: Optional[bool] = None
     isNonModelSupported: Optional[bool] = None
 
-class CodegenGenericDataEnumTypeDef(BaseModel):
+class CodegenGenericDataEnumTypeDef(BaseValidatorModel):
     values: List[str]
 
-class CodegenGenericDataRelationshipTypeTypeDef(BaseModel):
+class CodegenGenericDataRelationshipTypeTypeDef(BaseValidatorModel):
     type: GenericDataRelationshipTypeType
     relatedModelName: str
     relatedModelFields: Optional[List[str]] = None
@@ -52,17 +52,17 @@ class CodegenGenericDataRelationshipTypeTypeDef(BaseModel):
     associatedFields: Optional[List[str]] = None
     isHasManyIndex: Optional[bool] = None
 
-class CodegenJobAssetTypeDef(BaseModel):
+class CodegenJobAssetTypeDef(BaseValidatorModel):
     downloadUrl: Optional[str] = None
 
-class CodegenJobSummaryTypeDef(BaseModel):
+class CodegenJobSummaryTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
     createdAt: Optional[datetime] = None
     modifiedAt: Optional[datetime] = None
 
-class ComponentBindingPropertiesValuePropertiesPaginatorTypeDef(BaseModel):
+class ComponentBindingPropertiesValuePropertiesPaginatorTypeDef(BaseValidatorModel):
     model: Optional[str] = None
     field: Optional[str] = None
     predicates: Optional[List["PredicatePaginatorTypeDef"]] = None
@@ -72,7 +72,7 @@ class ComponentBindingPropertiesValuePropertiesPaginatorTypeDef(BaseModel):
     defaultValue: Optional[str] = None
     slotName: Optional[str] = None
 
-class ComponentBindingPropertiesValuePropertiesTypeDef(BaseModel):
+class ComponentBindingPropertiesValuePropertiesTypeDef(BaseValidatorModel):
     model: Optional[str] = None
     field: Optional[str] = None
     predicates: Optional[Sequence["PredicateTypeDef"]] = None
@@ -82,7 +82,7 @@ class ComponentBindingPropertiesValuePropertiesTypeDef(BaseModel):
     defaultValue: Optional[str] = None
     slotName: Optional[str] = None
 
-class ComponentConditionPropertyTypeDef(BaseModel):
+class ComponentConditionPropertyTypeDef(BaseValidatorModel):
     property: Optional[str] = None
     field: Optional[str] = None
     operator: Optional[str] = None
@@ -91,51 +91,51 @@ class ComponentConditionPropertyTypeDef(BaseModel):
     else: Optional["ComponentPropertyTypeDef"] = None
     operandType: Optional[str] = None
 
-class SortPropertyTypeDef(BaseModel):
+class SortPropertyTypeDef(BaseValidatorModel):
     field: str
     direction: SortDirectionType
 
-class ComponentVariantPaginatorTypeDef(BaseModel):
+class ComponentVariantPaginatorTypeDef(BaseValidatorModel):
     variantValues: Optional[Dict[str, str]] = None
     overrides: Optional[Dict[str, Dict[str, str]]] = None
 
-class ComponentPropertyBindingPropertiesTypeDef(BaseModel):
+class ComponentPropertyBindingPropertiesTypeDef(BaseValidatorModel):
     property: str
     field: Optional[str] = None
 
-class FormBindingElementTypeDef(BaseModel):
+class FormBindingElementTypeDef(BaseValidatorModel):
     element: str
     property: str
 
-class ComponentSummaryTypeDef(BaseModel):
+class ComponentSummaryTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
     name: str
     componentType: str
 
-class ComponentVariantTypeDef(BaseModel):
+class ComponentVariantTypeDef(BaseValidatorModel):
     variantValues: Optional[Mapping[str, str]] = None
     overrides: Optional[Mapping[str, Mapping[str, str]]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class FormDataTypeConfigTypeDef(BaseModel):
+class FormDataTypeConfigTypeDef(BaseValidatorModel):
     dataSourceType: FormDataSourceTypeType
     dataTypeName: str
 
-class CreateThemeDataTypeDef(BaseModel):
+class CreateThemeDataTypeDef(BaseValidatorModel):
     name: str
     values: Sequence["ThemeValuesTypeDef"]
     overrides: Optional[Sequence["ThemeValuesTypeDef"]] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ThemeTypeDef(BaseModel):
+class ThemeTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
@@ -146,47 +146,47 @@ class ThemeTypeDef(BaseModel):
     overrides: Optional[List["ThemeValuesTypeDef"]] = None
     tags: Optional[Dict[str, str]] = None
 
-class DeleteComponentRequestRequestTypeDef(BaseModel):
+class DeleteComponentRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
-class DeleteFormRequestRequestTypeDef(BaseModel):
+class DeleteFormRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
-class DeleteThemeRequestRequestTypeDef(BaseModel):
+class DeleteThemeRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
-class ExchangeCodeForTokenRequestBodyTypeDef(BaseModel):
+class ExchangeCodeForTokenRequestBodyTypeDef(BaseValidatorModel):
     code: str
     redirectUri: str
     clientId: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ExportComponentsRequestRequestTypeDef(BaseModel):
+class ExportComponentsRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     nextToken: Optional[str] = None
 
-class ExportFormsRequestRequestTypeDef(BaseModel):
+class ExportFormsRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     nextToken: Optional[str] = None
 
-class ExportThemesRequestRequestTypeDef(BaseModel):
+class ExportThemesRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     nextToken: Optional[str] = None
 
-class ThemePaginatorTypeDef(BaseModel):
+class ThemePaginatorTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
@@ -197,24 +197,24 @@ class ThemePaginatorTypeDef(BaseModel):
     overrides: Optional[List["ThemeValuesPaginatorTypeDef"]] = None
     tags: Optional[Dict[str, str]] = None
 
-class FieldPositionTypeDef(BaseModel):
+class FieldPositionTypeDef(BaseValidatorModel):
     fixed: Optional[Literal["first"]] = None
     rightOf: Optional[str] = None
     below: Optional[str] = None
 
-class FieldValidationConfigurationPaginatorTypeDef(BaseModel):
+class FieldValidationConfigurationPaginatorTypeDef(BaseValidatorModel):
     type: str
     strValues: Optional[List[str]] = None
     numValues: Optional[List[int]] = None
     validationMessage: Optional[str] = None
 
-class FieldValidationConfigurationTypeDef(BaseModel):
+class FieldValidationConfigurationTypeDef(BaseValidatorModel):
     type: str
     strValues: Optional[Sequence[str]] = None
     numValues: Optional[Sequence[int]] = None
     validationMessage: Optional[str] = None
 
-class FileUploaderFieldConfigPaginatorTypeDef(BaseModel):
+class FileUploaderFieldConfigPaginatorTypeDef(BaseValidatorModel):
     accessLevel: StorageAccessLevelType
     acceptedFileTypes: List[str]
     showThumbnails: Optional[bool] = None
@@ -222,7 +222,7 @@ class FileUploaderFieldConfigPaginatorTypeDef(BaseModel):
     maxFileCount: Optional[int] = None
     maxSize: Optional[int] = None
 
-class FileUploaderFieldConfigTypeDef(BaseModel):
+class FileUploaderFieldConfigTypeDef(BaseValidatorModel):
     accessLevel: StorageAccessLevelType
     acceptedFileTypes: Sequence[str]
     showThumbnails: Optional[bool] = None
@@ -230,75 +230,75 @@ class FileUploaderFieldConfigTypeDef(BaseModel):
     maxFileCount: Optional[int] = None
     maxSize: Optional[int] = None
 
-class FormInputBindingPropertiesValuePropertiesTypeDef(BaseModel):
+class FormInputBindingPropertiesValuePropertiesTypeDef(BaseValidatorModel):
     model: Optional[str] = None
 
-class FormInputValuePropertyBindingPropertiesTypeDef(BaseModel):
+class FormInputValuePropertyBindingPropertiesTypeDef(BaseValidatorModel):
     property: str
     field: Optional[str] = None
 
-class FormStyleConfigTypeDef(BaseModel):
+class FormStyleConfigTypeDef(BaseValidatorModel):
     tokenReference: Optional[str] = None
     value: Optional[str] = None
 
-class GetCodegenJobRequestRequestTypeDef(BaseModel):
+class GetCodegenJobRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
-class GetComponentRequestRequestTypeDef(BaseModel):
+class GetComponentRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
-class GetFormRequestRequestTypeDef(BaseModel):
+class GetFormRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
-class GetMetadataRequestRequestTypeDef(BaseModel):
+class GetMetadataRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
 
-class GetThemeRequestRequestTypeDef(BaseModel):
+class GetThemeRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
-class ListCodegenJobsRequestRequestTypeDef(BaseModel):
+class ListCodegenJobsRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListComponentsRequestRequestTypeDef(BaseModel):
+class ListComponentsRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListFormsRequestRequestTypeDef(BaseModel):
+class ListFormsRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListThemesRequestRequestTypeDef(BaseModel):
+class ListThemesRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ThemeSummaryTypeDef(BaseModel):
+class ThemeSummaryTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
     name: str
 
-class PredicatePaginatorTypeDef(BaseModel):
+class PredicatePaginatorTypeDef(BaseValidatorModel):
     or: Optional[List[Dict[str, Any]]] = None
     and: Optional[List[Dict[str, Any]]] = None
     field: Optional[str] = None
@@ -306,7 +306,7 @@ class PredicatePaginatorTypeDef(BaseModel):
     operand: Optional[str] = None
     operandType: Optional[str] = None
 
-class PredicateTypeDef(BaseModel):
+class PredicateTypeDef(BaseValidatorModel):
     or: Optional[Sequence[Dict[str, Any]]] = None
     and: Optional[Sequence[Dict[str, Any]]] = None
     field: Optional[str] = None
@@ -314,52 +314,52 @@ class PredicateTypeDef(BaseModel):
     operand: Optional[str] = None
     operandType: Optional[str] = None
 
-class PutMetadataFlagBodyTypeDef(BaseModel):
+class PutMetadataFlagBodyTypeDef(BaseValidatorModel):
     newValue: str
 
-class RefreshTokenRequestBodyTypeDef(BaseModel):
+class RefreshTokenRequestBodyTypeDef(BaseValidatorModel):
     token: str
     clientId: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class ThemeValuePaginatorTypeDef(BaseModel):
+class ThemeValuePaginatorTypeDef(BaseValidatorModel):
     value: Optional[str] = None
     children: Optional[List["ThemeValuesPaginatorTypeDef"]] = None
 
-class ThemeValueTypeDef(BaseModel):
+class ThemeValueTypeDef(BaseValidatorModel):
     value: Optional[str] = None
     children: Optional[Sequence["ThemeValuesTypeDef"]] = None
 
-class ThemeValuesPaginatorTypeDef(BaseModel):
+class ThemeValuesPaginatorTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[Dict[str, Any]] = None
 
-class ThemeValuesTypeDef(BaseModel):
+class ThemeValuesTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[Dict[str, Any]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateThemeDataTypeDef(BaseModel):
+class UpdateThemeDataTypeDef(BaseValidatorModel):
     values: Sequence["ThemeValuesTypeDef"]
     id: Optional[str] = None
     name: Optional[str] = None
     overrides: Optional[Sequence["ThemeValuesTypeDef"]] = None
 
-class ValueMappingPaginatorTypeDef(BaseModel):
+class ValueMappingPaginatorTypeDef(BaseValidatorModel):
     value: "FormInputValuePropertyPaginatorTypeDef"
     displayValue: Optional["FormInputValuePropertyPaginatorTypeDef"] = None
 
-class ValueMappingTypeDef(BaseModel):
+class ValueMappingTypeDef(BaseValidatorModel):
     value: "FormInputValuePropertyTypeDef"
     displayValue: Optional["FormInputValuePropertyTypeDef"] = None
 
-class ActionParametersPaginatorTypeDef(BaseModel):
+class ActionParametersPaginatorTypeDef(BaseValidatorModel):
     type: Optional["ComponentPropertyPaginatorTypeDef"] = None
     url: Optional["ComponentPropertyPaginatorTypeDef"] = None
     anchor: Optional["ComponentPropertyPaginatorTypeDef"] = None
@@ -370,7 +370,7 @@ class ActionParametersPaginatorTypeDef(BaseModel):
     fields: Optional[Dict[str, "ComponentPropertyPaginatorTypeDef"]] = None
     state: Optional[MutationActionSetStateParameterPaginatorTypeDef] = None
 
-class ActionParametersTypeDef(BaseModel):
+class ActionParametersTypeDef(BaseValidatorModel):
     type: Optional["ComponentPropertyTypeDef"] = None
     url: Optional["ComponentPropertyTypeDef"] = None
     anchor: Optional["ComponentPropertyTypeDef"] = None
@@ -381,12 +381,12 @@ class ActionParametersTypeDef(BaseModel):
     fields: Optional[Mapping[str, "ComponentPropertyTypeDef"]] = None
     state: Optional[MutationActionSetStateParameterTypeDef] = None
 
-class ApiConfigurationTypeDef(BaseModel):
+class ApiConfigurationTypeDef(BaseValidatorModel):
     graphQLConfig: Optional[GraphQLRenderConfigTypeDef] = None
     dataStoreConfig: Optional[Dict[str, Any]] = None
     noApiConfig: Optional[Dict[str, Any]] = None
 
-class CodegenGenericDataFieldTypeDef(BaseModel):
+class CodegenGenericDataFieldTypeDef(BaseValidatorModel):
     dataType: CodegenGenericDataFieldDataTypeType
     dataTypeValue: str
     required: bool
@@ -394,29 +394,29 @@ class CodegenGenericDataFieldTypeDef(BaseModel):
     isArray: bool
     relationship: Optional[CodegenGenericDataRelationshipTypeTypeDef] = None
 
-class ComponentBindingPropertiesValuePaginatorTypeDef(BaseModel):
+class ComponentBindingPropertiesValuePaginatorTypeDef(BaseValidatorModel):
     type: Optional[str] = None
     bindingProperties: Optional[ComponentBindingPropertiesValuePropertiesPaginatorTypeDef] = None
     defaultValue: Optional[str] = None
 
-class ComponentBindingPropertiesValueTypeDef(BaseModel):
+class ComponentBindingPropertiesValueTypeDef(BaseValidatorModel):
     type: Optional[str] = None
     bindingProperties: Optional[ComponentBindingPropertiesValuePropertiesTypeDef] = None
     defaultValue: Optional[str] = None
 
-class ComponentDataConfigurationPaginatorTypeDef(BaseModel):
+class ComponentDataConfigurationPaginatorTypeDef(BaseValidatorModel):
     model: str
     sort: Optional[List[SortPropertyTypeDef]] = None
     predicate: Optional["PredicatePaginatorTypeDef"] = None
     identifiers: Optional[List[str]] = None
 
-class ComponentDataConfigurationTypeDef(BaseModel):
+class ComponentDataConfigurationTypeDef(BaseValidatorModel):
     model: str
     sort: Optional[Sequence[SortPropertyTypeDef]] = None
     predicate: Optional["PredicateTypeDef"] = None
     identifiers: Optional[Sequence[str]] = None
 
-class ComponentPropertyPaginatorTypeDef(BaseModel):
+class ComponentPropertyPaginatorTypeDef(BaseValidatorModel):
     value: Optional[str] = None
     bindingProperties: Optional[ComponentPropertyBindingPropertiesTypeDef] = None
     collectionBindingProperties: Optional[ComponentPropertyBindingPropertiesTypeDef] = None
@@ -433,7 +433,7 @@ class ComponentPropertyPaginatorTypeDef(BaseModel):
     componentName: Optional[str] = None
     property: Optional[str] = None
 
-class ComponentPropertyTypeDef(BaseModel):
+class ComponentPropertyTypeDef(BaseValidatorModel):
     value: Optional[str] = None
     bindingProperties: Optional[ComponentPropertyBindingPropertiesTypeDef] = None
     collectionBindingProperties: Optional[ComponentPropertyBindingPropertiesTypeDef] = None
@@ -450,39 +450,39 @@ class ComponentPropertyTypeDef(BaseModel):
     componentName: Optional[str] = None
     property: Optional[str] = None
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExchangeCodeForTokenResponseTypeDef(BaseModel):
+class ExchangeCodeForTokenResponseTypeDef(BaseValidatorModel):
     accessToken: str
     expiresIn: int
     refreshToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMetadataResponseTypeDef(BaseModel):
+class GetMetadataResponseTypeDef(BaseValidatorModel):
     features: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCodegenJobsResponseTypeDef(BaseModel):
+class ListCodegenJobsResponseTypeDef(BaseValidatorModel):
     entities: List[CodegenJobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListComponentsResponseTypeDef(BaseModel):
+class ListComponentsResponseTypeDef(BaseValidatorModel):
     entities: List[ComponentSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RefreshTokenResponseTypeDef(BaseModel):
+class RefreshTokenResponseTypeDef(BaseValidatorModel):
     accessToken: str
     expiresIn: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FormSummaryTypeDef(BaseModel):
+class FormSummaryTypeDef(BaseValidatorModel):
     appId: str
     dataType: FormDataTypeConfigTypeDef
     environmentName: str
@@ -490,79 +490,79 @@ class FormSummaryTypeDef(BaseModel):
     id: str
     name: str
 
-class CreateThemeRequestRequestTypeDef(BaseModel):
+class CreateThemeRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     themeToCreate: CreateThemeDataTypeDef
     clientToken: Optional[str] = None
 
-class CreateThemeResponseTypeDef(BaseModel):
+class CreateThemeResponseTypeDef(BaseValidatorModel):
     entity: ThemeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportThemesResponseTypeDef(BaseModel):
+class ExportThemesResponseTypeDef(BaseValidatorModel):
     entities: List[ThemeTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetThemeResponseTypeDef(BaseModel):
+class GetThemeResponseTypeDef(BaseValidatorModel):
     theme: ThemeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateThemeResponseTypeDef(BaseModel):
+class UpdateThemeResponseTypeDef(BaseValidatorModel):
     entity: ThemeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExchangeCodeForTokenRequestRequestTypeDef(BaseModel):
+class ExchangeCodeForTokenRequestRequestTypeDef(BaseValidatorModel):
     provider: Literal["figma"]
     request: ExchangeCodeForTokenRequestBodyTypeDef
 
-class ExportComponentsRequestExportComponentsPaginateTypeDef(BaseModel):
+class ExportComponentsRequestExportComponentsPaginateTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ExportFormsRequestExportFormsPaginateTypeDef(BaseModel):
+class ExportFormsRequestExportFormsPaginateTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ExportThemesRequestExportThemesPaginateTypeDef(BaseModel):
+class ExportThemesRequestExportThemesPaginateTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCodegenJobsRequestListCodegenJobsPaginateTypeDef(BaseModel):
+class ListCodegenJobsRequestListCodegenJobsPaginateTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListComponentsRequestListComponentsPaginateTypeDef(BaseModel):
+class ListComponentsRequestListComponentsPaginateTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFormsRequestListFormsPaginateTypeDef(BaseModel):
+class ListFormsRequestListFormsPaginateTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListThemesRequestListThemesPaginateTypeDef(BaseModel):
+class ListThemesRequestListThemesPaginateTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ExportThemesResponsePaginatorTypeDef(BaseModel):
+class ExportThemesResponsePaginatorTypeDef(BaseValidatorModel):
     entities: List[ThemePaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FormButtonTypeDef(BaseModel):
+class FormButtonTypeDef(BaseValidatorModel):
     excluded: Optional[bool] = None
     children: Optional[str] = None
     position: Optional[FieldPositionTypeDef] = None
 
-class SectionalElementTypeDef(BaseModel):
+class SectionalElementTypeDef(BaseValidatorModel):
     type: str
     position: Optional[FieldPositionTypeDef] = None
     text: Optional[str] = None
@@ -570,58 +570,58 @@ class SectionalElementTypeDef(BaseModel):
     orientation: Optional[str] = None
     excluded: Optional[bool] = None
 
-class FormInputBindingPropertiesValueTypeDef(BaseModel):
+class FormInputBindingPropertiesValueTypeDef(BaseValidatorModel):
     type: Optional[str] = None
     bindingProperties: Optional[FormInputBindingPropertiesValuePropertiesTypeDef] = None
 
-class FormInputValuePropertyPaginatorTypeDef(BaseModel):
+class FormInputValuePropertyPaginatorTypeDef(BaseValidatorModel):
     value: Optional[str] = None
     bindingProperties: Optional[FormInputValuePropertyBindingPropertiesTypeDef] = None
     concat: Optional[List[Dict[str, Any]]] = None
 
-class FormInputValuePropertyTypeDef(BaseModel):
+class FormInputValuePropertyTypeDef(BaseValidatorModel):
     value: Optional[str] = None
     bindingProperties: Optional[FormInputValuePropertyBindingPropertiesTypeDef] = None
     concat: Optional[Sequence[Dict[str, Any]]] = None
 
-class FormStyleTypeDef(BaseModel):
+class FormStyleTypeDef(BaseValidatorModel):
     horizontalGap: Optional[FormStyleConfigTypeDef] = None
     verticalGap: Optional[FormStyleConfigTypeDef] = None
     outerPadding: Optional[FormStyleConfigTypeDef] = None
 
-class ListThemesResponseTypeDef(BaseModel):
+class ListThemesResponseTypeDef(BaseValidatorModel):
     entities: List[ThemeSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutMetadataFlagRequestRequestTypeDef(BaseModel):
+class PutMetadataFlagRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     featureName: str
     body: PutMetadataFlagBodyTypeDef
 
-class RefreshTokenRequestRequestTypeDef(BaseModel):
+class RefreshTokenRequestRequestTypeDef(BaseValidatorModel):
     provider: Literal["figma"]
     refreshTokenBody: RefreshTokenRequestBodyTypeDef
 
-class UpdateThemeRequestRequestTypeDef(BaseModel):
+class UpdateThemeRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
     updatedTheme: UpdateThemeDataTypeDef
     clientToken: Optional[str] = None
 
-class ComponentEventPaginatorTypeDef(BaseModel):
+class ComponentEventPaginatorTypeDef(BaseValidatorModel):
     action: Optional[str] = None
     parameters: Optional[ActionParametersPaginatorTypeDef] = None
     bindingEvent: Optional[str] = None
 
-class ComponentEventTypeDef(BaseModel):
+class ComponentEventTypeDef(BaseValidatorModel):
     action: Optional[str] = None
     parameters: Optional[ActionParametersTypeDef] = None
     bindingEvent: Optional[str] = None
 
-class ReactStartCodegenJobDataTypeDef(BaseModel):
+class ReactStartCodegenJobDataTypeDef(BaseValidatorModel):
     module: Optional[JSModuleType] = None
     target: Optional[JSTargetType] = None
     script: Optional[JSScriptType] = None
@@ -630,34 +630,34 @@ class ReactStartCodegenJobDataTypeDef(BaseModel):
     apiConfiguration: Optional[ApiConfigurationTypeDef] = None
     dependencies: Optional[Dict[str, str]] = None
 
-class CodegenGenericDataModelTypeDef(BaseModel):
+class CodegenGenericDataModelTypeDef(BaseValidatorModel):
     fields: Dict[str, CodegenGenericDataFieldTypeDef]
     primaryKeys: List[str]
     isJoinTable: Optional[bool] = None
 
-class CodegenGenericDataNonModelTypeDef(BaseModel):
+class CodegenGenericDataNonModelTypeDef(BaseValidatorModel):
     fields: Dict[str, CodegenGenericDataFieldTypeDef]
 
-class ListFormsResponseTypeDef(BaseModel):
+class ListFormsResponseTypeDef(BaseValidatorModel):
     entities: List[FormSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FormCTATypeDef(BaseModel):
+class FormCTATypeDef(BaseValidatorModel):
     position: Optional[FormButtonsPositionType] = None
     clear: Optional[FormButtonTypeDef] = None
     cancel: Optional[FormButtonTypeDef] = None
     submit: Optional[FormButtonTypeDef] = None
 
-class ValueMappingsPaginatorTypeDef(BaseModel):
+class ValueMappingsPaginatorTypeDef(BaseValidatorModel):
     values: List[ValueMappingPaginatorTypeDef]
     bindingProperties: Optional[Dict[str, FormInputBindingPropertiesValueTypeDef]] = None
 
-class ValueMappingsTypeDef(BaseModel):
+class ValueMappingsTypeDef(BaseValidatorModel):
     values: Sequence[ValueMappingTypeDef]
     bindingProperties: Optional[Mapping[str, FormInputBindingPropertiesValueTypeDef]] = None
 
-class ComponentChildPaginatorTypeDef(BaseModel):
+class ComponentChildPaginatorTypeDef(BaseValidatorModel):
     componentType: str
     name: str
     properties: Dict[str, "ComponentPropertyPaginatorTypeDef"]
@@ -665,7 +665,7 @@ class ComponentChildPaginatorTypeDef(BaseModel):
     events: Optional[Dict[str, ComponentEventPaginatorTypeDef]] = None
     sourceId: Optional[str] = None
 
-class ComponentPaginatorTypeDef(BaseModel):
+class ComponentPaginatorTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
@@ -684,7 +684,7 @@ class ComponentPaginatorTypeDef(BaseModel):
     events: Optional[Dict[str, ComponentEventPaginatorTypeDef]] = None
     schemaVersion: Optional[str] = None
 
-class ComponentChildTypeDef(BaseModel):
+class ComponentChildTypeDef(BaseValidatorModel):
     componentType: str
     name: str
     properties: Mapping[str, "ComponentPropertyTypeDef"]
@@ -692,7 +692,7 @@ class ComponentChildTypeDef(BaseModel):
     events: Optional[Mapping[str, ComponentEventTypeDef]] = None
     sourceId: Optional[str] = None
 
-class ComponentTypeDef(BaseModel):
+class ComponentTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
@@ -711,7 +711,7 @@ class ComponentTypeDef(BaseModel):
     events: Optional[Dict[str, ComponentEventTypeDef]] = None
     schemaVersion: Optional[str] = None
 
-class CreateComponentDataTypeDef(BaseModel):
+class CreateComponentDataTypeDef(BaseValidatorModel):
     name: str
     componentType: str
     properties: Mapping[str, "ComponentPropertyTypeDef"]
@@ -725,7 +725,7 @@ class CreateComponentDataTypeDef(BaseModel):
     events: Optional[Mapping[str, ComponentEventTypeDef]] = None
     schemaVersion: Optional[str] = None
 
-class UpdateComponentDataTypeDef(BaseModel):
+class UpdateComponentDataTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     name: Optional[str] = None
     sourceId: Optional[str] = None
@@ -739,16 +739,16 @@ class UpdateComponentDataTypeDef(BaseModel):
     events: Optional[Mapping[str, ComponentEventTypeDef]] = None
     schemaVersion: Optional[str] = None
 
-class CodegenJobRenderConfigTypeDef(BaseModel):
+class CodegenJobRenderConfigTypeDef(BaseValidatorModel):
     react: Optional[ReactStartCodegenJobDataTypeDef] = None
 
-class CodegenJobGenericDataSchemaTypeDef(BaseModel):
+class CodegenJobGenericDataSchemaTypeDef(BaseValidatorModel):
     dataSourceType: Literal["DataStore"]
     models: Dict[str, CodegenGenericDataModelTypeDef]
     enums: Dict[str, CodegenGenericDataEnumTypeDef]
     nonModels: Dict[str, CodegenGenericDataNonModelTypeDef]
 
-class FieldInputConfigPaginatorTypeDef(BaseModel):
+class FieldInputConfigPaginatorTypeDef(BaseValidatorModel):
     type: str
     required: Optional[bool] = None
     readOnly: Optional[bool] = None
@@ -766,7 +766,7 @@ class FieldInputConfigPaginatorTypeDef(BaseModel):
     isArray: Optional[bool] = None
     fileUploaderConfig: Optional[FileUploaderFieldConfigPaginatorTypeDef] = None
 
-class FieldInputConfigTypeDef(BaseModel):
+class FieldInputConfigTypeDef(BaseValidatorModel):
     type: str
     required: Optional[bool] = None
     readOnly: Optional[bool] = None
@@ -784,42 +784,42 @@ class FieldInputConfigTypeDef(BaseModel):
     isArray: Optional[bool] = None
     fileUploaderConfig: Optional[FileUploaderFieldConfigTypeDef] = None
 
-class ExportComponentsResponsePaginatorTypeDef(BaseModel):
+class ExportComponentsResponsePaginatorTypeDef(BaseValidatorModel):
     entities: List[ComponentPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateComponentResponseTypeDef(BaseModel):
+class CreateComponentResponseTypeDef(BaseValidatorModel):
     entity: ComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportComponentsResponseTypeDef(BaseModel):
+class ExportComponentsResponseTypeDef(BaseValidatorModel):
     entities: List[ComponentTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetComponentResponseTypeDef(BaseModel):
+class GetComponentResponseTypeDef(BaseValidatorModel):
     component: ComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateComponentResponseTypeDef(BaseModel):
+class UpdateComponentResponseTypeDef(BaseValidatorModel):
     entity: ComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateComponentRequestRequestTypeDef(BaseModel):
+class CreateComponentRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     componentToCreate: CreateComponentDataTypeDef
     clientToken: Optional[str] = None
 
-class UpdateComponentRequestRequestTypeDef(BaseModel):
+class UpdateComponentRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
     updatedComponent: UpdateComponentDataTypeDef
     clientToken: Optional[str] = None
 
-class CodegenJobTypeDef(BaseModel):
+class CodegenJobTypeDef(BaseValidatorModel):
     id: str
     appId: str
     environmentName: str
@@ -835,42 +835,42 @@ class CodegenJobTypeDef(BaseModel):
     modifiedAt: Optional[datetime] = None
     dependencies: Optional[List[CodegenDependencyTypeDef]] = None
 
-class StartCodegenJobDataTypeDef(BaseModel):
+class StartCodegenJobDataTypeDef(BaseValidatorModel):
     renderConfig: CodegenJobRenderConfigTypeDef
     genericDataSchema: Optional[CodegenJobGenericDataSchemaTypeDef] = None
     autoGenerateForms: Optional[bool] = None
     features: Optional[CodegenFeatureFlagsTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class FieldConfigPaginatorTypeDef(BaseModel):
+class FieldConfigPaginatorTypeDef(BaseValidatorModel):
     label: Optional[str] = None
     position: Optional[FieldPositionTypeDef] = None
     excluded: Optional[bool] = None
     inputType: Optional[FieldInputConfigPaginatorTypeDef] = None
     validations: Optional[List[FieldValidationConfigurationPaginatorTypeDef]] = None
 
-class FieldConfigTypeDef(BaseModel):
+class FieldConfigTypeDef(BaseValidatorModel):
     label: Optional[str] = None
     position: Optional[FieldPositionTypeDef] = None
     excluded: Optional[bool] = None
     inputType: Optional[FieldInputConfigTypeDef] = None
     validations: Optional[Sequence[FieldValidationConfigurationTypeDef]] = None
 
-class GetCodegenJobResponseTypeDef(BaseModel):
+class GetCodegenJobResponseTypeDef(BaseValidatorModel):
     job: CodegenJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartCodegenJobResponseTypeDef(BaseModel):
+class StartCodegenJobResponseTypeDef(BaseValidatorModel):
     entity: CodegenJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartCodegenJobRequestRequestTypeDef(BaseModel):
+class StartCodegenJobRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     codegenJobToCreate: StartCodegenJobDataTypeDef
     clientToken: Optional[str] = None
 
-class FormPaginatorTypeDef(BaseModel):
+class FormPaginatorTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
@@ -885,7 +885,7 @@ class FormPaginatorTypeDef(BaseModel):
     cta: Optional[FormCTATypeDef] = None
     labelDecorator: Optional[LabelDecoratorType] = None
 
-class CreateFormDataTypeDef(BaseModel):
+class CreateFormDataTypeDef(BaseValidatorModel):
     name: str
     dataType: FormDataTypeConfigTypeDef
     formActionType: FormActionTypeType
@@ -897,7 +897,7 @@ class CreateFormDataTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     labelDecorator: Optional[LabelDecoratorType] = None
 
-class FormTypeDef(BaseModel):
+class FormTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
@@ -912,7 +912,7 @@ class FormTypeDef(BaseModel):
     cta: Optional[FormCTATypeDef] = None
     labelDecorator: Optional[LabelDecoratorType] = None
 
-class UpdateFormDataTypeDef(BaseModel):
+class UpdateFormDataTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     dataType: Optional[FormDataTypeConfigTypeDef] = None
     formActionType: Optional[FormActionTypeType] = None
@@ -923,35 +923,35 @@ class UpdateFormDataTypeDef(BaseModel):
     cta: Optional[FormCTATypeDef] = None
     labelDecorator: Optional[LabelDecoratorType] = None
 
-class ExportFormsResponsePaginatorTypeDef(BaseModel):
+class ExportFormsResponsePaginatorTypeDef(BaseValidatorModel):
     entities: List[FormPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFormRequestRequestTypeDef(BaseModel):
+class CreateFormRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     formToCreate: CreateFormDataTypeDef
     clientToken: Optional[str] = None
 
-class CreateFormResponseTypeDef(BaseModel):
+class CreateFormResponseTypeDef(BaseValidatorModel):
     entity: FormTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportFormsResponseTypeDef(BaseModel):
+class ExportFormsResponseTypeDef(BaseValidatorModel):
     entities: List[FormTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFormResponseTypeDef(BaseModel):
+class GetFormResponseTypeDef(BaseValidatorModel):
     form: FormTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFormResponseTypeDef(BaseModel):
+class UpdateFormResponseTypeDef(BaseValidatorModel):
     entity: FormTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFormRequestRequestTypeDef(BaseModel):
+class UpdateFormRequestRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str

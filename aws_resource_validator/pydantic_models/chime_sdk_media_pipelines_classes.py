@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,16 +11,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_constants import *
 
-class ActiveSpeakerOnlyConfigurationTypeDef(BaseModel):
+class ActiveSpeakerOnlyConfigurationTypeDef(BaseValidatorModel):
     ActiveSpeakerPosition: Optional[ActiveSpeakerPositionType] = None
 
-class PostCallAnalyticsSettingsTypeDef(BaseModel):
+class PostCallAnalyticsSettingsTypeDef(BaseValidatorModel):
     OutputLocation: str
     DataAccessRoleArn: str
     ContentRedactionOutput: Optional[ContentRedactionOutputType] = None
     OutputEncryptionKMSKeyId: Optional[str] = None
 
-class AmazonTranscribeProcessorConfigurationTypeDef(BaseModel):
+class AmazonTranscribeProcessorConfigurationTypeDef(BaseValidatorModel):
     LanguageCode: Optional[CallAnalyticsLanguageCodeType] = None
     VocabularyName: Optional[str] = None
     VocabularyFilterName: Optional[str] = None
@@ -40,266 +40,266 @@ class AmazonTranscribeProcessorConfigurationTypeDef(BaseModel):
     VocabularyNames: Optional[str] = None
     VocabularyFilterNames: Optional[str] = None
 
-class AudioConcatenationConfigurationTypeDef(BaseModel):
+class AudioConcatenationConfigurationTypeDef(BaseValidatorModel):
     State: Literal["Enabled"]
 
-class CompositedVideoConcatenationConfigurationTypeDef(BaseModel):
+class CompositedVideoConcatenationConfigurationTypeDef(BaseValidatorModel):
     State: ArtifactsConcatenationStateType
 
-class ContentConcatenationConfigurationTypeDef(BaseModel):
+class ContentConcatenationConfigurationTypeDef(BaseValidatorModel):
     State: ArtifactsConcatenationStateType
 
-class DataChannelConcatenationConfigurationTypeDef(BaseModel):
+class DataChannelConcatenationConfigurationTypeDef(BaseValidatorModel):
     State: ArtifactsConcatenationStateType
 
-class MeetingEventsConcatenationConfigurationTypeDef(BaseModel):
+class MeetingEventsConcatenationConfigurationTypeDef(BaseValidatorModel):
     State: ArtifactsConcatenationStateType
 
-class TranscriptionMessagesConcatenationConfigurationTypeDef(BaseModel):
+class TranscriptionMessagesConcatenationConfigurationTypeDef(BaseValidatorModel):
     State: ArtifactsConcatenationStateType
 
-class VideoConcatenationConfigurationTypeDef(BaseModel):
+class VideoConcatenationConfigurationTypeDef(BaseValidatorModel):
     State: ArtifactsConcatenationStateType
 
-class AudioArtifactsConfigurationTypeDef(BaseModel):
+class AudioArtifactsConfigurationTypeDef(BaseValidatorModel):
     MuxType: AudioMuxTypeType
 
-class ContentArtifactsConfigurationTypeDef(BaseModel):
+class ContentArtifactsConfigurationTypeDef(BaseValidatorModel):
     State: ArtifactsStateType
     MuxType: Optional[Literal["ContentOnly"]] = None
 
-class VideoArtifactsConfigurationTypeDef(BaseModel):
+class VideoArtifactsConfigurationTypeDef(BaseValidatorModel):
     State: ArtifactsStateType
     MuxType: Optional[Literal["VideoOnly"]] = None
 
-class ChannelDefinitionTypeDef(BaseModel):
+class ChannelDefinitionTypeDef(BaseValidatorModel):
     ChannelId: int
     ParticipantRole: Optional[ParticipantRoleType] = None
 
-class S3BucketSinkConfigurationTypeDef(BaseModel):
+class S3BucketSinkConfigurationTypeDef(BaseValidatorModel):
     Destination: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class S3RecordingSinkRuntimeConfigurationTypeDef(BaseModel):
+class S3RecordingSinkRuntimeConfigurationTypeDef(BaseValidatorModel):
     Destination: str
     RecordingFileFormat: RecordingFileFormatType
 
-class KinesisVideoStreamConfigurationTypeDef(BaseModel):
+class KinesisVideoStreamConfigurationTypeDef(BaseValidatorModel):
     Region: str
     DataRetentionInHours: Optional[int] = None
 
-class MediaStreamSinkTypeDef(BaseModel):
+class MediaStreamSinkTypeDef(BaseValidatorModel):
     SinkArn: str
     SinkType: Literal["KinesisVideoStreamPool"]
     ReservedStreamCapacity: int
     MediaStreamType: MediaStreamTypeType
 
-class MediaStreamSourceTypeDef(BaseModel):
+class MediaStreamSourceTypeDef(BaseValidatorModel):
     SourceType: Literal["ChimeSdkMeeting"]
     SourceArn: str
 
-class DeleteMediaCapturePipelineRequestRequestTypeDef(BaseModel):
+class DeleteMediaCapturePipelineRequestRequestTypeDef(BaseValidatorModel):
     MediaPipelineId: str
 
-class DeleteMediaInsightsPipelineConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteMediaInsightsPipelineConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class DeleteMediaPipelineKinesisVideoStreamPoolRequestRequestTypeDef(BaseModel):
+class DeleteMediaPipelineKinesisVideoStreamPoolRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class DeleteMediaPipelineRequestRequestTypeDef(BaseModel):
+class DeleteMediaPipelineRequestRequestTypeDef(BaseValidatorModel):
     MediaPipelineId: str
 
-class TimestampRangeOutputTypeDef(BaseModel):
+class TimestampRangeOutputTypeDef(BaseValidatorModel):
     StartTimestamp: datetime
     EndTimestamp: datetime
 
-class GetMediaCapturePipelineRequestRequestTypeDef(BaseModel):
+class GetMediaCapturePipelineRequestRequestTypeDef(BaseValidatorModel):
     MediaPipelineId: str
 
-class GetMediaInsightsPipelineConfigurationRequestRequestTypeDef(BaseModel):
+class GetMediaInsightsPipelineConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class GetMediaPipelineKinesisVideoStreamPoolRequestRequestTypeDef(BaseModel):
+class GetMediaPipelineKinesisVideoStreamPoolRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class GetMediaPipelineRequestRequestTypeDef(BaseModel):
+class GetMediaPipelineRequestRequestTypeDef(BaseValidatorModel):
     MediaPipelineId: str
 
-class GetSpeakerSearchTaskRequestRequestTypeDef(BaseModel):
+class GetSpeakerSearchTaskRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     SpeakerSearchTaskId: str
 
-class SpeakerSearchTaskTypeDef(BaseModel):
+class SpeakerSearchTaskTypeDef(BaseValidatorModel):
     SpeakerSearchTaskId: Optional[str] = None
     SpeakerSearchTaskStatus: Optional[MediaPipelineTaskStatusType] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
-class GetVoiceToneAnalysisTaskRequestRequestTypeDef(BaseModel):
+class GetVoiceToneAnalysisTaskRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     VoiceToneAnalysisTaskId: str
 
-class VoiceToneAnalysisTaskTypeDef(BaseModel):
+class VoiceToneAnalysisTaskTypeDef(BaseValidatorModel):
     VoiceToneAnalysisTaskId: Optional[str] = None
     VoiceToneAnalysisTaskStatus: Optional[MediaPipelineTaskStatusType] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
-class HorizontalLayoutConfigurationTypeDef(BaseModel):
+class HorizontalLayoutConfigurationTypeDef(BaseValidatorModel):
     TileOrder: Optional[TileOrderType] = None
     TilePosition: Optional[HorizontalTilePositionType] = None
     TileCount: Optional[int] = None
     TileAspectRatio: Optional[str] = None
 
-class PresenterOnlyConfigurationTypeDef(BaseModel):
+class PresenterOnlyConfigurationTypeDef(BaseValidatorModel):
     PresenterPosition: Optional[PresenterPositionType] = None
 
-class VerticalLayoutConfigurationTypeDef(BaseModel):
+class VerticalLayoutConfigurationTypeDef(BaseValidatorModel):
     TileOrder: Optional[TileOrderType] = None
     TilePosition: Optional[VerticalTilePositionType] = None
     TileCount: Optional[int] = None
     TileAspectRatio: Optional[str] = None
 
-class VideoAttributeTypeDef(BaseModel):
+class VideoAttributeTypeDef(BaseValidatorModel):
     CornerRadius: Optional[int] = None
     BorderColor: Optional[BorderColorType] = None
     HighlightColor: Optional[HighlightColorType] = None
     BorderThickness: Optional[int] = None
 
-class IssueDetectionConfigurationTypeDef(BaseModel):
+class IssueDetectionConfigurationTypeDef(BaseValidatorModel):
     RuleName: str
 
-class KeywordMatchConfigurationOutputTypeDef(BaseModel):
+class KeywordMatchConfigurationOutputTypeDef(BaseValidatorModel):
     RuleName: str
     Keywords: List[str]
     Negate: Optional[bool] = None
 
-class KeywordMatchConfigurationTypeDef(BaseModel):
+class KeywordMatchConfigurationTypeDef(BaseValidatorModel):
     RuleName: str
     Keywords: Sequence[str]
     Negate: Optional[bool] = None
 
-class KinesisDataStreamSinkConfigurationTypeDef(BaseModel):
+class KinesisDataStreamSinkConfigurationTypeDef(BaseValidatorModel):
     InsightsTarget: Optional[str] = None
 
-class KinesisVideoStreamConfigurationUpdateTypeDef(BaseModel):
+class KinesisVideoStreamConfigurationUpdateTypeDef(BaseValidatorModel):
     DataRetentionInHours: Optional[int] = None
 
-class KinesisVideoStreamPoolSummaryTypeDef(BaseModel):
+class KinesisVideoStreamPoolSummaryTypeDef(BaseValidatorModel):
     PoolName: Optional[str] = None
     PoolId: Optional[str] = None
     PoolArn: Optional[str] = None
 
-class RecordingStreamConfigurationTypeDef(BaseModel):
+class RecordingStreamConfigurationTypeDef(BaseValidatorModel):
     StreamArn: Optional[str] = None
 
-class KinesisVideoStreamSourceTaskConfigurationTypeDef(BaseModel):
+class KinesisVideoStreamSourceTaskConfigurationTypeDef(BaseValidatorModel):
     StreamArn: str
     ChannelId: int
     FragmentNumber: Optional[str] = None
 
-class LambdaFunctionSinkConfigurationTypeDef(BaseModel):
+class LambdaFunctionSinkConfigurationTypeDef(BaseValidatorModel):
     InsightsTarget: Optional[str] = None
 
-class ListMediaCapturePipelinesRequestRequestTypeDef(BaseModel):
+class ListMediaCapturePipelinesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MediaCapturePipelineSummaryTypeDef(BaseModel):
+class MediaCapturePipelineSummaryTypeDef(BaseValidatorModel):
     MediaPipelineId: Optional[str] = None
     MediaPipelineArn: Optional[str] = None
 
-class ListMediaInsightsPipelineConfigurationsRequestRequestTypeDef(BaseModel):
+class ListMediaInsightsPipelineConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MediaInsightsPipelineConfigurationSummaryTypeDef(BaseModel):
+class MediaInsightsPipelineConfigurationSummaryTypeDef(BaseValidatorModel):
     MediaInsightsPipelineConfigurationName: Optional[str] = None
     MediaInsightsPipelineConfigurationId: Optional[str] = None
     MediaInsightsPipelineConfigurationArn: Optional[str] = None
 
-class ListMediaPipelineKinesisVideoStreamPoolsRequestRequestTypeDef(BaseModel):
+class ListMediaPipelineKinesisVideoStreamPoolsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListMediaPipelinesRequestRequestTypeDef(BaseModel):
+class ListMediaPipelinesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MediaPipelineSummaryTypeDef(BaseModel):
+class MediaPipelineSummaryTypeDef(BaseValidatorModel):
     MediaPipelineId: Optional[str] = None
     MediaPipelineArn: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class LiveConnectorRTMPConfigurationTypeDef(BaseModel):
+class LiveConnectorRTMPConfigurationTypeDef(BaseValidatorModel):
     Url: str
     AudioChannels: Optional[AudioChannelsOptionType] = None
     AudioSampleRate: Optional[str] = None
 
-class S3RecordingSinkConfigurationTypeDef(BaseModel):
+class S3RecordingSinkConfigurationTypeDef(BaseValidatorModel):
     Destination: Optional[str] = None
     RecordingFileFormat: Optional[RecordingFileFormatType] = None
 
-class SnsTopicSinkConfigurationTypeDef(BaseModel):
+class SnsTopicSinkConfigurationTypeDef(BaseValidatorModel):
     InsightsTarget: Optional[str] = None
 
-class SqsQueueSinkConfigurationTypeDef(BaseModel):
+class SqsQueueSinkConfigurationTypeDef(BaseValidatorModel):
     InsightsTarget: Optional[str] = None
 
-class VoiceAnalyticsProcessorConfigurationTypeDef(BaseModel):
+class VoiceAnalyticsProcessorConfigurationTypeDef(BaseValidatorModel):
     SpeakerSearchStatus: Optional[VoiceAnalyticsConfigurationStatusType] = None
     VoiceToneAnalysisStatus: Optional[VoiceAnalyticsConfigurationStatusType] = None
 
-class VoiceEnhancementSinkConfigurationTypeDef(BaseModel):
+class VoiceEnhancementSinkConfigurationTypeDef(BaseValidatorModel):
     Disabled: Optional[bool] = None
 
-class MediaInsightsPipelineElementStatusTypeDef(BaseModel):
+class MediaInsightsPipelineElementStatusTypeDef(BaseValidatorModel):
     Type: Optional[MediaInsightsPipelineConfigurationElementTypeType] = None
     Status: Optional[MediaPipelineElementStatusType] = None
 
-class SentimentConfigurationTypeDef(BaseModel):
+class SentimentConfigurationTypeDef(BaseValidatorModel):
     RuleName: str
     SentimentType: Literal["NEGATIVE"]
     TimePeriod: int
 
-class SelectedVideoStreamsOutputTypeDef(BaseModel):
+class SelectedVideoStreamsOutputTypeDef(BaseValidatorModel):
     AttendeeIds: Optional[List[str]] = None
     ExternalUserIds: Optional[List[str]] = None
 
-class SelectedVideoStreamsTypeDef(BaseModel):
+class SelectedVideoStreamsTypeDef(BaseValidatorModel):
     AttendeeIds: Optional[Sequence[str]] = None
     ExternalUserIds: Optional[Sequence[str]] = None
 
-class StopSpeakerSearchTaskRequestRequestTypeDef(BaseModel):
+class StopSpeakerSearchTaskRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     SpeakerSearchTaskId: str
 
-class StopVoiceToneAnalysisTaskRequestRequestTypeDef(BaseModel):
+class StopVoiceToneAnalysisTaskRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     VoiceToneAnalysisTaskId: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateMediaInsightsPipelineStatusRequestRequestTypeDef(BaseModel):
+class UpdateMediaInsightsPipelineStatusRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     UpdateStatus: MediaPipelineStatusUpdateType
 
-class AmazonTranscribeCallAnalyticsProcessorConfigurationOutputTypeDef(BaseModel):
+class AmazonTranscribeCallAnalyticsProcessorConfigurationOutputTypeDef(BaseValidatorModel):
     LanguageCode: CallAnalyticsLanguageCodeType
     VocabularyName: Optional[str] = None
     VocabularyFilterName: Optional[str] = None
@@ -314,7 +314,7 @@ class AmazonTranscribeCallAnalyticsProcessorConfigurationOutputTypeDef(BaseModel
     PostCallAnalyticsSettings: Optional[PostCallAnalyticsSettingsTypeDef] = None
     CallAnalyticsStreamCategories: Optional[List[str]] = None
 
-class AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef(BaseModel):
+class AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef(BaseValidatorModel):
     LanguageCode: CallAnalyticsLanguageCodeType
     VocabularyName: Optional[str] = None
     VocabularyFilterName: Optional[str] = None
@@ -329,7 +329,7 @@ class AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef(BaseModel):
     PostCallAnalyticsSettings: Optional[PostCallAnalyticsSettingsTypeDef] = None
     CallAnalyticsStreamCategories: Optional[Sequence[str]] = None
 
-class ArtifactsConcatenationConfigurationTypeDef(BaseModel):
+class ArtifactsConcatenationConfigurationTypeDef(BaseValidatorModel):
     Audio: AudioConcatenationConfigurationTypeDef
     Video: VideoConcatenationConfigurationTypeDef
     Content: ContentConcatenationConfigurationTypeDef
@@ -338,36 +338,36 @@ class ArtifactsConcatenationConfigurationTypeDef(BaseModel):
     MeetingEvents: MeetingEventsConcatenationConfigurationTypeDef
     CompositedVideo: CompositedVideoConcatenationConfigurationTypeDef
 
-class StreamChannelDefinitionOutputTypeDef(BaseModel):
+class StreamChannelDefinitionOutputTypeDef(BaseValidatorModel):
     NumberOfChannels: int
     ChannelDefinitions: Optional[List[ChannelDefinitionTypeDef]] = None
 
-class StreamChannelDefinitionTypeDef(BaseModel):
+class StreamChannelDefinitionTypeDef(BaseValidatorModel):
     NumberOfChannels: int
     ChannelDefinitions: Optional[Sequence[ChannelDefinitionTypeDef]] = None
 
-class ConcatenationSinkTypeDef(BaseModel):
+class ConcatenationSinkTypeDef(BaseValidatorModel):
     Type: Literal["S3Bucket"]
     S3BucketSinkConfiguration: S3BucketSinkConfigurationTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMediaPipelineKinesisVideoStreamPoolRequestRequestTypeDef(BaseModel):
+class CreateMediaPipelineKinesisVideoStreamPoolRequestRequestTypeDef(BaseValidatorModel):
     StreamConfiguration: KinesisVideoStreamConfigurationTypeDef
     PoolName: str
     ClientRequestToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class KinesisVideoStreamPoolConfigurationTypeDef(BaseModel):
+class KinesisVideoStreamPoolConfigurationTypeDef(BaseValidatorModel):
     PoolArn: Optional[str] = None
     PoolName: Optional[str] = None
     PoolId: Optional[str] = None
@@ -377,13 +377,13 @@ class KinesisVideoStreamPoolConfigurationTypeDef(BaseModel):
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
-class CreateMediaStreamPipelineRequestRequestTypeDef(BaseModel):
+class CreateMediaStreamPipelineRequestRequestTypeDef(BaseValidatorModel):
     Sources: Sequence[MediaStreamSourceTypeDef]
     Sinks: Sequence[MediaStreamSinkTypeDef]
     ClientRequestToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class MediaStreamPipelineTypeDef(BaseModel):
+class MediaStreamPipelineTypeDef(BaseValidatorModel):
     MediaPipelineId: Optional[str] = None
     MediaPipelineArn: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
@@ -392,27 +392,27 @@ class MediaStreamPipelineTypeDef(BaseModel):
     Sources: Optional[List[MediaStreamSourceTypeDef]] = None
     Sinks: Optional[List[MediaStreamSinkTypeDef]] = None
 
-class FragmentSelectorOutputTypeDef(BaseModel):
+class FragmentSelectorOutputTypeDef(BaseValidatorModel):
     FragmentSelectorType: FragmentSelectorTypeType
     TimestampRange: TimestampRangeOutputTypeDef
 
-class GetSpeakerSearchTaskResponseTypeDef(BaseModel):
+class GetSpeakerSearchTaskResponseTypeDef(BaseValidatorModel):
     SpeakerSearchTask: SpeakerSearchTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSpeakerSearchTaskResponseTypeDef(BaseModel):
+class StartSpeakerSearchTaskResponseTypeDef(BaseValidatorModel):
     SpeakerSearchTask: SpeakerSearchTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVoiceToneAnalysisTaskResponseTypeDef(BaseModel):
+class GetVoiceToneAnalysisTaskResponseTypeDef(BaseValidatorModel):
     VoiceToneAnalysisTask: VoiceToneAnalysisTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartVoiceToneAnalysisTaskResponseTypeDef(BaseModel):
+class StartVoiceToneAnalysisTaskResponseTypeDef(BaseValidatorModel):
     VoiceToneAnalysisTask: VoiceToneAnalysisTaskTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GridViewConfigurationTypeDef(BaseModel):
+class GridViewConfigurationTypeDef(BaseValidatorModel):
     ContentShareLayout: ContentShareLayoutOptionType
     PresenterOnlyConfiguration: Optional[PresenterOnlyConfigurationTypeDef] = None
     ActiveSpeakerOnlyConfiguration: Optional[ActiveSpeakerOnlyConfigurationTypeDef] = None
@@ -421,69 +421,69 @@ class GridViewConfigurationTypeDef(BaseModel):
     VideoAttribute: Optional[VideoAttributeTypeDef] = None
     CanvasOrientation: Optional[CanvasOrientationType] = None
 
-class UpdateMediaPipelineKinesisVideoStreamPoolRequestRequestTypeDef(BaseModel):
+class UpdateMediaPipelineKinesisVideoStreamPoolRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     StreamConfiguration: Optional[KinesisVideoStreamConfigurationUpdateTypeDef] = None
 
-class ListMediaPipelineKinesisVideoStreamPoolsResponseTypeDef(BaseModel):
+class ListMediaPipelineKinesisVideoStreamPoolsResponseTypeDef(BaseValidatorModel):
     KinesisVideoStreamPools: List[KinesisVideoStreamPoolSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class StartSpeakerSearchTaskRequestRequestTypeDef(BaseModel):
+class StartSpeakerSearchTaskRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     VoiceProfileDomainArn: str
     KinesisVideoStreamSourceTaskConfiguration: Optional[       KinesisVideoStreamSourceTaskConfigurationTypeDef     ] = None
     ClientRequestToken: Optional[str] = None
 
-class StartVoiceToneAnalysisTaskRequestRequestTypeDef(BaseModel):
+class StartVoiceToneAnalysisTaskRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     LanguageCode: Literal["en-US"]
     KinesisVideoStreamSourceTaskConfiguration: Optional[       KinesisVideoStreamSourceTaskConfigurationTypeDef     ] = None
     ClientRequestToken: Optional[str] = None
 
-class ListMediaCapturePipelinesResponseTypeDef(BaseModel):
+class ListMediaCapturePipelinesResponseTypeDef(BaseValidatorModel):
     MediaCapturePipelines: List[MediaCapturePipelineSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListMediaInsightsPipelineConfigurationsResponseTypeDef(BaseModel):
+class ListMediaInsightsPipelineConfigurationsResponseTypeDef(BaseValidatorModel):
     MediaInsightsPipelineConfigurations: List[       MediaInsightsPipelineConfigurationSummaryTypeDef     ]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListMediaPipelinesResponseTypeDef(BaseModel):
+class ListMediaPipelinesResponseTypeDef(BaseValidatorModel):
     MediaPipelines: List[MediaPipelineSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class LiveConnectorSinkConfigurationTypeDef(BaseModel):
+class LiveConnectorSinkConfigurationTypeDef(BaseValidatorModel):
     SinkType: Literal["RTMP"]
     RTMPConfiguration: LiveConnectorRTMPConfigurationTypeDef
 
-class RealTimeAlertRuleOutputTypeDef(BaseModel):
+class RealTimeAlertRuleOutputTypeDef(BaseValidatorModel):
     Type: RealTimeAlertRuleTypeType
     KeywordMatchConfiguration: Optional[KeywordMatchConfigurationOutputTypeDef] = None
     SentimentConfiguration: Optional[SentimentConfigurationTypeDef] = None
     IssueDetectionConfiguration: Optional[IssueDetectionConfigurationTypeDef] = None
 
-class RealTimeAlertRuleTypeDef(BaseModel):
+class RealTimeAlertRuleTypeDef(BaseValidatorModel):
     Type: RealTimeAlertRuleTypeType
     KeywordMatchConfiguration: Optional[KeywordMatchConfigurationTypeDef] = None
     SentimentConfiguration: Optional[SentimentConfigurationTypeDef] = None
     IssueDetectionConfiguration: Optional[IssueDetectionConfigurationTypeDef] = None
 
-class SourceConfigurationOutputTypeDef(BaseModel):
+class SourceConfigurationOutputTypeDef(BaseValidatorModel):
     SelectedVideoStreams: Optional[SelectedVideoStreamsOutputTypeDef] = None
 
-class SourceConfigurationTypeDef(BaseModel):
+class SourceConfigurationTypeDef(BaseValidatorModel):
     SelectedVideoStreams: Optional[SelectedVideoStreamsTypeDef] = None
 
-class TimestampRangeTypeDef(BaseModel):
+class TimestampRangeTypeDef(BaseValidatorModel):
     StartTimestamp: TimestampTypeDef
     EndTimestamp: TimestampTypeDef
 
-class MediaInsightsPipelineConfigurationElementOutputTypeDef(BaseModel):
+class MediaInsightsPipelineConfigurationElementOutputTypeDef(BaseValidatorModel):
     Type: MediaInsightsPipelineConfigurationElementTypeType
     AmazonTranscribeCallAnalyticsProcessorConfiguration: Optional[       AmazonTranscribeCallAnalyticsProcessorConfigurationOutputTypeDef     ] = None
     AmazonTranscribeProcessorConfiguration: Optional[       AmazonTranscribeProcessorConfigurationTypeDef     ] = None
@@ -495,7 +495,7 @@ class MediaInsightsPipelineConfigurationElementOutputTypeDef(BaseModel):
     SnsTopicSinkConfiguration: Optional[SnsTopicSinkConfigurationTypeDef] = None
     VoiceEnhancementSinkConfiguration: Optional[VoiceEnhancementSinkConfigurationTypeDef] = None
 
-class MediaInsightsPipelineConfigurationElementTypeDef(BaseModel):
+class MediaInsightsPipelineConfigurationElementTypeDef(BaseValidatorModel):
     Type: MediaInsightsPipelineConfigurationElementTypeType
     AmazonTranscribeCallAnalyticsProcessorConfiguration: Optional[       AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef     ] = None
     AmazonTranscribeProcessorConfiguration: Optional[       AmazonTranscribeProcessorConfigurationTypeDef     ] = None
@@ -507,89 +507,89 @@ class MediaInsightsPipelineConfigurationElementTypeDef(BaseModel):
     SnsTopicSinkConfiguration: Optional[SnsTopicSinkConfigurationTypeDef] = None
     VoiceEnhancementSinkConfiguration: Optional[VoiceEnhancementSinkConfigurationTypeDef] = None
 
-class ChimeSdkMeetingConcatenationConfigurationTypeDef(BaseModel):
+class ChimeSdkMeetingConcatenationConfigurationTypeDef(BaseValidatorModel):
     ArtifactsConfiguration: ArtifactsConcatenationConfigurationTypeDef
 
-class StreamConfigurationOutputTypeDef(BaseModel):
+class StreamConfigurationOutputTypeDef(BaseValidatorModel):
     StreamArn: str
     StreamChannelDefinition: StreamChannelDefinitionOutputTypeDef
     FragmentNumber: Optional[str] = None
 
-class StreamConfigurationTypeDef(BaseModel):
+class StreamConfigurationTypeDef(BaseValidatorModel):
     StreamArn: str
     StreamChannelDefinition: StreamChannelDefinitionTypeDef
     FragmentNumber: Optional[str] = None
 
-class CreateMediaPipelineKinesisVideoStreamPoolResponseTypeDef(BaseModel):
+class CreateMediaPipelineKinesisVideoStreamPoolResponseTypeDef(BaseValidatorModel):
     KinesisVideoStreamPoolConfiguration: KinesisVideoStreamPoolConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMediaPipelineKinesisVideoStreamPoolResponseTypeDef(BaseModel):
+class GetMediaPipelineKinesisVideoStreamPoolResponseTypeDef(BaseValidatorModel):
     KinesisVideoStreamPoolConfiguration: KinesisVideoStreamPoolConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMediaPipelineKinesisVideoStreamPoolResponseTypeDef(BaseModel):
+class UpdateMediaPipelineKinesisVideoStreamPoolResponseTypeDef(BaseValidatorModel):
     KinesisVideoStreamPoolConfiguration: KinesisVideoStreamPoolConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMediaStreamPipelineResponseTypeDef(BaseModel):
+class CreateMediaStreamPipelineResponseTypeDef(BaseValidatorModel):
     MediaStreamPipeline: MediaStreamPipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class KinesisVideoStreamRecordingSourceRuntimeConfigurationOutputTypeDef(BaseModel):
+class KinesisVideoStreamRecordingSourceRuntimeConfigurationOutputTypeDef(BaseValidatorModel):
     Streams: List[RecordingStreamConfigurationTypeDef]
     FragmentSelector: FragmentSelectorOutputTypeDef
 
-class CompositedVideoArtifactsConfigurationTypeDef(BaseModel):
+class CompositedVideoArtifactsConfigurationTypeDef(BaseValidatorModel):
     GridViewConfiguration: GridViewConfigurationTypeDef
     Layout: Optional[Literal["GridView"]] = None
     Resolution: Optional[ResolutionOptionType] = None
 
-class RealTimeAlertConfigurationOutputTypeDef(BaseModel):
+class RealTimeAlertConfigurationOutputTypeDef(BaseValidatorModel):
     Disabled: Optional[bool] = None
     Rules: Optional[List[RealTimeAlertRuleOutputTypeDef]] = None
 
-class RealTimeAlertConfigurationTypeDef(BaseModel):
+class RealTimeAlertConfigurationTypeDef(BaseValidatorModel):
     Disabled: Optional[bool] = None
     Rules: Optional[Sequence[RealTimeAlertRuleTypeDef]] = None
 
-class FragmentSelectorTypeDef(BaseModel):
+class FragmentSelectorTypeDef(BaseValidatorModel):
     FragmentSelectorType: FragmentSelectorTypeType
     TimestampRange: TimestampRangeTypeDef
 
-class MediaCapturePipelineSourceConfigurationTypeDef(BaseModel):
+class MediaCapturePipelineSourceConfigurationTypeDef(BaseValidatorModel):
     MediaPipelineArn: str
     ChimeSdkMeetingConfiguration: ChimeSdkMeetingConcatenationConfigurationTypeDef
 
-class KinesisVideoStreamSourceRuntimeConfigurationOutputTypeDef(BaseModel):
+class KinesisVideoStreamSourceRuntimeConfigurationOutputTypeDef(BaseValidatorModel):
     Streams: List[StreamConfigurationOutputTypeDef]
     MediaEncoding: Literal["pcm"]
     MediaSampleRate: int
 
-class KinesisVideoStreamSourceRuntimeConfigurationTypeDef(BaseModel):
+class KinesisVideoStreamSourceRuntimeConfigurationTypeDef(BaseValidatorModel):
     Streams: Sequence[StreamConfigurationTypeDef]
     MediaEncoding: Literal["pcm"]
     MediaSampleRate: int
 
-class ArtifactsConfigurationTypeDef(BaseModel):
+class ArtifactsConfigurationTypeDef(BaseValidatorModel):
     Audio: AudioArtifactsConfigurationTypeDef
     Video: VideoArtifactsConfigurationTypeDef
     Content: ContentArtifactsConfigurationTypeDef
     CompositedVideo: Optional[CompositedVideoArtifactsConfigurationTypeDef] = None
 
-class ChimeSdkMeetingLiveConnectorConfigurationOutputTypeDef(BaseModel):
+class ChimeSdkMeetingLiveConnectorConfigurationOutputTypeDef(BaseValidatorModel):
     Arn: str
     MuxType: LiveConnectorMuxTypeType
     CompositedVideo: Optional[CompositedVideoArtifactsConfigurationTypeDef] = None
     SourceConfiguration: Optional[SourceConfigurationOutputTypeDef] = None
 
-class ChimeSdkMeetingLiveConnectorConfigurationTypeDef(BaseModel):
+class ChimeSdkMeetingLiveConnectorConfigurationTypeDef(BaseValidatorModel):
     Arn: str
     MuxType: LiveConnectorMuxTypeType
     CompositedVideo: Optional[CompositedVideoArtifactsConfigurationTypeDef] = None
     SourceConfiguration: Optional[SourceConfigurationTypeDef] = None
 
-class MediaInsightsPipelineConfigurationTypeDef(BaseModel):
+class MediaInsightsPipelineConfigurationTypeDef(BaseValidatorModel):
     MediaInsightsPipelineConfigurationName: Optional[str] = None
     MediaInsightsPipelineConfigurationArn: Optional[str] = None
     ResourceAccessRoleArn: Optional[str] = None
@@ -599,11 +599,11 @@ class MediaInsightsPipelineConfigurationTypeDef(BaseModel):
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
-class KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef(BaseModel):
+class KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef(BaseValidatorModel):
     Streams: Sequence[RecordingStreamConfigurationTypeDef]
     FragmentSelector: FragmentSelectorTypeDef
 
-class CreateMediaInsightsPipelineConfigurationRequestRequestTypeDef(BaseModel):
+class CreateMediaInsightsPipelineConfigurationRequestRequestTypeDef(BaseValidatorModel):
     MediaInsightsPipelineConfigurationName: str
     ResourceAccessRoleArn: str
     Elements: Sequence[MediaInsightsPipelineConfigurationElementUnionTypeDef]
@@ -611,17 +611,17 @@ class CreateMediaInsightsPipelineConfigurationRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     ClientRequestToken: Optional[str] = None
 
-class UpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateMediaInsightsPipelineConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Identifier: str
     ResourceAccessRoleArn: str
     Elements: Sequence[MediaInsightsPipelineConfigurationElementUnionTypeDef]
     RealTimeAlertConfiguration: Optional[RealTimeAlertConfigurationTypeDef] = None
 
-class ConcatenationSourceTypeDef(BaseModel):
+class ConcatenationSourceTypeDef(BaseValidatorModel):
     Type: Literal["MediaCapturePipeline"]
     MediaCapturePipelineSourceConfiguration: MediaCapturePipelineSourceConfigurationTypeDef
 
-class MediaInsightsPipelineTypeDef(BaseModel):
+class MediaInsightsPipelineTypeDef(BaseValidatorModel):
     MediaPipelineId: Optional[str] = None
     MediaPipelineArn: Optional[str] = None
     MediaInsightsPipelineConfigurationArn: Optional[str] = None
@@ -633,35 +633,35 @@ class MediaInsightsPipelineTypeDef(BaseModel):
     CreatedTimestamp: Optional[datetime] = None
     ElementStatuses: Optional[List[MediaInsightsPipelineElementStatusTypeDef]] = None
 
-class ChimeSdkMeetingConfigurationOutputTypeDef(BaseModel):
+class ChimeSdkMeetingConfigurationOutputTypeDef(BaseValidatorModel):
     SourceConfiguration: Optional[SourceConfigurationOutputTypeDef] = None
     ArtifactsConfiguration: Optional[ArtifactsConfigurationTypeDef] = None
 
-class ChimeSdkMeetingConfigurationTypeDef(BaseModel):
+class ChimeSdkMeetingConfigurationTypeDef(BaseValidatorModel):
     SourceConfiguration: Optional[SourceConfigurationTypeDef] = None
     ArtifactsConfiguration: Optional[ArtifactsConfigurationTypeDef] = None
 
-class LiveConnectorSourceConfigurationOutputTypeDef(BaseModel):
+class LiveConnectorSourceConfigurationOutputTypeDef(BaseValidatorModel):
     SourceType: Literal["ChimeSdkMeeting"]
     ChimeSdkMeetingLiveConnectorConfiguration: ChimeSdkMeetingLiveConnectorConfigurationOutputTypeDef
 
-class LiveConnectorSourceConfigurationTypeDef(BaseModel):
+class LiveConnectorSourceConfigurationTypeDef(BaseValidatorModel):
     SourceType: Literal["ChimeSdkMeeting"]
     ChimeSdkMeetingLiveConnectorConfiguration: ChimeSdkMeetingLiveConnectorConfigurationTypeDef
 
-class CreateMediaInsightsPipelineConfigurationResponseTypeDef(BaseModel):
+class CreateMediaInsightsPipelineConfigurationResponseTypeDef(BaseValidatorModel):
     MediaInsightsPipelineConfiguration: MediaInsightsPipelineConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMediaInsightsPipelineConfigurationResponseTypeDef(BaseModel):
+class GetMediaInsightsPipelineConfigurationResponseTypeDef(BaseValidatorModel):
     MediaInsightsPipelineConfiguration: MediaInsightsPipelineConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMediaInsightsPipelineConfigurationResponseTypeDef(BaseModel):
+class UpdateMediaInsightsPipelineConfigurationResponseTypeDef(BaseValidatorModel):
     MediaInsightsPipelineConfiguration: MediaInsightsPipelineConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMediaInsightsPipelineRequestRequestTypeDef(BaseModel):
+class CreateMediaInsightsPipelineRequestRequestTypeDef(BaseValidatorModel):
     MediaInsightsPipelineConfigurationArn: str
     KinesisVideoStreamSourceRuntimeConfiguration: Optional[       KinesisVideoStreamSourceRuntimeConfigurationTypeDef     ] = None
     MediaInsightsRuntimeMetadata: Optional[Mapping[str, str]] = None
@@ -670,13 +670,13 @@ class CreateMediaInsightsPipelineRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     ClientRequestToken: Optional[str] = None
 
-class CreateMediaConcatenationPipelineRequestRequestTypeDef(BaseModel):
+class CreateMediaConcatenationPipelineRequestRequestTypeDef(BaseValidatorModel):
     Sources: Sequence[ConcatenationSourceTypeDef]
     Sinks: Sequence[ConcatenationSinkTypeDef]
     ClientRequestToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class MediaConcatenationPipelineTypeDef(BaseModel):
+class MediaConcatenationPipelineTypeDef(BaseValidatorModel):
     MediaPipelineId: Optional[str] = None
     MediaPipelineArn: Optional[str] = None
     Sources: Optional[List[ConcatenationSourceTypeDef]] = None
@@ -685,11 +685,11 @@ class MediaConcatenationPipelineTypeDef(BaseModel):
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
-class CreateMediaInsightsPipelineResponseTypeDef(BaseModel):
+class CreateMediaInsightsPipelineResponseTypeDef(BaseValidatorModel):
     MediaInsightsPipeline: MediaInsightsPipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MediaCapturePipelineTypeDef(BaseModel):
+class MediaCapturePipelineTypeDef(BaseValidatorModel):
     MediaPipelineId: Optional[str] = None
     MediaPipelineArn: Optional[str] = None
     SourceType: Optional[Literal["ChimeSdkMeeting"]] = None
@@ -701,7 +701,7 @@ class MediaCapturePipelineTypeDef(BaseModel):
     UpdatedTimestamp: Optional[datetime] = None
     ChimeSdkMeetingConfiguration: Optional[ChimeSdkMeetingConfigurationOutputTypeDef] = None
 
-class CreateMediaCapturePipelineRequestRequestTypeDef(BaseModel):
+class CreateMediaCapturePipelineRequestRequestTypeDef(BaseValidatorModel):
     SourceType: Literal["ChimeSdkMeeting"]
     SourceArn: str
     SinkType: Literal["S3Bucket"]
@@ -710,7 +710,7 @@ class CreateMediaCapturePipelineRequestRequestTypeDef(BaseModel):
     ChimeSdkMeetingConfiguration: Optional[ChimeSdkMeetingConfigurationTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class MediaLiveConnectorPipelineTypeDef(BaseModel):
+class MediaLiveConnectorPipelineTypeDef(BaseValidatorModel):
     Sources: Optional[List[LiveConnectorSourceConfigurationOutputTypeDef]] = None
     Sinks: Optional[List[LiveConnectorSinkConfigurationTypeDef]] = None
     MediaPipelineId: Optional[str] = None
@@ -719,36 +719,36 @@ class MediaLiveConnectorPipelineTypeDef(BaseModel):
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
-class CreateMediaConcatenationPipelineResponseTypeDef(BaseModel):
+class CreateMediaConcatenationPipelineResponseTypeDef(BaseValidatorModel):
     MediaConcatenationPipeline: MediaConcatenationPipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMediaCapturePipelineResponseTypeDef(BaseModel):
+class CreateMediaCapturePipelineResponseTypeDef(BaseValidatorModel):
     MediaCapturePipeline: MediaCapturePipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMediaCapturePipelineResponseTypeDef(BaseModel):
+class GetMediaCapturePipelineResponseTypeDef(BaseValidatorModel):
     MediaCapturePipeline: MediaCapturePipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMediaLiveConnectorPipelineResponseTypeDef(BaseModel):
+class CreateMediaLiveConnectorPipelineResponseTypeDef(BaseValidatorModel):
     MediaLiveConnectorPipeline: MediaLiveConnectorPipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MediaPipelineTypeDef(BaseModel):
+class MediaPipelineTypeDef(BaseValidatorModel):
     MediaCapturePipeline: Optional[MediaCapturePipelineTypeDef] = None
     MediaLiveConnectorPipeline: Optional[MediaLiveConnectorPipelineTypeDef] = None
     MediaConcatenationPipeline: Optional[MediaConcatenationPipelineTypeDef] = None
     MediaInsightsPipeline: Optional[MediaInsightsPipelineTypeDef] = None
     MediaStreamPipeline: Optional[MediaStreamPipelineTypeDef] = None
 
-class CreateMediaLiveConnectorPipelineRequestRequestTypeDef(BaseModel):
+class CreateMediaLiveConnectorPipelineRequestRequestTypeDef(BaseValidatorModel):
     Sources: Sequence[LiveConnectorSourceConfigurationUnionTypeDef]
     Sinks: Sequence[LiveConnectorSinkConfigurationTypeDef]
     ClientRequestToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class GetMediaPipelineResponseTypeDef(BaseModel):
+class GetMediaPipelineResponseTypeDef(BaseValidatorModel):
     MediaPipeline: MediaPipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

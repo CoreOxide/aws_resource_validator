@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,28 +11,28 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.glacier_constants import *
 
-class AbortMultipartUploadInputRequestTypeDef(BaseModel):
+class AbortMultipartUploadInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     uploadId: str
     accountId: Optional[str] = None
 
-class AbortVaultLockInputRequestTypeDef(BaseModel):
+class AbortVaultLockInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class AddTagsToVaultInputRequestTypeDef(BaseModel):
+class AddTagsToVaultInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CSVInputTypeDef(BaseModel):
+class CSVInputTypeDef(BaseValidatorModel):
     FileHeaderInfo: Optional[FileHeaderInfoType] = None
     Comments: Optional[str] = None
     QuoteEscapeCharacter: Optional[str] = None
@@ -40,75 +40,75 @@ class CSVInputTypeDef(BaseModel):
     FieldDelimiter: Optional[str] = None
     QuoteCharacter: Optional[str] = None
 
-class CSVOutputTypeDef(BaseModel):
+class CSVOutputTypeDef(BaseValidatorModel):
     QuoteFields: Optional[QuoteFieldsType] = None
     QuoteEscapeCharacter: Optional[str] = None
     RecordDelimiter: Optional[str] = None
     FieldDelimiter: Optional[str] = None
     QuoteCharacter: Optional[str] = None
 
-class CompleteMultipartUploadInputMultipartUploadCompleteTypeDef(BaseModel):
+class CompleteMultipartUploadInputMultipartUploadCompleteTypeDef(BaseValidatorModel):
     archiveSize: Optional[str] = None
     checksum: Optional[str] = None
 
-class CompleteMultipartUploadInputRequestTypeDef(BaseModel):
+class CompleteMultipartUploadInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     uploadId: str
     accountId: Optional[str] = None
     archiveSize: Optional[str] = None
     checksum: Optional[str] = None
 
-class CompleteVaultLockInputRequestTypeDef(BaseModel):
+class CompleteVaultLockInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     lockId: str
     accountId: Optional[str] = None
 
-class CreateVaultInputAccountCreateVaultTypeDef(BaseModel):
+class CreateVaultInputAccountCreateVaultTypeDef(BaseValidatorModel):
     vaultName: str
 
-class CreateVaultInputRequestTypeDef(BaseModel):
-    vaultName: str
-    accountId: Optional[str] = None
-
-class CreateVaultInputServiceResourceCreateVaultTypeDef(BaseModel):
+class CreateVaultInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class DataRetrievalRuleTypeDef(BaseModel):
+class CreateVaultInputServiceResourceCreateVaultTypeDef(BaseValidatorModel):
+    vaultName: str
+    accountId: Optional[str] = None
+
+class DataRetrievalRuleTypeDef(BaseValidatorModel):
     Strategy: Optional[str] = None
     BytesPerHour: Optional[int] = None
 
-class DeleteArchiveInputRequestTypeDef(BaseModel):
+class DeleteArchiveInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     archiveId: str
     accountId: Optional[str] = None
 
-class DeleteVaultAccessPolicyInputRequestTypeDef(BaseModel):
+class DeleteVaultAccessPolicyInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class DeleteVaultInputRequestTypeDef(BaseModel):
+class DeleteVaultInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class DeleteVaultNotificationsInputRequestTypeDef(BaseModel):
+class DeleteVaultNotificationsInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class DescribeJobInputRequestTypeDef(BaseModel):
+class DescribeJobInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     jobId: str
     accountId: Optional[str] = None
 
-class DescribeVaultInputRequestTypeDef(BaseModel):
+class DescribeVaultInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeVaultOutputTypeDef(BaseModel):
+class DescribeVaultOutputTypeDef(BaseValidatorModel):
     VaultARN: Optional[str] = None
     VaultName: Optional[str] = None
     CreationDate: Optional[str] = None
@@ -116,81 +116,81 @@ class DescribeVaultOutputTypeDef(BaseModel):
     NumberOfArchives: Optional[int] = None
     SizeInBytes: Optional[int] = None
 
-class EncryptionTypeDef(BaseModel):
+class EncryptionTypeDef(BaseValidatorModel):
     EncryptionType: Optional[EncryptionTypeType] = None
     KMSKeyId: Optional[str] = None
     KMSContext: Optional[str] = None
 
-class GetDataRetrievalPolicyInputRequestTypeDef(BaseModel):
+class GetDataRetrievalPolicyInputRequestTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
 
-class GetJobOutputInputJobGetOutputTypeDef(BaseModel):
+class GetJobOutputInputJobGetOutputTypeDef(BaseValidatorModel):
     range: Optional[str] = None
 
-class GetJobOutputInputRequestTypeDef(BaseModel):
+class GetJobOutputInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     jobId: str
     accountId: Optional[str] = None
     range: Optional[str] = None
 
-class GetVaultAccessPolicyInputRequestTypeDef(BaseModel):
+class GetVaultAccessPolicyInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class VaultAccessPolicyTypeDef(BaseModel):
+class VaultAccessPolicyTypeDef(BaseValidatorModel):
     Policy: Optional[str] = None
 
-class GetVaultLockInputRequestTypeDef(BaseModel):
+class GetVaultLockInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class GetVaultNotificationsInputRequestTypeDef(BaseModel):
+class GetVaultNotificationsInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class VaultNotificationConfigTypeDef(BaseModel):
+class VaultNotificationConfigTypeDef(BaseValidatorModel):
     SNSTopic: Optional[str] = None
     Events: Optional[List[str]] = None
 
-class InventoryRetrievalJobDescriptionTypeDef(BaseModel):
+class InventoryRetrievalJobDescriptionTypeDef(BaseValidatorModel):
     Format: Optional[str] = None
     StartDate: Optional[str] = None
     EndDate: Optional[str] = None
     Limit: Optional[str] = None
     Marker: Optional[str] = None
 
-class GranteeTypeDef(BaseModel):
+class GranteeTypeDef(BaseValidatorModel):
     Type: TypeType
     DisplayName: Optional[str] = None
     URI: Optional[str] = None
     ID: Optional[str] = None
     EmailAddress: Optional[str] = None
 
-class InitiateMultipartUploadInputRequestTypeDef(BaseModel):
+class InitiateMultipartUploadInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     archiveDescription: Optional[str] = None
     partSize: Optional[str] = None
 
-class InitiateMultipartUploadInputVaultInitiateMultipartUploadTypeDef(BaseModel):
+class InitiateMultipartUploadInputVaultInitiateMultipartUploadTypeDef(BaseValidatorModel):
     archiveDescription: Optional[str] = None
     partSize: Optional[str] = None
 
-class VaultLockPolicyTypeDef(BaseModel):
+class VaultLockPolicyTypeDef(BaseValidatorModel):
     Policy: Optional[str] = None
 
-class InventoryRetrievalJobInputTypeDef(BaseModel):
+class InventoryRetrievalJobInputTypeDef(BaseValidatorModel):
     StartDate: Optional[str] = None
     EndDate: Optional[str] = None
     Limit: Optional[str] = None
     Marker: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListJobsInputRequestTypeDef(BaseModel):
+class ListJobsInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     limit: Optional[str] = None
@@ -198,74 +198,74 @@ class ListJobsInputRequestTypeDef(BaseModel):
     statuscode: Optional[str] = None
     completed: Optional[str] = None
 
-class ListMultipartUploadsInputRequestTypeDef(BaseModel):
+class ListMultipartUploadsInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     marker: Optional[str] = None
     limit: Optional[str] = None
 
-class UploadListElementTypeDef(BaseModel):
+class UploadListElementTypeDef(BaseValidatorModel):
     MultipartUploadId: Optional[str] = None
     VaultARN: Optional[str] = None
     ArchiveDescription: Optional[str] = None
     PartSizeInBytes: Optional[int] = None
     CreationDate: Optional[str] = None
 
-class ListPartsInputMultipartUploadPartsTypeDef(BaseModel):
+class ListPartsInputMultipartUploadPartsTypeDef(BaseValidatorModel):
     marker: Optional[str] = None
     limit: Optional[str] = None
 
-class ListPartsInputRequestTypeDef(BaseModel):
+class ListPartsInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     uploadId: str
     accountId: Optional[str] = None
     marker: Optional[str] = None
     limit: Optional[str] = None
 
-class PartListElementTypeDef(BaseModel):
+class PartListElementTypeDef(BaseValidatorModel):
     RangeInBytes: Optional[str] = None
     SHA256TreeHash: Optional[str] = None
 
-class ListProvisionedCapacityInputRequestTypeDef(BaseModel):
+class ListProvisionedCapacityInputRequestTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
 
-class ProvisionedCapacityDescriptionTypeDef(BaseModel):
+class ProvisionedCapacityDescriptionTypeDef(BaseValidatorModel):
     CapacityId: Optional[str] = None
     StartDate: Optional[str] = None
     ExpirationDate: Optional[str] = None
 
-class ListTagsForVaultInputRequestTypeDef(BaseModel):
+class ListTagsForVaultInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
-class ListVaultsInputRequestTypeDef(BaseModel):
+class ListVaultsInputRequestTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
     marker: Optional[str] = None
     limit: Optional[str] = None
 
-class PurchaseProvisionedCapacityInputRequestTypeDef(BaseModel):
+class PurchaseProvisionedCapacityInputRequestTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
 
-class RemoveTagsFromVaultInputRequestTypeDef(BaseModel):
+class RemoveTagsFromVaultInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     TagKeys: Optional[Sequence[str]] = None
 
-class VaultNotificationConfigNotificationTypeDef(BaseModel):
+class VaultNotificationConfigNotificationTypeDef(BaseValidatorModel):
     SNSTopic: Optional[str] = None
     Events: Optional[Sequence[str]] = None
 
-class ArchiveCreationOutputTypeDef(BaseModel):
+class ArchiveCreationOutputTypeDef(BaseValidatorModel):
     location: str
     checksum: str
     archiveId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVaultOutputTypeDef(BaseModel):
+class CreateVaultOutputTypeDef(BaseValidatorModel):
     location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeVaultResponseTypeDef(BaseModel):
+class DescribeVaultResponseTypeDef(BaseValidatorModel):
     VaultARN: str
     VaultName: str
     CreationDate: str
@@ -274,10 +274,10 @@ class DescribeVaultResponseTypeDef(BaseModel):
     SizeInBytes: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJobOutputOutputTypeDef(BaseModel):
+class GetJobOutputOutputTypeDef(BaseValidatorModel):
     body: StreamingBody
     checksum: str
     status: int
@@ -287,29 +287,29 @@ class GetJobOutputOutputTypeDef(BaseModel):
     archiveDescription: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVaultLockOutputTypeDef(BaseModel):
+class GetVaultLockOutputTypeDef(BaseValidatorModel):
     Policy: str
     State: str
     ExpirationDate: str
     CreationDate: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InitiateJobOutputTypeDef(BaseModel):
+class InitiateJobOutputTypeDef(BaseValidatorModel):
     location: str
     jobId: str
     jobOutputPath: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InitiateMultipartUploadOutputTypeDef(BaseModel):
+class InitiateMultipartUploadOutputTypeDef(BaseValidatorModel):
     location: str
     uploadId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InitiateVaultLockOutputTypeDef(BaseModel):
+class InitiateVaultLockOutputTypeDef(BaseValidatorModel):
     lockId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InventoryRetrievalJobDescriptionResponseTypeDef(BaseModel):
+class InventoryRetrievalJobDescriptionResponseTypeDef(BaseValidatorModel):
     Format: str
     StartDate: str
     EndDate: str
@@ -317,36 +317,36 @@ class InventoryRetrievalJobDescriptionResponseTypeDef(BaseModel):
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForVaultOutputTypeDef(BaseModel):
+class ListTagsForVaultOutputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PurchaseProvisionedCapacityOutputTypeDef(BaseModel):
+class PurchaseProvisionedCapacityOutputTypeDef(BaseValidatorModel):
     capacityId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UploadMultipartPartOutputTypeDef(BaseModel):
+class UploadMultipartPartOutputTypeDef(BaseValidatorModel):
     checksum: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UploadArchiveInputRequestTypeDef(BaseModel):
+class UploadArchiveInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     archiveDescription: Optional[str] = None
     checksum: Optional[str] = None
     body: Optional[BlobTypeDef] = None
 
-class UploadArchiveInputVaultUploadArchiveTypeDef(BaseModel):
+class UploadArchiveInputVaultUploadArchiveTypeDef(BaseValidatorModel):
     archiveDescription: Optional[str] = None
     checksum: Optional[str] = None
     body: Optional[BlobTypeDef] = None
 
-class UploadMultipartPartInputMultipartUploadUploadPartTypeDef(BaseModel):
+class UploadMultipartPartInputMultipartUploadUploadPartTypeDef(BaseValidatorModel):
     checksum: Optional[str] = None
     range: Optional[str] = None
     body: Optional[BlobTypeDef] = None
 
-class UploadMultipartPartInputRequestTypeDef(BaseModel):
+class UploadMultipartPartInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     uploadId: str
     accountId: Optional[str] = None
@@ -354,85 +354,85 @@ class UploadMultipartPartInputRequestTypeDef(BaseModel):
     range: Optional[str] = None
     body: Optional[BlobTypeDef] = None
 
-class InputSerializationTypeDef(BaseModel):
+class InputSerializationTypeDef(BaseValidatorModel):
     csv: Optional[CSVInputTypeDef] = None
 
-class OutputSerializationTypeDef(BaseModel):
+class OutputSerializationTypeDef(BaseValidatorModel):
     csv: Optional[CSVOutputTypeDef] = None
 
-class DataRetrievalPolicyTypeDef(BaseModel):
+class DataRetrievalPolicyTypeDef(BaseValidatorModel):
     Rules: Optional[List[DataRetrievalRuleTypeDef]] = None
 
-class DescribeVaultInputVaultExistsWaitTypeDef(BaseModel):
+class DescribeVaultInputVaultExistsWaitTypeDef(BaseValidatorModel):
     accountId: str
     vaultName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeVaultInputVaultNotExistsWaitTypeDef(BaseModel):
+class DescribeVaultInputVaultNotExistsWaitTypeDef(BaseValidatorModel):
     accountId: str
     vaultName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class ListVaultsOutputTypeDef(BaseModel):
+class ListVaultsOutputTypeDef(BaseValidatorModel):
     VaultList: List[DescribeVaultOutputTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVaultAccessPolicyOutputTypeDef(BaseModel):
+class GetVaultAccessPolicyOutputTypeDef(BaseValidatorModel):
     policy: VaultAccessPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetVaultAccessPolicyInputRequestTypeDef(BaseModel):
+class SetVaultAccessPolicyInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     policy: Optional[VaultAccessPolicyTypeDef] = None
 
-class GetVaultNotificationsOutputTypeDef(BaseModel):
+class GetVaultNotificationsOutputTypeDef(BaseValidatorModel):
     vaultNotificationConfig: VaultNotificationConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetVaultNotificationsInputRequestTypeDef(BaseModel):
+class SetVaultNotificationsInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     vaultNotificationConfig: Optional[VaultNotificationConfigTypeDef] = None
 
-class GrantTypeDef(BaseModel):
+class GrantTypeDef(BaseValidatorModel):
     Grantee: Optional[GranteeTypeDef] = None
     Permission: Optional[PermissionType] = None
 
-class InitiateVaultLockInputRequestTypeDef(BaseModel):
+class InitiateVaultLockInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     policy: Optional[VaultLockPolicyTypeDef] = None
 
-class ListJobsInputListJobsPaginateTypeDef(BaseModel):
+class ListJobsInputListJobsPaginateTypeDef(BaseValidatorModel):
     accountId: str
     vaultName: str
     statuscode: Optional[str] = None
     completed: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMultipartUploadsInputListMultipartUploadsPaginateTypeDef(BaseModel):
+class ListMultipartUploadsInputListMultipartUploadsPaginateTypeDef(BaseValidatorModel):
     accountId: str
     vaultName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPartsInputListPartsPaginateTypeDef(BaseModel):
+class ListPartsInputListPartsPaginateTypeDef(BaseValidatorModel):
     accountId: str
     vaultName: str
     uploadId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVaultsInputListVaultsPaginateTypeDef(BaseModel):
+class ListVaultsInputListVaultsPaginateTypeDef(BaseValidatorModel):
     accountId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMultipartUploadsOutputTypeDef(BaseModel):
+class ListMultipartUploadsOutputTypeDef(BaseValidatorModel):
     UploadsList: List[UploadListElementTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPartsOutputTypeDef(BaseModel):
+class ListPartsOutputTypeDef(BaseValidatorModel):
     MultipartUploadId: str
     VaultARN: str
     ArchiveDescription: str
@@ -442,35 +442,35 @@ class ListPartsOutputTypeDef(BaseModel):
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProvisionedCapacityOutputTypeDef(BaseModel):
+class ListProvisionedCapacityOutputTypeDef(BaseValidatorModel):
     ProvisionedCapacityList: List[ProvisionedCapacityDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetVaultNotificationsInputNotificationSetTypeDef(BaseModel):
+class SetVaultNotificationsInputNotificationSetTypeDef(BaseValidatorModel):
     vaultNotificationConfig: Optional[VaultNotificationConfigNotificationTypeDef] = None
 
-class SelectParametersResponseTypeDef(BaseModel):
+class SelectParametersResponseTypeDef(BaseValidatorModel):
     InputSerialization: InputSerializationTypeDef
     ExpressionType: Literal["SQL"]
     Expression: str
     OutputSerialization: OutputSerializationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SelectParametersTypeDef(BaseModel):
+class SelectParametersTypeDef(BaseValidatorModel):
     InputSerialization: Optional[InputSerializationTypeDef] = None
     ExpressionType: Optional[Literal["SQL"]] = None
     Expression: Optional[str] = None
     OutputSerialization: Optional[OutputSerializationTypeDef] = None
 
-class GetDataRetrievalPolicyOutputTypeDef(BaseModel):
+class GetDataRetrievalPolicyOutputTypeDef(BaseValidatorModel):
     Policy: DataRetrievalPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetDataRetrievalPolicyInputRequestTypeDef(BaseModel):
+class SetDataRetrievalPolicyInputRequestTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
     Policy: Optional[DataRetrievalPolicyTypeDef] = None
 
-class S3LocationTypeDef(BaseModel):
+class S3LocationTypeDef(BaseValidatorModel):
     BucketName: Optional[str] = None
     Prefix: Optional[str] = None
     Encryption: Optional[EncryptionTypeDef] = None
@@ -480,14 +480,14 @@ class S3LocationTypeDef(BaseModel):
     UserMetadata: Optional[Dict[str, str]] = None
     StorageClass: Optional[StorageClassType] = None
 
-class OutputLocationResponseTypeDef(BaseModel):
+class OutputLocationResponseTypeDef(BaseValidatorModel):
     S3: S3LocationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OutputLocationTypeDef(BaseModel):
+class OutputLocationTypeDef(BaseValidatorModel):
     S3: Optional[S3LocationTypeDef] = None
 
-class GlacierJobDescriptionResponseTypeDef(BaseModel):
+class GlacierJobDescriptionResponseTypeDef(BaseValidatorModel):
     JobId: str
     JobDescription: str
     Action: ActionCodeType
@@ -511,7 +511,7 @@ class GlacierJobDescriptionResponseTypeDef(BaseModel):
     OutputLocation: OutputLocationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GlacierJobDescriptionTypeDef(BaseModel):
+class GlacierJobDescriptionTypeDef(BaseValidatorModel):
     JobId: Optional[str] = None
     JobDescription: Optional[str] = None
     Action: Optional[ActionCodeType] = None
@@ -534,7 +534,7 @@ class GlacierJobDescriptionTypeDef(BaseModel):
     SelectParameters: Optional[SelectParametersTypeDef] = None
     OutputLocation: Optional[OutputLocationTypeDef] = None
 
-class JobParametersTypeDef(BaseModel):
+class JobParametersTypeDef(BaseValidatorModel):
     Format: Optional[str] = None
     Type: Optional[str] = None
     ArchiveId: Optional[str] = None
@@ -546,12 +546,12 @@ class JobParametersTypeDef(BaseModel):
     SelectParameters: Optional[SelectParametersTypeDef] = None
     OutputLocation: Optional[OutputLocationTypeDef] = None
 
-class ListJobsOutputTypeDef(BaseModel):
+class ListJobsOutputTypeDef(BaseValidatorModel):
     JobList: List[GlacierJobDescriptionTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InitiateJobInputRequestTypeDef(BaseModel):
+class InitiateJobInputRequestTypeDef(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     jobParameters: Optional[JobParametersTypeDef] = None

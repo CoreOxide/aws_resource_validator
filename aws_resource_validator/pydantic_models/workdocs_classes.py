@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,39 +11,39 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.workdocs_constants import *
 
-class AbortDocumentVersionUploadRequestRequestTypeDef(BaseModel):
+class AbortDocumentVersionUploadRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     VersionId: str
     AuthenticationToken: Optional[str] = None
 
-class ActivateUserRequestRequestTypeDef(BaseModel):
+class ActivateUserRequestRequestTypeDef(BaseValidatorModel):
     UserId: str
     AuthenticationToken: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class UserMetadataTypeDef(BaseModel):
+class UserMetadataTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Username: Optional[str] = None
     GivenName: Optional[str] = None
     Surname: Optional[str] = None
     EmailAddress: Optional[str] = None
 
-class NotificationOptionsTypeDef(BaseModel):
+class NotificationOptionsTypeDef(BaseValidatorModel):
     SendEmail: Optional[bool] = None
     EmailMessage: Optional[str] = None
 
-class SharePrincipalTypeDef(BaseModel):
+class SharePrincipalTypeDef(BaseValidatorModel):
     Id: str
     Type: PrincipalTypeType
     Role: RoleTypeType
 
-class ShareResultTypeDef(BaseModel):
+class ShareResultTypeDef(BaseValidatorModel):
     PrincipalId: Optional[str] = None
     InviteePrincipalId: Optional[str] = None
     Role: Optional[RoleTypeType] = None
@@ -51,7 +51,7 @@ class ShareResultTypeDef(BaseModel):
     ShareId: Optional[str] = None
     StatusMessage: Optional[str] = None
 
-class CreateCommentRequestRequestTypeDef(BaseModel):
+class CreateCommentRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     VersionId: str
     Text: str
@@ -61,18 +61,18 @@ class CreateCommentRequestRequestTypeDef(BaseModel):
     Visibility: Optional[CommentVisibilityTypeType] = None
     NotifyCollaborators: Optional[bool] = None
 
-class CreateCustomMetadataRequestRequestTypeDef(BaseModel):
+class CreateCustomMetadataRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     CustomMetadata: Mapping[str, str]
     AuthenticationToken: Optional[str] = None
     VersionId: Optional[str] = None
 
-class CreateFolderRequestRequestTypeDef(BaseModel):
+class CreateFolderRequestRequestTypeDef(BaseValidatorModel):
     ParentFolderId: str
     AuthenticationToken: Optional[str] = None
     Name: Optional[str] = None
 
-class FolderMetadataTypeDef(BaseModel):
+class FolderMetadataTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     CreatorId: Optional[str] = None
@@ -85,88 +85,88 @@ class FolderMetadataTypeDef(BaseModel):
     Size: Optional[int] = None
     LatestVersionSize: Optional[int] = None
 
-class CreateLabelsRequestRequestTypeDef(BaseModel):
+class CreateLabelsRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     Labels: Sequence[str]
     AuthenticationToken: Optional[str] = None
 
-class CreateNotificationSubscriptionRequestRequestTypeDef(BaseModel):
+class CreateNotificationSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     OrganizationId: str
     Endpoint: str
     Protocol: SubscriptionProtocolTypeType
     SubscriptionType: Literal["ALL"]
 
-class SubscriptionTypeDef(BaseModel):
+class SubscriptionTypeDef(BaseValidatorModel):
     SubscriptionId: Optional[str] = None
     EndPoint: Optional[str] = None
     Protocol: Optional[SubscriptionProtocolTypeType] = None
 
-class StorageRuleTypeTypeDef(BaseModel):
+class StorageRuleTypeTypeDef(BaseValidatorModel):
     StorageAllocatedInBytes: Optional[int] = None
     StorageType: Optional[StorageTypeType] = None
 
-class DeactivateUserRequestRequestTypeDef(BaseModel):
+class DeactivateUserRequestRequestTypeDef(BaseValidatorModel):
     UserId: str
     AuthenticationToken: Optional[str] = None
 
-class DeleteCommentRequestRequestTypeDef(BaseModel):
+class DeleteCommentRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     VersionId: str
     CommentId: str
     AuthenticationToken: Optional[str] = None
 
-class DeleteCustomMetadataRequestRequestTypeDef(BaseModel):
+class DeleteCustomMetadataRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     AuthenticationToken: Optional[str] = None
     VersionId: Optional[str] = None
     Keys: Optional[Sequence[str]] = None
     DeleteAll: Optional[bool] = None
 
-class DeleteDocumentRequestRequestTypeDef(BaseModel):
+class DeleteDocumentRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
 
-class DeleteDocumentVersionRequestRequestTypeDef(BaseModel):
+class DeleteDocumentVersionRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     VersionId: str
     DeletePriorVersions: bool
     AuthenticationToken: Optional[str] = None
 
-class DeleteFolderContentsRequestRequestTypeDef(BaseModel):
+class DeleteFolderContentsRequestRequestTypeDef(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
 
-class DeleteFolderRequestRequestTypeDef(BaseModel):
+class DeleteFolderRequestRequestTypeDef(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
 
-class DeleteLabelsRequestRequestTypeDef(BaseModel):
+class DeleteLabelsRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     AuthenticationToken: Optional[str] = None
     Labels: Optional[Sequence[str]] = None
     DeleteAll: Optional[bool] = None
 
-class DeleteNotificationSubscriptionRequestRequestTypeDef(BaseModel):
+class DeleteNotificationSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     SubscriptionId: str
     OrganizationId: str
 
-class DeleteUserRequestRequestTypeDef(BaseModel):
+class DeleteUserRequestRequestTypeDef(BaseValidatorModel):
     UserId: str
     AuthenticationToken: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeCommentsRequestRequestTypeDef(BaseModel):
+class DescribeCommentsRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     VersionId: str
     AuthenticationToken: Optional[str] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeDocumentVersionsRequestRequestTypeDef(BaseModel):
+class DescribeDocumentVersionsRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
     Marker: Optional[str] = None
@@ -174,7 +174,7 @@ class DescribeDocumentVersionsRequestRequestTypeDef(BaseModel):
     Include: Optional[str] = None
     Fields: Optional[str] = None
 
-class DocumentVersionMetadataTypeDef(BaseModel):
+class DocumentVersionMetadataTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     ContentType: Optional[str] = None
@@ -189,7 +189,7 @@ class DocumentVersionMetadataTypeDef(BaseModel):
     Thumbnail: Optional[Dict[DocumentThumbnailTypeType, str]] = None
     Source: Optional[Dict[DocumentSourceTypeType, str]] = None
 
-class DescribeFolderContentsRequestRequestTypeDef(BaseModel):
+class DescribeFolderContentsRequestRequestTypeDef(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
     Sort: Optional[ResourceSortTypeType] = None
@@ -199,35 +199,35 @@ class DescribeFolderContentsRequestRequestTypeDef(BaseModel):
     Type: Optional[FolderContentTypeType] = None
     Include: Optional[str] = None
 
-class DescribeGroupsRequestRequestTypeDef(BaseModel):
+class DescribeGroupsRequestRequestTypeDef(BaseValidatorModel):
     SearchQuery: str
     AuthenticationToken: Optional[str] = None
     OrganizationId: Optional[str] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
-class GroupMetadataTypeDef(BaseModel):
+class GroupMetadataTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
 
-class DescribeNotificationSubscriptionsRequestRequestTypeDef(BaseModel):
+class DescribeNotificationSubscriptionsRequestRequestTypeDef(BaseValidatorModel):
     OrganizationId: str
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeResourcePermissionsRequestRequestTypeDef(BaseModel):
+class DescribeResourcePermissionsRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     AuthenticationToken: Optional[str] = None
     PrincipalId: Optional[str] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeRootFoldersRequestRequestTypeDef(BaseModel):
+class DescribeRootFoldersRequestRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: str
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeUsersRequestRequestTypeDef(BaseModel):
+class DescribeUsersRequestRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     OrganizationId: Optional[str] = None
     UserIds: Optional[str] = None
@@ -239,109 +239,109 @@ class DescribeUsersRequestRequestTypeDef(BaseModel):
     Limit: Optional[int] = None
     Fields: Optional[str] = None
 
-class LongRangeTypeTypeDef(BaseModel):
+class LongRangeTypeTypeDef(BaseValidatorModel):
     StartValue: Optional[int] = None
     EndValue: Optional[int] = None
 
-class SearchPrincipalTypeTypeDef(BaseModel):
+class SearchPrincipalTypeTypeDef(BaseValidatorModel):
     Id: str
     Roles: Optional[Sequence[PrincipalRoleTypeType]] = None
 
-class GetCurrentUserRequestRequestTypeDef(BaseModel):
+class GetCurrentUserRequestRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: str
 
-class GetDocumentPathRequestRequestTypeDef(BaseModel):
+class GetDocumentPathRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
     Limit: Optional[int] = None
     Fields: Optional[str] = None
     Marker: Optional[str] = None
 
-class GetDocumentRequestRequestTypeDef(BaseModel):
+class GetDocumentRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
     IncludeCustomMetadata: Optional[bool] = None
 
-class GetDocumentVersionRequestRequestTypeDef(BaseModel):
+class GetDocumentVersionRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     VersionId: str
     AuthenticationToken: Optional[str] = None
     Fields: Optional[str] = None
     IncludeCustomMetadata: Optional[bool] = None
 
-class GetFolderPathRequestRequestTypeDef(BaseModel):
+class GetFolderPathRequestRequestTypeDef(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
     Limit: Optional[int] = None
     Fields: Optional[str] = None
     Marker: Optional[str] = None
 
-class GetFolderRequestRequestTypeDef(BaseModel):
+class GetFolderRequestRequestTypeDef(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
     IncludeCustomMetadata: Optional[bool] = None
 
-class GetResourcesRequestRequestTypeDef(BaseModel):
+class GetResourcesRequestRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     UserId: Optional[str] = None
     CollectionType: Optional[Literal["SHARED_WITH_ME"]] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class UploadMetadataTypeDef(BaseModel):
+class UploadMetadataTypeDef(BaseValidatorModel):
     UploadUrl: Optional[str] = None
     SignedHeaders: Optional[Dict[str, str]] = None
 
-class PermissionInfoTypeDef(BaseModel):
+class PermissionInfoTypeDef(BaseValidatorModel):
     Role: Optional[RoleTypeType] = None
     Type: Optional[RolePermissionTypeType] = None
 
-class RemoveAllResourcePermissionsRequestRequestTypeDef(BaseModel):
+class RemoveAllResourcePermissionsRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     AuthenticationToken: Optional[str] = None
 
-class RemoveResourcePermissionRequestRequestTypeDef(BaseModel):
+class RemoveResourcePermissionRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     PrincipalId: str
     AuthenticationToken: Optional[str] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
-class ResourcePathComponentTypeDef(BaseModel):
+class ResourcePathComponentTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
 
-class RestoreDocumentVersionsRequestRequestTypeDef(BaseModel):
+class RestoreDocumentVersionsRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
 
-class SearchSortResultTypeDef(BaseModel):
+class SearchSortResultTypeDef(BaseValidatorModel):
     Field: Optional[OrderByFieldTypeType] = None
     Order: Optional[SortOrderType] = None
 
-class UpdateDocumentRequestRequestTypeDef(BaseModel):
+class UpdateDocumentRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
     Name: Optional[str] = None
     ParentFolderId: Optional[str] = None
     ResourceState: Optional[ResourceStateTypeType] = None
 
-class UpdateDocumentVersionRequestRequestTypeDef(BaseModel):
+class UpdateDocumentVersionRequestRequestTypeDef(BaseValidatorModel):
     DocumentId: str
     VersionId: str
     AuthenticationToken: Optional[str] = None
     VersionStatus: Optional[Literal["ACTIVE"]] = None
 
-class UpdateFolderRequestRequestTypeDef(BaseModel):
+class UpdateFolderRequestRequestTypeDef(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
     Name: Optional[str] = None
     ParentFolderId: Optional[str] = None
     ResourceState: Optional[ResourceStateTypeType] = None
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResourceMetadataTypeDef(BaseModel):
+class ResourceMetadataTypeDef(BaseValidatorModel):
     Type: Optional[ResourceTypeType] = None
     Name: Optional[str] = None
     OriginalName: Optional[str] = None
@@ -350,40 +350,40 @@ class ResourceMetadataTypeDef(BaseModel):
     Owner: Optional[UserMetadataTypeDef] = None
     ParentId: Optional[str] = None
 
-class AddResourcePermissionsRequestRequestTypeDef(BaseModel):
+class AddResourcePermissionsRequestRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     Principals: Sequence[SharePrincipalTypeDef]
     AuthenticationToken: Optional[str] = None
     NotificationOptions: Optional[NotificationOptionsTypeDef] = None
 
-class AddResourcePermissionsResponseTypeDef(BaseModel):
+class AddResourcePermissionsResponseTypeDef(BaseValidatorModel):
     ShareResults: List[ShareResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFolderResponseTypeDef(BaseModel):
+class CreateFolderResponseTypeDef(BaseValidatorModel):
     Metadata: FolderMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRootFoldersResponseTypeDef(BaseModel):
+class DescribeRootFoldersResponseTypeDef(BaseValidatorModel):
     Folders: List[FolderMetadataTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFolderResponseTypeDef(BaseModel):
+class GetFolderResponseTypeDef(BaseValidatorModel):
     Metadata: FolderMetadataTypeDef
     CustomMetadata: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateNotificationSubscriptionResponseTypeDef(BaseModel):
+class CreateNotificationSubscriptionResponseTypeDef(BaseValidatorModel):
     Subscription: SubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeNotificationSubscriptionsResponseTypeDef(BaseModel):
+class DescribeNotificationSubscriptionsResponseTypeDef(BaseValidatorModel):
     Subscriptions: List[SubscriptionTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserRequestRequestTypeDef(BaseModel):
+class CreateUserRequestRequestTypeDef(BaseValidatorModel):
     Username: str
     GivenName: str
     Surname: str
@@ -394,7 +394,7 @@ class CreateUserRequestRequestTypeDef(BaseModel):
     StorageRule: Optional[StorageRuleTypeTypeDef] = None
     AuthenticationToken: Optional[str] = None
 
-class UpdateUserRequestRequestTypeDef(BaseModel):
+class UpdateUserRequestRequestTypeDef(BaseValidatorModel):
     UserId: str
     AuthenticationToken: Optional[str] = None
     GivenName: Optional[str] = None
@@ -405,15 +405,15 @@ class UpdateUserRequestRequestTypeDef(BaseModel):
     Locale: Optional[LocaleTypeType] = None
     GrantPoweruserPrivileges: Optional[BooleanEnumTypeType] = None
 
-class UserStorageMetadataTypeDef(BaseModel):
+class UserStorageMetadataTypeDef(BaseValidatorModel):
     StorageUtilizedInBytes: Optional[int] = None
     StorageRule: Optional[StorageRuleTypeTypeDef] = None
 
-class DateRangeTypeTypeDef(BaseModel):
+class DateRangeTypeTypeDef(BaseValidatorModel):
     StartValue: Optional[TimestampTypeDef] = None
     EndValue: Optional[TimestampTypeDef] = None
 
-class DescribeActivitiesRequestRequestTypeDef(BaseModel):
+class DescribeActivitiesRequestRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
@@ -425,7 +425,7 @@ class DescribeActivitiesRequestRequestTypeDef(BaseModel):
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class InitiateDocumentVersionUploadRequestRequestTypeDef(BaseModel):
+class InitiateDocumentVersionUploadRequestRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -435,7 +435,7 @@ class InitiateDocumentVersionUploadRequestRequestTypeDef(BaseModel):
     DocumentSizeInBytes: Optional[int] = None
     ParentFolderId: Optional[str] = None
 
-class DescribeActivitiesRequestDescribeActivitiesPaginateTypeDef(BaseModel):
+class DescribeActivitiesRequestDescribeActivitiesPaginateTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
@@ -446,20 +446,20 @@ class DescribeActivitiesRequestDescribeActivitiesPaginateTypeDef(BaseModel):
     IncludeIndirectActivities: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCommentsRequestDescribeCommentsPaginateTypeDef(BaseModel):
+class DescribeCommentsRequestDescribeCommentsPaginateTypeDef(BaseValidatorModel):
     DocumentId: str
     VersionId: str
     AuthenticationToken: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDocumentVersionsRequestDescribeDocumentVersionsPaginateTypeDef(BaseModel):
+class DescribeDocumentVersionsRequestDescribeDocumentVersionsPaginateTypeDef(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
     Include: Optional[str] = None
     Fields: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeFolderContentsRequestDescribeFolderContentsPaginateTypeDef(BaseModel):
+class DescribeFolderContentsRequestDescribeFolderContentsPaginateTypeDef(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
     Sort: Optional[ResourceSortTypeType] = None
@@ -468,23 +468,23 @@ class DescribeFolderContentsRequestDescribeFolderContentsPaginateTypeDef(BaseMod
     Include: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeGroupsRequestDescribeGroupsPaginateTypeDef(BaseModel):
+class DescribeGroupsRequestDescribeGroupsPaginateTypeDef(BaseValidatorModel):
     SearchQuery: str
     AuthenticationToken: Optional[str] = None
     OrganizationId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeResourcePermissionsRequestDescribeResourcePermissionsPaginateTypeDef(BaseModel):
+class DescribeResourcePermissionsRequestDescribeResourcePermissionsPaginateTypeDef(BaseValidatorModel):
     ResourceId: str
     AuthenticationToken: Optional[str] = None
     PrincipalId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRootFoldersRequestDescribeRootFoldersPaginateTypeDef(BaseModel):
+class DescribeRootFoldersRequestDescribeRootFoldersPaginateTypeDef(BaseValidatorModel):
     AuthenticationToken: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeUsersRequestDescribeUsersPaginateTypeDef(BaseModel):
+class DescribeUsersRequestDescribeUsersPaginateTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     OrganizationId: Optional[str] = None
     UserIds: Optional[str] = None
@@ -495,12 +495,12 @@ class DescribeUsersRequestDescribeUsersPaginateTypeDef(BaseModel):
     Fields: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDocumentVersionsResponseTypeDef(BaseModel):
+class DescribeDocumentVersionsResponseTypeDef(BaseValidatorModel):
     DocumentVersions: List[DocumentVersionMetadataTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DocumentMetadataTypeDef(BaseModel):
+class DocumentMetadataTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     CreatorId: Optional[str] = None
     ParentFolderId: Optional[str] = None
@@ -510,29 +510,29 @@ class DocumentMetadataTypeDef(BaseModel):
     ResourceState: Optional[ResourceStateTypeType] = None
     Labels: Optional[List[str]] = None
 
-class GetDocumentVersionResponseTypeDef(BaseModel):
+class GetDocumentVersionResponseTypeDef(BaseValidatorModel):
     Metadata: DocumentVersionMetadataTypeDef
     CustomMetadata: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeGroupsResponseTypeDef(BaseModel):
+class DescribeGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupMetadataTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ParticipantsTypeDef(BaseModel):
+class ParticipantsTypeDef(BaseValidatorModel):
     Users: Optional[List[UserMetadataTypeDef]] = None
     Groups: Optional[List[GroupMetadataTypeDef]] = None
 
-class PrincipalTypeDef(BaseModel):
+class PrincipalTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Type: Optional[PrincipalTypeType] = None
     Roles: Optional[List[PermissionInfoTypeDef]] = None
 
-class ResourcePathTypeDef(BaseModel):
+class ResourcePathTypeDef(BaseValidatorModel):
     Components: Optional[List[ResourcePathComponentTypeDef]] = None
 
-class UserTypeDef(BaseModel):
+class UserTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Username: Optional[str] = None
     EmailAddress: Optional[str] = None
@@ -549,7 +549,7 @@ class UserTypeDef(BaseModel):
     Locale: Optional[LocaleTypeType] = None
     Storage: Optional[UserStorageMetadataTypeDef] = None
 
-class FiltersTypeDef(BaseModel):
+class FiltersTypeDef(BaseValidatorModel):
     TextLocales: Optional[Sequence[LanguageCodeTypeType]] = None
     ContentCategories: Optional[Sequence[ContentCategoryTypeType]] = None
     ResourceTypes: Optional[Sequence[SearchResourceTypeType]] = None
@@ -561,46 +561,46 @@ class FiltersTypeDef(BaseModel):
     CreatedRange: Optional[DateRangeTypeTypeDef] = None
     ModifiedRange: Optional[DateRangeTypeTypeDef] = None
 
-class DescribeFolderContentsResponseTypeDef(BaseModel):
+class DescribeFolderContentsResponseTypeDef(BaseValidatorModel):
     Folders: List[FolderMetadataTypeDef]
     Documents: List[DocumentMetadataTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDocumentResponseTypeDef(BaseModel):
+class GetDocumentResponseTypeDef(BaseValidatorModel):
     Metadata: DocumentMetadataTypeDef
     CustomMetadata: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourcesResponseTypeDef(BaseModel):
+class GetResourcesResponseTypeDef(BaseValidatorModel):
     Folders: List[FolderMetadataTypeDef]
     Documents: List[DocumentMetadataTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InitiateDocumentVersionUploadResponseTypeDef(BaseModel):
+class InitiateDocumentVersionUploadResponseTypeDef(BaseValidatorModel):
     Metadata: DocumentMetadataTypeDef
     UploadMetadata: UploadMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeResourcePermissionsResponseTypeDef(BaseModel):
+class DescribeResourcePermissionsResponseTypeDef(BaseValidatorModel):
     Principals: List[PrincipalTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDocumentPathResponseTypeDef(BaseModel):
+class GetDocumentPathResponseTypeDef(BaseValidatorModel):
     Path: ResourcePathTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFolderPathResponseTypeDef(BaseModel):
+class GetFolderPathResponseTypeDef(BaseValidatorModel):
     Path: ResourcePathTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ActivateUserResponseTypeDef(BaseModel):
+class ActivateUserResponseTypeDef(BaseValidatorModel):
     User: UserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CommentMetadataTypeDef(BaseModel):
+class CommentMetadataTypeDef(BaseValidatorModel):
     CommentId: Optional[str] = None
     Contributor: Optional[UserTypeDef] = None
     CreatedTimestamp: Optional[datetime] = None
@@ -608,7 +608,7 @@ class CommentMetadataTypeDef(BaseModel):
     RecipientId: Optional[str] = None
     ContributorId: Optional[str] = None
 
-class CommentTypeDef(BaseModel):
+class CommentTypeDef(BaseValidatorModel):
     CommentId: str
     ParentId: Optional[str] = None
     ThreadId: Optional[str] = None
@@ -619,25 +619,25 @@ class CommentTypeDef(BaseModel):
     Visibility: Optional[CommentVisibilityTypeType] = None
     RecipientId: Optional[str] = None
 
-class CreateUserResponseTypeDef(BaseModel):
+class CreateUserResponseTypeDef(BaseValidatorModel):
     User: UserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeUsersResponseTypeDef(BaseModel):
+class DescribeUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeDef]
     TotalNumberOfUsers: int
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCurrentUserResponseTypeDef(BaseModel):
+class GetCurrentUserResponseTypeDef(BaseValidatorModel):
     User: UserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUserResponseTypeDef(BaseModel):
+class UpdateUserResponseTypeDef(BaseValidatorModel):
     User: UserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchResourcesRequestRequestTypeDef(BaseModel):
+class SearchResourcesRequestRequestTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     QueryText: Optional[str] = None
     QueryScopes: Optional[Sequence[SearchQueryScopeTypeType]] = None
@@ -648,7 +648,7 @@ class SearchResourcesRequestRequestTypeDef(BaseModel):
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class SearchResourcesRequestSearchResourcesPaginateTypeDef(BaseModel):
+class SearchResourcesRequestSearchResourcesPaginateTypeDef(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     QueryText: Optional[str] = None
     QueryScopes: Optional[Sequence[SearchQueryScopeTypeType]] = None
@@ -658,7 +658,7 @@ class SearchResourcesRequestSearchResourcesPaginateTypeDef(BaseModel):
     OrderBy: Optional[Sequence[SearchSortResultTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ActivityTypeDef(BaseModel):
+class ActivityTypeDef(BaseValidatorModel):
     Type: Optional[ActivityTypeType] = None
     TimeStamp: Optional[datetime] = None
     IsIndirectActivity: Optional[bool] = None
@@ -669,7 +669,7 @@ class ActivityTypeDef(BaseModel):
     OriginalParent: Optional[ResourceMetadataTypeDef] = None
     CommentMetadata: Optional[CommentMetadataTypeDef] = None
 
-class ResponseItemTypeDef(BaseModel):
+class ResponseItemTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResponseItemTypeType] = None
     WebUrl: Optional[str] = None
     DocumentMetadata: Optional[DocumentMetadataTypeDef] = None
@@ -677,21 +677,21 @@ class ResponseItemTypeDef(BaseModel):
     CommentMetadata: Optional[CommentMetadataTypeDef] = None
     DocumentVersionMetadata: Optional[DocumentVersionMetadataTypeDef] = None
 
-class CreateCommentResponseTypeDef(BaseModel):
+class CreateCommentResponseTypeDef(BaseValidatorModel):
     Comment: CommentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCommentsResponseTypeDef(BaseModel):
+class DescribeCommentsResponseTypeDef(BaseValidatorModel):
     Comments: List[CommentTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeActivitiesResponseTypeDef(BaseModel):
+class DescribeActivitiesResponseTypeDef(BaseValidatorModel):
     UserActivities: List[ActivityTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SearchResourcesResponseTypeDef(BaseModel):
+class SearchResourcesResponseTypeDef(BaseValidatorModel):
     Items: List[ResponseItemTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef

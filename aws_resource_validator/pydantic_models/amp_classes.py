@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,222 +11,222 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.amp_constants import *
 
-class AlertManagerDefinitionStatusTypeDef(BaseModel):
+class AlertManagerDefinitionStatusTypeDef(BaseValidatorModel):
     statusCode: AlertManagerDefinitionStatusCodeType
     statusReason: Optional[str] = None
 
-class AmpConfigurationTypeDef(BaseModel):
+class AmpConfigurationTypeDef(BaseValidatorModel):
     workspaceArn: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class CreateLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     logGroupArn: str
     workspaceId: str
     clientToken: Optional[str] = None
 
-class LoggingConfigurationStatusTypeDef(BaseModel):
+class LoggingConfigurationStatusTypeDef(BaseValidatorModel):
     statusCode: LoggingConfigurationStatusCodeType
     statusReason: Optional[str] = None
 
-class RuleGroupsNamespaceStatusTypeDef(BaseModel):
+class RuleGroupsNamespaceStatusTypeDef(BaseValidatorModel):
     statusCode: RuleGroupsNamespaceStatusCodeType
     statusReason: Optional[str] = None
 
-class ScraperStatusTypeDef(BaseModel):
+class ScraperStatusTypeDef(BaseValidatorModel):
     statusCode: ScraperStatusCodeType
 
-class CreateWorkspaceRequestRequestTypeDef(BaseModel):
+class CreateWorkspaceRequestRequestTypeDef(BaseValidatorModel):
     alias: Optional[str] = None
     clientToken: Optional[str] = None
     kmsKeyArn: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class WorkspaceStatusTypeDef(BaseModel):
+class WorkspaceStatusTypeDef(BaseValidatorModel):
     statusCode: WorkspaceStatusCodeType
 
-class DeleteAlertManagerDefinitionRequestRequestTypeDef(BaseModel):
+class DeleteAlertManagerDefinitionRequestRequestTypeDef(BaseValidatorModel):
     workspaceId: str
     clientToken: Optional[str] = None
 
-class DeleteLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     workspaceId: str
     clientToken: Optional[str] = None
 
-class DeleteRuleGroupsNamespaceRequestRequestTypeDef(BaseModel):
+class DeleteRuleGroupsNamespaceRequestRequestTypeDef(BaseValidatorModel):
     name: str
     workspaceId: str
     clientToken: Optional[str] = None
 
-class DeleteScraperRequestRequestTypeDef(BaseModel):
+class DeleteScraperRequestRequestTypeDef(BaseValidatorModel):
     scraperId: str
     clientToken: Optional[str] = None
 
-class DeleteWorkspaceRequestRequestTypeDef(BaseModel):
+class DeleteWorkspaceRequestRequestTypeDef(BaseValidatorModel):
     workspaceId: str
     clientToken: Optional[str] = None
 
-class DescribeAlertManagerDefinitionRequestRequestTypeDef(BaseModel):
+class DescribeAlertManagerDefinitionRequestRequestTypeDef(BaseValidatorModel):
     workspaceId: str
 
-class DescribeLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     workspaceId: str
 
-class DescribeRuleGroupsNamespaceRequestRequestTypeDef(BaseModel):
+class DescribeRuleGroupsNamespaceRequestRequestTypeDef(BaseValidatorModel):
     name: str
     workspaceId: str
 
-class DescribeScraperRequestRequestTypeDef(BaseModel):
+class DescribeScraperRequestRequestTypeDef(BaseValidatorModel):
     scraperId: str
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeWorkspaceRequestRequestTypeDef(BaseModel):
+class DescribeWorkspaceRequestRequestTypeDef(BaseValidatorModel):
     workspaceId: str
 
-class EksConfigurationPaginatorTypeDef(BaseModel):
+class EksConfigurationPaginatorTypeDef(BaseValidatorModel):
     clusterArn: str
     subnetIds: List[str]
     securityGroupIds: Optional[List[str]] = None
 
-class EksConfigurationTypeDef(BaseModel):
+class EksConfigurationTypeDef(BaseValidatorModel):
     clusterArn: str
     subnetIds: Sequence[str]
     securityGroupIds: Optional[Sequence[str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListRuleGroupsNamespacesRequestRequestTypeDef(BaseModel):
+class ListRuleGroupsNamespacesRequestRequestTypeDef(BaseValidatorModel):
     workspaceId: str
     maxResults: Optional[int] = None
     name: Optional[str] = None
     nextToken: Optional[str] = None
 
-class ListScrapersRequestRequestTypeDef(BaseModel):
+class ListScrapersRequestRequestTypeDef(BaseValidatorModel):
     filters: Optional[Mapping[str, Sequence[str]]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListWorkspacesRequestRequestTypeDef(BaseModel):
+class ListWorkspacesRequestRequestTypeDef(BaseValidatorModel):
     alias: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateLoggingConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     logGroupArn: str
     workspaceId: str
     clientToken: Optional[str] = None
 
-class UpdateWorkspaceAliasRequestRequestTypeDef(BaseModel):
+class UpdateWorkspaceAliasRequestRequestTypeDef(BaseValidatorModel):
     workspaceId: str
     alias: Optional[str] = None
     clientToken: Optional[str] = None
 
-class AlertManagerDefinitionDescriptionTypeDef(BaseModel):
+class AlertManagerDefinitionDescriptionTypeDef(BaseValidatorModel):
     createdAt: datetime
     data: bytes
     modifiedAt: datetime
     status: AlertManagerDefinitionStatusTypeDef
 
-class DestinationTypeDef(BaseModel):
+class DestinationTypeDef(BaseValidatorModel):
     ampConfiguration: Optional[AmpConfigurationTypeDef] = None
 
-class CreateAlertManagerDefinitionRequestRequestTypeDef(BaseModel):
+class CreateAlertManagerDefinitionRequestRequestTypeDef(BaseValidatorModel):
     data: BlobTypeDef
     workspaceId: str
     clientToken: Optional[str] = None
 
-class CreateRuleGroupsNamespaceRequestRequestTypeDef(BaseModel):
+class CreateRuleGroupsNamespaceRequestRequestTypeDef(BaseValidatorModel):
     data: BlobTypeDef
     name: str
     workspaceId: str
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class PutAlertManagerDefinitionRequestRequestTypeDef(BaseModel):
+class PutAlertManagerDefinitionRequestRequestTypeDef(BaseValidatorModel):
     data: BlobTypeDef
     workspaceId: str
     clientToken: Optional[str] = None
 
-class PutRuleGroupsNamespaceRequestRequestTypeDef(BaseModel):
+class PutRuleGroupsNamespaceRequestRequestTypeDef(BaseValidatorModel):
     data: BlobTypeDef
     name: str
     workspaceId: str
     clientToken: Optional[str] = None
 
-class ScrapeConfigurationTypeDef(BaseModel):
+class ScrapeConfigurationTypeDef(BaseValidatorModel):
     configurationBlob: Optional[BlobTypeDef] = None
 
-class CreateAlertManagerDefinitionResponseTypeDef(BaseModel):
+class CreateAlertManagerDefinitionResponseTypeDef(BaseValidatorModel):
     status: AlertManagerDefinitionStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDefaultScraperConfigurationResponseTypeDef(BaseModel):
+class GetDefaultScraperConfigurationResponseTypeDef(BaseValidatorModel):
     configuration: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAlertManagerDefinitionResponseTypeDef(BaseModel):
+class PutAlertManagerDefinitionResponseTypeDef(BaseValidatorModel):
     status: AlertManagerDefinitionStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLoggingConfigurationResponseTypeDef(BaseModel):
+class CreateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     status: LoggingConfigurationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoggingConfigurationMetadataTypeDef(BaseModel):
+class LoggingConfigurationMetadataTypeDef(BaseValidatorModel):
     createdAt: datetime
     logGroupArn: str
     modifiedAt: datetime
     status: LoggingConfigurationStatusTypeDef
     workspace: str
 
-class UpdateLoggingConfigurationResponseTypeDef(BaseModel):
+class UpdateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     status: LoggingConfigurationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRuleGroupsNamespaceResponseTypeDef(BaseModel):
+class CreateRuleGroupsNamespaceResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     status: RuleGroupsNamespaceStatusTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRuleGroupsNamespaceResponseTypeDef(BaseModel):
+class PutRuleGroupsNamespaceResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     status: RuleGroupsNamespaceStatusTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RuleGroupsNamespaceDescriptionTypeDef(BaseModel):
+class RuleGroupsNamespaceDescriptionTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     data: bytes
@@ -235,7 +235,7 @@ class RuleGroupsNamespaceDescriptionTypeDef(BaseModel):
     status: RuleGroupsNamespaceStatusTypeDef
     tags: Optional[Dict[str, str]] = None
 
-class RuleGroupsNamespaceSummaryTypeDef(BaseModel):
+class RuleGroupsNamespaceSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     modifiedAt: datetime
@@ -243,19 +243,19 @@ class RuleGroupsNamespaceSummaryTypeDef(BaseModel):
     status: RuleGroupsNamespaceStatusTypeDef
     tags: Optional[Dict[str, str]] = None
 
-class CreateScraperResponseTypeDef(BaseModel):
+class CreateScraperResponseTypeDef(BaseValidatorModel):
     arn: str
     scraperId: str
     status: ScraperStatusTypeDef
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteScraperResponseTypeDef(BaseModel):
+class DeleteScraperResponseTypeDef(BaseValidatorModel):
     scraperId: str
     status: ScraperStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWorkspaceResponseTypeDef(BaseModel):
+class CreateWorkspaceResponseTypeDef(BaseValidatorModel):
     arn: str
     kmsKeyArn: str
     status: WorkspaceStatusTypeDef
@@ -263,7 +263,7 @@ class CreateWorkspaceResponseTypeDef(BaseModel):
     workspaceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class WorkspaceDescriptionTypeDef(BaseModel):
+class WorkspaceDescriptionTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     status: WorkspaceStatusTypeDef
@@ -273,7 +273,7 @@ class WorkspaceDescriptionTypeDef(BaseModel):
     prometheusEndpoint: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class WorkspaceSummaryTypeDef(BaseModel):
+class WorkspaceSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     status: WorkspaceStatusTypeDef
@@ -282,68 +282,68 @@ class WorkspaceSummaryTypeDef(BaseModel):
     kmsKeyArn: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class DescribeScraperRequestScraperActiveWaitTypeDef(BaseModel):
+class DescribeScraperRequestScraperActiveWaitTypeDef(BaseValidatorModel):
     scraperId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeScraperRequestScraperDeletedWaitTypeDef(BaseModel):
+class DescribeScraperRequestScraperDeletedWaitTypeDef(BaseValidatorModel):
     scraperId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeWorkspaceRequestWorkspaceActiveWaitTypeDef(BaseModel):
+class DescribeWorkspaceRequestWorkspaceActiveWaitTypeDef(BaseValidatorModel):
     workspaceId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeWorkspaceRequestWorkspaceDeletedWaitTypeDef(BaseModel):
+class DescribeWorkspaceRequestWorkspaceDeletedWaitTypeDef(BaseValidatorModel):
     workspaceId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class SourcePaginatorTypeDef(BaseModel):
+class SourcePaginatorTypeDef(BaseValidatorModel):
     eksConfiguration: Optional[EksConfigurationPaginatorTypeDef] = None
 
-class SourceTypeDef(BaseModel):
+class SourceTypeDef(BaseValidatorModel):
     eksConfiguration: Optional[EksConfigurationTypeDef] = None
 
-class ListRuleGroupsNamespacesRequestListRuleGroupsNamespacesPaginateTypeDef(BaseModel):
+class ListRuleGroupsNamespacesRequestListRuleGroupsNamespacesPaginateTypeDef(BaseValidatorModel):
     workspaceId: str
     name: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListScrapersRequestListScrapersPaginateTypeDef(BaseModel):
+class ListScrapersRequestListScrapersPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Mapping[str, Sequence[str]]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkspacesRequestListWorkspacesPaginateTypeDef(BaseModel):
+class ListWorkspacesRequestListWorkspacesPaginateTypeDef(BaseValidatorModel):
     alias: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAlertManagerDefinitionResponseTypeDef(BaseModel):
+class DescribeAlertManagerDefinitionResponseTypeDef(BaseValidatorModel):
     alertManagerDefinition: AlertManagerDefinitionDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLoggingConfigurationResponseTypeDef(BaseModel):
+class DescribeLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     loggingConfiguration: LoggingConfigurationMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRuleGroupsNamespaceResponseTypeDef(BaseModel):
+class DescribeRuleGroupsNamespaceResponseTypeDef(BaseValidatorModel):
     ruleGroupsNamespace: RuleGroupsNamespaceDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRuleGroupsNamespacesResponseTypeDef(BaseModel):
+class ListRuleGroupsNamespacesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     ruleGroupsNamespaces: List[RuleGroupsNamespaceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWorkspaceResponseTypeDef(BaseModel):
+class DescribeWorkspaceResponseTypeDef(BaseValidatorModel):
     workspace: WorkspaceDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWorkspacesResponseTypeDef(BaseModel):
+class ListWorkspacesResponseTypeDef(BaseValidatorModel):
     nextToken: str
     workspaces: List[WorkspaceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ScraperSummaryPaginatorTypeDef(BaseModel):
+class ScraperSummaryPaginatorTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     destination: DestinationTypeDef
@@ -356,7 +356,7 @@ class ScraperSummaryPaginatorTypeDef(BaseModel):
     statusReason: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class CreateScraperRequestRequestTypeDef(BaseModel):
+class CreateScraperRequestRequestTypeDef(BaseValidatorModel):
     destination: DestinationTypeDef
     scrapeConfiguration: ScrapeConfigurationTypeDef
     source: SourceTypeDef
@@ -364,7 +364,7 @@ class CreateScraperRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ScraperDescriptionTypeDef(BaseModel):
+class ScraperDescriptionTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     destination: DestinationTypeDef
@@ -378,7 +378,7 @@ class ScraperDescriptionTypeDef(BaseModel):
     statusReason: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class ScraperSummaryTypeDef(BaseModel):
+class ScraperSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     destination: DestinationTypeDef
@@ -391,16 +391,16 @@ class ScraperSummaryTypeDef(BaseModel):
     statusReason: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListScrapersResponsePaginatorTypeDef(BaseModel):
+class ListScrapersResponsePaginatorTypeDef(BaseValidatorModel):
     nextToken: str
     scrapers: List[ScraperSummaryPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeScraperResponseTypeDef(BaseModel):
+class DescribeScraperResponseTypeDef(BaseValidatorModel):
     scraper: ScraperDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListScrapersResponseTypeDef(BaseModel):
+class ListScrapersResponseTypeDef(BaseValidatorModel):
     nextToken: str
     scrapers: List[ScraperSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

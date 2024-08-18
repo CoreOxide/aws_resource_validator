@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,173 +11,173 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.bcm_data_exports_constants import *
 
-class ColumnTypeDef(BaseModel):
+class ColumnTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Name: Optional[str] = None
     Type: Optional[str] = None
 
-class ResourceTagTypeDef(BaseModel):
+class ResourceTagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DataQueryTypeDef(BaseModel):
+class DataQueryTypeDef(BaseValidatorModel):
     QueryStatement: str
     TableConfigurations: Optional[Mapping[str, Mapping[str, str]]] = None
 
-class DeleteExportRequestRequestTypeDef(BaseModel):
+class DeleteExportRequestRequestTypeDef(BaseValidatorModel):
     ExportArn: str
 
-class ExecutionStatusTypeDef(BaseModel):
+class ExecutionStatusTypeDef(BaseValidatorModel):
     CompletedAt: Optional[datetime] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
     StatusCode: Optional[ExecutionStatusCodeType] = None
     StatusReason: Optional[ExecutionStatusReasonType] = None
 
-class ExportStatusTypeDef(BaseModel):
+class ExportStatusTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     LastRefreshedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
     StatusCode: Optional[ExportStatusCodeType] = None
     StatusReason: Optional[ExecutionStatusReasonType] = None
 
-class RefreshCadenceTypeDef(BaseModel):
+class RefreshCadenceTypeDef(BaseValidatorModel):
     Frequency: Literal["SYNCHRONOUS"]
 
-class GetExecutionRequestRequestTypeDef(BaseModel):
+class GetExecutionRequestRequestTypeDef(BaseValidatorModel):
     ExecutionId: str
     ExportArn: str
 
-class GetExportRequestRequestTypeDef(BaseModel):
+class GetExportRequestRequestTypeDef(BaseValidatorModel):
     ExportArn: str
 
-class GetTableRequestRequestTypeDef(BaseModel):
+class GetTableRequestRequestTypeDef(BaseValidatorModel):
     TableName: str
     TableProperties: Optional[Mapping[str, str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListExecutionsRequestRequestTypeDef(BaseModel):
+class ListExecutionsRequestRequestTypeDef(BaseValidatorModel):
     ExportArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListExportsRequestRequestTypeDef(BaseModel):
+class ListExportsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTablesRequestRequestTypeDef(BaseModel):
+class ListTablesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class S3OutputConfigurationsTypeDef(BaseModel):
+class S3OutputConfigurationsTypeDef(BaseValidatorModel):
     Compression: CompressionOptionType
     Format: FormatOptionType
     OutputType: Literal["CUSTOM"]
     Overwrite: OverwriteOptionType
 
-class TablePropertyDescriptionTypeDef(BaseModel):
+class TablePropertyDescriptionTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
     Description: Optional[str] = None
     Name: Optional[str] = None
     ValidValues: Optional[List[str]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     ResourceTagKeys: Sequence[str]
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     ResourceTags: Sequence[ResourceTagTypeDef]
 
-class CreateExportResponseTypeDef(BaseModel):
+class CreateExportResponseTypeDef(BaseValidatorModel):
     ExportArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteExportResponseTypeDef(BaseModel):
+class DeleteExportResponseTypeDef(BaseValidatorModel):
     ExportArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTableResponseTypeDef(BaseModel):
+class GetTableResponseTypeDef(BaseValidatorModel):
     Description: str
     Schema: List[ColumnTypeDef]
     TableName: str
     TableProperties: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     NextToken: str
     ResourceTags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateExportResponseTypeDef(BaseModel):
+class UpdateExportResponseTypeDef(BaseValidatorModel):
     ExportArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecutionReferenceTypeDef(BaseModel):
+class ExecutionReferenceTypeDef(BaseValidatorModel):
     ExecutionId: str
     ExecutionStatus: ExecutionStatusTypeDef
 
-class ExportReferenceTypeDef(BaseModel):
+class ExportReferenceTypeDef(BaseValidatorModel):
     ExportArn: str
     ExportName: str
     ExportStatus: ExportStatusTypeDef
 
-class ListExecutionsRequestListExecutionsPaginateTypeDef(BaseModel):
+class ListExecutionsRequestListExecutionsPaginateTypeDef(BaseValidatorModel):
     ExportArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListExportsRequestListExportsPaginateTypeDef(BaseModel):
+class ListExportsRequestListExportsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTablesRequestListTablesPaginateTypeDef(BaseModel):
+class ListTablesRequestListTablesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class S3DestinationTypeDef(BaseModel):
+class S3DestinationTypeDef(BaseValidatorModel):
     S3Bucket: str
     S3OutputConfigurations: S3OutputConfigurationsTypeDef
     S3Prefix: str
     S3Region: str
 
-class TableTypeDef(BaseModel):
+class TableTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     TableName: Optional[str] = None
     TableProperties: Optional[List[TablePropertyDescriptionTypeDef]] = None
 
-class ListExecutionsResponseTypeDef(BaseModel):
+class ListExecutionsResponseTypeDef(BaseValidatorModel):
     Executions: List[ExecutionReferenceTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListExportsResponseTypeDef(BaseModel):
+class ListExportsResponseTypeDef(BaseValidatorModel):
     Exports: List[ExportReferenceTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DestinationConfigurationsTypeDef(BaseModel):
+class DestinationConfigurationsTypeDef(BaseValidatorModel):
     S3Destination: S3DestinationTypeDef
 
-class ListTablesResponseTypeDef(BaseModel):
+class ListTablesResponseTypeDef(BaseValidatorModel):
     NextToken: str
     Tables: List[TableTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportTypeDef(BaseModel):
+class ExportTypeDef(BaseValidatorModel):
     DataQuery: DataQueryTypeDef
     DestinationConfigurations: DestinationConfigurationsTypeDef
     Name: str
@@ -185,22 +185,22 @@ class ExportTypeDef(BaseModel):
     Description: Optional[str] = None
     ExportArn: Optional[str] = None
 
-class CreateExportRequestRequestTypeDef(BaseModel):
+class CreateExportRequestRequestTypeDef(BaseValidatorModel):
     Export: ExportTypeDef
     ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
 
-class GetExecutionResponseTypeDef(BaseModel):
+class GetExecutionResponseTypeDef(BaseValidatorModel):
     ExecutionId: str
     ExecutionStatus: ExecutionStatusTypeDef
     Export: ExportTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetExportResponseTypeDef(BaseModel):
+class GetExportResponseTypeDef(BaseValidatorModel):
     Export: ExportTypeDef
     ExportStatus: ExportStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateExportRequestRequestTypeDef(BaseModel):
+class UpdateExportRequestRequestTypeDef(BaseValidatorModel):
     Export: ExportTypeDef
     ExportArn: str
 

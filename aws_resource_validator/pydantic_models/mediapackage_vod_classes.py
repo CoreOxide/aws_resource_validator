@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mediapackage_vod_constants import *
 
-class AssetShallowTypeDef(BaseModel):
+class AssetShallowTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedAt: Optional[str] = None
     Id: Optional[str] = None
@@ -21,21 +21,21 @@ class AssetShallowTypeDef(BaseModel):
     SourceRoleArn: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class AuthorizationTypeDef(BaseModel):
+class AuthorizationTypeDef(BaseValidatorModel):
     CdnIdentifierSecret: str
     SecretsRoleArn: str
 
-class EgressAccessLogsTypeDef(BaseModel):
+class EgressAccessLogsTypeDef(BaseValidatorModel):
     LogGroupName: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CreateAssetRequestRequestTypeDef(BaseModel):
+class CreateAssetRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     PackagingGroupId: str
     SourceArn: str
@@ -43,83 +43,83 @@ class CreateAssetRequestRequestTypeDef(BaseModel):
     ResourceId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class EgressEndpointTypeDef(BaseModel):
+class EgressEndpointTypeDef(BaseValidatorModel):
     PackagingConfigurationId: Optional[str] = None
     Status: Optional[str] = None
     Url: Optional[str] = None
 
-class StreamSelectionTypeDef(BaseModel):
+class StreamSelectionTypeDef(BaseValidatorModel):
     MaxVideoBitsPerSecond: Optional[int] = None
     MinVideoBitsPerSecond: Optional[int] = None
     StreamOrder: Optional[StreamOrderType] = None
 
-class DeleteAssetRequestRequestTypeDef(BaseModel):
+class DeleteAssetRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeletePackagingConfigurationRequestRequestTypeDef(BaseModel):
+class DeletePackagingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeletePackagingGroupRequestRequestTypeDef(BaseModel):
+class DeletePackagingGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DescribeAssetRequestRequestTypeDef(BaseModel):
+class DescribeAssetRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DescribePackagingConfigurationRequestRequestTypeDef(BaseModel):
+class DescribePackagingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DescribePackagingGroupRequestRequestTypeDef(BaseModel):
+class DescribePackagingGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class EncryptionContractConfigurationTypeDef(BaseModel):
+class EncryptionContractConfigurationTypeDef(BaseValidatorModel):
     PresetSpeke20Audio: PresetSpeke20AudioType
     PresetSpeke20Video: PresetSpeke20VideoType
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAssetsRequestRequestTypeDef(BaseModel):
+class ListAssetsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     PackagingGroupId: Optional[str] = None
 
-class ListPackagingConfigurationsRequestRequestTypeDef(BaseModel):
+class ListPackagingConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     PackagingGroupId: Optional[str] = None
 
-class ListPackagingGroupsRequestRequestTypeDef(BaseModel):
+class ListPackagingGroupsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdatePackagingGroupRequestRequestTypeDef(BaseModel):
+class UpdatePackagingGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Authorization: Optional[AuthorizationTypeDef] = None
 
-class ConfigureLogsRequestRequestTypeDef(BaseModel):
+class ConfigureLogsRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     EgressAccessLogs: Optional[EgressAccessLogsTypeDef] = None
 
-class CreatePackagingGroupRequestRequestTypeDef(BaseModel):
+class CreatePackagingGroupRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Authorization: Optional[AuthorizationTypeDef] = None
     EgressAccessLogs: Optional[EgressAccessLogsTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class PackagingGroupTypeDef(BaseModel):
+class PackagingGroupTypeDef(BaseValidatorModel):
     ApproximateAssetCount: Optional[int] = None
     Arn: Optional[str] = None
     Authorization: Optional[AuthorizationTypeDef] = None
@@ -129,7 +129,7 @@ class PackagingGroupTypeDef(BaseModel):
     Id: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ConfigureLogsResponseTypeDef(BaseModel):
+class ConfigureLogsResponseTypeDef(BaseValidatorModel):
     Arn: str
     Authorization: AuthorizationTypeDef
     CreatedAt: str
@@ -139,7 +139,7 @@ class ConfigureLogsResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePackagingGroupResponseTypeDef(BaseModel):
+class CreatePackagingGroupResponseTypeDef(BaseValidatorModel):
     Arn: str
     Authorization: AuthorizationTypeDef
     CreatedAt: str
@@ -149,7 +149,7 @@ class CreatePackagingGroupResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePackagingGroupResponseTypeDef(BaseModel):
+class DescribePackagingGroupResponseTypeDef(BaseValidatorModel):
     ApproximateAssetCount: int
     Arn: str
     Authorization: AuthorizationTypeDef
@@ -160,19 +160,19 @@ class DescribePackagingGroupResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssetsResponseTypeDef(BaseModel):
+class ListAssetsResponseTypeDef(BaseValidatorModel):
     Assets: List[AssetShallowTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePackagingGroupResponseTypeDef(BaseModel):
+class UpdatePackagingGroupResponseTypeDef(BaseValidatorModel):
     ApproximateAssetCount: int
     Arn: str
     Authorization: AuthorizationTypeDef
@@ -183,7 +183,7 @@ class UpdatePackagingGroupResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAssetResponseTypeDef(BaseModel):
+class CreateAssetResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     EgressEndpoints: List[EgressEndpointTypeDef]
@@ -195,7 +195,7 @@ class CreateAssetResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAssetResponseTypeDef(BaseModel):
+class DescribeAssetResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     EgressEndpoints: List[EgressEndpointTypeDef]
@@ -207,7 +207,7 @@ class DescribeAssetResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DashManifestTypeDef(BaseModel):
+class DashManifestTypeDef(BaseValidatorModel):
     ManifestLayout: Optional[ManifestLayoutType] = None
     ManifestName: Optional[str] = None
     MinBufferTimeSeconds: Optional[int] = None
@@ -215,7 +215,7 @@ class DashManifestTypeDef(BaseModel):
     ScteMarkersSource: Optional[ScteMarkersSourceType] = None
     StreamSelection: Optional[StreamSelectionTypeDef] = None
 
-class HlsManifestTypeDef(BaseModel):
+class HlsManifestTypeDef(BaseValidatorModel):
     AdMarkers: Optional[AdMarkersType] = None
     IncludeIframeOnlyStream: Optional[bool] = None
     ManifestName: Optional[str] = None
@@ -223,75 +223,75 @@ class HlsManifestTypeDef(BaseModel):
     RepeatExtXKey: Optional[bool] = None
     StreamSelection: Optional[StreamSelectionTypeDef] = None
 
-class MssManifestTypeDef(BaseModel):
+class MssManifestTypeDef(BaseValidatorModel):
     ManifestName: Optional[str] = None
     StreamSelection: Optional[StreamSelectionTypeDef] = None
 
-class SpekeKeyProviderPaginatorTypeDef(BaseModel):
+class SpekeKeyProviderPaginatorTypeDef(BaseValidatorModel):
     RoleArn: str
     SystemIds: List[str]
     Url: str
     EncryptionContractConfiguration: Optional[EncryptionContractConfigurationTypeDef] = None
 
-class SpekeKeyProviderTypeDef(BaseModel):
+class SpekeKeyProviderTypeDef(BaseValidatorModel):
     RoleArn: str
     SystemIds: Sequence[str]
     Url: str
     EncryptionContractConfiguration: Optional[EncryptionContractConfigurationTypeDef] = None
 
-class ListAssetsRequestListAssetsPaginateTypeDef(BaseModel):
+class ListAssetsRequestListAssetsPaginateTypeDef(BaseValidatorModel):
     PackagingGroupId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPackagingConfigurationsRequestListPackagingConfigurationsPaginateTypeDef(BaseModel):
+class ListPackagingConfigurationsRequestListPackagingConfigurationsPaginateTypeDef(BaseValidatorModel):
     PackagingGroupId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPackagingGroupsRequestListPackagingGroupsPaginateTypeDef(BaseModel):
+class ListPackagingGroupsRequestListPackagingGroupsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPackagingGroupsResponseTypeDef(BaseModel):
+class ListPackagingGroupsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     PackagingGroups: List[PackagingGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CmafEncryptionPaginatorTypeDef(BaseModel):
+class CmafEncryptionPaginatorTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderPaginatorTypeDef
     ConstantInitializationVector: Optional[str] = None
 
-class DashEncryptionPaginatorTypeDef(BaseModel):
+class DashEncryptionPaginatorTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderPaginatorTypeDef
 
-class HlsEncryptionPaginatorTypeDef(BaseModel):
+class HlsEncryptionPaginatorTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderPaginatorTypeDef
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[EncryptionMethodType] = None
 
-class MssEncryptionPaginatorTypeDef(BaseModel):
+class MssEncryptionPaginatorTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderPaginatorTypeDef
 
-class CmafEncryptionTypeDef(BaseModel):
+class CmafEncryptionTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderTypeDef
     ConstantInitializationVector: Optional[str] = None
 
-class DashEncryptionTypeDef(BaseModel):
+class DashEncryptionTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderTypeDef
 
-class HlsEncryptionTypeDef(BaseModel):
+class HlsEncryptionTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderTypeDef
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[EncryptionMethodType] = None
 
-class MssEncryptionTypeDef(BaseModel):
+class MssEncryptionTypeDef(BaseValidatorModel):
     SpekeKeyProvider: SpekeKeyProviderTypeDef
 
-class CmafPackagePaginatorTypeDef(BaseModel):
+class CmafPackagePaginatorTypeDef(BaseValidatorModel):
     HlsManifests: List[HlsManifestTypeDef]
     Encryption: Optional[CmafEncryptionPaginatorTypeDef] = None
     IncludeEncoderConfigurationInSegments: Optional[bool] = None
     SegmentDurationSeconds: Optional[int] = None
 
-class DashPackagePaginatorTypeDef(BaseModel):
+class DashPackagePaginatorTypeDef(BaseValidatorModel):
     DashManifests: List[DashManifestTypeDef]
     Encryption: Optional[DashEncryptionPaginatorTypeDef] = None
     IncludeEncoderConfigurationInSegments: Optional[bool] = None
@@ -300,25 +300,25 @@ class DashPackagePaginatorTypeDef(BaseModel):
     SegmentDurationSeconds: Optional[int] = None
     SegmentTemplateFormat: Optional[SegmentTemplateFormatType] = None
 
-class HlsPackagePaginatorTypeDef(BaseModel):
+class HlsPackagePaginatorTypeDef(BaseValidatorModel):
     HlsManifests: List[HlsManifestTypeDef]
     Encryption: Optional[HlsEncryptionPaginatorTypeDef] = None
     IncludeDvbSubtitles: Optional[bool] = None
     SegmentDurationSeconds: Optional[int] = None
     UseAudioRenditionGroup: Optional[bool] = None
 
-class MssPackagePaginatorTypeDef(BaseModel):
+class MssPackagePaginatorTypeDef(BaseValidatorModel):
     MssManifests: List[MssManifestTypeDef]
     Encryption: Optional[MssEncryptionPaginatorTypeDef] = None
     SegmentDurationSeconds: Optional[int] = None
 
-class CmafPackageTypeDef(BaseModel):
+class CmafPackageTypeDef(BaseValidatorModel):
     HlsManifests: Sequence[HlsManifestTypeDef]
     Encryption: Optional[CmafEncryptionTypeDef] = None
     IncludeEncoderConfigurationInSegments: Optional[bool] = None
     SegmentDurationSeconds: Optional[int] = None
 
-class DashPackageTypeDef(BaseModel):
+class DashPackageTypeDef(BaseValidatorModel):
     DashManifests: Sequence[DashManifestTypeDef]
     Encryption: Optional[DashEncryptionTypeDef] = None
     IncludeEncoderConfigurationInSegments: Optional[bool] = None
@@ -327,19 +327,19 @@ class DashPackageTypeDef(BaseModel):
     SegmentDurationSeconds: Optional[int] = None
     SegmentTemplateFormat: Optional[SegmentTemplateFormatType] = None
 
-class HlsPackageTypeDef(BaseModel):
+class HlsPackageTypeDef(BaseValidatorModel):
     HlsManifests: Sequence[HlsManifestTypeDef]
     Encryption: Optional[HlsEncryptionTypeDef] = None
     IncludeDvbSubtitles: Optional[bool] = None
     SegmentDurationSeconds: Optional[int] = None
     UseAudioRenditionGroup: Optional[bool] = None
 
-class MssPackageTypeDef(BaseModel):
+class MssPackageTypeDef(BaseValidatorModel):
     MssManifests: Sequence[MssManifestTypeDef]
     Encryption: Optional[MssEncryptionTypeDef] = None
     SegmentDurationSeconds: Optional[int] = None
 
-class PackagingConfigurationPaginatorTypeDef(BaseModel):
+class PackagingConfigurationPaginatorTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CmafPackage: Optional[CmafPackagePaginatorTypeDef] = None
     CreatedAt: Optional[str] = None
@@ -350,7 +350,7 @@ class PackagingConfigurationPaginatorTypeDef(BaseModel):
     PackagingGroupId: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class CreatePackagingConfigurationRequestRequestTypeDef(BaseModel):
+class CreatePackagingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     PackagingGroupId: str
     CmafPackage: Optional[CmafPackageTypeDef] = None
@@ -359,7 +359,7 @@ class CreatePackagingConfigurationRequestRequestTypeDef(BaseModel):
     MssPackage: Optional[MssPackageTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreatePackagingConfigurationResponseTypeDef(BaseModel):
+class CreatePackagingConfigurationResponseTypeDef(BaseValidatorModel):
     Arn: str
     CmafPackage: CmafPackageTypeDef
     CreatedAt: str
@@ -371,7 +371,7 @@ class CreatePackagingConfigurationResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribePackagingConfigurationResponseTypeDef(BaseModel):
+class DescribePackagingConfigurationResponseTypeDef(BaseValidatorModel):
     Arn: str
     CmafPackage: CmafPackageTypeDef
     CreatedAt: str
@@ -383,7 +383,7 @@ class DescribePackagingConfigurationResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PackagingConfigurationTypeDef(BaseModel):
+class PackagingConfigurationTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CmafPackage: Optional[CmafPackageTypeDef] = None
     CreatedAt: Optional[str] = None
@@ -394,12 +394,12 @@ class PackagingConfigurationTypeDef(BaseModel):
     PackagingGroupId: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ListPackagingConfigurationsResponsePaginatorTypeDef(BaseModel):
+class ListPackagingConfigurationsResponsePaginatorTypeDef(BaseValidatorModel):
     NextToken: str
     PackagingConfigurations: List[PackagingConfigurationPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPackagingConfigurationsResponseTypeDef(BaseModel):
+class ListPackagingConfigurationsResponseTypeDef(BaseValidatorModel):
     NextToken: str
     PackagingConfigurations: List[PackagingConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

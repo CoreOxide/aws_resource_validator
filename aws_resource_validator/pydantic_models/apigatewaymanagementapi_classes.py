@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,31 +11,31 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.apigatewaymanagementapi_constants import *
 
-class DeleteConnectionRequestRequestTypeDef(BaseModel):
+class DeleteConnectionRequestRequestTypeDef(BaseValidatorModel):
     ConnectionId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class GetConnectionRequestRequestTypeDef(BaseModel):
+class GetConnectionRequestRequestTypeDef(BaseValidatorModel):
     ConnectionId: str
 
-class IdentityTypeDef(BaseModel):
+class IdentityTypeDef(BaseValidatorModel):
     SourceIp: str
     UserAgent: str
 
-class PostToConnectionRequestRequestTypeDef(BaseModel):
+class PostToConnectionRequestRequestTypeDef(BaseValidatorModel):
     Data: BlobTypeDef
     ConnectionId: str
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetConnectionResponseTypeDef(BaseModel):
+class GetConnectionResponseTypeDef(BaseValidatorModel):
     ConnectedAt: datetime
     Identity: IdentityTypeDef
     LastActiveAt: datetime

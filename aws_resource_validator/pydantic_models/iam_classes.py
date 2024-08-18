@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iam_constants import *
 
-class AccessDetailTypeDef(BaseModel):
+class AccessDetailTypeDef(BaseValidatorModel):
     ServiceName: str
     ServiceNamespace: str
     Region: Optional[str] = None
@@ -19,171 +19,171 @@ class AccessDetailTypeDef(BaseModel):
     LastAuthenticatedTime: Optional[datetime] = None
     TotalAuthenticatedEntities: Optional[int] = None
 
-class AccessKeyLastUsedTypeDef(BaseModel):
+class AccessKeyLastUsedTypeDef(BaseValidatorModel):
     LastUsedDate: datetime
     ServiceName: str
     Region: str
 
-class AccessKeyMetadataTypeDef(BaseModel):
+class AccessKeyMetadataTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     AccessKeyId: Optional[str] = None
     Status: Optional[statusTypeType] = None
     CreateDate: Optional[datetime] = None
 
-class AccessKeyTypeDef(BaseModel):
+class AccessKeyTypeDef(BaseValidatorModel):
     UserName: str
     AccessKeyId: str
     Status: statusTypeType
     SecretAccessKey: str
     CreateDate: Optional[datetime] = None
 
-class AddClientIDToOpenIDConnectProviderRequestRequestTypeDef(BaseModel):
+class AddClientIDToOpenIDConnectProviderRequestRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     ClientID: str
 
-class AddRoleToInstanceProfileRequestInstanceProfileAddRoleTypeDef(BaseModel):
+class AddRoleToInstanceProfileRequestInstanceProfileAddRoleTypeDef(BaseValidatorModel):
     RoleName: str
 
-class AddRoleToInstanceProfileRequestRequestTypeDef(BaseModel):
+class AddRoleToInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceProfileName: str
     RoleName: str
 
-class AddUserToGroupRequestGroupAddUserTypeDef(BaseModel):
+class AddUserToGroupRequestGroupAddUserTypeDef(BaseValidatorModel):
     UserName: str
 
-class AddUserToGroupRequestRequestTypeDef(BaseModel):
+class AddUserToGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     UserName: str
 
-class AddUserToGroupRequestUserAddGroupTypeDef(BaseModel):
+class AddUserToGroupRequestUserAddGroupTypeDef(BaseValidatorModel):
     GroupName: str
 
-class AttachGroupPolicyRequestGroupAttachPolicyTypeDef(BaseModel):
+class AttachGroupPolicyRequestGroupAttachPolicyTypeDef(BaseValidatorModel):
     PolicyArn: str
 
-class AttachGroupPolicyRequestPolicyAttachGroupTypeDef(BaseModel):
+class AttachGroupPolicyRequestPolicyAttachGroupTypeDef(BaseValidatorModel):
     GroupName: str
 
-class AttachGroupPolicyRequestRequestTypeDef(BaseModel):
+class AttachGroupPolicyRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     PolicyArn: str
 
-class AttachRolePolicyRequestPolicyAttachRoleTypeDef(BaseModel):
+class AttachRolePolicyRequestPolicyAttachRoleTypeDef(BaseValidatorModel):
     RoleName: str
 
-class AttachRolePolicyRequestRequestTypeDef(BaseModel):
+class AttachRolePolicyRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     PolicyArn: str
 
-class AttachRolePolicyRequestRoleAttachPolicyTypeDef(BaseModel):
+class AttachRolePolicyRequestRoleAttachPolicyTypeDef(BaseValidatorModel):
     PolicyArn: str
 
-class AttachUserPolicyRequestPolicyAttachUserTypeDef(BaseModel):
+class AttachUserPolicyRequestPolicyAttachUserTypeDef(BaseValidatorModel):
     UserName: str
 
-class AttachUserPolicyRequestRequestTypeDef(BaseModel):
+class AttachUserPolicyRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     PolicyArn: str
 
-class AttachUserPolicyRequestUserAttachPolicyTypeDef(BaseModel):
+class AttachUserPolicyRequestUserAttachPolicyTypeDef(BaseValidatorModel):
     PolicyArn: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AttachedPermissionsBoundaryTypeDef(BaseModel):
+class AttachedPermissionsBoundaryTypeDef(BaseValidatorModel):
     PermissionsBoundaryType: Optional[Literal["PermissionsBoundaryPolicy"]] = None
     PermissionsBoundaryArn: Optional[str] = None
 
-class AttachedPolicyTypeDef(BaseModel):
+class AttachedPolicyTypeDef(BaseValidatorModel):
     PolicyName: Optional[str] = None
     PolicyArn: Optional[str] = None
 
-class ChangePasswordRequestRequestTypeDef(BaseModel):
+class ChangePasswordRequestRequestTypeDef(BaseValidatorModel):
     OldPassword: str
     NewPassword: str
 
-class ChangePasswordRequestServiceResourceChangePasswordTypeDef(BaseModel):
+class ChangePasswordRequestServiceResourceChangePasswordTypeDef(BaseValidatorModel):
     OldPassword: str
     NewPassword: str
 
-class ContextEntryTypeDef(BaseModel):
+class ContextEntryTypeDef(BaseValidatorModel):
     ContextKeyName: Optional[str] = None
     ContextKeyValues: Optional[Sequence[str]] = None
     ContextKeyType: Optional[ContextKeyTypeEnumType] = None
 
-class CreateAccessKeyRequestRequestTypeDef(BaseModel):
+class CreateAccessKeyRequestRequestTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
 
-class CreateAccountAliasRequestRequestTypeDef(BaseModel):
+class CreateAccountAliasRequestRequestTypeDef(BaseValidatorModel):
     AccountAlias: str
 
-class CreateAccountAliasRequestServiceResourceCreateAccountAliasTypeDef(BaseModel):
+class CreateAccountAliasRequestServiceResourceCreateAccountAliasTypeDef(BaseValidatorModel):
     AccountAlias: str
 
-class CreateGroupRequestGroupCreateTypeDef(BaseModel):
+class CreateGroupRequestGroupCreateTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
 
-class CreateGroupRequestRequestTypeDef(BaseModel):
+class CreateGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     Path: Optional[str] = None
 
-class CreateGroupRequestServiceResourceCreateGroupTypeDef(BaseModel):
+class CreateGroupRequestServiceResourceCreateGroupTypeDef(BaseValidatorModel):
     GroupName: str
     Path: Optional[str] = None
 
-class GroupTypeDef(BaseModel):
+class GroupTypeDef(BaseValidatorModel):
     Path: str
     GroupName: str
     GroupId: str
     Arn: str
     CreateDate: datetime
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class CreateLoginProfileRequestLoginProfileCreateTypeDef(BaseModel):
+class CreateLoginProfileRequestLoginProfileCreateTypeDef(BaseValidatorModel):
     Password: str
     PasswordResetRequired: Optional[bool] = None
 
-class CreateLoginProfileRequestRequestTypeDef(BaseModel):
+class CreateLoginProfileRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     Password: str
     PasswordResetRequired: Optional[bool] = None
 
-class CreateLoginProfileRequestUserCreateLoginProfileTypeDef(BaseModel):
+class CreateLoginProfileRequestUserCreateLoginProfileTypeDef(BaseValidatorModel):
     Password: str
     PasswordResetRequired: Optional[bool] = None
 
-class LoginProfileTypeDef(BaseModel):
+class LoginProfileTypeDef(BaseValidatorModel):
     UserName: str
     CreateDate: datetime
     PasswordResetRequired: Optional[bool] = None
 
-class CreatePolicyVersionRequestPolicyCreateVersionTypeDef(BaseModel):
+class CreatePolicyVersionRequestPolicyCreateVersionTypeDef(BaseValidatorModel):
     PolicyDocument: str
     SetAsDefault: Optional[bool] = None
 
-class CreatePolicyVersionRequestRequestTypeDef(BaseModel):
+class CreatePolicyVersionRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     PolicyDocument: str
     SetAsDefault: Optional[bool] = None
 
-class CreateServiceLinkedRoleRequestRequestTypeDef(BaseModel):
+class CreateServiceLinkedRoleRequestRequestTypeDef(BaseValidatorModel):
     AWSServiceName: str
     Description: Optional[str] = None
     CustomSuffix: Optional[str] = None
 
-class CreateServiceSpecificCredentialRequestRequestTypeDef(BaseModel):
+class CreateServiceSpecificCredentialRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     ServiceName: str
 
-class ServiceSpecificCredentialTypeDef(BaseModel):
+class ServiceSpecificCredentialTypeDef(BaseValidatorModel):
     CreateDate: datetime
     ServiceName: str
     ServiceUserName: str
@@ -192,172 +192,172 @@ class ServiceSpecificCredentialTypeDef(BaseModel):
     UserName: str
     Status: statusTypeType
 
-class DeactivateMFADeviceRequestRequestTypeDef(BaseModel):
+class DeactivateMFADeviceRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     SerialNumber: str
 
-class DeleteAccessKeyRequestRequestTypeDef(BaseModel):
+class DeleteAccessKeyRequestRequestTypeDef(BaseValidatorModel):
     AccessKeyId: str
     UserName: Optional[str] = None
 
-class DeleteAccountAliasRequestRequestTypeDef(BaseModel):
+class DeleteAccountAliasRequestRequestTypeDef(BaseValidatorModel):
     AccountAlias: str
 
-class DeleteGroupPolicyRequestRequestTypeDef(BaseModel):
+class DeleteGroupPolicyRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     PolicyName: str
 
-class DeleteGroupRequestRequestTypeDef(BaseModel):
+class DeleteGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
 
-class DeleteInstanceProfileRequestRequestTypeDef(BaseModel):
+class DeleteInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceProfileName: str
 
-class DeleteLoginProfileRequestRequestTypeDef(BaseModel):
+class DeleteLoginProfileRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
 
-class DeleteOpenIDConnectProviderRequestRequestTypeDef(BaseModel):
+class DeleteOpenIDConnectProviderRequestRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
 
-class DeletePolicyRequestRequestTypeDef(BaseModel):
+class DeletePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
 
-class DeletePolicyVersionRequestRequestTypeDef(BaseModel):
+class DeletePolicyVersionRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     VersionId: str
 
-class DeleteRolePermissionsBoundaryRequestRequestTypeDef(BaseModel):
+class DeleteRolePermissionsBoundaryRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
 
-class DeleteRolePolicyRequestRequestTypeDef(BaseModel):
+class DeleteRolePolicyRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     PolicyName: str
 
-class DeleteRoleRequestRequestTypeDef(BaseModel):
+class DeleteRoleRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
 
-class DeleteSAMLProviderRequestRequestTypeDef(BaseModel):
+class DeleteSAMLProviderRequestRequestTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
 
-class DeleteSSHPublicKeyRequestRequestTypeDef(BaseModel):
+class DeleteSSHPublicKeyRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     SSHPublicKeyId: str
 
-class DeleteServerCertificateRequestRequestTypeDef(BaseModel):
+class DeleteServerCertificateRequestRequestTypeDef(BaseValidatorModel):
     ServerCertificateName: str
 
-class DeleteServiceLinkedRoleRequestRequestTypeDef(BaseModel):
+class DeleteServiceLinkedRoleRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
 
-class DeleteServiceSpecificCredentialRequestRequestTypeDef(BaseModel):
+class DeleteServiceSpecificCredentialRequestRequestTypeDef(BaseValidatorModel):
     ServiceSpecificCredentialId: str
     UserName: Optional[str] = None
 
-class DeleteSigningCertificateRequestRequestTypeDef(BaseModel):
+class DeleteSigningCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateId: str
     UserName: Optional[str] = None
 
-class DeleteUserPermissionsBoundaryRequestRequestTypeDef(BaseModel):
+class DeleteUserPermissionsBoundaryRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
 
-class DeleteUserPolicyRequestRequestTypeDef(BaseModel):
+class DeleteUserPolicyRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     PolicyName: str
 
-class DeleteUserRequestRequestTypeDef(BaseModel):
+class DeleteUserRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
 
-class DeleteVirtualMFADeviceRequestRequestTypeDef(BaseModel):
+class DeleteVirtualMFADeviceRequestRequestTypeDef(BaseValidatorModel):
     SerialNumber: str
 
-class RoleUsageTypeTypeDef(BaseModel):
+class RoleUsageTypeTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
     Resources: Optional[List[str]] = None
 
-class DetachGroupPolicyRequestGroupDetachPolicyTypeDef(BaseModel):
+class DetachGroupPolicyRequestGroupDetachPolicyTypeDef(BaseValidatorModel):
     PolicyArn: str
 
-class DetachGroupPolicyRequestPolicyDetachGroupTypeDef(BaseModel):
+class DetachGroupPolicyRequestPolicyDetachGroupTypeDef(BaseValidatorModel):
     GroupName: str
 
-class DetachGroupPolicyRequestRequestTypeDef(BaseModel):
+class DetachGroupPolicyRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     PolicyArn: str
 
-class DetachRolePolicyRequestPolicyDetachRoleTypeDef(BaseModel):
+class DetachRolePolicyRequestPolicyDetachRoleTypeDef(BaseValidatorModel):
     RoleName: str
 
-class DetachRolePolicyRequestRequestTypeDef(BaseModel):
+class DetachRolePolicyRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     PolicyArn: str
 
-class DetachRolePolicyRequestRoleDetachPolicyTypeDef(BaseModel):
+class DetachRolePolicyRequestRoleDetachPolicyTypeDef(BaseValidatorModel):
     PolicyArn: str
 
-class DetachUserPolicyRequestPolicyDetachUserTypeDef(BaseModel):
+class DetachUserPolicyRequestPolicyDetachUserTypeDef(BaseValidatorModel):
     UserName: str
 
-class DetachUserPolicyRequestRequestTypeDef(BaseModel):
+class DetachUserPolicyRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     PolicyArn: str
 
-class DetachUserPolicyRequestUserDetachPolicyTypeDef(BaseModel):
+class DetachUserPolicyRequestUserDetachPolicyTypeDef(BaseValidatorModel):
     PolicyArn: str
 
-class EnableMFADeviceRequestMfaDeviceAssociateTypeDef(BaseModel):
+class EnableMFADeviceRequestMfaDeviceAssociateTypeDef(BaseValidatorModel):
     AuthenticationCode1: str
     AuthenticationCode2: str
 
-class EnableMFADeviceRequestRequestTypeDef(BaseModel):
+class EnableMFADeviceRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     SerialNumber: str
     AuthenticationCode1: str
     AuthenticationCode2: str
 
-class EnableMFADeviceRequestUserEnableMfaTypeDef(BaseModel):
+class EnableMFADeviceRequestUserEnableMfaTypeDef(BaseValidatorModel):
     SerialNumber: str
     AuthenticationCode1: str
     AuthenticationCode2: str
 
-class EntityInfoTypeDef(BaseModel):
+class EntityInfoTypeDef(BaseValidatorModel):
     Arn: str
     Name: str
     Type: policyOwnerEntityTypeType
     Id: str
     Path: Optional[str] = None
 
-class ErrorDetailsTypeDef(BaseModel):
+class ErrorDetailsTypeDef(BaseValidatorModel):
     Message: str
     Code: str
 
-class OrganizationsDecisionDetailTypeDef(BaseModel):
+class OrganizationsDecisionDetailTypeDef(BaseValidatorModel):
     AllowedByOrganizations: Optional[bool] = None
 
-class PermissionsBoundaryDecisionDetailTypeDef(BaseModel):
+class PermissionsBoundaryDecisionDetailTypeDef(BaseValidatorModel):
     AllowedByPermissionsBoundary: Optional[bool] = None
 
-class GenerateOrganizationsAccessReportRequestRequestTypeDef(BaseModel):
+class GenerateOrganizationsAccessReportRequestRequestTypeDef(BaseValidatorModel):
     EntityPath: str
     OrganizationsPolicyId: Optional[str] = None
 
-class GenerateServiceLastAccessedDetailsRequestRequestTypeDef(BaseModel):
+class GenerateServiceLastAccessedDetailsRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
     Granularity: Optional[AccessAdvisorUsageGranularityTypeType] = None
 
-class GetAccessKeyLastUsedRequestRequestTypeDef(BaseModel):
+class GetAccessKeyLastUsedRequestRequestTypeDef(BaseValidatorModel):
     AccessKeyId: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetAccountAuthorizationDetailsRequestRequestTypeDef(BaseModel):
+class GetAccountAuthorizationDetailsRequestRequestTypeDef(BaseValidatorModel):
     Filter: Optional[Sequence[EntityTypeType]] = None
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
 
-class PasswordPolicyTypeDef(BaseModel):
+class PasswordPolicyTypeDef(BaseValidatorModel):
     MinimumPasswordLength: Optional[int] = None
     RequireSymbols: Optional[bool] = None
     RequireNumbers: Optional[bool] = None
@@ -369,68 +369,68 @@ class PasswordPolicyTypeDef(BaseModel):
     PasswordReusePrevention: Optional[int] = None
     HardExpiry: Optional[bool] = None
 
-class GetContextKeysForCustomPolicyRequestRequestTypeDef(BaseModel):
+class GetContextKeysForCustomPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyInputList: Sequence[str]
 
-class GetContextKeysForPrincipalPolicyRequestRequestTypeDef(BaseModel):
+class GetContextKeysForPrincipalPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicySourceArn: str
     PolicyInputList: Optional[Sequence[str]] = None
 
-class GetGroupPolicyRequestRequestTypeDef(BaseModel):
+class GetGroupPolicyRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     PolicyName: str
 
-class GetGroupRequestRequestTypeDef(BaseModel):
+class GetGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class GetInstanceProfileRequestRequestTypeDef(BaseModel):
+class GetInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceProfileName: str
 
-class GetLoginProfileRequestRequestTypeDef(BaseModel):
+class GetLoginProfileRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
 
-class GetMFADeviceRequestRequestTypeDef(BaseModel):
+class GetMFADeviceRequestRequestTypeDef(BaseValidatorModel):
     SerialNumber: str
     UserName: Optional[str] = None
 
-class GetOpenIDConnectProviderRequestRequestTypeDef(BaseModel):
+class GetOpenIDConnectProviderRequestRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
 
-class GetOrganizationsAccessReportRequestRequestTypeDef(BaseModel):
+class GetOrganizationsAccessReportRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
     SortKey: Optional[sortKeyTypeType] = None
 
-class GetPolicyRequestRequestTypeDef(BaseModel):
+class GetPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
 
-class GetPolicyVersionRequestRequestTypeDef(BaseModel):
+class GetPolicyVersionRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     VersionId: str
 
-class GetRolePolicyRequestRequestTypeDef(BaseModel):
+class GetRolePolicyRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     PolicyName: str
 
-class GetRoleRequestRequestTypeDef(BaseModel):
+class GetRoleRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
 
-class GetSAMLProviderRequestRequestTypeDef(BaseModel):
+class GetSAMLProviderRequestRequestTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
 
-class GetSSHPublicKeyRequestRequestTypeDef(BaseModel):
+class GetSSHPublicKeyRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     SSHPublicKeyId: str
     Encoding: encodingTypeType
 
-class SSHPublicKeyTypeDef(BaseModel):
+class SSHPublicKeyTypeDef(BaseValidatorModel):
     UserName: str
     SSHPublicKeyId: str
     Fingerprint: str
@@ -438,58 +438,58 @@ class SSHPublicKeyTypeDef(BaseModel):
     Status: statusTypeType
     UploadDate: Optional[datetime] = None
 
-class GetServerCertificateRequestRequestTypeDef(BaseModel):
+class GetServerCertificateRequestRequestTypeDef(BaseValidatorModel):
     ServerCertificateName: str
 
-class GetServiceLastAccessedDetailsRequestRequestTypeDef(BaseModel):
+class GetServiceLastAccessedDetailsRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
 
-class GetServiceLastAccessedDetailsWithEntitiesRequestRequestTypeDef(BaseModel):
+class GetServiceLastAccessedDetailsWithEntitiesRequestRequestTypeDef(BaseValidatorModel):
     JobId: str
     ServiceNamespace: str
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
 
-class GetServiceLinkedRoleDeletionStatusRequestRequestTypeDef(BaseModel):
+class GetServiceLinkedRoleDeletionStatusRequestRequestTypeDef(BaseValidatorModel):
     DeletionTaskId: str
 
-class GetUserPolicyRequestRequestTypeDef(BaseModel):
+class GetUserPolicyRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     PolicyName: str
 
-class GetUserRequestRequestTypeDef(BaseModel):
+class GetUserRequestRequestTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
 
-class ListAccessKeysRequestRequestTypeDef(BaseModel):
+class ListAccessKeysRequestRequestTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListAccountAliasesRequestRequestTypeDef(BaseModel):
+class ListAccountAliasesRequestRequestTypeDef(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListAttachedGroupPoliciesRequestRequestTypeDef(BaseModel):
+class ListAttachedGroupPoliciesRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListAttachedRolePoliciesRequestRequestTypeDef(BaseModel):
+class ListAttachedRolePoliciesRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListAttachedUserPoliciesRequestRequestTypeDef(BaseModel):
+class ListAttachedUserPoliciesRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListEntitiesForPolicyRequestRequestTypeDef(BaseModel):
+class ListEntitiesForPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     EntityFilter: Optional[EntityTypeType] = None
     PathPrefix: Optional[str] = None
@@ -497,84 +497,84 @@ class ListEntitiesForPolicyRequestRequestTypeDef(BaseModel):
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class PolicyGroupTypeDef(BaseModel):
+class PolicyGroupTypeDef(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupId: Optional[str] = None
 
-class PolicyRoleTypeDef(BaseModel):
+class PolicyRoleTypeDef(BaseValidatorModel):
     RoleName: Optional[str] = None
     RoleId: Optional[str] = None
 
-class PolicyUserTypeDef(BaseModel):
+class PolicyUserTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     UserId: Optional[str] = None
 
-class ListGroupPoliciesRequestRequestTypeDef(BaseModel):
+class ListGroupPoliciesRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListGroupsForUserRequestRequestTypeDef(BaseModel):
+class ListGroupsForUserRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListGroupsRequestRequestTypeDef(BaseModel):
+class ListGroupsRequestRequestTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListInstanceProfileTagsRequestRequestTypeDef(BaseModel):
+class ListInstanceProfileTagsRequestRequestTypeDef(BaseValidatorModel):
     InstanceProfileName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListInstanceProfilesForRoleRequestRequestTypeDef(BaseModel):
+class ListInstanceProfilesForRoleRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListInstanceProfilesRequestRequestTypeDef(BaseModel):
+class ListInstanceProfilesRequestRequestTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListMFADeviceTagsRequestRequestTypeDef(BaseModel):
+class ListMFADeviceTagsRequestRequestTypeDef(BaseValidatorModel):
     SerialNumber: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListMFADevicesRequestRequestTypeDef(BaseModel):
+class ListMFADevicesRequestRequestTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class MFADeviceTypeDef(BaseModel):
+class MFADeviceTypeDef(BaseValidatorModel):
     UserName: str
     SerialNumber: str
     EnableDate: datetime
 
-class ListOpenIDConnectProviderTagsRequestRequestTypeDef(BaseModel):
+class ListOpenIDConnectProviderTagsRequestRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class OpenIDConnectProviderListEntryTypeDef(BaseModel):
+class OpenIDConnectProviderListEntryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
-class PolicyGrantingServiceAccessTypeDef(BaseModel):
+class PolicyGrantingServiceAccessTypeDef(BaseValidatorModel):
     PolicyName: str
     PolicyType: policyTypeType
     PolicyArn: Optional[str] = None
     EntityType: Optional[policyOwnerEntityTypeType] = None
     EntityName: Optional[str] = None
 
-class ListPoliciesGrantingServiceAccessRequestRequestTypeDef(BaseModel):
+class ListPoliciesGrantingServiceAccessRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
     ServiceNamespaces: Sequence[str]
     Marker: Optional[str] = None
 
-class ListPoliciesRequestRequestTypeDef(BaseModel):
+class ListPoliciesRequestRequestTypeDef(BaseValidatorModel):
     Scope: Optional[policyScopeTypeType] = None
     OnlyAttached: Optional[bool] = None
     PathPrefix: Optional[str] = None
@@ -582,63 +582,63 @@ class ListPoliciesRequestRequestTypeDef(BaseModel):
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListPolicyTagsRequestRequestTypeDef(BaseModel):
+class ListPolicyTagsRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListPolicyVersionsRequestRequestTypeDef(BaseModel):
+class ListPolicyVersionsRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListRolePoliciesRequestRequestTypeDef(BaseModel):
+class ListRolePoliciesRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListRoleTagsRequestRequestTypeDef(BaseModel):
+class ListRoleTagsRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListRolesRequestRequestTypeDef(BaseModel):
+class ListRolesRequestRequestTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListSAMLProviderTagsRequestRequestTypeDef(BaseModel):
+class ListSAMLProviderTagsRequestRequestTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class SAMLProviderListEntryTypeDef(BaseModel):
+class SAMLProviderListEntryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     ValidUntil: Optional[datetime] = None
     CreateDate: Optional[datetime] = None
 
-class ListSSHPublicKeysRequestRequestTypeDef(BaseModel):
+class ListSSHPublicKeysRequestRequestTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class SSHPublicKeyMetadataTypeDef(BaseModel):
+class SSHPublicKeyMetadataTypeDef(BaseValidatorModel):
     UserName: str
     SSHPublicKeyId: str
     Status: statusTypeType
     UploadDate: datetime
 
-class ListServerCertificateTagsRequestRequestTypeDef(BaseModel):
+class ListServerCertificateTagsRequestRequestTypeDef(BaseValidatorModel):
     ServerCertificateName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListServerCertificatesRequestRequestTypeDef(BaseModel):
+class ListServerCertificatesRequestRequestTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ServerCertificateMetadataTypeDef(BaseModel):
+class ServerCertificateMetadataTypeDef(BaseValidatorModel):
     Path: str
     ServerCertificateName: str
     ServerCertificateId: str
@@ -646,11 +646,11 @@ class ServerCertificateMetadataTypeDef(BaseModel):
     UploadDate: Optional[datetime] = None
     Expiration: Optional[datetime] = None
 
-class ListServiceSpecificCredentialsRequestRequestTypeDef(BaseModel):
+class ListServiceSpecificCredentialsRequestRequestTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     ServiceName: Optional[str] = None
 
-class ServiceSpecificCredentialMetadataTypeDef(BaseModel):
+class ServiceSpecificCredentialMetadataTypeDef(BaseValidatorModel):
     UserName: str
     Status: statusTypeType
     ServiceUserName: str
@@ -658,190 +658,190 @@ class ServiceSpecificCredentialMetadataTypeDef(BaseModel):
     ServiceSpecificCredentialId: str
     ServiceName: str
 
-class ListSigningCertificatesRequestRequestTypeDef(BaseModel):
+class ListSigningCertificatesRequestRequestTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class SigningCertificateTypeDef(BaseModel):
+class SigningCertificateTypeDef(BaseValidatorModel):
     UserName: str
     CertificateId: str
     CertificateBody: str
     Status: statusTypeType
     UploadDate: Optional[datetime] = None
 
-class ListUserPoliciesRequestRequestTypeDef(BaseModel):
+class ListUserPoliciesRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListUserTagsRequestRequestTypeDef(BaseModel):
+class ListUserTagsRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListUsersRequestRequestTypeDef(BaseModel):
+class ListUsersRequestRequestTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListVirtualMFADevicesRequestRequestTypeDef(BaseModel):
+class ListVirtualMFADevicesRequestRequestTypeDef(BaseValidatorModel):
     AssignmentStatus: Optional[assignmentStatusTypeType] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class PolicyDocumentStatementTypeDef(BaseModel):
+class PolicyDocumentStatementTypeDef(BaseValidatorModel):
     Effect: str
     Resource: Union[str, List[str]]
     Sid: str
     Action: Union[str, List[str]]
 
-class PositionTypeDef(BaseModel):
+class PositionTypeDef(BaseValidatorModel):
     Line: Optional[int] = None
     Column: Optional[int] = None
 
-class PutGroupPolicyRequestGroupCreatePolicyTypeDef(BaseModel):
+class PutGroupPolicyRequestGroupCreatePolicyTypeDef(BaseValidatorModel):
     PolicyName: str
     PolicyDocument: str
 
-class PutGroupPolicyRequestGroupPolicyPutTypeDef(BaseModel):
+class PutGroupPolicyRequestGroupPolicyPutTypeDef(BaseValidatorModel):
     PolicyDocument: str
 
-class PutGroupPolicyRequestRequestTypeDef(BaseModel):
+class PutGroupPolicyRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     PolicyName: str
     PolicyDocument: str
 
-class PutRolePermissionsBoundaryRequestRequestTypeDef(BaseModel):
+class PutRolePermissionsBoundaryRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     PermissionsBoundary: str
 
-class PutRolePolicyRequestRequestTypeDef(BaseModel):
+class PutRolePolicyRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     PolicyName: str
     PolicyDocument: str
 
-class PutRolePolicyRequestRolePolicyPutTypeDef(BaseModel):
+class PutRolePolicyRequestRolePolicyPutTypeDef(BaseValidatorModel):
     PolicyDocument: str
 
-class PutUserPermissionsBoundaryRequestRequestTypeDef(BaseModel):
+class PutUserPermissionsBoundaryRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     PermissionsBoundary: str
 
-class PutUserPolicyRequestRequestTypeDef(BaseModel):
+class PutUserPolicyRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     PolicyName: str
     PolicyDocument: str
 
-class PutUserPolicyRequestUserCreatePolicyTypeDef(BaseModel):
+class PutUserPolicyRequestUserCreatePolicyTypeDef(BaseValidatorModel):
     PolicyName: str
     PolicyDocument: str
 
-class PutUserPolicyRequestUserPolicyPutTypeDef(BaseModel):
+class PutUserPolicyRequestUserPolicyPutTypeDef(BaseValidatorModel):
     PolicyDocument: str
 
-class RemoveClientIDFromOpenIDConnectProviderRequestRequestTypeDef(BaseModel):
+class RemoveClientIDFromOpenIDConnectProviderRequestRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     ClientID: str
 
-class RemoveRoleFromInstanceProfileRequestInstanceProfileRemoveRoleTypeDef(BaseModel):
+class RemoveRoleFromInstanceProfileRequestInstanceProfileRemoveRoleTypeDef(BaseValidatorModel):
     RoleName: str
 
-class RemoveRoleFromInstanceProfileRequestRequestTypeDef(BaseModel):
+class RemoveRoleFromInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceProfileName: str
     RoleName: str
 
-class RemoveUserFromGroupRequestGroupRemoveUserTypeDef(BaseModel):
+class RemoveUserFromGroupRequestGroupRemoveUserTypeDef(BaseValidatorModel):
     UserName: str
 
-class RemoveUserFromGroupRequestRequestTypeDef(BaseModel):
+class RemoveUserFromGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     UserName: str
 
-class RemoveUserFromGroupRequestUserRemoveGroupTypeDef(BaseModel):
+class RemoveUserFromGroupRequestUserRemoveGroupTypeDef(BaseValidatorModel):
     GroupName: str
 
-class ResetServiceSpecificCredentialRequestRequestTypeDef(BaseModel):
+class ResetServiceSpecificCredentialRequestRequestTypeDef(BaseValidatorModel):
     ServiceSpecificCredentialId: str
     UserName: Optional[str] = None
 
-class ResyncMFADeviceRequestMfaDeviceResyncTypeDef(BaseModel):
+class ResyncMFADeviceRequestMfaDeviceResyncTypeDef(BaseValidatorModel):
     AuthenticationCode1: str
     AuthenticationCode2: str
 
-class ResyncMFADeviceRequestRequestTypeDef(BaseModel):
+class ResyncMFADeviceRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     SerialNumber: str
     AuthenticationCode1: str
     AuthenticationCode2: str
 
-class RoleLastUsedTypeDef(BaseModel):
+class RoleLastUsedTypeDef(BaseValidatorModel):
     LastUsedDate: Optional[datetime] = None
     Region: Optional[str] = None
 
-class TrackedActionLastAccessedTypeDef(BaseModel):
+class TrackedActionLastAccessedTypeDef(BaseValidatorModel):
     ActionName: Optional[str] = None
     LastAccessedEntity: Optional[str] = None
     LastAccessedTime: Optional[datetime] = None
     LastAccessedRegion: Optional[str] = None
 
-class SetDefaultPolicyVersionRequestRequestTypeDef(BaseModel):
+class SetDefaultPolicyVersionRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     VersionId: str
 
-class SetSecurityTokenServicePreferencesRequestRequestTypeDef(BaseModel):
+class SetSecurityTokenServicePreferencesRequestRequestTypeDef(BaseValidatorModel):
     GlobalEndpointTokenVersion: globalEndpointTokenVersionType
 
-class UntagInstanceProfileRequestRequestTypeDef(BaseModel):
+class UntagInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceProfileName: str
     TagKeys: Sequence[str]
 
-class UntagMFADeviceRequestRequestTypeDef(BaseModel):
+class UntagMFADeviceRequestRequestTypeDef(BaseValidatorModel):
     SerialNumber: str
     TagKeys: Sequence[str]
 
-class UntagOpenIDConnectProviderRequestRequestTypeDef(BaseModel):
+class UntagOpenIDConnectProviderRequestRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     TagKeys: Sequence[str]
 
-class UntagPolicyRequestRequestTypeDef(BaseModel):
+class UntagPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     TagKeys: Sequence[str]
 
-class UntagRoleRequestRequestTypeDef(BaseModel):
+class UntagRoleRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     TagKeys: Sequence[str]
 
-class UntagSAMLProviderRequestRequestTypeDef(BaseModel):
+class UntagSAMLProviderRequestRequestTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
     TagKeys: Sequence[str]
 
-class UntagServerCertificateRequestRequestTypeDef(BaseModel):
+class UntagServerCertificateRequestRequestTypeDef(BaseValidatorModel):
     ServerCertificateName: str
     TagKeys: Sequence[str]
 
-class UntagUserRequestRequestTypeDef(BaseModel):
+class UntagUserRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     TagKeys: Sequence[str]
 
-class UpdateAccessKeyRequestAccessKeyActivateTypeDef(BaseModel):
+class UpdateAccessKeyRequestAccessKeyActivateTypeDef(BaseValidatorModel):
     Status: Optional[statusTypeType] = None
 
-class UpdateAccessKeyRequestAccessKeyDeactivateTypeDef(BaseModel):
+class UpdateAccessKeyRequestAccessKeyDeactivateTypeDef(BaseValidatorModel):
     Status: Optional[statusTypeType] = None
 
-class UpdateAccessKeyRequestAccessKeyPairActivateTypeDef(BaseModel):
+class UpdateAccessKeyRequestAccessKeyPairActivateTypeDef(BaseValidatorModel):
     Status: Optional[statusTypeType] = None
 
-class UpdateAccessKeyRequestAccessKeyPairDeactivateTypeDef(BaseModel):
+class UpdateAccessKeyRequestAccessKeyPairDeactivateTypeDef(BaseValidatorModel):
     Status: Optional[statusTypeType] = None
 
-class UpdateAccessKeyRequestRequestTypeDef(BaseModel):
+class UpdateAccessKeyRequestRequestTypeDef(BaseValidatorModel):
     AccessKeyId: str
     Status: statusTypeType
     UserName: Optional[str] = None
 
-class UpdateAccountPasswordPolicyRequestAccountPasswordPolicyUpdateTypeDef(BaseModel):
+class UpdateAccountPasswordPolicyRequestAccountPasswordPolicyUpdateTypeDef(BaseValidatorModel):
     MinimumPasswordLength: Optional[int] = None
     RequireSymbols: Optional[bool] = None
     RequireNumbers: Optional[bool] = None
@@ -852,7 +852,7 @@ class UpdateAccountPasswordPolicyRequestAccountPasswordPolicyUpdateTypeDef(BaseM
     PasswordReusePrevention: Optional[int] = None
     HardExpiry: Optional[bool] = None
 
-class UpdateAccountPasswordPolicyRequestRequestTypeDef(BaseModel):
+class UpdateAccountPasswordPolicyRequestRequestTypeDef(BaseValidatorModel):
     MinimumPasswordLength: Optional[int] = None
     RequireSymbols: Optional[bool] = None
     RequireNumbers: Optional[bool] = None
@@ -863,7 +863,7 @@ class UpdateAccountPasswordPolicyRequestRequestTypeDef(BaseModel):
     PasswordReusePrevention: Optional[int] = None
     HardExpiry: Optional[bool] = None
 
-class UpdateAccountPasswordPolicyRequestServiceResourceCreateAccountPasswordPolicyTypeDef(BaseModel):
+class UpdateAccountPasswordPolicyRequestServiceResourceCreateAccountPasswordPolicyTypeDef(BaseValidatorModel):
     MinimumPasswordLength: Optional[int] = None
     RequireSymbols: Optional[bool] = None
     RequireNumbers: Optional[bool] = None
@@ -874,193 +874,193 @@ class UpdateAccountPasswordPolicyRequestServiceResourceCreateAccountPasswordPoli
     PasswordReusePrevention: Optional[int] = None
     HardExpiry: Optional[bool] = None
 
-class UpdateAssumeRolePolicyRequestAssumeRolePolicyUpdateTypeDef(BaseModel):
+class UpdateAssumeRolePolicyRequestAssumeRolePolicyUpdateTypeDef(BaseValidatorModel):
     PolicyDocument: str
 
-class UpdateAssumeRolePolicyRequestRequestTypeDef(BaseModel):
+class UpdateAssumeRolePolicyRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     PolicyDocument: str
 
-class UpdateGroupRequestGroupUpdateTypeDef(BaseModel):
+class UpdateGroupRequestGroupUpdateTypeDef(BaseValidatorModel):
     NewPath: Optional[str] = None
     NewGroupName: Optional[str] = None
 
-class UpdateGroupRequestRequestTypeDef(BaseModel):
+class UpdateGroupRequestRequestTypeDef(BaseValidatorModel):
     GroupName: str
     NewPath: Optional[str] = None
     NewGroupName: Optional[str] = None
 
-class UpdateLoginProfileRequestLoginProfileUpdateTypeDef(BaseModel):
+class UpdateLoginProfileRequestLoginProfileUpdateTypeDef(BaseValidatorModel):
     Password: Optional[str] = None
     PasswordResetRequired: Optional[bool] = None
 
-class UpdateLoginProfileRequestRequestTypeDef(BaseModel):
+class UpdateLoginProfileRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     Password: Optional[str] = None
     PasswordResetRequired: Optional[bool] = None
 
-class UpdateOpenIDConnectProviderThumbprintRequestRequestTypeDef(BaseModel):
+class UpdateOpenIDConnectProviderThumbprintRequestRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     ThumbprintList: Sequence[str]
 
-class UpdateRoleDescriptionRequestRequestTypeDef(BaseModel):
+class UpdateRoleDescriptionRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     Description: str
 
-class UpdateRoleRequestRequestTypeDef(BaseModel):
+class UpdateRoleRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     Description: Optional[str] = None
     MaxSessionDuration: Optional[int] = None
 
-class UpdateSAMLProviderRequestRequestTypeDef(BaseModel):
+class UpdateSAMLProviderRequestRequestTypeDef(BaseValidatorModel):
     SAMLMetadataDocument: str
     SAMLProviderArn: str
 
-class UpdateSAMLProviderRequestSamlProviderUpdateTypeDef(BaseModel):
+class UpdateSAMLProviderRequestSamlProviderUpdateTypeDef(BaseValidatorModel):
     SAMLMetadataDocument: str
 
-class UpdateSSHPublicKeyRequestRequestTypeDef(BaseModel):
+class UpdateSSHPublicKeyRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     SSHPublicKeyId: str
     Status: statusTypeType
 
-class UpdateServerCertificateRequestRequestTypeDef(BaseModel):
+class UpdateServerCertificateRequestRequestTypeDef(BaseValidatorModel):
     ServerCertificateName: str
     NewPath: Optional[str] = None
     NewServerCertificateName: Optional[str] = None
 
-class UpdateServerCertificateRequestServerCertificateUpdateTypeDef(BaseModel):
+class UpdateServerCertificateRequestServerCertificateUpdateTypeDef(BaseValidatorModel):
     NewPath: Optional[str] = None
     NewServerCertificateName: Optional[str] = None
 
-class UpdateServiceSpecificCredentialRequestRequestTypeDef(BaseModel):
+class UpdateServiceSpecificCredentialRequestRequestTypeDef(BaseValidatorModel):
     ServiceSpecificCredentialId: str
     Status: statusTypeType
     UserName: Optional[str] = None
 
-class UpdateSigningCertificateRequestRequestTypeDef(BaseModel):
+class UpdateSigningCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateId: str
     Status: statusTypeType
     UserName: Optional[str] = None
 
-class UpdateSigningCertificateRequestSigningCertificateActivateTypeDef(BaseModel):
+class UpdateSigningCertificateRequestSigningCertificateActivateTypeDef(BaseValidatorModel):
     Status: Optional[statusTypeType] = None
 
-class UpdateSigningCertificateRequestSigningCertificateDeactivateTypeDef(BaseModel):
+class UpdateSigningCertificateRequestSigningCertificateDeactivateTypeDef(BaseValidatorModel):
     Status: Optional[statusTypeType] = None
 
-class UpdateUserRequestRequestTypeDef(BaseModel):
+class UpdateUserRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     NewPath: Optional[str] = None
     NewUserName: Optional[str] = None
 
-class UpdateUserRequestUserUpdateTypeDef(BaseModel):
+class UpdateUserRequestUserUpdateTypeDef(BaseValidatorModel):
     NewPath: Optional[str] = None
     NewUserName: Optional[str] = None
 
-class UploadSSHPublicKeyRequestRequestTypeDef(BaseModel):
+class UploadSSHPublicKeyRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     SSHPublicKeyBody: str
 
-class UploadSigningCertificateRequestRequestTypeDef(BaseModel):
+class UploadSigningCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateBody: str
     UserName: Optional[str] = None
 
-class UploadSigningCertificateRequestServiceResourceCreateSigningCertificateTypeDef(BaseModel):
+class UploadSigningCertificateRequestServiceResourceCreateSigningCertificateTypeDef(BaseValidatorModel):
     CertificateBody: str
     UserName: Optional[str] = None
 
-class AttachedPermissionsBoundaryResponseTypeDef(BaseModel):
+class AttachedPermissionsBoundaryResponseTypeDef(BaseValidatorModel):
     PermissionsBoundaryType: Literal["PermissionsBoundaryPolicy"]
     PermissionsBoundaryArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAccessKeyResponseTypeDef(BaseModel):
+class CreateAccessKeyResponseTypeDef(BaseValidatorModel):
     AccessKey: AccessKeyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteServiceLinkedRoleResponseTypeDef(BaseModel):
+class DeleteServiceLinkedRoleResponseTypeDef(BaseValidatorModel):
     DeletionTaskId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GenerateCredentialReportResponseTypeDef(BaseModel):
+class GenerateCredentialReportResponseTypeDef(BaseValidatorModel):
     State: ReportStateTypeType
     Description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GenerateOrganizationsAccessReportResponseTypeDef(BaseModel):
+class GenerateOrganizationsAccessReportResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GenerateServiceLastAccessedDetailsResponseTypeDef(BaseModel):
+class GenerateServiceLastAccessedDetailsResponseTypeDef(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessKeyLastUsedResponseTypeDef(BaseModel):
+class GetAccessKeyLastUsedResponseTypeDef(BaseValidatorModel):
     UserName: str
     AccessKeyLastUsed: AccessKeyLastUsedTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccountSummaryResponseTypeDef(BaseModel):
+class GetAccountSummaryResponseTypeDef(BaseValidatorModel):
     SummaryMap: Dict[summaryKeyTypeType, int]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContextKeysForPolicyResponseTypeDef(BaseModel):
+class GetContextKeysForPolicyResponseTypeDef(BaseValidatorModel):
     ContextKeyNames: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCredentialReportResponseTypeDef(BaseModel):
+class GetCredentialReportResponseTypeDef(BaseValidatorModel):
     Content: bytes
     ReportFormat: Literal["text/csv"]
     GeneratedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMFADeviceResponseTypeDef(BaseModel):
+class GetMFADeviceResponseTypeDef(BaseValidatorModel):
     UserName: str
     SerialNumber: str
     EnableDate: datetime
     Certifications: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccessKeysResponseTypeDef(BaseModel):
+class ListAccessKeysResponseTypeDef(BaseValidatorModel):
     AccessKeyMetadata: List[AccessKeyMetadataTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccountAliasesResponseTypeDef(BaseModel):
+class ListAccountAliasesResponseTypeDef(BaseValidatorModel):
     AccountAliases: List[str]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGroupPoliciesResponseTypeDef(BaseModel):
+class ListGroupPoliciesResponseTypeDef(BaseValidatorModel):
     PolicyNames: List[str]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRolePoliciesResponseTypeDef(BaseModel):
+class ListRolePoliciesResponseTypeDef(BaseValidatorModel):
     PolicyNames: List[str]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUserPoliciesResponseTypeDef(BaseModel):
+class ListUserPoliciesResponseTypeDef(BaseValidatorModel):
     PolicyNames: List[str]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RoleLastUsedResponseTypeDef(BaseModel):
+class RoleLastUsedResponseTypeDef(BaseValidatorModel):
     LastUsedDate: datetime
     Region: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ServerCertificateMetadataResponseTypeDef(BaseModel):
+class ServerCertificateMetadataResponseTypeDef(BaseValidatorModel):
     Path: str
     ServerCertificateName: str
     ServerCertificateId: str
@@ -1069,29 +1069,29 @@ class ServerCertificateMetadataResponseTypeDef(BaseModel):
     Expiration: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSAMLProviderResponseTypeDef(BaseModel):
+class UpdateSAMLProviderResponseTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAttachedGroupPoliciesResponseTypeDef(BaseModel):
+class ListAttachedGroupPoliciesResponseTypeDef(BaseValidatorModel):
     AttachedPolicies: List[AttachedPolicyTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAttachedRolePoliciesResponseTypeDef(BaseModel):
+class ListAttachedRolePoliciesResponseTypeDef(BaseValidatorModel):
     AttachedPolicies: List[AttachedPolicyTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAttachedUserPoliciesResponseTypeDef(BaseModel):
+class ListAttachedUserPoliciesResponseTypeDef(BaseValidatorModel):
     AttachedPolicies: List[AttachedPolicyTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SimulateCustomPolicyRequestRequestTypeDef(BaseModel):
+class SimulateCustomPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyInputList: Sequence[str]
     ActionNames: Sequence[str]
     PermissionsBoundaryPolicyInputList: Optional[Sequence[str]] = None
@@ -1104,7 +1104,7 @@ class SimulateCustomPolicyRequestRequestTypeDef(BaseModel):
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
 
-class SimulatePrincipalPolicyRequestRequestTypeDef(BaseModel):
+class SimulatePrincipalPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicySourceArn: str
     ActionNames: Sequence[str]
     PolicyInputList: Optional[Sequence[str]] = None
@@ -1118,58 +1118,58 @@ class SimulatePrincipalPolicyRequestRequestTypeDef(BaseModel):
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
 
-class CreateGroupResponseTypeDef(BaseModel):
+class CreateGroupResponseTypeDef(BaseValidatorModel):
     Group: GroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGroupsForUserResponseTypeDef(BaseModel):
+class ListGroupsForUserResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListGroupsResponseTypeDef(BaseModel):
+class ListGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceProfileRequestRequestTypeDef(BaseModel):
+class CreateInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceProfileName: str
     Path: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateInstanceProfileRequestServiceResourceCreateInstanceProfileTypeDef(BaseModel):
+class CreateInstanceProfileRequestServiceResourceCreateInstanceProfileTypeDef(BaseValidatorModel):
     InstanceProfileName: str
     Path: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateOpenIDConnectProviderRequestRequestTypeDef(BaseModel):
+class CreateOpenIDConnectProviderRequestRequestTypeDef(BaseValidatorModel):
     Url: str
     ClientIDList: Optional[Sequence[str]] = None
     ThumbprintList: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateOpenIDConnectProviderResponseTypeDef(BaseModel):
+class CreateOpenIDConnectProviderResponseTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePolicyRequestRequestTypeDef(BaseModel):
+class CreatePolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyName: str
     PolicyDocument: str
     Path: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreatePolicyRequestServiceResourceCreatePolicyTypeDef(BaseModel):
+class CreatePolicyRequestServiceResourceCreatePolicyTypeDef(BaseValidatorModel):
     PolicyName: str
     PolicyDocument: str
     Path: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRoleRequestRequestTypeDef(BaseModel):
+class CreateRoleRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     AssumeRolePolicyDocument: str
     Path: Optional[str] = None
@@ -1178,7 +1178,7 @@ class CreateRoleRequestRequestTypeDef(BaseModel):
     PermissionsBoundary: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRoleRequestServiceResourceCreateRoleTypeDef(BaseModel):
+class CreateRoleRequestServiceResourceCreateRoleTypeDef(BaseValidatorModel):
     RoleName: str
     AssumeRolePolicyDocument: str
     Path: Optional[str] = None
@@ -1187,49 +1187,49 @@ class CreateRoleRequestServiceResourceCreateRoleTypeDef(BaseModel):
     PermissionsBoundary: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateSAMLProviderRequestRequestTypeDef(BaseModel):
+class CreateSAMLProviderRequestRequestTypeDef(BaseValidatorModel):
     SAMLMetadataDocument: str
     Name: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateSAMLProviderRequestServiceResourceCreateSamlProviderTypeDef(BaseModel):
+class CreateSAMLProviderRequestServiceResourceCreateSamlProviderTypeDef(BaseValidatorModel):
     SAMLMetadataDocument: str
     Name: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateSAMLProviderResponseTypeDef(BaseModel):
+class CreateSAMLProviderResponseTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserRequestRequestTypeDef(BaseModel):
+class CreateUserRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     Path: Optional[str] = None
     PermissionsBoundary: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateUserRequestServiceResourceCreateUserTypeDef(BaseModel):
+class CreateUserRequestServiceResourceCreateUserTypeDef(BaseValidatorModel):
     UserName: str
     Path: Optional[str] = None
     PermissionsBoundary: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateUserRequestUserCreateTypeDef(BaseModel):
+class CreateUserRequestUserCreateTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     PermissionsBoundary: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateVirtualMFADeviceRequestRequestTypeDef(BaseModel):
+class CreateVirtualMFADeviceRequestRequestTypeDef(BaseValidatorModel):
     VirtualMFADeviceName: str
     Path: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateVirtualMFADeviceRequestServiceResourceCreateVirtualMfaDeviceTypeDef(BaseModel):
+class CreateVirtualMFADeviceRequestServiceResourceCreateVirtualMfaDeviceTypeDef(BaseValidatorModel):
     VirtualMFADeviceName: str
     Path: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class GetOpenIDConnectProviderResponseTypeDef(BaseModel):
+class GetOpenIDConnectProviderResponseTypeDef(BaseValidatorModel):
     Url: str
     ClientIDList: List[str]
     ThumbprintList: List[str]
@@ -1237,62 +1237,62 @@ class GetOpenIDConnectProviderResponseTypeDef(BaseModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSAMLProviderResponseTypeDef(BaseModel):
+class GetSAMLProviderResponseTypeDef(BaseValidatorModel):
     SAMLMetadataDocument: str
     CreateDate: datetime
     ValidUntil: datetime
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInstanceProfileTagsResponseTypeDef(BaseModel):
+class ListInstanceProfileTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMFADeviceTagsResponseTypeDef(BaseModel):
+class ListMFADeviceTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOpenIDConnectProviderTagsResponseTypeDef(BaseModel):
+class ListOpenIDConnectProviderTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPolicyTagsResponseTypeDef(BaseModel):
+class ListPolicyTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRoleTagsResponseTypeDef(BaseModel):
+class ListRoleTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSAMLProviderTagsResponseTypeDef(BaseModel):
+class ListSAMLProviderTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServerCertificateTagsResponseTypeDef(BaseModel):
+class ListServerCertificateTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUserTagsResponseTypeDef(BaseModel):
+class ListUserTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PolicyTypeDef(BaseModel):
+class PolicyTypeDef(BaseValidatorModel):
     PolicyName: Optional[str] = None
     PolicyId: Optional[str] = None
     Arn: Optional[str] = None
@@ -1306,39 +1306,39 @@ class PolicyTypeDef(BaseModel):
     UpdateDate: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class TagInstanceProfileRequestRequestTypeDef(BaseModel):
+class TagInstanceProfileRequestRequestTypeDef(BaseValidatorModel):
     InstanceProfileName: str
     Tags: Sequence[TagTypeDef]
 
-class TagMFADeviceRequestRequestTypeDef(BaseModel):
+class TagMFADeviceRequestRequestTypeDef(BaseValidatorModel):
     SerialNumber: str
     Tags: Sequence[TagTypeDef]
 
-class TagOpenIDConnectProviderRequestRequestTypeDef(BaseModel):
+class TagOpenIDConnectProviderRequestRequestTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     Tags: Sequence[TagTypeDef]
 
-class TagPolicyRequestRequestTypeDef(BaseModel):
+class TagPolicyRequestRequestTypeDef(BaseValidatorModel):
     PolicyArn: str
     Tags: Sequence[TagTypeDef]
 
-class TagRoleRequestRequestTypeDef(BaseModel):
+class TagRoleRequestRequestTypeDef(BaseValidatorModel):
     RoleName: str
     Tags: Sequence[TagTypeDef]
 
-class TagSAMLProviderRequestRequestTypeDef(BaseModel):
+class TagSAMLProviderRequestRequestTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
     Tags: Sequence[TagTypeDef]
 
-class TagServerCertificateRequestRequestTypeDef(BaseModel):
+class TagServerCertificateRequestRequestTypeDef(BaseValidatorModel):
     ServerCertificateName: str
     Tags: Sequence[TagTypeDef]
 
-class TagUserRequestRequestTypeDef(BaseModel):
+class TagUserRequestRequestTypeDef(BaseValidatorModel):
     UserName: str
     Tags: Sequence[TagTypeDef]
 
-class UploadServerCertificateRequestRequestTypeDef(BaseModel):
+class UploadServerCertificateRequestRequestTypeDef(BaseValidatorModel):
     ServerCertificateName: str
     CertificateBody: str
     PrivateKey: str
@@ -1346,7 +1346,7 @@ class UploadServerCertificateRequestRequestTypeDef(BaseModel):
     CertificateChain: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class UploadServerCertificateRequestServiceResourceCreateServerCertificateTypeDef(BaseModel):
+class UploadServerCertificateRequestServiceResourceCreateServerCertificateTypeDef(BaseValidatorModel):
     ServerCertificateName: str
     CertificateBody: str
     PrivateKey: str
@@ -1354,7 +1354,7 @@ class UploadServerCertificateRequestServiceResourceCreateServerCertificateTypeDe
     CertificateChain: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class UserResponseTypeDef(BaseModel):
+class UserResponseTypeDef(BaseValidatorModel):
     Path: str
     UserName: str
     UserId: str
@@ -1365,7 +1365,7 @@ class UserResponseTypeDef(BaseModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UserTypeDef(BaseModel):
+class UserTypeDef(BaseValidatorModel):
     Path: str
     UserName: str
     UserId: str
@@ -1375,31 +1375,31 @@ class UserTypeDef(BaseModel):
     PermissionsBoundary: Optional[AttachedPermissionsBoundaryTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class CreateLoginProfileResponseTypeDef(BaseModel):
+class CreateLoginProfileResponseTypeDef(BaseValidatorModel):
     LoginProfile: LoginProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLoginProfileResponseTypeDef(BaseModel):
+class GetLoginProfileResponseTypeDef(BaseValidatorModel):
     LoginProfile: LoginProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServiceSpecificCredentialResponseTypeDef(BaseModel):
+class CreateServiceSpecificCredentialResponseTypeDef(BaseValidatorModel):
     ServiceSpecificCredential: ServiceSpecificCredentialTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetServiceSpecificCredentialResponseTypeDef(BaseModel):
+class ResetServiceSpecificCredentialResponseTypeDef(BaseValidatorModel):
     ServiceSpecificCredential: ServiceSpecificCredentialTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletionTaskFailureReasonTypeTypeDef(BaseModel):
+class DeletionTaskFailureReasonTypeTypeDef(BaseValidatorModel):
     Reason: Optional[str] = None
     RoleUsageList: Optional[List[RoleUsageTypeTypeDef]] = None
 
-class EntityDetailsTypeDef(BaseModel):
+class EntityDetailsTypeDef(BaseValidatorModel):
     EntityInfo: EntityInfoTypeDef
     LastAuthenticated: Optional[datetime] = None
 
-class GetOrganizationsAccessReportResponseTypeDef(BaseModel):
+class GetOrganizationsAccessReportResponseTypeDef(BaseValidatorModel):
     JobStatus: jobStatusTypeType
     JobCreationDate: datetime
     JobCompletionDate: datetime
@@ -1411,143 +1411,143 @@ class GetOrganizationsAccessReportResponseTypeDef(BaseModel):
     ErrorDetails: ErrorDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccountAuthorizationDetailsRequestGetAccountAuthorizationDetailsPaginateTypeDef(BaseModel):
+class GetAccountAuthorizationDetailsRequestGetAccountAuthorizationDetailsPaginateTypeDef(BaseValidatorModel):
     Filter: Optional[Sequence[EntityTypeType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetGroupRequestGetGroupPaginateTypeDef(BaseModel):
+class GetGroupRequestGetGroupPaginateTypeDef(BaseValidatorModel):
     GroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccessKeysRequestListAccessKeysPaginateTypeDef(BaseModel):
+class ListAccessKeysRequestListAccessKeysPaginateTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccountAliasesRequestListAccountAliasesPaginateTypeDef(BaseModel):
+class ListAccountAliasesRequestListAccountAliasesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAttachedGroupPoliciesRequestListAttachedGroupPoliciesPaginateTypeDef(BaseModel):
+class ListAttachedGroupPoliciesRequestListAttachedGroupPoliciesPaginateTypeDef(BaseValidatorModel):
     GroupName: str
     PathPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAttachedRolePoliciesRequestListAttachedRolePoliciesPaginateTypeDef(BaseModel):
+class ListAttachedRolePoliciesRequestListAttachedRolePoliciesPaginateTypeDef(BaseValidatorModel):
     RoleName: str
     PathPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAttachedUserPoliciesRequestListAttachedUserPoliciesPaginateTypeDef(BaseModel):
+class ListAttachedUserPoliciesRequestListAttachedUserPoliciesPaginateTypeDef(BaseValidatorModel):
     UserName: str
     PathPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEntitiesForPolicyRequestListEntitiesForPolicyPaginateTypeDef(BaseModel):
+class ListEntitiesForPolicyRequestListEntitiesForPolicyPaginateTypeDef(BaseValidatorModel):
     PolicyArn: str
     EntityFilter: Optional[EntityTypeType] = None
     PathPrefix: Optional[str] = None
     PolicyUsageFilter: Optional[PolicyUsageTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGroupPoliciesRequestListGroupPoliciesPaginateTypeDef(BaseModel):
+class ListGroupPoliciesRequestListGroupPoliciesPaginateTypeDef(BaseValidatorModel):
     GroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGroupsForUserRequestListGroupsForUserPaginateTypeDef(BaseModel):
+class ListGroupsForUserRequestListGroupsForUserPaginateTypeDef(BaseValidatorModel):
     UserName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGroupsRequestListGroupsPaginateTypeDef(BaseModel):
+class ListGroupsRequestListGroupsPaginateTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInstanceProfileTagsRequestListInstanceProfileTagsPaginateTypeDef(BaseModel):
+class ListInstanceProfileTagsRequestListInstanceProfileTagsPaginateTypeDef(BaseValidatorModel):
     InstanceProfileName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInstanceProfilesForRoleRequestListInstanceProfilesForRolePaginateTypeDef(BaseModel):
+class ListInstanceProfilesForRoleRequestListInstanceProfilesForRolePaginateTypeDef(BaseValidatorModel):
     RoleName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListInstanceProfilesRequestListInstanceProfilesPaginateTypeDef(BaseModel):
+class ListInstanceProfilesRequestListInstanceProfilesPaginateTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMFADeviceTagsRequestListMFADeviceTagsPaginateTypeDef(BaseModel):
+class ListMFADeviceTagsRequestListMFADeviceTagsPaginateTypeDef(BaseValidatorModel):
     SerialNumber: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMFADevicesRequestListMFADevicesPaginateTypeDef(BaseModel):
+class ListMFADevicesRequestListMFADevicesPaginateTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOpenIDConnectProviderTagsRequestListOpenIDConnectProviderTagsPaginateTypeDef(BaseModel):
+class ListOpenIDConnectProviderTagsRequestListOpenIDConnectProviderTagsPaginateTypeDef(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPoliciesRequestListPoliciesPaginateTypeDef(BaseModel):
+class ListPoliciesRequestListPoliciesPaginateTypeDef(BaseValidatorModel):
     Scope: Optional[policyScopeTypeType] = None
     OnlyAttached: Optional[bool] = None
     PathPrefix: Optional[str] = None
     PolicyUsageFilter: Optional[PolicyUsageTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPolicyTagsRequestListPolicyTagsPaginateTypeDef(BaseModel):
+class ListPolicyTagsRequestListPolicyTagsPaginateTypeDef(BaseValidatorModel):
     PolicyArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPolicyVersionsRequestListPolicyVersionsPaginateTypeDef(BaseModel):
+class ListPolicyVersionsRequestListPolicyVersionsPaginateTypeDef(BaseValidatorModel):
     PolicyArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRolePoliciesRequestListRolePoliciesPaginateTypeDef(BaseModel):
+class ListRolePoliciesRequestListRolePoliciesPaginateTypeDef(BaseValidatorModel):
     RoleName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRoleTagsRequestListRoleTagsPaginateTypeDef(BaseModel):
+class ListRoleTagsRequestListRoleTagsPaginateTypeDef(BaseValidatorModel):
     RoleName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRolesRequestListRolesPaginateTypeDef(BaseModel):
+class ListRolesRequestListRolesPaginateTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSAMLProviderTagsRequestListSAMLProviderTagsPaginateTypeDef(BaseModel):
+class ListSAMLProviderTagsRequestListSAMLProviderTagsPaginateTypeDef(BaseValidatorModel):
     SAMLProviderArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSSHPublicKeysRequestListSSHPublicKeysPaginateTypeDef(BaseModel):
+class ListSSHPublicKeysRequestListSSHPublicKeysPaginateTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServerCertificateTagsRequestListServerCertificateTagsPaginateTypeDef(BaseModel):
+class ListServerCertificateTagsRequestListServerCertificateTagsPaginateTypeDef(BaseValidatorModel):
     ServerCertificateName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServerCertificatesRequestListServerCertificatesPaginateTypeDef(BaseModel):
+class ListServerCertificatesRequestListServerCertificatesPaginateTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSigningCertificatesRequestListSigningCertificatesPaginateTypeDef(BaseModel):
+class ListSigningCertificatesRequestListSigningCertificatesPaginateTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUserPoliciesRequestListUserPoliciesPaginateTypeDef(BaseModel):
+class ListUserPoliciesRequestListUserPoliciesPaginateTypeDef(BaseValidatorModel):
     UserName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUserTagsRequestListUserTagsPaginateTypeDef(BaseModel):
+class ListUserTagsRequestListUserTagsPaginateTypeDef(BaseValidatorModel):
     UserName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsersRequestListUsersPaginateTypeDef(BaseModel):
+class ListUsersRequestListUsersPaginateTypeDef(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVirtualMFADevicesRequestListVirtualMFADevicesPaginateTypeDef(BaseModel):
+class ListVirtualMFADevicesRequestListVirtualMFADevicesPaginateTypeDef(BaseValidatorModel):
     AssignmentStatus: Optional[assignmentStatusTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SimulateCustomPolicyRequestSimulateCustomPolicyPaginateTypeDef(BaseModel):
+class SimulateCustomPolicyRequestSimulateCustomPolicyPaginateTypeDef(BaseValidatorModel):
     PolicyInputList: Sequence[str]
     ActionNames: Sequence[str]
     PermissionsBoundaryPolicyInputList: Optional[Sequence[str]] = None
@@ -1559,7 +1559,7 @@ class SimulateCustomPolicyRequestSimulateCustomPolicyPaginateTypeDef(BaseModel):
     ResourceHandlingOption: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SimulatePrincipalPolicyRequestSimulatePrincipalPolicyPaginateTypeDef(BaseModel):
+class SimulatePrincipalPolicyRequestSimulatePrincipalPolicyPaginateTypeDef(BaseValidatorModel):
     PolicySourceArn: str
     ActionNames: Sequence[str]
     PolicyInputList: Optional[Sequence[str]] = None
@@ -1572,35 +1572,35 @@ class SimulatePrincipalPolicyRequestSimulatePrincipalPolicyPaginateTypeDef(BaseM
     ResourceHandlingOption: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetAccountPasswordPolicyResponseTypeDef(BaseModel):
+class GetAccountPasswordPolicyResponseTypeDef(BaseValidatorModel):
     PasswordPolicy: PasswordPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceProfileRequestInstanceProfileExistsWaitTypeDef(BaseModel):
+class GetInstanceProfileRequestInstanceProfileExistsWaitTypeDef(BaseValidatorModel):
     InstanceProfileName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetPolicyRequestPolicyExistsWaitTypeDef(BaseModel):
+class GetPolicyRequestPolicyExistsWaitTypeDef(BaseValidatorModel):
     PolicyArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetRoleRequestRoleExistsWaitTypeDef(BaseModel):
+class GetRoleRequestRoleExistsWaitTypeDef(BaseValidatorModel):
     RoleName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetUserRequestUserExistsWaitTypeDef(BaseModel):
+class GetUserRequestUserExistsWaitTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetSSHPublicKeyResponseTypeDef(BaseModel):
+class GetSSHPublicKeyResponseTypeDef(BaseValidatorModel):
     SSHPublicKey: SSHPublicKeyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UploadSSHPublicKeyResponseTypeDef(BaseModel):
+class UploadSSHPublicKeyResponseTypeDef(BaseValidatorModel):
     SSHPublicKey: SSHPublicKeyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEntitiesForPolicyResponseTypeDef(BaseModel):
+class ListEntitiesForPolicyResponseTypeDef(BaseValidatorModel):
     PolicyGroups: List[PolicyGroupTypeDef]
     PolicyUsers: List[PolicyUserTypeDef]
     PolicyRoles: List[PolicyRoleTypeDef]
@@ -1608,72 +1608,72 @@ class ListEntitiesForPolicyResponseTypeDef(BaseModel):
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMFADevicesResponseTypeDef(BaseModel):
+class ListMFADevicesResponseTypeDef(BaseValidatorModel):
     MFADevices: List[MFADeviceTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOpenIDConnectProvidersResponseTypeDef(BaseModel):
+class ListOpenIDConnectProvidersResponseTypeDef(BaseValidatorModel):
     OpenIDConnectProviderList: List[OpenIDConnectProviderListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPoliciesGrantingServiceAccessEntryTypeDef(BaseModel):
+class ListPoliciesGrantingServiceAccessEntryTypeDef(BaseValidatorModel):
     ServiceNamespace: Optional[str] = None
     Policies: Optional[List[PolicyGrantingServiceAccessTypeDef]] = None
 
-class ListSAMLProvidersResponseTypeDef(BaseModel):
+class ListSAMLProvidersResponseTypeDef(BaseValidatorModel):
     SAMLProviderList: List[SAMLProviderListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSSHPublicKeysResponseTypeDef(BaseModel):
+class ListSSHPublicKeysResponseTypeDef(BaseValidatorModel):
     SSHPublicKeys: List[SSHPublicKeyMetadataTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServerCertificatesResponseTypeDef(BaseModel):
+class ListServerCertificatesResponseTypeDef(BaseValidatorModel):
     ServerCertificateMetadataList: List[ServerCertificateMetadataTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ServerCertificateTypeDef(BaseModel):
+class ServerCertificateTypeDef(BaseValidatorModel):
     ServerCertificateMetadata: ServerCertificateMetadataTypeDef
     CertificateBody: str
     CertificateChain: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class UploadServerCertificateResponseTypeDef(BaseModel):
+class UploadServerCertificateResponseTypeDef(BaseValidatorModel):
     ServerCertificateMetadata: ServerCertificateMetadataTypeDef
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServiceSpecificCredentialsResponseTypeDef(BaseModel):
+class ListServiceSpecificCredentialsResponseTypeDef(BaseValidatorModel):
     ServiceSpecificCredentials: List[ServiceSpecificCredentialMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSigningCertificatesResponseTypeDef(BaseModel):
+class ListSigningCertificatesResponseTypeDef(BaseValidatorModel):
     Certificates: List[SigningCertificateTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UploadSigningCertificateResponseTypeDef(BaseModel):
+class UploadSigningCertificateResponseTypeDef(BaseValidatorModel):
     Certificate: SigningCertificateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PolicyDocumentDictTypeDef(BaseModel):
+class PolicyDocumentDictTypeDef(BaseValidatorModel):
     Version: str
     Statement: List[PolicyDocumentStatementTypeDef]
 
-class StatementTypeDef(BaseModel):
+class StatementTypeDef(BaseValidatorModel):
     SourcePolicyId: Optional[str] = None
     SourcePolicyType: Optional[PolicySourceTypeType] = None
     StartPosition: Optional[PositionTypeDef] = None
     EndPosition: Optional[PositionTypeDef] = None
 
-class ServiceLastAccessedTypeDef(BaseModel):
+class ServiceLastAccessedTypeDef(BaseValidatorModel):
     ServiceName: str
     ServiceNamespace: str
     LastAuthenticated: Optional[datetime] = None
@@ -1682,42 +1682,42 @@ class ServiceLastAccessedTypeDef(BaseModel):
     TotalAuthenticatedEntities: Optional[int] = None
     TrackedActionsLastAccessed: Optional[List[TrackedActionLastAccessedTypeDef]] = None
 
-class CreatePolicyResponseTypeDef(BaseModel):
+class CreatePolicyResponseTypeDef(BaseValidatorModel):
     Policy: PolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPolicyResponseTypeDef(BaseModel):
+class GetPolicyResponseTypeDef(BaseValidatorModel):
     Policy: PolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPoliciesResponseTypeDef(BaseModel):
+class ListPoliciesResponseTypeDef(BaseValidatorModel):
     Policies: List[PolicyTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserResponseTypeDef(BaseModel):
+class CreateUserResponseTypeDef(BaseValidatorModel):
     User: UserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupResponseTypeDef(BaseModel):
+class GetGroupResponseTypeDef(BaseValidatorModel):
     Group: GroupTypeDef
     Users: List[UserTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUserResponseTypeDef(BaseModel):
+class GetUserResponseTypeDef(BaseValidatorModel):
     User: UserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUsersResponseTypeDef(BaseModel):
+class ListUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VirtualMFADeviceTypeDef(BaseModel):
+class VirtualMFADeviceTypeDef(BaseValidatorModel):
     SerialNumber: str
     Base32StringSeed: Optional[bytes] = None
     QRCodePNG: Optional[bytes] = None
@@ -1725,12 +1725,12 @@ class VirtualMFADeviceTypeDef(BaseModel):
     EnableDate: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class GetServiceLinkedRoleDeletionStatusResponseTypeDef(BaseModel):
+class GetServiceLinkedRoleDeletionStatusResponseTypeDef(BaseValidatorModel):
     Status: DeletionTaskStatusTypeType
     Reason: DeletionTaskFailureReasonTypeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServiceLastAccessedDetailsWithEntitiesResponseTypeDef(BaseModel):
+class GetServiceLastAccessedDetailsWithEntitiesResponseTypeDef(BaseValidatorModel):
     JobStatus: jobStatusTypeType
     JobCreationDate: datetime
     JobCompletionDate: datetime
@@ -1740,17 +1740,17 @@ class GetServiceLastAccessedDetailsWithEntitiesResponseTypeDef(BaseModel):
     Error: ErrorDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPoliciesGrantingServiceAccessResponseTypeDef(BaseModel):
+class ListPoliciesGrantingServiceAccessResponseTypeDef(BaseValidatorModel):
     PoliciesGrantingServiceAccess: List[ListPoliciesGrantingServiceAccessEntryTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServerCertificateResponseTypeDef(BaseModel):
+class GetServerCertificateResponseTypeDef(BaseValidatorModel):
     ServerCertificate: ServerCertificateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResourceSpecificResultTypeDef(BaseModel):
+class ResourceSpecificResultTypeDef(BaseValidatorModel):
     EvalResourceName: str
     EvalResourceDecision: PolicyEvaluationDecisionTypeType
     MatchedStatements: Optional[List[StatementTypeDef]] = None
@@ -1758,7 +1758,7 @@ class ResourceSpecificResultTypeDef(BaseModel):
     EvalDecisionDetails: Optional[Dict[str, PolicyEvaluationDecisionTypeType]] = None
     PermissionsBoundaryDecisionDetail: Optional[PermissionsBoundaryDecisionDetailTypeDef] = None
 
-class GetServiceLastAccessedDetailsResponseTypeDef(BaseModel):
+class GetServiceLastAccessedDetailsResponseTypeDef(BaseValidatorModel):
     JobStatus: jobStatusTypeType
     JobType: AccessAdvisorUsageGranularityTypeType
     JobCreationDate: datetime
@@ -1769,45 +1769,45 @@ class GetServiceLastAccessedDetailsResponseTypeDef(BaseModel):
     Error: ErrorDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVirtualMFADeviceResponseTypeDef(BaseModel):
+class CreateVirtualMFADeviceResponseTypeDef(BaseValidatorModel):
     VirtualMFADevice: VirtualMFADeviceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVirtualMFADevicesResponseTypeDef(BaseModel):
+class ListVirtualMFADevicesResponseTypeDef(BaseValidatorModel):
     VirtualMFADevices: List[VirtualMFADeviceTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGroupPolicyResponseTypeDef(BaseModel):
+class GetGroupPolicyResponseTypeDef(BaseValidatorModel):
     GroupName: str
     PolicyName: str
     PolicyDocument: PolicyDocumentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRolePolicyResponseTypeDef(BaseModel):
+class GetRolePolicyResponseTypeDef(BaseValidatorModel):
     RoleName: str
     PolicyName: str
     PolicyDocument: PolicyDocumentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUserPolicyResponseTypeDef(BaseModel):
+class GetUserPolicyResponseTypeDef(BaseValidatorModel):
     UserName: str
     PolicyName: str
     PolicyDocument: PolicyDocumentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PolicyDetailTypeDef(BaseModel):
+class PolicyDetailTypeDef(BaseValidatorModel):
     PolicyName: Optional[str] = None
     PolicyDocument: Optional[PolicyDocumentTypeDef] = None
 
-class PolicyVersionTypeDef(BaseModel):
+class PolicyVersionTypeDef(BaseValidatorModel):
     Document: Optional[PolicyDocumentTypeDef] = None
     VersionId: Optional[str] = None
     IsDefaultVersion: Optional[bool] = None
     CreateDate: Optional[datetime] = None
 
-class RoleTypeDef(BaseModel):
+class RoleTypeDef(BaseValidatorModel):
     Path: str
     RoleName: str
     RoleId: str
@@ -1820,7 +1820,7 @@ class RoleTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     RoleLastUsed: Optional[RoleLastUsedTypeDef] = None
 
-class EvaluationResultTypeDef(BaseModel):
+class EvaluationResultTypeDef(BaseValidatorModel):
     EvalActionName: str
     EvalDecision: PolicyEvaluationDecisionTypeType
     EvalResourceName: Optional[str] = None
@@ -1831,7 +1831,7 @@ class EvaluationResultTypeDef(BaseModel):
     EvalDecisionDetails: Optional[Dict[str, PolicyEvaluationDecisionTypeType]] = None
     ResourceSpecificResults: Optional[List[ResourceSpecificResultTypeDef]] = None
 
-class GroupDetailTypeDef(BaseModel):
+class GroupDetailTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     GroupName: Optional[str] = None
     GroupId: Optional[str] = None
@@ -1840,7 +1840,7 @@ class GroupDetailTypeDef(BaseModel):
     GroupPolicyList: Optional[List[PolicyDetailTypeDef]] = None
     AttachedManagedPolicies: Optional[List[AttachedPolicyTypeDef]] = None
 
-class UserDetailTypeDef(BaseModel):
+class UserDetailTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     UserName: Optional[str] = None
     UserId: Optional[str] = None
@@ -1852,21 +1852,21 @@ class UserDetailTypeDef(BaseModel):
     PermissionsBoundary: Optional[AttachedPermissionsBoundaryTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class CreatePolicyVersionResponseTypeDef(BaseModel):
+class CreatePolicyVersionResponseTypeDef(BaseValidatorModel):
     PolicyVersion: PolicyVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPolicyVersionResponseTypeDef(BaseModel):
+class GetPolicyVersionResponseTypeDef(BaseValidatorModel):
     PolicyVersion: PolicyVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPolicyVersionsResponseTypeDef(BaseModel):
+class ListPolicyVersionsResponseTypeDef(BaseValidatorModel):
     Versions: List[PolicyVersionTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ManagedPolicyDetailTypeDef(BaseModel):
+class ManagedPolicyDetailTypeDef(BaseValidatorModel):
     PolicyName: Optional[str] = None
     PolicyId: Optional[str] = None
     Arn: Optional[str] = None
@@ -1880,19 +1880,19 @@ class ManagedPolicyDetailTypeDef(BaseModel):
     UpdateDate: Optional[datetime] = None
     PolicyVersionList: Optional[List[PolicyVersionTypeDef]] = None
 
-class CreateRoleResponseTypeDef(BaseModel):
+class CreateRoleResponseTypeDef(BaseValidatorModel):
     Role: RoleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServiceLinkedRoleResponseTypeDef(BaseModel):
+class CreateServiceLinkedRoleResponseTypeDef(BaseValidatorModel):
     Role: RoleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRoleResponseTypeDef(BaseModel):
+class GetRoleResponseTypeDef(BaseValidatorModel):
     Role: RoleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InstanceProfileTypeDef(BaseModel):
+class InstanceProfileTypeDef(BaseValidatorModel):
     Path: str
     InstanceProfileName: str
     InstanceProfileId: str
@@ -1901,43 +1901,43 @@ class InstanceProfileTypeDef(BaseModel):
     Roles: List[RoleTypeDef]
     Tags: Optional[List[TagTypeDef]] = None
 
-class ListRolesResponseTypeDef(BaseModel):
+class ListRolesResponseTypeDef(BaseValidatorModel):
     Roles: List[RoleTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRoleDescriptionResponseTypeDef(BaseModel):
+class UpdateRoleDescriptionResponseTypeDef(BaseValidatorModel):
     Role: RoleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SimulatePolicyResponseTypeDef(BaseModel):
+class SimulatePolicyResponseTypeDef(BaseValidatorModel):
     EvaluationResults: List[EvaluationResultTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInstanceProfileResponseTypeDef(BaseModel):
+class CreateInstanceProfileResponseTypeDef(BaseValidatorModel):
     InstanceProfile: InstanceProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstanceProfileResponseTypeDef(BaseModel):
+class GetInstanceProfileResponseTypeDef(BaseValidatorModel):
     InstanceProfile: InstanceProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInstanceProfilesForRoleResponseTypeDef(BaseModel):
+class ListInstanceProfilesForRoleResponseTypeDef(BaseValidatorModel):
     InstanceProfiles: List[InstanceProfileTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInstanceProfilesResponseTypeDef(BaseModel):
+class ListInstanceProfilesResponseTypeDef(BaseValidatorModel):
     InstanceProfiles: List[InstanceProfileTypeDef]
     IsTruncated: bool
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RoleDetailTypeDef(BaseModel):
+class RoleDetailTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     RoleName: Optional[str] = None
     RoleId: Optional[str] = None
@@ -1951,7 +1951,7 @@ class RoleDetailTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     RoleLastUsed: Optional[RoleLastUsedTypeDef] = None
 
-class GetAccountAuthorizationDetailsResponseTypeDef(BaseModel):
+class GetAccountAuthorizationDetailsResponseTypeDef(BaseValidatorModel):
     UserDetailList: List[UserDetailTypeDef]
     GroupDetailList: List[GroupDetailTypeDef]
     RoleDetailList: List[RoleDetailTypeDef]

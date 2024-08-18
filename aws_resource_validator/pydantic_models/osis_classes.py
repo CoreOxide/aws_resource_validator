@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,40 +11,40 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.osis_constants import *
 
-class BufferOptionsTypeDef(BaseModel):
+class BufferOptionsTypeDef(BaseValidatorModel):
     PersistentBufferEnabled: bool
 
-class ChangeProgressStageTypeDef(BaseModel):
+class ChangeProgressStageTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[ChangeProgressStageStatusesType] = None
     Description: Optional[str] = None
     LastUpdatedAt: Optional[datetime] = None
 
-class CloudWatchLogDestinationTypeDef(BaseModel):
+class CloudWatchLogDestinationTypeDef(BaseValidatorModel):
     LogGroup: str
 
-class EncryptionAtRestOptionsTypeDef(BaseModel):
+class EncryptionAtRestOptionsTypeDef(BaseValidatorModel):
     KmsKeyArn: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DeletePipelineRequestRequestTypeDef(BaseModel):
+class DeletePipelineRequestRequestTypeDef(BaseValidatorModel):
     PipelineName: str
 
-class GetPipelineBlueprintRequestRequestTypeDef(BaseModel):
+class GetPipelineBlueprintRequestRequestTypeDef(BaseValidatorModel):
     BlueprintName: str
     Format: Optional[str] = None
 
-class PipelineBlueprintTypeDef(BaseModel):
+class PipelineBlueprintTypeDef(BaseValidatorModel):
     BlueprintName: Optional[str] = None
     PipelineConfigurationBody: Optional[str] = None
     DisplayName: Optional[str] = None
@@ -52,85 +52,85 @@ class PipelineBlueprintTypeDef(BaseModel):
     Service: Optional[str] = None
     UseCase: Optional[str] = None
 
-class GetPipelineChangeProgressRequestRequestTypeDef(BaseModel):
+class GetPipelineChangeProgressRequestRequestTypeDef(BaseValidatorModel):
     PipelineName: str
 
-class GetPipelineRequestRequestTypeDef(BaseModel):
+class GetPipelineRequestRequestTypeDef(BaseValidatorModel):
     PipelineName: str
 
-class PipelineBlueprintSummaryTypeDef(BaseModel):
+class PipelineBlueprintSummaryTypeDef(BaseValidatorModel):
     BlueprintName: Optional[str] = None
     DisplayName: Optional[str] = None
     DisplayDescription: Optional[str] = None
     Service: Optional[str] = None
     UseCase: Optional[str] = None
 
-class ListPipelinesRequestRequestTypeDef(BaseModel):
+class ListPipelinesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
 
-class PipelineDestinationTypeDef(BaseModel):
+class PipelineDestinationTypeDef(BaseValidatorModel):
     ServiceName: Optional[str] = None
     Endpoint: Optional[str] = None
 
-class PipelineStatusReasonTypeDef(BaseModel):
+class PipelineStatusReasonTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
-class ServiceVpcEndpointTypeDef(BaseModel):
+class ServiceVpcEndpointTypeDef(BaseValidatorModel):
     ServiceName: Optional[Literal["OPENSEARCH_SERVERLESS"]] = None
     VpcEndpointId: Optional[str] = None
 
-class StartPipelineRequestRequestTypeDef(BaseModel):
+class StartPipelineRequestRequestTypeDef(BaseValidatorModel):
     PipelineName: str
 
-class StopPipelineRequestRequestTypeDef(BaseModel):
+class StopPipelineRequestRequestTypeDef(BaseValidatorModel):
     PipelineName: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
     TagKeys: Sequence[str]
 
-class ValidatePipelineRequestRequestTypeDef(BaseModel):
+class ValidatePipelineRequestRequestTypeDef(BaseValidatorModel):
     PipelineConfigurationBody: str
 
-class ValidationMessageTypeDef(BaseModel):
+class ValidationMessageTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
 
-class VpcAttachmentOptionsTypeDef(BaseModel):
+class VpcAttachmentOptionsTypeDef(BaseValidatorModel):
     AttachToVpc: bool
     CidrBlock: Optional[str] = None
 
-class ChangeProgressStatusTypeDef(BaseModel):
+class ChangeProgressStatusTypeDef(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     Status: Optional[ChangeProgressStatusesType] = None
     TotalNumberOfStages: Optional[int] = None
     ChangeProgressStages: Optional[List[ChangeProgressStageTypeDef]] = None
 
-class LogPublishingOptionsTypeDef(BaseModel):
+class LogPublishingOptionsTypeDef(BaseValidatorModel):
     IsLoggingEnabled: Optional[bool] = None
     CloudWatchLogDestination: Optional[CloudWatchLogDestinationTypeDef] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
     Tags: Sequence[TagTypeDef]
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPipelineBlueprintResponseTypeDef(BaseModel):
+class GetPipelineBlueprintResponseTypeDef(BaseValidatorModel):
     Blueprint: PipelineBlueprintTypeDef
     Format: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPipelineBlueprintsResponseTypeDef(BaseModel):
+class ListPipelineBlueprintsResponseTypeDef(BaseValidatorModel):
     Blueprints: List[PipelineBlueprintSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PipelineSummaryTypeDef(BaseModel):
+class PipelineSummaryTypeDef(BaseValidatorModel):
     Status: Optional[PipelineStatusType] = None
     StatusReason: Optional[PipelineStatusReasonTypeDef] = None
     PipelineName: Optional[str] = None
@@ -142,28 +142,28 @@ class PipelineSummaryTypeDef(BaseModel):
     Destinations: Optional[List[PipelineDestinationTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ValidatePipelineResponseTypeDef(BaseModel):
+class ValidatePipelineResponseTypeDef(BaseValidatorModel):
     isValid: bool
     Errors: List[ValidationMessageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VpcOptionsOutputTypeDef(BaseModel):
+class VpcOptionsOutputTypeDef(BaseValidatorModel):
     SubnetIds: List[str]
     SecurityGroupIds: Optional[List[str]] = None
     VpcAttachmentOptions: Optional[VpcAttachmentOptionsTypeDef] = None
     VpcEndpointManagement: Optional[VpcEndpointManagementType] = None
 
-class VpcOptionsTypeDef(BaseModel):
+class VpcOptionsTypeDef(BaseValidatorModel):
     SubnetIds: Sequence[str]
     SecurityGroupIds: Optional[Sequence[str]] = None
     VpcAttachmentOptions: Optional[VpcAttachmentOptionsTypeDef] = None
     VpcEndpointManagement: Optional[VpcEndpointManagementType] = None
 
-class GetPipelineChangeProgressResponseTypeDef(BaseModel):
+class GetPipelineChangeProgressResponseTypeDef(BaseValidatorModel):
     ChangeProgressStatuses: List[ChangeProgressStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePipelineRequestRequestTypeDef(BaseModel):
+class UpdatePipelineRequestRequestTypeDef(BaseValidatorModel):
     PipelineName: str
     MinUnits: Optional[int] = None
     MaxUnits: Optional[int] = None
@@ -172,17 +172,17 @@ class UpdatePipelineRequestRequestTypeDef(BaseModel):
     BufferOptions: Optional[BufferOptionsTypeDef] = None
     EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsTypeDef] = None
 
-class ListPipelinesResponseTypeDef(BaseModel):
+class ListPipelinesResponseTypeDef(BaseValidatorModel):
     Pipelines: List[PipelineSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class VpcEndpointTypeDef(BaseModel):
+class VpcEndpointTypeDef(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
     VpcId: Optional[str] = None
     VpcOptions: Optional[VpcOptionsOutputTypeDef] = None
 
-class CreatePipelineRequestRequestTypeDef(BaseModel):
+class CreatePipelineRequestRequestTypeDef(BaseValidatorModel):
     PipelineName: str
     MinUnits: int
     MaxUnits: int
@@ -193,7 +193,7 @@ class CreatePipelineRequestRequestTypeDef(BaseModel):
     EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsTypeDef] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class PipelineTypeDef(BaseModel):
+class PipelineTypeDef(BaseValidatorModel):
     PipelineName: Optional[str] = None
     PipelineArn: Optional[str] = None
     MinUnits: Optional[int] = None
@@ -213,23 +213,23 @@ class PipelineTypeDef(BaseModel):
     Destinations: Optional[List[PipelineDestinationTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class CreatePipelineResponseTypeDef(BaseModel):
+class CreatePipelineResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPipelineResponseTypeDef(BaseModel):
+class GetPipelineResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartPipelineResponseTypeDef(BaseModel):
+class StartPipelineResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StopPipelineResponseTypeDef(BaseModel):
+class StopPipelineResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePipelineResponseTypeDef(BaseModel):
+class UpdatePipelineResponseTypeDef(BaseValidatorModel):
     Pipeline: PipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

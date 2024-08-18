@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,36 +11,36 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.servicediscovery_constants import *
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class HealthCheckConfigTypeDef(BaseModel):
+class HealthCheckConfigTypeDef(BaseValidatorModel):
     Type: HealthCheckTypeType
     ResourcePath: Optional[str] = None
     FailureThreshold: Optional[int] = None
 
-class HealthCheckCustomConfigTypeDef(BaseModel):
+class HealthCheckCustomConfigTypeDef(BaseValidatorModel):
     FailureThreshold: Optional[int] = None
 
-class DeleteNamespaceRequestRequestTypeDef(BaseModel):
+class DeleteNamespaceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeleteServiceRequestRequestTypeDef(BaseModel):
+class DeleteServiceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class DeregisterInstanceRequestRequestTypeDef(BaseModel):
+class DeregisterInstanceRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     InstanceId: str
 
-class DiscoverInstancesRequestRequestTypeDef(BaseModel):
+class DiscoverInstancesRequestRequestTypeDef(BaseValidatorModel):
     NamespaceName: str
     ServiceName: str
     MaxResults: Optional[int] = None
@@ -48,46 +48,46 @@ class DiscoverInstancesRequestRequestTypeDef(BaseModel):
     OptionalParameters: Optional[Mapping[str, str]] = None
     HealthStatus: Optional[HealthStatusFilterType] = None
 
-class HttpInstanceSummaryTypeDef(BaseModel):
+class HttpInstanceSummaryTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
     NamespaceName: Optional[str] = None
     ServiceName: Optional[str] = None
     HealthStatus: Optional[HealthStatusType] = None
     Attributes: Optional[Dict[str, str]] = None
 
-class DiscoverInstancesRevisionRequestRequestTypeDef(BaseModel):
+class DiscoverInstancesRevisionRequestRequestTypeDef(BaseValidatorModel):
     NamespaceName: str
     ServiceName: str
 
-class DnsRecordTypeDef(BaseModel):
+class DnsRecordTypeDef(BaseValidatorModel):
     Type: RecordTypeType
     TTL: int
 
-class SOATypeDef(BaseModel):
+class SOATypeDef(BaseValidatorModel):
     TTL: int
 
-class GetInstanceRequestRequestTypeDef(BaseModel):
+class GetInstanceRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     InstanceId: str
 
-class InstanceTypeDef(BaseModel):
+class InstanceTypeDef(BaseValidatorModel):
     Id: str
     CreatorRequestId: Optional[str] = None
     Attributes: Optional[Dict[str, str]] = None
 
-class GetInstancesHealthStatusRequestRequestTypeDef(BaseModel):
+class GetInstancesHealthStatusRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     Instances: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetNamespaceRequestRequestTypeDef(BaseModel):
+class GetNamespaceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class GetOperationRequestRequestTypeDef(BaseModel):
+class GetOperationRequestRequestTypeDef(BaseValidatorModel):
     OperationId: str
 
-class OperationTypeDef(BaseModel):
+class OperationTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Type: Optional[OperationTypeType] = None
     Status: Optional[OperationStatusType] = None
@@ -97,229 +97,229 @@ class OperationTypeDef(BaseModel):
     UpdateDate: Optional[datetime] = None
     Targets: Optional[Dict[OperationTargetTypeType, str]] = None
 
-class GetServiceRequestRequestTypeDef(BaseModel):
+class GetServiceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
 
-class HttpNamespaceChangeTypeDef(BaseModel):
+class HttpNamespaceChangeTypeDef(BaseValidatorModel):
     Description: str
 
-class HttpPropertiesTypeDef(BaseModel):
+class HttpPropertiesTypeDef(BaseValidatorModel):
     HttpName: Optional[str] = None
 
-class InstanceSummaryTypeDef(BaseModel):
+class InstanceSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Attributes: Optional[Dict[str, str]] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListInstancesRequestRequestTypeDef(BaseModel):
+class ListInstancesRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class NamespaceFilterTypeDef(BaseModel):
+class NamespaceFilterTypeDef(BaseValidatorModel):
     Name: NamespaceFilterNameType
     Values: Sequence[str]
     Condition: Optional[FilterConditionType] = None
 
-class OperationFilterTypeDef(BaseModel):
+class OperationFilterTypeDef(BaseValidatorModel):
     Name: OperationFilterNameType
     Values: Sequence[str]
     Condition: Optional[FilterConditionType] = None
 
-class OperationSummaryTypeDef(BaseModel):
+class OperationSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Status: Optional[OperationStatusType] = None
 
-class ServiceFilterTypeDef(BaseModel):
+class ServiceFilterTypeDef(BaseValidatorModel):
     Name: Literal["NAMESPACE_ID"]
     Values: Sequence[str]
     Condition: Optional[FilterConditionType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class SOAChangeTypeDef(BaseModel):
+class SOAChangeTypeDef(BaseValidatorModel):
     TTL: int
 
-class RegisterInstanceRequestRequestTypeDef(BaseModel):
+class RegisterInstanceRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     InstanceId: str
     Attributes: Mapping[str, str]
     CreatorRequestId: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateInstanceCustomHealthStatusRequestRequestTypeDef(BaseModel):
+class UpdateInstanceCustomHealthStatusRequestRequestTypeDef(BaseValidatorModel):
     ServiceId: str
     InstanceId: str
     Status: CustomHealthStatusType
 
-class CreateHttpNamespaceRequestRequestTypeDef(BaseModel):
+class CreateHttpNamespaceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     CreatorRequestId: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class CreateHttpNamespaceResponseTypeDef(BaseModel):
+class CreateHttpNamespaceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePrivateDnsNamespaceResponseTypeDef(BaseModel):
+class CreatePrivateDnsNamespaceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePublicDnsNamespaceResponseTypeDef(BaseModel):
+class CreatePublicDnsNamespaceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteNamespaceResponseTypeDef(BaseModel):
+class DeleteNamespaceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeregisterInstanceResponseTypeDef(BaseModel):
+class DeregisterInstanceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DiscoverInstancesRevisionResponseTypeDef(BaseModel):
+class DiscoverInstancesRevisionResponseTypeDef(BaseValidatorModel):
     InstancesRevision: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetInstancesHealthStatusResponseTypeDef(BaseModel):
+class GetInstancesHealthStatusResponseTypeDef(BaseValidatorModel):
     Status: Dict[str, HealthStatusType]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterInstanceResponseTypeDef(BaseModel):
+class RegisterInstanceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateHttpNamespaceResponseTypeDef(BaseModel):
+class UpdateHttpNamespaceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePrivateDnsNamespaceResponseTypeDef(BaseModel):
+class UpdatePrivateDnsNamespaceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePublicDnsNamespaceResponseTypeDef(BaseModel):
+class UpdatePublicDnsNamespaceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServiceResponseTypeDef(BaseModel):
+class UpdateServiceResponseTypeDef(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DiscoverInstancesResponseTypeDef(BaseModel):
+class DiscoverInstancesResponseTypeDef(BaseValidatorModel):
     Instances: List[HttpInstanceSummaryTypeDef]
     InstancesRevision: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DnsConfigChangeTypeDef(BaseModel):
+class DnsConfigChangeTypeDef(BaseValidatorModel):
     DnsRecords: Sequence[DnsRecordTypeDef]
 
-class DnsConfigPaginatorTypeDef(BaseModel):
+class DnsConfigPaginatorTypeDef(BaseValidatorModel):
     DnsRecords: List[DnsRecordTypeDef]
     NamespaceId: Optional[str] = None
     RoutingPolicy: Optional[RoutingPolicyType] = None
 
-class DnsConfigTypeDef(BaseModel):
+class DnsConfigTypeDef(BaseValidatorModel):
     DnsRecords: Sequence[DnsRecordTypeDef]
     NamespaceId: Optional[str] = None
     RoutingPolicy: Optional[RoutingPolicyType] = None
 
-class DnsPropertiesTypeDef(BaseModel):
+class DnsPropertiesTypeDef(BaseValidatorModel):
     HostedZoneId: Optional[str] = None
     SOA: Optional[SOATypeDef] = None
 
-class PrivateDnsPropertiesMutableTypeDef(BaseModel):
+class PrivateDnsPropertiesMutableTypeDef(BaseValidatorModel):
     SOA: SOATypeDef
 
-class PublicDnsPropertiesMutableTypeDef(BaseModel):
+class PublicDnsPropertiesMutableTypeDef(BaseValidatorModel):
     SOA: SOATypeDef
 
-class GetInstanceResponseTypeDef(BaseModel):
+class GetInstanceResponseTypeDef(BaseValidatorModel):
     Instance: InstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOperationResponseTypeDef(BaseModel):
+class GetOperationResponseTypeDef(BaseValidatorModel):
     Operation: OperationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateHttpNamespaceRequestRequestTypeDef(BaseModel):
+class UpdateHttpNamespaceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Namespace: HttpNamespaceChangeTypeDef
     UpdaterRequestId: Optional[str] = None
 
-class ListInstancesResponseTypeDef(BaseModel):
+class ListInstancesResponseTypeDef(BaseValidatorModel):
     Instances: List[InstanceSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInstancesRequestListInstancesPaginateTypeDef(BaseModel):
+class ListInstancesRequestListInstancesPaginateTypeDef(BaseValidatorModel):
     ServiceId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListNamespacesRequestListNamespacesPaginateTypeDef(BaseModel):
+class ListNamespacesRequestListNamespacesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[NamespaceFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListNamespacesRequestRequestTypeDef(BaseModel):
+class ListNamespacesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[NamespaceFilterTypeDef]] = None
 
-class ListOperationsRequestListOperationsPaginateTypeDef(BaseModel):
+class ListOperationsRequestListOperationsPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[OperationFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOperationsRequestRequestTypeDef(BaseModel):
+class ListOperationsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[OperationFilterTypeDef]] = None
 
-class ListOperationsResponseTypeDef(BaseModel):
+class ListOperationsResponseTypeDef(BaseValidatorModel):
     Operations: List[OperationSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServicesRequestListServicesPaginateTypeDef(BaseModel):
+class ListServicesRequestListServicesPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[ServiceFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServicesRequestRequestTypeDef(BaseModel):
+class ListServicesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Sequence[ServiceFilterTypeDef]] = None
 
-class PrivateDnsPropertiesMutableChangeTypeDef(BaseModel):
+class PrivateDnsPropertiesMutableChangeTypeDef(BaseValidatorModel):
     SOA: SOAChangeTypeDef
 
-class PublicDnsPropertiesMutableChangeTypeDef(BaseModel):
+class PublicDnsPropertiesMutableChangeTypeDef(BaseValidatorModel):
     SOA: SOAChangeTypeDef
 
-class ServiceChangeTypeDef(BaseModel):
+class ServiceChangeTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     DnsConfig: Optional[DnsConfigChangeTypeDef] = None
     HealthCheckConfig: Optional[HealthCheckConfigTypeDef] = None
 
-class ServiceSummaryPaginatorTypeDef(BaseModel):
+class ServiceSummaryPaginatorTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -331,7 +331,7 @@ class ServiceSummaryPaginatorTypeDef(BaseModel):
     HealthCheckCustomConfig: Optional[HealthCheckCustomConfigTypeDef] = None
     CreateDate: Optional[datetime] = None
 
-class CreateServiceRequestRequestTypeDef(BaseModel):
+class CreateServiceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     NamespaceId: Optional[str] = None
     CreatorRequestId: Optional[str] = None
@@ -342,7 +342,7 @@ class CreateServiceRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     Type: Optional[Literal["HTTP"]] = None
 
-class ServiceSummaryTypeDef(BaseModel):
+class ServiceSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -354,7 +354,7 @@ class ServiceSummaryTypeDef(BaseModel):
     HealthCheckCustomConfig: Optional[HealthCheckCustomConfigTypeDef] = None
     CreateDate: Optional[datetime] = None
 
-class ServiceTypeDef(BaseModel):
+class ServiceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -368,45 +368,45 @@ class ServiceTypeDef(BaseModel):
     CreateDate: Optional[datetime] = None
     CreatorRequestId: Optional[str] = None
 
-class NamespacePropertiesTypeDef(BaseModel):
+class NamespacePropertiesTypeDef(BaseValidatorModel):
     DnsProperties: Optional[DnsPropertiesTypeDef] = None
     HttpProperties: Optional[HttpPropertiesTypeDef] = None
 
-class PrivateDnsNamespacePropertiesTypeDef(BaseModel):
+class PrivateDnsNamespacePropertiesTypeDef(BaseValidatorModel):
     DnsProperties: PrivateDnsPropertiesMutableTypeDef
 
-class PublicDnsNamespacePropertiesTypeDef(BaseModel):
+class PublicDnsNamespacePropertiesTypeDef(BaseValidatorModel):
     DnsProperties: PublicDnsPropertiesMutableTypeDef
 
-class PrivateDnsNamespacePropertiesChangeTypeDef(BaseModel):
+class PrivateDnsNamespacePropertiesChangeTypeDef(BaseValidatorModel):
     DnsProperties: PrivateDnsPropertiesMutableChangeTypeDef
 
-class PublicDnsNamespacePropertiesChangeTypeDef(BaseModel):
+class PublicDnsNamespacePropertiesChangeTypeDef(BaseValidatorModel):
     DnsProperties: PublicDnsPropertiesMutableChangeTypeDef
 
-class UpdateServiceRequestRequestTypeDef(BaseModel):
+class UpdateServiceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Service: ServiceChangeTypeDef
 
-class ListServicesResponsePaginatorTypeDef(BaseModel):
+class ListServicesResponsePaginatorTypeDef(BaseValidatorModel):
     Services: List[ServiceSummaryPaginatorTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServicesResponseTypeDef(BaseModel):
+class ListServicesResponseTypeDef(BaseValidatorModel):
     Services: List[ServiceSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServiceResponseTypeDef(BaseModel):
+class CreateServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServiceResponseTypeDef(BaseModel):
+class GetServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class NamespaceSummaryTypeDef(BaseModel):
+class NamespaceSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -416,7 +416,7 @@ class NamespaceSummaryTypeDef(BaseModel):
     Properties: Optional[NamespacePropertiesTypeDef] = None
     CreateDate: Optional[datetime] = None
 
-class NamespaceTypeDef(BaseModel):
+class NamespaceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -427,7 +427,7 @@ class NamespaceTypeDef(BaseModel):
     CreateDate: Optional[datetime] = None
     CreatorRequestId: Optional[str] = None
 
-class CreatePrivateDnsNamespaceRequestRequestTypeDef(BaseModel):
+class CreatePrivateDnsNamespaceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     Vpc: str
     CreatorRequestId: Optional[str] = None
@@ -435,36 +435,36 @@ class CreatePrivateDnsNamespaceRequestRequestTypeDef(BaseModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     Properties: Optional[PrivateDnsNamespacePropertiesTypeDef] = None
 
-class CreatePublicDnsNamespaceRequestRequestTypeDef(BaseModel):
+class CreatePublicDnsNamespaceRequestRequestTypeDef(BaseValidatorModel):
     Name: str
     CreatorRequestId: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     Properties: Optional[PublicDnsNamespacePropertiesTypeDef] = None
 
-class PrivateDnsNamespaceChangeTypeDef(BaseModel):
+class PrivateDnsNamespaceChangeTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Properties: Optional[PrivateDnsNamespacePropertiesChangeTypeDef] = None
 
-class PublicDnsNamespaceChangeTypeDef(BaseModel):
+class PublicDnsNamespaceChangeTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Properties: Optional[PublicDnsNamespacePropertiesChangeTypeDef] = None
 
-class ListNamespacesResponseTypeDef(BaseModel):
+class ListNamespacesResponseTypeDef(BaseValidatorModel):
     Namespaces: List[NamespaceSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetNamespaceResponseTypeDef(BaseModel):
+class GetNamespaceResponseTypeDef(BaseValidatorModel):
     Namespace: NamespaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePrivateDnsNamespaceRequestRequestTypeDef(BaseModel):
+class UpdatePrivateDnsNamespaceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Namespace: PrivateDnsNamespaceChangeTypeDef
     UpdaterRequestId: Optional[str] = None
 
-class UpdatePublicDnsNamespaceRequestRequestTypeDef(BaseModel):
+class UpdatePublicDnsNamespaceRequestRequestTypeDef(BaseValidatorModel):
     Id: str
     Namespace: PublicDnsNamespaceChangeTypeDef
     UpdaterRequestId: Optional[str] = None

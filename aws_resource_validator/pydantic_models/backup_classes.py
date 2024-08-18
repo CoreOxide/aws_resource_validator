@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,15 +11,15 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.backup_constants import *
 
-class AdvancedBackupSettingPaginatorTypeDef(BaseModel):
+class AdvancedBackupSettingPaginatorTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     BackupOptions: Optional[Dict[str, str]] = None
 
-class AdvancedBackupSettingTypeDef(BaseModel):
+class AdvancedBackupSettingTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     BackupOptions: Optional[Mapping[str, str]] = None
 
-class BackupJobSummaryTypeDef(BaseModel):
+class BackupJobSummaryTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
     AccountId: Optional[str] = None
     State: Optional[BackupJobStatusType] = None
@@ -29,27 +29,27 @@ class BackupJobSummaryTypeDef(BaseModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
-class RecoveryPointCreatorTypeDef(BaseModel):
+class RecoveryPointCreatorTypeDef(BaseValidatorModel):
     BackupPlanId: Optional[str] = None
     BackupPlanArn: Optional[str] = None
     BackupPlanVersion: Optional[str] = None
     BackupRuleId: Optional[str] = None
 
-class BackupPlanTemplatesListMemberTypeDef(BaseModel):
+class BackupPlanTemplatesListMemberTypeDef(BaseValidatorModel):
     BackupPlanTemplateId: Optional[str] = None
     BackupPlanTemplateName: Optional[str] = None
 
-class LifecycleTypeDef(BaseModel):
+class LifecycleTypeDef(BaseValidatorModel):
     MoveToColdStorageAfterDays: Optional[int] = None
     DeleteAfterDays: Optional[int] = None
     OptInToArchiveForSupportedResources: Optional[bool] = None
 
-class ConditionTypeDef(BaseModel):
+class ConditionTypeDef(BaseValidatorModel):
     ConditionType: Literal["STRINGEQUALS"]
     ConditionKey: str
     ConditionValue: str
 
-class BackupSelectionsListMemberTypeDef(BaseModel):
+class BackupSelectionsListMemberTypeDef(BaseValidatorModel):
     SelectionId: Optional[str] = None
     SelectionName: Optional[str] = None
     BackupPlanId: Optional[str] = None
@@ -57,7 +57,7 @@ class BackupSelectionsListMemberTypeDef(BaseModel):
     CreatorRequestId: Optional[str] = None
     IamRoleArn: Optional[str] = None
 
-class BackupVaultListMemberTypeDef(BaseModel):
+class BackupVaultListMemberTypeDef(BaseValidatorModel):
     BackupVaultName: Optional[str] = None
     BackupVaultArn: Optional[str] = None
     CreationDate: Optional[datetime] = None
@@ -69,29 +69,29 @@ class BackupVaultListMemberTypeDef(BaseModel):
     MaxRetentionDays: Optional[int] = None
     LockDate: Optional[datetime] = None
 
-class CalculatedLifecycleTypeDef(BaseModel):
+class CalculatedLifecycleTypeDef(BaseValidatorModel):
     MoveToColdStorageAt: Optional[datetime] = None
     DeleteAt: Optional[datetime] = None
 
-class CancelLegalHoldInputRequestTypeDef(BaseModel):
+class CancelLegalHoldInputRequestTypeDef(BaseValidatorModel):
     LegalHoldId: str
     CancelDescription: str
     RetainRecordInDays: Optional[int] = None
 
-class ConditionParameterTypeDef(BaseModel):
+class ConditionParameterTypeDef(BaseValidatorModel):
     ConditionKey: Optional[str] = None
     ConditionValue: Optional[str] = None
 
-class ControlInputParameterTypeDef(BaseModel):
+class ControlInputParameterTypeDef(BaseValidatorModel):
     ParameterName: Optional[str] = None
     ParameterValue: Optional[str] = None
 
-class ControlScopeTypeDef(BaseModel):
+class ControlScopeTypeDef(BaseValidatorModel):
     ComplianceResourceIds: Optional[Sequence[str]] = None
     ComplianceResourceTypes: Optional[Sequence[str]] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CopyJobSummaryTypeDef(BaseModel):
+class CopyJobSummaryTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
     AccountId: Optional[str] = None
     State: Optional[CopyJobStatusType] = None
@@ -101,32 +101,32 @@ class CopyJobSummaryTypeDef(BaseModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateBackupVaultInputRequestTypeDef(BaseModel):
+class CreateBackupVaultInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultTags: Optional[Mapping[str, str]] = None
     EncryptionKeyArn: Optional[str] = None
     CreatorRequestId: Optional[str] = None
 
-class CreateLogicallyAirGappedBackupVaultInputRequestTypeDef(BaseModel):
+class CreateLogicallyAirGappedBackupVaultInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     MinRetentionDays: int
     MaxRetentionDays: int
     BackupVaultTags: Optional[Mapping[str, str]] = None
     CreatorRequestId: Optional[str] = None
 
-class ReportDeliveryChannelTypeDef(BaseModel):
+class ReportDeliveryChannelTypeDef(BaseValidatorModel):
     S3BucketName: str
     S3KeyPrefix: Optional[str] = None
     Formats: Optional[Sequence[str]] = None
 
-class ReportSettingTypeDef(BaseModel):
+class ReportSettingTypeDef(BaseValidatorModel):
     ReportTemplate: str
     FrameworkArns: Optional[Sequence[str]] = None
     NumberOfFrameworks: Optional[int] = None
@@ -134,87 +134,87 @@ class ReportSettingTypeDef(BaseModel):
     OrganizationUnits: Optional[Sequence[str]] = None
     Regions: Optional[Sequence[str]] = None
 
-class DeleteBackupPlanInputRequestTypeDef(BaseModel):
+class DeleteBackupPlanInputRequestTypeDef(BaseValidatorModel):
     BackupPlanId: str
 
-class DeleteBackupSelectionInputRequestTypeDef(BaseModel):
+class DeleteBackupSelectionInputRequestTypeDef(BaseValidatorModel):
     BackupPlanId: str
     SelectionId: str
 
-class DeleteBackupVaultAccessPolicyInputRequestTypeDef(BaseModel):
+class DeleteBackupVaultAccessPolicyInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
 
-class DeleteBackupVaultInputRequestTypeDef(BaseModel):
+class DeleteBackupVaultInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
 
-class DeleteBackupVaultLockConfigurationInputRequestTypeDef(BaseModel):
+class DeleteBackupVaultLockConfigurationInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
 
-class DeleteBackupVaultNotificationsInputRequestTypeDef(BaseModel):
+class DeleteBackupVaultNotificationsInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
 
-class DeleteFrameworkInputRequestTypeDef(BaseModel):
+class DeleteFrameworkInputRequestTypeDef(BaseValidatorModel):
     FrameworkName: str
 
-class DeleteRecoveryPointInputRequestTypeDef(BaseModel):
+class DeleteRecoveryPointInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
 
-class DeleteReportPlanInputRequestTypeDef(BaseModel):
+class DeleteReportPlanInputRequestTypeDef(BaseValidatorModel):
     ReportPlanName: str
 
-class DeleteRestoreTestingPlanInputRequestTypeDef(BaseModel):
+class DeleteRestoreTestingPlanInputRequestTypeDef(BaseValidatorModel):
     RestoreTestingPlanName: str
 
-class DeleteRestoreTestingSelectionInputRequestTypeDef(BaseModel):
+class DeleteRestoreTestingSelectionInputRequestTypeDef(BaseValidatorModel):
     RestoreTestingPlanName: str
     RestoreTestingSelectionName: str
 
-class DescribeBackupJobInputRequestTypeDef(BaseModel):
+class DescribeBackupJobInputRequestTypeDef(BaseValidatorModel):
     BackupJobId: str
 
-class DescribeBackupVaultInputRequestTypeDef(BaseModel):
+class DescribeBackupVaultInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultAccountId: Optional[str] = None
 
-class DescribeCopyJobInputRequestTypeDef(BaseModel):
+class DescribeCopyJobInputRequestTypeDef(BaseValidatorModel):
     CopyJobId: str
 
-class DescribeFrameworkInputRequestTypeDef(BaseModel):
+class DescribeFrameworkInputRequestTypeDef(BaseValidatorModel):
     FrameworkName: str
 
-class DescribeProtectedResourceInputRequestTypeDef(BaseModel):
+class DescribeProtectedResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DescribeRecoveryPointInputRequestTypeDef(BaseModel):
+class DescribeRecoveryPointInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
     BackupVaultAccountId: Optional[str] = None
 
-class DescribeReportJobInputRequestTypeDef(BaseModel):
+class DescribeReportJobInputRequestTypeDef(BaseValidatorModel):
     ReportJobId: str
 
-class DescribeReportPlanInputRequestTypeDef(BaseModel):
+class DescribeReportPlanInputRequestTypeDef(BaseValidatorModel):
     ReportPlanName: str
 
-class DescribeRestoreJobInputRequestTypeDef(BaseModel):
+class DescribeRestoreJobInputRequestTypeDef(BaseValidatorModel):
     RestoreJobId: str
 
-class RestoreJobCreatorTypeDef(BaseModel):
+class RestoreJobCreatorTypeDef(BaseValidatorModel):
     RestoreTestingPlanArn: Optional[str] = None
 
-class DisassociateRecoveryPointFromParentInputRequestTypeDef(BaseModel):
+class DisassociateRecoveryPointFromParentInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
 
-class DisassociateRecoveryPointInputRequestTypeDef(BaseModel):
+class DisassociateRecoveryPointInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
 
-class ExportBackupPlanTemplateInputRequestTypeDef(BaseModel):
+class ExportBackupPlanTemplateInputRequestTypeDef(BaseValidatorModel):
     BackupPlanId: str
 
-class FrameworkTypeDef(BaseModel):
+class FrameworkTypeDef(BaseValidatorModel):
     FrameworkName: Optional[str] = None
     FrameworkArn: Optional[str] = None
     FrameworkDescription: Optional[str] = None
@@ -222,54 +222,54 @@ class FrameworkTypeDef(BaseModel):
     CreationTime: Optional[datetime] = None
     DeploymentStatus: Optional[str] = None
 
-class GetBackupPlanFromJSONInputRequestTypeDef(BaseModel):
+class GetBackupPlanFromJSONInputRequestTypeDef(BaseValidatorModel):
     BackupPlanTemplateJson: str
 
-class GetBackupPlanFromTemplateInputRequestTypeDef(BaseModel):
+class GetBackupPlanFromTemplateInputRequestTypeDef(BaseValidatorModel):
     BackupPlanTemplateId: str
 
-class GetBackupPlanInputRequestTypeDef(BaseModel):
+class GetBackupPlanInputRequestTypeDef(BaseValidatorModel):
     BackupPlanId: str
     VersionId: Optional[str] = None
 
-class GetBackupSelectionInputRequestTypeDef(BaseModel):
+class GetBackupSelectionInputRequestTypeDef(BaseValidatorModel):
     BackupPlanId: str
     SelectionId: str
 
-class GetBackupVaultAccessPolicyInputRequestTypeDef(BaseModel):
+class GetBackupVaultAccessPolicyInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
 
-class GetBackupVaultNotificationsInputRequestTypeDef(BaseModel):
+class GetBackupVaultNotificationsInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
 
-class GetLegalHoldInputRequestTypeDef(BaseModel):
+class GetLegalHoldInputRequestTypeDef(BaseValidatorModel):
     LegalHoldId: str
 
-class GetRecoveryPointRestoreMetadataInputRequestTypeDef(BaseModel):
+class GetRecoveryPointRestoreMetadataInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
     BackupVaultAccountId: Optional[str] = None
 
-class GetRestoreJobMetadataInputRequestTypeDef(BaseModel):
+class GetRestoreJobMetadataInputRequestTypeDef(BaseValidatorModel):
     RestoreJobId: str
 
-class GetRestoreTestingInferredMetadataInputRequestTypeDef(BaseModel):
+class GetRestoreTestingInferredMetadataInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
     BackupVaultAccountId: Optional[str] = None
 
-class GetRestoreTestingPlanInputRequestTypeDef(BaseModel):
+class GetRestoreTestingPlanInputRequestTypeDef(BaseValidatorModel):
     RestoreTestingPlanName: str
 
-class GetRestoreTestingSelectionInputRequestTypeDef(BaseModel):
+class GetRestoreTestingSelectionInputRequestTypeDef(BaseValidatorModel):
     RestoreTestingPlanName: str
     RestoreTestingSelectionName: str
 
-class KeyValueTypeDef(BaseModel):
+class KeyValueTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class LegalHoldTypeDef(BaseModel):
+class LegalHoldTypeDef(BaseValidatorModel):
     Title: Optional[str] = None
     Status: Optional[LegalHoldStatusType] = None
     Description: Optional[str] = None
@@ -278,7 +278,7 @@ class LegalHoldTypeDef(BaseModel):
     CreationDate: Optional[datetime] = None
     CancellationDate: Optional[datetime] = None
 
-class ListBackupJobSummariesInputRequestTypeDef(BaseModel):
+class ListBackupJobSummariesInputRequestTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     State: Optional[BackupJobStatusType] = None
     ResourceType: Optional[str] = None
@@ -287,37 +287,37 @@ class ListBackupJobSummariesInputRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListBackupPlanTemplatesInputRequestTypeDef(BaseModel):
+class ListBackupPlanTemplatesInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListBackupPlanVersionsInputRequestTypeDef(BaseModel):
+class ListBackupPlanVersionsInputRequestTypeDef(BaseValidatorModel):
     BackupPlanId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListBackupPlansInputRequestTypeDef(BaseModel):
+class ListBackupPlansInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     IncludeDeleted: Optional[bool] = None
 
-class ListBackupSelectionsInputRequestTypeDef(BaseModel):
+class ListBackupSelectionsInputRequestTypeDef(BaseValidatorModel):
     BackupPlanId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListBackupVaultsInputRequestTypeDef(BaseModel):
+class ListBackupVaultsInputRequestTypeDef(BaseValidatorModel):
     ByVaultType: Optional[VaultTypeType] = None
     ByShared: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListCopyJobSummariesInputRequestTypeDef(BaseModel):
+class ListCopyJobSummariesInputRequestTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     State: Optional[CopyJobStatusType] = None
     ResourceType: Optional[str] = None
@@ -326,21 +326,21 @@ class ListCopyJobSummariesInputRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListFrameworksInputRequestTypeDef(BaseModel):
+class ListFrameworksInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListLegalHoldsInputRequestTypeDef(BaseModel):
+class ListLegalHoldsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListProtectedResourcesByBackupVaultInputRequestTypeDef(BaseModel):
+class ListProtectedResourcesByBackupVaultInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultAccountId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ProtectedResourceTypeDef(BaseModel):
+class ProtectedResourceTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     ResourceType: Optional[str] = None
     LastBackupTime: Optional[datetime] = None
@@ -348,28 +348,28 @@ class ProtectedResourceTypeDef(BaseModel):
     LastBackupVaultArn: Optional[str] = None
     LastRecoveryPointArn: Optional[str] = None
 
-class ListProtectedResourcesInputRequestTypeDef(BaseModel):
+class ListProtectedResourcesInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListRecoveryPointsByLegalHoldInputRequestTypeDef(BaseModel):
+class ListRecoveryPointsByLegalHoldInputRequestTypeDef(BaseValidatorModel):
     LegalHoldId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class RecoveryPointMemberTypeDef(BaseModel):
+class RecoveryPointMemberTypeDef(BaseValidatorModel):
     RecoveryPointArn: Optional[str] = None
     ResourceArn: Optional[str] = None
     ResourceType: Optional[str] = None
     BackupVaultName: Optional[str] = None
 
-class ListRecoveryPointsByResourceInputRequestTypeDef(BaseModel):
+class ListRecoveryPointsByResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ManagedByAWSBackupOnly: Optional[bool] = None
 
-class RecoveryPointByResourceTypeDef(BaseModel):
+class RecoveryPointByResourceTypeDef(BaseValidatorModel):
     RecoveryPointArn: Optional[str] = None
     CreationDate: Optional[datetime] = None
     Status: Optional[RecoveryPointStatusType] = None
@@ -382,11 +382,11 @@ class RecoveryPointByResourceTypeDef(BaseModel):
     ResourceName: Optional[str] = None
     VaultType: Optional[VaultTypeType] = None
 
-class ListReportPlansInputRequestTypeDef(BaseModel):
+class ListReportPlansInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListRestoreJobSummariesInputRequestTypeDef(BaseModel):
+class ListRestoreJobSummariesInputRequestTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     State: Optional[RestoreJobStateType] = None
     ResourceType: Optional[str] = None
@@ -394,7 +394,7 @@ class ListRestoreJobSummariesInputRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class RestoreJobSummaryTypeDef(BaseModel):
+class RestoreJobSummaryTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
     AccountId: Optional[str] = None
     State: Optional[RestoreJobStateType] = None
@@ -403,11 +403,11 @@ class RestoreJobSummaryTypeDef(BaseModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
-class ListRestoreTestingPlansInputRequestTypeDef(BaseModel):
+class ListRestoreTestingPlansInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class RestoreTestingPlanForListTypeDef(BaseModel):
+class RestoreTestingPlanForListTypeDef(BaseValidatorModel):
     CreationTime: datetime
     RestoreTestingPlanArn: str
     RestoreTestingPlanName: str
@@ -417,12 +417,12 @@ class RestoreTestingPlanForListTypeDef(BaseModel):
     ScheduleExpressionTimezone: Optional[str] = None
     StartWindowHours: Optional[int] = None
 
-class ListRestoreTestingSelectionsInputRequestTypeDef(BaseModel):
+class ListRestoreTestingSelectionsInputRequestTypeDef(BaseValidatorModel):
     RestoreTestingPlanName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class RestoreTestingSelectionForListTypeDef(BaseModel):
+class RestoreTestingSelectionForListTypeDef(BaseValidatorModel):
     CreationTime: datetime
     IamRoleArn: str
     ProtectedResourceType: str
@@ -430,47 +430,47 @@ class RestoreTestingSelectionForListTypeDef(BaseModel):
     RestoreTestingSelectionName: str
     ValidationWindowHours: Optional[int] = None
 
-class ListTagsInputRequestTypeDef(BaseModel):
+class ListTagsInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PutBackupVaultAccessPolicyInputRequestTypeDef(BaseModel):
+class PutBackupVaultAccessPolicyInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     Policy: Optional[str] = None
 
-class PutBackupVaultLockConfigurationInputRequestTypeDef(BaseModel):
+class PutBackupVaultLockConfigurationInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     MinRetentionDays: Optional[int] = None
     MaxRetentionDays: Optional[int] = None
     ChangeableForDays: Optional[int] = None
 
-class PutBackupVaultNotificationsInputRequestTypeDef(BaseModel):
+class PutBackupVaultNotificationsInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     SNSTopicArn: str
     BackupVaultEvents: Sequence[BackupVaultEventType]
 
-class PutRestoreValidationResultInputRequestTypeDef(BaseModel):
+class PutRestoreValidationResultInputRequestTypeDef(BaseValidatorModel):
     RestoreJobId: str
     ValidationStatus: RestoreValidationStatusType
     ValidationStatusMessage: Optional[str] = None
 
-class ReportDestinationTypeDef(BaseModel):
+class ReportDestinationTypeDef(BaseValidatorModel):
     S3BucketName: Optional[str] = None
     S3Keys: Optional[List[str]] = None
 
-class RestoreTestingRecoveryPointSelectionTypeDef(BaseModel):
+class RestoreTestingRecoveryPointSelectionTypeDef(BaseValidatorModel):
     Algorithm: Optional[RestoreTestingRecoveryPointSelectionAlgorithmType] = None
     ExcludeVaults: Optional[Sequence[str]] = None
     IncludeVaults: Optional[Sequence[str]] = None
     RecoveryPointTypes: Optional[Sequence[RestoreTestingRecoveryPointTypeType]] = None
     SelectionWindowDays: Optional[int] = None
 
-class StartReportJobInputRequestTypeDef(BaseModel):
+class StartReportJobInputRequestTypeDef(BaseValidatorModel):
     ReportPlanName: str
     IdempotencyToken: Optional[str] = None
 
-class StartRestoreJobInputRequestTypeDef(BaseModel):
+class StartRestoreJobInputRequestTypeDef(BaseValidatorModel):
     RecoveryPointArn: str
     Metadata: Mapping[str, str]
     IamRoleArn: Optional[str] = None
@@ -478,25 +478,25 @@ class StartRestoreJobInputRequestTypeDef(BaseModel):
     ResourceType: Optional[str] = None
     CopySourceTagsToRestoredResource: Optional[bool] = None
 
-class StopBackupJobInputRequestTypeDef(BaseModel):
+class StopBackupJobInputRequestTypeDef(BaseValidatorModel):
     BackupJobId: str
 
-class TagResourceInputRequestTypeDef(BaseModel):
+class TagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceInputRequestTypeDef(BaseModel):
+class UntagResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeyList: Sequence[str]
 
-class UpdateGlobalSettingsInputRequestTypeDef(BaseModel):
+class UpdateGlobalSettingsInputRequestTypeDef(BaseValidatorModel):
     GlobalSettings: Optional[Mapping[str, str]] = None
 
-class UpdateRegionSettingsInputRequestTypeDef(BaseModel):
+class UpdateRegionSettingsInputRequestTypeDef(BaseValidatorModel):
     ResourceTypeOptInPreference: Optional[Mapping[str, bool]] = None
     ResourceTypeManagementPreference: Optional[Mapping[str, bool]] = None
 
-class BackupPlansListMemberPaginatorTypeDef(BaseModel):
+class BackupPlansListMemberPaginatorTypeDef(BaseValidatorModel):
     BackupPlanArn: Optional[str] = None
     BackupPlanId: Optional[str] = None
     CreationDate: Optional[datetime] = None
@@ -507,7 +507,7 @@ class BackupPlansListMemberPaginatorTypeDef(BaseModel):
     LastExecutionDate: Optional[datetime] = None
     AdvancedBackupSettings: Optional[List[AdvancedBackupSettingPaginatorTypeDef]] = None
 
-class BackupPlansListMemberTypeDef(BaseModel):
+class BackupPlansListMemberTypeDef(BaseValidatorModel):
     BackupPlanArn: Optional[str] = None
     BackupPlanId: Optional[str] = None
     CreationDate: Optional[datetime] = None
@@ -518,7 +518,7 @@ class BackupPlansListMemberTypeDef(BaseModel):
     LastExecutionDate: Optional[datetime] = None
     AdvancedBackupSettings: Optional[List[AdvancedBackupSettingTypeDef]] = None
 
-class BackupJobTypeDef(BaseModel):
+class BackupJobTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     BackupJobId: Optional[str] = None
     BackupVaultName: Optional[str] = None
@@ -545,7 +545,7 @@ class BackupJobTypeDef(BaseModel):
     InitiationDate: Optional[datetime] = None
     MessageCategory: Optional[str] = None
 
-class CopyJobTypeDef(BaseModel):
+class CopyJobTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     CopyJobId: Optional[str] = None
     SourceBackupVaultArn: Optional[str] = None
@@ -569,11 +569,11 @@ class CopyJobTypeDef(BaseModel):
     ResourceName: Optional[str] = None
     MessageCategory: Optional[str] = None
 
-class CopyActionTypeDef(BaseModel):
+class CopyActionTypeDef(BaseValidatorModel):
     DestinationBackupVaultArn: str
     Lifecycle: Optional[LifecycleTypeDef] = None
 
-class StartBackupJobInputRequestTypeDef(BaseModel):
+class StartBackupJobInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     ResourceArn: str
     IamRoleArn: str
@@ -584,7 +584,7 @@ class StartBackupJobInputRequestTypeDef(BaseModel):
     RecoveryPointTags: Optional[Mapping[str, str]] = None
     BackupOptions: Optional[Mapping[str, str]] = None
 
-class StartCopyJobInputRequestTypeDef(BaseModel):
+class StartCopyJobInputRequestTypeDef(BaseValidatorModel):
     RecoveryPointArn: str
     SourceBackupVaultName: str
     DestinationBackupVaultArn: str
@@ -592,12 +592,12 @@ class StartCopyJobInputRequestTypeDef(BaseModel):
     IdempotencyToken: Optional[str] = None
     Lifecycle: Optional[LifecycleTypeDef] = None
 
-class UpdateRecoveryPointLifecycleInputRequestTypeDef(BaseModel):
+class UpdateRecoveryPointLifecycleInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
     Lifecycle: Optional[LifecycleTypeDef] = None
 
-class RecoveryPointByBackupVaultTypeDef(BaseModel):
+class RecoveryPointByBackupVaultTypeDef(BaseValidatorModel):
     RecoveryPointArn: Optional[str] = None
     BackupVaultName: Optional[str] = None
     BackupVaultArn: Optional[str] = None
@@ -622,18 +622,18 @@ class RecoveryPointByBackupVaultTypeDef(BaseModel):
     ResourceName: Optional[str] = None
     VaultType: Optional[VaultTypeType] = None
 
-class ConditionsTypeDef(BaseModel):
+class ConditionsTypeDef(BaseValidatorModel):
     StringEquals: Optional[Sequence[ConditionParameterTypeDef]] = None
     StringNotEquals: Optional[Sequence[ConditionParameterTypeDef]] = None
     StringLike: Optional[Sequence[ConditionParameterTypeDef]] = None
     StringNotLike: Optional[Sequence[ConditionParameterTypeDef]] = None
 
-class FrameworkControlTypeDef(BaseModel):
+class FrameworkControlTypeDef(BaseValidatorModel):
     ControlName: str
     ControlInputParameters: Optional[Sequence[ControlInputParameterTypeDef]] = None
     ControlScope: Optional[ControlScopeTypeDef] = None
 
-class CreateBackupPlanOutputTypeDef(BaseModel):
+class CreateBackupPlanOutputTypeDef(BaseValidatorModel):
     BackupPlanId: str
     BackupPlanArn: str
     CreationDate: datetime
@@ -641,57 +641,57 @@ class CreateBackupPlanOutputTypeDef(BaseModel):
     AdvancedBackupSettings: List[AdvancedBackupSettingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBackupSelectionOutputTypeDef(BaseModel):
+class CreateBackupSelectionOutputTypeDef(BaseValidatorModel):
     SelectionId: str
     BackupPlanId: str
     CreationDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBackupVaultOutputTypeDef(BaseModel):
+class CreateBackupVaultOutputTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
     CreationDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFrameworkOutputTypeDef(BaseModel):
+class CreateFrameworkOutputTypeDef(BaseValidatorModel):
     FrameworkName: str
     FrameworkArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLogicallyAirGappedBackupVaultOutputTypeDef(BaseModel):
+class CreateLogicallyAirGappedBackupVaultOutputTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
     CreationDate: datetime
     VaultState: VaultStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateReportPlanOutputTypeDef(BaseModel):
+class CreateReportPlanOutputTypeDef(BaseValidatorModel):
     ReportPlanName: str
     ReportPlanArn: str
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRestoreTestingPlanOutputTypeDef(BaseModel):
+class CreateRestoreTestingPlanOutputTypeDef(BaseValidatorModel):
     CreationTime: datetime
     RestoreTestingPlanArn: str
     RestoreTestingPlanName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRestoreTestingSelectionOutputTypeDef(BaseModel):
+class CreateRestoreTestingSelectionOutputTypeDef(BaseValidatorModel):
     CreationTime: datetime
     RestoreTestingPlanArn: str
     RestoreTestingPlanName: str
     RestoreTestingSelectionName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBackupPlanOutputTypeDef(BaseModel):
+class DeleteBackupPlanOutputTypeDef(BaseValidatorModel):
     BackupPlanId: str
     BackupPlanArn: str
     DeletionDate: datetime
     VersionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeBackupJobOutputTypeDef(BaseModel):
+class DescribeBackupJobOutputTypeDef(BaseValidatorModel):
     AccountId: str
     BackupJobId: str
     BackupVaultName: str
@@ -721,7 +721,7 @@ class DescribeBackupJobOutputTypeDef(BaseModel):
     MessageCategory: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeBackupVaultOutputTypeDef(BaseModel):
+class DescribeBackupVaultOutputTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
     VaultType: VaultTypeType
@@ -735,12 +735,12 @@ class DescribeBackupVaultOutputTypeDef(BaseModel):
     LockDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeGlobalSettingsOutputTypeDef(BaseModel):
+class DescribeGlobalSettingsOutputTypeDef(BaseValidatorModel):
     GlobalSettings: Dict[str, str]
     LastUpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeProtectedResourceOutputTypeDef(BaseModel):
+class DescribeProtectedResourceOutputTypeDef(BaseValidatorModel):
     ResourceArn: str
     ResourceType: str
     LastBackupTime: datetime
@@ -752,7 +752,7 @@ class DescribeProtectedResourceOutputTypeDef(BaseModel):
     LatestRestoreRecoveryPointCreationDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRecoveryPointOutputTypeDef(BaseModel):
+class DescribeRecoveryPointOutputTypeDef(BaseValidatorModel):
     RecoveryPointArn: str
     BackupVaultName: str
     BackupVaultArn: str
@@ -779,105 +779,105 @@ class DescribeRecoveryPointOutputTypeDef(BaseModel):
     VaultType: VaultTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeRegionSettingsOutputTypeDef(BaseModel):
+class DescribeRegionSettingsOutputTypeDef(BaseValidatorModel):
     ResourceTypeOptInPreference: Dict[str, bool]
     ResourceTypeManagementPreference: Dict[str, bool]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportBackupPlanTemplateOutputTypeDef(BaseModel):
+class ExportBackupPlanTemplateOutputTypeDef(BaseValidatorModel):
     BackupPlanTemplateJson: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBackupVaultAccessPolicyOutputTypeDef(BaseModel):
+class GetBackupVaultAccessPolicyOutputTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBackupVaultNotificationsOutputTypeDef(BaseModel):
+class GetBackupVaultNotificationsOutputTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
     SNSTopicArn: str
     BackupVaultEvents: List[BackupVaultEventType]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRecoveryPointRestoreMetadataOutputTypeDef(BaseModel):
+class GetRecoveryPointRestoreMetadataOutputTypeDef(BaseValidatorModel):
     BackupVaultArn: str
     RecoveryPointArn: str
     RestoreMetadata: Dict[str, str]
     ResourceType: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRestoreJobMetadataOutputTypeDef(BaseModel):
+class GetRestoreJobMetadataOutputTypeDef(BaseValidatorModel):
     RestoreJobId: str
     Metadata: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRestoreTestingInferredMetadataOutputTypeDef(BaseModel):
+class GetRestoreTestingInferredMetadataOutputTypeDef(BaseValidatorModel):
     InferredMetadata: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSupportedResourceTypesOutputTypeDef(BaseModel):
+class GetSupportedResourceTypesOutputTypeDef(BaseValidatorModel):
     ResourceTypes: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBackupJobSummariesOutputTypeDef(BaseModel):
+class ListBackupJobSummariesOutputTypeDef(BaseValidatorModel):
     BackupJobSummaries: List[BackupJobSummaryTypeDef]
     AggregationPeriod: str
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBackupPlanTemplatesOutputTypeDef(BaseModel):
+class ListBackupPlanTemplatesOutputTypeDef(BaseValidatorModel):
     NextToken: str
     BackupPlanTemplatesList: List[BackupPlanTemplatesListMemberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBackupSelectionsOutputTypeDef(BaseModel):
+class ListBackupSelectionsOutputTypeDef(BaseValidatorModel):
     NextToken: str
     BackupSelectionsList: List[BackupSelectionsListMemberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBackupVaultsOutputTypeDef(BaseModel):
+class ListBackupVaultsOutputTypeDef(BaseValidatorModel):
     BackupVaultList: List[BackupVaultListMemberTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCopyJobSummariesOutputTypeDef(BaseModel):
+class ListCopyJobSummariesOutputTypeDef(BaseValidatorModel):
     CopyJobSummaries: List[CopyJobSummaryTypeDef]
     AggregationPeriod: str
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsOutputTypeDef(BaseModel):
+class ListTagsOutputTypeDef(BaseValidatorModel):
     NextToken: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartBackupJobOutputTypeDef(BaseModel):
+class StartBackupJobOutputTypeDef(BaseValidatorModel):
     BackupJobId: str
     RecoveryPointArn: str
     CreationDate: datetime
     IsParent: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartCopyJobOutputTypeDef(BaseModel):
+class StartCopyJobOutputTypeDef(BaseValidatorModel):
     CopyJobId: str
     CreationDate: datetime
     IsParent: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartReportJobOutputTypeDef(BaseModel):
+class StartReportJobOutputTypeDef(BaseValidatorModel):
     ReportJobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartRestoreJobOutputTypeDef(BaseModel):
+class StartRestoreJobOutputTypeDef(BaseValidatorModel):
     RestoreJobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBackupPlanOutputTypeDef(BaseModel):
+class UpdateBackupPlanOutputTypeDef(BaseValidatorModel):
     BackupPlanId: str
     BackupPlanArn: str
     CreationDate: datetime
@@ -885,33 +885,33 @@ class UpdateBackupPlanOutputTypeDef(BaseModel):
     AdvancedBackupSettings: List[AdvancedBackupSettingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFrameworkOutputTypeDef(BaseModel):
+class UpdateFrameworkOutputTypeDef(BaseValidatorModel):
     FrameworkName: str
     FrameworkArn: str
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRecoveryPointLifecycleOutputTypeDef(BaseModel):
+class UpdateRecoveryPointLifecycleOutputTypeDef(BaseValidatorModel):
     BackupVaultArn: str
     RecoveryPointArn: str
     Lifecycle: LifecycleTypeDef
     CalculatedLifecycle: CalculatedLifecycleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateReportPlanOutputTypeDef(BaseModel):
+class UpdateReportPlanOutputTypeDef(BaseValidatorModel):
     ReportPlanName: str
     ReportPlanArn: str
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRestoreTestingPlanOutputTypeDef(BaseModel):
+class UpdateRestoreTestingPlanOutputTypeDef(BaseValidatorModel):
     CreationTime: datetime
     RestoreTestingPlanArn: str
     RestoreTestingPlanName: str
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRestoreTestingSelectionOutputTypeDef(BaseModel):
+class UpdateRestoreTestingSelectionOutputTypeDef(BaseValidatorModel):
     CreationTime: datetime
     RestoreTestingPlanArn: str
     RestoreTestingPlanName: str
@@ -919,7 +919,7 @@ class UpdateRestoreTestingSelectionOutputTypeDef(BaseModel):
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateReportPlanInputRequestTypeDef(BaseModel):
+class CreateReportPlanInputRequestTypeDef(BaseValidatorModel):
     ReportPlanName: str
     ReportDeliveryChannel: ReportDeliveryChannelTypeDef
     ReportSetting: ReportSettingTypeDef
@@ -927,7 +927,7 @@ class CreateReportPlanInputRequestTypeDef(BaseModel):
     ReportPlanTags: Optional[Mapping[str, str]] = None
     IdempotencyToken: Optional[str] = None
 
-class ReportPlanTypeDef(BaseModel):
+class ReportPlanTypeDef(BaseValidatorModel):
     ReportPlanArn: Optional[str] = None
     ReportPlanName: Optional[str] = None
     ReportPlanDescription: Optional[str] = None
@@ -938,18 +938,18 @@ class ReportPlanTypeDef(BaseModel):
     LastAttemptedExecutionTime: Optional[datetime] = None
     LastSuccessfulExecutionTime: Optional[datetime] = None
 
-class UpdateReportPlanInputRequestTypeDef(BaseModel):
+class UpdateReportPlanInputRequestTypeDef(BaseValidatorModel):
     ReportPlanName: str
     ReportPlanDescription: Optional[str] = None
     ReportDeliveryChannel: Optional[ReportDeliveryChannelTypeDef] = None
     ReportSetting: Optional[ReportSettingTypeDef] = None
     IdempotencyToken: Optional[str] = None
 
-class DateRangeTypeDef(BaseModel):
+class DateRangeTypeDef(BaseValidatorModel):
     FromDate: TimestampTypeDef
     ToDate: TimestampTypeDef
 
-class ListBackupJobsInputRequestTypeDef(BaseModel):
+class ListBackupJobsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ByResourceArn: Optional[str] = None
@@ -964,7 +964,7 @@ class ListBackupJobsInputRequestTypeDef(BaseModel):
     ByParentJobId: Optional[str] = None
     ByMessageCategory: Optional[str] = None
 
-class ListCopyJobsInputRequestTypeDef(BaseModel):
+class ListCopyJobsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ByResourceArn: Optional[str] = None
@@ -979,7 +979,7 @@ class ListCopyJobsInputRequestTypeDef(BaseModel):
     ByParentJobId: Optional[str] = None
     ByMessageCategory: Optional[str] = None
 
-class ListRecoveryPointsByBackupVaultInputRequestTypeDef(BaseModel):
+class ListRecoveryPointsByBackupVaultInputRequestTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultAccountId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -991,7 +991,7 @@ class ListRecoveryPointsByBackupVaultInputRequestTypeDef(BaseModel):
     ByCreatedAfter: Optional[TimestampTypeDef] = None
     ByParentRecoveryPointArn: Optional[str] = None
 
-class ListReportJobsInputRequestTypeDef(BaseModel):
+class ListReportJobsInputRequestTypeDef(BaseValidatorModel):
     ByReportPlanName: Optional[str] = None
     ByCreationBefore: Optional[TimestampTypeDef] = None
     ByCreationAfter: Optional[TimestampTypeDef] = None
@@ -999,7 +999,7 @@ class ListReportJobsInputRequestTypeDef(BaseModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListRestoreJobsByProtectedResourceInputRequestTypeDef(BaseModel):
+class ListRestoreJobsByProtectedResourceInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     ByStatus: Optional[RestoreJobStatusType] = None
     ByRecoveryPointCreationDateAfter: Optional[TimestampTypeDef] = None
@@ -1007,7 +1007,7 @@ class ListRestoreJobsByProtectedResourceInputRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListRestoreJobsInputRequestTypeDef(BaseModel):
+class ListRestoreJobsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ByAccountId: Optional[str] = None
@@ -1019,7 +1019,7 @@ class ListRestoreJobsInputRequestTypeDef(BaseModel):
     ByCompleteAfter: Optional[TimestampTypeDef] = None
     ByRestoreTestingPlanArn: Optional[str] = None
 
-class DescribeRestoreJobOutputTypeDef(BaseModel):
+class DescribeRestoreJobOutputTypeDef(BaseValidatorModel):
     AccountId: str
     RestoreJobId: str
     RecoveryPointArn: str
@@ -1041,7 +1041,7 @@ class DescribeRestoreJobOutputTypeDef(BaseModel):
     DeletionStatusMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreJobsListMemberTypeDef(BaseModel):
+class RestoreJobsListMemberTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     RestoreJobId: Optional[str] = None
     RecoveryPointArn: Optional[str] = None
@@ -1062,21 +1062,21 @@ class RestoreJobsListMemberTypeDef(BaseModel):
     DeletionStatus: Optional[RestoreDeletionStatusType] = None
     DeletionStatusMessage: Optional[str] = None
 
-class ListFrameworksOutputTypeDef(BaseModel):
+class ListFrameworksOutputTypeDef(BaseValidatorModel):
     Frameworks: List[FrameworkTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ProtectedResourceConditionsTypeDef(BaseModel):
+class ProtectedResourceConditionsTypeDef(BaseValidatorModel):
     StringEquals: Optional[Sequence[KeyValueTypeDef]] = None
     StringNotEquals: Optional[Sequence[KeyValueTypeDef]] = None
 
-class ListLegalHoldsOutputTypeDef(BaseModel):
+class ListLegalHoldsOutputTypeDef(BaseValidatorModel):
     NextToken: str
     LegalHolds: List[LegalHoldTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBackupJobsInputListBackupJobsPaginateTypeDef(BaseModel):
+class ListBackupJobsInputListBackupJobsPaginateTypeDef(BaseValidatorModel):
     ByResourceArn: Optional[str] = None
     ByState: Optional[BackupJobStateType] = None
     ByBackupVaultName: Optional[str] = None
@@ -1090,27 +1090,27 @@ class ListBackupJobsInputListBackupJobsPaginateTypeDef(BaseModel):
     ByMessageCategory: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBackupPlanTemplatesInputListBackupPlanTemplatesPaginateTypeDef(BaseModel):
+class ListBackupPlanTemplatesInputListBackupPlanTemplatesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBackupPlanVersionsInputListBackupPlanVersionsPaginateTypeDef(BaseModel):
+class ListBackupPlanVersionsInputListBackupPlanVersionsPaginateTypeDef(BaseValidatorModel):
     BackupPlanId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBackupPlansInputListBackupPlansPaginateTypeDef(BaseModel):
+class ListBackupPlansInputListBackupPlansPaginateTypeDef(BaseValidatorModel):
     IncludeDeleted: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBackupSelectionsInputListBackupSelectionsPaginateTypeDef(BaseModel):
+class ListBackupSelectionsInputListBackupSelectionsPaginateTypeDef(BaseValidatorModel):
     BackupPlanId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBackupVaultsInputListBackupVaultsPaginateTypeDef(BaseModel):
+class ListBackupVaultsInputListBackupVaultsPaginateTypeDef(BaseValidatorModel):
     ByVaultType: Optional[VaultTypeType] = None
     ByShared: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCopyJobsInputListCopyJobsPaginateTypeDef(BaseModel):
+class ListCopyJobsInputListCopyJobsPaginateTypeDef(BaseValidatorModel):
     ByResourceArn: Optional[str] = None
     ByState: Optional[CopyJobStateType] = None
     ByCreatedBefore: Optional[TimestampTypeDef] = None
@@ -1124,18 +1124,18 @@ class ListCopyJobsInputListCopyJobsPaginateTypeDef(BaseModel):
     ByMessageCategory: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLegalHoldsInputListLegalHoldsPaginateTypeDef(BaseModel):
+class ListLegalHoldsInputListLegalHoldsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProtectedResourcesByBackupVaultInputListProtectedResourcesByBackupVaultPaginateTypeDef(BaseModel):
+class ListProtectedResourcesByBackupVaultInputListProtectedResourcesByBackupVaultPaginateTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultAccountId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProtectedResourcesInputListProtectedResourcesPaginateTypeDef(BaseModel):
+class ListProtectedResourcesInputListProtectedResourcesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRecoveryPointsByBackupVaultInputListRecoveryPointsByBackupVaultPaginateTypeDef(BaseModel):
+class ListRecoveryPointsByBackupVaultInputListRecoveryPointsByBackupVaultPaginateTypeDef(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultAccountId: Optional[str] = None
     ByResourceArn: Optional[str] = None
@@ -1146,16 +1146,16 @@ class ListRecoveryPointsByBackupVaultInputListRecoveryPointsByBackupVaultPaginat
     ByParentRecoveryPointArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRecoveryPointsByLegalHoldInputListRecoveryPointsByLegalHoldPaginateTypeDef(BaseModel):
+class ListRecoveryPointsByLegalHoldInputListRecoveryPointsByLegalHoldPaginateTypeDef(BaseValidatorModel):
     LegalHoldId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRecoveryPointsByResourceInputListRecoveryPointsByResourcePaginateTypeDef(BaseModel):
+class ListRecoveryPointsByResourceInputListRecoveryPointsByResourcePaginateTypeDef(BaseValidatorModel):
     ResourceArn: str
     ManagedByAWSBackupOnly: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRestoreJobsInputListRestoreJobsPaginateTypeDef(BaseModel):
+class ListRestoreJobsInputListRestoreJobsPaginateTypeDef(BaseValidatorModel):
     ByAccountId: Optional[str] = None
     ByResourceType: Optional[str] = None
     ByCreatedBefore: Optional[TimestampTypeDef] = None
@@ -1166,50 +1166,50 @@ class ListRestoreJobsInputListRestoreJobsPaginateTypeDef(BaseModel):
     ByRestoreTestingPlanArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRestoreTestingPlansInputListRestoreTestingPlansPaginateTypeDef(BaseModel):
+class ListRestoreTestingPlansInputListRestoreTestingPlansPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRestoreTestingSelectionsInputListRestoreTestingSelectionsPaginateTypeDef(BaseModel):
+class ListRestoreTestingSelectionsInputListRestoreTestingSelectionsPaginateTypeDef(BaseValidatorModel):
     RestoreTestingPlanName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProtectedResourcesByBackupVaultOutputTypeDef(BaseModel):
+class ListProtectedResourcesByBackupVaultOutputTypeDef(BaseValidatorModel):
     Results: List[ProtectedResourceTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProtectedResourcesOutputTypeDef(BaseModel):
+class ListProtectedResourcesOutputTypeDef(BaseValidatorModel):
     Results: List[ProtectedResourceTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRecoveryPointsByLegalHoldOutputTypeDef(BaseModel):
+class ListRecoveryPointsByLegalHoldOutputTypeDef(BaseValidatorModel):
     RecoveryPoints: List[RecoveryPointMemberTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRecoveryPointsByResourceOutputTypeDef(BaseModel):
+class ListRecoveryPointsByResourceOutputTypeDef(BaseValidatorModel):
     NextToken: str
     RecoveryPoints: List[RecoveryPointByResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRestoreJobSummariesOutputTypeDef(BaseModel):
+class ListRestoreJobSummariesOutputTypeDef(BaseValidatorModel):
     RestoreJobSummaries: List[RestoreJobSummaryTypeDef]
     AggregationPeriod: str
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRestoreTestingPlansOutputTypeDef(BaseModel):
+class ListRestoreTestingPlansOutputTypeDef(BaseValidatorModel):
     NextToken: str
     RestoreTestingPlans: List[RestoreTestingPlanForListTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRestoreTestingSelectionsOutputTypeDef(BaseModel):
+class ListRestoreTestingSelectionsOutputTypeDef(BaseValidatorModel):
     NextToken: str
     RestoreTestingSelections: List[RestoreTestingSelectionForListTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReportJobTypeDef(BaseModel):
+class ReportJobTypeDef(BaseValidatorModel):
     ReportJobId: Optional[str] = None
     ReportPlanArn: Optional[str] = None
     ReportTemplate: Optional[str] = None
@@ -1219,14 +1219,14 @@ class ReportJobTypeDef(BaseModel):
     StatusMessage: Optional[str] = None
     ReportDestination: Optional[ReportDestinationTypeDef] = None
 
-class RestoreTestingPlanForCreateTypeDef(BaseModel):
+class RestoreTestingPlanForCreateTypeDef(BaseValidatorModel):
     RecoveryPointSelection: RestoreTestingRecoveryPointSelectionTypeDef
     RestoreTestingPlanName: str
     ScheduleExpression: str
     ScheduleExpressionTimezone: Optional[str] = None
     StartWindowHours: Optional[int] = None
 
-class RestoreTestingPlanForGetTypeDef(BaseModel):
+class RestoreTestingPlanForGetTypeDef(BaseValidatorModel):
     CreationTime: datetime
     RecoveryPointSelection: RestoreTestingRecoveryPointSelectionTypeDef
     RestoreTestingPlanArn: str
@@ -1238,47 +1238,47 @@ class RestoreTestingPlanForGetTypeDef(BaseModel):
     ScheduleExpressionTimezone: Optional[str] = None
     StartWindowHours: Optional[int] = None
 
-class RestoreTestingPlanForUpdateTypeDef(BaseModel):
+class RestoreTestingPlanForUpdateTypeDef(BaseValidatorModel):
     RecoveryPointSelection: Optional[RestoreTestingRecoveryPointSelectionTypeDef] = None
     ScheduleExpression: Optional[str] = None
     ScheduleExpressionTimezone: Optional[str] = None
     StartWindowHours: Optional[int] = None
 
-class ListBackupPlanVersionsOutputPaginatorTypeDef(BaseModel):
+class ListBackupPlanVersionsOutputPaginatorTypeDef(BaseValidatorModel):
     NextToken: str
     BackupPlanVersionsList: List[BackupPlansListMemberPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBackupPlansOutputPaginatorTypeDef(BaseModel):
+class ListBackupPlansOutputPaginatorTypeDef(BaseValidatorModel):
     NextToken: str
     BackupPlansList: List[BackupPlansListMemberPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBackupPlanVersionsOutputTypeDef(BaseModel):
+class ListBackupPlanVersionsOutputTypeDef(BaseValidatorModel):
     NextToken: str
     BackupPlanVersionsList: List[BackupPlansListMemberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBackupPlansOutputTypeDef(BaseModel):
+class ListBackupPlansOutputTypeDef(BaseValidatorModel):
     NextToken: str
     BackupPlansList: List[BackupPlansListMemberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBackupJobsOutputTypeDef(BaseModel):
+class ListBackupJobsOutputTypeDef(BaseValidatorModel):
     BackupJobs: List[BackupJobTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCopyJobOutputTypeDef(BaseModel):
+class DescribeCopyJobOutputTypeDef(BaseValidatorModel):
     CopyJob: CopyJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCopyJobsOutputTypeDef(BaseModel):
+class ListCopyJobsOutputTypeDef(BaseValidatorModel):
     CopyJobs: List[CopyJobTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BackupRuleInputTypeDef(BaseModel):
+class BackupRuleInputTypeDef(BaseValidatorModel):
     RuleName: str
     TargetBackupVaultName: str
     ScheduleExpression: Optional[str] = None
@@ -1290,7 +1290,7 @@ class BackupRuleInputTypeDef(BaseModel):
     EnableContinuousBackup: Optional[bool] = None
     ScheduleExpressionTimezone: Optional[str] = None
 
-class BackupRuleTypeDef(BaseModel):
+class BackupRuleTypeDef(BaseValidatorModel):
     RuleName: str
     TargetBackupVaultName: str
     ScheduleExpression: Optional[str] = None
@@ -1303,12 +1303,12 @@ class BackupRuleTypeDef(BaseModel):
     EnableContinuousBackup: Optional[bool] = None
     ScheduleExpressionTimezone: Optional[str] = None
 
-class ListRecoveryPointsByBackupVaultOutputTypeDef(BaseModel):
+class ListRecoveryPointsByBackupVaultOutputTypeDef(BaseValidatorModel):
     NextToken: str
     RecoveryPoints: List[RecoveryPointByBackupVaultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BackupSelectionTypeDef(BaseModel):
+class BackupSelectionTypeDef(BaseValidatorModel):
     SelectionName: str
     IamRoleArn: str
     Resources: Optional[Sequence[str]] = None
@@ -1316,14 +1316,14 @@ class BackupSelectionTypeDef(BaseModel):
     NotResources: Optional[Sequence[str]] = None
     Conditions: Optional[ConditionsTypeDef] = None
 
-class CreateFrameworkInputRequestTypeDef(BaseModel):
+class CreateFrameworkInputRequestTypeDef(BaseValidatorModel):
     FrameworkName: str
     FrameworkControls: Sequence[FrameworkControlTypeDef]
     FrameworkDescription: Optional[str] = None
     IdempotencyToken: Optional[str] = None
     FrameworkTags: Optional[Mapping[str, str]] = None
 
-class DescribeFrameworkOutputTypeDef(BaseModel):
+class DescribeFrameworkOutputTypeDef(BaseValidatorModel):
     FrameworkName: str
     FrameworkArn: str
     FrameworkDescription: str
@@ -1334,37 +1334,37 @@ class DescribeFrameworkOutputTypeDef(BaseModel):
     IdempotencyToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFrameworkInputRequestTypeDef(BaseModel):
+class UpdateFrameworkInputRequestTypeDef(BaseValidatorModel):
     FrameworkName: str
     FrameworkDescription: Optional[str] = None
     FrameworkControls: Optional[Sequence[FrameworkControlTypeDef]] = None
     IdempotencyToken: Optional[str] = None
 
-class DescribeReportPlanOutputTypeDef(BaseModel):
+class DescribeReportPlanOutputTypeDef(BaseValidatorModel):
     ReportPlan: ReportPlanTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReportPlansOutputTypeDef(BaseModel):
+class ListReportPlansOutputTypeDef(BaseValidatorModel):
     ReportPlans: List[ReportPlanTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RecoveryPointSelectionTypeDef(BaseModel):
+class RecoveryPointSelectionTypeDef(BaseValidatorModel):
     VaultNames: Optional[Sequence[str]] = None
     ResourceIdentifiers: Optional[Sequence[str]] = None
     DateRange: Optional[DateRangeTypeDef] = None
 
-class ListRestoreJobsByProtectedResourceOutputTypeDef(BaseModel):
+class ListRestoreJobsByProtectedResourceOutputTypeDef(BaseValidatorModel):
     RestoreJobs: List[RestoreJobsListMemberTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRestoreJobsOutputTypeDef(BaseModel):
+class ListRestoreJobsOutputTypeDef(BaseValidatorModel):
     RestoreJobs: List[RestoreJobsListMemberTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreTestingSelectionForCreateTypeDef(BaseModel):
+class RestoreTestingSelectionForCreateTypeDef(BaseValidatorModel):
     IamRoleArn: str
     ProtectedResourceType: str
     RestoreTestingSelectionName: str
@@ -1373,7 +1373,7 @@ class RestoreTestingSelectionForCreateTypeDef(BaseModel):
     RestoreMetadataOverrides: Optional[Mapping[str, str]] = None
     ValidationWindowHours: Optional[int] = None
 
-class RestoreTestingSelectionForGetTypeDef(BaseModel):
+class RestoreTestingSelectionForGetTypeDef(BaseValidatorModel):
     CreationTime: datetime
     IamRoleArn: str
     ProtectedResourceType: str
@@ -1385,51 +1385,51 @@ class RestoreTestingSelectionForGetTypeDef(BaseModel):
     RestoreMetadataOverrides: Optional[Dict[str, str]] = None
     ValidationWindowHours: Optional[int] = None
 
-class RestoreTestingSelectionForUpdateTypeDef(BaseModel):
+class RestoreTestingSelectionForUpdateTypeDef(BaseValidatorModel):
     IamRoleArn: Optional[str] = None
     ProtectedResourceArns: Optional[Sequence[str]] = None
     ProtectedResourceConditions: Optional[ProtectedResourceConditionsTypeDef] = None
     RestoreMetadataOverrides: Optional[Mapping[str, str]] = None
     ValidationWindowHours: Optional[int] = None
 
-class DescribeReportJobOutputTypeDef(BaseModel):
+class DescribeReportJobOutputTypeDef(BaseValidatorModel):
     ReportJob: ReportJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReportJobsOutputTypeDef(BaseModel):
+class ListReportJobsOutputTypeDef(BaseValidatorModel):
     ReportJobs: List[ReportJobTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRestoreTestingPlanInputRequestTypeDef(BaseModel):
+class CreateRestoreTestingPlanInputRequestTypeDef(BaseValidatorModel):
     RestoreTestingPlan: RestoreTestingPlanForCreateTypeDef
     CreatorRequestId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class GetRestoreTestingPlanOutputTypeDef(BaseModel):
+class GetRestoreTestingPlanOutputTypeDef(BaseValidatorModel):
     RestoreTestingPlan: RestoreTestingPlanForGetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRestoreTestingPlanInputRequestTypeDef(BaseModel):
+class UpdateRestoreTestingPlanInputRequestTypeDef(BaseValidatorModel):
     RestoreTestingPlan: RestoreTestingPlanForUpdateTypeDef
     RestoreTestingPlanName: str
 
-class BackupPlanInputTypeDef(BaseModel):
+class BackupPlanInputTypeDef(BaseValidatorModel):
     BackupPlanName: str
     Rules: Sequence[BackupRuleInputTypeDef]
     AdvancedBackupSettings: Optional[Sequence[AdvancedBackupSettingTypeDef]] = None
 
-class BackupPlanTypeDef(BaseModel):
+class BackupPlanTypeDef(BaseValidatorModel):
     BackupPlanName: str
     Rules: List[BackupRuleTypeDef]
     AdvancedBackupSettings: Optional[List[AdvancedBackupSettingTypeDef]] = None
 
-class CreateBackupSelectionInputRequestTypeDef(BaseModel):
+class CreateBackupSelectionInputRequestTypeDef(BaseValidatorModel):
     BackupPlanId: str
     BackupSelection: BackupSelectionTypeDef
     CreatorRequestId: Optional[str] = None
 
-class GetBackupSelectionOutputTypeDef(BaseModel):
+class GetBackupSelectionOutputTypeDef(BaseValidatorModel):
     BackupSelection: BackupSelectionTypeDef
     SelectionId: str
     BackupPlanId: str
@@ -1437,14 +1437,14 @@ class GetBackupSelectionOutputTypeDef(BaseModel):
     CreatorRequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLegalHoldInputRequestTypeDef(BaseModel):
+class CreateLegalHoldInputRequestTypeDef(BaseValidatorModel):
     Title: str
     Description: str
     IdempotencyToken: Optional[str] = None
     RecoveryPointSelection: Optional[RecoveryPointSelectionTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateLegalHoldOutputTypeDef(BaseModel):
+class CreateLegalHoldOutputTypeDef(BaseValidatorModel):
     Title: str
     Status: LegalHoldStatusType
     Description: str
@@ -1454,7 +1454,7 @@ class CreateLegalHoldOutputTypeDef(BaseModel):
     RecoveryPointSelection: RecoveryPointSelectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLegalHoldOutputTypeDef(BaseModel):
+class GetLegalHoldOutputTypeDef(BaseValidatorModel):
     Title: str
     Status: LegalHoldStatusType
     Description: str
@@ -1467,38 +1467,38 @@ class GetLegalHoldOutputTypeDef(BaseModel):
     RecoveryPointSelection: RecoveryPointSelectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRestoreTestingSelectionInputRequestTypeDef(BaseModel):
+class CreateRestoreTestingSelectionInputRequestTypeDef(BaseValidatorModel):
     RestoreTestingPlanName: str
     RestoreTestingSelection: RestoreTestingSelectionForCreateTypeDef
     CreatorRequestId: Optional[str] = None
 
-class GetRestoreTestingSelectionOutputTypeDef(BaseModel):
+class GetRestoreTestingSelectionOutputTypeDef(BaseValidatorModel):
     RestoreTestingSelection: RestoreTestingSelectionForGetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRestoreTestingSelectionInputRequestTypeDef(BaseModel):
+class UpdateRestoreTestingSelectionInputRequestTypeDef(BaseValidatorModel):
     RestoreTestingPlanName: str
     RestoreTestingSelection: RestoreTestingSelectionForUpdateTypeDef
     RestoreTestingSelectionName: str
 
-class CreateBackupPlanInputRequestTypeDef(BaseModel):
+class CreateBackupPlanInputRequestTypeDef(BaseValidatorModel):
     BackupPlan: BackupPlanInputTypeDef
     BackupPlanTags: Optional[Mapping[str, str]] = None
     CreatorRequestId: Optional[str] = None
 
-class UpdateBackupPlanInputRequestTypeDef(BaseModel):
+class UpdateBackupPlanInputRequestTypeDef(BaseValidatorModel):
     BackupPlanId: str
     BackupPlan: BackupPlanInputTypeDef
 
-class GetBackupPlanFromJSONOutputTypeDef(BaseModel):
+class GetBackupPlanFromJSONOutputTypeDef(BaseValidatorModel):
     BackupPlan: BackupPlanTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBackupPlanFromTemplateOutputTypeDef(BaseModel):
+class GetBackupPlanFromTemplateOutputTypeDef(BaseValidatorModel):
     BackupPlanDocument: BackupPlanTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBackupPlanOutputTypeDef(BaseModel):
+class GetBackupPlanOutputTypeDef(BaseValidatorModel):
     BackupPlan: BackupPlanTypeDef
     BackupPlanId: str
     BackupPlanArn: str

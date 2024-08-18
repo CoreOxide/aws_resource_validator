@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,119 +11,119 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sns_constants import *
 
-class AddPermissionInputRequestTypeDef(BaseModel):
+class AddPermissionInputRequestTypeDef(BaseValidatorModel):
     TopicArn: str
     Label: str
     AWSAccountId: Sequence[str]
     ActionName: Sequence[str]
 
-class AddPermissionInputTopicAddPermissionTypeDef(BaseModel):
+class AddPermissionInputTopicAddPermissionTypeDef(BaseValidatorModel):
     Label: str
     AWSAccountId: Sequence[str]
     ActionName: Sequence[str]
 
-class BatchResultErrorEntryTypeDef(BaseModel):
+class BatchResultErrorEntryTypeDef(BaseValidatorModel):
     Id: str
     Code: str
     SenderFault: bool
     Message: Optional[str] = None
 
-class CheckIfPhoneNumberIsOptedOutInputRequestTypeDef(BaseModel):
+class CheckIfPhoneNumberIsOptedOutInputRequestTypeDef(BaseValidatorModel):
     phoneNumber: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ConfirmSubscriptionInputRequestTypeDef(BaseModel):
+class ConfirmSubscriptionInputRequestTypeDef(BaseValidatorModel):
     TopicArn: str
     Token: str
     AuthenticateOnUnsubscribe: Optional[str] = None
 
-class ConfirmSubscriptionInputTopicConfirmSubscriptionTypeDef(BaseModel):
+class ConfirmSubscriptionInputTopicConfirmSubscriptionTypeDef(BaseValidatorModel):
     Token: str
     AuthenticateOnUnsubscribe: Optional[str] = None
 
-class CreatePlatformApplicationInputRequestTypeDef(BaseModel):
+class CreatePlatformApplicationInputRequestTypeDef(BaseValidatorModel):
     Name: str
     Platform: str
     Attributes: Mapping[str, str]
 
-class CreatePlatformApplicationInputServiceResourceCreatePlatformApplicationTypeDef(BaseModel):
+class CreatePlatformApplicationInputServiceResourceCreatePlatformApplicationTypeDef(BaseValidatorModel):
     Name: str
     Platform: str
     Attributes: Mapping[str, str]
 
-class CreatePlatformEndpointInputPlatformApplicationCreatePlatformEndpointTypeDef(BaseModel):
+class CreatePlatformEndpointInputPlatformApplicationCreatePlatformEndpointTypeDef(BaseValidatorModel):
     Token: str
     CustomUserData: Optional[str] = None
     Attributes: Optional[Mapping[str, str]] = None
 
-class CreatePlatformEndpointInputRequestTypeDef(BaseModel):
+class CreatePlatformEndpointInputRequestTypeDef(BaseValidatorModel):
     PlatformApplicationArn: str
     Token: str
     CustomUserData: Optional[str] = None
     Attributes: Optional[Mapping[str, str]] = None
 
-class CreateSMSSandboxPhoneNumberInputRequestTypeDef(BaseModel):
+class CreateSMSSandboxPhoneNumberInputRequestTypeDef(BaseValidatorModel):
     PhoneNumber: str
     LanguageCode: Optional[LanguageCodeStringType] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class DeleteEndpointInputRequestTypeDef(BaseModel):
+class DeleteEndpointInputRequestTypeDef(BaseValidatorModel):
     EndpointArn: str
 
-class DeletePlatformApplicationInputRequestTypeDef(BaseModel):
+class DeletePlatformApplicationInputRequestTypeDef(BaseValidatorModel):
     PlatformApplicationArn: str
 
-class DeleteSMSSandboxPhoneNumberInputRequestTypeDef(BaseModel):
+class DeleteSMSSandboxPhoneNumberInputRequestTypeDef(BaseValidatorModel):
     PhoneNumber: str
 
-class DeleteTopicInputRequestTypeDef(BaseModel):
+class DeleteTopicInputRequestTypeDef(BaseValidatorModel):
     TopicArn: str
 
-class EndpointTypeDef(BaseModel):
+class EndpointTypeDef(BaseValidatorModel):
     EndpointArn: Optional[str] = None
     Attributes: Optional[Dict[str, str]] = None
 
-class GetDataProtectionPolicyInputRequestTypeDef(BaseModel):
+class GetDataProtectionPolicyInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class GetEndpointAttributesInputRequestTypeDef(BaseModel):
+class GetEndpointAttributesInputRequestTypeDef(BaseValidatorModel):
     EndpointArn: str
 
-class GetPlatformApplicationAttributesInputRequestTypeDef(BaseModel):
+class GetPlatformApplicationAttributesInputRequestTypeDef(BaseValidatorModel):
     PlatformApplicationArn: str
 
-class GetSMSAttributesInputRequestTypeDef(BaseModel):
+class GetSMSAttributesInputRequestTypeDef(BaseValidatorModel):
     attributes: Optional[Sequence[str]] = None
 
-class GetSubscriptionAttributesInputRequestTypeDef(BaseModel):
+class GetSubscriptionAttributesInputRequestTypeDef(BaseValidatorModel):
     SubscriptionArn: str
 
-class GetTopicAttributesInputRequestTypeDef(BaseModel):
+class GetTopicAttributesInputRequestTypeDef(BaseValidatorModel):
     TopicArn: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListEndpointsByPlatformApplicationInputRequestTypeDef(BaseModel):
+class ListEndpointsByPlatformApplicationInputRequestTypeDef(BaseValidatorModel):
     PlatformApplicationArn: str
     NextToken: Optional[str] = None
 
-class ListOriginationNumbersRequestRequestTypeDef(BaseModel):
+class ListOriginationNumbersRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class PhoneNumberInformationTypeDef(BaseModel):
+class PhoneNumberInformationTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     PhoneNumber: Optional[str] = None
     Status: Optional[str] = None
@@ -131,278 +131,278 @@ class PhoneNumberInformationTypeDef(BaseModel):
     RouteType: Optional[RouteTypeType] = None
     NumberCapabilities: Optional[List[NumberCapabilityType]] = None
 
-class ListPhoneNumbersOptedOutInputRequestTypeDef(BaseModel):
+class ListPhoneNumbersOptedOutInputRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
-class ListPlatformApplicationsInputRequestTypeDef(BaseModel):
+class ListPlatformApplicationsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class PlatformApplicationTypeDef(BaseModel):
+class PlatformApplicationTypeDef(BaseValidatorModel):
     PlatformApplicationArn: Optional[str] = None
     Attributes: Optional[Dict[str, str]] = None
 
-class ListSMSSandboxPhoneNumbersInputRequestTypeDef(BaseModel):
+class ListSMSSandboxPhoneNumbersInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class SMSSandboxPhoneNumberTypeDef(BaseModel):
+class SMSSandboxPhoneNumberTypeDef(BaseValidatorModel):
     PhoneNumber: Optional[str] = None
     Status: Optional[SMSSandboxPhoneNumberVerificationStatusType] = None
 
-class ListSubscriptionsByTopicInputRequestTypeDef(BaseModel):
+class ListSubscriptionsByTopicInputRequestTypeDef(BaseValidatorModel):
     TopicArn: str
     NextToken: Optional[str] = None
 
-class SubscriptionTypeDef(BaseModel):
+class SubscriptionTypeDef(BaseValidatorModel):
     SubscriptionArn: Optional[str] = None
     Owner: Optional[str] = None
     Protocol: Optional[str] = None
     Endpoint: Optional[str] = None
     TopicArn: Optional[str] = None
 
-class ListSubscriptionsInputRequestTypeDef(BaseModel):
+class ListSubscriptionsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListTopicsInputRequestTypeDef(BaseModel):
+class ListTopicsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
-class TopicTypeDef(BaseModel):
+class TopicTypeDef(BaseValidatorModel):
     TopicArn: Optional[str] = None
 
-class OptInPhoneNumberInputRequestTypeDef(BaseModel):
+class OptInPhoneNumberInputRequestTypeDef(BaseValidatorModel):
     phoneNumber: str
 
-class PublishBatchResultEntryTypeDef(BaseModel):
+class PublishBatchResultEntryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     MessageId: Optional[str] = None
     SequenceNumber: Optional[str] = None
 
-class PutDataProtectionPolicyInputRequestTypeDef(BaseModel):
+class PutDataProtectionPolicyInputRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     DataProtectionPolicy: str
 
-class RemovePermissionInputRequestTypeDef(BaseModel):
+class RemovePermissionInputRequestTypeDef(BaseValidatorModel):
     TopicArn: str
     Label: str
 
-class RemovePermissionInputTopicRemovePermissionTypeDef(BaseModel):
+class RemovePermissionInputTopicRemovePermissionTypeDef(BaseValidatorModel):
     Label: str
 
-class SetEndpointAttributesInputPlatformEndpointSetAttributesTypeDef(BaseModel):
+class SetEndpointAttributesInputPlatformEndpointSetAttributesTypeDef(BaseValidatorModel):
     Attributes: Mapping[str, str]
 
-class SetEndpointAttributesInputRequestTypeDef(BaseModel):
+class SetEndpointAttributesInputRequestTypeDef(BaseValidatorModel):
     EndpointArn: str
     Attributes: Mapping[str, str]
 
-class SetPlatformApplicationAttributesInputPlatformApplicationSetAttributesTypeDef(BaseModel):
+class SetPlatformApplicationAttributesInputPlatformApplicationSetAttributesTypeDef(BaseValidatorModel):
     Attributes: Mapping[str, str]
 
-class SetPlatformApplicationAttributesInputRequestTypeDef(BaseModel):
+class SetPlatformApplicationAttributesInputRequestTypeDef(BaseValidatorModel):
     PlatformApplicationArn: str
     Attributes: Mapping[str, str]
 
-class SetSMSAttributesInputRequestTypeDef(BaseModel):
+class SetSMSAttributesInputRequestTypeDef(BaseValidatorModel):
     attributes: Mapping[str, str]
 
-class SetSubscriptionAttributesInputRequestTypeDef(BaseModel):
+class SetSubscriptionAttributesInputRequestTypeDef(BaseValidatorModel):
     SubscriptionArn: str
     AttributeName: str
     AttributeValue: Optional[str] = None
 
-class SetSubscriptionAttributesInputSubscriptionSetAttributesTypeDef(BaseModel):
+class SetSubscriptionAttributesInputSubscriptionSetAttributesTypeDef(BaseValidatorModel):
     AttributeName: str
     AttributeValue: Optional[str] = None
 
-class SetTopicAttributesInputRequestTypeDef(BaseModel):
+class SetTopicAttributesInputRequestTypeDef(BaseValidatorModel):
     TopicArn: str
     AttributeName: str
     AttributeValue: Optional[str] = None
 
-class SetTopicAttributesInputTopicSetAttributesTypeDef(BaseModel):
+class SetTopicAttributesInputTopicSetAttributesTypeDef(BaseValidatorModel):
     AttributeName: str
     AttributeValue: Optional[str] = None
 
-class SubscribeInputRequestTypeDef(BaseModel):
+class SubscribeInputRequestTypeDef(BaseValidatorModel):
     TopicArn: str
     Protocol: str
     Endpoint: Optional[str] = None
     Attributes: Optional[Mapping[str, str]] = None
     ReturnSubscriptionArn: Optional[bool] = None
 
-class SubscribeInputTopicSubscribeTypeDef(BaseModel):
+class SubscribeInputTopicSubscribeTypeDef(BaseValidatorModel):
     Protocol: str
     Endpoint: Optional[str] = None
     Attributes: Optional[Mapping[str, str]] = None
     ReturnSubscriptionArn: Optional[bool] = None
 
-class UnsubscribeInputRequestTypeDef(BaseModel):
+class UnsubscribeInputRequestTypeDef(BaseValidatorModel):
     SubscriptionArn: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class VerifySMSSandboxPhoneNumberInputRequestTypeDef(BaseModel):
+class VerifySMSSandboxPhoneNumberInputRequestTypeDef(BaseValidatorModel):
     PhoneNumber: str
     OneTimePassword: str
 
-class MessageAttributeValueTypeDef(BaseModel):
+class MessageAttributeValueTypeDef(BaseValidatorModel):
     DataType: str
     StringValue: Optional[str] = None
     BinaryValue: Optional[BlobTypeDef] = None
 
-class CheckIfPhoneNumberIsOptedOutResponseTypeDef(BaseModel):
+class CheckIfPhoneNumberIsOptedOutResponseTypeDef(BaseValidatorModel):
     isOptedOut: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ConfirmSubscriptionResponseTypeDef(BaseModel):
+class ConfirmSubscriptionResponseTypeDef(BaseValidatorModel):
     SubscriptionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEndpointResponseTypeDef(BaseModel):
+class CreateEndpointResponseTypeDef(BaseValidatorModel):
     EndpointArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePlatformApplicationResponseTypeDef(BaseModel):
+class CreatePlatformApplicationResponseTypeDef(BaseValidatorModel):
     PlatformApplicationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTopicResponseTypeDef(BaseModel):
+class CreateTopicResponseTypeDef(BaseValidatorModel):
     TopicArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDataProtectionPolicyResponseTypeDef(BaseModel):
+class GetDataProtectionPolicyResponseTypeDef(BaseValidatorModel):
     DataProtectionPolicy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEndpointAttributesResponseTypeDef(BaseModel):
+class GetEndpointAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPlatformApplicationAttributesResponseTypeDef(BaseModel):
+class GetPlatformApplicationAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSMSAttributesResponseTypeDef(BaseModel):
+class GetSMSAttributesResponseTypeDef(BaseValidatorModel):
     attributes: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSMSSandboxAccountStatusResultTypeDef(BaseModel):
+class GetSMSSandboxAccountStatusResultTypeDef(BaseValidatorModel):
     IsInSandbox: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSubscriptionAttributesResponseTypeDef(BaseModel):
+class GetSubscriptionAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTopicAttributesResponseTypeDef(BaseModel):
+class GetTopicAttributesResponseTypeDef(BaseValidatorModel):
     Attributes: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPhoneNumbersOptedOutResponseTypeDef(BaseModel):
+class ListPhoneNumbersOptedOutResponseTypeDef(BaseValidatorModel):
     phoneNumbers: List[str]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PublishResponseTypeDef(BaseModel):
+class PublishResponseTypeDef(BaseValidatorModel):
     MessageId: str
     SequenceNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubscribeResponseTypeDef(BaseModel):
+class SubscribeResponseTypeDef(BaseValidatorModel):
     SubscriptionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateTopicInputRequestTypeDef(BaseModel):
+class CreateTopicInputRequestTypeDef(BaseValidatorModel):
     Name: str
     Attributes: Optional[Mapping[str, str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     DataProtectionPolicy: Optional[str] = None
 
-class CreateTopicInputServiceResourceCreateTopicTypeDef(BaseModel):
+class CreateTopicInputServiceResourceCreateTopicTypeDef(BaseValidatorModel):
     Name: str
     Attributes: Optional[Mapping[str, str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     DataProtectionPolicy: Optional[str] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
 
-class ListEndpointsByPlatformApplicationResponseTypeDef(BaseModel):
+class ListEndpointsByPlatformApplicationResponseTypeDef(BaseValidatorModel):
     Endpoints: List[EndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListOriginationNumbersRequestListOriginationNumbersPaginateTypeDef(BaseModel):
+class ListOriginationNumbersRequestListOriginationNumbersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPhoneNumbersOptedOutInputListPhoneNumbersOptedOutPaginateTypeDef(BaseModel):
+class ListPhoneNumbersOptedOutInputListPhoneNumbersOptedOutPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPlatformApplicationsInputListPlatformApplicationsPaginateTypeDef(BaseModel):
+class ListPlatformApplicationsInputListPlatformApplicationsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSMSSandboxPhoneNumbersInputListSMSSandboxPhoneNumbersPaginateTypeDef(BaseModel):
+class ListSMSSandboxPhoneNumbersInputListSMSSandboxPhoneNumbersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubscriptionsByTopicInputListSubscriptionsByTopicPaginateTypeDef(BaseModel):
+class ListSubscriptionsByTopicInputListSubscriptionsByTopicPaginateTypeDef(BaseValidatorModel):
     TopicArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubscriptionsInputListSubscriptionsPaginateTypeDef(BaseModel):
+class ListSubscriptionsInputListSubscriptionsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTopicsInputListTopicsPaginateTypeDef(BaseModel):
+class ListTopicsInputListTopicsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOriginationNumbersResultTypeDef(BaseModel):
+class ListOriginationNumbersResultTypeDef(BaseValidatorModel):
     PhoneNumbers: List[PhoneNumberInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListPlatformApplicationsResponseTypeDef(BaseModel):
+class ListPlatformApplicationsResponseTypeDef(BaseValidatorModel):
     PlatformApplications: List[PlatformApplicationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSMSSandboxPhoneNumbersResultTypeDef(BaseModel):
+class ListSMSSandboxPhoneNumbersResultTypeDef(BaseValidatorModel):
     PhoneNumbers: List[SMSSandboxPhoneNumberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSubscriptionsByTopicResponseTypeDef(BaseModel):
+class ListSubscriptionsByTopicResponseTypeDef(BaseValidatorModel):
     Subscriptions: List[SubscriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListSubscriptionsResponseTypeDef(BaseModel):
+class ListSubscriptionsResponseTypeDef(BaseValidatorModel):
     Subscriptions: List[SubscriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListTopicsResponseTypeDef(BaseModel):
+class ListTopicsResponseTypeDef(BaseValidatorModel):
     Topics: List[TopicTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PublishBatchResponseTypeDef(BaseModel):
+class PublishBatchResponseTypeDef(BaseValidatorModel):
     Successful: List[PublishBatchResultEntryTypeDef]
     Failed: List[BatchResultErrorEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PublishBatchRequestEntryTypeDef(BaseModel):
+class PublishBatchRequestEntryTypeDef(BaseValidatorModel):
     Id: str
     Message: str
     Subject: Optional[str] = None
@@ -411,7 +411,7 @@ class PublishBatchRequestEntryTypeDef(BaseModel):
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 
-class PublishInputPlatformEndpointPublishTypeDef(BaseModel):
+class PublishInputPlatformEndpointPublishTypeDef(BaseValidatorModel):
     Message: str
     TopicArn: Optional[str] = None
     PhoneNumber: Optional[str] = None
@@ -421,7 +421,7 @@ class PublishInputPlatformEndpointPublishTypeDef(BaseModel):
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 
-class PublishInputRequestTypeDef(BaseModel):
+class PublishInputRequestTypeDef(BaseValidatorModel):
     Message: str
     TopicArn: Optional[str] = None
     TargetArn: Optional[str] = None
@@ -432,7 +432,7 @@ class PublishInputRequestTypeDef(BaseModel):
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 
-class PublishInputTopicPublishTypeDef(BaseModel):
+class PublishInputTopicPublishTypeDef(BaseValidatorModel):
     Message: str
     TargetArn: Optional[str] = None
     PhoneNumber: Optional[str] = None
@@ -442,7 +442,7 @@ class PublishInputTopicPublishTypeDef(BaseModel):
     MessageDeduplicationId: Optional[str] = None
     MessageGroupId: Optional[str] = None
 
-class PublishBatchInputRequestTypeDef(BaseModel):
+class PublishBatchInputRequestTypeDef(BaseValidatorModel):
     TopicArn: str
     PublishBatchRequestEntries: Sequence[PublishBatchRequestEntryTypeDef]
 

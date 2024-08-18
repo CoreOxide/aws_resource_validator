@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,57 +11,57 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.finspace_data_constants import *
 
-class AssociateUserToPermissionGroupRequestRequestTypeDef(BaseModel):
+class AssociateUserToPermissionGroupRequestRequestTypeDef(BaseValidatorModel):
     permissionGroupId: str
     userId: str
     clientToken: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class AwsCredentialsTypeDef(BaseModel):
+class AwsCredentialsTypeDef(BaseValidatorModel):
     accessKeyId: Optional[str] = None
     secretAccessKey: Optional[str] = None
     sessionToken: Optional[str] = None
     expiration: Optional[int] = None
 
-class ChangesetErrorInfoTypeDef(BaseModel):
+class ChangesetErrorInfoTypeDef(BaseValidatorModel):
     errorMessage: Optional[str] = None
     errorCategory: Optional[ErrorCategoryType] = None
 
-class ColumnDefinitionTypeDef(BaseModel):
+class ColumnDefinitionTypeDef(BaseValidatorModel):
     dataType: Optional[ColumnDataTypeType] = None
     columnName: Optional[str] = None
     columnDescription: Optional[str] = None
 
-class CreateChangesetRequestRequestTypeDef(BaseModel):
+class CreateChangesetRequestRequestTypeDef(BaseValidatorModel):
     datasetId: str
     changeType: ChangeTypeType
     sourceParams: Mapping[str, str]
     formatParams: Mapping[str, str]
     clientToken: Optional[str] = None
 
-class DataViewDestinationTypeParamsTypeDef(BaseModel):
+class DataViewDestinationTypeParamsTypeDef(BaseValidatorModel):
     destinationType: str
     s3DestinationExportFileFormat: Optional[ExportFileFormatType] = None
     s3DestinationExportFileFormatOptions: Optional[Mapping[str, str]] = None
 
-class DatasetOwnerInfoTypeDef(BaseModel):
+class DatasetOwnerInfoTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     phoneNumber: Optional[str] = None
     email: Optional[str] = None
 
-class CreatePermissionGroupRequestRequestTypeDef(BaseModel):
+class CreatePermissionGroupRequestRequestTypeDef(BaseValidatorModel):
     name: str
     applicationPermissions: Sequence[ApplicationPermissionType]
     description: Optional[str] = None
     clientToken: Optional[str] = None
 
-class CreateUserRequestRequestTypeDef(BaseModel):
+class CreateUserRequestRequestTypeDef(BaseValidatorModel):
     emailAddress: str
     type: UserTypeType
     firstName: Optional[str] = None
@@ -70,64 +70,64 @@ class CreateUserRequestRequestTypeDef(BaseModel):
     apiAccessPrincipalArn: Optional[str] = None
     clientToken: Optional[str] = None
 
-class CredentialsTypeDef(BaseModel):
+class CredentialsTypeDef(BaseValidatorModel):
     accessKeyId: Optional[str] = None
     secretAccessKey: Optional[str] = None
     sessionToken: Optional[str] = None
 
-class DataViewDestinationTypeParamsPaginatorTypeDef(BaseModel):
+class DataViewDestinationTypeParamsPaginatorTypeDef(BaseValidatorModel):
     destinationType: str
     s3DestinationExportFileFormat: Optional[ExportFileFormatType] = None
     s3DestinationExportFileFormatOptions: Optional[Dict[str, str]] = None
 
-class DataViewErrorInfoTypeDef(BaseModel):
+class DataViewErrorInfoTypeDef(BaseValidatorModel):
     errorMessage: Optional[str] = None
     errorCategory: Optional[ErrorCategoryType] = None
 
-class DeleteDatasetRequestRequestTypeDef(BaseModel):
+class DeleteDatasetRequestRequestTypeDef(BaseValidatorModel):
     datasetId: str
     clientToken: Optional[str] = None
 
-class DeletePermissionGroupRequestRequestTypeDef(BaseModel):
+class DeletePermissionGroupRequestRequestTypeDef(BaseValidatorModel):
     permissionGroupId: str
     clientToken: Optional[str] = None
 
-class DisableUserRequestRequestTypeDef(BaseModel):
+class DisableUserRequestRequestTypeDef(BaseValidatorModel):
     userId: str
     clientToken: Optional[str] = None
 
-class DisassociateUserFromPermissionGroupRequestRequestTypeDef(BaseModel):
+class DisassociateUserFromPermissionGroupRequestRequestTypeDef(BaseValidatorModel):
     permissionGroupId: str
     userId: str
     clientToken: Optional[str] = None
 
-class EnableUserRequestRequestTypeDef(BaseModel):
+class EnableUserRequestRequestTypeDef(BaseValidatorModel):
     userId: str
     clientToken: Optional[str] = None
 
-class GetChangesetRequestRequestTypeDef(BaseModel):
+class GetChangesetRequestRequestTypeDef(BaseValidatorModel):
     datasetId: str
     changesetId: str
 
-class GetDataViewRequestRequestTypeDef(BaseModel):
+class GetDataViewRequestRequestTypeDef(BaseValidatorModel):
     dataViewId: str
     datasetId: str
 
-class GetDatasetRequestRequestTypeDef(BaseModel):
+class GetDatasetRequestRequestTypeDef(BaseValidatorModel):
     datasetId: str
 
-class GetExternalDataViewAccessDetailsRequestRequestTypeDef(BaseModel):
+class GetExternalDataViewAccessDetailsRequestRequestTypeDef(BaseValidatorModel):
     dataViewId: str
     datasetId: str
 
-class S3LocationTypeDef(BaseModel):
+class S3LocationTypeDef(BaseValidatorModel):
     bucket: str
     key: str
 
-class GetPermissionGroupRequestRequestTypeDef(BaseModel):
+class GetPermissionGroupRequestRequestTypeDef(BaseValidatorModel):
     permissionGroupId: str
 
-class PermissionGroupTypeDef(BaseModel):
+class PermissionGroupTypeDef(BaseValidatorModel):
     permissionGroupId: Optional[str] = None
     name: Optional[str] = None
     description: Optional[str] = None
@@ -136,55 +136,55 @@ class PermissionGroupTypeDef(BaseModel):
     lastModifiedTime: Optional[int] = None
     membershipStatus: Optional[PermissionGroupMembershipStatusType] = None
 
-class GetProgrammaticAccessCredentialsRequestRequestTypeDef(BaseModel):
+class GetProgrammaticAccessCredentialsRequestRequestTypeDef(BaseValidatorModel):
     environmentId: str
     durationInMinutes: Optional[int] = None
 
-class GetUserRequestRequestTypeDef(BaseModel):
+class GetUserRequestRequestTypeDef(BaseValidatorModel):
     userId: str
 
-class GetWorkingLocationRequestRequestTypeDef(BaseModel):
+class GetWorkingLocationRequestRequestTypeDef(BaseValidatorModel):
     locationType: Optional[locationTypeType] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListChangesetsRequestRequestTypeDef(BaseModel):
+class ListChangesetsRequestRequestTypeDef(BaseValidatorModel):
     datasetId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListDataViewsRequestRequestTypeDef(BaseModel):
+class ListDataViewsRequestRequestTypeDef(BaseValidatorModel):
     datasetId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDatasetsRequestRequestTypeDef(BaseModel):
+class ListDatasetsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListPermissionGroupsByUserRequestRequestTypeDef(BaseModel):
+class ListPermissionGroupsByUserRequestRequestTypeDef(BaseValidatorModel):
     userId: str
     maxResults: int
     nextToken: Optional[str] = None
 
-class PermissionGroupByUserTypeDef(BaseModel):
+class PermissionGroupByUserTypeDef(BaseValidatorModel):
     permissionGroupId: Optional[str] = None
     name: Optional[str] = None
     membershipStatus: Optional[PermissionGroupMembershipStatusType] = None
 
-class ListPermissionGroupsRequestRequestTypeDef(BaseModel):
+class ListPermissionGroupsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: int
     nextToken: Optional[str] = None
 
-class ListUsersByPermissionGroupRequestRequestTypeDef(BaseModel):
+class ListUsersByPermissionGroupRequestRequestTypeDef(BaseValidatorModel):
     permissionGroupId: str
     maxResults: int
     nextToken: Optional[str] = None
 
-class UserByPermissionGroupTypeDef(BaseModel):
+class UserByPermissionGroupTypeDef(BaseValidatorModel):
     userId: Optional[str] = None
     status: Optional[UserStatusType] = None
     firstName: Optional[str] = None
@@ -195,11 +195,11 @@ class UserByPermissionGroupTypeDef(BaseModel):
     apiAccessPrincipalArn: Optional[str] = None
     membershipStatus: Optional[PermissionGroupMembershipStatusType] = None
 
-class ListUsersRequestRequestTypeDef(BaseModel):
+class ListUsersRequestRequestTypeDef(BaseValidatorModel):
     maxResults: int
     nextToken: Optional[str] = None
 
-class UserTypeDef(BaseModel):
+class UserTypeDef(BaseValidatorModel):
     userId: Optional[str] = None
     status: Optional[UserStatusType] = None
     firstName: Optional[str] = None
@@ -214,28 +214,28 @@ class UserTypeDef(BaseModel):
     lastModifiedTime: Optional[int] = None
     lastLoginTime: Optional[int] = None
 
-class ResourcePermissionTypeDef(BaseModel):
+class ResourcePermissionTypeDef(BaseValidatorModel):
     permission: Optional[str] = None
 
-class ResetUserPasswordRequestRequestTypeDef(BaseModel):
+class ResetUserPasswordRequestRequestTypeDef(BaseValidatorModel):
     userId: str
     clientToken: Optional[str] = None
 
-class UpdateChangesetRequestRequestTypeDef(BaseModel):
+class UpdateChangesetRequestRequestTypeDef(BaseValidatorModel):
     datasetId: str
     changesetId: str
     sourceParams: Mapping[str, str]
     formatParams: Mapping[str, str]
     clientToken: Optional[str] = None
 
-class UpdatePermissionGroupRequestRequestTypeDef(BaseModel):
+class UpdatePermissionGroupRequestRequestTypeDef(BaseValidatorModel):
     permissionGroupId: str
     name: Optional[str] = None
     description: Optional[str] = None
     applicationPermissions: Optional[Sequence[ApplicationPermissionType]] = None
     clientToken: Optional[str] = None
 
-class UpdateUserRequestRequestTypeDef(BaseModel):
+class UpdateUserRequestRequestTypeDef(BaseValidatorModel):
     userId: str
     type: Optional[UserTypeType] = None
     firstName: Optional[str] = None
@@ -244,53 +244,53 @@ class UpdateUserRequestRequestTypeDef(BaseModel):
     apiAccessPrincipalArn: Optional[str] = None
     clientToken: Optional[str] = None
 
-class AssociateUserToPermissionGroupResponseTypeDef(BaseModel):
+class AssociateUserToPermissionGroupResponseTypeDef(BaseValidatorModel):
     statusCode: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateChangesetResponseTypeDef(BaseModel):
+class CreateChangesetResponseTypeDef(BaseValidatorModel):
     datasetId: str
     changesetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDataViewResponseTypeDef(BaseModel):
+class CreateDataViewResponseTypeDef(BaseValidatorModel):
     datasetId: str
     dataViewId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDatasetResponseTypeDef(BaseModel):
+class CreateDatasetResponseTypeDef(BaseValidatorModel):
     datasetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePermissionGroupResponseTypeDef(BaseModel):
+class CreatePermissionGroupResponseTypeDef(BaseValidatorModel):
     permissionGroupId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserResponseTypeDef(BaseModel):
+class CreateUserResponseTypeDef(BaseValidatorModel):
     userId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDatasetResponseTypeDef(BaseModel):
+class DeleteDatasetResponseTypeDef(BaseValidatorModel):
     datasetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletePermissionGroupResponseTypeDef(BaseModel):
+class DeletePermissionGroupResponseTypeDef(BaseValidatorModel):
     permissionGroupId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisableUserResponseTypeDef(BaseModel):
+class DisableUserResponseTypeDef(BaseValidatorModel):
     userId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DisassociateUserFromPermissionGroupResponseTypeDef(BaseModel):
+class DisassociateUserFromPermissionGroupResponseTypeDef(BaseValidatorModel):
     statusCode: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EnableUserResponseTypeDef(BaseModel):
+class EnableUserResponseTypeDef(BaseValidatorModel):
     userId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUserResponseTypeDef(BaseModel):
+class GetUserResponseTypeDef(BaseValidatorModel):
     userId: str
     status: UserStatusType
     firstName: str
@@ -306,35 +306,35 @@ class GetUserResponseTypeDef(BaseModel):
     lastLoginTime: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetWorkingLocationResponseTypeDef(BaseModel):
+class GetWorkingLocationResponseTypeDef(BaseValidatorModel):
     s3Uri: str
     s3Path: str
     s3Bucket: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResetUserPasswordResponseTypeDef(BaseModel):
+class ResetUserPasswordResponseTypeDef(BaseValidatorModel):
     userId: str
     temporaryPassword: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateChangesetResponseTypeDef(BaseModel):
+class UpdateChangesetResponseTypeDef(BaseValidatorModel):
     changesetId: str
     datasetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDatasetResponseTypeDef(BaseModel):
+class UpdateDatasetResponseTypeDef(BaseValidatorModel):
     datasetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePermissionGroupResponseTypeDef(BaseModel):
+class UpdatePermissionGroupResponseTypeDef(BaseValidatorModel):
     permissionGroupId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUserResponseTypeDef(BaseModel):
+class UpdateUserResponseTypeDef(BaseValidatorModel):
     userId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ChangesetSummaryTypeDef(BaseModel):
+class ChangesetSummaryTypeDef(BaseValidatorModel):
     changesetId: Optional[str] = None
     changesetArn: Optional[str] = None
     datasetId: Optional[str] = None
@@ -349,7 +349,7 @@ class ChangesetSummaryTypeDef(BaseModel):
     updatesChangesetId: Optional[str] = None
     updatedByChangesetId: Optional[str] = None
 
-class GetChangesetResponseTypeDef(BaseModel):
+class GetChangesetResponseTypeDef(BaseValidatorModel):
     changesetId: str
     changesetArn: str
     datasetId: str
@@ -365,15 +365,15 @@ class GetChangesetResponseTypeDef(BaseModel):
     updatedByChangesetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SchemaDefinitionPaginatorTypeDef(BaseModel):
+class SchemaDefinitionPaginatorTypeDef(BaseValidatorModel):
     columns: Optional[List[ColumnDefinitionTypeDef]] = None
     primaryKeyColumns: Optional[List[str]] = None
 
-class SchemaDefinitionTypeDef(BaseModel):
+class SchemaDefinitionTypeDef(BaseValidatorModel):
     columns: Optional[Sequence[ColumnDefinitionTypeDef]] = None
     primaryKeyColumns: Optional[Sequence[str]] = None
 
-class CreateDataViewRequestRequestTypeDef(BaseModel):
+class CreateDataViewRequestRequestTypeDef(BaseValidatorModel):
     datasetId: str
     destinationTypeParams: DataViewDestinationTypeParamsTypeDef
     clientToken: Optional[str] = None
@@ -382,12 +382,12 @@ class CreateDataViewRequestRequestTypeDef(BaseModel):
     partitionColumns: Optional[Sequence[str]] = None
     asOfTimestamp: Optional[int] = None
 
-class GetProgrammaticAccessCredentialsResponseTypeDef(BaseModel):
+class GetProgrammaticAccessCredentialsResponseTypeDef(BaseValidatorModel):
     credentials: CredentialsTypeDef
     durationInMinutes: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DataViewSummaryPaginatorTypeDef(BaseModel):
+class DataViewSummaryPaginatorTypeDef(BaseValidatorModel):
     dataViewId: Optional[str] = None
     dataViewArn: Optional[str] = None
     datasetId: Optional[str] = None
@@ -401,7 +401,7 @@ class DataViewSummaryPaginatorTypeDef(BaseModel):
     createTime: Optional[int] = None
     lastModifiedTime: Optional[int] = None
 
-class DataViewSummaryTypeDef(BaseModel):
+class DataViewSummaryTypeDef(BaseValidatorModel):
     dataViewId: Optional[str] = None
     dataViewArn: Optional[str] = None
     datasetId: Optional[str] = None
@@ -415,7 +415,7 @@ class DataViewSummaryTypeDef(BaseModel):
     createTime: Optional[int] = None
     lastModifiedTime: Optional[int] = None
 
-class GetDataViewResponseTypeDef(BaseModel):
+class GetDataViewResponseTypeDef(BaseValidatorModel):
     autoUpdate: bool
     partitionColumns: List[str]
     datasetId: str
@@ -430,78 +430,78 @@ class GetDataViewResponseTypeDef(BaseModel):
     status: DataViewStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetExternalDataViewAccessDetailsResponseTypeDef(BaseModel):
+class GetExternalDataViewAccessDetailsResponseTypeDef(BaseValidatorModel):
     credentials: AwsCredentialsTypeDef
     s3Location: S3LocationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPermissionGroupResponseTypeDef(BaseModel):
+class GetPermissionGroupResponseTypeDef(BaseValidatorModel):
     permissionGroup: PermissionGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPermissionGroupsResponseTypeDef(BaseModel):
+class ListPermissionGroupsResponseTypeDef(BaseValidatorModel):
     permissionGroups: List[PermissionGroupTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListChangesetsRequestListChangesetsPaginateTypeDef(BaseModel):
+class ListChangesetsRequestListChangesetsPaginateTypeDef(BaseValidatorModel):
     datasetId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDataViewsRequestListDataViewsPaginateTypeDef(BaseModel):
+class ListDataViewsRequestListDataViewsPaginateTypeDef(BaseValidatorModel):
     datasetId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDatasetsRequestListDatasetsPaginateTypeDef(BaseModel):
+class ListDatasetsRequestListDatasetsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPermissionGroupsRequestListPermissionGroupsPaginateTypeDef(BaseModel):
+class ListPermissionGroupsRequestListPermissionGroupsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsersRequestListUsersPaginateTypeDef(BaseModel):
+class ListUsersRequestListUsersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPermissionGroupsByUserResponseTypeDef(BaseModel):
+class ListPermissionGroupsByUserResponseTypeDef(BaseValidatorModel):
     permissionGroups: List[PermissionGroupByUserTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUsersByPermissionGroupResponseTypeDef(BaseModel):
+class ListUsersByPermissionGroupResponseTypeDef(BaseValidatorModel):
     users: List[UserByPermissionGroupTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListUsersResponseTypeDef(BaseModel):
+class ListUsersResponseTypeDef(BaseValidatorModel):
     users: List[UserTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PermissionGroupParamsTypeDef(BaseModel):
+class PermissionGroupParamsTypeDef(BaseValidatorModel):
     permissionGroupId: Optional[str] = None
     datasetPermissions: Optional[Sequence[ResourcePermissionTypeDef]] = None
 
-class ListChangesetsResponseTypeDef(BaseModel):
+class ListChangesetsResponseTypeDef(BaseValidatorModel):
     changesets: List[ChangesetSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SchemaUnionPaginatorTypeDef(BaseModel):
+class SchemaUnionPaginatorTypeDef(BaseValidatorModel):
     tabularSchemaConfig: Optional[SchemaDefinitionPaginatorTypeDef] = None
 
-class SchemaUnionTypeDef(BaseModel):
+class SchemaUnionTypeDef(BaseValidatorModel):
     tabularSchemaConfig: Optional[SchemaDefinitionTypeDef] = None
 
-class ListDataViewsResponsePaginatorTypeDef(BaseModel):
+class ListDataViewsResponsePaginatorTypeDef(BaseValidatorModel):
     nextToken: str
     dataViews: List[DataViewSummaryPaginatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataViewsResponseTypeDef(BaseModel):
+class ListDataViewsResponseTypeDef(BaseValidatorModel):
     nextToken: str
     dataViews: List[DataViewSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DatasetPaginatorTypeDef(BaseModel):
+class DatasetPaginatorTypeDef(BaseValidatorModel):
     datasetId: Optional[str] = None
     datasetArn: Optional[str] = None
     datasetTitle: Optional[str] = None
@@ -513,7 +513,7 @@ class DatasetPaginatorTypeDef(BaseModel):
     schemaDefinition: Optional[SchemaUnionPaginatorTypeDef] = None
     alias: Optional[str] = None
 
-class CreateDatasetRequestRequestTypeDef(BaseModel):
+class CreateDatasetRequestRequestTypeDef(BaseValidatorModel):
     datasetTitle: str
     kind: DatasetKindType
     permissionGroupParams: PermissionGroupParamsTypeDef
@@ -523,7 +523,7 @@ class CreateDatasetRequestRequestTypeDef(BaseModel):
     alias: Optional[str] = None
     schemaDefinition: Optional[SchemaUnionTypeDef] = None
 
-class DatasetTypeDef(BaseModel):
+class DatasetTypeDef(BaseValidatorModel):
     datasetId: Optional[str] = None
     datasetArn: Optional[str] = None
     datasetTitle: Optional[str] = None
@@ -535,7 +535,7 @@ class DatasetTypeDef(BaseModel):
     schemaDefinition: Optional[SchemaUnionTypeDef] = None
     alias: Optional[str] = None
 
-class GetDatasetResponseTypeDef(BaseModel):
+class GetDatasetResponseTypeDef(BaseValidatorModel):
     datasetId: str
     datasetArn: str
     datasetTitle: str
@@ -548,7 +548,7 @@ class GetDatasetResponseTypeDef(BaseModel):
     status: DatasetStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDatasetRequestRequestTypeDef(BaseModel):
+class UpdateDatasetRequestRequestTypeDef(BaseValidatorModel):
     datasetId: str
     datasetTitle: str
     kind: DatasetKindType
@@ -557,12 +557,12 @@ class UpdateDatasetRequestRequestTypeDef(BaseModel):
     alias: Optional[str] = None
     schemaDefinition: Optional[SchemaUnionTypeDef] = None
 
-class ListDatasetsResponsePaginatorTypeDef(BaseModel):
+class ListDatasetsResponsePaginatorTypeDef(BaseValidatorModel):
     datasets: List[DatasetPaginatorTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDatasetsResponseTypeDef(BaseModel):
+class ListDatasetsResponseTypeDef(BaseValidatorModel):
     datasets: List[DatasetTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

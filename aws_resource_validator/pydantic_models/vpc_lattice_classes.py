@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.vpc_lattice_constants import *
 
-class AccessLogSubscriptionSummaryTypeDef(BaseModel):
+class AccessLogSubscriptionSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     destinationArn: str
@@ -20,48 +20,48 @@ class AccessLogSubscriptionSummaryTypeDef(BaseModel):
     resourceArn: str
     resourceId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class RuleUpdateFailureTypeDef(BaseModel):
+class RuleUpdateFailureTypeDef(BaseValidatorModel):
     failureCode: Optional[str] = None
     failureMessage: Optional[str] = None
     ruleIdentifier: Optional[str] = None
 
-class CreateAccessLogSubscriptionRequestRequestTypeDef(BaseModel):
+class CreateAccessLogSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     destinationArn: str
     resourceIdentifier: str
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateServiceNetworkRequestRequestTypeDef(BaseModel):
+class CreateServiceNetworkRequestRequestTypeDef(BaseValidatorModel):
     name: str
     authType: Optional[AuthTypeType] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateServiceNetworkServiceAssociationRequestRequestTypeDef(BaseModel):
+class CreateServiceNetworkServiceAssociationRequestRequestTypeDef(BaseValidatorModel):
     serviceIdentifier: str
     serviceNetworkIdentifier: str
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class DnsEntryTypeDef(BaseModel):
+class DnsEntryTypeDef(BaseValidatorModel):
     domainName: Optional[str] = None
     hostedZoneId: Optional[str] = None
 
-class CreateServiceNetworkVpcAssociationRequestRequestTypeDef(BaseModel):
+class CreateServiceNetworkVpcAssociationRequestRequestTypeDef(BaseValidatorModel):
     serviceNetworkIdentifier: str
     vpcIdentifier: str
     clientToken: Optional[str] = None
     securityGroupIds: Optional[Sequence[str]] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateServiceRequestRequestTypeDef(BaseModel):
+class CreateServiceRequestRequestTypeDef(BaseValidatorModel):
     name: str
     authType: Optional[AuthTypeType] = None
     certificateArn: Optional[str] = None
@@ -69,113 +69,113 @@ class CreateServiceRequestRequestTypeDef(BaseModel):
     customDomainName: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class DeleteAccessLogSubscriptionRequestRequestTypeDef(BaseModel):
+class DeleteAccessLogSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     accessLogSubscriptionIdentifier: str
 
-class DeleteAuthPolicyRequestRequestTypeDef(BaseModel):
+class DeleteAuthPolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceIdentifier: str
 
-class DeleteListenerRequestRequestTypeDef(BaseModel):
+class DeleteListenerRequestRequestTypeDef(BaseValidatorModel):
     listenerIdentifier: str
     serviceIdentifier: str
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseModel):
+class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class DeleteRuleRequestRequestTypeDef(BaseModel):
+class DeleteRuleRequestRequestTypeDef(BaseValidatorModel):
     listenerIdentifier: str
     ruleIdentifier: str
     serviceIdentifier: str
 
-class DeleteServiceNetworkRequestRequestTypeDef(BaseModel):
+class DeleteServiceNetworkRequestRequestTypeDef(BaseValidatorModel):
     serviceNetworkIdentifier: str
 
-class DeleteServiceNetworkServiceAssociationRequestRequestTypeDef(BaseModel):
+class DeleteServiceNetworkServiceAssociationRequestRequestTypeDef(BaseValidatorModel):
     serviceNetworkServiceAssociationIdentifier: str
 
-class DeleteServiceNetworkVpcAssociationRequestRequestTypeDef(BaseModel):
+class DeleteServiceNetworkVpcAssociationRequestRequestTypeDef(BaseValidatorModel):
     serviceNetworkVpcAssociationIdentifier: str
 
-class DeleteServiceRequestRequestTypeDef(BaseModel):
+class DeleteServiceRequestRequestTypeDef(BaseValidatorModel):
     serviceIdentifier: str
 
-class DeleteTargetGroupRequestRequestTypeDef(BaseModel):
+class DeleteTargetGroupRequestRequestTypeDef(BaseValidatorModel):
     targetGroupIdentifier: str
 
-class TargetTypeDef(BaseModel):
+class TargetTypeDef(BaseValidatorModel):
     id: str
     port: Optional[int] = None
 
-class TargetFailureTypeDef(BaseModel):
+class TargetFailureTypeDef(BaseValidatorModel):
     failureCode: Optional[str] = None
     failureMessage: Optional[str] = None
     id: Optional[str] = None
     port: Optional[int] = None
 
-class FixedResponseActionTypeDef(BaseModel):
+class FixedResponseActionTypeDef(BaseValidatorModel):
     statusCode: int
 
-class WeightedTargetGroupTypeDef(BaseModel):
+class WeightedTargetGroupTypeDef(BaseValidatorModel):
     targetGroupIdentifier: str
     weight: Optional[int] = None
 
-class GetAccessLogSubscriptionRequestRequestTypeDef(BaseModel):
+class GetAccessLogSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     accessLogSubscriptionIdentifier: str
 
-class GetAuthPolicyRequestRequestTypeDef(BaseModel):
+class GetAuthPolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceIdentifier: str
 
-class GetListenerRequestRequestTypeDef(BaseModel):
+class GetListenerRequestRequestTypeDef(BaseValidatorModel):
     listenerIdentifier: str
     serviceIdentifier: str
 
-class GetResourcePolicyRequestRequestTypeDef(BaseModel):
+class GetResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class GetRuleRequestRequestTypeDef(BaseModel):
+class GetRuleRequestRequestTypeDef(BaseValidatorModel):
     listenerIdentifier: str
     ruleIdentifier: str
     serviceIdentifier: str
 
-class GetServiceNetworkRequestRequestTypeDef(BaseModel):
+class GetServiceNetworkRequestRequestTypeDef(BaseValidatorModel):
     serviceNetworkIdentifier: str
 
-class GetServiceNetworkServiceAssociationRequestRequestTypeDef(BaseModel):
+class GetServiceNetworkServiceAssociationRequestRequestTypeDef(BaseValidatorModel):
     serviceNetworkServiceAssociationIdentifier: str
 
-class GetServiceNetworkVpcAssociationRequestRequestTypeDef(BaseModel):
+class GetServiceNetworkVpcAssociationRequestRequestTypeDef(BaseValidatorModel):
     serviceNetworkVpcAssociationIdentifier: str
 
-class GetServiceRequestRequestTypeDef(BaseModel):
+class GetServiceRequestRequestTypeDef(BaseValidatorModel):
     serviceIdentifier: str
 
-class GetTargetGroupRequestRequestTypeDef(BaseModel):
+class GetTargetGroupRequestRequestTypeDef(BaseValidatorModel):
     targetGroupIdentifier: str
 
-class HeaderMatchTypeTypeDef(BaseModel):
+class HeaderMatchTypeTypeDef(BaseValidatorModel):
     contains: Optional[str] = None
     exact: Optional[str] = None
     prefix: Optional[str] = None
 
-class MatcherTypeDef(BaseModel):
+class MatcherTypeDef(BaseValidatorModel):
     httpCode: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAccessLogSubscriptionsRequestRequestTypeDef(BaseModel):
+class ListAccessLogSubscriptionsRequestRequestTypeDef(BaseValidatorModel):
     resourceIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListListenersRequestRequestTypeDef(BaseModel):
+class ListListenersRequestRequestTypeDef(BaseValidatorModel):
     serviceIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListenerSummaryTypeDef(BaseModel):
+class ListenerSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     id: Optional[str] = None
@@ -184,13 +184,13 @@ class ListenerSummaryTypeDef(BaseModel):
     port: Optional[int] = None
     protocol: Optional[ListenerProtocolType] = None
 
-class ListRulesRequestRequestTypeDef(BaseModel):
+class ListRulesRequestRequestTypeDef(BaseValidatorModel):
     listenerIdentifier: str
     serviceIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class RuleSummaryTypeDef(BaseModel):
+class RuleSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     id: Optional[str] = None
@@ -199,19 +199,19 @@ class RuleSummaryTypeDef(BaseModel):
     name: Optional[str] = None
     priority: Optional[int] = None
 
-class ListServiceNetworkServiceAssociationsRequestRequestTypeDef(BaseModel):
+class ListServiceNetworkServiceAssociationsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     serviceIdentifier: Optional[str] = None
     serviceNetworkIdentifier: Optional[str] = None
 
-class ListServiceNetworkVpcAssociationsRequestRequestTypeDef(BaseModel):
+class ListServiceNetworkVpcAssociationsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     serviceNetworkIdentifier: Optional[str] = None
     vpcIdentifier: Optional[str] = None
 
-class ServiceNetworkVpcAssociationSummaryTypeDef(BaseModel):
+class ServiceNetworkVpcAssociationSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
@@ -223,11 +223,11 @@ class ServiceNetworkVpcAssociationSummaryTypeDef(BaseModel):
     status: Optional[ServiceNetworkVpcAssociationStatusType] = None
     vpcId: Optional[str] = None
 
-class ListServiceNetworksRequestRequestTypeDef(BaseModel):
+class ListServiceNetworksRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ServiceNetworkSummaryTypeDef(BaseModel):
+class ServiceNetworkSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     id: Optional[str] = None
@@ -236,20 +236,20 @@ class ServiceNetworkSummaryTypeDef(BaseModel):
     numberOfAssociatedServices: Optional[int] = None
     numberOfAssociatedVPCs: Optional[int] = None
 
-class ListServicesRequestRequestTypeDef(BaseModel):
+class ListServicesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListTargetGroupsRequestRequestTypeDef(BaseModel):
+class ListTargetGroupsRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     targetGroupType: Optional[TargetGroupTypeType] = None
     vpcIdentifier: Optional[str] = None
 
-class TargetGroupSummaryTypeDef(BaseModel):
+class TargetGroupSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     id: Optional[str] = None
@@ -264,50 +264,50 @@ class TargetGroupSummaryTypeDef(BaseModel):
     type: Optional[TargetGroupTypeType] = None
     vpcIdentifier: Optional[str] = None
 
-class TargetSummaryTypeDef(BaseModel):
+class TargetSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     port: Optional[int] = None
     reasonCode: Optional[str] = None
     status: Optional[TargetStatusType] = None
 
-class PathMatchTypeTypeDef(BaseModel):
+class PathMatchTypeTypeDef(BaseValidatorModel):
     exact: Optional[str] = None
     prefix: Optional[str] = None
 
-class PutAuthPolicyRequestRequestTypeDef(BaseModel):
+class PutAuthPolicyRequestRequestTypeDef(BaseValidatorModel):
     policy: str
     resourceIdentifier: str
 
-class PutResourcePolicyRequestRequestTypeDef(BaseModel):
+class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
     policy: str
     resourceArn: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateAccessLogSubscriptionRequestRequestTypeDef(BaseModel):
+class UpdateAccessLogSubscriptionRequestRequestTypeDef(BaseValidatorModel):
     accessLogSubscriptionIdentifier: str
     destinationArn: str
 
-class UpdateServiceNetworkRequestRequestTypeDef(BaseModel):
+class UpdateServiceNetworkRequestRequestTypeDef(BaseValidatorModel):
     authType: AuthTypeType
     serviceNetworkIdentifier: str
 
-class UpdateServiceNetworkVpcAssociationRequestRequestTypeDef(BaseModel):
+class UpdateServiceNetworkVpcAssociationRequestRequestTypeDef(BaseValidatorModel):
     securityGroupIds: Sequence[str]
     serviceNetworkVpcAssociationIdentifier: str
 
-class UpdateServiceRequestRequestTypeDef(BaseModel):
+class UpdateServiceRequestRequestTypeDef(BaseValidatorModel):
     serviceIdentifier: str
     authType: Optional[AuthTypeType] = None
     certificateArn: Optional[str] = None
 
-class CreateAccessLogSubscriptionResponseTypeDef(BaseModel):
+class CreateAccessLogSubscriptionResponseTypeDef(BaseValidatorModel):
     arn: str
     destinationArn: str
     id: str
@@ -315,14 +315,14 @@ class CreateAccessLogSubscriptionResponseTypeDef(BaseModel):
     resourceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServiceNetworkResponseTypeDef(BaseModel):
+class CreateServiceNetworkResponseTypeDef(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
     id: str
     name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServiceNetworkVpcAssociationResponseTypeDef(BaseModel):
+class CreateServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
     arn: str
     createdBy: str
     id: str
@@ -330,32 +330,32 @@ class CreateServiceNetworkVpcAssociationResponseTypeDef(BaseModel):
     status: ServiceNetworkVpcAssociationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteServiceNetworkServiceAssociationResponseTypeDef(BaseModel):
+class DeleteServiceNetworkServiceAssociationResponseTypeDef(BaseValidatorModel):
     arn: str
     id: str
     status: ServiceNetworkServiceAssociationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteServiceNetworkVpcAssociationResponseTypeDef(BaseModel):
+class DeleteServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
     arn: str
     id: str
     status: ServiceNetworkVpcAssociationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteServiceResponseTypeDef(BaseModel):
+class DeleteServiceResponseTypeDef(BaseValidatorModel):
     arn: str
     id: str
     name: str
     status: ServiceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTargetGroupResponseTypeDef(BaseModel):
+class DeleteTargetGroupResponseTypeDef(BaseValidatorModel):
     arn: str
     id: str
     status: TargetGroupStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessLogSubscriptionResponseTypeDef(BaseModel):
+class GetAccessLogSubscriptionResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     destinationArn: str
@@ -365,18 +365,18 @@ class GetAccessLogSubscriptionResponseTypeDef(BaseModel):
     resourceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAuthPolicyResponseTypeDef(BaseModel):
+class GetAuthPolicyResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
     policy: str
     state: AuthPolicyStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourcePolicyResponseTypeDef(BaseModel):
+class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
     policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServiceNetworkResponseTypeDef(BaseModel):
+class GetServiceNetworkResponseTypeDef(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
     createdAt: datetime
@@ -387,7 +387,7 @@ class GetServiceNetworkResponseTypeDef(BaseModel):
     numberOfAssociatedVPCs: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServiceNetworkVpcAssociationResponseTypeDef(BaseModel):
+class GetServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     createdBy: str
@@ -403,21 +403,21 @@ class GetServiceNetworkVpcAssociationResponseTypeDef(BaseModel):
     vpcId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAccessLogSubscriptionsResponseTypeDef(BaseModel):
+class ListAccessLogSubscriptionsResponseTypeDef(BaseValidatorModel):
     items: List[AccessLogSubscriptionSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAuthPolicyResponseTypeDef(BaseModel):
+class PutAuthPolicyResponseTypeDef(BaseValidatorModel):
     policy: str
     state: AuthPolicyStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAccessLogSubscriptionResponseTypeDef(BaseModel):
+class UpdateAccessLogSubscriptionResponseTypeDef(BaseValidatorModel):
     arn: str
     destinationArn: str
     id: str
@@ -425,14 +425,14 @@ class UpdateAccessLogSubscriptionResponseTypeDef(BaseModel):
     resourceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServiceNetworkResponseTypeDef(BaseModel):
+class UpdateServiceNetworkResponseTypeDef(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
     id: str
     name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServiceNetworkVpcAssociationResponseTypeDef(BaseModel):
+class UpdateServiceNetworkVpcAssociationResponseTypeDef(BaseValidatorModel):
     arn: str
     createdBy: str
     id: str
@@ -440,7 +440,7 @@ class UpdateServiceNetworkVpcAssociationResponseTypeDef(BaseModel):
     status: ServiceNetworkVpcAssociationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServiceResponseTypeDef(BaseModel):
+class UpdateServiceResponseTypeDef(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
     certificateArn: str
@@ -449,7 +449,7 @@ class UpdateServiceResponseTypeDef(BaseModel):
     name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServiceNetworkServiceAssociationResponseTypeDef(BaseModel):
+class CreateServiceNetworkServiceAssociationResponseTypeDef(BaseValidatorModel):
     arn: str
     createdBy: str
     customDomainName: str
@@ -458,7 +458,7 @@ class CreateServiceNetworkServiceAssociationResponseTypeDef(BaseModel):
     status: ServiceNetworkServiceAssociationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServiceResponseTypeDef(BaseModel):
+class CreateServiceResponseTypeDef(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
     certificateArn: str
@@ -469,7 +469,7 @@ class CreateServiceResponseTypeDef(BaseModel):
     status: ServiceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServiceNetworkServiceAssociationResponseTypeDef(BaseModel):
+class GetServiceNetworkServiceAssociationResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     createdBy: str
@@ -487,7 +487,7 @@ class GetServiceNetworkServiceAssociationResponseTypeDef(BaseModel):
     status: ServiceNetworkServiceAssociationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetServiceResponseTypeDef(BaseModel):
+class GetServiceResponseTypeDef(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
     certificateArn: str
@@ -502,7 +502,7 @@ class GetServiceResponseTypeDef(BaseModel):
     status: ServiceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceNetworkServiceAssociationSummaryTypeDef(BaseModel):
+class ServiceNetworkServiceAssociationSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
@@ -517,7 +517,7 @@ class ServiceNetworkServiceAssociationSummaryTypeDef(BaseModel):
     serviceNetworkName: Optional[str] = None
     status: Optional[ServiceNetworkServiceAssociationStatusType] = None
 
-class ServiceSummaryTypeDef(BaseModel):
+class ServiceSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     createdAt: Optional[datetime] = None
     customDomainName: Optional[str] = None
@@ -527,42 +527,42 @@ class ServiceSummaryTypeDef(BaseModel):
     name: Optional[str] = None
     status: Optional[ServiceStatusType] = None
 
-class DeregisterTargetsRequestRequestTypeDef(BaseModel):
+class DeregisterTargetsRequestRequestTypeDef(BaseValidatorModel):
     targetGroupIdentifier: str
     targets: Sequence[TargetTypeDef]
 
-class ListTargetsRequestRequestTypeDef(BaseModel):
+class ListTargetsRequestRequestTypeDef(BaseValidatorModel):
     targetGroupIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     targets: Optional[Sequence[TargetTypeDef]] = None
 
-class RegisterTargetsRequestRequestTypeDef(BaseModel):
+class RegisterTargetsRequestRequestTypeDef(BaseValidatorModel):
     targetGroupIdentifier: str
     targets: Sequence[TargetTypeDef]
 
-class DeregisterTargetsResponseTypeDef(BaseModel):
+class DeregisterTargetsResponseTypeDef(BaseValidatorModel):
     successful: List[TargetTypeDef]
     unsuccessful: List[TargetFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterTargetsResponseTypeDef(BaseModel):
+class RegisterTargetsResponseTypeDef(BaseValidatorModel):
     successful: List[TargetTypeDef]
     unsuccessful: List[TargetFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ForwardActionOutputTypeDef(BaseModel):
+class ForwardActionOutputTypeDef(BaseValidatorModel):
     targetGroups: List[WeightedTargetGroupTypeDef]
 
-class ForwardActionTypeDef(BaseModel):
+class ForwardActionTypeDef(BaseValidatorModel):
     targetGroups: Sequence[WeightedTargetGroupTypeDef]
 
-class HeaderMatchTypeDef(BaseModel):
+class HeaderMatchTypeDef(BaseValidatorModel):
     match: HeaderMatchTypeTypeDef
     name: str
     caseSensitive: Optional[bool] = None
 
-class HealthCheckConfigTypeDef(BaseModel):
+class HealthCheckConfigTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
     healthCheckIntervalSeconds: Optional[int] = None
     healthCheckTimeoutSeconds: Optional[int] = None
@@ -574,93 +574,93 @@ class HealthCheckConfigTypeDef(BaseModel):
     protocolVersion: Optional[HealthCheckProtocolVersionType] = None
     unhealthyThresholdCount: Optional[int] = None
 
-class ListAccessLogSubscriptionsRequestListAccessLogSubscriptionsPaginateTypeDef(BaseModel):
+class ListAccessLogSubscriptionsRequestListAccessLogSubscriptionsPaginateTypeDef(BaseValidatorModel):
     resourceIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListListenersRequestListListenersPaginateTypeDef(BaseModel):
+class ListListenersRequestListListenersPaginateTypeDef(BaseValidatorModel):
     serviceIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRulesRequestListRulesPaginateTypeDef(BaseModel):
+class ListRulesRequestListRulesPaginateTypeDef(BaseValidatorModel):
     listenerIdentifier: str
     serviceIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServiceNetworkServiceAssociationsRequestListServiceNetworkServiceAssociationsPaginateTypeDef(BaseModel):
+class ListServiceNetworkServiceAssociationsRequestListServiceNetworkServiceAssociationsPaginateTypeDef(BaseValidatorModel):
     serviceIdentifier: Optional[str] = None
     serviceNetworkIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServiceNetworksRequestListServiceNetworksPaginateTypeDef(BaseModel):
+class ListServiceNetworksRequestListServiceNetworksPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServicesRequestListServicesPaginateTypeDef(BaseModel):
+class ListServicesRequestListServicesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTargetGroupsRequestListTargetGroupsPaginateTypeDef(BaseModel):
+class ListTargetGroupsRequestListTargetGroupsPaginateTypeDef(BaseValidatorModel):
     targetGroupType: Optional[TargetGroupTypeType] = None
     vpcIdentifier: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTargetsRequestListTargetsPaginateTypeDef(BaseModel):
+class ListTargetsRequestListTargetsPaginateTypeDef(BaseValidatorModel):
     targetGroupIdentifier: str
     targets: Optional[Sequence[TargetTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListListenersResponseTypeDef(BaseModel):
+class ListListenersResponseTypeDef(BaseValidatorModel):
     items: List[ListenerSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRulesResponseTypeDef(BaseModel):
+class ListRulesResponseTypeDef(BaseValidatorModel):
     items: List[RuleSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServiceNetworkVpcAssociationsResponseTypeDef(BaseModel):
+class ListServiceNetworkVpcAssociationsResponseTypeDef(BaseValidatorModel):
     items: List[ServiceNetworkVpcAssociationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServiceNetworksResponseTypeDef(BaseModel):
+class ListServiceNetworksResponseTypeDef(BaseValidatorModel):
     items: List[ServiceNetworkSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTargetGroupsResponseTypeDef(BaseModel):
+class ListTargetGroupsResponseTypeDef(BaseValidatorModel):
     items: List[TargetGroupSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTargetsResponseTypeDef(BaseModel):
+class ListTargetsResponseTypeDef(BaseValidatorModel):
     items: List[TargetSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PathMatchTypeDef(BaseModel):
+class PathMatchTypeDef(BaseValidatorModel):
     match: PathMatchTypeTypeDef
     caseSensitive: Optional[bool] = None
 
-class ListServiceNetworkServiceAssociationsResponseTypeDef(BaseModel):
+class ListServiceNetworkServiceAssociationsResponseTypeDef(BaseValidatorModel):
     items: List[ServiceNetworkServiceAssociationSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListServicesResponseTypeDef(BaseModel):
+class ListServicesResponseTypeDef(BaseValidatorModel):
     items: List[ServiceSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RuleActionOutputTypeDef(BaseModel):
+class RuleActionOutputTypeDef(BaseValidatorModel):
     fixedResponse: Optional[FixedResponseActionTypeDef] = None
     forward: Optional[ForwardActionOutputTypeDef] = None
 
-class RuleActionTypeDef(BaseModel):
+class RuleActionTypeDef(BaseValidatorModel):
     fixedResponse: Optional[FixedResponseActionTypeDef] = None
     forward: Optional[ForwardActionTypeDef] = None
 
-class TargetGroupConfigTypeDef(BaseModel):
+class TargetGroupConfigTypeDef(BaseValidatorModel):
     healthCheck: Optional[HealthCheckConfigTypeDef] = None
     ipAddressType: Optional[IpAddressTypeType] = None
     lambdaEventStructureVersion: Optional[LambdaEventStructureVersionType] = None
@@ -669,21 +669,21 @@ class TargetGroupConfigTypeDef(BaseModel):
     protocolVersion: Optional[TargetGroupProtocolVersionType] = None
     vpcIdentifier: Optional[str] = None
 
-class UpdateTargetGroupRequestRequestTypeDef(BaseModel):
+class UpdateTargetGroupRequestRequestTypeDef(BaseValidatorModel):
     healthCheck: HealthCheckConfigTypeDef
     targetGroupIdentifier: str
 
-class HttpMatchOutputTypeDef(BaseModel):
+class HttpMatchOutputTypeDef(BaseValidatorModel):
     headerMatches: Optional[List[HeaderMatchTypeDef]] = None
     method: Optional[str] = None
     pathMatch: Optional[PathMatchTypeDef] = None
 
-class HttpMatchTypeDef(BaseModel):
+class HttpMatchTypeDef(BaseValidatorModel):
     headerMatches: Optional[Sequence[HeaderMatchTypeDef]] = None
     method: Optional[str] = None
     pathMatch: Optional[PathMatchTypeDef] = None
 
-class CreateListenerResponseTypeDef(BaseModel):
+class CreateListenerResponseTypeDef(BaseValidatorModel):
     arn: str
     defaultAction: RuleActionOutputTypeDef
     id: str
@@ -694,7 +694,7 @@ class CreateListenerResponseTypeDef(BaseModel):
     serviceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetListenerResponseTypeDef(BaseModel):
+class GetListenerResponseTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     defaultAction: RuleActionOutputTypeDef
@@ -707,7 +707,7 @@ class GetListenerResponseTypeDef(BaseModel):
     serviceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateListenerResponseTypeDef(BaseModel):
+class UpdateListenerResponseTypeDef(BaseValidatorModel):
     arn: str
     defaultAction: RuleActionOutputTypeDef
     id: str
@@ -718,7 +718,7 @@ class UpdateListenerResponseTypeDef(BaseModel):
     serviceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateListenerRequestRequestTypeDef(BaseModel):
+class CreateListenerRequestRequestTypeDef(BaseValidatorModel):
     defaultAction: RuleActionTypeDef
     name: str
     protocol: ListenerProtocolType
@@ -727,19 +727,19 @@ class CreateListenerRequestRequestTypeDef(BaseModel):
     port: Optional[int] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateListenerRequestRequestTypeDef(BaseModel):
+class UpdateListenerRequestRequestTypeDef(BaseValidatorModel):
     defaultAction: RuleActionTypeDef
     listenerIdentifier: str
     serviceIdentifier: str
 
-class CreateTargetGroupRequestRequestTypeDef(BaseModel):
+class CreateTargetGroupRequestRequestTypeDef(BaseValidatorModel):
     name: str
     type: TargetGroupTypeType
     clientToken: Optional[str] = None
     config: Optional[TargetGroupConfigTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateTargetGroupResponseTypeDef(BaseModel):
+class CreateTargetGroupResponseTypeDef(BaseValidatorModel):
     arn: str
     config: TargetGroupConfigTypeDef
     id: str
@@ -748,7 +748,7 @@ class CreateTargetGroupResponseTypeDef(BaseModel):
     type: TargetGroupTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTargetGroupResponseTypeDef(BaseModel):
+class GetTargetGroupResponseTypeDef(BaseValidatorModel):
     arn: str
     config: TargetGroupConfigTypeDef
     createdAt: datetime
@@ -762,7 +762,7 @@ class GetTargetGroupResponseTypeDef(BaseModel):
     type: TargetGroupTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTargetGroupResponseTypeDef(BaseModel):
+class UpdateTargetGroupResponseTypeDef(BaseValidatorModel):
     arn: str
     config: TargetGroupConfigTypeDef
     id: str
@@ -771,13 +771,13 @@ class UpdateTargetGroupResponseTypeDef(BaseModel):
     type: TargetGroupTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RuleMatchOutputTypeDef(BaseModel):
+class RuleMatchOutputTypeDef(BaseValidatorModel):
     httpMatch: Optional[HttpMatchOutputTypeDef] = None
 
-class RuleMatchTypeDef(BaseModel):
+class RuleMatchTypeDef(BaseValidatorModel):
     httpMatch: Optional[HttpMatchTypeDef] = None
 
-class CreateRuleResponseTypeDef(BaseModel):
+class CreateRuleResponseTypeDef(BaseValidatorModel):
     action: RuleActionOutputTypeDef
     arn: str
     id: str
@@ -786,7 +786,7 @@ class CreateRuleResponseTypeDef(BaseModel):
     priority: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRuleResponseTypeDef(BaseModel):
+class GetRuleResponseTypeDef(BaseValidatorModel):
     action: RuleActionOutputTypeDef
     arn: str
     createdAt: datetime
@@ -798,7 +798,7 @@ class GetRuleResponseTypeDef(BaseModel):
     priority: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RuleUpdateSuccessTypeDef(BaseModel):
+class RuleUpdateSuccessTypeDef(BaseValidatorModel):
     action: Optional[RuleActionOutputTypeDef] = None
     arn: Optional[str] = None
     id: Optional[str] = None
@@ -807,7 +807,7 @@ class RuleUpdateSuccessTypeDef(BaseModel):
     name: Optional[str] = None
     priority: Optional[int] = None
 
-class UpdateRuleResponseTypeDef(BaseModel):
+class UpdateRuleResponseTypeDef(BaseValidatorModel):
     action: RuleActionOutputTypeDef
     arn: str
     id: str
@@ -817,7 +817,7 @@ class UpdateRuleResponseTypeDef(BaseModel):
     priority: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRuleRequestRequestTypeDef(BaseModel):
+class CreateRuleRequestRequestTypeDef(BaseValidatorModel):
     action: RuleActionTypeDef
     listenerIdentifier: str
     match: RuleMatchTypeDef
@@ -827,13 +827,13 @@ class CreateRuleRequestRequestTypeDef(BaseModel):
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class RuleUpdateTypeDef(BaseModel):
+class RuleUpdateTypeDef(BaseValidatorModel):
     ruleIdentifier: str
     action: Optional[RuleActionTypeDef] = None
     match: Optional[RuleMatchTypeDef] = None
     priority: Optional[int] = None
 
-class UpdateRuleRequestRequestTypeDef(BaseModel):
+class UpdateRuleRequestRequestTypeDef(BaseValidatorModel):
     listenerIdentifier: str
     ruleIdentifier: str
     serviceIdentifier: str
@@ -841,12 +841,12 @@ class UpdateRuleRequestRequestTypeDef(BaseModel):
     match: Optional[RuleMatchTypeDef] = None
     priority: Optional[int] = None
 
-class BatchUpdateRuleResponseTypeDef(BaseModel):
+class BatchUpdateRuleResponseTypeDef(BaseValidatorModel):
     successful: List[RuleUpdateSuccessTypeDef]
     unsuccessful: List[RuleUpdateFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchUpdateRuleRequestRequestTypeDef(BaseModel):
+class BatchUpdateRuleRequestRequestTypeDef(BaseValidatorModel):
     listenerIdentifier: str
     rules: Sequence[RuleUpdateTypeDef]
     serviceIdentifier: str

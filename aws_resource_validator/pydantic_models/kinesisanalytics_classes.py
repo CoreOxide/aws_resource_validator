@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,233 +11,233 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kinesisanalytics_constants import *
 
-class CloudWatchLoggingOptionTypeDef(BaseModel):
+class CloudWatchLoggingOptionTypeDef(BaseValidatorModel):
     LogStreamARN: str
     RoleARN: str
 
-class CloudWatchLoggingOptionDescriptionTypeDef(BaseModel):
+class CloudWatchLoggingOptionDescriptionTypeDef(BaseValidatorModel):
     LogStreamARN: str
     RoleARN: str
     CloudWatchLoggingOptionId: Optional[str] = None
 
-class ApplicationSummaryTypeDef(BaseModel):
+class ApplicationSummaryTypeDef(BaseValidatorModel):
     ApplicationName: str
     ApplicationARN: str
     ApplicationStatus: ApplicationStatusType
 
-class CloudWatchLoggingOptionUpdateTypeDef(BaseModel):
+class CloudWatchLoggingOptionUpdateTypeDef(BaseValidatorModel):
     CloudWatchLoggingOptionId: str
     LogStreamARNUpdate: Optional[str] = None
     RoleARNUpdate: Optional[str] = None
 
-class CSVMappingParametersTypeDef(BaseModel):
+class CSVMappingParametersTypeDef(BaseValidatorModel):
     RecordRowDelimiter: str
     RecordColumnDelimiter: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class DeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef(BaseModel):
+class DeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     CloudWatchLoggingOptionId: str
 
-class DeleteApplicationInputProcessingConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteApplicationInputProcessingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     InputId: str
 
-class DeleteApplicationOutputRequestRequestTypeDef(BaseModel):
+class DeleteApplicationOutputRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     OutputId: str
 
-class DeleteApplicationReferenceDataSourceRequestRequestTypeDef(BaseModel):
+class DeleteApplicationReferenceDataSourceRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     ReferenceId: str
 
-class DescribeApplicationRequestRequestTypeDef(BaseModel):
+class DescribeApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
 
-class DestinationSchemaTypeDef(BaseModel):
+class DestinationSchemaTypeDef(BaseValidatorModel):
     RecordFormatType: RecordFormatTypeType
 
-class InputStartingPositionConfigurationTypeDef(BaseModel):
+class InputStartingPositionConfigurationTypeDef(BaseValidatorModel):
     InputStartingPosition: Optional[InputStartingPositionType] = None
 
-class S3ConfigurationTypeDef(BaseModel):
+class S3ConfigurationTypeDef(BaseValidatorModel):
     RoleARN: str
     BucketARN: str
     FileKey: str
 
-class InputParallelismTypeDef(BaseModel):
+class InputParallelismTypeDef(BaseValidatorModel):
     Count: Optional[int] = None
 
-class KinesisFirehoseInputDescriptionTypeDef(BaseModel):
+class KinesisFirehoseInputDescriptionTypeDef(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     RoleARN: Optional[str] = None
 
-class KinesisStreamsInputDescriptionTypeDef(BaseModel):
+class KinesisStreamsInputDescriptionTypeDef(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     RoleARN: Optional[str] = None
 
-class InputLambdaProcessorDescriptionTypeDef(BaseModel):
+class InputLambdaProcessorDescriptionTypeDef(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     RoleARN: Optional[str] = None
 
-class InputLambdaProcessorTypeDef(BaseModel):
+class InputLambdaProcessorTypeDef(BaseValidatorModel):
     ResourceARN: str
     RoleARN: str
 
-class InputLambdaProcessorUpdateTypeDef(BaseModel):
+class InputLambdaProcessorUpdateTypeDef(BaseValidatorModel):
     ResourceARNUpdate: Optional[str] = None
     RoleARNUpdate: Optional[str] = None
 
-class InputParallelismUpdateTypeDef(BaseModel):
+class InputParallelismUpdateTypeDef(BaseValidatorModel):
     CountUpdate: Optional[int] = None
 
-class RecordColumnTypeDef(BaseModel):
+class RecordColumnTypeDef(BaseValidatorModel):
     Name: str
     SqlType: str
     Mapping: Optional[str] = None
 
-class KinesisFirehoseInputTypeDef(BaseModel):
+class KinesisFirehoseInputTypeDef(BaseValidatorModel):
     ResourceARN: str
     RoleARN: str
 
-class KinesisStreamsInputTypeDef(BaseModel):
+class KinesisStreamsInputTypeDef(BaseValidatorModel):
     ResourceARN: str
     RoleARN: str
 
-class KinesisFirehoseInputUpdateTypeDef(BaseModel):
+class KinesisFirehoseInputUpdateTypeDef(BaseValidatorModel):
     ResourceARNUpdate: Optional[str] = None
     RoleARNUpdate: Optional[str] = None
 
-class KinesisStreamsInputUpdateTypeDef(BaseModel):
+class KinesisStreamsInputUpdateTypeDef(BaseValidatorModel):
     ResourceARNUpdate: Optional[str] = None
     RoleARNUpdate: Optional[str] = None
 
-class JSONMappingParametersTypeDef(BaseModel):
+class JSONMappingParametersTypeDef(BaseValidatorModel):
     RecordRowPath: str
 
-class KinesisFirehoseOutputDescriptionTypeDef(BaseModel):
+class KinesisFirehoseOutputDescriptionTypeDef(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     RoleARN: Optional[str] = None
 
-class KinesisFirehoseOutputTypeDef(BaseModel):
+class KinesisFirehoseOutputTypeDef(BaseValidatorModel):
     ResourceARN: str
     RoleARN: str
 
-class KinesisFirehoseOutputUpdateTypeDef(BaseModel):
+class KinesisFirehoseOutputUpdateTypeDef(BaseValidatorModel):
     ResourceARNUpdate: Optional[str] = None
     RoleARNUpdate: Optional[str] = None
 
-class KinesisStreamsOutputDescriptionTypeDef(BaseModel):
+class KinesisStreamsOutputDescriptionTypeDef(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     RoleARN: Optional[str] = None
 
-class KinesisStreamsOutputTypeDef(BaseModel):
+class KinesisStreamsOutputTypeDef(BaseValidatorModel):
     ResourceARN: str
     RoleARN: str
 
-class KinesisStreamsOutputUpdateTypeDef(BaseModel):
+class KinesisStreamsOutputUpdateTypeDef(BaseValidatorModel):
     ResourceARNUpdate: Optional[str] = None
     RoleARNUpdate: Optional[str] = None
 
-class LambdaOutputDescriptionTypeDef(BaseModel):
+class LambdaOutputDescriptionTypeDef(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     RoleARN: Optional[str] = None
 
-class LambdaOutputTypeDef(BaseModel):
+class LambdaOutputTypeDef(BaseValidatorModel):
     ResourceARN: str
     RoleARN: str
 
-class LambdaOutputUpdateTypeDef(BaseModel):
+class LambdaOutputUpdateTypeDef(BaseValidatorModel):
     ResourceARNUpdate: Optional[str] = None
     RoleARNUpdate: Optional[str] = None
 
-class ListApplicationsRequestRequestTypeDef(BaseModel):
+class ListApplicationsRequestRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
     ExclusiveStartApplicationName: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class S3ReferenceDataSourceDescriptionTypeDef(BaseModel):
+class S3ReferenceDataSourceDescriptionTypeDef(BaseValidatorModel):
     BucketARN: str
     FileKey: str
     ReferenceRoleARN: str
 
-class S3ReferenceDataSourceTypeDef(BaseModel):
+class S3ReferenceDataSourceTypeDef(BaseValidatorModel):
     BucketARN: str
     FileKey: str
     ReferenceRoleARN: str
 
-class S3ReferenceDataSourceUpdateTypeDef(BaseModel):
+class S3ReferenceDataSourceUpdateTypeDef(BaseValidatorModel):
     BucketARNUpdate: Optional[str] = None
     FileKeyUpdate: Optional[str] = None
     ReferenceRoleARNUpdate: Optional[str] = None
 
-class StopApplicationRequestRequestTypeDef(BaseModel):
+class StopApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef(BaseModel):
+class AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     CloudWatchLoggingOption: CloudWatchLoggingOptionTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class CreateApplicationResponseTypeDef(BaseModel):
+class CreateApplicationResponseTypeDef(BaseValidatorModel):
     ApplicationSummary: ApplicationSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationsResponseTypeDef(BaseModel):
+class ListApplicationsResponseTypeDef(BaseValidatorModel):
     ApplicationSummaries: List[ApplicationSummaryTypeDef]
     HasMoreApplications: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteApplicationRequestRequestTypeDef(BaseModel):
+class DeleteApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CreateTimestamp: TimestampTypeDef
 
-class InputConfigurationTypeDef(BaseModel):
+class InputConfigurationTypeDef(BaseValidatorModel):
     Id: str
     InputStartingPositionConfiguration: InputStartingPositionConfigurationTypeDef
 
-class InputProcessingConfigurationDescriptionTypeDef(BaseModel):
+class InputProcessingConfigurationDescriptionTypeDef(BaseValidatorModel):
     InputLambdaProcessorDescription: Optional[InputLambdaProcessorDescriptionTypeDef] = None
 
-class InputProcessingConfigurationTypeDef(BaseModel):
+class InputProcessingConfigurationTypeDef(BaseValidatorModel):
     InputLambdaProcessor: InputLambdaProcessorTypeDef
 
-class InputProcessingConfigurationUpdateTypeDef(BaseModel):
+class InputProcessingConfigurationUpdateTypeDef(BaseValidatorModel):
     InputLambdaProcessorUpdate: InputLambdaProcessorUpdateTypeDef
 
-class MappingParametersTypeDef(BaseModel):
+class MappingParametersTypeDef(BaseValidatorModel):
     JSONMappingParameters: Optional[JSONMappingParametersTypeDef] = None
     CSVMappingParameters: Optional[CSVMappingParametersTypeDef] = None
 
-class OutputDescriptionTypeDef(BaseModel):
+class OutputDescriptionTypeDef(BaseValidatorModel):
     OutputId: Optional[str] = None
     Name: Optional[str] = None
     KinesisStreamsOutputDescription: Optional[KinesisStreamsOutputDescriptionTypeDef] = None
@@ -245,14 +245,14 @@ class OutputDescriptionTypeDef(BaseModel):
     LambdaOutputDescription: Optional[LambdaOutputDescriptionTypeDef] = None
     DestinationSchema: Optional[DestinationSchemaTypeDef] = None
 
-class OutputTypeDef(BaseModel):
+class OutputTypeDef(BaseValidatorModel):
     Name: str
     DestinationSchema: DestinationSchemaTypeDef
     KinesisStreamsOutput: Optional[KinesisStreamsOutputTypeDef] = None
     KinesisFirehoseOutput: Optional[KinesisFirehoseOutputTypeDef] = None
     LambdaOutput: Optional[LambdaOutputTypeDef] = None
 
-class OutputUpdateTypeDef(BaseModel):
+class OutputUpdateTypeDef(BaseValidatorModel):
     OutputId: str
     NameUpdate: Optional[str] = None
     KinesisStreamsOutputUpdate: Optional[KinesisStreamsOutputUpdateTypeDef] = None
@@ -260,43 +260,43 @@ class OutputUpdateTypeDef(BaseModel):
     LambdaOutputUpdate: Optional[LambdaOutputUpdateTypeDef] = None
     DestinationSchemaUpdate: Optional[DestinationSchemaTypeDef] = None
 
-class StartApplicationRequestRequestTypeDef(BaseModel):
+class StartApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     InputConfigurations: Sequence[InputConfigurationTypeDef]
 
-class AddApplicationInputProcessingConfigurationRequestRequestTypeDef(BaseModel):
+class AddApplicationInputProcessingConfigurationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     InputId: str
     InputProcessingConfiguration: InputProcessingConfigurationTypeDef
 
-class DiscoverInputSchemaRequestRequestTypeDef(BaseModel):
+class DiscoverInputSchemaRequestRequestTypeDef(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     RoleARN: Optional[str] = None
     InputStartingPositionConfiguration: Optional[       InputStartingPositionConfigurationTypeDef     ] = None
     S3Configuration: Optional[S3ConfigurationTypeDef] = None
     InputProcessingConfiguration: Optional[InputProcessingConfigurationTypeDef] = None
 
-class RecordFormatTypeDef(BaseModel):
+class RecordFormatTypeDef(BaseValidatorModel):
     RecordFormatType: RecordFormatTypeType
     MappingParameters: Optional[MappingParametersTypeDef] = None
 
-class AddApplicationOutputRequestRequestTypeDef(BaseModel):
+class AddApplicationOutputRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     Output: OutputTypeDef
 
-class InputSchemaUpdateTypeDef(BaseModel):
+class InputSchemaUpdateTypeDef(BaseValidatorModel):
     RecordFormatUpdate: Optional[RecordFormatTypeDef] = None
     RecordEncodingUpdate: Optional[str] = None
     RecordColumnUpdates: Optional[Sequence[RecordColumnTypeDef]] = None
 
-class SourceSchemaTypeDef(BaseModel):
+class SourceSchemaTypeDef(BaseValidatorModel):
     RecordFormat: RecordFormatTypeDef
     RecordColumns: Sequence[RecordColumnTypeDef]
     RecordEncoding: Optional[str] = None
 
-class InputUpdateTypeDef(BaseModel):
+class InputUpdateTypeDef(BaseValidatorModel):
     InputId: str
     NamePrefixUpdate: Optional[str] = None
     InputProcessingConfigurationUpdate: Optional[       InputProcessingConfigurationUpdateTypeDef     ] = None
@@ -305,14 +305,14 @@ class InputUpdateTypeDef(BaseModel):
     InputSchemaUpdate: Optional[InputSchemaUpdateTypeDef] = None
     InputParallelismUpdate: Optional[InputParallelismUpdateTypeDef] = None
 
-class DiscoverInputSchemaResponseTypeDef(BaseModel):
+class DiscoverInputSchemaResponseTypeDef(BaseValidatorModel):
     InputSchema: SourceSchemaTypeDef
     ParsedInputRecords: List[List[str]]
     ProcessedInputRecords: List[str]
     RawInputRecords: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InputDescriptionTypeDef(BaseModel):
+class InputDescriptionTypeDef(BaseValidatorModel):
     InputId: Optional[str] = None
     NamePrefix: Optional[str] = None
     InAppStreamNames: Optional[List[str]] = None
@@ -323,7 +323,7 @@ class InputDescriptionTypeDef(BaseModel):
     InputParallelism: Optional[InputParallelismTypeDef] = None
     InputStartingPositionConfiguration: Optional[       InputStartingPositionConfigurationTypeDef     ] = None
 
-class InputTypeDef(BaseModel):
+class InputTypeDef(BaseValidatorModel):
     NamePrefix: str
     InputSchema: SourceSchemaTypeDef
     InputProcessingConfiguration: Optional[InputProcessingConfigurationTypeDef] = None
@@ -331,29 +331,29 @@ class InputTypeDef(BaseModel):
     KinesisFirehoseInput: Optional[KinesisFirehoseInputTypeDef] = None
     InputParallelism: Optional[InputParallelismTypeDef] = None
 
-class ReferenceDataSourceDescriptionTypeDef(BaseModel):
+class ReferenceDataSourceDescriptionTypeDef(BaseValidatorModel):
     ReferenceId: str
     TableName: str
     S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescriptionTypeDef
     ReferenceSchema: Optional[SourceSchemaTypeDef] = None
 
-class ReferenceDataSourceTypeDef(BaseModel):
+class ReferenceDataSourceTypeDef(BaseValidatorModel):
     TableName: str
     ReferenceSchema: SourceSchemaTypeDef
     S3ReferenceDataSource: Optional[S3ReferenceDataSourceTypeDef] = None
 
-class ReferenceDataSourceUpdateTypeDef(BaseModel):
+class ReferenceDataSourceUpdateTypeDef(BaseValidatorModel):
     ReferenceId: str
     TableNameUpdate: Optional[str] = None
     S3ReferenceDataSourceUpdate: Optional[S3ReferenceDataSourceUpdateTypeDef] = None
     ReferenceSchemaUpdate: Optional[SourceSchemaTypeDef] = None
 
-class AddApplicationInputRequestRequestTypeDef(BaseModel):
+class AddApplicationInputRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     Input: InputTypeDef
 
-class CreateApplicationRequestRequestTypeDef(BaseModel):
+class CreateApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     ApplicationDescription: Optional[str] = None
     Inputs: Optional[Sequence[InputTypeDef]] = None
@@ -362,7 +362,7 @@ class CreateApplicationRequestRequestTypeDef(BaseModel):
     ApplicationCode: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ApplicationDetailTypeDef(BaseModel):
+class ApplicationDetailTypeDef(BaseValidatorModel):
     ApplicationName: str
     ApplicationARN: str
     ApplicationStatus: ApplicationStatusType
@@ -376,23 +376,23 @@ class ApplicationDetailTypeDef(BaseModel):
     CloudWatchLoggingOptionDescriptions: Optional[       List[CloudWatchLoggingOptionDescriptionTypeDef]     ] = None
     ApplicationCode: Optional[str] = None
 
-class AddApplicationReferenceDataSourceRequestRequestTypeDef(BaseModel):
+class AddApplicationReferenceDataSourceRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     ReferenceDataSource: ReferenceDataSourceTypeDef
 
-class ApplicationUpdateTypeDef(BaseModel):
+class ApplicationUpdateTypeDef(BaseValidatorModel):
     InputUpdates: Optional[Sequence[InputUpdateTypeDef]] = None
     ApplicationCodeUpdate: Optional[str] = None
     OutputUpdates: Optional[Sequence[OutputUpdateTypeDef]] = None
     ReferenceDataSourceUpdates: Optional[Sequence[ReferenceDataSourceUpdateTypeDef]] = None
     CloudWatchLoggingOptionUpdates: Optional[       Sequence[CloudWatchLoggingOptionUpdateTypeDef]     ] = None
 
-class DescribeApplicationResponseTypeDef(BaseModel):
+class DescribeApplicationResponseTypeDef(BaseValidatorModel):
     ApplicationDetail: ApplicationDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApplicationRequestRequestTypeDef(BaseModel):
+class UpdateApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     ApplicationUpdate: ApplicationUpdateTypeDef

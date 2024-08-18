@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,177 +11,177 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.batch_constants import *
 
-class ArrayPropertiesDetailTypeDef(BaseModel):
+class ArrayPropertiesDetailTypeDef(BaseValidatorModel):
     statusSummary: Optional[Dict[str, int]] = None
     size: Optional[int] = None
     index: Optional[int] = None
 
-class ArrayPropertiesSummaryTypeDef(BaseModel):
+class ArrayPropertiesSummaryTypeDef(BaseValidatorModel):
     size: Optional[int] = None
     index: Optional[int] = None
 
-class ArrayPropertiesTypeDef(BaseModel):
+class ArrayPropertiesTypeDef(BaseValidatorModel):
     size: Optional[int] = None
 
-class NetworkInterfaceTypeDef(BaseModel):
+class NetworkInterfaceTypeDef(BaseValidatorModel):
     attachmentId: Optional[str] = None
     ipv6Address: Optional[str] = None
     privateIpv4Address: Optional[str] = None
 
-class CancelJobRequestRequestTypeDef(BaseModel):
+class CancelJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     reason: str
 
-class EksConfigurationTypeDef(BaseModel):
+class EksConfigurationTypeDef(BaseValidatorModel):
     eksClusterArn: str
     kubernetesNamespace: str
 
-class UpdatePolicyTypeDef(BaseModel):
+class UpdatePolicyTypeDef(BaseValidatorModel):
     terminateJobsOnUpdate: Optional[bool] = None
     jobExecutionTimeoutMinutes: Optional[int] = None
 
-class ComputeEnvironmentOrderTypeDef(BaseModel):
+class ComputeEnvironmentOrderTypeDef(BaseValidatorModel):
     order: int
     computeEnvironment: str
 
-class Ec2ConfigurationTypeDef(BaseModel):
+class Ec2ConfigurationTypeDef(BaseValidatorModel):
     imageType: str
     imageIdOverride: Optional[str] = None
     imageKubernetesVersion: Optional[str] = None
 
-class LaunchTemplateSpecificationTypeDef(BaseModel):
+class LaunchTemplateSpecificationTypeDef(BaseValidatorModel):
     launchTemplateId: Optional[str] = None
     launchTemplateName: Optional[str] = None
     version: Optional[str] = None
 
-class EphemeralStorageTypeDef(BaseModel):
+class EphemeralStorageTypeDef(BaseValidatorModel):
     sizeInGiB: int
 
-class FargatePlatformConfigurationTypeDef(BaseModel):
+class FargatePlatformConfigurationTypeDef(BaseValidatorModel):
     platformVersion: Optional[str] = None
 
-class KeyValuePairTypeDef(BaseModel):
+class KeyValuePairTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
 
-class MountPointTypeDef(BaseModel):
+class MountPointTypeDef(BaseValidatorModel):
     containerPath: Optional[str] = None
     readOnly: Optional[bool] = None
     sourceVolume: Optional[str] = None
 
-class NetworkConfigurationTypeDef(BaseModel):
+class NetworkConfigurationTypeDef(BaseValidatorModel):
     assignPublicIp: Optional[AssignPublicIpType] = None
 
-class RepositoryCredentialsTypeDef(BaseModel):
+class RepositoryCredentialsTypeDef(BaseValidatorModel):
     credentialsParameter: str
 
-class ResourceRequirementTypeDef(BaseModel):
+class ResourceRequirementTypeDef(BaseValidatorModel):
     value: str
     type: ResourceTypeType
 
-class RuntimePlatformTypeDef(BaseModel):
+class RuntimePlatformTypeDef(BaseValidatorModel):
     operatingSystemFamily: Optional[str] = None
     cpuArchitecture: Optional[str] = None
 
-class SecretTypeDef(BaseModel):
+class SecretTypeDef(BaseValidatorModel):
     name: str
     valueFrom: str
 
-class UlimitTypeDef(BaseModel):
+class UlimitTypeDef(BaseValidatorModel):
     hardLimit: int
     name: str
     softLimit: int
 
-class ContainerSummaryTypeDef(BaseModel):
+class ContainerSummaryTypeDef(BaseValidatorModel):
     exitCode: Optional[int] = None
     reason: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class JobStateTimeLimitActionTypeDef(BaseModel):
+class JobStateTimeLimitActionTypeDef(BaseValidatorModel):
     reason: str
     state: Literal["RUNNABLE"]
     maxTimeSeconds: int
     action: Literal["CANCEL"]
 
-class DeleteComputeEnvironmentRequestRequestTypeDef(BaseModel):
+class DeleteComputeEnvironmentRequestRequestTypeDef(BaseValidatorModel):
     computeEnvironment: str
 
-class DeleteJobQueueRequestRequestTypeDef(BaseModel):
+class DeleteJobQueueRequestRequestTypeDef(BaseValidatorModel):
     jobQueue: str
 
-class DeleteSchedulingPolicyRequestRequestTypeDef(BaseModel):
+class DeleteSchedulingPolicyRequestRequestTypeDef(BaseValidatorModel):
     arn: str
 
-class DeregisterJobDefinitionRequestRequestTypeDef(BaseModel):
+class DeregisterJobDefinitionRequestRequestTypeDef(BaseValidatorModel):
     jobDefinition: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeComputeEnvironmentsRequestRequestTypeDef(BaseModel):
+class DescribeComputeEnvironmentsRequestRequestTypeDef(BaseValidatorModel):
     computeEnvironments: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeJobDefinitionsRequestRequestTypeDef(BaseModel):
+class DescribeJobDefinitionsRequestRequestTypeDef(BaseValidatorModel):
     jobDefinitions: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     jobDefinitionName: Optional[str] = None
     status: Optional[str] = None
     nextToken: Optional[str] = None
 
-class DescribeJobQueuesRequestRequestTypeDef(BaseModel):
+class DescribeJobQueuesRequestRequestTypeDef(BaseValidatorModel):
     jobQueues: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeJobsRequestRequestTypeDef(BaseModel):
+class DescribeJobsRequestRequestTypeDef(BaseValidatorModel):
     jobs: Sequence[str]
 
-class DescribeSchedulingPoliciesRequestRequestTypeDef(BaseModel):
+class DescribeSchedulingPoliciesRequestRequestTypeDef(BaseValidatorModel):
     arns: Sequence[str]
 
-class DeviceExtraOutputTypeDef(BaseModel):
+class DeviceExtraOutputTypeDef(BaseValidatorModel):
     hostPath: str
     containerPath: Optional[str] = None
     permissions: Optional[List[DeviceCgroupPermissionType]] = None
 
-class DeviceOutputTypeDef(BaseModel):
+class DeviceOutputTypeDef(BaseValidatorModel):
     hostPath: str
     containerPath: Optional[str] = None
     permissions: Optional[List[DeviceCgroupPermissionType]] = None
 
-class DeviceTypeDef(BaseModel):
+class DeviceTypeDef(BaseValidatorModel):
     hostPath: str
     containerPath: Optional[str] = None
     permissions: Optional[Sequence[DeviceCgroupPermissionType]] = None
 
-class EFSAuthorizationConfigTypeDef(BaseModel):
+class EFSAuthorizationConfigTypeDef(BaseValidatorModel):
     accessPointId: Optional[str] = None
     iam: Optional[EFSAuthorizationConfigIAMType] = None
 
-class EksAttemptContainerDetailTypeDef(BaseModel):
+class EksAttemptContainerDetailTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     exitCode: Optional[int] = None
     reason: Optional[str] = None
 
-class EksContainerEnvironmentVariableTypeDef(BaseModel):
+class EksContainerEnvironmentVariableTypeDef(BaseValidatorModel):
     name: str
     value: Optional[str] = None
 
-class EksContainerResourceRequirementsOutputTypeDef(BaseModel):
+class EksContainerResourceRequirementsOutputTypeDef(BaseValidatorModel):
     limits: Optional[Dict[str, str]] = None
     requests: Optional[Dict[str, str]] = None
 
-class EksContainerSecurityContextTypeDef(BaseModel):
+class EksContainerSecurityContextTypeDef(BaseValidatorModel):
     runAsUser: Optional[int] = None
     runAsGroup: Optional[int] = None
     privileged: Optional[bool] = None
@@ -189,124 +189,124 @@ class EksContainerSecurityContextTypeDef(BaseModel):
     readOnlyRootFilesystem: Optional[bool] = None
     runAsNonRoot: Optional[bool] = None
 
-class EksContainerVolumeMountTypeDef(BaseModel):
+class EksContainerVolumeMountTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     mountPath: Optional[str] = None
     readOnly: Optional[bool] = None
 
-class EksContainerResourceRequirementsExtraOutputTypeDef(BaseModel):
+class EksContainerResourceRequirementsExtraOutputTypeDef(BaseValidatorModel):
     limits: Optional[Dict[str, str]] = None
     requests: Optional[Dict[str, str]] = None
 
-class EksContainerResourceRequirementsTypeDef(BaseModel):
+class EksContainerResourceRequirementsTypeDef(BaseValidatorModel):
     limits: Optional[Mapping[str, str]] = None
     requests: Optional[Mapping[str, str]] = None
 
-class EksEmptyDirTypeDef(BaseModel):
+class EksEmptyDirTypeDef(BaseValidatorModel):
     medium: Optional[str] = None
     sizeLimit: Optional[str] = None
 
-class EksHostPathTypeDef(BaseModel):
+class EksHostPathTypeDef(BaseValidatorModel):
     path: Optional[str] = None
 
-class EksMetadataExtraOutputTypeDef(BaseModel):
+class EksMetadataExtraOutputTypeDef(BaseValidatorModel):
     labels: Optional[Dict[str, str]] = None
 
-class EksMetadataOutputTypeDef(BaseModel):
+class EksMetadataOutputTypeDef(BaseValidatorModel):
     labels: Optional[Dict[str, str]] = None
 
-class EksMetadataTypeDef(BaseModel):
+class EksMetadataTypeDef(BaseValidatorModel):
     labels: Optional[Mapping[str, str]] = None
 
-class ImagePullSecretTypeDef(BaseModel):
+class ImagePullSecretTypeDef(BaseValidatorModel):
     name: str
 
-class EksSecretTypeDef(BaseModel):
+class EksSecretTypeDef(BaseValidatorModel):
     secretName: str
     optional: Optional[bool] = None
 
-class EvaluateOnExitTypeDef(BaseModel):
+class EvaluateOnExitTypeDef(BaseValidatorModel):
     action: RetryActionType
     onStatusReason: Optional[str] = None
     onReason: Optional[str] = None
     onExitCode: Optional[str] = None
 
-class ShareAttributesTypeDef(BaseModel):
+class ShareAttributesTypeDef(BaseValidatorModel):
     shareIdentifier: str
     weightFactor: Optional[float] = None
 
-class FrontOfQueueJobSummaryTypeDef(BaseModel):
+class FrontOfQueueJobSummaryTypeDef(BaseValidatorModel):
     jobArn: Optional[str] = None
     earliestTimeAtPosition: Optional[int] = None
 
-class GetJobQueueSnapshotRequestRequestTypeDef(BaseModel):
+class GetJobQueueSnapshotRequestRequestTypeDef(BaseValidatorModel):
     jobQueue: str
 
-class HostTypeDef(BaseModel):
+class HostTypeDef(BaseValidatorModel):
     sourcePath: Optional[str] = None
 
-class JobTimeoutTypeDef(BaseModel):
+class JobTimeoutTypeDef(BaseValidatorModel):
     attemptDurationSeconds: Optional[int] = None
 
-class JobDependencyTypeDef(BaseModel):
+class JobDependencyTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     type: Optional[ArrayJobDependencyType] = None
 
-class NodeDetailsTypeDef(BaseModel):
+class NodeDetailsTypeDef(BaseValidatorModel):
     nodeIndex: Optional[int] = None
     isMainNode: Optional[bool] = None
 
-class NodePropertiesSummaryTypeDef(BaseModel):
+class NodePropertiesSummaryTypeDef(BaseValidatorModel):
     isMainNode: Optional[bool] = None
     numNodes: Optional[int] = None
     nodeIndex: Optional[int] = None
 
-class KeyValuesPairTypeDef(BaseModel):
+class KeyValuesPairTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     values: Optional[Sequence[str]] = None
 
-class TmpfsExtraOutputTypeDef(BaseModel):
+class TmpfsExtraOutputTypeDef(BaseValidatorModel):
     containerPath: str
     size: int
     mountOptions: Optional[List[str]] = None
 
-class TmpfsOutputTypeDef(BaseModel):
+class TmpfsOutputTypeDef(BaseValidatorModel):
     containerPath: str
     size: int
     mountOptions: Optional[List[str]] = None
 
-class TmpfsTypeDef(BaseModel):
+class TmpfsTypeDef(BaseValidatorModel):
     containerPath: str
     size: int
     mountOptions: Optional[Sequence[str]] = None
 
-class ListSchedulingPoliciesRequestRequestTypeDef(BaseModel):
+class ListSchedulingPoliciesRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class SchedulingPolicyListingDetailTypeDef(BaseModel):
+class SchedulingPolicyListingDetailTypeDef(BaseValidatorModel):
     arn: str
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TaskContainerDependencyTypeDef(BaseModel):
+class TaskContainerDependencyTypeDef(BaseValidatorModel):
     containerName: Optional[str] = None
     condition: Optional[str] = None
 
-class TerminateJobRequestRequestTypeDef(BaseModel):
+class TerminateJobRequestRequestTypeDef(BaseValidatorModel):
     jobId: str
     reason: str
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class AttemptContainerDetailTypeDef(BaseModel):
+class AttemptContainerDetailTypeDef(BaseValidatorModel):
     containerInstanceArn: Optional[str] = None
     taskArn: Optional[str] = None
     exitCode: Optional[int] = None
@@ -314,14 +314,14 @@ class AttemptContainerDetailTypeDef(BaseModel):
     logStreamName: Optional[str] = None
     networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
 
-class AttemptTaskContainerDetailsTypeDef(BaseModel):
+class AttemptTaskContainerDetailsTypeDef(BaseValidatorModel):
     exitCode: Optional[int] = None
     name: Optional[str] = None
     reason: Optional[str] = None
     logStreamName: Optional[str] = None
     networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
 
-class ComputeResourceExtraOutputTypeDef(BaseModel):
+class ComputeResourceExtraOutputTypeDef(BaseValidatorModel):
     type: CRTypeType
     maxvCpus: int
     subnets: List[str]
@@ -340,7 +340,7 @@ class ComputeResourceExtraOutputTypeDef(BaseModel):
     launchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     ec2Configuration: Optional[List[Ec2ConfigurationTypeDef]] = None
 
-class ComputeResourceOutputTypeDef(BaseModel):
+class ComputeResourceOutputTypeDef(BaseValidatorModel):
     type: CRTypeType
     maxvCpus: int
     subnets: List[str]
@@ -359,7 +359,7 @@ class ComputeResourceOutputTypeDef(BaseModel):
     launchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     ec2Configuration: Optional[List[Ec2ConfigurationTypeDef]] = None
 
-class ComputeResourceTypeDef(BaseModel):
+class ComputeResourceTypeDef(BaseValidatorModel):
     type: CRTypeType
     maxvCpus: int
     subnets: Sequence[str]
@@ -378,7 +378,7 @@ class ComputeResourceTypeDef(BaseModel):
     launchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     ec2Configuration: Optional[Sequence[Ec2ConfigurationTypeDef]] = None
 
-class ComputeResourceUpdateTypeDef(BaseModel):
+class ComputeResourceUpdateTypeDef(BaseValidatorModel):
     minvCpus: Optional[int] = None
     maxvCpus: Optional[int] = None
     desiredvCpus: Optional[int] = None
@@ -397,7 +397,7 @@ class ComputeResourceUpdateTypeDef(BaseModel):
     type: Optional[CRTypeType] = None
     imageId: Optional[str] = None
 
-class ContainerOverridesTypeDef(BaseModel):
+class ContainerOverridesTypeDef(BaseValidatorModel):
     vcpus: Optional[int] = None
     memory: Optional[int] = None
     command: Optional[Sequence[str]] = None
@@ -405,69 +405,69 @@ class ContainerOverridesTypeDef(BaseModel):
     environment: Optional[Sequence[KeyValuePairTypeDef]] = None
     resourceRequirements: Optional[Sequence[ResourceRequirementTypeDef]] = None
 
-class TaskContainerOverridesTypeDef(BaseModel):
+class TaskContainerOverridesTypeDef(BaseValidatorModel):
     command: Optional[Sequence[str]] = None
     environment: Optional[Sequence[KeyValuePairTypeDef]] = None
     name: Optional[str] = None
     resourceRequirements: Optional[Sequence[ResourceRequirementTypeDef]] = None
 
-class LogConfigurationExtraOutputTypeDef(BaseModel):
+class LogConfigurationExtraOutputTypeDef(BaseValidatorModel):
     logDriver: LogDriverType
     options: Optional[Dict[str, str]] = None
     secretOptions: Optional[List[SecretTypeDef]] = None
 
-class LogConfigurationOutputTypeDef(BaseModel):
+class LogConfigurationOutputTypeDef(BaseValidatorModel):
     logDriver: LogDriverType
     options: Optional[Dict[str, str]] = None
     secretOptions: Optional[List[SecretTypeDef]] = None
 
-class LogConfigurationTypeDef(BaseModel):
+class LogConfigurationTypeDef(BaseValidatorModel):
     logDriver: LogDriverType
     options: Optional[Mapping[str, str]] = None
     secretOptions: Optional[Sequence[SecretTypeDef]] = None
 
-class CreateComputeEnvironmentResponseTypeDef(BaseModel):
+class CreateComputeEnvironmentResponseTypeDef(BaseValidatorModel):
     computeEnvironmentName: str
     computeEnvironmentArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJobQueueResponseTypeDef(BaseModel):
+class CreateJobQueueResponseTypeDef(BaseValidatorModel):
     jobQueueName: str
     jobQueueArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSchedulingPolicyResponseTypeDef(BaseModel):
+class CreateSchedulingPolicyResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterJobDefinitionResponseTypeDef(BaseModel):
+class RegisterJobDefinitionResponseTypeDef(BaseValidatorModel):
     jobDefinitionName: str
     jobDefinitionArn: str
     revision: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SubmitJobResponseTypeDef(BaseModel):
+class SubmitJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
     jobName: str
     jobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateComputeEnvironmentResponseTypeDef(BaseModel):
+class UpdateComputeEnvironmentResponseTypeDef(BaseValidatorModel):
     computeEnvironmentName: str
     computeEnvironmentArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateJobQueueResponseTypeDef(BaseModel):
+class UpdateJobQueueResponseTypeDef(BaseValidatorModel):
     jobQueueName: str
     jobQueueArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJobQueueRequestRequestTypeDef(BaseModel):
+class CreateJobQueueRequestRequestTypeDef(BaseValidatorModel):
     jobQueueName: str
     priority: int
     computeEnvironmentOrder: Sequence[ComputeEnvironmentOrderTypeDef]
@@ -476,7 +476,7 @@ class CreateJobQueueRequestRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     jobStateTimeLimitActions: Optional[Sequence[JobStateTimeLimitActionTypeDef]] = None
 
-class JobQueueDetailTypeDef(BaseModel):
+class JobQueueDetailTypeDef(BaseValidatorModel):
     jobQueueName: str
     jobQueueArn: str
     state: JQStateType
@@ -488,7 +488,7 @@ class JobQueueDetailTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     jobStateTimeLimitActions: Optional[List[JobStateTimeLimitActionTypeDef]] = None
 
-class UpdateJobQueueRequestRequestTypeDef(BaseModel):
+class UpdateJobQueueRequestRequestTypeDef(BaseValidatorModel):
     jobQueue: str
     state: Optional[JQStateType] = None
     schedulingPolicyArn: Optional[str] = None
@@ -496,31 +496,31 @@ class UpdateJobQueueRequestRequestTypeDef(BaseModel):
     computeEnvironmentOrder: Optional[Sequence[ComputeEnvironmentOrderTypeDef]] = None
     jobStateTimeLimitActions: Optional[Sequence[JobStateTimeLimitActionTypeDef]] = None
 
-class DescribeComputeEnvironmentsRequestDescribeComputeEnvironmentsPaginateTypeDef(BaseModel):
+class DescribeComputeEnvironmentsRequestDescribeComputeEnvironmentsPaginateTypeDef(BaseValidatorModel):
     computeEnvironments: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeJobDefinitionsRequestDescribeJobDefinitionsPaginateTypeDef(BaseModel):
+class DescribeJobDefinitionsRequestDescribeJobDefinitionsPaginateTypeDef(BaseValidatorModel):
     jobDefinitions: Optional[Sequence[str]] = None
     jobDefinitionName: Optional[str] = None
     status: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeJobQueuesRequestDescribeJobQueuesPaginateTypeDef(BaseModel):
+class DescribeJobQueuesRequestDescribeJobQueuesPaginateTypeDef(BaseValidatorModel):
     jobQueues: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSchedulingPoliciesRequestListSchedulingPoliciesPaginateTypeDef(BaseModel):
+class ListSchedulingPoliciesRequestListSchedulingPoliciesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class EFSVolumeConfigurationTypeDef(BaseModel):
+class EFSVolumeConfigurationTypeDef(BaseValidatorModel):
     fileSystemId: str
     rootDirectory: Optional[str] = None
     transitEncryption: Optional[EFSTransitEncryptionType] = None
     transitEncryptionPort: Optional[int] = None
     authorizationConfig: Optional[EFSAuthorizationConfigTypeDef] = None
 
-class EksAttemptDetailTypeDef(BaseModel):
+class EksAttemptDetailTypeDef(BaseValidatorModel):
     containers: Optional[List[EksAttemptContainerDetailTypeDef]] = None
     initContainers: Optional[List[EksAttemptContainerDetailTypeDef]] = None
     eksClusterArn: Optional[str] = None
@@ -530,7 +530,7 @@ class EksAttemptDetailTypeDef(BaseModel):
     stoppedAt: Optional[int] = None
     statusReason: Optional[str] = None
 
-class EksContainerDetailTypeDef(BaseModel):
+class EksContainerDetailTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     image: Optional[str] = None
     imagePullPolicy: Optional[str] = None
@@ -543,7 +543,7 @@ class EksContainerDetailTypeDef(BaseModel):
     volumeMounts: Optional[List[EksContainerVolumeMountTypeDef]] = None
     securityContext: Optional[EksContainerSecurityContextTypeDef] = None
 
-class EksContainerOutputTypeDef(BaseModel):
+class EksContainerOutputTypeDef(BaseValidatorModel):
     image: str
     name: Optional[str] = None
     imagePullPolicy: Optional[str] = None
@@ -554,7 +554,7 @@ class EksContainerOutputTypeDef(BaseModel):
     volumeMounts: Optional[List[EksContainerVolumeMountTypeDef]] = None
     securityContext: Optional[EksContainerSecurityContextTypeDef] = None
 
-class EksContainerExtraOutputTypeDef(BaseModel):
+class EksContainerExtraOutputTypeDef(BaseValidatorModel):
     image: str
     name: Optional[str] = None
     imagePullPolicy: Optional[str] = None
@@ -565,7 +565,7 @@ class EksContainerExtraOutputTypeDef(BaseModel):
     volumeMounts: Optional[List[EksContainerVolumeMountTypeDef]] = None
     securityContext: Optional[EksContainerSecurityContextTypeDef] = None
 
-class EksContainerOverrideTypeDef(BaseModel):
+class EksContainerOverrideTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     image: Optional[str] = None
     command: Optional[Sequence[str]] = None
@@ -573,7 +573,7 @@ class EksContainerOverrideTypeDef(BaseModel):
     env: Optional[Sequence[EksContainerEnvironmentVariableTypeDef]] = None
     resources: Optional[EksContainerResourceRequirementsTypeDef] = None
 
-class EksContainerTypeDef(BaseModel):
+class EksContainerTypeDef(BaseValidatorModel):
     image: str
     name: Optional[str] = None
     imagePullPolicy: Optional[str] = None
@@ -584,39 +584,39 @@ class EksContainerTypeDef(BaseModel):
     volumeMounts: Optional[Sequence[EksContainerVolumeMountTypeDef]] = None
     securityContext: Optional[EksContainerSecurityContextTypeDef] = None
 
-class EksVolumeTypeDef(BaseModel):
+class EksVolumeTypeDef(BaseValidatorModel):
     name: str
     hostPath: Optional[EksHostPathTypeDef] = None
     emptyDir: Optional[EksEmptyDirTypeDef] = None
     secret: Optional[EksSecretTypeDef] = None
 
-class RetryStrategyExtraOutputTypeDef(BaseModel):
+class RetryStrategyExtraOutputTypeDef(BaseValidatorModel):
     attempts: Optional[int] = None
     evaluateOnExit: Optional[List[EvaluateOnExitTypeDef]] = None
 
-class RetryStrategyOutputTypeDef(BaseModel):
+class RetryStrategyOutputTypeDef(BaseValidatorModel):
     attempts: Optional[int] = None
     evaluateOnExit: Optional[List[EvaluateOnExitTypeDef]] = None
 
-class RetryStrategyTypeDef(BaseModel):
+class RetryStrategyTypeDef(BaseValidatorModel):
     attempts: Optional[int] = None
     evaluateOnExit: Optional[Sequence[EvaluateOnExitTypeDef]] = None
 
-class FairsharePolicyOutputTypeDef(BaseModel):
+class FairsharePolicyOutputTypeDef(BaseValidatorModel):
     shareDecaySeconds: Optional[int] = None
     computeReservation: Optional[int] = None
     shareDistribution: Optional[List[ShareAttributesTypeDef]] = None
 
-class FairsharePolicyTypeDef(BaseModel):
+class FairsharePolicyTypeDef(BaseValidatorModel):
     shareDecaySeconds: Optional[int] = None
     computeReservation: Optional[int] = None
     shareDistribution: Optional[Sequence[ShareAttributesTypeDef]] = None
 
-class FrontOfQueueDetailTypeDef(BaseModel):
+class FrontOfQueueDetailTypeDef(BaseValidatorModel):
     jobs: Optional[List[FrontOfQueueJobSummaryTypeDef]] = None
     lastUpdatedAt: Optional[int] = None
 
-class JobSummaryTypeDef(BaseModel):
+class JobSummaryTypeDef(BaseValidatorModel):
     jobId: str
     jobName: str
     jobArn: Optional[str] = None
@@ -630,7 +630,7 @@ class JobSummaryTypeDef(BaseModel):
     nodeProperties: Optional[NodePropertiesSummaryTypeDef] = None
     jobDefinition: Optional[str] = None
 
-class ListJobsRequestListJobsPaginateTypeDef(BaseModel):
+class ListJobsRequestListJobsPaginateTypeDef(BaseValidatorModel):
     jobQueue: Optional[str] = None
     arrayJobId: Optional[str] = None
     multiNodeJobId: Optional[str] = None
@@ -638,7 +638,7 @@ class ListJobsRequestListJobsPaginateTypeDef(BaseModel):
     filters: Optional[Sequence[KeyValuesPairTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobsRequestRequestTypeDef(BaseModel):
+class ListJobsRequestRequestTypeDef(BaseValidatorModel):
     jobQueue: Optional[str] = None
     arrayJobId: Optional[str] = None
     multiNodeJobId: Optional[str] = None
@@ -647,7 +647,7 @@ class ListJobsRequestRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     filters: Optional[Sequence[KeyValuesPairTypeDef]] = None
 
-class LinuxParametersExtraOutputTypeDef(BaseModel):
+class LinuxParametersExtraOutputTypeDef(BaseValidatorModel):
     devices: Optional[List[DeviceExtraOutputTypeDef]] = None
     initProcessEnabled: Optional[bool] = None
     sharedMemorySize: Optional[int] = None
@@ -655,7 +655,7 @@ class LinuxParametersExtraOutputTypeDef(BaseModel):
     maxSwap: Optional[int] = None
     swappiness: Optional[int] = None
 
-class LinuxParametersOutputTypeDef(BaseModel):
+class LinuxParametersOutputTypeDef(BaseValidatorModel):
     devices: Optional[List[DeviceOutputTypeDef]] = None
     initProcessEnabled: Optional[bool] = None
     sharedMemorySize: Optional[int] = None
@@ -663,7 +663,7 @@ class LinuxParametersOutputTypeDef(BaseModel):
     maxSwap: Optional[int] = None
     swappiness: Optional[int] = None
 
-class LinuxParametersTypeDef(BaseModel):
+class LinuxParametersTypeDef(BaseValidatorModel):
     devices: Optional[Sequence[DeviceTypeDef]] = None
     initProcessEnabled: Optional[bool] = None
     sharedMemorySize: Optional[int] = None
@@ -671,17 +671,17 @@ class LinuxParametersTypeDef(BaseModel):
     maxSwap: Optional[int] = None
     swappiness: Optional[int] = None
 
-class ListSchedulingPoliciesResponseTypeDef(BaseModel):
+class ListSchedulingPoliciesResponseTypeDef(BaseValidatorModel):
     schedulingPolicies: List[SchedulingPolicyListingDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttemptEcsTaskDetailsTypeDef(BaseModel):
+class AttemptEcsTaskDetailsTypeDef(BaseValidatorModel):
     containerInstanceArn: Optional[str] = None
     taskArn: Optional[str] = None
     containers: Optional[List[AttemptTaskContainerDetailsTypeDef]] = None
 
-class ComputeEnvironmentDetailTypeDef(BaseModel):
+class ComputeEnvironmentDetailTypeDef(BaseValidatorModel):
     computeEnvironmentName: str
     computeEnvironmentArn: str
     unmanagedvCpus: Optional[int] = None
@@ -698,7 +698,7 @@ class ComputeEnvironmentDetailTypeDef(BaseModel):
     containerOrchestrationType: Optional[OrchestrationTypeType] = None
     uuid: Optional[str] = None
 
-class CreateComputeEnvironmentRequestRequestTypeDef(BaseModel):
+class CreateComputeEnvironmentRequestRequestTypeDef(BaseValidatorModel):
     computeEnvironmentName: str
     type: CETypeType
     state: Optional[CEStateType] = None
@@ -708,7 +708,7 @@ class CreateComputeEnvironmentRequestRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     eksConfiguration: Optional[EksConfigurationTypeDef] = None
 
-class UpdateComputeEnvironmentRequestRequestTypeDef(BaseModel):
+class UpdateComputeEnvironmentRequestRequestTypeDef(BaseValidatorModel):
     computeEnvironment: str
     state: Optional[CEStateType] = None
     unmanagedvCpus: Optional[int] = None
@@ -716,25 +716,25 @@ class UpdateComputeEnvironmentRequestRequestTypeDef(BaseModel):
     serviceRole: Optional[str] = None
     updatePolicy: Optional[UpdatePolicyTypeDef] = None
 
-class TaskPropertiesOverrideTypeDef(BaseModel):
+class TaskPropertiesOverrideTypeDef(BaseValidatorModel):
     containers: Optional[Sequence[TaskContainerOverridesTypeDef]] = None
 
-class DescribeJobQueuesResponseTypeDef(BaseModel):
+class DescribeJobQueuesResponseTypeDef(BaseValidatorModel):
     jobQueues: List[JobQueueDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VolumeTypeDef(BaseModel):
+class VolumeTypeDef(BaseValidatorModel):
     host: Optional[HostTypeDef] = None
     name: Optional[str] = None
     efsVolumeConfiguration: Optional[EFSVolumeConfigurationTypeDef] = None
 
-class EksPodPropertiesOverrideTypeDef(BaseModel):
+class EksPodPropertiesOverrideTypeDef(BaseValidatorModel):
     containers: Optional[Sequence[EksContainerOverrideTypeDef]] = None
     initContainers: Optional[Sequence[EksContainerOverrideTypeDef]] = None
     metadata: Optional[EksMetadataTypeDef] = None
 
-class EksPodPropertiesDetailTypeDef(BaseModel):
+class EksPodPropertiesDetailTypeDef(BaseValidatorModel):
     serviceAccountName: Optional[str] = None
     hostNetwork: Optional[bool] = None
     dnsPolicy: Optional[str] = None
@@ -747,7 +747,7 @@ class EksPodPropertiesDetailTypeDef(BaseModel):
     metadata: Optional[EksMetadataOutputTypeDef] = None
     shareProcessNamespace: Optional[bool] = None
 
-class EksPodPropertiesExtraOutputTypeDef(BaseModel):
+class EksPodPropertiesExtraOutputTypeDef(BaseValidatorModel):
     serviceAccountName: Optional[str] = None
     hostNetwork: Optional[bool] = None
     dnsPolicy: Optional[str] = None
@@ -758,7 +758,7 @@ class EksPodPropertiesExtraOutputTypeDef(BaseModel):
     metadata: Optional[EksMetadataExtraOutputTypeDef] = None
     shareProcessNamespace: Optional[bool] = None
 
-class EksPodPropertiesOutputTypeDef(BaseModel):
+class EksPodPropertiesOutputTypeDef(BaseValidatorModel):
     serviceAccountName: Optional[str] = None
     hostNetwork: Optional[bool] = None
     dnsPolicy: Optional[str] = None
@@ -769,7 +769,7 @@ class EksPodPropertiesOutputTypeDef(BaseModel):
     metadata: Optional[EksMetadataOutputTypeDef] = None
     shareProcessNamespace: Optional[bool] = None
 
-class EksPodPropertiesTypeDef(BaseModel):
+class EksPodPropertiesTypeDef(BaseValidatorModel):
     serviceAccountName: Optional[str] = None
     hostNetwork: Optional[bool] = None
     dnsPolicy: Optional[str] = None
@@ -780,31 +780,31 @@ class EksPodPropertiesTypeDef(BaseModel):
     metadata: Optional[EksMetadataTypeDef] = None
     shareProcessNamespace: Optional[bool] = None
 
-class SchedulingPolicyDetailTypeDef(BaseModel):
+class SchedulingPolicyDetailTypeDef(BaseValidatorModel):
     name: str
     arn: str
     fairsharePolicy: Optional[FairsharePolicyOutputTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
-class CreateSchedulingPolicyRequestRequestTypeDef(BaseModel):
+class CreateSchedulingPolicyRequestRequestTypeDef(BaseValidatorModel):
     name: str
     fairsharePolicy: Optional[FairsharePolicyTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class UpdateSchedulingPolicyRequestRequestTypeDef(BaseModel):
+class UpdateSchedulingPolicyRequestRequestTypeDef(BaseValidatorModel):
     arn: str
     fairsharePolicy: Optional[FairsharePolicyTypeDef] = None
 
-class GetJobQueueSnapshotResponseTypeDef(BaseModel):
+class GetJobQueueSnapshotResponseTypeDef(BaseValidatorModel):
     frontOfQueue: FrontOfQueueDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobsResponseTypeDef(BaseModel):
+class ListJobsResponseTypeDef(BaseValidatorModel):
     jobSummaryList: List[JobSummaryTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TaskContainerPropertiesExtraOutputTypeDef(BaseModel):
+class TaskContainerPropertiesExtraOutputTypeDef(BaseValidatorModel):
     image: str
     command: Optional[List[str]] = None
     dependsOn: Optional[List[TaskContainerDependencyTypeDef]] = None
@@ -822,7 +822,7 @@ class TaskContainerPropertiesExtraOutputTypeDef(BaseModel):
     ulimits: Optional[List[UlimitTypeDef]] = None
     user: Optional[str] = None
 
-class TaskContainerDetailsTypeDef(BaseModel):
+class TaskContainerDetailsTypeDef(BaseValidatorModel):
     command: Optional[List[str]] = None
     dependsOn: Optional[List[TaskContainerDependencyTypeDef]] = None
     environment: Optional[List[KeyValuePairTypeDef]] = None
@@ -844,7 +844,7 @@ class TaskContainerDetailsTypeDef(BaseModel):
     logStreamName: Optional[str] = None
     networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
 
-class TaskContainerPropertiesOutputTypeDef(BaseModel):
+class TaskContainerPropertiesOutputTypeDef(BaseValidatorModel):
     image: str
     command: Optional[List[str]] = None
     dependsOn: Optional[List[TaskContainerDependencyTypeDef]] = None
@@ -862,7 +862,7 @@ class TaskContainerPropertiesOutputTypeDef(BaseModel):
     ulimits: Optional[List[UlimitTypeDef]] = None
     user: Optional[str] = None
 
-class TaskContainerPropertiesTypeDef(BaseModel):
+class TaskContainerPropertiesTypeDef(BaseValidatorModel):
     image: str
     command: Optional[Sequence[str]] = None
     dependsOn: Optional[Sequence[TaskContainerDependencyTypeDef]] = None
@@ -880,22 +880,22 @@ class TaskContainerPropertiesTypeDef(BaseModel):
     ulimits: Optional[Sequence[UlimitTypeDef]] = None
     user: Optional[str] = None
 
-class AttemptDetailTypeDef(BaseModel):
+class AttemptDetailTypeDef(BaseValidatorModel):
     container: Optional[AttemptContainerDetailTypeDef] = None
     startedAt: Optional[int] = None
     stoppedAt: Optional[int] = None
     statusReason: Optional[str] = None
     taskProperties: Optional[List[AttemptEcsTaskDetailsTypeDef]] = None
 
-class DescribeComputeEnvironmentsResponseTypeDef(BaseModel):
+class DescribeComputeEnvironmentsResponseTypeDef(BaseValidatorModel):
     computeEnvironments: List[ComputeEnvironmentDetailTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EcsPropertiesOverrideTypeDef(BaseModel):
+class EcsPropertiesOverrideTypeDef(BaseValidatorModel):
     taskProperties: Optional[Sequence[TaskPropertiesOverrideTypeDef]] = None
 
-class ContainerDetailTypeDef(BaseModel):
+class ContainerDetailTypeDef(BaseValidatorModel):
     image: Optional[str] = None
     vcpus: Optional[int] = None
     memory: Optional[int] = None
@@ -926,7 +926,7 @@ class ContainerDetailTypeDef(BaseModel):
     runtimePlatform: Optional[RuntimePlatformTypeDef] = None
     repositoryCredentials: Optional[RepositoryCredentialsTypeDef] = None
 
-class ContainerPropertiesExtraOutputTypeDef(BaseModel):
+class ContainerPropertiesExtraOutputTypeDef(BaseValidatorModel):
     image: Optional[str] = None
     vcpus: Optional[int] = None
     memory: Optional[int] = None
@@ -951,7 +951,7 @@ class ContainerPropertiesExtraOutputTypeDef(BaseModel):
     runtimePlatform: Optional[RuntimePlatformTypeDef] = None
     repositoryCredentials: Optional[RepositoryCredentialsTypeDef] = None
 
-class ContainerPropertiesOutputTypeDef(BaseModel):
+class ContainerPropertiesOutputTypeDef(BaseValidatorModel):
     image: Optional[str] = None
     vcpus: Optional[int] = None
     memory: Optional[int] = None
@@ -976,7 +976,7 @@ class ContainerPropertiesOutputTypeDef(BaseModel):
     runtimePlatform: Optional[RuntimePlatformTypeDef] = None
     repositoryCredentials: Optional[RepositoryCredentialsTypeDef] = None
 
-class ContainerPropertiesTypeDef(BaseModel):
+class ContainerPropertiesTypeDef(BaseValidatorModel):
     image: Optional[str] = None
     vcpus: Optional[int] = None
     memory: Optional[int] = None
@@ -1001,26 +1001,26 @@ class ContainerPropertiesTypeDef(BaseModel):
     runtimePlatform: Optional[RuntimePlatformTypeDef] = None
     repositoryCredentials: Optional[RepositoryCredentialsTypeDef] = None
 
-class EksPropertiesOverrideTypeDef(BaseModel):
+class EksPropertiesOverrideTypeDef(BaseValidatorModel):
     podProperties: Optional[EksPodPropertiesOverrideTypeDef] = None
 
-class EksPropertiesDetailTypeDef(BaseModel):
+class EksPropertiesDetailTypeDef(BaseValidatorModel):
     podProperties: Optional[EksPodPropertiesDetailTypeDef] = None
 
-class EksPropertiesExtraOutputTypeDef(BaseModel):
+class EksPropertiesExtraOutputTypeDef(BaseValidatorModel):
     podProperties: Optional[EksPodPropertiesExtraOutputTypeDef] = None
 
-class EksPropertiesOutputTypeDef(BaseModel):
+class EksPropertiesOutputTypeDef(BaseValidatorModel):
     podProperties: Optional[EksPodPropertiesOutputTypeDef] = None
 
-class EksPropertiesTypeDef(BaseModel):
+class EksPropertiesTypeDef(BaseValidatorModel):
     podProperties: Optional[EksPodPropertiesTypeDef] = None
 
-class DescribeSchedulingPoliciesResponseTypeDef(BaseModel):
+class DescribeSchedulingPoliciesResponseTypeDef(BaseValidatorModel):
     schedulingPolicies: List[SchedulingPolicyDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EcsTaskPropertiesExtraOutputTypeDef(BaseModel):
+class EcsTaskPropertiesExtraOutputTypeDef(BaseValidatorModel):
     containers: List[TaskContainerPropertiesExtraOutputTypeDef]
     ephemeralStorage: Optional[EphemeralStorageTypeDef] = None
     executionRoleArn: Optional[str] = None
@@ -1032,7 +1032,7 @@ class EcsTaskPropertiesExtraOutputTypeDef(BaseModel):
     runtimePlatform: Optional[RuntimePlatformTypeDef] = None
     volumes: Optional[List[VolumeTypeDef]] = None
 
-class EcsTaskDetailsTypeDef(BaseModel):
+class EcsTaskDetailsTypeDef(BaseValidatorModel):
     containers: Optional[List[TaskContainerDetailsTypeDef]] = None
     containerInstanceArn: Optional[str] = None
     taskArn: Optional[str] = None
@@ -1046,7 +1046,7 @@ class EcsTaskDetailsTypeDef(BaseModel):
     runtimePlatform: Optional[RuntimePlatformTypeDef] = None
     volumes: Optional[List[VolumeTypeDef]] = None
 
-class EcsTaskPropertiesOutputTypeDef(BaseModel):
+class EcsTaskPropertiesOutputTypeDef(BaseValidatorModel):
     containers: List[TaskContainerPropertiesOutputTypeDef]
     ephemeralStorage: Optional[EphemeralStorageTypeDef] = None
     executionRoleArn: Optional[str] = None
@@ -1058,7 +1058,7 @@ class EcsTaskPropertiesOutputTypeDef(BaseModel):
     runtimePlatform: Optional[RuntimePlatformTypeDef] = None
     volumes: Optional[List[VolumeTypeDef]] = None
 
-class EcsTaskPropertiesTypeDef(BaseModel):
+class EcsTaskPropertiesTypeDef(BaseValidatorModel):
     containers: Sequence[TaskContainerPropertiesTypeDef]
     ephemeralStorage: Optional[EphemeralStorageTypeDef] = None
     executionRoleArn: Optional[str] = None
@@ -1070,51 +1070,51 @@ class EcsTaskPropertiesTypeDef(BaseModel):
     runtimePlatform: Optional[RuntimePlatformTypeDef] = None
     volumes: Optional[Sequence[VolumeTypeDef]] = None
 
-class NodePropertyOverrideTypeDef(BaseModel):
+class NodePropertyOverrideTypeDef(BaseValidatorModel):
     targetNodes: str
     containerOverrides: Optional[ContainerOverridesTypeDef] = None
     ecsPropertiesOverride: Optional[EcsPropertiesOverrideTypeDef] = None
     instanceTypes: Optional[Sequence[str]] = None
     eksPropertiesOverride: Optional[EksPropertiesOverrideTypeDef] = None
 
-class EcsPropertiesExtraOutputTypeDef(BaseModel):
+class EcsPropertiesExtraOutputTypeDef(BaseValidatorModel):
     taskProperties: List[EcsTaskPropertiesExtraOutputTypeDef]
 
-class EcsPropertiesDetailTypeDef(BaseModel):
+class EcsPropertiesDetailTypeDef(BaseValidatorModel):
     taskProperties: Optional[List[EcsTaskDetailsTypeDef]] = None
 
-class EcsPropertiesOutputTypeDef(BaseModel):
+class EcsPropertiesOutputTypeDef(BaseValidatorModel):
     taskProperties: List[EcsTaskPropertiesOutputTypeDef]
 
-class EcsPropertiesTypeDef(BaseModel):
+class EcsPropertiesTypeDef(BaseValidatorModel):
     taskProperties: Sequence[EcsTaskPropertiesTypeDef]
 
-class NodeOverridesTypeDef(BaseModel):
+class NodeOverridesTypeDef(BaseValidatorModel):
     numNodes: Optional[int] = None
     nodePropertyOverrides: Optional[Sequence[NodePropertyOverrideTypeDef]] = None
 
-class NodeRangePropertyExtraOutputTypeDef(BaseModel):
+class NodeRangePropertyExtraOutputTypeDef(BaseValidatorModel):
     targetNodes: str
     container: Optional[ContainerPropertiesExtraOutputTypeDef] = None
     instanceTypes: Optional[List[str]] = None
     ecsProperties: Optional[EcsPropertiesExtraOutputTypeDef] = None
     eksProperties: Optional[EksPropertiesExtraOutputTypeDef] = None
 
-class NodeRangePropertyOutputTypeDef(BaseModel):
+class NodeRangePropertyOutputTypeDef(BaseValidatorModel):
     targetNodes: str
     container: Optional[ContainerPropertiesOutputTypeDef] = None
     instanceTypes: Optional[List[str]] = None
     ecsProperties: Optional[EcsPropertiesOutputTypeDef] = None
     eksProperties: Optional[EksPropertiesOutputTypeDef] = None
 
-class NodeRangePropertyTypeDef(BaseModel):
+class NodeRangePropertyTypeDef(BaseValidatorModel):
     targetNodes: str
     container: Optional[ContainerPropertiesTypeDef] = None
     instanceTypes: Optional[Sequence[str]] = None
     ecsProperties: Optional[EcsPropertiesTypeDef] = None
     eksProperties: Optional[EksPropertiesTypeDef] = None
 
-class SubmitJobRequestRequestTypeDef(BaseModel):
+class SubmitJobRequestRequestTypeDef(BaseValidatorModel):
     jobName: str
     jobQueue: str
     jobDefinition: str
@@ -1132,22 +1132,22 @@ class SubmitJobRequestRequestTypeDef(BaseModel):
     eksPropertiesOverride: Optional[EksPropertiesOverrideTypeDef] = None
     ecsPropertiesOverride: Optional[EcsPropertiesOverrideTypeDef] = None
 
-class NodePropertiesExtraOutputTypeDef(BaseModel):
+class NodePropertiesExtraOutputTypeDef(BaseValidatorModel):
     numNodes: int
     mainNode: int
     nodeRangeProperties: List[NodeRangePropertyExtraOutputTypeDef]
 
-class NodePropertiesOutputTypeDef(BaseModel):
+class NodePropertiesOutputTypeDef(BaseValidatorModel):
     numNodes: int
     mainNode: int
     nodeRangeProperties: List[NodeRangePropertyOutputTypeDef]
 
-class NodePropertiesTypeDef(BaseModel):
+class NodePropertiesTypeDef(BaseValidatorModel):
     numNodes: int
     mainNode: int
     nodeRangeProperties: Sequence[NodeRangePropertyTypeDef]
 
-class JobDefinitionTypeDef(BaseModel):
+class JobDefinitionTypeDef(BaseValidatorModel):
     jobDefinitionName: str
     jobDefinitionArn: str
     revision: int
@@ -1166,7 +1166,7 @@ class JobDefinitionTypeDef(BaseModel):
     eksProperties: Optional[EksPropertiesOutputTypeDef] = None
     containerOrchestrationType: Optional[OrchestrationTypeType] = None
 
-class JobDetailTypeDef(BaseModel):
+class JobDetailTypeDef(BaseValidatorModel):
     jobName: str
     jobId: str
     jobQueue: str
@@ -1197,7 +1197,7 @@ class JobDetailTypeDef(BaseModel):
     isCancelled: Optional[bool] = None
     isTerminated: Optional[bool] = None
 
-class RegisterJobDefinitionRequestRequestTypeDef(BaseModel):
+class RegisterJobDefinitionRequestRequestTypeDef(BaseValidatorModel):
     jobDefinitionName: str
     type: JobDefinitionTypeType
     parameters: Optional[Mapping[str, str]] = None
@@ -1212,12 +1212,12 @@ class RegisterJobDefinitionRequestRequestTypeDef(BaseModel):
     eksProperties: Optional[EksPropertiesTypeDef] = None
     ecsProperties: Optional[EcsPropertiesTypeDef] = None
 
-class DescribeJobDefinitionsResponseTypeDef(BaseModel):
+class DescribeJobDefinitionsResponseTypeDef(BaseValidatorModel):
     jobDefinitions: List[JobDefinitionTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeJobsResponseTypeDef(BaseModel):
+class DescribeJobsResponseTypeDef(BaseValidatorModel):
     jobs: List[JobDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 

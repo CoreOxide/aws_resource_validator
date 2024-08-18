@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,12 +11,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.pinpoint_constants import *
 
-class ADMChannelRequestTypeDef(BaseModel):
+class ADMChannelRequestTypeDef(BaseValidatorModel):
     ClientId: str
     ClientSecret: str
     Enabled: Optional[bool] = None
 
-class ADMChannelResponseTypeDef(BaseModel):
+class ADMChannelResponseTypeDef(BaseValidatorModel):
     Platform: str
     ApplicationId: Optional[str] = None
     CreationDate: Optional[str] = None
@@ -28,7 +28,7 @@ class ADMChannelResponseTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     Version: Optional[int] = None
 
-class ADMMessageTypeDef(BaseModel):
+class ADMMessageTypeDef(BaseValidatorModel):
     Action: Optional[ActionType] = None
     Body: Optional[str] = None
     ConsolidationKey: Optional[str] = None
@@ -46,7 +46,7 @@ class ADMMessageTypeDef(BaseModel):
     Title: Optional[str] = None
     Url: Optional[str] = None
 
-class APNSChannelRequestTypeDef(BaseModel):
+class APNSChannelRequestTypeDef(BaseValidatorModel):
     BundleId: Optional[str] = None
     Certificate: Optional[str] = None
     DefaultAuthenticationMethod: Optional[str] = None
@@ -56,7 +56,7 @@ class APNSChannelRequestTypeDef(BaseModel):
     TokenKey: Optional[str] = None
     TokenKeyId: Optional[str] = None
 
-class APNSChannelResponseTypeDef(BaseModel):
+class APNSChannelResponseTypeDef(BaseValidatorModel):
     Platform: str
     ApplicationId: Optional[str] = None
     CreationDate: Optional[str] = None
@@ -70,7 +70,7 @@ class APNSChannelResponseTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     Version: Optional[int] = None
 
-class APNSMessageTypeDef(BaseModel):
+class APNSMessageTypeDef(BaseValidatorModel):
     APNSPushType: Optional[str] = None
     Action: Optional[ActionType] = None
     Badge: Optional[int] = None
@@ -90,7 +90,7 @@ class APNSMessageTypeDef(BaseModel):
     Title: Optional[str] = None
     Url: Optional[str] = None
 
-class APNSPushNotificationTemplateTypeDef(BaseModel):
+class APNSPushNotificationTemplateTypeDef(BaseValidatorModel):
     Action: Optional[ActionType] = None
     Body: Optional[str] = None
     MediaUrl: Optional[str] = None
@@ -99,7 +99,7 @@ class APNSPushNotificationTemplateTypeDef(BaseModel):
     Title: Optional[str] = None
     Url: Optional[str] = None
 
-class APNSSandboxChannelRequestTypeDef(BaseModel):
+class APNSSandboxChannelRequestTypeDef(BaseValidatorModel):
     BundleId: Optional[str] = None
     Certificate: Optional[str] = None
     DefaultAuthenticationMethod: Optional[str] = None
@@ -109,7 +109,7 @@ class APNSSandboxChannelRequestTypeDef(BaseModel):
     TokenKey: Optional[str] = None
     TokenKeyId: Optional[str] = None
 
-class APNSSandboxChannelResponseTypeDef(BaseModel):
+class APNSSandboxChannelResponseTypeDef(BaseValidatorModel):
     Platform: str
     ApplicationId: Optional[str] = None
     CreationDate: Optional[str] = None
@@ -123,7 +123,7 @@ class APNSSandboxChannelResponseTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     Version: Optional[int] = None
 
-class APNSVoipChannelRequestTypeDef(BaseModel):
+class APNSVoipChannelRequestTypeDef(BaseValidatorModel):
     BundleId: Optional[str] = None
     Certificate: Optional[str] = None
     DefaultAuthenticationMethod: Optional[str] = None
@@ -133,7 +133,7 @@ class APNSVoipChannelRequestTypeDef(BaseModel):
     TokenKey: Optional[str] = None
     TokenKeyId: Optional[str] = None
 
-class APNSVoipChannelResponseTypeDef(BaseModel):
+class APNSVoipChannelResponseTypeDef(BaseValidatorModel):
     Platform: str
     ApplicationId: Optional[str] = None
     CreationDate: Optional[str] = None
@@ -147,7 +147,7 @@ class APNSVoipChannelResponseTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     Version: Optional[int] = None
 
-class APNSVoipSandboxChannelRequestTypeDef(BaseModel):
+class APNSVoipSandboxChannelRequestTypeDef(BaseValidatorModel):
     BundleId: Optional[str] = None
     Certificate: Optional[str] = None
     DefaultAuthenticationMethod: Optional[str] = None
@@ -157,7 +157,7 @@ class APNSVoipSandboxChannelRequestTypeDef(BaseModel):
     TokenKey: Optional[str] = None
     TokenKeyId: Optional[str] = None
 
-class APNSVoipSandboxChannelResponseTypeDef(BaseModel):
+class APNSVoipSandboxChannelResponseTypeDef(BaseValidatorModel):
     Platform: str
     ApplicationId: Optional[str] = None
     CreationDate: Optional[str] = None
@@ -171,7 +171,7 @@ class APNSVoipSandboxChannelResponseTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     Version: Optional[int] = None
 
-class ActivityResponseTypeDef(BaseModel):
+class ActivityResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignId: str
     Id: str
@@ -187,14 +187,14 @@ class ActivityResponseTypeDef(BaseModel):
     TreatmentId: Optional[str] = None
     ExecutionMetrics: Optional[Dict[str, str]] = None
 
-class ContactCenterActivityTypeDef(BaseModel):
+class ContactCenterActivityTypeDef(BaseValidatorModel):
     NextActivity: Optional[str] = None
 
-class HoldoutActivityTypeDef(BaseModel):
+class HoldoutActivityTypeDef(BaseValidatorModel):
     Percentage: int
     NextActivity: Optional[str] = None
 
-class AddressConfigurationTypeDef(BaseModel):
+class AddressConfigurationTypeDef(BaseValidatorModel):
     BodyOverride: Optional[str] = None
     ChannelType: Optional[ChannelTypeType] = None
     Context: Optional[Mapping[str, str]] = None
@@ -202,7 +202,7 @@ class AddressConfigurationTypeDef(BaseModel):
     Substitutions: Optional[Mapping[str, Sequence[str]]] = None
     TitleOverride: Optional[str] = None
 
-class AndroidPushNotificationTemplateTypeDef(BaseModel):
+class AndroidPushNotificationTemplateTypeDef(BaseValidatorModel):
     Action: Optional[ActionType] = None
     Body: Optional[str] = None
     ImageIconUrl: Optional[str] = None
@@ -213,52 +213,52 @@ class AndroidPushNotificationTemplateTypeDef(BaseModel):
     Title: Optional[str] = None
     Url: Optional[str] = None
 
-class ApplicationResponseTypeDef(BaseModel):
+class ApplicationResponseTypeDef(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
     tags: Optional[Dict[str, str]] = None
     CreationDate: Optional[str] = None
 
-class JourneyTimeframeCapTypeDef(BaseModel):
+class JourneyTimeframeCapTypeDef(BaseValidatorModel):
     Cap: Optional[int] = None
     Days: Optional[int] = None
 
-class CampaignHookTypeDef(BaseModel):
+class CampaignHookTypeDef(BaseValidatorModel):
     LambdaFunctionName: Optional[str] = None
     Mode: Optional[ModeType] = None
     WebUrl: Optional[str] = None
 
-class CampaignLimitsTypeDef(BaseModel):
+class CampaignLimitsTypeDef(BaseValidatorModel):
     Daily: Optional[int] = None
     MaximumDuration: Optional[int] = None
     MessagesPerSecond: Optional[int] = None
     Total: Optional[int] = None
     Session: Optional[int] = None
 
-class QuietTimeTypeDef(BaseModel):
+class QuietTimeTypeDef(BaseValidatorModel):
     End: Optional[str] = None
     Start: Optional[str] = None
 
-class AttributeDimensionOutputTypeDef(BaseModel):
+class AttributeDimensionOutputTypeDef(BaseValidatorModel):
     Values: List[str]
     AttributeType: Optional[AttributeTypeType] = None
 
-class AttributeDimensionTypeDef(BaseModel):
+class AttributeDimensionTypeDef(BaseValidatorModel):
     Values: Sequence[str]
     AttributeType: Optional[AttributeTypeType] = None
 
-class AttributesResourceTypeDef(BaseModel):
+class AttributesResourceTypeDef(BaseValidatorModel):
     ApplicationId: str
     AttributeType: str
     Attributes: Optional[List[str]] = None
 
-class BaiduChannelRequestTypeDef(BaseModel):
+class BaiduChannelRequestTypeDef(BaseValidatorModel):
     ApiKey: str
     SecretKey: str
     Enabled: Optional[bool] = None
 
-class BaiduChannelResponseTypeDef(BaseModel):
+class BaiduChannelResponseTypeDef(BaseValidatorModel):
     Credential: str
     Platform: str
     ApplicationId: Optional[str] = None
@@ -271,7 +271,7 @@ class BaiduChannelResponseTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     Version: Optional[int] = None
 
-class BaiduMessageTypeDef(BaseModel):
+class BaiduMessageTypeDef(BaseValidatorModel):
     Action: Optional[ActionType] = None
     Body: Optional[str] = None
     Data: Optional[Mapping[str, str]] = None
@@ -287,21 +287,21 @@ class BaiduMessageTypeDef(BaseModel):
     Title: Optional[str] = None
     Url: Optional[str] = None
 
-class CampaignCustomMessageTypeDef(BaseModel):
+class CampaignCustomMessageTypeDef(BaseValidatorModel):
     Data: Optional[str] = None
 
-class MessageHeaderTypeDef(BaseModel):
+class MessageHeaderTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class CampaignStateTypeDef(BaseModel):
+class CampaignStateTypeDef(BaseValidatorModel):
     CampaignStatus: Optional[CampaignStatusType] = None
 
-class CustomDeliveryConfigurationOutputTypeDef(BaseModel):
+class CustomDeliveryConfigurationOutputTypeDef(BaseValidatorModel):
     DeliveryUri: str
     EndpointTypes: Optional[List[EndpointTypesElementType]] = None
 
-class CampaignSmsMessageTypeDef(BaseModel):
+class CampaignSmsMessageTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     MessageType: Optional[MessageTypeType] = None
     OriginationNumber: Optional[str] = None
@@ -309,7 +309,7 @@ class CampaignSmsMessageTypeDef(BaseModel):
     EntityId: Optional[str] = None
     TemplateId: Optional[str] = None
 
-class ChannelResponseTypeDef(BaseModel):
+class ChannelResponseTypeDef(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     CreationDate: Optional[str] = None
     Enabled: Optional[bool] = None
@@ -320,38 +320,38 @@ class ChannelResponseTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     Version: Optional[int] = None
 
-class ClosedDaysRuleTypeDef(BaseModel):
+class ClosedDaysRuleTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     StartDateTime: Optional[str] = None
     EndDateTime: Optional[str] = None
 
-class WaitTimeTypeDef(BaseModel):
+class WaitTimeTypeDef(BaseValidatorModel):
     WaitFor: Optional[str] = None
     WaitUntil: Optional[str] = None
 
-class CreateApplicationRequestTypeDef(BaseModel):
+class CreateApplicationRequestTypeDef(BaseValidatorModel):
     Name: str
     tags: Optional[Mapping[str, str]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateTemplateMessageBodyTypeDef(BaseModel):
+class CreateTemplateMessageBodyTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Message: Optional[str] = None
     RequestID: Optional[str] = None
 
-class ExportJobRequestTypeDef(BaseModel):
+class ExportJobRequestTypeDef(BaseValidatorModel):
     RoleArn: str
     S3UrlPrefix: str
     SegmentId: Optional[str] = None
     SegmentVersion: Optional[int] = None
 
-class ImportJobRequestTypeDef(BaseModel):
+class ImportJobRequestTypeDef(BaseValidatorModel):
     Format: FormatType
     RoleArn: str
     S3Url: str
@@ -361,12 +361,12 @@ class ImportJobRequestTypeDef(BaseModel):
     SegmentId: Optional[str] = None
     SegmentName: Optional[str] = None
 
-class TemplateCreateMessageBodyTypeDef(BaseModel):
+class TemplateCreateMessageBodyTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Message: Optional[str] = None
     RequestID: Optional[str] = None
 
-class CreateRecommenderConfigurationTypeDef(BaseModel):
+class CreateRecommenderConfigurationTypeDef(BaseValidatorModel):
     RecommendationProviderRoleArn: str
     RecommendationProviderUri: str
     Attributes: Optional[Mapping[str, str]] = None
@@ -377,7 +377,7 @@ class CreateRecommenderConfigurationTypeDef(BaseModel):
     RecommendationsDisplayName: Optional[str] = None
     RecommendationsPerMessage: Optional[int] = None
 
-class RecommenderConfigurationResponseTypeDef(BaseModel):
+class RecommenderConfigurationResponseTypeDef(BaseValidatorModel):
     CreationDate: str
     Id: str
     LastModifiedDate: str
@@ -391,14 +391,14 @@ class RecommenderConfigurationResponseTypeDef(BaseModel):
     RecommendationsDisplayName: Optional[str] = None
     RecommendationsPerMessage: Optional[int] = None
 
-class SMSTemplateRequestTypeDef(BaseModel):
+class SMSTemplateRequestTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     DefaultSubstitutions: Optional[str] = None
     RecommenderId: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     TemplateDescription: Optional[str] = None
 
-class VoiceTemplateRequestTypeDef(BaseModel):
+class VoiceTemplateRequestTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     DefaultSubstitutions: Optional[str] = None
     LanguageCode: Optional[str] = None
@@ -406,14 +406,14 @@ class VoiceTemplateRequestTypeDef(BaseModel):
     TemplateDescription: Optional[str] = None
     VoiceId: Optional[str] = None
 
-class CustomDeliveryConfigurationTypeDef(BaseModel):
+class CustomDeliveryConfigurationTypeDef(BaseValidatorModel):
     DeliveryUri: str
     EndpointTypes: Optional[Sequence[EndpointTypesElementType]] = None
 
-class JourneyCustomMessageTypeDef(BaseModel):
+class JourneyCustomMessageTypeDef(BaseValidatorModel):
     Data: Optional[str] = None
 
-class DefaultButtonConfigurationTypeDef(BaseModel):
+class DefaultButtonConfigurationTypeDef(BaseValidatorModel):
     ButtonAction: ButtonActionType
     Text: str
     BackgroundColor: Optional[str] = None
@@ -421,11 +421,11 @@ class DefaultButtonConfigurationTypeDef(BaseModel):
     Link: Optional[str] = None
     TextColor: Optional[str] = None
 
-class DefaultMessageTypeDef(BaseModel):
+class DefaultMessageTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     Substitutions: Optional[Mapping[str, Sequence[str]]] = None
 
-class DefaultPushNotificationMessageTypeDef(BaseModel):
+class DefaultPushNotificationMessageTypeDef(BaseValidatorModel):
     Action: Optional[ActionType] = None
     Body: Optional[str] = None
     Data: Optional[Mapping[str, str]] = None
@@ -434,42 +434,42 @@ class DefaultPushNotificationMessageTypeDef(BaseModel):
     Title: Optional[str] = None
     Url: Optional[str] = None
 
-class DefaultPushNotificationTemplateTypeDef(BaseModel):
+class DefaultPushNotificationTemplateTypeDef(BaseValidatorModel):
     Action: Optional[ActionType] = None
     Body: Optional[str] = None
     Sound: Optional[str] = None
     Title: Optional[str] = None
     Url: Optional[str] = None
 
-class DeleteAdmChannelRequestRequestTypeDef(BaseModel):
+class DeleteAdmChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class DeleteApnsChannelRequestRequestTypeDef(BaseModel):
+class DeleteApnsChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class DeleteApnsSandboxChannelRequestRequestTypeDef(BaseModel):
+class DeleteApnsSandboxChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class DeleteApnsVoipChannelRequestRequestTypeDef(BaseModel):
+class DeleteApnsVoipChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class DeleteApnsVoipSandboxChannelRequestRequestTypeDef(BaseModel):
+class DeleteApnsVoipSandboxChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class DeleteAppRequestRequestTypeDef(BaseModel):
+class DeleteAppRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class DeleteBaiduChannelRequestRequestTypeDef(BaseModel):
+class DeleteBaiduChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class DeleteCampaignRequestRequestTypeDef(BaseModel):
+class DeleteCampaignRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignId: str
 
-class DeleteEmailChannelRequestRequestTypeDef(BaseModel):
+class DeleteEmailChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class EmailChannelResponseTypeDef(BaseModel):
+class EmailChannelResponseTypeDef(BaseValidatorModel):
     Platform: str
     ApplicationId: Optional[str] = None
     ConfigurationSet: Optional[str] = None
@@ -487,22 +487,22 @@ class EmailChannelResponseTypeDef(BaseModel):
     OrchestrationSendingRoleArn: Optional[str] = None
     Version: Optional[int] = None
 
-class DeleteEmailTemplateRequestRequestTypeDef(BaseModel):
+class DeleteEmailTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class MessageBodyTypeDef(BaseModel):
+class MessageBodyTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     RequestID: Optional[str] = None
 
-class DeleteEndpointRequestRequestTypeDef(BaseModel):
+class DeleteEndpointRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EndpointId: str
 
-class DeleteEventStreamRequestRequestTypeDef(BaseModel):
+class DeleteEventStreamRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class EventStreamTypeDef(BaseModel):
+class EventStreamTypeDef(BaseValidatorModel):
     ApplicationId: str
     DestinationStreamArn: str
     RoleArn: str
@@ -510,10 +510,10 @@ class EventStreamTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     LastUpdatedBy: Optional[str] = None
 
-class DeleteGcmChannelRequestRequestTypeDef(BaseModel):
+class DeleteGcmChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GCMChannelResponseTypeDef(BaseModel):
+class GCMChannelResponseTypeDef(BaseValidatorModel):
     Platform: str
     ApplicationId: Optional[str] = None
     CreationDate: Optional[str] = None
@@ -528,29 +528,29 @@ class GCMChannelResponseTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     Version: Optional[int] = None
 
-class DeleteInAppTemplateRequestRequestTypeDef(BaseModel):
+class DeleteInAppTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class DeleteJourneyRequestRequestTypeDef(BaseModel):
+class DeleteJourneyRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
 
-class DeletePushTemplateRequestRequestTypeDef(BaseModel):
+class DeletePushTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class DeleteRecommenderConfigurationRequestRequestTypeDef(BaseModel):
+class DeleteRecommenderConfigurationRequestRequestTypeDef(BaseValidatorModel):
     RecommenderId: str
 
-class DeleteSegmentRequestRequestTypeDef(BaseModel):
+class DeleteSegmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SegmentId: str
 
-class DeleteSmsChannelRequestRequestTypeDef(BaseModel):
+class DeleteSmsChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class SMSChannelResponseTypeDef(BaseModel):
+class SMSChannelResponseTypeDef(BaseValidatorModel):
     Platform: str
     ApplicationId: Optional[str] = None
     CreationDate: Optional[str] = None
@@ -566,18 +566,18 @@ class SMSChannelResponseTypeDef(BaseModel):
     TransactionalMessagesPerSecond: Optional[int] = None
     Version: Optional[int] = None
 
-class DeleteSmsTemplateRequestRequestTypeDef(BaseModel):
+class DeleteSmsTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class DeleteUserEndpointsRequestRequestTypeDef(BaseModel):
+class DeleteUserEndpointsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     UserId: str
 
-class DeleteVoiceChannelRequestRequestTypeDef(BaseModel):
+class DeleteVoiceChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class VoiceChannelResponseTypeDef(BaseModel):
+class VoiceChannelResponseTypeDef(BaseValidatorModel):
     Platform: str
     ApplicationId: Optional[str] = None
     CreationDate: Optional[str] = None
@@ -589,11 +589,11 @@ class VoiceChannelResponseTypeDef(BaseModel):
     LastModifiedDate: Optional[str] = None
     Version: Optional[int] = None
 
-class DeleteVoiceTemplateRequestRequestTypeDef(BaseModel):
+class DeleteVoiceTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class GCMMessageTypeDef(BaseModel):
+class GCMMessageTypeDef(BaseValidatorModel):
     Action: Optional[ActionType] = None
     Body: Optional[str] = None
     CollapseKey: Optional[str] = None
@@ -613,7 +613,7 @@ class GCMMessageTypeDef(BaseModel):
     Title: Optional[str] = None
     Url: Optional[str] = None
 
-class SMSMessageTypeDef(BaseModel):
+class SMSMessageTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     Keyword: Optional[str] = None
     MediaUrl: Optional[str] = None
@@ -624,14 +624,14 @@ class SMSMessageTypeDef(BaseModel):
     EntityId: Optional[str] = None
     TemplateId: Optional[str] = None
 
-class VoiceMessageTypeDef(BaseModel):
+class VoiceMessageTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     LanguageCode: Optional[str] = None
     OriginationNumber: Optional[str] = None
     Substitutions: Optional[Mapping[str, Sequence[str]]] = None
     VoiceId: Optional[str] = None
 
-class EmailChannelRequestTypeDef(BaseModel):
+class EmailChannelRequestTypeDef(BaseValidatorModel):
     FromAddress: str
     Identity: str
     ConfigurationSet: Optional[str] = None
@@ -639,10 +639,10 @@ class EmailChannelRequestTypeDef(BaseModel):
     RoleArn: Optional[str] = None
     OrchestrationSendingRoleArn: Optional[str] = None
 
-class JourneyEmailMessageTypeDef(BaseModel):
+class JourneyEmailMessageTypeDef(BaseValidatorModel):
     FromAddress: Optional[str] = None
 
-class EndpointDemographicTypeDef(BaseModel):
+class EndpointDemographicTypeDef(BaseValidatorModel):
     AppVersion: Optional[str] = None
     Locale: Optional[str] = None
     Make: Optional[str] = None
@@ -652,7 +652,7 @@ class EndpointDemographicTypeDef(BaseModel):
     PlatformVersion: Optional[str] = None
     Timezone: Optional[str] = None
 
-class EndpointLocationTypeDef(BaseModel):
+class EndpointLocationTypeDef(BaseValidatorModel):
     City: Optional[str] = None
     Country: Optional[str] = None
     Latitude: Optional[float] = None
@@ -660,15 +660,15 @@ class EndpointLocationTypeDef(BaseModel):
     PostalCode: Optional[str] = None
     Region: Optional[str] = None
 
-class EndpointUserTypeDef(BaseModel):
+class EndpointUserTypeDef(BaseValidatorModel):
     UserAttributes: Optional[Mapping[str, Sequence[str]]] = None
     UserId: Optional[str] = None
 
-class EndpointItemResponseTypeDef(BaseModel):
+class EndpointItemResponseTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     StatusCode: Optional[int] = None
 
-class EndpointMessageResultTypeDef(BaseModel):
+class EndpointMessageResultTypeDef(BaseValidatorModel):
     DeliveryStatus: DeliveryStatusType
     StatusCode: int
     Address: Optional[str] = None
@@ -676,163 +676,163 @@ class EndpointMessageResultTypeDef(BaseModel):
     StatusMessage: Optional[str] = None
     UpdatedToken: Optional[str] = None
 
-class EndpointUserOutputTypeDef(BaseModel):
+class EndpointUserOutputTypeDef(BaseValidatorModel):
     UserAttributes: Optional[Dict[str, List[str]]] = None
     UserId: Optional[str] = None
 
-class EndpointSendConfigurationTypeDef(BaseModel):
+class EndpointSendConfigurationTypeDef(BaseValidatorModel):
     BodyOverride: Optional[str] = None
     Context: Optional[Mapping[str, str]] = None
     RawContent: Optional[str] = None
     Substitutions: Optional[Mapping[str, Sequence[str]]] = None
     TitleOverride: Optional[str] = None
 
-class MetricDimensionTypeDef(BaseModel):
+class MetricDimensionTypeDef(BaseValidatorModel):
     ComparisonOperator: str
     Value: float
 
-class SetDimensionOutputTypeDef(BaseModel):
+class SetDimensionOutputTypeDef(BaseValidatorModel):
     Values: List[str]
     DimensionType: Optional[DimensionTypeType] = None
 
-class SetDimensionTypeDef(BaseModel):
+class SetDimensionTypeDef(BaseValidatorModel):
     Values: Sequence[str]
     DimensionType: Optional[DimensionTypeType] = None
 
-class EventItemResponseTypeDef(BaseModel):
+class EventItemResponseTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     StatusCode: Optional[int] = None
 
-class SessionTypeDef(BaseModel):
+class SessionTypeDef(BaseValidatorModel):
     Id: str
     StartTimestamp: str
     Duration: Optional[int] = None
     StopTimestamp: Optional[str] = None
 
-class ExportJobResourceTypeDef(BaseModel):
+class ExportJobResourceTypeDef(BaseValidatorModel):
     RoleArn: str
     S3UrlPrefix: str
     SegmentId: Optional[str] = None
     SegmentVersion: Optional[int] = None
 
-class GCMChannelRequestTypeDef(BaseModel):
+class GCMChannelRequestTypeDef(BaseValidatorModel):
     ApiKey: Optional[str] = None
     DefaultAuthenticationMethod: Optional[str] = None
     Enabled: Optional[bool] = None
     ServiceJson: Optional[str] = None
 
-class GPSCoordinatesTypeDef(BaseModel):
+class GPSCoordinatesTypeDef(BaseValidatorModel):
     Latitude: float
     Longitude: float
 
-class GetAdmChannelRequestRequestTypeDef(BaseModel):
+class GetAdmChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetApnsChannelRequestRequestTypeDef(BaseModel):
+class GetApnsChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetApnsSandboxChannelRequestRequestTypeDef(BaseModel):
+class GetApnsSandboxChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetApnsVoipChannelRequestRequestTypeDef(BaseModel):
+class GetApnsVoipChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetApnsVoipSandboxChannelRequestRequestTypeDef(BaseModel):
+class GetApnsVoipSandboxChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetAppRequestRequestTypeDef(BaseModel):
+class GetAppRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetApplicationSettingsRequestRequestTypeDef(BaseModel):
+class GetApplicationSettingsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetAppsRequestRequestTypeDef(BaseModel):
+class GetAppsRequestRequestTypeDef(BaseValidatorModel):
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetBaiduChannelRequestRequestTypeDef(BaseModel):
+class GetBaiduChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetCampaignActivitiesRequestRequestTypeDef(BaseModel):
+class GetCampaignActivitiesRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetCampaignRequestRequestTypeDef(BaseModel):
+class GetCampaignRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignId: str
 
-class GetCampaignVersionRequestRequestTypeDef(BaseModel):
+class GetCampaignVersionRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignId: str
     Version: str
 
-class GetCampaignVersionsRequestRequestTypeDef(BaseModel):
+class GetCampaignVersionsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetCampaignsRequestRequestTypeDef(BaseModel):
+class GetCampaignsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetChannelsRequestRequestTypeDef(BaseModel):
+class GetChannelsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetEmailChannelRequestRequestTypeDef(BaseModel):
+class GetEmailChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetEmailTemplateRequestRequestTypeDef(BaseModel):
+class GetEmailTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class GetEndpointRequestRequestTypeDef(BaseModel):
+class GetEndpointRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EndpointId: str
 
-class GetEventStreamRequestRequestTypeDef(BaseModel):
+class GetEventStreamRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetExportJobRequestRequestTypeDef(BaseModel):
+class GetExportJobRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JobId: str
 
-class GetExportJobsRequestRequestTypeDef(BaseModel):
+class GetExportJobsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetGcmChannelRequestRequestTypeDef(BaseModel):
+class GetGcmChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetImportJobRequestRequestTypeDef(BaseModel):
+class GetImportJobRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JobId: str
 
-class GetImportJobsRequestRequestTypeDef(BaseModel):
+class GetImportJobsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetInAppMessagesRequestRequestTypeDef(BaseModel):
+class GetInAppMessagesRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EndpointId: str
 
-class GetInAppTemplateRequestRequestTypeDef(BaseModel):
+class GetInAppTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class GetJourneyExecutionActivityMetricsRequestRequestTypeDef(BaseModel):
+class GetJourneyExecutionActivityMetricsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyActivityId: str
     JourneyId: str
     NextToken: Optional[str] = None
     PageSize: Optional[str] = None
 
-class JourneyExecutionActivityMetricsResponseTypeDef(BaseModel):
+class JourneyExecutionActivityMetricsResponseTypeDef(BaseValidatorModel):
     ActivityType: str
     ApplicationId: str
     JourneyActivityId: str
@@ -840,23 +840,23 @@ class JourneyExecutionActivityMetricsResponseTypeDef(BaseModel):
     LastEvaluatedTime: str
     Metrics: Dict[str, str]
 
-class GetJourneyExecutionMetricsRequestRequestTypeDef(BaseModel):
+class GetJourneyExecutionMetricsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
     NextToken: Optional[str] = None
     PageSize: Optional[str] = None
 
-class JourneyExecutionMetricsResponseTypeDef(BaseModel):
+class JourneyExecutionMetricsResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
     LastEvaluatedTime: str
     Metrics: Dict[str, str]
 
-class GetJourneyRequestRequestTypeDef(BaseModel):
+class GetJourneyRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
 
-class GetJourneyRunExecutionActivityMetricsRequestRequestTypeDef(BaseModel):
+class GetJourneyRunExecutionActivityMetricsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyActivityId: str
     JourneyId: str
@@ -864,7 +864,7 @@ class GetJourneyRunExecutionActivityMetricsRequestRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     PageSize: Optional[str] = None
 
-class JourneyRunExecutionActivityMetricsResponseTypeDef(BaseModel):
+class JourneyRunExecutionActivityMetricsResponseTypeDef(BaseValidatorModel):
     ActivityType: str
     ApplicationId: str
     JourneyActivityId: str
@@ -873,77 +873,77 @@ class JourneyRunExecutionActivityMetricsResponseTypeDef(BaseModel):
     Metrics: Dict[str, str]
     RunId: str
 
-class GetJourneyRunExecutionMetricsRequestRequestTypeDef(BaseModel):
+class GetJourneyRunExecutionMetricsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
     RunId: str
     NextToken: Optional[str] = None
     PageSize: Optional[str] = None
 
-class JourneyRunExecutionMetricsResponseTypeDef(BaseModel):
+class JourneyRunExecutionMetricsResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
     LastEvaluatedTime: str
     Metrics: Dict[str, str]
     RunId: str
 
-class GetJourneyRunsRequestRequestTypeDef(BaseModel):
+class GetJourneyRunsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetPushTemplateRequestRequestTypeDef(BaseModel):
+class GetPushTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class GetRecommenderConfigurationRequestRequestTypeDef(BaseModel):
+class GetRecommenderConfigurationRequestRequestTypeDef(BaseValidatorModel):
     RecommenderId: str
 
-class GetRecommenderConfigurationsRequestRequestTypeDef(BaseModel):
+class GetRecommenderConfigurationsRequestRequestTypeDef(BaseValidatorModel):
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetSegmentExportJobsRequestRequestTypeDef(BaseModel):
+class GetSegmentExportJobsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SegmentId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetSegmentImportJobsRequestRequestTypeDef(BaseModel):
+class GetSegmentImportJobsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SegmentId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetSegmentRequestRequestTypeDef(BaseModel):
+class GetSegmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SegmentId: str
 
-class GetSegmentVersionRequestRequestTypeDef(BaseModel):
+class GetSegmentVersionRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SegmentId: str
     Version: str
 
-class GetSegmentVersionsRequestRequestTypeDef(BaseModel):
+class GetSegmentVersionsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SegmentId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetSegmentsRequestRequestTypeDef(BaseModel):
+class GetSegmentsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class GetSmsChannelRequestRequestTypeDef(BaseModel):
+class GetSmsChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetSmsTemplateRequestRequestTypeDef(BaseModel):
+class GetSmsTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class SMSTemplateResponseTypeDef(BaseModel):
+class SMSTemplateResponseTypeDef(BaseValidatorModel):
     CreationDate: str
     LastModifiedDate: str
     TemplateName: str
@@ -956,18 +956,18 @@ class SMSTemplateResponseTypeDef(BaseModel):
     TemplateDescription: Optional[str] = None
     Version: Optional[str] = None
 
-class GetUserEndpointsRequestRequestTypeDef(BaseModel):
+class GetUserEndpointsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     UserId: str
 
-class GetVoiceChannelRequestRequestTypeDef(BaseModel):
+class GetVoiceChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
 
-class GetVoiceTemplateRequestRequestTypeDef(BaseModel):
+class GetVoiceTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     Version: Optional[str] = None
 
-class VoiceTemplateResponseTypeDef(BaseModel):
+class VoiceTemplateResponseTypeDef(BaseValidatorModel):
     CreationDate: str
     LastModifiedDate: str
     TemplateName: str
@@ -981,7 +981,7 @@ class VoiceTemplateResponseTypeDef(BaseModel):
     Version: Optional[str] = None
     VoiceId: Optional[str] = None
 
-class ImportJobResourceTypeDef(BaseModel):
+class ImportJobResourceTypeDef(BaseValidatorModel):
     Format: FormatType
     RoleArn: str
     S3Url: str
@@ -991,72 +991,72 @@ class ImportJobResourceTypeDef(BaseModel):
     SegmentId: Optional[str] = None
     SegmentName: Optional[str] = None
 
-class InAppMessageBodyConfigTypeDef(BaseModel):
+class InAppMessageBodyConfigTypeDef(BaseValidatorModel):
     Alignment: AlignmentType
     Body: str
     TextColor: str
 
-class OverrideButtonConfigurationTypeDef(BaseModel):
+class OverrideButtonConfigurationTypeDef(BaseValidatorModel):
     ButtonAction: ButtonActionType
     Link: Optional[str] = None
 
-class InAppMessageHeaderConfigTypeDef(BaseModel):
+class InAppMessageHeaderConfigTypeDef(BaseValidatorModel):
     Alignment: AlignmentType
     Header: str
     TextColor: str
 
-class JourneyChannelSettingsTypeDef(BaseModel):
+class JourneyChannelSettingsTypeDef(BaseValidatorModel):
     ConnectCampaignArn: Optional[str] = None
     ConnectCampaignExecutionRoleArn: Optional[str] = None
 
-class JourneyPushMessageTypeDef(BaseModel):
+class JourneyPushMessageTypeDef(BaseValidatorModel):
     TimeToLive: Optional[str] = None
 
-class JourneyScheduleOutputTypeDef(BaseModel):
+class JourneyScheduleOutputTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     Timezone: Optional[str] = None
 
-class JourneyRunResponseTypeDef(BaseModel):
+class JourneyRunResponseTypeDef(BaseValidatorModel):
     CreationTime: str
     LastUpdateTime: str
     RunId: str
     Status: JourneyRunStatusType
 
-class JourneySMSMessageTypeDef(BaseModel):
+class JourneySMSMessageTypeDef(BaseValidatorModel):
     MessageType: Optional[MessageTypeType] = None
     OriginationNumber: Optional[str] = None
     SenderId: Optional[str] = None
     EntityId: Optional[str] = None
     TemplateId: Optional[str] = None
 
-class JourneyStateRequestTypeDef(BaseModel):
+class JourneyStateRequestTypeDef(BaseValidatorModel):
     State: Optional[StateType] = None
 
-class ListJourneysRequestRequestTypeDef(BaseModel):
+class ListJourneysRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     PageSize: Optional[str] = None
     Token: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class TagsModelOutputTypeDef(BaseModel):
+class TagsModelOutputTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
 
-class ListTemplateVersionsRequestRequestTypeDef(BaseModel):
+class ListTemplateVersionsRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     TemplateType: str
     NextToken: Optional[str] = None
     PageSize: Optional[str] = None
 
-class ListTemplatesRequestRequestTypeDef(BaseModel):
+class ListTemplatesRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[str] = None
     Prefix: Optional[str] = None
     TemplateType: Optional[str] = None
 
-class MessageTypeDef(BaseModel):
+class MessageTypeDef(BaseValidatorModel):
     Action: Optional[ActionType] = None
     Body: Optional[str] = None
     ImageIconUrl: Optional[str] = None
@@ -1070,18 +1070,18 @@ class MessageTypeDef(BaseModel):
     Title: Optional[str] = None
     Url: Optional[str] = None
 
-class MessageResultTypeDef(BaseModel):
+class MessageResultTypeDef(BaseValidatorModel):
     DeliveryStatus: DeliveryStatusType
     StatusCode: int
     MessageId: Optional[str] = None
     StatusMessage: Optional[str] = None
     UpdatedToken: Optional[str] = None
 
-class NumberValidateRequestTypeDef(BaseModel):
+class NumberValidateRequestTypeDef(BaseValidatorModel):
     IsoCountryCode: Optional[str] = None
     PhoneNumber: Optional[str] = None
 
-class NumberValidateResponseTypeDef(BaseModel):
+class NumberValidateResponseTypeDef(BaseValidatorModel):
     Carrier: Optional[str] = None
     City: Optional[str] = None
     CleansedPhoneNumberE164: Optional[str] = None
@@ -1097,43 +1097,43 @@ class NumberValidateResponseTypeDef(BaseModel):
     Timezone: Optional[str] = None
     ZipCode: Optional[str] = None
 
-class OpenHoursRuleTypeDef(BaseModel):
+class OpenHoursRuleTypeDef(BaseValidatorModel):
     StartTime: Optional[str] = None
     EndTime: Optional[str] = None
 
-class WriteEventStreamTypeDef(BaseModel):
+class WriteEventStreamTypeDef(BaseValidatorModel):
     DestinationStreamArn: str
     RoleArn: str
 
-class RandomSplitEntryTypeDef(BaseModel):
+class RandomSplitEntryTypeDef(BaseValidatorModel):
     NextActivity: Optional[str] = None
     Percentage: Optional[int] = None
 
-class RecencyDimensionTypeDef(BaseModel):
+class RecencyDimensionTypeDef(BaseValidatorModel):
     Duration: DurationType
     RecencyType: RecencyTypeType
 
-class UpdateAttributesRequestTypeDef(BaseModel):
+class UpdateAttributesRequestTypeDef(BaseValidatorModel):
     Blacklist: Optional[Sequence[str]] = None
 
-class ResultRowValueTypeDef(BaseModel):
+class ResultRowValueTypeDef(BaseValidatorModel):
     Key: str
     Type: str
     Value: str
 
-class SMSChannelRequestTypeDef(BaseModel):
+class SMSChannelRequestTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     SenderId: Optional[str] = None
     ShortCode: Optional[str] = None
 
-class SegmentConditionTypeDef(BaseModel):
+class SegmentConditionTypeDef(BaseValidatorModel):
     SegmentId: str
 
-class SegmentReferenceTypeDef(BaseModel):
+class SegmentReferenceTypeDef(BaseValidatorModel):
     Id: str
     Version: Optional[int] = None
 
-class SegmentImportResourceTypeDef(BaseModel):
+class SegmentImportResourceTypeDef(BaseValidatorModel):
     ExternalId: str
     Format: FormatType
     RoleArn: str
@@ -1141,7 +1141,7 @@ class SegmentImportResourceTypeDef(BaseModel):
     Size: int
     ChannelCounts: Optional[Dict[str, int]] = None
 
-class SendOTPMessageRequestParametersTypeDef(BaseModel):
+class SendOTPMessageRequestParametersTypeDef(BaseValidatorModel):
     BrandName: str
     Channel: str
     DestinationIdentity: str
@@ -1154,21 +1154,21 @@ class SendOTPMessageRequestParametersTypeDef(BaseModel):
     TemplateId: Optional[str] = None
     ValidityPeriod: Optional[int] = None
 
-class SimpleEmailPartTypeDef(BaseModel):
+class SimpleEmailPartTypeDef(BaseValidatorModel):
     Charset: Optional[str] = None
     Data: Optional[str] = None
 
-class TagsModelTypeDef(BaseModel):
+class TagsModelTypeDef(BaseValidatorModel):
     tags: Mapping[str, str]
 
-class TemplateActiveVersionRequestTypeDef(BaseModel):
+class TemplateActiveVersionRequestTypeDef(BaseValidatorModel):
     Version: Optional[str] = None
 
-class TemplateTypeDef(BaseModel):
+class TemplateTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
 
-class TemplateResponseTypeDef(BaseModel):
+class TemplateResponseTypeDef(BaseValidatorModel):
     CreationDate: str
     LastModifiedDate: str
     TemplateName: str
@@ -1179,7 +1179,7 @@ class TemplateResponseTypeDef(BaseModel):
     TemplateDescription: Optional[str] = None
     Version: Optional[str] = None
 
-class TemplateVersionResponseTypeDef(BaseModel):
+class TemplateVersionResponseTypeDef(BaseValidatorModel):
     CreationDate: str
     LastModifiedDate: str
     TemplateName: str
@@ -1188,11 +1188,11 @@ class TemplateVersionResponseTypeDef(BaseModel):
     TemplateDescription: Optional[str] = None
     Version: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateRecommenderConfigurationTypeDef(BaseModel):
+class UpdateRecommenderConfigurationTypeDef(BaseValidatorModel):
     RecommendationProviderRoleArn: str
     RecommendationProviderUri: str
     Attributes: Optional[Mapping[str, str]] = None
@@ -1203,51 +1203,51 @@ class UpdateRecommenderConfigurationTypeDef(BaseModel):
     RecommendationsDisplayName: Optional[str] = None
     RecommendationsPerMessage: Optional[int] = None
 
-class VoiceChannelRequestTypeDef(BaseModel):
+class VoiceChannelRequestTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
-class VerificationResponseTypeDef(BaseModel):
+class VerificationResponseTypeDef(BaseValidatorModel):
     Valid: Optional[bool] = None
 
-class VerifyOTPMessageRequestParametersTypeDef(BaseModel):
+class VerifyOTPMessageRequestParametersTypeDef(BaseValidatorModel):
     DestinationIdentity: str
     Otp: str
     ReferenceId: str
 
-class UpdateAdmChannelRequestRequestTypeDef(BaseModel):
+class UpdateAdmChannelRequestRequestTypeDef(BaseValidatorModel):
     ADMChannelRequest: ADMChannelRequestTypeDef
     ApplicationId: str
 
-class UpdateApnsChannelRequestRequestTypeDef(BaseModel):
+class UpdateApnsChannelRequestRequestTypeDef(BaseValidatorModel):
     APNSChannelRequest: APNSChannelRequestTypeDef
     ApplicationId: str
 
-class UpdateApnsSandboxChannelRequestRequestTypeDef(BaseModel):
+class UpdateApnsSandboxChannelRequestRequestTypeDef(BaseValidatorModel):
     APNSSandboxChannelRequest: APNSSandboxChannelRequestTypeDef
     ApplicationId: str
 
-class UpdateApnsVoipChannelRequestRequestTypeDef(BaseModel):
+class UpdateApnsVoipChannelRequestRequestTypeDef(BaseValidatorModel):
     APNSVoipChannelRequest: APNSVoipChannelRequestTypeDef
     ApplicationId: str
 
-class UpdateApnsVoipSandboxChannelRequestRequestTypeDef(BaseModel):
+class UpdateApnsVoipSandboxChannelRequestRequestTypeDef(BaseValidatorModel):
     APNSVoipSandboxChannelRequest: APNSVoipSandboxChannelRequestTypeDef
     ApplicationId: str
 
-class ActivitiesResponseTypeDef(BaseModel):
+class ActivitiesResponseTypeDef(BaseValidatorModel):
     Item: List[ActivityResponseTypeDef]
     NextToken: Optional[str] = None
 
-class ApplicationsResponseTypeDef(BaseModel):
+class ApplicationsResponseTypeDef(BaseValidatorModel):
     Item: Optional[List[ApplicationResponseTypeDef]] = None
     NextToken: Optional[str] = None
 
-class ApplicationSettingsJourneyLimitsTypeDef(BaseModel):
+class ApplicationSettingsJourneyLimitsTypeDef(BaseValidatorModel):
     DailyCap: Optional[int] = None
     TimeframeCap: Optional[JourneyTimeframeCapTypeDef] = None
     TotalCap: Optional[int] = None
 
-class JourneyLimitsTypeDef(BaseModel):
+class JourneyLimitsTypeDef(BaseValidatorModel):
     DailyCap: Optional[int] = None
     EndpointReentryCap: Optional[int] = None
     MessagesPerSecond: Optional[int] = None
@@ -1255,28 +1255,28 @@ class JourneyLimitsTypeDef(BaseModel):
     TimeframeCap: Optional[JourneyTimeframeCapTypeDef] = None
     TotalCap: Optional[int] = None
 
-class UpdateBaiduChannelRequestRequestTypeDef(BaseModel):
+class UpdateBaiduChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     BaiduChannelRequest: BaiduChannelRequestTypeDef
 
-class RawEmailTypeDef(BaseModel):
+class RawEmailTypeDef(BaseValidatorModel):
     Data: Optional[BlobTypeDef] = None
 
-class CampaignEmailMessageOutputTypeDef(BaseModel):
+class CampaignEmailMessageOutputTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     FromAddress: Optional[str] = None
     Headers: Optional[List[MessageHeaderTypeDef]] = None
     HtmlBody: Optional[str] = None
     Title: Optional[str] = None
 
-class CampaignEmailMessageTypeDef(BaseModel):
+class CampaignEmailMessageTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     FromAddress: Optional[str] = None
     Headers: Optional[Sequence[MessageHeaderTypeDef]] = None
     HtmlBody: Optional[str] = None
     Title: Optional[str] = None
 
-class EmailTemplateRequestTypeDef(BaseModel):
+class EmailTemplateRequestTypeDef(BaseValidatorModel):
     DefaultSubstitutions: Optional[str] = None
     HtmlPart: Optional[str] = None
     RecommenderId: Optional[str] = None
@@ -1286,7 +1286,7 @@ class EmailTemplateRequestTypeDef(BaseModel):
     TemplateDescription: Optional[str] = None
     TextPart: Optional[str] = None
 
-class EmailTemplateResponseTypeDef(BaseModel):
+class EmailTemplateResponseTypeDef(BaseValidatorModel):
     CreationDate: str
     LastModifiedDate: str
     TemplateName: str
@@ -1302,193 +1302,193 @@ class EmailTemplateResponseTypeDef(BaseModel):
     TextPart: Optional[str] = None
     Version: Optional[str] = None
 
-class ChannelsResponseTypeDef(BaseModel):
+class ChannelsResponseTypeDef(BaseValidatorModel):
     Channels: Dict[str, ChannelResponseTypeDef]
 
-class ClosedDaysOutputTypeDef(BaseModel):
+class ClosedDaysOutputTypeDef(BaseValidatorModel):
     EMAIL: Optional[List[ClosedDaysRuleTypeDef]] = None
     SMS: Optional[List[ClosedDaysRuleTypeDef]] = None
     PUSH: Optional[List[ClosedDaysRuleTypeDef]] = None
     VOICE: Optional[List[ClosedDaysRuleTypeDef]] = None
     CUSTOM: Optional[List[ClosedDaysRuleTypeDef]] = None
 
-class ClosedDaysTypeDef(BaseModel):
+class ClosedDaysTypeDef(BaseValidatorModel):
     EMAIL: Optional[Sequence[ClosedDaysRuleTypeDef]] = None
     SMS: Optional[Sequence[ClosedDaysRuleTypeDef]] = None
     PUSH: Optional[Sequence[ClosedDaysRuleTypeDef]] = None
     VOICE: Optional[Sequence[ClosedDaysRuleTypeDef]] = None
     CUSTOM: Optional[Sequence[ClosedDaysRuleTypeDef]] = None
 
-class WaitActivityTypeDef(BaseModel):
+class WaitActivityTypeDef(BaseValidatorModel):
     NextActivity: Optional[str] = None
     WaitTime: Optional[WaitTimeTypeDef] = None
 
-class CreateAppRequestRequestTypeDef(BaseModel):
+class CreateAppRequestRequestTypeDef(BaseValidatorModel):
     CreateApplicationRequest: CreateApplicationRequestTypeDef
 
-class CreateAppResponseTypeDef(BaseModel):
+class CreateAppResponseTypeDef(BaseValidatorModel):
     ApplicationResponse: ApplicationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAdmChannelResponseTypeDef(BaseModel):
+class DeleteAdmChannelResponseTypeDef(BaseValidatorModel):
     ADMChannelResponse: ADMChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteApnsChannelResponseTypeDef(BaseModel):
+class DeleteApnsChannelResponseTypeDef(BaseValidatorModel):
     APNSChannelResponse: APNSChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteApnsSandboxChannelResponseTypeDef(BaseModel):
+class DeleteApnsSandboxChannelResponseTypeDef(BaseValidatorModel):
     APNSSandboxChannelResponse: APNSSandboxChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteApnsVoipChannelResponseTypeDef(BaseModel):
+class DeleteApnsVoipChannelResponseTypeDef(BaseValidatorModel):
     APNSVoipChannelResponse: APNSVoipChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteApnsVoipSandboxChannelResponseTypeDef(BaseModel):
+class DeleteApnsVoipSandboxChannelResponseTypeDef(BaseValidatorModel):
     APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAppResponseTypeDef(BaseModel):
+class DeleteAppResponseTypeDef(BaseValidatorModel):
     ApplicationResponse: ApplicationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBaiduChannelResponseTypeDef(BaseModel):
+class DeleteBaiduChannelResponseTypeDef(BaseValidatorModel):
     BaiduChannelResponse: BaiduChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAdmChannelResponseTypeDef(BaseModel):
+class GetAdmChannelResponseTypeDef(BaseValidatorModel):
     ADMChannelResponse: ADMChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApnsChannelResponseTypeDef(BaseModel):
+class GetApnsChannelResponseTypeDef(BaseValidatorModel):
     APNSChannelResponse: APNSChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApnsSandboxChannelResponseTypeDef(BaseModel):
+class GetApnsSandboxChannelResponseTypeDef(BaseValidatorModel):
     APNSSandboxChannelResponse: APNSSandboxChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApnsVoipChannelResponseTypeDef(BaseModel):
+class GetApnsVoipChannelResponseTypeDef(BaseValidatorModel):
     APNSVoipChannelResponse: APNSVoipChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApnsVoipSandboxChannelResponseTypeDef(BaseModel):
+class GetApnsVoipSandboxChannelResponseTypeDef(BaseValidatorModel):
     APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAppResponseTypeDef(BaseModel):
+class GetAppResponseTypeDef(BaseValidatorModel):
     ApplicationResponse: ApplicationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBaiduChannelResponseTypeDef(BaseModel):
+class GetBaiduChannelResponseTypeDef(BaseValidatorModel):
     BaiduChannelResponse: BaiduChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RemoveAttributesResponseTypeDef(BaseModel):
+class RemoveAttributesResponseTypeDef(BaseValidatorModel):
     AttributesResource: AttributesResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAdmChannelResponseTypeDef(BaseModel):
+class UpdateAdmChannelResponseTypeDef(BaseValidatorModel):
     ADMChannelResponse: ADMChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApnsChannelResponseTypeDef(BaseModel):
+class UpdateApnsChannelResponseTypeDef(BaseValidatorModel):
     APNSChannelResponse: APNSChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApnsSandboxChannelResponseTypeDef(BaseModel):
+class UpdateApnsSandboxChannelResponseTypeDef(BaseValidatorModel):
     APNSSandboxChannelResponse: APNSSandboxChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApnsVoipChannelResponseTypeDef(BaseModel):
+class UpdateApnsVoipChannelResponseTypeDef(BaseValidatorModel):
     APNSVoipChannelResponse: APNSVoipChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApnsVoipSandboxChannelResponseTypeDef(BaseModel):
+class UpdateApnsVoipSandboxChannelResponseTypeDef(BaseValidatorModel):
     APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBaiduChannelResponseTypeDef(BaseModel):
+class UpdateBaiduChannelResponseTypeDef(BaseValidatorModel):
     BaiduChannelResponse: BaiduChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEmailTemplateResponseTypeDef(BaseModel):
+class CreateEmailTemplateResponseTypeDef(BaseValidatorModel):
     CreateTemplateMessageBody: CreateTemplateMessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePushTemplateResponseTypeDef(BaseModel):
+class CreatePushTemplateResponseTypeDef(BaseValidatorModel):
     CreateTemplateMessageBody: CreateTemplateMessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSmsTemplateResponseTypeDef(BaseModel):
+class CreateSmsTemplateResponseTypeDef(BaseValidatorModel):
     CreateTemplateMessageBody: CreateTemplateMessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVoiceTemplateResponseTypeDef(BaseModel):
+class CreateVoiceTemplateResponseTypeDef(BaseValidatorModel):
     CreateTemplateMessageBody: CreateTemplateMessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateExportJobRequestRequestTypeDef(BaseModel):
+class CreateExportJobRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ExportJobRequest: ExportJobRequestTypeDef
 
-class CreateImportJobRequestRequestTypeDef(BaseModel):
+class CreateImportJobRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     ImportJobRequest: ImportJobRequestTypeDef
 
-class CreateInAppTemplateResponseTypeDef(BaseModel):
+class CreateInAppTemplateResponseTypeDef(BaseValidatorModel):
     TemplateCreateMessageBody: TemplateCreateMessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRecommenderConfigurationRequestRequestTypeDef(BaseModel):
+class CreateRecommenderConfigurationRequestRequestTypeDef(BaseValidatorModel):
     CreateRecommenderConfiguration: CreateRecommenderConfigurationTypeDef
 
-class CreateRecommenderConfigurationResponseTypeDef(BaseModel):
+class CreateRecommenderConfigurationResponseTypeDef(BaseValidatorModel):
     RecommenderConfigurationResponse: RecommenderConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRecommenderConfigurationResponseTypeDef(BaseModel):
+class DeleteRecommenderConfigurationResponseTypeDef(BaseValidatorModel):
     RecommenderConfigurationResponse: RecommenderConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRecommenderConfigurationResponseTypeDef(BaseModel):
+class GetRecommenderConfigurationResponseTypeDef(BaseValidatorModel):
     RecommenderConfigurationResponse: RecommenderConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRecommenderConfigurationsResponseTypeDef(BaseModel):
+class ListRecommenderConfigurationsResponseTypeDef(BaseValidatorModel):
     Item: List[RecommenderConfigurationResponseTypeDef]
     NextToken: Optional[str] = None
 
-class UpdateRecommenderConfigurationResponseTypeDef(BaseModel):
+class UpdateRecommenderConfigurationResponseTypeDef(BaseValidatorModel):
     RecommenderConfigurationResponse: RecommenderConfigurationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSmsTemplateRequestRequestTypeDef(BaseModel):
+class CreateSmsTemplateRequestRequestTypeDef(BaseValidatorModel):
     SMSTemplateRequest: SMSTemplateRequestTypeDef
     TemplateName: str
 
-class UpdateSmsTemplateRequestRequestTypeDef(BaseModel):
+class UpdateSmsTemplateRequestRequestTypeDef(BaseValidatorModel):
     SMSTemplateRequest: SMSTemplateRequestTypeDef
     TemplateName: str
     CreateNewVersion: Optional[bool] = None
     Version: Optional[str] = None
 
-class CreateVoiceTemplateRequestRequestTypeDef(BaseModel):
+class CreateVoiceTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     VoiceTemplateRequest: VoiceTemplateRequestTypeDef
 
-class UpdateVoiceTemplateRequestRequestTypeDef(BaseModel):
+class UpdateVoiceTemplateRequestRequestTypeDef(BaseValidatorModel):
     TemplateName: str
     VoiceTemplateRequest: VoiceTemplateRequestTypeDef
     CreateNewVersion: Optional[bool] = None
     Version: Optional[str] = None
 
-class CustomMessageActivityOutputTypeDef(BaseModel):
+class CustomMessageActivityOutputTypeDef(BaseValidatorModel):
     DeliveryUri: Optional[str] = None
     EndpointTypes: Optional[List[EndpointTypesElementType]] = None
     MessageConfig: Optional[JourneyCustomMessageTypeDef] = None
@@ -1496,7 +1496,7 @@ class CustomMessageActivityOutputTypeDef(BaseModel):
     TemplateName: Optional[str] = None
     TemplateVersion: Optional[str] = None
 
-class CustomMessageActivityTypeDef(BaseModel):
+class CustomMessageActivityTypeDef(BaseValidatorModel):
     DeliveryUri: Optional[str] = None
     EndpointTypes: Optional[Sequence[EndpointTypesElementType]] = None
     MessageConfig: Optional[JourneyCustomMessageTypeDef] = None
@@ -1504,7 +1504,7 @@ class CustomMessageActivityTypeDef(BaseModel):
     TemplateName: Optional[str] = None
     TemplateVersion: Optional[str] = None
 
-class PushNotificationTemplateRequestTypeDef(BaseModel):
+class PushNotificationTemplateRequestTypeDef(BaseValidatorModel):
     ADM: Optional[AndroidPushNotificationTemplateTypeDef] = None
     APNS: Optional[APNSPushNotificationTemplateTypeDef] = None
     Baidu: Optional[AndroidPushNotificationTemplateTypeDef] = None
@@ -1515,7 +1515,7 @@ class PushNotificationTemplateRequestTypeDef(BaseModel):
     tags: Optional[Mapping[str, str]] = None
     TemplateDescription: Optional[str] = None
 
-class PushNotificationTemplateResponseTypeDef(BaseModel):
+class PushNotificationTemplateResponseTypeDef(BaseValidatorModel):
     CreationDate: str
     LastModifiedDate: str
     TemplateName: str
@@ -1532,129 +1532,129 @@ class PushNotificationTemplateResponseTypeDef(BaseModel):
     TemplateDescription: Optional[str] = None
     Version: Optional[str] = None
 
-class DeleteEmailChannelResponseTypeDef(BaseModel):
+class DeleteEmailChannelResponseTypeDef(BaseValidatorModel):
     EmailChannelResponse: EmailChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEmailChannelResponseTypeDef(BaseModel):
+class GetEmailChannelResponseTypeDef(BaseValidatorModel):
     EmailChannelResponse: EmailChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEmailChannelResponseTypeDef(BaseModel):
+class UpdateEmailChannelResponseTypeDef(BaseValidatorModel):
     EmailChannelResponse: EmailChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteEmailTemplateResponseTypeDef(BaseModel):
+class DeleteEmailTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteInAppTemplateResponseTypeDef(BaseModel):
+class DeleteInAppTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeletePushTemplateResponseTypeDef(BaseModel):
+class DeletePushTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSmsTemplateResponseTypeDef(BaseModel):
+class DeleteSmsTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVoiceTemplateResponseTypeDef(BaseModel):
+class DeleteVoiceTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEmailTemplateResponseTypeDef(BaseModel):
+class UpdateEmailTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEndpointResponseTypeDef(BaseModel):
+class UpdateEndpointResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEndpointsBatchResponseTypeDef(BaseModel):
+class UpdateEndpointsBatchResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateInAppTemplateResponseTypeDef(BaseModel):
+class UpdateInAppTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePushTemplateResponseTypeDef(BaseModel):
+class UpdatePushTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSmsTemplateResponseTypeDef(BaseModel):
+class UpdateSmsTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateTemplateActiveVersionResponseTypeDef(BaseModel):
+class UpdateTemplateActiveVersionResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVoiceTemplateResponseTypeDef(BaseModel):
+class UpdateVoiceTemplateResponseTypeDef(BaseValidatorModel):
     MessageBody: MessageBodyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteEventStreamResponseTypeDef(BaseModel):
+class DeleteEventStreamResponseTypeDef(BaseValidatorModel):
     EventStream: EventStreamTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEventStreamResponseTypeDef(BaseModel):
+class GetEventStreamResponseTypeDef(BaseValidatorModel):
     EventStream: EventStreamTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutEventStreamResponseTypeDef(BaseModel):
+class PutEventStreamResponseTypeDef(BaseValidatorModel):
     EventStream: EventStreamTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteGcmChannelResponseTypeDef(BaseModel):
+class DeleteGcmChannelResponseTypeDef(BaseValidatorModel):
     GCMChannelResponse: GCMChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGcmChannelResponseTypeDef(BaseModel):
+class GetGcmChannelResponseTypeDef(BaseValidatorModel):
     GCMChannelResponse: GCMChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGcmChannelResponseTypeDef(BaseModel):
+class UpdateGcmChannelResponseTypeDef(BaseValidatorModel):
     GCMChannelResponse: GCMChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSmsChannelResponseTypeDef(BaseModel):
+class DeleteSmsChannelResponseTypeDef(BaseValidatorModel):
     SMSChannelResponse: SMSChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSmsChannelResponseTypeDef(BaseModel):
+class GetSmsChannelResponseTypeDef(BaseValidatorModel):
     SMSChannelResponse: SMSChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSmsChannelResponseTypeDef(BaseModel):
+class UpdateSmsChannelResponseTypeDef(BaseValidatorModel):
     SMSChannelResponse: SMSChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteVoiceChannelResponseTypeDef(BaseModel):
+class DeleteVoiceChannelResponseTypeDef(BaseValidatorModel):
     VoiceChannelResponse: VoiceChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVoiceChannelResponseTypeDef(BaseModel):
+class GetVoiceChannelResponseTypeDef(BaseValidatorModel):
     VoiceChannelResponse: VoiceChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVoiceChannelResponseTypeDef(BaseModel):
+class UpdateVoiceChannelResponseTypeDef(BaseValidatorModel):
     VoiceChannelResponse: VoiceChannelResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEmailChannelRequestRequestTypeDef(BaseModel):
+class UpdateEmailChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EmailChannelRequest: EmailChannelRequestTypeDef
 
-class EmailMessageActivityTypeDef(BaseModel):
+class EmailMessageActivityTypeDef(BaseValidatorModel):
     MessageConfig: Optional[JourneyEmailMessageTypeDef] = None
     NextActivity: Optional[str] = None
     TemplateName: Optional[str] = None
     TemplateVersion: Optional[str] = None
 
-class EndpointBatchItemTypeDef(BaseModel):
+class EndpointBatchItemTypeDef(BaseValidatorModel):
     Address: Optional[str] = None
     Attributes: Optional[Mapping[str, Sequence[str]]] = None
     ChannelType: Optional[ChannelTypeType] = None
@@ -1668,7 +1668,7 @@ class EndpointBatchItemTypeDef(BaseModel):
     RequestId: Optional[str] = None
     User: Optional[EndpointUserTypeDef] = None
 
-class EndpointRequestTypeDef(BaseModel):
+class EndpointRequestTypeDef(BaseValidatorModel):
     Address: Optional[str] = None
     Attributes: Optional[Mapping[str, Sequence[str]]] = None
     ChannelType: Optional[ChannelTypeType] = None
@@ -1681,7 +1681,7 @@ class EndpointRequestTypeDef(BaseModel):
     RequestId: Optional[str] = None
     User: Optional[EndpointUserTypeDef] = None
 
-class PublicEndpointTypeDef(BaseModel):
+class PublicEndpointTypeDef(BaseValidatorModel):
     Address: Optional[str] = None
     Attributes: Optional[Mapping[str, Sequence[str]]] = None
     ChannelType: Optional[ChannelTypeType] = None
@@ -1694,12 +1694,12 @@ class PublicEndpointTypeDef(BaseModel):
     RequestId: Optional[str] = None
     User: Optional[EndpointUserTypeDef] = None
 
-class SendUsersMessageResponseTypeDef(BaseModel):
+class SendUsersMessageResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     RequestId: Optional[str] = None
     Result: Optional[Dict[str, Dict[str, EndpointMessageResultTypeDef]]] = None
 
-class EndpointResponseTypeDef(BaseModel):
+class EndpointResponseTypeDef(BaseValidatorModel):
     Address: Optional[str] = None
     ApplicationId: Optional[str] = None
     Attributes: Optional[Dict[str, List[str]]] = None
@@ -1716,12 +1716,12 @@ class EndpointResponseTypeDef(BaseModel):
     RequestId: Optional[str] = None
     User: Optional[EndpointUserOutputTypeDef] = None
 
-class EventDimensionsOutputTypeDef(BaseModel):
+class EventDimensionsOutputTypeDef(BaseValidatorModel):
     Attributes: Optional[Dict[str, AttributeDimensionOutputTypeDef]] = None
     EventType: Optional[SetDimensionOutputTypeDef] = None
     Metrics: Optional[Dict[str, MetricDimensionTypeDef]] = None
 
-class SegmentDemographicsOutputTypeDef(BaseModel):
+class SegmentDemographicsOutputTypeDef(BaseValidatorModel):
     AppVersion: Optional[SetDimensionOutputTypeDef] = None
     Channel: Optional[SetDimensionOutputTypeDef] = None
     DeviceType: Optional[SetDimensionOutputTypeDef] = None
@@ -1729,12 +1729,12 @@ class SegmentDemographicsOutputTypeDef(BaseModel):
     Model: Optional[SetDimensionOutputTypeDef] = None
     Platform: Optional[SetDimensionOutputTypeDef] = None
 
-class EventDimensionsTypeDef(BaseModel):
+class EventDimensionsTypeDef(BaseValidatorModel):
     Attributes: Optional[Mapping[str, AttributeDimensionTypeDef]] = None
     EventType: Optional[SetDimensionTypeDef] = None
     Metrics: Optional[Mapping[str, MetricDimensionTypeDef]] = None
 
-class SegmentDemographicsTypeDef(BaseModel):
+class SegmentDemographicsTypeDef(BaseValidatorModel):
     AppVersion: Optional[SetDimensionTypeDef] = None
     Channel: Optional[SetDimensionTypeDef] = None
     DeviceType: Optional[SetDimensionTypeDef] = None
@@ -1742,11 +1742,11 @@ class SegmentDemographicsTypeDef(BaseModel):
     Model: Optional[SetDimensionTypeDef] = None
     Platform: Optional[SetDimensionTypeDef] = None
 
-class ItemResponseTypeDef(BaseModel):
+class ItemResponseTypeDef(BaseValidatorModel):
     EndpointItemResponse: Optional[EndpointItemResponseTypeDef] = None
     EventsItemResponse: Optional[Dict[str, EventItemResponseTypeDef]] = None
 
-class EventTypeDef(BaseModel):
+class EventTypeDef(BaseValidatorModel):
     EventType: str
     Timestamp: str
     AppPackageName: Optional[str] = None
@@ -1758,7 +1758,7 @@ class EventTypeDef(BaseModel):
     SdkName: Optional[str] = None
     Session: Optional[SessionTypeDef] = None
 
-class ExportJobResponseTypeDef(BaseModel):
+class ExportJobResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     CreationDate: str
     Definition: ExportJobResourceTypeDef
@@ -1773,15 +1773,15 @@ class ExportJobResponseTypeDef(BaseModel):
     TotalPieces: Optional[int] = None
     TotalProcessed: Optional[int] = None
 
-class UpdateGcmChannelRequestRequestTypeDef(BaseModel):
+class UpdateGcmChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     GCMChannelRequest: GCMChannelRequestTypeDef
 
-class GPSPointDimensionTypeDef(BaseModel):
+class GPSPointDimensionTypeDef(BaseValidatorModel):
     Coordinates: GPSCoordinatesTypeDef
     RangeInKilometers: Optional[float] = None
 
-class GetApplicationDateRangeKpiRequestRequestTypeDef(BaseModel):
+class GetApplicationDateRangeKpiRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     KpiName: str
     EndTime: Optional[TimestampTypeDef] = None
@@ -1789,7 +1789,7 @@ class GetApplicationDateRangeKpiRequestRequestTypeDef(BaseModel):
     PageSize: Optional[str] = None
     StartTime: Optional[TimestampTypeDef] = None
 
-class GetCampaignDateRangeKpiRequestRequestTypeDef(BaseModel):
+class GetCampaignDateRangeKpiRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignId: str
     KpiName: str
@@ -1798,7 +1798,7 @@ class GetCampaignDateRangeKpiRequestRequestTypeDef(BaseModel):
     PageSize: Optional[str] = None
     StartTime: Optional[TimestampTypeDef] = None
 
-class GetJourneyDateRangeKpiRequestRequestTypeDef(BaseModel):
+class GetJourneyDateRangeKpiRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
     KpiName: str
@@ -1807,36 +1807,36 @@ class GetJourneyDateRangeKpiRequestRequestTypeDef(BaseModel):
     PageSize: Optional[str] = None
     StartTime: Optional[TimestampTypeDef] = None
 
-class JourneyScheduleTypeDef(BaseModel):
+class JourneyScheduleTypeDef(BaseValidatorModel):
     EndTime: Optional[TimestampTypeDef] = None
     StartTime: Optional[TimestampTypeDef] = None
     Timezone: Optional[str] = None
 
-class GetJourneyExecutionActivityMetricsResponseTypeDef(BaseModel):
+class GetJourneyExecutionActivityMetricsResponseTypeDef(BaseValidatorModel):
     JourneyExecutionActivityMetricsResponse: JourneyExecutionActivityMetricsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJourneyExecutionMetricsResponseTypeDef(BaseModel):
+class GetJourneyExecutionMetricsResponseTypeDef(BaseValidatorModel):
     JourneyExecutionMetricsResponse: JourneyExecutionMetricsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJourneyRunExecutionActivityMetricsResponseTypeDef(BaseModel):
+class GetJourneyRunExecutionActivityMetricsResponseTypeDef(BaseValidatorModel):
     JourneyRunExecutionActivityMetricsResponse: JourneyRunExecutionActivityMetricsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJourneyRunExecutionMetricsResponseTypeDef(BaseModel):
+class GetJourneyRunExecutionMetricsResponseTypeDef(BaseValidatorModel):
     JourneyRunExecutionMetricsResponse: JourneyRunExecutionMetricsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSmsTemplateResponseTypeDef(BaseModel):
+class GetSmsTemplateResponseTypeDef(BaseValidatorModel):
     SMSTemplateResponse: SMSTemplateResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVoiceTemplateResponseTypeDef(BaseModel):
+class GetVoiceTemplateResponseTypeDef(BaseValidatorModel):
     VoiceTemplateResponse: VoiceTemplateResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportJobResponseTypeDef(BaseModel):
+class ImportJobResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     CreationDate: str
     Definition: ImportJobResourceTypeDef
@@ -1851,151 +1851,151 @@ class ImportJobResponseTypeDef(BaseModel):
     TotalPieces: Optional[int] = None
     TotalProcessed: Optional[int] = None
 
-class InAppMessageButtonTypeDef(BaseModel):
+class InAppMessageButtonTypeDef(BaseValidatorModel):
     Android: Optional[OverrideButtonConfigurationTypeDef] = None
     DefaultConfig: Optional[DefaultButtonConfigurationTypeDef] = None
     IOS: Optional[OverrideButtonConfigurationTypeDef] = None
     Web: Optional[OverrideButtonConfigurationTypeDef] = None
 
-class PushMessageActivityTypeDef(BaseModel):
+class PushMessageActivityTypeDef(BaseValidatorModel):
     MessageConfig: Optional[JourneyPushMessageTypeDef] = None
     NextActivity: Optional[str] = None
     TemplateName: Optional[str] = None
     TemplateVersion: Optional[str] = None
 
-class JourneyRunsResponseTypeDef(BaseModel):
+class JourneyRunsResponseTypeDef(BaseValidatorModel):
     Item: List[JourneyRunResponseTypeDef]
     NextToken: Optional[str] = None
 
-class SMSMessageActivityTypeDef(BaseModel):
+class SMSMessageActivityTypeDef(BaseValidatorModel):
     MessageConfig: Optional[JourneySMSMessageTypeDef] = None
     NextActivity: Optional[str] = None
     TemplateName: Optional[str] = None
     TemplateVersion: Optional[str] = None
 
-class UpdateJourneyStateRequestRequestTypeDef(BaseModel):
+class UpdateJourneyStateRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
     JourneyStateRequest: JourneyStateRequestTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     TagsModel: TagsModelOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MessageResponseTypeDef(BaseModel):
+class MessageResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     EndpointResult: Optional[Dict[str, EndpointMessageResultTypeDef]] = None
     RequestId: Optional[str] = None
     Result: Optional[Dict[str, MessageResultTypeDef]] = None
 
-class PhoneNumberValidateRequestRequestTypeDef(BaseModel):
+class PhoneNumberValidateRequestRequestTypeDef(BaseValidatorModel):
     NumberValidateRequest: NumberValidateRequestTypeDef
 
-class PhoneNumberValidateResponseTypeDef(BaseModel):
+class PhoneNumberValidateResponseTypeDef(BaseValidatorModel):
     NumberValidateResponse: NumberValidateResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OpenHoursOutputTypeDef(BaseModel):
+class OpenHoursOutputTypeDef(BaseValidatorModel):
     EMAIL: Optional[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]] = None
     SMS: Optional[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]] = None
     PUSH: Optional[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]] = None
     VOICE: Optional[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]] = None
     CUSTOM: Optional[Dict[DayOfWeekType, List[OpenHoursRuleTypeDef]]] = None
 
-class OpenHoursTypeDef(BaseModel):
+class OpenHoursTypeDef(BaseValidatorModel):
     EMAIL: Optional[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]] = None
     SMS: Optional[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]] = None
     PUSH: Optional[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]] = None
     VOICE: Optional[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]] = None
     CUSTOM: Optional[Mapping[DayOfWeekType, Sequence[OpenHoursRuleTypeDef]]] = None
 
-class PutEventStreamRequestRequestTypeDef(BaseModel):
+class PutEventStreamRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     WriteEventStream: WriteEventStreamTypeDef
 
-class RandomSplitActivityOutputTypeDef(BaseModel):
+class RandomSplitActivityOutputTypeDef(BaseValidatorModel):
     Branches: Optional[List[RandomSplitEntryTypeDef]] = None
 
-class RandomSplitActivityTypeDef(BaseModel):
+class RandomSplitActivityTypeDef(BaseValidatorModel):
     Branches: Optional[Sequence[RandomSplitEntryTypeDef]] = None
 
-class SegmentBehaviorsTypeDef(BaseModel):
+class SegmentBehaviorsTypeDef(BaseValidatorModel):
     Recency: Optional[RecencyDimensionTypeDef] = None
 
-class RemoveAttributesRequestRequestTypeDef(BaseModel):
+class RemoveAttributesRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     AttributeType: str
     UpdateAttributesRequest: UpdateAttributesRequestTypeDef
 
-class ResultRowTypeDef(BaseModel):
+class ResultRowTypeDef(BaseValidatorModel):
     GroupedBys: List[ResultRowValueTypeDef]
     Values: List[ResultRowValueTypeDef]
 
-class UpdateSmsChannelRequestRequestTypeDef(BaseModel):
+class UpdateSmsChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SMSChannelRequest: SMSChannelRequestTypeDef
 
-class SendOTPMessageRequestRequestTypeDef(BaseModel):
+class SendOTPMessageRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SendOTPMessageRequestParameters: SendOTPMessageRequestParametersTypeDef
 
-class SimpleEmailTypeDef(BaseModel):
+class SimpleEmailTypeDef(BaseValidatorModel):
     HtmlPart: Optional[SimpleEmailPartTypeDef] = None
     Subject: Optional[SimpleEmailPartTypeDef] = None
     TextPart: Optional[SimpleEmailPartTypeDef] = None
     Headers: Optional[Sequence[MessageHeaderTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagsModel: TagsModelTypeDef
 
-class UpdateTemplateActiveVersionRequestRequestTypeDef(BaseModel):
+class UpdateTemplateActiveVersionRequestRequestTypeDef(BaseValidatorModel):
     TemplateActiveVersionRequest: TemplateActiveVersionRequestTypeDef
     TemplateName: str
     TemplateType: str
 
-class TemplateConfigurationTypeDef(BaseModel):
+class TemplateConfigurationTypeDef(BaseValidatorModel):
     EmailTemplate: Optional[TemplateTypeDef] = None
     PushTemplate: Optional[TemplateTypeDef] = None
     SMSTemplate: Optional[TemplateTypeDef] = None
     VoiceTemplate: Optional[TemplateTypeDef] = None
     InAppTemplate: Optional[TemplateTypeDef] = None
 
-class TemplatesResponseTypeDef(BaseModel):
+class TemplatesResponseTypeDef(BaseValidatorModel):
     Item: List[TemplateResponseTypeDef]
     NextToken: Optional[str] = None
 
-class TemplateVersionsResponseTypeDef(BaseModel):
+class TemplateVersionsResponseTypeDef(BaseValidatorModel):
     Item: List[TemplateVersionResponseTypeDef]
     Message: Optional[str] = None
     NextToken: Optional[str] = None
     RequestID: Optional[str] = None
 
-class UpdateRecommenderConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateRecommenderConfigurationRequestRequestTypeDef(BaseValidatorModel):
     RecommenderId: str
     UpdateRecommenderConfiguration: UpdateRecommenderConfigurationTypeDef
 
-class UpdateVoiceChannelRequestRequestTypeDef(BaseModel):
+class UpdateVoiceChannelRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     VoiceChannelRequest: VoiceChannelRequestTypeDef
 
-class VerifyOTPMessageResponseTypeDef(BaseModel):
+class VerifyOTPMessageResponseTypeDef(BaseValidatorModel):
     VerificationResponse: VerificationResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VerifyOTPMessageRequestRequestTypeDef(BaseModel):
+class VerifyOTPMessageRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     VerifyOTPMessageRequestParameters: VerifyOTPMessageRequestParametersTypeDef
 
-class GetCampaignActivitiesResponseTypeDef(BaseModel):
+class GetCampaignActivitiesResponseTypeDef(BaseValidatorModel):
     ActivitiesResponse: ActivitiesResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAppsResponseTypeDef(BaseModel):
+class GetAppsResponseTypeDef(BaseValidatorModel):
     ApplicationsResponse: ApplicationsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ApplicationSettingsResourceTypeDef(BaseModel):
+class ApplicationSettingsResourceTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignHook: Optional[CampaignHookTypeDef] = None
     LastModifiedDate: Optional[str] = None
@@ -2003,7 +2003,7 @@ class ApplicationSettingsResourceTypeDef(BaseModel):
     QuietTime: Optional[QuietTimeTypeDef] = None
     JourneyLimits: Optional[ApplicationSettingsJourneyLimitsTypeDef] = None
 
-class WriteApplicationSettingsRequestTypeDef(BaseModel):
+class WriteApplicationSettingsRequestTypeDef(BaseValidatorModel):
     CampaignHook: Optional[CampaignHookTypeDef] = None
     CloudWatchMetricsEnabled: Optional[bool] = None
     EventTaggingEnabled: Optional[bool] = None
@@ -2011,129 +2011,129 @@ class WriteApplicationSettingsRequestTypeDef(BaseModel):
     QuietTime: Optional[QuietTimeTypeDef] = None
     JourneyLimits: Optional[ApplicationSettingsJourneyLimitsTypeDef] = None
 
-class CreateEmailTemplateRequestRequestTypeDef(BaseModel):
+class CreateEmailTemplateRequestRequestTypeDef(BaseValidatorModel):
     EmailTemplateRequest: EmailTemplateRequestTypeDef
     TemplateName: str
 
-class UpdateEmailTemplateRequestRequestTypeDef(BaseModel):
+class UpdateEmailTemplateRequestRequestTypeDef(BaseValidatorModel):
     EmailTemplateRequest: EmailTemplateRequestTypeDef
     TemplateName: str
     CreateNewVersion: Optional[bool] = None
     Version: Optional[str] = None
 
-class GetEmailTemplateResponseTypeDef(BaseModel):
+class GetEmailTemplateResponseTypeDef(BaseValidatorModel):
     EmailTemplateResponse: EmailTemplateResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetChannelsResponseTypeDef(BaseModel):
+class GetChannelsResponseTypeDef(BaseValidatorModel):
     ChannelsResponse: ChannelsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRecommenderConfigurationsResponseTypeDef(BaseModel):
+class GetRecommenderConfigurationsResponseTypeDef(BaseValidatorModel):
     ListRecommenderConfigurationsResponse: ListRecommenderConfigurationsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePushTemplateRequestRequestTypeDef(BaseModel):
+class CreatePushTemplateRequestRequestTypeDef(BaseValidatorModel):
     PushNotificationTemplateRequest: PushNotificationTemplateRequestTypeDef
     TemplateName: str
 
-class UpdatePushTemplateRequestRequestTypeDef(BaseModel):
+class UpdatePushTemplateRequestRequestTypeDef(BaseValidatorModel):
     PushNotificationTemplateRequest: PushNotificationTemplateRequestTypeDef
     TemplateName: str
     CreateNewVersion: Optional[bool] = None
     Version: Optional[str] = None
 
-class GetPushTemplateResponseTypeDef(BaseModel):
+class GetPushTemplateResponseTypeDef(BaseValidatorModel):
     PushNotificationTemplateResponse: PushNotificationTemplateResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EndpointBatchRequestTypeDef(BaseModel):
+class EndpointBatchRequestTypeDef(BaseValidatorModel):
     Item: Sequence[EndpointBatchItemTypeDef]
 
-class UpdateEndpointRequestRequestTypeDef(BaseModel):
+class UpdateEndpointRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EndpointId: str
     EndpointRequest: EndpointRequestTypeDef
 
-class SendUsersMessagesResponseTypeDef(BaseModel):
+class SendUsersMessagesResponseTypeDef(BaseValidatorModel):
     SendUsersMessageResponse: SendUsersMessageResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteEndpointResponseTypeDef(BaseModel):
+class DeleteEndpointResponseTypeDef(BaseValidatorModel):
     EndpointResponse: EndpointResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EndpointsResponseTypeDef(BaseModel):
+class EndpointsResponseTypeDef(BaseValidatorModel):
     Item: List[EndpointResponseTypeDef]
 
-class GetEndpointResponseTypeDef(BaseModel):
+class GetEndpointResponseTypeDef(BaseValidatorModel):
     EndpointResponse: EndpointResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CampaignEventFilterOutputTypeDef(BaseModel):
+class CampaignEventFilterOutputTypeDef(BaseValidatorModel):
     Dimensions: EventDimensionsOutputTypeDef
     FilterType: FilterTypeType
 
-class EventConditionOutputTypeDef(BaseModel):
+class EventConditionOutputTypeDef(BaseValidatorModel):
     Dimensions: Optional[EventDimensionsOutputTypeDef] = None
     MessageActivity: Optional[str] = None
 
-class EventFilterOutputTypeDef(BaseModel):
+class EventFilterOutputTypeDef(BaseValidatorModel):
     Dimensions: EventDimensionsOutputTypeDef
     FilterType: FilterTypeType
 
-class CampaignEventFilterTypeDef(BaseModel):
+class CampaignEventFilterTypeDef(BaseValidatorModel):
     Dimensions: EventDimensionsTypeDef
     FilterType: FilterTypeType
 
-class EventConditionTypeDef(BaseModel):
+class EventConditionTypeDef(BaseValidatorModel):
     Dimensions: Optional[EventDimensionsTypeDef] = None
     MessageActivity: Optional[str] = None
 
-class EventFilterTypeDef(BaseModel):
+class EventFilterTypeDef(BaseValidatorModel):
     Dimensions: EventDimensionsTypeDef
     FilterType: FilterTypeType
 
-class EventsResponseTypeDef(BaseModel):
+class EventsResponseTypeDef(BaseValidatorModel):
     Results: Optional[Dict[str, ItemResponseTypeDef]] = None
 
-class EventsBatchTypeDef(BaseModel):
+class EventsBatchTypeDef(BaseValidatorModel):
     Endpoint: PublicEndpointTypeDef
     Events: Mapping[str, EventTypeDef]
 
-class CreateExportJobResponseTypeDef(BaseModel):
+class CreateExportJobResponseTypeDef(BaseValidatorModel):
     ExportJobResponse: ExportJobResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExportJobsResponseTypeDef(BaseModel):
+class ExportJobsResponseTypeDef(BaseValidatorModel):
     Item: List[ExportJobResponseTypeDef]
     NextToken: Optional[str] = None
 
-class GetExportJobResponseTypeDef(BaseModel):
+class GetExportJobResponseTypeDef(BaseValidatorModel):
     ExportJobResponse: ExportJobResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SegmentLocationOutputTypeDef(BaseModel):
+class SegmentLocationOutputTypeDef(BaseValidatorModel):
     Country: Optional[SetDimensionOutputTypeDef] = None
     GPSPoint: Optional[GPSPointDimensionTypeDef] = None
 
-class SegmentLocationTypeDef(BaseModel):
+class SegmentLocationTypeDef(BaseValidatorModel):
     Country: Optional[SetDimensionTypeDef] = None
     GPSPoint: Optional[GPSPointDimensionTypeDef] = None
 
-class CreateImportJobResponseTypeDef(BaseModel):
+class CreateImportJobResponseTypeDef(BaseValidatorModel):
     ImportJobResponse: ImportJobResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImportJobResponseTypeDef(BaseModel):
+class GetImportJobResponseTypeDef(BaseValidatorModel):
     ImportJobResponse: ImportJobResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportJobsResponseTypeDef(BaseModel):
+class ImportJobsResponseTypeDef(BaseValidatorModel):
     Item: List[ImportJobResponseTypeDef]
     NextToken: Optional[str] = None
 
-class InAppMessageContentTypeDef(BaseModel):
+class InAppMessageContentTypeDef(BaseValidatorModel):
     BackgroundColor: Optional[str] = None
     BodyConfig: Optional[InAppMessageBodyConfigTypeDef] = None
     HeaderConfig: Optional[InAppMessageHeaderConfigTypeDef] = None
@@ -2141,22 +2141,22 @@ class InAppMessageContentTypeDef(BaseModel):
     PrimaryBtn: Optional[InAppMessageButtonTypeDef] = None
     SecondaryBtn: Optional[InAppMessageButtonTypeDef] = None
 
-class GetJourneyRunsResponseTypeDef(BaseModel):
+class GetJourneyRunsResponseTypeDef(BaseValidatorModel):
     JourneyRunsResponse: JourneyRunsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendMessagesResponseTypeDef(BaseModel):
+class SendMessagesResponseTypeDef(BaseValidatorModel):
     MessageResponse: MessageResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendOTPMessageResponseTypeDef(BaseModel):
+class SendOTPMessageResponseTypeDef(BaseValidatorModel):
     MessageResponse: MessageResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BaseKpiResultTypeDef(BaseModel):
+class BaseKpiResultTypeDef(BaseValidatorModel):
     Rows: List[ResultRowTypeDef]
 
-class EmailMessageTypeDef(BaseModel):
+class EmailMessageTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     FeedbackForwardingAddress: Optional[str] = None
     FromAddress: Optional[str] = None
@@ -2165,44 +2165,44 @@ class EmailMessageTypeDef(BaseModel):
     SimpleEmail: Optional[SimpleEmailTypeDef] = None
     Substitutions: Optional[Mapping[str, Sequence[str]]] = None
 
-class ListTemplatesResponseTypeDef(BaseModel):
+class ListTemplatesResponseTypeDef(BaseValidatorModel):
     TemplatesResponse: TemplatesResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTemplateVersionsResponseTypeDef(BaseModel):
+class ListTemplateVersionsResponseTypeDef(BaseValidatorModel):
     TemplateVersionsResponse: TemplateVersionsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApplicationSettingsResponseTypeDef(BaseModel):
+class GetApplicationSettingsResponseTypeDef(BaseValidatorModel):
     ApplicationSettingsResource: ApplicationSettingsResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApplicationSettingsResponseTypeDef(BaseModel):
+class UpdateApplicationSettingsResponseTypeDef(BaseValidatorModel):
     ApplicationSettingsResource: ApplicationSettingsResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApplicationSettingsRequestRequestTypeDef(BaseModel):
+class UpdateApplicationSettingsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     WriteApplicationSettingsRequest: WriteApplicationSettingsRequestTypeDef
 
-class UpdateEndpointsBatchRequestRequestTypeDef(BaseModel):
+class UpdateEndpointsBatchRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EndpointBatchRequest: EndpointBatchRequestTypeDef
 
-class DeleteUserEndpointsResponseTypeDef(BaseModel):
+class DeleteUserEndpointsResponseTypeDef(BaseValidatorModel):
     EndpointsResponse: EndpointsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetUserEndpointsResponseTypeDef(BaseModel):
+class GetUserEndpointsResponseTypeDef(BaseValidatorModel):
     EndpointsResponse: EndpointsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InAppCampaignScheduleTypeDef(BaseModel):
+class InAppCampaignScheduleTypeDef(BaseValidatorModel):
     EndDate: Optional[str] = None
     EventFilter: Optional[CampaignEventFilterOutputTypeDef] = None
     QuietTime: Optional[QuietTimeTypeDef] = None
 
-class ScheduleOutputTypeDef(BaseModel):
+class ScheduleOutputTypeDef(BaseValidatorModel):
     StartTime: str
     EndTime: Optional[str] = None
     EventFilter: Optional[CampaignEventFilterOutputTypeDef] = None
@@ -2211,11 +2211,11 @@ class ScheduleOutputTypeDef(BaseModel):
     QuietTime: Optional[QuietTimeTypeDef] = None
     Timezone: Optional[str] = None
 
-class EventStartConditionOutputTypeDef(BaseModel):
+class EventStartConditionOutputTypeDef(BaseValidatorModel):
     EventFilter: Optional[EventFilterOutputTypeDef] = None
     SegmentId: Optional[str] = None
 
-class ScheduleTypeDef(BaseModel):
+class ScheduleTypeDef(BaseValidatorModel):
     StartTime: str
     EndTime: Optional[str] = None
     EventFilter: Optional[CampaignEventFilterTypeDef] = None
@@ -2224,26 +2224,26 @@ class ScheduleTypeDef(BaseModel):
     QuietTime: Optional[QuietTimeTypeDef] = None
     Timezone: Optional[str] = None
 
-class EventStartConditionTypeDef(BaseModel):
+class EventStartConditionTypeDef(BaseValidatorModel):
     EventFilter: Optional[EventFilterTypeDef] = None
     SegmentId: Optional[str] = None
 
-class PutEventsResponseTypeDef(BaseModel):
+class PutEventsResponseTypeDef(BaseValidatorModel):
     EventsResponse: EventsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EventsRequestTypeDef(BaseModel):
+class EventsRequestTypeDef(BaseValidatorModel):
     BatchItem: Mapping[str, EventsBatchTypeDef]
 
-class GetExportJobsResponseTypeDef(BaseModel):
+class GetExportJobsResponseTypeDef(BaseValidatorModel):
     ExportJobsResponse: ExportJobsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSegmentExportJobsResponseTypeDef(BaseModel):
+class GetSegmentExportJobsResponseTypeDef(BaseValidatorModel):
     ExportJobsResponse: ExportJobsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SegmentDimensionsOutputTypeDef(BaseModel):
+class SegmentDimensionsOutputTypeDef(BaseValidatorModel):
     Attributes: Optional[Dict[str, AttributeDimensionOutputTypeDef]] = None
     Behavior: Optional[SegmentBehaviorsTypeDef] = None
     Demographic: Optional[SegmentDemographicsOutputTypeDef] = None
@@ -2251,7 +2251,7 @@ class SegmentDimensionsOutputTypeDef(BaseModel):
     Metrics: Optional[Dict[str, MetricDimensionTypeDef]] = None
     UserAttributes: Optional[Dict[str, AttributeDimensionOutputTypeDef]] = None
 
-class SegmentDimensionsTypeDef(BaseModel):
+class SegmentDimensionsTypeDef(BaseValidatorModel):
     Attributes: Optional[Mapping[str, AttributeDimensionTypeDef]] = None
     Behavior: Optional[SegmentBehaviorsTypeDef] = None
     Demographic: Optional[SegmentDemographicsTypeDef] = None
@@ -2259,39 +2259,39 @@ class SegmentDimensionsTypeDef(BaseModel):
     Metrics: Optional[Mapping[str, MetricDimensionTypeDef]] = None
     UserAttributes: Optional[Mapping[str, AttributeDimensionTypeDef]] = None
 
-class GetImportJobsResponseTypeDef(BaseModel):
+class GetImportJobsResponseTypeDef(BaseValidatorModel):
     ImportJobsResponse: ImportJobsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSegmentImportJobsResponseTypeDef(BaseModel):
+class GetSegmentImportJobsResponseTypeDef(BaseValidatorModel):
     ImportJobsResponse: ImportJobsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CampaignInAppMessageOutputTypeDef(BaseModel):
+class CampaignInAppMessageOutputTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     Content: Optional[List[InAppMessageContentTypeDef]] = None
     CustomConfig: Optional[Dict[str, str]] = None
     Layout: Optional[LayoutType] = None
 
-class CampaignInAppMessageTypeDef(BaseModel):
+class CampaignInAppMessageTypeDef(BaseValidatorModel):
     Body: Optional[str] = None
     Content: Optional[Sequence[InAppMessageContentTypeDef]] = None
     CustomConfig: Optional[Mapping[str, str]] = None
     Layout: Optional[LayoutType] = None
 
-class InAppMessageTypeDef(BaseModel):
+class InAppMessageTypeDef(BaseValidatorModel):
     Content: Optional[List[InAppMessageContentTypeDef]] = None
     CustomConfig: Optional[Dict[str, str]] = None
     Layout: Optional[LayoutType] = None
 
-class InAppTemplateRequestTypeDef(BaseModel):
+class InAppTemplateRequestTypeDef(BaseValidatorModel):
     Content: Optional[Sequence[InAppMessageContentTypeDef]] = None
     CustomConfig: Optional[Mapping[str, str]] = None
     Layout: Optional[LayoutType] = None
     tags: Optional[Mapping[str, str]] = None
     TemplateDescription: Optional[str] = None
 
-class InAppTemplateResponseTypeDef(BaseModel):
+class InAppTemplateResponseTypeDef(BaseValidatorModel):
     CreationDate: str
     LastModifiedDate: str
     TemplateName: str
@@ -2304,7 +2304,7 @@ class InAppTemplateResponseTypeDef(BaseModel):
     TemplateDescription: Optional[str] = None
     Version: Optional[str] = None
 
-class ApplicationDateRangeKpiResponseTypeDef(BaseModel):
+class ApplicationDateRangeKpiResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     EndTime: datetime
     KpiName: str
@@ -2312,7 +2312,7 @@ class ApplicationDateRangeKpiResponseTypeDef(BaseModel):
     StartTime: datetime
     NextToken: Optional[str] = None
 
-class CampaignDateRangeKpiResponseTypeDef(BaseModel):
+class CampaignDateRangeKpiResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignId: str
     EndTime: datetime
@@ -2321,7 +2321,7 @@ class CampaignDateRangeKpiResponseTypeDef(BaseModel):
     StartTime: datetime
     NextToken: Optional[str] = None
 
-class JourneyDateRangeKpiResponseTypeDef(BaseModel):
+class JourneyDateRangeKpiResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     EndTime: datetime
     JourneyId: str
@@ -2330,7 +2330,7 @@ class JourneyDateRangeKpiResponseTypeDef(BaseModel):
     StartTime: datetime
     NextToken: Optional[str] = None
 
-class DirectMessageConfigurationTypeDef(BaseModel):
+class DirectMessageConfigurationTypeDef(BaseValidatorModel):
     ADMMessage: Optional[ADMMessageTypeDef] = None
     APNSMessage: Optional[APNSMessageTypeDef] = None
     BaiduMessage: Optional[BaiduMessageTypeDef] = None
@@ -2341,43 +2341,43 @@ class DirectMessageConfigurationTypeDef(BaseModel):
     SMSMessage: Optional[SMSMessageTypeDef] = None
     VoiceMessage: Optional[VoiceMessageTypeDef] = None
 
-class StartConditionOutputTypeDef(BaseModel):
+class StartConditionOutputTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     EventStartCondition: Optional[EventStartConditionOutputTypeDef] = None
     SegmentStartCondition: Optional[SegmentConditionTypeDef] = None
 
-class StartConditionTypeDef(BaseModel):
+class StartConditionTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     EventStartCondition: Optional[EventStartConditionTypeDef] = None
     SegmentStartCondition: Optional[SegmentConditionTypeDef] = None
 
-class PutEventsRequestRequestTypeDef(BaseModel):
+class PutEventsRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     EventsRequest: EventsRequestTypeDef
 
-class SegmentGroupOutputTypeDef(BaseModel):
+class SegmentGroupOutputTypeDef(BaseValidatorModel):
     Dimensions: Optional[List[SegmentDimensionsOutputTypeDef]] = None
     SourceSegments: Optional[List[SegmentReferenceTypeDef]] = None
     SourceType: Optional[SourceTypeType] = None
     Type: Optional[TypeType] = None
 
-class SimpleConditionOutputTypeDef(BaseModel):
+class SimpleConditionOutputTypeDef(BaseValidatorModel):
     EventCondition: Optional[EventConditionOutputTypeDef] = None
     SegmentCondition: Optional[SegmentConditionTypeDef] = None
     SegmentDimensions: Optional[SegmentDimensionsOutputTypeDef] = None
 
-class SegmentGroupTypeDef(BaseModel):
+class SegmentGroupTypeDef(BaseValidatorModel):
     Dimensions: Optional[Sequence[SegmentDimensionsTypeDef]] = None
     SourceSegments: Optional[Sequence[SegmentReferenceTypeDef]] = None
     SourceType: Optional[SourceTypeType] = None
     Type: Optional[TypeType] = None
 
-class SimpleConditionTypeDef(BaseModel):
+class SimpleConditionTypeDef(BaseValidatorModel):
     EventCondition: Optional[EventConditionTypeDef] = None
     SegmentCondition: Optional[SegmentConditionTypeDef] = None
     SegmentDimensions: Optional[SegmentDimensionsTypeDef] = None
 
-class MessageConfigurationOutputTypeDef(BaseModel):
+class MessageConfigurationOutputTypeDef(BaseValidatorModel):
     ADMMessage: Optional[MessageTypeDef] = None
     APNSMessage: Optional[MessageTypeDef] = None
     BaiduMessage: Optional[MessageTypeDef] = None
@@ -2388,7 +2388,7 @@ class MessageConfigurationOutputTypeDef(BaseModel):
     SMSMessage: Optional[CampaignSmsMessageTypeDef] = None
     InAppMessage: Optional[CampaignInAppMessageOutputTypeDef] = None
 
-class MessageConfigurationTypeDef(BaseModel):
+class MessageConfigurationTypeDef(BaseValidatorModel):
     ADMMessage: Optional[MessageTypeDef] = None
     APNSMessage: Optional[MessageTypeDef] = None
     BaiduMessage: Optional[MessageTypeDef] = None
@@ -2399,7 +2399,7 @@ class MessageConfigurationTypeDef(BaseModel):
     SMSMessage: Optional[CampaignSmsMessageTypeDef] = None
     InAppMessage: Optional[CampaignInAppMessageTypeDef] = None
 
-class InAppMessageCampaignTypeDef(BaseModel):
+class InAppMessageCampaignTypeDef(BaseValidatorModel):
     CampaignId: Optional[str] = None
     DailyCap: Optional[int] = None
     InAppMessage: Optional[InAppMessageTypeDef] = None
@@ -2409,33 +2409,33 @@ class InAppMessageCampaignTypeDef(BaseModel):
     TotalCap: Optional[int] = None
     TreatmentId: Optional[str] = None
 
-class CreateInAppTemplateRequestRequestTypeDef(BaseModel):
+class CreateInAppTemplateRequestRequestTypeDef(BaseValidatorModel):
     InAppTemplateRequest: InAppTemplateRequestTypeDef
     TemplateName: str
 
-class UpdateInAppTemplateRequestRequestTypeDef(BaseModel):
+class UpdateInAppTemplateRequestRequestTypeDef(BaseValidatorModel):
     InAppTemplateRequest: InAppTemplateRequestTypeDef
     TemplateName: str
     CreateNewVersion: Optional[bool] = None
     Version: Optional[str] = None
 
-class GetInAppTemplateResponseTypeDef(BaseModel):
+class GetInAppTemplateResponseTypeDef(BaseValidatorModel):
     InAppTemplateResponse: InAppTemplateResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApplicationDateRangeKpiResponseTypeDef(BaseModel):
+class GetApplicationDateRangeKpiResponseTypeDef(BaseValidatorModel):
     ApplicationDateRangeKpiResponse: ApplicationDateRangeKpiResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCampaignDateRangeKpiResponseTypeDef(BaseModel):
+class GetCampaignDateRangeKpiResponseTypeDef(BaseValidatorModel):
     CampaignDateRangeKpiResponse: CampaignDateRangeKpiResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJourneyDateRangeKpiResponseTypeDef(BaseModel):
+class GetJourneyDateRangeKpiResponseTypeDef(BaseValidatorModel):
     JourneyDateRangeKpiResponse: JourneyDateRangeKpiResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MessageRequestTypeDef(BaseModel):
+class MessageRequestTypeDef(BaseValidatorModel):
     MessageConfiguration: DirectMessageConfigurationTypeDef
     Addresses: Optional[Mapping[str, AddressConfigurationTypeDef]] = None
     Context: Optional[Mapping[str, str]] = None
@@ -2443,38 +2443,38 @@ class MessageRequestTypeDef(BaseModel):
     TemplateConfiguration: Optional[TemplateConfigurationTypeDef] = None
     TraceId: Optional[str] = None
 
-class SendUsersMessageRequestTypeDef(BaseModel):
+class SendUsersMessageRequestTypeDef(BaseValidatorModel):
     MessageConfiguration: DirectMessageConfigurationTypeDef
     Users: Mapping[str, EndpointSendConfigurationTypeDef]
     Context: Optional[Mapping[str, str]] = None
     TemplateConfiguration: Optional[TemplateConfigurationTypeDef] = None
     TraceId: Optional[str] = None
 
-class SegmentGroupListOutputTypeDef(BaseModel):
+class SegmentGroupListOutputTypeDef(BaseValidatorModel):
     Groups: Optional[List[SegmentGroupOutputTypeDef]] = None
     Include: Optional[IncludeType] = None
 
-class ConditionOutputTypeDef(BaseModel):
+class ConditionOutputTypeDef(BaseValidatorModel):
     Conditions: Optional[List[SimpleConditionOutputTypeDef]] = None
     Operator: Optional[OperatorType] = None
 
-class MultiConditionalBranchOutputTypeDef(BaseModel):
+class MultiConditionalBranchOutputTypeDef(BaseValidatorModel):
     Condition: Optional[SimpleConditionOutputTypeDef] = None
     NextActivity: Optional[str] = None
 
-class SegmentGroupListTypeDef(BaseModel):
+class SegmentGroupListTypeDef(BaseValidatorModel):
     Groups: Optional[Sequence[SegmentGroupTypeDef]] = None
     Include: Optional[IncludeType] = None
 
-class ConditionTypeDef(BaseModel):
+class ConditionTypeDef(BaseValidatorModel):
     Conditions: Optional[Sequence[SimpleConditionTypeDef]] = None
     Operator: Optional[OperatorType] = None
 
-class MultiConditionalBranchTypeDef(BaseModel):
+class MultiConditionalBranchTypeDef(BaseValidatorModel):
     Condition: Optional[SimpleConditionTypeDef] = None
     NextActivity: Optional[str] = None
 
-class TreatmentResourceTypeDef(BaseModel):
+class TreatmentResourceTypeDef(BaseValidatorModel):
     Id: str
     SizePercent: int
     CustomDeliveryConfiguration: Optional[CustomDeliveryConfigurationOutputTypeDef] = None
@@ -2485,7 +2485,7 @@ class TreatmentResourceTypeDef(BaseModel):
     TreatmentDescription: Optional[str] = None
     TreatmentName: Optional[str] = None
 
-class WriteTreatmentResourceTypeDef(BaseModel):
+class WriteTreatmentResourceTypeDef(BaseValidatorModel):
     SizePercent: int
     CustomDeliveryConfiguration: Optional[CustomDeliveryConfigurationTypeDef] = None
     MessageConfiguration: Optional[MessageConfigurationTypeDef] = None
@@ -2494,18 +2494,18 @@ class WriteTreatmentResourceTypeDef(BaseModel):
     TreatmentDescription: Optional[str] = None
     TreatmentName: Optional[str] = None
 
-class InAppMessagesResponseTypeDef(BaseModel):
+class InAppMessagesResponseTypeDef(BaseValidatorModel):
     InAppMessageCampaigns: Optional[List[InAppMessageCampaignTypeDef]] = None
 
-class SendMessagesRequestRequestTypeDef(BaseModel):
+class SendMessagesRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     MessageRequest: MessageRequestTypeDef
 
-class SendUsersMessagesRequestRequestTypeDef(BaseModel):
+class SendUsersMessagesRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SendUsersMessageRequest: SendUsersMessageRequestTypeDef
 
-class SegmentResponseTypeDef(BaseModel):
+class SegmentResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     Arn: str
     CreationDate: str
@@ -2519,35 +2519,35 @@ class SegmentResponseTypeDef(BaseModel):
     tags: Optional[Dict[str, str]] = None
     Version: Optional[int] = None
 
-class ConditionalSplitActivityOutputTypeDef(BaseModel):
+class ConditionalSplitActivityOutputTypeDef(BaseValidatorModel):
     Condition: Optional[ConditionOutputTypeDef] = None
     EvaluationWaitTime: Optional[WaitTimeTypeDef] = None
     FalseActivity: Optional[str] = None
     TrueActivity: Optional[str] = None
 
-class MultiConditionalSplitActivityOutputTypeDef(BaseModel):
+class MultiConditionalSplitActivityOutputTypeDef(BaseValidatorModel):
     Branches: Optional[List[MultiConditionalBranchOutputTypeDef]] = None
     DefaultActivity: Optional[str] = None
     EvaluationWaitTime: Optional[WaitTimeTypeDef] = None
 
-class WriteSegmentRequestTypeDef(BaseModel):
+class WriteSegmentRequestTypeDef(BaseValidatorModel):
     Dimensions: Optional[SegmentDimensionsTypeDef] = None
     Name: Optional[str] = None
     SegmentGroups: Optional[SegmentGroupListTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ConditionalSplitActivityTypeDef(BaseModel):
+class ConditionalSplitActivityTypeDef(BaseValidatorModel):
     Condition: Optional[ConditionTypeDef] = None
     EvaluationWaitTime: Optional[WaitTimeTypeDef] = None
     FalseActivity: Optional[str] = None
     TrueActivity: Optional[str] = None
 
-class MultiConditionalSplitActivityTypeDef(BaseModel):
+class MultiConditionalSplitActivityTypeDef(BaseValidatorModel):
     Branches: Optional[Sequence[MultiConditionalBranchTypeDef]] = None
     DefaultActivity: Optional[str] = None
     EvaluationWaitTime: Optional[WaitTimeTypeDef] = None
 
-class CampaignResponseTypeDef(BaseModel):
+class CampaignResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     Arn: str
     CreationDate: str
@@ -2574,7 +2574,7 @@ class CampaignResponseTypeDef(BaseModel):
     Version: Optional[int] = None
     Priority: Optional[int] = None
 
-class WriteCampaignRequestTypeDef(BaseModel):
+class WriteCampaignRequestTypeDef(BaseValidatorModel):
     AdditionalTreatments: Optional[Sequence[WriteTreatmentResourceTypeDef]] = None
     CustomDeliveryConfiguration: Optional[CustomDeliveryConfigurationTypeDef] = None
     Description: Optional[str] = None
@@ -2593,35 +2593,35 @@ class WriteCampaignRequestTypeDef(BaseModel):
     TreatmentName: Optional[str] = None
     Priority: Optional[int] = None
 
-class GetInAppMessagesResponseTypeDef(BaseModel):
+class GetInAppMessagesResponseTypeDef(BaseValidatorModel):
     InAppMessagesResponse: InAppMessagesResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSegmentResponseTypeDef(BaseModel):
+class CreateSegmentResponseTypeDef(BaseValidatorModel):
     SegmentResponse: SegmentResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSegmentResponseTypeDef(BaseModel):
+class DeleteSegmentResponseTypeDef(BaseValidatorModel):
     SegmentResponse: SegmentResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSegmentResponseTypeDef(BaseModel):
+class GetSegmentResponseTypeDef(BaseValidatorModel):
     SegmentResponse: SegmentResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSegmentVersionResponseTypeDef(BaseModel):
+class GetSegmentVersionResponseTypeDef(BaseValidatorModel):
     SegmentResponse: SegmentResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SegmentsResponseTypeDef(BaseModel):
+class SegmentsResponseTypeDef(BaseValidatorModel):
     Item: List[SegmentResponseTypeDef]
     NextToken: Optional[str] = None
 
-class UpdateSegmentResponseTypeDef(BaseModel):
+class UpdateSegmentResponseTypeDef(BaseValidatorModel):
     SegmentResponse: SegmentResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ActivityOutputTypeDef(BaseModel):
+class ActivityOutputTypeDef(BaseValidatorModel):
     CUSTOM: Optional[CustomMessageActivityOutputTypeDef] = None
     ConditionalSplit: Optional[ConditionalSplitActivityOutputTypeDef] = None
     Description: Optional[str] = None
@@ -2634,16 +2634,16 @@ class ActivityOutputTypeDef(BaseModel):
     Wait: Optional[WaitActivityTypeDef] = None
     ContactCenter: Optional[ContactCenterActivityTypeDef] = None
 
-class CreateSegmentRequestRequestTypeDef(BaseModel):
+class CreateSegmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     WriteSegmentRequest: WriteSegmentRequestTypeDef
 
-class UpdateSegmentRequestRequestTypeDef(BaseModel):
+class UpdateSegmentRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     SegmentId: str
     WriteSegmentRequest: WriteSegmentRequestTypeDef
 
-class ActivityTypeDef(BaseModel):
+class ActivityTypeDef(BaseValidatorModel):
     CUSTOM: Optional[CustomMessageActivityTypeDef] = None
     ConditionalSplit: Optional[ConditionalSplitActivityTypeDef] = None
     Description: Optional[str] = None
@@ -2656,48 +2656,48 @@ class ActivityTypeDef(BaseModel):
     Wait: Optional[WaitActivityTypeDef] = None
     ContactCenter: Optional[ContactCenterActivityTypeDef] = None
 
-class CampaignsResponseTypeDef(BaseModel):
+class CampaignsResponseTypeDef(BaseValidatorModel):
     Item: List[CampaignResponseTypeDef]
     NextToken: Optional[str] = None
 
-class CreateCampaignResponseTypeDef(BaseModel):
+class CreateCampaignResponseTypeDef(BaseValidatorModel):
     CampaignResponse: CampaignResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteCampaignResponseTypeDef(BaseModel):
+class DeleteCampaignResponseTypeDef(BaseValidatorModel):
     CampaignResponse: CampaignResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCampaignResponseTypeDef(BaseModel):
+class GetCampaignResponseTypeDef(BaseValidatorModel):
     CampaignResponse: CampaignResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCampaignVersionResponseTypeDef(BaseModel):
+class GetCampaignVersionResponseTypeDef(BaseValidatorModel):
     CampaignResponse: CampaignResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateCampaignResponseTypeDef(BaseModel):
+class UpdateCampaignResponseTypeDef(BaseValidatorModel):
     CampaignResponse: CampaignResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCampaignRequestRequestTypeDef(BaseModel):
+class CreateCampaignRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     WriteCampaignRequest: WriteCampaignRequestTypeDef
 
-class UpdateCampaignRequestRequestTypeDef(BaseModel):
+class UpdateCampaignRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     CampaignId: str
     WriteCampaignRequest: WriteCampaignRequestTypeDef
 
-class GetSegmentVersionsResponseTypeDef(BaseModel):
+class GetSegmentVersionsResponseTypeDef(BaseValidatorModel):
     SegmentsResponse: SegmentsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSegmentsResponseTypeDef(BaseModel):
+class GetSegmentsResponseTypeDef(BaseValidatorModel):
     SegmentsResponse: SegmentsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JourneyResponseTypeDef(BaseModel):
+class JourneyResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     Id: str
     Name: str
@@ -2721,7 +2721,7 @@ class JourneyResponseTypeDef(BaseModel):
     ClosedDays: Optional[ClosedDaysOutputTypeDef] = None
     TimezoneEstimationMethods: Optional[List[TimezoneEstimationMethodsElementType]] = None
 
-class WriteJourneyRequestTypeDef(BaseModel):
+class WriteJourneyRequestTypeDef(BaseValidatorModel):
     Name: str
     Activities: Optional[Mapping[str, ActivityTypeDef]] = None
     CreationDate: Optional[str] = None
@@ -2742,48 +2742,48 @@ class WriteJourneyRequestTypeDef(BaseModel):
     ClosedDays: Optional[ClosedDaysTypeDef] = None
     TimezoneEstimationMethods: Optional[Sequence[TimezoneEstimationMethodsElementType]] = None
 
-class GetCampaignVersionsResponseTypeDef(BaseModel):
+class GetCampaignVersionsResponseTypeDef(BaseValidatorModel):
     CampaignsResponse: CampaignsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCampaignsResponseTypeDef(BaseModel):
+class GetCampaignsResponseTypeDef(BaseValidatorModel):
     CampaignsResponse: CampaignsResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJourneyResponseTypeDef(BaseModel):
+class CreateJourneyResponseTypeDef(BaseValidatorModel):
     JourneyResponse: JourneyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteJourneyResponseTypeDef(BaseModel):
+class DeleteJourneyResponseTypeDef(BaseValidatorModel):
     JourneyResponse: JourneyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetJourneyResponseTypeDef(BaseModel):
+class GetJourneyResponseTypeDef(BaseValidatorModel):
     JourneyResponse: JourneyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class JourneysResponseTypeDef(BaseModel):
+class JourneysResponseTypeDef(BaseValidatorModel):
     Item: List[JourneyResponseTypeDef]
     NextToken: Optional[str] = None
 
-class UpdateJourneyResponseTypeDef(BaseModel):
+class UpdateJourneyResponseTypeDef(BaseValidatorModel):
     JourneyResponse: JourneyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateJourneyStateResponseTypeDef(BaseModel):
+class UpdateJourneyStateResponseTypeDef(BaseValidatorModel):
     JourneyResponse: JourneyResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateJourneyRequestRequestTypeDef(BaseModel):
+class CreateJourneyRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     WriteJourneyRequest: WriteJourneyRequestTypeDef
 
-class UpdateJourneyRequestRequestTypeDef(BaseModel):
+class UpdateJourneyRequestRequestTypeDef(BaseValidatorModel):
     ApplicationId: str
     JourneyId: str
     WriteJourneyRequest: WriteJourneyRequestTypeDef
 
-class ListJourneysResponseTypeDef(BaseModel):
+class ListJourneysResponseTypeDef(BaseValidatorModel):
     JourneysResponse: JourneysResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

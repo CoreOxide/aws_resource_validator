@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,47 +11,47 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.managedblockchain_query_constants import *
 
-class AddressIdentifierFilterTypeDef(BaseModel):
+class AddressIdentifierFilterTypeDef(BaseValidatorModel):
     transactionEventToAddress: Sequence[str]
 
-class ContractIdentifierTypeDef(BaseModel):
+class ContractIdentifierTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     contractAddress: str
 
-class OwnerIdentifierTypeDef(BaseModel):
+class OwnerIdentifierTypeDef(BaseValidatorModel):
     address: str
 
-class TokenIdentifierTypeDef(BaseModel):
+class TokenIdentifierTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     contractAddress: Optional[str] = None
     tokenId: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ConfirmationStatusFilterTypeDef(BaseModel):
+class ConfirmationStatusFilterTypeDef(BaseValidatorModel):
     include: Sequence[ConfirmationStatusType]
 
-class ContractFilterTypeDef(BaseModel):
+class ContractFilterTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     tokenStandard: QueryTokenStandardType
     deployerAddress: str
 
-class ContractMetadataTypeDef(BaseModel):
+class ContractMetadataTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     symbol: Optional[str] = None
     decimals: Optional[int] = None
 
-class GetTransactionInputRequestTypeDef(BaseModel):
+class GetTransactionInputRequestTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     transactionHash: Optional[str] = None
     transactionId: Optional[str] = None
 
-class TransactionTypeDef(BaseModel):
+class TransactionTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     transactionHash: str
     transactionTimestamp: datetime
@@ -73,103 +73,103 @@ class TransactionTypeDef(BaseModel):
     confirmationStatus: Optional[ConfirmationStatusType] = None
     executionStatus: Optional[ExecutionStatusType] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListFilteredTransactionEventsSortTypeDef(BaseModel):
+class ListFilteredTransactionEventsSortTypeDef(BaseValidatorModel):
     sortBy: Optional[Literal["blockchainInstant"]] = None
     sortOrder: Optional[SortOrderType] = None
 
-class VoutFilterTypeDef(BaseModel):
+class VoutFilterTypeDef(BaseValidatorModel):
     voutSpent: bool
 
-class OwnerFilterTypeDef(BaseModel):
+class OwnerFilterTypeDef(BaseValidatorModel):
     address: str
 
-class TokenFilterTypeDef(BaseModel):
+class TokenFilterTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     contractAddress: Optional[str] = None
     tokenId: Optional[str] = None
 
-class ListTransactionEventsInputRequestTypeDef(BaseModel):
+class ListTransactionEventsInputRequestTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     transactionHash: Optional[str] = None
     transactionId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTransactionsSortTypeDef(BaseModel):
+class ListTransactionsSortTypeDef(BaseValidatorModel):
     sortBy: Optional[Literal["TRANSACTION_TIMESTAMP"]] = None
     sortOrder: Optional[SortOrderType] = None
 
-class TransactionOutputItemTypeDef(BaseModel):
+class TransactionOutputItemTypeDef(BaseValidatorModel):
     transactionHash: str
     network: QueryNetworkType
     transactionTimestamp: datetime
     transactionId: Optional[str] = None
     confirmationStatus: Optional[ConfirmationStatusType] = None
 
-class AssetContractTypeDef(BaseModel):
+class AssetContractTypeDef(BaseValidatorModel):
     contractIdentifier: ContractIdentifierTypeDef
     tokenStandard: QueryTokenStandardType
     deployerAddress: str
 
-class GetAssetContractInputRequestTypeDef(BaseModel):
+class GetAssetContractInputRequestTypeDef(BaseValidatorModel):
     contractIdentifier: ContractIdentifierTypeDef
 
-class BlockchainInstantTypeDef(BaseModel):
+class BlockchainInstantTypeDef(BaseValidatorModel):
     time: Optional[TimestampTypeDef] = None
 
-class ListAssetContractsInputRequestTypeDef(BaseModel):
+class ListAssetContractsInputRequestTypeDef(BaseValidatorModel):
     contractFilter: ContractFilterTypeDef
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetAssetContractOutputTypeDef(BaseModel):
+class GetAssetContractOutputTypeDef(BaseValidatorModel):
     contractIdentifier: ContractIdentifierTypeDef
     tokenStandard: QueryTokenStandardType
     deployerAddress: str
     metadata: ContractMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTransactionOutputTypeDef(BaseModel):
+class GetTransactionOutputTypeDef(BaseValidatorModel):
     transaction: TransactionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssetContractsInputListAssetContractsPaginateTypeDef(BaseModel):
+class ListAssetContractsInputListAssetContractsPaginateTypeDef(BaseValidatorModel):
     contractFilter: ContractFilterTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTransactionEventsInputListTransactionEventsPaginateTypeDef(BaseModel):
+class ListTransactionEventsInputListTransactionEventsPaginateTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     transactionHash: Optional[str] = None
     transactionId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTokenBalancesInputListTokenBalancesPaginateTypeDef(BaseModel):
+class ListTokenBalancesInputListTokenBalancesPaginateTypeDef(BaseValidatorModel):
     tokenFilter: TokenFilterTypeDef
     ownerFilter: Optional[OwnerFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTokenBalancesInputRequestTypeDef(BaseModel):
+class ListTokenBalancesInputRequestTypeDef(BaseValidatorModel):
     tokenFilter: TokenFilterTypeDef
     ownerFilter: Optional[OwnerFilterTypeDef] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTransactionsOutputTypeDef(BaseModel):
+class ListTransactionsOutputTypeDef(BaseValidatorModel):
     transactions: List[TransactionOutputItemTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssetContractsOutputTypeDef(BaseModel):
+class ListAssetContractsOutputTypeDef(BaseValidatorModel):
     contracts: List[AssetContractTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchGetTokenBalanceErrorItemTypeDef(BaseModel):
+class BatchGetTokenBalanceErrorItemTypeDef(BaseValidatorModel):
     errorCode: str
     errorMessage: str
     errorType: ErrorTypeType
@@ -177,24 +177,24 @@ class BatchGetTokenBalanceErrorItemTypeDef(BaseModel):
     ownerIdentifier: Optional[OwnerIdentifierTypeDef] = None
     atBlockchainInstant: Optional[BlockchainInstantTypeDef] = None
 
-class BatchGetTokenBalanceInputItemTypeDef(BaseModel):
+class BatchGetTokenBalanceInputItemTypeDef(BaseValidatorModel):
     tokenIdentifier: TokenIdentifierTypeDef
     ownerIdentifier: OwnerIdentifierTypeDef
     atBlockchainInstant: Optional[BlockchainInstantTypeDef] = None
 
-class BatchGetTokenBalanceOutputItemTypeDef(BaseModel):
+class BatchGetTokenBalanceOutputItemTypeDef(BaseValidatorModel):
     balance: str
     atBlockchainInstant: BlockchainInstantTypeDef
     ownerIdentifier: Optional[OwnerIdentifierTypeDef] = None
     tokenIdentifier: Optional[TokenIdentifierTypeDef] = None
     lastUpdatedTime: Optional[BlockchainInstantTypeDef] = None
 
-class GetTokenBalanceInputRequestTypeDef(BaseModel):
+class GetTokenBalanceInputRequestTypeDef(BaseValidatorModel):
     tokenIdentifier: TokenIdentifierTypeDef
     ownerIdentifier: OwnerIdentifierTypeDef
     atBlockchainInstant: Optional[BlockchainInstantTypeDef] = None
 
-class GetTokenBalanceOutputTypeDef(BaseModel):
+class GetTokenBalanceOutputTypeDef(BaseValidatorModel):
     ownerIdentifier: OwnerIdentifierTypeDef
     tokenIdentifier: TokenIdentifierTypeDef
     balance: str
@@ -202,7 +202,7 @@ class GetTokenBalanceOutputTypeDef(BaseModel):
     lastUpdatedTime: BlockchainInstantTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTransactionsInputListTransactionsPaginateTypeDef(BaseModel):
+class ListTransactionsInputListTransactionsPaginateTypeDef(BaseValidatorModel):
     address: str
     network: QueryNetworkType
     fromBlockchainInstant: Optional[BlockchainInstantTypeDef] = None
@@ -211,7 +211,7 @@ class ListTransactionsInputListTransactionsPaginateTypeDef(BaseModel):
     confirmationStatusFilter: Optional[ConfirmationStatusFilterTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTransactionsInputRequestTypeDef(BaseModel):
+class ListTransactionsInputRequestTypeDef(BaseValidatorModel):
     address: str
     network: QueryNetworkType
     fromBlockchainInstant: Optional[BlockchainInstantTypeDef] = None
@@ -221,18 +221,18 @@ class ListTransactionsInputRequestTypeDef(BaseModel):
     maxResults: Optional[int] = None
     confirmationStatusFilter: Optional[ConfirmationStatusFilterTypeDef] = None
 
-class TimeFilterTypeDef(BaseModel):
+class TimeFilterTypeDef(BaseValidatorModel):
     from: Optional[BlockchainInstantTypeDef] = None
     to: Optional[BlockchainInstantTypeDef] = None
 
-class TokenBalanceTypeDef(BaseModel):
+class TokenBalanceTypeDef(BaseValidatorModel):
     balance: str
     atBlockchainInstant: BlockchainInstantTypeDef
     ownerIdentifier: Optional[OwnerIdentifierTypeDef] = None
     tokenIdentifier: Optional[TokenIdentifierTypeDef] = None
     lastUpdatedTime: Optional[BlockchainInstantTypeDef] = None
 
-class TransactionEventTypeDef(BaseModel):
+class TransactionEventTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     transactionHash: str
     eventType: QueryTransactionEventTypeType
@@ -250,15 +250,15 @@ class TransactionEventTypeDef(BaseModel):
     blockchainInstant: Optional[BlockchainInstantTypeDef] = None
     confirmationStatus: Optional[ConfirmationStatusType] = None
 
-class BatchGetTokenBalanceInputRequestTypeDef(BaseModel):
+class BatchGetTokenBalanceInputRequestTypeDef(BaseValidatorModel):
     getTokenBalanceInputs: Optional[Sequence[BatchGetTokenBalanceInputItemTypeDef]] = None
 
-class BatchGetTokenBalanceOutputTypeDef(BaseModel):
+class BatchGetTokenBalanceOutputTypeDef(BaseValidatorModel):
     tokenBalances: List[BatchGetTokenBalanceOutputItemTypeDef]
     errors: List[BatchGetTokenBalanceErrorItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFilteredTransactionEventsInputListFilteredTransactionEventsPaginateTypeDef(BaseModel):
+class ListFilteredTransactionEventsInputListFilteredTransactionEventsPaginateTypeDef(BaseValidatorModel):
     network: str
     addressIdentifierFilter: AddressIdentifierFilterTypeDef
     timeFilter: Optional[TimeFilterTypeDef] = None
@@ -267,7 +267,7 @@ class ListFilteredTransactionEventsInputListFilteredTransactionEventsPaginateTyp
     sort: Optional[ListFilteredTransactionEventsSortTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFilteredTransactionEventsInputRequestTypeDef(BaseModel):
+class ListFilteredTransactionEventsInputRequestTypeDef(BaseValidatorModel):
     network: str
     addressIdentifierFilter: AddressIdentifierFilterTypeDef
     timeFilter: Optional[TimeFilterTypeDef] = None
@@ -277,17 +277,17 @@ class ListFilteredTransactionEventsInputRequestTypeDef(BaseModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTokenBalancesOutputTypeDef(BaseModel):
+class ListTokenBalancesOutputTypeDef(BaseValidatorModel):
     tokenBalances: List[TokenBalanceTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFilteredTransactionEventsOutputTypeDef(BaseModel):
+class ListFilteredTransactionEventsOutputTypeDef(BaseValidatorModel):
     events: List[TransactionEventTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTransactionEventsOutputTypeDef(BaseModel):
+class ListTransactionEventsOutputTypeDef(BaseValidatorModel):
     events: List[TransactionEventTypeDef]
     nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

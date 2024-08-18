@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,45 +11,45 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.meteringmarketplace_constants import *
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class RegisterUsageRequestRequestTypeDef(BaseModel):
+class RegisterUsageRequestRequestTypeDef(BaseValidatorModel):
     ProductCode: str
     PublicKeyVersion: int
     Nonce: Optional[str] = None
 
-class ResolveCustomerRequestRequestTypeDef(BaseModel):
+class ResolveCustomerRequestRequestTypeDef(BaseValidatorModel):
     RegistrationToken: str
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class MeterUsageResultTypeDef(BaseModel):
+class MeterUsageResultTypeDef(BaseValidatorModel):
     MeteringRecordId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterUsageResultTypeDef(BaseModel):
+class RegisterUsageResultTypeDef(BaseValidatorModel):
     PublicKeyRotationTimestamp: datetime
     Signature: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResolveCustomerResultTypeDef(BaseModel):
+class ResolveCustomerResultTypeDef(BaseValidatorModel):
     CustomerIdentifier: str
     ProductCode: str
     CustomerAWSAccountId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UsageAllocationTypeDef(BaseModel):
+class UsageAllocationTypeDef(BaseValidatorModel):
     AllocatedUsageQuantity: int
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class MeterUsageRequestRequestTypeDef(BaseModel):
+class MeterUsageRequestRequestTypeDef(BaseValidatorModel):
     ProductCode: str
     Timestamp: TimestampTypeDef
     UsageDimension: str
@@ -57,23 +57,23 @@ class MeterUsageRequestRequestTypeDef(BaseModel):
     DryRun: Optional[bool] = None
     UsageAllocations: Optional[Sequence[UsageAllocationTypeDef]] = None
 
-class UsageRecordTypeDef(BaseModel):
+class UsageRecordTypeDef(BaseValidatorModel):
     Timestamp: TimestampTypeDef
     CustomerIdentifier: str
     Dimension: str
     Quantity: Optional[int] = None
     UsageAllocations: Optional[Sequence[UsageAllocationTypeDef]] = None
 
-class BatchMeterUsageRequestRequestTypeDef(BaseModel):
+class BatchMeterUsageRequestRequestTypeDef(BaseValidatorModel):
     UsageRecords: Sequence[UsageRecordTypeDef]
     ProductCode: str
 
-class UsageRecordResultTypeDef(BaseModel):
+class UsageRecordResultTypeDef(BaseValidatorModel):
     UsageRecord: Optional[UsageRecordTypeDef] = None
     MeteringRecordId: Optional[str] = None
     Status: Optional[UsageRecordResultStatusType] = None
 
-class BatchMeterUsageResultTypeDef(BaseModel):
+class BatchMeterUsageResultTypeDef(BaseValidatorModel):
     Results: List[UsageRecordResultTypeDef]
     UnprocessedRecords: List[UsageRecordTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

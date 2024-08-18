@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,39 +11,39 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.neptunedata_constants import *
 
-class CancelGremlinQueryInputRequestTypeDef(BaseModel):
+class CancelGremlinQueryInputRequestTypeDef(BaseValidatorModel):
     queryId: str
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class CancelLoaderJobInputRequestTypeDef(BaseModel):
+class CancelLoaderJobInputRequestTypeDef(BaseValidatorModel):
     loadId: str
 
-class CancelMLDataProcessingJobInputRequestTypeDef(BaseModel):
+class CancelMLDataProcessingJobInputRequestTypeDef(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
     clean: Optional[bool] = None
 
-class CancelMLModelTrainingJobInputRequestTypeDef(BaseModel):
+class CancelMLModelTrainingJobInputRequestTypeDef(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
     clean: Optional[bool] = None
 
-class CancelMLModelTransformJobInputRequestTypeDef(BaseModel):
+class CancelMLModelTransformJobInputRequestTypeDef(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
     clean: Optional[bool] = None
 
-class CancelOpenCypherQueryInputRequestTypeDef(BaseModel):
+class CancelOpenCypherQueryInputRequestTypeDef(BaseValidatorModel):
     queryId: str
     silent: Optional[bool] = None
 
-class CreateMLEndpointInputRequestTypeDef(BaseModel):
+class CreateMLEndpointInputRequestTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     mlModelTrainingJobId: Optional[str] = None
     mlModelTransformJobId: Optional[str] = None
@@ -54,87 +54,87 @@ class CreateMLEndpointInputRequestTypeDef(BaseModel):
     instanceCount: Optional[int] = None
     volumeEncryptionKMSKey: Optional[str] = None
 
-class CustomModelTrainingParametersTypeDef(BaseModel):
+class CustomModelTrainingParametersTypeDef(BaseValidatorModel):
     sourceS3DirectoryPath: str
     trainingEntryPointScript: Optional[str] = None
     transformEntryPointScript: Optional[str] = None
 
-class CustomModelTransformParametersTypeDef(BaseModel):
+class CustomModelTransformParametersTypeDef(BaseValidatorModel):
     sourceS3DirectoryPath: str
     transformEntryPointScript: Optional[str] = None
 
-class DeleteMLEndpointInputRequestTypeDef(BaseModel):
+class DeleteMLEndpointInputRequestTypeDef(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
     clean: Optional[bool] = None
 
-class DeleteStatisticsValueMapTypeDef(BaseModel):
+class DeleteStatisticsValueMapTypeDef(BaseValidatorModel):
     active: Optional[bool] = None
     statisticsId: Optional[str] = None
 
-class EdgeStructureTypeDef(BaseModel):
+class EdgeStructureTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     edgeProperties: Optional[List[str]] = None
 
-class ExecuteFastResetInputRequestTypeDef(BaseModel):
+class ExecuteFastResetInputRequestTypeDef(BaseValidatorModel):
     action: ActionType
     token: Optional[str] = None
 
-class FastResetTokenTypeDef(BaseModel):
+class FastResetTokenTypeDef(BaseValidatorModel):
     token: Optional[str] = None
 
-class ExecuteGremlinExplainQueryInputRequestTypeDef(BaseModel):
+class ExecuteGremlinExplainQueryInputRequestTypeDef(BaseValidatorModel):
     gremlinQuery: str
 
-class ExecuteGremlinProfileQueryInputRequestTypeDef(BaseModel):
+class ExecuteGremlinProfileQueryInputRequestTypeDef(BaseValidatorModel):
     gremlinQuery: str
     results: Optional[bool] = None
     chop: Optional[int] = None
     serializer: Optional[str] = None
     indexOps: Optional[bool] = None
 
-class ExecuteGremlinQueryInputRequestTypeDef(BaseModel):
+class ExecuteGremlinQueryInputRequestTypeDef(BaseValidatorModel):
     gremlinQuery: str
     serializer: Optional[str] = None
 
-class GremlinQueryStatusAttributesTypeDef(BaseModel):
+class GremlinQueryStatusAttributesTypeDef(BaseValidatorModel):
     message: Optional[str] = None
     code: Optional[int] = None
     attributes: Optional[Dict[str, Any]] = None
 
-class ExecuteOpenCypherExplainQueryInputRequestTypeDef(BaseModel):
+class ExecuteOpenCypherExplainQueryInputRequestTypeDef(BaseValidatorModel):
     openCypherQuery: str
     explainMode: OpenCypherExplainModeType
     parameters: Optional[str] = None
 
-class ExecuteOpenCypherQueryInputRequestTypeDef(BaseModel):
+class ExecuteOpenCypherQueryInputRequestTypeDef(BaseValidatorModel):
     openCypherQuery: str
     parameters: Optional[str] = None
 
-class QueryLanguageVersionTypeDef(BaseModel):
+class QueryLanguageVersionTypeDef(BaseValidatorModel):
     version: str
 
-class GetGremlinQueryStatusInputRequestTypeDef(BaseModel):
+class GetGremlinQueryStatusInputRequestTypeDef(BaseValidatorModel):
     queryId: str
 
-class QueryEvalStatsTypeDef(BaseModel):
+class QueryEvalStatsTypeDef(BaseValidatorModel):
     waited: Optional[int] = None
     elapsed: Optional[int] = None
     cancelled: Optional[bool] = None
     subqueries: Optional[Dict[str, Any]] = None
 
-class GetLoaderJobStatusInputRequestTypeDef(BaseModel):
+class GetLoaderJobStatusInputRequestTypeDef(BaseValidatorModel):
     loadId: str
     details: Optional[bool] = None
     errors: Optional[bool] = None
     page: Optional[int] = None
     errorsPerPage: Optional[int] = None
 
-class GetMLDataProcessingJobInputRequestTypeDef(BaseModel):
+class GetMLDataProcessingJobInputRequestTypeDef(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
 
-class MlResourceDefinitionTypeDef(BaseModel):
+class MlResourceDefinitionTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     status: Optional[str] = None
@@ -142,89 +142,89 @@ class MlResourceDefinitionTypeDef(BaseModel):
     failureReason: Optional[str] = None
     cloudwatchLogUrl: Optional[str] = None
 
-class GetMLEndpointInputRequestTypeDef(BaseModel):
+class GetMLEndpointInputRequestTypeDef(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
 
-class MlConfigDefinitionTypeDef(BaseModel):
+class MlConfigDefinitionTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
 
-class GetMLModelTrainingJobInputRequestTypeDef(BaseModel):
+class GetMLModelTrainingJobInputRequestTypeDef(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
 
-class GetMLModelTransformJobInputRequestTypeDef(BaseModel):
+class GetMLModelTransformJobInputRequestTypeDef(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
 
-class GetOpenCypherQueryStatusInputRequestTypeDef(BaseModel):
+class GetOpenCypherQueryStatusInputRequestTypeDef(BaseValidatorModel):
     queryId: str
 
-class GetPropertygraphStreamInputRequestTypeDef(BaseModel):
+class GetPropertygraphStreamInputRequestTypeDef(BaseValidatorModel):
     limit: Optional[int] = None
     iteratorType: Optional[IteratorTypeType] = None
     commitNum: Optional[int] = None
     opNum: Optional[int] = None
     encoding: Optional[Literal["gzip"]] = None
 
-class GetPropertygraphSummaryInputRequestTypeDef(BaseModel):
+class GetPropertygraphSummaryInputRequestTypeDef(BaseValidatorModel):
     mode: Optional[GraphSummaryTypeType] = None
 
-class GetRDFGraphSummaryInputRequestTypeDef(BaseModel):
+class GetRDFGraphSummaryInputRequestTypeDef(BaseValidatorModel):
     mode: Optional[GraphSummaryTypeType] = None
 
-class GetSparqlStreamInputRequestTypeDef(BaseModel):
+class GetSparqlStreamInputRequestTypeDef(BaseValidatorModel):
     limit: Optional[int] = None
     iteratorType: Optional[IteratorTypeType] = None
     commitNum: Optional[int] = None
     opNum: Optional[int] = None
     encoding: Optional[Literal["gzip"]] = None
 
-class ListGremlinQueriesInputRequestTypeDef(BaseModel):
+class ListGremlinQueriesInputRequestTypeDef(BaseValidatorModel):
     includeWaiting: Optional[bool] = None
 
-class ListLoaderJobsInputRequestTypeDef(BaseModel):
+class ListLoaderJobsInputRequestTypeDef(BaseValidatorModel):
     limit: Optional[int] = None
     includeQueuedLoads: Optional[bool] = None
 
-class LoaderIdResultTypeDef(BaseModel):
+class LoaderIdResultTypeDef(BaseValidatorModel):
     loadIds: Optional[List[str]] = None
 
-class ListMLDataProcessingJobsInputRequestTypeDef(BaseModel):
+class ListMLDataProcessingJobsInputRequestTypeDef(BaseValidatorModel):
     maxItems: Optional[int] = None
     neptuneIamRoleArn: Optional[str] = None
 
-class ListMLEndpointsInputRequestTypeDef(BaseModel):
+class ListMLEndpointsInputRequestTypeDef(BaseValidatorModel):
     maxItems: Optional[int] = None
     neptuneIamRoleArn: Optional[str] = None
 
-class ListMLModelTrainingJobsInputRequestTypeDef(BaseModel):
+class ListMLModelTrainingJobsInputRequestTypeDef(BaseValidatorModel):
     maxItems: Optional[int] = None
     neptuneIamRoleArn: Optional[str] = None
 
-class ListMLModelTransformJobsInputRequestTypeDef(BaseModel):
+class ListMLModelTransformJobsInputRequestTypeDef(BaseValidatorModel):
     maxItems: Optional[int] = None
     neptuneIamRoleArn: Optional[str] = None
 
-class ListOpenCypherQueriesInputRequestTypeDef(BaseModel):
+class ListOpenCypherQueriesInputRequestTypeDef(BaseValidatorModel):
     includeWaiting: Optional[bool] = None
 
-class ManagePropertygraphStatisticsInputRequestTypeDef(BaseModel):
+class ManagePropertygraphStatisticsInputRequestTypeDef(BaseValidatorModel):
     mode: Optional[StatisticsAutoGenerationModeType] = None
 
-class RefreshStatisticsIdMapTypeDef(BaseModel):
+class RefreshStatisticsIdMapTypeDef(BaseValidatorModel):
     statisticsId: Optional[str] = None
 
-class ManageSparqlStatisticsInputRequestTypeDef(BaseModel):
+class ManageSparqlStatisticsInputRequestTypeDef(BaseValidatorModel):
     mode: Optional[StatisticsAutoGenerationModeType] = None
 
-class NodeStructureTypeDef(BaseModel):
+class NodeStructureTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     nodeProperties: Optional[List[str]] = None
     distinctOutgoingEdgeLabels: Optional[List[str]] = None
 
-class PropertygraphDataTypeDef(BaseModel):
+class PropertygraphDataTypeDef(BaseValidatorModel):
     id: str
     type: str
     key: str
@@ -232,14 +232,14 @@ class PropertygraphDataTypeDef(BaseModel):
     from: Optional[str] = None
     to: Optional[str] = None
 
-class SubjectStructureTypeDef(BaseModel):
+class SubjectStructureTypeDef(BaseValidatorModel):
     count: Optional[int] = None
     predicates: Optional[List[str]] = None
 
-class SparqlDataTypeDef(BaseModel):
+class SparqlDataTypeDef(BaseValidatorModel):
     stmt: str
 
-class StartLoaderJobInputRequestTypeDef(BaseModel):
+class StartLoaderJobInputRequestTypeDef(BaseValidatorModel):
     source: str
     format: FormatType
     s3BucketRegion: S3BucketRegionType
@@ -253,7 +253,7 @@ class StartLoaderJobInputRequestTypeDef(BaseModel):
     dependencies: Optional[Sequence[str]] = None
     userProvidedEdgeIds: Optional[bool] = None
 
-class StartMLDataProcessingJobInputRequestTypeDef(BaseModel):
+class StartMLDataProcessingJobInputRequestTypeDef(BaseValidatorModel):
     inputDataS3Location: str
     processedDataS3Location: str
     id: Optional[str] = None
@@ -270,107 +270,107 @@ class StartMLDataProcessingJobInputRequestTypeDef(BaseModel):
     volumeEncryptionKMSKey: Optional[str] = None
     s3OutputEncryptionKMSKey: Optional[str] = None
 
-class StatisticsSummaryTypeDef(BaseModel):
+class StatisticsSummaryTypeDef(BaseValidatorModel):
     signatureCount: Optional[int] = None
     instanceCount: Optional[int] = None
     predicateCount: Optional[int] = None
 
-class CancelGremlinQueryOutputTypeDef(BaseModel):
+class CancelGremlinQueryOutputTypeDef(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelLoaderJobOutputTypeDef(BaseModel):
+class CancelLoaderJobOutputTypeDef(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelMLDataProcessingJobOutputTypeDef(BaseModel):
+class CancelMLDataProcessingJobOutputTypeDef(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelMLModelTrainingJobOutputTypeDef(BaseModel):
+class CancelMLModelTrainingJobOutputTypeDef(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelMLModelTransformJobOutputTypeDef(BaseModel):
+class CancelMLModelTransformJobOutputTypeDef(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CancelOpenCypherQueryOutputTypeDef(BaseModel):
+class CancelOpenCypherQueryOutputTypeDef(BaseValidatorModel):
     status: str
     payload: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMLEndpointOutputTypeDef(BaseModel):
+class CreateMLEndpointOutputTypeDef(BaseValidatorModel):
     id: str
     arn: str
     creationTimeInMillis: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteMLEndpointOutputTypeDef(BaseModel):
+class DeleteMLEndpointOutputTypeDef(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecuteGremlinExplainQueryOutputTypeDef(BaseModel):
+class ExecuteGremlinExplainQueryOutputTypeDef(BaseValidatorModel):
     output: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecuteGremlinProfileQueryOutputTypeDef(BaseModel):
+class ExecuteGremlinProfileQueryOutputTypeDef(BaseValidatorModel):
     output: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecuteOpenCypherExplainQueryOutputTypeDef(BaseModel):
+class ExecuteOpenCypherExplainQueryOutputTypeDef(BaseValidatorModel):
     results: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecuteOpenCypherQueryOutputTypeDef(BaseModel):
+class ExecuteOpenCypherQueryOutputTypeDef(BaseValidatorModel):
     results: Dict[str, Any]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetLoaderJobStatusOutputTypeDef(BaseModel):
+class GetLoaderJobStatusOutputTypeDef(BaseValidatorModel):
     status: str
     payload: Dict[str, Any]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMLDataProcessingJobsOutputTypeDef(BaseModel):
+class ListMLDataProcessingJobsOutputTypeDef(BaseValidatorModel):
     ids: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMLEndpointsOutputTypeDef(BaseModel):
+class ListMLEndpointsOutputTypeDef(BaseValidatorModel):
     ids: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMLModelTrainingJobsOutputTypeDef(BaseModel):
+class ListMLModelTrainingJobsOutputTypeDef(BaseValidatorModel):
     ids: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMLModelTransformJobsOutputTypeDef(BaseModel):
+class ListMLModelTransformJobsOutputTypeDef(BaseValidatorModel):
     ids: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartLoaderJobOutputTypeDef(BaseModel):
+class StartLoaderJobOutputTypeDef(BaseValidatorModel):
     status: str
     payload: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMLDataProcessingJobOutputTypeDef(BaseModel):
+class StartMLDataProcessingJobOutputTypeDef(BaseValidatorModel):
     id: str
     arn: str
     creationTimeInMillis: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMLModelTrainingJobOutputTypeDef(BaseModel):
+class StartMLModelTrainingJobOutputTypeDef(BaseValidatorModel):
     id: str
     arn: str
     creationTimeInMillis: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMLModelTransformJobOutputTypeDef(BaseModel):
+class StartMLModelTransformJobOutputTypeDef(BaseValidatorModel):
     id: str
     arn: str
     creationTimeInMillis: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMLModelTrainingJobInputRequestTypeDef(BaseModel):
+class StartMLModelTrainingJobInputRequestTypeDef(BaseValidatorModel):
     dataProcessingJobId: str
     trainModelS3Location: str
     id: Optional[str] = None
@@ -390,7 +390,7 @@ class StartMLModelTrainingJobInputRequestTypeDef(BaseModel):
     enableManagedSpotTraining: Optional[bool] = None
     customModelTrainingParameters: Optional[CustomModelTrainingParametersTypeDef] = None
 
-class StartMLModelTransformJobInputRequestTypeDef(BaseModel):
+class StartMLModelTransformJobInputRequestTypeDef(BaseValidatorModel):
     modelTransformOutputS3Location: str
     id: Optional[str] = None
     dataProcessingJobId: Optional[str] = None
@@ -406,31 +406,31 @@ class StartMLModelTransformJobInputRequestTypeDef(BaseModel):
     volumeEncryptionKMSKey: Optional[str] = None
     s3OutputEncryptionKMSKey: Optional[str] = None
 
-class DeletePropertygraphStatisticsOutputTypeDef(BaseModel):
+class DeletePropertygraphStatisticsOutputTypeDef(BaseValidatorModel):
     statusCode: int
     status: str
     payload: DeleteStatisticsValueMapTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteSparqlStatisticsOutputTypeDef(BaseModel):
+class DeleteSparqlStatisticsOutputTypeDef(BaseValidatorModel):
     statusCode: int
     status: str
     payload: DeleteStatisticsValueMapTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecuteFastResetOutputTypeDef(BaseModel):
+class ExecuteFastResetOutputTypeDef(BaseValidatorModel):
     status: str
     payload: FastResetTokenTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecuteGremlinQueryOutputTypeDef(BaseModel):
+class ExecuteGremlinQueryOutputTypeDef(BaseValidatorModel):
     requestId: str
     status: GremlinQueryStatusAttributesTypeDef
     result: Dict[str, Any]
     meta: Dict[str, Any]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetEngineStatusOutputTypeDef(BaseModel):
+class GetEngineStatusOutputTypeDef(BaseValidatorModel):
     status: str
     startTime: str
     dbEngineVersion: str
@@ -446,37 +446,37 @@ class GetEngineStatusOutputTypeDef(BaseModel):
     settings: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetGremlinQueryStatusOutputTypeDef(BaseModel):
+class GetGremlinQueryStatusOutputTypeDef(BaseValidatorModel):
     queryId: str
     queryString: str
     queryEvalStats: QueryEvalStatsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOpenCypherQueryStatusOutputTypeDef(BaseModel):
+class GetOpenCypherQueryStatusOutputTypeDef(BaseValidatorModel):
     queryId: str
     queryString: str
     queryEvalStats: QueryEvalStatsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GremlinQueryStatusTypeDef(BaseModel):
+class GremlinQueryStatusTypeDef(BaseValidatorModel):
     queryId: Optional[str] = None
     queryString: Optional[str] = None
     queryEvalStats: Optional[QueryEvalStatsTypeDef] = None
 
-class GetMLDataProcessingJobOutputTypeDef(BaseModel):
+class GetMLDataProcessingJobOutputTypeDef(BaseValidatorModel):
     status: str
     id: str
     processingJob: MlResourceDefinitionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMLEndpointOutputTypeDef(BaseModel):
+class GetMLEndpointOutputTypeDef(BaseValidatorModel):
     status: str
     id: str
     endpoint: MlResourceDefinitionTypeDef
     endpointConfig: MlConfigDefinitionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMLModelTrainingJobOutputTypeDef(BaseModel):
+class GetMLModelTrainingJobOutputTypeDef(BaseValidatorModel):
     status: str
     id: str
     processingJob: MlResourceDefinitionTypeDef
@@ -485,7 +485,7 @@ class GetMLModelTrainingJobOutputTypeDef(BaseModel):
     mlModels: List[MlConfigDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMLModelTransformJobOutputTypeDef(BaseModel):
+class GetMLModelTransformJobOutputTypeDef(BaseValidatorModel):
     status: str
     id: str
     baseProcessingJob: MlResourceDefinitionTypeDef
@@ -493,22 +493,22 @@ class GetMLModelTransformJobOutputTypeDef(BaseModel):
     models: List[MlConfigDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListLoaderJobsOutputTypeDef(BaseModel):
+class ListLoaderJobsOutputTypeDef(BaseValidatorModel):
     status: str
     payload: LoaderIdResultTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ManagePropertygraphStatisticsOutputTypeDef(BaseModel):
+class ManagePropertygraphStatisticsOutputTypeDef(BaseValidatorModel):
     status: str
     payload: RefreshStatisticsIdMapTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ManageSparqlStatisticsOutputTypeDef(BaseModel):
+class ManageSparqlStatisticsOutputTypeDef(BaseValidatorModel):
     status: str
     payload: RefreshStatisticsIdMapTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PropertygraphSummaryTypeDef(BaseModel):
+class PropertygraphSummaryTypeDef(BaseValidatorModel):
     numNodes: Optional[int] = None
     numEdges: Optional[int] = None
     numNodeLabels: Optional[int] = None
@@ -524,14 +524,14 @@ class PropertygraphSummaryTypeDef(BaseModel):
     nodeStructures: Optional[List[NodeStructureTypeDef]] = None
     edgeStructures: Optional[List[EdgeStructureTypeDef]] = None
 
-class PropertygraphRecordTypeDef(BaseModel):
+class PropertygraphRecordTypeDef(BaseValidatorModel):
     commitTimestampInMillis: int
     eventId: Dict[str, str]
     data: PropertygraphDataTypeDef
     op: str
     isLastOp: Optional[bool] = None
 
-class RDFGraphSummaryTypeDef(BaseModel):
+class RDFGraphSummaryTypeDef(BaseValidatorModel):
     numDistinctSubjects: Optional[int] = None
     numDistinctPredicates: Optional[int] = None
     numQuads: Optional[int] = None
@@ -540,14 +540,14 @@ class RDFGraphSummaryTypeDef(BaseModel):
     predicates: Optional[List[Dict[str, int]]] = None
     subjectStructures: Optional[List[SubjectStructureTypeDef]] = None
 
-class SparqlRecordTypeDef(BaseModel):
+class SparqlRecordTypeDef(BaseValidatorModel):
     commitTimestampInMillis: int
     eventId: Dict[str, str]
     data: SparqlDataTypeDef
     op: str
     isLastOp: Optional[bool] = None
 
-class StatisticsTypeDef(BaseModel):
+class StatisticsTypeDef(BaseValidatorModel):
     autoCompute: Optional[bool] = None
     active: Optional[bool] = None
     statisticsId: Optional[str] = None
@@ -555,24 +555,24 @@ class StatisticsTypeDef(BaseModel):
     note: Optional[str] = None
     signatureInfo: Optional[StatisticsSummaryTypeDef] = None
 
-class ListGremlinQueriesOutputTypeDef(BaseModel):
+class ListGremlinQueriesOutputTypeDef(BaseValidatorModel):
     acceptedQueryCount: int
     runningQueryCount: int
     queries: List[GremlinQueryStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOpenCypherQueriesOutputTypeDef(BaseModel):
+class ListOpenCypherQueriesOutputTypeDef(BaseValidatorModel):
     acceptedQueryCount: int
     runningQueryCount: int
     queries: List[GremlinQueryStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PropertygraphSummaryValueMapTypeDef(BaseModel):
+class PropertygraphSummaryValueMapTypeDef(BaseValidatorModel):
     version: Optional[str] = None
     lastStatisticsComputationTime: Optional[datetime] = None
     graphSummary: Optional[PropertygraphSummaryTypeDef] = None
 
-class GetPropertygraphStreamOutputTypeDef(BaseModel):
+class GetPropertygraphStreamOutputTypeDef(BaseValidatorModel):
     lastEventId: Dict[str, str]
     lastTrxTimestampInMillis: int
     format: str
@@ -580,12 +580,12 @@ class GetPropertygraphStreamOutputTypeDef(BaseModel):
     totalRecords: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RDFGraphSummaryValueMapTypeDef(BaseModel):
+class RDFGraphSummaryValueMapTypeDef(BaseValidatorModel):
     version: Optional[str] = None
     lastStatisticsComputationTime: Optional[datetime] = None
     graphSummary: Optional[RDFGraphSummaryTypeDef] = None
 
-class GetSparqlStreamOutputTypeDef(BaseModel):
+class GetSparqlStreamOutputTypeDef(BaseValidatorModel):
     lastEventId: Dict[str, str]
     lastTrxTimestampInMillis: int
     format: str
@@ -593,22 +593,22 @@ class GetSparqlStreamOutputTypeDef(BaseModel):
     totalRecords: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPropertygraphStatisticsOutputTypeDef(BaseModel):
+class GetPropertygraphStatisticsOutputTypeDef(BaseValidatorModel):
     status: str
     payload: StatisticsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSparqlStatisticsOutputTypeDef(BaseModel):
+class GetSparqlStatisticsOutputTypeDef(BaseValidatorModel):
     status: str
     payload: StatisticsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPropertygraphSummaryOutputTypeDef(BaseModel):
+class GetPropertygraphSummaryOutputTypeDef(BaseValidatorModel):
     statusCode: int
     payload: PropertygraphSummaryValueMapTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRDFGraphSummaryOutputTypeDef(BaseModel):
+class GetRDFGraphSummaryOutputTypeDef(BaseValidatorModel):
     statusCode: int
     payload: RDFGraphSummaryValueMapTypeDef
     ResponseMetadata: ResponseMetadataTypeDef

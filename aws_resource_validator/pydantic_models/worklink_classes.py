@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,88 +11,88 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.worklink_constants import *
 
-class AssociateDomainRequestRequestTypeDef(BaseModel):
+class AssociateDomainRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     DomainName: str
     AcmCertificateArn: str
     DisplayName: Optional[str] = None
 
-class AssociateWebsiteAuthorizationProviderRequestRequestTypeDef(BaseModel):
+class AssociateWebsiteAuthorizationProviderRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     AuthorizationProviderType: Literal["SAML"]
     DomainName: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class AssociateWebsiteCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class AssociateWebsiteCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     Certificate: str
     DisplayName: Optional[str] = None
 
-class CreateFleetRequestRequestTypeDef(BaseModel):
+class CreateFleetRequestRequestTypeDef(BaseValidatorModel):
     FleetName: str
     DisplayName: Optional[str] = None
     OptimizeForEndUserLocation: Optional[bool] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class DeleteFleetRequestRequestTypeDef(BaseModel):
+class DeleteFleetRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
 
-class DescribeAuditStreamConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeAuditStreamConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
 
-class DescribeCompanyNetworkConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeCompanyNetworkConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
 
-class DescribeDevicePolicyConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeDevicePolicyConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
 
-class DescribeDeviceRequestRequestTypeDef(BaseModel):
+class DescribeDeviceRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     DeviceId: str
 
-class DescribeDomainRequestRequestTypeDef(BaseModel):
+class DescribeDomainRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     DomainName: str
 
-class DescribeFleetMetadataRequestRequestTypeDef(BaseModel):
+class DescribeFleetMetadataRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
 
-class DescribeIdentityProviderConfigurationRequestRequestTypeDef(BaseModel):
+class DescribeIdentityProviderConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
 
-class DescribeWebsiteCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class DescribeWebsiteCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     WebsiteCaId: str
 
-class DeviceSummaryTypeDef(BaseModel):
+class DeviceSummaryTypeDef(BaseValidatorModel):
     DeviceId: Optional[str] = None
     DeviceStatus: Optional[DeviceStatusType] = None
 
-class DisassociateDomainRequestRequestTypeDef(BaseModel):
+class DisassociateDomainRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     DomainName: str
 
-class DisassociateWebsiteAuthorizationProviderRequestRequestTypeDef(BaseModel):
+class DisassociateWebsiteAuthorizationProviderRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     AuthorizationProviderId: str
 
-class DisassociateWebsiteCertificateAuthorityRequestRequestTypeDef(BaseModel):
+class DisassociateWebsiteCertificateAuthorityRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     WebsiteCaId: str
 
-class DomainSummaryTypeDef(BaseModel):
+class DomainSummaryTypeDef(BaseValidatorModel):
     DomainName: str
     CreatedTime: datetime
     DomainStatus: DomainStatusType
     DisplayName: Optional[str] = None
 
-class FleetSummaryTypeDef(BaseModel):
+class FleetSummaryTypeDef(BaseValidatorModel):
     FleetArn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
@@ -102,120 +102,120 @@ class FleetSummaryTypeDef(BaseModel):
     FleetStatus: Optional[FleetStatusType] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ListDevicesRequestRequestTypeDef(BaseModel):
+class ListDevicesRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDomainsRequestRequestTypeDef(BaseModel):
+class ListDomainsRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListFleetsRequestRequestTypeDef(BaseModel):
+class ListFleetsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListWebsiteAuthorizationProvidersRequestRequestTypeDef(BaseModel):
+class ListWebsiteAuthorizationProvidersRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class WebsiteAuthorizationProviderSummaryTypeDef(BaseModel):
+class WebsiteAuthorizationProviderSummaryTypeDef(BaseValidatorModel):
     AuthorizationProviderType: Literal["SAML"]
     AuthorizationProviderId: Optional[str] = None
     DomainName: Optional[str] = None
     CreatedTime: Optional[datetime] = None
 
-class ListWebsiteCertificateAuthoritiesRequestRequestTypeDef(BaseModel):
+class ListWebsiteCertificateAuthoritiesRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class WebsiteCaSummaryTypeDef(BaseModel):
+class WebsiteCaSummaryTypeDef(BaseValidatorModel):
     WebsiteCaId: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     DisplayName: Optional[str] = None
 
-class RestoreDomainAccessRequestRequestTypeDef(BaseModel):
+class RestoreDomainAccessRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     DomainName: str
 
-class RevokeDomainAccessRequestRequestTypeDef(BaseModel):
+class RevokeDomainAccessRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     DomainName: str
 
-class SignOutUserRequestRequestTypeDef(BaseModel):
+class SignOutUserRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     Username: str
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateAuditStreamConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateAuditStreamConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     AuditStreamArn: Optional[str] = None
 
-class UpdateCompanyNetworkConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateCompanyNetworkConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     VpcId: str
     SubnetIds: Sequence[str]
     SecurityGroupIds: Sequence[str]
 
-class UpdateDevicePolicyConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateDevicePolicyConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     DeviceCaCertificate: Optional[str] = None
 
-class UpdateDomainMetadataRequestRequestTypeDef(BaseModel):
+class UpdateDomainMetadataRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     DomainName: str
     DisplayName: Optional[str] = None
 
-class UpdateFleetMetadataRequestRequestTypeDef(BaseModel):
+class UpdateFleetMetadataRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     DisplayName: Optional[str] = None
     OptimizeForEndUserLocation: Optional[bool] = None
 
-class UpdateIdentityProviderConfigurationRequestRequestTypeDef(BaseModel):
+class UpdateIdentityProviderConfigurationRequestRequestTypeDef(BaseValidatorModel):
     FleetArn: str
     IdentityProviderType: Literal["SAML"]
     IdentityProviderSamlMetadata: Optional[str] = None
 
-class AssociateWebsiteAuthorizationProviderResponseTypeDef(BaseModel):
+class AssociateWebsiteAuthorizationProviderResponseTypeDef(BaseValidatorModel):
     AuthorizationProviderId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AssociateWebsiteCertificateAuthorityResponseTypeDef(BaseModel):
+class AssociateWebsiteCertificateAuthorityResponseTypeDef(BaseValidatorModel):
     WebsiteCaId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFleetResponseTypeDef(BaseModel):
+class CreateFleetResponseTypeDef(BaseValidatorModel):
     FleetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAuditStreamConfigurationResponseTypeDef(BaseModel):
+class DescribeAuditStreamConfigurationResponseTypeDef(BaseValidatorModel):
     AuditStreamArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCompanyNetworkConfigurationResponseTypeDef(BaseModel):
+class DescribeCompanyNetworkConfigurationResponseTypeDef(BaseValidatorModel):
     VpcId: str
     SubnetIds: List[str]
     SecurityGroupIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDevicePolicyConfigurationResponseTypeDef(BaseModel):
+class DescribeDevicePolicyConfigurationResponseTypeDef(BaseValidatorModel):
     DeviceCaCertificate: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDeviceResponseTypeDef(BaseModel):
+class DescribeDeviceResponseTypeDef(BaseValidatorModel):
     Status: DeviceStatusType
     Model: str
     Manufacturer: str
@@ -227,7 +227,7 @@ class DescribeDeviceResponseTypeDef(BaseModel):
     Username: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDomainResponseTypeDef(BaseModel):
+class DescribeDomainResponseTypeDef(BaseValidatorModel):
     DomainName: str
     DisplayName: str
     CreatedTime: datetime
@@ -235,7 +235,7 @@ class DescribeDomainResponseTypeDef(BaseModel):
     AcmCertificateArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeFleetMetadataResponseTypeDef(BaseModel):
+class DescribeFleetMetadataResponseTypeDef(BaseValidatorModel):
     CreatedTime: datetime
     LastUpdatedTime: datetime
     FleetName: str
@@ -246,43 +246,43 @@ class DescribeFleetMetadataResponseTypeDef(BaseModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeIdentityProviderConfigurationResponseTypeDef(BaseModel):
+class DescribeIdentityProviderConfigurationResponseTypeDef(BaseValidatorModel):
     IdentityProviderType: Literal["SAML"]
     ServiceProviderSamlMetadata: str
     IdentityProviderSamlMetadata: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeWebsiteCertificateAuthorityResponseTypeDef(BaseModel):
+class DescribeWebsiteCertificateAuthorityResponseTypeDef(BaseValidatorModel):
     Certificate: str
     CreatedTime: datetime
     DisplayName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDevicesResponseTypeDef(BaseModel):
+class ListDevicesResponseTypeDef(BaseValidatorModel):
     Devices: List[DeviceSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDomainsResponseTypeDef(BaseModel):
+class ListDomainsResponseTypeDef(BaseValidatorModel):
     Domains: List[DomainSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFleetsResponseTypeDef(BaseModel):
+class ListFleetsResponseTypeDef(BaseValidatorModel):
     FleetSummaryList: List[FleetSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWebsiteAuthorizationProvidersResponseTypeDef(BaseModel):
+class ListWebsiteAuthorizationProvidersResponseTypeDef(BaseValidatorModel):
     WebsiteAuthorizationProviders: List[WebsiteAuthorizationProviderSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListWebsiteCertificateAuthoritiesResponseTypeDef(BaseModel):
+class ListWebsiteCertificateAuthoritiesResponseTypeDef(BaseValidatorModel):
     WebsiteCertificateAuthorities: List[WebsiteCaSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,18 +11,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.machinelearning_constants import *
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class BatchPredictionTypeDef(BaseModel):
+class BatchPredictionTypeDef(BaseValidatorModel):
     BatchPredictionId: Optional[str] = None
     MLModelId: Optional[str] = None
     BatchPredictionDataSourceId: Optional[str] = None
@@ -40,26 +40,26 @@ class BatchPredictionTypeDef(BaseModel):
     TotalRecordCount: Optional[int] = None
     InvalidRecordCount: Optional[int] = None
 
-class CreateBatchPredictionInputRequestTypeDef(BaseModel):
+class CreateBatchPredictionInputRequestTypeDef(BaseValidatorModel):
     BatchPredictionId: str
     MLModelId: str
     BatchPredictionDataSourceId: str
     OutputUri: str
     BatchPredictionName: Optional[str] = None
 
-class S3DataSpecTypeDef(BaseModel):
+class S3DataSpecTypeDef(BaseValidatorModel):
     DataLocationS3: str
     DataRearrangement: Optional[str] = None
     DataSchema: Optional[str] = None
     DataSchemaLocationS3: Optional[str] = None
 
-class CreateEvaluationInputRequestTypeDef(BaseModel):
+class CreateEvaluationInputRequestTypeDef(BaseValidatorModel):
     EvaluationId: str
     MLModelId: str
     EvaluationDataSourceId: str
     EvaluationName: Optional[str] = None
 
-class CreateMLModelInputRequestTypeDef(BaseModel):
+class CreateMLModelInputRequestTypeDef(BaseValidatorModel):
     MLModelId: str
     MLModelType: MLModelTypeType
     TrainingDataSourceId: str
@@ -68,45 +68,45 @@ class CreateMLModelInputRequestTypeDef(BaseModel):
     Recipe: Optional[str] = None
     RecipeUri: Optional[str] = None
 
-class CreateRealtimeEndpointInputRequestTypeDef(BaseModel):
+class CreateRealtimeEndpointInputRequestTypeDef(BaseValidatorModel):
     MLModelId: str
 
-class RealtimeEndpointInfoTypeDef(BaseModel):
+class RealtimeEndpointInfoTypeDef(BaseValidatorModel):
     PeakRequestsPerSecond: Optional[int] = None
     CreatedAt: Optional[datetime] = None
     EndpointUrl: Optional[str] = None
     EndpointStatus: Optional[RealtimeEndpointStatusType] = None
 
-class DeleteBatchPredictionInputRequestTypeDef(BaseModel):
+class DeleteBatchPredictionInputRequestTypeDef(BaseValidatorModel):
     BatchPredictionId: str
 
-class DeleteDataSourceInputRequestTypeDef(BaseModel):
+class DeleteDataSourceInputRequestTypeDef(BaseValidatorModel):
     DataSourceId: str
 
-class DeleteEvaluationInputRequestTypeDef(BaseModel):
+class DeleteEvaluationInputRequestTypeDef(BaseValidatorModel):
     EvaluationId: str
 
-class DeleteMLModelInputRequestTypeDef(BaseModel):
+class DeleteMLModelInputRequestTypeDef(BaseValidatorModel):
     MLModelId: str
 
-class DeleteRealtimeEndpointInputRequestTypeDef(BaseModel):
+class DeleteRealtimeEndpointInputRequestTypeDef(BaseValidatorModel):
     MLModelId: str
 
-class DeleteTagsInputRequestTypeDef(BaseModel):
+class DeleteTagsInputRequestTypeDef(BaseValidatorModel):
     TagKeys: Sequence[str]
     ResourceId: str
     ResourceType: TaggableResourceTypeType
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeBatchPredictionsInputRequestTypeDef(BaseModel):
+class DescribeBatchPredictionsInputRequestTypeDef(BaseValidatorModel):
     FilterVariable: Optional[BatchPredictionFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -119,7 +119,7 @@ class DescribeBatchPredictionsInputRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeDataSourcesInputRequestTypeDef(BaseModel):
+class DescribeDataSourcesInputRequestTypeDef(BaseValidatorModel):
     FilterVariable: Optional[DataSourceFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -132,7 +132,7 @@ class DescribeDataSourcesInputRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeEvaluationsInputRequestTypeDef(BaseModel):
+class DescribeEvaluationsInputRequestTypeDef(BaseValidatorModel):
     FilterVariable: Optional[EvaluationFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -145,7 +145,7 @@ class DescribeEvaluationsInputRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeMLModelsInputRequestTypeDef(BaseModel):
+class DescribeMLModelsInputRequestTypeDef(BaseValidatorModel):
     FilterVariable: Optional[MLModelFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -158,133 +158,133 @@ class DescribeMLModelsInputRequestTypeDef(BaseModel):
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
-class DescribeTagsInputRequestTypeDef(BaseModel):
+class DescribeTagsInputRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     ResourceType: TaggableResourceTypeType
 
-class PerformanceMetricsTypeDef(BaseModel):
+class PerformanceMetricsTypeDef(BaseValidatorModel):
     Properties: Optional[Dict[str, str]] = None
 
-class GetBatchPredictionInputRequestTypeDef(BaseModel):
+class GetBatchPredictionInputRequestTypeDef(BaseValidatorModel):
     BatchPredictionId: str
 
-class GetDataSourceInputRequestTypeDef(BaseModel):
+class GetDataSourceInputRequestTypeDef(BaseValidatorModel):
     DataSourceId: str
     Verbose: Optional[bool] = None
 
-class GetEvaluationInputRequestTypeDef(BaseModel):
+class GetEvaluationInputRequestTypeDef(BaseValidatorModel):
     EvaluationId: str
 
-class GetMLModelInputRequestTypeDef(BaseModel):
+class GetMLModelInputRequestTypeDef(BaseValidatorModel):
     MLModelId: str
     Verbose: Optional[bool] = None
 
-class PredictInputRequestTypeDef(BaseModel):
+class PredictInputRequestTypeDef(BaseValidatorModel):
     MLModelId: str
     Record: Mapping[str, str]
     PredictEndpoint: str
 
-class PredictionTypeDef(BaseModel):
+class PredictionTypeDef(BaseValidatorModel):
     predictedLabel: Optional[str] = None
     predictedValue: Optional[float] = None
     predictedScores: Optional[Dict[str, float]] = None
     details: Optional[Dict[DetailsAttributesType, str]] = None
 
-class RDSDatabaseCredentialsTypeDef(BaseModel):
+class RDSDatabaseCredentialsTypeDef(BaseValidatorModel):
     Username: str
     Password: str
 
-class RDSDatabaseTypeDef(BaseModel):
+class RDSDatabaseTypeDef(BaseValidatorModel):
     InstanceIdentifier: str
     DatabaseName: str
 
-class RedshiftDatabaseCredentialsTypeDef(BaseModel):
+class RedshiftDatabaseCredentialsTypeDef(BaseValidatorModel):
     Username: str
     Password: str
 
-class RedshiftDatabaseTypeDef(BaseModel):
+class RedshiftDatabaseTypeDef(BaseValidatorModel):
     DatabaseName: str
     ClusterIdentifier: str
 
-class UpdateBatchPredictionInputRequestTypeDef(BaseModel):
+class UpdateBatchPredictionInputRequestTypeDef(BaseValidatorModel):
     BatchPredictionId: str
     BatchPredictionName: str
 
-class UpdateDataSourceInputRequestTypeDef(BaseModel):
+class UpdateDataSourceInputRequestTypeDef(BaseValidatorModel):
     DataSourceId: str
     DataSourceName: str
 
-class UpdateEvaluationInputRequestTypeDef(BaseModel):
+class UpdateEvaluationInputRequestTypeDef(BaseValidatorModel):
     EvaluationId: str
     EvaluationName: str
 
-class UpdateMLModelInputRequestTypeDef(BaseModel):
+class UpdateMLModelInputRequestTypeDef(BaseValidatorModel):
     MLModelId: str
     MLModelName: Optional[str] = None
     ScoreThreshold: Optional[float] = None
 
-class AddTagsInputRequestTypeDef(BaseModel):
+class AddTagsInputRequestTypeDef(BaseValidatorModel):
     Tags: Sequence[TagTypeDef]
     ResourceId: str
     ResourceType: TaggableResourceTypeType
 
-class AddTagsOutputTypeDef(BaseModel):
+class AddTagsOutputTypeDef(BaseValidatorModel):
     ResourceId: str
     ResourceType: TaggableResourceTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBatchPredictionOutputTypeDef(BaseModel):
+class CreateBatchPredictionOutputTypeDef(BaseValidatorModel):
     BatchPredictionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDataSourceFromRDSOutputTypeDef(BaseModel):
+class CreateDataSourceFromRDSOutputTypeDef(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDataSourceFromRedshiftOutputTypeDef(BaseModel):
+class CreateDataSourceFromRedshiftOutputTypeDef(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDataSourceFromS3OutputTypeDef(BaseModel):
+class CreateDataSourceFromS3OutputTypeDef(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEvaluationOutputTypeDef(BaseModel):
+class CreateEvaluationOutputTypeDef(BaseValidatorModel):
     EvaluationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMLModelOutputTypeDef(BaseModel):
+class CreateMLModelOutputTypeDef(BaseValidatorModel):
     MLModelId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteBatchPredictionOutputTypeDef(BaseModel):
+class DeleteBatchPredictionOutputTypeDef(BaseValidatorModel):
     BatchPredictionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDataSourceOutputTypeDef(BaseModel):
+class DeleteDataSourceOutputTypeDef(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteEvaluationOutputTypeDef(BaseModel):
+class DeleteEvaluationOutputTypeDef(BaseValidatorModel):
     EvaluationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteMLModelOutputTypeDef(BaseModel):
+class DeleteMLModelOutputTypeDef(BaseValidatorModel):
     MLModelId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteTagsOutputTypeDef(BaseModel):
+class DeleteTagsOutputTypeDef(BaseValidatorModel):
     ResourceId: str
     ResourceType: TaggableResourceTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeTagsOutputTypeDef(BaseModel):
+class DescribeTagsOutputTypeDef(BaseValidatorModel):
     ResourceId: str
     ResourceType: TaggableResourceTypeType
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBatchPredictionOutputTypeDef(BaseModel):
+class GetBatchPredictionOutputTypeDef(BaseValidatorModel):
     BatchPredictionId: str
     MLModelId: str
     BatchPredictionDataSourceId: str
@@ -304,44 +304,44 @@ class GetBatchPredictionOutputTypeDef(BaseModel):
     InvalidRecordCount: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateBatchPredictionOutputTypeDef(BaseModel):
+class UpdateBatchPredictionOutputTypeDef(BaseValidatorModel):
     BatchPredictionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDataSourceOutputTypeDef(BaseModel):
+class UpdateDataSourceOutputTypeDef(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEvaluationOutputTypeDef(BaseModel):
+class UpdateEvaluationOutputTypeDef(BaseValidatorModel):
     EvaluationId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateMLModelOutputTypeDef(BaseModel):
+class UpdateMLModelOutputTypeDef(BaseValidatorModel):
     MLModelId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeBatchPredictionsOutputTypeDef(BaseModel):
+class DescribeBatchPredictionsOutputTypeDef(BaseValidatorModel):
     Results: List[BatchPredictionTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDataSourceFromS3InputRequestTypeDef(BaseModel):
+class CreateDataSourceFromS3InputRequestTypeDef(BaseValidatorModel):
     DataSourceId: str
     DataSpec: S3DataSpecTypeDef
     DataSourceName: Optional[str] = None
     ComputeStatistics: Optional[bool] = None
 
-class CreateRealtimeEndpointOutputTypeDef(BaseModel):
+class CreateRealtimeEndpointOutputTypeDef(BaseValidatorModel):
     MLModelId: str
     RealtimeEndpointInfo: RealtimeEndpointInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteRealtimeEndpointOutputTypeDef(BaseModel):
+class DeleteRealtimeEndpointOutputTypeDef(BaseValidatorModel):
     MLModelId: str
     RealtimeEndpointInfo: RealtimeEndpointInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetMLModelOutputTypeDef(BaseModel):
+class GetMLModelOutputTypeDef(BaseValidatorModel):
     MLModelId: str
     TrainingDataSourceId: str
     CreatedByIamUser: str
@@ -365,7 +365,7 @@ class GetMLModelOutputTypeDef(BaseModel):
     Schema: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MLModelTypeDef(BaseModel):
+class MLModelTypeDef(BaseValidatorModel):
     MLModelId: Optional[str] = None
     TrainingDataSourceId: Optional[str] = None
     CreatedByIamUser: Optional[str] = None
@@ -386,7 +386,7 @@ class MLModelTypeDef(BaseModel):
     FinishedAt: Optional[datetime] = None
     StartedAt: Optional[datetime] = None
 
-class DescribeBatchPredictionsInputBatchPredictionAvailableWaitTypeDef(BaseModel):
+class DescribeBatchPredictionsInputBatchPredictionAvailableWaitTypeDef(BaseValidatorModel):
     FilterVariable: Optional[BatchPredictionFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -400,7 +400,7 @@ class DescribeBatchPredictionsInputBatchPredictionAvailableWaitTypeDef(BaseModel
     Limit: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeDataSourcesInputDataSourceAvailableWaitTypeDef(BaseModel):
+class DescribeDataSourcesInputDataSourceAvailableWaitTypeDef(BaseValidatorModel):
     FilterVariable: Optional[DataSourceFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -414,7 +414,7 @@ class DescribeDataSourcesInputDataSourceAvailableWaitTypeDef(BaseModel):
     Limit: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeEvaluationsInputEvaluationAvailableWaitTypeDef(BaseModel):
+class DescribeEvaluationsInputEvaluationAvailableWaitTypeDef(BaseValidatorModel):
     FilterVariable: Optional[EvaluationFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -428,7 +428,7 @@ class DescribeEvaluationsInputEvaluationAvailableWaitTypeDef(BaseModel):
     Limit: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeMLModelsInputMLModelAvailableWaitTypeDef(BaseModel):
+class DescribeMLModelsInputMLModelAvailableWaitTypeDef(BaseValidatorModel):
     FilterVariable: Optional[MLModelFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -442,7 +442,7 @@ class DescribeMLModelsInputMLModelAvailableWaitTypeDef(BaseModel):
     Limit: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeBatchPredictionsInputDescribeBatchPredictionsPaginateTypeDef(BaseModel):
+class DescribeBatchPredictionsInputDescribeBatchPredictionsPaginateTypeDef(BaseValidatorModel):
     FilterVariable: Optional[BatchPredictionFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -454,7 +454,7 @@ class DescribeBatchPredictionsInputDescribeBatchPredictionsPaginateTypeDef(BaseM
     SortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDataSourcesInputDescribeDataSourcesPaginateTypeDef(BaseModel):
+class DescribeDataSourcesInputDescribeDataSourcesPaginateTypeDef(BaseValidatorModel):
     FilterVariable: Optional[DataSourceFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -466,7 +466,7 @@ class DescribeDataSourcesInputDescribeDataSourcesPaginateTypeDef(BaseModel):
     SortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEvaluationsInputDescribeEvaluationsPaginateTypeDef(BaseModel):
+class DescribeEvaluationsInputDescribeEvaluationsPaginateTypeDef(BaseValidatorModel):
     FilterVariable: Optional[EvaluationFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -478,7 +478,7 @@ class DescribeEvaluationsInputDescribeEvaluationsPaginateTypeDef(BaseModel):
     SortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeMLModelsInputDescribeMLModelsPaginateTypeDef(BaseModel):
+class DescribeMLModelsInputDescribeMLModelsPaginateTypeDef(BaseValidatorModel):
     FilterVariable: Optional[MLModelFilterVariableType] = None
     EQ: Optional[str] = None
     GT: Optional[str] = None
@@ -490,7 +490,7 @@ class DescribeMLModelsInputDescribeMLModelsPaginateTypeDef(BaseModel):
     SortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class EvaluationTypeDef(BaseModel):
+class EvaluationTypeDef(BaseValidatorModel):
     EvaluationId: Optional[str] = None
     MLModelId: Optional[str] = None
     EvaluationDataSourceId: Optional[str] = None
@@ -506,7 +506,7 @@ class EvaluationTypeDef(BaseModel):
     FinishedAt: Optional[datetime] = None
     StartedAt: Optional[datetime] = None
 
-class GetEvaluationOutputTypeDef(BaseModel):
+class GetEvaluationOutputTypeDef(BaseValidatorModel):
     EvaluationId: str
     MLModelId: str
     EvaluationDataSourceId: str
@@ -524,11 +524,11 @@ class GetEvaluationOutputTypeDef(BaseModel):
     StartedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PredictOutputTypeDef(BaseModel):
+class PredictOutputTypeDef(BaseValidatorModel):
     Prediction: PredictionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RDSDataSpecTypeDef(BaseModel):
+class RDSDataSpecTypeDef(BaseValidatorModel):
     DatabaseInformation: RDSDatabaseTypeDef
     SelectSqlQuery: str
     DatabaseCredentials: RDSDatabaseCredentialsTypeDef
@@ -541,7 +541,7 @@ class RDSDataSpecTypeDef(BaseModel):
     DataSchema: Optional[str] = None
     DataSchemaUri: Optional[str] = None
 
-class RDSMetadataTypeDef(BaseModel):
+class RDSMetadataTypeDef(BaseValidatorModel):
     Database: Optional[RDSDatabaseTypeDef] = None
     DatabaseUserName: Optional[str] = None
     SelectSqlQuery: Optional[str] = None
@@ -549,7 +549,7 @@ class RDSMetadataTypeDef(BaseModel):
     ServiceRole: Optional[str] = None
     DataPipelineId: Optional[str] = None
 
-class RedshiftDataSpecTypeDef(BaseModel):
+class RedshiftDataSpecTypeDef(BaseValidatorModel):
     DatabaseInformation: RedshiftDatabaseTypeDef
     SelectSqlQuery: str
     DatabaseCredentials: RedshiftDatabaseCredentialsTypeDef
@@ -558,36 +558,36 @@ class RedshiftDataSpecTypeDef(BaseModel):
     DataSchema: Optional[str] = None
     DataSchemaUri: Optional[str] = None
 
-class RedshiftMetadataTypeDef(BaseModel):
+class RedshiftMetadataTypeDef(BaseValidatorModel):
     RedshiftDatabase: Optional[RedshiftDatabaseTypeDef] = None
     DatabaseUserName: Optional[str] = None
     SelectSqlQuery: Optional[str] = None
 
-class DescribeMLModelsOutputTypeDef(BaseModel):
+class DescribeMLModelsOutputTypeDef(BaseValidatorModel):
     Results: List[MLModelTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeEvaluationsOutputTypeDef(BaseModel):
+class DescribeEvaluationsOutputTypeDef(BaseValidatorModel):
     Results: List[EvaluationTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDataSourceFromRDSInputRequestTypeDef(BaseModel):
+class CreateDataSourceFromRDSInputRequestTypeDef(BaseValidatorModel):
     DataSourceId: str
     RDSData: RDSDataSpecTypeDef
     RoleARN: str
     DataSourceName: Optional[str] = None
     ComputeStatistics: Optional[bool] = None
 
-class CreateDataSourceFromRedshiftInputRequestTypeDef(BaseModel):
+class CreateDataSourceFromRedshiftInputRequestTypeDef(BaseValidatorModel):
     DataSourceId: str
     DataSpec: RedshiftDataSpecTypeDef
     RoleARN: str
     DataSourceName: Optional[str] = None
     ComputeStatistics: Optional[bool] = None
 
-class DataSourceTypeDef(BaseModel):
+class DataSourceTypeDef(BaseValidatorModel):
     DataSourceId: Optional[str] = None
     DataLocationS3: Optional[str] = None
     DataRearrangement: Optional[str] = None
@@ -607,7 +607,7 @@ class DataSourceTypeDef(BaseModel):
     FinishedAt: Optional[datetime] = None
     StartedAt: Optional[datetime] = None
 
-class GetDataSourceOutputTypeDef(BaseModel):
+class GetDataSourceOutputTypeDef(BaseValidatorModel):
     DataSourceId: str
     DataLocationS3: str
     DataRearrangement: str
@@ -630,7 +630,7 @@ class GetDataSourceOutputTypeDef(BaseModel):
     DataSourceSchema: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDataSourcesOutputTypeDef(BaseModel):
+class DescribeDataSourcesOutputTypeDef(BaseValidatorModel):
     Results: List[DataSourceTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef

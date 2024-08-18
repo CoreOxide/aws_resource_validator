@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.transfer_constants import *
 
-class As2ConnectorConfigTypeDef(BaseModel):
+class As2ConnectorConfigTypeDef(BaseValidatorModel):
     LocalProfileId: Optional[str] = None
     PartnerProfileId: Optional[str] = None
     MessageSubject: Optional[str] = None
@@ -22,129 +22,129 @@ class As2ConnectorConfigTypeDef(BaseModel):
     MdnResponse: Optional[MdnResponseType] = None
     BasicAuthSecretId: Optional[str] = None
 
-class HomeDirectoryMapEntryTypeDef(BaseModel):
+class HomeDirectoryMapEntryTypeDef(BaseValidatorModel):
     Entry: str
     Target: str
     Type: Optional[MapTypeType] = None
 
-class PosixProfileTypeDef(BaseModel):
+class PosixProfileTypeDef(BaseValidatorModel):
     Uid: int
     Gid: int
     SecondaryGids: Optional[Sequence[int]] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class TagTypeDef(BaseModel):
+class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class SftpConnectorConfigTypeDef(BaseModel):
+class SftpConnectorConfigTypeDef(BaseValidatorModel):
     UserSecretId: Optional[str] = None
     TrustedHostKeys: Optional[Sequence[str]] = None
 
-class EndpointDetailsTypeDef(BaseModel):
+class EndpointDetailsTypeDef(BaseValidatorModel):
     AddressAllocationIds: Optional[Sequence[str]] = None
     SubnetIds: Optional[Sequence[str]] = None
     VpcEndpointId: Optional[str] = None
     VpcId: Optional[str] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
 
-class IdentityProviderDetailsTypeDef(BaseModel):
+class IdentityProviderDetailsTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
     InvocationRole: Optional[str] = None
     DirectoryId: Optional[str] = None
     Function: Optional[str] = None
     SftpAuthenticationMethods: Optional[SftpAuthenticationMethodsType] = None
 
-class ProtocolDetailsTypeDef(BaseModel):
+class ProtocolDetailsTypeDef(BaseValidatorModel):
     PassiveIp: Optional[str] = None
     TlsSessionResumptionMode: Optional[TlsSessionResumptionModeType] = None
     SetStatOption: Optional[SetStatOptionType] = None
     As2Transports: Optional[Sequence[Literal["HTTP"]]] = None
 
-class S3StorageOptionsTypeDef(BaseModel):
+class S3StorageOptionsTypeDef(BaseValidatorModel):
     DirectoryListingOptimization: Optional[DirectoryListingOptimizationType] = None
 
-class CustomStepDetailsTypeDef(BaseModel):
+class CustomStepDetailsTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Target: Optional[str] = None
     TimeoutSeconds: Optional[int] = None
     SourceFileLocation: Optional[str] = None
 
-class DeleteAccessRequestRequestTypeDef(BaseModel):
+class DeleteAccessRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     ExternalId: str
 
-class DeleteAgreementRequestRequestTypeDef(BaseModel):
+class DeleteAgreementRequestRequestTypeDef(BaseValidatorModel):
     AgreementId: str
     ServerId: str
 
-class DeleteCertificateRequestRequestTypeDef(BaseModel):
+class DeleteCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateId: str
 
-class DeleteConnectorRequestRequestTypeDef(BaseModel):
+class DeleteConnectorRequestRequestTypeDef(BaseValidatorModel):
     ConnectorId: str
 
-class DeleteHostKeyRequestRequestTypeDef(BaseModel):
+class DeleteHostKeyRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
 
-class DeleteProfileRequestRequestTypeDef(BaseModel):
+class DeleteProfileRequestRequestTypeDef(BaseValidatorModel):
     ProfileId: str
 
-class DeleteServerRequestRequestTypeDef(BaseModel):
+class DeleteServerRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
 
-class DeleteSshPublicKeyRequestRequestTypeDef(BaseModel):
+class DeleteSshPublicKeyRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     SshPublicKeyId: str
     UserName: str
 
-class DeleteStepDetailsTypeDef(BaseModel):
+class DeleteStepDetailsTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     SourceFileLocation: Optional[str] = None
 
-class DeleteUserRequestRequestTypeDef(BaseModel):
+class DeleteUserRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     UserName: str
 
-class DeleteWorkflowRequestRequestTypeDef(BaseModel):
+class DeleteWorkflowRequestRequestTypeDef(BaseValidatorModel):
     WorkflowId: str
 
-class DescribeAccessRequestRequestTypeDef(BaseModel):
+class DescribeAccessRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     ExternalId: str
 
-class DescribeAgreementRequestRequestTypeDef(BaseModel):
+class DescribeAgreementRequestRequestTypeDef(BaseValidatorModel):
     AgreementId: str
     ServerId: str
 
-class DescribeCertificateRequestRequestTypeDef(BaseModel):
+class DescribeCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateId: str
 
-class DescribeConnectorRequestRequestTypeDef(BaseModel):
+class DescribeConnectorRequestRequestTypeDef(BaseValidatorModel):
     ConnectorId: str
 
-class DescribeExecutionRequestRequestTypeDef(BaseModel):
+class DescribeExecutionRequestRequestTypeDef(BaseValidatorModel):
     ExecutionId: str
     WorkflowId: str
 
-class DescribeHostKeyRequestRequestTypeDef(BaseModel):
+class DescribeHostKeyRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
 
-class DescribeProfileRequestRequestTypeDef(BaseModel):
+class DescribeProfileRequestRequestTypeDef(BaseValidatorModel):
     ProfileId: str
 
-class DescribeSecurityPolicyRequestRequestTypeDef(BaseModel):
+class DescribeSecurityPolicyRequestRequestTypeDef(BaseValidatorModel):
     SecurityPolicyName: str
 
-class DescribedSecurityPolicyTypeDef(BaseModel):
+class DescribedSecurityPolicyTypeDef(BaseValidatorModel):
     SecurityPolicyName: str
     Fips: Optional[bool] = None
     SshCiphers: Optional[List[str]] = None
@@ -155,96 +155,96 @@ class DescribedSecurityPolicyTypeDef(BaseModel):
     Type: Optional[SecurityPolicyResourceTypeType] = None
     Protocols: Optional[List[SecurityPolicyProtocolType]] = None
 
-class DescribeServerRequestRequestTypeDef(BaseModel):
+class DescribeServerRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
 
-class WaiterConfigTypeDef(BaseModel):
+class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeUserRequestRequestTypeDef(BaseModel):
+class DescribeUserRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     UserName: str
 
-class DescribeWorkflowRequestRequestTypeDef(BaseModel):
+class DescribeWorkflowRequestRequestTypeDef(BaseValidatorModel):
     WorkflowId: str
 
-class PosixProfileOutputTypeDef(BaseModel):
+class PosixProfileOutputTypeDef(BaseValidatorModel):
     Uid: int
     Gid: int
     SecondaryGids: Optional[List[int]] = None
 
-class SftpConnectorConfigOutputTypeDef(BaseModel):
+class SftpConnectorConfigOutputTypeDef(BaseValidatorModel):
     UserSecretId: Optional[str] = None
     TrustedHostKeys: Optional[List[str]] = None
 
-class LoggingConfigurationTypeDef(BaseModel):
+class LoggingConfigurationTypeDef(BaseValidatorModel):
     LoggingRole: Optional[str] = None
     LogGroupName: Optional[str] = None
 
-class EndpointDetailsOutputTypeDef(BaseModel):
+class EndpointDetailsOutputTypeDef(BaseValidatorModel):
     AddressAllocationIds: Optional[List[str]] = None
     SubnetIds: Optional[List[str]] = None
     VpcEndpointId: Optional[str] = None
     VpcId: Optional[str] = None
     SecurityGroupIds: Optional[List[str]] = None
 
-class ProtocolDetailsOutputTypeDef(BaseModel):
+class ProtocolDetailsOutputTypeDef(BaseValidatorModel):
     PassiveIp: Optional[str] = None
     TlsSessionResumptionMode: Optional[TlsSessionResumptionModeType] = None
     SetStatOption: Optional[SetStatOptionType] = None
     As2Transports: Optional[List[Literal["HTTP"]]] = None
 
-class SshPublicKeyTypeDef(BaseModel):
+class SshPublicKeyTypeDef(BaseValidatorModel):
     DateImported: datetime
     SshPublicKeyBody: str
     SshPublicKeyId: str
 
-class EfsFileLocationTypeDef(BaseModel):
+class EfsFileLocationTypeDef(BaseValidatorModel):
     FileSystemId: Optional[str] = None
     Path: Optional[str] = None
 
-class ExecutionErrorTypeDef(BaseModel):
+class ExecutionErrorTypeDef(BaseValidatorModel):
     Type: ExecutionErrorTypeType
     Message: str
 
-class S3FileLocationTypeDef(BaseModel):
+class S3FileLocationTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     Key: Optional[str] = None
     VersionId: Optional[str] = None
     Etag: Optional[str] = None
 
-class ImportSshPublicKeyRequestRequestTypeDef(BaseModel):
+class ImportSshPublicKeyRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     SshPublicKeyBody: str
     UserName: str
 
-class S3InputFileLocationTypeDef(BaseModel):
+class S3InputFileLocationTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     Key: Optional[str] = None
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAccessesRequestRequestTypeDef(BaseModel):
+class ListAccessesRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListedAccessTypeDef(BaseModel):
+class ListedAccessTypeDef(BaseValidatorModel):
     HomeDirectory: Optional[str] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
     Role: Optional[str] = None
     ExternalId: Optional[str] = None
 
-class ListAgreementsRequestRequestTypeDef(BaseModel):
+class ListAgreementsRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListedAgreementTypeDef(BaseModel):
+class ListedAgreementTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     AgreementId: Optional[str] = None
     Description: Optional[str] = None
@@ -253,11 +253,11 @@ class ListedAgreementTypeDef(BaseModel):
     LocalProfileId: Optional[str] = None
     PartnerProfileId: Optional[str] = None
 
-class ListCertificatesRequestRequestTypeDef(BaseModel):
+class ListCertificatesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListedCertificateTypeDef(BaseModel):
+class ListedCertificateTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CertificateId: Optional[str] = None
     Usage: Optional[CertificateUsageTypeType] = None
@@ -267,26 +267,26 @@ class ListedCertificateTypeDef(BaseModel):
     Type: Optional[CertificateTypeType] = None
     Description: Optional[str] = None
 
-class ListConnectorsRequestRequestTypeDef(BaseModel):
+class ListConnectorsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListedConnectorTypeDef(BaseModel):
+class ListedConnectorTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     ConnectorId: Optional[str] = None
     Url: Optional[str] = None
 
-class ListExecutionsRequestRequestTypeDef(BaseModel):
+class ListExecutionsRequestRequestTypeDef(BaseValidatorModel):
     WorkflowId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListHostKeysRequestRequestTypeDef(BaseModel):
+class ListHostKeysRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListedHostKeyTypeDef(BaseModel):
+class ListedHostKeyTypeDef(BaseValidatorModel):
     Arn: str
     HostKeyId: Optional[str] = None
     Fingerprint: Optional[str] = None
@@ -294,26 +294,26 @@ class ListedHostKeyTypeDef(BaseModel):
     Type: Optional[str] = None
     DateImported: Optional[datetime] = None
 
-class ListProfilesRequestRequestTypeDef(BaseModel):
+class ListProfilesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ProfileType: Optional[ProfileTypeType] = None
 
-class ListedProfileTypeDef(BaseModel):
+class ListedProfileTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     ProfileId: Optional[str] = None
     As2Id: Optional[str] = None
     ProfileType: Optional[ProfileTypeType] = None
 
-class ListSecurityPoliciesRequestRequestTypeDef(BaseModel):
+class ListSecurityPoliciesRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListServersRequestRequestTypeDef(BaseModel):
+class ListServersRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListedServerTypeDef(BaseModel):
+class ListedServerTypeDef(BaseValidatorModel):
     Arn: str
     Domain: Optional[DomainType] = None
     IdentityProviderType: Optional[IdentityProviderTypeType] = None
@@ -323,17 +323,17 @@ class ListedServerTypeDef(BaseModel):
     State: Optional[StateType] = None
     UserCount: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListUsersRequestRequestTypeDef(BaseModel):
+class ListUsersRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListedUserTypeDef(BaseModel):
+class ListedUserTypeDef(BaseValidatorModel):
     Arn: str
     HomeDirectory: Optional[str] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
@@ -341,64 +341,64 @@ class ListedUserTypeDef(BaseModel):
     SshPublicKeyCount: Optional[int] = None
     UserName: Optional[str] = None
 
-class ListWorkflowsRequestRequestTypeDef(BaseModel):
+class ListWorkflowsRequestRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListedWorkflowTypeDef(BaseModel):
+class ListedWorkflowTypeDef(BaseValidatorModel):
     WorkflowId: Optional[str] = None
     Description: Optional[str] = None
     Arn: Optional[str] = None
 
-class S3TagTypeDef(BaseModel):
+class S3TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class SendWorkflowStepStateRequestRequestTypeDef(BaseModel):
+class SendWorkflowStepStateRequestRequestTypeDef(BaseValidatorModel):
     WorkflowId: str
     ExecutionId: str
     Token: str
     Status: CustomStepStatusType
 
-class UserDetailsTypeDef(BaseModel):
+class UserDetailsTypeDef(BaseValidatorModel):
     UserName: str
     ServerId: str
     SessionId: Optional[str] = None
 
-class StartDirectoryListingRequestRequestTypeDef(BaseModel):
+class StartDirectoryListingRequestRequestTypeDef(BaseValidatorModel):
     ConnectorId: str
     RemoteDirectoryPath: str
     OutputDirectoryPath: str
     MaxItems: Optional[int] = None
 
-class StartFileTransferRequestRequestTypeDef(BaseModel):
+class StartFileTransferRequestRequestTypeDef(BaseValidatorModel):
     ConnectorId: str
     SendFilePaths: Optional[Sequence[str]] = None
     RetrieveFilePaths: Optional[Sequence[str]] = None
     LocalDirectoryPath: Optional[str] = None
     RemoteDirectoryPath: Optional[str] = None
 
-class StartServerRequestRequestTypeDef(BaseModel):
+class StartServerRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
 
-class StopServerRequestRequestTypeDef(BaseModel):
+class StopServerRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
 
-class TestConnectionRequestRequestTypeDef(BaseModel):
+class TestConnectionRequestRequestTypeDef(BaseValidatorModel):
     ConnectorId: str
 
-class TestIdentityProviderRequestRequestTypeDef(BaseModel):
+class TestIdentityProviderRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     UserName: str
     ServerProtocol: Optional[ProtocolType] = None
     SourceIp: Optional[str] = None
     UserPassword: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
     TagKeys: Sequence[str]
 
-class UpdateAgreementRequestRequestTypeDef(BaseModel):
+class UpdateAgreementRequestRequestTypeDef(BaseValidatorModel):
     AgreementId: str
     ServerId: str
     Description: Optional[str] = None
@@ -408,20 +408,20 @@ class UpdateAgreementRequestRequestTypeDef(BaseModel):
     BaseDirectory: Optional[str] = None
     AccessRole: Optional[str] = None
 
-class UpdateHostKeyRequestRequestTypeDef(BaseModel):
+class UpdateHostKeyRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
     Description: str
 
-class UpdateProfileRequestRequestTypeDef(BaseModel):
+class UpdateProfileRequestRequestTypeDef(BaseValidatorModel):
     ProfileId: str
     CertificateIds: Optional[Sequence[str]] = None
 
-class WorkflowDetailTypeDef(BaseModel):
+class WorkflowDetailTypeDef(BaseValidatorModel):
     WorkflowId: str
     ExecutionRole: str
 
-class CreateAccessRequestRequestTypeDef(BaseModel):
+class CreateAccessRequestRequestTypeDef(BaseValidatorModel):
     Role: str
     ServerId: str
     ExternalId: str
@@ -431,7 +431,7 @@ class CreateAccessRequestRequestTypeDef(BaseModel):
     Policy: Optional[str] = None
     PosixProfile: Optional[PosixProfileTypeDef] = None
 
-class UpdateAccessRequestRequestTypeDef(BaseModel):
+class UpdateAccessRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     ExternalId: str
     HomeDirectory: Optional[str] = None
@@ -441,7 +441,7 @@ class UpdateAccessRequestRequestTypeDef(BaseModel):
     PosixProfile: Optional[PosixProfileTypeDef] = None
     Role: Optional[str] = None
 
-class UpdateUserRequestRequestTypeDef(BaseModel):
+class UpdateUserRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     UserName: str
     HomeDirectory: Optional[str] = None
@@ -451,117 +451,117 @@ class UpdateUserRequestRequestTypeDef(BaseModel):
     PosixProfile: Optional[PosixProfileTypeDef] = None
     Role: Optional[str] = None
 
-class CreateAccessResponseTypeDef(BaseModel):
+class CreateAccessResponseTypeDef(BaseValidatorModel):
     ServerId: str
     ExternalId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAgreementResponseTypeDef(BaseModel):
+class CreateAgreementResponseTypeDef(BaseValidatorModel):
     AgreementId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateConnectorResponseTypeDef(BaseModel):
+class CreateConnectorResponseTypeDef(BaseValidatorModel):
     ConnectorId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProfileResponseTypeDef(BaseModel):
+class CreateProfileResponseTypeDef(BaseValidatorModel):
     ProfileId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServerResponseTypeDef(BaseModel):
+class CreateServerResponseTypeDef(BaseValidatorModel):
     ServerId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserResponseTypeDef(BaseModel):
+class CreateUserResponseTypeDef(BaseValidatorModel):
     ServerId: str
     UserName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWorkflowResponseTypeDef(BaseModel):
+class CreateWorkflowResponseTypeDef(BaseValidatorModel):
     WorkflowId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EmptyResponseMetadataTypeDef(BaseModel):
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportCertificateResponseTypeDef(BaseModel):
+class ImportCertificateResponseTypeDef(BaseValidatorModel):
     CertificateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportHostKeyResponseTypeDef(BaseModel):
+class ImportHostKeyResponseTypeDef(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportSshPublicKeyResponseTypeDef(BaseModel):
+class ImportSshPublicKeyResponseTypeDef(BaseValidatorModel):
     ServerId: str
     SshPublicKeyId: str
     UserName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSecurityPoliciesResponseTypeDef(BaseModel):
+class ListSecurityPoliciesResponseTypeDef(BaseValidatorModel):
     SecurityPolicyNames: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class StartDirectoryListingResponseTypeDef(BaseModel):
+class StartDirectoryListingResponseTypeDef(BaseValidatorModel):
     ListingId: str
     OutputFileName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartFileTransferResponseTypeDef(BaseModel):
+class StartFileTransferResponseTypeDef(BaseValidatorModel):
     TransferId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestConnectionResponseTypeDef(BaseModel):
+class TestConnectionResponseTypeDef(BaseValidatorModel):
     ConnectorId: str
     Status: str
     StatusMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestIdentityProviderResponseTypeDef(BaseModel):
+class TestIdentityProviderResponseTypeDef(BaseValidatorModel):
     Response: str
     StatusCode: int
     Message: str
     Url: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAccessResponseTypeDef(BaseModel):
+class UpdateAccessResponseTypeDef(BaseValidatorModel):
     ServerId: str
     ExternalId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAgreementResponseTypeDef(BaseModel):
+class UpdateAgreementResponseTypeDef(BaseValidatorModel):
     AgreementId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateCertificateResponseTypeDef(BaseModel):
+class UpdateCertificateResponseTypeDef(BaseValidatorModel):
     CertificateId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateConnectorResponseTypeDef(BaseModel):
+class UpdateConnectorResponseTypeDef(BaseValidatorModel):
     ConnectorId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateHostKeyResponseTypeDef(BaseModel):
+class UpdateHostKeyResponseTypeDef(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateProfileResponseTypeDef(BaseModel):
+class UpdateProfileResponseTypeDef(BaseValidatorModel):
     ProfileId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServerResponseTypeDef(BaseModel):
+class UpdateServerResponseTypeDef(BaseValidatorModel):
     ServerId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateUserResponseTypeDef(BaseModel):
+class UpdateUserResponseTypeDef(BaseValidatorModel):
     ServerId: str
     UserName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateAgreementRequestRequestTypeDef(BaseModel):
+class CreateAgreementRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     LocalProfileId: str
     PartnerProfileId: str
@@ -571,13 +571,13 @@ class CreateAgreementRequestRequestTypeDef(BaseModel):
     Status: Optional[AgreementStatusTypeType] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateProfileRequestRequestTypeDef(BaseModel):
+class CreateProfileRequestRequestTypeDef(BaseValidatorModel):
     As2Id: str
     ProfileType: ProfileTypeType
     CertificateIds: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateUserRequestRequestTypeDef(BaseModel):
+class CreateUserRequestRequestTypeDef(BaseValidatorModel):
     Role: str
     ServerId: str
     UserName: str
@@ -589,7 +589,7 @@ class CreateUserRequestRequestTypeDef(BaseModel):
     SshPublicKeyBody: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class DescribedAgreementTypeDef(BaseModel):
+class DescribedAgreementTypeDef(BaseValidatorModel):
     Arn: str
     AgreementId: Optional[str] = None
     Description: Optional[str] = None
@@ -601,7 +601,7 @@ class DescribedAgreementTypeDef(BaseModel):
     AccessRole: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class DescribedCertificateTypeDef(BaseModel):
+class DescribedCertificateTypeDef(BaseValidatorModel):
     Arn: str
     CertificateId: Optional[str] = None
     Usage: Optional[CertificateUsageTypeType] = None
@@ -617,7 +617,7 @@ class DescribedCertificateTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class DescribedHostKeyTypeDef(BaseModel):
+class DescribedHostKeyTypeDef(BaseValidatorModel):
     Arn: str
     HostKeyId: Optional[str] = None
     HostKeyFingerprint: Optional[str] = None
@@ -626,7 +626,7 @@ class DescribedHostKeyTypeDef(BaseModel):
     DateImported: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class DescribedProfileTypeDef(BaseModel):
+class DescribedProfileTypeDef(BaseValidatorModel):
     Arn: str
     ProfileId: Optional[str] = None
     ProfileType: Optional[ProfileTypeType] = None
@@ -634,23 +634,23 @@ class DescribedProfileTypeDef(BaseModel):
     CertificateIds: Optional[List[str]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class ImportHostKeyRequestRequestTypeDef(BaseModel):
+class ImportHostKeyRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     HostKeyBody: str
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Arn: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     Arn: str
     Tags: Sequence[TagTypeDef]
 
-class CreateConnectorRequestRequestTypeDef(BaseModel):
+class CreateConnectorRequestRequestTypeDef(BaseValidatorModel):
     Url: str
     AccessRole: str
     As2Config: Optional[As2ConnectorConfigTypeDef] = None
@@ -659,7 +659,7 @@ class CreateConnectorRequestRequestTypeDef(BaseModel):
     SftpConfig: Optional[SftpConnectorConfigTypeDef] = None
     SecurityPolicyName: Optional[str] = None
 
-class UpdateConnectorRequestRequestTypeDef(BaseModel):
+class UpdateConnectorRequestRequestTypeDef(BaseValidatorModel):
     ConnectorId: str
     Url: Optional[str] = None
     As2Config: Optional[As2ConnectorConfigTypeDef] = None
@@ -668,19 +668,19 @@ class UpdateConnectorRequestRequestTypeDef(BaseModel):
     SftpConfig: Optional[SftpConnectorConfigTypeDef] = None
     SecurityPolicyName: Optional[str] = None
 
-class DescribeSecurityPolicyResponseTypeDef(BaseModel):
+class DescribeSecurityPolicyResponseTypeDef(BaseValidatorModel):
     SecurityPolicy: DescribedSecurityPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeServerRequestServerOfflineWaitTypeDef(BaseModel):
+class DescribeServerRequestServerOfflineWaitTypeDef(BaseValidatorModel):
     ServerId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeServerRequestServerOnlineWaitTypeDef(BaseModel):
+class DescribeServerRequestServerOnlineWaitTypeDef(BaseValidatorModel):
     ServerId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribedAccessTypeDef(BaseModel):
+class DescribedAccessTypeDef(BaseValidatorModel):
     HomeDirectory: Optional[str] = None
     HomeDirectoryMappings: Optional[List[HomeDirectoryMapEntryTypeDef]] = None
     HomeDirectoryType: Optional[HomeDirectoryTypeType] = None
@@ -689,7 +689,7 @@ class DescribedAccessTypeDef(BaseModel):
     Role: Optional[str] = None
     ExternalId: Optional[str] = None
 
-class DescribedConnectorTypeDef(BaseModel):
+class DescribedConnectorTypeDef(BaseValidatorModel):
     Arn: str
     ConnectorId: Optional[str] = None
     Url: Optional[str] = None
@@ -701,7 +701,7 @@ class DescribedConnectorTypeDef(BaseModel):
     ServiceManagedEgressIpAddresses: Optional[List[str]] = None
     SecurityPolicyName: Optional[str] = None
 
-class DescribedUserTypeDef(BaseModel):
+class DescribedUserTypeDef(BaseValidatorModel):
     Arn: str
     HomeDirectory: Optional[str] = None
     HomeDirectoryMappings: Optional[List[HomeDirectoryMapEntryTypeDef]] = None
@@ -713,16 +713,16 @@ class DescribedUserTypeDef(BaseModel):
     Tags: Optional[List[TagTypeDef]] = None
     UserName: Optional[str] = None
 
-class ExecutionStepResultTypeDef(BaseModel):
+class ExecutionStepResultTypeDef(BaseValidatorModel):
     StepType: Optional[WorkflowStepTypeType] = None
     Outputs: Optional[str] = None
     Error: Optional[ExecutionErrorTypeDef] = None
 
-class FileLocationTypeDef(BaseModel):
+class FileLocationTypeDef(BaseValidatorModel):
     S3FileLocation: Optional[S3FileLocationTypeDef] = None
     EfsFileLocation: Optional[EfsFileLocationTypeDef] = None
 
-class ImportCertificateRequestRequestTypeDef(BaseModel):
+class ImportCertificateRequestRequestTypeDef(BaseValidatorModel):
     Usage: CertificateUsageTypeType
     Certificate: str
     CertificateChain: Optional[str] = None
@@ -732,178 +732,178 @@ class ImportCertificateRequestRequestTypeDef(BaseModel):
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateCertificateRequestRequestTypeDef(BaseModel):
+class UpdateCertificateRequestRequestTypeDef(BaseValidatorModel):
     CertificateId: str
     ActiveDate: Optional[TimestampTypeDef] = None
     InactiveDate: Optional[TimestampTypeDef] = None
     Description: Optional[str] = None
 
-class InputFileLocationTypeDef(BaseModel):
+class InputFileLocationTypeDef(BaseValidatorModel):
     S3FileLocation: Optional[S3InputFileLocationTypeDef] = None
     EfsFileLocation: Optional[EfsFileLocationTypeDef] = None
 
-class ListAccessesRequestListAccessesPaginateTypeDef(BaseModel):
+class ListAccessesRequestListAccessesPaginateTypeDef(BaseValidatorModel):
     ServerId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAgreementsRequestListAgreementsPaginateTypeDef(BaseModel):
+class ListAgreementsRequestListAgreementsPaginateTypeDef(BaseValidatorModel):
     ServerId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCertificatesRequestListCertificatesPaginateTypeDef(BaseModel):
+class ListCertificatesRequestListCertificatesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListConnectorsRequestListConnectorsPaginateTypeDef(BaseModel):
+class ListConnectorsRequestListConnectorsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListExecutionsRequestListExecutionsPaginateTypeDef(BaseModel):
+class ListExecutionsRequestListExecutionsPaginateTypeDef(BaseValidatorModel):
     WorkflowId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProfilesRequestListProfilesPaginateTypeDef(BaseModel):
+class ListProfilesRequestListProfilesPaginateTypeDef(BaseValidatorModel):
     ProfileType: Optional[ProfileTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSecurityPoliciesRequestListSecurityPoliciesPaginateTypeDef(BaseModel):
+class ListSecurityPoliciesRequestListSecurityPoliciesPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServersRequestListServersPaginateTypeDef(BaseModel):
+class ListServersRequestListServersPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseModel):
+class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
     Arn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsersRequestListUsersPaginateTypeDef(BaseModel):
+class ListUsersRequestListUsersPaginateTypeDef(BaseValidatorModel):
     ServerId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkflowsRequestListWorkflowsPaginateTypeDef(BaseModel):
+class ListWorkflowsRequestListWorkflowsPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAccessesResponseTypeDef(BaseModel):
+class ListAccessesResponseTypeDef(BaseValidatorModel):
     ServerId: str
     Accesses: List[ListedAccessTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListAgreementsResponseTypeDef(BaseModel):
+class ListAgreementsResponseTypeDef(BaseValidatorModel):
     Agreements: List[ListedAgreementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListCertificatesResponseTypeDef(BaseModel):
+class ListCertificatesResponseTypeDef(BaseValidatorModel):
     Certificates: List[ListedCertificateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListConnectorsResponseTypeDef(BaseModel):
+class ListConnectorsResponseTypeDef(BaseValidatorModel):
     Connectors: List[ListedConnectorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListHostKeysResponseTypeDef(BaseModel):
+class ListHostKeysResponseTypeDef(BaseValidatorModel):
     ServerId: str
     HostKeys: List[ListedHostKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListProfilesResponseTypeDef(BaseModel):
+class ListProfilesResponseTypeDef(BaseValidatorModel):
     Profiles: List[ListedProfileTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListServersResponseTypeDef(BaseModel):
+class ListServersResponseTypeDef(BaseValidatorModel):
     Servers: List[ListedServerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListUsersResponseTypeDef(BaseModel):
+class ListUsersResponseTypeDef(BaseValidatorModel):
     ServerId: str
     Users: List[ListedUserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListWorkflowsResponseTypeDef(BaseModel):
+class ListWorkflowsResponseTypeDef(BaseValidatorModel):
     Workflows: List[ListedWorkflowTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TagStepDetailsOutputTypeDef(BaseModel):
+class TagStepDetailsOutputTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Tags: Optional[List[S3TagTypeDef]] = None
     SourceFileLocation: Optional[str] = None
 
-class TagStepDetailsTypeDef(BaseModel):
+class TagStepDetailsTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Tags: Optional[Sequence[S3TagTypeDef]] = None
     SourceFileLocation: Optional[str] = None
 
-class ServiceMetadataTypeDef(BaseModel):
+class ServiceMetadataTypeDef(BaseValidatorModel):
     UserDetails: UserDetailsTypeDef
 
-class WorkflowDetailsOutputTypeDef(BaseModel):
+class WorkflowDetailsOutputTypeDef(BaseValidatorModel):
     OnUpload: Optional[List[WorkflowDetailTypeDef]] = None
     OnPartialUpload: Optional[List[WorkflowDetailTypeDef]] = None
 
-class WorkflowDetailsTypeDef(BaseModel):
+class WorkflowDetailsTypeDef(BaseValidatorModel):
     OnUpload: Optional[Sequence[WorkflowDetailTypeDef]] = None
     OnPartialUpload: Optional[Sequence[WorkflowDetailTypeDef]] = None
 
-class DescribeAgreementResponseTypeDef(BaseModel):
+class DescribeAgreementResponseTypeDef(BaseValidatorModel):
     Agreement: DescribedAgreementTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeCertificateResponseTypeDef(BaseModel):
+class DescribeCertificateResponseTypeDef(BaseValidatorModel):
     Certificate: DescribedCertificateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeHostKeyResponseTypeDef(BaseModel):
+class DescribeHostKeyResponseTypeDef(BaseValidatorModel):
     HostKey: DescribedHostKeyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeProfileResponseTypeDef(BaseModel):
+class DescribeProfileResponseTypeDef(BaseValidatorModel):
     Profile: DescribedProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeAccessResponseTypeDef(BaseModel):
+class DescribeAccessResponseTypeDef(BaseValidatorModel):
     ServerId: str
     Access: DescribedAccessTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeConnectorResponseTypeDef(BaseModel):
+class DescribeConnectorResponseTypeDef(BaseValidatorModel):
     Connector: DescribedConnectorTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeUserResponseTypeDef(BaseModel):
+class DescribeUserResponseTypeDef(BaseValidatorModel):
     ServerId: str
     User: DescribedUserTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ExecutionResultsTypeDef(BaseModel):
+class ExecutionResultsTypeDef(BaseValidatorModel):
     Steps: Optional[List[ExecutionStepResultTypeDef]] = None
     OnExceptionSteps: Optional[List[ExecutionStepResultTypeDef]] = None
 
-class CopyStepDetailsTypeDef(BaseModel):
+class CopyStepDetailsTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     DestinationFileLocation: Optional[InputFileLocationTypeDef] = None
     OverwriteExisting: Optional[OverwriteExistingType] = None
     SourceFileLocation: Optional[str] = None
 
-class DecryptStepDetailsTypeDef(BaseModel):
+class DecryptStepDetailsTypeDef(BaseValidatorModel):
     Type: Literal["PGP"]
     DestinationFileLocation: InputFileLocationTypeDef
     Name: Optional[str] = None
     SourceFileLocation: Optional[str] = None
     OverwriteExisting: Optional[OverwriteExistingType] = None
 
-class ListedExecutionTypeDef(BaseModel):
+class ListedExecutionTypeDef(BaseValidatorModel):
     ExecutionId: Optional[str] = None
     InitialFileLocation: Optional[FileLocationTypeDef] = None
     ServiceMetadata: Optional[ServiceMetadataTypeDef] = None
     Status: Optional[ExecutionStatusType] = None
 
-class DescribedServerTypeDef(BaseModel):
+class DescribedServerTypeDef(BaseValidatorModel):
     Arn: str
     Certificate: Optional[str] = None
     ProtocolDetails: Optional[ProtocolDetailsOutputTypeDef] = None
@@ -927,7 +927,7 @@ class DescribedServerTypeDef(BaseModel):
     S3StorageOptions: Optional[S3StorageOptionsTypeDef] = None
     As2ServiceManagedEgressIpAddresses: Optional[List[str]] = None
 
-class CreateServerRequestRequestTypeDef(BaseModel):
+class CreateServerRequestRequestTypeDef(BaseValidatorModel):
     Certificate: Optional[str] = None
     Domain: Optional[DomainType] = None
     EndpointDetails: Optional[EndpointDetailsTypeDef] = None
@@ -946,7 +946,7 @@ class CreateServerRequestRequestTypeDef(BaseModel):
     StructuredLogDestinations: Optional[Sequence[str]] = None
     S3StorageOptions: Optional[S3StorageOptionsTypeDef] = None
 
-class UpdateServerRequestRequestTypeDef(BaseModel):
+class UpdateServerRequestRequestTypeDef(BaseValidatorModel):
     ServerId: str
     Certificate: Optional[str] = None
     ProtocolDetails: Optional[ProtocolDetailsTypeDef] = None
@@ -963,7 +963,7 @@ class UpdateServerRequestRequestTypeDef(BaseModel):
     StructuredLogDestinations: Optional[Sequence[str]] = None
     S3StorageOptions: Optional[S3StorageOptionsTypeDef] = None
 
-class DescribedExecutionTypeDef(BaseModel):
+class DescribedExecutionTypeDef(BaseValidatorModel):
     ExecutionId: Optional[str] = None
     InitialFileLocation: Optional[FileLocationTypeDef] = None
     ServiceMetadata: Optional[ServiceMetadataTypeDef] = None
@@ -973,7 +973,7 @@ class DescribedExecutionTypeDef(BaseModel):
     Status: Optional[ExecutionStatusType] = None
     Results: Optional[ExecutionResultsTypeDef] = None
 
-class WorkflowStepOutputTypeDef(BaseModel):
+class WorkflowStepOutputTypeDef(BaseValidatorModel):
     Type: Optional[WorkflowStepTypeType] = None
     CopyStepDetails: Optional[CopyStepDetailsTypeDef] = None
     CustomStepDetails: Optional[CustomStepDetailsTypeDef] = None
@@ -981,7 +981,7 @@ class WorkflowStepOutputTypeDef(BaseModel):
     TagStepDetails: Optional[TagStepDetailsOutputTypeDef] = None
     DecryptStepDetails: Optional[DecryptStepDetailsTypeDef] = None
 
-class WorkflowStepTypeDef(BaseModel):
+class WorkflowStepTypeDef(BaseValidatorModel):
     Type: Optional[WorkflowStepTypeType] = None
     CopyStepDetails: Optional[CopyStepDetailsTypeDef] = None
     CustomStepDetails: Optional[CustomStepDetailsTypeDef] = None
@@ -989,22 +989,22 @@ class WorkflowStepTypeDef(BaseModel):
     TagStepDetails: Optional[TagStepDetailsTypeDef] = None
     DecryptStepDetails: Optional[DecryptStepDetailsTypeDef] = None
 
-class ListExecutionsResponseTypeDef(BaseModel):
+class ListExecutionsResponseTypeDef(BaseValidatorModel):
     WorkflowId: str
     Executions: List[ListedExecutionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeServerResponseTypeDef(BaseModel):
+class DescribeServerResponseTypeDef(BaseValidatorModel):
     Server: DescribedServerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeExecutionResponseTypeDef(BaseModel):
+class DescribeExecutionResponseTypeDef(BaseValidatorModel):
     WorkflowId: str
     Execution: DescribedExecutionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribedWorkflowTypeDef(BaseModel):
+class DescribedWorkflowTypeDef(BaseValidatorModel):
     Arn: str
     Description: Optional[str] = None
     Steps: Optional[List[WorkflowStepOutputTypeDef]] = None
@@ -1012,11 +1012,11 @@ class DescribedWorkflowTypeDef(BaseModel):
     WorkflowId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class DescribeWorkflowResponseTypeDef(BaseModel):
+class DescribeWorkflowResponseTypeDef(BaseValidatorModel):
     Workflow: DescribedWorkflowTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateWorkflowRequestRequestTypeDef(BaseModel):
+class CreateWorkflowRequestRequestTypeDef(BaseValidatorModel):
     Steps: Sequence[WorkflowStepUnionTypeDef]
     Description: Optional[str] = None
     OnExceptionSteps: Optional[Sequence[WorkflowStepUnionTypeDef]] = None

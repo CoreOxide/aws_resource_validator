@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +11,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.outposts_constants import *
 
-class AddressTypeDef(BaseModel):
+class AddressTypeDef(BaseValidatorModel):
     AddressLine1: str
     City: str
     StateOrRegion: str
@@ -24,26 +24,26 @@ class AddressTypeDef(BaseModel):
     DistrictOrCounty: Optional[str] = None
     Municipality: Optional[str] = None
 
-class AssetLocationTypeDef(BaseModel):
+class AssetLocationTypeDef(BaseValidatorModel):
     RackElevation: Optional[float] = None
 
-class ComputeAttributesTypeDef(BaseModel):
+class ComputeAttributesTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
     State: Optional[ComputeAssetStateType] = None
     InstanceFamilies: Optional[List[str]] = None
 
-class CancelCapacityTaskInputRequestTypeDef(BaseModel):
+class CancelCapacityTaskInputRequestTypeDef(BaseValidatorModel):
     CapacityTaskId: str
     OutpostIdentifier: str
 
-class CancelOrderInputRequestTypeDef(BaseModel):
+class CancelOrderInputRequestTypeDef(BaseValidatorModel):
     OrderId: str
 
-class CapacityTaskFailureTypeDef(BaseModel):
+class CapacityTaskFailureTypeDef(BaseValidatorModel):
     Reason: str
     Type: Optional[Literal["UNSUPPORTED_CAPACITY_CONFIGURATION"]] = None
 
-class CapacityTaskSummaryTypeDef(BaseModel):
+class CapacityTaskSummaryTypeDef(BaseValidatorModel):
     CapacityTaskId: Optional[str] = None
     OutpostId: Optional[str] = None
     OrderId: Optional[str] = None
@@ -52,12 +52,12 @@ class CapacityTaskSummaryTypeDef(BaseModel):
     CompletionDate: Optional[datetime] = None
     LastModifiedDate: Optional[datetime] = None
 
-class EC2CapacityTypeDef(BaseModel):
+class EC2CapacityTypeDef(BaseValidatorModel):
     Family: Optional[str] = None
     MaxSize: Optional[str] = None
     Quantity: Optional[str] = None
 
-class ConnectionDetailsTypeDef(BaseModel):
+class ConnectionDetailsTypeDef(BaseValidatorModel):
     ClientPublicKey: Optional[str] = None
     ServerPublicKey: Optional[str] = None
     ServerEndpoint: Optional[str] = None
@@ -65,18 +65,18 @@ class ConnectionDetailsTypeDef(BaseModel):
     ServerTunnelAddress: Optional[str] = None
     AllowedIps: Optional[List[str]] = None
 
-class LineItemRequestTypeDef(BaseModel):
+class LineItemRequestTypeDef(BaseValidatorModel):
     CatalogItemId: Optional[str] = None
     Quantity: Optional[int] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateOutpostInputRequestTypeDef(BaseModel):
+class CreateOutpostInputRequestTypeDef(BaseValidatorModel):
     Name: str
     SiteId: str
     Description: Optional[str] = None
@@ -85,7 +85,7 @@ class CreateOutpostInputRequestTypeDef(BaseModel):
     Tags: Optional[Mapping[str, str]] = None
     SupportedHardwareType: Optional[SupportedHardwareTypeType] = None
 
-class OutpostTypeDef(BaseModel):
+class OutpostTypeDef(BaseValidatorModel):
     OutpostId: Optional[str] = None
     OwnerId: Optional[str] = None
     OutpostArn: Optional[str] = None
@@ -99,7 +99,7 @@ class OutpostTypeDef(BaseModel):
     SiteArn: Optional[str] = None
     SupportedHardwareType: Optional[SupportedHardwareTypeType] = None
 
-class RackPhysicalPropertiesTypeDef(BaseModel):
+class RackPhysicalPropertiesTypeDef(BaseValidatorModel):
     PowerDrawKva: Optional[PowerDrawKvaType] = None
     PowerPhase: Optional[PowerPhaseType] = None
     PowerConnector: Optional[PowerConnectorType] = None
@@ -110,92 +110,92 @@ class RackPhysicalPropertiesTypeDef(BaseModel):
     OpticalStandard: Optional[OpticalStandardType] = None
     MaximumSupportedWeightLbs: Optional[MaximumSupportedWeightLbsType] = None
 
-class DeleteOutpostInputRequestTypeDef(BaseModel):
+class DeleteOutpostInputRequestTypeDef(BaseValidatorModel):
     OutpostId: str
 
-class DeleteSiteInputRequestTypeDef(BaseModel):
+class DeleteSiteInputRequestTypeDef(BaseValidatorModel):
     SiteId: str
 
-class GetCapacityTaskInputRequestTypeDef(BaseModel):
+class GetCapacityTaskInputRequestTypeDef(BaseValidatorModel):
     CapacityTaskId: str
     OutpostIdentifier: str
 
-class InstanceTypeCapacityTypeDef(BaseModel):
+class InstanceTypeCapacityTypeDef(BaseValidatorModel):
     InstanceType: str
     Count: int
 
-class GetCatalogItemInputRequestTypeDef(BaseModel):
+class GetCatalogItemInputRequestTypeDef(BaseValidatorModel):
     CatalogItemId: str
 
-class GetConnectionRequestRequestTypeDef(BaseModel):
+class GetConnectionRequestRequestTypeDef(BaseValidatorModel):
     ConnectionId: str
 
-class GetOrderInputRequestTypeDef(BaseModel):
+class GetOrderInputRequestTypeDef(BaseValidatorModel):
     OrderId: str
 
-class GetOutpostInputRequestTypeDef(BaseModel):
+class GetOutpostInputRequestTypeDef(BaseValidatorModel):
     OutpostId: str
 
-class PaginatorConfigTypeDef(BaseModel):
+class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetOutpostInstanceTypesInputRequestTypeDef(BaseModel):
+class GetOutpostInstanceTypesInputRequestTypeDef(BaseValidatorModel):
     OutpostId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class InstanceTypeItemTypeDef(BaseModel):
+class InstanceTypeItemTypeDef(BaseValidatorModel):
     InstanceType: Optional[str] = None
 
-class GetOutpostSupportedInstanceTypesInputRequestTypeDef(BaseModel):
+class GetOutpostSupportedInstanceTypesInputRequestTypeDef(BaseValidatorModel):
     OutpostIdentifier: str
     OrderId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetSiteAddressInputRequestTypeDef(BaseModel):
+class GetSiteAddressInputRequestTypeDef(BaseValidatorModel):
     SiteId: str
     AddressType: AddressTypeType
 
-class GetSiteInputRequestTypeDef(BaseModel):
+class GetSiteInputRequestTypeDef(BaseValidatorModel):
     SiteId: str
 
-class LineItemAssetInformationTypeDef(BaseModel):
+class LineItemAssetInformationTypeDef(BaseValidatorModel):
     AssetId: Optional[str] = None
     MacAddressList: Optional[List[str]] = None
 
-class ShipmentInformationTypeDef(BaseModel):
+class ShipmentInformationTypeDef(BaseValidatorModel):
     ShipmentTrackingNumber: Optional[str] = None
     ShipmentCarrier: Optional[ShipmentCarrierType] = None
 
-class ListAssetsInputRequestTypeDef(BaseModel):
+class ListAssetsInputRequestTypeDef(BaseValidatorModel):
     OutpostIdentifier: str
     HostIdFilter: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     StatusFilter: Optional[Sequence[AssetStateType]] = None
 
-class ListCapacityTasksInputRequestTypeDef(BaseModel):
+class ListCapacityTasksInputRequestTypeDef(BaseValidatorModel):
     OutpostIdentifierFilter: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     CapacityTaskStatusFilter: Optional[Sequence[CapacityTaskStatusType]] = None
 
-class ListCatalogItemsInputRequestTypeDef(BaseModel):
+class ListCatalogItemsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ItemClassFilter: Optional[Sequence[CatalogItemClassType]] = None
     SupportedStorageFilter: Optional[Sequence[SupportedStorageEnumType]] = None
     EC2FamilyFilter: Optional[Sequence[str]] = None
 
-class ListOrdersInputRequestTypeDef(BaseModel):
+class ListOrdersInputRequestTypeDef(BaseValidatorModel):
     OutpostIdentifierFilter: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class OrderSummaryTypeDef(BaseModel):
+class OrderSummaryTypeDef(BaseValidatorModel):
     OutpostId: Optional[str] = None
     OrderId: Optional[str] = None
     OrderType: Optional[OrderTypeType] = None
@@ -204,50 +204,50 @@ class OrderSummaryTypeDef(BaseModel):
     OrderSubmissionDate: Optional[datetime] = None
     OrderFulfilledDate: Optional[datetime] = None
 
-class ListOutpostsInputRequestTypeDef(BaseModel):
+class ListOutpostsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     LifeCycleStatusFilter: Optional[Sequence[str]] = None
     AvailabilityZoneFilter: Optional[Sequence[str]] = None
     AvailabilityZoneIdFilter: Optional[Sequence[str]] = None
 
-class ListSitesInputRequestTypeDef(BaseModel):
+class ListSitesInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     OperatingAddressCountryCodeFilter: Optional[Sequence[str]] = None
     OperatingAddressStateOrRegionFilter: Optional[Sequence[str]] = None
     OperatingAddressCityFilter: Optional[Sequence[str]] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseModel):
+class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class StartConnectionRequestRequestTypeDef(BaseModel):
+class StartConnectionRequestRequestTypeDef(BaseValidatorModel):
     AssetId: str
     ClientPublicKey: str
     NetworkInterfaceDeviceIndex: int
     DeviceSerialNumber: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseModel):
+class TagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseModel):
+class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateOutpostInputRequestTypeDef(BaseModel):
+class UpdateOutpostInputRequestTypeDef(BaseValidatorModel):
     OutpostId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     SupportedHardwareType: Optional[SupportedHardwareTypeType] = None
 
-class UpdateSiteInputRequestTypeDef(BaseModel):
+class UpdateSiteInputRequestTypeDef(BaseValidatorModel):
     SiteId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
     Notes: Optional[str] = None
 
-class UpdateSiteRackPhysicalPropertiesInputRequestTypeDef(BaseModel):
+class UpdateSiteRackPhysicalPropertiesInputRequestTypeDef(BaseValidatorModel):
     SiteId: str
     PowerDrawKva: Optional[PowerDrawKvaType] = None
     PowerPhase: Optional[PowerPhaseType] = None
@@ -259,19 +259,19 @@ class UpdateSiteRackPhysicalPropertiesInputRequestTypeDef(BaseModel):
     OpticalStandard: Optional[OpticalStandardType] = None
     MaximumSupportedWeightLbs: Optional[MaximumSupportedWeightLbsType] = None
 
-class UpdateSiteAddressInputRequestTypeDef(BaseModel):
+class UpdateSiteAddressInputRequestTypeDef(BaseValidatorModel):
     SiteId: str
     AddressType: AddressTypeType
     Address: AddressTypeDef
 
-class AssetInfoTypeDef(BaseModel):
+class AssetInfoTypeDef(BaseValidatorModel):
     AssetId: Optional[str] = None
     RackId: Optional[str] = None
     AssetType: Optional[Literal["COMPUTE"]] = None
     ComputeAttributes: Optional[ComputeAttributesTypeDef] = None
     AssetLocation: Optional[AssetLocationTypeDef] = None
 
-class CatalogItemTypeDef(BaseModel):
+class CatalogItemTypeDef(BaseValidatorModel):
     CatalogItemId: Optional[str] = None
     ItemStatus: Optional[CatalogItemStatusType] = None
     EC2Capacities: Optional[List[EC2CapacityTypeDef]] = None
@@ -280,60 +280,60 @@ class CatalogItemTypeDef(BaseModel):
     SupportedUplinkGbps: Optional[List[int]] = None
     SupportedStorage: Optional[List[SupportedStorageEnumType]] = None
 
-class CreateOrderInputRequestTypeDef(BaseModel):
+class CreateOrderInputRequestTypeDef(BaseValidatorModel):
     OutpostIdentifier: str
     LineItems: Sequence[LineItemRequestTypeDef]
     PaymentOption: PaymentOptionType
     PaymentTerm: Optional[PaymentTermType] = None
 
-class GetConnectionResponseTypeDef(BaseModel):
+class GetConnectionResponseTypeDef(BaseValidatorModel):
     ConnectionId: str
     ConnectionDetails: ConnectionDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSiteAddressOutputTypeDef(BaseModel):
+class GetSiteAddressOutputTypeDef(BaseValidatorModel):
     SiteId: str
     AddressType: AddressTypeType
     Address: AddressTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCapacityTasksOutputTypeDef(BaseModel):
+class ListCapacityTasksOutputTypeDef(BaseValidatorModel):
     CapacityTasks: List[CapacityTaskSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsForResourceResponseTypeDef(BaseModel):
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartConnectionResponseTypeDef(BaseModel):
+class StartConnectionResponseTypeDef(BaseValidatorModel):
     ConnectionId: str
     UnderlayIpAddress: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSiteAddressOutputTypeDef(BaseModel):
+class UpdateSiteAddressOutputTypeDef(BaseValidatorModel):
     AddressType: AddressTypeType
     Address: AddressTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateOutpostOutputTypeDef(BaseModel):
+class CreateOutpostOutputTypeDef(BaseValidatorModel):
     Outpost: OutpostTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOutpostOutputTypeDef(BaseModel):
+class GetOutpostOutputTypeDef(BaseValidatorModel):
     Outpost: OutpostTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListOutpostsOutputTypeDef(BaseModel):
+class ListOutpostsOutputTypeDef(BaseValidatorModel):
     Outposts: List[OutpostTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateOutpostOutputTypeDef(BaseModel):
+class UpdateOutpostOutputTypeDef(BaseValidatorModel):
     Outpost: OutpostTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSiteInputRequestTypeDef(BaseModel):
+class CreateSiteInputRequestTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     Notes: Optional[str] = None
@@ -342,7 +342,7 @@ class CreateSiteInputRequestTypeDef(BaseModel):
     ShippingAddress: Optional[AddressTypeDef] = None
     RackPhysicalProperties: Optional[RackPhysicalPropertiesTypeDef] = None
 
-class SiteTypeDef(BaseModel):
+class SiteTypeDef(BaseValidatorModel):
     SiteId: Optional[str] = None
     AccountId: Optional[str] = None
     Name: Optional[str] = None
@@ -355,7 +355,7 @@ class SiteTypeDef(BaseModel):
     OperatingAddressCity: Optional[str] = None
     RackPhysicalProperties: Optional[RackPhysicalPropertiesTypeDef] = None
 
-class GetCapacityTaskOutputTypeDef(BaseModel):
+class GetCapacityTaskOutputTypeDef(BaseValidatorModel):
     CapacityTaskId: str
     OutpostId: str
     OrderId: str
@@ -368,13 +368,13 @@ class GetCapacityTaskOutputTypeDef(BaseModel):
     LastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartCapacityTaskInputRequestTypeDef(BaseModel):
+class StartCapacityTaskInputRequestTypeDef(BaseValidatorModel):
     OutpostIdentifier: str
     OrderId: str
     InstancePools: Sequence[InstanceTypeCapacityTypeDef]
     DryRun: Optional[bool] = None
 
-class StartCapacityTaskOutputTypeDef(BaseModel):
+class StartCapacityTaskOutputTypeDef(BaseValidatorModel):
     CapacityTaskId: str
     OutpostId: str
     OrderId: str
@@ -387,61 +387,61 @@ class StartCapacityTaskOutputTypeDef(BaseModel):
     LastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOutpostInstanceTypesInputGetOutpostInstanceTypesPaginateTypeDef(BaseModel):
+class GetOutpostInstanceTypesInputGetOutpostInstanceTypesPaginateTypeDef(BaseValidatorModel):
     OutpostId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetOutpostSupportedInstanceTypesInputGetOutpostSupportedInstanceTypesPaginateTypeDef(BaseModel):
+class GetOutpostSupportedInstanceTypesInputGetOutpostSupportedInstanceTypesPaginateTypeDef(BaseValidatorModel):
     OutpostIdentifier: str
     OrderId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAssetsInputListAssetsPaginateTypeDef(BaseModel):
+class ListAssetsInputListAssetsPaginateTypeDef(BaseValidatorModel):
     OutpostIdentifier: str
     HostIdFilter: Optional[Sequence[str]] = None
     StatusFilter: Optional[Sequence[AssetStateType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCapacityTasksInputListCapacityTasksPaginateTypeDef(BaseModel):
+class ListCapacityTasksInputListCapacityTasksPaginateTypeDef(BaseValidatorModel):
     OutpostIdentifierFilter: Optional[str] = None
     CapacityTaskStatusFilter: Optional[Sequence[CapacityTaskStatusType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCatalogItemsInputListCatalogItemsPaginateTypeDef(BaseModel):
+class ListCatalogItemsInputListCatalogItemsPaginateTypeDef(BaseValidatorModel):
     ItemClassFilter: Optional[Sequence[CatalogItemClassType]] = None
     SupportedStorageFilter: Optional[Sequence[SupportedStorageEnumType]] = None
     EC2FamilyFilter: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOrdersInputListOrdersPaginateTypeDef(BaseModel):
+class ListOrdersInputListOrdersPaginateTypeDef(BaseValidatorModel):
     OutpostIdentifierFilter: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOutpostsInputListOutpostsPaginateTypeDef(BaseModel):
+class ListOutpostsInputListOutpostsPaginateTypeDef(BaseValidatorModel):
     LifeCycleStatusFilter: Optional[Sequence[str]] = None
     AvailabilityZoneFilter: Optional[Sequence[str]] = None
     AvailabilityZoneIdFilter: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSitesInputListSitesPaginateTypeDef(BaseModel):
+class ListSitesInputListSitesPaginateTypeDef(BaseValidatorModel):
     OperatingAddressCountryCodeFilter: Optional[Sequence[str]] = None
     OperatingAddressStateOrRegionFilter: Optional[Sequence[str]] = None
     OperatingAddressCityFilter: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetOutpostInstanceTypesOutputTypeDef(BaseModel):
+class GetOutpostInstanceTypesOutputTypeDef(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeItemTypeDef]
     NextToken: str
     OutpostId: str
     OutpostArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOutpostSupportedInstanceTypesOutputTypeDef(BaseModel):
+class GetOutpostSupportedInstanceTypesOutputTypeDef(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeItemTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LineItemTypeDef(BaseModel):
+class LineItemTypeDef(BaseValidatorModel):
     CatalogItemId: Optional[str] = None
     LineItemId: Optional[str] = None
     Quantity: Optional[int] = None
@@ -451,47 +451,47 @@ class LineItemTypeDef(BaseModel):
     PreviousLineItemId: Optional[str] = None
     PreviousOrderId: Optional[str] = None
 
-class ListOrdersOutputTypeDef(BaseModel):
+class ListOrdersOutputTypeDef(BaseValidatorModel):
     Orders: List[OrderSummaryTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssetsOutputTypeDef(BaseModel):
+class ListAssetsOutputTypeDef(BaseValidatorModel):
     Assets: List[AssetInfoTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCatalogItemOutputTypeDef(BaseModel):
+class GetCatalogItemOutputTypeDef(BaseValidatorModel):
     CatalogItem: CatalogItemTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCatalogItemsOutputTypeDef(BaseModel):
+class ListCatalogItemsOutputTypeDef(BaseValidatorModel):
     CatalogItems: List[CatalogItemTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSiteOutputTypeDef(BaseModel):
+class CreateSiteOutputTypeDef(BaseValidatorModel):
     Site: SiteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetSiteOutputTypeDef(BaseModel):
+class GetSiteOutputTypeDef(BaseValidatorModel):
     Site: SiteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSitesOutputTypeDef(BaseModel):
+class ListSitesOutputTypeDef(BaseValidatorModel):
     Sites: List[SiteTypeDef]
     NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSiteOutputTypeDef(BaseModel):
+class UpdateSiteOutputTypeDef(BaseValidatorModel):
     Site: SiteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSiteRackPhysicalPropertiesOutputTypeDef(BaseModel):
+class UpdateSiteRackPhysicalPropertiesOutputTypeDef(BaseValidatorModel):
     Site: SiteTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class OrderTypeDef(BaseModel):
+class OrderTypeDef(BaseValidatorModel):
     OutpostId: Optional[str] = None
     OrderId: Optional[str] = None
     Status: Optional[OrderStatusType] = None
@@ -502,11 +502,11 @@ class OrderTypeDef(BaseModel):
     PaymentTerm: Optional[PaymentTermType] = None
     OrderType: Optional[OrderTypeType] = None
 
-class CreateOrderOutputTypeDef(BaseModel):
+class CreateOrderOutputTypeDef(BaseValidatorModel):
     Order: OrderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetOrderOutputTypeDef(BaseModel):
+class GetOrderOutputTypeDef(BaseValidatorModel):
     Order: OrderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,10 +11,10 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_runtime_constants import *
 
-class InternalStreamFailureTypeDef(BaseModel):
+class InternalStreamFailureTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
 
-class InvokeEndpointAsyncInputRequestTypeDef(BaseModel):
+class InvokeEndpointAsyncInputRequestTypeDef(BaseValidatorModel):
     EndpointName: str
     InputLocation: str
     ContentType: Optional[str] = None
@@ -24,21 +24,21 @@ class InvokeEndpointAsyncInputRequestTypeDef(BaseModel):
     RequestTTLSeconds: Optional[int] = None
     InvocationTimeoutSeconds: Optional[int] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class ModelStreamErrorTypeDef(BaseModel):
+class ModelStreamErrorTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     ErrorCode: Optional[str] = None
 
-class PayloadPartTypeDef(BaseModel):
+class PayloadPartTypeDef(BaseValidatorModel):
     Bytes: Optional[bytes] = None
 
-class InvokeEndpointInputRequestTypeDef(BaseModel):
+class InvokeEndpointInputRequestTypeDef(BaseValidatorModel):
     EndpointName: str
     Body: BlobTypeDef
     ContentType: Optional[str] = None
@@ -51,7 +51,7 @@ class InvokeEndpointInputRequestTypeDef(BaseModel):
     EnableExplanations: Optional[str] = None
     InferenceComponentName: Optional[str] = None
 
-class InvokeEndpointWithResponseStreamInputRequestTypeDef(BaseModel):
+class InvokeEndpointWithResponseStreamInputRequestTypeDef(BaseValidatorModel):
     EndpointName: str
     Body: BlobTypeDef
     ContentType: Optional[str] = None
@@ -62,25 +62,25 @@ class InvokeEndpointWithResponseStreamInputRequestTypeDef(BaseModel):
     InferenceId: Optional[str] = None
     InferenceComponentName: Optional[str] = None
 
-class InvokeEndpointAsyncOutputTypeDef(BaseModel):
+class InvokeEndpointAsyncOutputTypeDef(BaseValidatorModel):
     InferenceId: str
     OutputLocation: str
     FailureLocation: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class InvokeEndpointOutputTypeDef(BaseModel):
+class InvokeEndpointOutputTypeDef(BaseValidatorModel):
     Body: StreamingBody
     ContentType: str
     InvokedProductionVariant: str
     CustomAttributes: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ResponseStreamTypeDef(BaseModel):
+class ResponseStreamTypeDef(BaseValidatorModel):
     PayloadPart: Optional[PayloadPartTypeDef] = None
     ModelStreamError: Optional[ModelStreamErrorTypeDef] = None
     InternalStreamFailure: Optional[InternalStreamFailureTypeDef] = None
 
-class InvokeEndpointWithResponseStreamOutputTypeDef(BaseModel):
+class InvokeEndpointWithResponseStreamOutputTypeDef(BaseValidatorModel):
     Body: "EventStream[ResponseStreamTypeDef]"
     ContentType: str
     InvokedProductionVariant: str

@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,28 +11,28 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_metrics_constants import *
 
-class BatchPutMetricsErrorTypeDef(BaseModel):
+class BatchPutMetricsErrorTypeDef(BaseValidatorModel):
     Code: Optional[PutMetricsErrorCodeType] = None
     MetricIndex: Optional[int] = None
 
-class ResponseMetadataTypeDef(BaseModel):
+class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
 
-class BatchPutMetricsResponseTypeDef(BaseModel):
+class BatchPutMetricsResponseTypeDef(BaseValidatorModel):
     Errors: List[BatchPutMetricsErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RawMetricDataTypeDef(BaseModel):
+class RawMetricDataTypeDef(BaseValidatorModel):
     MetricName: str
     Timestamp: TimestampTypeDef
     Value: float
     Step: Optional[int] = None
 
-class BatchPutMetricsRequestRequestTypeDef(BaseModel):
+class BatchPutMetricsRequestRequestTypeDef(BaseValidatorModel):
     TrialComponentName: str
     MetricData: Sequence[RawMetricDataTypeDef]
 
