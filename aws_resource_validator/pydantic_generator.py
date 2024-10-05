@@ -95,7 +95,8 @@ def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name:
         "Literal": "from typing import Literal",
         "Sequence": "from typing import Sequence",
         "Mapping": "from typing import Mapping",
-        "IO": "from typing import IO"
+        "IO": "from typing import IO",
+        "StreamingBody": "from botocore.response import StreamingBody"
     }
 
     with open(file_path, 'w', encoding='utf-8') as f:

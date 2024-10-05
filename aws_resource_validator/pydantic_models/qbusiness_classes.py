@@ -871,11 +871,11 @@ class ListDataSourceSyncJobsResponseTypeDef(BaseValidatorModel):
 
 class NativeIndexConfigurationOutputTypeDef(BaseValidatorModel):
     indexId: str
-    boostingOverride: Optional[       Dict[str, DocumentAttributeBoostingConfigurationOutputTypeDef] = None
+    boostingOverride: Optional[       Dict[str, DocumentAttributeBoostingConfigurationOutputTypeDef]] = None
 
 class NativeIndexConfigurationTypeDef(BaseValidatorModel):
     indexId: str
-    boostingOverride: Optional[       Mapping[str, DocumentAttributeBoostingConfigurationTypeDef] = None
+    boostingOverride: Optional[       Mapping[str, DocumentAttributeBoostingConfigurationTypeDef]] = None
 
 class HookConfigurationOutputTypeDef(BaseValidatorModel):
     invocationCondition: Optional[DocumentAttributeConditionOutputTypeDef] = None

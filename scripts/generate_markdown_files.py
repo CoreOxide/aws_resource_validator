@@ -1,4 +1,6 @@
 from inspect import getmembers, isclass
+
+from pydantic_core import PydanticUndefined
 from ruamel.yaml import YAML
 from aws_resource_validator import class_definitions
 from aws_resource_validator.class_definitions import Service
@@ -44,7 +46,7 @@ def create_markdown_for_pydantic_model(pydantic_model_class: BaseModel) -> str:
     for field_name, field_info in fields.items():
         md_content += f"### {field_name}\n"
         md_content += f"- **Type**: {field_info.annotation}\n"
-        if field_info.default is not None:
+        if field_info.default is not None and field_info.default is not PydanticUndefined:
             md_content += f"- **Default**: {field_info.default}\n"
         if field_info.is_required():
             md_content += f"- **Required**: Yes\n"

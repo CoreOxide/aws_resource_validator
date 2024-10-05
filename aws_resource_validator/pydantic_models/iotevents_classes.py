@@ -418,7 +418,7 @@ class ActionTypeDef(BaseValidatorModel):
     setTimer: Optional[SetTimerActionTypeDef] = None
     clearTimer: Optional[ClearTimerActionTypeDef] = None
     resetTimer: Optional[ResetTimerActionTypeDef] = None
-    lambda: Optional[LambdaActionTypeDef] = None
+    _lambda: Optional[LambdaActionTypeDef] = None
     iotEvents: Optional[IotEventsActionTypeDef] = None
     sqs: Optional[SqsActionTypeDef] = None
     firehose: Optional[FirehoseActionTypeDef] = None
@@ -429,7 +429,7 @@ class ActionTypeDef(BaseValidatorModel):
 class AlarmActionTypeDef(BaseValidatorModel):
     sns: Optional[SNSTopicPublishActionTypeDef] = None
     iotTopicPublish: Optional[IotTopicPublishActionTypeDef] = None
-    lambda: Optional[LambdaActionTypeDef] = None
+    _lambda: Optional[LambdaActionTypeDef] = None
     iotEvents: Optional[IotEventsActionTypeDef] = None
     sqs: Optional[SqsActionTypeDef] = None
     firehose: Optional[FirehoseActionTypeDef] = None
@@ -447,7 +447,7 @@ class ListInputRoutingsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 class EmailConfigurationTypeDef(BaseValidatorModel):
-    from: str
+    _from: str
     recipients: EmailRecipientsTypeDef
     content: Optional[EmailContentTypeDef] = None
 

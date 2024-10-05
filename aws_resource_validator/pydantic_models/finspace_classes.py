@@ -344,7 +344,7 @@ class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
 class PortRangeTypeDef(BaseValidatorModel):
-    from: int
+    _from: int
     to: int
 
 class TagResourceRequestRequestTypeDef(BaseValidatorModel):

@@ -88,7 +88,7 @@ class ComponentConditionPropertyTypeDef(BaseValidatorModel):
     operator: Optional[str] = None
     operand: Optional[str] = None
     then: Optional["ComponentPropertyTypeDef"] = None
-    else: Optional["ComponentPropertyTypeDef"] = None
+    _else: Optional["ComponentPropertyTypeDef"] = None
     operandType: Optional[str] = None
 
 class SortPropertyTypeDef(BaseValidatorModel):
@@ -299,16 +299,16 @@ class ThemeSummaryTypeDef(BaseValidatorModel):
     name: str
 
 class PredicatePaginatorTypeDef(BaseValidatorModel):
-    or: Optional[List[Dict[str, Any]]] = None
-    and: Optional[List[Dict[str, Any]]] = None
+    _or: Optional[List[Dict[str, Any]]] = None
+    _and: Optional[List[Dict[str, Any]]] = None
     field: Optional[str] = None
     operator: Optional[str] = None
     operand: Optional[str] = None
     operandType: Optional[str] = None
 
 class PredicateTypeDef(BaseValidatorModel):
-    or: Optional[Sequence[Dict[str, Any]]] = None
-    and: Optional[Sequence[Dict[str, Any]]] = None
+    _or: Optional[Sequence[Dict[str, Any]]] = None
+    _and: Optional[Sequence[Dict[str, Any]]] = None
     field: Optional[str] = None
     operator: Optional[str] = None
     operand: Optional[str] = None
@@ -364,7 +364,7 @@ class ActionParametersPaginatorTypeDef(BaseValidatorModel):
     url: Optional["ComponentPropertyPaginatorTypeDef"] = None
     anchor: Optional["ComponentPropertyPaginatorTypeDef"] = None
     target: Optional["ComponentPropertyPaginatorTypeDef"] = None
-    global: Optional["ComponentPropertyPaginatorTypeDef"] = None
+    _global: Optional["ComponentPropertyPaginatorTypeDef"] = None
     model: Optional[str] = None
     id: Optional["ComponentPropertyPaginatorTypeDef"] = None
     fields: Optional[Dict[str, "ComponentPropertyPaginatorTypeDef"]] = None
@@ -375,7 +375,7 @@ class ActionParametersTypeDef(BaseValidatorModel):
     url: Optional["ComponentPropertyTypeDef"] = None
     anchor: Optional["ComponentPropertyTypeDef"] = None
     target: Optional["ComponentPropertyTypeDef"] = None
-    global: Optional["ComponentPropertyTypeDef"] = None
+    _global: Optional["ComponentPropertyTypeDef"] = None
     model: Optional[str] = None
     id: Optional["ComponentPropertyTypeDef"] = None
     fields: Optional[Mapping[str, "ComponentPropertyTypeDef"]] = None

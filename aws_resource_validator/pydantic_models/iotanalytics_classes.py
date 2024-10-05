@@ -427,7 +427,7 @@ class VariableTypeDef(BaseValidatorModel):
 
 class PipelineActivityTypeDef(BaseValidatorModel):
     channel: Optional[ChannelActivityTypeDef] = None
-    lambda: Optional[LambdaActivityTypeDef] = None
+    _lambda: Optional[LambdaActivityTypeDef] = None
     datastore: Optional[DatastoreActivityTypeDef] = None
     addAttributes: Optional[AddAttributesActivityTypeDef] = None
     removeAttributes: Optional[RemoveAttributesActivityTypeDef] = None

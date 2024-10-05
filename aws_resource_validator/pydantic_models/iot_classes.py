@@ -2168,13 +2168,13 @@ class StartAuditMitigationActionsTaskRequestRequestTypeDef(BaseValidatorModel):
 
 class DescribeAccountAuditConfigurationResponseTypeDef(BaseValidatorModel):
     roleArn: str
-    auditNotificationTargetConfigurations: Dict[       Literal["SNS"], AuditNotificationTargetTypeDef
+    auditNotificationTargetConfigurations: Dict[       Literal["SNS"], AuditNotificationTargetTypeDef]
     auditCheckConfigurations: Dict[str, AuditCheckConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateAccountAuditConfigurationRequestRequestTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
-    auditNotificationTargetConfigurations: Optional[       Mapping[Literal["SNS"], AuditNotificationTargetTypeDef] = None
+    auditNotificationTargetConfigurations: Optional[       Mapping[Literal["SNS"], AuditNotificationTargetTypeDef]] = None
     auditCheckConfigurations: Optional[Mapping[str, AuditCheckConfigurationTypeDef]] = None
 
 class ListAuditTasksResponseTypeDef(BaseValidatorModel):
@@ -3808,7 +3808,7 @@ class TestAuthorizationResponseTypeDef(BaseValidatorModel):
 class ActionTypeDef(BaseValidatorModel):
     dynamoDB: Optional[DynamoDBActionTypeDef] = None
     dynamoDBv2: Optional[DynamoDBv2ActionTypeDef] = None
-    lambda: Optional[LambdaActionTypeDef] = None
+    _lambda: Optional[LambdaActionTypeDef] = None
     sns: Optional[SnsActionTypeDef] = None
     sqs: Optional[SqsActionTypeDef] = None
     kinesis: Optional[KinesisActionTypeDef] = None

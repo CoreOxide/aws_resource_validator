@@ -31,7 +31,7 @@ class StateTypeDef(BaseValidatorModel):
 class ResourceStatusTypeDef(BaseValidatorModel):
     ec2: StatusType
     ecr: StatusType
-    lambda: Optional[StatusType] = None
+    _lambda: Optional[StatusType] = None
     lambdaCode: Optional[StatusType] = None
 
 class FindingTypeAggregationTypeDef(BaseValidatorModel):
@@ -63,7 +63,7 @@ class AtigDataTypeDef(BaseValidatorModel):
 class AutoEnableTypeDef(BaseValidatorModel):
     ec2: bool
     ecr: bool
-    lambda: Optional[bool] = None
+    _lambda: Optional[bool] = None
     lambdaCode: Optional[bool] = None
 
 class AwsEc2InstanceDetailsTypeDef(BaseValidatorModel):
@@ -617,7 +617,7 @@ class TitleAggregationResponseTypeDef(BaseValidatorModel):
 class ResourceStateTypeDef(BaseValidatorModel):
     ec2: StateTypeDef
     ecr: StateTypeDef
-    lambda: Optional[StateTypeDef] = None
+    _lambda: Optional[StateTypeDef] = None
     lambdaCode: Optional[StateTypeDef] = None
 
 class AccountTypeDef(BaseValidatorModel):

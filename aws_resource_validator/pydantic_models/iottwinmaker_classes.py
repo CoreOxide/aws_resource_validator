@@ -430,7 +430,7 @@ class PropertyRequestTypeDef(BaseValidatorModel):
     updateType: Optional[PropertyUpdateTypeType] = None
 
 class DataConnectorTypeDef(BaseValidatorModel):
-    lambda: Optional[LambdaFunctionTypeDef] = None
+    _lambda: Optional[LambdaFunctionTypeDef] = None
     isNative: Optional[bool] = None
 
 class DataTypeOutputTypeDef(BaseValidatorModel):
@@ -794,7 +794,7 @@ class UpdateEntityRequestRequestTypeDef(BaseValidatorModel):
     entityName: Optional[str] = None
     description: Optional[str] = None
     componentUpdates: Optional[Mapping[str, ComponentUpdateRequestTypeDef]] = None
-    compositeComponentUpdates: Optional[       Mapping[str, CompositeComponentUpdateRequestTypeDef] = None
+    compositeComponentUpdates: Optional[       Mapping[str, CompositeComponentUpdateRequestTypeDef]] = None
     parentEntityUpdate: Optional[ParentEntityUpdateRequestTypeDef] = None
 
 class CreateComponentTypeRequestRequestTypeDef(BaseValidatorModel):

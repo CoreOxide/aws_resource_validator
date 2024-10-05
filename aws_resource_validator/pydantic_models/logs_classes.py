@@ -821,7 +821,7 @@ class ExportTaskTypeDef(BaseValidatorModel):
     taskId: Optional[str] = None
     taskName: Optional[str] = None
     logGroupName: Optional[str] = None
-    from: Optional[int] = None
+    _from: Optional[int] = None
     to: Optional[int] = None
     destination: Optional[str] = None
     destinationPrefix: Optional[str] = None

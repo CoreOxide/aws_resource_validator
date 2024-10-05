@@ -2398,7 +2398,7 @@ class PromptSpecificationTypeDef(BaseValidatorModel):
     maxRetries: int
     allowInterrupt: Optional[bool] = None
     messageSelectionStrategy: Optional[MessageSelectionStrategyType] = None
-    promptAttemptsSpecification: Optional[       Mapping[PromptAttemptType, PromptAttemptSpecificationTypeDef] = None
+    promptAttemptsSpecification: Optional[       Mapping[PromptAttemptType, PromptAttemptSpecificationTypeDef]] = None
 
 class ResponseSpecificationTypeDef(BaseValidatorModel):
     messageGroups: Sequence[MessageGroupTypeDef]
