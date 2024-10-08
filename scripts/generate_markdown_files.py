@@ -9,6 +9,10 @@ from typing import List, Tuple, Optional, Dict
 from pathlib import Path
 import importlib
 import sys
+import warnings
+
+# Suppress all warnings related to field shadowing in Pydantic
+warnings.filterwarnings("ignore", message='Field name .* shadows an attribute in parent "BaseValidatorModel"')
 
 # Define the paths
 API_DIR: Path = Path('../docs/api')
@@ -17,6 +21,7 @@ MKDOCS_YAML_PATH: Path = Path('../mkdocs.yml')
 
 # Add the pydantic_models folder to the system path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'aws_resource_validator' / 'pydantic_models'))
+
 
 # Function to create markdown for each class
 def create_markdown_for_class(service_class: Service) -> str:
@@ -43,14 +48,18 @@ def create_markdown_for_pydantic_model(pydantic_model_class: BaseModel) -> str:
     md_content = f"# {pydantic_model_class.__name__}\n\n"
 
     fields = pydantic_model_class.model_fields
-    for field_name, field_info in fields.items():
-        md_content += f"### {field_name}\n"
-        md_content += f"- **Type**: {field_info.annotation}\n"
-        if field_info.default is not None and field_info.default is not PydanticUndefined:
-            md_content += f"- **Default**: {field_info.default}\n"
-        if field_info.is_required():
-            md_content += f"- **Required**: Yes\n"
-        md_content += "\n"
+    if not fields:
+        md_content += "Oops! This Pydantic model is currently empty. Stay tuned!\n\n"
+        md_content += '<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">\n'
+    else:
+        for field_name, field_info in fields.items():
+            md_content += f"### {field_name}\n"
+            md_content += f"- **Type**: {field_info.annotation}\n"
+            if field_info.default is not None and field_info.default is not PydanticUndefined:
+                md_content += f"- **Default**: {field_info.default}\n"
+            if field_info.is_required():
+                md_content += f"- **Required**: Yes\n"
+            md_content += "\n"
 
     return md_content
 
@@ -91,44 +100,50 @@ def generate_markdown_files(output_dir: Path, base_class: type, module) -> List[
     return updated_classes
 
 
-# Function to generate markdown files for all Pydantic models in a directory
+# Function to generate markdown files for all Pydantic models in a directory (one file per module)
 def generate_pydantic_markdown_files(output_dir: Path, models_dir: Path) -> List[Tuple[str, str]]:
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    updated_classes: List[Tuple[str, str]] = []
+    updated_files: List[Tuple[str, str]] = []
 
     for model_file in models_dir.glob("*_classes.py"):  # Only process _classes.py files
         module_name = model_file.stem
         try:
             module = importlib.import_module(f"aws_resource_validator.pydantic_models.{module_name}")
-            classes = [cls for _, cls in getmembers(module, isclass) if issubclass(cls, BaseModel) and cls is not BaseModel]
+            classes = [cls for _, cls in getmembers(module, isclass) if
+                       issubclass(cls, BaseModel) and cls is not BaseModel]
 
+            # Collect markdown content for all classes in the file
+            md_content = f"# Pydantic Models in {module_name}\n\n"
             for cls in classes:
-                md_content = create_markdown_for_pydantic_model(cls)
+                md_content += create_markdown_for_pydantic_model(cls) + "\n"
 
-                file_name = f"{cls.__name__.lower()}.md"
-                file_path = output_dir / file_name
-                if file_path.exists():
-                    with file_path.open('r', encoding='utf-8') as md_file:
-                        current_content = md_file.read()
-                    if current_content == md_content:
-                        continue
-                    else:
-                        update_type = 'updated'
+            # Create markdown file for the module (file-based)
+            file_name = f"{module_name.lower()}.md"
+            file_path = output_dir / file_name
+            if file_path.exists():
+                with file_path.open('r', encoding='utf-8') as md_file:
+                    current_content = md_file.read()
+                if current_content == md_content:
+                    continue
                 else:
-                    update_type = 'created'
-                with file_path.open('w', encoding='utf-8') as md_file:
-                    md_file.write(md_content)
-                updated_classes.append((cls.__name__, update_type))
+                    update_type = 'updated'
+            else:
+                update_type = 'created'
+            with file_path.open('w', encoding='utf-8') as md_file:
+                md_file.write(md_content)
+            updated_files.append((module_name, update_type))
+
         except ModuleNotFoundError as e:
             print(f"Module {module_name} not found: {e}")
             continue
 
-    return updated_classes
+    return updated_files
 
 
 # Function to update mkdocs.yml with separate sections for API Reference and Pydantic Models
-def update_mkdocs_yml(mkdocs_yml_path: Path, api_dir: Path, pydantic_dir: Path) -> Tuple[bool, Optional[Dict[str, List]], Dict[str, List]]:
+def update_mkdocs_yml(mkdocs_yml_path: Path, api_dir: Path, pydantic_dir: Path) -> Tuple[
+    bool, Optional[Dict[str, List]], Dict[str, List]]:
     yaml = YAML()
     with open(mkdocs_yml_path, 'r', encoding='utf-8') as yml_file:
         mkdocs_config = yaml.load(yml_file)
@@ -142,7 +157,8 @@ def update_mkdocs_yml(mkdocs_yml_path: Path, api_dir: Path, pydantic_dir: Path) 
     # Generate the Pydantic Models nav entries
     pydantic_files = sorted(pydantic_dir.iterdir())
     pydantic_nav: List[Dict[str, str]] = [
-        {pydantic_file.stem.capitalize(): str(pydantic_file.relative_to(pydantic_dir.parent)).replace("\\", "/")} for pydantic_file in
+        {pydantic_file.stem.capitalize(): str(pydantic_file.relative_to(pydantic_dir.parent)).replace("\\", "/")} for
+        pydantic_file in
         pydantic_files]
 
     nav_updated = False
@@ -183,14 +199,16 @@ def update_mkdocs_yml(mkdocs_yml_path: Path, api_dir: Path, pydantic_dir: Path) 
 
 def main() -> None:
     updated_classes_api = generate_markdown_files(API_DIR, Service, class_definitions)
-    updated_classes_pydantic = generate_pydantic_markdown_files(PYDANTIC_DIR, Path(__file__).resolve().parent.parent / 'aws_resource_validator' / 'pydantic_models')
+    updated_classes_pydantic = generate_pydantic_markdown_files(PYDANTIC_DIR, Path(
+        __file__).resolve().parent.parent / 'aws_resource_validator' / 'pydantic_models')
     mkdocs_updates, original_nav, new_nav = update_mkdocs_yml(MKDOCS_YAML_PATH, API_DIR, PYDANTIC_DIR)
 
     if updated_classes_api or updated_classes_pydantic or mkdocs_updates:
         if updated_classes_api:
             print(f"Updated classes in api: {', '.join(f'{cls} ({utype})' for cls, utype in updated_classes_api)}")
         if updated_classes_pydantic:
-            print(f"Updated classes in pydantic: {', '.join(f'{cls} ({utype})' for cls, utype in updated_classes_pydantic)}")
+            print(
+                f"Updated classes in pydantic: {', '.join(f'{cls} ({utype})' for cls, utype in updated_classes_pydantic)}")
         if mkdocs_updates:
             print("mkdocs.yml was updated.")
             if original_nav:
