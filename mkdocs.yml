@@ -806,6 +806,7 @@ theme:
     - navigation.instant
     - navigation.indexes
     - navigation.tracking
+    - navigation.prune
     - content.code.annotate
     - toc.integrate
     - toc.follow
