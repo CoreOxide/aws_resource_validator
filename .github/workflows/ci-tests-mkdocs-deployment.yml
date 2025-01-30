@@ -3,7 +3,7 @@ name: CI Tests, Linter, and MkDocs Deployment
 on:
   push:
     branches:
-      - '*'  # Triggers for all branches for tests and linters
+      - 'tupmay/docs'  # Triggers for all branches for tests and linters
   pull_request:
     branches:
       - main
