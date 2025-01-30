@@ -1,4 +1,4 @@
-# Pydantic Models in databrew_classes
+# databrew_classes
 
 # AllowedStatisticsTypeDef
 

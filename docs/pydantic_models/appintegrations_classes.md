@@ -1,4 +1,4 @@
-# Pydantic Models in appintegrations_classes
+# appintegrations_classes
 
 # ApplicationAssociationSummaryTypeDef
 

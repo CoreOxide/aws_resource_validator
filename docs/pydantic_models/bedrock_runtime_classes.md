@@ -1,4 +1,4 @@
-# Pydantic Models in bedrock_runtime_classes
+# bedrock_runtime_classes
 
 # ApplyGuardrailRequestRequestTypeDef
 

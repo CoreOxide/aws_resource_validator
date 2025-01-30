@@ -1,4 +1,4 @@
-# Pydantic Models in cognito_idp_classes
+# cognito_idp_classes
 
 # AccountRecoverySettingTypeOutputTypeDef
 

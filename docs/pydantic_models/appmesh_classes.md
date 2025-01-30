@@ -1,4 +1,4 @@
-# Pydantic Models in appmesh_classes
+# appmesh_classes
 
 # AccessLogTypeDef
 

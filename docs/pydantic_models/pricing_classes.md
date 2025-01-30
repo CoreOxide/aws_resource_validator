@@ -1,4 +1,4 @@
-# Pydantic Models in pricing_classes
+# pricing_classes
 
 # AttributeValueTypeDef
 

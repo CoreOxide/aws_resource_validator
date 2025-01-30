@@ -1,4 +1,4 @@
-# Pydantic Models in connectcases_classes
+# connectcases_classes
 
 # AuditEventFieldTypeDef
 

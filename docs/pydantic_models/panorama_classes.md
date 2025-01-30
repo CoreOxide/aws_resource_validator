@@ -1,4 +1,4 @@
-# Pydantic Models in panorama_classes
+# panorama_classes
 
 # AlternateSoftwareMetadataTypeDef
 

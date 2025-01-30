@@ -1,4 +1,4 @@
-# Pydantic Models in resiliencehub_classes
+# resiliencehub_classes
 
 # AddDraftAppVersionResourceMappingsRequestRequestTypeDef
 

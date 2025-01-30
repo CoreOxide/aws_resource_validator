@@ -1,4 +1,4 @@
-# Pydantic Models in sagemaker_geospatial_classes
+# sagemaker_geospatial_classes
 
 # AreaOfInterestGeometryTypeDef
 

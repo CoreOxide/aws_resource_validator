@@ -1,4 +1,4 @@
-# Pydantic Models in kinesis_video_archived_media_classes
+# kinesis_video_archived_media_classes
 
 # BaseValidatorModel
 

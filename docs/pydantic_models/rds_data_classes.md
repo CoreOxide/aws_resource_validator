@@ -1,4 +1,4 @@
-# Pydantic Models in rds_data_classes
+# rds_data_classes
 
 # ArrayValueTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in license_manager_user_subscriptions_classes
+# license_manager_user_subscriptions_classes
 
 # ActiveDirectoryIdentityProviderTypeDef
 

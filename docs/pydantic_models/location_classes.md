@@ -1,4 +1,4 @@
-# Pydantic Models in location_classes
+# location_classes
 
 # ApiKeyFilterTypeDef
 

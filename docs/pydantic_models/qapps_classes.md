@@ -1,4 +1,4 @@
-# Pydantic Models in qapps_classes
+# qapps_classes
 
 # AppDefinitionInputOutputTypeDef
 

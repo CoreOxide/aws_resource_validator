@@ -1,4 +1,4 @@
-# Pydantic Models in firehose_classes
+# firehose_classes
 
 # AmazonOpenSearchServerlessBufferingHintsTypeDef
 

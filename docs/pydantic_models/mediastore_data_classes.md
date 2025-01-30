@@ -1,4 +1,4 @@
-# Pydantic Models in mediastore_data_classes
+# mediastore_data_classes
 
 # BaseValidatorModel
 

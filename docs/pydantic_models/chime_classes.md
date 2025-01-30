@@ -1,4 +1,4 @@
-# Pydantic Models in chime_classes
+# chime_classes
 
 # AccountSettingsTypeDef
 

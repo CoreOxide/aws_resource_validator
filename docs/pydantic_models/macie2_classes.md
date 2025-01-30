@@ -1,4 +1,4 @@
-# Pydantic Models in macie2_classes
+# macie2_classes
 
 # AcceptInvitationRequestRequestTypeDef
 

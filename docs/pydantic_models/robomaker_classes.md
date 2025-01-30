@@ -1,4 +1,4 @@
-# Pydantic Models in robomaker_classes
+# robomaker_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in mediapackage_vod_classes
+# mediapackage_vod_classes
 
 # AssetShallowTypeDef
 

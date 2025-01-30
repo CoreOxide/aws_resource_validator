@@ -1,4 +1,4 @@
-# Pydantic Models in voice_id_classes
+# voice_id_classes
 
 # AssociateFraudsterRequestRequestTypeDef
 

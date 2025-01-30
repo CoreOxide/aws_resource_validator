@@ -1,4 +1,4 @@
-# Pydantic Models in cloudhsm_classes
+# cloudhsm_classes
 
 # AddTagsToResourceRequestRequestTypeDef
 

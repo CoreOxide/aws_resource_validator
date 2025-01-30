@@ -1,4 +1,4 @@
-# Pydantic Models in support_app_classes
+# support_app_classes
 
 # BaseValidatorModel
 

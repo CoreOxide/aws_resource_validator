@@ -1,4 +1,4 @@
-# Pydantic Models in gamelift_classes
+# gamelift_classes
 
 # AcceptMatchInputRequestTypeDef
 

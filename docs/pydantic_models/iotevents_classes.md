@@ -1,4 +1,4 @@
-# Pydantic Models in iotevents_classes
+# iotevents_classes
 
 # AcknowledgeFlowTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in resource_groups_classes
+# resource_groups_classes
 
 # AccountSettingsTypeDef
 

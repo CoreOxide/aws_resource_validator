@@ -1,4 +1,4 @@
-# Pydantic Models in iotsecuretunneling_classes
+# iotsecuretunneling_classes
 
 # BaseValidatorModel
 

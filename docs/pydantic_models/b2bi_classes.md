@@ -1,4 +1,4 @@
-# Pydantic Models in b2bi_classes
+# b2bi_classes
 
 # BaseValidatorModel
 

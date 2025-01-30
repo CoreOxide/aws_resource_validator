@@ -1,4 +1,4 @@
-# Pydantic Models in ce_classes
+# ce_classes
 
 # AnomalyDateIntervalTypeDef
 

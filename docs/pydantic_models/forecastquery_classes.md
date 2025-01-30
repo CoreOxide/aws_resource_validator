@@ -1,4 +1,4 @@
-# Pydantic Models in forecastquery_classes
+# forecastquery_classes
 
 # BaseValidatorModel
 

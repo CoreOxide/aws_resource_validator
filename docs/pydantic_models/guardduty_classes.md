@@ -1,4 +1,4 @@
-# Pydantic Models in guardduty_classes
+# guardduty_classes
 
 # AcceptAdministratorInvitationRequestRequestTypeDef
 

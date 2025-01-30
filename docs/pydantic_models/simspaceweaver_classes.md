@@ -1,4 +1,4 @@
-# Pydantic Models in simspaceweaver_classes
+# simspaceweaver_classes
 
 # BaseValidatorModel
 

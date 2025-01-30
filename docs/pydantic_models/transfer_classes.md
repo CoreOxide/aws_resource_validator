@@ -1,4 +1,4 @@
-# Pydantic Models in transfer_classes
+# transfer_classes
 
 # As2ConnectorConfigTypeDef
 

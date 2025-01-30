@@ -1,4 +1,4 @@
-# Pydantic Models in greengrass_classes
+# greengrass_classes
 
 # AssociateRoleToGroupRequestRequestTypeDef
 

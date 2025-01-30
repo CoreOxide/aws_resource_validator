@@ -1,4 +1,4 @@
-# Pydantic Models in fms_classes
+# fms_classes
 
 # AccountScopeOutputTypeDef
 

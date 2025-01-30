@@ -1,4 +1,4 @@
-# Pydantic Models in sms_classes
+# sms_classes
 
 # AppSummaryTypeDef
 

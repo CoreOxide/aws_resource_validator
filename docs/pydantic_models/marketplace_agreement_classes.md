@@ -1,4 +1,4 @@
-# Pydantic Models in marketplace_agreement_classes
+# marketplace_agreement_classes
 
 # AcceptedTermTypeDef
 

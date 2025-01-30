@@ -1,4 +1,4 @@
-# Pydantic Models in medialive_classes
+# medialive_classes
 
 # AacSettingsTypeDef
 

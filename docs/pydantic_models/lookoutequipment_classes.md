@@ -1,4 +1,4 @@
-# Pydantic Models in lookoutequipment_classes
+# lookoutequipment_classes
 
 # BaseValidatorModel
 

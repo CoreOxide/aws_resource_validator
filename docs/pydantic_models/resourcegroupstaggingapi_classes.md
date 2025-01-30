@@ -1,4 +1,4 @@
-# Pydantic Models in resourcegroupstaggingapi_classes
+# resourcegroupstaggingapi_classes
 
 # BaseValidatorModel
 

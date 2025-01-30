@@ -1,4 +1,4 @@
-# Pydantic Models in elastic_inference_classes
+# elastic_inference_classes
 
 # AcceleratorTypeOfferingTypeDef
 

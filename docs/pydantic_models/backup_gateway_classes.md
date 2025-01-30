@@ -1,4 +1,4 @@
-# Pydantic Models in backup_gateway_classes
+# backup_gateway_classes
 
 # AssociateGatewayToServerInputRequestTypeDef
 

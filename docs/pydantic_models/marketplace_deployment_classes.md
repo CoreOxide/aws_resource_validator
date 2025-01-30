@@ -1,4 +1,4 @@
-# Pydantic Models in marketplace_deployment_classes
+# marketplace_deployment_classes
 
 # BaseValidatorModel
 

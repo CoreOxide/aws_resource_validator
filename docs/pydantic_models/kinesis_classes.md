@@ -1,4 +1,4 @@
-# Pydantic Models in kinesis_classes
+# kinesis_classes
 
 # AddTagsToStreamInputRequestTypeDef
 

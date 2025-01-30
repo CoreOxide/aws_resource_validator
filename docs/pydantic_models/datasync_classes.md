@@ -1,4 +1,4 @@
-# Pydantic Models in datasync_classes
+# datasync_classes
 
 # AddStorageSystemRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in chime_sdk_media_pipelines_classes
+# chime_sdk_media_pipelines_classes
 
 # ActiveSpeakerOnlyConfigurationTypeDef
 

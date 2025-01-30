@@ -1,4 +1,4 @@
-# Pydantic Models in nimble_classes
+# nimble_classes
 
 # AcceptEulasRequestRequestTypeDef
 

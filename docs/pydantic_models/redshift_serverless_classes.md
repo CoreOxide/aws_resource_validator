@@ -1,4 +1,4 @@
-# Pydantic Models in redshift_serverless_classes
+# redshift_serverless_classes
 
 # AssociationTypeDef
 

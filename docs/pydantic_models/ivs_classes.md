@@ -1,4 +1,4 @@
-# Pydantic Models in ivs_classes
+# ivs_classes
 
 # AudioConfigurationTypeDef
 

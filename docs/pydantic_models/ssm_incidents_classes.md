@@ -1,4 +1,4 @@
-# Pydantic Models in ssm_incidents_classes
+# ssm_incidents_classes
 
 # ActionTypeDef
 

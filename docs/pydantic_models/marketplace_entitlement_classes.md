@@ -1,4 +1,4 @@
-# Pydantic Models in marketplace_entitlement_classes
+# marketplace_entitlement_classes
 
 # BaseValidatorModel
 

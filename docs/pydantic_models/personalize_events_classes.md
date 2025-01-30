@@ -1,4 +1,4 @@
-# Pydantic Models in personalize_events_classes
+# personalize_events_classes
 
 # ActionInteractionTypeDef
 

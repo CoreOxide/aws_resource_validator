@@ -1,4 +1,4 @@
-# Pydantic Models in iot_jobs_data_classes
+# iot_jobs_data_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in mailmanager_classes
+# mailmanager_classes
 
 # AddHeaderActionTypeDef
 

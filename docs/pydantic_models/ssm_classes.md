@@ -1,4 +1,4 @@
-# Pydantic Models in ssm_classes
+# ssm_classes
 
 # AccountSharingInfoTypeDef
 

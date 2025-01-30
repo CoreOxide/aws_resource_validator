@@ -1,4 +1,4 @@
-# Pydantic Models in ecr_public_classes
+# ecr_public_classes
 
 # AuthorizationDataTypeDef
 

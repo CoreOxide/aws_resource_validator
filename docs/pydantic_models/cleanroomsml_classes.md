@@ -1,4 +1,4 @@
-# Pydantic Models in cleanroomsml_classes
+# cleanroomsml_classes
 
 # AudienceDestinationTypeDef
 

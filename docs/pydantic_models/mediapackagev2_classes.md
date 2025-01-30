@@ -1,4 +1,4 @@
-# Pydantic Models in mediapackagev2_classes
+# mediapackagev2_classes
 
 # BaseValidatorModel
 

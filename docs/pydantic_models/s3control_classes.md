@@ -1,4 +1,4 @@
-# Pydantic Models in s3control_classes
+# s3control_classes
 
 # AbortIncompleteMultipartUploadTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in medical_imaging_classes
+# medical_imaging_classes
 
 # BaseValidatorModel
 

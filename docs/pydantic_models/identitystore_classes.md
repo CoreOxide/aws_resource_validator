@@ -1,4 +1,4 @@
-# Pydantic Models in identitystore_classes
+# identitystore_classes
 
 # AddressTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in outposts_classes
+# outposts_classes
 
 # AddressTypeDef
 

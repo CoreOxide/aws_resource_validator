@@ -1,4 +1,4 @@
-# Pydantic Models in cleanrooms_classes
+# cleanrooms_classes
 
 # AggregateColumnTypeDef
 

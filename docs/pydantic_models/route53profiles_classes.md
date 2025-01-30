@@ -1,4 +1,4 @@
-# Pydantic Models in route53profiles_classes
+# route53profiles_classes
 
 # AssociateProfileRequestRequestTypeDef
 

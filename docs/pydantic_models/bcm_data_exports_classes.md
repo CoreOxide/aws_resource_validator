@@ -1,4 +1,4 @@
-# Pydantic Models in bcm_data_exports_classes
+# bcm_data_exports_classes
 
 # BaseValidatorModel
 

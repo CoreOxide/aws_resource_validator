@@ -1,4 +1,4 @@
-# Pydantic Models in neptune_classes
+# neptune_classes
 
 # AddRoleToDBClusterMessageRequestTypeDef
 

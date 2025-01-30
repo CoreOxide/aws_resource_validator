@@ -1,4 +1,4 @@
-# Pydantic Models in lakeformation_classes
+# lakeformation_classes
 
 # AddLFTagsToResourceRequestRequestTypeDef
 

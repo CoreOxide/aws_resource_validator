@@ -1,4 +1,4 @@
-# Pydantic Models in acm_pca_classes
+# acm_pca_classes
 
 # ASN1SubjectExtraOutputTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in efs_classes
+# efs_classes
 
 # AccessPointDescriptionResponseTypeDef
 

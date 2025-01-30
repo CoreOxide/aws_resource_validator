@@ -1,4 +1,4 @@
-# Pydantic Models in qldb_session_classes
+# qldb_session_classes
 
 # AbortTransactionResultTypeDef
 

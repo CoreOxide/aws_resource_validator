@@ -1,4 +1,4 @@
-# Pydantic Models in glacier_classes
+# glacier_classes
 
 # AbortMultipartUploadInputRequestTypeDef
 

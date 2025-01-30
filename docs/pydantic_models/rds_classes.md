@@ -1,4 +1,4 @@
-# Pydantic Models in rds_classes
+# rds_classes
 
 # AccountAttributesMessageTypeDef
 

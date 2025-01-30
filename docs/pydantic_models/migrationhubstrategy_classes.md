@@ -1,4 +1,4 @@
-# Pydantic Models in migrationhubstrategy_classes
+# migrationhubstrategy_classes
 
 # AnalysisStatusUnionTypeDef
 

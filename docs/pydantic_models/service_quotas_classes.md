@@ -1,4 +1,4 @@
-# Pydantic Models in service_quotas_classes
+# service_quotas_classes
 
 # BaseValidatorModel
 

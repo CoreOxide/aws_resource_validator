@@ -1,4 +1,4 @@
-# Pydantic Models in globalaccelerator_classes
+# globalaccelerator_classes
 
 # AcceleratorAttributesTypeDef
 

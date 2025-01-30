@@ -1,4 +1,4 @@
-# Pydantic Models in rekognition_classes
+# rekognition_classes
 
 # AgeRangeTypeDef
 

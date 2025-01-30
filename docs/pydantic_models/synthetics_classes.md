@@ -1,4 +1,4 @@
-# Pydantic Models in synthetics_classes
+# synthetics_classes
 
 # ArtifactConfigInputTypeDef
 

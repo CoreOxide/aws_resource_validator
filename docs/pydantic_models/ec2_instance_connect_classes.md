@@ -1,4 +1,4 @@
-# Pydantic Models in ec2_instance_connect_classes
+# ec2_instance_connect_classes
 
 # BaseValidatorModel
 

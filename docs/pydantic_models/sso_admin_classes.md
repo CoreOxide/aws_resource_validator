@@ -1,4 +1,4 @@
-# Pydantic Models in sso_admin_classes
+# sso_admin_classes
 
 # AccessControlAttributeTypeDef
 

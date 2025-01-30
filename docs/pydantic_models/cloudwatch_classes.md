@@ -1,4 +1,4 @@
-# Pydantic Models in cloudwatch_classes
+# cloudwatch_classes
 
 # AlarmHistoryItemTypeDef
 

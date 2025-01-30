@@ -1,4 +1,4 @@
-# Pydantic Models in stepfunctions_classes
+# stepfunctions_classes
 
 # ActivityFailedEventDetailsTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in connectparticipant_classes
+# connectparticipant_classes
 
 # AttachmentItemTypeDef
 

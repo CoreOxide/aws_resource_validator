@@ -1,4 +1,4 @@
-# Pydantic Models in meteringmarketplace_classes
+# meteringmarketplace_classes
 
 # BaseValidatorModel
 

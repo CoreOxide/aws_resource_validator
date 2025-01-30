@@ -1,4 +1,4 @@
-# Pydantic Models in ecs_classes
+# ecs_classes
 
 # AttachmentStateChangeTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in iotfleethub_classes
+# iotfleethub_classes
 
 # ApplicationSummaryTypeDef
 

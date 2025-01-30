@@ -1,4 +1,4 @@
-# Pydantic Models in sts_classes
+# sts_classes
 
 # AssumeRoleRequestRequestTypeDef
 

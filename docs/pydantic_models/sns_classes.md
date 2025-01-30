@@ -1,4 +1,4 @@
-# Pydantic Models in sns_classes
+# sns_classes
 
 # AddPermissionInputRequestTypeDef
 

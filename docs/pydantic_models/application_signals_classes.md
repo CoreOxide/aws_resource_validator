@@ -1,4 +1,4 @@
-# Pydantic Models in application_signals_classes
+# application_signals_classes
 
 # BaseValidatorModel
 

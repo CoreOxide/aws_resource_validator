@@ -1,4 +1,4 @@
-# Pydantic Models in launch_wizard_classes
+# launch_wizard_classes
 
 # BaseValidatorModel
 

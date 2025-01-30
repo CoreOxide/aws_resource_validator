@@ -1,4 +1,4 @@
-# Pydantic Models in ds_classes
+# ds_classes
 
 # AcceptSharedDirectoryRequestRequestTypeDef
 

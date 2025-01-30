@@ -1,4 +1,4 @@
-# Pydantic Models in entityresolution_classes
+# entityresolution_classes
 
 # AddPolicyStatementInputRequestTypeDef
 

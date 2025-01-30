@@ -1,4 +1,4 @@
-# Pydantic Models in config_classes
+# config_classes
 
 # AccountAggregationSourceExtraOutputTypeDef
 

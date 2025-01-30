@@ -1,4 +1,4 @@
-# Pydantic Models in docdb_classes
+# docdb_classes
 
 # AddSourceIdentifierToSubscriptionMessageRequestTypeDef
 

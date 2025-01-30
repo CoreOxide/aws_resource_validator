@@ -1,4 +1,4 @@
-# Pydantic Models in codecommit_classes
+# codecommit_classes
 
 # ApprovalRuleEventMetadataTypeDef
 

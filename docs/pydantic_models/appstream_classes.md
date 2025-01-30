@@ -1,4 +1,4 @@
-# Pydantic Models in appstream_classes
+# appstream_classes
 
 # AccessEndpointTypeDef
 

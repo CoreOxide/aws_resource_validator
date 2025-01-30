@@ -1,4 +1,4 @@
-# Pydantic Models in detective_classes
+# detective_classes
 
 # AcceptInvitationRequestRequestTypeDef
 

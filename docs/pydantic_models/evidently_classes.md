@@ -1,4 +1,4 @@
-# Pydantic Models in evidently_classes
+# evidently_classes
 
 # BaseValidatorModel
 

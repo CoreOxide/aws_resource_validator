@@ -1,4 +1,4 @@
-# Pydantic Models in codestar_connections_classes
+# codestar_connections_classes
 
 # BaseValidatorModel
 

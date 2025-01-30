@@ -1,4 +1,4 @@
-# Pydantic Models in controlcatalog_classes
+# controlcatalog_classes
 
 # AssociatedDomainSummaryTypeDef
 

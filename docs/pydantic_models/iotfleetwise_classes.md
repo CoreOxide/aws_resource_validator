@@ -1,4 +1,4 @@
-# Pydantic Models in iotfleetwise_classes
+# iotfleetwise_classes
 
 # ActuatorExtraOutputTypeDef
 

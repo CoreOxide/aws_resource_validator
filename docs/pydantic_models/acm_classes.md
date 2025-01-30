@@ -1,4 +1,4 @@
-# Pydantic Models in acm_classes
+# acm_classes
 
 # AddTagsToCertificateRequestRequestTypeDef
 

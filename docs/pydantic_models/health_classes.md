@@ -1,4 +1,4 @@
-# Pydantic Models in health_classes
+# health_classes
 
 # AccountEntityAggregateTypeDef
 

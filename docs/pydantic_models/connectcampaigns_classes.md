@@ -1,4 +1,4 @@
-# Pydantic Models in connectcampaigns_classes
+# connectcampaigns_classes
 
 # AgentlessDialerConfigTypeDef
 

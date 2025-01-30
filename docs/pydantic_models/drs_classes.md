@@ -1,4 +1,4 @@
-# Pydantic Models in drs_classes
+# drs_classes
 
 # AccountTypeDef
 

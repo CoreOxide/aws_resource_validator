@@ -1,4 +1,4 @@
-# Pydantic Models in pca_connector_ad_classes
+# pca_connector_ad_classes
 
 # AccessControlEntrySummaryTypeDef
 

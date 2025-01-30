@@ -1,4 +1,4 @@
-# Pydantic Models in mgn_classes
+# mgn_classes
 
 # ApplicationAggregatedStatusTypeDef
 

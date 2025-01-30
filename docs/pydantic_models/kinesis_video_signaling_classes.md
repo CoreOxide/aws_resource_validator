@@ -1,4 +1,4 @@
-# Pydantic Models in kinesis_video_signaling_classes
+# kinesis_video_signaling_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in greengrassv2_classes
+# greengrassv2_classes
 
 # AssociateClientDeviceWithCoreDeviceEntryTypeDef
 

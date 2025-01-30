@@ -1,4 +1,4 @@
-# Pydantic Models in pinpoint_sms_voice_v2_classes
+# pinpoint_sms_voice_v2_classes
 
 # AccountAttributeTypeDef
 

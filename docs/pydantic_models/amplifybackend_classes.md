@@ -1,4 +1,4 @@
-# Pydantic Models in amplifybackend_classes
+# amplifybackend_classes
 
 # BackendAPIAppSyncAuthSettingsTypeDef
 

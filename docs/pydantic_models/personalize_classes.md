@@ -1,4 +1,4 @@
-# Pydantic Models in personalize_classes
+# personalize_classes
 
 # AlgorithmImageTypeDef
 

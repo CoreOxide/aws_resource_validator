@@ -1,4 +1,4 @@
-# Pydantic Models in lambda_classes
+# lambda_classes
 
 # AccountLimitTypeDef
 

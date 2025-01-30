@@ -1,4 +1,4 @@
-# Pydantic Models in personalize_runtime_classes
+# personalize_runtime_classes
 
 # BaseValidatorModel
 

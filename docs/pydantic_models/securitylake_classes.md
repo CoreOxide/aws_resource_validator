@@ -1,4 +1,4 @@
-# Pydantic Models in securitylake_classes
+# securitylake_classes
 
 # AwsIdentityTypeDef
 

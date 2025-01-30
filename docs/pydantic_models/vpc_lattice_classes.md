@@ -1,4 +1,4 @@
-# Pydantic Models in vpc_lattice_classes
+# vpc_lattice_classes
 
 # AccessLogSubscriptionSummaryTypeDef
 

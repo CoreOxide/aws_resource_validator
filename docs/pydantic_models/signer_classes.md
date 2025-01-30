@@ -1,4 +1,4 @@
-# Pydantic Models in signer_classes
+# signer_classes
 
 # AddProfilePermissionRequestRequestTypeDef
 

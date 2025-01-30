@@ -1,4 +1,4 @@
-# Pydantic Models in storagegateway_classes
+# storagegateway_classes
 
 # ActivateGatewayInputRequestTypeDef
 

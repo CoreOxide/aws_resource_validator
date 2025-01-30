@@ -1,4 +1,4 @@
-# Pydantic Models in deadline_classes
+# deadline_classes
 
 # AcceleratorCountRangeTypeDef
 

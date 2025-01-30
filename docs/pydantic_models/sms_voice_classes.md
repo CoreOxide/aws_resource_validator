@@ -1,4 +1,4 @@
-# Pydantic Models in sms_voice_classes
+# sms_voice_classes
 
 # BaseValidatorModel
 

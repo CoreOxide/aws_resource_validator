@@ -1,4 +1,4 @@
-# Pydantic Models in logs_classes
+# logs_classes
 
 # AccountPolicyTypeDef
 

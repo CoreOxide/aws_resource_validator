@@ -1,4 +1,4 @@
-# Pydantic Models in codeguru_security_classes
+# codeguru_security_classes
 
 # AccountFindingsMetricTypeDef
 

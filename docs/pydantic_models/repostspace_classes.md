@@ -1,4 +1,4 @@
-# Pydantic Models in repostspace_classes
+# repostspace_classes
 
 # BaseValidatorModel
 

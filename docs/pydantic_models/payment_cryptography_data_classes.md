@@ -1,4 +1,4 @@
-# Pydantic Models in payment_cryptography_data_classes
+# payment_cryptography_data_classes
 
 # AmexCardSecurityCodeVersion1TypeDef
 

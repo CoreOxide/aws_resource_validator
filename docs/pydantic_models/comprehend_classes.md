@@ -1,4 +1,4 @@
-# Pydantic Models in comprehend_classes
+# comprehend_classes
 
 # AugmentedManifestsListItemPaginatorTypeDef
 

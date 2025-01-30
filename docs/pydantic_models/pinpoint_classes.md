@@ -1,4 +1,4 @@
-# Pydantic Models in pinpoint_classes
+# pinpoint_classes
 
 # ADMChannelRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in apptest_classes
+# apptest_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in connect_contact_lens_classes
+# connect_contact_lens_classes
 
 # BaseValidatorModel
 

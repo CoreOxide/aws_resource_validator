@@ -1,4 +1,4 @@
-# Pydantic Models in ebs_classes
+# ebs_classes
 
 # BaseValidatorModel
 

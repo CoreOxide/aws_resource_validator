@@ -1,4 +1,4 @@
-# Pydantic Models in timestream_query_classes
+# timestream_query_classes
 
 # BaseValidatorModel
 

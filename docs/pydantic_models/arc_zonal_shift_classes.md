@@ -1,4 +1,4 @@
-# Pydantic Models in arc_zonal_shift_classes
+# arc_zonal_shift_classes
 
 # AutoshiftInResourceTypeDef
 

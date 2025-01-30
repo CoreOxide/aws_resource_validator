@@ -1,4 +1,4 @@
-# Pydantic Models in ram_classes
+# ram_classes
 
 # AcceptResourceShareInvitationRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in lookoutvision_classes
+# lookoutvision_classes
 
 # AnomalyTypeDef
 

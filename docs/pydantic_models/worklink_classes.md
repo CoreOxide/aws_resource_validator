@@ -1,4 +1,4 @@
-# Pydantic Models in worklink_classes
+# worklink_classes
 
 # AssociateDomainRequestRequestTypeDef
 

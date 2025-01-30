@@ -1,4 +1,4 @@
-# Pydantic Models in sagemaker_edge_classes
+# sagemaker_edge_classes
 
 # BaseValidatorModel
 

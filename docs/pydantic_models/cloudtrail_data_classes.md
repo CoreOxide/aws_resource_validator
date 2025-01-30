@@ -1,4 +1,4 @@
-# Pydantic Models in cloudtrail_data_classes
+# cloudtrail_data_classes
 
 # AuditEventResultEntryTypeDef
 

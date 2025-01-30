@@ -1,4 +1,4 @@
-# Pydantic Models in route53domains_classes
+# route53domains_classes
 
 # AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef
 

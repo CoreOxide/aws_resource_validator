@@ -1,4 +1,4 @@
-# Pydantic Models in events_classes
+# events_classes
 
 # ActivateEventSourceRequestRequestTypeDef
 

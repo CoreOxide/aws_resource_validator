@@ -1,4 +1,4 @@
-# Pydantic Models in workdocs_classes
+# workdocs_classes
 
 # AbortDocumentVersionUploadRequestRequestTypeDef
 

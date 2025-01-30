@@ -1,4 +1,4 @@
-# Pydantic Models in mobile_classes
+# mobile_classes
 
 # BaseValidatorModel
 

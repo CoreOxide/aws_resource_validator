@@ -1,4 +1,4 @@
-# Pydantic Models in artifact_classes
+# artifact_classes
 
 # AccountSettingsTypeDef
 

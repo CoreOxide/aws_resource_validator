@@ -1,4 +1,4 @@
-# Pydantic Models in amplify_classes
+# amplify_classes
 
 # AppTypeDef
 

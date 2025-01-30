@@ -1,4 +1,4 @@
-# Pydantic Models in pinpoint_email_classes
+# pinpoint_email_classes
 
 # BaseValidatorModel
 

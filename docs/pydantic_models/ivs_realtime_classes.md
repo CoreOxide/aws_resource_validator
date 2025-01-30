@@ -1,4 +1,4 @@
-# Pydantic Models in ivs_realtime_classes
+# ivs_realtime_classes
 
 # AutoParticipantRecordingConfigurationOutputTypeDef
 

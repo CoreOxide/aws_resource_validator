@@ -1,4 +1,4 @@
-# Pydantic Models in supplychain_classes
+# supplychain_classes
 
 # BaseValidatorModel
 

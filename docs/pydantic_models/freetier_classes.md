@@ -1,4 +1,4 @@
-# Pydantic Models in freetier_classes
+# freetier_classes
 
 # BaseValidatorModel
 

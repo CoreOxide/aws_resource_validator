@@ -1,4 +1,4 @@
-# Pydantic Models in networkmonitor_classes
+# networkmonitor_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in cloudhsmv2_classes
+# cloudhsmv2_classes
 
 # BackupRetentionPolicyTypeDef
 

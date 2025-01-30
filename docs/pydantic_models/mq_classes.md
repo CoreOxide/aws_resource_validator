@@ -1,4 +1,4 @@
-# Pydantic Models in mq_classes
+# mq_classes
 
 # ActionRequiredTypeDef
 

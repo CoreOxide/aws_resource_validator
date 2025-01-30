@@ -1,4 +1,4 @@
-# Pydantic Models in apigateway_classes
+# apigateway_classes
 
 # AccessLogSettingsTypeDef
 

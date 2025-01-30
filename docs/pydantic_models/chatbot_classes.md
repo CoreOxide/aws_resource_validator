@@ -1,4 +1,4 @@
-# Pydantic Models in chatbot_classes
+# chatbot_classes
 
 # AccountPreferencesTypeDef
 

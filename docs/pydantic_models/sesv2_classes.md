@@ -1,4 +1,4 @@
-# Pydantic Models in sesv2_classes
+# sesv2_classes
 
 # AccountDetailsTypeDef
 

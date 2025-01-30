@@ -1,4 +1,4 @@
-# Pydantic Models in dynamodbstreams_classes
+# dynamodbstreams_classes
 
 # AttributeValueTypeDef
 

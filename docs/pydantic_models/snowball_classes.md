@@ -1,4 +1,4 @@
-# Pydantic Models in snowball_classes
+# snowball_classes
 
 # AddressTypeDef
 

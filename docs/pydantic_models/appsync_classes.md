@@ -1,4 +1,4 @@
-# Pydantic Models in appsync_classes
+# appsync_classes
 
 # AdditionalAuthenticationProviderTypeDef
 

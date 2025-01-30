@@ -1,4 +1,4 @@
-# Pydantic Models in taxsettings_classes
+# taxsettings_classes
 
 # AccountDetailsTypeDef
 

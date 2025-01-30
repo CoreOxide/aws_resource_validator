@@ -1,4 +1,4 @@
-# Pydantic Models in lexv2_runtime_classes
+# lexv2_runtime_classes
 
 # ActiveContextTimeToLiveTypeDef
 

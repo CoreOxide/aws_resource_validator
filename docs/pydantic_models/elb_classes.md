@@ -1,4 +1,4 @@
-# Pydantic Models in elb_classes
+# elb_classes
 
 # AccessLogTypeDef
 

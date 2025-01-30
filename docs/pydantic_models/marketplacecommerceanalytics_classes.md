@@ -1,4 +1,4 @@
-# Pydantic Models in marketplacecommerceanalytics_classes
+# marketplacecommerceanalytics_classes
 
 # BaseValidatorModel
 

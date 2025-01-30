@@ -1,4 +1,4 @@
-# Pydantic Models in inspector_classes
+# inspector_classes
 
 # AddAttributesToFindingsRequestRequestTypeDef
 

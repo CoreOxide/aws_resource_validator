@@ -1,4 +1,4 @@
-# Pydantic Models in ivschat_classes
+# ivschat_classes
 
 # BaseValidatorModel
 

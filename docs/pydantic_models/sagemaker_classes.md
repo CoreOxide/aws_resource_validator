@@ -1,4 +1,4 @@
-# Pydantic Models in sagemaker_classes
+# sagemaker_classes
 
 # ActionSourceTypeDef
 

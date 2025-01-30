@@ -1,4 +1,4 @@
-# Pydantic Models in accessanalyzer_classes
+# accessanalyzer_classes
 
 # AccessPreviewFindingTypeDef
 

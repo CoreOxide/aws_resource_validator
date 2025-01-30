@@ -1,4 +1,4 @@
-# Pydantic Models in osis_classes
+# osis_classes
 
 # BaseValidatorModel
 

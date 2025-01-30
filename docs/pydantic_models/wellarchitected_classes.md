@@ -1,4 +1,4 @@
-# Pydantic Models in wellarchitected_classes
+# wellarchitected_classes
 
 # AccountJiraConfigurationInputTypeDef
 

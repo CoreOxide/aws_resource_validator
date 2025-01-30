@@ -1,4 +1,4 @@
-# Pydantic Models in cur_classes
+# cur_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in mgh_classes
+# mgh_classes
 
 # ApplicationStateTypeDef
 

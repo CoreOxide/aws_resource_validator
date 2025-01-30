@@ -1,4 +1,4 @@
-# Pydantic Models in support_classes
+# support_classes
 
 # AddAttachmentsToSetRequestRequestTypeDef
 

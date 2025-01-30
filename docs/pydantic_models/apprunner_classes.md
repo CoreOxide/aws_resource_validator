@@ -1,4 +1,4 @@
-# Pydantic Models in apprunner_classes
+# apprunner_classes
 
 # AssociateCustomDomainRequestRequestTypeDef
 

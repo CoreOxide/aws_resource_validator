@@ -1,4 +1,4 @@
-# Pydantic Models in machinelearning_classes
+# machinelearning_classes
 
 # AddTagsInputRequestTypeDef
 

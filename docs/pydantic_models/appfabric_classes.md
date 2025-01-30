@@ -1,4 +1,4 @@
-# Pydantic Models in appfabric_classes
+# appfabric_classes
 
 # ApiKeyCredentialTypeDef
 

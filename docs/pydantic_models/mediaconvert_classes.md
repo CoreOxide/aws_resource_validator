@@ -1,4 +1,4 @@
-# Pydantic Models in mediaconvert_classes
+# mediaconvert_classes
 
 # AacSettingsTypeDef
 

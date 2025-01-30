@@ -1,4 +1,4 @@
-# Pydantic Models in rbin_classes
+# rbin_classes
 
 # BaseValidatorModel
 

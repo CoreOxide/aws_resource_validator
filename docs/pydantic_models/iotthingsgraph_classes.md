@@ -1,4 +1,4 @@
-# Pydantic Models in iotthingsgraph_classes
+# iotthingsgraph_classes
 
 # AssociateEntityToThingRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in pipes_classes
+# pipes_classes
 
 # AwsVpcConfigurationOutputTypeDef
 

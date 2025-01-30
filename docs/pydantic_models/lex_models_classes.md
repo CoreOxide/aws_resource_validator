@@ -1,4 +1,4 @@
-# Pydantic Models in lex_models_classes
+# lex_models_classes
 
 # BaseValidatorModel
 

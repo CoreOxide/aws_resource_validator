@@ -1,4 +1,4 @@
-# Pydantic Models in healthlake_classes
+# healthlake_classes
 
 # BaseValidatorModel
 

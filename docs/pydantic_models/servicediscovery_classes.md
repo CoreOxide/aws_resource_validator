@@ -1,4 +1,4 @@
-# Pydantic Models in servicediscovery_classes
+# servicediscovery_classes
 
 # BaseValidatorModel
 

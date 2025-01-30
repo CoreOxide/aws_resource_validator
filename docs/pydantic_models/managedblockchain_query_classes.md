@@ -1,4 +1,4 @@
-# Pydantic Models in managedblockchain_query_classes
+# managedblockchain_query_classes
 
 # AddressIdentifierFilterTypeDef
 

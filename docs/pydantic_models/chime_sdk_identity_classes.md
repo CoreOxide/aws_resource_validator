@@ -1,4 +1,4 @@
-# Pydantic Models in chime_sdk_identity_classes
+# chime_sdk_identity_classes
 
 # AppInstanceAdminSummaryTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in translate_classes
+# translate_classes
 
 # AppliedTerminologyTypeDef
 

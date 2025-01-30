@@ -1,4 +1,4 @@
-# Pydantic Models in migration_hub_refactor_spaces_classes
+# migration_hub_refactor_spaces_classes
 
 # ApiGatewayProxyConfigTypeDef
 

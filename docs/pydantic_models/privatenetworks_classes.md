@@ -1,4 +1,4 @@
-# Pydantic Models in privatenetworks_classes
+# privatenetworks_classes
 
 # AcknowledgeOrderReceiptRequestRequestTypeDef
 

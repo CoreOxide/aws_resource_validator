@@ -1,4 +1,4 @@
-# Pydantic Models in grafana_classes
+# grafana_classes
 
 # AssertionAttributesTypeDef
 

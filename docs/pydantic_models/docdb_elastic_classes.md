@@ -1,4 +1,4 @@
-# Pydantic Models in docdb_elastic_classes
+# docdb_elastic_classes
 
 # BaseValidatorModel
 

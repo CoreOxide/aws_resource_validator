@@ -1,4 +1,4 @@
-# Pydantic Models in codedeploy_classes
+# codedeploy_classes
 
 # AddTagsToOnPremisesInstancesInputRequestTypeDef
 

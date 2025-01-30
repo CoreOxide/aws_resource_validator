@@ -1,4 +1,4 @@
-# Pydantic Models in iotwireless_classes
+# iotwireless_classes
 
 # AbpV10XTypeDef
 

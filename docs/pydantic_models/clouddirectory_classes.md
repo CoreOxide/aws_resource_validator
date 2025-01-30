@@ -1,4 +1,4 @@
-# Pydantic Models in clouddirectory_classes
+# clouddirectory_classes
 
 # AddFacetToObjectRequestRequestTypeDef
 

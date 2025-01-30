@@ -1,4 +1,4 @@
-# Pydantic Models in iot_classes
+# iot_classes
 
 # AbortConfigTypeDef
 

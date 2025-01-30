@@ -1,4 +1,4 @@
-# Pydantic Models in codestar_classes
+# codestar_classes
 
 # AssociateTeamMemberRequestRequestTypeDef
 

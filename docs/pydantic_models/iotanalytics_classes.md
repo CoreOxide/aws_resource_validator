@@ -1,4 +1,4 @@
-# Pydantic Models in iotanalytics_classes
+# iotanalytics_classes
 
 # AddAttributesActivityTypeDef
 

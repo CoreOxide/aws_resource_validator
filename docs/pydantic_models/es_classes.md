@@ -1,4 +1,4 @@
-# Pydantic Models in es_classes
+# es_classes
 
 # AcceptInboundCrossClusterSearchConnectionRequestRequestTypeDef
 

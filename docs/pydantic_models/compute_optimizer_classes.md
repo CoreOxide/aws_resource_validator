@@ -1,4 +1,4 @@
-# Pydantic Models in compute_optimizer_classes
+# compute_optimizer_classes
 
 # AccountEnrollmentStatusTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in opensearch_classes
+# opensearch_classes
 
 # AIMLOptionsInputTypeDef
 

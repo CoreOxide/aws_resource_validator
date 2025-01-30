@@ -1,4 +1,4 @@
-# Pydantic Models in dax_classes
+# dax_classes
 
 # BaseValidatorModel
 

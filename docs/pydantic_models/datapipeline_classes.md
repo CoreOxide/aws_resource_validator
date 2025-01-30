@@ -1,4 +1,4 @@
-# Pydantic Models in datapipeline_classes
+# datapipeline_classes
 
 # ActivatePipelineInputRequestTypeDef
 

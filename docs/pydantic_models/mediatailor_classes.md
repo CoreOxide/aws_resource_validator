@@ -1,4 +1,4 @@
-# Pydantic Models in mediatailor_classes
+# mediatailor_classes
 
 # AccessConfigurationTypeDef
 

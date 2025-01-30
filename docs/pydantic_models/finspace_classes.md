@@ -1,4 +1,4 @@
-# Pydantic Models in finspace_classes
+# finspace_classes
 
 # AutoScalingConfigurationTypeDef
 

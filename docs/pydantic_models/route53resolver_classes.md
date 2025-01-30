@@ -1,4 +1,4 @@
-# Pydantic Models in route53resolver_classes
+# route53resolver_classes
 
 # AssociateFirewallRuleGroupRequestRequestTypeDef
 

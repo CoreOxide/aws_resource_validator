@@ -1,4 +1,4 @@
-# Pydantic Models in kinesisanalyticsv2_classes
+# kinesisanalyticsv2_classes
 
 # AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef
 

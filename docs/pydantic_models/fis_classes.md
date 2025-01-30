@@ -1,4 +1,4 @@
-# Pydantic Models in fis_classes
+# fis_classes
 
 # ActionParameterTypeDef
 

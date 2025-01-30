@@ -1,4 +1,4 @@
-# Pydantic Models in swf_classes
+# swf_classes
 
 # ActivityTaskCancelRequestedEventAttributesTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in cloudsearch_classes
+# cloudsearch_classes
 
 # AccessPoliciesStatusTypeDef
 

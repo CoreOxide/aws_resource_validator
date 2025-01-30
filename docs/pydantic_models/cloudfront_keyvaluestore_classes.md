@@ -1,4 +1,4 @@
-# Pydantic Models in cloudfront_keyvaluestore_classes
+# cloudfront_keyvaluestore_classes
 
 # BaseValidatorModel
 

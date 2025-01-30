@@ -1,4 +1,4 @@
-# Pydantic Models in quicksight_classes
+# quicksight_classes
 
 # AccountCustomizationTypeDef
 

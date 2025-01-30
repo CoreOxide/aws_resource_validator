@@ -1,4 +1,4 @@
-# Pydantic Models in savingsplans_classes
+# savingsplans_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in kendra_classes
+# kendra_classes
 
 # AccessControlConfigurationSummaryTypeDef
 

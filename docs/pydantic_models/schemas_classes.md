@@ -1,4 +1,4 @@
-# Pydantic Models in schemas_classes
+# schemas_classes
 
 # BaseValidatorModel
 

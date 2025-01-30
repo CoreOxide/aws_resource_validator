@@ -1,4 +1,4 @@
-# Pydantic Models in codeconnections_classes
+# codeconnections_classes
 
 # BaseValidatorModel
 

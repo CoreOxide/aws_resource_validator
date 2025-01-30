@@ -1,4 +1,4 @@
-# Pydantic Models in cloudfront_classes
+# cloudfront_classes
 
 # ActiveTrustedKeyGroupsTypeDef
 

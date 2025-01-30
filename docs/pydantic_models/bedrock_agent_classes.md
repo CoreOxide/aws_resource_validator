@@ -1,4 +1,4 @@
-# Pydantic Models in bedrock_agent_classes
+# bedrock_agent_classes
 
 # APISchemaTypeDef
 

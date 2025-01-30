@@ -1,4 +1,4 @@
-# Pydantic Models in mwaa_classes
+# mwaa_classes
 
 # BaseValidatorModel
 

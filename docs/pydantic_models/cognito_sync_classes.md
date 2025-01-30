@@ -1,4 +1,4 @@
-# Pydantic Models in cognito_sync_classes
+# cognito_sync_classes
 
 # BaseValidatorModel
 

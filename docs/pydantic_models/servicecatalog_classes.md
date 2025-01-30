@@ -1,4 +1,4 @@
-# Pydantic Models in servicecatalog_classes
+# servicecatalog_classes
 
 # AcceptPortfolioShareInputRequestTypeDef
 

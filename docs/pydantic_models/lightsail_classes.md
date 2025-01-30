@@ -1,4 +1,4 @@
-# Pydantic Models in lightsail_classes
+# lightsail_classes
 
 # AccessKeyLastUsedTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in qbusiness_classes
+# qbusiness_classes
 
 # APISchemaTypeDef
 

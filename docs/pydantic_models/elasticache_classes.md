@@ -1,4 +1,4 @@
-# Pydantic Models in elasticache_classes
+# elasticache_classes
 
 # AddTagsToResourceMessageRequestTypeDef
 

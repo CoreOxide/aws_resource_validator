@@ -1,4 +1,4 @@
-# Pydantic Models in managedblockchain_classes
+# managedblockchain_classes
 
 # AccessorSummaryTypeDef
 

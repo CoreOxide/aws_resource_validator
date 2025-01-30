@@ -1,4 +1,4 @@
-# Pydantic Models in codepipeline_classes
+# codepipeline_classes
 
 # AWSSessionCredentialsTypeDef
 

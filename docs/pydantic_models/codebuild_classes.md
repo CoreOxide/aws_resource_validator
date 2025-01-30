@@ -1,4 +1,4 @@
-# Pydantic Models in codebuild_classes
+# codebuild_classes
 
 # BaseValidatorModel
 

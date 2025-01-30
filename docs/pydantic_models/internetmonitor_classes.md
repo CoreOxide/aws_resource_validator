@@ -1,4 +1,4 @@
-# Pydantic Models in internetmonitor_classes
+# internetmonitor_classes
 
 # AvailabilityMeasurementTypeDef
 

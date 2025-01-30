@@ -1,4 +1,4 @@
-# Pydantic Models in resource_explorer_2_classes
+# resource_explorer_2_classes
 
 # AssociateDefaultViewInputRequestTypeDef
 

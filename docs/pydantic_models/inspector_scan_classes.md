@@ -1,4 +1,4 @@
-# Pydantic Models in inspector_scan_classes
+# inspector_scan_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in customer_profiles_classes
+# customer_profiles_classes
 
 # AddProfileKeyRequestRequestTypeDef
 

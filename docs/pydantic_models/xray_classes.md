@@ -1,4 +1,4 @@
-# Pydantic Models in xray_classes
+# xray_classes
 
 # AliasTypeDef
 

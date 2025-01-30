@@ -1,4 +1,4 @@
-# Pydantic Models in cognito_identity_classes
+# cognito_identity_classes
 
 # BaseValidatorModel
 

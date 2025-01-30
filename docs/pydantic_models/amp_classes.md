@@ -1,4 +1,4 @@
-# Pydantic Models in amp_classes
+# amp_classes
 
 # AlertManagerDefinitionDescriptionTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in tnb_classes
+# tnb_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in sso_oidc_classes
+# sso_oidc_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in iotdeviceadvisor_classes
+# iotdeviceadvisor_classes
 
 # BaseValidatorModel
 

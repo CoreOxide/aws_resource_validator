@@ -1,4 +1,4 @@
-# Pydantic Models in emr_containers_classes
+# emr_containers_classes
 
 # AuthorizationConfigurationTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in controltower_classes
+# controltower_classes
 
 # BaseValidatorModel
 

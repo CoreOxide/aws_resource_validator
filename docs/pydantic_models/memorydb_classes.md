@@ -1,4 +1,4 @@
-# Pydantic Models in memorydb_classes
+# memorydb_classes
 
 # ACLPendingChangesTypeDef
 

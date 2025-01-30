@@ -1,4 +1,4 @@
-# Pydantic Models in eks_auth_classes
+# eks_auth_classes
 
 # AssumeRoleForPodIdentityRequestRequestTypeDef
 

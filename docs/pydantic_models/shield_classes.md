@@ -1,4 +1,4 @@
-# Pydantic Models in shield_classes
+# shield_classes
 
 # ApplicationLayerAutomaticResponseConfigurationTypeDef
 

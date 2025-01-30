@@ -1,4 +1,4 @@
-# Pydantic Models in scheduler_classes
+# scheduler_classes
 
 # AwsVpcConfigurationTypeDef
 

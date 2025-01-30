@@ -1,4 +1,4 @@
-# Pydantic Models in applicationcostprofiler_classes
+# applicationcostprofiler_classes
 
 # BaseValidatorModel
 

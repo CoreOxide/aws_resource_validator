@@ -1,4 +1,4 @@
-# Pydantic Models in omics_classes
+# omics_classes
 
 # AbortMultipartReadSetUploadRequestRequestTypeDef
 

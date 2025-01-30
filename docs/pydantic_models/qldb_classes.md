@@ -1,4 +1,4 @@
-# Pydantic Models in qldb_classes
+# qldb_classes
 
 # BaseValidatorModel
 

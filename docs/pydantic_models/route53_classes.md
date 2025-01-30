@@ -1,4 +1,4 @@
-# Pydantic Models in route53_classes
+# route53_classes
 
 # AccountLimitTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in iot1click_projects_classes
+# iot1click_projects_classes
 
 # AssociateDeviceWithPlacementRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in timestream_influxdb_classes
+# timestream_influxdb_classes
 
 # BaseValidatorModel
 

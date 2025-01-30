@@ -1,4 +1,4 @@
-# Pydantic Models in oam_classes
+# oam_classes
 
 # BaseValidatorModel
 

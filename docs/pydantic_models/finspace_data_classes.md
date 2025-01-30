@@ -1,4 +1,4 @@
-# Pydantic Models in finspace_data_classes
+# finspace_data_classes
 
 # AssociateUserToPermissionGroupRequestRequestTypeDef
 

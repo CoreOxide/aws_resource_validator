@@ -1,4 +1,4 @@
-# Pydantic Models in eks_classes
+# eks_classes
 
 # AccessConfigResponseTypeDef
 

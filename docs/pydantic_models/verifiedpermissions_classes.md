@@ -1,4 +1,4 @@
-# Pydantic Models in verifiedpermissions_classes
+# verifiedpermissions_classes
 
 # ActionIdentifierTypeDef
 

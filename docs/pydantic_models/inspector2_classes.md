@@ -1,4 +1,4 @@
-# Pydantic Models in inspector2_classes
+# inspector2_classes
 
 # AccountAggregationResponseTypeDef
 

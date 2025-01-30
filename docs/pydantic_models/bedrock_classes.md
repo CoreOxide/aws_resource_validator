@@ -1,4 +1,4 @@
-# Pydantic Models in bedrock_classes
+# bedrock_classes
 
 # AutomatedEvaluationConfigOutputTypeDef
 

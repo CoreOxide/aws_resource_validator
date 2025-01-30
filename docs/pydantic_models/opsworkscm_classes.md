@@ -1,4 +1,4 @@
-# Pydantic Models in opsworkscm_classes
+# opsworkscm_classes
 
 # AccountAttributeTypeDef
 

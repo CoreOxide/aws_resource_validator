@@ -1,4 +1,4 @@
-# Pydantic Models in groundstation_classes
+# groundstation_classes
 
 # AgentDetailsTypeDef
 

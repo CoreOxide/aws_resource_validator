@@ -1,4 +1,4 @@
-# Pydantic Models in neptune_graph_classes
+# neptune_graph_classes
 
 # BaseValidatorModel
 

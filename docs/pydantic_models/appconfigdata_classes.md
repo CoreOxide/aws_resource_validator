@@ -1,4 +1,4 @@
-# Pydantic Models in appconfigdata_classes
+# appconfigdata_classes
 
 # BaseValidatorModel
 

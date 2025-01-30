@@ -1,4 +1,4 @@
-# Pydantic Models in apigatewaymanagementapi_classes
+# apigatewaymanagementapi_classes
 
 # BaseValidatorModel
 

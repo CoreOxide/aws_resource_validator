@@ -1,4 +1,4 @@
-# Pydantic Models in dms_classes
+# dms_classes
 
 # AccountQuotaTypeDef
 

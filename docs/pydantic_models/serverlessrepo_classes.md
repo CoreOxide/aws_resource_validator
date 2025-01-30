@@ -1,4 +1,4 @@
-# Pydantic Models in serverlessrepo_classes
+# serverlessrepo_classes
 
 # ApplicationDependencySummaryTypeDef
 

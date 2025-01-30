@@ -1,4 +1,4 @@
-# Pydantic Models in comprehendmedical_classes
+# comprehendmedical_classes
 
 # AttributeTypeDef
 

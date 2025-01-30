@@ -1,4 +1,4 @@
-# Pydantic Models in kafkaconnect_classes
+# kafkaconnect_classes
 
 # ApacheKafkaClusterDescriptionTypeDef
 

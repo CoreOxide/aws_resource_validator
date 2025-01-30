@@ -1,4 +1,4 @@
-# Pydantic Models in discovery_classes
+# discovery_classes
 
 # AgentConfigurationStatusTypeDef
 

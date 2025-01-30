@@ -1,4 +1,4 @@
-# Pydantic Models in batch_classes
+# batch_classes
 
 # ArrayPropertiesDetailTypeDef
 

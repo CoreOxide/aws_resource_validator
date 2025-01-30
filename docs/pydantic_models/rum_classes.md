@@ -1,4 +1,4 @@
-# Pydantic Models in rum_classes
+# rum_classes
 
 # AppMonitorConfigurationTypeDef
 

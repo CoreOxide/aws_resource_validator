@@ -1,4 +1,4 @@
-# Pydantic Models in waf_classes
+# waf_classes
 
 # ActivatedRuleExtraOutputTypeDef
 

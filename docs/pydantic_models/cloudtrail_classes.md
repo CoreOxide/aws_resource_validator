@@ -1,4 +1,4 @@
-# Pydantic Models in cloudtrail_classes
+# cloudtrail_classes
 
 # AddTagsRequestRequestTypeDef
 

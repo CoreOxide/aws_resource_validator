@@ -1,4 +1,4 @@
-# Pydantic Models in codeguru_reviewer_classes
+# codeguru_reviewer_classes
 
 # AssociateRepositoryRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in cloudsearchdomain_classes
+# cloudsearchdomain_classes
 
 # BaseValidatorModel
 

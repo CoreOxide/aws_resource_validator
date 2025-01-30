@@ -1,4 +1,4 @@
-# Pydantic Models in devops_guru_classes
+# devops_guru_classes
 
 # AccountHealthTypeDef
 

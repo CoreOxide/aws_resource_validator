@@ -1,4 +1,4 @@
-# Pydantic Models in timestream_write_classes
+# timestream_write_classes
 
 # BaseValidatorModel
 

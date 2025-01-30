@@ -1,4 +1,4 @@
-# Pydantic Models in workspaces_thin_client_classes
+# workspaces_thin_client_classes
 
 # BaseValidatorModel
 

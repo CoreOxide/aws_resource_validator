@@ -1,4 +1,4 @@
-# Pydantic Models in auditmanager_classes
+# auditmanager_classes
 
 # AWSAccountTypeDef
 

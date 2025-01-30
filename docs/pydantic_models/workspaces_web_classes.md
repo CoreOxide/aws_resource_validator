@@ -1,4 +1,4 @@
-# Pydantic Models in workspaces_web_classes
+# workspaces_web_classes
 
 # AssociateBrowserSettingsRequestRequestTypeDef
 

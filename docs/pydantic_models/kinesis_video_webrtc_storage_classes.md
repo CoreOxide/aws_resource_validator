@@ -1,4 +1,4 @@
-# Pydantic Models in kinesis_video_webrtc_storage_classes
+# kinesis_video_webrtc_storage_classes
 
 # BaseValidatorModel
 

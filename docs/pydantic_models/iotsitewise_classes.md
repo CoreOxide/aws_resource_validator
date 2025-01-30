@@ -1,4 +1,4 @@
-# Pydantic Models in iotsitewise_classes
+# iotsitewise_classes
 
 # AccessPolicySummaryTypeDef
 

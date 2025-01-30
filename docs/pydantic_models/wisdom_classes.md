@@ -1,4 +1,4 @@
-# Pydantic Models in wisdom_classes
+# wisdom_classes
 
 # AppIntegrationsConfigurationPaginatorTypeDef
 

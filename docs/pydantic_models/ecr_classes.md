@@ -1,4 +1,4 @@
-# Pydantic Models in ecr_classes
+# ecr_classes
 
 # AttributeTypeDef
 

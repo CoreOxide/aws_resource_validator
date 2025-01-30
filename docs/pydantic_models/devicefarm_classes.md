@@ -1,4 +1,4 @@
-# Pydantic Models in devicefarm_classes
+# devicefarm_classes
 
 # AccountSettingsTypeDef
 

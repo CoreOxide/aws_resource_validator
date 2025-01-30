@@ -1,4 +1,4 @@
-# Pydantic Models in workmailmessageflow_classes
+# workmailmessageflow_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in connect_classes
+# connect_classes
 
 # ActionSummaryTypeDef
 

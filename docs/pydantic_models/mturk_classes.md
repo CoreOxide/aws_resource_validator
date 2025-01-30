@@ -1,4 +1,4 @@
-# Pydantic Models in mturk_classes
+# mturk_classes
 
 # AcceptQualificationRequestRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in elbv2_classes
+# elbv2_classes
 
 # ActionExtraOutputTypeDef
 

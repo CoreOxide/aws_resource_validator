@@ -1,4 +1,4 @@
-# Pydantic Models in ssm_contacts_classes
+# ssm_contacts_classes
 
 # AcceptPageRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in marketplace_catalog_classes
+# marketplace_catalog_classes
 
 # AmiProductEntityIdFilterTypeDef
 

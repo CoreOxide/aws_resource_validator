@@ -1,4 +1,4 @@
-# Pydantic Models in secretsmanager_classes
+# secretsmanager_classes
 
 # APIErrorTypeTypeDef
 

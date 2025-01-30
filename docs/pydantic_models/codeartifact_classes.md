@@ -1,4 +1,4 @@
-# Pydantic Models in codeartifact_classes
+# codeartifact_classes
 
 # AssetSummaryTypeDef
 

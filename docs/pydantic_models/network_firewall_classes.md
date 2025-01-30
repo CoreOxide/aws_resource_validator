@@ -1,4 +1,4 @@
-# Pydantic Models in network_firewall_classes
+# network_firewall_classes
 
 # ActionDefinitionTypeDef
 

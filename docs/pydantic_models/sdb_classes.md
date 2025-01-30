@@ -1,4 +1,4 @@
-# Pydantic Models in sdb_classes
+# sdb_classes
 
 # AttributeTypeDef
 

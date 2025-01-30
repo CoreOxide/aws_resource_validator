@@ -1,4 +1,4 @@
-# Pydantic Models in appconfig_classes
+# appconfig_classes
 
 # ActionInvocationTypeDef
 

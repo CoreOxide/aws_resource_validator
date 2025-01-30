@@ -1,4 +1,4 @@
-# Pydantic Models in elasticbeanstalk_classes
+# elasticbeanstalk_classes
 
 # AbortEnvironmentUpdateMessageRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in codestar_notifications_classes
+# codestar_notifications_classes
 
 # BaseValidatorModel
 

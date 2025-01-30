@@ -1,4 +1,4 @@
-# Pydantic Models in braket_classes
+# braket_classes
 
 # AlgorithmSpecificationTypeDef
 

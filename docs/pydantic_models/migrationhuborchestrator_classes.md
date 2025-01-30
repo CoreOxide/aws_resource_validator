@@ -1,4 +1,4 @@
-# Pydantic Models in migrationhuborchestrator_classes
+# migrationhuborchestrator_classes
 
 # BaseValidatorModel
 

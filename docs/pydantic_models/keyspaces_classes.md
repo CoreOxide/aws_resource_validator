@@ -1,4 +1,4 @@
-# Pydantic Models in keyspaces_classes
+# keyspaces_classes
 
 # AutoScalingPolicyTypeDef
 

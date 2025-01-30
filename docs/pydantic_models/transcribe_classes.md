@@ -1,4 +1,4 @@
-# Pydantic Models in transcribe_classes
+# transcribe_classes
 
 # AbsoluteTimeRangeTypeDef
 

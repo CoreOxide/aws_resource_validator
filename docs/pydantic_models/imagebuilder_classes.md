@@ -1,4 +1,4 @@
-# Pydantic Models in imagebuilder_classes
+# imagebuilder_classes
 
 # AccountAggregationTypeDef
 

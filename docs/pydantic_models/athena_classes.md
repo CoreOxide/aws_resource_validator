@@ -1,4 +1,4 @@
-# Pydantic Models in athena_classes
+# athena_classes
 
 # AclConfigurationTypeDef
 

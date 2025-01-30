@@ -1,4 +1,4 @@
-# Pydantic Models in wafv2_classes
+# wafv2_classes
 
 # APIKeySummaryTypeDef
 

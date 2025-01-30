@@ -1,4 +1,4 @@
-# Pydantic Models in workspaces_classes
+# workspaces_classes
 
 # AcceptAccountLinkInvitationRequestRequestTypeDef
 

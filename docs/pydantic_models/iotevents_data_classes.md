@@ -1,4 +1,4 @@
-# Pydantic Models in iotevents_data_classes
+# iotevents_data_classes
 
 # AcknowledgeActionConfigurationTypeDef
 

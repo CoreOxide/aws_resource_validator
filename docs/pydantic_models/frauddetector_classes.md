@@ -1,4 +1,4 @@
-# Pydantic Models in frauddetector_classes
+# frauddetector_classes
 
 # ATIMetricDataPointTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in ses_classes
+# ses_classes
 
 # AddHeaderActionTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in sso_classes
+# sso_classes
 
 # AccountInfoTypeDef
 

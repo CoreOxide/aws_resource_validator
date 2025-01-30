@@ -1,4 +1,4 @@
-# Pydantic Models in kms_classes
+# kms_classes
 
 # AliasListEntryTypeDef
 

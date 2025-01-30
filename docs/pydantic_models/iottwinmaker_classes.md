@@ -1,4 +1,4 @@
-# Pydantic Models in iottwinmaker_classes
+# iottwinmaker_classes
 
 # BaseValidatorModel
 

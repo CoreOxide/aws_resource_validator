@@ -1,4 +1,4 @@
-# Pydantic Models in kafka_classes
+# kafka_classes
 
 # AmazonMskClusterTypeDef
 

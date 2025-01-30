@@ -1,4 +1,4 @@
-# Pydantic Models in servicecatalog_appregistry_classes
+# servicecatalog_appregistry_classes
 
 # AppRegistryConfigurationTypeDef
 

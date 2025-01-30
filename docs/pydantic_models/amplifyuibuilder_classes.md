@@ -1,4 +1,4 @@
-# Pydantic Models in amplifyuibuilder_classes
+# amplifyuibuilder_classes
 
 # ActionParametersPaginatorTypeDef
 

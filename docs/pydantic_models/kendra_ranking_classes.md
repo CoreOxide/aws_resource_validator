@@ -1,4 +1,4 @@
-# Pydantic Models in kendra_ranking_classes
+# kendra_ranking_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in emr_serverless_classes
+# emr_serverless_classes
 
 # ApplicationSummaryTypeDef
 

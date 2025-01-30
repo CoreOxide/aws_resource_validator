@@ -1,4 +1,4 @@
-# Pydantic Models in cloudformation_classes
+# cloudformation_classes
 
 # AccountGateResultTypeDef
 

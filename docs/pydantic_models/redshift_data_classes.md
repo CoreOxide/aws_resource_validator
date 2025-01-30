@@ -1,4 +1,4 @@
-# Pydantic Models in redshift_data_classes
+# redshift_data_classes
 
 # BaseValidatorModel
 

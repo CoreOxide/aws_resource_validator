@@ -1,4 +1,4 @@
-# Pydantic Models in autoscaling_classes
+# autoscaling_classes
 
 # AcceleratorCountRequestTypeDef
 

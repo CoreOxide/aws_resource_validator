@@ -1,4 +1,4 @@
-# Pydantic Models in elastictranscoder_classes
+# elastictranscoder_classes
 
 # ArtworkTypeDef
 

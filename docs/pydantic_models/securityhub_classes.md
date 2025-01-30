@@ -1,4 +1,4 @@
-# Pydantic Models in securityhub_classes
+# securityhub_classes
 
 # AcceptAdministratorInvitationRequestRequestTypeDef
 

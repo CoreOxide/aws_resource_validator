@@ -1,4 +1,4 @@
-# Pydantic Models in application_autoscaling_classes
+# application_autoscaling_classes
 
 # AlarmTypeDef
 

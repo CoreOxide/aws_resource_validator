@@ -1,4 +1,4 @@
-# Pydantic Models in snow_device_management_classes
+# snow_device_management_classes
 
 # BaseValidatorModel
 

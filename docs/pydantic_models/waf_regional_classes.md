@@ -1,4 +1,4 @@
-# Pydantic Models in waf_regional_classes
+# waf_regional_classes
 
 # ActivatedRuleTypeDef
 

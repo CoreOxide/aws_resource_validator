@@ -1,4 +1,4 @@
-# Pydantic Models in proton_classes
+# proton_classes
 
 # AcceptEnvironmentAccountConnectionInputRequestTypeDef
 

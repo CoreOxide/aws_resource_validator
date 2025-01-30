@@ -1,4 +1,4 @@
-# Pydantic Models in networkmanager_classes
+# networkmanager_classes
 
 # AWSLocationTypeDef
 

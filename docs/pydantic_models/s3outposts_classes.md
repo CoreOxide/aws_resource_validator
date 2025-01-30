@@ -1,4 +1,4 @@
-# Pydantic Models in s3outposts_classes
+# s3outposts_classes
 
 # BaseValidatorModel
 

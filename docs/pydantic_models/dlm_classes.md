@@ -1,4 +1,4 @@
-# Pydantic Models in dlm_classes
+# dlm_classes
 
 # ActionTypeDef
 

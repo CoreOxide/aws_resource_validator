@@ -1,4 +1,4 @@
-# Pydantic Models in textract_classes
+# textract_classes
 
 # AdapterOverviewTypeDef
 

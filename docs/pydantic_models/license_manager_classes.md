@@ -1,4 +1,4 @@
-# Pydantic Models in license_manager_classes
+# license_manager_classes
 
 # AcceptGrantRequestRequestTypeDef
 

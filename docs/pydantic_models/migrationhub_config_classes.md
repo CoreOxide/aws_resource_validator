@@ -1,4 +1,4 @@
-# Pydantic Models in migrationhub_config_classes
+# migrationhub_config_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in dataexchange_classes
+# dataexchange_classes
 
 # ActionTypeDef
 

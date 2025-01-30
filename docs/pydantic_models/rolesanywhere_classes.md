@@ -1,4 +1,4 @@
-# Pydantic Models in rolesanywhere_classes
+# rolesanywhere_classes
 
 # AttributeMappingTypeDef
 

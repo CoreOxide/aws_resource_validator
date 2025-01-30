@@ -1,4 +1,4 @@
-# Pydantic Models in application_insights_classes
+# application_insights_classes
 
 # AddWorkloadRequestRequestTypeDef
 

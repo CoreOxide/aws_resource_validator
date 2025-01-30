@@ -1,4 +1,4 @@
-# Pydantic Models in opensearchserverless_classes
+# opensearchserverless_classes
 
 # AccessPolicyDetailTypeDef
 

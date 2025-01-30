@@ -1,4 +1,4 @@
-# Pydantic Models in organizations_classes
+# organizations_classes
 
 # AcceptHandshakeRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in sqs_classes
+# sqs_classes
 
 # AddPermissionRequestQueueAddPermissionTypeDef
 

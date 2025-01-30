@@ -1,4 +1,4 @@
-# Pydantic Models in codecatalyst_classes
+# codecatalyst_classes
 
 # AccessTokenSummaryTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in payment_cryptography_classes
+# payment_cryptography_classes
 
 # AliasTypeDef
 

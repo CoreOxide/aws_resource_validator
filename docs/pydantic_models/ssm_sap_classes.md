@@ -1,4 +1,4 @@
-# Pydantic Models in ssm_sap_classes
+# ssm_sap_classes
 
 # ApplicationCredentialTypeDef
 

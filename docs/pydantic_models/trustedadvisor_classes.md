@@ -1,4 +1,4 @@
-# Pydantic Models in trustedadvisor_classes
+# trustedadvisor_classes
 
 # AccountRecommendationLifecycleSummaryTypeDef
 

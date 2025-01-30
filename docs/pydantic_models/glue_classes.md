@@ -1,4 +1,4 @@
-# Pydantic Models in glue_classes
+# glue_classes
 
 # ActionExtraOutputTypeDef
 

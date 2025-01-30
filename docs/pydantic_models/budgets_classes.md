@@ -1,4 +1,4 @@
-# Pydantic Models in budgets_classes
+# budgets_classes
 
 # ActionHistoryDetailsTypeDef
 

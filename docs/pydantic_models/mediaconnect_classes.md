@@ -1,4 +1,4 @@
-# Pydantic Models in mediaconnect_classes
+# mediaconnect_classes
 
 # AddBridgeFlowSourceRequestTypeDef
 

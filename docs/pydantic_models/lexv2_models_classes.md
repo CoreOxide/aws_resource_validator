@@ -1,4 +1,4 @@
-# Pydantic Models in lexv2_models_classes
+# lexv2_models_classes
 
 # ActiveContextTypeDef
 

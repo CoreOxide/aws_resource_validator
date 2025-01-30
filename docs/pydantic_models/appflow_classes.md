@@ -1,4 +1,4 @@
-# Pydantic Models in appflow_classes
+# appflow_classes
 
 # AggregationConfigTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in directconnect_classes
+# directconnect_classes
 
 # AcceptDirectConnectGatewayAssociationProposalRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in qconnect_classes
+# qconnect_classes
 
 # AmazonConnectGuideAssociationDataTypeDef
 

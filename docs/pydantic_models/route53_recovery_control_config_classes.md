@@ -1,4 +1,4 @@
-# Pydantic Models in route53_recovery_control_config_classes
+# route53_recovery_control_config_classes
 
 # AssertionRuleTypeDef
 

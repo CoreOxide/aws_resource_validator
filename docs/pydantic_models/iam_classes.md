@@ -1,4 +1,4 @@
-# Pydantic Models in iam_classes
+# iam_classes
 
 # AccessDetailTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in ec2_classes
+# ec2_classes
 
 # AcceleratorCountRequestTypeDef
 

@@ -1,4 +1,4 @@
-# Pydantic Models in cost_optimization_hub_classes
+# cost_optimization_hub_classes
 
 # AccountEnrollmentStatusTypeDef
 

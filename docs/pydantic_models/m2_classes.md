@@ -1,4 +1,4 @@
-# Pydantic Models in m2_classes
+# m2_classes
 
 # AlternateKeyTypeDef
 

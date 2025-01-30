@@ -1,4 +1,4 @@
-# Pydantic Models in codeguruprofiler_classes
+# codeguruprofiler_classes
 
 # AddNotificationChannelsRequestRequestTypeDef
 

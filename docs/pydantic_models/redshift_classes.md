@@ -1,4 +1,4 @@
-# Pydantic Models in redshift_classes
+# redshift_classes
 
 # AcceptReservedNodeExchangeInputMessageRequestTypeDef
 

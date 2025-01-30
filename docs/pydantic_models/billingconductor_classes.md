@@ -1,4 +1,4 @@
-# Pydantic Models in billingconductor_classes
+# billingconductor_classes
 
 # AccountAssociationsListElementTypeDef
 

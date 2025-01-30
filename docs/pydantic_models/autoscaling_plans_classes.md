@@ -1,4 +1,4 @@
-# Pydantic Models in autoscaling_plans_classes
+# autoscaling_plans_classes
 
 # ApplicationSourceTypeDef
 

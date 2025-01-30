@@ -1,4 +1,4 @@
-# Pydantic Models in workmail_classes
+# workmail_classes
 
 # AccessControlRuleTypeDef
 

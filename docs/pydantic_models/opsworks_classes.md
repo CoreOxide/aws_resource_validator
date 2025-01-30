@@ -1,4 +1,4 @@
-# Pydantic Models in opsworks_classes
+# opsworks_classes
 
 # AgentVersionTypeDef
 

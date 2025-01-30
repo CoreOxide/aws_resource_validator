@@ -1,4 +1,4 @@
-# Pydantic Models in lookoutmetrics_classes
+# lookoutmetrics_classes
 
 # ActionTypeDef
 

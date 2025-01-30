@@ -1,4 +1,4 @@
-# Pydantic Models in route53_recovery_cluster_classes
+# route53_recovery_cluster_classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# Pydantic Models in mediapackage_classes
+# mediapackage_classes
 
 # AuthorizationTypeDef
 
