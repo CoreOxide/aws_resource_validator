@@ -7,7 +7,6 @@ edit_uri: edit/main/docs
 plugins:
   - search
   - render_swagger
-  - macros
   - awesome-pages
 
 theme:
