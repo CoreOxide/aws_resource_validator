@@ -7,10 +7,6 @@ edit_uri: edit/main/docs
 plugins:
   - search
   - render_swagger
-#  - awesome-pages
-  - mkdocs-material-extensions:
-      features:
-        - navigation.instant
 
 theme:
   name: material
