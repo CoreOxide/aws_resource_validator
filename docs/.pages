@@ -9,14 +9,11 @@ files:
 folders:
   - folder: api
     title: "API Reference"
-  - folder: pydantic_models
-    title: "Pydantic Models"
 
 arrange:
   - index.md
   - usage.md
   - api
-  - pydantic_models
   - best_practices.md
   - installation.md
   - contributing.md
