@@ -3,7 +3,7 @@ name: CI Tests, Linter, and MkDocs Deployment
 on:
   push:
     branches:
-      - '*' # Triggers for all branches for tests and linters
+      - '*' # Triggers for all branches for tests and linter
   pull_request:
     branches:
       - main
@@ -57,7 +57,7 @@ jobs:
 
   update-github-pages:
     runs-on: ubuntu-latest
-#    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     permissions:
       contents: write
     steps:
