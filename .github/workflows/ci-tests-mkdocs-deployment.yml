@@ -3,11 +3,15 @@ name: CI Tests, Linter, and MkDocs Deployment
 on:
   push:
     branches:
-      - 'tupmay/docs'  # Triggers for all branches for tests and linters
+      - * # Triggers for all branches for tests and linters
   pull_request:
     branches:
       - main
   workflow_call:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   linter-and-test:
