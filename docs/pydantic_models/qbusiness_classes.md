@@ -1,4 +1,4 @@
-# qbusiness_classes
+# Qbusiness Classes
 
 # APISchemaTypeDef
 

@@ -1,4 +1,4 @@
-# docdb_elastic_classes
+# Docdb Elastic Classes
 
 # BaseValidatorModel
 

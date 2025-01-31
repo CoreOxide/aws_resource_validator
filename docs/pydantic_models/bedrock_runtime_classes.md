@@ -1,4 +1,4 @@
-# bedrock_runtime_classes
+# Bedrock Runtime Classes
 
 # ApplyGuardrailRequestRequestTypeDef
 

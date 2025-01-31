@@ -1,4 +1,4 @@
-# amp_classes
+# Amp Classes
 
 # AlertManagerDefinitionDescriptionTypeDef
 

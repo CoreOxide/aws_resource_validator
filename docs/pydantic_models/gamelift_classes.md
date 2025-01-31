@@ -1,4 +1,4 @@
-# gamelift_classes
+# Gamelift Classes
 
 # AcceptMatchInputRequestTypeDef
 

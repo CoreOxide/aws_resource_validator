@@ -1,4 +1,4 @@
-# route53profiles_classes
+# Route53Profiles Classes
 
 # AssociateProfileRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# account_classes
+# Account Classes
 
 # AcceptPrimaryEmailUpdateRequestRequestTypeDef
 

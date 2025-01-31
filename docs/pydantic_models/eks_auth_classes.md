@@ -1,4 +1,4 @@
-# eks_auth_classes
+# Eks Auth Classes
 
 # AssumeRoleForPodIdentityRequestRequestTypeDef
 

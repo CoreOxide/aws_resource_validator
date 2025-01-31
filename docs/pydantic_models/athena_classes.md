@@ -1,4 +1,4 @@
-# athena_classes
+# Athena Classes
 
 # AclConfigurationTypeDef
 

@@ -1,4 +1,4 @@
-# lightsail_classes
+# Lightsail Classes
 
 # AccessKeyLastUsedTypeDef
 

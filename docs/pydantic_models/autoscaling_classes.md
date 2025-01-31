@@ -1,4 +1,4 @@
-# autoscaling_classes
+# Autoscaling Classes
 
 # AcceleratorCountRequestTypeDef
 

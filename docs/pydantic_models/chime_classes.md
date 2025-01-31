@@ -1,4 +1,4 @@
-# chime_classes
+# Chime Classes
 
 # AccountSettingsTypeDef
 

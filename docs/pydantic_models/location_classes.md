@@ -1,4 +1,4 @@
-# location_classes
+# Location Classes
 
 # ApiKeyFilterTypeDef
 

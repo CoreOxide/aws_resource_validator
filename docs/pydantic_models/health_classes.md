@@ -1,4 +1,4 @@
-# health_classes
+# Health Classes
 
 # AccountEntityAggregateTypeDef
 

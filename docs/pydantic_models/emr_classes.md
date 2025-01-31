@@ -1,4 +1,4 @@
-# emr_classes
+# Emr Classes
 
 # AddInstanceFleetInputRequestTypeDef
 

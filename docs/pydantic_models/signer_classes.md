@@ -1,4 +1,4 @@
-# signer_classes
+# Signer Classes
 
 # AddProfilePermissionRequestRequestTypeDef
 

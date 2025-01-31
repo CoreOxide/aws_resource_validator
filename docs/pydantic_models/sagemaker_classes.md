@@ -1,4 +1,4 @@
-# sagemaker_classes
+# Sagemaker Classes
 
 # ActionSourceTypeDef
 

@@ -1,4 +1,4 @@
-# migrationhub_config_classes
+# Migrationhub Config Classes
 
 # BaseValidatorModel
 

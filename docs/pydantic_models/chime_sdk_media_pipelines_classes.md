@@ -1,4 +1,4 @@
-# chime_sdk_media_pipelines_classes
+# Chime Sdk Media Pipelines Classes
 
 # ActiveSpeakerOnlyConfigurationTypeDef
 

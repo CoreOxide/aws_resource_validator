@@ -1,4 +1,4 @@
-# cloudsearch_classes
+# Cloudsearch Classes
 
 # AccessPoliciesStatusTypeDef
 

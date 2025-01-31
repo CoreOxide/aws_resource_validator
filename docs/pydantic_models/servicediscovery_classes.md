@@ -1,4 +1,4 @@
-# servicediscovery_classes
+# Servicediscovery Classes
 
 # BaseValidatorModel
 

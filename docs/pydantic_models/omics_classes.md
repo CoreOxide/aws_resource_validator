@@ -1,4 +1,4 @@
-# omics_classes
+# Omics Classes
 
 # AbortMultipartReadSetUploadRequestRequestTypeDef
 

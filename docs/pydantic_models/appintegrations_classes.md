@@ -1,4 +1,4 @@
-# appintegrations_classes
+# Appintegrations Classes
 
 # ApplicationAssociationSummaryTypeDef
 

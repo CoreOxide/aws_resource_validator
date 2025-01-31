@@ -1,4 +1,4 @@
-# connectparticipant_classes
+# Connectparticipant Classes
 
 # AttachmentItemTypeDef
 

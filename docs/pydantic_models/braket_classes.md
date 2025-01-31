@@ -1,4 +1,4 @@
-# braket_classes
+# Braket Classes
 
 # AlgorithmSpecificationTypeDef
 

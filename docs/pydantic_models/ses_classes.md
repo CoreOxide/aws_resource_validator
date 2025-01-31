@@ -1,4 +1,4 @@
-# ses_classes
+# Ses Classes
 
 # AddHeaderActionTypeDef
 

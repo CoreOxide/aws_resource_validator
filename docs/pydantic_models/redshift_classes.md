@@ -1,4 +1,4 @@
-# redshift_classes
+# Redshift Classes
 
 # AcceptReservedNodeExchangeInputMessageRequestTypeDef
 

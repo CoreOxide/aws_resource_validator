@@ -1,4 +1,4 @@
-# auditmanager_classes
+# Auditmanager Classes
 
 # AWSAccountTypeDef
 

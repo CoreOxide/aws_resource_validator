@@ -1,4 +1,4 @@
-# mediapackage_vod_classes
+# Mediapackage Vod Classes
 
 # AssetShallowTypeDef
 

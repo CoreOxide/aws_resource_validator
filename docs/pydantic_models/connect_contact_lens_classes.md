@@ -1,4 +1,4 @@
-# connect_contact_lens_classes
+# Connect Contact Lens Classes
 
 # BaseValidatorModel
 

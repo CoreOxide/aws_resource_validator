@@ -1,4 +1,4 @@
-# cloudformation_classes
+# Cloudformation Classes
 
 # AccountGateResultTypeDef
 

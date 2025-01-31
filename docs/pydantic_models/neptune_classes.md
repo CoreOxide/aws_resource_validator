@@ -1,4 +1,4 @@
-# neptune_classes
+# Neptune Classes
 
 # AddRoleToDBClusterMessageRequestTypeDef
 

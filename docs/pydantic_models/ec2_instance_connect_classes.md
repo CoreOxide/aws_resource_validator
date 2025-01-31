@@ -1,4 +1,4 @@
-# ec2_instance_connect_classes
+# Ec2 Instance Connect Classes
 
 # BaseValidatorModel
 

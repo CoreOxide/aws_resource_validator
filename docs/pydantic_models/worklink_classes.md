@@ -1,4 +1,4 @@
-# worklink_classes
+# Worklink Classes
 
 # AssociateDomainRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# kafkaconnect_classes
+# Kafkaconnect Classes
 
 # ApacheKafkaClusterDescriptionTypeDef
 

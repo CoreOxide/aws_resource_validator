@@ -1,4 +1,4 @@
-# managedblockchain_query_classes
+# Managedblockchain Query Classes
 
 # AddressIdentifierFilterTypeDef
 

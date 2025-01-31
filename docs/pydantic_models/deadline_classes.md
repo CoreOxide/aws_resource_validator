@@ -1,4 +1,4 @@
-# deadline_classes
+# Deadline Classes
 
 # AcceleratorCountRangeTypeDef
 

@@ -1,4 +1,4 @@
-# healthlake_classes
+# Healthlake Classes
 
 # BaseValidatorModel
 

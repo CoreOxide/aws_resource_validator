@@ -1,4 +1,4 @@
-# finspace_data_classes
+# Finspace Data Classes
 
 # AssociateUserToPermissionGroupRequestRequestTypeDef
 

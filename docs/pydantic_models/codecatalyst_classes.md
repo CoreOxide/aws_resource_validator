@@ -1,4 +1,4 @@
-# codecatalyst_classes
+# Codecatalyst Classes
 
 # AccessTokenSummaryTypeDef
 

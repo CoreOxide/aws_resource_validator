@@ -1,4 +1,4 @@
-# opsworkscm_classes
+# Opsworkscm Classes
 
 # AccountAttributeTypeDef
 

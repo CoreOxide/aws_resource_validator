@@ -1,4 +1,4 @@
-# workspaces_classes
+# Workspaces Classes
 
 # AcceptAccountLinkInvitationRequestRequestTypeDef
 

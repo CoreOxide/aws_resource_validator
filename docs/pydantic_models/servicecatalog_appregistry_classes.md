@@ -1,4 +1,4 @@
-# servicecatalog_appregistry_classes
+# Servicecatalog Appregistry Classes
 
 # AppRegistryConfigurationTypeDef
 

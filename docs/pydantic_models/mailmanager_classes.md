@@ -1,4 +1,4 @@
-# mailmanager_classes
+# Mailmanager Classes
 
 # AddHeaderActionTypeDef
 

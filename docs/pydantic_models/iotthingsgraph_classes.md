@@ -1,4 +1,4 @@
-# iotthingsgraph_classes
+# Iotthingsgraph Classes
 
 # AssociateEntityToThingRequestRequestTypeDef
 

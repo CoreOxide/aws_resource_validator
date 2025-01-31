@@ -1,4 +1,4 @@
-# resiliencehub_classes
+# Resiliencehub Classes
 
 # AddDraftAppVersionResourceMappingsRequestRequestTypeDef
 

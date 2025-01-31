@@ -1,4 +1,4 @@
-# mediaconnect_classes
+# Mediaconnect Classes
 
 # AddBridgeFlowSourceRequestTypeDef
 

@@ -1,4 +1,4 @@
-# application_insights_classes
+# Application Insights Classes
 
 # AddWorkloadRequestRequestTypeDef
 

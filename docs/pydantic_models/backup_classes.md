@@ -1,4 +1,4 @@
-# backup_classes
+# Backup Classes
 
 # AdvancedBackupSettingPaginatorTypeDef
 

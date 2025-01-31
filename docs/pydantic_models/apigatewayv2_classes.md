@@ -1,4 +1,4 @@
-# apigatewayv2_classes
+# Apigatewayv2 Classes
 
 # AccessLogSettingsTypeDef
 

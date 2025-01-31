@@ -1,4 +1,4 @@
-# kinesis_classes
+# Kinesis Classes
 
 # AddTagsToStreamInputRequestTypeDef
 

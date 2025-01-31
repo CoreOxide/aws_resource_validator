@@ -1,4 +1,4 @@
-# verifiedpermissions_classes
+# Verifiedpermissions Classes
 
 # ActionIdentifierTypeDef
 

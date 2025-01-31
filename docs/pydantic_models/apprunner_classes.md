@@ -1,4 +1,4 @@
-# apprunner_classes
+# Apprunner Classes
 
 # AssociateCustomDomainRequestRequestTypeDef
 

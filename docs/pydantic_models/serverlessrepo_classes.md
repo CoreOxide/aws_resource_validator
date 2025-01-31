@@ -1,4 +1,4 @@
-# serverlessrepo_classes
+# Serverlessrepo Classes
 
 # ApplicationDependencySummaryTypeDef
 

@@ -1,4 +1,4 @@
-# pinpoint_sms_voice_classes
+# Pinpoint Sms Voice Classes
 
 # BaseValidatorModel
 

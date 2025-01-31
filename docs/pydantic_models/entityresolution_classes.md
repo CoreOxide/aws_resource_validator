@@ -1,4 +1,4 @@
-# entityresolution_classes
+# Entityresolution Classes
 
 # AddPolicyStatementInputRequestTypeDef
 

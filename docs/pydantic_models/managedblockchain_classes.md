@@ -1,4 +1,4 @@
-# managedblockchain_classes
+# Managedblockchain Classes
 
 # AccessorSummaryTypeDef
 

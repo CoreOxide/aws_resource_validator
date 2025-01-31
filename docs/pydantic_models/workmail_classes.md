@@ -1,4 +1,4 @@
-# workmail_classes
+# Workmail Classes
 
 # AccessControlRuleTypeDef
 

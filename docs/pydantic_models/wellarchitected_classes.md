@@ -1,4 +1,4 @@
-# wellarchitected_classes
+# Wellarchitected Classes
 
 # AccountJiraConfigurationInputTypeDef
 

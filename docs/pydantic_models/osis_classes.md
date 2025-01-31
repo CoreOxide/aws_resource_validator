@@ -1,4 +1,4 @@
-# osis_classes
+# Osis Classes
 
 # BaseValidatorModel
 

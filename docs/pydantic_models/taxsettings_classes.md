@@ -1,4 +1,4 @@
-# taxsettings_classes
+# Taxsettings Classes
 
 # AccountDetailsTypeDef
 

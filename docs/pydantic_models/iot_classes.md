@@ -1,4 +1,4 @@
-# iot_classes
+# Iot Classes
 
 # AbortConfigTypeDef
 

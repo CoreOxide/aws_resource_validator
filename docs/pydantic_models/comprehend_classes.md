@@ -1,4 +1,4 @@
-# comprehend_classes
+# Comprehend Classes
 
 # AugmentedManifestsListItemPaginatorTypeDef
 

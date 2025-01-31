@@ -1,4 +1,4 @@
-# pricing_classes
+# Pricing Classes
 
 # AttributeValueTypeDef
 

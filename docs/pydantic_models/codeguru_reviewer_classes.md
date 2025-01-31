@@ -1,4 +1,4 @@
-# codeguru_reviewer_classes
+# Codeguru Reviewer Classes
 
 # AssociateRepositoryRequestRequestTypeDef
 

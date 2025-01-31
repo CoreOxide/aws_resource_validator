@@ -1,4 +1,4 @@
-# ec2_classes
+# Ec2 Classes
 
 # AcceleratorCountRequestTypeDef
 

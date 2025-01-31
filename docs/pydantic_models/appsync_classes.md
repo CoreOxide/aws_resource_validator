@@ -1,4 +1,4 @@
-# appsync_classes
+# Appsync Classes
 
 # AdditionalAuthenticationProviderTypeDef
 

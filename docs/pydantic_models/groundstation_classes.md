@@ -1,4 +1,4 @@
-# groundstation_classes
+# Groundstation Classes
 
 # AgentDetailsTypeDef
 

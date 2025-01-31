@@ -1,4 +1,4 @@
-# marketplace_catalog_classes
+# Marketplace Catalog Classes
 
 # AmiProductEntityIdFilterTypeDef
 

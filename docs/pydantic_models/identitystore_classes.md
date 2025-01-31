@@ -1,4 +1,4 @@
-# identitystore_classes
+# Identitystore Classes
 
 # AddressTypeDef
 

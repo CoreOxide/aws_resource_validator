@@ -1,4 +1,4 @@
-# launch_wizard_classes
+# Launch Wizard Classes
 
 # BaseValidatorModel
 

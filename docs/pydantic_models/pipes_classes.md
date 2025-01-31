@@ -1,4 +1,4 @@
-# pipes_classes
+# Pipes Classes
 
 # AwsVpcConfigurationOutputTypeDef
 

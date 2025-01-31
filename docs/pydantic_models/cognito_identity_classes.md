@@ -1,4 +1,4 @@
-# cognito_identity_classes
+# Cognito Identity Classes
 
 # BaseValidatorModel
 

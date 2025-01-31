@@ -1,4 +1,4 @@
-# codeartifact_classes
+# Codeartifact Classes
 
 # AssetSummaryTypeDef
 

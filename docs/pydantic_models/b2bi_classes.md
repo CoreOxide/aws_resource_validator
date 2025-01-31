@@ -1,4 +1,4 @@
-# b2bi_classes
+# B2Bi Classes
 
 # BaseValidatorModel
 

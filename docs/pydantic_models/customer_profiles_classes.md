@@ -1,4 +1,4 @@
-# customer_profiles_classes
+# Customer Profiles Classes
 
 # AddProfileKeyRequestRequestTypeDef
 

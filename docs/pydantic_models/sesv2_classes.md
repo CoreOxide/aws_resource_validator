@@ -1,4 +1,4 @@
-# sesv2_classes
+# Sesv2 Classes
 
 # AccountDetailsTypeDef
 

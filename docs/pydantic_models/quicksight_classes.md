@@ -1,4 +1,4 @@
-# quicksight_classes
+# Quicksight Classes
 
 # AccountCustomizationTypeDef
 

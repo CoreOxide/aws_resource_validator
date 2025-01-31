@@ -1,4 +1,4 @@
-# chime_sdk_voice_classes
+# Chime Sdk Voice Classes
 
 # AddressTypeDef
 

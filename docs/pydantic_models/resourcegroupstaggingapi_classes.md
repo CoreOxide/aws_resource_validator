@@ -1,4 +1,4 @@
-# resourcegroupstaggingapi_classes
+# Resourcegroupstaggingapi Classes
 
 # BaseValidatorModel
 

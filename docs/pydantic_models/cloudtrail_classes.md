@@ -1,4 +1,4 @@
-# cloudtrail_classes
+# Cloudtrail Classes
 
 # AddTagsRequestRequestTypeDef
 

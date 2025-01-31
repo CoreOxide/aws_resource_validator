@@ -1,4 +1,4 @@
-# wafv2_classes
+# Wafv2 Classes
 
 # APIKeySummaryTypeDef
 

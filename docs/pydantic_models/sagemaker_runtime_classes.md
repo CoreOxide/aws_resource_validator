@@ -1,4 +1,4 @@
-# sagemaker_runtime_classes
+# Sagemaker Runtime Classes
 
 # BaseValidatorModel
 

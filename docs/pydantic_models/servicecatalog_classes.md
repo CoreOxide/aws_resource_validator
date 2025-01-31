@@ -1,4 +1,4 @@
-# servicecatalog_classes
+# Servicecatalog Classes
 
 # AcceptPortfolioShareInputRequestTypeDef
 

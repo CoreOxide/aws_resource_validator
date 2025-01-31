@@ -1,4 +1,4 @@
-# chime_sdk_meetings_classes
+# Chime Sdk Meetings Classes
 
 # AttendeeCapabilitiesTypeDef
 

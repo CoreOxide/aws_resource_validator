@@ -1,4 +1,4 @@
-# ce_classes
+# Ce Classes
 
 # AnomalyDateIntervalTypeDef
 

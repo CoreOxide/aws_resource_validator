@@ -1,4 +1,4 @@
-# events_classes
+# Events Classes
 
 # ActivateEventSourceRequestRequestTypeDef
 

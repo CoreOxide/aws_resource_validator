@@ -1,4 +1,4 @@
-# mediapackage_classes
+# Mediapackage Classes
 
 # AuthorizationTypeDef
 

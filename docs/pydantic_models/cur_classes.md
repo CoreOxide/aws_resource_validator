@@ -1,4 +1,4 @@
-# cur_classes
+# Cur Classes
 
 # BaseValidatorModel
 

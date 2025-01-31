@@ -1,4 +1,4 @@
-# redshift_data_classes
+# Redshift Data Classes
 
 # BaseValidatorModel
 

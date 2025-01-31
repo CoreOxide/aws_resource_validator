@@ -1,4 +1,4 @@
-# grafana_classes
+# Grafana Classes
 
 # AssertionAttributesTypeDef
 

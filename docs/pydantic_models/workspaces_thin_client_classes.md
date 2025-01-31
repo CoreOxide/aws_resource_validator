@@ -1,4 +1,4 @@
-# workspaces_thin_client_classes
+# Workspaces Thin Client Classes
 
 # BaseValidatorModel
 

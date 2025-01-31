@@ -1,4 +1,4 @@
-# amplify_classes
+# Amplify Classes
 
 # AppTypeDef
 

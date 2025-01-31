@@ -1,4 +1,4 @@
-# rekognition_classes
+# Rekognition Classes
 
 # AgeRangeTypeDef
 

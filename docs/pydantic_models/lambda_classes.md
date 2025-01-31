@@ -1,4 +1,4 @@
-# lambda_classes
+# Lambda Classes
 
 # AccountLimitTypeDef
 

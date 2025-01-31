@@ -1,4 +1,4 @@
-# ebs_classes
+# Ebs Classes
 
 # BaseValidatorModel
 

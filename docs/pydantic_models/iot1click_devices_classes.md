@@ -1,4 +1,4 @@
-# iot1click_devices_classes
+# Iot1Click Devices Classes
 
 # BaseValidatorModel
 

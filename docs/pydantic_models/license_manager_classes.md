@@ -1,4 +1,4 @@
-# license_manager_classes
+# License Manager Classes
 
 # AcceptGrantRequestRequestTypeDef
 

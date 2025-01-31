@@ -1,4 +1,4 @@
-# cloudwatch_classes
+# Cloudwatch Classes
 
 # AlarmHistoryItemTypeDef
 

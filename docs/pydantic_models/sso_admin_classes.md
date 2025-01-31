@@ -1,4 +1,4 @@
-# sso_admin_classes
+# Sso Admin Classes
 
 # AccessControlAttributeTypeDef
 

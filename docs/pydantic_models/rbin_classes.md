@@ -1,4 +1,4 @@
-# rbin_classes
+# Rbin Classes
 
 # BaseValidatorModel
 

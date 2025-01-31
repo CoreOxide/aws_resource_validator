@@ -1,4 +1,4 @@
-# payment_cryptography_data_classes
+# Payment Cryptography Data Classes
 
 # AmexCardSecurityCodeVersion1TypeDef
 

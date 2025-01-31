@@ -1,4 +1,4 @@
-# networkmanager_classes
+# Networkmanager Classes
 
 # AWSLocationTypeDef
 

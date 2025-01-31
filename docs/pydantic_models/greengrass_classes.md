@@ -1,4 +1,4 @@
-# greengrass_classes
+# Greengrass Classes
 
 # AssociateRoleToGroupRequestRequestTypeDef
 

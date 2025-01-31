@@ -1,4 +1,4 @@
-# pinpoint_email_classes
+# Pinpoint Email Classes
 
 # BaseValidatorModel
 

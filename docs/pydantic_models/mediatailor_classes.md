@@ -1,4 +1,4 @@
-# mediatailor_classes
+# Mediatailor Classes
 
 # AccessConfigurationTypeDef
 

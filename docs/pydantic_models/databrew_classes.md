@@ -1,4 +1,4 @@
-# databrew_classes
+# Databrew Classes
 
 # AllowedStatisticsTypeDef
 

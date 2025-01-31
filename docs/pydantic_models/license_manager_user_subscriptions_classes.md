@@ -1,4 +1,4 @@
-# license_manager_user_subscriptions_classes
+# License Manager User Subscriptions Classes
 
 # ActiveDirectoryIdentityProviderTypeDef
 

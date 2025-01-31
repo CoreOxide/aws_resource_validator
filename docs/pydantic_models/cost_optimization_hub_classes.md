@@ -1,4 +1,4 @@
-# cost_optimization_hub_classes
+# Cost Optimization Hub Classes
 
 # AccountEnrollmentStatusTypeDef
 

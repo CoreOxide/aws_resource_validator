@@ -1,4 +1,4 @@
-# lakeformation_classes
+# Lakeformation Classes
 
 # AddLFTagsToResourceRequestRequestTypeDef
 

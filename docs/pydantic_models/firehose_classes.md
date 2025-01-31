@@ -1,4 +1,4 @@
-# firehose_classes
+# Firehose Classes
 
 # AmazonOpenSearchServerlessBufferingHintsTypeDef
 

@@ -1,4 +1,4 @@
-# cloudfront_classes
+# Cloudfront Classes
 
 # ActiveTrustedKeyGroupsTypeDef
 

@@ -1,4 +1,4 @@
-# mediaconvert_classes
+# Mediaconvert Classes
 
 # AacSettingsTypeDef
 

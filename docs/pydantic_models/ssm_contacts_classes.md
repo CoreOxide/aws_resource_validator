@@ -1,4 +1,4 @@
-# ssm_contacts_classes
+# Ssm Contacts Classes
 
 # AcceptPageRequestRequestTypeDef
 

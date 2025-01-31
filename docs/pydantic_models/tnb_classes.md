@@ -1,4 +1,4 @@
-# tnb_classes
+# Tnb Classes
 
 # BaseValidatorModel
 

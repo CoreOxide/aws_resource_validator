@@ -1,4 +1,4 @@
-# application_autoscaling_classes
+# Application Autoscaling Classes
 
 # AlarmTypeDef
 

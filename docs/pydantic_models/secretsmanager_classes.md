@@ -1,4 +1,4 @@
-# secretsmanager_classes
+# Secretsmanager Classes
 
 # APIErrorTypeTypeDef
 

@@ -1,4 +1,4 @@
-# storagegateway_classes
+# Storagegateway Classes
 
 # ActivateGatewayInputRequestTypeDef
 

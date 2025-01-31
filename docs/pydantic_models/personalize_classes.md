@@ -1,4 +1,4 @@
-# personalize_classes
+# Personalize Classes
 
 # AlgorithmImageTypeDef
 

@@ -1,4 +1,4 @@
-# controlcatalog_classes
+# Controlcatalog Classes
 
 # AssociatedDomainSummaryTypeDef
 

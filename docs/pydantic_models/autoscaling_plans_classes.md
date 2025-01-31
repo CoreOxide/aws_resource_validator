@@ -1,4 +1,4 @@
-# autoscaling_plans_classes
+# Autoscaling Plans Classes
 
 # ApplicationSourceTypeDef
 

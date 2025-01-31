@@ -1,4 +1,4 @@
-# logs_classes
+# Logs Classes
 
 # AccountPolicyTypeDef
 

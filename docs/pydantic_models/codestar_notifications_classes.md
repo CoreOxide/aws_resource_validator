@@ -1,4 +1,4 @@
-# codestar_notifications_classes
+# Codestar Notifications Classes
 
 # BaseValidatorModel
 

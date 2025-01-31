@@ -1,4 +1,4 @@
-# payment_cryptography_classes
+# Payment Cryptography Classes
 
 # AliasTypeDef
 

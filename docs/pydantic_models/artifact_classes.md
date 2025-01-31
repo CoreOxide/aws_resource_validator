@@ -1,4 +1,4 @@
-# artifact_classes
+# Artifact Classes
 
 # AccountSettingsTypeDef
 

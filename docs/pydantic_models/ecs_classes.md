@@ -1,4 +1,4 @@
-# ecs_classes
+# Ecs Classes
 
 # AttachmentStateChangeTypeDef
 

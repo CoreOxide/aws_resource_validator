@@ -1,4 +1,4 @@
-# ssm_sap_classes
+# Ssm Sap Classes
 
 # ApplicationCredentialTypeDef
 

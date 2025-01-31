@@ -1,4 +1,4 @@
-# comprehendmedical_classes
+# Comprehendmedical Classes
 
 # AttributeTypeDef
 

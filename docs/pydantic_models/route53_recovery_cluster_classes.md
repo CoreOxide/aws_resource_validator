@@ -1,4 +1,4 @@
-# route53_recovery_cluster_classes
+# Route53 Recovery Cluster Classes
 
 # BaseValidatorModel
 

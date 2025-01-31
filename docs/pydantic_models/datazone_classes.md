@@ -1,4 +1,4 @@
-# datazone_classes
+# Datazone Classes
 
 # AcceptChoiceTypeDef
 

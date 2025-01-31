@@ -1,4 +1,4 @@
-# appflow_classes
+# Appflow Classes
 
 # AggregationConfigTypeDef
 

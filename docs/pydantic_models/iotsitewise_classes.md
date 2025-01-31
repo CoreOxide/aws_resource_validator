@@ -1,4 +1,4 @@
-# iotsitewise_classes
+# Iotsitewise Classes
 
 # AccessPolicySummaryTypeDef
 

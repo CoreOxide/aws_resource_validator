@@ -1,4 +1,4 @@
-# apigatewaymanagementapi_classes
+# Apigatewaymanagementapi Classes
 
 # BaseValidatorModel
 

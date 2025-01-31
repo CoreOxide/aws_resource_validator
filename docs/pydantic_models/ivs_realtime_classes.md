@@ -1,4 +1,4 @@
-# ivs_realtime_classes
+# Ivs Realtime Classes
 
 # AutoParticipantRecordingConfigurationOutputTypeDef
 

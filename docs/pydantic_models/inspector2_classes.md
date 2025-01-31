@@ -1,4 +1,4 @@
-# inspector2_classes
+# Inspector2 Classes
 
 # AccountAggregationResponseTypeDef
 

@@ -1,4 +1,4 @@
-# ecr_public_classes
+# Ecr Public Classes
 
 # AuthorizationDataTypeDef
 

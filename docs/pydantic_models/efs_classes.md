@@ -1,4 +1,4 @@
-# efs_classes
+# Efs Classes
 
 # AccessPointDescriptionResponseTypeDef
 

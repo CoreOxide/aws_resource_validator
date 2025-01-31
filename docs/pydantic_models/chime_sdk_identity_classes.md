@@ -1,4 +1,4 @@
-# chime_sdk_identity_classes
+# Chime Sdk Identity Classes
 
 # AppInstanceAdminSummaryTypeDef
 

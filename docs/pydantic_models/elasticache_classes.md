@@ -1,4 +1,4 @@
-# elasticache_classes
+# Elasticache Classes
 
 # AddTagsToResourceMessageRequestTypeDef
 

@@ -1,4 +1,4 @@
-# sso_classes
+# Sso Classes
 
 # AccountInfoTypeDef
 

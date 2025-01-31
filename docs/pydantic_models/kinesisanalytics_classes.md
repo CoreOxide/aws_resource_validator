@@ -1,4 +1,4 @@
-# kinesisanalytics_classes
+# Kinesisanalytics Classes
 
 # AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef
 

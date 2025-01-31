@@ -1,4 +1,4 @@
-# stepfunctions_classes
+# Stepfunctions Classes
 
 # ActivityFailedEventDetailsTypeDef
 

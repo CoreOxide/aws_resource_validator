@@ -1,4 +1,4 @@
-# oam_classes
+# Oam Classes
 
 # BaseValidatorModel
 

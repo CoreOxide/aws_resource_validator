@@ -1,4 +1,4 @@
-# marketplace_entitlement_classes
+# Marketplace Entitlement Classes
 
 # BaseValidatorModel
 

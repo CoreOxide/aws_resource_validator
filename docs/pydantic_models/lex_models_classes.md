@@ -1,4 +1,4 @@
-# lex_models_classes
+# Lex Models Classes
 
 # BaseValidatorModel
 

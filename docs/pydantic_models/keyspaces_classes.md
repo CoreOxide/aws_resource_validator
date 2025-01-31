@@ -1,4 +1,4 @@
-# keyspaces_classes
+# Keyspaces Classes
 
 # AutoScalingPolicyTypeDef
 

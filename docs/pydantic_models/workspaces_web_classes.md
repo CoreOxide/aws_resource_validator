@@ -1,4 +1,4 @@
-# workspaces_web_classes
+# Workspaces Web Classes
 
 # AssociateBrowserSettingsRequestRequestTypeDef
 

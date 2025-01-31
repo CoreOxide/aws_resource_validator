@@ -1,4 +1,4 @@
-# elastictranscoder_classes
+# Elastictranscoder Classes
 
 # ArtworkTypeDef
 

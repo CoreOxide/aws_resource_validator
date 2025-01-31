@@ -1,4 +1,4 @@
-# sts_classes
+# Sts Classes
 
 # AssumeRoleRequestRequestTypeDef
 

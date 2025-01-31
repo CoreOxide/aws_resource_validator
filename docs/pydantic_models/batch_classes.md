@@ -1,4 +1,4 @@
-# batch_classes
+# Batch Classes
 
 # ArrayPropertiesDetailTypeDef
 

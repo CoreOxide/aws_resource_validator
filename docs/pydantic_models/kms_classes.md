@@ -1,4 +1,4 @@
-# kms_classes
+# Kms Classes
 
 # AliasListEntryTypeDef
 

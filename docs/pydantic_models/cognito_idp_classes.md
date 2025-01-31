@@ -1,4 +1,4 @@
-# cognito_idp_classes
+# Cognito Idp Classes
 
 # AccountRecoverySettingTypeOutputTypeDef
 

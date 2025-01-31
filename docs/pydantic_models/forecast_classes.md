@@ -1,4 +1,4 @@
-# forecast_classes
+# Forecast Classes
 
 # ActionTypeDef
 

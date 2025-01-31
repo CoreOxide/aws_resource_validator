@@ -1,4 +1,4 @@
-# emr_serverless_classes
+# Emr Serverless Classes
 
 # ApplicationSummaryTypeDef
 

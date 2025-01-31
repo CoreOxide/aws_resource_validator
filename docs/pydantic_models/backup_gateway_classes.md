@@ -1,4 +1,4 @@
-# backup_gateway_classes
+# Backup Gateway Classes
 
 # AssociateGatewayToServerInputRequestTypeDef
 

@@ -1,4 +1,4 @@
-# iotevents_data_classes
+# Iotevents Data Classes
 
 # AcknowledgeActionConfigurationTypeDef
 

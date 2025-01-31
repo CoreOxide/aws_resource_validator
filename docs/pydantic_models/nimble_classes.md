@@ -1,4 +1,4 @@
-# nimble_classes
+# Nimble Classes
 
 # AcceptEulasRequestRequestTypeDef
 

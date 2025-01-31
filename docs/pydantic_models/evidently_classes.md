@@ -1,4 +1,4 @@
-# evidently_classes
+# Evidently Classes
 
 # BaseValidatorModel
 

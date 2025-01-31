@@ -1,4 +1,4 @@
-# wisdom_classes
+# Wisdom Classes
 
 # AppIntegrationsConfigurationPaginatorTypeDef
 

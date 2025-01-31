@@ -114,7 +114,7 @@ def generate_pydantic_markdown_files(output_dir: Path, models_dir: Path) -> List
                        issubclass(cls, BaseModel) and cls is not BaseModel]
 
             # Collect markdown content for all classes in the file
-            md_content = f"# Pydantic Models in {module_name}\n\n"
+            md_content = f"# {module_name}\n\n".replace("_", ' ').title()
             for cls in classes:
                 md_content += create_markdown_for_pydantic_model(cls) + "\n"
 
@@ -141,81 +141,17 @@ def generate_pydantic_markdown_files(output_dir: Path, models_dir: Path) -> List
     return updated_files
 
 
-# Function to update mkdocs.yml with separate sections for API Reference and Pydantic Models
-def update_mkdocs_yml(mkdocs_yml_path: Path, api_dir: Path, pydantic_dir: Path) -> Tuple[
-    bool, Optional[Dict[str, List]], Dict[str, List]]:
-    yaml = YAML()
-    with open(mkdocs_yml_path, 'r', encoding='utf-8') as yml_file:
-        mkdocs_config = yaml.load(yml_file)
-
-    # Generate the API Reference nav entries
-    api_files = sorted(api_dir.iterdir())
-    api_nav: List[Dict[str, str]] = [
-        {api_file.stem.capitalize(): str(api_file.relative_to(api_dir.parent)).replace("\\", "/")} for api_file in
-        api_files]
-
-    # Generate the Pydantic Models nav entries
-    pydantic_files = sorted(pydantic_dir.iterdir())
-    pydantic_nav: List[Dict[str, str]] = [
-        {pydantic_file.stem.capitalize(): str(pydantic_file.relative_to(pydantic_dir.parent)).replace("\\", "/")} for
-        pydantic_file in
-        pydantic_files]
-
-    nav_updated = False
-    original_nav = {'API Reference': None, 'Pydantic Models': None}
-
-    # Update the 'API Reference' section in the nav
-    for item in mkdocs_config['nav']:
-        if isinstance(item, dict) and 'API Reference' in item:
-            original_nav['API Reference'] = item['API Reference']
-            if item['API Reference'] != api_nav:
-                item['API Reference'] = api_nav
-                nav_updated = True
-            break
-    else:
-        mkdocs_config['nav'].append({'API Reference': api_nav})
-        nav_updated = True
-
-    # Update the 'Pydantic Models' section in the nav
-    for item in mkdocs_config['nav']:
-        if isinstance(item, dict) and 'Pydantic Models' in item:
-            original_nav['Pydantic Models'] = item['Pydantic Models']
-            if item['Pydantic Models'] != pydantic_nav:
-                item['Pydantic Models'] = pydantic_nav
-                nav_updated = True
-            break
-    else:
-        mkdocs_config['nav'].append({'Pydantic Models': pydantic_nav})
-        nav_updated = True
-
-    if nav_updated:
-        yaml.indent(mapping=2, sequence=4, offset=2)
-        with mkdocs_yml_path.open('w', encoding='utf-8') as yml_file:
-            yaml.dump(mkdocs_config, yml_file)
-        print("Updated mkdocs.yml with API reference and Pydantic models documentation.")
-
-    return nav_updated, original_nav, {'API Reference': api_nav, 'Pydantic Models': pydantic_nav}
-
-
 def main() -> None:
     updated_classes_api = generate_markdown_files(API_DIR, Service, class_definitions)
     updated_classes_pydantic = generate_pydantic_markdown_files(PYDANTIC_DIR, Path(
         __file__).resolve().parent.parent / 'aws_resource_validator' / 'pydantic_models')
-    mkdocs_updates, original_nav, new_nav = update_mkdocs_yml(MKDOCS_YAML_PATH, API_DIR, PYDANTIC_DIR)
 
-    if updated_classes_api or updated_classes_pydantic or mkdocs_updates:
+    if updated_classes_api or updated_classes_pydantic:
         if updated_classes_api:
             print(f"Updated classes in api: {', '.join(f'{cls} ({utype})' for cls, utype in updated_classes_api)}")
         if updated_classes_pydantic:
             print(
                 f"Updated classes in pydantic: {', '.join(f'{cls} ({utype})' for cls, utype in updated_classes_pydantic)}")
-        if mkdocs_updates:
-            print("mkdocs.yml was updated.")
-            if original_nav:
-                print(f"Original 'API Reference': {original_nav['API Reference']}")
-                print(f"Original 'Pydantic Models': {original_nav['Pydantic Models']}")
-            print(f"New 'API Reference': {new_nav['API Reference']}")
-            print(f"New 'Pydantic Models': {new_nav['Pydantic Models']}")
     else:
         print("Nothing to update.")
 

@@ -1,4 +1,4 @@
-# securityhub_classes
+# Securityhub Classes
 
 # AcceptAdministratorInvitationRequestRequestTypeDef
 

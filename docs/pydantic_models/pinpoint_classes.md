@@ -1,4 +1,4 @@
-# pinpoint_classes
+# Pinpoint Classes
 
 # ADMChannelRequestTypeDef
 

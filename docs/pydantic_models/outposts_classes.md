@@ -1,4 +1,4 @@
-# outposts_classes
+# Outposts Classes
 
 # AddressTypeDef
 

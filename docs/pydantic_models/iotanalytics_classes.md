@@ -1,4 +1,4 @@
-# iotanalytics_classes
+# Iotanalytics Classes
 
 # AddAttributesActivityTypeDef
 

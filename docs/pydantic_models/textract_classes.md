@@ -1,4 +1,4 @@
-# textract_classes
+# Textract Classes
 
 # AdapterOverviewTypeDef
 

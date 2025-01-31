@@ -1,4 +1,4 @@
-# opensearch_classes
+# Opensearch Classes
 
 # AIMLOptionsInputTypeDef
 

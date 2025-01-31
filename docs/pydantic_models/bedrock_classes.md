@@ -1,4 +1,4 @@
-# bedrock_classes
+# Bedrock Classes
 
 # AutomatedEvaluationConfigOutputTypeDef
 

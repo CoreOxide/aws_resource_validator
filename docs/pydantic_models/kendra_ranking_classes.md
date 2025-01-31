@@ -1,4 +1,4 @@
-# kendra_ranking_classes
+# Kendra Ranking Classes
 
 # BaseValidatorModel
 

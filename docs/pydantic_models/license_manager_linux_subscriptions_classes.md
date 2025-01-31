@@ -1,4 +1,4 @@
-# license_manager_linux_subscriptions_classes
+# License Manager Linux Subscriptions Classes
 
 # BaseValidatorModel
 

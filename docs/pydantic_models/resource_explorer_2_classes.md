@@ -1,4 +1,4 @@
-# resource_explorer_2_classes
+# Resource Explorer 2 Classes
 
 # AssociateDefaultViewInputRequestTypeDef
 

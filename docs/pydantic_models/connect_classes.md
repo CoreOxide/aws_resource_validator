@@ -1,4 +1,4 @@
-# connect_classes
+# Connect Classes
 
 # ActionSummaryTypeDef
 

@@ -1,4 +1,4 @@
-# neptune_graph_classes
+# Neptune Graph Classes
 
 # BaseValidatorModel
 

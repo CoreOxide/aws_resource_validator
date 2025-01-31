@@ -1,4 +1,4 @@
-# service_quotas_classes
+# Service Quotas Classes
 
 # BaseValidatorModel
 

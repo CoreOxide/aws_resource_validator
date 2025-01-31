@@ -1,4 +1,4 @@
-# devops_guru_classes
+# Devops Guru Classes
 
 # AccountHealthTypeDef
 

@@ -1,4 +1,4 @@
-# trustedadvisor_classes
+# Trustedadvisor Classes
 
 # AccountRecommendationLifecycleSummaryTypeDef
 

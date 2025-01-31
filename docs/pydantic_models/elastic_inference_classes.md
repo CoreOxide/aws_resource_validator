@@ -1,4 +1,4 @@
-# elastic_inference_classes
+# Elastic Inference Classes
 
 # AcceleratorTypeOfferingTypeDef
 

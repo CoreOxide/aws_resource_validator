@@ -1,4 +1,4 @@
-# sagemaker_geospatial_classes
+# Sagemaker Geospatial Classes
 
 # AreaOfInterestGeometryTypeDef
 

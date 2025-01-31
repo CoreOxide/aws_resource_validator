@@ -1,4 +1,4 @@
-# network_firewall_classes
+# Network Firewall Classes
 
 # ActionDefinitionTypeDef
 

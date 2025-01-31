@@ -1,4 +1,4 @@
-# kendra_classes
+# Kendra Classes
 
 # AccessControlConfigurationSummaryTypeDef
 

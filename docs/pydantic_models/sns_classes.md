@@ -1,4 +1,4 @@
-# sns_classes
+# Sns Classes
 
 # AddPermissionInputRequestTypeDef
 

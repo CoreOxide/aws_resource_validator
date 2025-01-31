@@ -1,4 +1,4 @@
-# arc_zonal_shift_classes
+# Arc Zonal Shift Classes
 
 # AutoshiftInResourceTypeDef
 

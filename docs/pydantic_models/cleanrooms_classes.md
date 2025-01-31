@@ -1,4 +1,4 @@
-# cleanrooms_classes
+# Cleanrooms Classes
 
 # AggregateColumnTypeDef
 

@@ -1,4 +1,4 @@
-# shield_classes
+# Shield Classes
 
 # ApplicationLayerAutomaticResponseConfigurationTypeDef
 

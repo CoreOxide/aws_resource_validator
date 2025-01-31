@@ -1,4 +1,4 @@
-# macie2_classes
+# Macie2 Classes
 
 # AcceptInvitationRequestRequestTypeDef
 

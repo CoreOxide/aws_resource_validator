@@ -1,4 +1,4 @@
-# elasticbeanstalk_classes
+# Elasticbeanstalk Classes
 
 # AbortEnvironmentUpdateMessageRequestTypeDef
 

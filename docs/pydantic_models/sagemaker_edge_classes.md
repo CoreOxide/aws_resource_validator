@@ -1,4 +1,4 @@
-# sagemaker_edge_classes
+# Sagemaker Edge Classes
 
 # BaseValidatorModel
 

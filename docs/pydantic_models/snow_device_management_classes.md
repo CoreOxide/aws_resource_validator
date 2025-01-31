@@ -1,4 +1,4 @@
-# snow_device_management_classes
+# Snow Device Management Classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# emr_containers_classes
+# Emr Containers Classes
 
 # AuthorizationConfigurationTypeDef
 

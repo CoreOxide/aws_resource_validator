@@ -1,4 +1,4 @@
-# detective_classes
+# Detective Classes
 
 # AcceptInvitationRequestRequestTypeDef
 

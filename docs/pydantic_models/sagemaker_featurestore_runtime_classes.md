@@ -1,4 +1,4 @@
-# sagemaker_featurestore_runtime_classes
+# Sagemaker Featurestore Runtime Classes
 
 # BaseValidatorModel
 

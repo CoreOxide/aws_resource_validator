@@ -1,4 +1,4 @@
-# cloudhsm_classes
+# Cloudhsm Classes
 
 # AddTagsToResourceRequestRequestTypeDef
 

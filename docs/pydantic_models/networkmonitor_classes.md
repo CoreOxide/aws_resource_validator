@@ -1,4 +1,4 @@
-# networkmonitor_classes
+# Networkmonitor Classes
 
 # BaseValidatorModel
 

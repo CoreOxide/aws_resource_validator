@@ -1,4 +1,4 @@
-# docdb_classes
+# Docdb Classes
 
 # AddSourceIdentifierToSubscriptionMessageRequestTypeDef
 

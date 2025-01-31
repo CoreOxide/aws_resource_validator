@@ -1,4 +1,4 @@
-# rum_classes
+# Rum Classes
 
 # AppMonitorConfigurationTypeDef
 

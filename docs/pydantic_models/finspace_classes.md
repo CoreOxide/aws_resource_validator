@@ -1,4 +1,4 @@
-# finspace_classes
+# Finspace Classes
 
 # AutoScalingConfigurationTypeDef
 

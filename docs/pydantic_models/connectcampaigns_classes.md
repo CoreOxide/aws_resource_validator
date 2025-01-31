@@ -1,4 +1,4 @@
-# connectcampaigns_classes
+# Connectcampaigns Classes
 
 # AgentlessDialerConfigTypeDef
 

@@ -1,4 +1,4 @@
-# chime_sdk_messaging_classes
+# Chime Sdk Messaging Classes
 
 # AppInstanceUserMembershipSummaryTypeDef
 

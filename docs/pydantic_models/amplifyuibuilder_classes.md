@@ -1,4 +1,4 @@
-# amplifyuibuilder_classes
+# Amplifyuibuilder Classes
 
 # ActionParametersPaginatorTypeDef
 

@@ -1,4 +1,4 @@
-# vpc_lattice_classes
+# Vpc Lattice Classes
 
 # AccessLogSubscriptionSummaryTypeDef
 

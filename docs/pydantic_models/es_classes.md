@@ -1,4 +1,4 @@
-# es_classes
+# Es Classes
 
 # AcceptInboundCrossClusterSearchConnectionRequestRequestTypeDef
 

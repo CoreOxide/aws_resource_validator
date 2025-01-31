@@ -1,4 +1,4 @@
-# inspector_scan_classes
+# Inspector Scan Classes
 
 # BaseValidatorModel
 

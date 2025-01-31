@@ -1,4 +1,4 @@
-# iam_classes
+# Iam Classes
 
 # AccessDetailTypeDef
 

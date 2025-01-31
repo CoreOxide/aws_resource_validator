@@ -1,4 +1,4 @@
-# budgets_classes
+# Budgets Classes
 
 # ActionHistoryDetailsTypeDef
 

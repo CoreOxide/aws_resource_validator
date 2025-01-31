@@ -1,4 +1,4 @@
-# personalize_events_classes
+# Personalize Events Classes
 
 # ActionInteractionTypeDef
 

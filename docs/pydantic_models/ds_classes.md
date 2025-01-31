@@ -1,4 +1,4 @@
-# ds_classes
+# Ds Classes
 
 # AcceptSharedDirectoryRequestRequestTypeDef
 

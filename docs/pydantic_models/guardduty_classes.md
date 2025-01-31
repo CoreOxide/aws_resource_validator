@@ -1,4 +1,4 @@
-# guardduty_classes
+# Guardduty Classes
 
 # AcceptAdministratorInvitationRequestRequestTypeDef
 

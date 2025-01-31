@@ -1,4 +1,4 @@
-# appconfig_classes
+# Appconfig Classes
 
 # ActionInvocationTypeDef
 

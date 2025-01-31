@@ -1,4 +1,4 @@
-# mq_classes
+# Mq Classes
 
 # ActionRequiredTypeDef
 

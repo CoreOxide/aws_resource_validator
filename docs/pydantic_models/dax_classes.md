@@ -1,4 +1,4 @@
-# dax_classes
+# Dax Classes
 
 # BaseValidatorModel
 

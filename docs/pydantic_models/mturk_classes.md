@@ -1,4 +1,4 @@
-# mturk_classes
+# Mturk Classes
 
 # AcceptQualificationRequestRequestRequestTypeDef
 

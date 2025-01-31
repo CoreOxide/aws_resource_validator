@@ -1,4 +1,4 @@
-# iotfleetwise_classes
+# Iotfleetwise Classes
 
 # ActuatorExtraOutputTypeDef
 

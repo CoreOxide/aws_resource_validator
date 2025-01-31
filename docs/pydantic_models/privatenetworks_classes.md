@@ -1,4 +1,4 @@
-# privatenetworks_classes
+# Privatenetworks Classes
 
 # AcknowledgeOrderReceiptRequestRequestTypeDef
 

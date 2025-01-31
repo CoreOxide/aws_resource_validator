@@ -1,4 +1,4 @@
-# lexv2_runtime_classes
+# Lexv2 Runtime Classes
 
 # ActiveContextTimeToLiveTypeDef
 

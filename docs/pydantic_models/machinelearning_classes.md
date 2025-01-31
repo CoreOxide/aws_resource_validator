@@ -1,4 +1,4 @@
-# machinelearning_classes
+# Machinelearning Classes
 
 # AddTagsInputRequestTypeDef
 

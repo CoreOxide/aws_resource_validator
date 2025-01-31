@@ -1,4 +1,4 @@
-# securitylake_classes
+# Securitylake Classes
 
 # AwsIdentityTypeDef
 

@@ -1,4 +1,4 @@
-# mediastore_data_classes
+# Mediastore Data Classes
 
 # BaseValidatorModel
 

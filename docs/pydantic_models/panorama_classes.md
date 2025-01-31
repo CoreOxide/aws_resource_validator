@@ -1,4 +1,4 @@
-# panorama_classes
+# Panorama Classes
 
 # AlternateSoftwareMetadataTypeDef
 

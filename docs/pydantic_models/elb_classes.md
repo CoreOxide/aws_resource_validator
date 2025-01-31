@@ -1,4 +1,4 @@
-# elb_classes
+# Elb Classes
 
 # AccessLogTypeDef
 

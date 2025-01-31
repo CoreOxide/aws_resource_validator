@@ -1,4 +1,4 @@
-# devicefarm_classes
+# Devicefarm Classes
 
 # AccountSettingsTypeDef
 

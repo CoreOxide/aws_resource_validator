@@ -1,4 +1,4 @@
-# medialive_classes
+# Medialive Classes
 
 # AacSettingsTypeDef
 

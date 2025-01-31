@@ -1,4 +1,4 @@
-# kafka_classes
+# Kafka Classes
 
 # AmazonMskClusterTypeDef
 

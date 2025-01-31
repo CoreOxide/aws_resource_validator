@@ -1,4 +1,4 @@
-# kinesisvideo_classes
+# Kinesisvideo Classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# voice_id_classes
+# Voice Id Classes
 
 # AssociateFraudsterRequestRequestTypeDef
 

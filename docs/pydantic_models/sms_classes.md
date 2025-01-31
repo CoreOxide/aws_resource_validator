@@ -1,4 +1,4 @@
-# sms_classes
+# Sms Classes
 
 # AppSummaryTypeDef
 

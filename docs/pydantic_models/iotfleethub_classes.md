@@ -1,4 +1,4 @@
-# iotfleethub_classes
+# Iotfleethub Classes
 
 # ApplicationSummaryTypeDef
 

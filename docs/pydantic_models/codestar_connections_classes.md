@@ -1,4 +1,4 @@
-# codestar_connections_classes
+# Codestar Connections Classes
 
 # BaseValidatorModel
 

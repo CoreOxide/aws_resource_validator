@@ -1,4 +1,4 @@
-# s3outposts_classes
+# S3Outposts Classes
 
 # BaseValidatorModel
 

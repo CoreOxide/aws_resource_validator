@@ -1,4 +1,4 @@
-# cloudhsmv2_classes
+# Cloudhsmv2 Classes
 
 # BackupRetentionPolicyTypeDef
 

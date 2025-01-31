@@ -1,4 +1,4 @@
-# ssm_classes
+# Ssm Classes
 
 # AccountSharingInfoTypeDef
 

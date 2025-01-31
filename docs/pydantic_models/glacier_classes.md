@@ -1,4 +1,4 @@
-# glacier_classes
+# Glacier Classes
 
 # AbortMultipartUploadInputRequestTypeDef
 

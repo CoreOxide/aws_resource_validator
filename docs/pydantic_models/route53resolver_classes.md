@@ -1,4 +1,4 @@
-# route53resolver_classes
+# Route53Resolver Classes
 
 # AssociateFirewallRuleGroupRequestRequestTypeDef
 

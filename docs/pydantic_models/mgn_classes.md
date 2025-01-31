@@ -1,4 +1,4 @@
-# mgn_classes
+# Mgn Classes
 
 # ApplicationAggregatedStatusTypeDef
 

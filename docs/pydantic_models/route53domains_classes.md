@@ -1,4 +1,4 @@
-# route53domains_classes
+# Route53Domains Classes
 
 # AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef
 

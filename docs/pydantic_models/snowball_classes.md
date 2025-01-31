@@ -1,4 +1,4 @@
-# snowball_classes
+# Snowball Classes
 
 # AddressTypeDef
 

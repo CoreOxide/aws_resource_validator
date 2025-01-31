@@ -1,4 +1,4 @@
-# cloudfront_keyvaluestore_classes
+# Cloudfront Keyvaluestore Classes
 
 # BaseValidatorModel
 

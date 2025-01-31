@@ -1,4 +1,4 @@
-# redshift_serverless_classes
+# Redshift Serverless Classes
 
 # AssociationTypeDef
 

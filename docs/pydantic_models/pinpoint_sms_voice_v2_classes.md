@@ -1,4 +1,4 @@
-# pinpoint_sms_voice_v2_classes
+# Pinpoint Sms Voice V2 Classes
 
 # AccountAttributeTypeDef
 

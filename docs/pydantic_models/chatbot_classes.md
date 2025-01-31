@@ -1,4 +1,4 @@
-# chatbot_classes
+# Chatbot Classes
 
 # AccountPreferencesTypeDef
 

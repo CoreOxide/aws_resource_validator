@@ -1,4 +1,4 @@
-# connectcases_classes
+# Connectcases Classes
 
 # AuditEventFieldTypeDef
 

@@ -1,4 +1,4 @@
-# ssm_incidents_classes
+# Ssm Incidents Classes
 
 # ActionTypeDef
 

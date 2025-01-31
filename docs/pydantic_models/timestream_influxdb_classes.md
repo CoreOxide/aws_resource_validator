@@ -1,4 +1,4 @@
-# timestream_influxdb_classes
+# Timestream Influxdb Classes
 
 # BaseValidatorModel
 

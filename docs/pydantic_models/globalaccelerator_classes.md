@@ -1,4 +1,4 @@
-# globalaccelerator_classes
+# Globalaccelerator Classes
 
 # AcceleratorAttributesTypeDef
 

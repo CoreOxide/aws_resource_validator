@@ -1,4 +1,4 @@
-# timestream_query_classes
+# Timestream Query Classes
 
 # BaseValidatorModel
 

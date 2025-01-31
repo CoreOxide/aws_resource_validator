@@ -1,4 +1,4 @@
-# qconnect_classes
+# Qconnect Classes
 
 # AmazonConnectGuideAssociationDataTypeDef
 

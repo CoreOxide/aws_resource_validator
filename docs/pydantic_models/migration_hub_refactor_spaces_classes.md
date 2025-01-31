@@ -1,4 +1,4 @@
-# migration_hub_refactor_spaces_classes
+# Migration Hub Refactor Spaces Classes
 
 # ApiGatewayProxyConfigTypeDef
 

@@ -1,4 +1,4 @@
-# codeguru_security_classes
+# Codeguru Security Classes
 
 # AccountFindingsMetricTypeDef
 

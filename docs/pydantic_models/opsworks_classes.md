@@ -1,4 +1,4 @@
-# opsworks_classes
+# Opsworks Classes
 
 # AgentVersionTypeDef
 

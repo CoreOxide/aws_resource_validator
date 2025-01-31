@@ -1,4 +1,4 @@
-# cloudsearchdomain_classes
+# Cloudsearchdomain Classes
 
 # BaseValidatorModel
 

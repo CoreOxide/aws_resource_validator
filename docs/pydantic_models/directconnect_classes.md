@@ -1,4 +1,4 @@
-# directconnect_classes
+# Directconnect Classes
 
 # AcceptDirectConnectGatewayAssociationProposalRequestRequestTypeDef
 

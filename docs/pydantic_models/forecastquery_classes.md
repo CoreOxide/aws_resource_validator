@@ -1,4 +1,4 @@
-# forecastquery_classes
+# Forecastquery Classes
 
 # BaseValidatorModel
 

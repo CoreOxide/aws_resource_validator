@@ -1,4 +1,4 @@
-# qldb_session_classes
+# Qldb Session Classes
 
 # AbortTransactionResultTypeDef
 

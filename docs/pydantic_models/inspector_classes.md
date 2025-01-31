@@ -1,4 +1,4 @@
-# inspector_classes
+# Inspector Classes
 
 # AddAttributesToFindingsRequestRequestTypeDef
 

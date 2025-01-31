@@ -1,4 +1,4 @@
-# greengrassv2_classes
+# Greengrassv2 Classes
 
 # AssociateClientDeviceWithCoreDeviceEntryTypeDef
 

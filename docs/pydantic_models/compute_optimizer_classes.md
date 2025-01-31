@@ -1,4 +1,4 @@
-# compute_optimizer_classes
+# Compute Optimizer Classes
 
 # AccountEnrollmentStatusTypeDef
 

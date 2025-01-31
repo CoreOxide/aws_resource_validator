@@ -1,4 +1,4 @@
-# waf_classes
+# Waf Classes
 
 # ActivatedRuleExtraOutputTypeDef
 

@@ -1,4 +1,4 @@
-# resource_groups_classes
+# Resource Groups Classes
 
 # AccountSettingsTypeDef
 

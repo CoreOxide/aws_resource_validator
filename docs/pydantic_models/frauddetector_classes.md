@@ -1,4 +1,4 @@
-# frauddetector_classes
+# Frauddetector Classes
 
 # ATIMetricDataPointTypeDef
 

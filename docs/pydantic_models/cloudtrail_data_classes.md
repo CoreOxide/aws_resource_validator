@@ -1,4 +1,4 @@
-# cloudtrail_data_classes
+# Cloudtrail Data Classes
 
 # AuditEventResultEntryTypeDef
 

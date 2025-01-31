@@ -1,4 +1,4 @@
-# lookoutmetrics_classes
+# Lookoutmetrics Classes
 
 # ActionTypeDef
 

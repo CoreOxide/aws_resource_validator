@@ -1,4 +1,4 @@
-# bedrock_agent_runtime_classes
+# Bedrock Agent Runtime Classes
 
 # AccessDeniedExceptionTypeDef
 

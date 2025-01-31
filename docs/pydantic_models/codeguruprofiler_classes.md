@@ -1,4 +1,4 @@
-# codeguruprofiler_classes
+# Codeguruprofiler Classes
 
 # AddNotificationChannelsRequestRequestTypeDef
 

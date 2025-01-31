@@ -1,4 +1,4 @@
-# glue_classes
+# Glue Classes
 
 # ActionExtraOutputTypeDef
 

@@ -1,4 +1,4 @@
-# neptunedata_classes
+# Neptunedata Classes
 
 # BaseValidatorModel
 

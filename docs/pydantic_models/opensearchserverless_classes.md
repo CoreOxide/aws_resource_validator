@@ -1,4 +1,4 @@
-# opensearchserverless_classes
+# Opensearchserverless Classes
 
 # AccessPolicyDetailTypeDef
 

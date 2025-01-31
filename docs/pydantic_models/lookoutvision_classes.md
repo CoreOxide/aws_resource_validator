@@ -1,4 +1,4 @@
-# lookoutvision_classes
+# Lookoutvision Classes
 
 # AnomalyTypeDef
 

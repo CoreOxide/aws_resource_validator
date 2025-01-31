@@ -1,4 +1,4 @@
-# synthetics_classes
+# Synthetics Classes
 
 # ArtifactConfigInputTypeDef
 

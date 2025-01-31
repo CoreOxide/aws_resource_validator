@@ -1,4 +1,4 @@
-# appstream_classes
+# Appstream Classes
 
 # AccessEndpointTypeDef
 

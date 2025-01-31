@@ -1,4 +1,4 @@
-# kinesis_video_archived_media_classes
+# Kinesis Video Archived Media Classes
 
 # BaseValidatorModel
 

@@ -1,4 +1,4 @@
-# kinesis_video_signaling_classes
+# Kinesis Video Signaling Classes
 
 # BaseValidatorModel
 

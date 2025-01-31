@@ -1,4 +1,4 @@
-# codestar_classes
+# Codestar Classes
 
 # AssociateTeamMemberRequestRequestTypeDef
 

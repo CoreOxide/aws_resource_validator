@@ -1,4 +1,4 @@
-# migrationhubstrategy_classes
+# Migrationhubstrategy Classes
 
 # AnalysisStatusUnionTypeDef
 

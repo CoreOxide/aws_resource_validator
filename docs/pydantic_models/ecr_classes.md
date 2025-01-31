@@ -1,4 +1,4 @@
-# ecr_classes
+# Ecr Classes
 
 # AttributeTypeDef
 

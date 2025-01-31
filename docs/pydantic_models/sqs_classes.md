@@ -1,4 +1,4 @@
-# sqs_classes
+# Sqs Classes
 
 # AddPermissionRequestQueueAddPermissionTypeDef
 

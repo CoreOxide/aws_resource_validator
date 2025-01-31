@@ -1,4 +1,4 @@
-# amplifybackend_classes
+# Amplifybackend Classes
 
 # BackendAPIAppSyncAuthSettingsTypeDef
 

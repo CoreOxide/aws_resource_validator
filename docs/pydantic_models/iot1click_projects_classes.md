@@ -1,4 +1,4 @@
-# iot1click_projects_classes
+# Iot1Click Projects Classes
 
 # AssociateDeviceWithPlacementRequestRequestTypeDef
 

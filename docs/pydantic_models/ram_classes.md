@@ -1,4 +1,4 @@
-# ram_classes
+# Ram Classes
 
 # AcceptResourceShareInvitationRequestRequestTypeDef
 

@@ -1,4 +1,4 @@
-# appfabric_classes
+# Appfabric Classes
 
 # ApiKeyCredentialTypeDef
 

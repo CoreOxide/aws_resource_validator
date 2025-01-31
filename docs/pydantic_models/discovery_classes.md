@@ -1,4 +1,4 @@
-# discovery_classes
+# Discovery Classes
 
 # AgentConfigurationStatusTypeDef
 

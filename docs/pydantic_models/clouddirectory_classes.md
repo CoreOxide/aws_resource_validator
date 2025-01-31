@@ -1,4 +1,4 @@
-# clouddirectory_classes
+# Clouddirectory Classes
 
 # AddFacetToObjectRequestRequestTypeDef
 

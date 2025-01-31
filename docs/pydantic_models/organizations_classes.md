@@ -1,4 +1,4 @@
-# organizations_classes
+# Organizations Classes
 
 # AcceptHandshakeRequestRequestTypeDef
 

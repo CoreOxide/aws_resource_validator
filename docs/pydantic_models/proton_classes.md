@@ -1,4 +1,4 @@
-# proton_classes
+# Proton Classes
 
 # AcceptEnvironmentAccountConnectionInputRequestTypeDef
 

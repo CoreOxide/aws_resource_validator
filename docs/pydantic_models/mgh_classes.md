@@ -1,4 +1,4 @@
-# mgh_classes
+# Mgh Classes
 
 # ApplicationStateTypeDef
 

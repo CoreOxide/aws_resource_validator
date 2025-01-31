@@ -1,4 +1,4 @@
-# marketplace_agreement_classes
+# Marketplace Agreement Classes
 
 # AcceptedTermTypeDef
 

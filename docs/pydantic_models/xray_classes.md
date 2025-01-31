@@ -1,4 +1,4 @@
-# xray_classes
+# Xray Classes
 
 # AliasTypeDef
 

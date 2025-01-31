@@ -1,4 +1,4 @@
-# lookoutequipment_classes
+# Lookoutequipment Classes
 
 # BaseValidatorModel
 

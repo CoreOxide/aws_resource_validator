@@ -1,4 +1,4 @@
-# transfer_classes
+# Transfer Classes
 
 # As2ConnectorConfigTypeDef
 

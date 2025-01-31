@@ -1,4 +1,4 @@
-# s3control_classes
+# S3Control Classes
 
 # AbortIncompleteMultipartUploadTypeDef
 

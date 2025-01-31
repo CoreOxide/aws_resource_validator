@@ -1,4 +1,4 @@
-# internetmonitor_classes
+# Internetmonitor Classes
 
 # AvailabilityMeasurementTypeDef
 

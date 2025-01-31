@@ -1,4 +1,4 @@
-# waf_regional_classes
+# Waf Regional Classes
 
 # ActivatedRuleTypeDef
 

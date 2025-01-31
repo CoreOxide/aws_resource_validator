@@ -1,4 +1,4 @@
-# route53_recovery_control_config_classes
+# Route53 Recovery Control Config Classes
 
 # AssertionRuleTypeDef
 

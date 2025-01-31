@@ -1,4 +1,4 @@
-# cognito_sync_classes
+# Cognito Sync Classes
 
 # BaseValidatorModel
 

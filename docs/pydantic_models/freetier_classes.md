@@ -1,4 +1,4 @@
-# freetier_classes
+# Freetier Classes
 
 # BaseValidatorModel
 

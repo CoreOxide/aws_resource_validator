@@ -1,4 +1,4 @@
-# dynamodbstreams_classes
+# Dynamodbstreams Classes
 
 # AttributeValueTypeDef
 

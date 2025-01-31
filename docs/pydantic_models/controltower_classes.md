@@ -1,4 +1,4 @@
-# controltower_classes
+# Controltower Classes
 
 # BaseValidatorModel
 

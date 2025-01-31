@@ -1,4 +1,4 @@
-# translate_classes
+# Translate Classes
 
 # AppliedTerminologyTypeDef
 

@@ -1,4 +1,4 @@
-# config_classes
+# Config Classes
 
 # AccountAggregationSourceExtraOutputTypeDef
 

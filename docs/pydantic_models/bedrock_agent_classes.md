@@ -1,4 +1,4 @@
-# bedrock_agent_classes
+# Bedrock Agent Classes
 
 # APISchemaTypeDef
 

@@ -1,4 +1,4 @@
-# imagebuilder_classes
+# Imagebuilder Classes
 
 # AccountAggregationTypeDef
 

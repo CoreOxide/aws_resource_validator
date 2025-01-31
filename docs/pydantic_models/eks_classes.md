@@ -1,4 +1,4 @@
-# eks_classes
+# Eks Classes
 
 # AccessConfigResponseTypeDef
 

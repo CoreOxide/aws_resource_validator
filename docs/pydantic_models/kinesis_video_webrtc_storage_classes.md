@@ -1,4 +1,4 @@
-# kinesis_video_webrtc_storage_classes
+# Kinesis Video Webrtc Storage Classes
 
 # BaseValidatorModel
 

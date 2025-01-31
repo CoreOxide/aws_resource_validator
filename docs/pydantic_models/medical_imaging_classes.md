@@ -1,4 +1,4 @@
-# medical_imaging_classes
+# Medical Imaging Classes
 
 # BaseValidatorModel
 

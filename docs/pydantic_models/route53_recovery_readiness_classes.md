@@ -1,4 +1,4 @@
-# route53_recovery_readiness_classes
+# Route53 Recovery Readiness Classes
 
 # BaseValidatorModel
 

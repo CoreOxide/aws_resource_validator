@@ -1,4 +1,4 @@
-# m2_classes
+# M2 Classes
 
 # AlternateKeyTypeDef
 

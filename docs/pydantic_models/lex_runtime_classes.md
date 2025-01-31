@@ -1,4 +1,4 @@
-# lex_runtime_classes
+# Lex Runtime Classes
 
 # ActiveContextTimeToLiveTypeDef
 

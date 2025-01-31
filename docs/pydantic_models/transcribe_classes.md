@@ -1,4 +1,4 @@
-# transcribe_classes
+# Transcribe Classes
 
 # AbsoluteTimeRangeTypeDef
 
