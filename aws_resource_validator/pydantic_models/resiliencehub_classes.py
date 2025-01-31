@@ -611,7 +611,7 @@ class ConfigRecommendationTypeDef(BaseValidatorModel):
     cost: Optional[CostTypeDef] = None
     description: Optional[str] = None
     haArchitecture: Optional[HaArchitectureType] = None
-    recommendationCompliance: Optional[       Dict[DisruptionTypeType, RecommendationDisruptionComplianceTypeDef] = None
+    recommendationCompliance: Optional[       Dict[DisruptionTypeType, RecommendationDisruptionComplianceTypeDef]] = None
     suggestedChanges: Optional[List[str]] = None
 
 class CreateAppRequestRequestTypeDef(BaseValidatorModel):
@@ -782,7 +782,7 @@ class RecommendationTemplateTypeDef(BaseValidatorModel):
 class ResiliencyScoreTypeDef(BaseValidatorModel):
     disruptionScore: Dict[DisruptionTypeType, float]
     score: float
-    componentScore: Optional[       Dict[ResiliencyScoreTypeType, ScoringComponentResiliencyScoreTypeDef] = None
+    componentScore: Optional[       Dict[ResiliencyScoreTypeType, ScoringComponentResiliencyScoreTypeDef]] = None
 
 class ResourceErrorsDetailsTypeDef(BaseValidatorModel):
     hasMoreErrors: Optional[bool] = None

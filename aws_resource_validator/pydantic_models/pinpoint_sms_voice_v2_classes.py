@@ -429,7 +429,7 @@ class SendDestinationNumberVerificationCodeRequestRequestTypeDef(BaseValidatorMo
     OriginationIdentity: Optional[str] = None
     ConfigurationSetName: Optional[str] = None
     Context: Optional[Mapping[str, str]] = None
-    DestinationCountryParameters: Optional[       Mapping[DestinationCountryParameterKeyType, str] = None
+    DestinationCountryParameters: Optional[       Mapping[DestinationCountryParameterKeyType, str]] = None
 
 class SendMediaMessageRequestRequestTypeDef(BaseValidatorModel):
     DestinationPhoneNumber: str
@@ -453,7 +453,7 @@ class SendTextMessageRequestRequestTypeDef(BaseValidatorModel):
     MaxPrice: Optional[str] = None
     TimeToLive: Optional[int] = None
     Context: Optional[Mapping[str, str]] = None
-    DestinationCountryParameters: Optional[       Mapping[DestinationCountryParameterKeyType, str] = None
+    DestinationCountryParameters: Optional[       Mapping[DestinationCountryParameterKeyType, str] ]= None
     DryRun: Optional[bool] = None
     ProtectConfigurationId: Optional[str] = None
 

@@ -6087,7 +6087,7 @@ class CreateJobRequestRequestTypeDef(BaseValidatorModel):
     GlueVersion: Optional[str] = None
     NumberOfWorkers: Optional[int] = None
     WorkerType: Optional[WorkerTypeType] = None
-    CodeGenConfigurationNodes: Optional[       Mapping[str, CodeGenConfigurationNodeUnionTypeDef] = None
+    CodeGenConfigurationNodes: Optional[       Mapping[str, CodeGenConfigurationNodeUnionTypeDef]] = None
     ExecutionClass: Optional[ExecutionClassType] = None
     SourceControlDetails: Optional[SourceControlDetailsTypeDef] = None
     MaintenanceWindow: Optional[str] = None

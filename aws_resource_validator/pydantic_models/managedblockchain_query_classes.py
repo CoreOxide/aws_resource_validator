@@ -60,7 +60,7 @@ class TransactionTypeDef(BaseValidatorModel):
     to: str
     blockHash: Optional[str] = None
     blockNumber: Optional[str] = None
-    from: Optional[str] = None
+    _from: Optional[str] = None
     contractAddress: Optional[str] = None
     gasUsed: Optional[str] = None
     cumulativeGasUsed: Optional[str] = None
@@ -222,7 +222,7 @@ class ListTransactionsInputRequestTypeDef(BaseValidatorModel):
     confirmationStatusFilter: Optional[ConfirmationStatusFilterTypeDef] = None
 
 class TimeFilterTypeDef(BaseValidatorModel):
-    from: Optional[BlockchainInstantTypeDef] = None
+    _from: Optional[BlockchainInstantTypeDef] = None
     to: Optional[BlockchainInstantTypeDef] = None
 
 class TokenBalanceTypeDef(BaseValidatorModel):
@@ -236,7 +236,7 @@ class TransactionEventTypeDef(BaseValidatorModel):
     network: QueryNetworkType
     transactionHash: str
     eventType: QueryTransactionEventTypeType
-    from: Optional[str] = None
+    _from: Optional[str] = None
     to: Optional[str] = None
     value: Optional[str] = None
     contractAddress: Optional[str] = None

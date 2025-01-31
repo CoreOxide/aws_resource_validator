@@ -588,7 +588,7 @@ class TaskTypeDef(BaseValidatorModel):
     taskProperties: Optional[Mapping[OperatorPropertiesKeysType, str]] = None
 
 class ConnectorProvisioningConfigTypeDef(BaseValidatorModel):
-    lambda: Optional[LambdaConnectorProvisioningConfigTypeDef] = None
+    _lambda: Optional[LambdaConnectorProvisioningConfigTypeDef] = None
 
 class CustomConnectorDestinationPropertiesTypeDef(BaseValidatorModel):
     entityName: str

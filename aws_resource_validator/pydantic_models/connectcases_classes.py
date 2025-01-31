@@ -532,7 +532,7 @@ class SearchCasesResponseTypeDef(BaseValidatorModel):
 class CaseFilterTypeDef(BaseValidatorModel):
     andAll: Optional[Sequence[Dict[str, Any]]] = None
     field: Optional[FieldFilterTypeDef] = None
-    not: Optional[Dict[str, Any]] = None
+    _not: Optional[Dict[str, Any]] = None
     orAll: Optional[Sequence[Dict[str, Any]]] = None
 
 class CreateCaseRequestRequestTypeDef(BaseValidatorModel):

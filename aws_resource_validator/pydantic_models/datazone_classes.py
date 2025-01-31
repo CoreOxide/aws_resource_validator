@@ -1587,9 +1587,9 @@ class UpdateSubscriptionGrantStatusInputRequestTypeDef(BaseValidatorModel):
     targetName: Optional[str] = None
 
 class FilterClauseTypeDef(BaseValidatorModel):
-    and: Optional[Sequence[Dict[str, Any]]] = None
+    _and: Optional[Sequence[Dict[str, Any]]] = None
     filter: Optional[FilterTypeDef] = None
-    or: Optional[Sequence[Dict[str, Any]]] = None
+    _or: Optional[Sequence[Dict[str, Any]]] = None
 
 class RelationalFilterConfigurationOutputTypeDef(BaseValidatorModel):
     databaseName: str

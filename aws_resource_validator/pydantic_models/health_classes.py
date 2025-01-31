@@ -134,7 +134,7 @@ class OrganizationEntityAggregateTypeDef(BaseValidatorModel):
     accounts: Optional[List[AccountEntityAggregateTypeDef]] = None
 
 class DateTimeRangeTypeDef(BaseValidatorModel):
-    from: Optional[TimestampTypeDef] = None
+    _from: Optional[TimestampTypeDef] = None
     to: Optional[TimestampTypeDef] = None
 
 class DescribeAffectedAccountsForOrganizationRequestDescribeAffectedAccountsForOrganizationPaginateTypeDef(BaseValidatorModel):

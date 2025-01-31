@@ -1345,7 +1345,7 @@ class DefaultDetectionTypeDef(BaseValidatorModel):
     type: Optional[str] = None
 
 class SearchResourcesCriteriaBlockTypeDef(BaseValidatorModel):
-    and: Optional[Sequence[SearchResourcesCriteriaTypeDef]] = None
+    _and: Optional[Sequence[SearchResourcesCriteriaTypeDef]] = None
 
 class GetUsageStatisticsResponseTypeDef(BaseValidatorModel):
     nextToken: str
@@ -1363,16 +1363,16 @@ class UserIdentityTypeDef(BaseValidatorModel):
     type: Optional[UserIdentityTypeType] = None
 
 class CriteriaBlockForJobOutputTypeDef(BaseValidatorModel):
-    and: Optional[List[CriteriaForJobOutputTypeDef]] = None
+    _and: Optional[List[CriteriaForJobOutputTypeDef]] = None
 
 class CriteriaBlockForJobTypeDef(BaseValidatorModel):
-    and: Optional[Sequence[CriteriaForJobTypeDef]] = None
+    _and: Optional[Sequence[CriteriaForJobTypeDef]] = None
 
 class JobScopingBlockOutputTypeDef(BaseValidatorModel):
-    and: Optional[List[JobScopeTermOutputTypeDef]] = None
+    _and: Optional[List[JobScopeTermOutputTypeDef]] = None
 
 class JobScopingBlockTypeDef(BaseValidatorModel):
-    and: Optional[Sequence[JobScopeTermTypeDef]] = None
+    _and: Optional[Sequence[JobScopeTermTypeDef]] = None
 
 class BucketMetadataTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None

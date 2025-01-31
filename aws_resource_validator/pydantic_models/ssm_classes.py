@@ -2355,7 +2355,7 @@ class GetMaintenanceWindowExecutionTaskResultTypeDef(BaseValidatorModel):
     TaskArn: str
     ServiceRole: str
     Type: MaintenanceWindowTaskTypeType
-    TaskParameters: List[       Dict[str, MaintenanceWindowTaskParameterValueExpressionOutputTypeDef]
+    TaskParameters: List[       Dict[str, MaintenanceWindowTaskParameterValueExpressionOutputTypeDef]]
     Priority: int
     MaxConcurrency: str
     MaxErrors: str
@@ -2385,7 +2385,7 @@ class MaintenanceWindowTaskTypeDef(BaseValidatorModel):
     TaskArn: Optional[str] = None
     Type: Optional[MaintenanceWindowTaskTypeType] = None
     Targets: Optional[List[TargetOutputTypeDef]] = None
-    TaskParameters: Optional[       Dict[str, MaintenanceWindowTaskParameterValueExpressionOutputTypeDef] = None
+    TaskParameters: Optional[       Dict[str, MaintenanceWindowTaskParameterValueExpressionOutputTypeDef]] = None
     Priority: Optional[int] = None
     LoggingInfo: Optional[LoggingInfoTypeDef] = None
     ServiceRoleArn: Optional[str] = None
@@ -2956,7 +2956,7 @@ class RegisterTaskWithMaintenanceWindowRequestRequestTypeDef(BaseValidatorModel)
     TaskType: MaintenanceWindowTaskTypeType
     Targets: Optional[Sequence[TargetUnionTypeDef]] = None
     ServiceRoleArn: Optional[str] = None
-    TaskParameters: Optional[       Mapping[str, MaintenanceWindowTaskParameterValueExpressionUnionTypeDef] = None
+    TaskParameters: Optional[       Mapping[str, MaintenanceWindowTaskParameterValueExpressionUnionTypeDef]] = None
     TaskInvocationParameters: Optional[MaintenanceWindowTaskInvocationParametersTypeDef] = None
     Priority: Optional[int] = None
     MaxConcurrency: Optional[str] = None
@@ -2974,7 +2974,7 @@ class UpdateMaintenanceWindowTaskRequestRequestTypeDef(BaseValidatorModel):
     Targets: Optional[Sequence[TargetUnionTypeDef]] = None
     TaskArn: Optional[str] = None
     ServiceRoleArn: Optional[str] = None
-    TaskParameters: Optional[       Mapping[str, MaintenanceWindowTaskParameterValueExpressionUnionTypeDef] = None
+    TaskParameters: Optional[       Mapping[str, MaintenanceWindowTaskParameterValueExpressionUnionTypeDef]] = None
     TaskInvocationParameters: Optional[MaintenanceWindowTaskInvocationParametersTypeDef] = None
     Priority: Optional[int] = None
     MaxConcurrency: Optional[str] = None

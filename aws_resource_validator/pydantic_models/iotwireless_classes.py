@@ -1,4 +1,7 @@
 from datetime import datetime
+
+from botocore.response import StreamingBody
+
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict

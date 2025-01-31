@@ -1,4 +1,7 @@
 from datetime import datetime
+
+from botocore.response import StreamingBody
+
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
@@ -671,7 +674,7 @@ class UpdatePackageGroupOriginConfigurationRequestRequestTypeDef(BaseValidatorMo
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
-    restrictions: Optional[       Mapping[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionModeType] = None
+    restrictions: Optional[Mapping[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionModeType]] = None
     addAllowedRepositories: Optional[Sequence[PackageGroupAllowedRepositoryTypeDef]] = None
     removeAllowedRepositories: Optional[Sequence[PackageGroupAllowedRepositoryTypeDef]] = None
 
@@ -726,7 +729,7 @@ class PackageVersionSummaryTypeDef(BaseValidatorModel):
     origin: Optional[PackageVersionOriginTypeDef] = None
 
 class PackageGroupOriginConfigurationTypeDef(BaseValidatorModel):
-    restrictions: Optional[       Dict[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionTypeDef] = None
+    restrictions: Optional[       Dict[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionTypeDef] ]= None
 
 class PackageDescriptionTypeDef(BaseValidatorModel):
     format: Optional[PackageFormatType] = None
@@ -835,7 +838,7 @@ class GetAssociatedPackageGroupResultTypeDef(BaseValidatorModel):
 
 class UpdatePackageGroupOriginConfigurationResultTypeDef(BaseValidatorModel):
     packageGroup: PackageGroupDescriptionTypeDef
-    allowedRepositoryUpdates: Dict[       PackageGroupOriginRestrictionTypeType
+    allowedRepositoryUpdates: List[       PackageGroupOriginRestrictionTypeType]
     ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdatePackageGroupResultTypeDef(BaseValidatorModel):

@@ -250,12 +250,12 @@ class DeleteMembersResponseTypeDef(BaseValidatorModel):
 
 class DatasourcePackageIngestDetailTypeDef(BaseValidatorModel):
     DatasourcePackageIngestState: Optional[DatasourcePackageIngestStateType] = None
-    LastIngestStateChange: Optional[       Dict[DatasourcePackageIngestStateType, TimestampForCollectionTypeDef] = None
+    LastIngestStateChange: Optional[       Dict[DatasourcePackageIngestStateType, TimestampForCollectionTypeDef]] = None
 
 class MembershipDatasourcesTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     GraphArn: Optional[str] = None
-    DatasourcePackageIngestHistory: Optional[       Dict[         DatasourcePackageType = None
+    DatasourcePackageIngestHistory: Optional[       List[         DatasourcePackageType]] = None
 
 class MemberDetailTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
@@ -272,8 +272,8 @@ class MemberDetailTypeDef(BaseValidatorModel):
     PercentOfGraphUtilization: Optional[float] = None
     PercentOfGraphUtilizationUpdatedTime: Optional[datetime] = None
     InvitationType: Optional[InvitationTypeType] = None
-    VolumeUsageByDatasourcePackage: Optional[       Dict[DatasourcePackageType, DatasourcePackageUsageInfoTypeDef] = None
-    DatasourcePackageIngestStates: Optional[       Dict[DatasourcePackageType, DatasourcePackageIngestStateType] = None
+    VolumeUsageByDatasourcePackage: Optional[       Dict[DatasourcePackageType, DatasourcePackageUsageInfoTypeDef]] = None
+    DatasourcePackageIngestStates: Optional[       Dict[DatasourcePackageType, DatasourcePackageIngestStateType]] = None
 
 class DateFilterTypeDef(BaseValidatorModel):
     StartInclusive: TimestampTypeDef

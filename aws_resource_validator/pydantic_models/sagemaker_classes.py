@@ -6574,7 +6574,7 @@ class AutoMLCandidateTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
     CandidateProperties: Optional[CandidatePropertiesTypeDef] = None
-    InferenceContainerDefinitions: Optional[       Dict[AutoMLProcessingUnitType, List[AutoMLContainerDefinitionTypeDef]] = None
+    InferenceContainerDefinitions: Optional[       Dict[AutoMLProcessingUnitType, List[AutoMLContainerDefinitionTypeDef]]] = None
 
 class BlueGreenUpdatePolicyTypeDef(BaseValidatorModel):
     TrafficRoutingConfiguration: TrafficRoutingConfigTypeDef

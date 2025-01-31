@@ -500,10 +500,10 @@ class UpdateIPSetRequestRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 class AssociationConfigOutputTypeDef(BaseValidatorModel):
-    RequestBody: Optional[       Dict[AssociatedResourceTypeType, RequestBodyAssociatedResourceTypeConfigTypeDef] = None
+    RequestBody: Optional[       Dict[AssociatedResourceTypeType, RequestBodyAssociatedResourceTypeConfigTypeDef]] = None
 
 class AssociationConfigTypeDef(BaseValidatorModel):
-    RequestBody: Optional[       Mapping[AssociatedResourceTypeType, RequestBodyAssociatedResourceTypeConfigTypeDef] = None
+    RequestBody: Optional[       Mapping[AssociatedResourceTypeType, RequestBodyAssociatedResourceTypeConfigTypeDef]] = None
 
 class RateLimitCookieOutputTypeDef(BaseValidatorModel):
     Name: str
@@ -1042,11 +1042,11 @@ class LoggingFilterTypeDef(BaseValidatorModel):
 
 class OverrideActionOutputTypeDef(BaseValidatorModel):
     Count: Optional[CountActionOutputTypeDef] = None
-    None: Optional[Dict[str, Any]] = None
+    _None: Optional[Dict[str, Any]] = None
 
 class OverrideActionTypeDef(BaseValidatorModel):
     Count: Optional[CountActionTypeDef] = None
-    None: Optional[Mapping[str, Any]] = None
+    _None: Optional[Mapping[str, Any]] = None
 
 class DefaultActionOutputTypeDef(BaseValidatorModel):
     Block: Optional[BlockActionOutputTypeDef] = None

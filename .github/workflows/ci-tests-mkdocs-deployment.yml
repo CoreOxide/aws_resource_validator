@@ -3,10 +3,15 @@ name: CI Tests, Linter, and MkDocs Deployment
 on:
   push:
     branches:
-      - '*'  # Triggers for all branches for tests and linters
+      - '*' # Triggers for all branches for tests and linters
   pull_request:
     branches:
       - main
+  workflow_call:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   linter-and-test:
@@ -52,7 +57,7 @@ jobs:
 
   update-github-pages:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+#    if: github.ref == 'refs/heads/main'
     permissions:
       contents: write
     steps:
@@ -63,11 +68,12 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.12'
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install mkdocs mkdocs-material mkdocs_render_swagger_plugin
+          pip install mkdocs mkdocs-material mkdocs_render_swagger_plugin mkdocs-awesome-pages-plugin
 
       - name: Build and deploy
         run: |

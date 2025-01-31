@@ -6,7 +6,7 @@ priority = "primary"
 name = "aws-resource-validator"
 version = "0.2.2"
 description = "Validate, get validation patterns and generate valid AWS resource names (for testing \\ mocks)"
-authors = ["Alexy Grabov <alexy.grabov@gmail.com>"]
+authors = ["Alexy Grabov <alexy.grabov@gmail.com>", "Yafit Tupman <ytupman@gmail.com>"]
 license = "Apache License 2.0"
 readme = "README.md"
 packages = [
@@ -19,10 +19,12 @@ packages = [
 python = "^3.9 || ^3.12 || ^3.13"
 exrex = "^0.11.0"
 pydantic = "^2.8.2"
+botocore = "^1.35.34"
 
 [tool.poetry.dev-dependencies]
 requests = "^2.31.0"
 boto3-stubs = { extras = ["all"], version = "*" }
+ruamel-yaml = "^0.18.6"
 
 [build-system]
 requires = ["poetry-core"]

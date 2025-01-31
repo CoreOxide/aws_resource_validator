@@ -1,4 +1,8 @@
 from datetime import datetime
+
+from mypy_boto3_securityhub.type_defs import \
+    AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef
+
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
 from typing import Any
 from typing import Dict
