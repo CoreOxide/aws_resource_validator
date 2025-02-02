@@ -2,7 +2,7 @@
 # AWS Resource Validator
 
 ![version](https://img.shields.io/github/v/release/CoreOxide/aws_resource_validator)
-![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.9-3.19&color=blue?style=flat-square&logo=python)
+![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.9-3.13&color=blue?style=flat-square&logo=python)
 [![GitHub License](https://img.shields.io/github/license/CoreOxide/aws_resource_validator)](https://github.com/CoreOxide/aws_resource_validator/blob/main/LICENSE)]
 ![github-star-badge](https://img.shields.io/github/stars/CoreOxide/aws_resource_validator.svg?style=social)
 ![issues](https://img.shields.io/github/issues/CoreOxide/aws_resource_validator)
@@ -39,6 +39,24 @@ print(acm.Arn.pattern)
 print(acm.Arn.type)
 print(acm.Arn.validate("example-arn"))
 print(acm.Arn.generate())
+```
+
+Using Pydantic models for boto3 models:
+
+```python
+import boto3
+
+from aws_resource_validator.pydantic_models.dynamodb_classes import ListTablesOutputTypeDef
+
+dynamodb = boto3.client('dynamodb')
+
+def list_dynamo_tables() -> List[str]:
+    return ListTablesOutputTypeDef(**dynamodb.list_tables()).TableNames
+
+
+if __name__ == "__main__":
+    tables: List[str] = list_dynamo_tables()
+    print("DynamoDB Tables:", tables)
 ```
 
 ## Contributing
