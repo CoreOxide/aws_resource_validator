@@ -2,7 +2,7 @@
 # AWS Resource Validator
 
 ![version](https://img.shields.io/github/v/release/CoreOxide/aws_resource_validator)
-![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.8-3.12&color=blue?style=flat-square&logo=python)
+![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.9-3.19&color=blue?style=flat-square&logo=python)
 [![GitHub License](https://img.shields.io/github/license/CoreOxide/aws_resource_validator)](https://github.com/CoreOxide/aws_resource_validator/blob/main/LICENSE)]
 ![github-star-badge](https://img.shields.io/github/stars/CoreOxide/aws_resource_validator.svg?style=social)
 ![issues](https://img.shields.io/github/issues/CoreOxide/aws_resource_validator)
