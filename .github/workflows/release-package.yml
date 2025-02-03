@@ -38,12 +38,12 @@ jobs:
           fi
           echo "Bumped version to $NEW_VERSION"
           
-          git config user.name "github-release"
-          git config user.email "github-release@github.com"
+          git config user.name "ytupman"
+          git config user.email "yafit.tupman@gmail.com"
           
           git add pyproject.toml
           git commit -m "Bump version to $NEW_VERSION [skip ci]" || echo "No changes to commit."
-          git push origin main
+          git push --force origin main
 
       - name: Build package
         run: poetry build -f wheel
