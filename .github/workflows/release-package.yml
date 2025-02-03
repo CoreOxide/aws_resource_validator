@@ -27,6 +27,7 @@ jobs:
           pip install poetry
 
       - name: Bump version in pyproject.toml
+        continue-on-error: true
         run: |
           git checkout main
           git pull origin main --rebase
