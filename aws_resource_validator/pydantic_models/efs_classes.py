@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -16,6 +17,7 @@ class PosixUserOutputTypeDef(BaseValidatorModel):
     Gid: int
     SecondaryGids: Optional[List[int]] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
@@ -23,97 +25,116 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
+
 class BackupPolicyTypeDef(BaseValidatorModel):
     Status: StatusType
 
-class PosixUserTypeDef(BaseValidatorModel):
-    Uid: int
-    Gid: int
-    SecondaryGids: Optional[Sequence[int]] = None
 
-class CreateMountTargetRequestRequestTypeDef(BaseValidatorModel):
+class CreateMountTargetRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
     SubnetId: str
     IpAddress: Optional[str] = None
     SecurityGroups: Optional[Sequence[str]] = None
+
 
 class DestinationToCreateTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
     AvailabilityZoneName: Optional[str] = None
     KmsKeyId: Optional[str] = None
     FileSystemId: Optional[str] = None
+    RoleArn: Optional[str] = None
+
 
 class CreationInfoTypeDef(BaseValidatorModel):
     OwnerUid: int
     OwnerGid: int
     Permissions: str
 
-class DeleteAccessPointRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteAccessPointRequestTypeDef(BaseValidatorModel):
     AccessPointId: str
 
-class DeleteFileSystemPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteFileSystemPolicyRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
 
-class DeleteFileSystemRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteFileSystemRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
 
-class DeleteMountTargetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteMountTargetRequestTypeDef(BaseValidatorModel):
     MountTargetId: str
 
-class DeleteReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
-    SourceFileSystemId: str
 
-class DeleteTagsRequestRequestTypeDef(BaseValidatorModel):
+class DeleteReplicationConfigurationRequestTypeDef(BaseValidatorModel):
+    SourceFileSystemId: str
+    DeletionMode: Optional[DeletionModeType] = None
+
+
+class DeleteTagsRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
     TagKeys: Sequence[str]
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeAccessPointsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeAccessPointsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     AccessPointId: Optional[str] = None
     FileSystemId: Optional[str] = None
 
-class DescribeAccountPreferencesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeAccountPreferencesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class ResourceIdPreferenceTypeDef(BaseValidatorModel):
     ResourceIdType: Optional[ResourceIdTypeType] = None
     Resources: Optional[List[ResourceType]] = None
 
-class DescribeBackupPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeBackupPolicyRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
 
-class DescribeFileSystemPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeFileSystemPolicyRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
 
-class DescribeFileSystemsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeFileSystemsRequestTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
     CreationToken: Optional[str] = None
     FileSystemId: Optional[str] = None
 
-class DescribeLifecycleConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLifecycleConfigurationRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
 
-class DescribeMountTargetSecurityGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeMountTargetSecurityGroupsRequestTypeDef(BaseValidatorModel):
     MountTargetId: str
 
-class DescribeMountTargetsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeMountTargetsRequestTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
     FileSystemId: Optional[str] = None
     MountTargetId: Optional[str] = None
     AccessPointId: Optional[str] = None
+
 
 class MountTargetDescriptionTypeDef(BaseValidatorModel):
     MountTargetId: str
@@ -127,24 +148,32 @@ class MountTargetDescriptionTypeDef(BaseValidatorModel):
     AvailabilityZoneName: Optional[str] = None
     VpcId: Optional[str] = None
 
-class DescribeReplicationConfigurationsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeReplicationConfigurationsRequestTypeDef(BaseValidatorModel):
     FileSystemId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeTagsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeTagsRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
+
 
 class DestinationTypeDef(BaseValidatorModel):
     Status: ReplicationStatusType
     FileSystemId: str
     Region: str
     LastReplicatedTimestamp: Optional[datetime] = None
+    OwnerId: Optional[str] = None
+    StatusMessage: Optional[str] = None
+    RoleArn: Optional[str] = None
+
 
 class FileSystemProtectionDescriptionTypeDef(BaseValidatorModel):
     ReplicationOverwriteProtection: Optional[ReplicationOverwriteProtectionType] = None
+
 
 class FileSystemSizeTypeDef(BaseValidatorModel):
     Value: int
@@ -153,61 +182,75 @@ class FileSystemSizeTypeDef(BaseValidatorModel):
     ValueInStandard: Optional[int] = None
     ValueInArchive: Optional[int] = None
 
+
 class LifecyclePolicyTypeDef(BaseValidatorModel):
     TransitionToIA: Optional[TransitionToIARulesType] = None
     TransitionToPrimaryStorageClass: Optional[Literal["AFTER_1_ACCESS"]] = None
     TransitionToArchive: Optional[TransitionToArchiveRulesType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ModifyMountTargetSecurityGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ModifyMountTargetSecurityGroupsRequestTypeDef(BaseValidatorModel):
     MountTargetId: str
     SecurityGroups: Optional[Sequence[str]] = None
 
-class PosixUserExtraOutputTypeDef(BaseValidatorModel):
+
+class PosixUserTypeDef(BaseValidatorModel):
     Uid: int
     Gid: int
-    SecondaryGids: Optional[List[int]] = None
+    SecondaryGids: Optional[Sequence[int]] = None
 
-class PutAccountPreferencesRequestRequestTypeDef(BaseValidatorModel):
+
+class PutAccountPreferencesRequestTypeDef(BaseValidatorModel):
     ResourceIdType: ResourceIdTypeType
 
-class PutFileSystemPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutFileSystemPolicyRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
     Policy: str
     BypassPolicyLockoutSafetyCheck: Optional[bool] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     TagKeys: Sequence[str]
 
-class UpdateFileSystemProtectionRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateFileSystemProtectionRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
     ReplicationOverwriteProtection: Optional[ReplicationOverwriteProtectionType] = None
 
-class UpdateFileSystemRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateFileSystemRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
     ThroughputMode: Optional[ThroughputModeType] = None
     ProvisionedThroughputInMibps: Optional[float] = None
+
 
 class DescribeMountTargetSecurityGroupsResponseTypeDef(BaseValidatorModel):
     SecurityGroups: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class FileSystemPolicyDescriptionTypeDef(BaseValidatorModel):
     FileSystemId: str
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class FileSystemProtectionDescriptionResponseTypeDef(BaseValidatorModel):
     ReplicationOverwriteProtection: ReplicationOverwriteProtectionType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class MountTargetDescriptionResponseTypeDef(BaseValidatorModel):
     OwnerId: str
@@ -222,7 +265,8 @@ class MountTargetDescriptionResponseTypeDef(BaseValidatorModel):
     VpcId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFileSystemRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateFileSystemRequestTypeDef(BaseValidatorModel):
     CreationToken: str
     PerformanceMode: Optional[PerformanceModeType] = None
     Encrypted: Optional[bool] = None
@@ -233,9 +277,11 @@ class CreateFileSystemRequestRequestTypeDef(BaseValidatorModel):
     Backup: Optional[bool] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateTagsRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateTagsRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
     Tags: Sequence[TagTypeDef]
+
 
 class DescribeTagsResponseTypeDef(BaseValidatorModel):
     Marker: str
@@ -243,65 +289,84 @@ class DescribeTagsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceId: str
     Tags: Sequence[TagTypeDef]
+
 
 class BackupPolicyDescriptionTypeDef(BaseValidatorModel):
     BackupPolicy: BackupPolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBackupPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutBackupPolicyRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
     BackupPolicy: BackupPolicyTypeDef
 
-class CreateReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateReplicationConfigurationRequestTypeDef(BaseValidatorModel):
     SourceFileSystemId: str
     Destinations: Sequence[DestinationToCreateTypeDef]
+
 
 class RootDirectoryTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     CreationInfo: Optional[CreationInfoTypeDef] = None
 
-class DescribeAccessPointsRequestDescribeAccessPointsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeAccessPointsRequestPaginateTypeDef(BaseValidatorModel):
     AccessPointId: Optional[str] = None
     FileSystemId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeFileSystemsRequestDescribeFileSystemsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeFileSystemsRequestPaginateTypeDef(BaseValidatorModel):
     CreationToken: Optional[str] = None
     FileSystemId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeMountTargetsRequestDescribeMountTargetsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeMountTargetsRequestPaginateTypeDef(BaseValidatorModel):
     FileSystemId: Optional[str] = None
     MountTargetId: Optional[str] = None
     AccessPointId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTagsRequestDescribeTagsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeReplicationConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+    FileSystemId: Optional[str] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class DescribeTagsRequestPaginateTypeDef(BaseValidatorModel):
     FileSystemId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class DescribeAccountPreferencesResponseTypeDef(BaseValidatorModel):
     ResourceIdPreference: ResourceIdPreferenceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class PutAccountPreferencesResponseTypeDef(BaseValidatorModel):
     ResourceIdPreference: ResourceIdPreferenceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeMountTargetsResponseTypeDef(BaseValidatorModel):
     Marker: str
     MountTargets: List[MountTargetDescriptionTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ReplicationConfigurationDescriptionResponseTypeDef(BaseValidatorModel):
     SourceFileSystemId: str
@@ -310,7 +375,9 @@ class ReplicationConfigurationDescriptionResponseTypeDef(BaseValidatorModel):
     OriginalSourceFileSystemArn: str
     CreationTime: datetime
     Destinations: List[DestinationTypeDef]
+    SourceFileSystemOwnerId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ReplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
     SourceFileSystemId: str
@@ -319,6 +386,8 @@ class ReplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
     OriginalSourceFileSystemArn: str
     CreationTime: datetime
     Destinations: List[DestinationTypeDef]
+    SourceFileSystemOwnerId: Optional[str] = None
+
 
 class FileSystemDescriptionResponseTypeDef(BaseValidatorModel):
     OwnerId: str
@@ -341,6 +410,7 @@ class FileSystemDescriptionResponseTypeDef(BaseValidatorModel):
     FileSystemProtection: FileSystemProtectionDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class FileSystemDescriptionTypeDef(BaseValidatorModel):
     OwnerId: str
     CreationToken: str
@@ -361,13 +431,16 @@ class FileSystemDescriptionTypeDef(BaseValidatorModel):
     AvailabilityZoneId: Optional[str] = None
     FileSystemProtection: Optional[FileSystemProtectionDescriptionTypeDef] = None
 
+
 class LifecycleConfigurationDescriptionTypeDef(BaseValidatorModel):
     LifecyclePolicies: List[LifecyclePolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutLifecycleConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class PutLifecycleConfigurationRequestTypeDef(BaseValidatorModel):
     FileSystemId: str
     LifecyclePolicies: Sequence[LifecyclePolicyTypeDef]
+
 
 class AccessPointDescriptionResponseTypeDef(BaseValidatorModel):
     ClientToken: str
@@ -382,6 +455,7 @@ class AccessPointDescriptionResponseTypeDef(BaseValidatorModel):
     LifeCycleState: LifeCycleStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AccessPointDescriptionTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
     Name: Optional[str] = None
@@ -394,17 +468,12 @@ class AccessPointDescriptionTypeDef(BaseValidatorModel):
     OwnerId: Optional[str] = None
     LifeCycleState: Optional[LifeCycleStateType] = None
 
-class CreateAccessPointRequestRequestTypeDef(BaseValidatorModel):
-    ClientToken: str
-    FileSystemId: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    PosixUser: Optional[PosixUserTypeDef] = None
-    RootDirectory: Optional[RootDirectoryTypeDef] = None
 
 class DescribeReplicationConfigurationsResponseTypeDef(BaseValidatorModel):
     Replications: List[ReplicationConfigurationDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class DescribeFileSystemsResponseTypeDef(BaseValidatorModel):
     Marker: str
@@ -412,8 +481,22 @@ class DescribeFileSystemsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class PosixUserUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateAccessPointRequestTypeDef(BaseValidatorModel):
+    ClientToken: str
+    FileSystemId: str
+    Tags: Optional[Sequence[TagTypeDef]] = None
+    PosixUser: Optional[PosixUserUnionTypeDef] = None
+    RootDirectory: Optional[RootDirectoryTypeDef] = None
+
+
 class DescribeAccessPointsResponseTypeDef(BaseValidatorModel):
     AccessPoints: List[AccessPointDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 

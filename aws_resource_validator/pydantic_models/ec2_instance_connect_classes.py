@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -18,24 +19,29 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class SendSSHPublicKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class SendSSHPublicKeyRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     InstanceOSUser: str
     SSHPublicKey: str
     AvailabilityZone: Optional[str] = None
 
-class SendSerialConsoleSSHPublicKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class SendSerialConsoleSSHPublicKeyRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     SSHPublicKey: str
     SerialPort: Optional[int] = None
+
 
 class SendSSHPublicKeyResponseTypeDef(BaseValidatorModel):
     RequestId: str
     Success: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SendSerialConsoleSSHPublicKeyResponseTypeDef(BaseValidatorModel):
     RequestId: str
     Success: bool
     ResponseMetadata: ResponseMetadataTypeDef
+
 

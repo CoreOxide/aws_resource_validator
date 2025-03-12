@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -19,141 +20,189 @@ class ContainerTypeDef(BaseValidatorModel):
     Status: Optional[ContainerStatusType] = None
     AccessLoggingEnabled: Optional[bool] = None
 
-class CorsRuleTypeDef(BaseValidatorModel):
+
+class CorsRuleOutputTypeDef(BaseValidatorModel):
     AllowedOrigins: List[str]
     AllowedHeaders: List[str]
     AllowedMethods: Optional[List[MethodNameType]] = None
     MaxAgeSeconds: Optional[int] = None
     ExposeHeaders: Optional[List[str]] = None
 
+
+class CorsRuleTypeDef(BaseValidatorModel):
+    AllowedOrigins: Sequence[str]
+    AllowedHeaders: Sequence[str]
+    AllowedMethods: Optional[Sequence[MethodNameType]] = None
+    MaxAgeSeconds: Optional[int] = None
+    ExposeHeaders: Optional[Sequence[str]] = None
+
+
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class DeleteContainerInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteContainerInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class DeleteContainerPolicyInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteContainerPolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class DeleteCorsPolicyInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteCorsPolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class DeleteLifecyclePolicyInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteLifecyclePolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class DeleteMetricPolicyInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteMetricPolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class DescribeContainerInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeContainerInputTypeDef(BaseValidatorModel):
     ContainerName: Optional[str] = None
 
-class GetContainerPolicyInputRequestTypeDef(BaseValidatorModel):
+
+class GetContainerPolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class GetCorsPolicyInputRequestTypeDef(BaseValidatorModel):
+
+class GetCorsPolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class GetLifecyclePolicyInputRequestTypeDef(BaseValidatorModel):
+
+class GetLifecyclePolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class GetMetricPolicyInputRequestTypeDef(BaseValidatorModel):
+
+class GetMetricPolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListContainersInputRequestTypeDef(BaseValidatorModel):
+
+class ListContainersInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputTypeDef(BaseValidatorModel):
     Resource: str
+
 
 class MetricPolicyRuleTypeDef(BaseValidatorModel):
     ObjectGroup: str
     ObjectGroupName: str
 
-class PutContainerPolicyInputRequestTypeDef(BaseValidatorModel):
+
+class PutContainerPolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
     Policy: str
 
-class PutLifecyclePolicyInputRequestTypeDef(BaseValidatorModel):
+
+class PutLifecyclePolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
     LifecyclePolicy: str
 
-class StartAccessLoggingInputRequestTypeDef(BaseValidatorModel):
+
+class StartAccessLoggingInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class StopAccessLoggingInputRequestTypeDef(BaseValidatorModel):
+
+class StopAccessLoggingInputTypeDef(BaseValidatorModel):
     ContainerName: str
 
-class UntagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceInputTypeDef(BaseValidatorModel):
     Resource: str
     TagKeys: Sequence[str]
 
-class PutCorsPolicyInputRequestTypeDef(BaseValidatorModel):
-    ContainerName: str
-    CorsPolicy: Sequence[CorsRuleTypeDef]
 
-class CreateContainerInputRequestTypeDef(BaseValidatorModel):
+class CreateContainerInputTypeDef(BaseValidatorModel):
     ContainerName: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class TagResourceInputTypeDef(BaseValidatorModel):
     Resource: str
     Tags: Sequence[TagTypeDef]
 
-class CreateContainerOutputTypeDef(BaseValidatorModel):
-    Container: ContainerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class DescribeContainerOutputTypeDef(BaseValidatorModel):
-    Container: ContainerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class GetContainerPolicyOutputTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetCorsPolicyOutputTypeDef(BaseValidatorModel):
-    CorsPolicy: List[CorsRuleTypeDef]
+    CorsPolicy: List[CorsRuleOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetLifecyclePolicyOutputTypeDef(BaseValidatorModel):
     LifecyclePolicy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListContainersOutputTypeDef(BaseValidatorModel):
     Containers: List[ContainerTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListContainersInputListContainersPaginateTypeDef(BaseValidatorModel):
+
+class ListContainersInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class MetricPolicyTypeDef(BaseValidatorModel):
+
+class MetricPolicyOutputTypeDef(BaseValidatorModel):
     ContainerLevelMetrics: ContainerLevelMetricsType
     MetricPolicyRules: Optional[List[MetricPolicyRuleTypeDef]] = None
 
+
+class MetricPolicyTypeDef(BaseValidatorModel):
+    ContainerLevelMetrics: ContainerLevelMetricsType
+    MetricPolicyRules: Optional[Sequence[MetricPolicyRuleTypeDef]] = None
+
+
+class CorsRuleUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class PutCorsPolicyInputTypeDef(BaseValidatorModel):
+    ContainerName: str
+    CorsPolicy: Sequence[CorsRuleUnionTypeDef]
+
+
 class GetMetricPolicyOutputTypeDef(BaseValidatorModel):
-    MetricPolicy: MetricPolicyTypeDef
+    MetricPolicy: MetricPolicyOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutMetricPolicyInputRequestTypeDef(BaseValidatorModel):
+
+class MetricPolicyUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class PutMetricPolicyInputTypeDef(BaseValidatorModel):
     ContainerName: str
-    MetricPolicy: MetricPolicyTypeDef
+    MetricPolicy: MetricPolicyUnionTypeDef
+
 

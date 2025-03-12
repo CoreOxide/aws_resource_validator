@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -23,11 +24,13 @@ class AutoBranchCreationConfigOutputTypeDef(BaseValidatorModel):
     enablePullRequestPreview: Optional[bool] = None
     pullRequestEnvironmentName: Optional[str] = None
 
+
 class CustomRuleTypeDef(BaseValidatorModel):
     source: str
     target: str
     status: Optional[str] = None
     condition: Optional[str] = None
+
 
 class ProductionBranchTypeDef(BaseValidatorModel):
     lastDeployTime: Optional[datetime] = None
@@ -35,21 +38,17 @@ class ProductionBranchTypeDef(BaseValidatorModel):
     thumbnailUrl: Optional[str] = None
     branchName: Optional[str] = None
 
+
+class WafConfigurationTypeDef(BaseValidatorModel):
+    webAclArn: Optional[str] = None
+    wafStatus: Optional[WafStatusType] = None
+    statusReason: Optional[str] = None
+
+
 class ArtifactTypeDef(BaseValidatorModel):
     artifactFileName: str
     artifactId: str
 
-class AutoBranchCreationConfigExtraOutputTypeDef(BaseValidatorModel):
-    stage: Optional[StageType] = None
-    framework: Optional[str] = None
-    enableAutoBuild: Optional[bool] = None
-    environmentVariables: Optional[Dict[str, str]] = None
-    basicAuthCredentials: Optional[str] = None
-    enableBasicAuth: Optional[bool] = None
-    enablePerformanceMode: Optional[bool] = None
-    buildSpec: Optional[str] = None
-    enablePullRequestPreview: Optional[bool] = None
-    pullRequestEnvironmentName: Optional[str] = None
 
 class AutoBranchCreationConfigTypeDef(BaseValidatorModel):
     stage: Optional[StageType] = None
@@ -63,6 +62,7 @@ class AutoBranchCreationConfigTypeDef(BaseValidatorModel):
     enablePullRequestPreview: Optional[bool] = None
     pullRequestEnvironmentName: Optional[str] = None
 
+
 class BackendEnvironmentTypeDef(BaseValidatorModel):
     backendEnvironmentArn: str
     environmentName: str
@@ -71,17 +71,10 @@ class BackendEnvironmentTypeDef(BaseValidatorModel):
     stackName: Optional[str] = None
     deploymentArtifacts: Optional[str] = None
 
+
 class BackendTypeDef(BaseValidatorModel):
     stackArn: Optional[str] = None
 
-class CertificateSettingsTypeDef(BaseValidatorModel):
-    type: CertificateTypeType
-    customCertificateArn: Optional[str] = None
-
-class CertificateTypeDef(BaseValidatorModel):
-    type: CertificateTypeType
-    customCertificateArn: Optional[str] = None
-    certificateVerificationDNSRecord: Optional[str] = None
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -90,25 +83,30 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateBackendEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateBackendEnvironmentRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
     stackName: Optional[str] = None
     deploymentArtifacts: Optional[str] = None
 
-class CreateDeploymentRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateDeploymentRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     fileMap: Optional[Mapping[str, str]] = None
+
 
 class SubDomainSettingTypeDef(BaseValidatorModel):
     prefix: str
     branchName: str
 
-class CreateWebhookRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateWebhookRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     description: Optional[str] = None
+
 
 class WebhookTypeDef(BaseValidatorModel):
     webhookArn: str
@@ -119,25 +117,31 @@ class WebhookTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
 
-class DeleteAppRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteAppRequestTypeDef(BaseValidatorModel):
     appId: str
 
-class DeleteBackendEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteBackendEnvironmentRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
 
-class DeleteBranchRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteBranchRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
 
-class DeleteDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDomainAssociationRequestTypeDef(BaseValidatorModel):
     appId: str
     domainName: str
 
-class DeleteJobRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteJobRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     jobId: str
+
 
 class JobSummaryTypeDef(BaseValidatorModel):
     jobArn: str
@@ -149,35 +153,46 @@ class JobSummaryTypeDef(BaseValidatorModel):
     status: JobStatusType
     jobType: JobTypeType
     endTime: Optional[datetime] = None
+    sourceUrl: Optional[str] = None
+    sourceUrlType: Optional[SourceUrlTypeType] = None
 
-class DeleteWebhookRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteWebhookRequestTypeDef(BaseValidatorModel):
     webhookId: str
 
-class GetAppRequestRequestTypeDef(BaseValidatorModel):
+
+class GetAppRequestTypeDef(BaseValidatorModel):
     appId: str
 
-class GetArtifactUrlRequestRequestTypeDef(BaseValidatorModel):
+
+class GetArtifactUrlRequestTypeDef(BaseValidatorModel):
     artifactId: str
 
-class GetBackendEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class GetBackendEnvironmentRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: str
 
-class GetBranchRequestRequestTypeDef(BaseValidatorModel):
+
+class GetBranchRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
 
-class GetDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDomainAssociationRequestTypeDef(BaseValidatorModel):
     appId: str
     domainName: str
 
-class GetJobRequestRequestTypeDef(BaseValidatorModel):
+
+class GetJobRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     jobId: str
 
-class GetWebhookRequestRequestTypeDef(BaseValidatorModel):
+
+class GetWebhookRequestTypeDef(BaseValidatorModel):
     webhookId: str
+
 
 class StepTypeDef(BaseValidatorModel):
     stepName: str
@@ -192,75 +207,95 @@ class StepTypeDef(BaseValidatorModel):
     statusReason: Optional[str] = None
     context: Optional[str] = None
 
+
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAppsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAppsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListArtifactsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListArtifactsRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     jobId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListBackendEnvironmentsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListBackendEnvironmentsRequestTypeDef(BaseValidatorModel):
     appId: str
     environmentName: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListBranchesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListBranchesRequestTypeDef(BaseValidatorModel):
     appId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDomainAssociationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDomainAssociationsRequestTypeDef(BaseValidatorModel):
     appId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListJobsRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListWebhooksRequestRequestTypeDef(BaseValidatorModel):
+
+class ListWebhooksRequestTypeDef(BaseValidatorModel):
     appId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class StartDeploymentRequestRequestTypeDef(BaseValidatorModel):
+
+class StartDeploymentRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     jobId: Optional[str] = None
     sourceUrl: Optional[str] = None
+    sourceUrlType: Optional[SourceUrlTypeType] = None
 
-class StopJobRequestRequestTypeDef(BaseValidatorModel):
+
+class StopJobRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     jobId: str
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateWebhookRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateWebhookRequestTypeDef(BaseValidatorModel):
     webhookId: str
     branchName: Optional[str] = None
     description: Optional[str] = None
+
+
+class CacheConfigTypeDef(BaseValidatorModel):
+    pass
+
 
 class AppTypeDef(BaseValidatorModel):
     appId: str
@@ -276,6 +311,7 @@ class AppTypeDef(BaseValidatorModel):
     enableBranchAutoBuild: bool
     enableBasicAuth: bool
     tags: Optional[Dict[str, str]] = None
+    computeRoleArn: Optional[str] = None
     iamServiceRoleArn: Optional[str] = None
     enableBranchAutoDeletion: Optional[bool] = None
     basicAuthCredentials: Optional[str] = None
@@ -287,48 +323,10 @@ class AppTypeDef(BaseValidatorModel):
     autoBranchCreationPatterns: Optional[List[str]] = None
     autoBranchCreationConfig: Optional[AutoBranchCreationConfigOutputTypeDef] = None
     repositoryCloneMethod: Optional[RepositoryCloneMethodType] = None
+    cacheConfig: Optional[CacheConfigTypeDef] = None
+    webhookCreateTime: Optional[datetime] = None
+    wafConfiguration: Optional[WafConfigurationTypeDef] = None
 
-class CreateAppRequestRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    repository: Optional[str] = None
-    platform: Optional[PlatformType] = None
-    iamServiceRoleArn: Optional[str] = None
-    oauthToken: Optional[str] = None
-    accessToken: Optional[str] = None
-    environmentVariables: Optional[Mapping[str, str]] = None
-    enableBranchAutoBuild: Optional[bool] = None
-    enableBranchAutoDeletion: Optional[bool] = None
-    enableBasicAuth: Optional[bool] = None
-    basicAuthCredentials: Optional[str] = None
-    customRules: Optional[Sequence[CustomRuleTypeDef]] = None
-    tags: Optional[Mapping[str, str]] = None
-    buildSpec: Optional[str] = None
-    customHeaders: Optional[str] = None
-    enableAutoBranchCreation: Optional[bool] = None
-    autoBranchCreationPatterns: Optional[Sequence[str]] = None
-    autoBranchCreationConfig: Optional[AutoBranchCreationConfigTypeDef] = None
-
-class UpdateAppRequestRequestTypeDef(BaseValidatorModel):
-    appId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
-    platform: Optional[PlatformType] = None
-    iamServiceRoleArn: Optional[str] = None
-    environmentVariables: Optional[Mapping[str, str]] = None
-    enableBranchAutoBuild: Optional[bool] = None
-    enableBranchAutoDeletion: Optional[bool] = None
-    enableBasicAuth: Optional[bool] = None
-    basicAuthCredentials: Optional[str] = None
-    customRules: Optional[Sequence[CustomRuleTypeDef]] = None
-    buildSpec: Optional[str] = None
-    customHeaders: Optional[str] = None
-    enableAutoBranchCreation: Optional[bool] = None
-    autoBranchCreationPatterns: Optional[Sequence[str]] = None
-    autoBranchCreationConfig: Optional[AutoBranchCreationConfigTypeDef] = None
-    repository: Optional[str] = None
-    oauthToken: Optional[str] = None
-    accessToken: Optional[str] = None
 
 class BranchTypeDef(BaseValidatorModel):
     branchArn: str
@@ -359,8 +357,10 @@ class BranchTypeDef(BaseValidatorModel):
     sourceBranch: Optional[str] = None
     backendEnvironmentArn: Optional[str] = None
     backend: Optional[BackendTypeDef] = None
+    computeRoleArn: Optional[str] = None
 
-class CreateBranchRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateBranchRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     description: Optional[str] = None
@@ -380,8 +380,10 @@ class CreateBranchRequestRequestTypeDef(BaseValidatorModel):
     pullRequestEnvironmentName: Optional[str] = None
     backendEnvironmentArn: Optional[str] = None
     backend: Optional[BackendTypeDef] = None
+    computeRoleArn: Optional[str] = None
 
-class UpdateBranchRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateBranchRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     description: Optional[str] = None
@@ -400,10 +402,13 @@ class UpdateBranchRequestRequestTypeDef(BaseValidatorModel):
     pullRequestEnvironmentName: Optional[str] = None
     backendEnvironmentArn: Optional[str] = None
     backend: Optional[BackendTypeDef] = None
+    computeRoleArn: Optional[str] = None
+
 
 class CreateBackendEnvironmentResultTypeDef(BaseValidatorModel):
     backendEnvironment: BackendEnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateDeploymentResultTypeDef(BaseValidatorModel):
     jobId: str
@@ -411,38 +416,50 @@ class CreateDeploymentResultTypeDef(BaseValidatorModel):
     zipUploadUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteBackendEnvironmentResultTypeDef(BaseValidatorModel):
     backendEnvironment: BackendEnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GenerateAccessLogsResultTypeDef(BaseValidatorModel):
     logUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetArtifactUrlResultTypeDef(BaseValidatorModel):
     artifactId: str
     artifactUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetBackendEnvironmentResultTypeDef(BaseValidatorModel):
     backendEnvironment: BackendEnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListArtifactsResultTypeDef(BaseValidatorModel):
     artifacts: List[ArtifactTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListBackendEnvironmentsResultTypeDef(BaseValidatorModel):
     backendEnvironments: List[BackendEnvironmentTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class CertificateSettingsTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateDomainAssociationRequestTypeDef(BaseValidatorModel):
     appId: str
     domainName: str
     subDomainSettings: Sequence[SubDomainSettingTypeDef]
@@ -451,12 +468,14 @@ class CreateDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
     autoSubDomainIAMRole: Optional[str] = None
     certificateSettings: Optional[CertificateSettingsTypeDef] = None
 
+
 class SubDomainTypeDef(BaseValidatorModel):
     subDomainSetting: SubDomainSettingTypeDef
     verified: bool
     dnsRecord: str
 
-class UpdateDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateDomainAssociationRequestTypeDef(BaseValidatorModel):
     appId: str
     domainName: str
     enableAutoSubDomain: Optional[bool] = None
@@ -465,55 +484,71 @@ class UpdateDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
     autoSubDomainIAMRole: Optional[str] = None
     certificateSettings: Optional[CertificateSettingsTypeDef] = None
 
+
 class CreateWebhookResultTypeDef(BaseValidatorModel):
     webhook: WebhookTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteWebhookResultTypeDef(BaseValidatorModel):
     webhook: WebhookTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetWebhookResultTypeDef(BaseValidatorModel):
     webhook: WebhookTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListWebhooksResultTypeDef(BaseValidatorModel):
     webhooks: List[WebhookTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateWebhookResultTypeDef(BaseValidatorModel):
     webhook: WebhookTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteJobResultTypeDef(BaseValidatorModel):
     jobSummary: JobSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListJobsResultTypeDef(BaseValidatorModel):
     jobSummaries: List[JobSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class StartDeploymentResultTypeDef(BaseValidatorModel):
     jobSummary: JobSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartJobResultTypeDef(BaseValidatorModel):
     jobSummary: JobSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StopJobResultTypeDef(BaseValidatorModel):
     jobSummary: JobSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GenerateAccessLogsRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class GenerateAccessLogsRequestTypeDef(BaseValidatorModel):
     domainName: str
     appId: str
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None
 
-class StartJobRequestRequestTypeDef(BaseValidatorModel):
+
+class StartJobRequestTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     jobType: JobTypeType
@@ -523,67 +558,139 @@ class StartJobRequestRequestTypeDef(BaseValidatorModel):
     commitMessage: Optional[str] = None
     commitTime: Optional[TimestampTypeDef] = None
 
+
 class JobTypeDef(BaseValidatorModel):
     summary: JobSummaryTypeDef
     steps: List[StepTypeDef]
 
-class ListAppsRequestListAppsPaginateTypeDef(BaseValidatorModel):
+
+class ListAppsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBranchesRequestListBranchesPaginateTypeDef(BaseValidatorModel):
+
+class ListBranchesRequestPaginateTypeDef(BaseValidatorModel):
     appId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDomainAssociationsRequestListDomainAssociationsPaginateTypeDef(BaseValidatorModel):
+
+class ListDomainAssociationsRequestPaginateTypeDef(BaseValidatorModel):
     appId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobsRequestListJobsPaginateTypeDef(BaseValidatorModel):
+
+class ListJobsRequestPaginateTypeDef(BaseValidatorModel):
     appId: str
     branchName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class CreateAppResultTypeDef(BaseValidatorModel):
     app: AppTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteAppResultTypeDef(BaseValidatorModel):
     app: AppTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetAppResultTypeDef(BaseValidatorModel):
     app: AppTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListAppsResultTypeDef(BaseValidatorModel):
     apps: List[AppTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateAppResultTypeDef(BaseValidatorModel):
     app: AppTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class AutoBranchCreationConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateAppRequestTypeDef(BaseValidatorModel):
+    name: str
+    description: Optional[str] = None
+    repository: Optional[str] = None
+    platform: Optional[PlatformType] = None
+    computeRoleArn: Optional[str] = None
+    iamServiceRoleArn: Optional[str] = None
+    oauthToken: Optional[str] = None
+    accessToken: Optional[str] = None
+    environmentVariables: Optional[Mapping[str, str]] = None
+    enableBranchAutoBuild: Optional[bool] = None
+    enableBranchAutoDeletion: Optional[bool] = None
+    enableBasicAuth: Optional[bool] = None
+    basicAuthCredentials: Optional[str] = None
+    customRules: Optional[Sequence[CustomRuleTypeDef]] = None
+    tags: Optional[Mapping[str, str]] = None
+    buildSpec: Optional[str] = None
+    customHeaders: Optional[str] = None
+    enableAutoBranchCreation: Optional[bool] = None
+    autoBranchCreationPatterns: Optional[Sequence[str]] = None
+    autoBranchCreationConfig: Optional[AutoBranchCreationConfigUnionTypeDef] = None
+    cacheConfig: Optional[CacheConfigTypeDef] = None
+
+
+class UpdateAppRequestTypeDef(BaseValidatorModel):
+    appId: str
+    name: Optional[str] = None
+    description: Optional[str] = None
+    platform: Optional[PlatformType] = None
+    computeRoleArn: Optional[str] = None
+    iamServiceRoleArn: Optional[str] = None
+    environmentVariables: Optional[Mapping[str, str]] = None
+    enableBranchAutoBuild: Optional[bool] = None
+    enableBranchAutoDeletion: Optional[bool] = None
+    enableBasicAuth: Optional[bool] = None
+    basicAuthCredentials: Optional[str] = None
+    customRules: Optional[Sequence[CustomRuleTypeDef]] = None
+    buildSpec: Optional[str] = None
+    customHeaders: Optional[str] = None
+    enableAutoBranchCreation: Optional[bool] = None
+    autoBranchCreationPatterns: Optional[Sequence[str]] = None
+    autoBranchCreationConfig: Optional[AutoBranchCreationConfigUnionTypeDef] = None
+    repository: Optional[str] = None
+    oauthToken: Optional[str] = None
+    accessToken: Optional[str] = None
+    cacheConfig: Optional[CacheConfigTypeDef] = None
+
+
 class CreateBranchResultTypeDef(BaseValidatorModel):
     branch: BranchTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteBranchResultTypeDef(BaseValidatorModel):
     branch: BranchTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetBranchResultTypeDef(BaseValidatorModel):
     branch: BranchTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListBranchesResultTypeDef(BaseValidatorModel):
     branches: List[BranchTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateBranchResultTypeDef(BaseValidatorModel):
     branch: BranchTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class CertificateTypeDef(BaseValidatorModel):
+    pass
+
 
 class DomainAssociationTypeDef(BaseValidatorModel):
     domainAssociationArn: str
@@ -598,28 +705,35 @@ class DomainAssociationTypeDef(BaseValidatorModel):
     certificateVerificationDNSRecord: Optional[str] = None
     certificate: Optional[CertificateTypeDef] = None
 
+
 class GetJobResultTypeDef(BaseValidatorModel):
     job: JobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateDomainAssociationResultTypeDef(BaseValidatorModel):
     domainAssociation: DomainAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteDomainAssociationResultTypeDef(BaseValidatorModel):
     domainAssociation: DomainAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetDomainAssociationResultTypeDef(BaseValidatorModel):
     domainAssociation: DomainAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListDomainAssociationsResultTypeDef(BaseValidatorModel):
     domainAssociations: List[DomainAssociationTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateDomainAssociationResultTypeDef(BaseValidatorModel):
     domainAssociation: DomainAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -17,12 +18,15 @@ class IdentityProviderConfigurationTypeDef(BaseValidatorModel):
     Metadata: Optional[str] = None
     IdpLambdaArn: Optional[str] = None
 
+
 class PreloadDataConfigTypeDef(BaseValidatorModel):
     PreloadDataType: Literal["SYNTHEA"]
+
 
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -31,26 +35,33 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
 class ErrorCauseTypeDef(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
     ErrorCategory: Optional[ErrorCategoryType] = None
 
-class DeleteFHIRDatastoreRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteFHIRDatastoreRequestTypeDef(BaseValidatorModel):
     DatastoreId: str
 
-class DescribeFHIRDatastoreRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeFHIRDatastoreRequestTypeDef(BaseValidatorModel):
     DatastoreId: str
 
-class DescribeFHIRExportJobRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeFHIRExportJobRequestTypeDef(BaseValidatorModel):
     DatastoreId: str
     JobId: str
 
-class DescribeFHIRImportJobRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeFHIRImportJobRequestTypeDef(BaseValidatorModel):
     DatastoreId: str
     JobId: str
+
 
 class InputDataConfigTypeDef(BaseValidatorModel):
     S3Uri: Optional[str] = None
+
 
 class JobProgressReportTypeDef(BaseValidatorModel):
     TotalNumberOfScannedFiles: Optional[int] = None
@@ -62,24 +73,30 @@ class JobProgressReportTypeDef(BaseValidatorModel):
     TotalNumberOfFilesReadWithCustomerError: Optional[int] = None
     Throughput: Optional[float] = None
 
+
 class KmsEncryptionConfigTypeDef(BaseValidatorModel):
     CmkType: CmkTypeType
     KmsKeyId: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
+
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
     S3Uri: str
     KmsKeyId: str
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
+
 
 class CreateFHIRDatastoreResponseTypeDef(BaseValidatorModel):
     DatastoreId: str
@@ -88,6 +105,7 @@ class CreateFHIRDatastoreResponseTypeDef(BaseValidatorModel):
     DatastoreEndpoint: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteFHIRDatastoreResponseTypeDef(BaseValidatorModel):
     DatastoreId: str
     DatastoreArn: str
@@ -95,9 +113,11 @@ class DeleteFHIRDatastoreResponseTypeDef(BaseValidatorModel):
     DatastoreEndpoint: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartFHIRExportJobResponseTypeDef(BaseValidatorModel):
     JobId: str
@@ -105,11 +125,17 @@ class StartFHIRExportJobResponseTypeDef(BaseValidatorModel):
     DatastoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartFHIRImportJobResponseTypeDef(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
     DatastoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class DatastoreFilterTypeDef(BaseValidatorModel):
     DatastoreName: Optional[str] = None
@@ -117,7 +143,8 @@ class DatastoreFilterTypeDef(BaseValidatorModel):
     CreatedBefore: Optional[TimestampTypeDef] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
 
-class ListFHIRExportJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFHIRExportJobsRequestTypeDef(BaseValidatorModel):
     DatastoreId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -126,7 +153,8 @@ class ListFHIRExportJobsRequestRequestTypeDef(BaseValidatorModel):
     SubmittedBefore: Optional[TimestampTypeDef] = None
     SubmittedAfter: Optional[TimestampTypeDef] = None
 
-class ListFHIRImportJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFHIRImportJobsRequestTypeDef(BaseValidatorModel):
     DatastoreId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -134,19 +162,23 @@ class ListFHIRImportJobsRequestRequestTypeDef(BaseValidatorModel):
     JobStatus: Optional[JobStatusType] = None
     SubmittedBefore: Optional[TimestampTypeDef] = None
     SubmittedAfter: Optional[TimestampTypeDef] = None
+
 
 class SseConfigurationTypeDef(BaseValidatorModel):
     KmsEncryptionConfig: KmsEncryptionConfigTypeDef
 
+
 class OutputDataConfigTypeDef(BaseValidatorModel):
     S3Configuration: Optional[S3ConfigurationTypeDef] = None
 
-class ListFHIRDatastoresRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFHIRDatastoresRequestTypeDef(BaseValidatorModel):
     Filter: Optional[DatastoreFilterTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class CreateFHIRDatastoreRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateFHIRDatastoreRequestTypeDef(BaseValidatorModel):
     DatastoreTypeVersion: Literal["R4"]
     DatastoreName: Optional[str] = None
     SseConfiguration: Optional[SseConfigurationTypeDef] = None
@@ -154,6 +186,7 @@ class CreateFHIRDatastoreRequestRequestTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     IdentityProviderConfiguration: Optional[IdentityProviderConfigurationTypeDef] = None
+
 
 class DatastorePropertiesTypeDef(BaseValidatorModel):
     DatastoreId: str
@@ -168,6 +201,7 @@ class DatastorePropertiesTypeDef(BaseValidatorModel):
     IdentityProviderConfiguration: Optional[IdentityProviderConfigurationTypeDef] = None
     ErrorCause: Optional[ErrorCauseTypeDef] = None
 
+
 class ExportJobPropertiesTypeDef(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
@@ -178,6 +212,7 @@ class ExportJobPropertiesTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
     DataAccessRoleArn: Optional[str] = None
     Message: Optional[str] = None
+
 
 class ImportJobPropertiesTypeDef(BaseValidatorModel):
     JobId: str
@@ -192,45 +227,54 @@ class ImportJobPropertiesTypeDef(BaseValidatorModel):
     DataAccessRoleArn: Optional[str] = None
     Message: Optional[str] = None
 
-class StartFHIRExportJobRequestRequestTypeDef(BaseValidatorModel):
+
+class StartFHIRExportJobRequestTypeDef(BaseValidatorModel):
     OutputDataConfig: OutputDataConfigTypeDef
     DatastoreId: str
     DataAccessRoleArn: str
-    ClientToken: str
     JobName: Optional[str] = None
+    ClientToken: Optional[str] = None
 
-class StartFHIRImportJobRequestRequestTypeDef(BaseValidatorModel):
+
+class StartFHIRImportJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigTypeDef
     JobOutputDataConfig: OutputDataConfigTypeDef
     DatastoreId: str
     DataAccessRoleArn: str
-    ClientToken: str
     JobName: Optional[str] = None
+    ClientToken: Optional[str] = None
+
 
 class DescribeFHIRDatastoreResponseTypeDef(BaseValidatorModel):
     DatastoreProperties: DatastorePropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListFHIRDatastoresResponseTypeDef(BaseValidatorModel):
     DatastorePropertiesList: List[DatastorePropertiesTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class DescribeFHIRExportJobResponseTypeDef(BaseValidatorModel):
     ExportJobProperties: ExportJobPropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListFHIRExportJobsResponseTypeDef(BaseValidatorModel):
     ExportJobPropertiesList: List[ExportJobPropertiesTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class DescribeFHIRImportJobResponseTypeDef(BaseValidatorModel):
     ImportJobProperties: ImportJobPropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListFHIRImportJobsResponseTypeDef(BaseValidatorModel):
     ImportJobPropertiesList: List[ImportJobPropertiesTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 

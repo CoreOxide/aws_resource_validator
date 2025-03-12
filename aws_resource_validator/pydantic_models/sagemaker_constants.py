@@ -2,6 +2,7 @@ from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping,
 from datetime import datetime
 
 ActionStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping", "Unknown"]
+ActivationStateType = Literal["Disabled", "Enabled"]
 AdditionalS3DataSourceDataTypeType = Literal["S3Object", "S3Prefix"]
 AggregationTransformationValueType = Literal["avg", "first", "max", "min", "sum"]
 AlgorithmSortByType = Literal["CreationTime", "Name"]
@@ -64,6 +65,14 @@ AppInstanceTypeType = Literal["ml.c5.12xlarge",
     "ml.g6.4xlarge",
     "ml.g6.8xlarge",
     "ml.g6.xlarge",
+    "ml.g6e.12xlarge",
+    "ml.g6e.16xlarge",
+    "ml.g6e.24xlarge",
+    "ml.g6e.2xlarge",
+    "ml.g6e.48xlarge",
+    "ml.g6e.4xlarge",
+    "ml.g6e.8xlarge",
+    "ml.g6e.xlarge",
     "ml.geospatial.interactive",
     "ml.m5.12xlarge",
     "ml.m5.16xlarge",
@@ -270,8 +279,10 @@ AutoMLProcessingUnitType = Literal["CPU", "GPU"]
 AutoMLS3DataTypeType = Literal["AugmentedManifestFile", "ManifestFile", "S3Prefix"]
 AutoMLSortByType = Literal["CreationTime", "Name", "Status"]
 AutoMLSortOrderType = Literal["Ascending", "Descending"]
+AutoMountHomeEFSType = Literal["DefaultAsDomain", "Disabled", "Enabled"]
 AutotuneModeType = Literal["Enabled"]
 AwsManagedHumanLoopRequestSourceType = Literal["AWS/Rekognition/DetectModerationLabels/Image/V3", "AWS/Textract/AnalyzeDocument/Forms/V1"]
+BatchDeleteClusterNodesErrorCodeType = Literal["InvalidNodeStatus", "NodeIdInUse", "NodeIdNotFound"]
 BatchStrategyType = Literal["MultiRecord", "SingleRecord"]
 BooleanOperatorType = Literal["And", "Or"]
 CandidateSortByType = Literal["CreationTime", "FinalObjectiveMetricValue", "Status"]
@@ -342,7 +353,7 @@ ClarifyTextLanguageType = Literal["af",
     "xx",
     "yo",
     "zh",]
-ClusterInstanceStatusType = Literal["Failure", "Pending", "Running", "ShuttingDown", "SystemUpdating"]
+ClusterInstanceStatusType = Literal["DeepHealthCheckInProgress", "Failure", "Pending", "Running", "ShuttingDown", "SystemUpdating"]
 ClusterInstanceTypeType = Literal["ml.c5.12xlarge",
     "ml.c5.18xlarge",
     "ml.c5.24xlarge",
@@ -356,6 +367,15 @@ ClusterInstanceTypeType = Literal["ml.c5.12xlarge",
     "ml.c5n.4xlarge",
     "ml.c5n.9xlarge",
     "ml.c5n.large",
+    "ml.c6i.12xlarge",
+    "ml.c6i.16xlarge",
+    "ml.c6i.24xlarge",
+    "ml.c6i.2xlarge",
+    "ml.c6i.32xlarge",
+    "ml.c6i.4xlarge",
+    "ml.c6i.8xlarge",
+    "ml.c6i.large",
+    "ml.c6i.xlarge",
     "ml.g5.12xlarge",
     "ml.g5.16xlarge",
     "ml.g5.24xlarge",
@@ -364,6 +384,24 @@ ClusterInstanceTypeType = Literal["ml.c5.12xlarge",
     "ml.g5.4xlarge",
     "ml.g5.8xlarge",
     "ml.g5.xlarge",
+    "ml.g6.12xlarge",
+    "ml.g6.16xlarge",
+    "ml.g6.24xlarge",
+    "ml.g6.2xlarge",
+    "ml.g6.48xlarge",
+    "ml.g6.4xlarge",
+    "ml.g6.8xlarge",
+    "ml.g6.xlarge",
+    "ml.g6e.12xlarge",
+    "ml.g6e.16xlarge",
+    "ml.g6e.24xlarge",
+    "ml.g6e.2xlarge",
+    "ml.g6e.48xlarge",
+    "ml.g6e.4xlarge",
+    "ml.g6e.8xlarge",
+    "ml.g6e.xlarge",
+    "ml.gr6.4xlarge",
+    "ml.gr6.8xlarge",
     "ml.m5.12xlarge",
     "ml.m5.16xlarge",
     "ml.m5.24xlarge",
@@ -372,15 +410,37 @@ ClusterInstanceTypeType = Literal["ml.c5.12xlarge",
     "ml.m5.8xlarge",
     "ml.m5.large",
     "ml.m5.xlarge",
+    "ml.m6i.12xlarge",
+    "ml.m6i.16xlarge",
+    "ml.m6i.24xlarge",
+    "ml.m6i.2xlarge",
+    "ml.m6i.32xlarge",
+    "ml.m6i.4xlarge",
+    "ml.m6i.8xlarge",
+    "ml.m6i.large",
+    "ml.m6i.xlarge",
     "ml.p4d.24xlarge",
     "ml.p4de.24xlarge",
     "ml.p5.48xlarge",
+    "ml.p5e.48xlarge",
+    "ml.p5en.48xlarge",
+    "ml.r6i.12xlarge",
+    "ml.r6i.16xlarge",
+    "ml.r6i.24xlarge",
+    "ml.r6i.2xlarge",
+    "ml.r6i.32xlarge",
+    "ml.r6i.4xlarge",
+    "ml.r6i.8xlarge",
+    "ml.r6i.large",
+    "ml.r6i.xlarge",
     "ml.t3.2xlarge",
     "ml.t3.large",
     "ml.t3.medium",
     "ml.t3.xlarge",
     "ml.trn1.32xlarge",
-    "ml.trn1n.32xlarge",]
+    "ml.trn1n.32xlarge",
+    "ml.trn2.48xlarge",]
+ClusterNodeRecoveryType = Literal["Automatic", "None"]
 ClusterSortByType = Literal["CREATION_TIME", "NAME"]
 ClusterStatusType = Literal["Creating", "Deleting", "Failed", "InService", "RollingBack", "SystemUpdating", "Updating"]
 CodeRepositorySortByType = Literal["CreationTime", "LastModifiedTime", "Name"]
@@ -395,6 +455,7 @@ ContentClassifierType = Literal["FreeOfAdultContent", "FreeOfPersonallyIdentifia
 CrossAccountFilterOptionType = Literal["CrossAccount", "SameAccount"]
 DataDistributionTypeType = Literal["FullyReplicated", "ShardedByS3Key"]
 DataSourceNameType = Literal["SalesforceGenie", "Snowflake"]
+DeepHealthCheckTypeType = Literal["InstanceConnectivity", "InstanceStress"]
 DetailedAlgorithmStatusType = Literal["Completed", "Failed", "InProgress", "NotStarted"]
 DetailedModelPackageStatusType = Literal["Completed", "Failed", "InProgress", "NotStarted"]
 DeviceDeploymentStatusType = Literal["DEPLOYED", "FAILED", "INPROGRESS", "READYTODEPLOY", "STOPPED", "STOPPING"]
@@ -422,6 +483,7 @@ EndpointStatusType = Literal["Creating",
 ExecutionRoleIdentityConfigType = Literal["DISABLED", "USER_PROFILE_NAME"]
 ExecutionStatusType = Literal["Completed", "CompletedWithViolations", "Failed", "InProgress", "Pending", "Stopped", "Stopping"]
 FailureHandlingPolicyType = Literal["DO_NOTHING", "ROLLBACK_ON_FAILURE"]
+FairShareType = Literal["Disabled", "Enabled"]
 FeatureGroupSortByType = Literal["CreationTime", "FeatureGroupStatus", "Name", "OfflineStoreStatus"]
 FeatureGroupSortOrderType = Literal["Ascending", "Descending"]
 FeatureGroupStatusType = Literal["CreateFailed", "Created", "Creating", "DeleteFailed", "Deleting"]
@@ -442,7 +504,7 @@ FlowDefinitionStatusType = Literal["Active", "Deleting", "Failed", "Initializing
 FrameworkType = Literal["DARKNET", "KERAS", "MXNET", "ONNX", "PYTORCH", "SKLEARN", "TENSORFLOW", "TFLITE", "XGBOOST"]
 HubContentSortByType = Literal["CreationTime", "HubContentName", "HubContentStatus"]
 HubContentStatusType = Literal["Available", "DeleteFailed", "Deleting", "ImportFailed", "Importing"]
-HubContentSupportStatusType = Literal["Deprecated", "Supported"]
+HubContentSupportStatusType = Literal["Deprecated", "Restricted", "Supported"]
 HubContentTypeType = Literal["Model", "ModelReference", "Notebook"]
 HubSortByType = Literal["AccountIdOwner", "CreationTime", "HubName", "HubStatus"]
 HubStatusType = Literal["CreateFailed", "Creating", "DeleteFailed", "Deleting", "InService", "UpdateFailed", "Updating"]
@@ -465,6 +527,7 @@ ImageVersionDeletedWaiterName = Literal["image_version_deleted"]
 ImageVersionSortByType = Literal["CREATION_TIME", "LAST_MODIFIED_TIME", "VERSION"]
 ImageVersionSortOrderType = Literal["ASCENDING", "DESCENDING"]
 ImageVersionStatusType = Literal["CREATED", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"]
+InferenceComponentCapacitySizeTypeType = Literal["CAPACITY_PERCENT", "COPY_COUNT"]
 InferenceComponentSortKeyType = Literal["CreationTime", "Name", "Status"]
 InferenceComponentStatusType = Literal["Creating", "Deleting", "Failed", "InService", "Updating"]
 InferenceExecutionModeType = Literal["Direct", "Serial"]
@@ -472,6 +535,7 @@ InferenceExperimentStatusType = Literal["Cancelled", "Completed", "Created", "Cr
 InferenceExperimentStopDesiredStateType = Literal["Cancelled", "Completed"]
 InferenceExperimentTypeType = Literal["ShadowMode"]
 InputModeType = Literal["File", "Pipe"]
+InstanceGroupStatusType = Literal["Creating", "Degraded", "Deleting", "Failed", "InService", "SystemUpdating", "Updating"]
 InstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.c4.4xlarge",
     "ml.c4.8xlarge",
@@ -539,6 +603,10 @@ InstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.inf1.2xlarge",
     "ml.inf1.6xlarge",
     "ml.inf1.xlarge",
+    "ml.inf2.24xlarge",
+    "ml.inf2.48xlarge",
+    "ml.inf2.8xlarge",
+    "ml.inf2.xlarge",
     "ml.m4.10xlarge",
     "ml.m4.16xlarge",
     "ml.m4.2xlarge",
@@ -636,12 +704,16 @@ InstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.t3.2xlarge",
     "ml.t3.large",
     "ml.t3.medium",
-    "ml.t3.xlarge",]
+    "ml.t3.xlarge",
+    "ml.trn1.2xlarge",
+    "ml.trn1.32xlarge",
+    "ml.trn1n.32xlarge",]
 IsTrackingServerActiveType = Literal["Active", "Inactive"]
 JobTypeType = Literal["INFERENCE", "NOTEBOOK_KERNEL", "TRAINING"]
 JoinSourceType = Literal["Input", "None"]
 LabelingJobStatusType = Literal["Completed", "Failed", "InProgress", "Initializing", "Stopped", "Stopping"]
 LastUpdateStatusValueType = Literal["Failed", "InProgress", "Successful"]
+LifecycleManagementType = Literal["DISABLED", "ENABLED"]
 LineageTypeType = Literal["Action", "Artifact", "Context", "TrialComponent"]
 ListActionsPaginatorName = Literal["list_actions"]
 ListAlgorithmsPaginatorName = Literal["list_algorithms"]
@@ -653,10 +725,12 @@ ListAssociationsPaginatorName = Literal["list_associations"]
 ListAutoMLJobsPaginatorName = Literal["list_auto_ml_jobs"]
 ListCandidatesForAutoMLJobPaginatorName = Literal["list_candidates_for_auto_ml_job"]
 ListClusterNodesPaginatorName = Literal["list_cluster_nodes"]
+ListClusterSchedulerConfigsPaginatorName = Literal["list_cluster_scheduler_configs"]
 ListClustersPaginatorName = Literal["list_clusters"]
 ListCodeRepositoriesPaginatorName = Literal["list_code_repositories"]
 ListCompilationJobsPaginatorName = Literal["list_compilation_jobs"]
 ListCompilationJobsSortByType = Literal["CreationTime", "Name", "Status"]
+ListComputeQuotasPaginatorName = Literal["list_compute_quotas"]
 ListContextsPaginatorName = Literal["list_contexts"]
 ListDataQualityJobDefinitionsPaginatorName = Literal["list_data_quality_job_definitions"]
 ListDeviceFleetsPaginatorName = Literal["list_device_fleets"]
@@ -704,6 +778,7 @@ ListNotebookInstanceLifecycleConfigsPaginatorName = Literal["list_notebook_insta
 ListNotebookInstancesPaginatorName = Literal["list_notebook_instances"]
 ListOptimizationJobsPaginatorName = Literal["list_optimization_jobs"]
 ListOptimizationJobsSortByType = Literal["CreationTime", "Name", "Status"]
+ListPartnerAppsPaginatorName = Literal["list_partner_apps"]
 ListPipelineExecutionStepsPaginatorName = Literal["list_pipeline_execution_steps"]
 ListPipelineExecutionsPaginatorName = Literal["list_pipeline_executions"]
 ListPipelineParametersForExecutionPaginatorName = Literal["list_pipeline_parameters_for_execution"]
@@ -717,6 +792,7 @@ ListSubscribedWorkteamsPaginatorName = Literal["list_subscribed_workteams"]
 ListTagsPaginatorName = Literal["list_tags"]
 ListTrainingJobsForHyperParameterTuningJobPaginatorName = Literal["list_training_jobs_for_hyper_parameter_tuning_job"]
 ListTrainingJobsPaginatorName = Literal["list_training_jobs"]
+ListTrainingPlansPaginatorName = Literal["list_training_plans"]
 ListTransformJobsPaginatorName = Literal["list_transform_jobs"]
 ListTrialComponentsPaginatorName = Literal["list_trial_components"]
 ListTrialsPaginatorName = Literal["list_trials"]
@@ -728,15 +804,22 @@ ListWorkteamsSortByOptionsType = Literal["CreateDate", "Name"]
 ManagedInstanceScalingStatusType = Literal["DISABLED", "ENABLED"]
 MetricSetSourceType = Literal["Test", "Train", "Validation"]
 MlToolsType = Literal["AutoMl",
+    "Comet",
     "DataWrangler",
+    "DeepchecksLLMEvaluation",
     "EmrClusters",
     "Endpoints",
     "Experiments",
     "FeatureStore",
+    "Fiddler",
+    "HyperPodClusters",
+    "InferenceOptimization",
     "InferenceRecommender",
     "JumpStart",
+    "LakeraGuard",
     "ModelEvaluation",
     "Models",
+    "PerformanceEvaluation",
     "Pipelines",
     "Projects",
     "Training",]
@@ -830,8 +913,12 @@ OptimizationJobStatusType = Literal["COMPLETED", "FAILED", "INPROGRESS", "STARTI
 OrderKeyType = Literal["Ascending", "Descending"]
 OutputCompressionTypeType = Literal["GZIP", "NONE"]
 ParameterTypeType = Literal["Categorical", "Continuous", "FreeText", "Integer"]
+PartnerAppAuthTypeType = Literal["IAM"]
+PartnerAppStatusType = Literal["Available", "Creating", "Deleted", "Deleting", "Failed", "UpdateFailed", "Updating"]
+PartnerAppTypeType = Literal["comet", "deepchecks-llm-evaluation", "fiddler", "lakera-guard"]
 PipelineExecutionStatusType = Literal["Executing", "Failed", "Stopped", "Stopping", "Succeeded"]
 PipelineStatusType = Literal["Active", "Deleting"]
+PreemptTeamTasksType = Literal["LowerPriority", "Never"]
 ProblemTypeType = Literal["BinaryClassification", "MulticlassClassification", "Regression"]
 ProcessingInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.c4.4xlarge",
@@ -848,6 +935,14 @@ ProcessingInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.g4dn.4xlarge",
     "ml.g4dn.8xlarge",
     "ml.g4dn.xlarge",
+    "ml.g5.12xlarge",
+    "ml.g5.16xlarge",
+    "ml.g5.24xlarge",
+    "ml.g5.2xlarge",
+    "ml.g5.48xlarge",
+    "ml.g5.4xlarge",
+    "ml.g5.8xlarge",
+    "ml.g5.xlarge",
     "ml.m4.10xlarge",
     "ml.m4.16xlarge",
     "ml.m4.2xlarge",
@@ -873,6 +968,14 @@ ProcessingInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.r5.8xlarge",
     "ml.r5.large",
     "ml.r5.xlarge",
+    "ml.r5d.12xlarge",
+    "ml.r5d.16xlarge",
+    "ml.r5d.24xlarge",
+    "ml.r5d.2xlarge",
+    "ml.r5d.4xlarge",
+    "ml.r5d.8xlarge",
+    "ml.r5d.large",
+    "ml.r5d.xlarge",
     "ml.t3.2xlarge",
     "ml.t3.large",
     "ml.t3.medium",
@@ -891,7 +994,9 @@ ProductionVariantAcceleratorTypeType = Literal["ml.eia1.large",
     "ml.eia2.large",
     "ml.eia2.medium",
     "ml.eia2.xlarge",]
-ProductionVariantInferenceAmiVersionType = Literal["al2-ami-sagemaker-inference-gpu-2"]
+ProductionVariantInferenceAmiVersionType = Literal["al2-ami-sagemaker-inference-gpu-2",
+    "al2-ami-sagemaker-inference-gpu-2-1",
+    "al2-ami-sagemaker-inference-gpu-3-1",]
 ProductionVariantInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.c4.4xlarge",
     "ml.c4.8xlarge",
@@ -978,6 +1083,14 @@ ProductionVariantInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.g6.4xlarge",
     "ml.g6.8xlarge",
     "ml.g6.xlarge",
+    "ml.g6e.12xlarge",
+    "ml.g6e.16xlarge",
+    "ml.g6e.24xlarge",
+    "ml.g6e.2xlarge",
+    "ml.g6e.48xlarge",
+    "ml.g6e.4xlarge",
+    "ml.g6e.8xlarge",
+    "ml.g6e.xlarge",
     "ml.inf1.24xlarge",
     "ml.inf1.2xlarge",
     "ml.inf1.6xlarge",
@@ -1017,6 +1130,15 @@ ProductionVariantInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.m6gd.8xlarge",
     "ml.m6gd.large",
     "ml.m6gd.xlarge",
+    "ml.m6i.12xlarge",
+    "ml.m6i.16xlarge",
+    "ml.m6i.24xlarge",
+    "ml.m6i.2xlarge",
+    "ml.m6i.32xlarge",
+    "ml.m6i.4xlarge",
+    "ml.m6i.8xlarge",
+    "ml.m6i.large",
+    "ml.m6i.xlarge",
     "ml.m7i.12xlarge",
     "ml.m7i.16xlarge",
     "ml.m7i.24xlarge",
@@ -1035,6 +1157,8 @@ ProductionVariantInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.p4d.24xlarge",
     "ml.p4de.24xlarge",
     "ml.p5.48xlarge",
+    "ml.p5e.48xlarge",
+    "ml.p5en.48xlarge",
     "ml.r5.12xlarge",
     "ml.r5.24xlarge",
     "ml.r5.2xlarge",
@@ -1061,6 +1185,15 @@ ProductionVariantInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.r6gd.8xlarge",
     "ml.r6gd.large",
     "ml.r6gd.xlarge",
+    "ml.r6i.12xlarge",
+    "ml.r6i.16xlarge",
+    "ml.r6i.24xlarge",
+    "ml.r6i.2xlarge",
+    "ml.r6i.32xlarge",
+    "ml.r6i.4xlarge",
+    "ml.r6i.8xlarge",
+    "ml.r6i.large",
+    "ml.r6i.xlarge",
     "ml.r7i.12xlarge",
     "ml.r7i.16xlarge",
     "ml.r7i.24xlarge",
@@ -1070,13 +1203,24 @@ ProductionVariantInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.r7i.8xlarge",
     "ml.r7i.large",
     "ml.r7i.xlarge",
+    "ml.r8g.12xlarge",
+    "ml.r8g.16xlarge",
+    "ml.r8g.24xlarge",
+    "ml.r8g.2xlarge",
+    "ml.r8g.48xlarge",
+    "ml.r8g.4xlarge",
+    "ml.r8g.8xlarge",
+    "ml.r8g.large",
+    "ml.r8g.medium",
+    "ml.r8g.xlarge",
     "ml.t2.2xlarge",
     "ml.t2.large",
     "ml.t2.medium",
     "ml.t2.xlarge",
     "ml.trn1.2xlarge",
     "ml.trn1.32xlarge",
-    "ml.trn1n.32xlarge",]
+    "ml.trn1n.32xlarge",
+    "ml.trn2.48xlarge",]
 ProfilingStatusType = Literal["Disabled", "Enabled"]
 ProjectSortByType = Literal["CreationTime", "Name"]
 ProjectSortOrderType = Literal["Ascending", "Descending"]
@@ -1101,8 +1245,16 @@ RecordWrapperType = Literal["None", "RecordIO"]
 RedshiftResultCompressionTypeType = Literal["BZIP2", "GZIP", "None", "SNAPPY", "ZSTD"]
 RedshiftResultFormatType = Literal["CSV", "PARQUET"]
 RepositoryAccessModeType = Literal["Platform", "Vpc"]
+ReservedCapacityInstanceTypeType = Literal["ml.p4d.24xlarge",
+    "ml.p5.48xlarge",
+    "ml.p5e.48xlarge",
+    "ml.p5en.48xlarge",
+    "ml.trn1.32xlarge",
+    "ml.trn2.48xlarge",]
+ReservedCapacityStatusType = Literal["Active", "Expired", "Failed", "Pending", "Scheduled"]
 ResourceCatalogSortByType = Literal["CreationTime"]
 ResourceCatalogSortOrderType = Literal["Ascending", "Descending"]
+ResourceSharingStrategyType = Literal["DontLend", "Lend", "LendAndBorrow"]
 ResourceTypeType = Literal["Endpoint",
     "Experiment",
     "ExperimentTrial",
@@ -1127,8 +1279,22 @@ RuleEvaluationStatusType = Literal["Error", "InProgress", "IssuesFound", "NoIssu
 S3DataDistributionType = Literal["FullyReplicated", "ShardedByS3Key"]
 S3DataTypeType = Literal["AugmentedManifestFile", "ManifestFile", "S3Prefix"]
 S3ModelDataTypeType = Literal["S3Object", "S3Prefix"]
+SageMakerImageNameType = Literal["sagemaker_distribution"]
+SageMakerResourceNameType = Literal["hyperpod-cluster", "training-job"]
 SagemakerServicecatalogStatusType = Literal["Disabled", "Enabled"]
 ScheduleStatusType = Literal["Failed", "Pending", "Scheduled", "Stopped"]
+SchedulerResourceStatusType = Literal["CreateFailed",
+    "CreateRollbackFailed",
+    "Created",
+    "Creating",
+    "DeleteFailed",
+    "DeleteRollbackFailed",
+    "Deleted",
+    "Deleting",
+    "UpdateFailed",
+    "UpdateRollbackFailed",
+    "Updated",
+    "Updating",]
 SearchPaginatorName = Literal["search"]
 SearchSortOrderType = Literal["Ascending", "Descending"]
 SecondaryStatusType = Literal["Completed",
@@ -1154,6 +1320,7 @@ SortActionsByType = Literal["CreationTime", "Name"]
 SortArtifactsByType = Literal["CreationTime"]
 SortAssociationsByType = Literal["CreationTime", "DestinationArn", "DestinationType", "SourceArn", "SourceType"]
 SortByType = Literal["CreationTime", "Name", "Status"]
+SortClusterSchedulerConfigByType = Literal["CreationTime", "Name", "Status"]
 SortContextsByType = Literal["CreationTime", "Name"]
 SortExperimentsByType = Literal["CreationTime", "Name"]
 SortInferenceExperimentsByType = Literal["CreationTime", "Name", "Status"]
@@ -1161,6 +1328,7 @@ SortLineageGroupsByType = Literal["CreationTime", "Name"]
 SortOrderType = Literal["Ascending", "Descending"]
 SortPipelineExecutionsByType = Literal["CreationTime", "PipelineExecutionArn"]
 SortPipelinesByType = Literal["CreationTime", "Name"]
+SortQuotaByType = Literal["ClusterArn", "CreationTime", "Name", "Status"]
 SortTrackingServerByType = Literal["CreationTime", "Name", "Status"]
 SortTrialComponentsByType = Literal["CreationTime", "Name"]
 SortTrialsByType = Literal["CreationTime", "Name"]
@@ -1182,6 +1350,7 @@ StudioLifecycleConfigAppTypeType = Literal["CodeEditor", "JupyterLab", "JupyterS
 StudioLifecycleConfigSortKeyType = Literal["CreationTime", "LastModifiedTime", "Name"]
 StudioWebPortalType = Literal["DISABLED", "ENABLED"]
 TableFormatType = Literal["Default", "Glue", "Iceberg"]
+TagPropagationType = Literal["DISABLED", "ENABLED"]
 TargetDeviceType = Literal["aisage",
     "amba_cv2",
     "amba_cv22",
@@ -1280,6 +1449,22 @@ TrainingInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.g5.4xlarge",
     "ml.g5.8xlarge",
     "ml.g5.xlarge",
+    "ml.g6.12xlarge",
+    "ml.g6.16xlarge",
+    "ml.g6.24xlarge",
+    "ml.g6.2xlarge",
+    "ml.g6.48xlarge",
+    "ml.g6.4xlarge",
+    "ml.g6.8xlarge",
+    "ml.g6.xlarge",
+    "ml.g6e.12xlarge",
+    "ml.g6e.16xlarge",
+    "ml.g6e.24xlarge",
+    "ml.g6e.2xlarge",
+    "ml.g6e.48xlarge",
+    "ml.g6e.4xlarge",
+    "ml.g6e.8xlarge",
+    "ml.g6e.xlarge",
     "ml.m4.10xlarge",
     "ml.m4.16xlarge",
     "ml.m4.2xlarge",
@@ -1310,13 +1495,40 @@ TrainingInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.p4d.24xlarge",
     "ml.p4de.24xlarge",
     "ml.p5.48xlarge",
+    "ml.p5e.48xlarge",
+    "ml.p5en.48xlarge",
+    "ml.r5.12xlarge",
+    "ml.r5.16xlarge",
+    "ml.r5.24xlarge",
+    "ml.r5.2xlarge",
+    "ml.r5.4xlarge",
+    "ml.r5.8xlarge",
+    "ml.r5.large",
+    "ml.r5.xlarge",
+    "ml.r5d.12xlarge",
+    "ml.r5d.16xlarge",
+    "ml.r5d.24xlarge",
+    "ml.r5d.2xlarge",
+    "ml.r5d.4xlarge",
+    "ml.r5d.8xlarge",
+    "ml.r5d.large",
+    "ml.r5d.xlarge",
+    "ml.t3.2xlarge",
+    "ml.t3.large",
+    "ml.t3.medium",
+    "ml.t3.xlarge",
     "ml.trn1.2xlarge",
     "ml.trn1.32xlarge",
-    "ml.trn1n.32xlarge",]
+    "ml.trn1n.32xlarge",
+    "ml.trn2.48xlarge",]
 TrainingJobCompletedOrStoppedWaiterName = Literal["training_job_completed_or_stopped"]
 TrainingJobEarlyStoppingTypeType = Literal["Auto", "Off"]
 TrainingJobSortByOptionsType = Literal["CreationTime", "FinalObjectiveMetricValue", "Name", "Status"]
 TrainingJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
+TrainingPlanFilterNameType = Literal["Status"]
+TrainingPlanSortByType = Literal["StartTime", "Status", "TrainingPlanName"]
+TrainingPlanSortOrderType = Literal["Ascending", "Descending"]
+TrainingPlanStatusType = Literal["Active", "Expired", "Failed", "Pending", "Scheduled"]
 TrainingRepositoryAccessModeType = Literal["Platform", "Vpc"]
 TransformInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.c4.4xlarge",
@@ -1359,6 +1571,10 @@ TransformInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.g5.4xlarge",
     "ml.g5.8xlarge",
     "ml.g5.xlarge",
+    "ml.inf2.24xlarge",
+    "ml.inf2.48xlarge",
+    "ml.inf2.8xlarge",
+    "ml.inf2.xlarge",
     "ml.m4.10xlarge",
     "ml.m4.16xlarge",
     "ml.m4.2xlarge",
@@ -1411,7 +1627,9 @@ TransformInstanceTypeType = Literal["ml.c4.2xlarge",
     "ml.r7i.4xlarge",
     "ml.r7i.8xlarge",
     "ml.r7i.large",
-    "ml.r7i.xlarge",]
+    "ml.r7i.xlarge",
+    "ml.trn1.2xlarge",
+    "ml.trn1.32xlarge",]
 TransformJobCompletedOrStoppedWaiterName = Literal["transform_job_completed_or_stopped"]
 TransformJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
 TrialComponentPrimaryStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
@@ -1458,12 +1676,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -1500,7 +1723,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -1513,6 +1735,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -1538,6 +1761,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -1549,7 +1774,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -1573,6 +1797,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -1591,11 +1818,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -1650,6 +1876,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -1669,7 +1896,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -1677,10 +1903,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -1690,10 +1919,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -1739,6 +1970,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -1751,6 +1983,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -1768,10 +2001,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -1803,7 +2038,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -1830,9 +2064,11 @@ PaginatorName = Literal["list_actions",
     "list_auto_ml_jobs",
     "list_candidates_for_auto_ml_job",
     "list_cluster_nodes",
+    "list_cluster_scheduler_configs",
     "list_clusters",
     "list_code_repositories",
     "list_compilation_jobs",
+    "list_compute_quotas",
     "list_contexts",
     "list_data_quality_job_definitions",
     "list_device_fleets",
@@ -1874,6 +2110,7 @@ PaginatorName = Literal["list_actions",
     "list_notebook_instance_lifecycle_configs",
     "list_notebook_instances",
     "list_optimization_jobs",
+    "list_partner_apps",
     "list_pipeline_execution_steps",
     "list_pipeline_executions",
     "list_pipeline_parameters_for_execution",
@@ -1887,6 +2124,7 @@ PaginatorName = Literal["list_actions",
     "list_tags",
     "list_training_jobs",
     "list_training_jobs_for_hyper_parameter_tuning_job",
+    "list_training_plans",
     "list_transform_jobs",
     "list_trial_components",
     "list_trials",
@@ -1918,6 +2156,7 @@ RegionName = Literal["af-south-1",
     "ap-southeast-2",
     "ap-southeast-3",
     "ap-southeast-4",
+    "ap-southeast-5",
     "ca-central-1",
     "ca-west-1",
     "eu-central-1",
@@ -1936,67 +2175,3 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-TimestampTypeDef = Union[datetime, str]
-AppSpecificationUnionTypeDef = Union['AppSpecificationTypeDef', 'AppSpecificationExtraOutputTypeDef']
-DataQualityAppSpecificationUnionTypeDef = Union[   'DataQualityAppSpecificationTypeDef', 'DataQualityAppSpecificationOutputTypeDef' ]
-DebugRuleConfigurationUnionTypeDef = Union[   'DebugRuleConfigurationTypeDef', 'DebugRuleConfigurationExtraOutputTypeDef' ]
-NeoVpcConfigUnionTypeDef = Union['NeoVpcConfigTypeDef', 'NeoVpcConfigOutputTypeDef']
-ModelBiasAppSpecificationUnionTypeDef = Union[   'ModelBiasAppSpecificationTypeDef', 'ModelBiasAppSpecificationOutputTypeDef' ]
-ModelExplainabilityAppSpecificationUnionTypeDef = Union[   'ModelExplainabilityAppSpecificationTypeDef', 'ModelExplainabilityAppSpecificationOutputTypeDef' ]
-ModelQualityAppSpecificationUnionTypeDef = Union[   'ModelQualityAppSpecificationTypeDef', 'ModelQualityAppSpecificationOutputTypeDef' ]
-OptimizationVpcConfigUnionTypeDef = Union[   'OptimizationVpcConfigTypeDef', 'OptimizationVpcConfigOutputTypeDef' ]
-VpcConfigUnionTypeDef = Union['VpcConfigTypeDef', 'VpcConfigExtraOutputTypeDef']
-ProfilerConfigUnionTypeDef = Union['ProfilerConfigTypeDef', 'ProfilerConfigExtraOutputTypeDef']
-ProfilerRuleConfigurationUnionTypeDef = Union[   'ProfilerRuleConfigurationTypeDef', 'ProfilerRuleConfigurationOutputTypeDef' ]
-SourceIpConfigUnionTypeDef = Union['SourceIpConfigTypeDef', 'SourceIpConfigExtraOutputTypeDef']
-ArtifactSourceUnionTypeDef = Union['ArtifactSourceTypeDef', 'ArtifactSourceExtraOutputTypeDef']
-AutoMLSecurityConfigUnionTypeDef = Union[   'AutoMLSecurityConfigTypeDef', 'AutoMLSecurityConfigOutputTypeDef' ]
-MonitoringNetworkConfigUnionTypeDef = Union[   'MonitoringNetworkConfigTypeDef', 'MonitoringNetworkConfigOutputTypeDef' ]
-InferenceExperimentDataStorageConfigUnionTypeDef = Union[   'InferenceExperimentDataStorageConfigTypeDef', 'InferenceExperimentDataStorageConfigOutputTypeDef' ]
-DataCaptureConfigUnionTypeDef = Union['DataCaptureConfigTypeDef', 'DataCaptureConfigOutputTypeDef']
-CodeEditorAppImageConfigUnionTypeDef = Union[   'CodeEditorAppImageConfigTypeDef', 'CodeEditorAppImageConfigExtraOutputTypeDef' ]
-JupyterLabAppImageConfigUnionTypeDef = Union[   'JupyterLabAppImageConfigTypeDef', 'JupyterLabAppImageConfigExtraOutputTypeDef' ]
-DebugHookConfigUnionTypeDef = Union['DebugHookConfigTypeDef', 'DebugHookConfigExtraOutputTypeDef']
-InferenceExperimentScheduleUnionTypeDef = Union[   'InferenceExperimentScheduleTypeDef', 'InferenceExperimentScheduleExtraOutputTypeDef' ]
-NetworkConfigUnionTypeDef = Union['NetworkConfigTypeDef', 'NetworkConfigExtraOutputTypeDef']
-HyperParameterTuningJobWarmStartConfigUnionTypeDef = Union[   'HyperParameterTuningJobWarmStartConfigTypeDef',   'HyperParameterTuningJobWarmStartConfigExtraOutputTypeDef', ]
-ResourceConfigUnionTypeDef = Union['ResourceConfigTypeDef', 'ResourceConfigExtraOutputTypeDef']
-KernelGatewayImageConfigUnionTypeDef = Union[   'KernelGatewayImageConfigTypeDef', 'KernelGatewayImageConfigExtraOutputTypeDef' ]
-MemberDefinitionUnionTypeDef = Union['MemberDefinitionTypeDef', 'MemberDefinitionExtraOutputTypeDef']
-RecommendationJobStoppingConditionsUnionTypeDef = Union[   'RecommendationJobStoppingConditionsTypeDef', 'RecommendationJobStoppingConditionsOutputTypeDef' ]
-OptimizationConfigUnionTypeDef = Union['OptimizationConfigTypeDef', 'OptimizationConfigOutputTypeDef']
-ServiceCatalogProvisioningDetailsUnionTypeDef = Union[   'ServiceCatalogProvisioningDetailsTypeDef', 'ServiceCatalogProvisioningDetailsExtraOutputTypeDef' ]
-SelectiveExecutionConfigUnionTypeDef = Union[   'SelectiveExecutionConfigTypeDef', 'SelectiveExecutionConfigExtraOutputTypeDef' ]
-ShadowModeConfigUnionTypeDef = Union['ShadowModeConfigTypeDef', 'ShadowModeConfigOutputTypeDef']
-DomainSettingsUnionTypeDef = Union['DomainSettingsTypeDef', 'DomainSettingsOutputTypeDef']
-AsyncInferenceConfigUnionTypeDef = Union[   'AsyncInferenceConfigTypeDef', 'AsyncInferenceConfigOutputTypeDef' ]
-AutoMLJobConfigUnionTypeDef = Union['AutoMLJobConfigTypeDef', 'AutoMLJobConfigOutputTypeDef']
-LabelingJobAlgorithmsConfigUnionTypeDef = Union[   'LabelingJobAlgorithmsConfigTypeDef', 'LabelingJobAlgorithmsConfigOutputTypeDef' ]
-ChannelUnionTypeDef = Union['ChannelTypeDef', 'ChannelExtraOutputTypeDef']
-DefaultSpaceSettingsUnionTypeDef = Union[   'DefaultSpaceSettingsTypeDef', 'DefaultSpaceSettingsOutputTypeDef' ]
-UserSettingsUnionTypeDef = Union['UserSettingsTypeDef', 'UserSettingsOutputTypeDef']
-SpaceSettingsUnionTypeDef = Union['SpaceSettingsTypeDef', 'SpaceSettingsOutputTypeDef']
-HyperParameterTuningJobConfigUnionTypeDef = Union[   'HyperParameterTuningJobConfigTypeDef', 'HyperParameterTuningJobConfigExtraOutputTypeDef' ]
-LabelingJobInputConfigUnionTypeDef = Union[   'LabelingJobInputConfigTypeDef', 'LabelingJobInputConfigExtraOutputTypeDef' ]
-MonitoringOutputConfigUnionTypeDef = Union[   'MonitoringOutputConfigTypeDef', 'MonitoringOutputConfigExtraOutputTypeDef' ]
-ProcessingOutputConfigUnionTypeDef = Union[   'ProcessingOutputConfigTypeDef', 'ProcessingOutputConfigExtraOutputTypeDef' ]
-HumanLoopConfigUnionTypeDef = Union['HumanLoopConfigTypeDef', 'HumanLoopConfigOutputTypeDef']
-HumanTaskConfigUnionTypeDef = Union['HumanTaskConfigTypeDef', 'HumanTaskConfigOutputTypeDef']
-AlgorithmSpecificationUnionTypeDef = Union[   'AlgorithmSpecificationTypeDef', 'AlgorithmSpecificationExtraOutputTypeDef' ]
-AutoMLProblemTypeConfigUnionTypeDef = Union[   'AutoMLProblemTypeConfigTypeDef', 'AutoMLProblemTypeConfigOutputTypeDef' ]
-DeploymentConfigUnionTypeDef = Union['DeploymentConfigTypeDef', 'DeploymentConfigOutputTypeDef']
-RecommendationJobInputConfigUnionTypeDef = Union[   'RecommendationJobInputConfigTypeDef', 'RecommendationJobInputConfigOutputTypeDef' ]
-ExplainerConfigUnionTypeDef = Union['ExplainerConfigTypeDef', 'ExplainerConfigOutputTypeDef']
-HyperParameterTrainingJobDefinitionUnionTypeDef = Union[   'HyperParameterTrainingJobDefinitionTypeDef',   'HyperParameterTrainingJobDefinitionExtraOutputTypeDef', ]
-TrainingSpecificationUnionTypeDef = Union[   'TrainingSpecificationTypeDef', 'TrainingSpecificationOutputTypeDef' ]
-ContainerDefinitionUnionTypeDef = Union[   'ContainerDefinitionTypeDef', 'ContainerDefinitionExtraOutputTypeDef' ]
-DataQualityJobInputUnionTypeDef = Union[   'DataQualityJobInputTypeDef', 'DataQualityJobInputOutputTypeDef' ]
-ModelBiasJobInputUnionTypeDef = Union['ModelBiasJobInputTypeDef', 'ModelBiasJobInputOutputTypeDef']
-ModelExplainabilityJobInputUnionTypeDef = Union[   'ModelExplainabilityJobInputTypeDef', 'ModelExplainabilityJobInputOutputTypeDef' ]
-ModelQualityJobInputUnionTypeDef = Union[   'ModelQualityJobInputTypeDef', 'ModelQualityJobInputOutputTypeDef' ]
-AdditionalInferenceSpecificationDefinitionUnionTypeDef = Union[   'AdditionalInferenceSpecificationDefinitionTypeDef',   'AdditionalInferenceSpecificationDefinitionExtraOutputTypeDef', ]
-InferenceSpecificationUnionTypeDef = Union[   'InferenceSpecificationTypeDef', 'InferenceSpecificationExtraOutputTypeDef' ]
-SourceAlgorithmSpecificationUnionTypeDef = Union[   'SourceAlgorithmSpecificationTypeDef', 'SourceAlgorithmSpecificationExtraOutputTypeDef' ]
-MonitoringScheduleConfigUnionTypeDef = Union[   'MonitoringScheduleConfigTypeDef', 'MonitoringScheduleConfigExtraOutputTypeDef' ]
-AlgorithmValidationSpecificationUnionTypeDef = Union[   'AlgorithmValidationSpecificationTypeDef', 'AlgorithmValidationSpecificationOutputTypeDef' ]
-ModelPackageValidationSpecificationUnionTypeDef = Union[   'ModelPackageValidationSpecificationTypeDef',   'ModelPackageValidationSpecificationExtraOutputTypeDef', ]

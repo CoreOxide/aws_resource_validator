@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,20 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.b2bi_constants import *
 
-class CapabilitySummaryTypeDef(BaseValidatorModel):
-    capabilityId: str
-    name: str
-    type: Literal["edi"]
-    createdAt: datetime
-    modifiedAt: Optional[datetime] = None
+class InputFileSourceTypeDef(BaseValidatorModel):
+    fileContent: Optional[str] = None
+
+
+class X12DetailsTypeDef(BaseValidatorModel):
+    transactionSet: Optional[X12TransactionSetType] = None
+    version: Optional[X12VersionType] = None
+
 
 class S3LocationTypeDef(BaseValidatorModel):
     bucketName: Optional[str] = None
     key: Optional[str] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -33,64 +38,76 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DeleteCapabilityRequestRequestTypeDef(BaseValidatorModel):
+
+class MappingTypeDef(BaseValidatorModel):
+    templateLanguage: MappingTemplateLanguageType
+    template: Optional[str] = None
+
+
+class DeleteCapabilityRequestTypeDef(BaseValidatorModel):
     capabilityId: str
 
-class DeletePartnershipRequestRequestTypeDef(BaseValidatorModel):
+
+class DeletePartnershipRequestTypeDef(BaseValidatorModel):
     partnershipId: str
 
-class DeleteProfileRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteProfileRequestTypeDef(BaseValidatorModel):
     profileId: str
 
-class DeleteTransformerRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteTransformerRequestTypeDef(BaseValidatorModel):
     transformerId: str
 
-class X12DetailsTypeDef(BaseValidatorModel):
-    transactionSet: Optional[X12TransactionSetType] = None
-    version: Optional[X12VersionType] = None
 
-class GetCapabilityRequestRequestTypeDef(BaseValidatorModel):
+class GenerateMappingRequestTypeDef(BaseValidatorModel):
+    inputFileContent: str
+    outputFileContent: str
+    mappingType: MappingTypeType
+
+
+class GetCapabilityRequestTypeDef(BaseValidatorModel):
     capabilityId: str
 
-class GetPartnershipRequestRequestTypeDef(BaseValidatorModel):
+
+class GetPartnershipRequestTypeDef(BaseValidatorModel):
     partnershipId: str
 
-class GetProfileRequestRequestTypeDef(BaseValidatorModel):
+
+class GetProfileRequestTypeDef(BaseValidatorModel):
     profileId: str
 
-class GetTransformerJobRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTransformerJobRequestTypeDef(BaseValidatorModel):
     transformerJobId: str
     transformerId: str
 
-class GetTransformerRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTransformerRequestTypeDef(BaseValidatorModel):
     transformerId: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListCapabilitiesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCapabilitiesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListPartnershipsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListPartnershipsRequestTypeDef(BaseValidatorModel):
     profileId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class PartnershipSummaryTypeDef(BaseValidatorModel):
-    profileId: str
-    partnershipId: str
-    createdAt: datetime
-    name: Optional[str] = None
-    capabilities: Optional[List[str]] = None
-    tradingPartnerId: Optional[str] = None
-    modifiedAt: Optional[datetime] = None
 
-class ListProfilesRequestRequestTypeDef(BaseValidatorModel):
+class ListProfilesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+
 
 class ProfileSummaryTypeDef(BaseValidatorModel):
     profileId: str
@@ -101,50 +118,90 @@ class ProfileSummaryTypeDef(BaseValidatorModel):
     logGroupName: Optional[str] = None
     modifiedAt: Optional[datetime] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class ListTransformersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTransformersRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class TestMappingRequestRequestTypeDef(BaseValidatorModel):
+
+class TestMappingRequestTypeDef(BaseValidatorModel):
     inputFileContent: str
     mappingTemplate: str
     fileFormat: FileFormatType
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdatePartnershipRequestRequestTypeDef(BaseValidatorModel):
-    partnershipId: str
-    name: Optional[str] = None
-    capabilities: Optional[Sequence[str]] = None
 
-class UpdateProfileRequestRequestTypeDef(BaseValidatorModel):
+class UpdateProfileRequestTypeDef(BaseValidatorModel):
     profileId: str
     name: Optional[str] = None
     email: Optional[str] = None
     phone: Optional[str] = None
     businessName: Optional[str] = None
 
-class StartTransformerJobRequestRequestTypeDef(BaseValidatorModel):
+
+class X12DelimitersTypeDef(BaseValidatorModel):
+    componentSeparator: Optional[str] = None
+    dataElementSeparator: Optional[str] = None
+    segmentTerminator: Optional[str] = None
+
+
+class X12FunctionalGroupHeadersTypeDef(BaseValidatorModel):
+    applicationSenderCode: Optional[str] = None
+    applicationReceiverCode: Optional[str] = None
+    responsibleAgencyCode: Optional[str] = None
+
+
+class X12InterchangeControlHeadersTypeDef(BaseValidatorModel):
+    senderIdQualifier: Optional[str] = None
+    senderId: Optional[str] = None
+    receiverIdQualifier: Optional[str] = None
+    receiverId: Optional[str] = None
+    repetitionSeparator: Optional[str] = None
+    acknowledgmentRequestedCode: Optional[str] = None
+    usageIndicatorCode: Optional[str] = None
+
+
+class ConversionSourceTypeDef(BaseValidatorModel):
+    fileFormat: ConversionSourceFormatType
+    inputFile: InputFileSourceTypeDef
+
+
+class ConversionTargetFormatDetailsTypeDef(BaseValidatorModel):
+    x12: Optional[X12DetailsTypeDef] = None
+
+
+class EdiTypeTypeDef(BaseValidatorModel):
+    x12Details: Optional[X12DetailsTypeDef] = None
+
+
+class FormatOptionsTypeDef(BaseValidatorModel):
+    x12: Optional[X12DetailsTypeDef] = None
+
+
+class TemplateDetailsTypeDef(BaseValidatorModel):
+    x12: Optional[X12DetailsTypeDef] = None
+
+
+class OutputSampleFileSourceTypeDef(BaseValidatorModel):
+    fileLocation: Optional[S3LocationTypeDef] = None
+
+
+class StartTransformerJobRequestTypeDef(BaseValidatorModel):
     inputFile: S3LocationTypeDef
     outputLocation: S3LocationTypeDef
     transformerId: str
     clientToken: Optional[str] = None
 
-class CreatePartnershipRequestRequestTypeDef(BaseValidatorModel):
-    profileId: str
-    name: str
-    email: str
-    capabilities: Sequence[str]
-    phone: Optional[str] = None
-    clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateProfileRequestRequestTypeDef(BaseValidatorModel):
+class CreateProfileRequestTypeDef(BaseValidatorModel):
     name: str
     phone: str
     businessName: str
@@ -153,21 +210,11 @@ class CreateProfileRequestRequestTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class CreatePartnershipResponseTypeDef(BaseValidatorModel):
-    profileId: str
-    partnershipId: str
-    partnershipArn: str
-    name: str
-    email: str
-    phone: str
-    capabilities: List[str]
-    tradingPartnerId: str
-    createdAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateProfileResponseTypeDef(BaseValidatorModel):
     profileId: str
@@ -181,21 +228,21 @@ class CreateProfileResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class CreateStarterMappingTemplateResponseTypeDef(BaseValidatorModel):
+    mappingTemplate: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPartnershipResponseTypeDef(BaseValidatorModel):
-    profileId: str
-    partnershipId: str
-    partnershipArn: str
-    name: str
-    email: str
-    phone: str
-    capabilities: List[str]
-    tradingPartnerId: str
-    createdAt: datetime
-    modifiedAt: datetime
+
+class GenerateMappingResponseTypeDef(BaseValidatorModel):
+    mappingTemplate: str
+    mappingAccuracy: float
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetProfileResponseTypeDef(BaseValidatorModel):
     profileId: str
@@ -210,45 +257,49 @@ class GetProfileResponseTypeDef(BaseValidatorModel):
     modifiedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetTransformerJobResponseTypeDef(BaseValidatorModel):
     status: TransformerJobStatusType
     outputFiles: List[S3LocationTypeDef]
     message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class CapabilitySummaryTypeDef(BaseValidatorModel):
+    pass
+
+
 class ListCapabilitiesResponseTypeDef(BaseValidatorModel):
     capabilities: List[CapabilitySummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartTransformerJobResponseTypeDef(BaseValidatorModel):
     transformerJobId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class TestConversionResponseTypeDef(BaseValidatorModel):
+    convertedFileContent: str
+    validationMessages: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class TestMappingResponseTypeDef(BaseValidatorModel):
     mappedFileContent: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class TestParsingResponseTypeDef(BaseValidatorModel):
     parsedFileContent: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePartnershipResponseTypeDef(BaseValidatorModel):
-    profileId: str
-    partnershipId: str
-    partnershipArn: str
-    name: str
-    email: str
-    phone: str
-    capabilities: List[str]
-    tradingPartnerId: str
-    createdAt: datetime
-    modifiedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateProfileResponseTypeDef(BaseValidatorModel):
     profileId: str
@@ -263,161 +314,294 @@ class UpdateProfileResponseTypeDef(BaseValidatorModel):
     modifiedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EdiTypeTypeDef(BaseValidatorModel):
-    x12Details: Optional[X12DetailsTypeDef] = None
 
-class ListCapabilitiesRequestListCapabilitiesPaginateTypeDef(BaseValidatorModel):
+class ListCapabilitiesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPartnershipsRequestListPartnershipsPaginateTypeDef(BaseValidatorModel):
+
+class ListPartnershipsRequestPaginateTypeDef(BaseValidatorModel):
     profileId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListProfilesRequestListProfilesPaginateTypeDef(BaseValidatorModel):
+
+class ListProfilesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTransformersRequestListTransformersPaginateTypeDef(BaseValidatorModel):
+
+class ListTransformersRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPartnershipsResponseTypeDef(BaseValidatorModel):
-    partnerships: List[PartnershipSummaryTypeDef]
-    nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListProfilesResponseTypeDef(BaseValidatorModel):
     profiles: List[ProfileSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class CreateTransformerRequestRequestTypeDef(BaseValidatorModel):
-    name: str
+
+class SampleDocumentKeysTypeDef(BaseValidatorModel):
+    pass
+
+
+class SampleDocumentsOutputTypeDef(BaseValidatorModel):
+    bucketName: str
+    keys: List[SampleDocumentKeysTypeDef]
+
+
+class SampleDocumentsTypeDef(BaseValidatorModel):
+    bucketName: str
+    keys: Sequence[SampleDocumentKeysTypeDef]
+
+
+class X12OutboundEdiHeadersTypeDef(BaseValidatorModel):
+    interchangeControlHeaders: Optional[X12InterchangeControlHeadersTypeDef] = None
+    functionalGroupHeaders: Optional[X12FunctionalGroupHeadersTypeDef] = None
+    delimiters: Optional[X12DelimitersTypeDef] = None
+    validateEdi: Optional[bool] = None
+
+
+class TestParsingRequestTypeDef(BaseValidatorModel):
+    inputFile: S3LocationTypeDef
     fileFormat: FileFormatType
-    mappingTemplate: str
     ediType: EdiTypeTypeDef
-    sampleDocument: Optional[str] = None
-    clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+
+
+class InputConversionTypeDef(BaseValidatorModel):
+    fromFormat: Literal["X12"]
+    formatOptions: Optional[FormatOptionsTypeDef] = None
+
+
+class OutputConversionTypeDef(BaseValidatorModel):
+    toFormat: Literal["X12"]
+    formatOptions: Optional[FormatOptionsTypeDef] = None
+
+
+class CreateStarterMappingTemplateRequestTypeDef(BaseValidatorModel):
+    mappingType: MappingTypeType
+    templateDetails: TemplateDetailsTypeDef
+    outputSampleLocation: Optional[S3LocationTypeDef] = None
+
+
+class ConversionTargetTypeDef(BaseValidatorModel):
+    fileFormat: Literal["X12"]
+    formatDetails: Optional[ConversionTargetFormatDetailsTypeDef] = None
+    outputSampleFile: Optional[OutputSampleFileSourceTypeDef] = None
+
+
+class X12EnvelopeTypeDef(BaseValidatorModel):
+    common: Optional[X12OutboundEdiHeadersTypeDef] = None
+
+
+class EdiConfigurationTypeDef(BaseValidatorModel):
+    pass
+
+
+class CapabilityConfigurationTypeDef(BaseValidatorModel):
+    edi: Optional[EdiConfigurationTypeDef] = None
+
 
 class CreateTransformerResponseTypeDef(BaseValidatorModel):
     transformerId: str
     transformerArn: str
     name: str
+    status: TransformerStatusType
+    createdAt: datetime
     fileFormat: FileFormatType
     mappingTemplate: str
-    status: TransformerStatusType
     ediType: EdiTypeTypeDef
     sampleDocument: str
-    createdAt: datetime
+    inputConversion: InputConversionTypeDef
+    mapping: MappingTypeDef
+    outputConversion: OutputConversionTypeDef
+    sampleDocuments: SampleDocumentsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EdiConfigurationTypeDef(BaseValidatorModel):
-    type: EdiTypeTypeDef
-    inputLocation: S3LocationTypeDef
-    outputLocation: S3LocationTypeDef
-    transformerId: str
 
 class GetTransformerResponseTypeDef(BaseValidatorModel):
     transformerId: str
     transformerArn: str
     name: str
-    fileFormat: FileFormatType
-    mappingTemplate: str
     status: TransformerStatusType
-    ediType: EdiTypeTypeDef
-    sampleDocument: str
     createdAt: datetime
     modifiedAt: datetime
+    fileFormat: FileFormatType
+    mappingTemplate: str
+    ediType: EdiTypeTypeDef
+    sampleDocument: str
+    inputConversion: InputConversionTypeDef
+    mapping: MappingTypeDef
+    outputConversion: OutputConversionTypeDef
+    sampleDocuments: SampleDocumentsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TestParsingRequestRequestTypeDef(BaseValidatorModel):
-    inputFile: S3LocationTypeDef
-    fileFormat: FileFormatType
-    ediType: EdiTypeTypeDef
 
 class TransformerSummaryTypeDef(BaseValidatorModel):
     transformerId: str
     name: str
-    fileFormat: FileFormatType
-    mappingTemplate: str
     status: TransformerStatusType
-    ediType: EdiTypeTypeDef
     createdAt: datetime
-    sampleDocument: Optional[str] = None
     modifiedAt: Optional[datetime] = None
-
-class UpdateTransformerRequestRequestTypeDef(BaseValidatorModel):
-    transformerId: str
-    name: Optional[str] = None
     fileFormat: Optional[FileFormatType] = None
     mappingTemplate: Optional[str] = None
-    status: Optional[TransformerStatusType] = None
     ediType: Optional[EdiTypeTypeDef] = None
     sampleDocument: Optional[str] = None
+    inputConversion: Optional[InputConversionTypeDef] = None
+    mapping: Optional[MappingTypeDef] = None
+    outputConversion: Optional[OutputConversionTypeDef] = None
+    sampleDocuments: Optional[SampleDocumentsOutputTypeDef] = None
+
 
 class UpdateTransformerResponseTypeDef(BaseValidatorModel):
     transformerId: str
     transformerArn: str
     name: str
+    status: TransformerStatusType
+    createdAt: datetime
+    modifiedAt: datetime
     fileFormat: FileFormatType
     mappingTemplate: str
-    status: TransformerStatusType
     ediType: EdiTypeTypeDef
     sampleDocument: str
-    createdAt: datetime
-    modifiedAt: datetime
+    inputConversion: InputConversionTypeDef
+    mapping: MappingTypeDef
+    outputConversion: OutputConversionTypeDef
+    sampleDocuments: SampleDocumentsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CapabilityConfigurationTypeDef(BaseValidatorModel):
-    edi: Optional[EdiConfigurationTypeDef] = None
 
-class ListTransformersResponseTypeDef(BaseValidatorModel):
-    transformers: List[TransformerSummaryTypeDef]
-    nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+class TestConversionRequestTypeDef(BaseValidatorModel):
+    source: ConversionSourceTypeDef
+    target: ConversionTargetTypeDef
 
-class CreateCapabilityRequestRequestTypeDef(BaseValidatorModel):
+
+class SampleDocumentsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateTransformerRequestTypeDef(BaseValidatorModel):
     name: str
-    type: Literal["edi"]
-    configuration: CapabilityConfigurationTypeDef
-    instructionsDocuments: Optional[Sequence[S3LocationTypeDef]] = None
     clientToken: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
+    fileFormat: Optional[FileFormatType] = None
+    mappingTemplate: Optional[str] = None
+    ediType: Optional[EdiTypeTypeDef] = None
+    sampleDocument: Optional[str] = None
+    inputConversion: Optional[InputConversionTypeDef] = None
+    mapping: Optional[MappingTypeDef] = None
+    outputConversion: Optional[OutputConversionTypeDef] = None
+    sampleDocuments: Optional[SampleDocumentsUnionTypeDef] = None
 
-class CreateCapabilityResponseTypeDef(BaseValidatorModel):
-    capabilityId: str
-    capabilityArn: str
-    name: str
-    type: Literal["edi"]
-    configuration: CapabilityConfigurationTypeDef
-    instructionsDocuments: List[S3LocationTypeDef]
-    createdAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetCapabilityResponseTypeDef(BaseValidatorModel):
-    capabilityId: str
-    capabilityArn: str
-    name: str
-    type: Literal["edi"]
-    configuration: CapabilityConfigurationTypeDef
-    instructionsDocuments: List[S3LocationTypeDef]
-    createdAt: datetime
-    modifiedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateTransformerRequestTypeDef(BaseValidatorModel):
+    transformerId: str
+    name: Optional[str] = None
+    status: Optional[TransformerStatusType] = None
+    fileFormat: Optional[FileFormatType] = None
+    mappingTemplate: Optional[str] = None
+    ediType: Optional[EdiTypeTypeDef] = None
+    sampleDocument: Optional[str] = None
+    inputConversion: Optional[InputConversionTypeDef] = None
+    mapping: Optional[MappingTypeDef] = None
+    outputConversion: Optional[OutputConversionTypeDef] = None
+    sampleDocuments: Optional[SampleDocumentsUnionTypeDef] = None
 
-class UpdateCapabilityRequestRequestTypeDef(BaseValidatorModel):
+
+class OutboundEdiOptionsTypeDef(BaseValidatorModel):
+    x12: Optional[X12EnvelopeTypeDef] = None
+
+
+class UpdateCapabilityRequestTypeDef(BaseValidatorModel):
     capabilityId: str
     name: Optional[str] = None
     configuration: Optional[CapabilityConfigurationTypeDef] = None
     instructionsDocuments: Optional[Sequence[S3LocationTypeDef]] = None
 
-class UpdateCapabilityResponseTypeDef(BaseValidatorModel):
-    capabilityId: str
-    capabilityArn: str
+
+class ListTransformersResponseTypeDef(BaseValidatorModel):
+    transformers: List[TransformerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class CapabilityOptionsTypeDef(BaseValidatorModel):
+    outboundEdi: Optional[OutboundEdiOptionsTypeDef] = None
+
+
+class CreatePartnershipRequestTypeDef(BaseValidatorModel):
+    profileId: str
     name: str
-    type: Literal["edi"]
-    configuration: CapabilityConfigurationTypeDef
-    instructionsDocuments: List[S3LocationTypeDef]
+    email: str
+    capabilities: Sequence[str]
+    phone: Optional[str] = None
+    capabilityOptions: Optional[CapabilityOptionsTypeDef] = None
+    clientToken: Optional[str] = None
+    tags: Optional[Sequence[TagTypeDef]] = None
+
+
+class CreatePartnershipResponseTypeDef(BaseValidatorModel):
+    profileId: str
+    partnershipId: str
+    partnershipArn: str
+    name: str
+    email: str
+    phone: str
+    capabilities: List[str]
+    capabilityOptions: CapabilityOptionsTypeDef
+    tradingPartnerId: str
+    createdAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GetPartnershipResponseTypeDef(BaseValidatorModel):
+    profileId: str
+    partnershipId: str
+    partnershipArn: str
+    name: str
+    email: str
+    phone: str
+    capabilities: List[str]
+    capabilityOptions: CapabilityOptionsTypeDef
+    tradingPartnerId: str
     createdAt: datetime
     modifiedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class PartnershipSummaryTypeDef(BaseValidatorModel):
+    profileId: str
+    partnershipId: str
+    createdAt: datetime
+    name: Optional[str] = None
+    capabilities: Optional[List[str]] = None
+    capabilityOptions: Optional[CapabilityOptionsTypeDef] = None
+    tradingPartnerId: Optional[str] = None
+    modifiedAt: Optional[datetime] = None
+
+
+class UpdatePartnershipRequestTypeDef(BaseValidatorModel):
+    partnershipId: str
+    name: Optional[str] = None
+    capabilities: Optional[Sequence[str]] = None
+    capabilityOptions: Optional[CapabilityOptionsTypeDef] = None
+
+
+class UpdatePartnershipResponseTypeDef(BaseValidatorModel):
+    profileId: str
+    partnershipId: str
+    partnershipArn: str
+    name: str
+    email: str
+    phone: str
+    capabilities: List[str]
+    capabilityOptions: CapabilityOptionsTypeDef
+    tradingPartnerId: str
+    createdAt: datetime
+    modifiedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListPartnershipsResponseTypeDef(BaseValidatorModel):
+    partnerships: List[PartnershipSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 

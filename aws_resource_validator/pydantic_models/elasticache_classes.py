@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,6 +16,7 @@ class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
@@ -22,52 +24,54 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AuthenticationModeTypeDef(BaseValidatorModel):
-    Type: Optional[InputAuthenticationTypeType] = None
-    Passwords: Optional[Sequence[str]] = None
 
-class AuthenticationTypeDef(BaseValidatorModel):
-    Type: Optional[AuthenticationTypeType] = None
-    PasswordCount: Optional[int] = None
-
-class AuthorizeCacheSecurityGroupIngressMessageRequestTypeDef(BaseValidatorModel):
+class AuthorizeCacheSecurityGroupIngressMessageTypeDef(BaseValidatorModel):
     CacheSecurityGroupName: str
     EC2SecurityGroupName: str
     EC2SecurityGroupOwnerId: str
 
+
 class AvailabilityZoneTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class BatchApplyUpdateActionMessageRequestTypeDef(BaseValidatorModel):
+
+class BatchApplyUpdateActionMessageTypeDef(BaseValidatorModel):
     ServiceUpdateName: str
     ReplicationGroupIds: Optional[Sequence[str]] = None
     CacheClusterIds: Optional[Sequence[str]] = None
 
-class BatchStopUpdateActionMessageRequestTypeDef(BaseValidatorModel):
+
+class BatchStopUpdateActionMessageTypeDef(BaseValidatorModel):
     ServiceUpdateName: str
     ReplicationGroupIds: Optional[Sequence[str]] = None
     CacheClusterIds: Optional[Sequence[str]] = None
+
 
 class CacheParameterGroupStatusTypeDef(BaseValidatorModel):
     CacheParameterGroupName: Optional[str] = None
     ParameterApplyStatus: Optional[str] = None
     CacheNodeIdsToReboot: Optional[List[str]] = None
 
+
 class CacheSecurityGroupMembershipTypeDef(BaseValidatorModel):
     CacheSecurityGroupName: Optional[str] = None
     Status: Optional[str] = None
+
 
 class EndpointTypeDef(BaseValidatorModel):
     Address: Optional[str] = None
     Port: Optional[int] = None
 
+
 class NotificationConfigurationTypeDef(BaseValidatorModel):
     TopicArn: Optional[str] = None
     TopicStatus: Optional[str] = None
 
+
 class SecurityGroupMembershipTypeDef(BaseValidatorModel):
     SecurityGroupId: Optional[str] = None
     Status: Optional[str] = None
+
 
 class CacheEngineVersionTypeDef(BaseValidatorModel):
     Engine: Optional[str] = None
@@ -76,9 +80,11 @@ class CacheEngineVersionTypeDef(BaseValidatorModel):
     CacheEngineDescription: Optional[str] = None
     CacheEngineVersionDescription: Optional[str] = None
 
+
 class CacheNodeTypeSpecificValueTypeDef(BaseValidatorModel):
     CacheNodeType: Optional[str] = None
     Value: Optional[str] = None
+
 
 class CacheNodeUpdateStatusTypeDef(BaseValidatorModel):
     CacheNodeId: Optional[str] = None
@@ -89,6 +95,7 @@ class CacheNodeUpdateStatusTypeDef(BaseValidatorModel):
     NodeUpdateInitiatedBy: Optional[NodeUpdateInitiatedByType] = None
     NodeUpdateInitiatedDate: Optional[datetime] = None
     NodeUpdateStatusModifiedDate: Optional[datetime] = None
+
 
 class ParameterTypeDef(BaseValidatorModel):
     ParameterName: Optional[str] = None
@@ -101,6 +108,7 @@ class ParameterTypeDef(BaseValidatorModel):
     MinimumEngineVersion: Optional[str] = None
     ChangeType: Optional[ChangeTypeType] = None
 
+
 class CacheParameterGroupTypeDef(BaseValidatorModel):
     CacheParameterGroupName: Optional[str] = None
     CacheParameterGroupFamily: Optional[str] = None
@@ -108,26 +116,32 @@ class CacheParameterGroupTypeDef(BaseValidatorModel):
     IsGlobal: Optional[bool] = None
     ARN: Optional[str] = None
 
+
 class EC2SecurityGroupTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
     EC2SecurityGroupName: Optional[str] = None
     EC2SecurityGroupOwnerId: Optional[str] = None
+
 
 class DataStorageTypeDef(BaseValidatorModel):
     Unit: Literal["GB"]
     Maximum: Optional[int] = None
     Minimum: Optional[int] = None
 
+
 class ECPUPerSecondTypeDef(BaseValidatorModel):
     Maximum: Optional[int] = None
     Minimum: Optional[int] = None
 
+
 class CloudWatchLogsDestinationDetailsTypeDef(BaseValidatorModel):
     LogGroup: Optional[str] = None
 
-class CompleteMigrationMessageRequestTypeDef(BaseValidatorModel):
+
+class CompleteMigrationMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     Force: Optional[bool] = None
+
 
 class ConfigureShardTypeDef(BaseValidatorModel):
     NodeGroupId: str
@@ -135,77 +149,95 @@ class ConfigureShardTypeDef(BaseValidatorModel):
     PreferredAvailabilityZones: Optional[Sequence[str]] = None
     PreferredOutpostArns: Optional[Sequence[str]] = None
 
-class CreateGlobalReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class CreateGlobalReplicationGroupMessageTypeDef(BaseValidatorModel):
     GlobalReplicationGroupIdSuffix: str
     PrimaryReplicationGroupId: str
     GlobalReplicationGroupDescription: Optional[str] = None
+
 
 class CustomerNodeEndpointTypeDef(BaseValidatorModel):
     Address: Optional[str] = None
     Port: Optional[int] = None
 
-class DecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class DecreaseNodeGroupsInGlobalReplicationGroupMessageTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: str
     NodeGroupCount: int
     ApplyImmediately: bool
     GlobalNodeGroupsToRemove: Optional[Sequence[str]] = None
     GlobalNodeGroupsToRetain: Optional[Sequence[str]] = None
 
-class DeleteCacheClusterMessageRequestTypeDef(BaseValidatorModel):
+
+class DeleteCacheClusterMessageTypeDef(BaseValidatorModel):
     CacheClusterId: str
     FinalSnapshotIdentifier: Optional[str] = None
 
-class DeleteCacheParameterGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class DeleteCacheParameterGroupMessageTypeDef(BaseValidatorModel):
     CacheParameterGroupName: str
 
-class DeleteCacheSecurityGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class DeleteCacheSecurityGroupMessageTypeDef(BaseValidatorModel):
     CacheSecurityGroupName: str
 
-class DeleteCacheSubnetGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class DeleteCacheSubnetGroupMessageTypeDef(BaseValidatorModel):
     CacheSubnetGroupName: str
 
-class DeleteGlobalReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class DeleteGlobalReplicationGroupMessageTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: str
     RetainPrimaryReplicationGroup: bool
 
-class DeleteReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class DeleteReplicationGroupMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     RetainPrimaryCluster: Optional[bool] = None
     FinalSnapshotIdentifier: Optional[str] = None
 
-class DeleteServerlessCacheRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteServerlessCacheRequestTypeDef(BaseValidatorModel):
     ServerlessCacheName: str
     FinalSnapshotName: Optional[str] = None
 
-class DeleteServerlessCacheSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteServerlessCacheSnapshotRequestTypeDef(BaseValidatorModel):
     ServerlessCacheSnapshotName: str
 
-class DeleteSnapshotMessageRequestTypeDef(BaseValidatorModel):
+
+class DeleteSnapshotMessageTypeDef(BaseValidatorModel):
     SnapshotName: str
 
-class DeleteUserGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class DeleteUserGroupMessageTypeDef(BaseValidatorModel):
     UserGroupId: str
 
-class DeleteUserMessageRequestTypeDef(BaseValidatorModel):
+
+class DeleteUserMessageTypeDef(BaseValidatorModel):
     UserId: str
 
-class WaiterConfigTypeDef(BaseValidatorModel):
-    Delay: Optional[int] = None
-    MaxAttempts: Optional[int] = None
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeCacheClustersMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeCacheClustersMessageTypeDef(BaseValidatorModel):
     CacheClusterId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     ShowCacheNodeInfo: Optional[bool] = None
     ShowCacheClustersNotInReplicationGroups: Optional[bool] = None
 
-class DescribeCacheEngineVersionsMessageRequestTypeDef(BaseValidatorModel):
+
+class WaiterConfigTypeDef(BaseValidatorModel):
+    Delay: Optional[int] = None
+    MaxAttempts: Optional[int] = None
+
+
+class DescribeCacheEngineVersionsMessageTypeDef(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     CacheParameterGroupFamily: Optional[str] = None
@@ -213,44 +245,52 @@ class DescribeCacheEngineVersionsMessageRequestTypeDef(BaseValidatorModel):
     Marker: Optional[str] = None
     DefaultOnly: Optional[bool] = None
 
-class DescribeCacheParameterGroupsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeCacheParameterGroupsMessageTypeDef(BaseValidatorModel):
     CacheParameterGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeCacheParametersMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeCacheParametersMessageTypeDef(BaseValidatorModel):
     CacheParameterGroupName: str
     Source: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeCacheSecurityGroupsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeCacheSecurityGroupsMessageTypeDef(BaseValidatorModel):
     CacheSecurityGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeCacheSubnetGroupsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeCacheSubnetGroupsMessageTypeDef(BaseValidatorModel):
     CacheSubnetGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeEngineDefaultParametersMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeEngineDefaultParametersMessageTypeDef(BaseValidatorModel):
     CacheParameterGroupFamily: str
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeGlobalReplicationGroupsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeGlobalReplicationGroupsMessageTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     ShowMemberInfo: Optional[bool] = None
 
-class DescribeReplicationGroupsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeReplicationGroupsMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeReservedCacheNodesMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeReservedCacheNodesMessageTypeDef(BaseValidatorModel):
     ReservedCacheNodeId: Optional[str] = None
     ReservedCacheNodesOfferingId: Optional[str] = None
     CacheNodeType: Optional[str] = None
@@ -260,7 +300,8 @@ class DescribeReservedCacheNodesMessageRequestTypeDef(BaseValidatorModel):
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeReservedCacheNodesOfferingsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeReservedCacheNodesOfferingsMessageTypeDef(BaseValidatorModel):
     ReservedCacheNodesOfferingId: Optional[str] = None
     CacheNodeType: Optional[str] = None
     Duration: Optional[str] = None
@@ -269,25 +310,29 @@ class DescribeReservedCacheNodesOfferingsMessageRequestTypeDef(BaseValidatorMode
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeServerlessCacheSnapshotsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeServerlessCacheSnapshotsRequestTypeDef(BaseValidatorModel):
     ServerlessCacheName: Optional[str] = None
     ServerlessCacheSnapshotName: Optional[str] = None
     SnapshotType: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class DescribeServerlessCachesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeServerlessCachesRequestTypeDef(BaseValidatorModel):
     ServerlessCacheName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeServiceUpdatesMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeServiceUpdatesMessageTypeDef(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     ServiceUpdateStatus: Optional[Sequence[ServiceUpdateStatusType]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeSnapshotsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeSnapshotsMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
     CacheClusterId: Optional[str] = None
     SnapshotName: Optional[str] = None
@@ -296,22 +341,27 @@ class DescribeSnapshotsMessageRequestTypeDef(BaseValidatorModel):
     MaxRecords: Optional[int] = None
     ShowNodeGroupConfig: Optional[bool] = None
 
-class DescribeUserGroupsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeUserGroupsMessageTypeDef(BaseValidatorModel):
     UserGroupId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
+
 
 class FilterTypeDef(BaseValidatorModel):
     Name: str
     Values: Sequence[str]
 
+
 class KinesisFirehoseDestinationDetailsTypeDef(BaseValidatorModel):
     DeliveryStream: Optional[str] = None
 
-class DisassociateGlobalReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class DisassociateGlobalReplicationGroupMessageTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: str
     ReplicationGroupId: str
     ReplicationGroupRegion: str
+
 
 class EventTypeDef(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
@@ -319,22 +369,27 @@ class EventTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     Date: Optional[datetime] = None
 
-class ExportServerlessCacheSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class ExportServerlessCacheSnapshotRequestTypeDef(BaseValidatorModel):
     ServerlessCacheSnapshotName: str
     S3BucketName: str
 
-class FailoverGlobalReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class FailoverGlobalReplicationGroupMessageTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: str
     PrimaryRegion: str
     PrimaryReplicationGroupId: str
+
 
 class GlobalNodeGroupTypeDef(BaseValidatorModel):
     GlobalNodeGroupId: Optional[str] = None
     Slots: Optional[str] = None
 
+
 class GlobalReplicationGroupInfoTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: Optional[str] = None
     GlobalReplicationGroupMemberRole: Optional[str] = None
+
 
 class GlobalReplicationGroupMemberTypeDef(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
@@ -343,48 +398,49 @@ class GlobalReplicationGroupMemberTypeDef(BaseValidatorModel):
     AutomaticFailover: Optional[AutomaticFailoverStatusType] = None
     Status: Optional[str] = None
 
-class ListAllowedNodeTypeModificationsMessageRequestTypeDef(BaseValidatorModel):
+
+class ListAllowedNodeTypeModificationsMessageTypeDef(BaseValidatorModel):
     CacheClusterId: Optional[str] = None
     ReplicationGroupId: Optional[str] = None
 
-class ListTagsForResourceMessageRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceMessageTypeDef(BaseValidatorModel):
     ResourceName: str
+
 
 class ParameterNameValueTypeDef(BaseValidatorModel):
     ParameterName: Optional[str] = None
     ParameterValue: Optional[str] = None
 
-class ModifyCacheSubnetGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class ModifyCacheSubnetGroupMessageTypeDef(BaseValidatorModel):
     CacheSubnetGroupName: str
     CacheSubnetGroupDescription: Optional[str] = None
     SubnetIds: Optional[Sequence[str]] = None
 
-class ModifyGlobalReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class ModifyGlobalReplicationGroupMessageTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: str
     ApplyImmediately: bool
     CacheNodeType: Optional[str] = None
+    Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     CacheParameterGroupName: Optional[str] = None
     GlobalReplicationGroupDescription: Optional[str] = None
     AutomaticFailoverEnabled: Optional[bool] = None
 
+
 class ReshardingConfigurationTypeDef(BaseValidatorModel):
     NodeGroupId: Optional[str] = None
     PreferredAvailabilityZones: Optional[Sequence[str]] = None
 
-class ModifyUserGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class ModifyUserGroupMessageTypeDef(BaseValidatorModel):
     UserGroupId: str
     UserIdsToAdd: Optional[Sequence[str]] = None
     UserIdsToRemove: Optional[Sequence[str]] = None
+    Engine: Optional[str] = None
 
-class NodeGroupConfigurationExtraOutputTypeDef(BaseValidatorModel):
-    NodeGroupId: Optional[str] = None
-    Slots: Optional[str] = None
-    ReplicaCount: Optional[int] = None
-    PrimaryAvailabilityZone: Optional[str] = None
-    ReplicaAvailabilityZones: Optional[List[str]] = None
-    PrimaryOutpostArn: Optional[str] = None
-    ReplicaOutpostArns: Optional[List[str]] = None
 
 class NodeGroupConfigurationOutputTypeDef(BaseValidatorModel):
     NodeGroupId: Optional[str] = None
@@ -395,6 +451,7 @@ class NodeGroupConfigurationOutputTypeDef(BaseValidatorModel):
     PrimaryOutpostArn: Optional[str] = None
     ReplicaOutpostArns: Optional[List[str]] = None
 
+
 class NodeGroupConfigurationTypeDef(BaseValidatorModel):
     NodeGroupId: Optional[str] = None
     Slots: Optional[str] = None
@@ -403,6 +460,7 @@ class NodeGroupConfigurationTypeDef(BaseValidatorModel):
     ReplicaAvailabilityZones: Optional[Sequence[str]] = None
     PrimaryOutpostArn: Optional[str] = None
     ReplicaOutpostArns: Optional[Sequence[str]] = None
+
 
 class NodeGroupMemberUpdateStatusTypeDef(BaseValidatorModel):
     CacheClusterId: Optional[str] = None
@@ -415,44 +473,54 @@ class NodeGroupMemberUpdateStatusTypeDef(BaseValidatorModel):
     NodeUpdateInitiatedDate: Optional[datetime] = None
     NodeUpdateStatusModifiedDate: Optional[datetime] = None
 
+
 class ProcessedUpdateActionTypeDef(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
     CacheClusterId: Optional[str] = None
     ServiceUpdateName: Optional[str] = None
     UpdateActionStatus: Optional[UpdateActionStatusType] = None
 
-class RebalanceSlotsInGlobalReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class RebalanceSlotsInGlobalReplicationGroupMessageTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: str
     ApplyImmediately: bool
 
-class RebootCacheClusterMessageRequestTypeDef(BaseValidatorModel):
+
+class RebootCacheClusterMessageTypeDef(BaseValidatorModel):
     CacheClusterId: str
     CacheNodeIdsToReboot: Sequence[str]
+
 
 class RecurringChargeTypeDef(BaseValidatorModel):
     RecurringChargeAmount: Optional[float] = None
     RecurringChargeFrequency: Optional[str] = None
 
-class RemoveTagsFromResourceMessageRequestTypeDef(BaseValidatorModel):
+
+class RemoveTagsFromResourceMessageTypeDef(BaseValidatorModel):
     ResourceName: str
     TagKeys: Sequence[str]
+
 
 class UserGroupsUpdateStatusTypeDef(BaseValidatorModel):
     UserGroupIdsToAdd: Optional[List[str]] = None
     UserGroupIdsToRemove: Optional[List[str]] = None
 
+
 class SlotMigrationTypeDef(BaseValidatorModel):
     ProgressPercentage: Optional[float] = None
 
-class RevokeCacheSecurityGroupIngressMessageRequestTypeDef(BaseValidatorModel):
+
+class RevokeCacheSecurityGroupIngressMessageTypeDef(BaseValidatorModel):
     CacheSecurityGroupName: str
     EC2SecurityGroupName: str
     EC2SecurityGroupOwnerId: str
+
 
 class ServerlessCacheConfigurationTypeDef(BaseValidatorModel):
     ServerlessCacheName: Optional[str] = None
     Engine: Optional[str] = None
     MajorEngineVersion: Optional[str] = None
+
 
 class ServiceUpdateTypeDef(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
@@ -468,12 +536,15 @@ class ServiceUpdateTypeDef(BaseValidatorModel):
     AutoUpdateAfterRecommendedApplyByDate: Optional[bool] = None
     EstimatedUpdateTime: Optional[str] = None
 
+
 class SubnetOutpostTypeDef(BaseValidatorModel):
     SubnetOutpostArn: Optional[str] = None
 
-class TestFailoverMessageRequestTypeDef(BaseValidatorModel):
+
+class TestFailoverMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     NodeGroupId: str
+
 
 class UnprocessedUpdateActionTypeDef(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
@@ -482,86 +553,106 @@ class UnprocessedUpdateActionTypeDef(BaseValidatorModel):
     ErrorType: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
+
 class UserGroupPendingChangesTypeDef(BaseValidatorModel):
     UserIdsToRemove: Optional[List[str]] = None
     UserIdsToAdd: Optional[List[str]] = None
 
-class AddTagsToResourceMessageRequestTypeDef(BaseValidatorModel):
+
+class AddTagsToResourceMessageTypeDef(BaseValidatorModel):
     ResourceName: str
     Tags: Sequence[TagTypeDef]
 
-class CopyServerlessCacheSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class CopyServerlessCacheSnapshotRequestTypeDef(BaseValidatorModel):
     SourceServerlessCacheSnapshotName: str
     TargetServerlessCacheSnapshotName: str
     KmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CopySnapshotMessageRequestTypeDef(BaseValidatorModel):
+
+class CopySnapshotMessageTypeDef(BaseValidatorModel):
     SourceSnapshotName: str
     TargetSnapshotName: str
     TargetBucket: Optional[str] = None
     KmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateCacheParameterGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class CreateCacheParameterGroupMessageTypeDef(BaseValidatorModel):
     CacheParameterGroupName: str
     CacheParameterGroupFamily: str
     Description: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateCacheSecurityGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class CreateCacheSecurityGroupMessageTypeDef(BaseValidatorModel):
     CacheSecurityGroupName: str
     Description: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateCacheSubnetGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class CreateCacheSubnetGroupMessageTypeDef(BaseValidatorModel):
     CacheSubnetGroupName: str
     CacheSubnetGroupDescription: str
     SubnetIds: Sequence[str]
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateServerlessCacheSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateServerlessCacheSnapshotRequestTypeDef(BaseValidatorModel):
     ServerlessCacheSnapshotName: str
     ServerlessCacheName: str
     KmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateSnapshotMessageRequestTypeDef(BaseValidatorModel):
+
+class CreateSnapshotMessageTypeDef(BaseValidatorModel):
     SnapshotName: str
     ReplicationGroupId: Optional[str] = None
     CacheClusterId: Optional[str] = None
     KmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateUserGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class CreateUserGroupMessageTypeDef(BaseValidatorModel):
     UserGroupId: str
     Engine: str
     UserIds: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class PurchaseReservedCacheNodesOfferingMessageRequestTypeDef(BaseValidatorModel):
+
+class PurchaseReservedCacheNodesOfferingMessageTypeDef(BaseValidatorModel):
     ReservedCacheNodesOfferingId: str
     ReservedCacheNodeId: Optional[str] = None
     CacheNodeCount: Optional[int] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class AllowedNodeTypeModificationsMessageTypeDef(BaseValidatorModel):
     ScaleUpModifications: List[str]
     ScaleDownModifications: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CacheParameterGroupNameMessageTypeDef(BaseValidatorModel):
     CacheParameterGroupName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class TagListMessageTypeDef(BaseValidatorModel):
     TagList: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUserMessageRequestTypeDef(BaseValidatorModel):
+
+class AuthenticationModeTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateUserMessageTypeDef(BaseValidatorModel):
     UserId: str
     UserName: str
     Engine: str
@@ -571,13 +662,20 @@ class CreateUserMessageRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     AuthenticationMode: Optional[AuthenticationModeTypeDef] = None
 
-class ModifyUserMessageRequestTypeDef(BaseValidatorModel):
+
+class ModifyUserMessageTypeDef(BaseValidatorModel):
     UserId: str
     AccessString: Optional[str] = None
     AppendAccessString: Optional[str] = None
     Passwords: Optional[Sequence[str]] = None
     NoPasswordRequired: Optional[bool] = None
     AuthenticationMode: Optional[AuthenticationModeTypeDef] = None
+    Engine: Optional[str] = None
+
+
+class AuthenticationTypeDef(BaseValidatorModel):
+    pass
+
 
 class UserResponseTypeDef(BaseValidatorModel):
     UserId: str
@@ -591,6 +689,7 @@ class UserResponseTypeDef(BaseValidatorModel):
     ARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UserTypeDef(BaseValidatorModel):
     UserId: Optional[str] = None
     UserName: Optional[str] = None
@@ -602,6 +701,7 @@ class UserTypeDef(BaseValidatorModel):
     Authentication: Optional[AuthenticationTypeDef] = None
     ARN: Optional[str] = None
 
+
 class CacheNodeTypeDef(BaseValidatorModel):
     CacheNodeId: Optional[str] = None
     CacheNodeStatus: Optional[str] = None
@@ -612,6 +712,7 @@ class CacheNodeTypeDef(BaseValidatorModel):
     CustomerAvailabilityZone: Optional[str] = None
     CustomerOutpostArn: Optional[str] = None
 
+
 class NodeGroupMemberTypeDef(BaseValidatorModel):
     CacheClusterId: Optional[str] = None
     CacheNodeId: Optional[str] = None
@@ -620,10 +721,12 @@ class NodeGroupMemberTypeDef(BaseValidatorModel):
     PreferredOutpostArn: Optional[str] = None
     CurrentRole: Optional[str] = None
 
+
 class CacheEngineVersionMessageTypeDef(BaseValidatorModel):
     Marker: str
     CacheEngineVersions: List[CacheEngineVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CacheNodeTypeSpecificParameterTypeDef(BaseValidatorModel):
     ParameterName: Optional[str] = None
@@ -636,14 +739,17 @@ class CacheNodeTypeSpecificParameterTypeDef(BaseValidatorModel):
     CacheNodeTypeSpecificValues: Optional[List[CacheNodeTypeSpecificValueTypeDef]] = None
     ChangeType: Optional[ChangeTypeType] = None
 
+
 class CacheParameterGroupsMessageTypeDef(BaseValidatorModel):
     Marker: str
     CacheParameterGroups: List[CacheParameterGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateCacheParameterGroupResultTypeDef(BaseValidatorModel):
     CacheParameterGroup: CacheParameterGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CacheSecurityGroupTypeDef(BaseValidatorModel):
     OwnerId: Optional[str] = None
@@ -652,103 +758,90 @@ class CacheSecurityGroupTypeDef(BaseValidatorModel):
     EC2SecurityGroups: Optional[List[EC2SecurityGroupTypeDef]] = None
     ARN: Optional[str] = None
 
+
 class CacheUsageLimitsTypeDef(BaseValidatorModel):
     DataStorage: Optional[DataStorageTypeDef] = None
     ECPUPerSecond: Optional[ECPUPerSecondTypeDef] = None
 
-class DecreaseReplicaCountMessageRequestTypeDef(BaseValidatorModel):
+
+class DecreaseReplicaCountMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     ApplyImmediately: bool
     NewReplicaCount: Optional[int] = None
     ReplicaConfiguration: Optional[Sequence[ConfigureShardTypeDef]] = None
     ReplicasToRemove: Optional[Sequence[str]] = None
 
-class IncreaseReplicaCountMessageRequestTypeDef(BaseValidatorModel):
+
+class IncreaseReplicaCountMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     ApplyImmediately: bool
     NewReplicaCount: Optional[int] = None
     ReplicaConfiguration: Optional[Sequence[ConfigureShardTypeDef]] = None
 
-class StartMigrationMessageRequestTypeDef(BaseValidatorModel):
+
+class StartMigrationMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     CustomerNodeEndpointList: Sequence[CustomerNodeEndpointTypeDef]
 
-class TestMigrationMessageRequestTypeDef(BaseValidatorModel):
+
+class TestMigrationMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     CustomerNodeEndpointList: Sequence[CustomerNodeEndpointTypeDef]
 
-class DescribeCacheClustersMessageCacheClusterAvailableWaitTypeDef(BaseValidatorModel):
-    CacheClusterId: Optional[str] = None
-    MaxRecords: Optional[int] = None
-    Marker: Optional[str] = None
-    ShowCacheNodeInfo: Optional[bool] = None
-    ShowCacheClustersNotInReplicationGroups: Optional[bool] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeCacheClustersMessageCacheClusterDeletedWaitTypeDef(BaseValidatorModel):
-    CacheClusterId: Optional[str] = None
-    MaxRecords: Optional[int] = None
-    Marker: Optional[str] = None
-    ShowCacheNodeInfo: Optional[bool] = None
-    ShowCacheClustersNotInReplicationGroups: Optional[bool] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
-
-class DescribeReplicationGroupsMessageReplicationGroupAvailableWaitTypeDef(BaseValidatorModel):
-    ReplicationGroupId: Optional[str] = None
-    MaxRecords: Optional[int] = None
-    Marker: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
-
-class DescribeReplicationGroupsMessageReplicationGroupDeletedWaitTypeDef(BaseValidatorModel):
-    ReplicationGroupId: Optional[str] = None
-    MaxRecords: Optional[int] = None
-    Marker: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
-
-class DescribeCacheClustersMessageDescribeCacheClustersPaginateTypeDef(BaseValidatorModel):
+class DescribeCacheClustersMessagePaginateTypeDef(BaseValidatorModel):
     CacheClusterId: Optional[str] = None
     ShowCacheNodeInfo: Optional[bool] = None
     ShowCacheClustersNotInReplicationGroups: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCacheEngineVersionsMessageDescribeCacheEngineVersionsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeCacheEngineVersionsMessagePaginateTypeDef(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     CacheParameterGroupFamily: Optional[str] = None
     DefaultOnly: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCacheParameterGroupsMessageDescribeCacheParameterGroupsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeCacheParameterGroupsMessagePaginateTypeDef(BaseValidatorModel):
     CacheParameterGroupName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCacheParametersMessageDescribeCacheParametersPaginateTypeDef(BaseValidatorModel):
+
+class DescribeCacheParametersMessagePaginateTypeDef(BaseValidatorModel):
     CacheParameterGroupName: str
     Source: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCacheSecurityGroupsMessageDescribeCacheSecurityGroupsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeCacheSecurityGroupsMessagePaginateTypeDef(BaseValidatorModel):
     CacheSecurityGroupName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCacheSubnetGroupsMessageDescribeCacheSubnetGroupsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeCacheSubnetGroupsMessagePaginateTypeDef(BaseValidatorModel):
     CacheSubnetGroupName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEngineDefaultParametersMessageDescribeEngineDefaultParametersPaginateTypeDef(BaseValidatorModel):
+
+class DescribeEngineDefaultParametersMessagePaginateTypeDef(BaseValidatorModel):
     CacheParameterGroupFamily: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeGlobalReplicationGroupsMessageDescribeGlobalReplicationGroupsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeGlobalReplicationGroupsMessagePaginateTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: Optional[str] = None
     ShowMemberInfo: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReplicationGroupsMessageDescribeReplicationGroupsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeReplicationGroupsMessagePaginateTypeDef(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReservedCacheNodesMessageDescribeReservedCacheNodesPaginateTypeDef(BaseValidatorModel):
+
+class DescribeReservedCacheNodesMessagePaginateTypeDef(BaseValidatorModel):
     ReservedCacheNodeId: Optional[str] = None
     ReservedCacheNodesOfferingId: Optional[str] = None
     CacheNodeType: Optional[str] = None
@@ -757,7 +850,8 @@ class DescribeReservedCacheNodesMessageDescribeReservedCacheNodesPaginateTypeDef
     OfferingType: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeReservedCacheNodesOfferingsMessageDescribeReservedCacheNodesOfferingsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeReservedCacheNodesOfferingsMessagePaginateTypeDef(BaseValidatorModel):
     ReservedCacheNodesOfferingId: Optional[str] = None
     CacheNodeType: Optional[str] = None
     Duration: Optional[str] = None
@@ -765,22 +859,26 @@ class DescribeReservedCacheNodesOfferingsMessageDescribeReservedCacheNodesOfferi
     OfferingType: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeServerlessCacheSnapshotsRequestDescribeServerlessCacheSnapshotsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeServerlessCacheSnapshotsRequestPaginateTypeDef(BaseValidatorModel):
     ServerlessCacheName: Optional[str] = None
     ServerlessCacheSnapshotName: Optional[str] = None
     SnapshotType: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeServerlessCachesRequestDescribeServerlessCachesPaginateTypeDef(BaseValidatorModel):
+
+class DescribeServerlessCachesRequestPaginateTypeDef(BaseValidatorModel):
     ServerlessCacheName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeServiceUpdatesMessageDescribeServiceUpdatesPaginateTypeDef(BaseValidatorModel):
+
+class DescribeServiceUpdatesMessagePaginateTypeDef(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     ServiceUpdateStatus: Optional[Sequence[ServiceUpdateStatusType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSnapshotsMessageDescribeSnapshotsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeSnapshotsMessagePaginateTypeDef(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
     CacheClusterId: Optional[str] = None
     SnapshotName: Optional[str] = None
@@ -788,11 +886,49 @@ class DescribeSnapshotsMessageDescribeSnapshotsPaginateTypeDef(BaseValidatorMode
     ShowNodeGroupConfig: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeUserGroupsMessageDescribeUserGroupsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeUserGroupsMessagePaginateTypeDef(BaseValidatorModel):
     UserGroupId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEventsMessageDescribeEventsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeCacheClustersMessageWaitExtraTypeDef(BaseValidatorModel):
+    CacheClusterId: Optional[str] = None
+    MaxRecords: Optional[int] = None
+    Marker: Optional[str] = None
+    ShowCacheNodeInfo: Optional[bool] = None
+    ShowCacheClustersNotInReplicationGroups: Optional[bool] = None
+    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
+
+class DescribeCacheClustersMessageWaitTypeDef(BaseValidatorModel):
+    CacheClusterId: Optional[str] = None
+    MaxRecords: Optional[int] = None
+    Marker: Optional[str] = None
+    ShowCacheNodeInfo: Optional[bool] = None
+    ShowCacheClustersNotInReplicationGroups: Optional[bool] = None
+    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
+
+class DescribeReplicationGroupsMessageWaitExtraTypeDef(BaseValidatorModel):
+    ReplicationGroupId: Optional[str] = None
+    MaxRecords: Optional[int] = None
+    Marker: Optional[str] = None
+    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
+
+class DescribeReplicationGroupsMessageWaitTypeDef(BaseValidatorModel):
+    ReplicationGroupId: Optional[str] = None
+    MaxRecords: Optional[int] = None
+    Marker: Optional[str] = None
+    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class DescribeEventsMessagePaginateTypeDef(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
     StartTime: Optional[TimestampTypeDef] = None
@@ -800,7 +936,8 @@ class DescribeEventsMessageDescribeEventsPaginateTypeDef(BaseValidatorModel):
     Duration: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeEventsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeEventsMessageTypeDef(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
     StartTime: Optional[TimestampTypeDef] = None
@@ -808,32 +945,38 @@ class DescribeEventsMessageRequestTypeDef(BaseValidatorModel):
     Duration: Optional[int] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
+
 
 class TimeRangeFilterTypeDef(BaseValidatorModel):
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
 
-class DescribeUsersMessageDescribeUsersPaginateTypeDef(BaseValidatorModel):
+
+class DescribeUsersMessagePaginateTypeDef(BaseValidatorModel):
     Engine: Optional[str] = None
     UserId: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeUsersMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeUsersMessageTypeDef(BaseValidatorModel):
     Engine: Optional[str] = None
     UserId: Optional[str] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
+
 class DestinationDetailsTypeDef(BaseValidatorModel):
     CloudWatchLogsDetails: Optional[CloudWatchLogsDestinationDetailsTypeDef] = None
     KinesisFirehoseDetails: Optional[KinesisFirehoseDestinationDetailsTypeDef] = None
+
 
 class EventsMessageTypeDef(BaseValidatorModel):
     Marker: str
     Events: List[EventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GlobalReplicationGroupTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: Optional[str] = None
@@ -850,16 +993,19 @@ class GlobalReplicationGroupTypeDef(BaseValidatorModel):
     AtRestEncryptionEnabled: Optional[bool] = None
     ARN: Optional[str] = None
 
-class ModifyCacheParameterGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class ModifyCacheParameterGroupMessageTypeDef(BaseValidatorModel):
     CacheParameterGroupName: str
     ParameterNameValues: Sequence[ParameterNameValueTypeDef]
 
-class ResetCacheParameterGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class ResetCacheParameterGroupMessageTypeDef(BaseValidatorModel):
     CacheParameterGroupName: str
     ResetAllParameters: Optional[bool] = None
     ParameterNameValues: Optional[Sequence[ParameterNameValueTypeDef]] = None
 
-class ModifyReplicationGroupShardConfigurationMessageRequestTypeDef(BaseValidatorModel):
+
+class ModifyReplicationGroupShardConfigurationMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     NodeGroupCount: int
     ApplyImmediately: bool
@@ -867,10 +1013,12 @@ class ModifyReplicationGroupShardConfigurationMessageRequestTypeDef(BaseValidato
     NodeGroupsToRemove: Optional[Sequence[str]] = None
     NodeGroupsToRetain: Optional[Sequence[str]] = None
 
+
 class RegionalConfigurationTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     ReplicationGroupRegion: str
     ReshardingConfiguration: Sequence[ReshardingConfigurationTypeDef]
+
 
 class NodeSnapshotTypeDef(BaseValidatorModel):
     CacheClusterId: Optional[str] = None
@@ -881,9 +1029,11 @@ class NodeSnapshotTypeDef(BaseValidatorModel):
     CacheNodeCreateTime: Optional[datetime] = None
     SnapshotCreateTime: Optional[datetime] = None
 
+
 class NodeGroupUpdateStatusTypeDef(BaseValidatorModel):
     NodeGroupId: Optional[str] = None
     NodeGroupMemberUpdateStatus: Optional[List[NodeGroupMemberUpdateStatusTypeDef]] = None
+
 
 class ReservedCacheNodeTypeDef(BaseValidatorModel):
     ReservedCacheNodeId: Optional[str] = None
@@ -900,6 +1050,7 @@ class ReservedCacheNodeTypeDef(BaseValidatorModel):
     RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
     ReservationARN: Optional[str] = None
 
+
 class ReservedCacheNodesOfferingTypeDef(BaseValidatorModel):
     ReservedCacheNodesOfferingId: Optional[str] = None
     CacheNodeType: Optional[str] = None
@@ -910,8 +1061,10 @@ class ReservedCacheNodesOfferingTypeDef(BaseValidatorModel):
     OfferingType: Optional[str] = None
     RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
 
+
 class ReshardingStatusTypeDef(BaseValidatorModel):
     SlotMigration: Optional[SlotMigrationTypeDef] = None
+
 
 class ServerlessCacheSnapshotTypeDef(BaseValidatorModel):
     ServerlessCacheSnapshotName: Optional[str] = None
@@ -924,10 +1077,12 @@ class ServerlessCacheSnapshotTypeDef(BaseValidatorModel):
     BytesUsedForCache: Optional[str] = None
     ServerlessCacheConfiguration: Optional[ServerlessCacheConfigurationTypeDef] = None
 
+
 class ServiceUpdatesMessageTypeDef(BaseValidatorModel):
     Marker: str
     ServiceUpdates: List[ServiceUpdateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class SubnetTypeDef(BaseValidatorModel):
     SubnetIdentifier: Optional[str] = None
@@ -935,10 +1090,12 @@ class SubnetTypeDef(BaseValidatorModel):
     SubnetOutpost: Optional[SubnetOutpostTypeDef] = None
     SupportedNetworkTypes: Optional[List[NetworkTypeType]] = None
 
+
 class UpdateActionResultsMessageTypeDef(BaseValidatorModel):
     ProcessedUpdateActions: List[ProcessedUpdateActionTypeDef]
     UnprocessedUpdateActions: List[UnprocessedUpdateActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UserGroupResponseTypeDef(BaseValidatorModel):
     UserGroupId: str
@@ -952,6 +1109,7 @@ class UserGroupResponseTypeDef(BaseValidatorModel):
     ARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UserGroupTypeDef(BaseValidatorModel):
     UserGroupId: Optional[str] = None
     Status: Optional[str] = None
@@ -963,10 +1121,12 @@ class UserGroupTypeDef(BaseValidatorModel):
     ServerlessCaches: Optional[List[str]] = None
     ARN: Optional[str] = None
 
+
 class DescribeUsersResultTypeDef(BaseValidatorModel):
     Users: List[UserTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class NodeGroupTypeDef(BaseValidatorModel):
     NodeGroupId: Optional[str] = None
@@ -976,11 +1136,13 @@ class NodeGroupTypeDef(BaseValidatorModel):
     Slots: Optional[str] = None
     NodeGroupMembers: Optional[List[NodeGroupMemberTypeDef]] = None
 
+
 class CacheParameterGroupDetailsTypeDef(BaseValidatorModel):
     Marker: str
     Parameters: List[ParameterTypeDef]
     CacheNodeTypeSpecificParameters: List[CacheNodeTypeSpecificParameterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class EngineDefaultsTypeDef(BaseValidatorModel):
     CacheParameterGroupFamily: Optional[str] = None
@@ -988,24 +1150,29 @@ class EngineDefaultsTypeDef(BaseValidatorModel):
     Parameters: Optional[List[ParameterTypeDef]] = None
     CacheNodeTypeSpecificParameters: Optional[List[CacheNodeTypeSpecificParameterTypeDef]] = None
 
+
 class AuthorizeCacheSecurityGroupIngressResultTypeDef(BaseValidatorModel):
     CacheSecurityGroup: CacheSecurityGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CacheSecurityGroupMessageTypeDef(BaseValidatorModel):
     Marker: str
     CacheSecurityGroups: List[CacheSecurityGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateCacheSecurityGroupResultTypeDef(BaseValidatorModel):
     CacheSecurityGroup: CacheSecurityGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class RevokeCacheSecurityGroupIngressResultTypeDef(BaseValidatorModel):
     CacheSecurityGroup: CacheSecurityGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServerlessCacheRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateServerlessCacheRequestTypeDef(BaseValidatorModel):
     ServerlessCacheName: str
     Engine: str
     Description: Optional[str] = None
@@ -1020,7 +1187,8 @@ class CreateServerlessCacheRequestRequestTypeDef(BaseValidatorModel):
     SnapshotRetentionLimit: Optional[int] = None
     DailySnapshotTime: Optional[str] = None
 
-class ModifyServerlessCacheRequestRequestTypeDef(BaseValidatorModel):
+
+class ModifyServerlessCacheRequestTypeDef(BaseValidatorModel):
     ServerlessCacheName: str
     Description: Optional[str] = None
     CacheUsageLimits: Optional[CacheUsageLimitsTypeDef] = None
@@ -1029,6 +1197,9 @@ class ModifyServerlessCacheRequestRequestTypeDef(BaseValidatorModel):
     SecurityGroupIds: Optional[Sequence[str]] = None
     SnapshotRetentionLimit: Optional[int] = None
     DailySnapshotTime: Optional[str] = None
+    Engine: Optional[str] = None
+    MajorEngineVersion: Optional[str] = None
+
 
 class ServerlessCacheTypeDef(BaseValidatorModel):
     ServerlessCacheName: Optional[str] = None
@@ -1049,7 +1220,8 @@ class ServerlessCacheTypeDef(BaseValidatorModel):
     SnapshotRetentionLimit: Optional[int] = None
     DailySnapshotTime: Optional[str] = None
 
-class DescribeUpdateActionsMessageDescribeUpdateActionsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeUpdateActionsMessagePaginateTypeDef(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     ReplicationGroupIds: Optional[Sequence[str]] = None
     CacheClusterIds: Optional[Sequence[str]] = None
@@ -1060,7 +1232,8 @@ class DescribeUpdateActionsMessageDescribeUpdateActionsPaginateTypeDef(BaseValid
     ShowNodeLevelUpdateStatus: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeUpdateActionsMessageRequestTypeDef(BaseValidatorModel):
+
+class DescribeUpdateActionsMessageTypeDef(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     ReplicationGroupIds: Optional[Sequence[str]] = None
     CacheClusterIds: Optional[Sequence[str]] = None
@@ -1072,12 +1245,14 @@ class DescribeUpdateActionsMessageRequestTypeDef(BaseValidatorModel):
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
+
 class LogDeliveryConfigurationRequestTypeDef(BaseValidatorModel):
     LogType: Optional[LogTypeType] = None
     DestinationType: Optional[DestinationTypeType] = None
     DestinationDetails: Optional[DestinationDetailsTypeDef] = None
     LogFormat: Optional[LogFormatType] = None
     Enabled: Optional[bool] = None
+
 
 class LogDeliveryConfigurationTypeDef(BaseValidatorModel):
     LogType: Optional[LogTypeType] = None
@@ -1087,54 +1262,66 @@ class LogDeliveryConfigurationTypeDef(BaseValidatorModel):
     Status: Optional[LogDeliveryConfigurationStatusType] = None
     Message: Optional[str] = None
 
+
 class PendingLogDeliveryConfigurationTypeDef(BaseValidatorModel):
     LogType: Optional[LogTypeType] = None
     DestinationType: Optional[DestinationTypeType] = None
     DestinationDetails: Optional[DestinationDetailsTypeDef] = None
     LogFormat: Optional[LogFormatType] = None
 
+
 class CreateGlobalReplicationGroupResultTypeDef(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DecreaseNodeGroupsInGlobalReplicationGroupResultTypeDef(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteGlobalReplicationGroupResultTypeDef(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeGlobalReplicationGroupsResultTypeDef(BaseValidatorModel):
     Marker: str
     GlobalReplicationGroups: List[GlobalReplicationGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DisassociateGlobalReplicationGroupResultTypeDef(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class FailoverGlobalReplicationGroupResultTypeDef(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ModifyGlobalReplicationGroupResultTypeDef(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class RebalanceSlotsInGlobalReplicationGroupResultTypeDef(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class IncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class IncreaseNodeGroupsInGlobalReplicationGroupMessageTypeDef(BaseValidatorModel):
     GlobalReplicationGroupId: str
     NodeGroupCount: int
     ApplyImmediately: bool
     RegionalConfigurations: Optional[Sequence[RegionalConfigurationTypeDef]] = None
+
 
 class SnapshotTypeDef(BaseValidatorModel):
     SnapshotName: Optional[str] = None
@@ -1166,6 +1353,7 @@ class SnapshotTypeDef(BaseValidatorModel):
     ARN: Optional[str] = None
     DataTiering: Optional[DataTieringStatusType] = None
 
+
 class UpdateActionTypeDef(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
     CacheClusterId: Optional[str] = None
@@ -1185,40 +1373,49 @@ class UpdateActionTypeDef(BaseValidatorModel):
     EstimatedUpdateTime: Optional[str] = None
     Engine: Optional[str] = None
 
+
 class PurchaseReservedCacheNodesOfferingResultTypeDef(BaseValidatorModel):
     ReservedCacheNode: ReservedCacheNodeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ReservedCacheNodeMessageTypeDef(BaseValidatorModel):
     Marker: str
     ReservedCacheNodes: List[ReservedCacheNodeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ReservedCacheNodesOfferingMessageTypeDef(BaseValidatorModel):
     Marker: str
     ReservedCacheNodesOfferings: List[ReservedCacheNodesOfferingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CopyServerlessCacheSnapshotResponseTypeDef(BaseValidatorModel):
     ServerlessCacheSnapshot: ServerlessCacheSnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateServerlessCacheSnapshotResponseTypeDef(BaseValidatorModel):
     ServerlessCacheSnapshot: ServerlessCacheSnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteServerlessCacheSnapshotResponseTypeDef(BaseValidatorModel):
     ServerlessCacheSnapshot: ServerlessCacheSnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeServerlessCacheSnapshotsResponseTypeDef(BaseValidatorModel):
     ServerlessCacheSnapshots: List[ServerlessCacheSnapshotTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ExportServerlessCacheSnapshotResponseTypeDef(BaseValidatorModel):
     ServerlessCacheSnapshot: ServerlessCacheSnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CacheSubnetGroupTypeDef(BaseValidatorModel):
     CacheSubnetGroupName: Optional[str] = None
@@ -1228,33 +1425,40 @@ class CacheSubnetGroupTypeDef(BaseValidatorModel):
     ARN: Optional[str] = None
     SupportedNetworkTypes: Optional[List[NetworkTypeType]] = None
 
+
 class DescribeUserGroupsResultTypeDef(BaseValidatorModel):
     UserGroups: List[UserGroupTypeDef]
     Marker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeEngineDefaultParametersResultTypeDef(BaseValidatorModel):
     EngineDefaults: EngineDefaultsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateServerlessCacheResponseTypeDef(BaseValidatorModel):
     ServerlessCache: ServerlessCacheTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteServerlessCacheResponseTypeDef(BaseValidatorModel):
     ServerlessCache: ServerlessCacheTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeServerlessCachesResponseTypeDef(BaseValidatorModel):
     ServerlessCaches: List[ServerlessCacheTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ModifyServerlessCacheResponseTypeDef(BaseValidatorModel):
     ServerlessCache: ServerlessCacheTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCacheClusterMessageRequestTypeDef(BaseValidatorModel):
+
+class CreateCacheClusterMessageTypeDef(BaseValidatorModel):
     CacheClusterId: str
     ReplicationGroupId: Optional[str] = None
     AZMode: Optional[AZModeType] = None
@@ -1286,7 +1490,12 @@ class CreateCacheClusterMessageRequestTypeDef(BaseValidatorModel):
     NetworkType: Optional[NetworkTypeType] = None
     IpDiscovery: Optional[IpDiscoveryType] = None
 
-class CreateReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class NodeGroupConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateReplicationGroupMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     ReplicationGroupDescription: str
     GlobalReplicationGroupId: Optional[str] = None
@@ -1327,7 +1536,8 @@ class CreateReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
     ClusterMode: Optional[ClusterModeType] = None
     ServerlessCacheSnapshotName: Optional[str] = None
 
-class ModifyCacheClusterMessageRequestTypeDef(BaseValidatorModel):
+
+class ModifyCacheClusterMessageTypeDef(BaseValidatorModel):
     CacheClusterId: str
     NumCacheNodes: Optional[int] = None
     CacheNodeIdsToRemove: Optional[Sequence[str]] = None
@@ -1340,6 +1550,7 @@ class ModifyCacheClusterMessageRequestTypeDef(BaseValidatorModel):
     CacheParameterGroupName: Optional[str] = None
     NotificationTopicStatus: Optional[str] = None
     ApplyImmediately: Optional[bool] = None
+    Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     SnapshotRetentionLimit: Optional[int] = None
@@ -1350,7 +1561,8 @@ class ModifyCacheClusterMessageRequestTypeDef(BaseValidatorModel):
     LogDeliveryConfigurations: Optional[Sequence[LogDeliveryConfigurationRequestTypeDef]] = None
     IpDiscovery: Optional[IpDiscoveryType] = None
 
-class ModifyReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
+
+class ModifyReplicationGroupMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
     ReplicationGroupDescription: Optional[str] = None
     PrimaryClusterId: Optional[str] = None
@@ -1365,6 +1577,7 @@ class ModifyReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
     CacheParameterGroupName: Optional[str] = None
     NotificationTopicStatus: Optional[str] = None
     ApplyImmediately: Optional[bool] = None
+    Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     SnapshotRetentionLimit: Optional[int] = None
@@ -1381,6 +1594,7 @@ class ModifyReplicationGroupMessageRequestTypeDef(BaseValidatorModel):
     TransitEncryptionMode: Optional[TransitEncryptionModeType] = None
     ClusterMode: Optional[ClusterModeType] = None
 
+
 class PendingModifiedValuesTypeDef(BaseValidatorModel):
     NumCacheNodes: Optional[int] = None
     CacheNodeIdsToRemove: Optional[List[str]] = None
@@ -1390,6 +1604,7 @@ class PendingModifiedValuesTypeDef(BaseValidatorModel):
     LogDeliveryConfigurations: Optional[List[PendingLogDeliveryConfigurationTypeDef]] = None
     TransitEncryptionEnabled: Optional[bool] = None
     TransitEncryptionMode: Optional[TransitEncryptionModeType] = None
+
 
 class ReplicationGroupPendingModifiedValuesTypeDef(BaseValidatorModel):
     PrimaryClusterId: Optional[str] = None
@@ -1402,40 +1617,49 @@ class ReplicationGroupPendingModifiedValuesTypeDef(BaseValidatorModel):
     TransitEncryptionMode: Optional[TransitEncryptionModeType] = None
     ClusterMode: Optional[ClusterModeType] = None
 
+
 class CopySnapshotResultTypeDef(BaseValidatorModel):
     Snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateSnapshotResultTypeDef(BaseValidatorModel):
     Snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteSnapshotResultTypeDef(BaseValidatorModel):
     Snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeSnapshotsListMessageTypeDef(BaseValidatorModel):
     Marker: str
     Snapshots: List[SnapshotTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateActionsMessageTypeDef(BaseValidatorModel):
     Marker: str
     UpdateActions: List[UpdateActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CacheSubnetGroupMessageTypeDef(BaseValidatorModel):
     Marker: str
     CacheSubnetGroups: List[CacheSubnetGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateCacheSubnetGroupResultTypeDef(BaseValidatorModel):
     CacheSubnetGroup: CacheSubnetGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ModifyCacheSubnetGroupResultTypeDef(BaseValidatorModel):
     CacheSubnetGroup: CacheSubnetGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CacheClusterTypeDef(BaseValidatorModel):
     CacheClusterId: Optional[str] = None
@@ -1472,6 +1696,7 @@ class CacheClusterTypeDef(BaseValidatorModel):
     IpDiscovery: Optional[IpDiscoveryType] = None
     TransitEncryptionMode: Optional[TransitEncryptionModeType] = None
 
+
 class ReplicationGroupTypeDef(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
     Description: Optional[str] = None
@@ -1504,70 +1729,88 @@ class ReplicationGroupTypeDef(BaseValidatorModel):
     IpDiscovery: Optional[IpDiscoveryType] = None
     TransitEncryptionMode: Optional[TransitEncryptionModeType] = None
     ClusterMode: Optional[ClusterModeType] = None
+    Engine: Optional[str] = None
+
 
 class CacheClusterMessageTypeDef(BaseValidatorModel):
     Marker: str
     CacheClusters: List[CacheClusterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateCacheClusterResultTypeDef(BaseValidatorModel):
     CacheCluster: CacheClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteCacheClusterResultTypeDef(BaseValidatorModel):
     CacheCluster: CacheClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ModifyCacheClusterResultTypeDef(BaseValidatorModel):
     CacheCluster: CacheClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class RebootCacheClusterResultTypeDef(BaseValidatorModel):
     CacheCluster: CacheClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CompleteMigrationResponseTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateReplicationGroupResultTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DecreaseReplicaCountResultTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteReplicationGroupResultTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class IncreaseReplicaCountResultTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ModifyReplicationGroupResultTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ModifyReplicationGroupShardConfigurationResultTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ReplicationGroupMessageTypeDef(BaseValidatorModel):
     Marker: str
     ReplicationGroups: List[ReplicationGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartMigrationResponseTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class TestFailoverResultTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class TestMigrationResponseTypeDef(BaseValidatorModel):
     ReplicationGroup: ReplicationGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,20 +12,23 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cognito_sync_constants import *
 
-class BulkPublishRequestRequestTypeDef(BaseValidatorModel):
+class BulkPublishRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class CognitoStreamsTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     RoleArn: Optional[str] = None
     StreamingStatus: Optional[StreamingStatusType] = None
+
 
 class DatasetTypeDef(BaseValidatorModel):
     IdentityId: Optional[str] = None
@@ -35,18 +39,22 @@ class DatasetTypeDef(BaseValidatorModel):
     DataStorage: Optional[int] = None
     NumRecords: Optional[int] = None
 
-class DeleteDatasetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDatasetRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: str
     DatasetName: str
 
-class DescribeDatasetRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeDatasetRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: str
     DatasetName: str
 
-class DescribeIdentityPoolUsageRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeIdentityPoolUsageRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
+
 
 class IdentityPoolUsageTypeDef(BaseValidatorModel):
     IdentityPoolId: Optional[str] = None
@@ -54,9 +62,11 @@ class IdentityPoolUsageTypeDef(BaseValidatorModel):
     DataStorage: Optional[int] = None
     LastModifiedDate: Optional[datetime] = None
 
-class DescribeIdentityUsageRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeIdentityUsageRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: str
+
 
 class IdentityUsageTypeDef(BaseValidatorModel):
     IdentityId: Optional[str] = None
@@ -65,30 +75,37 @@ class IdentityUsageTypeDef(BaseValidatorModel):
     DatasetCount: Optional[int] = None
     DataStorage: Optional[int] = None
 
-class GetBulkPublishDetailsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetBulkPublishDetailsRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
 
-class GetCognitoEventsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCognitoEventsRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
 
-class GetIdentityPoolConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetIdentityPoolConfigurationRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
 
-class PushSyncTypeDef(BaseValidatorModel):
+
+class PushSyncOutputTypeDef(BaseValidatorModel):
     ApplicationArns: Optional[List[str]] = None
     RoleArn: Optional[str] = None
 
-class ListDatasetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDatasetsRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListIdentityPoolUsageRequestRequestTypeDef(BaseValidatorModel):
+
+class ListIdentityPoolUsageRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListRecordsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRecordsRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: str
     DatasetName: str
@@ -96,6 +113,7 @@ class ListRecordsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SyncSessionToken: Optional[str] = None
+
 
 class RecordTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
@@ -105,34 +123,46 @@ class RecordTypeDef(BaseValidatorModel):
     LastModifiedBy: Optional[str] = None
     DeviceLastModifiedDate: Optional[datetime] = None
 
-class RegisterDeviceRequestRequestTypeDef(BaseValidatorModel):
+
+class PushSyncTypeDef(BaseValidatorModel):
+    ApplicationArns: Optional[Sequence[str]] = None
+    RoleArn: Optional[str] = None
+
+
+class RegisterDeviceRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: str
     Platform: PlatformType
     Token: str
 
-class SetCognitoEventsRequestRequestTypeDef(BaseValidatorModel):
+
+class SetCognitoEventsRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     Events: Mapping[str, str]
 
-class SubscribeToDatasetRequestRequestTypeDef(BaseValidatorModel):
+
+class SubscribeToDatasetRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: str
     DatasetName: str
     DeviceId: str
 
-class UnsubscribeFromDatasetRequestRequestTypeDef(BaseValidatorModel):
+
+class UnsubscribeFromDatasetRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: str
     DatasetName: str
     DeviceId: str
+
 
 class BulkPublishResponseTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetBulkPublishDetailsResponseTypeDef(BaseValidatorModel):
     IdentityPoolId: str
@@ -142,63 +172,68 @@ class GetBulkPublishDetailsResponseTypeDef(BaseValidatorModel):
     FailureMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetCognitoEventsResponseTypeDef(BaseValidatorModel):
     Events: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class RegisterDeviceResponseTypeDef(BaseValidatorModel):
     DeviceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteDatasetResponseTypeDef(BaseValidatorModel):
     Dataset: DatasetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeDatasetResponseTypeDef(BaseValidatorModel):
     Dataset: DatasetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListDatasetsResponseTypeDef(BaseValidatorModel):
     Datasets: List[DatasetTypeDef]
     Count: int
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class DescribeIdentityPoolUsageResponseTypeDef(BaseValidatorModel):
     IdentityPoolUsage: IdentityPoolUsageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListIdentityPoolUsageResponseTypeDef(BaseValidatorModel):
     IdentityPoolUsages: List[IdentityPoolUsageTypeDef]
     MaxResults: int
     Count: int
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class DescribeIdentityUsageResponseTypeDef(BaseValidatorModel):
     IdentityUsage: IdentityUsageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetIdentityPoolConfigurationResponseTypeDef(BaseValidatorModel):
     IdentityPoolId: str
-    PushSync: PushSyncTypeDef
+    PushSync: PushSyncOutputTypeDef
     CognitoStreams: CognitoStreamsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetIdentityPoolConfigurationRequestRequestTypeDef(BaseValidatorModel):
-    IdentityPoolId: str
-    PushSync: Optional[PushSyncTypeDef] = None
-    CognitoStreams: Optional[CognitoStreamsTypeDef] = None
 
 class SetIdentityPoolConfigurationResponseTypeDef(BaseValidatorModel):
     IdentityPoolId: str
-    PushSync: PushSyncTypeDef
+    PushSync: PushSyncOutputTypeDef
     CognitoStreams: CognitoStreamsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListRecordsResponseTypeDef(BaseValidatorModel):
     Records: List[RecordTypeDef]
-    NextToken: str
     Count: int
     DatasetSyncCount: int
     LastModifiedBy: str
@@ -207,10 +242,17 @@ class ListRecordsResponseTypeDef(BaseValidatorModel):
     DatasetDeletedAfterRequestedSyncCount: bool
     SyncSessionToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class UpdateRecordsResponseTypeDef(BaseValidatorModel):
     Records: List[RecordTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class RecordPatchTypeDef(BaseValidatorModel):
     Op: OperationType
@@ -219,7 +261,18 @@ class RecordPatchTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     DeviceLastModifiedDate: Optional[TimestampTypeDef] = None
 
-class UpdateRecordsRequestRequestTypeDef(BaseValidatorModel):
+
+class PushSyncUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class SetIdentityPoolConfigurationRequestTypeDef(BaseValidatorModel):
+    IdentityPoolId: str
+    PushSync: Optional[PushSyncUnionTypeDef] = None
+    CognitoStreams: Optional[CognitoStreamsTypeDef] = None
+
+
+class UpdateRecordsRequestTypeDef(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: str
     DatasetName: str
@@ -227,4 +280,5 @@ class UpdateRecordsRequestRequestTypeDef(BaseValidatorModel):
     DeviceId: Optional[str] = None
     RecordPatches: Optional[Sequence[RecordPatchTypeDef]] = None
     ClientContext: Optional[str] = None
+
 

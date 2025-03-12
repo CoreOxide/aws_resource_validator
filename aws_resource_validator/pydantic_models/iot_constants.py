@@ -5,6 +5,7 @@ AbortActionType = Literal["CANCEL"]
 ActionTypeType = Literal["CONNECT", "PUBLISH", "RECEIVE", "SUBSCRIBE"]
 AggregationTypeNameType = Literal["Cardinality", "Percentiles", "Statistics"]
 AlertTargetTypeType = Literal["SNS"]
+ApplicationProtocolType = Literal["DEFAULT", "HTTPS", "MQTT_WSS", "SECURE_MQTT"]
 AuditCheckRunStatusType = Literal["CANCELED",
     "COMPLETED_COMPLIANT",
     "COMPLETED_NON_COMPLIANT",
@@ -19,6 +20,7 @@ AuditNotificationTypeType = Literal["SNS"]
 AuditTaskStatusType = Literal["CANCELED", "COMPLETED", "FAILED", "IN_PROGRESS"]
 AuditTaskTypeType = Literal["ON_DEMAND_AUDIT_TASK", "SCHEDULED_AUDIT_TASK"]
 AuthDecisionType = Literal["ALLOWED", "EXPLICIT_DENY", "IMPLICIT_DENY"]
+AuthenticationTypeType = Literal["AWS_SIGV4", "AWS_X509", "CUSTOM_AUTH", "CUSTOM_AUTH_X509", "DEFAULT"]
 AuthorizerStatusType = Literal["ACTIVE", "INACTIVE"]
 AutoRegistrationStatusType = Literal["DISABLE", "ENABLE"]
 AwsJobAbortCriteriaAbortActionType = Literal["CANCEL"]
@@ -37,6 +39,8 @@ CannedAccessControlListType = Literal["authenticated-read",
 CertificateModeType = Literal["DEFAULT", "SNI_ONLY"]
 CertificateProviderOperationType = Literal["CreateCertificateFromCsr"]
 CertificateStatusType = Literal["ACTIVE", "INACTIVE", "PENDING_ACTIVATION", "PENDING_TRANSFER", "REGISTER_INACTIVE", "REVOKED"]
+CommandExecutionStatusType = Literal["CREATED", "FAILED", "IN_PROGRESS", "REJECTED", "SUCCEEDED", "TIMED_OUT"]
+CommandNamespaceType = Literal["AWS-IoT", "AWS-IoT-FleetWise"]
 ComparisonOperatorType = Literal["greater-than",
     "greater-than-equals",
     "in-cidr-set",
@@ -48,6 +52,7 @@ ComparisonOperatorType = Literal["greater-than",
     "not-in-port-set",
     "not-in-set",]
 ConfidenceLevelType = Literal["HIGH", "LOW", "MEDIUM"]
+ConfigNameType = Literal["CERT_AGE_THRESHOLD_IN_DAYS", "CERT_EXPIRATION_THRESHOLD_IN_DAYS"]
 CustomMetricTypeType = Literal["ip-address-list", "number", "number-list", "string-list"]
 DayOfWeekType = Literal["FRI", "MON", "SAT", "SUN", "THU", "TUE", "WED"]
 DetectMitigationActionExecutionStatusType = Literal["FAILED", "IN_PROGRESS", "SKIPPED", "SUCCESSFUL"]
@@ -56,6 +61,20 @@ DeviceCertificateUpdateActionType = Literal["DEACTIVATE"]
 DeviceDefenderIndexingModeType = Literal["OFF", "VIOLATIONS"]
 DimensionTypeType = Literal["TOPIC_FILTER"]
 DimensionValueOperatorType = Literal["IN", "NOT_IN"]
+DisconnectReasonValueType = Literal["AUTH_ERROR",
+    "CLIENT_ERROR",
+    "CLIENT_INITIATED_DISCONNECT",
+    "CONNECTION_LOST",
+    "CUSTOMAUTH_TTL_EXPIRATION",
+    "DUPLICATE_CLIENTID",
+    "FORBIDDEN_ACCESS",
+    "MQTT_KEEP_ALIVE_TIMEOUT",
+    "NONE",
+    "SERVER_ERROR",
+    "SERVER_INITIATED_DISCONNECT",
+    "THROTTLED",
+    "UNKNOWN",
+    "WEBSOCKET_TTL_EXPIRATION",]
 DomainConfigurationStatusType = Literal["DISABLED", "ENABLED"]
 DomainTypeType = Literal["AWS_MANAGED", "CUSTOMER_MANAGED", "ENDPOINT"]
 DynamicGroupStatusType = Literal["ACTIVE", "BUILDING", "REBUILDING"]
@@ -117,6 +136,8 @@ ListBillingGroupsPaginatorName = Literal["list_billing_groups"]
 ListCACertificatesPaginatorName = Literal["list_ca_certificates"]
 ListCertificatesByCAPaginatorName = Literal["list_certificates_by_ca"]
 ListCertificatesPaginatorName = Literal["list_certificates"]
+ListCommandExecutionsPaginatorName = Literal["list_command_executions"]
+ListCommandsPaginatorName = Literal["list_commands"]
 ListCustomMetricsPaginatorName = Literal["list_custom_metrics"]
 ListDetectMitigationActionsExecutionsPaginatorName = Literal["list_detect_mitigation_actions_executions"]
 ListDetectMitigationActionsTasksPaginatorName = Literal["list_detect_mitigation_actions_tasks"]
@@ -139,10 +160,12 @@ ListPoliciesPaginatorName = Literal["list_policies"]
 ListPolicyPrincipalsPaginatorName = Literal["list_policy_principals"]
 ListPrincipalPoliciesPaginatorName = Literal["list_principal_policies"]
 ListPrincipalThingsPaginatorName = Literal["list_principal_things"]
+ListPrincipalThingsV2PaginatorName = Literal["list_principal_things_v2"]
 ListProvisioningTemplateVersionsPaginatorName = Literal["list_provisioning_template_versions"]
 ListProvisioningTemplatesPaginatorName = Literal["list_provisioning_templates"]
 ListRelatedResourcesForAuditFindingPaginatorName = Literal["list_related_resources_for_audit_finding"]
 ListRoleAliasesPaginatorName = Literal["list_role_aliases"]
+ListSbomValidationResultsPaginatorName = Literal["list_sbom_validation_results"]
 ListScheduledAuditsPaginatorName = Literal["list_scheduled_audits"]
 ListSecurityProfilesForTargetPaginatorName = Literal["list_security_profiles_for_target"]
 ListSecurityProfilesPaginatorName = Literal["list_security_profiles"]
@@ -153,6 +176,7 @@ ListTargetsForSecurityProfilePaginatorName = Literal["list_targets_for_security_
 ListThingGroupsForThingPaginatorName = Literal["list_thing_groups_for_thing"]
 ListThingGroupsPaginatorName = Literal["list_thing_groups"]
 ListThingPrincipalsPaginatorName = Literal["list_thing_principals"]
+ListThingPrincipalsV2PaginatorName = Literal["list_thing_principals_v2"]
 ListThingRegistrationTaskReportsPaginatorName = Literal["list_thing_registration_task_reports"]
 ListThingRegistrationTasksPaginatorName = Literal["list_thing_registration_tasks"]
 ListThingTypesPaginatorName = Literal["list_thing_types"]
@@ -195,8 +219,12 @@ ResourceTypeType = Literal["ACCOUNT_SETTINGS",
     "ISSUER_CERTIFICATE",
     "ROLE_ALIAS",]
 RetryableFailureTypeType = Literal["ALL", "FAILED", "TIMED_OUT"]
+SbomValidationErrorCodeType = Literal["FILE_SIZE_LIMIT_EXCEEDED", "INCOMPATIBLE_FORMAT"]
+SbomValidationResultType = Literal["FAILED", "SUCCEEDED"]
+SbomValidationStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
 ServerCertificateStatusType = Literal["INVALID", "VALID"]
 ServiceTypeType = Literal["CREDENTIAL_PROVIDER", "DATA", "JOBS"]
+SortOrderType = Literal["ASCENDING", "DESCENDING"]
 StatusType = Literal["Cancelled", "Cancelling", "Completed", "Failed", "InProgress"]
 TargetFieldOrderType = Literal["LatLon", "LonLat"]
 TargetSelectionType = Literal["CONTINUOUS", "SNAPSHOT"]
@@ -204,6 +232,7 @@ TemplateTypeType = Literal["FLEET_PROVISIONING", "JITP"]
 ThingConnectivityIndexingModeType = Literal["OFF", "STATUS"]
 ThingGroupIndexingModeType = Literal["OFF", "ON"]
 ThingIndexingModeType = Literal["OFF", "REGISTRY", "REGISTRY_AND_SHADOW"]
+ThingPrincipalTypeType = Literal["EXCLUSIVE_THING", "NON_EXCLUSIVE_THING"]
 TopicRuleDestinationStatusType = Literal["DELETING", "DISABLED", "ENABLED", "ERROR", "IN_PROGRESS"]
 VerificationStateType = Literal["BENIGN_POSITIVE", "FALSE_POSITIVE", "TRUE_POSITIVE", "UNKNOWN"]
 ViolationEventTypeType = Literal["alarm-cleared", "alarm-invalidated", "in-alarm"]
@@ -212,7 +241,6 @@ ServiceName = Literal["accessanalyzer",
     "account",
     "acm",
     "acm-pca",
-    "alexaforbusiness",
     "amp",
     "amplify",
     "amplifybackend",
@@ -227,11 +255,13 @@ ServiceName = Literal["accessanalyzer",
     "appintegrations",
     "application-autoscaling",
     "application-insights",
+    "application-signals",
     "applicationcostprofiler",
     "appmesh",
     "apprunner",
     "appstream",
     "appsync",
+    "apptest",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -241,13 +271,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
-    "backupstorage",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -278,12 +312,12 @@ ServiceName = Literal["accessanalyzer",
     "codebuild",
     "codecatalyst",
     "codecommit",
+    "codeconnections",
     "codedeploy",
     "codeguru-reviewer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -296,8 +330,10 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
+    "controlcatalog",
     "controltower",
     "cost-optimization-hub",
     "cur",
@@ -308,6 +344,7 @@ ServiceName = Literal["accessanalyzer",
     "datasync",
     "datazone",
     "dax",
+    "deadline",
     "detective",
     "devicefarm",
     "devops-guru",
@@ -319,6 +356,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -330,7 +369,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -354,6 +392,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -364,7 +405,6 @@ ServiceName = Literal["accessanalyzer",
     "guardduty",
     "health",
     "healthlake",
-    "honeycode",
     "iam",
     "identitystore",
     "imagebuilder",
@@ -373,12 +413,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot-roborunner",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -426,12 +464,14 @@ ServiceName = Literal["accessanalyzer",
     "m2",
     "machinelearning",
     "macie2",
+    "mailmanager",
     "managedblockchain",
     "managedblockchain-query",
     "marketplace-agreement",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -451,7 +491,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -459,10 +498,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -472,9 +514,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
+    "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -488,6 +533,7 @@ ServiceName = Literal["accessanalyzer",
     "pricing",
     "privatenetworks",
     "proton",
+    "qapps",
     "qbusiness",
     "qconnect",
     "qldb",
@@ -513,11 +559,13 @@ ServiceName = Literal["accessanalyzer",
     "route53-recovery-control-config",
     "route53-recovery-readiness",
     "route53domains",
+    "route53profiles",
     "route53resolver",
     "rum",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -530,6 +578,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -547,10 +596,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -563,7 +614,9 @@ ServiceName = Literal["accessanalyzer",
     "support-app",
     "swf",
     "synthetics",
+    "taxsettings",
     "textract",
+    "timestream-influxdb",
     "timestream-query",
     "timestream-write",
     "tnb",
@@ -580,7 +633,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -610,6 +662,8 @@ PaginatorName = Literal["get_behavior_model_training_summaries",
     "list_ca_certificates",
     "list_certificates",
     "list_certificates_by_ca",
+    "list_command_executions",
+    "list_commands",
     "list_custom_metrics",
     "list_detect_mitigation_actions_executions",
     "list_detect_mitigation_actions_tasks",
@@ -632,10 +686,12 @@ PaginatorName = Literal["get_behavior_model_training_summaries",
     "list_policy_principals",
     "list_principal_policies",
     "list_principal_things",
+    "list_principal_things_v2",
     "list_provisioning_template_versions",
     "list_provisioning_templates",
     "list_related_resources_for_audit_finding",
     "list_role_aliases",
+    "list_sbom_validation_results",
     "list_scheduled_audits",
     "list_security_profiles",
     "list_security_profiles_for_target",
@@ -646,6 +702,7 @@ PaginatorName = Literal["get_behavior_model_training_summaries",
     "list_thing_groups",
     "list_thing_groups_for_thing",
     "list_thing_principals",
+    "list_thing_principals_v2",
     "list_thing_registration_task_reports",
     "list_thing_registration_tasks",
     "list_thing_types",
@@ -675,5 +732,3 @@ RegionName = Literal["ap-east-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]]
-TimestampTypeDef = Union[datetime, str]

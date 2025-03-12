@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.support_app_constants import *
 
-class CreateSlackChannelConfigurationRequestRequestTypeDef(BaseValidatorModel):
+class CreateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
     channelId: str
     channelRoleArn: str
     notifyOnCaseSeverity: NotificationSeverityLevelType
@@ -21,22 +22,27 @@ class CreateSlackChannelConfigurationRequestRequestTypeDef(BaseValidatorModel):
     notifyOnCreateOrReopenCase: Optional[bool] = None
     notifyOnResolveCase: Optional[bool] = None
 
-class DeleteSlackChannelConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
     channelId: str
     teamId: str
 
-class DeleteSlackWorkspaceConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteSlackWorkspaceConfigurationRequestTypeDef(BaseValidatorModel):
     teamId: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class ListSlackChannelConfigurationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSlackChannelConfigurationsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
+
 
 class SlackChannelConfigurationTypeDef(BaseValidatorModel):
     channelId: str
@@ -48,21 +54,26 @@ class SlackChannelConfigurationTypeDef(BaseValidatorModel):
     notifyOnCreateOrReopenCase: Optional[bool] = None
     notifyOnResolveCase: Optional[bool] = None
 
-class ListSlackWorkspaceConfigurationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSlackWorkspaceConfigurationsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
+
 
 class SlackWorkspaceConfigurationTypeDef(BaseValidatorModel):
     teamId: str
     allowOrganizationMemberAccount: Optional[bool] = None
     teamName: Optional[str] = None
 
-class PutAccountAliasRequestRequestTypeDef(BaseValidatorModel):
+
+class PutAccountAliasRequestTypeDef(BaseValidatorModel):
     accountAlias: str
 
-class RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef(BaseValidatorModel):
+
+class RegisterSlackWorkspaceForOrganizationRequestTypeDef(BaseValidatorModel):
     teamId: str
 
-class UpdateSlackChannelConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
     channelId: str
     teamId: str
     channelName: Optional[str] = None
@@ -72,15 +83,18 @@ class UpdateSlackChannelConfigurationRequestRequestTypeDef(BaseValidatorModel):
     notifyOnCreateOrReopenCase: Optional[bool] = None
     notifyOnResolveCase: Optional[bool] = None
 
+
 class GetAccountAliasResultTypeDef(BaseValidatorModel):
     accountAlias: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class RegisterSlackWorkspaceForOrganizationResultTypeDef(BaseValidatorModel):
     accountType: AccountTypeType
     teamId: str
     teamName: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateSlackChannelConfigurationResultTypeDef(BaseValidatorModel):
     channelId: str
@@ -93,13 +107,16 @@ class UpdateSlackChannelConfigurationResultTypeDef(BaseValidatorModel):
     teamId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListSlackChannelConfigurationsResultTypeDef(BaseValidatorModel):
-    nextToken: str
     slackChannelConfigurations: List[SlackChannelConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListSlackWorkspaceConfigurationsResultTypeDef(BaseValidatorModel):
-    nextToken: str
     slackWorkspaceConfigurations: List[SlackWorkspaceConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 

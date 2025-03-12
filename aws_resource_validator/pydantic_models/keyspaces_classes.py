@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -17,183 +18,301 @@ class TargetTrackingScalingPolicyConfigurationTypeDef(BaseValidatorModel):
     scaleInCooldown: Optional[int] = None
     scaleOutCooldown: Optional[int] = None
 
+
 class CapacitySpecificationSummaryTypeDef(BaseValidatorModel):
     throughputMode: ThroughputModeType
     readCapacityUnits: Optional[int] = None
     writeCapacityUnits: Optional[int] = None
     lastUpdateToPayPerRequestTimestamp: Optional[datetime] = None
 
+
 class CapacitySpecificationTypeDef(BaseValidatorModel):
     throughputMode: ThroughputModeType
     readCapacityUnits: Optional[int] = None
     writeCapacityUnits: Optional[int] = None
 
+
 class ClientSideTimestampsTypeDef(BaseValidatorModel):
     status: Literal["ENABLED"]
+
 
 class ClusteringKeyTypeDef(BaseValidatorModel):
     name: str
     orderBy: SortOrderType
 
-class ColumnDefinitionTypeDef(BaseValidatorModel):
-    name: str
-    type: str
 
 class CommentTypeDef(BaseValidatorModel):
     message: str
 
+
 class ReplicationSpecificationTypeDef(BaseValidatorModel):
-    replicationStrategy: rsType
+    replicationStrategy: RsType
     regionList: Optional[Sequence[str]] = None
+
 
 class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class EncryptionSpecificationTypeDef(BaseValidatorModel):
-    type: EncryptionTypeType
-    kmsKeyIdentifier: Optional[str] = None
 
 class PointInTimeRecoveryTypeDef(BaseValidatorModel):
     status: PointInTimeRecoveryStatusType
 
+
 class TimeToLiveTypeDef(BaseValidatorModel):
     status: Literal["ENABLED"]
 
-class DeleteKeyspaceRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteKeyspaceRequestTypeDef(BaseValidatorModel):
     keyspaceName: str
 
-class DeleteTableRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteTableRequestTypeDef(BaseValidatorModel):
     keyspaceName: str
     tableName: str
 
-class GetKeyspaceRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteTypeRequestTypeDef(BaseValidatorModel):
+    keyspaceName: str
+    typeName: str
+
+
+class GetKeyspaceRequestTypeDef(BaseValidatorModel):
     keyspaceName: str
 
-class GetTableAutoScalingSettingsRequestRequestTypeDef(BaseValidatorModel):
+
+class ReplicationGroupStatusTypeDef(BaseValidatorModel):
+    region: str
+    keyspaceStatus: KeyspaceStatusType
+    tablesReplicationProgress: Optional[str] = None
+
+
+class GetTableAutoScalingSettingsRequestTypeDef(BaseValidatorModel):
     keyspaceName: str
     tableName: str
 
-class GetTableRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTableRequestTypeDef(BaseValidatorModel):
     keyspaceName: str
     tableName: str
+
 
 class PointInTimeRecoverySummaryTypeDef(BaseValidatorModel):
     status: PointInTimeRecoveryStatusType
     earliestRestorableTimestamp: Optional[datetime] = None
 
+
+class GetTypeRequestTypeDef(BaseValidatorModel):
+    keyspaceName: str
+    typeName: str
+
+
 class KeyspaceSummaryTypeDef(BaseValidatorModel):
     keyspaceName: str
     resourceArn: str
-    replicationStrategy: rsType
+    replicationStrategy: RsType
     replicationRegions: Optional[List[str]] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListKeyspacesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListKeyspacesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTablesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTablesRequestTypeDef(BaseValidatorModel):
     keyspaceName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+
 
 class TableSummaryTypeDef(BaseValidatorModel):
     keyspaceName: str
     tableName: str
     resourceArn: str
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
+
+class ListTypesRequestTypeDef(BaseValidatorModel):
+    keyspaceName: str
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
 class PartitionKeyTypeDef(BaseValidatorModel):
     name: str
+
 
 class StaticColumnTypeDef(BaseValidatorModel):
     name: str
 
+
 class AutoScalingPolicyTypeDef(BaseValidatorModel):
-    targetTrackingScalingPolicyConfiguration: Optional[       TargetTrackingScalingPolicyConfigurationTypeDef     ] = None
+    targetTrackingScalingPolicyConfiguration: Optional[ TargetTrackingScalingPolicyConfigurationTypeDef ] = None
+
 
 class ReplicaSpecificationSummaryTypeDef(BaseValidatorModel):
     region: Optional[str] = None
     status: Optional[TableStatusType] = None
     capacitySpecification: Optional[CapacitySpecificationSummaryTypeDef] = None
 
-class CreateKeyspaceRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateKeyspaceRequestTypeDef(BaseValidatorModel):
+    keyspaceName: str
+    replicationSpecification: ReplicationSpecificationTypeDef
+    clientSideTimestamps: Optional[ClientSideTimestampsTypeDef] = None
+
+
+class CreateKeyspaceRequestTypeDef(BaseValidatorModel):
     keyspaceName: str
     tags: Optional[Sequence[TagTypeDef]] = None
     replicationSpecification: Optional[ReplicationSpecificationTypeDef] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
+
 
 class CreateKeyspaceResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateTableResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetKeyspaceResponseTypeDef(BaseValidatorModel):
-    keyspaceName: str
-    resourceArn: str
-    replicationStrategy: rsType
-    replicationRegions: List[str]
+
+class CreateTypeResponseTypeDef(BaseValidatorModel):
+    keyspaceArn: str
+    typeName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class DeleteTypeResponseTypeDef(BaseValidatorModel):
+    keyspaceArn: str
+    typeName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class RestoreTableResponseTypeDef(BaseValidatorModel):
     restoredTableARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class UpdateKeyspaceResponseTypeDef(BaseValidatorModel):
+    resourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class UpdateTableResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListKeyspacesResponseTypeDef(BaseValidatorModel):
-    nextToken: str
-    keyspaces: List[KeyspaceSummaryTypeDef]
+
+class FieldDefinitionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateTypeRequestTypeDef(BaseValidatorModel):
+    keyspaceName: str
+    typeName: str
+    fieldDefinitions: Sequence[FieldDefinitionTypeDef]
+
+
+class GetTypeResponseTypeDef(BaseValidatorModel):
+    keyspaceName: str
+    typeName: str
+    fieldDefinitions: List[FieldDefinitionTypeDef]
+    lastModifiedTimestamp: datetime
+    status: TypeStatusType
+    directReferringTables: List[str]
+    directParentTypes: List[str]
+    maxNestingDepth: int
+    keyspaceArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListKeyspacesRequestListKeyspacesPaginateTypeDef(BaseValidatorModel):
+
+class GetKeyspaceResponseTypeDef(BaseValidatorModel):
+    keyspaceName: str
+    resourceArn: str
+    replicationStrategy: RsType
+    replicationRegions: List[str]
+    replicationGroupStatuses: List[ReplicationGroupStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListKeyspacesResponseTypeDef(BaseValidatorModel):
+    keyspaces: List[KeyspaceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class ListKeyspacesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTablesRequestListTablesPaginateTypeDef(BaseValidatorModel):
+
+class ListTablesRequestPaginateTypeDef(BaseValidatorModel):
     keyspaceName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestPaginateTypeDef(BaseValidatorModel):
     resourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
+class ListTypesRequestPaginateTypeDef(BaseValidatorModel):
+    keyspaceName: str
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
 class ListTablesResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     tables: List[TableSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class ColumnDefinitionTypeDef(BaseValidatorModel):
+    pass
+
+
+class SchemaDefinitionOutputTypeDef(BaseValidatorModel):
+    allColumns: List[ColumnDefinitionTypeDef]
+    partitionKeys: List[PartitionKeyTypeDef]
+    clusteringKeys: Optional[List[ClusteringKeyTypeDef]] = None
+    staticColumns: Optional[List[StaticColumnTypeDef]] = None
+
 
 class SchemaDefinitionTypeDef(BaseValidatorModel):
     allColumns: Sequence[ColumnDefinitionTypeDef]
@@ -201,11 +320,17 @@ class SchemaDefinitionTypeDef(BaseValidatorModel):
     clusteringKeys: Optional[Sequence[ClusteringKeyTypeDef]] = None
     staticColumns: Optional[Sequence[StaticColumnTypeDef]] = None
 
+
 class AutoScalingSettingsTypeDef(BaseValidatorModel):
     autoScalingDisabled: Optional[bool] = None
     minimumUnits: Optional[int] = None
     maximumUnits: Optional[int] = None
     scalingPolicy: Optional[AutoScalingPolicyTypeDef] = None
+
+
+class EncryptionSpecificationTypeDef(BaseValidatorModel):
+    pass
+
 
 class GetTableResponseTypeDef(BaseValidatorModel):
     keyspaceName: str
@@ -213,7 +338,7 @@ class GetTableResponseTypeDef(BaseValidatorModel):
     resourceArn: str
     creationTimestamp: datetime
     status: TableStatusType
-    schemaDefinition: SchemaDefinitionTypeDef
+    schemaDefinition: SchemaDefinitionOutputTypeDef
     capacitySpecification: CapacitySpecificationSummaryTypeDef
     encryptionSpecification: EncryptionSpecificationTypeDef
     pointInTimeRecovery: PointInTimeRecoverySummaryTypeDef
@@ -224,23 +349,31 @@ class GetTableResponseTypeDef(BaseValidatorModel):
     replicaSpecifications: List[ReplicaSpecificationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AutoScalingSpecificationTypeDef(BaseValidatorModel):
     writeCapacityAutoScaling: Optional[AutoScalingSettingsTypeDef] = None
     readCapacityAutoScaling: Optional[AutoScalingSettingsTypeDef] = None
+
 
 class ReplicaSpecificationTypeDef(BaseValidatorModel):
     region: str
     readCapacityUnits: Optional[int] = None
     readCapacityAutoScaling: Optional[AutoScalingSettingsTypeDef] = None
 
+
 class ReplicaAutoScalingSpecificationTypeDef(BaseValidatorModel):
     region: Optional[str] = None
     autoScalingSpecification: Optional[AutoScalingSpecificationTypeDef] = None
 
-class CreateTableRequestRequestTypeDef(BaseValidatorModel):
+
+class SchemaDefinitionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateTableRequestTypeDef(BaseValidatorModel):
     keyspaceName: str
     tableName: str
-    schemaDefinition: SchemaDefinitionTypeDef
+    schemaDefinition: SchemaDefinitionUnionTypeDef
     comment: Optional[CommentTypeDef] = None
     capacitySpecification: Optional[CapacitySpecificationTypeDef] = None
     encryptionSpecification: Optional[EncryptionSpecificationTypeDef] = None
@@ -252,7 +385,12 @@ class CreateTableRequestRequestTypeDef(BaseValidatorModel):
     autoScalingSpecification: Optional[AutoScalingSpecificationTypeDef] = None
     replicaSpecifications: Optional[Sequence[ReplicaSpecificationTypeDef]] = None
 
-class RestoreTableRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class RestoreTableRequestTypeDef(BaseValidatorModel):
     sourceKeyspaceName: str
     sourceTableName: str
     targetKeyspaceName: str
@@ -265,7 +403,8 @@ class RestoreTableRequestRequestTypeDef(BaseValidatorModel):
     autoScalingSpecification: Optional[AutoScalingSpecificationTypeDef] = None
     replicaSpecifications: Optional[Sequence[ReplicaSpecificationTypeDef]] = None
 
-class UpdateTableRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateTableRequestTypeDef(BaseValidatorModel):
     keyspaceName: str
     tableName: str
     addColumns: Optional[Sequence[ColumnDefinitionTypeDef]] = None
@@ -278,6 +417,7 @@ class UpdateTableRequestRequestTypeDef(BaseValidatorModel):
     autoScalingSpecification: Optional[AutoScalingSpecificationTypeDef] = None
     replicaSpecifications: Optional[Sequence[ReplicaSpecificationTypeDef]] = None
 
+
 class GetTableAutoScalingSettingsResponseTypeDef(BaseValidatorModel):
     keyspaceName: str
     tableName: str
@@ -285,4 +425,5 @@ class GetTableAutoScalingSettingsResponseTypeDef(BaseValidatorModel):
     autoScalingSpecification: AutoScalingSpecificationTypeDef
     replicaSpecifications: List[ReplicaAutoScalingSpecificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 

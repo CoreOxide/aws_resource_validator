@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -14,32 +15,40 @@ from aws_resource_validator.pydantic_models.marketplace_catalog_constants import
 class AmiProductEntityIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
 
+
 class AmiProductTitleFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class AmiProductVisibilityFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[AmiProductVisibilityStringType]] = None
+
 
 class AmiProductLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
+
 class AmiProductSortTypeDef(BaseValidatorModel):
     SortBy: Optional[AmiProductSortByType] = None
     SortOrder: Optional[SortOrderType] = None
+
 
 class AmiProductSummaryTypeDef(BaseValidatorModel):
     ProductTitle: Optional[str] = None
     Visibility: Optional[AmiProductVisibilityStringType] = None
 
+
 class EntityRequestTypeDef(BaseValidatorModel):
     Catalog: str
     EntityId: str
 
+
 class BatchDescribeErrorDetailTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
+
 
 class EntityDetailTypeDef(BaseValidatorModel):
     EntityType: Optional[str] = None
@@ -48,6 +57,7 @@ class EntityDetailTypeDef(BaseValidatorModel):
     LastModifiedDate: Optional[str] = None
     DetailsDocument: Optional[Dict[str, Any]] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
@@ -55,9 +65,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CancelChangeSetRequestRequestTypeDef(BaseValidatorModel):
+
+class CancelChangeSetRequestTypeDef(BaseValidatorModel):
     Catalog: str
     ChangeSetId: str
+
 
 class ChangeSetSummaryListItemTypeDef(BaseValidatorModel):
     ChangeSetId: Optional[str] = None
@@ -69,72 +81,86 @@ class ChangeSetSummaryListItemTypeDef(BaseValidatorModel):
     EntityIdList: Optional[List[str]] = None
     FailureCode: Optional[FailureCodeType] = None
 
-class EntityTypeDef(BaseValidatorModel):
-    Type: str
-    Identifier: Optional[str] = None
 
 class ErrorDetailTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
+
 class ContainerProductEntityIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
+
 
 class ContainerProductTitleFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class ContainerProductVisibilityFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[ContainerProductVisibilityStringType]] = None
+
 
 class ContainerProductLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
+
 class ContainerProductSortTypeDef(BaseValidatorModel):
     SortBy: Optional[ContainerProductSortByType] = None
     SortOrder: Optional[SortOrderType] = None
+
 
 class ContainerProductSummaryTypeDef(BaseValidatorModel):
     ProductTitle: Optional[str] = None
     Visibility: Optional[ContainerProductVisibilityStringType] = None
 
+
 class DataProductEntityIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
+
 
 class DataProductTitleFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class DataProductVisibilityFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[DataProductVisibilityStringType]] = None
+
 
 class DataProductLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
+
 class DataProductSortTypeDef(BaseValidatorModel):
     SortBy: Optional[DataProductSortByType] = None
     SortOrder: Optional[SortOrderType] = None
+
 
 class DataProductSummaryTypeDef(BaseValidatorModel):
     ProductTitle: Optional[str] = None
     Visibility: Optional[DataProductVisibilityStringType] = None
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DescribeChangeSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeChangeSetRequestTypeDef(BaseValidatorModel):
     Catalog: str
     ChangeSetId: str
 
-class DescribeEntityRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeEntityRequestTypeDef(BaseValidatorModel):
     Catalog: str
     EntityId: str
+
 
 class OfferSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -145,6 +171,7 @@ class OfferSummaryTypeDef(BaseValidatorModel):
     BuyerAccounts: Optional[List[str]] = None
     State: Optional[OfferStateStringType] = None
     Targeting: Optional[List[OfferTargetingStringType]] = None
+
 
 class ResaleAuthorizationSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -159,161 +186,204 @@ class ResaleAuthorizationSummaryTypeDef(BaseValidatorModel):
     CreatedDate: Optional[str] = None
     AvailabilityEndDate: Optional[str] = None
 
+
 class SaaSProductSummaryTypeDef(BaseValidatorModel):
     ProductTitle: Optional[str] = None
     Visibility: Optional[SaaSProductVisibilityStringType] = None
+
 
 class OfferSortTypeDef(BaseValidatorModel):
     SortBy: Optional[OfferSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
+
 class ResaleAuthorizationSortTypeDef(BaseValidatorModel):
     SortBy: Optional[ResaleAuthorizationSortByType] = None
     SortOrder: Optional[SortOrderType] = None
+
 
 class SaaSProductSortTypeDef(BaseValidatorModel):
     SortBy: Optional[SaaSProductSortByType] = None
     SortOrder: Optional[SortOrderType] = None
 
+
 class FilterTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     ValueList: Optional[Sequence[str]] = None
 
-class GetResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
+
 class SortTypeDef(BaseValidatorModel):
     SortBy: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class OfferAvailabilityEndDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
+
 class OfferBuyerAccountsFilterTypeDef(BaseValidatorModel):
     WildCardValue: Optional[str] = None
 
+
 class OfferEntityIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
+
 
 class OfferNameFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class OfferProductIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
+
 
 class OfferResaleAuthorizationIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
 
+
 class OfferStateFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[OfferStateStringType]] = None
 
+
 class OfferTargetingFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[OfferTargetingStringType]] = None
+
 
 class OfferLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
+
 class OfferReleaseDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
-class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Policy: str
+
 
 class ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
+
 class ResaleAuthorizationCreatedDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
+
 class ResaleAuthorizationEntityIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
+
 
 class ResaleAuthorizationManufacturerAccountIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class ResaleAuthorizationManufacturerLegalNameFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
+
 
 class ResaleAuthorizationNameFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class ResaleAuthorizationOfferExtendedStatusFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
+
 
 class ResaleAuthorizationProductIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class ResaleAuthorizationProductNameFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
+
 
 class ResaleAuthorizationResellerAccountIDFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class ResaleAuthorizationResellerLegalNameFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class ResaleAuthorizationStatusFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[ResaleAuthorizationStatusStringType]] = None
+
 
 class ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
+
 class SaaSProductEntityIdFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
+
 
 class SaaSProductTitleFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
     WildCardValue: Optional[str] = None
 
+
 class SaaSProductVisibilityFilterTypeDef(BaseValidatorModel):
     ValueList: Optional[Sequence[SaaSProductVisibilityStringType]] = None
+
 
 class SaaSProductLastModifiedDateFilterDateRangeTypeDef(BaseValidatorModel):
     AfterValue: Optional[str] = None
     BeforeValue: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
+
 
 class AmiProductLastModifiedDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[AmiProductLastModifiedDateFilterDateRangeTypeDef] = None
 
-class BatchDescribeEntitiesRequestRequestTypeDef(BaseValidatorModel):
+
+class BatchDescribeEntitiesRequestTypeDef(BaseValidatorModel):
     EntityRequestList: Sequence[EntityRequestTypeDef]
+
 
 class BatchDescribeEntitiesResponseTypeDef(BaseValidatorModel):
     EntityDetails: Dict[str, EntityDetailTypeDef]
     Errors: Dict[str, BatchDescribeErrorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CancelChangeSetResponseTypeDef(BaseValidatorModel):
     ChangeSetId: str
     ChangeSetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeEntityResponseTypeDef(BaseValidatorModel):
     EntityType: str
@@ -324,19 +394,27 @@ class DescribeEntityResponseTypeDef(BaseValidatorModel):
     DetailsDocument: Dict[str, Any]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartChangeSetResponseTypeDef(BaseValidatorModel):
     ChangeSetId: str
     ChangeSetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListChangeSetsResponseTypeDef(BaseValidatorModel):
     ChangeSetSummaryList: List[ChangeSetSummaryListItemTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class EntityTypeDef(BaseValidatorModel):
+    pass
+
 
 class ChangeSummaryTypeDef(BaseValidatorModel):
     ChangeType: Optional[str] = None
@@ -346,6 +424,7 @@ class ChangeSummaryTypeDef(BaseValidatorModel):
     ErrorDetailList: Optional[List[ErrorDetailTypeDef]] = None
     ChangeName: Optional[str] = None
 
+
 class ChangeTypeDef(BaseValidatorModel):
     ChangeType: str
     Entity: EntityTypeDef
@@ -354,20 +433,25 @@ class ChangeTypeDef(BaseValidatorModel):
     DetailsDocument: Optional[Mapping[str, Any]] = None
     ChangeName: Optional[str] = None
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
+
 
 class ContainerProductLastModifiedDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[ContainerProductLastModifiedDateFilterDateRangeTypeDef] = None
 
+
 class DataProductLastModifiedDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[DataProductLastModifiedDateFilterDateRangeTypeDef] = None
+
 
 class EntitySummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -383,6 +467,7 @@ class EntitySummaryTypeDef(BaseValidatorModel):
     OfferSummary: Optional[OfferSummaryTypeDef] = None
     ResaleAuthorizationSummary: Optional[ResaleAuthorizationSummaryTypeDef] = None
 
+
 class EntityTypeSortTypeDef(BaseValidatorModel):
     DataProductSort: Optional[DataProductSortTypeDef] = None
     SaaSProductSort: Optional[SaaSProductSortTypeDef] = None
@@ -391,47 +476,58 @@ class EntityTypeSortTypeDef(BaseValidatorModel):
     ContainerProductSort: Optional[ContainerProductSortTypeDef] = None
     ResaleAuthorizationSort: Optional[ResaleAuthorizationSortTypeDef] = None
 
-class ListChangeSetsRequestListChangeSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListChangeSetsRequestPaginateTypeDef(BaseValidatorModel):
     Catalog: str
     FilterList: Optional[Sequence[FilterTypeDef]] = None
     Sort: Optional[SortTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListChangeSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListChangeSetsRequestTypeDef(BaseValidatorModel):
     Catalog: str
     FilterList: Optional[Sequence[FilterTypeDef]] = None
     Sort: Optional[SortTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
+
 class OfferAvailabilityEndDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[OfferAvailabilityEndDateFilterDateRangeTypeDef] = None
+
 
 class OfferLastModifiedDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[OfferLastModifiedDateFilterDateRangeTypeDef] = None
 
+
 class OfferReleaseDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[OfferReleaseDateFilterDateRangeTypeDef] = None
+
 
 class ResaleAuthorizationAvailabilityEndDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef] = None
     ValueList: Optional[Sequence[str]] = None
 
+
 class ResaleAuthorizationCreatedDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[ResaleAuthorizationCreatedDateFilterDateRangeTypeDef] = None
     ValueList: Optional[Sequence[str]] = None
 
+
 class ResaleAuthorizationLastModifiedDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef] = None
 
+
 class SaaSProductLastModifiedDateFilterTypeDef(BaseValidatorModel):
     DateRange: Optional[SaaSProductLastModifiedDateFilterDateRangeTypeDef] = None
+
 
 class AmiProductFiltersTypeDef(BaseValidatorModel):
     EntityId: Optional[AmiProductEntityIdFilterTypeDef] = None
     LastModifiedDate: Optional[AmiProductLastModifiedDateFilterTypeDef] = None
     ProductTitle: Optional[AmiProductTitleFilterTypeDef] = None
     Visibility: Optional[AmiProductVisibilityFilterTypeDef] = None
+
 
 class DescribeChangeSetResponseTypeDef(BaseValidatorModel):
     ChangeSetId: str
@@ -446,7 +542,8 @@ class DescribeChangeSetResponseTypeDef(BaseValidatorModel):
     ChangeSet: List[ChangeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartChangeSetRequestRequestTypeDef(BaseValidatorModel):
+
+class StartChangeSetRequestTypeDef(BaseValidatorModel):
     Catalog: str
     ChangeSet: Sequence[ChangeTypeDef]
     ChangeSetName: Optional[str] = None
@@ -454,11 +551,13 @@ class StartChangeSetRequestRequestTypeDef(BaseValidatorModel):
     ChangeSetTags: Optional[Sequence[TagTypeDef]] = None
     Intent: Optional[IntentType] = None
 
+
 class ContainerProductFiltersTypeDef(BaseValidatorModel):
     EntityId: Optional[ContainerProductEntityIdFilterTypeDef] = None
     LastModifiedDate: Optional[ContainerProductLastModifiedDateFilterTypeDef] = None
     ProductTitle: Optional[ContainerProductTitleFilterTypeDef] = None
     Visibility: Optional[ContainerProductVisibilityFilterTypeDef] = None
+
 
 class DataProductFiltersTypeDef(BaseValidatorModel):
     EntityId: Optional[DataProductEntityIdFilterTypeDef] = None
@@ -466,10 +565,12 @@ class DataProductFiltersTypeDef(BaseValidatorModel):
     Visibility: Optional[DataProductVisibilityFilterTypeDef] = None
     LastModifiedDate: Optional[DataProductLastModifiedDateFilterTypeDef] = None
 
+
 class ListEntitiesResponseTypeDef(BaseValidatorModel):
     EntitySummaryList: List[EntitySummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class OfferFiltersTypeDef(BaseValidatorModel):
     EntityId: Optional[OfferEntityIdFilterTypeDef] = None
@@ -482,6 +583,7 @@ class OfferFiltersTypeDef(BaseValidatorModel):
     State: Optional[OfferStateFilterTypeDef] = None
     Targeting: Optional[OfferTargetingFilterTypeDef] = None
     LastModifiedDate: Optional[OfferLastModifiedDateFilterTypeDef] = None
+
 
 class ResaleAuthorizationFiltersTypeDef(BaseValidatorModel):
     EntityId: Optional[ResaleAuthorizationEntityIdFilterTypeDef] = None
@@ -498,11 +600,13 @@ class ResaleAuthorizationFiltersTypeDef(BaseValidatorModel):
     OfferExtendedStatus: Optional[ResaleAuthorizationOfferExtendedStatusFilterTypeDef] = None
     LastModifiedDate: Optional[ResaleAuthorizationLastModifiedDateFilterTypeDef] = None
 
+
 class SaaSProductFiltersTypeDef(BaseValidatorModel):
     EntityId: Optional[SaaSProductEntityIdFilterTypeDef] = None
     ProductTitle: Optional[SaaSProductTitleFilterTypeDef] = None
     Visibility: Optional[SaaSProductVisibilityFilterTypeDef] = None
     LastModifiedDate: Optional[SaaSProductLastModifiedDateFilterTypeDef] = None
+
 
 class EntityTypeFiltersTypeDef(BaseValidatorModel):
     DataProductFilters: Optional[DataProductFiltersTypeDef] = None
@@ -512,7 +616,8 @@ class EntityTypeFiltersTypeDef(BaseValidatorModel):
     ContainerProductFilters: Optional[ContainerProductFiltersTypeDef] = None
     ResaleAuthorizationFilters: Optional[ResaleAuthorizationFiltersTypeDef] = None
 
-class ListEntitiesRequestListEntitiesPaginateTypeDef(BaseValidatorModel):
+
+class ListEntitiesRequestPaginateTypeDef(BaseValidatorModel):
     Catalog: str
     EntityType: str
     FilterList: Optional[Sequence[FilterTypeDef]] = None
@@ -522,7 +627,8 @@ class ListEntitiesRequestListEntitiesPaginateTypeDef(BaseValidatorModel):
     EntityTypeSort: Optional[EntityTypeSortTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEntitiesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListEntitiesRequestTypeDef(BaseValidatorModel):
     Catalog: str
     EntityType: str
     FilterList: Optional[Sequence[FilterTypeDef]] = None
@@ -532,4 +638,5 @@ class ListEntitiesRequestRequestTypeDef(BaseValidatorModel):
     OwnershipType: Optional[OwnershipTypeType] = None
     EntityTypeFilters: Optional[EntityTypeFiltersTypeDef] = None
     EntityTypeSort: Optional[EntityTypeSortTypeDef] = None
+
 

@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -18,31 +19,142 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
+class DeleteDbClusterInputTypeDef(BaseValidatorModel):
+    dbClusterId: str
+
+
+class DeleteDbInstanceInputTypeDef(BaseValidatorModel):
+    identifier: str
+
+
+class DurationTypeDef(BaseValidatorModel):
+    durationType: DurationTypeType
+    value: int
+
+
+class GetDbClusterInputTypeDef(BaseValidatorModel):
+    dbClusterId: str
+
+
+class GetDbInstanceInputTypeDef(BaseValidatorModel):
+    identifier: str
+
+
+class GetDbParameterGroupInputTypeDef(BaseValidatorModel):
+    identifier: str
+
+
+class PaginatorConfigTypeDef(BaseValidatorModel):
+    MaxItems: Optional[int] = None
+    PageSize: Optional[int] = None
+    StartingToken: Optional[str] = None
+
+
+class ListDbClustersInputTypeDef(BaseValidatorModel):
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class ListDbInstancesForClusterInputTypeDef(BaseValidatorModel):
+    dbClusterId: str
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class ListDbInstancesInputTypeDef(BaseValidatorModel):
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class ListDbParameterGroupsInputTypeDef(BaseValidatorModel):
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+    resourceArn: str
+
+
+class S3ConfigurationTypeDef(BaseValidatorModel):
+    bucketName: str
+    enabled: bool
+
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+
+class CreateDbClusterOutputTypeDef(BaseValidatorModel):
+    dbClusterId: str
+    dbClusterStatus: ClusterStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DeleteDbClusterOutputTypeDef(BaseValidatorModel):
+    dbClusterStatus: ClusterStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class EmptyResponseMetadataTypeDef(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class UpdateDbClusterOutputTypeDef(BaseValidatorModel):
+    dbClusterStatus: ClusterStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DbClusterSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListDbClustersOutputTypeDef(BaseValidatorModel):
+    items: List[DbClusterSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class DbInstanceForClusterSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListDbInstancesForClusterOutputTypeDef(BaseValidatorModel):
+    items: List[DbInstanceForClusterSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
 class DbInstanceSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    status: Optional[StatusType] = None
-    endpoint: Optional[str] = None
-    dbInstanceType: Optional[DbInstanceTypeType] = None
-    dbStorageType: Optional[DbStorageTypeType] = None
-    allocatedStorage: Optional[int] = None
-    deploymentType: Optional[DeploymentTypeType] = None
+    pass
+
+
+class ListDbInstancesOutputTypeDef(BaseValidatorModel):
+    items: List[DbInstanceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class DbParameterGroupSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    description: Optional[str] = None
+    pass
 
-class DeleteDbInstanceInputRequestTypeDef(BaseValidatorModel):
-    identifier: str
 
-class GetDbInstanceInputRequestTypeDef(BaseValidatorModel):
-    identifier: str
+class ListDbParameterGroupsOutputTypeDef(BaseValidatorModel):
+    items: List[DbParameterGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class GetDbParameterGroupInputRequestTypeDef(BaseValidatorModel):
-    identifier: str
 
 class InfluxDBv2ParametersTypeDef(BaseValidatorModel):
     fluxLogEnabled: Optional[bool] = None
@@ -52,87 +164,82 @@ class InfluxDBv2ParametersTypeDef(BaseValidatorModel):
     queryQueueSize: Optional[int] = None
     tracingType: Optional[TracingTypeType] = None
     metricsDisabled: Optional[bool] = None
+    httpIdleTimeout: Optional[DurationTypeDef] = None
+    httpReadHeaderTimeout: Optional[DurationTypeDef] = None
+    httpReadTimeout: Optional[DurationTypeDef] = None
+    httpWriteTimeout: Optional[DurationTypeDef] = None
+    influxqlMaxSelectBuckets: Optional[int] = None
+    influxqlMaxSelectPoint: Optional[int] = None
+    influxqlMaxSelectSeries: Optional[int] = None
+    pprofDisabled: Optional[bool] = None
+    queryInitialMemoryBytes: Optional[int] = None
+    queryMaxMemoryBytes: Optional[int] = None
+    queryMemoryBytes: Optional[int] = None
+    sessionLength: Optional[int] = None
+    sessionRenewDisabled: Optional[bool] = None
+    storageCacheMaxMemorySize: Optional[int] = None
+    storageCacheSnapshotMemorySize: Optional[int] = None
+    storageCacheSnapshotWriteColdDuration: Optional[DurationTypeDef] = None
+    storageCompactFullWriteColdDuration: Optional[DurationTypeDef] = None
+    storageCompactThroughputBurst: Optional[int] = None
+    storageMaxConcurrentCompactions: Optional[int] = None
+    storageMaxIndexLogFileSize: Optional[int] = None
+    storageNoValidateFieldSize: Optional[bool] = None
+    storageRetentionCheckInterval: Optional[DurationTypeDef] = None
+    storageSeriesFileMaxConcurrentSnapshotCompactions: Optional[int] = None
+    storageSeriesIdSetCacheSize: Optional[int] = None
+    storageWalMaxConcurrentWrites: Optional[int] = None
+    storageWalMaxWriteDelay: Optional[DurationTypeDef] = None
+    uiDisabled: Optional[bool] = None
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
-    MaxItems: Optional[int] = None
-    PageSize: Optional[int] = None
-    StartingToken: Optional[str] = None
 
-class ListDbInstancesInputRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
-
-class ListDbParameterGroupsInputRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
-
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-
-class S3ConfigurationTypeDef(BaseValidatorModel):
-    bucketName: str
-    enabled: bool
-
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tags: Mapping[str, str]
-
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: Sequence[str]
-
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListDbInstancesOutputTypeDef(BaseValidatorModel):
-    items: List[DbInstanceSummaryTypeDef]
-    nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListDbParameterGroupsOutputTypeDef(BaseValidatorModel):
-    items: List[DbParameterGroupSummaryTypeDef]
-    nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ParametersTypeDef(BaseValidatorModel):
-    InfluxDBv2: Optional[InfluxDBv2ParametersTypeDef] = None
-
-class ListDbInstancesInputListDbInstancesPaginateTypeDef(BaseValidatorModel):
+class ListDbClustersInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDbParameterGroupsInputListDbParameterGroupsPaginateTypeDef(BaseValidatorModel):
+
+class ListDbInstancesForClusterInputPaginateTypeDef(BaseValidatorModel):
+    dbClusterId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListDbInstancesInputPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListDbParameterGroupsInputPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class LogDeliveryConfigurationTypeDef(BaseValidatorModel):
     s3Configuration: S3ConfigurationTypeDef
 
-class CreateDbParameterGroupInputRequestTypeDef(BaseValidatorModel):
+
+class ParametersTypeDef(BaseValidatorModel):
+    InfluxDBv2: Optional[InfluxDBv2ParametersTypeDef] = None
+
+
+class CreateDbClusterInputTypeDef(BaseValidatorModel):
     name: str
-    description: Optional[str] = None
-    parameters: Optional[ParametersTypeDef] = None
+    password: str
+    dbInstanceType: DbInstanceTypeType
+    allocatedStorage: int
+    vpcSubnetIds: Sequence[str]
+    vpcSecurityGroupIds: Sequence[str]
+    deploymentType: Literal["MULTI_NODE_READ_REPLICAS"]
+    username: Optional[str] = None
+    organization: Optional[str] = None
+    bucket: Optional[str] = None
+    port: Optional[int] = None
+    dbParameterGroupIdentifier: Optional[str] = None
+    dbStorageType: Optional[DbStorageTypeType] = None
+    networkType: Optional[NetworkTypeType] = None
+    publiclyAccessible: Optional[bool] = None
+    failoverMode: Optional[FailoverModeType] = None
+    logDeliveryConfiguration: Optional[LogDeliveryConfigurationTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateDbParameterGroupOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    description: str
-    parameters: ParametersTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetDbParameterGroupOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    description: str
-    parameters: ParametersTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class CreateDbInstanceInputRequestTypeDef(BaseValidatorModel):
+class CreateDbInstanceInputTypeDef(BaseValidatorModel):
     name: str
     password: str
     dbInstanceType: DbInstanceTypeType
@@ -148,89 +255,34 @@ class CreateDbInstanceInputRequestTypeDef(BaseValidatorModel):
     deploymentType: Optional[DeploymentTypeType] = None
     logDeliveryConfiguration: Optional[LogDeliveryConfigurationTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
+    port: Optional[int] = None
+    networkType: Optional[NetworkTypeType] = None
 
-class CreateDbInstanceOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    status: StatusType
-    endpoint: str
-    dbInstanceType: DbInstanceTypeType
-    dbStorageType: DbStorageTypeType
-    allocatedStorage: int
-    deploymentType: DeploymentTypeType
-    vpcSubnetIds: List[str]
-    publiclyAccessible: bool
-    vpcSecurityGroupIds: List[str]
-    dbParameterGroupIdentifier: str
-    availabilityZone: str
-    secondaryAvailabilityZone: str
-    logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
-    influxAuthParametersSecretArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteDbInstanceOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    status: StatusType
-    endpoint: str
-    dbInstanceType: DbInstanceTypeType
-    dbStorageType: DbStorageTypeType
-    allocatedStorage: int
-    deploymentType: DeploymentTypeType
-    vpcSubnetIds: List[str]
-    publiclyAccessible: bool
-    vpcSecurityGroupIds: List[str]
-    dbParameterGroupIdentifier: str
-    availabilityZone: str
-    secondaryAvailabilityZone: str
-    logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
-    influxAuthParametersSecretArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDbClusterInputTypeDef(BaseValidatorModel):
+    dbClusterId: str
+    logDeliveryConfiguration: Optional[LogDeliveryConfigurationTypeDef] = None
+    dbParameterGroupIdentifier: Optional[str] = None
+    port: Optional[int] = None
+    dbInstanceType: Optional[DbInstanceTypeType] = None
+    failoverMode: Optional[FailoverModeType] = None
 
-class GetDbInstanceOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    arn: str
-    status: StatusType
-    endpoint: str
-    dbInstanceType: DbInstanceTypeType
-    dbStorageType: DbStorageTypeType
-    allocatedStorage: int
-    deploymentType: DeploymentTypeType
-    vpcSubnetIds: List[str]
-    publiclyAccessible: bool
-    vpcSecurityGroupIds: List[str]
-    dbParameterGroupIdentifier: str
-    availabilityZone: str
-    secondaryAvailabilityZone: str
-    logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
-    influxAuthParametersSecretArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDbInstanceInputRequestTypeDef(BaseValidatorModel):
+class UpdateDbInstanceInputTypeDef(BaseValidatorModel):
     identifier: str
     logDeliveryConfiguration: Optional[LogDeliveryConfigurationTypeDef] = None
     dbParameterGroupIdentifier: Optional[str] = None
+    port: Optional[int] = None
+    dbInstanceType: Optional[DbInstanceTypeType] = None
+    deploymentType: Optional[DeploymentTypeType] = None
+    dbStorageType: Optional[DbStorageTypeType] = None
+    allocatedStorage: Optional[int] = None
 
-class UpdateDbInstanceOutputTypeDef(BaseValidatorModel):
-    id: str
+
+class CreateDbParameterGroupInputTypeDef(BaseValidatorModel):
     name: str
-    arn: str
-    status: StatusType
-    endpoint: str
-    dbInstanceType: DbInstanceTypeType
-    dbStorageType: DbStorageTypeType
-    allocatedStorage: int
-    deploymentType: DeploymentTypeType
-    vpcSubnetIds: List[str]
-    publiclyAccessible: bool
-    vpcSecurityGroupIds: List[str]
-    dbParameterGroupIdentifier: str
-    availabilityZone: str
-    secondaryAvailabilityZone: str
-    logDeliveryConfiguration: LogDeliveryConfigurationTypeDef
-    influxAuthParametersSecretArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    description: Optional[str] = None
+    parameters: Optional[ParametersTypeDef] = None
+    tags: Optional[Mapping[str, str]] = None
+
 

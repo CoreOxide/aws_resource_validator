@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,23 +16,32 @@ class ActionTypeDef(BaseValidatorModel):
     actionId: str
     properties: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class MetricAttributionTypeDef(BaseValidatorModel):
     eventAttributionSource: str
+
 
 class ItemTypeDef(BaseValidatorModel):
     itemId: str
     properties: Optional[str] = None
 
+
 class UserTypeDef(BaseValidatorModel):
     userId: str
     properties: Optional[str] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class ActionInteractionTypeDef(BaseValidatorModel):
     actionId: str
@@ -44,12 +54,15 @@ class ActionInteractionTypeDef(BaseValidatorModel):
     impression: Optional[Sequence[str]] = None
     properties: Optional[str] = None
 
-class PutActionsRequestRequestTypeDef(BaseValidatorModel):
+
+class PutActionsRequestTypeDef(BaseValidatorModel):
     datasetArn: str
     actions: Sequence[ActionTypeDef]
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class EventTypeDef(BaseValidatorModel):
     eventType: str
@@ -62,21 +75,26 @@ class EventTypeDef(BaseValidatorModel):
     impression: Optional[Sequence[str]] = None
     metricAttribution: Optional[MetricAttributionTypeDef] = None
 
-class PutItemsRequestRequestTypeDef(BaseValidatorModel):
+
+class PutItemsRequestTypeDef(BaseValidatorModel):
     datasetArn: str
     items: Sequence[ItemTypeDef]
 
-class PutUsersRequestRequestTypeDef(BaseValidatorModel):
+
+class PutUsersRequestTypeDef(BaseValidatorModel):
     datasetArn: str
     users: Sequence[UserTypeDef]
 
-class PutActionInteractionsRequestRequestTypeDef(BaseValidatorModel):
+
+class PutActionInteractionsRequestTypeDef(BaseValidatorModel):
     trackingId: str
     actionInteractions: Sequence[ActionInteractionTypeDef]
 
-class PutEventsRequestRequestTypeDef(BaseValidatorModel):
+
+class PutEventsRequestTypeDef(BaseValidatorModel):
     trackingId: str
     sessionId: str
     eventList: Sequence[EventTypeDef]
     userId: Optional[str] = None
+
 

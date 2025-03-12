@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,71 +16,80 @@ class TargetTypeDef(BaseValidatorModel):
     TargetType: Optional[str] = None
     TargetAddress: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class DeleteNotificationRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteNotificationRuleRequestTypeDef(BaseValidatorModel):
     Arn: str
 
-class DeleteTargetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteTargetRequestTypeDef(BaseValidatorModel):
     TargetAddress: str
     ForceUnsubscribeAll: Optional[bool] = None
 
-class DescribeNotificationRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeNotificationRuleRequestTypeDef(BaseValidatorModel):
     Arn: str
 
-class EventTypeSummaryTypeDef(BaseValidatorModel):
-    EventTypeId: Optional[str] = None
-    ServiceName: Optional[str] = None
-    EventTypeName: Optional[str] = None
-    ResourceType: Optional[str] = None
 
 class TargetSummaryTypeDef(BaseValidatorModel):
     TargetAddress: Optional[str] = None
     TargetType: Optional[str] = None
     TargetStatus: Optional[TargetStatusType] = None
 
+
 class ListEventTypesFilterTypeDef(BaseValidatorModel):
     Name: ListEventTypesFilterNameType
     Value: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
+
 class ListNotificationRulesFilterTypeDef(BaseValidatorModel):
     Name: ListNotificationRulesFilterNameType
     Value: str
+
 
 class NotificationRuleSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     Arn: str
+
 
 class ListTargetsFilterTypeDef(BaseValidatorModel):
     Name: ListTargetsFilterNameType
     Value: str
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     Arn: str
     Tags: Mapping[str, str]
 
-class UnsubscribeRequestRequestTypeDef(BaseValidatorModel):
+
+class UnsubscribeRequestTypeDef(BaseValidatorModel):
     Arn: str
     TargetAddress: str
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     Arn: str
     TagKeys: Sequence[str]
 
-class CreateNotificationRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateNotificationRuleRequestTypeDef(BaseValidatorModel):
     Name: str
     EventTypeIds: Sequence[str]
     Resource: str
@@ -89,12 +99,14 @@ class CreateNotificationRuleRequestRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
     Status: Optional[NotificationRuleStatusType] = None
 
-class SubscribeRequestRequestTypeDef(BaseValidatorModel):
+
+class SubscribeRequestTypeDef(BaseValidatorModel):
     Arn: str
     Target: TargetTypeDef
     ClientRequestToken: Optional[str] = None
 
-class UpdateNotificationRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateNotificationRuleRequestTypeDef(BaseValidatorModel):
     Arn: str
     Name: Optional[str] = None
     Status: Optional[NotificationRuleStatusType] = None
@@ -102,34 +114,46 @@ class UpdateNotificationRuleRequestRequestTypeDef(BaseValidatorModel):
     Targets: Optional[Sequence[TargetTypeDef]] = None
     DetailType: Optional[DetailTypeType] = None
 
+
 class CreateNotificationRuleResultTypeDef(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteNotificationRuleResultTypeDef(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceResultTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class SubscribeResultTypeDef(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class TagResourceResultTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UnsubscribeResultTypeDef(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class EventTypeSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
 class ListEventTypesResultTypeDef(BaseValidatorModel):
     EventTypes: List[EventTypeSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class DescribeNotificationRuleResultTypeDef(BaseValidatorModel):
     Arn: str
@@ -145,40 +169,49 @@ class DescribeNotificationRuleResultTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTargetsResultTypeDef(BaseValidatorModel):
     Targets: List[TargetSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class ListEventTypesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListEventTypesRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[ListEventTypesFilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListEventTypesRequestListEventTypesPaginateTypeDef(BaseValidatorModel):
+
+class ListEventTypesRequestPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[ListEventTypesFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListNotificationRulesRequestListNotificationRulesPaginateTypeDef(BaseValidatorModel):
+
+class ListNotificationRulesRequestPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[ListNotificationRulesFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListNotificationRulesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListNotificationRulesRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[ListNotificationRulesFilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class ListNotificationRulesResultTypeDef(BaseValidatorModel):
-    NextToken: str
     NotificationRules: List[NotificationRuleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class ListTargetsRequestListTargetsPaginateTypeDef(BaseValidatorModel):
+
+class ListTargetsRequestPaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[ListTargetsFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTargetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTargetsRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[ListTargetsFilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 

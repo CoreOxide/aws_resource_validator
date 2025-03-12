@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,40 +16,50 @@ class CategoricalValuesTypeDef(BaseValidatorModel):
     Status: StatisticalIssueStatusType
     NumberOfCategory: Optional[int] = None
 
+
 class CountPercentTypeDef(BaseValidatorModel):
     Count: int
     Percentage: float
 
+
 class DatasetSchemaTypeDef(BaseValidatorModel):
     InlineDataSchema: Optional[str] = None
+
 
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class DataPreProcessingConfigurationTypeDef(BaseValidatorModel):
     TargetSamplingRate: Optional[TargetSamplingRateType] = None
 
+
 class DuplicateTimestampsTypeDef(BaseValidatorModel):
     TotalNumberOfDuplicateTimestamps: int
+
 
 class InvalidSensorDataTypeDef(BaseValidatorModel):
     AffectedSensorCount: int
     TotalNumberOfInvalidValues: int
 
+
 class MissingSensorDataTypeDef(BaseValidatorModel):
     AffectedSensorCount: int
     TotalNumberOfMissingValues: int
 
+
 class UnsupportedTimestampsTypeDef(BaseValidatorModel):
     TotalNumberOfUnsupportedTimestamps: int
+
 
 class DatasetSummaryTypeDef(BaseValidatorModel):
     DatasetName: Optional[str] = None
@@ -56,60 +67,78 @@ class DatasetSummaryTypeDef(BaseValidatorModel):
     Status: Optional[DatasetStatusType] = None
     CreatedAt: Optional[datetime] = None
 
-class DeleteDatasetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDatasetRequestTypeDef(BaseValidatorModel):
     DatasetName: str
 
-class DeleteInferenceSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteInferenceSchedulerRequestTypeDef(BaseValidatorModel):
     InferenceSchedulerName: str
 
-class DeleteLabelGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLabelGroupRequestTypeDef(BaseValidatorModel):
     LabelGroupName: str
 
-class DeleteLabelRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLabelRequestTypeDef(BaseValidatorModel):
     LabelGroupName: str
     LabelId: str
 
-class DeleteModelRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteModelRequestTypeDef(BaseValidatorModel):
     ModelName: str
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DeleteRetrainingSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
     ModelName: str
 
-class DescribeDataIngestionJobRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeDataIngestionJobRequestTypeDef(BaseValidatorModel):
     JobId: str
 
-class DescribeDatasetRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeDatasetRequestTypeDef(BaseValidatorModel):
     DatasetName: str
 
-class DescribeInferenceSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeInferenceSchedulerRequestTypeDef(BaseValidatorModel):
     InferenceSchedulerName: str
 
-class DescribeLabelGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLabelGroupRequestTypeDef(BaseValidatorModel):
     LabelGroupName: str
 
-class DescribeLabelRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLabelRequestTypeDef(BaseValidatorModel):
     LabelGroupName: str
     LabelId: str
 
-class DescribeModelRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeModelRequestTypeDef(BaseValidatorModel):
     ModelName: str
 
-class DescribeModelVersionRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeModelVersionRequestTypeDef(BaseValidatorModel):
     ModelName: str
     ModelVersion: int
+
 
 class S3ObjectTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
 
-class DescribeResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeResourcePolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DescribeRetrainingSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
     ModelName: str
+
 
 class InferenceEventSummaryTypeDef(BaseValidatorModel):
     InferenceSchedulerArn: Optional[str] = None
@@ -119,17 +148,21 @@ class InferenceEventSummaryTypeDef(BaseValidatorModel):
     Diagnostics: Optional[str] = None
     EventDurationInSeconds: Optional[int] = None
 
+
 class InferenceInputNameConfigurationTypeDef(BaseValidatorModel):
     TimestampFormat: Optional[str] = None
     ComponentTimestampDelimiter: Optional[str] = None
+
 
 class InferenceS3InputConfigurationTypeDef(BaseValidatorModel):
     Bucket: str
     Prefix: Optional[str] = None
 
+
 class InferenceS3OutputConfigurationTypeDef(BaseValidatorModel):
     Bucket: str
     Prefix: Optional[str] = None
+
 
 class InferenceSchedulerSummaryTypeDef(BaseValidatorModel):
     ModelName: Optional[str] = None
@@ -141,22 +174,27 @@ class InferenceSchedulerSummaryTypeDef(BaseValidatorModel):
     DataUploadFrequency: Optional[DataUploadFrequencyType] = None
     LatestInferenceResult: Optional[LatestInferenceResultType] = None
 
+
 class IngestionS3InputConfigurationTypeDef(BaseValidatorModel):
     Bucket: str
     Prefix: Optional[str] = None
     KeyPattern: Optional[str] = None
 
+
 class MissingCompleteSensorDataTypeDef(BaseValidatorModel):
     AffectedSensorCount: int
 
+
 class SensorsWithShortDateRangeTypeDef(BaseValidatorModel):
     AffectedSensorCount: int
+
 
 class LabelGroupSummaryTypeDef(BaseValidatorModel):
     LabelGroupName: Optional[str] = None
     LabelGroupArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
+
 
 class LabelSummaryTypeDef(BaseValidatorModel):
     LabelGroupName: Optional[str] = None
@@ -169,37 +207,44 @@ class LabelSummaryTypeDef(BaseValidatorModel):
     Equipment: Optional[str] = None
     CreatedAt: Optional[datetime] = None
 
+
 class LabelsS3InputConfigurationTypeDef(BaseValidatorModel):
     Bucket: str
     Prefix: Optional[str] = None
+
 
 class LargeTimestampGapsTypeDef(BaseValidatorModel):
     Status: StatisticalIssueStatusType
     NumberOfLargeTimestampGaps: Optional[int] = None
     MaxTimestampGapInDays: Optional[int] = None
 
-class ListDataIngestionJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDataIngestionJobsRequestTypeDef(BaseValidatorModel):
     DatasetName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Status: Optional[IngestionJobStatusType] = None
 
-class ListDatasetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDatasetsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DatasetNameBeginsWith: Optional[str] = None
 
-class ListInferenceSchedulersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListInferenceSchedulersRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     InferenceSchedulerNameBeginsWith: Optional[str] = None
     ModelName: Optional[str] = None
     Status: Optional[InferenceSchedulerStatusType] = None
 
-class ListLabelGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLabelGroupsRequestTypeDef(BaseValidatorModel):
     LabelGroupNameBeginsWith: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class ModelVersionSummaryTypeDef(BaseValidatorModel):
     ModelName: Optional[str] = None
@@ -211,18 +256,21 @@ class ModelVersionSummaryTypeDef(BaseValidatorModel):
     SourceType: Optional[ModelVersionSourceTypeType] = None
     ModelQuality: Optional[ModelQualityType] = None
 
-class ListModelsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListModelsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Status: Optional[ModelStatusType] = None
     ModelNameBeginsWith: Optional[str] = None
     DatasetNameBeginsWith: Optional[str] = None
 
-class ListRetrainingSchedulersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRetrainingSchedulersRequestTypeDef(BaseValidatorModel):
     ModelNameBeginsWith: Optional[str] = None
     Status: Optional[RetrainingSchedulerStatusType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class RetrainingSchedulerSummaryTypeDef(BaseValidatorModel):
     ModelName: Optional[str] = None
@@ -232,85 +280,104 @@ class RetrainingSchedulerSummaryTypeDef(BaseValidatorModel):
     RetrainingFrequency: Optional[str] = None
     LookbackWindow: Optional[str] = None
 
-class ListSensorStatisticsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSensorStatisticsRequestTypeDef(BaseValidatorModel):
     DatasetName: str
     IngestionJobId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class ModelDiagnosticsS3OutputConfigurationTypeDef(BaseValidatorModel):
     Bucket: str
     Prefix: Optional[str] = None
 
+
 class MonotonicValuesTypeDef(BaseValidatorModel):
     Status: StatisticalIssueStatusType
     Monotonicity: Optional[MonotonicityType] = None
 
+
 class MultipleOperatingModesTypeDef(BaseValidatorModel):
     Status: StatisticalIssueStatusType
 
-class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
     ClientToken: str
     PolicyRevisionId: Optional[str] = None
 
-class StartInferenceSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class StartInferenceSchedulerRequestTypeDef(BaseValidatorModel):
     InferenceSchedulerName: str
 
-class StartRetrainingSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class StartRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
     ModelName: str
 
-class StopInferenceSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class StopInferenceSchedulerRequestTypeDef(BaseValidatorModel):
     InferenceSchedulerName: str
 
-class StopRetrainingSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class StopRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
     ModelName: str
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateActiveModelVersionRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateActiveModelVersionRequestTypeDef(BaseValidatorModel):
     ModelName: str
     ModelVersion: int
 
-class UpdateLabelGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateLabelGroupRequestTypeDef(BaseValidatorModel):
     LabelGroupName: str
     FaultCodes: Optional[Sequence[str]] = None
 
-class CreateDatasetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateDatasetRequestTypeDef(BaseValidatorModel):
     DatasetName: str
     ClientToken: str
     DatasetSchema: Optional[DatasetSchemaTypeDef] = None
     ServerSideKmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateLabelGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateLabelGroupRequestTypeDef(BaseValidatorModel):
     LabelGroupName: str
     ClientToken: str
     FaultCodes: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ImportDatasetRequestRequestTypeDef(BaseValidatorModel):
+
+class ImportDatasetRequestTypeDef(BaseValidatorModel):
     SourceDatasetArn: str
     ClientToken: str
     DatasetName: Optional[str] = None
     ServerSideKmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Sequence[TagTypeDef]
+
 
 class CreateDatasetResponseTypeDef(BaseValidatorModel):
     DatasetName: str
     DatasetArn: str
     Status: DatasetStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateInferenceSchedulerResponseTypeDef(BaseValidatorModel):
     InferenceSchedulerArn: str
@@ -319,25 +386,30 @@ class CreateInferenceSchedulerResponseTypeDef(BaseValidatorModel):
     ModelQuality: ModelQualityType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateLabelGroupResponseTypeDef(BaseValidatorModel):
     LabelGroupName: str
     LabelGroupArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateLabelResponseTypeDef(BaseValidatorModel):
     LabelId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateModelResponseTypeDef(BaseValidatorModel):
     ModelArn: str
     Status: ModelStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateRetrainingSchedulerResponseTypeDef(BaseValidatorModel):
     ModelName: str
     ModelArn: str
     Status: RetrainingSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeLabelGroupResponseTypeDef(BaseValidatorModel):
     LabelGroupName: str
@@ -346,6 +418,7 @@ class DescribeLabelGroupResponseTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeLabelResponseTypeDef(BaseValidatorModel):
     LabelGroupName: str
@@ -360,12 +433,14 @@ class DescribeLabelResponseTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
     PolicyRevisionId: str
     ResourcePolicy: str
     CreationTime: datetime
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeRetrainingSchedulerResponseTypeDef(BaseValidatorModel):
     ModelName: str
@@ -379,8 +454,10 @@ class DescribeRetrainingSchedulerResponseTypeDef(BaseValidatorModel):
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ImportDatasetResponseTypeDef(BaseValidatorModel):
     DatasetName: str
@@ -388,6 +465,7 @@ class ImportDatasetResponseTypeDef(BaseValidatorModel):
     Status: DatasetStatusType
     JobId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ImportModelVersionResponseTypeDef(BaseValidatorModel):
     ModelName: str
@@ -397,19 +475,23 @@ class ImportModelVersionResponseTypeDef(BaseValidatorModel):
     Status: ModelVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
     ResourceArn: str
     PolicyRevisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartDataIngestionJobResponseTypeDef(BaseValidatorModel):
     JobId: str
     Status: IngestionJobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartInferenceSchedulerResponseTypeDef(BaseValidatorModel):
     ModelArn: str
@@ -419,11 +501,13 @@ class StartInferenceSchedulerResponseTypeDef(BaseValidatorModel):
     Status: InferenceSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartRetrainingSchedulerResponseTypeDef(BaseValidatorModel):
     ModelName: str
     ModelArn: str
     Status: RetrainingSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StopInferenceSchedulerResponseTypeDef(BaseValidatorModel):
     ModelArn: str
@@ -433,11 +517,13 @@ class StopInferenceSchedulerResponseTypeDef(BaseValidatorModel):
     Status: InferenceSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StopRetrainingSchedulerResponseTypeDef(BaseValidatorModel):
     ModelName: str
     ModelArn: str
     Status: RetrainingSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateActiveModelVersionResponseTypeDef(BaseValidatorModel):
     ModelName: str
@@ -448,7 +534,12 @@ class UpdateActiveModelVersionResponseTypeDef(BaseValidatorModel):
     PreviousActiveVersionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLabelRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateLabelRequestTypeDef(BaseValidatorModel):
     LabelGroupName: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
@@ -458,7 +549,8 @@ class CreateLabelRequestRequestTypeDef(BaseValidatorModel):
     Notes: Optional[str] = None
     Equipment: Optional[str] = None
 
-class CreateRetrainingSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
     ModelName: str
     RetrainingFrequency: str
     LookbackWindow: str
@@ -466,14 +558,16 @@ class CreateRetrainingSchedulerRequestRequestTypeDef(BaseValidatorModel):
     RetrainingStartDate: Optional[TimestampTypeDef] = None
     PromoteMode: Optional[ModelPromoteModeType] = None
 
-class ListInferenceEventsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListInferenceEventsRequestTypeDef(BaseValidatorModel):
     InferenceSchedulerName: str
     IntervalStartTime: TimestampTypeDef
     IntervalEndTime: TimestampTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListInferenceExecutionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListInferenceExecutionsRequestTypeDef(BaseValidatorModel):
     InferenceSchedulerName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -481,7 +575,8 @@ class ListInferenceExecutionsRequestRequestTypeDef(BaseValidatorModel):
     DataEndTimeBefore: Optional[TimestampTypeDef] = None
     Status: Optional[InferenceExecutionStatusType] = None
 
-class ListLabelsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLabelsRequestTypeDef(BaseValidatorModel):
     LabelGroupName: str
     IntervalStartTime: Optional[TimestampTypeDef] = None
     IntervalEndTime: Optional[TimestampTypeDef] = None
@@ -490,7 +585,8 @@ class ListLabelsRequestRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListModelVersionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListModelVersionsRequestTypeDef(BaseValidatorModel):
     ModelName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -501,76 +597,92 @@ class ListModelVersionsRequestRequestTypeDef(BaseValidatorModel):
     MaxModelVersion: Optional[int] = None
     MinModelVersion: Optional[int] = None
 
-class UpdateRetrainingSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
     ModelName: str
     RetrainingStartDate: Optional[TimestampTypeDef] = None
     RetrainingFrequency: Optional[str] = None
     LookbackWindow: Optional[str] = None
     PromoteMode: Optional[ModelPromoteModeType] = None
 
+
 class ListDatasetsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     DatasetSummaries: List[DatasetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class IngestedFilesSummaryTypeDef(BaseValidatorModel):
     TotalNumberOfFiles: int
     IngestedNumberOfFiles: int
     DiscardedFiles: Optional[List[S3ObjectTypeDef]] = None
 
+
 class ListInferenceEventsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     InferenceEventSummaries: List[InferenceEventSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class InferenceInputConfigurationTypeDef(BaseValidatorModel):
     S3InputConfiguration: Optional[InferenceS3InputConfigurationTypeDef] = None
     InputTimeZoneOffset: Optional[str] = None
     InferenceInputNameConfiguration: Optional[InferenceInputNameConfigurationTypeDef] = None
 
+
 class InferenceOutputConfigurationTypeDef(BaseValidatorModel):
     S3OutputConfiguration: InferenceS3OutputConfigurationTypeDef
     KmsKeyId: Optional[str] = None
 
+
 class ListInferenceSchedulersResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     InferenceSchedulerSummaries: List[InferenceSchedulerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class IngestionInputConfigurationTypeDef(BaseValidatorModel):
     S3InputConfiguration: IngestionS3InputConfigurationTypeDef
+
 
 class InsufficientSensorDataTypeDef(BaseValidatorModel):
     MissingCompleteSensorData: MissingCompleteSensorDataTypeDef
     SensorsWithShortDateRange: SensorsWithShortDateRangeTypeDef
 
+
 class ListLabelGroupsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     LabelGroupSummaries: List[LabelGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListLabelsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     LabelSummaries: List[LabelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class LabelsInputConfigurationTypeDef(BaseValidatorModel):
     S3InputConfiguration: Optional[LabelsS3InputConfigurationTypeDef] = None
     LabelGroupName: Optional[str] = None
 
+
 class ListModelVersionsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     ModelVersionSummaries: List[ModelVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListRetrainingSchedulersResponseTypeDef(BaseValidatorModel):
     RetrainingSchedulerSummaries: List[RetrainingSchedulerSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ModelDiagnosticsOutputConfigurationTypeDef(BaseValidatorModel):
     S3OutputConfiguration: ModelDiagnosticsS3OutputConfigurationTypeDef
     KmsKeyId: Optional[str] = None
+
 
 class SensorStatisticsSummaryTypeDef(BaseValidatorModel):
     ComponentName: Optional[str] = None
@@ -587,7 +699,8 @@ class SensorStatisticsSummaryTypeDef(BaseValidatorModel):
     DataStartTime: Optional[datetime] = None
     DataEndTime: Optional[datetime] = None
 
-class CreateInferenceSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateInferenceSchedulerRequestTypeDef(BaseValidatorModel):
     ModelName: str
     InferenceSchedulerName: str
     DataUploadFrequency: DataUploadFrequencyType
@@ -598,6 +711,7 @@ class CreateInferenceSchedulerRequestRequestTypeDef(BaseValidatorModel):
     DataDelayOffsetInMinutes: Optional[int] = None
     ServerSideKmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class DescribeInferenceSchedulerResponseTypeDef(BaseValidatorModel):
     ModelArn: str
@@ -616,6 +730,7 @@ class DescribeInferenceSchedulerResponseTypeDef(BaseValidatorModel):
     LatestInferenceResult: LatestInferenceResultType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class InferenceExecutionSummaryTypeDef(BaseValidatorModel):
     ModelName: Optional[str] = None
     ModelArn: Optional[str] = None
@@ -632,13 +747,15 @@ class InferenceExecutionSummaryTypeDef(BaseValidatorModel):
     ModelVersion: Optional[int] = None
     ModelVersionArn: Optional[str] = None
 
-class UpdateInferenceSchedulerRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateInferenceSchedulerRequestTypeDef(BaseValidatorModel):
     InferenceSchedulerName: str
     DataDelayOffsetInMinutes: Optional[int] = None
     DataUploadFrequency: Optional[DataUploadFrequencyType] = None
     DataInputConfiguration: Optional[InferenceInputConfigurationTypeDef] = None
     DataOutputConfiguration: Optional[InferenceOutputConfigurationTypeDef] = None
     RoleArn: Optional[str] = None
+
 
 class DataIngestionJobSummaryTypeDef(BaseValidatorModel):
     JobId: Optional[str] = None
@@ -647,11 +764,13 @@ class DataIngestionJobSummaryTypeDef(BaseValidatorModel):
     IngestionInputConfiguration: Optional[IngestionInputConfigurationTypeDef] = None
     Status: Optional[IngestionJobStatusType] = None
 
-class StartDataIngestionJobRequestRequestTypeDef(BaseValidatorModel):
+
+class StartDataIngestionJobRequestTypeDef(BaseValidatorModel):
     DatasetName: str
     IngestionInputConfiguration: IngestionInputConfigurationTypeDef
     RoleArn: str
     ClientToken: str
+
 
 class DataQualitySummaryTypeDef(BaseValidatorModel):
     InsufficientSensorData: InsufficientSensorDataTypeDef
@@ -660,7 +779,8 @@ class DataQualitySummaryTypeDef(BaseValidatorModel):
     UnsupportedTimestamps: UnsupportedTimestampsTypeDef
     DuplicateTimestamps: DuplicateTimestampsTypeDef
 
-class ImportModelVersionRequestRequestTypeDef(BaseValidatorModel):
+
+class ImportModelVersionRequestTypeDef(BaseValidatorModel):
     SourceModelVersionArn: str
     DatasetName: str
     ClientToken: str
@@ -671,7 +791,8 @@ class ImportModelVersionRequestRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     InferenceDataImportStrategy: Optional[InferenceDataImportStrategyType] = None
 
-class CreateModelRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateModelRequestTypeDef(BaseValidatorModel):
     ModelName: str
     DatasetName: str
     ClientToken: str
@@ -686,7 +807,8 @@ class CreateModelRequestRequestTypeDef(BaseValidatorModel):
     ServerSideKmsKeyId: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
     OffCondition: Optional[str] = None
-    ModelDiagnosticsOutputConfiguration: Optional[       ModelDiagnosticsOutputConfigurationTypeDef     ] = None
+    ModelDiagnosticsOutputConfiguration: Optional[ModelDiagnosticsOutputConfigurationTypeDef] = None
+
 
 class DescribeModelResponseTypeDef(BaseValidatorModel):
     ModelName: str
@@ -733,6 +855,7 @@ class DescribeModelResponseTypeDef(BaseValidatorModel):
     ModelQuality: ModelQualityType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeModelVersionResponseTypeDef(BaseValidatorModel):
     ModelName: str
     ModelArn: str
@@ -771,6 +894,7 @@ class DescribeModelVersionResponseTypeDef(BaseValidatorModel):
     ModelQuality: ModelQualityType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ModelSummaryTypeDef(BaseValidatorModel):
     ModelName: Optional[str] = None
     ModelArn: Optional[str] = None
@@ -785,29 +909,34 @@ class ModelSummaryTypeDef(BaseValidatorModel):
     LatestScheduledRetrainingStartTime: Optional[datetime] = None
     NextScheduledRetrainingStartDate: Optional[datetime] = None
     RetrainingSchedulerStatus: Optional[RetrainingSchedulerStatusType] = None
-    ModelDiagnosticsOutputConfiguration: Optional[       ModelDiagnosticsOutputConfigurationTypeDef     ] = None
+    ModelDiagnosticsOutputConfiguration: Optional[ModelDiagnosticsOutputConfigurationTypeDef] = None
     ModelQuality: Optional[ModelQualityType] = None
 
-class UpdateModelRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateModelRequestTypeDef(BaseValidatorModel):
     ModelName: str
     LabelsInputConfiguration: Optional[LabelsInputConfigurationTypeDef] = None
     RoleArn: Optional[str] = None
-    ModelDiagnosticsOutputConfiguration: Optional[       ModelDiagnosticsOutputConfigurationTypeDef     ] = None
+    ModelDiagnosticsOutputConfiguration: Optional[ModelDiagnosticsOutputConfigurationTypeDef] = None
+
 
 class ListSensorStatisticsResponseTypeDef(BaseValidatorModel):
     SensorStatisticsSummaries: List[SensorStatisticsSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListInferenceExecutionsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     InferenceExecutionSummaries: List[InferenceExecutionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListDataIngestionJobsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     DataIngestionJobSummaries: List[DataIngestionJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class DescribeDataIngestionJobResponseTypeDef(BaseValidatorModel):
     JobId: str
@@ -826,6 +955,7 @@ class DescribeDataIngestionJobResponseTypeDef(BaseValidatorModel):
     SourceDatasetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeDatasetResponseTypeDef(BaseValidatorModel):
     DatasetName: str
     DatasetArn: str
@@ -843,8 +973,10 @@ class DescribeDatasetResponseTypeDef(BaseValidatorModel):
     SourceDatasetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListModelsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     ModelSummaries: List[ModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 

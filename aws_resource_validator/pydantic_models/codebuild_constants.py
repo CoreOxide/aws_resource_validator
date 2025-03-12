@@ -4,7 +4,7 @@ from datetime import datetime
 ArtifactNamespaceType = Literal["BUILD_ID", "NONE"]
 ArtifactPackagingType = Literal["NONE", "ZIP"]
 ArtifactsTypeType = Literal["CODEPIPELINE", "NO_ARTIFACTS", "S3"]
-AuthTypeType = Literal["BASIC_AUTH", "CODECONNECTIONS", "OAUTH", "PERSONAL_ACCESS_TOKEN"]
+AuthTypeType = Literal["BASIC_AUTH", "CODECONNECTIONS", "OAUTH", "PERSONAL_ACCESS_TOKEN", "SECRETS_MANAGER"]
 BatchReportModeTypeType = Literal["REPORT_AGGREGATED_BATCH", "REPORT_INDIVIDUAL_BUILDS"]
 BucketOwnerAccessType = Literal["FULL", "NONE", "READ_ONLY"]
 BuildBatchPhaseTypeType = Literal["COMBINE_ARTIFACTS",
@@ -27,7 +27,8 @@ BuildPhaseTypeType = Literal["BUILD",
     "UPLOAD_ARTIFACTS",]
 CacheModeType = Literal["LOCAL_CUSTOM_CACHE", "LOCAL_DOCKER_LAYER_CACHE", "LOCAL_SOURCE_CACHE"]
 CacheTypeType = Literal["LOCAL", "NO_CACHE", "S3"]
-ComputeTypeType = Literal["BUILD_GENERAL1_2XLARGE",
+ComputeTypeType = Literal["ATTRIBUTE_BASED_COMPUTE",
+    "BUILD_GENERAL1_2XLARGE",
     "BUILD_GENERAL1_LARGE",
     "BUILD_GENERAL1_MEDIUM",
     "BUILD_GENERAL1_SMALL",
@@ -41,16 +42,23 @@ CredentialProviderTypeType = Literal["SECRETS_MANAGER"]
 DescribeCodeCoveragesPaginatorName = Literal["describe_code_coverages"]
 DescribeTestCasesPaginatorName = Literal["describe_test_cases"]
 EnvironmentTypeType = Literal["ARM_CONTAINER",
+    "ARM_EC2",
     "ARM_LAMBDA_CONTAINER",
     "LINUX_CONTAINER",
+    "LINUX_EC2",
     "LINUX_GPU_CONTAINER",
     "LINUX_LAMBDA_CONTAINER",
+    "MAC_ARM",
     "WINDOWS_CONTAINER",
+    "WINDOWS_EC2",
     "WINDOWS_SERVER_2019_CONTAINER",]
 EnvironmentVariableTypeType = Literal["PARAMETER_STORE", "PLAINTEXT", "SECRETS_MANAGER"]
 FileSystemTypeType = Literal["EFS"]
-FleetContextCodeType = Literal["ACTION_REQUIRED", "CREATE_FAILED", "UPDATE_FAILED"]
+FleetContextCodeType = Literal["ACTION_REQUIRED", "CREATE_FAILED", "INSUFFICIENT_CAPACITY", "PENDING_DELETION", "UPDATE_FAILED"]
 FleetOverflowBehaviorType = Literal["ON_DEMAND", "QUEUE"]
+FleetProxyRuleBehaviorType = Literal["ALLOW_ALL", "DENY_ALL"]
+FleetProxyRuleEffectTypeType = Literal["ALLOW", "DENY"]
+FleetProxyRuleTypeType = Literal["DOMAIN", "IP"]
 FleetScalingMetricTypeType = Literal["FLEET_UTILIZATION_RATE"]
 FleetScalingTypeType = Literal["TARGET_TRACKING_SCALING"]
 FleetSortByTypeType = Literal["CREATED_TIME", "LAST_MODIFIED_TIME", "NAME"]
@@ -75,6 +83,7 @@ ListReportsPaginatorName = Literal["list_reports"]
 ListSharedProjectsPaginatorName = Literal["list_shared_projects"]
 ListSharedReportGroupsPaginatorName = Literal["list_shared_report_groups"]
 LogsConfigStatusTypeType = Literal["DISABLED", "ENABLED"]
+MachineTypeType = Literal["GENERAL", "NVME"]
 PlatformTypeType = Literal["AMAZON_LINUX", "DEBIAN", "UBUNTU", "WINDOWS_SERVER"]
 ProjectSortByTypeType = Literal["CREATED_TIME", "LAST_MODIFIED_TIME", "NAME"]
 ProjectVisibilityTypeType = Literal["PRIVATE", "PUBLIC_READ"]
@@ -98,7 +107,7 @@ RetryBuildBatchTypeType = Literal["RETRY_ALL_BUILDS", "RETRY_FAILED_BUILDS"]
 ServerTypeType = Literal["BITBUCKET", "GITHUB", "GITHUB_ENTERPRISE", "GITLAB", "GITLAB_SELF_MANAGED"]
 SharedResourceSortByTypeType = Literal["ARN", "MODIFIED_TIME"]
 SortOrderTypeType = Literal["ASCENDING", "DESCENDING"]
-SourceAuthTypeType = Literal["CODECONNECTIONS", "OAUTH"]
+SourceAuthTypeType = Literal["CODECONNECTIONS", "OAUTH", "SECRETS_MANAGER"]
 SourceTypeType = Literal["BITBUCKET",
     "CODECOMMIT",
     "CODEPIPELINE",
@@ -109,7 +118,7 @@ SourceTypeType = Literal["BITBUCKET",
     "NO_SOURCE",
     "S3",]
 StatusTypeType = Literal["FAILED", "FAULT", "IN_PROGRESS", "STOPPED", "SUCCEEDED", "TIMED_OUT"]
-WebhookBuildTypeType = Literal["BUILD", "BUILD_BATCH"]
+WebhookBuildTypeType = Literal["BUILD", "BUILD_BATCH", "RUNNER_BUILDKITE_BUILD"]
 WebhookFilterTypeType = Literal["ACTOR_ACCOUNT_ID",
     "BASE_REF",
     "COMMIT_MESSAGE",
@@ -117,9 +126,11 @@ WebhookFilterTypeType = Literal["ACTOR_ACCOUNT_ID",
     "FILE_PATH",
     "HEAD_REF",
     "RELEASE_NAME",
+    "REPOSITORY_NAME",
     "TAG_NAME",
     "WORKFLOW_NAME",]
-WebhookScopeTypeType = Literal["GITHUB_GLOBAL", "GITHUB_ORGANIZATION"]
+WebhookScopeTypeType = Literal["GITHUB_GLOBAL", "GITHUB_ORGANIZATION", "GITLAB_GROUP"]
+WebhookStatusType = Literal["ACTIVE", "CREATE_FAILED", "CREATING", "DELETING"]
 CodeBuildServiceName = Literal["codebuild"]
 ServiceName = Literal["accessanalyzer",
     "account",
@@ -155,12 +166,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -197,7 +213,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -210,6 +225,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -235,6 +251,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -246,7 +264,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -270,6 +287,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -288,11 +308,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -347,6 +366,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -366,7 +386,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -374,10 +393,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -387,10 +409,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -404,6 +428,7 @@ ServiceName = Literal["accessanalyzer",
     "pricing",
     "privatenetworks",
     "proton",
+    "qapps",
     "qbusiness",
     "qconnect",
     "qldb",
@@ -435,6 +460,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -447,6 +473,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -464,10 +491,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -499,7 +528,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -556,7 +584,3 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-VpcConfigUnionTypeDef = Union['VpcConfigTypeDef', 'VpcConfigOutputTypeDef']
-ProjectCacheUnionTypeDef = Union['ProjectCacheTypeDef', 'ProjectCacheOutputTypeDef']
-ProjectBuildBatchConfigUnionTypeDef = Union[   'ProjectBuildBatchConfigTypeDef', 'ProjectBuildBatchConfigOutputTypeDef' ]
-ProjectEnvironmentUnionTypeDef = Union['ProjectEnvironmentTypeDef', 'ProjectEnvironmentOutputTypeDef']

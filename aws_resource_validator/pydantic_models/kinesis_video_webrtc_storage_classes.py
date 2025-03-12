@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -13,14 +14,22 @@ from aws_resource_validator.pydantic_models.kinesis_video_webrtc_storage_constan
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class JoinStorageSessionInputRequestTypeDef(BaseValidatorModel):
+
+class JoinStorageSessionAsViewerInputTypeDef(BaseValidatorModel):
     channelArn: str
+    clientId: str
+
+
+class JoinStorageSessionInputTypeDef(BaseValidatorModel):
+    channelArn: str
+
 
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 

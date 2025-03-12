@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,103 +12,126 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.qldb_constants import *
 
-class CancelJournalKinesisStreamRequestRequestTypeDef(BaseValidatorModel):
+class CancelJournalKinesisStreamRequestTypeDef(BaseValidatorModel):
     LedgerName: str
     StreamId: str
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class CreateLedgerRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateLedgerRequestTypeDef(BaseValidatorModel):
     Name: str
     PermissionsMode: PermissionsModeType
     Tags: Optional[Mapping[str, str]] = None
     DeletionProtection: Optional[bool] = None
     KmsKey: Optional[str] = None
 
-class DeleteLedgerRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLedgerRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DescribeJournalKinesisStreamRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeJournalKinesisStreamRequestTypeDef(BaseValidatorModel):
     LedgerName: str
     StreamId: str
 
-class DescribeJournalS3ExportRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeJournalS3ExportRequestTypeDef(BaseValidatorModel):
     Name: str
     ExportId: str
 
-class DescribeLedgerRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLedgerRequestTypeDef(BaseValidatorModel):
     Name: str
+
 
 class LedgerEncryptionDescriptionTypeDef(BaseValidatorModel):
     KmsKeyArn: str
     EncryptionStatus: EncryptionStatusType
     InaccessibleKmsKeyDateTime: Optional[datetime] = None
 
+
 class ValueHolderTypeDef(BaseValidatorModel):
     IonText: Optional[str] = None
 
-class GetDigestRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDigestRequestTypeDef(BaseValidatorModel):
     Name: str
+
 
 class KinesisConfigurationTypeDef(BaseValidatorModel):
     StreamArn: str
     AggregationEnabled: Optional[bool] = None
+
 
 class LedgerSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     State: Optional[LedgerStateType] = None
     CreationDateTime: Optional[datetime] = None
 
-class ListJournalKinesisStreamsForLedgerRequestRequestTypeDef(BaseValidatorModel):
+
+class ListJournalKinesisStreamsForLedgerRequestTypeDef(BaseValidatorModel):
     LedgerName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListJournalS3ExportsForLedgerRequestRequestTypeDef(BaseValidatorModel):
+
+class ListJournalS3ExportsForLedgerRequestTypeDef(BaseValidatorModel):
     Name: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListJournalS3ExportsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListJournalS3ExportsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListLedgersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLedgersRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class S3EncryptionConfigurationTypeDef(BaseValidatorModel):
     ObjectEncryptionType: S3ObjectEncryptionTypeType
     KmsKeyArn: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateLedgerPermissionsModeRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateLedgerPermissionsModeRequestTypeDef(BaseValidatorModel):
     Name: str
     PermissionsMode: PermissionsModeType
 
-class UpdateLedgerRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateLedgerRequestTypeDef(BaseValidatorModel):
     Name: str
     DeletionProtection: Optional[bool] = None
     KmsKey: Optional[str] = None
 
+
 class CancelJournalKinesisStreamResponseTypeDef(BaseValidatorModel):
     StreamId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateLedgerResponseTypeDef(BaseValidatorModel):
     Name: str
@@ -119,26 +143,32 @@ class CreateLedgerResponseTypeDef(BaseValidatorModel):
     KmsKeyArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ExportJournalToS3ResponseTypeDef(BaseValidatorModel):
     ExportId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StreamJournalToKinesisResponseTypeDef(BaseValidatorModel):
     StreamId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateLedgerPermissionsModeResponseTypeDef(BaseValidatorModel):
     Name: str
     Arn: str
     PermissionsMode: PermissionsModeType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeLedgerResponseTypeDef(BaseValidatorModel):
     Name: str
@@ -150,6 +180,7 @@ class DescribeLedgerResponseTypeDef(BaseValidatorModel):
     EncryptionDescription: LedgerEncryptionDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateLedgerResponseTypeDef(BaseValidatorModel):
     Name: str
     Arn: str
@@ -159,31 +190,37 @@ class UpdateLedgerResponseTypeDef(BaseValidatorModel):
     EncryptionDescription: LedgerEncryptionDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetBlockRequestRequestTypeDef(BaseValidatorModel):
+
+class GetBlockRequestTypeDef(BaseValidatorModel):
     Name: str
     BlockAddress: ValueHolderTypeDef
     DigestTipAddress: Optional[ValueHolderTypeDef] = None
+
 
 class GetBlockResponseTypeDef(BaseValidatorModel):
     Block: ValueHolderTypeDef
     Proof: ValueHolderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetDigestResponseTypeDef(BaseValidatorModel):
     Digest: bytes
     DigestTipAddress: ValueHolderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRevisionRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRevisionRequestTypeDef(BaseValidatorModel):
     Name: str
     BlockAddress: ValueHolderTypeDef
     DocumentId: str
     DigestTipAddress: Optional[ValueHolderTypeDef] = None
 
+
 class GetRevisionResponseTypeDef(BaseValidatorModel):
     Proof: ValueHolderTypeDef
     Revision: ValueHolderTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class JournalKinesisStreamDescriptionTypeDef(BaseValidatorModel):
     LedgerName: str
@@ -198,7 +235,12 @@ class JournalKinesisStreamDescriptionTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     ErrorCause: Optional[ErrorCauseType] = None
 
-class StreamJournalToKinesisRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class StreamJournalToKinesisRequestTypeDef(BaseValidatorModel):
     LedgerName: str
     RoleArn: str
     InclusiveStartTime: TimestampTypeDef
@@ -207,32 +249,38 @@ class StreamJournalToKinesisRequestRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
     ExclusiveEndTime: Optional[TimestampTypeDef] = None
 
+
 class ListLedgersResponseTypeDef(BaseValidatorModel):
     Ledgers: List[LedgerSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class S3ExportConfigurationTypeDef(BaseValidatorModel):
     Bucket: str
     Prefix: str
     EncryptionConfiguration: S3EncryptionConfigurationTypeDef
 
+
 class DescribeJournalKinesisStreamResponseTypeDef(BaseValidatorModel):
     Stream: JournalKinesisStreamDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListJournalKinesisStreamsForLedgerResponseTypeDef(BaseValidatorModel):
     Streams: List[JournalKinesisStreamDescriptionTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class ExportJournalToS3RequestRequestTypeDef(BaseValidatorModel):
+
+class ExportJournalToS3RequestTypeDef(BaseValidatorModel):
     Name: str
     InclusiveStartTime: TimestampTypeDef
     ExclusiveEndTime: TimestampTypeDef
     S3ExportConfiguration: S3ExportConfigurationTypeDef
     RoleArn: str
     OutputFormat: Optional[OutputFormatType] = None
+
 
 class JournalS3ExportDescriptionTypeDef(BaseValidatorModel):
     LedgerName: str
@@ -245,17 +293,21 @@ class JournalS3ExportDescriptionTypeDef(BaseValidatorModel):
     RoleArn: str
     OutputFormat: Optional[OutputFormatType] = None
 
+
 class DescribeJournalS3ExportResponseTypeDef(BaseValidatorModel):
     ExportDescription: JournalS3ExportDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListJournalS3ExportsForLedgerResponseTypeDef(BaseValidatorModel):
     JournalS3Exports: List[JournalS3ExportDescriptionTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListJournalS3ExportsResponseTypeDef(BaseValidatorModel):
     JournalS3Exports: List[JournalS3ExportDescriptionTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 

@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ssm_contacts_constants import *
 
-class AcceptPageRequestRequestTypeDef(BaseValidatorModel):
+class AcceptPageRequestTypeDef(BaseValidatorModel):
     PageId: str
     AcceptType: AcceptTypeType
     AcceptCode: str
@@ -19,63 +20,72 @@ class AcceptPageRequestRequestTypeDef(BaseValidatorModel):
     Note: Optional[str] = None
     AcceptCodeValidation: Optional[AcceptCodeValidationType] = None
 
-class ActivateContactChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class ActivateContactChannelRequestTypeDef(BaseValidatorModel):
     ContactChannelId: str
     ActivationCode: str
+
 
 class ChannelTargetInfoTypeDef(BaseValidatorModel):
     ContactChannelId: str
     RetryIntervalInMinutes: Optional[int] = None
 
+
 class ContactChannelAddressTypeDef(BaseValidatorModel):
     SimpleAddress: Optional[str] = None
+
 
 class ContactTargetInfoTypeDef(BaseValidatorModel):
     IsEssential: bool
     ContactId: Optional[str] = None
 
-class ContactTypeDef(BaseValidatorModel):
-    ContactArn: str
-    Alias: str
-    Type: ContactTypeType
-    DisplayName: Optional[str] = None
 
 class HandOffTimeTypeDef(BaseValidatorModel):
     HourOfDay: int
     MinuteOfHour: int
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class DeactivateContactChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class DeactivateContactChannelRequestTypeDef(BaseValidatorModel):
     ContactChannelId: str
 
-class DeleteContactChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteContactChannelRequestTypeDef(BaseValidatorModel):
     ContactChannelId: str
 
-class DeleteContactRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteContactRequestTypeDef(BaseValidatorModel):
     ContactId: str
 
-class DeleteRotationOverrideRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRotationOverrideRequestTypeDef(BaseValidatorModel):
     RotationId: str
     RotationOverrideId: str
 
-class DeleteRotationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRotationRequestTypeDef(BaseValidatorModel):
     RotationId: str
 
-class DescribeEngagementRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeEngagementRequestTypeDef(BaseValidatorModel):
     EngagementId: str
 
-class DescribePageRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribePageRequestTypeDef(BaseValidatorModel):
     PageId: str
+
 
 class EngagementTypeDef(BaseValidatorModel):
     EngagementArn: str
@@ -85,42 +95,45 @@ class EngagementTypeDef(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     StopTime: Optional[datetime] = None
 
-class GetContactChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class GetContactChannelRequestTypeDef(BaseValidatorModel):
     ContactChannelId: str
 
-class GetContactPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetContactPolicyRequestTypeDef(BaseValidatorModel):
     ContactArn: str
 
-class GetContactRequestRequestTypeDef(BaseValidatorModel):
+
+class GetContactRequestTypeDef(BaseValidatorModel):
     ContactId: str
 
-class GetRotationOverrideRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRotationOverrideRequestTypeDef(BaseValidatorModel):
     RotationId: str
     RotationOverrideId: str
 
-class GetRotationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRotationRequestTypeDef(BaseValidatorModel):
     RotationId: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListContactChannelsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListContactChannelsRequestTypeDef(BaseValidatorModel):
     ContactId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListContactsRequestRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
-    MaxResults: Optional[int] = None
-    AliasPrefix: Optional[str] = None
-    Type: Optional[ContactTypeType] = None
 
-class ListPageReceiptsRequestRequestTypeDef(BaseValidatorModel):
+class ListPageReceiptsRequestTypeDef(BaseValidatorModel):
     PageId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class ReceiptTypeDef(BaseValidatorModel):
     ReceiptType: ReceiptTypeType
@@ -128,19 +141,17 @@ class ReceiptTypeDef(BaseValidatorModel):
     ContactChannelArn: Optional[str] = None
     ReceiptInfo: Optional[str] = None
 
-class ListPageResolutionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListPageResolutionsRequestTypeDef(BaseValidatorModel):
     PageId: str
     NextToken: Optional[str] = None
 
-class ResolutionContactTypeDef(BaseValidatorModel):
-    ContactArn: str
-    Type: ContactTypeType
-    StageIndex: Optional[int] = None
 
-class ListPagesByContactRequestRequestTypeDef(BaseValidatorModel):
+class ListPagesByContactRequestTypeDef(BaseValidatorModel):
     ContactId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class PageTypeDef(BaseValidatorModel):
     PageArn: str
@@ -152,10 +163,12 @@ class PageTypeDef(BaseValidatorModel):
     DeliveryTime: Optional[datetime] = None
     ReadTime: Optional[datetime] = None
 
-class ListPagesByEngagementRequestRequestTypeDef(BaseValidatorModel):
+
+class ListPagesByEngagementRequestTypeDef(BaseValidatorModel):
     EngagementId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class RotationOverrideTypeDef(BaseValidatorModel):
     RotationOverrideId: str
@@ -164,25 +177,31 @@ class RotationOverrideTypeDef(BaseValidatorModel):
     EndTime: datetime
     CreateTime: datetime
 
-class ListRotationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRotationsRequestTypeDef(BaseValidatorModel):
     RotationNamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class PutContactPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutContactPolicyRequestTypeDef(BaseValidatorModel):
     ContactArn: str
     Policy: str
+
 
 class ShiftDetailsTypeDef(BaseValidatorModel):
     OverriddenContactIds: List[str]
 
-class SendActivationCodeRequestRequestTypeDef(BaseValidatorModel):
+
+class SendActivationCodeRequestTypeDef(BaseValidatorModel):
     ContactChannelId: str
 
-class StartEngagementRequestRequestTypeDef(BaseValidatorModel):
+
+class StartEngagementRequestTypeDef(BaseValidatorModel):
     ContactId: str
     Sender: str
     Subject: str
@@ -192,66 +211,62 @@ class StartEngagementRequestRequestTypeDef(BaseValidatorModel):
     IncidentId: Optional[str] = None
     IdempotencyToken: Optional[str] = None
 
-class StopEngagementRequestRequestTypeDef(BaseValidatorModel):
+
+class StopEngagementRequestTypeDef(BaseValidatorModel):
     EngagementId: str
     Reason: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class ContactChannelTypeDef(BaseValidatorModel):
-    ContactChannelArn: str
-    ContactArn: str
-    Name: str
-    DeliveryAddress: ContactChannelAddressTypeDef
-    ActivationStatus: ActivationStatusType
-    Type: Optional[ChannelTypeType] = None
 
-class CreateContactChannelRequestRequestTypeDef(BaseValidatorModel):
-    ContactId: str
-    Name: str
-    Type: ChannelTypeType
-    DeliveryAddress: ContactChannelAddressTypeDef
-    DeferActivation: Optional[bool] = None
-    IdempotencyToken: Optional[str] = None
-
-class UpdateContactChannelRequestRequestTypeDef(BaseValidatorModel):
+class UpdateContactChannelRequestTypeDef(BaseValidatorModel):
     ContactChannelId: str
     Name: Optional[str] = None
     DeliveryAddress: Optional[ContactChannelAddressTypeDef] = None
+
 
 class TargetTypeDef(BaseValidatorModel):
     ChannelTargetInfo: Optional[ChannelTargetInfoTypeDef] = None
     ContactTargetInfo: Optional[ContactTargetInfoTypeDef] = None
 
+
 class CoverageTimeTypeDef(BaseValidatorModel):
     Start: Optional[HandOffTimeTypeDef] = None
     End: Optional[HandOffTimeTypeDef] = None
+
 
 class MonthlySettingTypeDef(BaseValidatorModel):
     DayOfMonth: int
     HandOffTime: HandOffTimeTypeDef
 
+
 class WeeklySettingTypeDef(BaseValidatorModel):
     DayOfWeek: DayOfWeekType
     HandOffTime: HandOffTimeTypeDef
+
 
 class CreateContactChannelResultTypeDef(BaseValidatorModel):
     ContactChannelArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateContactResultTypeDef(BaseValidatorModel):
     ContactArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateRotationOverrideResultTypeDef(BaseValidatorModel):
     RotationOverrideId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateRotationResultTypeDef(BaseValidatorModel):
     RotationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeEngagementResultTypeDef(BaseValidatorModel):
     ContactArn: str
@@ -265,6 +280,7 @@ class DescribeEngagementResultTypeDef(BaseValidatorModel):
     StartTime: datetime
     StopTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribePageResultTypeDef(BaseValidatorModel):
     PageArn: str
@@ -281,19 +297,12 @@ class DescribePageResultTypeDef(BaseValidatorModel):
     DeliveryTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetContactChannelResultTypeDef(BaseValidatorModel):
-    ContactArn: str
-    ContactChannelArn: str
-    Name: str
-    Type: ChannelTypeType
-    DeliveryAddress: ContactChannelAddressTypeDef
-    ActivationStatus: ActivationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class GetContactPolicyResultTypeDef(BaseValidatorModel):
     ContactArn: str
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetRotationOverrideResultTypeDef(BaseValidatorModel):
     RotationOverrideId: str
@@ -304,139 +313,183 @@ class GetRotationOverrideResultTypeDef(BaseValidatorModel):
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class ContactTypeDef(BaseValidatorModel):
+    pass
+
+
 class ListContactsResultTypeDef(BaseValidatorModel):
-    NextToken: str
     Contacts: List[ContactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class StartEngagementResultTypeDef(BaseValidatorModel):
     EngagementArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceResultTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
 
-class CreateRotationOverrideRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateRotationOverrideRequestTypeDef(BaseValidatorModel):
     RotationId: str
     NewContactIds: Sequence[str]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     IdempotencyToken: Optional[str] = None
 
-class ListRotationOverridesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRotationOverridesRequestTypeDef(BaseValidatorModel):
     RotationId: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListRotationShiftsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRotationShiftsRequestTypeDef(BaseValidatorModel):
     RotationId: str
     EndTime: TimestampTypeDef
     StartTime: Optional[TimestampTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class PreviewOverrideTypeDef(BaseValidatorModel):
     NewMembers: Optional[Sequence[str]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
 
+
 class TimeRangeTypeDef(BaseValidatorModel):
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
 
+
 class ListEngagementsResultTypeDef(BaseValidatorModel):
-    NextToken: str
     Engagements: List[EngagementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class ListContactChannelsRequestListContactChannelsPaginateTypeDef(BaseValidatorModel):
+
+class ListContactChannelsRequestPaginateTypeDef(BaseValidatorModel):
     ContactId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListContactsRequestListContactsPaginateTypeDef(BaseValidatorModel):
-    AliasPrefix: Optional[str] = None
-    Type: Optional[ContactTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPageReceiptsRequestListPageReceiptsPaginateTypeDef(BaseValidatorModel):
+class ListPageReceiptsRequestPaginateTypeDef(BaseValidatorModel):
     PageId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPageResolutionsRequestListPageResolutionsPaginateTypeDef(BaseValidatorModel):
+
+class ListPageResolutionsRequestPaginateTypeDef(BaseValidatorModel):
     PageId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPagesByContactRequestListPagesByContactPaginateTypeDef(BaseValidatorModel):
+
+class ListPagesByContactRequestPaginateTypeDef(BaseValidatorModel):
     ContactId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPagesByEngagementRequestListPagesByEngagementPaginateTypeDef(BaseValidatorModel):
+
+class ListPagesByEngagementRequestPaginateTypeDef(BaseValidatorModel):
     EngagementId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRotationOverridesRequestListRotationOverridesPaginateTypeDef(BaseValidatorModel):
+
+class ListRotationOverridesRequestPaginateTypeDef(BaseValidatorModel):
     RotationId: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRotationShiftsRequestListRotationShiftsPaginateTypeDef(BaseValidatorModel):
+
+class ListRotationShiftsRequestPaginateTypeDef(BaseValidatorModel):
     RotationId: str
     EndTime: TimestampTypeDef
     StartTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRotationsRequestListRotationsPaginateTypeDef(BaseValidatorModel):
+
+class ListRotationsRequestPaginateTypeDef(BaseValidatorModel):
     RotationNamePrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
 class ListPageReceiptsResultTypeDef(BaseValidatorModel):
-    NextToken: str
     Receipts: List[ReceiptTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class ResolutionContactTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListPageResolutionsResultTypeDef(BaseValidatorModel):
-    NextToken: str
     PageResolutions: List[ResolutionContactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListPagesByContactResultTypeDef(BaseValidatorModel):
-    NextToken: str
     Pages: List[PageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListPagesByEngagementResultTypeDef(BaseValidatorModel):
-    NextToken: str
     Pages: List[PageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListRotationOverridesResultTypeDef(BaseValidatorModel):
     RotationOverrides: List[RotationOverrideTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class RotationShiftTypeDef(BaseValidatorModel):
-    StartTime: datetime
-    EndTime: datetime
-    ContactIds: Optional[List[str]] = None
-    Type: Optional[ShiftTypeType] = None
-    ShiftDetails: Optional[ShiftDetailsTypeDef] = None
+
+class ContactChannelTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListContactChannelsResultTypeDef(BaseValidatorModel):
-    NextToken: str
     ContactChannels: List[ContactChannelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class StageOutputTypeDef(BaseValidatorModel):
+    DurationInMinutes: int
+    Targets: List[TargetTypeDef]
+
 
 class StageTypeDef(BaseValidatorModel):
     DurationInMinutes: int
     Targets: Sequence[TargetTypeDef]
+
+
+class RecurrenceSettingsOutputTypeDef(BaseValidatorModel):
+    NumberOfOnCalls: int
+    RecurrenceMultiplier: int
+    MonthlySettings: Optional[List[MonthlySettingTypeDef]] = None
+    WeeklySettings: Optional[List[WeeklySettingTypeDef]] = None
+    DailySettings: Optional[List[HandOffTimeTypeDef]] = None
+    ShiftCoverages: Optional[Dict[DayOfWeekType, List[CoverageTimeTypeDef]]] = None
+
 
 class RecurrenceSettingsTypeDef(BaseValidatorModel):
     NumberOfOnCalls: int
@@ -446,39 +499,45 @@ class RecurrenceSettingsTypeDef(BaseValidatorModel):
     DailySettings: Optional[Sequence[HandOffTimeTypeDef]] = None
     ShiftCoverages: Optional[Mapping[DayOfWeekType, Sequence[CoverageTimeTypeDef]]] = None
 
-class ListEngagementsRequestListEngagementsPaginateTypeDef(BaseValidatorModel):
+
+class ListEngagementsRequestPaginateTypeDef(BaseValidatorModel):
     IncidentId: Optional[str] = None
     TimeRangeValue: Optional[TimeRangeTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEngagementsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListEngagementsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     IncidentId: Optional[str] = None
     TimeRangeValue: Optional[TimeRangeTypeDef] = None
 
+
+class RotationShiftTypeDef(BaseValidatorModel):
+    pass
+
+
 class ListPreviewRotationShiftsResultTypeDef(BaseValidatorModel):
     RotationShifts: List[RotationShiftTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListRotationShiftsResultTypeDef(BaseValidatorModel):
     RotationShifts: List[RotationShiftTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class PlanOutputTypeDef(BaseValidatorModel):
+    Stages: Optional[List[StageOutputTypeDef]] = None
+    RotationIds: Optional[List[str]] = None
+
 
 class PlanTypeDef(BaseValidatorModel):
     Stages: Optional[Sequence[StageTypeDef]] = None
     RotationIds: Optional[Sequence[str]] = None
 
-class CreateRotationRequestRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ContactIds: Sequence[str]
-    TimeZoneId: str
-    Recurrence: RecurrenceSettingsTypeDef
-    StartTime: Optional[TimestampTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    IdempotencyToken: Optional[str] = None
 
 class GetRotationResultTypeDef(BaseValidatorModel):
     RotationArn: str
@@ -486,29 +545,9 @@ class GetRotationResultTypeDef(BaseValidatorModel):
     ContactIds: List[str]
     StartTime: datetime
     TimeZoneId: str
-    Recurrence: RecurrenceSettingsTypeDef
+    Recurrence: RecurrenceSettingsOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPreviewRotationShiftsRequestListPreviewRotationShiftsPaginateTypeDef(BaseValidatorModel):
-    EndTime: TimestampTypeDef
-    Members: Sequence[str]
-    TimeZoneId: str
-    Recurrence: RecurrenceSettingsTypeDef
-    RotationStartTime: Optional[TimestampTypeDef] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    Overrides: Optional[Sequence[PreviewOverrideTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class ListPreviewRotationShiftsRequestRequestTypeDef(BaseValidatorModel):
-    EndTime: TimestampTypeDef
-    Members: Sequence[str]
-    TimeZoneId: str
-    Recurrence: RecurrenceSettingsTypeDef
-    RotationStartTime: Optional[TimestampTypeDef] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    Overrides: Optional[Sequence[PreviewOverrideTypeDef]] = None
-    NextToken: Optional[str] = None
-    MaxResults: Optional[int] = None
 
 class RotationTypeDef(BaseValidatorModel):
     RotationArn: str
@@ -516,38 +555,67 @@ class RotationTypeDef(BaseValidatorModel):
     ContactIds: Optional[List[str]] = None
     StartTime: Optional[datetime] = None
     TimeZoneId: Optional[str] = None
-    Recurrence: Optional[RecurrenceSettingsTypeDef] = None
+    Recurrence: Optional[RecurrenceSettingsOutputTypeDef] = None
 
-class UpdateRotationRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRotationsResultTypeDef(BaseValidatorModel):
+    Rotations: List[RotationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class RecurrenceSettingsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateRotationRequestTypeDef(BaseValidatorModel):
+    Name: str
+    ContactIds: Sequence[str]
+    TimeZoneId: str
+    Recurrence: RecurrenceSettingsUnionTypeDef
+    StartTime: Optional[TimestampTypeDef] = None
+    Tags: Optional[Sequence[TagTypeDef]] = None
+    IdempotencyToken: Optional[str] = None
+
+
+class ListPreviewRotationShiftsRequestPaginateTypeDef(BaseValidatorModel):
+    EndTime: TimestampTypeDef
+    Members: Sequence[str]
+    TimeZoneId: str
+    Recurrence: RecurrenceSettingsUnionTypeDef
+    RotationStartTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[TimestampTypeDef] = None
+    Overrides: Optional[Sequence[PreviewOverrideTypeDef]] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListPreviewRotationShiftsRequestTypeDef(BaseValidatorModel):
+    EndTime: TimestampTypeDef
+    Members: Sequence[str]
+    TimeZoneId: str
+    Recurrence: RecurrenceSettingsUnionTypeDef
+    RotationStartTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[TimestampTypeDef] = None
+    Overrides: Optional[Sequence[PreviewOverrideTypeDef]] = None
+    NextToken: Optional[str] = None
+    MaxResults: Optional[int] = None
+
+
+class UpdateRotationRequestTypeDef(BaseValidatorModel):
     RotationId: str
-    Recurrence: RecurrenceSettingsTypeDef
+    Recurrence: RecurrenceSettingsUnionTypeDef
     ContactIds: Optional[Sequence[str]] = None
     StartTime: Optional[TimestampTypeDef] = None
     TimeZoneId: Optional[str] = None
 
-class CreateContactRequestRequestTypeDef(BaseValidatorModel):
-    Alias: str
-    Type: ContactTypeType
-    Plan: PlanTypeDef
-    DisplayName: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    IdempotencyToken: Optional[str] = None
 
-class GetContactResultTypeDef(BaseValidatorModel):
-    ContactArn: str
-    Alias: str
-    DisplayName: str
-    Type: ContactTypeType
-    Plan: PlanTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PlanUnionTypeDef(BaseValidatorModel):
+    pass
 
-class UpdateContactRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateContactRequestTypeDef(BaseValidatorModel):
     ContactId: str
     DisplayName: Optional[str] = None
-    Plan: Optional[PlanTypeDef] = None
+    Plan: Optional[PlanUnionTypeDef] = None
 
-class ListRotationsResultTypeDef(BaseValidatorModel):
-    NextToken: str
-    Rotations: List[RotationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 

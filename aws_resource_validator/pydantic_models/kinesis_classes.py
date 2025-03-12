@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,14 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kinesis_constants import *
 
-class AddTagsToStreamInputRequestTypeDef(BaseValidatorModel):
+class AddTagsToStreamInputTypeDef(BaseValidatorModel):
     Tags: Mapping[str, str]
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
+
 class HashKeyRangeTypeDef(BaseValidatorModel):
     StartingHashKey: str
     EndingHashKey: str
+
 
 class ConsumerDescriptionTypeDef(BaseValidatorModel):
     ConsumerName: str
@@ -27,81 +30,98 @@ class ConsumerDescriptionTypeDef(BaseValidatorModel):
     ConsumerCreationTimestamp: datetime
     StreamARN: str
 
+
 class ConsumerTypeDef(BaseValidatorModel):
     ConsumerName: str
     ConsumerARN: str
     ConsumerStatus: ConsumerStatusType
     ConsumerCreationTimestamp: datetime
 
+
 class StreamModeDetailsTypeDef(BaseValidatorModel):
     StreamMode: StreamModeType
 
-class DecreaseStreamRetentionPeriodInputRequestTypeDef(BaseValidatorModel):
+
+class DecreaseStreamRetentionPeriodInputTypeDef(BaseValidatorModel):
     RetentionPeriodHours: int
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class DeleteResourcePolicyInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteResourcePolicyInputTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class DeleteStreamInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteStreamInputTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     EnforceConsumerDeletion: Optional[bool] = None
     StreamARN: Optional[str] = None
 
-class DeregisterStreamConsumerInputRequestTypeDef(BaseValidatorModel):
+
+class DeregisterStreamConsumerInputTypeDef(BaseValidatorModel):
     StreamARN: Optional[str] = None
     ConsumerName: Optional[str] = None
     ConsumerARN: Optional[str] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class DescribeStreamConsumerInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeStreamConsumerInputTypeDef(BaseValidatorModel):
     StreamARN: Optional[str] = None
     ConsumerName: Optional[str] = None
     ConsumerARN: Optional[str] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeStreamInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeStreamInputTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     Limit: Optional[int] = None
     ExclusiveStartShardId: Optional[str] = None
     StreamARN: Optional[str] = None
 
+
 class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeStreamSummaryInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeStreamSummaryInputTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class DisableEnhancedMonitoringInputRequestTypeDef(BaseValidatorModel):
+
+class DisableEnhancedMonitoringInputTypeDef(BaseValidatorModel):
     ShardLevelMetrics: Sequence[MetricsNameType]
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class EnableEnhancedMonitoringInputRequestTypeDef(BaseValidatorModel):
+
+class EnableEnhancedMonitoringInputTypeDef(BaseValidatorModel):
     ShardLevelMetrics: Sequence[MetricsNameType]
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
+
 
 class EnhancedMetricsTypeDef(BaseValidatorModel):
     ShardLevelMetrics: Optional[List[MetricsNameType]] = None
 
-class GetRecordsInputRequestTypeDef(BaseValidatorModel):
+
+class GetRecordsInputTypeDef(BaseValidatorModel):
     ShardIterator: str
     Limit: Optional[int] = None
     StreamARN: Optional[str] = None
+
 
 class RecordTypeDef(BaseValidatorModel):
     SequenceNumber: str
@@ -110,55 +130,69 @@ class RecordTypeDef(BaseValidatorModel):
     ApproximateArrivalTimestamp: Optional[datetime] = None
     EncryptionType: Optional[EncryptionTypeType] = None
 
-class GetResourcePolicyInputRequestTypeDef(BaseValidatorModel):
+
+class GetResourcePolicyInputTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class IncreaseStreamRetentionPeriodInputRequestTypeDef(BaseValidatorModel):
+
+class IncreaseStreamRetentionPeriodInputTypeDef(BaseValidatorModel):
     RetentionPeriodHours: int
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
+
 class InternalFailureExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
+
 
 class KMSAccessDeniedExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
+
 class KMSDisabledExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
+
 
 class KMSInvalidStateExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
+
 class KMSNotFoundExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
+
 
 class KMSOptInRequiredTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
+
 class KMSThrottlingExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
-class ListStreamsInputRequestTypeDef(BaseValidatorModel):
+
+class ListStreamsInputTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
     ExclusiveStartStreamName: Optional[str] = None
     NextToken: Optional[str] = None
 
-class ListTagsForStreamInputRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForStreamInputTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     ExclusiveStartTagKey: Optional[str] = None
     Limit: Optional[int] = None
     StreamARN: Optional[str] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
-class MergeShardsInputRequestTypeDef(BaseValidatorModel):
+
+class MergeShardsInputTypeDef(BaseValidatorModel):
     ShardToMerge: str
     AdjacentShardToMerge: str
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
+
 
 class PutRecordsResultEntryTypeDef(BaseValidatorModel):
     SequenceNumber: Optional[str] = None
@@ -166,54 +200,69 @@ class PutRecordsResultEntryTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class PutResourcePolicyInputRequestTypeDef(BaseValidatorModel):
+
+class PutResourcePolicyInputTypeDef(BaseValidatorModel):
     ResourceARN: str
     Policy: str
 
-class RegisterStreamConsumerInputRequestTypeDef(BaseValidatorModel):
+
+class RegisterStreamConsumerInputTypeDef(BaseValidatorModel):
     StreamARN: str
     ConsumerName: str
 
-class RemoveTagsFromStreamInputRequestTypeDef(BaseValidatorModel):
+
+class RemoveTagsFromStreamInputTypeDef(BaseValidatorModel):
     TagKeys: Sequence[str]
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
+
 class ResourceInUseExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
+
 class ResourceNotFoundExceptionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
+
 
 class SequenceNumberRangeTypeDef(BaseValidatorModel):
     StartingSequenceNumber: str
     EndingSequenceNumber: Optional[str] = None
 
-class SplitShardInputRequestTypeDef(BaseValidatorModel):
+
+class SplitShardInputTypeDef(BaseValidatorModel):
     ShardToSplit: str
     NewStartingHashKey: str
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class StartStreamEncryptionInputRequestTypeDef(BaseValidatorModel):
+
+class StartStreamEncryptionInputTypeDef(BaseValidatorModel):
     EncryptionType: EncryptionTypeType
     KeyId: str
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class StopStreamEncryptionInputRequestTypeDef(BaseValidatorModel):
+
+class StopStreamEncryptionInputTypeDef(BaseValidatorModel):
     EncryptionType: EncryptionTypeType
     KeyId: str
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class UpdateShardCountInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateShardCountInputTypeDef(BaseValidatorModel):
     TargetShardCount: int
     ScalingType: Literal["UNIFORM_SCALING"]
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
-class PutRecordInputRequestTypeDef(BaseValidatorModel):
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
+
+class PutRecordInputTypeDef(BaseValidatorModel):
     Data: BlobTypeDef
     PartitionKey: str
     StreamName: Optional[str] = None
@@ -221,20 +270,25 @@ class PutRecordInputRequestTypeDef(BaseValidatorModel):
     SequenceNumberForOrdering: Optional[str] = None
     StreamARN: Optional[str] = None
 
+
 class PutRecordsRequestEntryTypeDef(BaseValidatorModel):
     Data: BlobTypeDef
     PartitionKey: str
     ExplicitHashKey: Optional[str] = None
+
 
 class ChildShardTypeDef(BaseValidatorModel):
     ShardId: str
     ParentShards: List[str]
     HashKeyRange: HashKeyRangeTypeDef
 
-class CreateStreamInputRequestTypeDef(BaseValidatorModel):
+
+class CreateStreamInputTypeDef(BaseValidatorModel):
     StreamName: str
     ShardCount: Optional[int] = None
     StreamModeDetails: Optional[StreamModeDetailsTypeDef] = None
+    Tags: Optional[Mapping[str, str]] = None
+
 
 class StreamSummaryTypeDef(BaseValidatorModel):
     StreamName: str
@@ -243,9 +297,11 @@ class StreamSummaryTypeDef(BaseValidatorModel):
     StreamModeDetails: Optional[StreamModeDetailsTypeDef] = None
     StreamCreationTimestamp: Optional[datetime] = None
 
-class UpdateStreamModeInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateStreamModeInputTypeDef(BaseValidatorModel):
     StreamARN: str
     StreamModeDetails: StreamModeDetailsTypeDef
+
 
 class DescribeLimitsOutputTypeDef(BaseValidatorModel):
     ShardLimit: int
@@ -254,12 +310,15 @@ class DescribeLimitsOutputTypeDef(BaseValidatorModel):
     OnDemandStreamCountLimit: int
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeStreamConsumerOutputTypeDef(BaseValidatorModel):
     ConsumerDescription: ConsumerDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class EnhancedMonitoringOutputTypeDef(BaseValidatorModel):
     StreamName: str
@@ -268,18 +327,22 @@ class EnhancedMonitoringOutputTypeDef(BaseValidatorModel):
     StreamARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetResourcePolicyOutputTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetShardIteratorOutputTypeDef(BaseValidatorModel):
     ShardIterator: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListStreamConsumersOutputTypeDef(BaseValidatorModel):
     Consumers: List[ConsumerTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class PutRecordOutputTypeDef(BaseValidatorModel):
     ShardId: str
@@ -287,9 +350,11 @@ class PutRecordOutputTypeDef(BaseValidatorModel):
     EncryptionType: EncryptionTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class RegisterStreamConsumerOutputTypeDef(BaseValidatorModel):
     Consumer: ConsumerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateShardCountOutputTypeDef(BaseValidatorModel):
     StreamName: str
@@ -298,28 +363,33 @@ class UpdateShardCountOutputTypeDef(BaseValidatorModel):
     StreamARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeStreamInputDescribeStreamPaginateTypeDef(BaseValidatorModel):
+
+class DescribeStreamInputPaginateTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStreamsInputListStreamsPaginateTypeDef(BaseValidatorModel):
+
+class ListStreamsInputPaginateTypeDef(BaseValidatorModel):
     ExclusiveStartStreamName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeStreamInputStreamExistsWaitTypeDef(BaseValidatorModel):
+
+class DescribeStreamInputWaitExtraTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     Limit: Optional[int] = None
     ExclusiveStartShardId: Optional[str] = None
     StreamARN: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeStreamInputStreamNotExistsWaitTypeDef(BaseValidatorModel):
+
+class DescribeStreamInputWaitTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     Limit: Optional[int] = None
     ExclusiveStartShardId: Optional[str] = None
     StreamARN: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
 
 class StreamDescriptionSummaryTypeDef(BaseValidatorModel):
     StreamName: str
@@ -334,7 +404,12 @@ class StreamDescriptionSummaryTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
     ConsumerCount: Optional[int] = None
 
-class GetShardIteratorInputRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class GetShardIteratorInputTypeDef(BaseValidatorModel):
     ShardId: str
     ShardIteratorType: ShardIteratorTypeType
     StreamName: Optional[str] = None
@@ -342,37 +417,32 @@ class GetShardIteratorInputRequestTypeDef(BaseValidatorModel):
     Timestamp: Optional[TimestampTypeDef] = None
     StreamARN: Optional[str] = None
 
-class ListStreamConsumersInputListStreamConsumersPaginateTypeDef(BaseValidatorModel):
+
+class ListStreamConsumersInputPaginateTypeDef(BaseValidatorModel):
     StreamARN: str
     StreamCreationTimestamp: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStreamConsumersInputRequestTypeDef(BaseValidatorModel):
+
+class ListStreamConsumersInputTypeDef(BaseValidatorModel):
     StreamARN: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     StreamCreationTimestamp: Optional[TimestampTypeDef] = None
 
-class ShardFilterTypeDef(BaseValidatorModel):
-    Type: ShardFilterTypeType
-    ShardId: Optional[str] = None
-    Timestamp: Optional[TimestampTypeDef] = None
-
-class StartingPositionTypeDef(BaseValidatorModel):
-    Type: ShardIteratorTypeType
-    SequenceNumber: Optional[str] = None
-    Timestamp: Optional[TimestampTypeDef] = None
 
 class ListTagsForStreamOutputTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     HasMoreTags: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutRecordsOutputTypeDef(BaseValidatorModel):
     FailedRecordCount: int
     Records: List[PutRecordsResultEntryTypeDef]
     EncryptionType: EncryptionTypeType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ShardTypeDef(BaseValidatorModel):
     ShardId: str
@@ -381,10 +451,12 @@ class ShardTypeDef(BaseValidatorModel):
     ParentShardId: Optional[str] = None
     AdjacentParentShardId: Optional[str] = None
 
-class PutRecordsInputRequestTypeDef(BaseValidatorModel):
+
+class PutRecordsInputTypeDef(BaseValidatorModel):
     Records: Sequence[PutRecordsRequestEntryTypeDef]
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
+
 
 class GetRecordsOutputTypeDef(BaseValidatorModel):
     Records: List[RecordTypeDef]
@@ -393,24 +465,32 @@ class GetRecordsOutputTypeDef(BaseValidatorModel):
     ChildShards: List[ChildShardTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SubscribeToShardEventTypeDef(BaseValidatorModel):
     Records: List[RecordTypeDef]
     ContinuationSequenceNumber: str
     MillisBehindLatest: int
     ChildShards: Optional[List[ChildShardTypeDef]] = None
 
+
 class ListStreamsOutputTypeDef(BaseValidatorModel):
     StreamNames: List[str]
     HasMoreStreams: bool
-    NextToken: str
     StreamSummaries: List[StreamSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class DescribeStreamSummaryOutputTypeDef(BaseValidatorModel):
     StreamDescriptionSummary: StreamDescriptionSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListShardsInputListShardsPaginateTypeDef(BaseValidatorModel):
+
+class ShardFilterTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListShardsInputPaginateTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     ExclusiveStartShardId: Optional[str] = None
     StreamCreationTimestamp: Optional[TimestampTypeDef] = None
@@ -418,7 +498,8 @@ class ListShardsInputListShardsPaginateTypeDef(BaseValidatorModel):
     StreamARN: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListShardsInputRequestTypeDef(BaseValidatorModel):
+
+class ListShardsInputTypeDef(BaseValidatorModel):
     StreamName: Optional[str] = None
     NextToken: Optional[str] = None
     ExclusiveStartShardId: Optional[str] = None
@@ -427,15 +508,22 @@ class ListShardsInputRequestTypeDef(BaseValidatorModel):
     ShardFilter: Optional[ShardFilterTypeDef] = None
     StreamARN: Optional[str] = None
 
-class SubscribeToShardInputRequestTypeDef(BaseValidatorModel):
+
+class StartingPositionTypeDef(BaseValidatorModel):
+    pass
+
+
+class SubscribeToShardInputTypeDef(BaseValidatorModel):
     ConsumerARN: str
     ShardId: str
     StartingPosition: StartingPositionTypeDef
 
+
 class ListShardsOutputTypeDef(BaseValidatorModel):
     Shards: List[ShardTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class StreamDescriptionTypeDef(BaseValidatorModel):
     StreamName: str
@@ -450,6 +538,7 @@ class StreamDescriptionTypeDef(BaseValidatorModel):
     EncryptionType: Optional[EncryptionTypeType] = None
     KeyId: Optional[str] = None
 
+
 class SubscribeToShardEventStreamTypeDef(BaseValidatorModel):
     SubscribeToShardEvent: SubscribeToShardEventTypeDef
     ResourceNotFoundException: Optional[ResourceNotFoundExceptionTypeDef] = None
@@ -462,11 +551,14 @@ class SubscribeToShardEventStreamTypeDef(BaseValidatorModel):
     KMSThrottlingException: Optional[KMSThrottlingExceptionTypeDef] = None
     InternalFailureException: Optional[InternalFailureExceptionTypeDef] = None
 
+
 class DescribeStreamOutputTypeDef(BaseValidatorModel):
     StreamDescription: StreamDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SubscribeToShardOutputTypeDef(BaseValidatorModel):
-    EventStream: "EventStream[SubscribeToShardEventStreamTypeDef]"
+    EventStream: EventStream[SubscribeToShardEventStreamTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 

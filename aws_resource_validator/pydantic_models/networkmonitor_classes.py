@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -19,12 +20,14 @@ class CreateMonitorProbeInputTypeDef(BaseValidatorModel):
     packetSize: Optional[int] = None
     probeTags: Optional[Mapping[str, str]] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
+
 
 class ProbeInputTypeDef(BaseValidatorModel):
     sourceArn: str
@@ -34,15 +37,19 @@ class ProbeInputTypeDef(BaseValidatorModel):
     packetSize: Optional[int] = None
     tags: Optional[Mapping[str, str]] = None
 
-class DeleteMonitorInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteMonitorInputTypeDef(BaseValidatorModel):
     monitorName: str
 
-class DeleteProbeInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteProbeInputTypeDef(BaseValidatorModel):
     monitorName: str
     probeId: str
 
-class GetMonitorInputRequestTypeDef(BaseValidatorModel):
+
+class GetMonitorInputTypeDef(BaseValidatorModel):
     monitorName: str
+
 
 class ProbeTypeDef(BaseValidatorModel):
     sourceArn: str
@@ -59,19 +66,23 @@ class ProbeTypeDef(BaseValidatorModel):
     modifiedAt: Optional[datetime] = None
     tags: Optional[Dict[str, str]] = None
 
-class GetProbeInputRequestTypeDef(BaseValidatorModel):
+
+class GetProbeInputTypeDef(BaseValidatorModel):
     monitorName: str
     probeId: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListMonitorsInputRequestTypeDef(BaseValidatorModel):
+
+class ListMonitorsInputTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     state: Optional[str] = None
+
 
 class MonitorSummaryTypeDef(BaseValidatorModel):
     monitorArn: str
@@ -80,22 +91,27 @@ class MonitorSummaryTypeDef(BaseValidatorModel):
     aggregationPeriod: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class TagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class TagResourceInputTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceInputTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateMonitorInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateMonitorInputTypeDef(BaseValidatorModel):
     monitorName: str
     aggregationPeriod: int
 
-class UpdateProbeInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateProbeInputTypeDef(BaseValidatorModel):
     monitorName: str
     probeId: str
     state: Optional[ProbeStateType] = None
@@ -104,12 +120,14 @@ class UpdateProbeInputRequestTypeDef(BaseValidatorModel):
     protocol: Optional[ProtocolType] = None
     packetSize: Optional[int] = None
 
-class CreateMonitorInputRequestTypeDef(BaseValidatorModel):
+
+class CreateMonitorInputTypeDef(BaseValidatorModel):
     monitorName: str
     probes: Optional[Sequence[CreateMonitorProbeInputTypeDef]] = None
     aggregationPeriod: Optional[int] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
+
 
 class CreateMonitorOutputTypeDef(BaseValidatorModel):
     monitorArn: str
@@ -118,6 +136,7 @@ class CreateMonitorOutputTypeDef(BaseValidatorModel):
     aggregationPeriod: int
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateProbeOutputTypeDef(BaseValidatorModel):
     probeId: str
@@ -135,6 +154,7 @@ class CreateProbeOutputTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetProbeOutputTypeDef(BaseValidatorModel):
     probeId: str
     probeArn: str
@@ -151,9 +171,11 @@ class GetProbeOutputTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateMonitorOutputTypeDef(BaseValidatorModel):
     monitorArn: str
@@ -162,6 +184,7 @@ class UpdateMonitorOutputTypeDef(BaseValidatorModel):
     aggregationPeriod: int
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateProbeOutputTypeDef(BaseValidatorModel):
     probeId: str
@@ -179,11 +202,13 @@ class UpdateProbeOutputTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProbeInputRequestTypeDef(BaseValidatorModel):
+
+class CreateProbeInputTypeDef(BaseValidatorModel):
     monitorName: str
     probe: ProbeInputTypeDef
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
+
 
 class GetMonitorOutputTypeDef(BaseValidatorModel):
     monitorArn: str
@@ -196,12 +221,15 @@ class GetMonitorOutputTypeDef(BaseValidatorModel):
     modifiedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListMonitorsInputListMonitorsPaginateTypeDef(BaseValidatorModel):
+
+class ListMonitorsInputPaginateTypeDef(BaseValidatorModel):
     state: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
 class ListMonitorsOutputTypeDef(BaseValidatorModel):
     monitors: List[MonitorSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 

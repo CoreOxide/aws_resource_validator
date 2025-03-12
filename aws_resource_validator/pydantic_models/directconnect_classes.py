@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -14,6 +15,7 @@ from aws_resource_validator.pydantic_models.directconnect_constants import *
 class RouteFilterPrefixTypeDef(BaseValidatorModel):
     cidr: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
@@ -21,30 +23,36 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AllocateConnectionOnInterconnectRequestRequestTypeDef(BaseValidatorModel):
+
+class AllocateConnectionOnInterconnectRequestTypeDef(BaseValidatorModel):
     bandwidth: str
     connectionName: str
     ownerAccount: str
     interconnectId: str
     vlan: int
 
+
 class TagTypeDef(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
-class AssociateConnectionWithLagRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateConnectionWithLagRequestTypeDef(BaseValidatorModel):
     connectionId: str
     lagId: str
 
-class AssociateHostedConnectionRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateHostedConnectionRequestTypeDef(BaseValidatorModel):
     connectionId: str
     parentConnectionId: str
 
-class AssociateMacSecKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateMacSecKeyRequestTypeDef(BaseValidatorModel):
     connectionId: str
     secretARN: Optional[str] = None
     ckn: Optional[str] = None
     cak: Optional[str] = None
+
 
 class MacSecKeyTypeDef(BaseValidatorModel):
     secretARN: Optional[str] = None
@@ -52,15 +60,11 @@ class MacSecKeyTypeDef(BaseValidatorModel):
     state: Optional[str] = None
     startOn: Optional[str] = None
 
-class AssociateVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: str
     connectionId: str
 
-class AssociatedGatewayTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    type: Optional[GatewayTypeType] = None
-    ownerAccount: Optional[str] = None
-    region: Optional[str] = None
 
 class BGPPeerTypeDef(BaseValidatorModel):
     bgpPeerId: Optional[str] = None
@@ -74,23 +78,29 @@ class BGPPeerTypeDef(BaseValidatorModel):
     awsDeviceV2: Optional[str] = None
     awsLogicalDeviceId: Optional[str] = None
 
-class ConfirmConnectionRequestRequestTypeDef(BaseValidatorModel):
+
+class ConfirmConnectionRequestTypeDef(BaseValidatorModel):
     connectionId: str
 
-class ConfirmCustomerAgreementRequestRequestTypeDef(BaseValidatorModel):
+
+class ConfirmCustomerAgreementRequestTypeDef(BaseValidatorModel):
     agreementName: Optional[str] = None
 
-class ConfirmPrivateVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class ConfirmPrivateVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: str
     virtualGatewayId: Optional[str] = None
     directConnectGatewayId: Optional[str] = None
 
-class ConfirmPublicVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class ConfirmPublicVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: str
 
-class ConfirmTransitVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class ConfirmTransitVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: str
     directConnectGatewayId: str
+
 
 class NewBGPPeerTypeDef(BaseValidatorModel):
     asn: Optional[int] = None
@@ -99,9 +109,11 @@ class NewBGPPeerTypeDef(BaseValidatorModel):
     amazonAddress: Optional[str] = None
     customerAddress: Optional[str] = None
 
-class CreateDirectConnectGatewayRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateDirectConnectGatewayRequestTypeDef(BaseValidatorModel):
     directConnectGatewayName: str
     amazonSideAsn: Optional[int] = None
+
 
 class DirectConnectGatewayTypeDef(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
@@ -111,67 +123,83 @@ class DirectConnectGatewayTypeDef(BaseValidatorModel):
     directConnectGatewayState: Optional[DirectConnectGatewayStateType] = None
     stateChangeError: Optional[str] = None
 
+
 class CustomerAgreementTypeDef(BaseValidatorModel):
     agreementName: Optional[str] = None
     status: Optional[str] = None
 
-class DeleteBGPPeerRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteBGPPeerRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: Optional[str] = None
     asn: Optional[int] = None
     customerAddress: Optional[str] = None
     bgpPeerId: Optional[str] = None
 
-class DeleteConnectionRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteConnectionRequestTypeDef(BaseValidatorModel):
     connectionId: str
 
-class DeleteDirectConnectGatewayAssociationProposalRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDirectConnectGatewayAssociationProposalRequestTypeDef(BaseValidatorModel):
     proposalId: str
 
-class DeleteDirectConnectGatewayAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDirectConnectGatewayAssociationRequestTypeDef(BaseValidatorModel):
     associationId: Optional[str] = None
     directConnectGatewayId: Optional[str] = None
     virtualGatewayId: Optional[str] = None
 
-class DeleteDirectConnectGatewayRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDirectConnectGatewayRequestTypeDef(BaseValidatorModel):
     directConnectGatewayId: str
 
-class DeleteInterconnectRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteInterconnectRequestTypeDef(BaseValidatorModel):
     interconnectId: str
 
-class DeleteLagRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLagRequestTypeDef(BaseValidatorModel):
     lagId: str
 
-class DeleteVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: str
 
-class DescribeConnectionLoaRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeConnectionLoaRequestTypeDef(BaseValidatorModel):
     connectionId: str
     providerName: Optional[str] = None
     loaContentType: Optional[Literal["application/pdf"]] = None
+
 
 class LoaTypeDef(BaseValidatorModel):
     loaContent: Optional[bytes] = None
     loaContentType: Optional[Literal["application/pdf"]] = None
 
-class DescribeConnectionsOnInterconnectRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeConnectionsOnInterconnectRequestTypeDef(BaseValidatorModel):
     interconnectId: str
 
-class DescribeConnectionsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeConnectionsRequestTypeDef(BaseValidatorModel):
     connectionId: Optional[str] = None
 
-class DescribeDirectConnectGatewayAssociationProposalsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeDirectConnectGatewayAssociationProposalsRequestTypeDef(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
     proposalId: Optional[str] = None
     associatedGatewayId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
+
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeDirectConnectGatewayAssociationsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeDirectConnectGatewayAssociationsRequestTypeDef(BaseValidatorModel):
     associationId: Optional[str] = None
     associatedGatewayId: Optional[str] = None
     directConnectGatewayId: Optional[str] = None
@@ -179,11 +207,13 @@ class DescribeDirectConnectGatewayAssociationsRequestRequestTypeDef(BaseValidato
     nextToken: Optional[str] = None
     virtualGatewayId: Optional[str] = None
 
-class DescribeDirectConnectGatewayAttachmentsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeDirectConnectGatewayAttachmentsRequestTypeDef(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
     virtualInterfaceId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class DirectConnectGatewayAttachmentTypeDef(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
@@ -194,33 +224,41 @@ class DirectConnectGatewayAttachmentTypeDef(BaseValidatorModel):
     attachmentType: Optional[DirectConnectGatewayAttachmentTypeType] = None
     stateChangeError: Optional[str] = None
 
-class DescribeDirectConnectGatewaysRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeDirectConnectGatewaysRequestTypeDef(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class DescribeHostedConnectionsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeHostedConnectionsRequestTypeDef(BaseValidatorModel):
     connectionId: str
 
-class DescribeInterconnectLoaRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeInterconnectLoaRequestTypeDef(BaseValidatorModel):
     interconnectId: str
     providerName: Optional[str] = None
     loaContentType: Optional[Literal["application/pdf"]] = None
 
-class DescribeInterconnectsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeInterconnectsRequestTypeDef(BaseValidatorModel):
     interconnectId: Optional[str] = None
 
-class DescribeLagsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLagsRequestTypeDef(BaseValidatorModel):
     lagId: Optional[str] = None
 
-class DescribeLoaRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLoaRequestTypeDef(BaseValidatorModel):
     connectionId: str
     providerName: Optional[str] = None
     loaContentType: Optional[Literal["application/pdf"]] = None
 
-class DescribeRouterConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeRouterConfigurationRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: str
     routerTypeIdentifier: Optional[str] = None
+
 
 class RouterTypeTypeDef(BaseValidatorModel):
     vendor: Optional[str] = None
@@ -230,28 +268,34 @@ class RouterTypeTypeDef(BaseValidatorModel):
     xsltTemplateNameForMacSec: Optional[str] = None
     routerTypeIdentifier: Optional[str] = None
 
-class DescribeTagsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeTagsRequestTypeDef(BaseValidatorModel):
     resourceArns: Sequence[str]
 
-class DescribeVirtualInterfacesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeVirtualInterfacesRequestTypeDef(BaseValidatorModel):
     connectionId: Optional[str] = None
     virtualInterfaceId: Optional[str] = None
 
-class DisassociateConnectionFromLagRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateConnectionFromLagRequestTypeDef(BaseValidatorModel):
     connectionId: str
     lagId: str
 
-class DisassociateMacSecKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateMacSecKeyRequestTypeDef(BaseValidatorModel):
     connectionId: str
     secretARN: str
 
-class ListVirtualInterfaceTestHistoryRequestRequestTypeDef(BaseValidatorModel):
+
+class ListVirtualInterfaceTestHistoryRequestTypeDef(BaseValidatorModel):
     testId: Optional[str] = None
     virtualInterfaceId: Optional[str] = None
     bgpPeers: Optional[Sequence[str]] = None
     status: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class VirtualInterfaceTestHistoryTypeDef(BaseValidatorModel):
     testId: Optional[str] = None
@@ -263,6 +307,7 @@ class VirtualInterfaceTestHistoryTypeDef(BaseValidatorModel):
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
+
 class LocationTypeDef(BaseValidatorModel):
     locationCode: Optional[str] = None
     locationName: Optional[str] = None
@@ -271,101 +316,122 @@ class LocationTypeDef(BaseValidatorModel):
     availableProviders: Optional[List[str]] = None
     availableMacSecPortSpeeds: Optional[List[str]] = None
 
-class StartBgpFailoverTestRequestRequestTypeDef(BaseValidatorModel):
+
+class StartBgpFailoverTestRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: str
     bgpPeers: Optional[Sequence[str]] = None
     testDurationInMinutes: Optional[int] = None
 
-class StopBgpFailoverTestRequestRequestTypeDef(BaseValidatorModel):
+
+class StopBgpFailoverTestRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: str
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateConnectionRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateConnectionRequestTypeDef(BaseValidatorModel):
     connectionId: str
     connectionName: Optional[str] = None
     encryptionMode: Optional[str] = None
 
-class UpdateDirectConnectGatewayRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateDirectConnectGatewayRequestTypeDef(BaseValidatorModel):
     directConnectGatewayId: str
     newDirectConnectGatewayName: str
 
-class UpdateLagRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateLagRequestTypeDef(BaseValidatorModel):
     lagId: str
     lagName: Optional[str] = None
     minimumLinks: Optional[int] = None
     encryptionMode: Optional[str] = None
 
-class UpdateVirtualInterfaceAttributesRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateVirtualInterfaceAttributesRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: str
     mtu: Optional[int] = None
     enableSiteLink: Optional[bool] = None
     virtualInterfaceName: Optional[str] = None
 
+
 class VirtualGatewayTypeDef(BaseValidatorModel):
     virtualGatewayId: Optional[str] = None
     virtualGatewayState: Optional[str] = None
 
-class AcceptDirectConnectGatewayAssociationProposalRequestRequestTypeDef(BaseValidatorModel):
+
+class AcceptDirectConnectGatewayAssociationProposalRequestTypeDef(BaseValidatorModel):
     directConnectGatewayId: str
     proposalId: str
     associatedGatewayOwnerAccount: str
-    overrideAllowedPrefixesToDirectConnectGateway: Optional[       Sequence[RouteFilterPrefixTypeDef]     ] = None
+    overrideAllowedPrefixesToDirectConnectGateway: Optional[Sequence[RouteFilterPrefixTypeDef]] = None
 
-class CreateDirectConnectGatewayAssociationProposalRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateDirectConnectGatewayAssociationProposalRequestTypeDef(BaseValidatorModel):
     directConnectGatewayId: str
     directConnectGatewayOwnerAccount: str
     gatewayId: str
     addAllowedPrefixesToDirectConnectGateway: Optional[Sequence[RouteFilterPrefixTypeDef]] = None
-    removeAllowedPrefixesToDirectConnectGateway: Optional[       Sequence[RouteFilterPrefixTypeDef]     ] = None
+    removeAllowedPrefixesToDirectConnectGateway: Optional[Sequence[RouteFilterPrefixTypeDef]] = None
 
-class CreateDirectConnectGatewayAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateDirectConnectGatewayAssociationRequestTypeDef(BaseValidatorModel):
     directConnectGatewayId: str
     gatewayId: Optional[str] = None
     addAllowedPrefixesToDirectConnectGateway: Optional[Sequence[RouteFilterPrefixTypeDef]] = None
     virtualGatewayId: Optional[str] = None
 
-class UpdateDirectConnectGatewayAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateDirectConnectGatewayAssociationRequestTypeDef(BaseValidatorModel):
     associationId: Optional[str] = None
     addAllowedPrefixesToDirectConnectGateway: Optional[Sequence[RouteFilterPrefixTypeDef]] = None
-    removeAllowedPrefixesToDirectConnectGateway: Optional[       Sequence[RouteFilterPrefixTypeDef]     ] = None
+    removeAllowedPrefixesToDirectConnectGateway: Optional[Sequence[RouteFilterPrefixTypeDef]] = None
+
 
 class ConfirmConnectionResponseTypeDef(BaseValidatorModel):
     connectionState: ConnectionStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ConfirmCustomerAgreementResponseTypeDef(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ConfirmPrivateVirtualInterfaceResponseTypeDef(BaseValidatorModel):
     virtualInterfaceState: VirtualInterfaceStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ConfirmPublicVirtualInterfaceResponseTypeDef(BaseValidatorModel):
     virtualInterfaceState: VirtualInterfaceStateType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ConfirmTransitVirtualInterfaceResponseTypeDef(BaseValidatorModel):
     virtualInterfaceState: VirtualInterfaceStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteInterconnectResponseTypeDef(BaseValidatorModel):
     interconnectState: InterconnectStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteVirtualInterfaceResponseTypeDef(BaseValidatorModel):
     virtualInterfaceState: VirtualInterfaceStateType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class LoaResponseTypeDef(BaseValidatorModel):
     loaContent: bytes
     loaContentType: Literal["application/pdf"]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AllocateHostedConnectionRequestRequestTypeDef(BaseValidatorModel):
+
+class AllocateHostedConnectionRequestTypeDef(BaseValidatorModel):
     connectionId: str
     ownerAccount: str
     bandwidth: str
@@ -373,7 +439,8 @@ class AllocateHostedConnectionRequestRequestTypeDef(BaseValidatorModel):
     vlan: int
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateConnectionRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateConnectionRequestTypeDef(BaseValidatorModel):
     location: str
     bandwidth: str
     connectionName: str
@@ -382,7 +449,8 @@ class CreateConnectionRequestRequestTypeDef(BaseValidatorModel):
     providerName: Optional[str] = None
     requestMACSec: Optional[bool] = None
 
-class CreateInterconnectRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateInterconnectRequestTypeDef(BaseValidatorModel):
     interconnectName: str
     bandwidth: str
     location: str
@@ -390,7 +458,8 @@ class CreateInterconnectRequestRequestTypeDef(BaseValidatorModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     providerName: Optional[str] = None
 
-class CreateLagRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateLagRequestTypeDef(BaseValidatorModel):
     numberOfConnections: int
     location: str
     connectionsBandwidth: str
@@ -400,6 +469,7 @@ class CreateLagRequestRequestTypeDef(BaseValidatorModel):
     childConnectionTags: Optional[Sequence[TagTypeDef]] = None
     providerName: Optional[str] = None
     requestMACSec: Optional[bool] = None
+
 
 class InterconnectResponseTypeDef(BaseValidatorModel):
     interconnectId: str
@@ -419,6 +489,7 @@ class InterconnectResponseTypeDef(BaseValidatorModel):
     providerName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class InterconnectTypeDef(BaseValidatorModel):
     interconnectId: Optional[str] = None
     interconnectName: Optional[str] = None
@@ -436,6 +507,7 @@ class InterconnectTypeDef(BaseValidatorModel):
     tags: Optional[List[TagTypeDef]] = None
     providerName: Optional[str] = None
 
+
 class NewPrivateVirtualInterfaceAllocationTypeDef(BaseValidatorModel):
     virtualInterfaceName: str
     vlan: int
@@ -446,6 +518,7 @@ class NewPrivateVirtualInterfaceAllocationTypeDef(BaseValidatorModel):
     addressFamily: Optional[AddressFamilyType] = None
     customerAddress: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class NewPrivateVirtualInterfaceTypeDef(BaseValidatorModel):
     virtualInterfaceName: str
@@ -461,6 +534,7 @@ class NewPrivateVirtualInterfaceTypeDef(BaseValidatorModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     enableSiteLink: Optional[bool] = None
 
+
 class NewPublicVirtualInterfaceAllocationTypeDef(BaseValidatorModel):
     virtualInterfaceName: str
     vlan: int
@@ -471,6 +545,7 @@ class NewPublicVirtualInterfaceAllocationTypeDef(BaseValidatorModel):
     addressFamily: Optional[AddressFamilyType] = None
     routeFilterPrefixes: Optional[Sequence[RouteFilterPrefixTypeDef]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class NewPublicVirtualInterfaceTypeDef(BaseValidatorModel):
     virtualInterfaceName: str
@@ -483,6 +558,7 @@ class NewPublicVirtualInterfaceTypeDef(BaseValidatorModel):
     routeFilterPrefixes: Optional[Sequence[RouteFilterPrefixTypeDef]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
+
 class NewTransitVirtualInterfaceAllocationTypeDef(BaseValidatorModel):
     virtualInterfaceName: Optional[str] = None
     vlan: Optional[int] = None
@@ -493,6 +569,7 @@ class NewTransitVirtualInterfaceAllocationTypeDef(BaseValidatorModel):
     customerAddress: Optional[str] = None
     addressFamily: Optional[AddressFamilyType] = None
     tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class NewTransitVirtualInterfaceTypeDef(BaseValidatorModel):
     virtualInterfaceName: Optional[str] = None
@@ -507,18 +584,22 @@ class NewTransitVirtualInterfaceTypeDef(BaseValidatorModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     enableSiteLink: Optional[bool] = None
 
+
 class ResourceTagTypeDef(BaseValidatorModel):
     resourceArn: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
+
 
 class AssociateMacSecKeyResponseTypeDef(BaseValidatorModel):
     connectionId: str
     macSecKeys: List[MacSecKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ConnectionResponseTypeDef(BaseValidatorModel):
     ownerAccount: str
@@ -545,6 +626,7 @@ class ConnectionResponseTypeDef(BaseValidatorModel):
     macSecKeys: List[MacSecKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ConnectionTypeDef(BaseValidatorModel):
     ownerAccount: Optional[str] = None
     connectionId: Optional[str] = None
@@ -569,10 +651,16 @@ class ConnectionTypeDef(BaseValidatorModel):
     encryptionMode: Optional[str] = None
     macSecKeys: Optional[List[MacSecKeyTypeDef]] = None
 
+
 class DisassociateMacSecKeyResponseTypeDef(BaseValidatorModel):
     connectionId: str
     macSecKeys: List[MacSecKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class AssociatedGatewayTypeDef(BaseValidatorModel):
+    pass
+
 
 class DirectConnectGatewayAssociationProposalTypeDef(BaseValidatorModel):
     proposalId: Optional[str] = None
@@ -580,8 +668,13 @@ class DirectConnectGatewayAssociationProposalTypeDef(BaseValidatorModel):
     directConnectGatewayOwnerAccount: Optional[str] = None
     proposalState: Optional[DirectConnectGatewayAssociationProposalStateType] = None
     associatedGateway: Optional[AssociatedGatewayTypeDef] = None
-    existingAllowedPrefixesToDirectConnectGateway: Optional[       List[RouteFilterPrefixTypeDef]     ] = None
-    requestedAllowedPrefixesToDirectConnectGateway: Optional[       List[RouteFilterPrefixTypeDef]     ] = None
+    existingAllowedPrefixesToDirectConnectGateway: Optional[List[RouteFilterPrefixTypeDef]] = None
+    requestedAllowedPrefixesToDirectConnectGateway: Optional[List[RouteFilterPrefixTypeDef]] = None
+
+
+class AssociatedCoreNetworkTypeDef(BaseValidatorModel):
+    pass
+
 
 class DirectConnectGatewayAssociationTypeDef(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
@@ -591,9 +684,11 @@ class DirectConnectGatewayAssociationTypeDef(BaseValidatorModel):
     associatedGateway: Optional[AssociatedGatewayTypeDef] = None
     associationId: Optional[str] = None
     allowedPrefixesToDirectConnectGateway: Optional[List[RouteFilterPrefixTypeDef]] = None
+    associatedCoreNetwork: Optional[AssociatedCoreNetworkTypeDef] = None
     virtualGatewayId: Optional[str] = None
     virtualGatewayRegion: Optional[str] = None
     virtualGatewayOwnerAccount: Optional[str] = None
+
 
 class VirtualInterfaceResponseTypeDef(BaseValidatorModel):
     ownerAccount: str
@@ -624,6 +719,7 @@ class VirtualInterfaceResponseTypeDef(BaseValidatorModel):
     siteLinkEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class VirtualInterfaceTypeDef(BaseValidatorModel):
     ownerAccount: Optional[str] = None
     virtualInterfaceId: Optional[str] = None
@@ -652,60 +748,73 @@ class VirtualInterfaceTypeDef(BaseValidatorModel):
     tags: Optional[List[TagTypeDef]] = None
     siteLinkEnabled: Optional[bool] = None
 
-class CreateBGPPeerRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateBGPPeerRequestTypeDef(BaseValidatorModel):
     virtualInterfaceId: Optional[str] = None
     newBGPPeer: Optional[NewBGPPeerTypeDef] = None
+
 
 class CreateDirectConnectGatewayResultTypeDef(BaseValidatorModel):
     directConnectGateway: DirectConnectGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteDirectConnectGatewayResultTypeDef(BaseValidatorModel):
     directConnectGateway: DirectConnectGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeDirectConnectGatewaysResultTypeDef(BaseValidatorModel):
     directConnectGateways: List[DirectConnectGatewayTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateDirectConnectGatewayResponseTypeDef(BaseValidatorModel):
     directConnectGateway: DirectConnectGatewayTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeCustomerMetadataResponseTypeDef(BaseValidatorModel):
     agreements: List[CustomerAgreementTypeDef]
     nniPartnerType: NniPartnerTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeConnectionLoaResponseTypeDef(BaseValidatorModel):
     loa: LoaTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeInterconnectLoaResponseTypeDef(BaseValidatorModel):
     loa: LoaTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeDirectConnectGatewayAssociationsRequestDescribeDirectConnectGatewayAssociationsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeDirectConnectGatewayAssociationsRequestPaginateTypeDef(BaseValidatorModel):
     associationId: Optional[str] = None
     associatedGatewayId: Optional[str] = None
     directConnectGatewayId: Optional[str] = None
     virtualGatewayId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDirectConnectGatewayAttachmentsRequestDescribeDirectConnectGatewayAttachmentsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeDirectConnectGatewayAttachmentsRequestPaginateTypeDef(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
     virtualInterfaceId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeDirectConnectGatewaysRequestDescribeDirectConnectGatewaysPaginateTypeDef(BaseValidatorModel):
+
+class DescribeDirectConnectGatewaysRequestPaginateTypeDef(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
 class DescribeDirectConnectGatewayAttachmentsResultTypeDef(BaseValidatorModel):
     directConnectGatewayAttachments: List[DirectConnectGatewayAttachmentTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class DescribeRouterConfigurationResponseTypeDef(BaseValidatorModel):
     customerRouterConfig: str
@@ -714,65 +823,80 @@ class DescribeRouterConfigurationResponseTypeDef(BaseValidatorModel):
     virtualInterfaceName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListVirtualInterfaceTestHistoryResponseTypeDef(BaseValidatorModel):
     virtualInterfaceTestHistory: List[VirtualInterfaceTestHistoryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class StartBgpFailoverTestResponseTypeDef(BaseValidatorModel):
     virtualInterfaceTest: VirtualInterfaceTestHistoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StopBgpFailoverTestResponseTypeDef(BaseValidatorModel):
     virtualInterfaceTest: VirtualInterfaceTestHistoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class LocationsTypeDef(BaseValidatorModel):
     locations: List[LocationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class VirtualGatewaysTypeDef(BaseValidatorModel):
     virtualGateways: List[VirtualGatewayTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class InterconnectsTypeDef(BaseValidatorModel):
     interconnects: List[InterconnectTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AllocatePrivateVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class AllocatePrivateVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     connectionId: str
     ownerAccount: str
     newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocationTypeDef
 
-class CreatePrivateVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class CreatePrivateVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     connectionId: str
     newPrivateVirtualInterface: NewPrivateVirtualInterfaceTypeDef
 
-class AllocatePublicVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class AllocatePublicVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     connectionId: str
     ownerAccount: str
     newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocationTypeDef
 
-class CreatePublicVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class CreatePublicVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     connectionId: str
     newPublicVirtualInterface: NewPublicVirtualInterfaceTypeDef
 
-class AllocateTransitVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class AllocateTransitVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     connectionId: str
     ownerAccount: str
     newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocationTypeDef
 
-class CreateTransitVirtualInterfaceRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateTransitVirtualInterfaceRequestTypeDef(BaseValidatorModel):
     connectionId: str
     newTransitVirtualInterface: NewTransitVirtualInterfaceTypeDef
+
 
 class DescribeTagsResponseTypeDef(BaseValidatorModel):
     resourceTags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ConnectionsTypeDef(BaseValidatorModel):
     connections: List[ConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class LagResponseTypeDef(BaseValidatorModel):
     connectionsBandwidth: str
@@ -798,6 +922,7 @@ class LagResponseTypeDef(BaseValidatorModel):
     macSecKeys: List[MacSecKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class LagTypeDef(BaseValidatorModel):
     connectionsBandwidth: Optional[str] = None
     numberOfConnections: Optional[int] = None
@@ -821,61 +946,76 @@ class LagTypeDef(BaseValidatorModel):
     encryptionMode: Optional[str] = None
     macSecKeys: Optional[List[MacSecKeyTypeDef]] = None
 
+
 class CreateDirectConnectGatewayAssociationProposalResultTypeDef(BaseValidatorModel):
     directConnectGatewayAssociationProposal: DirectConnectGatewayAssociationProposalTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteDirectConnectGatewayAssociationProposalResultTypeDef(BaseValidatorModel):
     directConnectGatewayAssociationProposal: DirectConnectGatewayAssociationProposalTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeDirectConnectGatewayAssociationProposalsResultTypeDef(BaseValidatorModel):
-    directConnectGatewayAssociationProposals: List[       DirectConnectGatewayAssociationProposalTypeDef     ]
-    nextToken: str
+    directConnectGatewayAssociationProposals: List[DirectConnectGatewayAssociationProposalTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class AcceptDirectConnectGatewayAssociationProposalResultTypeDef(BaseValidatorModel):
     directConnectGatewayAssociation: DirectConnectGatewayAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateDirectConnectGatewayAssociationResultTypeDef(BaseValidatorModel):
     directConnectGatewayAssociation: DirectConnectGatewayAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteDirectConnectGatewayAssociationResultTypeDef(BaseValidatorModel):
     directConnectGatewayAssociation: DirectConnectGatewayAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeDirectConnectGatewayAssociationsResultTypeDef(BaseValidatorModel):
     directConnectGatewayAssociations: List[DirectConnectGatewayAssociationTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateDirectConnectGatewayAssociationResultTypeDef(BaseValidatorModel):
     directConnectGatewayAssociation: DirectConnectGatewayAssociationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AllocateTransitVirtualInterfaceResultTypeDef(BaseValidatorModel):
     virtualInterface: VirtualInterfaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateBGPPeerResponseTypeDef(BaseValidatorModel):
     virtualInterface: VirtualInterfaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateTransitVirtualInterfaceResultTypeDef(BaseValidatorModel):
     virtualInterface: VirtualInterfaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteBGPPeerResponseTypeDef(BaseValidatorModel):
     virtualInterface: VirtualInterfaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class VirtualInterfacesTypeDef(BaseValidatorModel):
     virtualInterfaces: List[VirtualInterfaceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class LagsTypeDef(BaseValidatorModel):
     lags: List[LagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 

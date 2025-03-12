@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -18,33 +19,40 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AddCommunicationToCaseRequestRequestTypeDef(BaseValidatorModel):
+
+class AddCommunicationToCaseRequestTypeDef(BaseValidatorModel):
     communicationBody: str
     caseId: Optional[str] = None
     ccEmailAddresses: Optional[Sequence[str]] = None
     attachmentSetId: Optional[str] = None
 
+
 class AttachmentDetailsTypeDef(BaseValidatorModel):
     attachmentId: Optional[str] = None
     fileName: Optional[str] = None
+
 
 class AttachmentOutputTypeDef(BaseValidatorModel):
     fileName: Optional[str] = None
     data: Optional[bytes] = None
 
+
 class CategoryTypeDef(BaseValidatorModel):
     code: Optional[str] = None
     name: Optional[str] = None
+
 
 class DateIntervalTypeDef(BaseValidatorModel):
     startDateTime: Optional[str] = None
     endDateTime: Optional[str] = None
 
+
 class SupportedHourTypeDef(BaseValidatorModel):
     startTime: Optional[str] = None
     endTime: Optional[str] = None
 
-class CreateCaseRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateCaseRequestTypeDef(BaseValidatorModel):
     subject: str
     communicationBody: str
     serviceCode: Optional[str] = None
@@ -55,15 +63,18 @@ class CreateCaseRequestRequestTypeDef(BaseValidatorModel):
     issueType: Optional[str] = None
     attachmentSetId: Optional[str] = None
 
-class DescribeAttachmentRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeAttachmentRequestTypeDef(BaseValidatorModel):
     attachmentId: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeCasesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeCasesRequestTypeDef(BaseValidatorModel):
     caseIdList: Optional[Sequence[str]] = None
     displayId: Optional[str] = None
     afterTime: Optional[str] = None
@@ -74,74 +85,83 @@ class DescribeCasesRequestRequestTypeDef(BaseValidatorModel):
     language: Optional[str] = None
     includeCommunications: Optional[bool] = None
 
-class DescribeCommunicationsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeCommunicationsRequestTypeDef(BaseValidatorModel):
     caseId: str
     beforeTime: Optional[str] = None
     afterTime: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class DescribeCreateCaseOptionsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeCreateCaseOptionsRequestTypeDef(BaseValidatorModel):
     issueType: str
     serviceCode: str
     language: str
     categoryCode: str
 
-class DescribeServicesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeServicesRequestTypeDef(BaseValidatorModel):
     serviceCodeList: Optional[Sequence[str]] = None
     language: Optional[str] = None
 
-class DescribeSeverityLevelsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeSeverityLevelsRequestTypeDef(BaseValidatorModel):
     language: Optional[str] = None
+
 
 class SeverityLevelTypeDef(BaseValidatorModel):
     code: Optional[str] = None
     name: Optional[str] = None
 
-class DescribeSupportedLanguagesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeSupportedLanguagesRequestTypeDef(BaseValidatorModel):
     issueType: str
     serviceCode: str
     categoryCode: str
+
 
 class SupportedLanguageTypeDef(BaseValidatorModel):
     code: Optional[str] = None
     language: Optional[str] = None
     display: Optional[str] = None
 
-class DescribeTrustedAdvisorCheckRefreshStatusesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeTrustedAdvisorCheckRefreshStatusesRequestTypeDef(BaseValidatorModel):
     checkIds: Sequence[str]
+
 
 class TrustedAdvisorCheckRefreshStatusTypeDef(BaseValidatorModel):
     checkId: str
     status: str
     millisUntilNextRefreshable: int
 
-class DescribeTrustedAdvisorCheckResultRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeTrustedAdvisorCheckResultRequestTypeDef(BaseValidatorModel):
     checkId: str
     language: Optional[str] = None
 
-class DescribeTrustedAdvisorCheckSummariesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeTrustedAdvisorCheckSummariesRequestTypeDef(BaseValidatorModel):
     checkIds: Sequence[str]
 
-class DescribeTrustedAdvisorChecksRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeTrustedAdvisorChecksRequestTypeDef(BaseValidatorModel):
     language: str
 
-class TrustedAdvisorCheckDescriptionTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    description: str
-    category: str
-    metadata: List[str]
 
-class RefreshTrustedAdvisorCheckRequestRequestTypeDef(BaseValidatorModel):
+class RefreshTrustedAdvisorCheckRequestTypeDef(BaseValidatorModel):
     checkId: str
 
-class ResolveCaseRequestRequestTypeDef(BaseValidatorModel):
+
+class ResolveCaseRequestTypeDef(BaseValidatorModel):
     caseId: Optional[str] = None
+
 
 class TrustedAdvisorCostOptimizingSummaryTypeDef(BaseValidatorModel):
     estimatedMonthlySavings: float
     estimatedPercentMonthlySavings: float
+
 
 class TrustedAdvisorResourceDetailTypeDef(BaseValidatorModel):
     status: str
@@ -150,29 +170,35 @@ class TrustedAdvisorResourceDetailTypeDef(BaseValidatorModel):
     region: Optional[str] = None
     isSuppressed: Optional[bool] = None
 
+
 class TrustedAdvisorResourcesSummaryTypeDef(BaseValidatorModel):
     resourcesProcessed: int
     resourcesFlagged: int
     resourcesIgnored: int
     resourcesSuppressed: int
 
+
 class AddAttachmentsToSetResponseTypeDef(BaseValidatorModel):
     attachmentSetId: str
     expiryTime: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AddCommunicationToCaseResponseTypeDef(BaseValidatorModel):
     result: bool
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateCaseResponseTypeDef(BaseValidatorModel):
     caseId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ResolveCaseResponseTypeDef(BaseValidatorModel):
     initialCaseStatus: str
     finalCaseStatus: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CommunicationTypeDef(BaseValidatorModel):
     caseId: Optional[str] = None
@@ -181,25 +207,28 @@ class CommunicationTypeDef(BaseValidatorModel):
     timeCreated: Optional[str] = None
     attachmentSet: Optional[List[AttachmentDetailsTypeDef]] = None
 
+
 class DescribeAttachmentResponseTypeDef(BaseValidatorModel):
     attachment: AttachmentOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
+
 class AttachmentTypeDef(BaseValidatorModel):
     fileName: Optional[str] = None
     data: Optional[BlobTypeDef] = None
+
 
 class ServiceTypeDef(BaseValidatorModel):
     code: Optional[str] = None
     name: Optional[str] = None
     categories: Optional[List[CategoryTypeDef]] = None
 
-class CommunicationTypeOptionsTypeDef(BaseValidatorModel):
-    type: Optional[str] = None
-    supportedHours: Optional[List[SupportedHourTypeDef]] = None
-    datesWithoutSupport: Optional[List[DateIntervalTypeDef]] = None
 
-class DescribeCasesRequestDescribeCasesPaginateTypeDef(BaseValidatorModel):
+class DescribeCasesRequestPaginateTypeDef(BaseValidatorModel):
     caseIdList: Optional[Sequence[str]] = None
     displayId: Optional[str] = None
     afterTime: Optional[str] = None
@@ -209,52 +238,72 @@ class DescribeCasesRequestDescribeCasesPaginateTypeDef(BaseValidatorModel):
     includeCommunications: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeCommunicationsRequestDescribeCommunicationsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeCommunicationsRequestPaginateTypeDef(BaseValidatorModel):
     caseId: str
     beforeTime: Optional[str] = None
     afterTime: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
 class DescribeSeverityLevelsResponseTypeDef(BaseValidatorModel):
     severityLevels: List[SeverityLevelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeSupportedLanguagesResponseTypeDef(BaseValidatorModel):
     supportedLanguages: List[SupportedLanguageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeTrustedAdvisorCheckRefreshStatusesResponseTypeDef(BaseValidatorModel):
     statuses: List[TrustedAdvisorCheckRefreshStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class RefreshTrustedAdvisorCheckResponseTypeDef(BaseValidatorModel):
     status: TrustedAdvisorCheckRefreshStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class TrustedAdvisorCheckDescriptionTypeDef(BaseValidatorModel):
+    pass
+
+
 class DescribeTrustedAdvisorChecksResponseTypeDef(BaseValidatorModel):
     checks: List[TrustedAdvisorCheckDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class TrustedAdvisorCategorySpecificSummaryTypeDef(BaseValidatorModel):
     costOptimizing: Optional[TrustedAdvisorCostOptimizingSummaryTypeDef] = None
 
+
 class DescribeCommunicationsResponseTypeDef(BaseValidatorModel):
     communications: List[CommunicationTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class RecentCaseCommunicationsTypeDef(BaseValidatorModel):
     communications: Optional[List[CommunicationTypeDef]] = None
     nextToken: Optional[str] = None
 
+
 class DescribeServicesResponseTypeDef(BaseValidatorModel):
     services: List[ServiceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class CommunicationTypeOptionsTypeDef(BaseValidatorModel):
+    pass
+
 
 class DescribeCreateCaseOptionsResponseTypeDef(BaseValidatorModel):
     languageAvailability: str
     communicationTypes: List[CommunicationTypeOptionsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class TrustedAdvisorCheckResultTypeDef(BaseValidatorModel):
     checkId: str
@@ -264,6 +313,7 @@ class TrustedAdvisorCheckResultTypeDef(BaseValidatorModel):
     categorySpecificSummary: TrustedAdvisorCategorySpecificSummaryTypeDef
     flaggedResources: List[TrustedAdvisorResourceDetailTypeDef]
 
+
 class TrustedAdvisorCheckSummaryTypeDef(BaseValidatorModel):
     checkId: str
     timestamp: str
@@ -271,6 +321,7 @@ class TrustedAdvisorCheckSummaryTypeDef(BaseValidatorModel):
     resourcesSummary: TrustedAdvisorResourcesSummaryTypeDef
     categorySpecificSummary: TrustedAdvisorCategorySpecificSummaryTypeDef
     hasFlaggedResources: Optional[bool] = None
+
 
 class CaseDetailsTypeDef(BaseValidatorModel):
     caseId: Optional[str] = None
@@ -286,20 +337,29 @@ class CaseDetailsTypeDef(BaseValidatorModel):
     ccEmailAddresses: Optional[List[str]] = None
     language: Optional[str] = None
 
-class AddAttachmentsToSetRequestRequestTypeDef(BaseValidatorModel):
+
+class AttachmentUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class AddAttachmentsToSetRequestTypeDef(BaseValidatorModel):
     attachments: Sequence[AttachmentUnionTypeDef]
     attachmentSetId: Optional[str] = None
+
 
 class DescribeTrustedAdvisorCheckResultResponseTypeDef(BaseValidatorModel):
     result: TrustedAdvisorCheckResultTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeTrustedAdvisorCheckSummariesResponseTypeDef(BaseValidatorModel):
     summaries: List[TrustedAdvisorCheckSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeCasesResponseTypeDef(BaseValidatorModel):
     cases: List[CaseDetailsTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 

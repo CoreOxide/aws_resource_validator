@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,91 +12,55 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iotthingsgraph_constants import *
 
-class AssociateEntityToThingRequestRequestTypeDef(BaseValidatorModel):
+class AssociateEntityToThingRequestTypeDef(BaseValidatorModel):
     thingName: str
     entityId: str
     namespaceVersion: Optional[int] = None
+
 
 class DefinitionDocumentTypeDef(BaseValidatorModel):
     language: Literal["GRAPHQL"]
     text: str
 
-class FlowTemplateSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    revisionNumber: Optional[int] = None
-    createdAt: Optional[datetime] = None
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class MetricsConfigurationTypeDef(BaseValidatorModel):
     cloudMetricEnabled: Optional[bool] = None
     metricRuleRoleArn: Optional[str] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class SystemInstanceSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    status: Optional[SystemInstanceDeploymentStatusType] = None
-    target: Optional[DeploymentTargetType] = None
-    greengrassGroupName: Optional[str] = None
-    createdAt: Optional[datetime] = None
-    updatedAt: Optional[datetime] = None
-    greengrassGroupId: Optional[str] = None
-    greengrassGroupVersionId: Optional[str] = None
 
-class SystemTemplateSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    revisionNumber: Optional[int] = None
-    createdAt: Optional[datetime] = None
-
-class DeleteFlowTemplateRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-
-class DeleteSystemInstanceRequestRequestTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-
-class DeleteSystemTemplateRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-
-class DependencyRevisionTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    revisionNumber: Optional[int] = None
-
-class DeploySystemInstanceRequestRequestTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-
-class DeprecateFlowTemplateRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-
-class DeprecateSystemTemplateRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-
-class DescribeNamespaceRequestRequestTypeDef(BaseValidatorModel):
+class DescribeNamespaceRequestTypeDef(BaseValidatorModel):
     namespaceName: Optional[str] = None
 
-class DissociateEntityFromThingRequestRequestTypeDef(BaseValidatorModel):
+
+class DissociateEntityFromThingRequestTypeDef(BaseValidatorModel):
     thingName: str
     entityType: EntityTypeType
+
 
 class EntityFilterTypeDef(BaseValidatorModel):
     name: Optional[EntityFilterNameType] = None
     value: Optional[Sequence[str]] = None
+
 
 class FlowExecutionMessageTypeDef(BaseValidatorModel):
     messageId: Optional[str] = None
     eventType: Optional[FlowExecutionEventTypeType] = None
     timestamp: Optional[datetime] = None
     payload: Optional[str] = None
+
 
 class FlowExecutionSummaryTypeDef(BaseValidatorModel):
     flowExecutionId: Optional[str] = None
@@ -105,121 +70,102 @@ class FlowExecutionSummaryTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
+
 class FlowTemplateFilterTypeDef(BaseValidatorModel):
     name: Literal["DEVICE_MODEL_ID"]
     value: Sequence[str]
 
-class GetEntitiesRequestRequestTypeDef(BaseValidatorModel):
+
+class GetEntitiesRequestTypeDef(BaseValidatorModel):
     ids: Sequence[str]
     namespaceVersion: Optional[int] = None
 
-class GetFlowTemplateRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-    revisionNumber: Optional[int] = None
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetFlowTemplateRevisionsRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
 
-class GetSystemInstanceRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-
-class GetSystemTemplateRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-    revisionNumber: Optional[int] = None
-
-class GetSystemTemplateRevisionsRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
-
-class GetUploadStatusRequestRequestTypeDef(BaseValidatorModel):
+class GetUploadStatusRequestTypeDef(BaseValidatorModel):
     uploadId: str
 
-class ListFlowExecutionMessagesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFlowExecutionMessagesRequestTypeDef(BaseValidatorModel):
     flowExecutionId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class SystemInstanceFilterTypeDef(BaseValidatorModel):
     name: Optional[SystemInstanceFilterNameType] = None
     value: Optional[Sequence[str]] = None
 
+
 class SystemTemplateFilterTypeDef(BaseValidatorModel):
     name: Literal["FLOW_TEMPLATE_ID"]
     value: Sequence[str]
 
-class SearchThingsRequestRequestTypeDef(BaseValidatorModel):
+
+class SearchThingsRequestTypeDef(BaseValidatorModel):
     entityId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     namespaceVersion: Optional[int] = None
 
+
 class ThingTypeDef(BaseValidatorModel):
     thingArn: Optional[str] = None
     thingName: Optional[str] = None
 
-class UndeploySystemInstanceRequestRequestTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class CreateFlowTemplateRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateFlowTemplateRequestTypeDef(BaseValidatorModel):
     definition: DefinitionDocumentTypeDef
     compatibleNamespaceVersion: Optional[int] = None
 
-class CreateSystemTemplateRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateSystemTemplateRequestTypeDef(BaseValidatorModel):
     definition: DefinitionDocumentTypeDef
     compatibleNamespaceVersion: Optional[int] = None
 
-class EntityDescriptionTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    type: Optional[EntityTypeType] = None
-    createdAt: Optional[datetime] = None
-    definition: Optional[DefinitionDocumentTypeDef] = None
 
-class UpdateFlowTemplateRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-    definition: DefinitionDocumentTypeDef
-    compatibleNamespaceVersion: Optional[int] = None
-
-class UpdateSystemTemplateRequestRequestTypeDef(BaseValidatorModel):
-    id: str
-    definition: DefinitionDocumentTypeDef
-    compatibleNamespaceVersion: Optional[int] = None
-
-class UploadEntityDefinitionsRequestRequestTypeDef(BaseValidatorModel):
+class UploadEntityDefinitionsRequestTypeDef(BaseValidatorModel):
     document: Optional[DefinitionDocumentTypeDef] = None
     syncWithPublicNamespace: Optional[bool] = None
     deprecateExistingEntities: Optional[bool] = None
+
+
+class FlowTemplateSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class FlowTemplateDescriptionTypeDef(BaseValidatorModel):
     summary: Optional[FlowTemplateSummaryTypeDef] = None
     definition: Optional[DefinitionDocumentTypeDef] = None
     validatedNamespaceVersion: Optional[int] = None
 
+
 class CreateFlowTemplateResponseTypeDef(BaseValidatorModel):
     summary: FlowTemplateSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteNamespaceResponseTypeDef(BaseValidatorModel):
     namespaceArn: str
     namespaceName: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeNamespaceResponseTypeDef(BaseValidatorModel):
     namespaceArn: str
@@ -229,10 +175,12 @@ class DescribeNamespaceResponseTypeDef(BaseValidatorModel):
     namespaceVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetFlowTemplateRevisionsResponseTypeDef(BaseValidatorModel):
     summaries: List[FlowTemplateSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class GetNamespaceDeletionStatusResponseTypeDef(BaseValidatorModel):
     namespaceArn: str
@@ -241,6 +189,7 @@ class GetNamespaceDeletionStatusResponseTypeDef(BaseValidatorModel):
     errorCode: Literal["VALIDATION_FAILED"]
     errorMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetUploadStatusResponseTypeDef(BaseValidatorModel):
     uploadId: str
@@ -252,20 +201,24 @@ class GetUploadStatusResponseTypeDef(BaseValidatorModel):
     createdDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SearchFlowTemplatesResponseTypeDef(BaseValidatorModel):
     summaries: List[FlowTemplateSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateFlowTemplateResponseTypeDef(BaseValidatorModel):
     summary: FlowTemplateSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UploadEntityDefinitionsResponseTypeDef(BaseValidatorModel):
     uploadId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSystemInstanceRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateSystemInstanceRequestTypeDef(BaseValidatorModel):
     definition: DefinitionDocumentTypeDef
     target: DeploymentTargetType
     tags: Optional[Sequence[TagTypeDef]] = None
@@ -274,55 +227,79 @@ class CreateSystemInstanceRequestRequestTypeDef(BaseValidatorModel):
     metricsConfiguration: Optional[MetricsConfigurationTypeDef] = None
     flowActionsRoleArn: Optional[str] = None
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
+
+
+class SystemInstanceSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class CreateSystemInstanceResponseTypeDef(BaseValidatorModel):
     summary: SystemInstanceSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeploySystemInstanceResponseTypeDef(BaseValidatorModel):
     summary: SystemInstanceSummaryTypeDef
     greengrassDeploymentId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SearchSystemInstancesResponseTypeDef(BaseValidatorModel):
     summaries: List[SystemInstanceSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UndeploySystemInstanceResponseTypeDef(BaseValidatorModel):
     summary: SystemInstanceSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class SystemTemplateSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
 class CreateSystemTemplateResponseTypeDef(BaseValidatorModel):
     summary: SystemTemplateSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetSystemTemplateRevisionsResponseTypeDef(BaseValidatorModel):
     summaries: List[SystemTemplateSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class SearchSystemTemplatesResponseTypeDef(BaseValidatorModel):
     summaries: List[SystemTemplateSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class SystemTemplateDescriptionTypeDef(BaseValidatorModel):
     summary: Optional[SystemTemplateSummaryTypeDef] = None
     definition: Optional[DefinitionDocumentTypeDef] = None
     validatedNamespaceVersion: Optional[int] = None
 
+
 class UpdateSystemTemplateResponseTypeDef(BaseValidatorModel):
     summary: SystemTemplateSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DependencyRevisionTypeDef(BaseValidatorModel):
+    pass
+
 
 class SystemInstanceDescriptionTypeDef(BaseValidatorModel):
     summary: Optional[SystemInstanceSummaryTypeDef] = None
@@ -333,60 +310,74 @@ class SystemInstanceDescriptionTypeDef(BaseValidatorModel):
     validatedDependencyRevisions: Optional[List[DependencyRevisionTypeDef]] = None
     flowActionsRoleArn: Optional[str] = None
 
-class SearchEntitiesRequestRequestTypeDef(BaseValidatorModel):
+
+class SearchEntitiesRequestTypeDef(BaseValidatorModel):
     entityTypes: Sequence[EntityTypeType]
     filters: Optional[Sequence[EntityFilterTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     namespaceVersion: Optional[int] = None
+
 
 class ListFlowExecutionMessagesResponseTypeDef(BaseValidatorModel):
     messages: List[FlowExecutionMessageTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class SearchFlowExecutionsResponseTypeDef(BaseValidatorModel):
     summaries: List[FlowExecutionSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class SearchFlowTemplatesRequestRequestTypeDef(BaseValidatorModel):
+
+class SearchFlowTemplatesRequestTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FlowTemplateFilterTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetFlowTemplateRevisionsRequestGetFlowTemplateRevisionsPaginateTypeDef(BaseValidatorModel):
-    id: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetSystemTemplateRevisionsRequestGetSystemTemplateRevisionsPaginateTypeDef(BaseValidatorModel):
-    id: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class ListFlowExecutionMessagesRequestListFlowExecutionMessagesPaginateTypeDef(BaseValidatorModel):
+class ListFlowExecutionMessagesRequestPaginateTypeDef(BaseValidatorModel):
     flowExecutionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceRequestListTagsForResourcePaginateTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestPaginateTypeDef(BaseValidatorModel):
     resourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchEntitiesRequestSearchEntitiesPaginateTypeDef(BaseValidatorModel):
+
+class SearchEntitiesRequestPaginateTypeDef(BaseValidatorModel):
     entityTypes: Sequence[EntityTypeType]
     filters: Optional[Sequence[EntityFilterTypeDef]] = None
     namespaceVersion: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchFlowTemplatesRequestSearchFlowTemplatesPaginateTypeDef(BaseValidatorModel):
+
+class SearchFlowTemplatesRequestPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FlowTemplateFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchThingsRequestSearchThingsPaginateTypeDef(BaseValidatorModel):
+
+class SearchThingsRequestPaginateTypeDef(BaseValidatorModel):
     entityId: str
     namespaceVersion: Optional[int] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchFlowExecutionsRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class SearchFlowExecutionsRequestPaginateTypeDef(BaseValidatorModel):
+    systemInstanceId: str
+    flowExecutionId: Optional[str] = None
+    startTime: Optional[TimestampTypeDef] = None
+    endTime: Optional[TimestampTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class SearchFlowExecutionsRequestTypeDef(BaseValidatorModel):
     systemInstanceId: str
     flowExecutionId: Optional[str] = None
     startTime: Optional[TimestampTypeDef] = None
@@ -394,54 +385,62 @@ class SearchFlowExecutionsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class SearchFlowExecutionsRequestSearchFlowExecutionsPaginateTypeDef(BaseValidatorModel):
-    systemInstanceId: str
-    flowExecutionId: Optional[str] = None
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+
+class SearchSystemInstancesRequestPaginateTypeDef(BaseValidatorModel):
+    filters: Optional[Sequence[SystemInstanceFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchSystemInstancesRequestRequestTypeDef(BaseValidatorModel):
+
+class SearchSystemInstancesRequestTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[SystemInstanceFilterTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class SearchSystemInstancesRequestSearchSystemInstancesPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[SystemInstanceFilterTypeDef]] = None
+
+class SearchSystemTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+    filters: Optional[Sequence[SystemTemplateFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class SearchSystemTemplatesRequestRequestTypeDef(BaseValidatorModel):
+
+class SearchSystemTemplatesRequestTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[SystemTemplateFilterTypeDef]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class SearchSystemTemplatesRequestSearchSystemTemplatesPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[SystemTemplateFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 class SearchThingsResponseTypeDef(BaseValidatorModel):
     things: List[ThingTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class EntityDescriptionTypeDef(BaseValidatorModel):
+    pass
+
 
 class GetEntitiesResponseTypeDef(BaseValidatorModel):
     descriptions: List[EntityDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SearchEntitiesResponseTypeDef(BaseValidatorModel):
     descriptions: List[EntityDescriptionTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class GetFlowTemplateResponseTypeDef(BaseValidatorModel):
     description: FlowTemplateDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetSystemTemplateResponseTypeDef(BaseValidatorModel):
     description: SystemTemplateDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetSystemInstanceResponseTypeDef(BaseValidatorModel):
     description: SystemInstanceDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

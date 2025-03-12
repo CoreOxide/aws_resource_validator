@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -20,9 +21,11 @@ class ApiGatewayProxyConfigTypeDef(BaseValidatorModel):
     StageName: Optional[str] = None
     VpcLinkId: Optional[str] = None
 
+
 class ApiGatewayProxyInputTypeDef(BaseValidatorModel):
     EndpointType: Optional[ApiGatewayEndpointTypeType] = None
     StageName: Optional[str] = None
+
 
 class ApiGatewayProxySummaryTypeDef(BaseValidatorModel):
     ApiGatewayId: Optional[str] = None
@@ -33,6 +36,7 @@ class ApiGatewayProxySummaryTypeDef(BaseValidatorModel):
     StageName: Optional[str] = None
     VpcLinkId: Optional[str] = None
 
+
 class ErrorResponseTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     AdditionalDetails: Optional[Dict[str, str]] = None
@@ -41,56 +45,68 @@ class ErrorResponseTypeDef(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
     ResourceType: Optional[ErrorResourceTypeType] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class CreateEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
     Name: str
     NetworkFabricType: NetworkFabricTypeType
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
+
 class DefaultRouteInputTypeDef(BaseValidatorModel):
     ActivationState: Optional[RouteActivationStateType] = None
 
-class UriPathRouteInputTypeDef(BaseValidatorModel):
+
+class UriPathRouteInputOutputTypeDef(BaseValidatorModel):
     ActivationState: RouteActivationStateType
     SourcePath: str
     AppendSourcePath: Optional[bool] = None
     IncludeChildPaths: Optional[bool] = None
-    Methods: Optional[Sequence[HttpMethodType]] = None
+    Methods: Optional[List[HttpMethodType]] = None
+
 
 class LambdaEndpointInputTypeDef(BaseValidatorModel):
     Arn: str
+
 
 class UrlEndpointInputTypeDef(BaseValidatorModel):
     Url: str
     HealthUrl: Optional[str] = None
 
-class DeleteApplicationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteApplicationRequestTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
 
-class DeleteEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
     EnvironmentIdentifier: str
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class DeleteRouteRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRouteRequestTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     RouteIdentifier: str
 
-class DeleteServiceRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteServiceRequestTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     ServiceIdentifier: str
+
 
 class EnvironmentVpcTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
@@ -101,93 +117,122 @@ class EnvironmentVpcTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
     VpcName: Optional[str] = None
 
-class GetApplicationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetApplicationRequestTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
 
-class GetEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class GetEnvironmentRequestTypeDef(BaseValidatorModel):
     EnvironmentIdentifier: str
 
-class GetResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
     Identifier: str
 
-class GetRouteRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRouteRequestTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     RouteIdentifier: str
 
-class GetServiceRequestRequestTypeDef(BaseValidatorModel):
+
+class GetServiceRequestTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     ServiceIdentifier: str
 
+
 class LambdaEndpointConfigTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
+
 
 class UrlEndpointConfigTypeDef(BaseValidatorModel):
     HealthUrl: Optional[str] = None
     Url: Optional[str] = None
 
+
 class LambdaEndpointSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListApplicationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListApplicationsRequestTypeDef(BaseValidatorModel):
     EnvironmentIdentifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListEnvironmentVpcsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListEnvironmentVpcsRequestTypeDef(BaseValidatorModel):
     EnvironmentIdentifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListEnvironmentsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListRoutesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRoutesRequestTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListServicesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListServicesRequestTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
     Policy: str
     ResourceArn: str
+
 
 class UrlEndpointSummaryTypeDef(BaseValidatorModel):
     HealthUrl: Optional[str] = None
     Url: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateRouteRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRouteRequestTypeDef(BaseValidatorModel):
     ActivationState: RouteActivationStateType
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     RouteIdentifier: str
 
-class CreateApplicationRequestRequestTypeDef(BaseValidatorModel):
+
+class UriPathRouteInputTypeDef(BaseValidatorModel):
+    ActivationState: RouteActivationStateType
+    SourcePath: str
+    AppendSourcePath: Optional[bool] = None
+    IncludeChildPaths: Optional[bool] = None
+    Methods: Optional[Sequence[HttpMethodType]] = None
+
+
+class CreateApplicationRequestTypeDef(BaseValidatorModel):
     EnvironmentIdentifier: str
     Name: str
     ProxyType: Literal["API_GATEWAY"]
@@ -195,6 +240,7 @@ class CreateApplicationRequestRequestTypeDef(BaseValidatorModel):
     ApiGatewayProxy: Optional[ApiGatewayProxyInputTypeDef] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
+
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
     ApiGatewayProxy: Optional[ApiGatewayProxySummaryTypeDef] = None
@@ -212,6 +258,7 @@ class ApplicationSummaryTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
     VpcId: Optional[str] = None
 
+
 class EnvironmentSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
@@ -225,6 +272,7 @@ class EnvironmentSummaryTypeDef(BaseValidatorModel):
     State: Optional[EnvironmentStateType] = None
     Tags: Optional[Dict[str, str]] = None
     TransitGatewayId: Optional[str] = None
+
 
 class RouteSummaryTypeDef(BaseValidatorModel):
     AppendSourcePath: Optional[bool] = None
@@ -246,6 +294,7 @@ class RouteSummaryTypeDef(BaseValidatorModel):
     State: Optional[RouteStateType] = None
     Tags: Optional[Dict[str, str]] = None
 
+
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
     ApiGatewayProxy: ApiGatewayProxyInputTypeDef
     ApplicationId: str
@@ -262,6 +311,7 @@ class CreateApplicationResponseTypeDef(BaseValidatorModel):
     VpcId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedTime: datetime
@@ -275,6 +325,7 @@ class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteApplicationResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     Arn: str
@@ -284,6 +335,7 @@ class DeleteApplicationResponseTypeDef(BaseValidatorModel):
     State: ApplicationStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteEnvironmentResponseTypeDef(BaseValidatorModel):
     Arn: str
     EnvironmentId: str
@@ -291,6 +343,7 @@ class DeleteEnvironmentResponseTypeDef(BaseValidatorModel):
     Name: str
     State: EnvironmentStateType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteRouteResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
@@ -301,6 +354,7 @@ class DeleteRouteResponseTypeDef(BaseValidatorModel):
     State: RouteStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteServiceResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
     Arn: str
@@ -310,6 +364,7 @@ class DeleteServiceResponseTypeDef(BaseValidatorModel):
     ServiceId: str
     State: ServiceStateType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetApplicationResponseTypeDef(BaseValidatorModel):
     ApiGatewayProxy: ApiGatewayProxyConfigTypeDef
@@ -328,6 +383,7 @@ class GetApplicationResponseTypeDef(BaseValidatorModel):
     VpcId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetEnvironmentResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedTime: datetime
@@ -343,9 +399,11 @@ class GetEnvironmentResponseTypeDef(BaseValidatorModel):
     TransitGatewayId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetRouteResponseTypeDef(BaseValidatorModel):
     AppendSourcePath: bool
@@ -368,9 +426,11 @@ class GetRouteResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateRouteResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
@@ -381,15 +441,6 @@ class UpdateRouteResponseTypeDef(BaseValidatorModel):
     State: RouteStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRouteRequestRequestTypeDef(BaseValidatorModel):
-    ApplicationIdentifier: str
-    EnvironmentIdentifier: str
-    RouteType: RouteTypeType
-    ServiceIdentifier: str
-    ClientToken: Optional[str] = None
-    DefaultRoute: Optional[DefaultRouteInputTypeDef] = None
-    Tags: Optional[Mapping[str, str]] = None
-    UriPathRoute: Optional[UriPathRouteInputTypeDef] = None
 
 class CreateRouteResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
@@ -403,10 +454,11 @@ class CreateRouteResponseTypeDef(BaseValidatorModel):
     ServiceId: str
     State: RouteStateType
     Tags: Dict[str, str]
-    UriPathRoute: UriPathRouteInputTypeDef
+    UriPathRoute: UriPathRouteInputOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateServiceRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateServiceRequestTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EndpointType: ServiceEndpointTypeType
     EnvironmentIdentifier: str
@@ -417,6 +469,7 @@ class CreateServiceRequestRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
     UrlEndpoint: Optional[UrlEndpointInputTypeDef] = None
     VpcId: Optional[str] = None
+
 
 class CreateServiceResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
@@ -437,10 +490,12 @@ class CreateServiceResponseTypeDef(BaseValidatorModel):
     VpcId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListEnvironmentVpcsResponseTypeDef(BaseValidatorModel):
     EnvironmentVpcList: List[EnvironmentVpcTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class GetServiceResponseTypeDef(BaseValidatorModel):
     ApplicationId: str
@@ -462,26 +517,32 @@ class GetServiceResponseTypeDef(BaseValidatorModel):
     VpcId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationsRequestListApplicationsPaginateTypeDef(BaseValidatorModel):
+
+class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
     EnvironmentIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentVpcsRequestListEnvironmentVpcsPaginateTypeDef(BaseValidatorModel):
+
+class ListEnvironmentVpcsRequestPaginateTypeDef(BaseValidatorModel):
     EnvironmentIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentsRequestListEnvironmentsPaginateTypeDef(BaseValidatorModel):
+
+class ListEnvironmentsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRoutesRequestListRoutesPaginateTypeDef(BaseValidatorModel):
+
+class ListRoutesRequestPaginateTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServicesRequestListServicesPaginateTypeDef(BaseValidatorModel):
+
+class ListServicesRequestPaginateTypeDef(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class ServiceSummaryTypeDef(BaseValidatorModel):
     ApplicationId: Optional[str] = None
@@ -502,23 +563,43 @@ class ServiceSummaryTypeDef(BaseValidatorModel):
     UrlEndpoint: Optional[UrlEndpointSummaryTypeDef] = None
     VpcId: Optional[str] = None
 
+
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     ApplicationSummaryList: List[ApplicationSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListEnvironmentsResponseTypeDef(BaseValidatorModel):
     EnvironmentSummaryList: List[EnvironmentSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListRoutesResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     RouteSummaryList: List[RouteSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListServicesResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     ServiceSummaryList: List[ServiceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class UriPathRouteInputUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateRouteRequestTypeDef(BaseValidatorModel):
+    ApplicationIdentifier: str
+    EnvironmentIdentifier: str
+    RouteType: RouteTypeType
+    ServiceIdentifier: str
+    ClientToken: Optional[str] = None
+    DefaultRoute: Optional[DefaultRouteInputTypeDef] = None
+    Tags: Optional[Mapping[str, str]] = None
+    UriPathRoute: Optional[UriPathRouteInputUnionTypeDef] = None
+
 

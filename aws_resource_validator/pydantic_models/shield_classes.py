@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,23 +16,29 @@ class ResponseActionOutputTypeDef(BaseValidatorModel):
     Block: Optional[Dict[str, Any]] = None
     Count: Optional[Dict[str, Any]] = None
 
-class AssociateDRTLogBucketRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateDRTLogBucketRequestTypeDef(BaseValidatorModel):
     LogBucket: str
 
-class AssociateDRTRoleRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateDRTRoleRequestTypeDef(BaseValidatorModel):
     RoleArn: str
 
-class AssociateHealthCheckRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateHealthCheckRequestTypeDef(BaseValidatorModel):
     ProtectionId: str
     HealthCheckArn: str
+
 
 class EmergencyContactTypeDef(BaseValidatorModel):
     EmailAddress: str
     PhoneNumber: Optional[str] = None
     ContactNotes: Optional[str] = None
 
+
 class MitigationTypeDef(BaseValidatorModel):
     MitigationName: Optional[str] = None
+
 
 class SummarizedCounterTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -41,19 +48,24 @@ class SummarizedCounterTypeDef(BaseValidatorModel):
     N: Optional[int] = None
     Unit: Optional[str] = None
 
+
 class ContributorTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[int] = None
 
+
 class AttackVectorDescriptionTypeDef(BaseValidatorModel):
     VectorType: str
+
 
 class AttackVolumeStatisticsTypeDef(BaseValidatorModel):
     Max: float
 
+
 class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -62,52 +74,51 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DeleteProtectionGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteProtectionGroupRequestTypeDef(BaseValidatorModel):
     ProtectionGroupId: str
 
-class DeleteProtectionRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteProtectionRequestTypeDef(BaseValidatorModel):
     ProtectionId: str
 
-class DescribeAttackRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeAttackRequestTypeDef(BaseValidatorModel):
     AttackId: str
+
 
 class TimeRangeOutputTypeDef(BaseValidatorModel):
     FromInclusive: Optional[datetime] = None
     ToExclusive: Optional[datetime] = None
 
-class DescribeProtectionGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeProtectionGroupRequestTypeDef(BaseValidatorModel):
     ProtectionGroupId: str
 
-class ProtectionGroupTypeDef(BaseValidatorModel):
-    ProtectionGroupId: str
-    Aggregation: ProtectionGroupAggregationType
-    Pattern: ProtectionGroupPatternType
-    Members: List[str]
-    ResourceType: Optional[ProtectedResourceTypeType] = None
-    ProtectionGroupArn: Optional[str] = None
 
-class DescribeProtectionRequestRequestTypeDef(BaseValidatorModel):
+class DescribeProtectionRequestTypeDef(BaseValidatorModel):
     ProtectionId: Optional[str] = None
     ResourceArn: Optional[str] = None
 
-class DisableApplicationLayerAutomaticResponseRequestRequestTypeDef(BaseValidatorModel):
+
+class DisableApplicationLayerAutomaticResponseRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DisassociateDRTLogBucketRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateDRTLogBucketRequestTypeDef(BaseValidatorModel):
     LogBucket: str
 
-class DisassociateHealthCheckRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateHealthCheckRequestTypeDef(BaseValidatorModel):
     ProtectionId: str
     HealthCheckArn: str
 
-class ResponseActionTypeDef(BaseValidatorModel):
-    Block: Optional[Mapping[str, Any]] = None
-    Count: Optional[Mapping[str, Any]] = None
 
 class InclusionProtectionFiltersTypeDef(BaseValidatorModel):
     ResourceArns: Optional[Sequence[str]] = None
     ProtectionNames: Optional[Sequence[str]] = None
     ResourceTypes: Optional[Sequence[ProtectedResourceTypeType]] = None
+
 
 class InclusionProtectionGroupFiltersTypeDef(BaseValidatorModel):
     ProtectionGroupIds: Optional[Sequence[str]] = None
@@ -115,57 +126,58 @@ class InclusionProtectionGroupFiltersTypeDef(BaseValidatorModel):
     ResourceTypes: Optional[Sequence[ProtectedResourceTypeType]] = None
     Aggregations: Optional[Sequence[ProtectionGroupAggregationType]] = None
 
-class LimitTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
-    Max: Optional[int] = None
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListResourcesInProtectionGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class ListResourcesInProtectionGroupRequestTypeDef(BaseValidatorModel):
     ProtectionGroupId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
+
 
 class ProtectionGroupArbitraryPatternLimitsTypeDef(BaseValidatorModel):
     MaxMembers: int
 
-class ResponseActionExtraOutputTypeDef(BaseValidatorModel):
-    Block: Optional[Dict[str, Any]] = None
-    Count: Optional[Dict[str, Any]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+class ResponseActionTypeDef(BaseValidatorModel):
+    Block: Optional[Mapping[str, Any]] = None
+    Count: Optional[Mapping[str, Any]] = None
+
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateProtectionGroupRequestRequestTypeDef(BaseValidatorModel):
-    ProtectionGroupId: str
-    Aggregation: ProtectionGroupAggregationType
-    Pattern: ProtectionGroupPatternType
-    ResourceType: Optional[ProtectedResourceTypeType] = None
-    Members: Optional[Sequence[str]] = None
 
-class UpdateSubscriptionRequestRequestTypeDef(BaseValidatorModel):
+class UpdateSubscriptionRequestTypeDef(BaseValidatorModel):
     AutoRenew: Optional[AutoRenewType] = None
+
 
 class ApplicationLayerAutomaticResponseConfigurationTypeDef(BaseValidatorModel):
     Status: ApplicationLayerAutomaticResponseStatusType
     Action: ResponseActionOutputTypeDef
 
-class AssociateProactiveEngagementDetailsRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateProactiveEngagementDetailsRequestTypeDef(BaseValidatorModel):
     EmergencyContactList: Sequence[EmergencyContactTypeDef]
 
-class UpdateEmergencyContactSettingsRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateEmergencyContactSettingsRequestTypeDef(BaseValidatorModel):
     EmergencyContactList: Optional[Sequence[EmergencyContactTypeDef]] = None
+
 
 class SummarizedAttackVectorTypeDef(BaseValidatorModel):
     VectorType: str
     VectorCounters: Optional[List[SummarizedCounterTypeDef]] = None
+
 
 class AttackPropertyTypeDef(BaseValidatorModel):
     AttackLayer: Optional[AttackLayerType] = None
@@ -174,6 +186,7 @@ class AttackPropertyTypeDef(BaseValidatorModel):
     Unit: Optional[UnitType] = None
     Total: Optional[int] = None
 
+
 class AttackSummaryTypeDef(BaseValidatorModel):
     AttackId: Optional[str] = None
     ResourceArn: Optional[str] = None
@@ -181,94 +194,108 @@ class AttackSummaryTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
     AttackVectors: Optional[List[AttackVectorDescriptionTypeDef]] = None
 
+
 class AttackVolumeTypeDef(BaseValidatorModel):
     BitsPerSecond: Optional[AttackVolumeStatisticsTypeDef] = None
     PacketsPerSecond: Optional[AttackVolumeStatisticsTypeDef] = None
     RequestsPerSecond: Optional[AttackVolumeStatisticsTypeDef] = None
 
-class CreateProtectionGroupRequestRequestTypeDef(BaseValidatorModel):
-    ProtectionGroupId: str
-    Aggregation: ProtectionGroupAggregationType
-    Pattern: ProtectionGroupPatternType
-    ResourceType: Optional[ProtectedResourceTypeType] = None
-    Members: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateProtectionRequestRequestTypeDef(BaseValidatorModel):
+class CreateProtectionRequestTypeDef(BaseValidatorModel):
     Name: str
     ResourceArn: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
+
 
 class CreateProtectionResponseTypeDef(BaseValidatorModel):
     ProtectionId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeDRTAccessResponseTypeDef(BaseValidatorModel):
     RoleArn: str
     LogBucketList: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeEmergencyContactSettingsResponseTypeDef(BaseValidatorModel):
     EmergencyContactList: List[EmergencyContactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetSubscriptionStateResponseTypeDef(BaseValidatorModel):
     SubscriptionState: SubscriptionStateType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListResourcesInProtectionGroupResponseTypeDef(BaseValidatorModel):
     ResourceArns: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class ProtectionGroupTypeDef(BaseValidatorModel):
+    pass
+
+
 class DescribeProtectionGroupResponseTypeDef(BaseValidatorModel):
     ProtectionGroup: ProtectionGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListProtectionGroupsResponseTypeDef(BaseValidatorModel):
     ProtectionGroups: List[ProtectionGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class EnableApplicationLayerAutomaticResponseRequestRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Action: ResponseActionTypeDef
 
-class UpdateApplicationLayerAutomaticResponseRequestRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Action: ResponseActionTypeDef
-
-class ListProtectionsRequestRequestTypeDef(BaseValidatorModel):
+class ListProtectionsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     InclusionFilters: Optional[InclusionProtectionFiltersTypeDef] = None
 
-class ListProtectionGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListProtectionGroupsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     InclusionFilters: Optional[InclusionProtectionGroupFiltersTypeDef] = None
 
+
+class LimitTypeDef(BaseValidatorModel):
+    pass
+
+
 class ProtectionLimitsTypeDef(BaseValidatorModel):
     ProtectedResourceTypeLimits: List[LimitTypeDef]
 
-class ListProtectionsRequestListProtectionsPaginateTypeDef(BaseValidatorModel):
+
+class ListProtectionsRequestPaginateTypeDef(BaseValidatorModel):
     InclusionFilters: Optional[InclusionProtectionFiltersTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class ProtectionGroupPatternTypeLimitsTypeDef(BaseValidatorModel):
     ArbitraryPatternLimits: ProtectionGroupArbitraryPatternLimitsTypeDef
 
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
 class TimeRangeTypeDef(BaseValidatorModel):
     FromInclusive: Optional[TimestampTypeDef] = None
     ToExclusive: Optional[TimestampTypeDef] = None
+
 
 class ProtectionTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
@@ -276,48 +303,53 @@ class ProtectionTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     HealthCheckIds: Optional[List[str]] = None
     ProtectionArn: Optional[str] = None
-    ApplicationLayerAutomaticResponseConfiguration: Optional[       ApplicationLayerAutomaticResponseConfigurationTypeDef     ] = None
+    ApplicationLayerAutomaticResponseConfiguration: Optional[ ApplicationLayerAutomaticResponseConfigurationTypeDef ] = None
 
-class SubResourceSummaryTypeDef(BaseValidatorModel):
-    Type: Optional[SubResourceTypeType] = None
-    Id: Optional[str] = None
-    AttackVectors: Optional[List[SummarizedAttackVectorTypeDef]] = None
-    Counters: Optional[List[SummarizedCounterTypeDef]] = None
 
 class ListAttacksResponseTypeDef(BaseValidatorModel):
     AttackSummaries: List[AttackSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class AttackStatisticsDataItemTypeDef(BaseValidatorModel):
     AttackCount: int
     AttackVolume: Optional[AttackVolumeTypeDef] = None
+
 
 class ProtectionGroupLimitsTypeDef(BaseValidatorModel):
     MaxProtectionGroups: int
     PatternTypeLimits: ProtectionGroupPatternTypeLimitsTypeDef
 
-class ListAttacksRequestListAttacksPaginateTypeDef(BaseValidatorModel):
-    ResourceArns: Optional[Sequence[str]] = None
-    StartTime: Optional[TimeRangeTypeDef] = None
-    EndTime: Optional[TimeRangeTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAttacksRequestRequestTypeDef(BaseValidatorModel):
-    ResourceArns: Optional[Sequence[str]] = None
-    StartTime: Optional[TimeRangeTypeDef] = None
-    EndTime: Optional[TimeRangeTypeDef] = None
-    NextToken: Optional[str] = None
-    MaxResults: Optional[int] = None
+class ResponseActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class EnableApplicationLayerAutomaticResponseRequestTypeDef(BaseValidatorModel):
+    ResourceArn: str
+    Action: ResponseActionUnionTypeDef
+
+
+class UpdateApplicationLayerAutomaticResponseRequestTypeDef(BaseValidatorModel):
+    ResourceArn: str
+    Action: ResponseActionUnionTypeDef
+
 
 class DescribeProtectionResponseTypeDef(BaseValidatorModel):
     Protection: ProtectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListProtectionsResponseTypeDef(BaseValidatorModel):
     Protections: List[ProtectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
+
+class SubResourceSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class AttackDetailTypeDef(BaseValidatorModel):
     AttackId: Optional[str] = None
@@ -329,18 +361,41 @@ class AttackDetailTypeDef(BaseValidatorModel):
     AttackProperties: Optional[List[AttackPropertyTypeDef]] = None
     Mitigations: Optional[List[MitigationTypeDef]] = None
 
+
 class DescribeAttackStatisticsResponseTypeDef(BaseValidatorModel):
     TimeRange: TimeRangeOutputTypeDef
     DataItems: List[AttackStatisticsDataItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SubscriptionLimitsTypeDef(BaseValidatorModel):
     ProtectionLimits: ProtectionLimitsTypeDef
     ProtectionGroupLimits: ProtectionGroupLimitsTypeDef
 
+
+class TimeRangeUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListAttacksRequestPaginateTypeDef(BaseValidatorModel):
+    ResourceArns: Optional[Sequence[str]] = None
+    StartTime: Optional[TimeRangeUnionTypeDef] = None
+    EndTime: Optional[TimeRangeUnionTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListAttacksRequestTypeDef(BaseValidatorModel):
+    ResourceArns: Optional[Sequence[str]] = None
+    StartTime: Optional[TimeRangeUnionTypeDef] = None
+    EndTime: Optional[TimeRangeUnionTypeDef] = None
+    NextToken: Optional[str] = None
+    MaxResults: Optional[int] = None
+
+
 class DescribeAttackResponseTypeDef(BaseValidatorModel):
     Attack: AttackDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class SubscriptionTypeDef(BaseValidatorModel):
     SubscriptionLimits: SubscriptionLimitsTypeDef
@@ -352,7 +407,9 @@ class SubscriptionTypeDef(BaseValidatorModel):
     ProactiveEngagementStatus: Optional[ProactiveEngagementStatusType] = None
     SubscriptionArn: Optional[str] = None
 
+
 class DescribeSubscriptionResponseTypeDef(BaseValidatorModel):
     Subscription: SubscriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

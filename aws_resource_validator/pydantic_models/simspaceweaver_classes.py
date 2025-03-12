@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -14,49 +15,64 @@ from aws_resource_validator.pydantic_models.simspaceweaver_constants import *
 class CloudWatchLogsLogGroupTypeDef(BaseValidatorModel):
     LogGroupArn: Optional[str] = None
 
+
 class S3DestinationTypeDef(BaseValidatorModel):
     BucketName: str
     ObjectKeyPrefix: Optional[str] = None
 
-class DeleteAppInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteAppInputTypeDef(BaseValidatorModel):
     App: str
     Domain: str
     Simulation: str
 
-class DeleteSimulationInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteSimulationInputTypeDef(BaseValidatorModel):
     Simulation: str
 
-class DescribeAppInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeAppInputTypeDef(BaseValidatorModel):
     App: str
     Domain: str
     Simulation: str
 
-class LaunchOverridesTypeDef(BaseValidatorModel):
+
+class LaunchOverridesOutputTypeDef(BaseValidatorModel):
     LaunchCommands: Optional[List[str]] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class DescribeSimulationInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeSimulationInputTypeDef(BaseValidatorModel):
     Simulation: str
+
 
 class S3LocationTypeDef(BaseValidatorModel):
     BucketName: str
     ObjectKey: str
 
+
 class DomainTypeDef(BaseValidatorModel):
     Lifecycle: Optional[LifecycleManagementStrategyType] = None
     Name: Optional[str] = None
 
-class ListAppsInputRequestTypeDef(BaseValidatorModel):
+
+class LaunchOverridesTypeDef(BaseValidatorModel):
+    LaunchCommands: Optional[Sequence[str]] = None
+
+
+class ListAppsInputTypeDef(BaseValidatorModel):
     Simulation: str
     Domain: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+
 
 class SimulationAppMetadataTypeDef(BaseValidatorModel):
     Domain: Optional[str] = None
@@ -65,9 +81,11 @@ class SimulationAppMetadataTypeDef(BaseValidatorModel):
     Status: Optional[SimulationAppStatusType] = None
     TargetStatus: Optional[SimulationAppTargetStatusType] = None
 
-class ListSimulationsInputRequestTypeDef(BaseValidatorModel):
+
+class ListSimulationsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+
 
 class SimulationMetadataTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
@@ -76,57 +94,62 @@ class SimulationMetadataTypeDef(BaseValidatorModel):
     Status: Optional[SimulationStatusType] = None
     TargetStatus: Optional[SimulationTargetStatusType] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class SimulationClockTypeDef(BaseValidatorModel):
     Status: Optional[ClockStatusType] = None
     TargetStatus: Optional[ClockTargetStatusType] = None
 
+
 class SimulationAppPortMappingTypeDef(BaseValidatorModel):
     Actual: Optional[int] = None
     Declared: Optional[int] = None
 
-class StartClockInputRequestTypeDef(BaseValidatorModel):
+
+class StartClockInputTypeDef(BaseValidatorModel):
     Simulation: str
 
-class StopAppInputRequestTypeDef(BaseValidatorModel):
+
+class StopAppInputTypeDef(BaseValidatorModel):
     App: str
     Domain: str
     Simulation: str
 
-class StopClockInputRequestTypeDef(BaseValidatorModel):
+
+class StopClockInputTypeDef(BaseValidatorModel):
     Simulation: str
 
-class StopSimulationInputRequestTypeDef(BaseValidatorModel):
+
+class StopSimulationInputTypeDef(BaseValidatorModel):
     Simulation: str
 
-class TagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class TagResourceInputTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceInputTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
+
 
 class LogDestinationTypeDef(BaseValidatorModel):
     CloudWatchLogsLogGroup: Optional[CloudWatchLogsLogGroupTypeDef] = None
 
-class CreateSnapshotInputRequestTypeDef(BaseValidatorModel):
+
+class CreateSnapshotInputTypeDef(BaseValidatorModel):
     Destination: S3DestinationTypeDef
     Simulation: str
 
-class StartAppInputRequestTypeDef(BaseValidatorModel):
-    Domain: str
-    Name: str
-    Simulation: str
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
-    LaunchOverrides: Optional[LaunchOverridesTypeDef] = None
 
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartAppOutputTypeDef(BaseValidatorModel):
     Domain: str
@@ -134,13 +157,15 @@ class StartAppOutputTypeDef(BaseValidatorModel):
     Simulation: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartSimulationOutputTypeDef(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     ExecutionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSimulationInputRequestTypeDef(BaseValidatorModel):
+
+class StartSimulationInputTypeDef(BaseValidatorModel):
     Name: str
     RoleArn: str
     ClientToken: Optional[str] = None
@@ -150,37 +175,57 @@ class StartSimulationInputRequestTypeDef(BaseValidatorModel):
     SnapshotS3Location: Optional[S3LocationTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
+
 class ListAppsOutputTypeDef(BaseValidatorModel):
     Apps: List[SimulationAppMetadataTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListSimulationsOutputTypeDef(BaseValidatorModel):
-    NextToken: str
     Simulations: List[SimulationMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class LiveSimulationStateTypeDef(BaseValidatorModel):
     Clocks: Optional[List[SimulationClockTypeDef]] = None
     Domains: Optional[List[DomainTypeDef]] = None
 
+
 class SimulationAppEndpointInfoTypeDef(BaseValidatorModel):
     Address: Optional[str] = None
     IngressPortMappings: Optional[List[SimulationAppPortMappingTypeDef]] = None
 
+
 class LoggingConfigurationTypeDef(BaseValidatorModel):
     Destinations: Optional[List[LogDestinationTypeDef]] = None
+
+
+class LaunchOverridesUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class StartAppInputTypeDef(BaseValidatorModel):
+    Domain: str
+    Name: str
+    Simulation: str
+    ClientToken: Optional[str] = None
+    Description: Optional[str] = None
+    LaunchOverrides: Optional[LaunchOverridesUnionTypeDef] = None
+
 
 class DescribeAppOutputTypeDef(BaseValidatorModel):
     Description: str
     Domain: str
     EndpointInfo: SimulationAppEndpointInfoTypeDef
-    LaunchOverrides: LaunchOverridesTypeDef
+    LaunchOverrides: LaunchOverridesOutputTypeDef
     Name: str
     Simulation: str
     Status: SimulationAppStatusType
     TargetStatus: SimulationAppTargetStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeSimulationOutputTypeDef(BaseValidatorModel):
     Arn: str
@@ -199,4 +244,5 @@ class DescribeSimulationOutputTypeDef(BaseValidatorModel):
     Status: SimulationStatusType
     TargetStatus: SimulationTargetStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
 

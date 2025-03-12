@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,32 +16,45 @@ class PointOfInterestTypeDef(BaseValidatorModel):
     BeginOffsetMillis: int
     EndOffsetMillis: int
 
+
 class CharacterOffsetsTypeDef(BaseValidatorModel):
     BeginOffsetChar: int
     EndOffsetChar: int
 
-class ListRealtimeContactAnalysisSegmentsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRealtimeContactAnalysisSegmentsRequestTypeDef(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
+
+class PostContactSummaryTypeDef(BaseValidatorModel):
+    Status: PostContactSummaryStatusType
+    Content: Optional[str] = None
+    FailureCode: Optional[PostContactSummaryFailureCodeType] = None
+
 
 class CategoryDetailsTypeDef(BaseValidatorModel):
     PointsOfInterest: List[PointOfInterestTypeDef]
 
+
 class IssueDetectedTypeDef(BaseValidatorModel):
     CharacterOffsets: CharacterOffsetsTypeDef
+
 
 class CategoriesTypeDef(BaseValidatorModel):
     MatchedCategories: List[str]
     MatchedDetails: Dict[str, CategoryDetailsTypeDef]
+
 
 class TranscriptTypeDef(BaseValidatorModel):
     Id: str
@@ -52,12 +66,16 @@ class TranscriptTypeDef(BaseValidatorModel):
     Sentiment: SentimentValueType
     IssuesDetected: Optional[List[IssueDetectedTypeDef]] = None
 
+
 class RealtimeContactAnalysisSegmentTypeDef(BaseValidatorModel):
     Transcript: Optional[TranscriptTypeDef] = None
     Categories: Optional[CategoriesTypeDef] = None
+    PostContactSummary: Optional[PostContactSummaryTypeDef] = None
+
 
 class ListRealtimeContactAnalysisSegmentsResponseTypeDef(BaseValidatorModel):
     Segments: List[RealtimeContactAnalysisSegmentTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 

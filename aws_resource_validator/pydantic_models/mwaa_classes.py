@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,8 +12,9 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mwaa_constants import *
 
-class CreateCliTokenRequestRequestTypeDef(BaseValidatorModel):
+class CreateCliTokenRequestTypeDef(BaseValidatorModel):
     Name: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -21,51 +23,67 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class NetworkConfigurationTypeDef(BaseValidatorModel):
-    SubnetIds: Optional[Sequence[str]] = None
-    SecurityGroupIds: Optional[Sequence[str]] = None
 
-class CreateWebLoginTokenRequestRequestTypeDef(BaseValidatorModel):
+class CreateWebLoginTokenRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteEnvironmentInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteEnvironmentInputTypeDef(BaseValidatorModel):
     Name: str
+
 
 class DimensionTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
+
 class NetworkConfigurationOutputTypeDef(BaseValidatorModel):
     SubnetIds: Optional[List[str]] = None
     SecurityGroupIds: Optional[List[str]] = None
 
-class GetEnvironmentInputRequestTypeDef(BaseValidatorModel):
+
+class GetEnvironmentInputTypeDef(BaseValidatorModel):
     Name: str
+
+
+class InvokeRestApiRequestTypeDef(BaseValidatorModel):
+    Name: str
+    Path: str
+    Method: RestApiMethodType
+    QueryParameters: Optional[Mapping[str, Any]] = None
+    Body: Optional[Mapping[str, Any]] = None
+
 
 class UpdateErrorTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListEnvironmentsInputRequestTypeDef(BaseValidatorModel):
+
+class ListEnvironmentsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class ModuleLoggingConfigurationInputTypeDef(BaseValidatorModel):
     Enabled: bool
     LogLevel: LoggingLevelType
 
+
 class ModuleLoggingConfigurationTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     LogLevel: Optional[LoggingLevelType] = None
     CloudWatchLogGroupArn: Optional[str] = None
+
 
 class StatisticSetTypeDef(BaseValidatorModel):
     SampleCount: Optional[int] = None
@@ -73,25 +91,36 @@ class StatisticSetTypeDef(BaseValidatorModel):
     Minimum: Optional[float] = None
     Maximum: Optional[float] = None
 
-class TagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class NetworkConfigurationTypeDef(BaseValidatorModel):
+    SubnetIds: Optional[Sequence[str]] = None
+    SecurityGroupIds: Optional[Sequence[str]] = None
+
+
+class TagResourceInputTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceInputTypeDef(BaseValidatorModel):
     ResourceArn: str
     tagKeys: Sequence[str]
 
+
 class UpdateNetworkConfigurationInputTypeDef(BaseValidatorModel):
     SecurityGroupIds: Sequence[str]
+
 
 class CreateCliTokenResponseTypeDef(BaseValidatorModel):
     CliToken: str
     WebServerHostname: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateEnvironmentOutputTypeDef(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateWebLoginTokenResponseTypeDef(BaseValidatorModel):
     WebToken: str
@@ -100,18 +129,28 @@ class CreateWebLoginTokenResponseTypeDef(BaseValidatorModel):
     AirflowIdentity: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class InvokeRestApiResponseTypeDef(BaseValidatorModel):
+    RestApiStatusCode: int
+    RestApiResponse: Dict[str, Any]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class ListEnvironmentsOutputTypeDef(BaseValidatorModel):
     Environments: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateEnvironmentOutputTypeDef(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class LastUpdateTypeDef(BaseValidatorModel):
     Status: Optional[UpdateStatusType] = None
@@ -119,8 +158,10 @@ class LastUpdateTypeDef(BaseValidatorModel):
     Error: Optional[UpdateErrorTypeDef] = None
     Source: Optional[str] = None
 
-class ListEnvironmentsInputListEnvironmentsPaginateTypeDef(BaseValidatorModel):
+
+class ListEnvironmentsInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class LoggingConfigurationInputTypeDef(BaseValidatorModel):
     DagProcessingLogs: Optional[ModuleLoggingConfigurationInputTypeDef] = None
@@ -129,12 +170,18 @@ class LoggingConfigurationInputTypeDef(BaseValidatorModel):
     WorkerLogs: Optional[ModuleLoggingConfigurationInputTypeDef] = None
     TaskLogs: Optional[ModuleLoggingConfigurationInputTypeDef] = None
 
+
 class LoggingConfigurationTypeDef(BaseValidatorModel):
     DagProcessingLogs: Optional[ModuleLoggingConfigurationTypeDef] = None
     SchedulerLogs: Optional[ModuleLoggingConfigurationTypeDef] = None
     WebserverLogs: Optional[ModuleLoggingConfigurationTypeDef] = None
     WorkerLogs: Optional[ModuleLoggingConfigurationTypeDef] = None
     TaskLogs: Optional[ModuleLoggingConfigurationTypeDef] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class MetricDatumTypeDef(BaseValidatorModel):
     MetricName: str
@@ -144,34 +191,8 @@ class MetricDatumTypeDef(BaseValidatorModel):
     Unit: Optional[UnitType] = None
     StatisticValues: Optional[StatisticSetTypeDef] = None
 
-class CreateEnvironmentInputRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ExecutionRoleArn: str
-    SourceBucketArn: str
-    DagS3Path: str
-    NetworkConfiguration: NetworkConfigurationTypeDef
-    PluginsS3Path: Optional[str] = None
-    PluginsS3ObjectVersion: Optional[str] = None
-    RequirementsS3Path: Optional[str] = None
-    RequirementsS3ObjectVersion: Optional[str] = None
-    StartupScriptS3Path: Optional[str] = None
-    StartupScriptS3ObjectVersion: Optional[str] = None
-    AirflowConfigurationOptions: Optional[Mapping[str, str]] = None
-    EnvironmentClass: Optional[str] = None
-    MaxWorkers: Optional[int] = None
-    KmsKey: Optional[str] = None
-    AirflowVersion: Optional[str] = None
-    LoggingConfiguration: Optional[LoggingConfigurationInputTypeDef] = None
-    WeeklyMaintenanceWindowStart: Optional[str] = None
-    Tags: Optional[Mapping[str, str]] = None
-    WebserverAccessMode: Optional[WebserverAccessModeType] = None
-    MinWorkers: Optional[int] = None
-    Schedulers: Optional[int] = None
-    EndpointManagement: Optional[EndpointManagementType] = None
-    MinWebservers: Optional[int] = None
-    MaxWebservers: Optional[int] = None
 
-class UpdateEnvironmentInputRequestTypeDef(BaseValidatorModel):
+class UpdateEnvironmentInputTypeDef(BaseValidatorModel):
     Name: str
     ExecutionRoleArn: Optional[str] = None
     AirflowVersion: Optional[str] = None
@@ -194,6 +215,7 @@ class UpdateEnvironmentInputRequestTypeDef(BaseValidatorModel):
     Schedulers: Optional[int] = None
     MinWebservers: Optional[int] = None
     MaxWebservers: Optional[int] = None
+
 
 class EnvironmentTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -231,11 +253,46 @@ class EnvironmentTypeDef(BaseValidatorModel):
     MinWebservers: Optional[int] = None
     MaxWebservers: Optional[int] = None
 
-class PublishMetricsInputRequestTypeDef(BaseValidatorModel):
+
+class PublishMetricsInputTypeDef(BaseValidatorModel):
     EnvironmentName: str
     MetricData: Sequence[MetricDatumTypeDef]
+
+
+class NetworkConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateEnvironmentInputTypeDef(BaseValidatorModel):
+    Name: str
+    ExecutionRoleArn: str
+    SourceBucketArn: str
+    DagS3Path: str
+    NetworkConfiguration: NetworkConfigurationUnionTypeDef
+    PluginsS3Path: Optional[str] = None
+    PluginsS3ObjectVersion: Optional[str] = None
+    RequirementsS3Path: Optional[str] = None
+    RequirementsS3ObjectVersion: Optional[str] = None
+    StartupScriptS3Path: Optional[str] = None
+    StartupScriptS3ObjectVersion: Optional[str] = None
+    AirflowConfigurationOptions: Optional[Mapping[str, str]] = None
+    EnvironmentClass: Optional[str] = None
+    MaxWorkers: Optional[int] = None
+    KmsKey: Optional[str] = None
+    AirflowVersion: Optional[str] = None
+    LoggingConfiguration: Optional[LoggingConfigurationInputTypeDef] = None
+    WeeklyMaintenanceWindowStart: Optional[str] = None
+    Tags: Optional[Mapping[str, str]] = None
+    WebserverAccessMode: Optional[WebserverAccessModeType] = None
+    MinWorkers: Optional[int] = None
+    Schedulers: Optional[int] = None
+    EndpointManagement: Optional[EndpointManagementType] = None
+    MinWebservers: Optional[int] = None
+    MaxWebservers: Optional[int] = None
+
 
 class GetEnvironmentOutputTypeDef(BaseValidatorModel):
     Environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

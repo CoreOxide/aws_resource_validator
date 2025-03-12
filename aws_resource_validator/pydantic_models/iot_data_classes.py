@@ -1,8 +1,6 @@
-from datetime import datetime
-
-from botocore.response import StreamingBody
-
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -14,37 +12,44 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iot_data_constants import *
 
-class DeleteThingShadowRequestRequestTypeDef(BaseValidatorModel):
+class DeleteThingShadowRequestTypeDef(BaseValidatorModel):
     thingName: str
     shadowName: Optional[str] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class GetRetainedMessageRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRetainedMessageRequestTypeDef(BaseValidatorModel):
     topic: str
 
-class GetThingShadowRequestRequestTypeDef(BaseValidatorModel):
+
+class GetThingShadowRequestTypeDef(BaseValidatorModel):
     thingName: str
     shadowName: Optional[str] = None
 
-class ListNamedShadowsForThingRequestRequestTypeDef(BaseValidatorModel):
+
+class ListNamedShadowsForThingRequestTypeDef(BaseValidatorModel):
     thingName: str
     nextToken: Optional[str] = None
     pageSize: Optional[int] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListRetainedMessagesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRetainedMessagesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+
 
 class RetainedMessageSummaryTypeDef(BaseValidatorModel):
     topic: Optional[str] = None
@@ -52,7 +57,12 @@ class RetainedMessageSummaryTypeDef(BaseValidatorModel):
     qos: Optional[int] = None
     lastModifiedTime: Optional[int] = None
 
-class PublishRequestRequestTypeDef(BaseValidatorModel):
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
+
+class PublishRequestTypeDef(BaseValidatorModel):
     topic: str
     qos: Optional[int] = None
     retain: Optional[bool] = None
@@ -64,17 +74,21 @@ class PublishRequestRequestTypeDef(BaseValidatorModel):
     correlationData: Optional[str] = None
     messageExpiry: Optional[int] = None
 
-class UpdateThingShadowRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateThingShadowRequestTypeDef(BaseValidatorModel):
     thingName: str
     payload: BlobTypeDef
     shadowName: Optional[str] = None
+
 
 class DeleteThingShadowResponseTypeDef(BaseValidatorModel):
     payload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetRetainedMessageResponseTypeDef(BaseValidatorModel):
     topic: str
@@ -84,25 +98,31 @@ class GetRetainedMessageResponseTypeDef(BaseValidatorModel):
     userProperties: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetThingShadowResponseTypeDef(BaseValidatorModel):
     payload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListNamedShadowsForThingResponseTypeDef(BaseValidatorModel):
     results: List[str]
-    nextToken: str
     timestamp: int
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateThingShadowResponseTypeDef(BaseValidatorModel):
     payload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRetainedMessagesRequestListRetainedMessagesPaginateTypeDef(BaseValidatorModel):
+
+class ListRetainedMessagesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class ListRetainedMessagesResponseTypeDef(BaseValidatorModel):
     retainedTopics: List[RetainedMessageSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 

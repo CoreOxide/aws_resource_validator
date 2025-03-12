@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,28 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.proton_constants import *
 
-class AcceptEnvironmentAccountConnectionInputRequestTypeDef(BaseValidatorModel):
-    id: str
-
-class EnvironmentAccountConnectionTypeDef(BaseValidatorModel):
-    arn: str
-    environmentAccountId: str
-    environmentName: str
-    id: str
-    lastModifiedAt: datetime
-    managementAccountId: str
-    requestedAt: datetime
-    roleArn: str
-    status: EnvironmentAccountConnectionStatusType
-    codebuildRoleArn: Optional[str] = None
-    componentRoleArn: Optional[str] = None
-
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class RepositoryBranchTypeDef(BaseValidatorModel):
     arn: str
@@ -40,8 +26,10 @@ class RepositoryBranchTypeDef(BaseValidatorModel):
     name: str
     provider: RepositoryProviderType
 
-class CancelComponentDeploymentInputRequestTypeDef(BaseValidatorModel):
+
+class CancelComponentDeploymentInputTypeDef(BaseValidatorModel):
     componentName: str
+
 
 class ComponentTypeDef(BaseValidatorModel):
     arn: str
@@ -61,12 +49,15 @@ class ComponentTypeDef(BaseValidatorModel):
     serviceName: Optional[str] = None
     serviceSpec: Optional[str] = None
 
-class CancelEnvironmentDeploymentInputRequestTypeDef(BaseValidatorModel):
+
+class CancelEnvironmentDeploymentInputTypeDef(BaseValidatorModel):
     environmentName: str
 
-class CancelServiceInstanceDeploymentInputRequestTypeDef(BaseValidatorModel):
+
+class CancelServiceInstanceDeploymentInputTypeDef(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
+
 
 class ServiceInstanceTypeDef(BaseValidatorModel):
     arn: str
@@ -86,8 +77,10 @@ class ServiceInstanceTypeDef(BaseValidatorModel):
     lastSucceededDeploymentId: Optional[str] = None
     spec: Optional[str] = None
 
-class CancelServicePipelineDeploymentInputRequestTypeDef(BaseValidatorModel):
+
+class CancelServicePipelineDeploymentInputTypeDef(BaseValidatorModel):
     serviceName: str
+
 
 class ServicePipelineTypeDef(BaseValidatorModel):
     arn: str
@@ -103,19 +96,23 @@ class ServicePipelineTypeDef(BaseValidatorModel):
     lastSucceededDeploymentId: Optional[str] = None
     spec: Optional[str] = None
 
+
 class CompatibleEnvironmentTemplateInputTypeDef(BaseValidatorModel):
     majorVersion: str
     templateName: str
 
+
 class CompatibleEnvironmentTemplateTypeDef(BaseValidatorModel):
     majorVersion: str
     templateName: str
+
 
 class ComponentStateTypeDef(BaseValidatorModel):
     serviceInstanceName: Optional[str] = None
     serviceName: Optional[str] = None
     serviceSpec: Optional[str] = None
     templateFile: Optional[str] = None
+
 
 class ComponentSummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -132,6 +129,7 @@ class ComponentSummaryTypeDef(BaseValidatorModel):
     serviceInstanceName: Optional[str] = None
     serviceName: Optional[str] = None
 
+
 class ResourceCountsSummaryTypeDef(BaseValidatorModel):
     total: int
     behindMajor: Optional[int] = None
@@ -139,14 +137,17 @@ class ResourceCountsSummaryTypeDef(BaseValidatorModel):
     failed: Optional[int] = None
     upToDate: Optional[int] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
+
 
 class RepositoryBranchInputTypeDef(BaseValidatorModel):
     branch: str
     name: str
     provider: RepositoryProviderType
+
 
 class EnvironmentTemplateTypeDef(BaseValidatorModel):
     arn: str
@@ -158,6 +159,7 @@ class EnvironmentTemplateTypeDef(BaseValidatorModel):
     encryptionKey: Optional[str] = None
     provisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
     recommendedVersion: Optional[str] = None
+
 
 class EnvironmentTemplateVersionTypeDef(BaseValidatorModel):
     arn: str
@@ -172,6 +174,7 @@ class EnvironmentTemplateVersionTypeDef(BaseValidatorModel):
     schema: Optional[str] = None
     statusMessage: Optional[str] = None
 
+
 class RepositoryTypeDef(BaseValidatorModel):
     arn: str
     connectionArn: str
@@ -179,12 +182,14 @@ class RepositoryTypeDef(BaseValidatorModel):
     provider: RepositoryProviderType
     encryptionKey: Optional[str] = None
 
-class CreateServiceSyncConfigInputRequestTypeDef(BaseValidatorModel):
+
+class CreateServiceSyncConfigInputTypeDef(BaseValidatorModel):
     branch: str
     filePath: str
     repositoryName: str
     repositoryProvider: RepositoryProviderType
     serviceName: str
+
 
 class ServiceSyncConfigTypeDef(BaseValidatorModel):
     branch: str
@@ -192,6 +197,7 @@ class ServiceSyncConfigTypeDef(BaseValidatorModel):
     repositoryName: str
     repositoryProvider: RepositoryProviderType
     serviceName: str
+
 
 class ServiceTemplateTypeDef(BaseValidatorModel):
     arn: str
@@ -204,13 +210,15 @@ class ServiceTemplateTypeDef(BaseValidatorModel):
     pipelineProvisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
     recommendedVersion: Optional[str] = None
 
-class CreateTemplateSyncConfigInputRequestTypeDef(BaseValidatorModel):
+
+class CreateTemplateSyncConfigInputTypeDef(BaseValidatorModel):
     branch: str
     repositoryName: str
     repositoryProvider: RepositoryProviderType
     templateName: str
     templateType: TemplateTypeType
     subdirectory: Optional[str] = None
+
 
 class TemplateSyncConfigTypeDef(BaseValidatorModel):
     branch: str
@@ -220,53 +228,59 @@ class TemplateSyncConfigTypeDef(BaseValidatorModel):
     templateType: TemplateTypeType
     subdirectory: Optional[str] = None
 
-class DeleteComponentInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteComponentInputTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteDeploymentInputRequestTypeDef(BaseValidatorModel):
-    id: str
 
-class DeleteEnvironmentAccountConnectionInputRequestTypeDef(BaseValidatorModel):
-    id: str
-
-class DeleteEnvironmentInputRequestTypeDef(BaseValidatorModel):
+class DeleteEnvironmentInputTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteEnvironmentTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteEnvironmentTemplateInputTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteEnvironmentTemplateVersionInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteEnvironmentTemplateVersionInputTypeDef(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
 
-class DeleteRepositoryInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteRepositoryInputTypeDef(BaseValidatorModel):
     name: str
     provider: RepositoryProviderType
 
-class DeleteServiceInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteServiceInputTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteServiceSyncConfigInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteServiceSyncConfigInputTypeDef(BaseValidatorModel):
     serviceName: str
 
-class DeleteServiceTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteServiceTemplateInputTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteServiceTemplateVersionInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteServiceTemplateVersionInputTypeDef(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
 
-class DeleteTemplateSyncConfigInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteTemplateSyncConfigInputTypeDef(BaseValidatorModel):
     templateName: str
     templateType: TemplateTypeType
+
 
 class EnvironmentStateTypeDef(BaseValidatorModel):
     templateMajorVersion: str
     templateMinorVersion: str
     templateName: str
     spec: Optional[str] = None
+
 
 class ServiceInstanceStateTypeDef(BaseValidatorModel):
     spec: str
@@ -277,40 +291,13 @@ class ServiceInstanceStateTypeDef(BaseValidatorModel):
     lastSuccessfulEnvironmentDeploymentId: Optional[str] = None
     lastSuccessfulServicePipelineDeploymentId: Optional[str] = None
 
+
 class ServicePipelineStateTypeDef(BaseValidatorModel):
     templateMajorVersion: str
     templateMinorVersion: str
     templateName: str
     spec: Optional[str] = None
 
-class DeploymentSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    createdAt: datetime
-    deploymentStatus: DeploymentStatusType
-    environmentName: str
-    id: str
-    lastModifiedAt: datetime
-    targetArn: str
-    targetResourceCreatedAt: datetime
-    targetResourceType: DeploymentTargetResourceTypeType
-    completedAt: Optional[datetime] = None
-    componentName: Optional[str] = None
-    lastAttemptedDeploymentId: Optional[str] = None
-    lastSucceededDeploymentId: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
-
-class EnvironmentAccountConnectionSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    environmentAccountId: str
-    environmentName: str
-    id: str
-    lastModifiedAt: datetime
-    managementAccountId: str
-    requestedAt: datetime
-    roleArn: str
-    status: EnvironmentAccountConnectionStatusType
-    componentRoleArn: Optional[str] = None
 
 class EnvironmentSummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -332,9 +319,11 @@ class EnvironmentSummaryTypeDef(BaseValidatorModel):
     protonServiceRoleArn: Optional[str] = None
     provisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
 
+
 class EnvironmentTemplateFilterTypeDef(BaseValidatorModel):
     majorVersion: str
     templateName: str
+
 
 class EnvironmentTemplateSummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -345,6 +334,7 @@ class EnvironmentTemplateSummaryTypeDef(BaseValidatorModel):
     displayName: Optional[str] = None
     provisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
     recommendedVersion: Optional[str] = None
+
 
 class EnvironmentTemplateVersionSummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -358,54 +348,55 @@ class EnvironmentTemplateVersionSummaryTypeDef(BaseValidatorModel):
     recommendedMinorVersion: Optional[str] = None
     statusMessage: Optional[str] = None
 
+
+class GetComponentInputTypeDef(BaseValidatorModel):
+    name: str
+
+
 class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class GetComponentInputRequestTypeDef(BaseValidatorModel):
+
+class GetEnvironmentInputTypeDef(BaseValidatorModel):
     name: str
 
-class GetDeploymentInputRequestTypeDef(BaseValidatorModel):
-    id: str
-    componentName: Optional[str] = None
-    environmentName: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
 
-class GetEnvironmentAccountConnectionInputRequestTypeDef(BaseValidatorModel):
-    id: str
-
-class GetEnvironmentInputRequestTypeDef(BaseValidatorModel):
+class GetEnvironmentTemplateInputTypeDef(BaseValidatorModel):
     name: str
 
-class GetEnvironmentTemplateInputRequestTypeDef(BaseValidatorModel):
-    name: str
 
-class GetEnvironmentTemplateVersionInputRequestTypeDef(BaseValidatorModel):
+class GetEnvironmentTemplateVersionInputTypeDef(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
 
-class GetRepositoryInputRequestTypeDef(BaseValidatorModel):
+
+class GetRepositoryInputTypeDef(BaseValidatorModel):
     name: str
     provider: RepositoryProviderType
 
-class GetRepositorySyncStatusInputRequestTypeDef(BaseValidatorModel):
+
+class GetRepositorySyncStatusInputTypeDef(BaseValidatorModel):
     branch: str
     repositoryName: str
     repositoryProvider: RepositoryProviderType
     syncType: SyncTypeType
 
-class GetServiceInputRequestTypeDef(BaseValidatorModel):
+
+class GetServiceInputTypeDef(BaseValidatorModel):
     name: str
 
-class GetServiceInstanceInputRequestTypeDef(BaseValidatorModel):
+
+class GetServiceInstanceInputTypeDef(BaseValidatorModel):
     name: str
     serviceName: str
 
-class GetServiceInstanceSyncStatusInputRequestTypeDef(BaseValidatorModel):
+
+class GetServiceInstanceSyncStatusInputTypeDef(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
+
 
 class RevisionTypeDef(BaseValidatorModel):
     branch: str
@@ -414,61 +405,74 @@ class RevisionTypeDef(BaseValidatorModel):
     repositoryProvider: RepositoryProviderType
     sha: str
 
-class GetServiceSyncBlockerSummaryInputRequestTypeDef(BaseValidatorModel):
+
+class GetServiceSyncBlockerSummaryInputTypeDef(BaseValidatorModel):
     serviceName: str
     serviceInstanceName: Optional[str] = None
 
-class GetServiceSyncConfigInputRequestTypeDef(BaseValidatorModel):
+
+class GetServiceSyncConfigInputTypeDef(BaseValidatorModel):
     serviceName: str
 
-class GetServiceTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class GetServiceTemplateInputTypeDef(BaseValidatorModel):
     name: str
 
-class GetServiceTemplateVersionInputRequestTypeDef(BaseValidatorModel):
+
+class GetServiceTemplateVersionInputTypeDef(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
 
-class GetTemplateSyncConfigInputRequestTypeDef(BaseValidatorModel):
+
+class GetTemplateSyncConfigInputTypeDef(BaseValidatorModel):
     templateName: str
     templateType: TemplateTypeType
 
-class GetTemplateSyncStatusInputRequestTypeDef(BaseValidatorModel):
+
+class GetTemplateSyncStatusInputTypeDef(BaseValidatorModel):
     templateName: str
     templateType: TemplateTypeType
     templateVersion: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListComponentOutputsInputRequestTypeDef(BaseValidatorModel):
+
+class ListComponentOutputsInputTypeDef(BaseValidatorModel):
     componentName: str
     deploymentId: Optional[str] = None
     nextToken: Optional[str] = None
+
 
 class OutputTypeDef(BaseValidatorModel):
     key: Optional[str] = None
     valueString: Optional[str] = None
 
-class ListComponentProvisionedResourcesInputRequestTypeDef(BaseValidatorModel):
+
+class ListComponentProvisionedResourcesInputTypeDef(BaseValidatorModel):
     componentName: str
     nextToken: Optional[str] = None
+
 
 class ProvisionedResourceTypeDef(BaseValidatorModel):
     identifier: Optional[str] = None
     name: Optional[str] = None
     provisioningEngine: Optional[ProvisionedResourceEngineType] = None
 
-class ListComponentsInputRequestTypeDef(BaseValidatorModel):
+
+class ListComponentsInputTypeDef(BaseValidatorModel):
     environmentName: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     serviceInstanceName: Optional[str] = None
     serviceName: Optional[str] = None
 
-class ListDeploymentsInputRequestTypeDef(BaseValidatorModel):
+
+class ListDeploymentsInputTypeDef(BaseValidatorModel):
     componentName: Optional[str] = None
     environmentName: Optional[str] = None
     maxResults: Optional[int] = None
@@ -476,35 +480,42 @@ class ListDeploymentsInputRequestTypeDef(BaseValidatorModel):
     serviceInstanceName: Optional[str] = None
     serviceName: Optional[str] = None
 
-class ListEnvironmentAccountConnectionsInputRequestTypeDef(BaseValidatorModel):
+
+class ListEnvironmentAccountConnectionsInputTypeDef(BaseValidatorModel):
     requestedBy: EnvironmentAccountConnectionRequesterAccountTypeType
     environmentName: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     statuses: Optional[Sequence[EnvironmentAccountConnectionStatusType]] = None
 
-class ListEnvironmentOutputsInputRequestTypeDef(BaseValidatorModel):
+
+class ListEnvironmentOutputsInputTypeDef(BaseValidatorModel):
     environmentName: str
     deploymentId: Optional[str] = None
     nextToken: Optional[str] = None
 
-class ListEnvironmentProvisionedResourcesInputRequestTypeDef(BaseValidatorModel):
+
+class ListEnvironmentProvisionedResourcesInputTypeDef(BaseValidatorModel):
     environmentName: str
     nextToken: Optional[str] = None
 
-class ListEnvironmentTemplateVersionsInputRequestTypeDef(BaseValidatorModel):
+
+class ListEnvironmentTemplateVersionsInputTypeDef(BaseValidatorModel):
     templateName: str
     majorVersion: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListEnvironmentTemplatesInputRequestTypeDef(BaseValidatorModel):
+
+class ListEnvironmentTemplatesInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListRepositoriesInputRequestTypeDef(BaseValidatorModel):
+
+class ListRepositoriesInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class RepositorySummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -512,11 +523,13 @@ class RepositorySummaryTypeDef(BaseValidatorModel):
     name: str
     provider: RepositoryProviderType
 
-class ListRepositorySyncDefinitionsInputRequestTypeDef(BaseValidatorModel):
+
+class ListRepositorySyncDefinitionsInputTypeDef(BaseValidatorModel):
     repositoryName: str
     repositoryProvider: RepositoryProviderType
     syncType: SyncTypeType
     nextToken: Optional[str] = None
+
 
 class RepositorySyncDefinitionTypeDef(BaseValidatorModel):
     branch: str
@@ -524,20 +537,24 @@ class RepositorySyncDefinitionTypeDef(BaseValidatorModel):
     parent: str
     target: str
 
-class ListServiceInstanceOutputsInputRequestTypeDef(BaseValidatorModel):
+
+class ListServiceInstanceOutputsInputTypeDef(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
     deploymentId: Optional[str] = None
     nextToken: Optional[str] = None
 
-class ListServiceInstanceProvisionedResourcesInputRequestTypeDef(BaseValidatorModel):
+
+class ListServiceInstanceProvisionedResourcesInputTypeDef(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
     nextToken: Optional[str] = None
 
+
 class ListServiceInstancesFilterTypeDef(BaseValidatorModel):
     key: Optional[ListServiceInstancesFilterByType] = None
     value: Optional[str] = None
+
 
 class ServiceInstanceSummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -555,20 +572,24 @@ class ServiceInstanceSummaryTypeDef(BaseValidatorModel):
     lastAttemptedDeploymentId: Optional[str] = None
     lastSucceededDeploymentId: Optional[str] = None
 
-class ListServicePipelineOutputsInputRequestTypeDef(BaseValidatorModel):
+
+class ListServicePipelineOutputsInputTypeDef(BaseValidatorModel):
     serviceName: str
     deploymentId: Optional[str] = None
     nextToken: Optional[str] = None
 
-class ListServicePipelineProvisionedResourcesInputRequestTypeDef(BaseValidatorModel):
+
+class ListServicePipelineProvisionedResourcesInputTypeDef(BaseValidatorModel):
     serviceName: str
     nextToken: Optional[str] = None
 
-class ListServiceTemplateVersionsInputRequestTypeDef(BaseValidatorModel):
+
+class ListServiceTemplateVersionsInputTypeDef(BaseValidatorModel):
     templateName: str
     majorVersion: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class ServiceTemplateVersionSummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -582,9 +603,11 @@ class ServiceTemplateVersionSummaryTypeDef(BaseValidatorModel):
     recommendedMinorVersion: Optional[str] = None
     statusMessage: Optional[str] = None
 
-class ListServiceTemplatesInputRequestTypeDef(BaseValidatorModel):
+
+class ListServiceTemplatesInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class ServiceTemplateSummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -596,9 +619,11 @@ class ServiceTemplateSummaryTypeDef(BaseValidatorModel):
     pipelineProvisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
     recommendedVersion: Optional[str] = None
 
-class ListServicesInputRequestTypeDef(BaseValidatorModel):
+
+class ListServicesInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class ServiceSummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -610,39 +635,29 @@ class ServiceSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     statusMessage: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputTypeDef(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class RejectEnvironmentAccountConnectionInputRequestTypeDef(BaseValidatorModel):
-    id: str
-
-class RepositorySyncEventTypeDef(BaseValidatorModel):
-    event: str
-    time: datetime
-    type: str
-    externalId: Optional[str] = None
-
-class ResourceSyncEventTypeDef(BaseValidatorModel):
-    event: str
-    time: datetime
-    type: str
-    externalId: Optional[str] = None
 
 class S3ObjectSourceTypeDef(BaseValidatorModel):
     bucket: str
     key: str
 
+
 class SyncBlockerContextTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class UntagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceInputTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateComponentInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateComponentInputTypeDef(BaseValidatorModel):
     deploymentType: ComponentDeploymentUpdateTypeType
     name: str
     clientToken: Optional[str] = None
@@ -652,30 +667,28 @@ class UpdateComponentInputRequestTypeDef(BaseValidatorModel):
     serviceSpec: Optional[str] = None
     templateFile: Optional[str] = None
 
-class UpdateEnvironmentAccountConnectionInputRequestTypeDef(BaseValidatorModel):
-    id: str
-    codebuildRoleArn: Optional[str] = None
-    componentRoleArn: Optional[str] = None
-    roleArn: Optional[str] = None
 
-class UpdateEnvironmentTemplateInputRequestTypeDef(BaseValidatorModel):
+class UpdateEnvironmentTemplateInputTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     displayName: Optional[str] = None
 
-class UpdateEnvironmentTemplateVersionInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateEnvironmentTemplateVersionInputTypeDef(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
     description: Optional[str] = None
     status: Optional[TemplateVersionStatusType] = None
 
-class UpdateServiceInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateServiceInputTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     spec: Optional[str] = None
 
-class UpdateServiceInstanceInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateServiceInstanceInputTypeDef(BaseValidatorModel):
     deploymentType: DeploymentUpdateTypeType
     name: str
     serviceName: str
@@ -684,30 +697,30 @@ class UpdateServiceInstanceInputRequestTypeDef(BaseValidatorModel):
     templateMajorVersion: Optional[str] = None
     templateMinorVersion: Optional[str] = None
 
-class UpdateServicePipelineInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateServicePipelineInputTypeDef(BaseValidatorModel):
     deploymentType: DeploymentUpdateTypeType
     serviceName: str
     spec: str
     templateMajorVersion: Optional[str] = None
     templateMinorVersion: Optional[str] = None
 
-class UpdateServiceSyncBlockerInputRequestTypeDef(BaseValidatorModel):
-    id: str
-    resolvedReason: str
 
-class UpdateServiceSyncConfigInputRequestTypeDef(BaseValidatorModel):
+class UpdateServiceSyncConfigInputTypeDef(BaseValidatorModel):
     branch: str
     filePath: str
     repositoryName: str
     repositoryProvider: RepositoryProviderType
     serviceName: str
 
-class UpdateServiceTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateServiceTemplateInputTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     displayName: Optional[str] = None
 
-class UpdateTemplateSyncConfigInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateTemplateSyncConfigInputTypeDef(BaseValidatorModel):
     branch: str
     repositoryName: str
     repositoryProvider: RepositoryProviderType
@@ -715,34 +728,46 @@ class UpdateTemplateSyncConfigInputRequestTypeDef(BaseValidatorModel):
     templateType: TemplateTypeType
     subdirectory: Optional[str] = None
 
+
+class EnvironmentAccountConnectionTypeDef(BaseValidatorModel):
+    pass
+
+
 class AcceptEnvironmentAccountConnectionOutputTypeDef(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateEnvironmentAccountConnectionOutputTypeDef(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteEnvironmentAccountConnectionOutputTypeDef(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetEnvironmentAccountConnectionOutputTypeDef(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class RejectEnvironmentAccountConnectionOutputTypeDef(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateEnvironmentAccountConnectionOutputTypeDef(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnectionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AccountSettingsTypeDef(BaseValidatorModel):
     pipelineCodebuildRoleArn: Optional[str] = None
     pipelineProvisioningRepository: Optional[RepositoryBranchTypeDef] = None
     pipelineServiceRoleArn: Optional[str] = None
+
 
 class EnvironmentTypeDef(BaseValidatorModel):
     arn: str
@@ -767,45 +792,56 @@ class EnvironmentTypeDef(BaseValidatorModel):
     provisioningRepository: Optional[RepositoryBranchTypeDef] = None
     spec: Optional[str] = None
 
+
 class CancelComponentDeploymentOutputTypeDef(BaseValidatorModel):
     component: ComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateComponentOutputTypeDef(BaseValidatorModel):
     component: ComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteComponentOutputTypeDef(BaseValidatorModel):
     component: ComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetComponentOutputTypeDef(BaseValidatorModel):
     component: ComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateComponentOutputTypeDef(BaseValidatorModel):
     component: ComponentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CancelServiceInstanceDeploymentOutputTypeDef(BaseValidatorModel):
     serviceInstance: ServiceInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateServiceInstanceOutputTypeDef(BaseValidatorModel):
     serviceInstance: ServiceInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetServiceInstanceOutputTypeDef(BaseValidatorModel):
     serviceInstance: ServiceInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateServiceInstanceOutputTypeDef(BaseValidatorModel):
     serviceInstance: ServiceInstanceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CancelServicePipelineDeploymentOutputTypeDef(BaseValidatorModel):
     pipeline: ServicePipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ServiceTypeDef(BaseValidatorModel):
     arn: str
@@ -822,18 +858,21 @@ class ServiceTypeDef(BaseValidatorModel):
     repositoryId: Optional[str] = None
     statusMessage: Optional[str] = None
 
+
 class UpdateServicePipelineOutputTypeDef(BaseValidatorModel):
     pipeline: ServicePipelineTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateServiceTemplateVersionInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateServiceTemplateVersionInputTypeDef(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
-    compatibleEnvironmentTemplates: Optional[       Sequence[CompatibleEnvironmentTemplateInputTypeDef]     ] = None
+    compatibleEnvironmentTemplates: Optional[Sequence[CompatibleEnvironmentTemplateInputTypeDef]] = None
     description: Optional[str] = None
     status: Optional[TemplateVersionStatusType] = None
     supportedComponentSources: Optional[Sequence[Literal["DIRECTLY_DEFINED"]]] = None
+
 
 class ServiceTemplateVersionTypeDef(BaseValidatorModel):
     arn: str
@@ -850,10 +889,12 @@ class ServiceTemplateVersionTypeDef(BaseValidatorModel):
     statusMessage: Optional[str] = None
     supportedComponentSources: Optional[List[Literal["DIRECTLY_DEFINED"]]] = None
 
+
 class ListComponentsOutputTypeDef(BaseValidatorModel):
     components: List[ComponentSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class CountsSummaryTypeDef(BaseValidatorModel):
     components: Optional[ResourceCountsSummaryTypeDef] = None
@@ -864,7 +905,8 @@ class CountsSummaryTypeDef(BaseValidatorModel):
     serviceTemplates: Optional[ResourceCountsSummaryTypeDef] = None
     services: Optional[ResourceCountsSummaryTypeDef] = None
 
-class CreateComponentInputRequestTypeDef(BaseValidatorModel):
+
+class CreateComponentInputTypeDef(BaseValidatorModel):
     manifest: str
     name: str
     templateFile: str
@@ -876,7 +918,8 @@ class CreateComponentInputRequestTypeDef(BaseValidatorModel):
     serviceSpec: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateEnvironmentAccountConnectionInputRequestTypeDef(BaseValidatorModel):
+
+class CreateEnvironmentAccountConnectionInputTypeDef(BaseValidatorModel):
     environmentName: str
     managementAccountId: str
     clientToken: Optional[str] = None
@@ -885,7 +928,8 @@ class CreateEnvironmentAccountConnectionInputRequestTypeDef(BaseValidatorModel):
     roleArn: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateEnvironmentTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class CreateEnvironmentTemplateInputTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     displayName: Optional[str] = None
@@ -893,14 +937,16 @@ class CreateEnvironmentTemplateInputRequestTypeDef(BaseValidatorModel):
     provisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRepositoryInputRequestTypeDef(BaseValidatorModel):
+
+class CreateRepositoryInputTypeDef(BaseValidatorModel):
     connectionArn: str
     name: str
     provider: RepositoryProviderType
     encryptionKey: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateServiceInputRequestTypeDef(BaseValidatorModel):
+
+class CreateServiceInputTypeDef(BaseValidatorModel):
     name: str
     spec: str
     templateMajorVersion: str
@@ -912,7 +958,8 @@ class CreateServiceInputRequestTypeDef(BaseValidatorModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     templateMinorVersion: Optional[str] = None
 
-class CreateServiceInstanceInputRequestTypeDef(BaseValidatorModel):
+
+class CreateServiceInstanceInputTypeDef(BaseValidatorModel):
     name: str
     serviceName: str
     spec: str
@@ -921,7 +968,8 @@ class CreateServiceInstanceInputRequestTypeDef(BaseValidatorModel):
     templateMajorVersion: Optional[str] = None
     templateMinorVersion: Optional[str] = None
 
-class CreateServiceTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class CreateServiceTemplateInputTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     displayName: Optional[str] = None
@@ -929,16 +977,19 @@ class CreateServiceTemplateInputRequestTypeDef(BaseValidatorModel):
     pipelineProvisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
+
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class TagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class TagResourceInputTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
-class CreateEnvironmentInputRequestTypeDef(BaseValidatorModel):
+
+class CreateEnvironmentInputTypeDef(BaseValidatorModel):
     name: str
     spec: str
     templateMajorVersion: str
@@ -952,13 +1003,15 @@ class CreateEnvironmentInputRequestTypeDef(BaseValidatorModel):
     tags: Optional[Sequence[TagTypeDef]] = None
     templateMinorVersion: Optional[str] = None
 
-class UpdateAccountSettingsInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateAccountSettingsInputTypeDef(BaseValidatorModel):
     deletePipelineProvisioningRepository: Optional[bool] = None
     pipelineCodebuildRoleArn: Optional[str] = None
     pipelineProvisioningRepository: Optional[RepositoryBranchInputTypeDef] = None
     pipelineServiceRoleArn: Optional[str] = None
 
-class UpdateEnvironmentInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateEnvironmentInputTypeDef(BaseValidatorModel):
     deploymentType: DeploymentUpdateTypeType
     name: str
     codebuildRoleArn: Optional[str] = None
@@ -971,97 +1024,121 @@ class UpdateEnvironmentInputRequestTypeDef(BaseValidatorModel):
     templateMajorVersion: Optional[str] = None
     templateMinorVersion: Optional[str] = None
 
+
 class CreateEnvironmentTemplateOutputTypeDef(BaseValidatorModel):
     environmentTemplate: EnvironmentTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteEnvironmentTemplateOutputTypeDef(BaseValidatorModel):
     environmentTemplate: EnvironmentTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetEnvironmentTemplateOutputTypeDef(BaseValidatorModel):
     environmentTemplate: EnvironmentTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateEnvironmentTemplateOutputTypeDef(BaseValidatorModel):
     environmentTemplate: EnvironmentTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateEnvironmentTemplateVersionOutputTypeDef(BaseValidatorModel):
     environmentTemplateVersion: EnvironmentTemplateVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteEnvironmentTemplateVersionOutputTypeDef(BaseValidatorModel):
     environmentTemplateVersion: EnvironmentTemplateVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetEnvironmentTemplateVersionOutputTypeDef(BaseValidatorModel):
     environmentTemplateVersion: EnvironmentTemplateVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateEnvironmentTemplateVersionOutputTypeDef(BaseValidatorModel):
     environmentTemplateVersion: EnvironmentTemplateVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateRepositoryOutputTypeDef(BaseValidatorModel):
     repository: RepositoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteRepositoryOutputTypeDef(BaseValidatorModel):
     repository: RepositoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRepositoryOutputTypeDef(BaseValidatorModel):
     repository: RepositoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateServiceSyncConfigOutputTypeDef(BaseValidatorModel):
     serviceSyncConfig: ServiceSyncConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteServiceSyncConfigOutputTypeDef(BaseValidatorModel):
     serviceSyncConfig: ServiceSyncConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetServiceSyncConfigOutputTypeDef(BaseValidatorModel):
     serviceSyncConfig: ServiceSyncConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateServiceSyncConfigOutputTypeDef(BaseValidatorModel):
     serviceSyncConfig: ServiceSyncConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateServiceTemplateOutputTypeDef(BaseValidatorModel):
     serviceTemplate: ServiceTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteServiceTemplateOutputTypeDef(BaseValidatorModel):
     serviceTemplate: ServiceTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetServiceTemplateOutputTypeDef(BaseValidatorModel):
     serviceTemplate: ServiceTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateServiceTemplateOutputTypeDef(BaseValidatorModel):
     serviceTemplate: ServiceTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateTemplateSyncConfigOutputTypeDef(BaseValidatorModel):
     templateSyncConfig: TemplateSyncConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteTemplateSyncConfigOutputTypeDef(BaseValidatorModel):
     templateSyncConfig: TemplateSyncConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetTemplateSyncConfigOutputTypeDef(BaseValidatorModel):
     templateSyncConfig: TemplateSyncConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateTemplateSyncConfigOutputTypeDef(BaseValidatorModel):
     templateSyncConfig: TemplateSyncConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeploymentStateTypeDef(BaseValidatorModel):
     component: Optional[ComponentStateTypeDef] = None
@@ -1069,239 +1146,296 @@ class DeploymentStateTypeDef(BaseValidatorModel):
     serviceInstance: Optional[ServiceInstanceStateTypeDef] = None
     servicePipeline: Optional[ServicePipelineStateTypeDef] = None
 
+
+class DeploymentSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
 class ListDeploymentsOutputTypeDef(BaseValidatorModel):
     deployments: List[DeploymentSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class EnvironmentAccountConnectionSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListEnvironmentAccountConnectionsOutputTypeDef(BaseValidatorModel):
     environmentAccountConnections: List[EnvironmentAccountConnectionSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListEnvironmentsOutputTypeDef(BaseValidatorModel):
     environments: List[EnvironmentSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class ListEnvironmentsInputRequestTypeDef(BaseValidatorModel):
+
+class ListEnvironmentsInputTypeDef(BaseValidatorModel):
     environmentTemplates: Optional[Sequence[EnvironmentTemplateFilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
+
 class ListEnvironmentTemplatesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     templates: List[EnvironmentTemplateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListEnvironmentTemplateVersionsOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     templateVersions: List[EnvironmentTemplateVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class GetComponentInputComponentDeletedWaitTypeDef(BaseValidatorModel):
+
+class GetComponentInputWaitExtraTypeDef(BaseValidatorModel):
     name: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetComponentInputComponentDeployedWaitTypeDef(BaseValidatorModel):
+
+class GetComponentInputWaitTypeDef(BaseValidatorModel):
     name: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetEnvironmentInputEnvironmentDeployedWaitTypeDef(BaseValidatorModel):
+
+class GetEnvironmentInputWaitTypeDef(BaseValidatorModel):
     name: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetEnvironmentTemplateVersionInputEnvironmentTemplateVersionRegisteredWaitTypeDef(BaseValidatorModel):
+
+class GetEnvironmentTemplateVersionInputWaitTypeDef(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetServiceInputServiceCreatedWaitTypeDef(BaseValidatorModel):
+
+class GetServiceInputWaitExtraExtraExtraTypeDef(BaseValidatorModel):
     name: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetServiceInputServiceDeletedWaitTypeDef(BaseValidatorModel):
+
+class GetServiceInputWaitExtraExtraTypeDef(BaseValidatorModel):
     name: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetServiceInputServicePipelineDeployedWaitTypeDef(BaseValidatorModel):
+
+class GetServiceInputWaitExtraTypeDef(BaseValidatorModel):
     name: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetServiceInputServiceUpdatedWaitTypeDef(BaseValidatorModel):
+
+class GetServiceInputWaitTypeDef(BaseValidatorModel):
     name: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetServiceInstanceInputServiceInstanceDeployedWaitTypeDef(BaseValidatorModel):
+
+class GetServiceInstanceInputWaitTypeDef(BaseValidatorModel):
     name: str
     serviceName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetServiceTemplateVersionInputServiceTemplateVersionRegisteredWaitTypeDef(BaseValidatorModel):
+
+class GetServiceTemplateVersionInputWaitTypeDef(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class ListComponentOutputsInputListComponentOutputsPaginateTypeDef(BaseValidatorModel):
+
+class ListComponentOutputsInputPaginateTypeDef(BaseValidatorModel):
     componentName: str
     deploymentId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListComponentProvisionedResourcesInputListComponentProvisionedResourcesPaginateTypeDef(BaseValidatorModel):
+
+class ListComponentProvisionedResourcesInputPaginateTypeDef(BaseValidatorModel):
     componentName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListComponentsInputListComponentsPaginateTypeDef(BaseValidatorModel):
+
+class ListComponentsInputPaginateTypeDef(BaseValidatorModel):
     environmentName: Optional[str] = None
     serviceInstanceName: Optional[str] = None
     serviceName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDeploymentsInputListDeploymentsPaginateTypeDef(BaseValidatorModel):
+
+class ListDeploymentsInputPaginateTypeDef(BaseValidatorModel):
     componentName: Optional[str] = None
     environmentName: Optional[str] = None
     serviceInstanceName: Optional[str] = None
     serviceName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentAccountConnectionsInputListEnvironmentAccountConnectionsPaginateTypeDef(BaseValidatorModel):
+
+class ListEnvironmentAccountConnectionsInputPaginateTypeDef(BaseValidatorModel):
     requestedBy: EnvironmentAccountConnectionRequesterAccountTypeType
     environmentName: Optional[str] = None
     statuses: Optional[Sequence[EnvironmentAccountConnectionStatusType]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentOutputsInputListEnvironmentOutputsPaginateTypeDef(BaseValidatorModel):
+
+class ListEnvironmentOutputsInputPaginateTypeDef(BaseValidatorModel):
     environmentName: str
     deploymentId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentProvisionedResourcesInputListEnvironmentProvisionedResourcesPaginateTypeDef(BaseValidatorModel):
+
+class ListEnvironmentProvisionedResourcesInputPaginateTypeDef(BaseValidatorModel):
     environmentName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentTemplateVersionsInputListEnvironmentTemplateVersionsPaginateTypeDef(BaseValidatorModel):
+
+class ListEnvironmentTemplateVersionsInputPaginateTypeDef(BaseValidatorModel):
     templateName: str
     majorVersion: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentTemplatesInputListEnvironmentTemplatesPaginateTypeDef(BaseValidatorModel):
+
+class ListEnvironmentTemplatesInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEnvironmentsInputListEnvironmentsPaginateTypeDef(BaseValidatorModel):
+
+class ListEnvironmentsInputPaginateTypeDef(BaseValidatorModel):
     environmentTemplates: Optional[Sequence[EnvironmentTemplateFilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRepositoriesInputListRepositoriesPaginateTypeDef(BaseValidatorModel):
+
+class ListRepositoriesInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRepositorySyncDefinitionsInputListRepositorySyncDefinitionsPaginateTypeDef(BaseValidatorModel):
+
+class ListRepositorySyncDefinitionsInputPaginateTypeDef(BaseValidatorModel):
     repositoryName: str
     repositoryProvider: RepositoryProviderType
     syncType: SyncTypeType
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServiceInstanceOutputsInputListServiceInstanceOutputsPaginateTypeDef(BaseValidatorModel):
+
+class ListServiceInstanceOutputsInputPaginateTypeDef(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
     deploymentId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServiceInstanceProvisionedResourcesInputListServiceInstanceProvisionedResourcesPaginateTypeDef(BaseValidatorModel):
+
+class ListServiceInstanceProvisionedResourcesInputPaginateTypeDef(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServicePipelineOutputsInputListServicePipelineOutputsPaginateTypeDef(BaseValidatorModel):
+
+class ListServicePipelineOutputsInputPaginateTypeDef(BaseValidatorModel):
     serviceName: str
     deploymentId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServicePipelineProvisionedResourcesInputListServicePipelineProvisionedResourcesPaginateTypeDef(BaseValidatorModel):
+
+class ListServicePipelineProvisionedResourcesInputPaginateTypeDef(BaseValidatorModel):
     serviceName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServiceTemplateVersionsInputListServiceTemplateVersionsPaginateTypeDef(BaseValidatorModel):
+
+class ListServiceTemplateVersionsInputPaginateTypeDef(BaseValidatorModel):
     templateName: str
     majorVersion: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServiceTemplatesInputListServiceTemplatesPaginateTypeDef(BaseValidatorModel):
+
+class ListServiceTemplatesInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServicesInputListServicesPaginateTypeDef(BaseValidatorModel):
+
+class ListServicesInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceInputListTagsForResourcePaginateTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputPaginateTypeDef(BaseValidatorModel):
     resourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
 class ListComponentOutputsOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     outputs: List[OutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListEnvironmentOutputsOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     outputs: List[OutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListServiceInstanceOutputsOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     outputs: List[OutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListServicePipelineOutputsOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     outputs: List[OutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class NotifyResourceDeploymentStatusChangeInputRequestTypeDef(BaseValidatorModel):
+
+class NotifyResourceDeploymentStatusChangeInputTypeDef(BaseValidatorModel):
     resourceArn: str
     deploymentId: Optional[str] = None
     outputs: Optional[Sequence[OutputTypeDef]] = None
     status: Optional[ResourceDeploymentStatusType] = None
     statusMessage: Optional[str] = None
 
+
 class ListComponentProvisionedResourcesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     provisionedResources: List[ProvisionedResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListEnvironmentProvisionedResourcesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     provisionedResources: List[ProvisionedResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListServiceInstanceProvisionedResourcesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     provisionedResources: List[ProvisionedResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListServicePipelineProvisionedResourcesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     provisionedResources: List[ProvisionedResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListRepositoriesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     repositories: List[RepositorySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListRepositorySyncDefinitionsOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     syncDefinitions: List[RepositorySyncDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class ListServiceInstancesInputListServiceInstancesPaginateTypeDef(BaseValidatorModel):
+
+class ListServiceInstancesInputPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[ListServiceInstancesFilterTypeDef]] = None
     serviceName: Optional[str] = None
     sortBy: Optional[ListServiceInstancesSortByType] = None
     sortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListServiceInstancesInputRequestTypeDef(BaseValidatorModel):
+
+class ListServiceInstancesInputTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[ListServiceInstancesFilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1309,30 +1443,44 @@ class ListServiceInstancesInputRequestTypeDef(BaseValidatorModel):
     sortBy: Optional[ListServiceInstancesSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
+
 class ListServiceInstancesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     serviceInstances: List[ServiceInstanceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListServiceTemplateVersionsOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     templateVersions: List[ServiceTemplateVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListServiceTemplatesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     templates: List[ServiceTemplateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListServicesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     services: List[ServiceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class RepositorySyncEventTypeDef(BaseValidatorModel):
+    pass
+
 
 class RepositorySyncAttemptTypeDef(BaseValidatorModel):
     events: List[RepositorySyncEventTypeDef]
     startedAt: datetime
     status: RepositorySyncStatusType
+
+
+class ResourceSyncEventTypeDef(BaseValidatorModel):
+    pass
+
 
 class ResourceSyncAttemptTypeDef(BaseValidatorModel):
     events: List[ResourceSyncEventTypeDef]
@@ -1342,106 +1490,95 @@ class ResourceSyncAttemptTypeDef(BaseValidatorModel):
     target: str
     targetRevision: RevisionTypeDef
 
+
 class TemplateVersionSourceInputTypeDef(BaseValidatorModel):
     s3: Optional[S3ObjectSourceTypeDef] = None
 
-class SyncBlockerTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdReason: str
-    id: str
-    status: BlockerStatusType
-    type: Literal["AUTOMATED"]
-    contexts: Optional[List[SyncBlockerContextTypeDef]] = None
-    resolvedAt: Optional[datetime] = None
-    resolvedReason: Optional[str] = None
 
 class GetAccountSettingsOutputTypeDef(BaseValidatorModel):
     accountSettings: AccountSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateAccountSettingsOutputTypeDef(BaseValidatorModel):
     accountSettings: AccountSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CancelEnvironmentDeploymentOutputTypeDef(BaseValidatorModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateEnvironmentOutputTypeDef(BaseValidatorModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteEnvironmentOutputTypeDef(BaseValidatorModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetEnvironmentOutputTypeDef(BaseValidatorModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateEnvironmentOutputTypeDef(BaseValidatorModel):
     environment: EnvironmentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateServiceOutputTypeDef(BaseValidatorModel):
     service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteServiceOutputTypeDef(BaseValidatorModel):
     service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetServiceOutputTypeDef(BaseValidatorModel):
     service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateServiceOutputTypeDef(BaseValidatorModel):
     service: ServiceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateServiceTemplateVersionOutputTypeDef(BaseValidatorModel):
     serviceTemplateVersion: ServiceTemplateVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteServiceTemplateVersionOutputTypeDef(BaseValidatorModel):
     serviceTemplateVersion: ServiceTemplateVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetServiceTemplateVersionOutputTypeDef(BaseValidatorModel):
     serviceTemplateVersion: ServiceTemplateVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateServiceTemplateVersionOutputTypeDef(BaseValidatorModel):
     serviceTemplateVersion: ServiceTemplateVersionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetResourcesSummaryOutputTypeDef(BaseValidatorModel):
     counts: CountsSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeploymentTypeDef(BaseValidatorModel):
-    arn: str
-    createdAt: datetime
-    deploymentStatus: DeploymentStatusType
-    environmentName: str
-    id: str
-    lastModifiedAt: datetime
-    targetArn: str
-    targetResourceCreatedAt: datetime
-    targetResourceType: DeploymentTargetResourceTypeType
-    completedAt: Optional[datetime] = None
-    componentName: Optional[str] = None
-    deploymentStatusMessage: Optional[str] = None
-    initialState: Optional[DeploymentStateTypeDef] = None
-    lastAttemptedDeploymentId: Optional[str] = None
-    lastSucceededDeploymentId: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
-    targetState: Optional[DeploymentStateTypeDef] = None
 
 class GetRepositorySyncStatusOutputTypeDef(BaseValidatorModel):
     latestSync: RepositorySyncAttemptTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetServiceInstanceSyncStatusOutputTypeDef(BaseValidatorModel):
     desiredState: RevisionTypeDef
@@ -1449,13 +1586,15 @@ class GetServiceInstanceSyncStatusOutputTypeDef(BaseValidatorModel):
     latestSync: ResourceSyncAttemptTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetTemplateSyncStatusOutputTypeDef(BaseValidatorModel):
     desiredState: RevisionTypeDef
     latestSuccessfulSync: ResourceSyncAttemptTypeDef
     latestSync: ResourceSyncAttemptTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateEnvironmentTemplateVersionInputRequestTypeDef(BaseValidatorModel):
+
+class CreateEnvironmentTemplateVersionInputTypeDef(BaseValidatorModel):
     source: TemplateVersionSourceInputTypeDef
     templateName: str
     clientToken: Optional[str] = None
@@ -1463,7 +1602,8 @@ class CreateEnvironmentTemplateVersionInputRequestTypeDef(BaseValidatorModel):
     majorVersion: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateServiceTemplateVersionInputRequestTypeDef(BaseValidatorModel):
+
+class CreateServiceTemplateVersionInputTypeDef(BaseValidatorModel):
     compatibleEnvironmentTemplates: Sequence[CompatibleEnvironmentTemplateInputTypeDef]
     source: TemplateVersionSourceInputTypeDef
     templateName: str
@@ -1473,10 +1613,16 @@ class CreateServiceTemplateVersionInputRequestTypeDef(BaseValidatorModel):
     supportedComponentSources: Optional[Sequence[Literal["DIRECTLY_DEFINED"]]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
+
+class SyncBlockerTypeDef(BaseValidatorModel):
+    pass
+
+
 class ServiceSyncBlockerSummaryTypeDef(BaseValidatorModel):
     serviceName: str
     latestBlockers: Optional[List[SyncBlockerTypeDef]] = None
     serviceInstanceName: Optional[str] = None
+
 
 class UpdateServiceSyncBlockerOutputTypeDef(BaseValidatorModel):
     serviceInstanceName: str
@@ -1484,15 +1630,23 @@ class UpdateServiceSyncBlockerOutputTypeDef(BaseValidatorModel):
     serviceSyncBlocker: SyncBlockerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class DeploymentTypeDef(BaseValidatorModel):
+    pass
+
+
 class DeleteDeploymentOutputTypeDef(BaseValidatorModel):
     deployment: DeploymentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetDeploymentOutputTypeDef(BaseValidatorModel):
     deployment: DeploymentTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetServiceSyncBlockerSummaryOutputTypeDef(BaseValidatorModel):
     serviceSyncBlockerSummary: ServiceSyncBlockerSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,9 +16,11 @@ class AcceleratorCountRequestTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
+
 class AcceleratorTotalMemoryMiBRequestTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
+
 
 class ActivityTypeDef(BaseValidatorModel):
     ActivityId: str
@@ -33,6 +36,7 @@ class ActivityTypeDef(BaseValidatorModel):
     AutoScalingGroupState: Optional[str] = None
     AutoScalingGroupARN: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
@@ -40,60 +44,79 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
 class AdjustmentTypeTypeDef(BaseValidatorModel):
     AdjustmentType: Optional[str] = None
+
 
 class AlarmSpecificationOutputTypeDef(BaseValidatorModel):
     Alarms: Optional[List[str]] = None
 
+
 class AlarmSpecificationTypeDef(BaseValidatorModel):
     Alarms: Optional[Sequence[str]] = None
+
 
 class AlarmTypeDef(BaseValidatorModel):
     AlarmName: Optional[str] = None
     AlarmARN: Optional[str] = None
 
-class AttachInstancesQueryRequestTypeDef(BaseValidatorModel):
+
+class AttachInstancesQueryTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     InstanceIds: Optional[Sequence[str]] = None
 
-class AttachLoadBalancerTargetGroupsTypeRequestTypeDef(BaseValidatorModel):
+
+class AttachLoadBalancerTargetGroupsTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     TargetGroupARNs: Sequence[str]
 
-class AttachLoadBalancersTypeRequestTypeDef(BaseValidatorModel):
+
+class AttachLoadBalancersTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     LoadBalancerNames: Sequence[str]
 
-class TrafficSourceIdentifierTypeDef(BaseValidatorModel):
-    Identifier: str
-    Type: Optional[str] = None
 
 class FilterTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Values: Optional[Sequence[str]] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
+
+class AvailabilityZoneDistributionTypeDef(BaseValidatorModel):
+    CapacityDistributionStrategy: Optional[CapacityDistributionStrategyType] = None
+
+
+class AvailabilityZoneImpairmentPolicyTypeDef(BaseValidatorModel):
+    ZonalShiftEnabled: Optional[bool] = None
+    ImpairedZoneHealthCheckBehavior: Optional[ImpairedZoneHealthCheckBehaviorType] = None
+
+
 class EnabledMetricTypeDef(BaseValidatorModel):
     Metric: Optional[str] = None
     Granularity: Optional[str] = None
 
+
 class InstanceMaintenancePolicyTypeDef(BaseValidatorModel):
     MinHealthyPercentage: Optional[int] = None
     MaxHealthyPercentage: Optional[int] = None
+
 
 class LaunchTemplateSpecificationTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
     Version: Optional[str] = None
 
+
 class SuspendedProcessTypeDef(BaseValidatorModel):
     ProcessName: Optional[str] = None
     SuspensionReason: Optional[str] = None
+
 
 class TagDescriptionTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
@@ -102,18 +125,22 @@ class TagDescriptionTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     PropagateAtLaunch: Optional[bool] = None
 
+
 class BaselineEbsBandwidthMbpsRequestTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
+
 
 class FailedScheduledUpdateGroupActionRequestTypeDef(BaseValidatorModel):
     ScheduledActionName: str
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class BatchDeleteScheduledActionTypeRequestTypeDef(BaseValidatorModel):
+
+class BatchDeleteScheduledActionTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     ScheduledActionNames: Sequence[str]
+
 
 class EbsTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
@@ -124,19 +151,37 @@ class EbsTypeDef(BaseValidatorModel):
     Encrypted: Optional[bool] = None
     Throughput: Optional[int] = None
 
-class CancelInstanceRefreshTypeRequestTypeDef(BaseValidatorModel):
+
+class CancelInstanceRefreshTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
+
 
 class CapacityForecastTypeDef(BaseValidatorModel):
     Timestamps: List[datetime]
     Values: List[float]
 
-class CompleteLifecycleActionTypeRequestTypeDef(BaseValidatorModel):
+
+class CapacityReservationTargetOutputTypeDef(BaseValidatorModel):
+    CapacityReservationIds: Optional[List[str]] = None
+    CapacityReservationResourceGroupArns: Optional[List[str]] = None
+
+
+class CapacityReservationTargetTypeDef(BaseValidatorModel):
+    CapacityReservationIds: Optional[Sequence[str]] = None
+    CapacityReservationResourceGroupArns: Optional[Sequence[str]] = None
+
+
+class CompleteLifecycleActionTypeTypeDef(BaseValidatorModel):
     LifecycleHookName: str
     AutoScalingGroupName: str
     LifecycleActionResult: str
     LifecycleActionToken: Optional[str] = None
     InstanceId: Optional[str] = None
+
+
+class PerformanceFactorReferenceRequestTypeDef(BaseValidatorModel):
+    InstanceFamily: Optional[str] = None
+
 
 class LifecycleHookSpecificationTypeDef(BaseValidatorModel):
     LifecycleHookName: str
@@ -147,6 +192,7 @@ class LifecycleHookSpecificationTypeDef(BaseValidatorModel):
     NotificationTargetARN: Optional[str] = None
     RoleARN: Optional[str] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     Key: str
     ResourceId: Optional[str] = None
@@ -154,52 +200,64 @@ class TagTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
     PropagateAtLaunch: Optional[bool] = None
 
+
 class InstanceMetadataOptionsTypeDef(BaseValidatorModel):
     HttpTokens: Optional[InstanceMetadataHttpTokensStateType] = None
     HttpPutResponseHopLimit: Optional[int] = None
     HttpEndpoint: Optional[InstanceMetadataEndpointStateType] = None
 
+
 class InstanceMonitoringTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
+
 
 class MetricDimensionTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class DeleteAutoScalingGroupTypeRequestTypeDef(BaseValidatorModel):
+
+class DeleteAutoScalingGroupTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     ForceDelete: Optional[bool] = None
 
-class DeleteLifecycleHookTypeRequestTypeDef(BaseValidatorModel):
+
+class DeleteLifecycleHookTypeTypeDef(BaseValidatorModel):
     LifecycleHookName: str
     AutoScalingGroupName: str
 
-class DeleteNotificationConfigurationTypeRequestTypeDef(BaseValidatorModel):
+
+class DeleteNotificationConfigurationTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     TopicARN: str
 
-class DeletePolicyTypeRequestTypeDef(BaseValidatorModel):
+
+class DeletePolicyTypeTypeDef(BaseValidatorModel):
     PolicyName: str
     AutoScalingGroupName: Optional[str] = None
 
-class DeleteScheduledActionTypeRequestTypeDef(BaseValidatorModel):
+
+class DeleteScheduledActionTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     ScheduledActionName: str
 
-class DeleteWarmPoolTypeRequestTypeDef(BaseValidatorModel):
+
+class DeleteWarmPoolTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     ForceDelete: Optional[bool] = None
 
-class DescribeAutoScalingInstancesTypeRequestTypeDef(BaseValidatorModel):
+
+class DescribeAutoScalingInstancesTypeTypeDef(BaseValidatorModel):
     InstanceIds: Optional[Sequence[str]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeInstanceRefreshesTypeRequestTypeDef(BaseValidatorModel):
+
+class DescribeInstanceRefreshesTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     InstanceRefreshIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
+
 
 class LifecycleHookTypeDef(BaseValidatorModel):
     LifecycleHookName: Optional[str] = None
@@ -212,147 +270,172 @@ class LifecycleHookTypeDef(BaseValidatorModel):
     GlobalTimeout: Optional[int] = None
     DefaultResult: Optional[str] = None
 
-class DescribeLifecycleHooksTypeRequestTypeDef(BaseValidatorModel):
+
+class DescribeLifecycleHooksTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     LifecycleHookNames: Optional[Sequence[str]] = None
 
-class DescribeLoadBalancerTargetGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLoadBalancerTargetGroupsRequestTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
+
 
 class LoadBalancerTargetGroupStateTypeDef(BaseValidatorModel):
     LoadBalancerTargetGroupARN: Optional[str] = None
     State: Optional[str] = None
 
-class DescribeLoadBalancersRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLoadBalancersRequestTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
+
 
 class LoadBalancerStateTypeDef(BaseValidatorModel):
     LoadBalancerName: Optional[str] = None
     State: Optional[str] = None
 
+
 class MetricCollectionTypeTypeDef(BaseValidatorModel):
     Metric: Optional[str] = None
 
+
 class MetricGranularityTypeTypeDef(BaseValidatorModel):
     Granularity: Optional[str] = None
+
 
 class NotificationConfigurationTypeDef(BaseValidatorModel):
     AutoScalingGroupName: Optional[str] = None
     TopicARN: Optional[str] = None
     NotificationType: Optional[str] = None
 
-class DescribeNotificationConfigurationsTypeRequestTypeDef(BaseValidatorModel):
+
+class DescribeNotificationConfigurationsTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
 
-class DescribePoliciesTypeRequestTypeDef(BaseValidatorModel):
+
+class DescribePoliciesTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: Optional[str] = None
     PolicyNames: Optional[Sequence[str]] = None
     PolicyTypes: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
 
-class DescribeScalingActivitiesTypeRequestTypeDef(BaseValidatorModel):
+
+class DescribeScalingActivitiesTypeTypeDef(BaseValidatorModel):
     ActivityIds: Optional[Sequence[str]] = None
     AutoScalingGroupName: Optional[str] = None
     IncludeDeletedGroups: Optional[bool] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeTrafficSourcesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeTrafficSourcesRequestTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     TrafficSourceType: Optional[str] = None
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
 
-class TrafficSourceStateTypeDef(BaseValidatorModel):
-    TrafficSource: Optional[str] = None
-    State: Optional[str] = None
-    Identifier: Optional[str] = None
-    Type: Optional[str] = None
 
-class DescribeWarmPoolTypeRequestTypeDef(BaseValidatorModel):
+class DescribeWarmPoolTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DetachInstancesQueryRequestTypeDef(BaseValidatorModel):
+
+class DetachInstancesQueryTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     ShouldDecrementDesiredCapacity: bool
     InstanceIds: Optional[Sequence[str]] = None
 
-class DetachLoadBalancerTargetGroupsTypeRequestTypeDef(BaseValidatorModel):
+
+class DetachLoadBalancerTargetGroupsTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     TargetGroupARNs: Sequence[str]
 
-class DetachLoadBalancersTypeRequestTypeDef(BaseValidatorModel):
+
+class DetachLoadBalancersTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     LoadBalancerNames: Sequence[str]
 
-class DisableMetricsCollectionQueryRequestTypeDef(BaseValidatorModel):
+
+class DisableMetricsCollectionQueryTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     Metrics: Optional[Sequence[str]] = None
 
-class EnableMetricsCollectionQueryRequestTypeDef(BaseValidatorModel):
+
+class EnableMetricsCollectionQueryTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     Granularity: str
     Metrics: Optional[Sequence[str]] = None
 
-class EnterStandbyQueryRequestTypeDef(BaseValidatorModel):
+
+class EnterStandbyQueryTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     ShouldDecrementDesiredCapacity: bool
     InstanceIds: Optional[Sequence[str]] = None
 
-class ExecutePolicyTypeRequestTypeDef(BaseValidatorModel):
+
+class ExecutePolicyTypeTypeDef(BaseValidatorModel):
     PolicyName: str
     AutoScalingGroupName: Optional[str] = None
     HonorCooldown: Optional[bool] = None
     MetricValue: Optional[float] = None
     BreachThreshold: Optional[float] = None
 
-class ExitStandbyQueryRequestTypeDef(BaseValidatorModel):
+
+class ExitStandbyQueryTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     InstanceIds: Optional[Sequence[str]] = None
+
 
 class InstanceRefreshLivePoolProgressTypeDef(BaseValidatorModel):
     PercentageComplete: Optional[int] = None
     InstancesToUpdate: Optional[int] = None
 
+
 class InstanceRefreshWarmPoolProgressTypeDef(BaseValidatorModel):
     PercentageComplete: Optional[int] = None
     InstancesToUpdate: Optional[int] = None
+
 
 class MemoryGiBPerVCpuRequestTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
+
 class MemoryMiBRequestTypeDef(BaseValidatorModel):
     Min: int
     Max: Optional[int] = None
+
 
 class NetworkBandwidthGbpsRequestTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
+
 class NetworkInterfaceCountRequestTypeDef(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
+
 
 class TotalLocalStorageGBRequestTypeDef(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
+
 class VCpuCountRequestTypeDef(BaseValidatorModel):
     Min: int
     Max: Optional[int] = None
 
+
 class InstanceReusePolicyTypeDef(BaseValidatorModel):
     ReuseOnScaleIn: Optional[bool] = None
+
 
 class InstancesDistributionTypeDef(BaseValidatorModel):
     OnDemandAllocationStrategy: Optional[str] = None
@@ -362,34 +445,42 @@ class InstancesDistributionTypeDef(BaseValidatorModel):
     SpotInstancePools: Optional[int] = None
     SpotMaxPrice: Optional[str] = None
 
-class LaunchConfigurationNameTypeRequestTypeDef(BaseValidatorModel):
+
+class LaunchConfigurationNameTypeTypeDef(BaseValidatorModel):
     LaunchConfigurationName: str
 
-class LaunchConfigurationNamesTypeRequestTypeDef(BaseValidatorModel):
+
+class LaunchConfigurationNamesTypeTypeDef(BaseValidatorModel):
     LaunchConfigurationNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
+
 
 class PredefinedMetricSpecificationTypeDef(BaseValidatorModel):
     PredefinedMetricType: MetricTypeType
     ResourceLabel: Optional[str] = None
 
+
 class PredictiveScalingPredefinedLoadMetricTypeDef(BaseValidatorModel):
     PredefinedMetricType: PredefinedLoadMetricTypeType
     ResourceLabel: Optional[str] = None
+
 
 class PredictiveScalingPredefinedMetricPairTypeDef(BaseValidatorModel):
     PredefinedMetricType: PredefinedMetricPairTypeType
     ResourceLabel: Optional[str] = None
 
+
 class PredictiveScalingPredefinedScalingMetricTypeDef(BaseValidatorModel):
     PredefinedMetricType: PredefinedScalingMetricTypeType
     ResourceLabel: Optional[str] = None
 
+
 class ProcessTypeTypeDef(BaseValidatorModel):
     ProcessName: str
 
-class PutLifecycleHookTypeRequestTypeDef(BaseValidatorModel):
+
+class PutLifecycleHookTypeTypeDef(BaseValidatorModel):
     LifecycleHookName: str
     AutoScalingGroupName: str
     LifecycleTransition: Optional[str] = None
@@ -399,28 +490,39 @@ class PutLifecycleHookTypeRequestTypeDef(BaseValidatorModel):
     HeartbeatTimeout: Optional[int] = None
     DefaultResult: Optional[str] = None
 
-class PutNotificationConfigurationTypeRequestTypeDef(BaseValidatorModel):
+
+class PutNotificationConfigurationTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     TopicARN: str
     NotificationTypes: Sequence[str]
+
 
 class StepAdjustmentTypeDef(BaseValidatorModel):
     ScalingAdjustment: int
     MetricIntervalLowerBound: Optional[float] = None
     MetricIntervalUpperBound: Optional[float] = None
 
-class RecordLifecycleActionHeartbeatTypeRequestTypeDef(BaseValidatorModel):
+
+class RecordLifecycleActionHeartbeatTypeTypeDef(BaseValidatorModel):
     LifecycleHookName: str
     AutoScalingGroupName: str
     LifecycleActionToken: Optional[str] = None
     InstanceId: Optional[str] = None
 
-class RollbackInstanceRefreshTypeRequestTypeDef(BaseValidatorModel):
+
+class RollbackInstanceRefreshTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
+
 
 class ScalingProcessQueryRequestTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     ScalingProcesses: Optional[Sequence[str]] = None
+
+
+class ScalingProcessQueryTypeDef(BaseValidatorModel):
+    AutoScalingGroupName: str
+    ScalingProcesses: Optional[Sequence[str]] = None
+
 
 class ScheduledUpdateGroupActionTypeDef(BaseValidatorModel):
     AutoScalingGroupName: Optional[str] = None
@@ -435,37 +537,45 @@ class ScheduledUpdateGroupActionTypeDef(BaseValidatorModel):
     DesiredCapacity: Optional[int] = None
     TimeZone: Optional[str] = None
 
-class SetDesiredCapacityTypeRequestTypeDef(BaseValidatorModel):
+
+class SetDesiredCapacityTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     DesiredCapacity: int
     HonorCooldown: Optional[bool] = None
 
-class SetInstanceHealthQueryRequestTypeDef(BaseValidatorModel):
+
+class SetInstanceHealthQueryTypeDef(BaseValidatorModel):
     InstanceId: str
     HealthStatus: str
     ShouldRespectGracePeriod: Optional[bool] = None
 
-class SetInstanceProtectionQueryRequestTypeDef(BaseValidatorModel):
+
+class SetInstanceProtectionQueryTypeDef(BaseValidatorModel):
     InstanceIds: Sequence[str]
     AutoScalingGroupName: str
     ProtectedFromScaleIn: bool
 
-class TerminateInstanceInAutoScalingGroupTypeRequestTypeDef(BaseValidatorModel):
+
+class TerminateInstanceInAutoScalingGroupTypeTypeDef(BaseValidatorModel):
     InstanceId: str
     ShouldDecrementDesiredCapacity: bool
+
 
 class ActivitiesTypeTypeDef(BaseValidatorModel):
     Activities: List[ActivityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ActivityTypeTypeDef(BaseValidatorModel):
     Activity: ActivityTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CancelInstanceRefreshAnswerTypeDef(BaseValidatorModel):
     InstanceRefreshId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeAccountLimitsAnswerTypeDef(BaseValidatorModel):
     MaxNumberOfAutoScalingGroups: int
@@ -474,44 +584,55 @@ class DescribeAccountLimitsAnswerTypeDef(BaseValidatorModel):
     NumberOfLaunchConfigurations: int
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeAutoScalingNotificationTypesAnswerTypeDef(BaseValidatorModel):
     AutoScalingNotificationTypes: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeLifecycleHookTypesAnswerTypeDef(BaseValidatorModel):
     LifecycleHookTypes: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeTerminationPolicyTypesAnswerTypeDef(BaseValidatorModel):
     TerminationPolicyTypes: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DetachInstancesAnswerTypeDef(BaseValidatorModel):
     Activities: List[ActivityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class EnterStandbyAnswerTypeDef(BaseValidatorModel):
     Activities: List[ActivityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ExitStandbyAnswerTypeDef(BaseValidatorModel):
     Activities: List[ActivityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class RollbackInstanceRefreshAnswerTypeDef(BaseValidatorModel):
     InstanceRefreshId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartInstanceRefreshAnswerTypeDef(BaseValidatorModel):
     InstanceRefreshId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeAdjustmentTypesAnswerTypeDef(BaseValidatorModel):
     AdjustmentTypes: List[AdjustmentTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class RefreshPreferencesOutputTypeDef(BaseValidatorModel):
     MinHealthyPercentage: Optional[int] = None
@@ -524,6 +645,8 @@ class RefreshPreferencesOutputTypeDef(BaseValidatorModel):
     StandbyInstances: Optional[StandbyInstancesType] = None
     AlarmSpecification: Optional[AlarmSpecificationOutputTypeDef] = None
     MaxHealthyPercentage: Optional[int] = None
+    BakeTime: Optional[int] = None
+
 
 class RefreshPreferencesTypeDef(BaseValidatorModel):
     MinHealthyPercentage: Optional[int] = None
@@ -536,75 +659,97 @@ class RefreshPreferencesTypeDef(BaseValidatorModel):
     StandbyInstances: Optional[StandbyInstancesType] = None
     AlarmSpecification: Optional[AlarmSpecificationTypeDef] = None
     MaxHealthyPercentage: Optional[int] = None
+    BakeTime: Optional[int] = None
+
 
 class PolicyARNTypeTypeDef(BaseValidatorModel):
     PolicyARN: str
     Alarms: List[AlarmTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachTrafficSourcesTypeRequestTypeDef(BaseValidatorModel):
+
+class TrafficSourceIdentifierTypeDef(BaseValidatorModel):
+    pass
+
+
+class AttachTrafficSourcesTypeTypeDef(BaseValidatorModel):
+    AutoScalingGroupName: str
+    TrafficSources: Sequence[TrafficSourceIdentifierTypeDef]
+    SkipZonalShiftValidation: Optional[bool] = None
+
+
+class DetachTrafficSourcesTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     TrafficSources: Sequence[TrafficSourceIdentifierTypeDef]
 
-class DetachTrafficSourcesTypeRequestTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    TrafficSources: Sequence[TrafficSourceIdentifierTypeDef]
 
-class AutoScalingGroupNamesTypeRequestTypeDef(BaseValidatorModel):
+class AutoScalingGroupNamesTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupNames: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class DescribeTagsTypeRequestTypeDef(BaseValidatorModel):
+
+class DescribeTagsTypeTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
 
-class AutoScalingGroupNamesTypeDescribeAutoScalingGroupsPaginateTypeDef(BaseValidatorModel):
+
+class AutoScalingGroupNamesTypePaginateTypeDef(BaseValidatorModel):
     AutoScalingGroupNames: Optional[Sequence[str]] = None
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeAutoScalingInstancesTypeDescribeAutoScalingInstancesPaginateTypeDef(BaseValidatorModel):
+
+class DescribeAutoScalingInstancesTypePaginateTypeDef(BaseValidatorModel):
     InstanceIds: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLoadBalancerTargetGroupsRequestDescribeLoadBalancerTargetGroupsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeLoadBalancerTargetGroupsRequestPaginateTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLoadBalancersRequestDescribeLoadBalancersPaginateTypeDef(BaseValidatorModel):
+
+class DescribeLoadBalancersRequestPaginateTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeNotificationConfigurationsTypeDescribeNotificationConfigurationsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeNotificationConfigurationsTypePaginateTypeDef(BaseValidatorModel):
     AutoScalingGroupNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribePoliciesTypeDescribePoliciesPaginateTypeDef(BaseValidatorModel):
+
+class DescribePoliciesTypePaginateTypeDef(BaseValidatorModel):
     AutoScalingGroupName: Optional[str] = None
     PolicyNames: Optional[Sequence[str]] = None
     PolicyTypes: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeScalingActivitiesTypeDescribeScalingActivitiesPaginateTypeDef(BaseValidatorModel):
+
+class DescribeScalingActivitiesTypePaginateTypeDef(BaseValidatorModel):
     ActivityIds: Optional[Sequence[str]] = None
     AutoScalingGroupName: Optional[str] = None
     IncludeDeletedGroups: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTagsTypeDescribeTagsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeTagsTypePaginateTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeWarmPoolTypeDescribeWarmPoolPaginateTypeDef(BaseValidatorModel):
+
+class DescribeWarmPoolTypePaginateTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class LaunchConfigurationNamesTypeDescribeLaunchConfigurationsPaginateTypeDef(BaseValidatorModel):
+
+class LaunchConfigurationNamesTypePaginateTypeDef(BaseValidatorModel):
     LaunchConfigurationNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class AutoScalingInstanceDetailsTypeDef(BaseValidatorModel):
     InstanceId: str
@@ -618,6 +763,7 @@ class AutoScalingInstanceDetailsTypeDef(BaseValidatorModel):
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     WeightedCapacity: Optional[str] = None
 
+
 class InstanceTypeDef(BaseValidatorModel):
     InstanceId: str
     AvailabilityZone: str
@@ -629,18 +775,22 @@ class InstanceTypeDef(BaseValidatorModel):
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     WeightedCapacity: Optional[str] = None
 
+
 class TagsTypeTypeDef(BaseValidatorModel):
     Tags: List[TagDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class BatchDeleteScheduledActionAnswerTypeDef(BaseValidatorModel):
     FailedScheduledActions: List[FailedScheduledUpdateGroupActionRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class BatchPutScheduledUpdateGroupActionAnswerTypeDef(BaseValidatorModel):
     FailedScheduledUpdateGroupActions: List[FailedScheduledUpdateGroupActionRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class BlockDeviceMappingTypeDef(BaseValidatorModel):
     DeviceName: str
@@ -648,59 +798,87 @@ class BlockDeviceMappingTypeDef(BaseValidatorModel):
     Ebs: Optional[EbsTypeDef] = None
     NoDevice: Optional[bool] = None
 
-class CreateOrUpdateTagsTypeRequestTypeDef(BaseValidatorModel):
+
+class CapacityReservationSpecificationOutputTypeDef(BaseValidatorModel):
+    CapacityReservationPreference: Optional[CapacityReservationPreferenceType] = None
+    CapacityReservationTarget: Optional[CapacityReservationTargetOutputTypeDef] = None
+
+
+class CapacityReservationSpecificationTypeDef(BaseValidatorModel):
+    CapacityReservationPreference: Optional[CapacityReservationPreferenceType] = None
+    CapacityReservationTarget: Optional[CapacityReservationTargetTypeDef] = None
+
+
+class CpuPerformanceFactorRequestOutputTypeDef(BaseValidatorModel):
+    References: Optional[List[PerformanceFactorReferenceRequestTypeDef]] = None
+
+
+class CpuPerformanceFactorRequestTypeDef(BaseValidatorModel):
+    References: Optional[Sequence[PerformanceFactorReferenceRequestTypeDef]] = None
+
+
+class CreateOrUpdateTagsTypeTypeDef(BaseValidatorModel):
     Tags: Sequence[TagTypeDef]
 
-class DeleteTagsTypeRequestTypeDef(BaseValidatorModel):
+
+class DeleteTagsTypeTypeDef(BaseValidatorModel):
     Tags: Sequence[TagTypeDef]
 
-class MetricExtraOutputTypeDef(BaseValidatorModel):
-    Namespace: str
-    MetricName: str
-    Dimensions: Optional[List[MetricDimensionTypeDef]] = None
 
 class MetricOutputTypeDef(BaseValidatorModel):
     Namespace: str
     MetricName: str
     Dimensions: Optional[List[MetricDimensionTypeDef]] = None
 
+
 class MetricTypeDef(BaseValidatorModel):
     Namespace: str
     MetricName: str
     Dimensions: Optional[Sequence[MetricDimensionTypeDef]] = None
 
+
 class DescribeLifecycleHooksAnswerTypeDef(BaseValidatorModel):
     LifecycleHooks: List[LifecycleHookTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeLoadBalancerTargetGroupsResponseTypeDef(BaseValidatorModel):
     LoadBalancerTargetGroups: List[LoadBalancerTargetGroupStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class DescribeLoadBalancersResponseTypeDef(BaseValidatorModel):
     LoadBalancers: List[LoadBalancerStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class DescribeMetricCollectionTypesAnswerTypeDef(BaseValidatorModel):
     Metrics: List[MetricCollectionTypeTypeDef]
     Granularities: List[MetricGranularityTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeNotificationConfigurationsAnswerTypeDef(BaseValidatorModel):
     NotificationConfigurations: List[NotificationConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class DescribeScheduledActionsTypeDescribeScheduledActionsPaginateTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class DescribeScheduledActionsTypePaginateTypeDef(BaseValidatorModel):
     AutoScalingGroupName: Optional[str] = None
     ScheduledActionNames: Optional[Sequence[str]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeScheduledActionsTypeRequestTypeDef(BaseValidatorModel):
+
+class DescribeScheduledActionsTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: Optional[str] = None
     ScheduledActionNames: Optional[Sequence[str]] = None
     StartTime: Optional[TimestampTypeDef] = None
@@ -708,13 +886,15 @@ class DescribeScheduledActionsTypeRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
 
-class GetPredictiveScalingForecastTypeRequestTypeDef(BaseValidatorModel):
+
+class GetPredictiveScalingForecastTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     PolicyName: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
 
-class PutScheduledUpdateGroupActionTypeRequestTypeDef(BaseValidatorModel):
+
+class PutScheduledUpdateGroupActionTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     ScheduledActionName: str
     Time: Optional[TimestampTypeDef] = None
@@ -726,6 +906,7 @@ class PutScheduledUpdateGroupActionTypeRequestTypeDef(BaseValidatorModel):
     DesiredCapacity: Optional[int] = None
     TimeZone: Optional[str] = None
 
+
 class ScheduledUpdateGroupActionRequestTypeDef(BaseValidatorModel):
     ScheduledActionName: str
     StartTime: Optional[TimestampTypeDef] = None
@@ -736,40 +917,159 @@ class ScheduledUpdateGroupActionRequestTypeDef(BaseValidatorModel):
     DesiredCapacity: Optional[int] = None
     TimeZone: Optional[str] = None
 
+
+class TrafficSourceStateTypeDef(BaseValidatorModel):
+    pass
+
+
 class DescribeTrafficSourcesResponseTypeDef(BaseValidatorModel):
     TrafficSources: List[TrafficSourceStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class InstanceRefreshProgressDetailsTypeDef(BaseValidatorModel):
     LivePoolProgress: Optional[InstanceRefreshLivePoolProgressTypeDef] = None
     WarmPoolProgress: Optional[InstanceRefreshWarmPoolProgressTypeDef] = None
 
-class InstanceRequirementsExtraOutputTypeDef(BaseValidatorModel):
-    VCpuCount: VCpuCountRequestTypeDef
-    MemoryMiB: MemoryMiBRequestTypeDef
-    CpuManufacturers: Optional[List[CpuManufacturerType]] = None
-    MemoryGiBPerVCpu: Optional[MemoryGiBPerVCpuRequestTypeDef] = None
-    ExcludedInstanceTypes: Optional[List[str]] = None
-    InstanceGenerations: Optional[List[InstanceGenerationType]] = None
-    SpotMaxPricePercentageOverLowestPrice: Optional[int] = None
-    MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Optional[int] = None
-    OnDemandMaxPricePercentageOverLowestPrice: Optional[int] = None
-    BareMetal: Optional[BareMetalType] = None
-    BurstablePerformance: Optional[BurstablePerformanceType] = None
-    RequireHibernateSupport: Optional[bool] = None
-    NetworkInterfaceCount: Optional[NetworkInterfaceCountRequestTypeDef] = None
-    LocalStorage: Optional[LocalStorageType] = None
-    LocalStorageTypes: Optional[List[LocalStorageTypeType]] = None
-    TotalLocalStorageGB: Optional[TotalLocalStorageGBRequestTypeDef] = None
-    BaselineEbsBandwidthMbps: Optional[BaselineEbsBandwidthMbpsRequestTypeDef] = None
-    AcceleratorTypes: Optional[List[AcceleratorTypeType]] = None
-    AcceleratorCount: Optional[AcceleratorCountRequestTypeDef] = None
-    AcceleratorManufacturers: Optional[List[AcceleratorManufacturerType]] = None
-    AcceleratorNames: Optional[List[AcceleratorNameType]] = None
-    AcceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRequestTypeDef] = None
-    NetworkBandwidthGbps: Optional[NetworkBandwidthGbpsRequestTypeDef] = None
-    AllowedInstanceTypes: Optional[List[str]] = None
+
+class PutWarmPoolTypeTypeDef(BaseValidatorModel):
+    AutoScalingGroupName: str
+    MaxGroupPreparedCapacity: Optional[int] = None
+    MinSize: Optional[int] = None
+    PoolState: Optional[WarmPoolStateType] = None
+    InstanceReusePolicy: Optional[InstanceReusePolicyTypeDef] = None
+
+
+class WarmPoolConfigurationTypeDef(BaseValidatorModel):
+    MaxGroupPreparedCapacity: Optional[int] = None
+    MinSize: Optional[int] = None
+    PoolState: Optional[WarmPoolStateType] = None
+    Status: Optional[Literal["PendingDelete"]] = None
+    InstanceReusePolicy: Optional[InstanceReusePolicyTypeDef] = None
+
+
+class ProcessesTypeTypeDef(BaseValidatorModel):
+    Processes: List[ProcessTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ScheduledActionsTypeTypeDef(BaseValidatorModel):
+    ScheduledUpdateGroupActions: List[ScheduledUpdateGroupActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class AutoScalingInstancesTypeTypeDef(BaseValidatorModel):
+    AutoScalingInstances: List[AutoScalingInstanceDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class CreateLaunchConfigurationTypeTypeDef(BaseValidatorModel):
+    LaunchConfigurationName: str
+    ImageId: Optional[str] = None
+    KeyName: Optional[str] = None
+    SecurityGroups: Optional[Sequence[str]] = None
+    ClassicLinkVPCId: Optional[str] = None
+    ClassicLinkVPCSecurityGroups: Optional[Sequence[str]] = None
+    UserData: Optional[str] = None
+    InstanceId: Optional[str] = None
+    InstanceType: Optional[str] = None
+    KernelId: Optional[str] = None
+    RamdiskId: Optional[str] = None
+    BlockDeviceMappings: Optional[Sequence[BlockDeviceMappingTypeDef]] = None
+    InstanceMonitoring: Optional[InstanceMonitoringTypeDef] = None
+    SpotPrice: Optional[str] = None
+    IamInstanceProfile: Optional[str] = None
+    EbsOptimized: Optional[bool] = None
+    AssociatePublicIpAddress: Optional[bool] = None
+    PlacementTenancy: Optional[str] = None
+    MetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
+
+
+class LaunchConfigurationTypeDef(BaseValidatorModel):
+    LaunchConfigurationName: str
+    ImageId: str
+    InstanceType: str
+    CreatedTime: datetime
+    LaunchConfigurationARN: Optional[str] = None
+    KeyName: Optional[str] = None
+    SecurityGroups: Optional[List[str]] = None
+    ClassicLinkVPCId: Optional[str] = None
+    ClassicLinkVPCSecurityGroups: Optional[List[str]] = None
+    UserData: Optional[str] = None
+    KernelId: Optional[str] = None
+    RamdiskId: Optional[str] = None
+    BlockDeviceMappings: Optional[List[BlockDeviceMappingTypeDef]] = None
+    InstanceMonitoring: Optional[InstanceMonitoringTypeDef] = None
+    SpotPrice: Optional[str] = None
+    IamInstanceProfile: Optional[str] = None
+    EbsOptimized: Optional[bool] = None
+    AssociatePublicIpAddress: Optional[bool] = None
+    PlacementTenancy: Optional[str] = None
+    MetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
+
+
+class BaselinePerformanceFactorsRequestOutputTypeDef(BaseValidatorModel):
+    Cpu: Optional[CpuPerformanceFactorRequestOutputTypeDef] = None
+
+
+class BaselinePerformanceFactorsRequestTypeDef(BaseValidatorModel):
+    Cpu: Optional[CpuPerformanceFactorRequestTypeDef] = None
+
+
+class MetricStatOutputTypeDef(BaseValidatorModel):
+    Metric: MetricOutputTypeDef
+    Stat: str
+    Unit: Optional[str] = None
+
+
+class TargetTrackingMetricStatOutputTypeDef(BaseValidatorModel):
+    Metric: MetricOutputTypeDef
+    Stat: str
+    Unit: Optional[str] = None
+    Period: Optional[int] = None
+
+
+class MetricStatTypeDef(BaseValidatorModel):
+    Metric: MetricTypeDef
+    Stat: str
+    Unit: Optional[str] = None
+
+
+class TargetTrackingMetricStatTypeDef(BaseValidatorModel):
+    Metric: MetricTypeDef
+    Stat: str
+    Unit: Optional[str] = None
+    Period: Optional[int] = None
+
+
+class BatchPutScheduledUpdateGroupActionTypeTypeDef(BaseValidatorModel):
+    AutoScalingGroupName: str
+    ScheduledUpdateGroupActions: Sequence[ScheduledUpdateGroupActionRequestTypeDef]
+
+
+class RollbackDetailsTypeDef(BaseValidatorModel):
+    RollbackReason: Optional[str] = None
+    RollbackStartTime: Optional[datetime] = None
+    PercentageCompleteOnRollback: Optional[int] = None
+    InstancesToUpdateOnRollback: Optional[int] = None
+    ProgressDetailsOnRollback: Optional[InstanceRefreshProgressDetailsTypeDef] = None
+
+
+class DescribeWarmPoolAnswerTypeDef(BaseValidatorModel):
+    WarmPoolConfiguration: WarmPoolConfigurationTypeDef
+    Instances: List[InstanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class LaunchConfigurationsTypeTypeDef(BaseValidatorModel):
+    LaunchConfigurations: List[LaunchConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class InstanceRequirementsOutputTypeDef(BaseValidatorModel):
     VCpuCount: VCpuCountRequestTypeDef
@@ -796,6 +1096,8 @@ class InstanceRequirementsOutputTypeDef(BaseValidatorModel):
     AcceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRequestTypeDef] = None
     NetworkBandwidthGbps: Optional[NetworkBandwidthGbpsRequestTypeDef] = None
     AllowedInstanceTypes: Optional[List[str]] = None
+    BaselinePerformanceFactors: Optional[BaselinePerformanceFactorsRequestOutputTypeDef] = None
+
 
 class InstanceRequirementsTypeDef(BaseValidatorModel):
     VCpuCount: VCpuCountRequestTypeDef
@@ -822,161 +1124,8 @@ class InstanceRequirementsTypeDef(BaseValidatorModel):
     AcceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRequestTypeDef] = None
     NetworkBandwidthGbps: Optional[NetworkBandwidthGbpsRequestTypeDef] = None
     AllowedInstanceTypes: Optional[Sequence[str]] = None
+    BaselinePerformanceFactors: Optional[BaselinePerformanceFactorsRequestTypeDef] = None
 
-class PutWarmPoolTypeRequestTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    MaxGroupPreparedCapacity: Optional[int] = None
-    MinSize: Optional[int] = None
-    PoolState: Optional[WarmPoolStateType] = None
-    InstanceReusePolicy: Optional[InstanceReusePolicyTypeDef] = None
-
-class WarmPoolConfigurationTypeDef(BaseValidatorModel):
-    MaxGroupPreparedCapacity: Optional[int] = None
-    MinSize: Optional[int] = None
-    PoolState: Optional[WarmPoolStateType] = None
-    Status: Optional[Literal["PendingDelete"]] = None
-    InstanceReusePolicy: Optional[InstanceReusePolicyTypeDef] = None
-
-class ProcessesTypeTypeDef(BaseValidatorModel):
-    Processes: List[ProcessTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ScheduledActionsTypeTypeDef(BaseValidatorModel):
-    ScheduledUpdateGroupActions: List[ScheduledUpdateGroupActionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
-
-class AutoScalingInstancesTypeTypeDef(BaseValidatorModel):
-    AutoScalingInstances: List[AutoScalingInstanceDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
-
-class CreateLaunchConfigurationTypeRequestTypeDef(BaseValidatorModel):
-    LaunchConfigurationName: str
-    ImageId: Optional[str] = None
-    KeyName: Optional[str] = None
-    SecurityGroups: Optional[Sequence[str]] = None
-    ClassicLinkVPCId: Optional[str] = None
-    ClassicLinkVPCSecurityGroups: Optional[Sequence[str]] = None
-    UserData: Optional[str] = None
-    InstanceId: Optional[str] = None
-    InstanceType: Optional[str] = None
-    KernelId: Optional[str] = None
-    RamdiskId: Optional[str] = None
-    BlockDeviceMappings: Optional[Sequence[BlockDeviceMappingTypeDef]] = None
-    InstanceMonitoring: Optional[InstanceMonitoringTypeDef] = None
-    SpotPrice: Optional[str] = None
-    IamInstanceProfile: Optional[str] = None
-    EbsOptimized: Optional[bool] = None
-    AssociatePublicIpAddress: Optional[bool] = None
-    PlacementTenancy: Optional[str] = None
-    MetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
-
-class LaunchConfigurationTypeDef(BaseValidatorModel):
-    LaunchConfigurationName: str
-    ImageId: str
-    InstanceType: str
-    CreatedTime: datetime
-    LaunchConfigurationARN: Optional[str] = None
-    KeyName: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
-    ClassicLinkVPCId: Optional[str] = None
-    ClassicLinkVPCSecurityGroups: Optional[List[str]] = None
-    UserData: Optional[str] = None
-    KernelId: Optional[str] = None
-    RamdiskId: Optional[str] = None
-    BlockDeviceMappings: Optional[List[BlockDeviceMappingTypeDef]] = None
-    InstanceMonitoring: Optional[InstanceMonitoringTypeDef] = None
-    SpotPrice: Optional[str] = None
-    IamInstanceProfile: Optional[str] = None
-    EbsOptimized: Optional[bool] = None
-    AssociatePublicIpAddress: Optional[bool] = None
-    PlacementTenancy: Optional[str] = None
-    MetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
-
-class MetricStatExtraOutputTypeDef(BaseValidatorModel):
-    Metric: MetricExtraOutputTypeDef
-    Stat: str
-    Unit: Optional[str] = None
-
-class TargetTrackingMetricStatExtraOutputTypeDef(BaseValidatorModel):
-    Metric: MetricExtraOutputTypeDef
-    Stat: str
-    Unit: Optional[str] = None
-
-class MetricStatOutputTypeDef(BaseValidatorModel):
-    Metric: MetricOutputTypeDef
-    Stat: str
-    Unit: Optional[str] = None
-
-class TargetTrackingMetricStatOutputTypeDef(BaseValidatorModel):
-    Metric: MetricOutputTypeDef
-    Stat: str
-    Unit: Optional[str] = None
-
-class MetricStatTypeDef(BaseValidatorModel):
-    Metric: MetricTypeDef
-    Stat: str
-    Unit: Optional[str] = None
-
-class TargetTrackingMetricStatTypeDef(BaseValidatorModel):
-    Metric: MetricTypeDef
-    Stat: str
-    Unit: Optional[str] = None
-
-class BatchPutScheduledUpdateGroupActionTypeRequestTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    ScheduledUpdateGroupActions: Sequence[ScheduledUpdateGroupActionRequestTypeDef]
-
-class RollbackDetailsTypeDef(BaseValidatorModel):
-    RollbackReason: Optional[str] = None
-    RollbackStartTime: Optional[datetime] = None
-    PercentageCompleteOnRollback: Optional[int] = None
-    InstancesToUpdateOnRollback: Optional[int] = None
-    ProgressDetailsOnRollback: Optional[InstanceRefreshProgressDetailsTypeDef] = None
-
-class LaunchTemplateOverridesExtraOutputTypeDef(BaseValidatorModel):
-    InstanceType: Optional[str] = None
-    WeightedCapacity: Optional[str] = None
-    LaunchTemplateSpecification: Optional[LaunchTemplateSpecificationTypeDef] = None
-    InstanceRequirements: Optional[InstanceRequirementsExtraOutputTypeDef] = None
-
-class LaunchTemplateOverridesOutputTypeDef(BaseValidatorModel):
-    InstanceType: Optional[str] = None
-    WeightedCapacity: Optional[str] = None
-    LaunchTemplateSpecification: Optional[LaunchTemplateSpecificationTypeDef] = None
-    InstanceRequirements: Optional[InstanceRequirementsOutputTypeDef] = None
-
-class LaunchTemplateOverridesTypeDef(BaseValidatorModel):
-    InstanceType: Optional[str] = None
-    WeightedCapacity: Optional[str] = None
-    LaunchTemplateSpecification: Optional[LaunchTemplateSpecificationTypeDef] = None
-    InstanceRequirements: Optional[InstanceRequirementsTypeDef] = None
-
-class DescribeWarmPoolAnswerTypeDef(BaseValidatorModel):
-    WarmPoolConfiguration: WarmPoolConfigurationTypeDef
-    Instances: List[InstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
-
-class LaunchConfigurationsTypeTypeDef(BaseValidatorModel):
-    LaunchConfigurations: List[LaunchConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
-
-class MetricDataQueryExtraOutputTypeDef(BaseValidatorModel):
-    Id: str
-    Expression: Optional[str] = None
-    MetricStat: Optional[MetricStatExtraOutputTypeDef] = None
-    Label: Optional[str] = None
-    ReturnData: Optional[bool] = None
-
-class TargetTrackingMetricDataQueryExtraOutputTypeDef(BaseValidatorModel):
-    Id: str
-    Expression: Optional[str] = None
-    MetricStat: Optional[TargetTrackingMetricStatExtraOutputTypeDef] = None
-    Label: Optional[str] = None
-    ReturnData: Optional[bool] = None
 
 class MetricDataQueryOutputTypeDef(BaseValidatorModel):
     Id: str
@@ -985,12 +1134,15 @@ class MetricDataQueryOutputTypeDef(BaseValidatorModel):
     Label: Optional[str] = None
     ReturnData: Optional[bool] = None
 
+
 class TargetTrackingMetricDataQueryOutputTypeDef(BaseValidatorModel):
     Id: str
     Expression: Optional[str] = None
     MetricStat: Optional[TargetTrackingMetricStatOutputTypeDef] = None
     Label: Optional[str] = None
+    Period: Optional[int] = None
     ReturnData: Optional[bool] = None
+
 
 class MetricDataQueryTypeDef(BaseValidatorModel):
     Id: str
@@ -999,50 +1151,41 @@ class MetricDataQueryTypeDef(BaseValidatorModel):
     Label: Optional[str] = None
     ReturnData: Optional[bool] = None
 
+
 class TargetTrackingMetricDataQueryTypeDef(BaseValidatorModel):
     Id: str
     Expression: Optional[str] = None
     MetricStat: Optional[TargetTrackingMetricStatTypeDef] = None
     Label: Optional[str] = None
+    Period: Optional[int] = None
     ReturnData: Optional[bool] = None
 
-class LaunchTemplateExtraOutputTypeDef(BaseValidatorModel):
+
+class LaunchTemplateOverridesOutputTypeDef(BaseValidatorModel):
+    InstanceType: Optional[str] = None
+    WeightedCapacity: Optional[str] = None
     LaunchTemplateSpecification: Optional[LaunchTemplateSpecificationTypeDef] = None
-    Overrides: Optional[List[LaunchTemplateOverridesExtraOutputTypeDef]] = None
+    InstanceRequirements: Optional[InstanceRequirementsOutputTypeDef] = None
 
-class LaunchTemplateOutputTypeDef(BaseValidatorModel):
+
+class LaunchTemplateOverridesTypeDef(BaseValidatorModel):
+    InstanceType: Optional[str] = None
+    WeightedCapacity: Optional[str] = None
     LaunchTemplateSpecification: Optional[LaunchTemplateSpecificationTypeDef] = None
-    Overrides: Optional[List[LaunchTemplateOverridesOutputTypeDef]] = None
+    InstanceRequirements: Optional[InstanceRequirementsTypeDef] = None
 
-class LaunchTemplateTypeDef(BaseValidatorModel):
-    LaunchTemplateSpecification: Optional[LaunchTemplateSpecificationTypeDef] = None
-    Overrides: Optional[Sequence[LaunchTemplateOverridesTypeDef]] = None
-
-class PredictiveScalingCustomizedCapacityMetricExtraOutputTypeDef(BaseValidatorModel):
-    MetricDataQueries: List[MetricDataQueryExtraOutputTypeDef]
-
-class PredictiveScalingCustomizedLoadMetricExtraOutputTypeDef(BaseValidatorModel):
-    MetricDataQueries: List[MetricDataQueryExtraOutputTypeDef]
-
-class PredictiveScalingCustomizedScalingMetricExtraOutputTypeDef(BaseValidatorModel):
-    MetricDataQueries: List[MetricDataQueryExtraOutputTypeDef]
-
-class CustomizedMetricSpecificationExtraOutputTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
-    Namespace: Optional[str] = None
-    Dimensions: Optional[List[MetricDimensionTypeDef]] = None
-    Statistic: Optional[MetricStatisticType] = None
-    Unit: Optional[str] = None
-    Metrics: Optional[List[TargetTrackingMetricDataQueryExtraOutputTypeDef]] = None
 
 class PredictiveScalingCustomizedCapacityMetricOutputTypeDef(BaseValidatorModel):
     MetricDataQueries: List[MetricDataQueryOutputTypeDef]
 
+
 class PredictiveScalingCustomizedLoadMetricOutputTypeDef(BaseValidatorModel):
     MetricDataQueries: List[MetricDataQueryOutputTypeDef]
 
+
 class PredictiveScalingCustomizedScalingMetricOutputTypeDef(BaseValidatorModel):
     MetricDataQueries: List[MetricDataQueryOutputTypeDef]
+
 
 class CustomizedMetricSpecificationOutputTypeDef(BaseValidatorModel):
     MetricName: Optional[str] = None
@@ -1050,16 +1193,21 @@ class CustomizedMetricSpecificationOutputTypeDef(BaseValidatorModel):
     Dimensions: Optional[List[MetricDimensionTypeDef]] = None
     Statistic: Optional[MetricStatisticType] = None
     Unit: Optional[str] = None
+    Period: Optional[int] = None
     Metrics: Optional[List[TargetTrackingMetricDataQueryOutputTypeDef]] = None
+
 
 class PredictiveScalingCustomizedCapacityMetricTypeDef(BaseValidatorModel):
     MetricDataQueries: Sequence[MetricDataQueryTypeDef]
 
+
 class PredictiveScalingCustomizedLoadMetricTypeDef(BaseValidatorModel):
     MetricDataQueries: Sequence[MetricDataQueryTypeDef]
 
+
 class PredictiveScalingCustomizedScalingMetricTypeDef(BaseValidatorModel):
     MetricDataQueries: Sequence[MetricDataQueryTypeDef]
+
 
 class CustomizedMetricSpecificationTypeDef(BaseValidatorModel):
     MetricName: Optional[str] = None
@@ -1067,43 +1215,29 @@ class CustomizedMetricSpecificationTypeDef(BaseValidatorModel):
     Dimensions: Optional[Sequence[MetricDimensionTypeDef]] = None
     Statistic: Optional[MetricStatisticType] = None
     Unit: Optional[str] = None
+    Period: Optional[int] = None
     Metrics: Optional[Sequence[TargetTrackingMetricDataQueryTypeDef]] = None
 
-class MixedInstancesPolicyExtraOutputTypeDef(BaseValidatorModel):
-    LaunchTemplate: Optional[LaunchTemplateExtraOutputTypeDef] = None
-    InstancesDistribution: Optional[InstancesDistributionTypeDef] = None
 
-class MixedInstancesPolicyOutputTypeDef(BaseValidatorModel):
-    LaunchTemplate: Optional[LaunchTemplateOutputTypeDef] = None
-    InstancesDistribution: Optional[InstancesDistributionTypeDef] = None
+class LaunchTemplateOutputTypeDef(BaseValidatorModel):
+    LaunchTemplateSpecification: Optional[LaunchTemplateSpecificationTypeDef] = None
+    Overrides: Optional[List[LaunchTemplateOverridesOutputTypeDef]] = None
 
-class MixedInstancesPolicyTypeDef(BaseValidatorModel):
-    LaunchTemplate: Optional[LaunchTemplateTypeDef] = None
-    InstancesDistribution: Optional[InstancesDistributionTypeDef] = None
 
-class PredictiveScalingMetricSpecificationExtraOutputTypeDef(BaseValidatorModel):
-    TargetValue: float
-    PredefinedMetricPairSpecification: Optional[       PredictiveScalingPredefinedMetricPairTypeDef     ] = None
-    PredefinedScalingMetricSpecification: Optional[       PredictiveScalingPredefinedScalingMetricTypeDef     ] = None
-    PredefinedLoadMetricSpecification: Optional[       PredictiveScalingPredefinedLoadMetricTypeDef     ] = None
-    CustomizedScalingMetricSpecification: Optional[       PredictiveScalingCustomizedScalingMetricExtraOutputTypeDef     ] = None
-    CustomizedLoadMetricSpecification: Optional[       PredictiveScalingCustomizedLoadMetricExtraOutputTypeDef     ] = None
-    CustomizedCapacityMetricSpecification: Optional[       PredictiveScalingCustomizedCapacityMetricExtraOutputTypeDef     ] = None
+class LaunchTemplateTypeDef(BaseValidatorModel):
+    LaunchTemplateSpecification: Optional[LaunchTemplateSpecificationTypeDef] = None
+    Overrides: Optional[Sequence[LaunchTemplateOverridesTypeDef]] = None
 
-class TargetTrackingConfigurationExtraOutputTypeDef(BaseValidatorModel):
-    TargetValue: float
-    PredefinedMetricSpecification: Optional[PredefinedMetricSpecificationTypeDef] = None
-    CustomizedMetricSpecification: Optional[       CustomizedMetricSpecificationExtraOutputTypeDef     ] = None
-    DisableScaleIn: Optional[bool] = None
 
 class PredictiveScalingMetricSpecificationOutputTypeDef(BaseValidatorModel):
     TargetValue: float
-    PredefinedMetricPairSpecification: Optional[       PredictiveScalingPredefinedMetricPairTypeDef     ] = None
-    PredefinedScalingMetricSpecification: Optional[       PredictiveScalingPredefinedScalingMetricTypeDef     ] = None
-    PredefinedLoadMetricSpecification: Optional[       PredictiveScalingPredefinedLoadMetricTypeDef     ] = None
-    CustomizedScalingMetricSpecification: Optional[       PredictiveScalingCustomizedScalingMetricOutputTypeDef     ] = None
-    CustomizedLoadMetricSpecification: Optional[       PredictiveScalingCustomizedLoadMetricOutputTypeDef     ] = None
-    CustomizedCapacityMetricSpecification: Optional[       PredictiveScalingCustomizedCapacityMetricOutputTypeDef     ] = None
+    PredefinedMetricPairSpecification: Optional[PredictiveScalingPredefinedMetricPairTypeDef] = None
+    PredefinedScalingMetricSpecification: Optional[ PredictiveScalingPredefinedScalingMetricTypeDef ] = None
+    PredefinedLoadMetricSpecification: Optional[PredictiveScalingPredefinedLoadMetricTypeDef] = None
+    CustomizedScalingMetricSpecification: Optional[ PredictiveScalingCustomizedScalingMetricOutputTypeDef ] = None
+    CustomizedLoadMetricSpecification: Optional[ PredictiveScalingCustomizedLoadMetricOutputTypeDef ] = None
+    CustomizedCapacityMetricSpecification: Optional[ PredictiveScalingCustomizedCapacityMetricOutputTypeDef ] = None
+
 
 class TargetTrackingConfigurationOutputTypeDef(BaseValidatorModel):
     TargetValue: float
@@ -1111,20 +1245,55 @@ class TargetTrackingConfigurationOutputTypeDef(BaseValidatorModel):
     CustomizedMetricSpecification: Optional[CustomizedMetricSpecificationOutputTypeDef] = None
     DisableScaleIn: Optional[bool] = None
 
+
 class PredictiveScalingMetricSpecificationTypeDef(BaseValidatorModel):
     TargetValue: float
-    PredefinedMetricPairSpecification: Optional[       PredictiveScalingPredefinedMetricPairTypeDef     ] = None
-    PredefinedScalingMetricSpecification: Optional[       PredictiveScalingPredefinedScalingMetricTypeDef     ] = None
-    PredefinedLoadMetricSpecification: Optional[       PredictiveScalingPredefinedLoadMetricTypeDef     ] = None
-    CustomizedScalingMetricSpecification: Optional[       PredictiveScalingCustomizedScalingMetricTypeDef     ] = None
-    CustomizedLoadMetricSpecification: Optional[       PredictiveScalingCustomizedLoadMetricTypeDef     ] = None
-    CustomizedCapacityMetricSpecification: Optional[       PredictiveScalingCustomizedCapacityMetricTypeDef     ] = None
+    PredefinedMetricPairSpecification: Optional[PredictiveScalingPredefinedMetricPairTypeDef] = None
+    PredefinedScalingMetricSpecification: Optional[ PredictiveScalingPredefinedScalingMetricTypeDef ] = None
+    PredefinedLoadMetricSpecification: Optional[PredictiveScalingPredefinedLoadMetricTypeDef] = None
+    CustomizedScalingMetricSpecification: Optional[ PredictiveScalingCustomizedScalingMetricTypeDef ] = None
+    CustomizedLoadMetricSpecification: Optional[PredictiveScalingCustomizedLoadMetricTypeDef] = None
+    CustomizedCapacityMetricSpecification: Optional[ PredictiveScalingCustomizedCapacityMetricTypeDef ] = None
+
 
 class TargetTrackingConfigurationTypeDef(BaseValidatorModel):
     TargetValue: float
     PredefinedMetricSpecification: Optional[PredefinedMetricSpecificationTypeDef] = None
     CustomizedMetricSpecification: Optional[CustomizedMetricSpecificationTypeDef] = None
     DisableScaleIn: Optional[bool] = None
+
+
+class MixedInstancesPolicyOutputTypeDef(BaseValidatorModel):
+    LaunchTemplate: Optional[LaunchTemplateOutputTypeDef] = None
+    InstancesDistribution: Optional[InstancesDistributionTypeDef] = None
+
+
+class MixedInstancesPolicyTypeDef(BaseValidatorModel):
+    LaunchTemplate: Optional[LaunchTemplateTypeDef] = None
+    InstancesDistribution: Optional[InstancesDistributionTypeDef] = None
+
+
+class LoadForecastTypeDef(BaseValidatorModel):
+    Timestamps: List[datetime]
+    Values: List[float]
+    MetricSpecification: PredictiveScalingMetricSpecificationOutputTypeDef
+
+
+class PredictiveScalingConfigurationOutputTypeDef(BaseValidatorModel):
+    MetricSpecifications: List[PredictiveScalingMetricSpecificationOutputTypeDef]
+    Mode: Optional[PredictiveScalingModeType] = None
+    SchedulingBufferTime: Optional[int] = None
+    MaxCapacityBreachBehavior: Optional[PredictiveScalingMaxCapacityBreachBehaviorType] = None
+    MaxCapacityBuffer: Optional[int] = None
+
+
+class PredictiveScalingConfigurationTypeDef(BaseValidatorModel):
+    MetricSpecifications: Sequence[PredictiveScalingMetricSpecificationTypeDef]
+    Mode: Optional[PredictiveScalingModeType] = None
+    SchedulingBufferTime: Optional[int] = None
+    MaxCapacityBreachBehavior: Optional[PredictiveScalingMaxCapacityBreachBehaviorType] = None
+    MaxCapacityBuffer: Optional[int] = None
+
 
 class AutoScalingGroupTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
@@ -1162,18 +1331,83 @@ class AutoScalingGroupTypeDef(BaseValidatorModel):
     DefaultInstanceWarmup: Optional[int] = None
     TrafficSources: Optional[List[TrafficSourceIdentifierTypeDef]] = None
     InstanceMaintenancePolicy: Optional[InstanceMaintenancePolicyTypeDef] = None
+    AvailabilityZoneDistribution: Optional[AvailabilityZoneDistributionTypeDef] = None
+    AvailabilityZoneImpairmentPolicy: Optional[AvailabilityZoneImpairmentPolicyTypeDef] = None
+    CapacityReservationSpecification: Optional[CapacityReservationSpecificationOutputTypeDef] = None
+
 
 class DesiredConfigurationOutputTypeDef(BaseValidatorModel):
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     MixedInstancesPolicy: Optional[MixedInstancesPolicyOutputTypeDef] = None
 
-class CreateAutoScalingGroupTypeRequestTypeDef(BaseValidatorModel):
+
+class DesiredConfigurationTypeDef(BaseValidatorModel):
+    LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
+    MixedInstancesPolicy: Optional[MixedInstancesPolicyTypeDef] = None
+
+
+class GetPredictiveScalingForecastAnswerTypeDef(BaseValidatorModel):
+    LoadForecast: List[LoadForecastTypeDef]
+    CapacityForecast: CapacityForecastTypeDef
+    UpdateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ScalingPolicyTypeDef(BaseValidatorModel):
+    AutoScalingGroupName: Optional[str] = None
+    PolicyName: Optional[str] = None
+    PolicyARN: Optional[str] = None
+    PolicyType: Optional[str] = None
+    AdjustmentType: Optional[str] = None
+    MinAdjustmentStep: Optional[int] = None
+    MinAdjustmentMagnitude: Optional[int] = None
+    ScalingAdjustment: Optional[int] = None
+    Cooldown: Optional[int] = None
+    StepAdjustments: Optional[List[StepAdjustmentTypeDef]] = None
+    MetricAggregationType: Optional[str] = None
+    EstimatedInstanceWarmup: Optional[int] = None
+    Alarms: Optional[List[AlarmTypeDef]] = None
+    TargetTrackingConfiguration: Optional[TargetTrackingConfigurationOutputTypeDef] = None
+    Enabled: Optional[bool] = None
+    PredictiveScalingConfiguration: Optional[PredictiveScalingConfigurationOutputTypeDef] = None
+
+
+class AutoScalingGroupsTypeTypeDef(BaseValidatorModel):
+    AutoScalingGroups: List[AutoScalingGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class InstanceRefreshTypeDef(BaseValidatorModel):
+    InstanceRefreshId: Optional[str] = None
+    AutoScalingGroupName: Optional[str] = None
+    Status: Optional[InstanceRefreshStatusType] = None
+    StatusReason: Optional[str] = None
+    StartTime: Optional[datetime] = None
+    EndTime: Optional[datetime] = None
+    PercentageComplete: Optional[int] = None
+    InstancesToUpdate: Optional[int] = None
+    ProgressDetails: Optional[InstanceRefreshProgressDetailsTypeDef] = None
+    Preferences: Optional[RefreshPreferencesOutputTypeDef] = None
+    DesiredConfiguration: Optional[DesiredConfigurationOutputTypeDef] = None
+    RollbackDetails: Optional[RollbackDetailsTypeDef] = None
+
+
+class CapacityReservationSpecificationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class MixedInstancesPolicyUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateAutoScalingGroupTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     MinSize: int
     MaxSize: int
     LaunchConfigurationName: Optional[str] = None
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
-    MixedInstancesPolicy: Optional[MixedInstancesPolicyTypeDef] = None
+    MixedInstancesPolicy: Optional[MixedInstancesPolicyUnionTypeDef] = None
     InstanceId: Optional[str] = None
     DesiredCapacity: Optional[int] = None
     DefaultCooldown: Optional[int] = None
@@ -1196,16 +1430,17 @@ class CreateAutoScalingGroupTypeRequestTypeDef(BaseValidatorModel):
     DefaultInstanceWarmup: Optional[int] = None
     TrafficSources: Optional[Sequence[TrafficSourceIdentifierTypeDef]] = None
     InstanceMaintenancePolicy: Optional[InstanceMaintenancePolicyTypeDef] = None
+    AvailabilityZoneDistribution: Optional[AvailabilityZoneDistributionTypeDef] = None
+    AvailabilityZoneImpairmentPolicy: Optional[AvailabilityZoneImpairmentPolicyTypeDef] = None
+    SkipZonalShiftValidation: Optional[bool] = None
+    CapacityReservationSpecification: Optional[CapacityReservationSpecificationUnionTypeDef] = None
 
-class DesiredConfigurationTypeDef(BaseValidatorModel):
-    LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
-    MixedInstancesPolicy: Optional[MixedInstancesPolicyTypeDef] = None
 
-class UpdateAutoScalingGroupTypeRequestTypeDef(BaseValidatorModel):
+class UpdateAutoScalingGroupTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     LaunchConfigurationName: Optional[str] = None
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
-    MixedInstancesPolicy: Optional[MixedInstancesPolicyTypeDef] = None
+    MixedInstancesPolicy: Optional[MixedInstancesPolicyUnionTypeDef] = None
     MinSize: Optional[int] = None
     MaxSize: Optional[int] = None
     DesiredCapacity: Optional[int] = None
@@ -1224,83 +1459,27 @@ class UpdateAutoScalingGroupTypeRequestTypeDef(BaseValidatorModel):
     DesiredCapacityType: Optional[str] = None
     DefaultInstanceWarmup: Optional[int] = None
     InstanceMaintenancePolicy: Optional[InstanceMaintenancePolicyTypeDef] = None
+    AvailabilityZoneDistribution: Optional[AvailabilityZoneDistributionTypeDef] = None
+    AvailabilityZoneImpairmentPolicy: Optional[AvailabilityZoneImpairmentPolicyTypeDef] = None
+    SkipZonalShiftValidation: Optional[bool] = None
+    CapacityReservationSpecification: Optional[CapacityReservationSpecificationUnionTypeDef] = None
 
-class PredictiveScalingConfigurationExtraOutputTypeDef(BaseValidatorModel):
-    MetricSpecifications: List[PredictiveScalingMetricSpecificationExtraOutputTypeDef]
-    Mode: Optional[PredictiveScalingModeType] = None
-    SchedulingBufferTime: Optional[int] = None
-    MaxCapacityBreachBehavior: Optional[PredictiveScalingMaxCapacityBreachBehaviorType] = None
-    MaxCapacityBuffer: Optional[int] = None
 
-class LoadForecastTypeDef(BaseValidatorModel):
-    Timestamps: List[datetime]
-    Values: List[float]
-    MetricSpecification: PredictiveScalingMetricSpecificationOutputTypeDef
-
-class PredictiveScalingConfigurationOutputTypeDef(BaseValidatorModel):
-    MetricSpecifications: List[PredictiveScalingMetricSpecificationOutputTypeDef]
-    Mode: Optional[PredictiveScalingModeType] = None
-    SchedulingBufferTime: Optional[int] = None
-    MaxCapacityBreachBehavior: Optional[PredictiveScalingMaxCapacityBreachBehaviorType] = None
-    MaxCapacityBuffer: Optional[int] = None
-
-class PredictiveScalingConfigurationTypeDef(BaseValidatorModel):
-    MetricSpecifications: Sequence[PredictiveScalingMetricSpecificationTypeDef]
-    Mode: Optional[PredictiveScalingModeType] = None
-    SchedulingBufferTime: Optional[int] = None
-    MaxCapacityBreachBehavior: Optional[PredictiveScalingMaxCapacityBreachBehaviorType] = None
-    MaxCapacityBuffer: Optional[int] = None
-
-class AutoScalingGroupsTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroups: List[AutoScalingGroupTypeDef]
+class PoliciesTypeTypeDef(BaseValidatorModel):
+    ScalingPolicies: List[ScalingPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class InstanceRefreshTypeDef(BaseValidatorModel):
-    InstanceRefreshId: Optional[str] = None
-    AutoScalingGroupName: Optional[str] = None
-    Status: Optional[InstanceRefreshStatusType] = None
-    StatusReason: Optional[str] = None
-    StartTime: Optional[datetime] = None
-    EndTime: Optional[datetime] = None
-    PercentageComplete: Optional[int] = None
-    InstancesToUpdate: Optional[int] = None
-    ProgressDetails: Optional[InstanceRefreshProgressDetailsTypeDef] = None
-    Preferences: Optional[RefreshPreferencesOutputTypeDef] = None
-    DesiredConfiguration: Optional[DesiredConfigurationOutputTypeDef] = None
-    RollbackDetails: Optional[RollbackDetailsTypeDef] = None
 
-class StartInstanceRefreshTypeRequestTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    Strategy: Optional[Literal["Rolling"]] = None
-    DesiredConfiguration: Optional[DesiredConfigurationTypeDef] = None
-    Preferences: Optional[RefreshPreferencesTypeDef] = None
+class TargetTrackingConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
 
-class GetPredictiveScalingForecastAnswerTypeDef(BaseValidatorModel):
-    LoadForecast: List[LoadForecastTypeDef]
-    CapacityForecast: CapacityForecastTypeDef
-    UpdateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class ScalingPolicyTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: Optional[str] = None
-    PolicyName: Optional[str] = None
-    PolicyARN: Optional[str] = None
-    PolicyType: Optional[str] = None
-    AdjustmentType: Optional[str] = None
-    MinAdjustmentStep: Optional[int] = None
-    MinAdjustmentMagnitude: Optional[int] = None
-    ScalingAdjustment: Optional[int] = None
-    Cooldown: Optional[int] = None
-    StepAdjustments: Optional[List[StepAdjustmentTypeDef]] = None
-    MetricAggregationType: Optional[str] = None
-    EstimatedInstanceWarmup: Optional[int] = None
-    Alarms: Optional[List[AlarmTypeDef]] = None
-    TargetTrackingConfiguration: Optional[TargetTrackingConfigurationOutputTypeDef] = None
-    Enabled: Optional[bool] = None
-    PredictiveScalingConfiguration: Optional[PredictiveScalingConfigurationOutputTypeDef] = None
+class PredictiveScalingConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
 
-class PutScalingPolicyTypeRequestTypeDef(BaseValidatorModel):
+
+class PutScalingPolicyTypeTypeDef(BaseValidatorModel):
     AutoScalingGroupName: str
     PolicyName: str
     PolicyType: Optional[str] = None
@@ -1312,17 +1491,29 @@ class PutScalingPolicyTypeRequestTypeDef(BaseValidatorModel):
     MetricAggregationType: Optional[str] = None
     StepAdjustments: Optional[Sequence[StepAdjustmentTypeDef]] = None
     EstimatedInstanceWarmup: Optional[int] = None
-    TargetTrackingConfiguration: Optional[TargetTrackingConfigurationTypeDef] = None
+    TargetTrackingConfiguration: Optional[TargetTrackingConfigurationUnionTypeDef] = None
     Enabled: Optional[bool] = None
-    PredictiveScalingConfiguration: Optional[PredictiveScalingConfigurationTypeDef] = None
+    PredictiveScalingConfiguration: Optional[PredictiveScalingConfigurationUnionTypeDef] = None
+
 
 class DescribeInstanceRefreshesAnswerTypeDef(BaseValidatorModel):
     InstanceRefreshes: List[InstanceRefreshTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class PoliciesTypeTypeDef(BaseValidatorModel):
-    ScalingPolicies: List[ScalingPolicyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+
+class DesiredConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RefreshPreferencesUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class StartInstanceRefreshTypeTypeDef(BaseValidatorModel):
+    AutoScalingGroupName: str
+    Strategy: Optional[Literal["Rolling"]] = None
+    DesiredConfiguration: Optional[DesiredConfigurationUnionTypeDef] = None
+    Preferences: Optional[RefreshPreferencesUnionTypeDef] = None
+
 

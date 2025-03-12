@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -16,16 +17,20 @@ class SecretsManagerAccessTokenConfigurationTypeDef(BaseValidatorModel):
     SecretArn: Optional[str] = None
     SecretStringKey: Optional[str] = None
 
+
 class AdBreakOpportunityTypeDef(BaseValidatorModel):
     OffsetMillis: int
+
 
 class KeyValuePairTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
+
 class SlateSourceTypeDef(BaseValidatorModel):
     SourceLocationName: Optional[str] = None
     VodSourceName: Optional[str] = None
+
 
 class SpliceInsertMessageTypeDef(BaseValidatorModel):
     AvailNum: Optional[int] = None
@@ -33,8 +38,14 @@ class SpliceInsertMessageTypeDef(BaseValidatorModel):
     SpliceEventId: Optional[int] = None
     UniqueProgramId: Optional[int] = None
 
+
+class AdConditioningConfigurationTypeDef(BaseValidatorModel):
+    StreamingMediaFileConditioning: StreamingMediaFileConditioningType
+
+
 class AdMarkerPassthroughTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
+
 
 class AlertTypeDef(BaseValidatorModel):
     AlertCode: str
@@ -44,33 +55,41 @@ class AlertTypeDef(BaseValidatorModel):
     ResourceArn: str
     Category: Optional[AlertCategoryType] = None
 
+
 class ClipRangeTypeDef(BaseValidatorModel):
     EndOffsetMillis: Optional[int] = None
     StartOffsetMillis: Optional[int] = None
+
 
 class AvailMatchingCriteriaTypeDef(BaseValidatorModel):
     DynamicVariable: str
     Operator: Literal["EQUALS"]
 
+
 class AvailSuppressionTypeDef(BaseValidatorModel):
-    FillPolicy: Optional[FillPolicyType] = None
     Mode: Optional[ModeType] = None
     Value: Optional[str] = None
+    FillPolicy: Optional[FillPolicyType] = None
+
 
 class BumperTypeDef(BaseValidatorModel):
     EndUrl: Optional[str] = None
     StartUrl: Optional[str] = None
 
+
 class CdnConfigurationTypeDef(BaseValidatorModel):
     AdSegmentUrlPrefix: Optional[str] = None
     ContentSegmentUrlPrefix: Optional[str] = None
 
+
 class LogConfigurationForChannelTypeDef(BaseValidatorModel):
     LogTypes: Optional[List[Literal["AS_RUN"]]] = None
 
-class ConfigureLogsForChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class ConfigureLogsForChannelRequestTypeDef(BaseValidatorModel):
     ChannelName: str
     LogTypes: Sequence[Literal["AS_RUN"]]
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -79,36 +98,46 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class ConfigureLogsForPlaybackConfigurationRequestTypeDef(BaseValidatorModel):
     PercentEnabled: int
     PlaybackConfigurationName: str
+    EnabledLoggingStrategies: Optional[Sequence[LoggingStrategyType]] = None
+
 
 class TimeShiftConfigurationTypeDef(BaseValidatorModel):
     MaxTimeDelaySeconds: int
 
-class HttpPackageConfigurationTypeDef(BaseValidatorModel):
-    Path: str
-    SourceGroup: str
-    Type: TypeType
+
+class PrefetchRetrievalOutputTypeDef(BaseValidatorModel):
+    EndTime: datetime
+    DynamicVariables: Optional[Dict[str, str]] = None
+    StartTime: Optional[datetime] = None
+
 
 class DefaultSegmentDeliveryConfigurationTypeDef(BaseValidatorModel):
     BaseUrl: Optional[str] = None
 
+
 class HttpConfigurationTypeDef(BaseValidatorModel):
     BaseUrl: str
+
 
 class SegmentDeliveryConfigurationTypeDef(BaseValidatorModel):
     BaseUrl: Optional[str] = None
     Name: Optional[str] = None
 
+
 class DashConfigurationForPutTypeDef(BaseValidatorModel):
     MpdLocation: Optional[str] = None
     OriginManifestType: Optional[OriginManifestTypeType] = None
+
 
 class DashConfigurationTypeDef(BaseValidatorModel):
     ManifestEndpointPrefix: Optional[str] = None
     MpdLocation: Optional[str] = None
     OriginManifestType: Optional[OriginManifestTypeType] = None
+
 
 class DashPlaylistSettingsTypeDef(BaseValidatorModel):
     ManifestWindowSeconds: Optional[int] = None
@@ -116,136 +145,165 @@ class DashPlaylistSettingsTypeDef(BaseValidatorModel):
     MinUpdatePeriodSeconds: Optional[int] = None
     SuggestedPresentationDelaySeconds: Optional[int] = None
 
-class DeleteChannelPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteChannelPolicyRequestTypeDef(BaseValidatorModel):
     ChannelName: str
 
-class DeleteChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteChannelRequestTypeDef(BaseValidatorModel):
     ChannelName: str
 
-class DeleteLiveSourceRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLiveSourceRequestTypeDef(BaseValidatorModel):
     LiveSourceName: str
     SourceLocationName: str
 
-class DeletePlaybackConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeletePlaybackConfigurationRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class DeletePrefetchScheduleRequestRequestTypeDef(BaseValidatorModel):
+
+class DeletePrefetchScheduleRequestTypeDef(BaseValidatorModel):
     Name: str
     PlaybackConfigurationName: str
 
-class DeleteProgramRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteProgramRequestTypeDef(BaseValidatorModel):
     ChannelName: str
     ProgramName: str
 
-class DeleteSourceLocationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteSourceLocationRequestTypeDef(BaseValidatorModel):
     SourceLocationName: str
 
-class DeleteVodSourceRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteVodSourceRequestTypeDef(BaseValidatorModel):
     SourceLocationName: str
     VodSourceName: str
 
-class DescribeChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeChannelRequestTypeDef(BaseValidatorModel):
     ChannelName: str
 
-class DescribeLiveSourceRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLiveSourceRequestTypeDef(BaseValidatorModel):
     LiveSourceName: str
     SourceLocationName: str
 
-class DescribeProgramRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeProgramRequestTypeDef(BaseValidatorModel):
     ChannelName: str
     ProgramName: str
 
-class DescribeSourceLocationRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeSourceLocationRequestTypeDef(BaseValidatorModel):
     SourceLocationName: str
 
-class DescribeVodSourceRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeVodSourceRequestTypeDef(BaseValidatorModel):
     SourceLocationName: str
     VodSourceName: str
 
-class GetChannelPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetChannelPolicyRequestTypeDef(BaseValidatorModel):
     ChannelName: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetChannelScheduleRequestRequestTypeDef(BaseValidatorModel):
+
+class GetChannelScheduleRequestTypeDef(BaseValidatorModel):
     ChannelName: str
-    Audience: Optional[str] = None
     DurationMinutes: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+    Audience: Optional[str] = None
 
-class GetPlaybackConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetPlaybackConfigurationRequestTypeDef(BaseValidatorModel):
     Name: str
+
 
 class HlsConfigurationTypeDef(BaseValidatorModel):
     ManifestEndpointPrefix: Optional[str] = None
+
 
 class LivePreRollConfigurationTypeDef(BaseValidatorModel):
     AdDecisionServerUrl: Optional[str] = None
     MaxDurationSeconds: Optional[int] = None
 
+
 class LogConfigurationTypeDef(BaseValidatorModel):
     PercentEnabled: int
+    EnabledLoggingStrategies: Optional[List[LoggingStrategyType]] = None
 
-class GetPrefetchScheduleRequestRequestTypeDef(BaseValidatorModel):
+
+class GetPrefetchScheduleRequestTypeDef(BaseValidatorModel):
     Name: str
     PlaybackConfigurationName: str
 
-class HlsPlaylistSettingsPaginatorTypeDef(BaseValidatorModel):
-    AdMarkupType: Optional[List[AdMarkupTypeType]] = None
+
+class HlsPlaylistSettingsOutputTypeDef(BaseValidatorModel):
     ManifestWindowSeconds: Optional[int] = None
+    AdMarkupType: Optional[List[AdMarkupTypeType]] = None
+
 
 class HlsPlaylistSettingsTypeDef(BaseValidatorModel):
-    AdMarkupType: Optional[Sequence[AdMarkupTypeType]] = None
     ManifestWindowSeconds: Optional[int] = None
+    AdMarkupType: Optional[Sequence[AdMarkupTypeType]] = None
 
-class ListAlertsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAlertsRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListChannelsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListChannelsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListLiveSourcesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLiveSourcesRequestTypeDef(BaseValidatorModel):
     SourceLocationName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListPlaybackConfigurationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListPlaybackConfigurationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListPrefetchSchedulesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListPrefetchSchedulesRequestTypeDef(BaseValidatorModel):
     PlaybackConfigurationName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     StreamId: Optional[str] = None
 
-class ListSourceLocationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSourceLocationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListVodSourcesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListVodSourcesRequestTypeDef(BaseValidatorModel):
     SourceLocationName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class PrefetchRetrievalPaginatorTypeDef(BaseValidatorModel):
-    EndTime: datetime
-    DynamicVariables: Optional[Dict[str, str]] = None
-    StartTime: Optional[datetime] = None
 
-class PutChannelPolicyRequestRequestTypeDef(BaseValidatorModel):
+class PutChannelPolicyRequestTypeDef(BaseValidatorModel):
     ChannelName: str
     Policy: str
+
 
 class ScheduleAdBreakTypeDef(BaseValidatorModel):
     ApproximateDurationSeconds: Optional[int] = None
@@ -253,84 +311,99 @@ class ScheduleAdBreakTypeDef(BaseValidatorModel):
     SourceLocationName: Optional[str] = None
     VodSourceName: Optional[str] = None
 
-class TransitionTypeDef(BaseValidatorModel):
-    RelativePosition: RelativePositionType
-    Type: str
-    DurationMillis: Optional[int] = None
-    RelativeProgram: Optional[str] = None
-    ScheduledStartTimeMillis: Optional[int] = None
 
 class SegmentationDescriptorTypeDef(BaseValidatorModel):
-    SegmentNum: Optional[int] = None
     SegmentationEventId: Optional[int] = None
-    SegmentationTypeId: Optional[int] = None
-    SegmentationUpid: Optional[str] = None
     SegmentationUpidType: Optional[int] = None
+    SegmentationUpid: Optional[str] = None
+    SegmentationTypeId: Optional[int] = None
+    SegmentNum: Optional[int] = None
     SegmentsExpected: Optional[int] = None
     SubSegmentNum: Optional[int] = None
     SubSegmentsExpected: Optional[int] = None
 
-class StartChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class StartChannelRequestTypeDef(BaseValidatorModel):
     ChannelName: str
 
-class StopChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class StopChannelRequestTypeDef(BaseValidatorModel):
     ChannelName: str
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
+
 class UpdateProgramTransitionTypeDef(BaseValidatorModel):
-    DurationMillis: Optional[int] = None
     ScheduledStartTimeMillis: Optional[int] = None
+    DurationMillis: Optional[int] = None
+
 
 class AccessConfigurationTypeDef(BaseValidatorModel):
     AccessType: Optional[AccessTypeType] = None
-    SecretsManagerAccessTokenConfiguration: Optional[       SecretsManagerAccessTokenConfigurationTypeDef     ] = None
+    SecretsManagerAccessTokenConfiguration: Optional[ SecretsManagerAccessTokenConfigurationTypeDef ] = None
+
 
 class ManifestProcessingRulesTypeDef(BaseValidatorModel):
     AdMarkerPassthrough: Optional[AdMarkerPassthroughTypeDef] = None
 
-class PrefetchConsumptionPaginatorTypeDef(BaseValidatorModel):
+
+class PrefetchConsumptionOutputTypeDef(BaseValidatorModel):
     EndTime: datetime
     AvailMatchingCriteria: Optional[List[AvailMatchingCriteriaTypeDef]] = None
     StartTime: Optional[datetime] = None
+
 
 class ConfigureLogsForChannelResponseTypeDef(BaseValidatorModel):
     ChannelName: str
     LogTypes: List[Literal["AS_RUN"]]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ConfigureLogsForPlaybackConfigurationResponseTypeDef(BaseValidatorModel):
     PercentEnabled: int
     PlaybackConfigurationName: str
+    EnabledLoggingStrategies: List[LoggingStrategyType]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetChannelPolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListAlertsResponseTypeDef(BaseValidatorModel):
     Items: List[AlertTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLiveSourceRequestRequestTypeDef(BaseValidatorModel):
+
+class HttpPackageConfigurationTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateLiveSourceRequestTypeDef(BaseValidatorModel):
     HttpPackageConfigurations: Sequence[HttpPackageConfigurationTypeDef]
     LiveSourceName: str
     SourceLocationName: str
     Tags: Optional[Mapping[str, str]] = None
+
 
 class CreateLiveSourceResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -342,11 +415,13 @@ class CreateLiveSourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateVodSourceRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateVodSourceRequestTypeDef(BaseValidatorModel):
     HttpPackageConfigurations: Sequence[HttpPackageConfigurationTypeDef]
     SourceLocationName: str
     VodSourceName: str
     Tags: Optional[Mapping[str, str]] = None
+
 
 class CreateVodSourceResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -358,6 +433,7 @@ class CreateVodSourceResponseTypeDef(BaseValidatorModel):
     VodSourceName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeLiveSourceResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -367,6 +443,7 @@ class DescribeLiveSourceResponseTypeDef(BaseValidatorModel):
     SourceLocationName: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeVodSourceResponseTypeDef(BaseValidatorModel):
     AdBreakOpportunities: List[AdBreakOpportunityTypeDef]
@@ -379,6 +456,7 @@ class DescribeVodSourceResponseTypeDef(BaseValidatorModel):
     VodSourceName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class LiveSourceTypeDef(BaseValidatorModel):
     Arn: str
     HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
@@ -388,10 +466,12 @@ class LiveSourceTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
 
-class UpdateLiveSourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateLiveSourceRequestTypeDef(BaseValidatorModel):
     HttpPackageConfigurations: Sequence[HttpPackageConfigurationTypeDef]
     LiveSourceName: str
     SourceLocationName: str
+
 
 class UpdateLiveSourceResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -403,10 +483,12 @@ class UpdateLiveSourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVodSourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateVodSourceRequestTypeDef(BaseValidatorModel):
     HttpPackageConfigurations: Sequence[HttpPackageConfigurationTypeDef]
     SourceLocationName: str
     VodSourceName: str
+
 
 class UpdateVodSourceResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -418,6 +500,7 @@ class UpdateVodSourceResponseTypeDef(BaseValidatorModel):
     VodSourceName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class VodSourceTypeDef(BaseValidatorModel):
     Arn: str
     HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
@@ -427,67 +510,70 @@ class VodSourceTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
 
-class GetChannelScheduleRequestGetChannelSchedulePaginateTypeDef(BaseValidatorModel):
+
+class GetChannelScheduleRequestPaginateTypeDef(BaseValidatorModel):
     ChannelName: str
-    Audience: Optional[str] = None
     DurationMinutes: Optional[str] = None
+    Audience: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAlertsRequestListAlertsPaginateTypeDef(BaseValidatorModel):
+
+class ListAlertsRequestPaginateTypeDef(BaseValidatorModel):
     ResourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListChannelsRequestListChannelsPaginateTypeDef(BaseValidatorModel):
+
+class ListChannelsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLiveSourcesRequestListLiveSourcesPaginateTypeDef(BaseValidatorModel):
+
+class ListLiveSourcesRequestPaginateTypeDef(BaseValidatorModel):
     SourceLocationName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPlaybackConfigurationsRequestListPlaybackConfigurationsPaginateTypeDef(BaseValidatorModel):
+
+class ListPlaybackConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPrefetchSchedulesRequestListPrefetchSchedulesPaginateTypeDef(BaseValidatorModel):
+
+class ListPrefetchSchedulesRequestPaginateTypeDef(BaseValidatorModel):
     PlaybackConfigurationName: str
     StreamId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSourceLocationsRequestListSourceLocationsPaginateTypeDef(BaseValidatorModel):
+
+class ListSourceLocationsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVodSourcesRequestListVodSourcesPaginateTypeDef(BaseValidatorModel):
+
+class ListVodSourcesRequestPaginateTypeDef(BaseValidatorModel):
     SourceLocationName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ResponseOutputItemPaginatorTypeDef(BaseValidatorModel):
-    ManifestName: str
-    PlaybackUrl: str
-    SourceGroup: str
-    DashPlaylistSettings: Optional[DashPlaylistSettingsTypeDef] = None
-    HlsPlaylistSettings: Optional[HlsPlaylistSettingsPaginatorTypeDef] = None
-
-class RequestOutputItemTypeDef(BaseValidatorModel):
-    ManifestName: str
-    SourceGroup: str
-    DashPlaylistSettings: Optional[DashPlaylistSettingsTypeDef] = None
-    HlsPlaylistSettings: Optional[HlsPlaylistSettingsTypeDef] = None
 
 class ResponseOutputItemTypeDef(BaseValidatorModel):
     ManifestName: str
     PlaybackUrl: str
     SourceGroup: str
     DashPlaylistSettings: Optional[DashPlaylistSettingsTypeDef] = None
-    HlsPlaylistSettings: Optional[HlsPlaylistSettingsTypeDef] = None
+    HlsPlaylistSettings: Optional[HlsPlaylistSettingsOutputTypeDef] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class PrefetchConsumptionTypeDef(BaseValidatorModel):
     EndTime: TimestampTypeDef
     AvailMatchingCriteria: Optional[Sequence[AvailMatchingCriteriaTypeDef]] = None
     StartTime: Optional[TimestampTypeDef] = None
 
+
 class PrefetchRetrievalTypeDef(BaseValidatorModel):
     EndTime: TimestampTypeDef
     DynamicVariables: Optional[Mapping[str, str]] = None
     StartTime: Optional[TimestampTypeDef] = None
+
 
 class ScheduleEntryTypeDef(BaseValidatorModel):
     Arn: str
@@ -496,30 +582,43 @@ class ScheduleEntryTypeDef(BaseValidatorModel):
     SourceLocationName: str
     ApproximateDurationSeconds: Optional[int] = None
     ApproximateStartTime: Optional[datetime] = None
-    Audiences: Optional[List[str]] = None
     LiveSourceName: Optional[str] = None
     ScheduleAdBreaks: Optional[List[ScheduleAdBreakTypeDef]] = None
     ScheduleEntryType: Optional[ScheduleEntryTypeType] = None
     VodSourceName: Optional[str] = None
+    Audiences: Optional[List[str]] = None
+
+
+class TransitionTypeDef(BaseValidatorModel):
+    pass
+
 
 class ScheduleConfigurationTypeDef(BaseValidatorModel):
     Transition: TransitionTypeDef
     ClipRange: Optional[ClipRangeTypeDef] = None
 
+
+class TimeSignalMessageOutputTypeDef(BaseValidatorModel):
+    SegmentationDescriptors: Optional[List[SegmentationDescriptorTypeDef]] = None
+
+
 class TimeSignalMessageTypeDef(BaseValidatorModel):
     SegmentationDescriptors: Optional[Sequence[SegmentationDescriptorTypeDef]] = None
 
-class UpdateProgramScheduleConfigurationTypeDef(BaseValidatorModel):
-    ClipRange: Optional[ClipRangeTypeDef] = None
-    Transition: Optional[UpdateProgramTransitionTypeDef] = None
 
-class CreateSourceLocationRequestRequestTypeDef(BaseValidatorModel):
+class UpdateProgramScheduleConfigurationTypeDef(BaseValidatorModel):
+    Transition: Optional[UpdateProgramTransitionTypeDef] = None
+    ClipRange: Optional[ClipRangeTypeDef] = None
+
+
+class CreateSourceLocationRequestTypeDef(BaseValidatorModel):
     HttpConfiguration: HttpConfigurationTypeDef
     SourceLocationName: str
     AccessConfiguration: Optional[AccessConfigurationTypeDef] = None
-    DefaultSegmentDeliveryConfiguration: Optional[       DefaultSegmentDeliveryConfigurationTypeDef     ] = None
+    DefaultSegmentDeliveryConfiguration: Optional[DefaultSegmentDeliveryConfigurationTypeDef] = None
     SegmentDeliveryConfigurations: Optional[Sequence[SegmentDeliveryConfigurationTypeDef]] = None
     Tags: Optional[Mapping[str, str]] = None
+
 
 class CreateSourceLocationResponseTypeDef(BaseValidatorModel):
     AccessConfiguration: AccessConfigurationTypeDef
@@ -533,6 +632,7 @@ class CreateSourceLocationResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeSourceLocationResponseTypeDef(BaseValidatorModel):
     AccessConfiguration: AccessConfigurationTypeDef
     Arn: str
@@ -545,23 +645,26 @@ class DescribeSourceLocationResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SourceLocationTypeDef(BaseValidatorModel):
     Arn: str
     HttpConfiguration: HttpConfigurationTypeDef
     SourceLocationName: str
     AccessConfiguration: Optional[AccessConfigurationTypeDef] = None
     CreationTime: Optional[datetime] = None
-    DefaultSegmentDeliveryConfiguration: Optional[       DefaultSegmentDeliveryConfigurationTypeDef     ] = None
+    DefaultSegmentDeliveryConfiguration: Optional[DefaultSegmentDeliveryConfigurationTypeDef] = None
     LastModifiedTime: Optional[datetime] = None
     SegmentDeliveryConfigurations: Optional[List[SegmentDeliveryConfigurationTypeDef]] = None
     Tags: Optional[Dict[str, str]] = None
 
-class UpdateSourceLocationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateSourceLocationRequestTypeDef(BaseValidatorModel):
     HttpConfiguration: HttpConfigurationTypeDef
     SourceLocationName: str
     AccessConfiguration: Optional[AccessConfigurationTypeDef] = None
-    DefaultSegmentDeliveryConfiguration: Optional[       DefaultSegmentDeliveryConfigurationTypeDef     ] = None
+    DefaultSegmentDeliveryConfiguration: Optional[DefaultSegmentDeliveryConfigurationTypeDef] = None
     SegmentDeliveryConfigurations: Optional[Sequence[SegmentDeliveryConfigurationTypeDef]] = None
+
 
 class UpdateSourceLocationResponseTypeDef(BaseValidatorModel):
     AccessConfiguration: AccessConfigurationTypeDef
@@ -574,6 +677,7 @@ class UpdateSourceLocationResponseTypeDef(BaseValidatorModel):
     SourceLocationName: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetPlaybackConfigurationResponseTypeDef(BaseValidatorModel):
     AdDecisionServerUrl: str
@@ -596,7 +700,9 @@ class GetPlaybackConfigurationResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     TranscodeProfileName: str
     VideoContentSourceUrl: str
+    AdConditioningConfiguration: AdConditioningConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PlaybackConfigurationTypeDef(BaseValidatorModel):
     AdDecisionServerUrl: Optional[str] = None
@@ -619,8 +725,10 @@ class PlaybackConfigurationTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
     TranscodeProfileName: Optional[str] = None
     VideoContentSourceUrl: Optional[str] = None
+    AdConditioningConfiguration: Optional[AdConditioningConfigurationTypeDef] = None
 
-class PutPlaybackConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class PutPlaybackConfigurationRequestTypeDef(BaseValidatorModel):
     Name: str
     AdDecisionServerUrl: Optional[str] = None
     AvailSuppression: Optional[AvailSuppressionTypeDef] = None
@@ -636,6 +744,8 @@ class PutPlaybackConfigurationRequestRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
     TranscodeProfileName: Optional[str] = None
     VideoContentSourceUrl: Optional[str] = None
+    AdConditioningConfiguration: Optional[AdConditioningConfigurationTypeDef] = None
+
 
 class PutPlaybackConfigurationResponseTypeDef(BaseValidatorModel):
     AdDecisionServerUrl: str
@@ -658,74 +768,68 @@ class PutPlaybackConfigurationResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     TranscodeProfileName: str
     VideoContentSourceUrl: str
+    AdConditioningConfiguration: AdConditioningConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PrefetchSchedulePaginatorTypeDef(BaseValidatorModel):
+
+class CreatePrefetchScheduleResponseTypeDef(BaseValidatorModel):
     Arn: str
-    Consumption: PrefetchConsumptionPaginatorTypeDef
+    Consumption: PrefetchConsumptionOutputTypeDef
     Name: str
     PlaybackConfigurationName: str
-    Retrieval: PrefetchRetrievalPaginatorTypeDef
+    Retrieval: PrefetchRetrievalOutputTypeDef
+    StreamId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GetPrefetchScheduleResponseTypeDef(BaseValidatorModel):
+    Arn: str
+    Consumption: PrefetchConsumptionOutputTypeDef
+    Name: str
+    PlaybackConfigurationName: str
+    Retrieval: PrefetchRetrievalOutputTypeDef
+    StreamId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class PrefetchScheduleTypeDef(BaseValidatorModel):
+    Arn: str
+    Consumption: PrefetchConsumptionOutputTypeDef
+    Name: str
+    PlaybackConfigurationName: str
+    Retrieval: PrefetchRetrievalOutputTypeDef
     StreamId: Optional[str] = None
+
 
 class ListLiveSourcesResponseTypeDef(BaseValidatorModel):
     Items: List[LiveSourceTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListVodSourcesResponseTypeDef(BaseValidatorModel):
     Items: List[VodSourceTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class ChannelPaginatorTypeDef(BaseValidatorModel):
-    Arn: str
-    ChannelName: str
-    ChannelState: str
-    LogConfiguration: LogConfigurationForChannelTypeDef
-    Outputs: List[ResponseOutputItemPaginatorTypeDef]
-    PlaybackMode: str
-    Tier: str
-    Audiences: Optional[List[str]] = None
-    CreationTime: Optional[datetime] = None
-    FillerSlate: Optional[SlateSourceTypeDef] = None
-    LastModifiedTime: Optional[datetime] = None
-    Tags: Optional[Dict[str, str]] = None
-
-class CreateChannelRequestRequestTypeDef(BaseValidatorModel):
-    ChannelName: str
-    Outputs: Sequence[RequestOutputItemTypeDef]
-    PlaybackMode: PlaybackModeType
-    Audiences: Optional[Sequence[str]] = None
-    FillerSlate: Optional[SlateSourceTypeDef] = None
-    Tags: Optional[Mapping[str, str]] = None
-    Tier: Optional[TierType] = None
-    TimeShiftConfiguration: Optional[TimeShiftConfigurationTypeDef] = None
-
-class UpdateChannelRequestRequestTypeDef(BaseValidatorModel):
-    ChannelName: str
-    Outputs: Sequence[RequestOutputItemTypeDef]
-    Audiences: Optional[Sequence[str]] = None
-    FillerSlate: Optional[SlateSourceTypeDef] = None
-    TimeShiftConfiguration: Optional[TimeShiftConfigurationTypeDef] = None
 
 class ChannelTypeDef(BaseValidatorModel):
     Arn: str
     ChannelName: str
     ChannelState: str
-    LogConfiguration: LogConfigurationForChannelTypeDef
     Outputs: List[ResponseOutputItemTypeDef]
     PlaybackMode: str
     Tier: str
-    Audiences: Optional[List[str]] = None
+    LogConfiguration: LogConfigurationForChannelTypeDef
     CreationTime: Optional[datetime] = None
     FillerSlate: Optional[SlateSourceTypeDef] = None
     LastModifiedTime: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
+    Audiences: Optional[List[str]] = None
+
 
 class CreateChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
-    Audiences: List[str]
     ChannelName: str
     ChannelState: ChannelStateType
     CreationTime: datetime
@@ -736,27 +840,29 @@ class CreateChannelResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     Tier: str
     TimeShiftConfiguration: TimeShiftConfigurationTypeDef
+    Audiences: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
-    Audiences: List[str]
     ChannelName: str
     ChannelState: ChannelStateType
     CreationTime: datetime
     FillerSlate: SlateSourceTypeDef
     LastModifiedTime: datetime
-    LogConfiguration: LogConfigurationForChannelTypeDef
     Outputs: List[ResponseOutputItemTypeDef]
     PlaybackMode: str
     Tags: Dict[str, str]
     Tier: str
+    LogConfiguration: LogConfigurationForChannelTypeDef
     TimeShiftConfiguration: TimeShiftConfigurationTypeDef
+    Audiences: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
-    Audiences: List[str]
     ChannelName: str
     ChannelState: ChannelStateType
     CreationTime: datetime
@@ -767,156 +873,214 @@ class UpdateChannelResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     Tier: str
     TimeShiftConfiguration: TimeShiftConfigurationTypeDef
+    Audiences: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreatePrefetchScheduleRequestRequestTypeDef(BaseValidatorModel):
-    Consumption: PrefetchConsumptionTypeDef
-    Name: str
-    PlaybackConfigurationName: str
-    Retrieval: PrefetchRetrievalTypeDef
-    StreamId: Optional[str] = None
 
-class CreatePrefetchScheduleResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Consumption: PrefetchConsumptionTypeDef
-    Name: str
-    PlaybackConfigurationName: str
-    Retrieval: PrefetchRetrievalTypeDef
-    StreamId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+class HlsPlaylistSettingsUnionTypeDef(BaseValidatorModel):
+    pass
 
-class GetPrefetchScheduleResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Consumption: PrefetchConsumptionTypeDef
-    Name: str
-    PlaybackConfigurationName: str
-    Retrieval: PrefetchRetrievalTypeDef
-    StreamId: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class PrefetchScheduleTypeDef(BaseValidatorModel):
-    Arn: str
-    Consumption: PrefetchConsumptionTypeDef
-    Name: str
-    PlaybackConfigurationName: str
-    Retrieval: PrefetchRetrievalTypeDef
-    StreamId: Optional[str] = None
+class RequestOutputItemTypeDef(BaseValidatorModel):
+    ManifestName: str
+    SourceGroup: str
+    DashPlaylistSettings: Optional[DashPlaylistSettingsTypeDef] = None
+    HlsPlaylistSettings: Optional[HlsPlaylistSettingsUnionTypeDef] = None
+
 
 class GetChannelScheduleResponseTypeDef(BaseValidatorModel):
     Items: List[ScheduleEntryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class AdBreakTypeDef(BaseValidatorModel):
+
+class AdBreakOutputTypeDef(BaseValidatorModel):
     OffsetMillis: int
-    AdBreakMetadata: Optional[Sequence[KeyValuePairTypeDef]] = None
     MessageType: Optional[MessageTypeType] = None
     Slate: Optional[SlateSourceTypeDef] = None
     SpliceInsertMessage: Optional[SpliceInsertMessageTypeDef] = None
-    TimeSignalMessage: Optional[TimeSignalMessageTypeDef] = None
+    TimeSignalMessage: Optional[TimeSignalMessageOutputTypeDef] = None
+    AdBreakMetadata: Optional[List[KeyValuePairTypeDef]] = None
+
 
 class ListSourceLocationsResponseTypeDef(BaseValidatorModel):
     Items: List[SourceLocationTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListPlaybackConfigurationsResponseTypeDef(BaseValidatorModel):
     Items: List[PlaybackConfigurationTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class ListPrefetchSchedulesResponsePaginatorTypeDef(BaseValidatorModel):
-    Items: List[PrefetchSchedulePaginatorTypeDef]
-    NextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListChannelsResponsePaginatorTypeDef(BaseValidatorModel):
-    Items: List[ChannelPaginatorTypeDef]
-    NextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListChannelsResponseTypeDef(BaseValidatorModel):
-    Items: List[ChannelTypeDef]
-    NextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListPrefetchSchedulesResponseTypeDef(BaseValidatorModel):
     Items: List[PrefetchScheduleTypeDef]
-    NextToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class ListChannelsResponseTypeDef(BaseValidatorModel):
+    Items: List[ChannelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class CreateChannelRequestTypeDef(BaseValidatorModel):
+    ChannelName: str
+    Outputs: Sequence[RequestOutputItemTypeDef]
+    PlaybackMode: PlaybackModeType
+    FillerSlate: Optional[SlateSourceTypeDef] = None
+    Tags: Optional[Mapping[str, str]] = None
+    Tier: Optional[TierType] = None
+    TimeShiftConfiguration: Optional[TimeShiftConfigurationTypeDef] = None
+    Audiences: Optional[Sequence[str]] = None
+
+
+class UpdateChannelRequestTypeDef(BaseValidatorModel):
+    ChannelName: str
+    Outputs: Sequence[RequestOutputItemTypeDef]
+    FillerSlate: Optional[SlateSourceTypeDef] = None
+    TimeShiftConfiguration: Optional[TimeShiftConfigurationTypeDef] = None
+    Audiences: Optional[Sequence[str]] = None
+
+
+class PrefetchRetrievalUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class PrefetchConsumptionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreatePrefetchScheduleRequestTypeDef(BaseValidatorModel):
+    Consumption: PrefetchConsumptionUnionTypeDef
+    Name: str
+    PlaybackConfigurationName: str
+    Retrieval: PrefetchRetrievalUnionTypeDef
+    StreamId: Optional[str] = None
+
+
+class AlternateMediaOutputTypeDef(BaseValidatorModel):
+    SourceLocationName: Optional[str] = None
+    LiveSourceName: Optional[str] = None
+    VodSourceName: Optional[str] = None
+    ClipRange: Optional[ClipRangeTypeDef] = None
+    ScheduledStartTimeMillis: Optional[int] = None
+    AdBreaks: Optional[List[AdBreakOutputTypeDef]] = None
+    DurationMillis: Optional[int] = None
+
+
+class TimeSignalMessageUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class AdBreakTypeDef(BaseValidatorModel):
+    OffsetMillis: int
+    MessageType: Optional[MessageTypeType] = None
+    Slate: Optional[SlateSourceTypeDef] = None
+    SpliceInsertMessage: Optional[SpliceInsertMessageTypeDef] = None
+    TimeSignalMessage: Optional[TimeSignalMessageUnionTypeDef] = None
+    AdBreakMetadata: Optional[Sequence[KeyValuePairTypeDef]] = None
+
+
+class AudienceMediaOutputTypeDef(BaseValidatorModel):
+    Audience: Optional[str] = None
+    AlternateMedia: Optional[List[AlternateMediaOutputTypeDef]] = None
+
+
+class CreateProgramResponseTypeDef(BaseValidatorModel):
+    AdBreaks: List[AdBreakOutputTypeDef]
+    Arn: str
+    ChannelName: str
+    CreationTime: datetime
+    LiveSourceName: str
+    ProgramName: str
+    ScheduledStartTime: datetime
+    SourceLocationName: str
+    VodSourceName: str
+    ClipRange: ClipRangeTypeDef
+    DurationMillis: int
+    AudienceMedia: List[AudienceMediaOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class DescribeProgramResponseTypeDef(BaseValidatorModel):
+    AdBreaks: List[AdBreakOutputTypeDef]
+    Arn: str
+    ChannelName: str
+    CreationTime: datetime
+    LiveSourceName: str
+    ProgramName: str
+    ScheduledStartTime: datetime
+    SourceLocationName: str
+    VodSourceName: str
+    ClipRange: ClipRangeTypeDef
+    DurationMillis: int
+    AudienceMedia: List[AudienceMediaOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class UpdateProgramResponseTypeDef(BaseValidatorModel):
+    AdBreaks: List[AdBreakOutputTypeDef]
+    Arn: str
+    ChannelName: str
+    CreationTime: datetime
+    ProgramName: str
+    SourceLocationName: str
+    VodSourceName: str
+    LiveSourceName: str
+    ClipRange: ClipRangeTypeDef
+    DurationMillis: int
+    ScheduledStartTime: datetime
+    AudienceMedia: List[AudienceMediaOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class AdBreakUnionTypeDef(BaseValidatorModel):
+    pass
+
+
 class AlternateMediaTypeDef(BaseValidatorModel):
-    AdBreaks: Optional[Sequence[AdBreakTypeDef]] = None
-    ClipRange: Optional[ClipRangeTypeDef] = None
-    DurationMillis: Optional[int] = None
-    LiveSourceName: Optional[str] = None
-    ScheduledStartTimeMillis: Optional[int] = None
     SourceLocationName: Optional[str] = None
+    LiveSourceName: Optional[str] = None
     VodSourceName: Optional[str] = None
+    ClipRange: Optional[ClipRangeTypeDef] = None
+    ScheduledStartTimeMillis: Optional[int] = None
+    AdBreaks: Optional[Sequence[AdBreakUnionTypeDef]] = None
+    DurationMillis: Optional[int] = None
+
+
+class AlternateMediaUnionTypeDef(BaseValidatorModel):
+    pass
+
 
 class AudienceMediaTypeDef(BaseValidatorModel):
-    AlternateMedia: Optional[Sequence[AlternateMediaTypeDef]] = None
     Audience: Optional[str] = None
+    AlternateMedia: Optional[Sequence[AlternateMediaUnionTypeDef]] = None
 
-class CreateProgramRequestRequestTypeDef(BaseValidatorModel):
+
+class AudienceMediaUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateProgramRequestTypeDef(BaseValidatorModel):
     ChannelName: str
     ProgramName: str
     ScheduleConfiguration: ScheduleConfigurationTypeDef
     SourceLocationName: str
-    AdBreaks: Optional[Sequence[AdBreakTypeDef]] = None
-    AudienceMedia: Optional[Sequence[AudienceMediaTypeDef]] = None
+    AdBreaks: Optional[Sequence[AdBreakUnionTypeDef]] = None
     LiveSourceName: Optional[str] = None
     VodSourceName: Optional[str] = None
+    AudienceMedia: Optional[Sequence[AudienceMediaUnionTypeDef]] = None
 
-class CreateProgramResponseTypeDef(BaseValidatorModel):
-    AdBreaks: List[AdBreakTypeDef]
-    Arn: str
-    AudienceMedia: List[AudienceMediaTypeDef]
-    ChannelName: str
-    ClipRange: ClipRangeTypeDef
-    CreationTime: datetime
-    DurationMillis: int
-    LiveSourceName: str
-    ProgramName: str
-    ScheduledStartTime: datetime
-    SourceLocationName: str
-    VodSourceName: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeProgramResponseTypeDef(BaseValidatorModel):
-    AdBreaks: List[AdBreakTypeDef]
-    Arn: str
-    AudienceMedia: List[AudienceMediaTypeDef]
-    ChannelName: str
-    ClipRange: ClipRangeTypeDef
-    CreationTime: datetime
-    DurationMillis: int
-    LiveSourceName: str
-    ProgramName: str
-    ScheduledStartTime: datetime
-    SourceLocationName: str
-    VodSourceName: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class UpdateProgramRequestRequestTypeDef(BaseValidatorModel):
+class UpdateProgramRequestTypeDef(BaseValidatorModel):
     ChannelName: str
     ProgramName: str
     ScheduleConfiguration: UpdateProgramScheduleConfigurationTypeDef
-    AdBreaks: Optional[Sequence[AdBreakTypeDef]] = None
-    AudienceMedia: Optional[Sequence[AudienceMediaTypeDef]] = None
+    AdBreaks: Optional[Sequence[AdBreakUnionTypeDef]] = None
+    AudienceMedia: Optional[Sequence[AudienceMediaUnionTypeDef]] = None
 
-class UpdateProgramResponseTypeDef(BaseValidatorModel):
-    AdBreaks: List[AdBreakTypeDef]
-    Arn: str
-    AudienceMedia: List[AudienceMediaTypeDef]
-    ChannelName: str
-    ClipRange: ClipRangeTypeDef
-    CreationTime: datetime
-    DurationMillis: int
-    LiveSourceName: str
-    ProgramName: str
-    ScheduledStartTime: datetime
-    SourceLocationName: str
-    VodSourceName: str
-    ResponseMetadata: ResponseMetadataTypeDef
 

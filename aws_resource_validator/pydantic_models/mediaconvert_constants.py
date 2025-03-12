@@ -73,7 +73,7 @@ AudioCodecType = Literal["AAC",
     "VORBIS",
     "WAV",]
 AudioDefaultSelectionType = Literal["DEFAULT", "NOT_DEFAULT"]
-AudioDurationCorrectionType = Literal["AUTO", "DISABLED", "FRAME", "TRACK"]
+AudioDurationCorrectionType = Literal["AUTO", "DISABLED", "FORCE", "FRAME", "TRACK"]
 AudioLanguageCodeControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AudioNormalizationAlgorithmControlType = Literal["CORRECT_AUDIO", "MEASURE_ONLY"]
 AudioNormalizationAlgorithmType = Literal["ITU_BS_1770_1", "ITU_BS_1770_2", "ITU_BS_1770_3", "ITU_BS_1770_4"]
@@ -85,12 +85,12 @@ Av1AdaptiveQuantizationType = Literal["HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", 
 Av1BitDepthType = Literal["BIT_10", "BIT_8"]
 Av1FilmGrainSynthesisType = Literal["DISABLED", "ENABLED"]
 Av1FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-Av1FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+Av1FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 Av1RateControlModeType = Literal["QVBR"]
 Av1SpatialAdaptiveQuantizationType = Literal["DISABLED", "ENABLED"]
 AvcIntraClassType = Literal["CLASS_100", "CLASS_200", "CLASS_4K_2K", "CLASS_50"]
 AvcIntraFramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-AvcIntraFramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+AvcIntraFramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 AvcIntraInterlaceModeType = Literal["BOTTOM_FIELD", "FOLLOW_BOTTOM_FIELD", "FOLLOW_TOP_FIELD", "PROGRESSIVE", "TOP_FIELD"]
 AvcIntraScanTypeConversionModeType = Literal["INTERLACED", "INTERLACED_OPTIMIZE"]
 AvcIntraSlowPalType = Literal["DISABLED", "ENABLED"]
@@ -124,6 +124,7 @@ CaptionDestinationTypeType = Literal["BURN_IN",
     "TELETEXT",
     "TTML",
     "WEBVTT",]
+CaptionSourceByteRateLimitType = Literal["DISABLED", "ENABLED"]
 CaptionSourceConvertPaintOnToPopOnType = Literal["DISABLED", "ENABLED"]
 CaptionSourceTypeType = Literal["ANCILLARY",
     "DVB_SUB",
@@ -139,6 +140,7 @@ CaptionSourceTypeType = Literal["ANCILLARY",
     "TELETEXT",
     "TTML",
     "WEBVTT",]
+ChromaPositionModeType = Literal["AUTO", "FORCE_CENTER", "FORCE_TOP_LEFT"]
 CmafClientCacheType = Literal["DISABLED", "ENABLED"]
 CmafCodecSpecificationType = Literal["RFC_4281", "RFC_6381"]
 CmafEncryptionTypeType = Literal["AES_CTR", "SAMPLE_AES"]
@@ -172,7 +174,45 @@ CmfcScte35EsamType = Literal["INSERT", "NONE"]
 CmfcScte35SourceType = Literal["NONE", "PASSTHROUGH"]
 CmfcTimedMetadataBoxVersionType = Literal["VERSION_0", "VERSION_1"]
 CmfcTimedMetadataType = Literal["NONE", "PASSTHROUGH"]
+CodecType = Literal["AAC",
+    "AC3",
+    "AV1",
+    "AVC",
+    "C608",
+    "C708",
+    "EAC3",
+    "FLAC",
+    "HEVC",
+    "MJPEG",
+    "MP3",
+    "MP4V",
+    "MPEG2",
+    "OPUS",
+    "PCM",
+    "PRORES",
+    "THEORA",
+    "UNKNOWN",
+    "VORBIS",
+    "VP8",
+    "VP9",
+    "WEBVTT",]
 ColorMetadataType = Literal["IGNORE", "INSERT"]
+ColorPrimariesType = Literal["EBU_3213_E",
+    "GENERIC_FILM",
+    "IPT",
+    "ITU_2020",
+    "ITU_470BG",
+    "ITU_470M",
+    "ITU_709",
+    "LAST",
+    "RESERVED",
+    "SMPTE_170M",
+    "SMPTE_2067XYZ",
+    "SMPTE_240M",
+    "SMPTE_428_1",
+    "SMPTE_431_2",
+    "SMPTE_EG_432_1",
+    "UNSPECIFIED",]
 ColorSpaceConversionType = Literal["FORCE_601",
     "FORCE_709",
     "FORCE_HDR10",
@@ -184,7 +224,20 @@ ColorSpaceConversionType = Literal["FORCE_601",
 ColorSpaceType = Literal["FOLLOW", "HDR10", "HLG_2020", "P3D65_HDR", "P3D65_SDR", "P3DCI", "REC_601", "REC_709"]
 ColorSpaceUsageType = Literal["FALLBACK", "FORCE"]
 CommitmentType = Literal["ONE_YEAR"]
-ContainerTypeType = Literal["CMFC", "F4V", "ISMV", "M2TS", "M3U8", "MOV", "MP4", "MPD", "MXF", "RAW", "WEBM", "Y4M"]
+ContainerTypeType = Literal["CMFC",
+    "F4V",
+    "GIF",
+    "ISMV",
+    "M2TS",
+    "M3U8",
+    "MOV",
+    "MP4",
+    "MPD",
+    "MXF",
+    "OGG",
+    "RAW",
+    "WEBM",
+    "Y4M",]
 CopyProtectionActionType = Literal["PASSTHROUGH", "STRIP"]
 DashIsoGroupAudioChannelConfigSchemeIdUriType = Literal["DOLBY_CHANNEL_CONFIGURATION", "MPEG_CHANNEL_CONFIGURATION"]
 DashIsoHbbtvComplianceType = Literal["HBBTV_1_5", "NONE"]
@@ -224,6 +277,7 @@ DvbSubtitleStylePassthroughType = Literal["DISABLED", "ENABLED"]
 DvbSubtitleTeletextSpacingType = Literal["AUTO", "FIXED_GRID", "PROPORTIONAL"]
 DvbSubtitlingTypeType = Literal["HEARING_IMPAIRED", "STANDARD"]
 DvbddsHandlingType = Literal["NONE", "NO_DISPLAY_WINDOW", "SPECIFIED"]
+DynamicAudioSelectorTypeType = Literal["ALL_TRACKS", "LANGUAGE_CODE"]
 Eac3AtmosBitstreamModeType = Literal["COMPLETE_MAIN"]
 Eac3AtmosCodingModeType = Literal["CODING_MODE_5_1_4", "CODING_MODE_7_1_4", "CODING_MODE_9_1_6", "CODING_MODE_AUTO"]
 Eac3AtmosDialogueIntelligenceType = Literal["DISABLED", "ENABLED"]
@@ -255,6 +309,9 @@ F4vMoovPlacementType = Literal["NORMAL", "PROGRESSIVE_DOWNLOAD"]
 FileSourceConvert608To708Type = Literal["DISABLED", "UPCONVERT"]
 FileSourceTimeDeltaUnitsType = Literal["MILLISECONDS", "SECONDS"]
 FontScriptType = Literal["AUTOMATIC", "HANS", "HANT"]
+FormatType = Literal["matroska", "mp4", "quicktime", "webm"]
+GifFramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
+GifFramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "INTERPOLATE"]
 H264AdaptiveQuantizationType = Literal["AUTO", "HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"]
 H264CodecLevelType = Literal["AUTO",
     "LEVEL_1",
@@ -280,7 +337,7 @@ H264EntropyEncodingType = Literal["CABAC", "CAVLC"]
 H264FieldEncodingType = Literal["FORCE_FIELD", "MBAFF", "PAFF"]
 H264FlickerAdaptiveQuantizationType = Literal["DISABLED", "ENABLED"]
 H264FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-H264FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+H264FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 H264GopBReferenceType = Literal["DISABLED", "ENABLED"]
 H264GopSizeUnitsType = Literal["AUTO", "FRAMES", "SECONDS"]
 H264InterlaceModeType = Literal["BOTTOM_FIELD", "FOLLOW_BOTTOM_FIELD", "FOLLOW_TOP_FIELD", "PROGRESSIVE", "TOP_FIELD"]
@@ -288,6 +345,7 @@ H264ParControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
 H264QualityTuningLevelType = Literal["MULTI_PASS_HQ", "SINGLE_PASS", "SINGLE_PASS_HQ"]
 H264RateControlModeType = Literal["CBR", "QVBR", "VBR"]
 H264RepeatPpsType = Literal["DISABLED", "ENABLED"]
+H264SaliencyAwareEncodingType = Literal["DISABLED", "PREFERRED"]
 H264ScanTypeConversionModeType = Literal["INTERLACED", "INTERLACED_OPTIMIZE"]
 H264SceneChangeDetectType = Literal["DISABLED", "ENABLED", "TRANSITION_DETECTION"]
 H264SlowPalType = Literal["DISABLED", "ENABLED"]
@@ -296,6 +354,7 @@ H264SyntaxType = Literal["DEFAULT", "RP2027"]
 H264TelecineType = Literal["HARD", "NONE", "SOFT"]
 H264TemporalAdaptiveQuantizationType = Literal["DISABLED", "ENABLED"]
 H264UnregisteredSeiTimecodeType = Literal["DISABLED", "ENABLED"]
+H264WriteMp4PackagingTypeType = Literal["AVC1", "AVC3"]
 H265AdaptiveQuantizationType = Literal["AUTO", "HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"]
 H265AlternateTransferFunctionSeiType = Literal["DISABLED", "ENABLED"]
 H265CodecLevelType = Literal["AUTO",
@@ -320,11 +379,12 @@ H265CodecProfileType = Literal["MAIN10_HIGH",
     "MAIN_422_8BIT_MAIN",
     "MAIN_HIGH",
     "MAIN_MAIN",]
+H265DeblockingType = Literal["DISABLED", "ENABLED"]
 H265DynamicSubGopType = Literal["ADAPTIVE", "STATIC"]
 H265EndOfStreamMarkersType = Literal["INCLUDE", "SUPPRESS"]
 H265FlickerAdaptiveQuantizationType = Literal["DISABLED", "ENABLED"]
 H265FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-H265FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+H265FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 H265GopBReferenceType = Literal["DISABLED", "ENABLED"]
 H265GopSizeUnitsType = Literal["AUTO", "FRAMES", "SECONDS"]
 H265InterlaceModeType = Literal["BOTTOM_FIELD", "FOLLOW_BOTTOM_FIELD", "FOLLOW_TOP_FIELD", "PROGRESSIVE", "TOP_FIELD"]
@@ -583,6 +643,7 @@ ListJobTemplatesPaginatorName = Literal["list_job_templates"]
 ListJobsPaginatorName = Literal["list_jobs"]
 ListPresetsPaginatorName = Literal["list_presets"]
 ListQueuesPaginatorName = Literal["list_queues"]
+ListVersionsPaginatorName = Literal["list_versions"]
 M2tsAudioBufferModelType = Literal["ATSC", "DVB"]
 M2tsAudioDurationType = Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"]
 M2tsBufferModelType = Literal["MULTIPLEX", "NONE"]
@@ -604,6 +665,24 @@ M3u8DataPtsControlType = Literal["ALIGN_TO_VIDEO", "AUTO"]
 M3u8NielsenId3Type = Literal["INSERT", "NONE"]
 M3u8PcrControlType = Literal["CONFIGURED_PCR_PERIOD", "PCR_EVERY_PES_PACKET"]
 M3u8Scte35SourceType = Literal["NONE", "PASSTHROUGH"]
+MatrixCoefficientsType = Literal["CD_CL",
+    "CD_NCL",
+    "EBU3213",
+    "FCC",
+    "IPT",
+    "ITU_2020_CL",
+    "ITU_2020_NCL",
+    "ITU_2100ICtCp",
+    "ITU_470BG",
+    "ITU_709",
+    "LAST",
+    "RESERVED",
+    "RGB",
+    "SMPTE_170M",
+    "SMPTE_2085",
+    "SMPTE_240M",
+    "UNSPECIFIED",
+    "YCgCo",]
 MotionImageInsertionModeType = Literal["MOV", "PNG"]
 MotionImagePlaybackType = Literal["ONCE", "REPEAT"]
 MovClapAtomType = Literal["EXCLUDE", "INCLUDE"]
@@ -629,7 +708,7 @@ Mpeg2CodecLevelType = Literal["AUTO", "HIGH", "HIGH1440", "LOW", "MAIN"]
 Mpeg2CodecProfileType = Literal["MAIN", "PROFILE_422"]
 Mpeg2DynamicSubGopType = Literal["ADAPTIVE", "STATIC"]
 Mpeg2FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-Mpeg2FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+Mpeg2FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 Mpeg2GopSizeUnitsType = Literal["FRAMES", "SECONDS"]
 Mpeg2InterlaceModeType = Literal["BOTTOM_FIELD", "FOLLOW_BOTTOM_FIELD", "FOLLOW_TOP_FIELD", "PROGRESSIVE", "TOP_FIELD"]
 Mpeg2IntraDcPrecisionType = Literal["AUTO",
@@ -668,6 +747,17 @@ OutputGroupTypeType = Literal["CMAF_GROUP_SETTINGS",
 OutputSdtType = Literal["SDT_FOLLOW", "SDT_FOLLOW_IF_PRESENT", "SDT_MANUAL", "SDT_NONE"]
 PadVideoType = Literal["BLACK", "DISABLED"]
 PresetListByType = Literal["CREATION_DATE", "NAME", "SYSTEM"]
+PresetSpeke20AudioType = Literal["PRESET_AUDIO_1", "PRESET_AUDIO_2", "PRESET_AUDIO_3", "SHARED", "UNENCRYPTED"]
+PresetSpeke20VideoType = Literal["PRESET_VIDEO_1",
+    "PRESET_VIDEO_2",
+    "PRESET_VIDEO_3",
+    "PRESET_VIDEO_4",
+    "PRESET_VIDEO_5",
+    "PRESET_VIDEO_6",
+    "PRESET_VIDEO_7",
+    "PRESET_VIDEO_8",
+    "SHARED",
+    "UNENCRYPTED",]
 PricingPlanType = Literal["ON_DEMAND", "RESERVED"]
 ProresChromaSamplingType = Literal["PRESERVE_444_SAMPLING", "SUBSAMPLE_TO_422"]
 ProresCodecProfileType = Literal["APPLE_PRORES_422",
@@ -677,7 +767,7 @@ ProresCodecProfileType = Literal["APPLE_PRORES_422",
     "APPLE_PRORES_4444",
     "APPLE_PRORES_4444_XQ",]
 ProresFramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-ProresFramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+ProresFramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 ProresInterlaceModeType = Literal["BOTTOM_FIELD", "FOLLOW_BOTTOM_FIELD", "FOLLOW_TOP_FIELD", "PROGRESSIVE", "TOP_FIELD"]
 ProresParControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
 ProresScanTypeConversionModeType = Literal["INTERLACED", "INTERLACED_OPTIMIZE"]
@@ -685,6 +775,7 @@ ProresSlowPalType = Literal["DISABLED", "ENABLED"]
 ProresTelecineType = Literal["HARD", "NONE"]
 QueueListByType = Literal["CREATION_DATE", "NAME"]
 QueueStatusType = Literal["ACTIVE", "PAUSED"]
+RemoveRubyReserveAttributesType = Literal["DISABLED", "ENABLED"]
 RenewalTypeType = Literal["AUTO_RENEW", "EXPIRE"]
 RequiredFlagType = Literal["DISABLED", "ENABLED"]
 ReservationPlanStatusType = Literal["ACTIVE", "EXPIRED"]
@@ -742,20 +833,41 @@ TimecodeBurninPositionType = Literal["BOTTOM_CENTER",
     "TOP_LEFT",
     "TOP_RIGHT",]
 TimecodeSourceType = Literal["EMBEDDED", "SPECIFIEDSTART", "ZEROBASED"]
+TimecodeTrackType = Literal["DISABLED", "ENABLED"]
 TimedMetadataType = Literal["NONE", "PASSTHROUGH"]
+TrackTypeType = Literal["audio", "data", "video"]
+TransferCharacteristicsType = Literal["ARIB_B67",
+    "IEC_61966_2_1",
+    "IEC_61966_2_4",
+    "ITU_1361",
+    "ITU_2020_10bit",
+    "ITU_2020_12bit",
+    "ITU_470BG",
+    "ITU_470M",
+    "ITU_709",
+    "LAST",
+    "LINEAR",
+    "LOC10_2_5",
+    "LOG10_2",
+    "RESERVED",
+    "SMPTE_170M",
+    "SMPTE_2084",
+    "SMPTE_240M",
+    "SMPTE_428_1",
+    "UNSPECIFIED",]
 TsPtsOffsetType = Literal["AUTO", "SECONDS"]
 TtmlStylePassthroughType = Literal["DISABLED", "ENABLED"]
 TypeType = Literal["CUSTOM", "SYSTEM"]
 UncompressedFourccType = Literal["I420", "I422", "I444"]
 UncompressedFramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-UncompressedFramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+UncompressedFramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 UncompressedInterlaceModeType = Literal["INTERLACED", "PROGRESSIVE"]
 UncompressedScanTypeConversionModeType = Literal["INTERLACED", "INTERLACED_OPTIMIZE"]
 UncompressedSlowPalType = Literal["DISABLED", "ENABLED"]
 UncompressedTelecineType = Literal["HARD", "NONE"]
 Vc3ClassType = Literal["CLASS_145_8BIT", "CLASS_220_10BIT", "CLASS_220_8BIT"]
 Vc3FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-Vc3FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+Vc3FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 Vc3InterlaceModeType = Literal["INTERLACED", "PROGRESSIVE"]
 Vc3ScanTypeConversionModeType = Literal["INTERLACED", "INTERLACED_OPTIMIZE"]
 Vc3SlowPalType = Literal["DISABLED", "ENABLED"]
@@ -764,6 +876,7 @@ VchipActionType = Literal["PASSTHROUGH", "STRIP"]
 VideoCodecType = Literal["AV1",
     "AVC_INTRA",
     "FRAME_CAPTURE",
+    "GIF",
     "H_264",
     "H_265",
     "MPEG2",
@@ -774,21 +887,23 @@ VideoCodecType = Literal["AV1",
     "VP8",
     "VP9",
     "XAVC",]
+VideoOverlayPlayBackModeType = Literal["ONCE", "REPEAT"]
+VideoOverlayUnitType = Literal["PERCENTAGE", "PIXELS"]
 VideoTimecodeInsertionType = Literal["DISABLED", "PIC_TIMING_SEI"]
 Vp8FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-Vp8FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+Vp8FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 Vp8ParControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
 Vp8QualityTuningLevelType = Literal["MULTI_PASS", "MULTI_PASS_HQ"]
 Vp8RateControlModeType = Literal["VBR"]
 Vp9FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-Vp9FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+Vp9FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 Vp9ParControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
 Vp9QualityTuningLevelType = Literal["MULTI_PASS", "MULTI_PASS_HQ"]
 Vp9RateControlModeType = Literal["VBR"]
 WatermarkingStrengthType = Literal["DEFAULT", "LIGHTER", "LIGHTEST", "STRONGER", "STRONGEST"]
-WavFormatType = Literal["RF64", "RIFF"]
+WavFormatType = Literal["EXTENSIBLE", "RF64", "RIFF"]
 WebvttAccessibilitySubsType = Literal["DISABLED", "ENABLED"]
-WebvttStylePassthroughType = Literal["DISABLED", "ENABLED", "STRICT"]
+WebvttStylePassthroughType = Literal["DISABLED", "ENABLED", "MERGE", "STRICT"]
 Xavc4kIntraCbgProfileClassType = Literal["CLASS_100", "CLASS_300", "CLASS_480"]
 Xavc4kIntraVbrProfileClassType = Literal["CLASS_100", "CLASS_300", "CLASS_480"]
 Xavc4kProfileBitrateClassType = Literal["BITRATE_CLASS_100", "BITRATE_CLASS_140", "BITRATE_CLASS_200"]
@@ -798,7 +913,7 @@ XavcAdaptiveQuantizationType = Literal["AUTO", "HIGH", "HIGHER", "LOW", "MAX", "
 XavcEntropyEncodingType = Literal["AUTO", "CABAC", "CAVLC"]
 XavcFlickerAdaptiveQuantizationType = Literal["DISABLED", "ENABLED"]
 XavcFramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
-XavcFramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
+XavcFramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE", "MAINTAIN_FRAME_COUNT"]
 XavcGopBReferenceType = Literal["DISABLED", "ENABLED"]
 XavcHdIntraCbgProfileClassType = Literal["CLASS_100", "CLASS_200", "CLASS_50"]
 XavcHdProfileBitrateClassType = Literal["BITRATE_CLASS_25", "BITRATE_CLASS_35", "BITRATE_CLASS_50"]
@@ -844,12 +959,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -886,7 +1006,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -899,6 +1018,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -924,6 +1044,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -935,7 +1057,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -959,6 +1080,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -977,11 +1101,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -1036,6 +1159,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -1055,7 +1179,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -1063,10 +1186,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -1076,10 +1202,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -1093,6 +1221,7 @@ ServiceName = Literal["accessanalyzer",
     "pricing",
     "privatenetworks",
     "proton",
+    "qapps",
     "qbusiness",
     "qconnect",
     "qldb",
@@ -1124,6 +1253,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -1136,6 +1266,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -1153,10 +1284,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -1188,7 +1321,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -1210,6 +1342,7 @@ PaginatorName = Literal["describe_endpoints",
     "list_jobs",
     "list_presets",
     "list_queues",
+    "list_versions",
     "search_jobs",]
 RegionName = Literal["af-south-1",
     "ap-northeast-1",
@@ -1231,6 +1364,3 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-PresetSettingsUnionTypeDef = Union['PresetSettingsTypeDef', 'PresetSettingsExtraOutputTypeDef']
-JobSettingsUnionTypeDef = Union['JobSettingsTypeDef', 'JobSettingsExtraOutputTypeDef']
-JobTemplateSettingsUnionTypeDef = Union[   'JobTemplateSettingsTypeDef', 'JobTemplateSettingsExtraOutputTypeDef' ]

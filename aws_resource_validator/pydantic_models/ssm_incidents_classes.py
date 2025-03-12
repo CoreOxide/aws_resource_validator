@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,37 +16,50 @@ class AddRegionActionTypeDef(BaseValidatorModel):
     regionName: str
     sseKmsKeyId: Optional[str] = None
 
+
 class AttributeValueListTypeDef(BaseValidatorModel):
     integerValues: Optional[Sequence[int]] = None
     stringValues: Optional[Sequence[str]] = None
 
+
 class AutomationExecutionTypeDef(BaseValidatorModel):
     ssmExecutionArn: Optional[str] = None
+
 
 class BatchGetIncidentFindingsErrorTypeDef(BaseValidatorModel):
     code: str
     findingId: str
     message: str
 
-class BatchGetIncidentFindingsInputRequestTypeDef(BaseValidatorModel):
+
+class BatchGetIncidentFindingsInputTypeDef(BaseValidatorModel):
     findingIds: Sequence[str]
     incidentRecordArn: str
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
+
+class ChatChannelOutputTypeDef(BaseValidatorModel):
+    chatbotSns: Optional[List[str]] = None
+    empty: Optional[Dict[str, Any]] = None
+
 
 class ChatChannelTypeDef(BaseValidatorModel):
     chatbotSns: Optional[Sequence[str]] = None
     empty: Optional[Mapping[str, Any]] = None
 
+
 class CloudFormationStackUpdateTypeDef(BaseValidatorModel):
     stackArn: str
     startTime: datetime
     endTime: Optional[datetime] = None
+
 
 class CodeDeployDeploymentTypeDef(BaseValidatorModel):
     deploymentGroupArn: str
@@ -53,71 +67,85 @@ class CodeDeployDeploymentTypeDef(BaseValidatorModel):
     startTime: datetime
     endTime: Optional[datetime] = None
 
+
 class RegionMapInputValueTypeDef(BaseValidatorModel):
     sseKmsKeyId: Optional[str] = None
+
 
 class EventReferenceTypeDef(BaseValidatorModel):
     relatedItemId: Optional[str] = None
     resource: Optional[str] = None
 
-class DeleteIncidentRecordInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteIncidentRecordInputTypeDef(BaseValidatorModel):
     arn: str
+
 
 class DeleteRegionActionTypeDef(BaseValidatorModel):
     regionName: str
 
-class DeleteReplicationSetInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteReplicationSetInputTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteResourcePolicyInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteResourcePolicyInputTypeDef(BaseValidatorModel):
     policyId: str
     resourceArn: str
 
-class DeleteResponsePlanInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteResponsePlanInputTypeDef(BaseValidatorModel):
     arn: str
 
-class DeleteTimelineEventInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteTimelineEventInputTypeDef(BaseValidatorModel):
     eventId: str
     incidentRecordArn: str
+
 
 class DynamicSsmParameterValueTypeDef(BaseValidatorModel):
     variable: Optional[VariableTypeType] = None
 
-class FindingSummaryTypeDef(BaseValidatorModel):
-    id: str
-    lastModifiedTime: datetime
 
-class GetIncidentRecordInputRequestTypeDef(BaseValidatorModel):
+class GetIncidentRecordInputTypeDef(BaseValidatorModel):
     arn: str
 
-class GetReplicationSetInputRequestTypeDef(BaseValidatorModel):
+
+class GetReplicationSetInputTypeDef(BaseValidatorModel):
     arn: str
+
 
 class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetResourcePoliciesInputRequestTypeDef(BaseValidatorModel):
+
+class GetResourcePoliciesInputTypeDef(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class ResourcePolicyTypeDef(BaseValidatorModel):
     policyDocument: str
     policyId: str
     ramResourceShareRegion: str
 
-class GetResponsePlanInputRequestTypeDef(BaseValidatorModel):
+
+class GetResponsePlanInputTypeDef(BaseValidatorModel):
     arn: str
 
-class GetTimelineEventInputRequestTypeDef(BaseValidatorModel):
+
+class GetTimelineEventInputTypeDef(BaseValidatorModel):
     eventId: str
     incidentRecordArn: str
+
 
 class IncidentRecordSourceTypeDef(BaseValidatorModel):
     createdBy: str
@@ -125,46 +153,51 @@ class IncidentRecordSourceTypeDef(BaseValidatorModel):
     invokedBy: Optional[str] = None
     resourceArn: Optional[str] = None
 
+
 class NotificationTargetItemTypeDef(BaseValidatorModel):
     snsTopicArn: Optional[str] = None
 
-class PagerDutyIncidentDetailTypeDef(BaseValidatorModel):
-    id: str
-    autoResolve: Optional[bool] = None
-    secretId: Optional[str] = None
 
-class ListIncidentFindingsInputRequestTypeDef(BaseValidatorModel):
+class ListIncidentFindingsInputTypeDef(BaseValidatorModel):
     incidentRecordArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListRelatedItemsInputRequestTypeDef(BaseValidatorModel):
+
+class ListRelatedItemsInputTypeDef(BaseValidatorModel):
     incidentRecordArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListReplicationSetsInputRequestTypeDef(BaseValidatorModel):
+
+class ListReplicationSetsInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListResponsePlansInputRequestTypeDef(BaseValidatorModel):
+
+class ListResponsePlansInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class ResponsePlanSummaryTypeDef(BaseValidatorModel):
     arn: str
     name: str
     displayName: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
+
 
 class PagerDutyIncidentConfigurationTypeDef(BaseValidatorModel):
     serviceId: str
 
-class PutResourcePolicyInputRequestTypeDef(BaseValidatorModel):
+
+class PutResourcePolicyInputTypeDef(BaseValidatorModel):
     policy: str
     resourceArn: str
+
 
 class RegionInfoTypeDef(BaseValidatorModel):
     status: RegionStatusType
@@ -172,57 +205,74 @@ class RegionInfoTypeDef(BaseValidatorModel):
     sseKmsKeyId: Optional[str] = None
     statusMessage: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateDeletionProtectionInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateDeletionProtectionInputTypeDef(BaseValidatorModel):
     arn: str
     deletionProtected: bool
     clientToken: Optional[str] = None
+
 
 class CreateReplicationSetOutputTypeDef(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateResponsePlanOutputTypeDef(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateTimelineEventOutputTypeDef(BaseValidatorModel):
     eventId: str
     incidentRecordArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListReplicationSetsOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     replicationSetArns: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutResourcePolicyOutputTypeDef(BaseValidatorModel):
     policyId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartIncidentOutputTypeDef(BaseValidatorModel):
     incidentRecordArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class FindingDetailsTypeDef(BaseValidatorModel):
     cloudFormationStackUpdate: Optional[CloudFormationStackUpdateTypeDef] = None
     codeDeployDeployment: Optional[CodeDeployDeploymentTypeDef] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class ConditionTypeDef(BaseValidatorModel):
     after: Optional[TimestampTypeDef] = None
     before: Optional[TimestampTypeDef] = None
     equals: Optional[AttributeValueListTypeDef] = None
+
 
 class TriggerDetailsTypeDef(BaseValidatorModel):
     source: str
@@ -230,18 +280,21 @@ class TriggerDetailsTypeDef(BaseValidatorModel):
     rawData: Optional[str] = None
     triggerArn: Optional[str] = None
 
-class CreateReplicationSetInputRequestTypeDef(BaseValidatorModel):
+
+class CreateReplicationSetInputTypeDef(BaseValidatorModel):
     regions: Mapping[str, RegionMapInputValueTypeDef]
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateTimelineEventInputRequestTypeDef(BaseValidatorModel):
+
+class CreateTimelineEventInputTypeDef(BaseValidatorModel):
     eventData: str
     eventTime: TimestampTypeDef
     eventType: str
     incidentRecordArn: str
     clientToken: Optional[str] = None
     eventReferences: Optional[Sequence[EventReferenceTypeDef]] = None
+
 
 class EventSummaryTypeDef(BaseValidatorModel):
     eventId: str
@@ -250,6 +303,7 @@ class EventSummaryTypeDef(BaseValidatorModel):
     eventUpdatedTime: datetime
     incidentRecordArn: str
     eventReferences: Optional[List[EventReferenceTypeDef]] = None
+
 
 class TimelineEventTypeDef(BaseValidatorModel):
     eventData: str
@@ -260,7 +314,8 @@ class TimelineEventTypeDef(BaseValidatorModel):
     incidentRecordArn: str
     eventReferences: Optional[List[EventReferenceTypeDef]] = None
 
-class UpdateTimelineEventInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateTimelineEventInputTypeDef(BaseValidatorModel):
     eventId: str
     incidentRecordArn: str
     clientToken: Optional[str] = None
@@ -269,9 +324,20 @@ class UpdateTimelineEventInputRequestTypeDef(BaseValidatorModel):
     eventTime: Optional[TimestampTypeDef] = None
     eventType: Optional[str] = None
 
+
 class UpdateReplicationSetActionTypeDef(BaseValidatorModel):
     addRegionAction: Optional[AddRegionActionTypeDef] = None
     deleteRegionAction: Optional[DeleteRegionActionTypeDef] = None
+
+
+class SsmAutomationOutputTypeDef(BaseValidatorModel):
+    documentName: str
+    roleArn: str
+    documentVersion: Optional[str] = None
+    dynamicParameters: Optional[Dict[str, DynamicSsmParameterValueTypeDef]] = None
+    parameters: Optional[Dict[str, List[str]]] = None
+    targetAccount: Optional[SsmTargetAccountType] = None
+
 
 class SsmAutomationTypeDef(BaseValidatorModel):
     documentName: str
@@ -281,41 +347,55 @@ class SsmAutomationTypeDef(BaseValidatorModel):
     parameters: Optional[Mapping[str, Sequence[str]]] = None
     targetAccount: Optional[SsmTargetAccountType] = None
 
+
+class FindingSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
 class ListIncidentFindingsOutputTypeDef(BaseValidatorModel):
     findings: List[FindingSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class GetReplicationSetInputWaitForReplicationSetActiveWaitTypeDef(BaseValidatorModel):
+
+class GetReplicationSetInputWaitExtraTypeDef(BaseValidatorModel):
     arn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetReplicationSetInputWaitForReplicationSetDeletedWaitTypeDef(BaseValidatorModel):
+
+class GetReplicationSetInputWaitTypeDef(BaseValidatorModel):
     arn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetResourcePoliciesInputGetResourcePoliciesPaginateTypeDef(BaseValidatorModel):
+
+class GetResourcePoliciesInputPaginateTypeDef(BaseValidatorModel):
     resourceArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIncidentFindingsInputListIncidentFindingsPaginateTypeDef(BaseValidatorModel):
+
+class ListIncidentFindingsInputPaginateTypeDef(BaseValidatorModel):
     incidentRecordArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRelatedItemsInputListRelatedItemsPaginateTypeDef(BaseValidatorModel):
+
+class ListRelatedItemsInputPaginateTypeDef(BaseValidatorModel):
     incidentRecordArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListReplicationSetsInputListReplicationSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListReplicationSetsInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResponsePlansInputListResponsePlansPaginateTypeDef(BaseValidatorModel):
+
+class ListResponsePlansInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class GetResourcePoliciesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     resourcePolicies: List[ResourcePolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class IncidentRecordSummaryTypeDef(BaseValidatorModel):
     arn: str
@@ -325,6 +405,7 @@ class IncidentRecordSummaryTypeDef(BaseValidatorModel):
     status: IncidentRecordStatusType
     title: str
     resolvedTime: Optional[datetime] = None
+
 
 class IncidentRecordTypeDef(BaseValidatorModel):
     arn: str
@@ -337,10 +418,20 @@ class IncidentRecordTypeDef(BaseValidatorModel):
     status: IncidentRecordStatusType
     title: str
     automationExecutions: Optional[List[AutomationExecutionTypeDef]] = None
-    chatChannel: Optional[ChatChannelTypeDef] = None
+    chatChannel: Optional[ChatChannelOutputTypeDef] = None
     notificationTargets: Optional[List[NotificationTargetItemTypeDef]] = None
     resolvedTime: Optional[datetime] = None
     summary: Optional[str] = None
+
+
+class IncidentTemplateOutputTypeDef(BaseValidatorModel):
+    impact: int
+    title: str
+    dedupeString: Optional[str] = None
+    incidentTags: Optional[Dict[str, str]] = None
+    notificationTargets: Optional[List[NotificationTargetItemTypeDef]] = None
+    summary: Optional[str] = None
+
 
 class IncidentTemplateTypeDef(BaseValidatorModel):
     impact: int
@@ -350,15 +441,10 @@ class IncidentTemplateTypeDef(BaseValidatorModel):
     notificationTargets: Optional[Sequence[NotificationTargetItemTypeDef]] = None
     summary: Optional[str] = None
 
-class UpdateIncidentRecordInputRequestTypeDef(BaseValidatorModel):
-    arn: str
-    chatChannel: Optional[ChatChannelTypeDef] = None
-    clientToken: Optional[str] = None
-    impact: Optional[int] = None
-    notificationTargets: Optional[Sequence[NotificationTargetItemTypeDef]] = None
-    status: Optional[IncidentRecordStatusType] = None
-    summary: Optional[str] = None
-    title: Optional[str] = None
+
+class PagerDutyIncidentDetailTypeDef(BaseValidatorModel):
+    pass
+
 
 class ItemValueTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
@@ -366,15 +452,18 @@ class ItemValueTypeDef(BaseValidatorModel):
     pagerDutyIncidentDetail: Optional[PagerDutyIncidentDetailTypeDef] = None
     url: Optional[str] = None
 
+
 class ListResponsePlansOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     responsePlanSummaries: List[ResponsePlanSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class PagerDutyConfigurationTypeDef(BaseValidatorModel):
     name: str
     pagerDutyIncidentConfiguration: PagerDutyIncidentConfigurationTypeDef
     secretId: str
+
 
 class ReplicationSetTypeDef(BaseValidatorModel):
     createdBy: str
@@ -386,113 +475,180 @@ class ReplicationSetTypeDef(BaseValidatorModel):
     status: ReplicationSetStatusType
     arn: Optional[str] = None
 
-class FindingTypeDef(BaseValidatorModel):
-    creationTime: datetime
-    id: str
-    lastModifiedTime: datetime
-    details: Optional[FindingDetailsTypeDef] = None
+
+class ChatChannelUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class UpdateIncidentRecordInputTypeDef(BaseValidatorModel):
+    arn: str
+    chatChannel: Optional[ChatChannelUnionTypeDef] = None
+    clientToken: Optional[str] = None
+    impact: Optional[int] = None
+    notificationTargets: Optional[Sequence[NotificationTargetItemTypeDef]] = None
+    status: Optional[IncidentRecordStatusType] = None
+    summary: Optional[str] = None
+    title: Optional[str] = None
+
 
 class FilterTypeDef(BaseValidatorModel):
     condition: ConditionTypeDef
     key: str
 
+
 class ListTimelineEventsOutputTypeDef(BaseValidatorModel):
     eventSummaries: List[EventSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class GetTimelineEventOutputTypeDef(BaseValidatorModel):
     event: TimelineEventTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateReplicationSetInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateReplicationSetInputTypeDef(BaseValidatorModel):
     actions: Sequence[UpdateReplicationSetActionTypeDef]
     arn: str
     clientToken: Optional[str] = None
 
-class ActionTypeDef(BaseValidatorModel):
-    ssmAutomation: Optional[SsmAutomationTypeDef] = None
+
+class ActionOutputTypeDef(BaseValidatorModel):
+    ssmAutomation: Optional[SsmAutomationOutputTypeDef] = None
+
 
 class ListIncidentRecordsOutputTypeDef(BaseValidatorModel):
     incidentRecordSummaries: List[IncidentRecordSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class GetIncidentRecordOutputTypeDef(BaseValidatorModel):
     incidentRecord: IncidentRecordTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ItemIdentifierTypeDef(BaseValidatorModel):
-    type: ItemTypeType
-    value: ItemValueTypeDef
 
 class IntegrationTypeDef(BaseValidatorModel):
     pagerDutyConfiguration: Optional[PagerDutyConfigurationTypeDef] = None
 
+
 class GetReplicationSetOutputTypeDef(BaseValidatorModel):
     replicationSet: ReplicationSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class FindingTypeDef(BaseValidatorModel):
+    pass
+
 
 class BatchGetIncidentFindingsOutputTypeDef(BaseValidatorModel):
     errors: List[BatchGetIncidentFindingsErrorTypeDef]
     findings: List[FindingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIncidentRecordsInputListIncidentRecordsPaginateTypeDef(BaseValidatorModel):
+
+class ListIncidentRecordsInputPaginateTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIncidentRecordsInputRequestTypeDef(BaseValidatorModel):
+
+class ListIncidentRecordsInputTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[FilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTimelineEventsInputListTimelineEventsPaginateTypeDef(BaseValidatorModel):
+
+class ListTimelineEventsInputPaginateTypeDef(BaseValidatorModel):
     incidentRecordArn: str
     filters: Optional[Sequence[FilterTypeDef]] = None
     sortBy: Optional[Literal["EVENT_TIME"]] = None
     sortOrder: Optional[SortOrderType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTimelineEventsInputRequestTypeDef(BaseValidatorModel):
+
+class ListTimelineEventsInputTypeDef(BaseValidatorModel):
     incidentRecordArn: str
     filters: Optional[Sequence[FilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortBy: Optional[Literal["EVENT_TIME"]] = None
     sortOrder: Optional[SortOrderType] = None
+
+
+class SsmAutomationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ActionTypeDef(BaseValidatorModel):
+    ssmAutomation: Optional[SsmAutomationUnionTypeDef] = None
+
+
+class ItemIdentifierTypeDef(BaseValidatorModel):
+    pass
+
 
 class RelatedItemTypeDef(BaseValidatorModel):
     identifier: ItemIdentifierTypeDef
     generatedId: Optional[str] = None
     title: Optional[str] = None
 
-class CreateResponsePlanInputRequestTypeDef(BaseValidatorModel):
-    incidentTemplate: IncidentTemplateTypeDef
+
+class GetResponsePlanOutputTypeDef(BaseValidatorModel):
+    actions: List[ActionOutputTypeDef]
+    arn: str
+    chatChannel: ChatChannelOutputTypeDef
+    displayName: str
+    engagements: List[str]
+    incidentTemplate: IncidentTemplateOutputTypeDef
+    integrations: List[IntegrationTypeDef]
     name: str
-    actions: Optional[Sequence[ActionTypeDef]] = None
-    chatChannel: Optional[ChatChannelTypeDef] = None
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListRelatedItemsOutputTypeDef(BaseValidatorModel):
+    relatedItems: List[RelatedItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class RelatedItemsUpdateTypeDef(BaseValidatorModel):
+    itemToAdd: Optional[RelatedItemTypeDef] = None
+    itemToRemove: Optional[ItemIdentifierTypeDef] = None
+
+
+class StartIncidentInputTypeDef(BaseValidatorModel):
+    responsePlanArn: str
+    clientToken: Optional[str] = None
+    impact: Optional[int] = None
+    relatedItems: Optional[Sequence[RelatedItemTypeDef]] = None
+    title: Optional[str] = None
+    triggerDetails: Optional[TriggerDetailsTypeDef] = None
+
+
+class ActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class IncidentTemplateUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateResponsePlanInputTypeDef(BaseValidatorModel):
+    incidentTemplate: IncidentTemplateUnionTypeDef
+    name: str
+    actions: Optional[Sequence[ActionUnionTypeDef]] = None
+    chatChannel: Optional[ChatChannelUnionTypeDef] = None
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
     engagements: Optional[Sequence[str]] = None
     integrations: Optional[Sequence[IntegrationTypeDef]] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetResponsePlanOutputTypeDef(BaseValidatorModel):
-    actions: List[ActionTypeDef]
-    arn: str
-    chatChannel: ChatChannelTypeDef
-    displayName: str
-    engagements: List[str]
-    incidentTemplate: IncidentTemplateTypeDef
-    integrations: List[IntegrationTypeDef]
-    name: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateResponsePlanInputRequestTypeDef(BaseValidatorModel):
+class UpdateResponsePlanInputTypeDef(BaseValidatorModel):
     arn: str
-    actions: Optional[Sequence[ActionTypeDef]] = None
-    chatChannel: Optional[ChatChannelTypeDef] = None
+    actions: Optional[Sequence[ActionUnionTypeDef]] = None
+    chatChannel: Optional[ChatChannelUnionTypeDef] = None
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
     engagements: Optional[Sequence[str]] = None
@@ -504,25 +660,10 @@ class UpdateResponsePlanInputRequestTypeDef(BaseValidatorModel):
     incidentTemplateTitle: Optional[str] = None
     integrations: Optional[Sequence[IntegrationTypeDef]] = None
 
-class ListRelatedItemsOutputTypeDef(BaseValidatorModel):
-    nextToken: str
-    relatedItems: List[RelatedItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class RelatedItemsUpdateTypeDef(BaseValidatorModel):
-    itemToAdd: Optional[RelatedItemTypeDef] = None
-    itemToRemove: Optional[ItemIdentifierTypeDef] = None
-
-class StartIncidentInputRequestTypeDef(BaseValidatorModel):
-    responsePlanArn: str
-    clientToken: Optional[str] = None
-    impact: Optional[int] = None
-    relatedItems: Optional[Sequence[RelatedItemTypeDef]] = None
-    title: Optional[str] = None
-    triggerDetails: Optional[TriggerDetailsTypeDef] = None
-
-class UpdateRelatedItemsInputRequestTypeDef(BaseValidatorModel):
+class UpdateRelatedItemsInputTypeDef(BaseValidatorModel):
     incidentRecordArn: str
     relatedItemsUpdate: RelatedItemsUpdateTypeDef
     clientToken: Optional[str] = None
+
 

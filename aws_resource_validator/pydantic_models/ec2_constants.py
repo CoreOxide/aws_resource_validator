@@ -32,7 +32,9 @@ AllocationStrategyType = Literal["capacityOptimized",
     "diversified",
     "lowestPrice",
     "priceCapacityOptimized",]
-AllocationTypeType = Literal["used"]
+AllocationTypeType = Literal["future", "used"]
+AllowedImagesSettingsDisabledStateType = Literal["disabled"]
+AllowedImagesSettingsEnabledStateType = Literal["audit-mode", "enabled"]
 AllowsMultipleInstanceTypesType = Literal["off", "on"]
 AmdSevSnpSpecificationType = Literal["disabled", "enabled"]
 AnalysisStatusType = Literal["failed", "running", "succeeded"]
@@ -59,6 +61,7 @@ AutoAcceptSharedAttachmentsValueType = Literal["disable", "enable"]
 AutoPlacementType = Literal["off", "on"]
 AvailabilityZoneOptInStatusType = Literal["not-opted-in", "opt-in-not-required", "opted-in"]
 AvailabilityZoneStateType = Literal["available", "constrained", "impaired", "information", "unavailable"]
+BandwidthWeightingTypeType = Literal["default", "ebs-1", "vpc-1"]
 BareMetalType = Literal["excluded", "included", "required"]
 BatchStateType = Literal["active",
     "cancelled",
@@ -68,6 +71,7 @@ BatchStateType = Literal["active",
     "modifying",
     "submitted",]
 BgpStatusType = Literal["down", "up"]
+BlockPublicAccessModeType = Literal["block-bidirectional", "block-ingress", "off"]
 BootModeTypeType = Literal["legacy-bios", "uefi"]
 BootModeValuesType = Literal["legacy-bios", "uefi", "uefi-preferred"]
 BundleTaskCompleteWaiterName = Literal["bundle_task_complete"]
@@ -81,11 +85,15 @@ ByoipCidrStateType = Literal["advertised",
     "pending-provision",
     "provisioned",
     "provisioned-not-publicly-advertisable",]
+CallerRoleType = Literal["odcr-owner", "unused-reservation-billing-owner"]
 CancelBatchErrorCodeType = Literal["fleetRequestIdDoesNotExist",
     "fleetRequestIdMalformed",
     "fleetRequestNotInCancellableState",
     "unexpectedError",]
 CancelSpotInstanceRequestStateType = Literal["active", "cancelled", "closed", "completed", "open"]
+CapacityBlockExtensionStatusType = Literal["payment-failed", "payment-pending", "payment-succeeded"]
+CapacityReservationBillingRequestStatusType = Literal["accepted", "cancelled", "expired", "pending", "rejected", "revoked"]
+CapacityReservationDeliveryPreferenceType = Literal["fixed", "incremental"]
 CapacityReservationFleetStateType = Literal["active",
     "cancelled",
     "cancelling",
@@ -113,15 +121,18 @@ CapacityReservationInstancePlatformType = Literal["Linux with SQL Server Enterpr
     "Windows with SQL Server Enterprise",
     "Windows with SQL Server Standard",
     "Windows with SQL Server Web",]
-CapacityReservationPreferenceType = Literal["none", "open"]
+CapacityReservationPreferenceType = Literal["capacity-reservations-only", "none", "open"]
 CapacityReservationStateType = Literal["active",
+    "assessing",
     "cancelled",
+    "delayed",
     "expired",
     "failed",
     "payment-failed",
     "payment-pending",
     "pending",
-    "scheduled",]
+    "scheduled",
+    "unsupported",]
 CapacityReservationTenancyType = Literal["dedicated", "default"]
 CapacityReservationTypeType = Literal["capacity-block", "default"]
 CarrierGatewayStateType = Literal["available", "deleted", "deleting", "pending"]
@@ -141,7 +152,7 @@ ConversionTaskCompletedWaiterName = Literal["conversion_task_completed"]
 ConversionTaskDeletedWaiterName = Literal["conversion_task_deleted"]
 ConversionTaskStateType = Literal["active", "cancelled", "cancelling", "completed"]
 CopyTagsFromSourceType = Literal["volume"]
-CpuManufacturerType = Literal["amazon-web-services", "amd", "intel"]
+CpuManufacturerType = Literal["amazon-web-services", "amd", "apple", "intel"]
 CurrencyCodeValuesType = Literal["USD"]
 CustomerGatewayAvailableWaiterName = Literal["customer_gateway_available"]
 DatafeedSubscriptionStateType = Literal["Active", "Inactive"]
@@ -156,7 +167,10 @@ DescribeAddressTransfersPaginatorName = Literal["describe_address_transfers"]
 DescribeAddressesAttributePaginatorName = Literal["describe_addresses_attribute"]
 DescribeAwsNetworkPerformanceMetricSubscriptionsPaginatorName = Literal["describe_aws_network_performance_metric_subscriptions"]
 DescribeByoipCidrsPaginatorName = Literal["describe_byoip_cidrs"]
+DescribeCapacityBlockExtensionHistoryPaginatorName = Literal["describe_capacity_block_extension_history"]
+DescribeCapacityBlockExtensionOfferingsPaginatorName = Literal["describe_capacity_block_extension_offerings"]
 DescribeCapacityBlockOfferingsPaginatorName = Literal["describe_capacity_block_offerings"]
+DescribeCapacityReservationBillingRequestsPaginatorName = Literal["describe_capacity_reservation_billing_requests"]
 DescribeCapacityReservationFleetsPaginatorName = Literal["describe_capacity_reservation_fleets"]
 DescribeCapacityReservationsPaginatorName = Literal["describe_capacity_reservations"]
 DescribeCarrierGatewaysPaginatorName = Literal["describe_carrier_gateways"]
@@ -185,6 +199,7 @@ DescribeImportSnapshotTasksPaginatorName = Literal["describe_import_snapshot_tas
 DescribeInstanceConnectEndpointsPaginatorName = Literal["describe_instance_connect_endpoints"]
 DescribeInstanceCreditSpecificationsPaginatorName = Literal["describe_instance_credit_specifications"]
 DescribeInstanceEventWindowsPaginatorName = Literal["describe_instance_event_windows"]
+DescribeInstanceImageMetadataPaginatorName = Literal["describe_instance_image_metadata"]
 DescribeInstanceStatusPaginatorName = Literal["describe_instance_status"]
 DescribeInstanceTopologyPaginatorName = Literal["describe_instance_topology"]
 DescribeInstanceTypeOfferingsPaginatorName = Literal["describe_instance_type_offerings"]
@@ -226,6 +241,7 @@ DescribeRouteTablesPaginatorName = Literal["describe_route_tables"]
 DescribeScheduledInstanceAvailabilityPaginatorName = Literal["describe_scheduled_instance_availability"]
 DescribeScheduledInstancesPaginatorName = Literal["describe_scheduled_instances"]
 DescribeSecurityGroupRulesPaginatorName = Literal["describe_security_group_rules"]
+DescribeSecurityGroupVpcAssociationsPaginatorName = Literal["describe_security_group_vpc_associations"]
 DescribeSecurityGroupsPaginatorName = Literal["describe_security_groups"]
 DescribeSnapshotTierStatusPaginatorName = Literal["describe_snapshot_tier_status"]
 DescribeSnapshotsPaginatorName = Literal["describe_snapshots"]
@@ -393,6 +409,7 @@ InstanceAttributeNameType = Literal["blockDeviceMapping",
     "sriovNetSupport",
     "userData",]
 InstanceAutoRecoveryStateType = Literal["default", "disabled"]
+InstanceBandwidthWeightingType = Literal["default", "ebs-1", "vpc-1"]
 InstanceBootModeValuesType = Literal["legacy-bios", "uefi"]
 InstanceEventWindowStateType = Literal["active", "creating", "deleted", "deleting"]
 InstanceExistsWaiterName = Literal["instance_exists"]
@@ -594,6 +611,18 @@ InstanceTypeType = Literal["a1.2xlarge",
     "c7i.metal-24xl",
     "c7i.metal-48xl",
     "c7i.xlarge",
+    "c8g.12xlarge",
+    "c8g.16xlarge",
+    "c8g.24xlarge",
+    "c8g.2xlarge",
+    "c8g.48xlarge",
+    "c8g.4xlarge",
+    "c8g.8xlarge",
+    "c8g.large",
+    "c8g.medium",
+    "c8g.metal-24xl",
+    "c8g.metal-48xl",
+    "c8g.xlarge",
     "cc1.4xlarge",
     "cc2.8xlarge",
     "cg1.4xlarge",
@@ -617,6 +646,8 @@ InstanceTypeType = Literal["a1.2xlarge",
     "f1.16xlarge",
     "f1.2xlarge",
     "f1.4xlarge",
+    "f2.12xlarge",
+    "f2.48xlarge",
     "g2.2xlarge",
     "g2.8xlarge",
     "g3.16xlarge",
@@ -657,6 +688,14 @@ InstanceTypeType = Literal["a1.2xlarge",
     "g6.4xlarge",
     "g6.8xlarge",
     "g6.xlarge",
+    "g6e.12xlarge",
+    "g6e.16xlarge",
+    "g6e.24xlarge",
+    "g6e.2xlarge",
+    "g6e.48xlarge",
+    "g6e.4xlarge",
+    "g6e.8xlarge",
+    "g6e.xlarge",
     "gr6.4xlarge",
     "gr6.8xlarge",
     "h1.16xlarge",
@@ -709,6 +748,24 @@ InstanceTypeType = Literal["a1.2xlarge",
     "i4i.large",
     "i4i.metal",
     "i4i.xlarge",
+    "i7ie.12xlarge",
+    "i7ie.18xlarge",
+    "i7ie.24xlarge",
+    "i7ie.2xlarge",
+    "i7ie.3xlarge",
+    "i7ie.48xlarge",
+    "i7ie.6xlarge",
+    "i7ie.large",
+    "i7ie.xlarge",
+    "i8g.12xlarge",
+    "i8g.16xlarge",
+    "i8g.24xlarge",
+    "i8g.2xlarge",
+    "i8g.4xlarge",
+    "i8g.8xlarge",
+    "i8g.large",
+    "i8g.metal-24xl",
+    "i8g.xlarge",
     "im4gn.16xlarge",
     "im4gn.2xlarge",
     "im4gn.4xlarge",
@@ -920,6 +977,18 @@ InstanceTypeType = Literal["a1.2xlarge",
     "m7i.metal-24xl",
     "m7i.metal-48xl",
     "m7i.xlarge",
+    "m8g.12xlarge",
+    "m8g.16xlarge",
+    "m8g.24xlarge",
+    "m8g.2xlarge",
+    "m8g.48xlarge",
+    "m8g.4xlarge",
+    "m8g.8xlarge",
+    "m8g.large",
+    "m8g.medium",
+    "m8g.metal-24xl",
+    "m8g.metal-48xl",
+    "m8g.xlarge",
     "mac1.metal",
     "mac2-m1ultra.metal",
     "mac2-m2.metal",
@@ -935,6 +1004,8 @@ InstanceTypeType = Literal["a1.2xlarge",
     "p4d.24xlarge",
     "p4de.24xlarge",
     "p5.48xlarge",
+    "p5e.48xlarge",
+    "p5en.48xlarge",
     "r3.2xlarge",
     "r3.4xlarge",
     "r3.8xlarge",
@@ -1171,6 +1242,7 @@ InstanceTypeType = Literal["a1.2xlarge",
     "trn1.2xlarge",
     "trn1.32xlarge",
     "trn1n.32xlarge",
+    "trn2.48xlarge",
     "u-12tb1.112xlarge",
     "u-12tb1.metal",
     "u-18tb1.112xlarge",
@@ -1184,10 +1256,13 @@ InstanceTypeType = Literal["a1.2xlarge",
     "u-9tb1.112xlarge",
     "u-9tb1.metal",
     "u7i-12tb.224xlarge",
+    "u7i-6tb.112xlarge",
+    "u7i-8tb.112xlarge",
     "u7ib-12tb.224xlarge",
     "u7in-16tb.224xlarge",
     "u7in-24tb.224xlarge",
     "u7in-32tb.224xlarge",
+    "u7inh-32tb.480xlarge",
     "vt1.24xlarge",
     "vt1.3xlarge",
     "vt1.6xlarge",
@@ -1226,6 +1301,18 @@ InstanceTypeType = Literal["a1.2xlarge",
     "x2iezn.6xlarge",
     "x2iezn.8xlarge",
     "x2iezn.metal",
+    "x8g.12xlarge",
+    "x8g.16xlarge",
+    "x8g.24xlarge",
+    "x8g.2xlarge",
+    "x8g.48xlarge",
+    "x8g.4xlarge",
+    "x8g.8xlarge",
+    "x8g.large",
+    "x8g.medium",
+    "x8g.metal-24xl",
+    "x8g.metal-48xl",
+    "x8g.xlarge",
     "z1d.12xlarge",
     "z1d.2xlarge",
     "z1d.3xlarge",
@@ -1235,16 +1322,25 @@ InstanceTypeType = Literal["a1.2xlarge",
     "z1d.xlarge",]
 InterfacePermissionTypeType = Literal["EIP-ASSOCIATE", "INSTANCE-ATTACH"]
 InterfaceProtocolTypeType = Literal["GRE", "VLAN"]
+InternetGatewayBlockModeType = Literal["block-bidirectional", "block-ingress", "off"]
+InternetGatewayExclusionModeType = Literal["allow-bidirectional", "allow-egress"]
 InternetGatewayExistsWaiterName = Literal["internet_gateway_exists"]
 IpAddressTypeType = Literal["dualstack", "ipv4", "ipv6"]
+IpSourceType = Literal["amazon", "byoip", "none"]
 IpamAddressHistoryResourceTypeType = Literal["eip", "instance", "network-interface", "subnet", "vpc"]
 IpamAssociatedResourceDiscoveryStatusType = Literal["active", "not-found"]
 IpamComplianceStatusType = Literal["compliant", "ignored", "noncompliant", "unmanaged"]
 IpamDiscoveryFailureCodeType = Literal["assume-role-failure", "throttling-failure", "unauthorized-failure"]
+IpamExternalResourceVerificationTokenStateType = Literal["create-complete",
+    "create-failed",
+    "create-in-progress",
+    "delete-complete",
+    "delete-failed",
+    "delete-in-progress",]
 IpamManagementStateType = Literal["ignored", "managed", "unmanaged"]
 IpamNetworkInterfaceAttachmentStatusType = Literal["available", "in-use"]
 IpamOverlapStatusType = Literal["ignored", "nonoverlapping", "overlapping"]
-IpamPoolAllocationResourceTypeType = Literal["custom", "ec2-public-ipv4-pool", "ipam-pool", "subnet", "vpc"]
+IpamPoolAllocationResourceTypeType = Literal["custom", "ec2-public-ipv4-pool", "eip", "ipam-pool", "subnet", "vpc"]
 IpamPoolAwsServiceType = Literal["ec2"]
 IpamPoolCidrFailureCodeType = Literal["cidr-not-available", "limit-exceeded"]
 IpamPoolCidrStateType = Literal["deprovisioned",
@@ -1279,7 +1375,13 @@ IpamPublicAddressAwsServiceType = Literal["database-migration-service",
     "redshift",
     "relational-database-service",
     "site-to-site-vpn",]
-IpamPublicAddressTypeType = Literal["amazon-owned-eip", "byoip", "ec2-public-ip", "service-managed-byoip", "service-managed-ip"]
+IpamPublicAddressTypeType = Literal["amazon-owned-contig",
+    "amazon-owned-eip",
+    "byoip",
+    "ec2-public-ip",
+    "service-managed-byoip",
+    "service-managed-ip",]
+IpamResourceCidrIpSourceType = Literal["amazon", "byoip", "none"]
 IpamResourceDiscoveryAssociationStateType = Literal["associate-complete",
     "associate-failed",
     "associate-in-progress",
@@ -1328,6 +1430,7 @@ IpamStateType = Literal["create-complete",
     "modify-in-progress",
     "restore-in-progress",]
 IpamTierType = Literal["advanced", "free"]
+Ipv6AddressAttributeType = Literal["private", "public"]
 Ipv6SupportValueType = Literal["disable", "enable"]
 KeyFormatType = Literal["pem", "ppk"]
 KeyPairExistsWaiterName = Literal["key_pair_exists"]
@@ -1357,6 +1460,7 @@ LocationTypeType = Literal["availability-zone", "availability-zone-id", "outpost
 LockModeType = Literal["compliance", "governance"]
 LockStateType = Literal["compliance", "compliance-cooloff", "expired", "governance"]
 LogDestinationTypeType = Literal["cloud-watch-logs", "kinesis-data-firehose", "s3"]
+ManagedByType = Literal["account", "declarative-policy"]
 MarketTypeType = Literal["capacity-block", "spot"]
 MembershipTypeType = Literal["igmp", "static"]
 MetadataDefaultHttpTokensStateType = Literal["no-preference", "optional", "required"]
@@ -1371,13 +1475,14 @@ NatGatewayDeletedWaiterName = Literal["nat_gateway_deleted"]
 NatGatewayStateType = Literal["available", "deleted", "deleting", "failed", "pending"]
 NetworkInterfaceAttributeType = Literal["associatePublicIpAddress", "attachment", "description", "groupSet", "sourceDestCheck"]
 NetworkInterfaceAvailableWaiterName = Literal["network_interface_available"]
-NetworkInterfaceCreationTypeType = Literal["branch", "efa", "trunk"]
+NetworkInterfaceCreationTypeType = Literal["branch", "efa", "efa-only", "trunk"]
 NetworkInterfacePermissionStateCodeType = Literal["granted", "pending", "revoked", "revoking"]
 NetworkInterfaceStatusType = Literal["associated", "attaching", "available", "detaching", "in-use"]
 NetworkInterfaceTypeType = Literal["api_gateway_managed",
     "aws_codestar_connections_managed",
     "branch",
     "efa",
+    "efa-only",
     "gateway_load_balancer",
     "gateway_load_balancer_endpoint",
     "global_accelerator_managed",
@@ -1442,6 +1547,7 @@ ReportInstanceReasonCodesType = Literal["instance-stuck-in-state",
     "performance-network",
     "performance-other",
     "unresponsive",]
+ReportStateType = Literal["cancelled", "complete", "error", "running"]
 ReportStatusTypeType = Literal["impaired", "ok"]
 ReservationStateType = Literal["active", "payment-failed", "payment-pending", "retired"]
 ReservedInstanceStateType = Literal["active", "payment-failed", "payment-pending", "queued", "queued-deleted", "retired"]
@@ -1453,6 +1559,7 @@ ResourceTypeType = Literal["capacity-reservation",
     "client-vpn-endpoint",
     "coip-pool",
     "customer-gateway",
+    "declarative-policies-report",
     "dedicated-host",
     "dhcp-options",
     "egress-only-internet-gateway",
@@ -1471,6 +1578,7 @@ ResourceTypeType = Literal["capacity-reservation",
     "instance-event-window",
     "internet-gateway",
     "ipam",
+    "ipam-external-resource-verification-token",
     "ipam-pool",
     "ipam-resource-discovery",
     "ipam-resource-discovery-association",
@@ -1516,6 +1624,7 @@ ResourceTypeType = Literal["capacity-reservation",
     "transit-gateway-route-table",
     "transit-gateway-route-table-announcement",
     "verified-access-endpoint",
+    "verified-access-endpoint-target",
     "verified-access-group",
     "verified-access-instance",
     "verified-access-policy",
@@ -1523,7 +1632,6 @@ ResourceTypeType = Literal["capacity-reservation",
     "volume",
     "vpc",
     "vpc-block-public-access-exclusion",
-    "vpc-encryption-control",
     "vpc-endpoint",
     "vpc-endpoint-connection",
     "vpc-endpoint-connection-device-type",
@@ -1545,8 +1653,15 @@ SearchLocalGatewayRoutesPaginatorName = Literal["search_local_gateway_routes"]
 SearchTransitGatewayMulticastGroupsPaginatorName = Literal["search_transit_gateway_multicast_groups"]
 SecurityGroupExistsWaiterName = Literal["security_group_exists"]
 SecurityGroupReferencingSupportValueType = Literal["disable", "enable"]
+SecurityGroupVpcAssociationStateType = Literal["associated",
+    "associating",
+    "association-failed",
+    "disassociated",
+    "disassociating",
+    "disassociation-failed",]
 SelfServicePortalType = Literal["disabled", "enabled"]
 ServiceConnectivityTypeType = Literal["ipv4", "ipv6"]
+ServiceManagedType = Literal["alb", "nlb"]
 ServiceStateType = Literal["Available", "Deleted", "Deleting", "Failed", "Pending"]
 ServiceTypeType = Literal["Gateway", "GatewayLoadBalancer", "Interface"]
 ShutdownBehaviorType = Literal["stop", "terminate"]
@@ -1554,6 +1669,7 @@ SnapshotAttributeNameType = Literal["createVolumePermission", "productCodes"]
 SnapshotBlockPublicAccessStateType = Literal["block-all-sharing", "block-new-sharing", "unblocked"]
 SnapshotCompletedWaiterName = Literal["snapshot_completed"]
 SnapshotImportedWaiterName = Literal["snapshot_imported"]
+SnapshotLocationEnumType = Literal["local", "regional"]
 SnapshotStateType = Literal["completed", "error", "pending", "recoverable", "recovering"]
 SpotAllocationStrategyType = Literal["capacity-optimized",
     "capacity-optimized-prioritized",
@@ -1570,6 +1686,7 @@ StateType = Literal["Available",
     "Deleting",
     "Expired",
     "Failed",
+    "Partial",
     "Pending",
     "PendingAcceptance",
     "Rejected",]
@@ -1600,6 +1717,7 @@ TieringOperationStatusType = Literal["archival-completed",
     "temporary-restore-completed",
     "temporary-restore-failed",
     "temporary-restore-in-progress",]
+TokenStateType = Literal["expired", "valid"]
 TpmSupportValuesType = Literal["v2.0"]
 TrafficDirectionType = Literal["egress", "ingress"]
 TrafficMirrorFilterRuleFieldType = Literal["description", "destination-port-range", "protocol", "source-port-range"]
@@ -1608,6 +1726,7 @@ TrafficMirrorRuleActionType = Literal["accept", "reject"]
 TrafficMirrorSessionFieldType = Literal["description", "packet-length", "virtual-network-id"]
 TrafficMirrorTargetTypeType = Literal["gateway-load-balancer-endpoint", "network-interface", "network-load-balancer"]
 TrafficTypeType = Literal["ACCEPT", "ALL", "REJECT"]
+TransferTypeType = Literal["standard", "time-based"]
 TransitGatewayAssociationStateType = Literal["associated", "associating", "disassociated", "disassociating"]
 TransitGatewayAttachmentResourceTypeType = Literal["connect", "direct-connect-gateway", "peering", "tgw-peering", "vpc", "vpn"]
 TransitGatewayAttachmentStateType = Literal["available",
@@ -1651,10 +1770,11 @@ UnsuccessfulInstanceCreditSpecificationErrorCodeType = Literal["IncorrectInstanc
     "InvalidInstanceID.NotFound",]
 UsageClassTypeType = Literal["capacity-block", "on-demand", "spot"]
 UserTrustProviderTypeType = Literal["iam-identity-center", "oidc"]
+VerificationMethodType = Literal["dns-token", "remarks-x509"]
 VerifiedAccessEndpointAttachmentTypeType = Literal["vpc"]
-VerifiedAccessEndpointProtocolType = Literal["http", "https"]
+VerifiedAccessEndpointProtocolType = Literal["http", "https", "tcp"]
 VerifiedAccessEndpointStatusCodeType = Literal["active", "deleted", "deleting", "pending", "updating"]
-VerifiedAccessEndpointTypeType = Literal["load-balancer", "network-interface"]
+VerifiedAccessEndpointTypeType = Literal["cidr", "load-balancer", "network-interface", "rds"]
 VerifiedAccessLogDeliveryStatusCodeType = Literal["failed", "success"]
 VirtualizationTypeType = Literal["hvm", "paravirtual"]
 VolumeAttachmentStateType = Literal["attached", "attaching", "busy", "detached", "detaching"]
@@ -1669,8 +1789,29 @@ VolumeStatusNameType = Literal["io-enabled", "io-performance"]
 VolumeTypeType = Literal["gp2", "gp3", "io1", "io2", "sc1", "st1", "standard"]
 VpcAttributeNameType = Literal["enableDnsHostnames", "enableDnsSupport", "enableNetworkAddressUsageMetrics"]
 VpcAvailableWaiterName = Literal["vpc_available"]
+VpcBlockPublicAccessExclusionStateType = Literal["create-complete",
+    "create-failed",
+    "create-in-progress",
+    "delete-complete",
+    "delete-in-progress",
+    "disable-complete",
+    "disable-in-progress",
+    "update-complete",
+    "update-failed",
+    "update-in-progress",]
+VpcBlockPublicAccessExclusionsAllowedType = Literal["allowed", "not-allowed"]
+VpcBlockPublicAccessStateType = Literal["default-state", "update-complete", "update-in-progress"]
 VpcCidrBlockStateCodeType = Literal["associated", "associating", "disassociated", "disassociating", "failed", "failing"]
-VpcEndpointTypeType = Literal["Gateway", "GatewayLoadBalancer", "Interface"]
+VpcEncryptionControlExclusionStateType = Literal["disabled", "disabling", "enabled", "enabling"]
+VpcEncryptionControlModeType = Literal["enforce", "monitor"]
+VpcEncryptionControlStateType = Literal["available",
+    "deleted",
+    "deleting",
+    "enforce-failed",
+    "enforce-in-progress",
+    "monitor-failed",
+    "monitor-in-progress",]
+VpcEndpointTypeType = Literal["Gateway", "GatewayLoadBalancer", "Interface", "Resource", "ServiceNetwork"]
 VpcExistsWaiterName = Literal["vpc_exists"]
 VpcPeeringConnectionDeletedWaiterName = Literal["vpc_peering_connection_deleted"]
 VpcPeeringConnectionExistsWaiterName = Literal["vpc_peering_connection_exists"]
@@ -1727,12 +1868,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -1769,7 +1915,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -1782,6 +1927,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -1807,6 +1953,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -1818,7 +1966,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -1842,6 +1989,10 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "gameliftstreams",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -1860,11 +2011,11 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
+    "iot-managed-integrations",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -1919,6 +2070,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -1938,7 +2090,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -1946,10 +2097,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -1959,10 +2113,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -2008,6 +2164,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -2020,6 +2177,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -2037,10 +2195,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -2072,7 +2232,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -2093,7 +2252,10 @@ PaginatorName = Literal["describe_address_transfers",
     "describe_addresses_attribute",
     "describe_aws_network_performance_metric_subscriptions",
     "describe_byoip_cidrs",
+    "describe_capacity_block_extension_history",
+    "describe_capacity_block_extension_offerings",
     "describe_capacity_block_offerings",
+    "describe_capacity_reservation_billing_requests",
     "describe_capacity_reservation_fleets",
     "describe_capacity_reservations",
     "describe_carrier_gateways",
@@ -2122,6 +2284,7 @@ PaginatorName = Literal["describe_address_transfers",
     "describe_instance_connect_endpoints",
     "describe_instance_credit_specifications",
     "describe_instance_event_windows",
+    "describe_instance_image_metadata",
     "describe_instance_status",
     "describe_instance_topology",
     "describe_instance_type_offerings",
@@ -2163,6 +2326,7 @@ PaginatorName = Literal["describe_address_transfers",
     "describe_scheduled_instance_availability",
     "describe_scheduled_instances",
     "describe_security_group_rules",
+    "describe_security_group_vpc_associations",
     "describe_security_groups",
     "describe_snapshot_tier_status",
     "describe_snapshots",
@@ -2278,6 +2442,8 @@ RegionName = Literal["af-south-1",
     "ap-southeast-2",
     "ap-southeast-3",
     "ap-southeast-4",
+    "ap-southeast-5",
+    "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",
     "eu-central-1",
@@ -2291,16 +2457,9 @@ RegionName = Literal["af-south-1",
     "il-central-1",
     "me-central-1",
     "me-south-1",
+    "mx-central-1",
     "sa-east-1",
     "us-east-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-TimestampTypeDef = Union[datetime, str]
-BlobTypeDef = Union[str, bytes, IO[Any]]
-TagSpecificationUnionTypeDef = Union['TagSpecificationTypeDef', 'TagSpecificationExtraOutputTypeDef']
-IpPermissionUnionTypeDef = Union['IpPermissionTypeDef', 'IpPermissionExtraExtraOutputTypeDef']
-StorageUnionTypeDef = Union['StorageTypeDef', 'StorageOutputTypeDef']
-InstanceNetworkInterfaceSpecificationUnionTypeDef = Union[   'InstanceNetworkInterfaceSpecificationTypeDef',   'InstanceNetworkInterfaceSpecificationExtraOutputTypeDef', ]
-LaunchTemplateConfigUnionTypeDef = Union[   'LaunchTemplateConfigTypeDef', 'LaunchTemplateConfigExtraOutputTypeDef' ]
-SpotFleetRequestConfigDataUnionTypeDef = Union[   'SpotFleetRequestConfigDataTypeDef', 'SpotFleetRequestConfigDataExtraOutputTypeDef' ]

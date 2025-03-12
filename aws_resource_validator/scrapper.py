@@ -2,6 +2,7 @@
 
 import base64
 import json
+import time
 from typing import Dict, Optional
 
 import requests
@@ -20,7 +21,22 @@ def fetch_and_parse_github(headers: Dict[str, str]) -> Optional[APIRegistry]:
     :return: an APIRegistry object containing the parsed API data
     """
     base_url: str = "https://api.github.com/repos/boto/botocore/contents/botocore/data"
-    response: Response = requests.get(base_url, headers=headers, timeout=10)
+    request_counter: int = 0
+
+    def make_request(url: str) -> Response:
+        """
+        Makes a request to the given URL. Sleeps every 30 requests, so that github won't think this is DDOS
+        """
+        nonlocal request_counter
+        request_counter += 1
+        if request_counter % 30 == 0:
+            print("Reached 30 requests, sleeping for 60 seconds...")
+            time.sleep(60)
+        response = requests.get(url, headers=headers, timeout=10)
+        check_rate_limit(response)
+        return response
+
+    response: Response = make_request(base_url)
     services_data = response.json()
 
     if not isinstance(services_data, list):
@@ -33,11 +49,9 @@ def fetch_and_parse_github(headers: Dict[str, str]) -> Optional[APIRegistry]:
         if service_data['type'] == 'dir':  # Ensure it's a directory
             service_name: str = service_data['name']
             service_url: str = service_data['url']
-            service_response: Response = requests.get(service_url, headers=headers, timeout=10)
-            check_rate_limit(service_response)
+            service_response: Response = make_request(service_url)
             service_latest_url: str = service_response.json()[0]['url']
-            service_latest_response: Response = requests.get(service_latest_url, headers=headers, timeout=10)
-            check_rate_limit(service_latest_response)
+            service_latest_response: Response = make_request(service_latest_url)
             service_files = service_latest_response.json()
 
             for file in service_files:
@@ -50,7 +64,7 @@ def fetch_and_parse_github(headers: Dict[str, str]) -> Optional[APIRegistry]:
                 continue
 
             print("Fetching:", service_json_url, "Status:", service_response.status_code)
-            service_response: Response = requests.get(service_json_url, headers=headers, timeout=10)
+            service_response: Response = make_request(service_json_url)
 
             if service_response.status_code == 200:
                 service_content: str = base64.b64decode(service_response.json()['content']).decode('utf-8')

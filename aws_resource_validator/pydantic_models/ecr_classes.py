@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,10 +16,12 @@ class AttributeTypeDef(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
+
 class AuthorizationDataTypeDef(BaseValidatorModel):
     authorizationToken: Optional[str] = None
     expiresAt: Optional[datetime] = None
     proxyEndpoint: Optional[str] = None
+
 
 class AwsEcrContainerImageDetailsTypeDef(BaseValidatorModel):
     architecture: Optional[str] = None
@@ -30,21 +33,25 @@ class AwsEcrContainerImageDetailsTypeDef(BaseValidatorModel):
     registry: Optional[str] = None
     repositoryName: Optional[str] = None
 
-class BatchCheckLayerAvailabilityRequestRequestTypeDef(BaseValidatorModel):
+
+class BatchCheckLayerAvailabilityRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     layerDigests: Sequence[str]
     registryId: Optional[str] = None
+
 
 class LayerFailureTypeDef(BaseValidatorModel):
     layerDigest: Optional[str] = None
     failureCode: Optional[LayerFailureCodeType] = None
     failureReason: Optional[str] = None
 
+
 class LayerTypeDef(BaseValidatorModel):
     layerDigest: Optional[str] = None
     layerAvailability: Optional[LayerAvailabilityType] = None
     layerSize: Optional[int] = None
     mediaType: Optional[str] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -53,45 +60,60 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
 class ImageIdentifierTypeDef(BaseValidatorModel):
     imageDigest: Optional[str] = None
     imageTag: Optional[str] = None
 
-class BatchGetRepositoryScanningConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class BatchGetRepositoryScanningConfigurationRequestTypeDef(BaseValidatorModel):
     repositoryNames: Sequence[str]
+
 
 class RepositoryScanningConfigurationFailureTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     failureCode: Optional[Literal["REPOSITORY_NOT_FOUND"]] = None
     failureReason: Optional[str] = None
 
-class CompleteLayerUploadRequestRequestTypeDef(BaseValidatorModel):
+
+class CompleteLayerUploadRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     uploadId: str
     layerDigests: Sequence[str]
     registryId: Optional[str] = None
 
-class CreatePullThroughCacheRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class CreatePullThroughCacheRuleRequestTypeDef(BaseValidatorModel):
     ecrRepositoryPrefix: str
     upstreamRegistryUrl: str
     registryId: Optional[str] = None
     upstreamRegistry: Optional[UpstreamRegistryType] = None
     credentialArn: Optional[str] = None
 
-class EncryptionConfigurationTypeDef(BaseValidatorModel):
+
+class EncryptionConfigurationForRepositoryCreationTemplateTypeDef(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKey: Optional[str] = None
 
-class ImageScanningConfigurationTypeDef(BaseValidatorModel):
-    scanOnPush: Optional[bool] = None
 
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
+
+class EncryptionConfigurationTypeDef(BaseValidatorModel):
+    encryptionType: EncryptionTypeType
+    kmsKey: Optional[str] = None
+
+
+class ImageScanningConfigurationTypeDef(BaseValidatorModel):
+    scanOnPush: Optional[bool] = None
+
+
 class CvssScoreAdjustmentTypeDef(BaseValidatorModel):
     metric: Optional[str] = None
     reason: Optional[str] = None
+
 
 class CvssScoreTypeDef(BaseValidatorModel):
     baseScore: Optional[float] = None
@@ -99,22 +121,31 @@ class CvssScoreTypeDef(BaseValidatorModel):
     source: Optional[str] = None
     version: Optional[str] = None
 
-class DeleteLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLifecyclePolicyRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
-class DeletePullThroughCacheRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class DeletePullThroughCacheRuleRequestTypeDef(BaseValidatorModel):
     ecrRepositoryPrefix: str
     registryId: Optional[str] = None
 
-class DeleteRepositoryPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRepositoryCreationTemplateRequestTypeDef(BaseValidatorModel):
+    prefix: str
+
+
+class DeleteRepositoryPolicyRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
-class DeleteRepositoryRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRepositoryRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
     force: Optional[bool] = None
+
 
 class ImageReplicationStatusTypeDef(BaseValidatorModel):
     region: Optional[str] = None
@@ -122,27 +153,33 @@ class ImageReplicationStatusTypeDef(BaseValidatorModel):
     status: Optional[ReplicationStatusType] = None
     failureCode: Optional[str] = None
 
+
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
+
 class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
+
 
 class ImageScanStatusTypeDef(BaseValidatorModel):
     status: Optional[ScanStatusType] = None
     description: Optional[str] = None
 
+
 class DescribeImagesFilterTypeDef(BaseValidatorModel):
     tagStatus: Optional[TagStatusType] = None
 
-class DescribePullThroughCacheRulesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribePullThroughCacheRulesRequestTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
     ecrRepositoryPrefixes: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+
 
 class PullThroughCacheRuleTypeDef(BaseValidatorModel):
     ecrRepositoryPrefix: Optional[str] = None
@@ -153,51 +190,70 @@ class PullThroughCacheRuleTypeDef(BaseValidatorModel):
     upstreamRegistry: Optional[UpstreamRegistryType] = None
     updatedAt: Optional[datetime] = None
 
-class DescribeRepositoriesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeRepositoriesRequestTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
     repositoryNames: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class GetAuthorizationTokenRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeRepositoryCreationTemplatesRequestTypeDef(BaseValidatorModel):
+    prefixes: Optional[Sequence[str]] = None
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class GetAccountSettingRequestTypeDef(BaseValidatorModel):
+    name: str
+
+
+class GetAuthorizationTokenRequestTypeDef(BaseValidatorModel):
     registryIds: Optional[Sequence[str]] = None
 
-class GetDownloadUrlForLayerRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDownloadUrlForLayerRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     layerDigest: str
     registryId: Optional[str] = None
 
+
 class LifecyclePolicyPreviewFilterTypeDef(BaseValidatorModel):
     tagStatus: Optional[TagStatusType] = None
+
 
 class LifecyclePolicyPreviewSummaryTypeDef(BaseValidatorModel):
     expiringImageTotalCount: Optional[int] = None
 
-class GetLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetLifecyclePolicyRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
-class GetRepositoryPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRepositoryPolicyRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
+
 
 class ImageScanFindingsSummaryTypeDef(BaseValidatorModel):
     imageScanCompletedAt: Optional[datetime] = None
     vulnerabilitySourceUpdatedAt: Optional[datetime] = None
     findingSeverityCounts: Optional[Dict[FindingSeverityType, int]] = None
 
-class InitiateLayerUploadRequestRequestTypeDef(BaseValidatorModel):
+
+class InitiateLayerUploadRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
-class LifecyclePolicyRuleActionTypeDef(BaseValidatorModel):
-    type: Optional[Literal["EXPIRE"]] = None
 
 class ListImagesFilterTypeDef(BaseValidatorModel):
     tagStatus: Optional[TagStatusType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
+
 
 class VulnerablePackageTypeDef(BaseValidatorModel):
     arch: Optional[str] = None
@@ -208,8 +264,15 @@ class VulnerablePackageTypeDef(BaseValidatorModel):
     release: Optional[str] = None
     sourceLayerHash: Optional[str] = None
     version: Optional[str] = None
+    fixedInVersion: Optional[str] = None
 
-class PutImageRequestRequestTypeDef(BaseValidatorModel):
+
+class PutAccountSettingRequestTypeDef(BaseValidatorModel):
+    name: str
+    value: str
+
+
+class PutImageRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageManifest: str
     registryId: Optional[str] = None
@@ -217,58 +280,61 @@ class PutImageRequestRequestTypeDef(BaseValidatorModel):
     imageTag: Optional[str] = None
     imageDigest: Optional[str] = None
 
-class PutImageTagMutabilityRequestRequestTypeDef(BaseValidatorModel):
+
+class PutImageTagMutabilityRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageTagMutability: ImageTagMutabilityType
     registryId: Optional[str] = None
 
-class PutLifecyclePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutLifecyclePolicyRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     lifecyclePolicyText: str
     registryId: Optional[str] = None
 
-class PutRegistryPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutRegistryPolicyRequestTypeDef(BaseValidatorModel):
     policyText: str
+
 
 class RecommendationTypeDef(BaseValidatorModel):
     url: Optional[str] = None
     text: Optional[str] = None
 
-class ScanningRepositoryFilterTypeDef(BaseValidatorModel):
-    filter: str
-    filterType: Literal["WILDCARD"]
 
 class ReplicationDestinationTypeDef(BaseValidatorModel):
     region: str
     registryId: str
 
-class RepositoryFilterTypeDef(BaseValidatorModel):
-    filter: str
-    filterType: Literal["PREFIX_MATCH"]
 
-class SetRepositoryPolicyRequestRequestTypeDef(BaseValidatorModel):
+class SetRepositoryPolicyRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     policyText: str
     registryId: Optional[str] = None
     force: Optional[bool] = None
 
-class StartLifecyclePolicyPreviewRequestRequestTypeDef(BaseValidatorModel):
+
+class StartLifecyclePolicyPreviewRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
     lifecyclePolicyText: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdatePullThroughCacheRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdatePullThroughCacheRuleRequestTypeDef(BaseValidatorModel):
     ecrRepositoryPrefix: str
     credentialArn: str
     registryId: Optional[str] = None
 
-class ValidatePullThroughCacheRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class ValidatePullThroughCacheRuleRequestTypeDef(BaseValidatorModel):
     ecrRepositoryPrefix: str
     registryId: Optional[str] = None
+
 
 class ImageScanFindingTypeDef(BaseValidatorModel):
     name: Optional[str] = None
@@ -277,13 +343,16 @@ class ImageScanFindingTypeDef(BaseValidatorModel):
     severity: Optional[FindingSeverityType] = None
     attributes: Optional[List[AttributeTypeDef]] = None
 
+
 class ResourceDetailsTypeDef(BaseValidatorModel):
     awsEcrContainerImage: Optional[AwsEcrContainerImageDetailsTypeDef] = None
+
 
 class BatchCheckLayerAvailabilityResponseTypeDef(BaseValidatorModel):
     layers: List[LayerTypeDef]
     failures: List[LayerFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CompleteLayerUploadResponseTypeDef(BaseValidatorModel):
     registryId: str
@@ -291,6 +360,7 @@ class CompleteLayerUploadResponseTypeDef(BaseValidatorModel):
     uploadId: str
     layerDigest: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
     ecrRepositoryPrefix: str
@@ -301,12 +371,14 @@ class CreatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
     credentialArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     lifecyclePolicyText: str
     lastEvaluatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeletePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
     ecrRepositoryPrefix: str
@@ -316,10 +388,12 @@ class DeletePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
     credentialArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteRegistryPolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteRepositoryPolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
@@ -327,14 +401,23 @@ class DeleteRepositoryPolicyResponseTypeDef(BaseValidatorModel):
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class GetAccountSettingResponseTypeDef(BaseValidatorModel):
+    name: str
+    value: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class GetAuthorizationTokenResponseTypeDef(BaseValidatorModel):
     authorizationData: List[AuthorizationDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetDownloadUrlForLayerResponseTypeDef(BaseValidatorModel):
     downloadUrl: str
     layerDigest: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
@@ -343,10 +426,12 @@ class GetLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     lastEvaluatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRegistryPolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetRepositoryPolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
@@ -354,10 +439,18 @@ class GetRepositoryPolicyResponseTypeDef(BaseValidatorModel):
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class InitiateLayerUploadResponseTypeDef(BaseValidatorModel):
     uploadId: str
     partSize: int
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class PutAccountSettingResponseTypeDef(BaseValidatorModel):
+    name: str
+    value: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PutImageTagMutabilityResponseTypeDef(BaseValidatorModel):
     registryId: str
@@ -365,22 +458,26 @@ class PutImageTagMutabilityResponseTypeDef(BaseValidatorModel):
     imageTagMutability: ImageTagMutabilityType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     lifecyclePolicyText: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutRegistryPolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class SetRepositoryPolicyResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     policyText: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartLifecyclePolicyPreviewResponseTypeDef(BaseValidatorModel):
     registryId: str
@@ -389,6 +486,7 @@ class StartLifecyclePolicyPreviewResponseTypeDef(BaseValidatorModel):
     status: LifecyclePolicyPreviewStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
     ecrRepositoryPrefix: str
     registryId: str
@@ -396,12 +494,14 @@ class UpdatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
     credentialArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UploadLayerPartResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     uploadId: str
     lastByteReceived: int
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ValidatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
     ecrRepositoryPrefix: str
@@ -412,33 +512,39 @@ class ValidatePullThroughCacheRuleResponseTypeDef(BaseValidatorModel):
     failure: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDeleteImageRequestRequestTypeDef(BaseValidatorModel):
+
+class BatchDeleteImageRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageIds: Sequence[ImageIdentifierTypeDef]
     registryId: Optional[str] = None
 
-class BatchGetImageRequestRequestTypeDef(BaseValidatorModel):
+
+class BatchGetImageRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageIds: Sequence[ImageIdentifierTypeDef]
     registryId: Optional[str] = None
     acceptedMediaTypes: Optional[Sequence[str]] = None
 
-class DescribeImageReplicationStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeImageReplicationStatusRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifierTypeDef
     registryId: Optional[str] = None
 
-class DescribeImageScanFindingsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeImageScanFindingsRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifierTypeDef
     registryId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
+
 class ImageFailureTypeDef(BaseValidatorModel):
     imageId: Optional[ImageIdentifierTypeDef] = None
     failureCode: Optional[ImageFailureCodeType] = None
     failureReason: Optional[str] = None
+
 
 class ImageTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
@@ -447,17 +553,24 @@ class ImageTypeDef(BaseValidatorModel):
     imageManifest: Optional[str] = None
     imageManifestMediaType: Optional[str] = None
 
+
 class ListImagesResponseTypeDef(BaseValidatorModel):
     imageIds: List[ImageIdentifierTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class StartImageScanRequestRequestTypeDef(BaseValidatorModel):
+
+class StartImageScanRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifierTypeDef
     registryId: Optional[str] = None
 
-class UploadLayerPartRequestRequestTypeDef(BaseValidatorModel):
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
+
+class UploadLayerPartRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     uploadId: str
     partFirstByte: int
@@ -465,16 +578,76 @@ class UploadLayerPartRequestRequestTypeDef(BaseValidatorModel):
     layerPartBlob: BlobTypeDef
     registryId: Optional[str] = None
 
-class PutImageScanningConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRepositoryCreationTemplateRequestTypeDef(BaseValidatorModel):
+    prefix: str
+    appliedFor: Sequence[RCTAppliedForType]
+    description: Optional[str] = None
+    encryptionConfiguration: Optional[ EncryptionConfigurationForRepositoryCreationTemplateTypeDef ] = None
+    resourceTags: Optional[Sequence[TagTypeDef]] = None
+    imageTagMutability: Optional[ImageTagMutabilityType] = None
+    repositoryPolicy: Optional[str] = None
+    lifecyclePolicy: Optional[str] = None
+    customRoleArn: Optional[str] = None
+
+
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class RepositoryCreationTemplateTypeDef(BaseValidatorModel):
+    prefix: Optional[str] = None
+    description: Optional[str] = None
+    encryptionConfiguration: Optional[ EncryptionConfigurationForRepositoryCreationTemplateTypeDef ] = None
+    resourceTags: Optional[List[TagTypeDef]] = None
+    imageTagMutability: Optional[ImageTagMutabilityType] = None
+    repositoryPolicy: Optional[str] = None
+    lifecyclePolicy: Optional[str] = None
+    appliedFor: Optional[List[RCTAppliedForType]] = None
+    customRoleArn: Optional[str] = None
+    createdAt: Optional[datetime] = None
+    updatedAt: Optional[datetime] = None
+
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+
+class UpdateRepositoryCreationTemplateRequestTypeDef(BaseValidatorModel):
+    prefix: str
+    description: Optional[str] = None
+    encryptionConfiguration: Optional[ EncryptionConfigurationForRepositoryCreationTemplateTypeDef ] = None
+    resourceTags: Optional[Sequence[TagTypeDef]] = None
+    imageTagMutability: Optional[ImageTagMutabilityType] = None
+    repositoryPolicy: Optional[str] = None
+    lifecyclePolicy: Optional[str] = None
+    appliedFor: Optional[Sequence[RCTAppliedForType]] = None
+    customRoleArn: Optional[str] = None
+
+
+class CreateRepositoryRequestTypeDef(BaseValidatorModel):
+    repositoryName: str
+    registryId: Optional[str] = None
+    tags: Optional[Sequence[TagTypeDef]] = None
+    imageTagMutability: Optional[ImageTagMutabilityType] = None
+    imageScanningConfiguration: Optional[ImageScanningConfigurationTypeDef] = None
+    encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
+
+
+class PutImageScanningConfigurationRequestTypeDef(BaseValidatorModel):
     repositoryName: str
     imageScanningConfiguration: ImageScanningConfigurationTypeDef
     registryId: Optional[str] = None
+
 
 class PutImageScanningConfigurationResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     imageScanningConfiguration: ImageScanningConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class RepositoryTypeDef(BaseValidatorModel):
     repositoryArn: Optional[str] = None
@@ -486,21 +659,6 @@ class RepositoryTypeDef(BaseValidatorModel):
     imageScanningConfiguration: Optional[ImageScanningConfigurationTypeDef] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class CreateRepositoryRequestRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
-    imageTagMutability: Optional[ImageTagMutabilityType] = None
-    imageScanningConfiguration: Optional[ImageScanningConfigurationTypeDef] = None
-    encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
-
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tags: Sequence[TagTypeDef]
 
 class CvssScoreDetailsTypeDef(BaseValidatorModel):
     adjustments: Optional[List[CvssScoreAdjustmentTypeDef]] = None
@@ -509,35 +667,46 @@ class CvssScoreDetailsTypeDef(BaseValidatorModel):
     scoringVector: Optional[str] = None
     version: Optional[str] = None
 
+
 class DescribeImageReplicationStatusResponseTypeDef(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifierTypeDef
     replicationStatuses: List[ImageReplicationStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeImageScanFindingsRequestDescribeImageScanFindingsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeImageScanFindingsRequestPaginateTypeDef(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifierTypeDef
     registryId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribePullThroughCacheRulesRequestDescribePullThroughCacheRulesPaginateTypeDef(BaseValidatorModel):
+
+class DescribePullThroughCacheRulesRequestPaginateTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
     ecrRepositoryPrefixes: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRepositoriesRequestDescribeRepositoriesPaginateTypeDef(BaseValidatorModel):
+
+class DescribeRepositoriesRequestPaginateTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
     repositoryNames: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeImageScanFindingsRequestImageScanCompleteWaitTypeDef(BaseValidatorModel):
+
+class DescribeRepositoryCreationTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+    prefixes: Optional[Sequence[str]] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class DescribeImageScanFindingsRequestWaitTypeDef(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifierTypeDef
     registryId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
 
 class StartImageScanResponseTypeDef(BaseValidatorModel):
     registryId: str
@@ -546,49 +715,12 @@ class StartImageScanResponseTypeDef(BaseValidatorModel):
     imageScanStatus: ImageScanStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeImagesRequestDescribeImagesPaginateTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
-    imageIds: Optional[Sequence[ImageIdentifierTypeDef]] = None
-    filter: Optional[DescribeImagesFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class DescribeImagesRequestRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
-    imageIds: Optional[Sequence[ImageIdentifierTypeDef]] = None
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
-    filter: Optional[DescribeImagesFilterTypeDef] = None
 
 class DescribePullThroughCacheRulesResponseTypeDef(BaseValidatorModel):
     pullThroughCacheRules: List[PullThroughCacheRuleTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
-
-class GetLifecyclePolicyPreviewRequestGetLifecyclePolicyPreviewPaginateTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
-    imageIds: Optional[Sequence[ImageIdentifierTypeDef]] = None
-    filter: Optional[LifecyclePolicyPreviewFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class GetLifecyclePolicyPreviewRequestLifecyclePolicyPreviewCompleteWaitTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
-    imageIds: Optional[Sequence[ImageIdentifierTypeDef]] = None
     nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
-    filter: Optional[LifecyclePolicyPreviewFilterTypeDef] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetLifecyclePolicyPreviewRequestRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
-    imageIds: Optional[Sequence[ImageIdentifierTypeDef]] = None
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
-    filter: Optional[LifecyclePolicyPreviewFilterTypeDef] = None
 
 class ImageDetailTypeDef(BaseValidatorModel):
     registryId: Optional[str] = None
@@ -603,6 +735,11 @@ class ImageDetailTypeDef(BaseValidatorModel):
     artifactMediaType: Optional[str] = None
     lastRecordedPullTime: Optional[datetime] = None
 
+
+class LifecyclePolicyRuleActionTypeDef(BaseValidatorModel):
+    pass
+
+
 class LifecyclePolicyPreviewResultTypeDef(BaseValidatorModel):
     imageTags: Optional[List[str]] = None
     imageDigest: Optional[str] = None
@@ -610,18 +747,6 @@ class LifecyclePolicyPreviewResultTypeDef(BaseValidatorModel):
     action: Optional[LifecyclePolicyRuleActionTypeDef] = None
     appliedRulePriority: Optional[int] = None
 
-class ListImagesRequestListImagesPaginateTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
-    filter: Optional[ListImagesFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class ListImagesRequestRequestTypeDef(BaseValidatorModel):
-    repositoryName: str
-    registryId: Optional[str] = None
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
-    filter: Optional[ListImagesFilterTypeDef] = None
 
 class PackageVulnerabilityDetailsTypeDef(BaseValidatorModel):
     cvss: Optional[List[CvssScoreTypeDef]] = None
@@ -635,16 +760,24 @@ class PackageVulnerabilityDetailsTypeDef(BaseValidatorModel):
     vulnerabilityId: Optional[str] = None
     vulnerablePackages: Optional[List[VulnerablePackageTypeDef]] = None
 
+
 class RemediationTypeDef(BaseValidatorModel):
     recommendation: Optional[RecommendationTypeDef] = None
+
+
+class ScanningRepositoryFilterTypeDef(BaseValidatorModel):
+    pass
+
 
 class RegistryScanningRuleOutputTypeDef(BaseValidatorModel):
     scanFrequency: ScanFrequencyType
     repositoryFilters: List[ScanningRepositoryFilterTypeDef]
 
+
 class RegistryScanningRuleTypeDef(BaseValidatorModel):
     scanFrequency: ScanFrequencyType
     repositoryFilters: Sequence[ScanningRepositoryFilterTypeDef]
+
 
 class RepositoryScanningConfigurationTypeDef(BaseValidatorModel):
     repositoryArn: Optional[str] = None
@@ -653,121 +786,153 @@ class RepositoryScanningConfigurationTypeDef(BaseValidatorModel):
     scanFrequency: Optional[ScanFrequencyType] = None
     appliedScanFilters: Optional[List[ScanningRepositoryFilterTypeDef]] = None
 
+
+class RepositoryFilterTypeDef(BaseValidatorModel):
+    pass
+
+
 class ReplicationRuleOutputTypeDef(BaseValidatorModel):
     destinations: List[ReplicationDestinationTypeDef]
     repositoryFilters: Optional[List[RepositoryFilterTypeDef]] = None
+
 
 class ReplicationRuleTypeDef(BaseValidatorModel):
     destinations: Sequence[ReplicationDestinationTypeDef]
     repositoryFilters: Optional[Sequence[RepositoryFilterTypeDef]] = None
 
-class ResourceTypeDef(BaseValidatorModel):
-    details: Optional[ResourceDetailsTypeDef] = None
-    id: Optional[str] = None
-    tags: Optional[Dict[str, str]] = None
-    type: Optional[str] = None
 
 class BatchDeleteImageResponseTypeDef(BaseValidatorModel):
     imageIds: List[ImageIdentifierTypeDef]
     failures: List[ImageFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class BatchGetImageResponseTypeDef(BaseValidatorModel):
     images: List[ImageTypeDef]
     failures: List[ImageFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutImageResponseTypeDef(BaseValidatorModel):
     image: ImageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class CreateRepositoryCreationTemplateResponseTypeDef(BaseValidatorModel):
+    registryId: str
+    repositoryCreationTemplate: RepositoryCreationTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DeleteRepositoryCreationTemplateResponseTypeDef(BaseValidatorModel):
+    registryId: str
+    repositoryCreationTemplate: RepositoryCreationTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DescribeRepositoryCreationTemplatesResponseTypeDef(BaseValidatorModel):
+    registryId: str
+    repositoryCreationTemplates: List[RepositoryCreationTemplateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class UpdateRepositoryCreationTemplateResponseTypeDef(BaseValidatorModel):
+    registryId: str
+    repositoryCreationTemplate: RepositoryCreationTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateRepositoryResponseTypeDef(BaseValidatorModel):
     repository: RepositoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteRepositoryResponseTypeDef(BaseValidatorModel):
     repository: RepositoryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeRepositoriesResponseTypeDef(BaseValidatorModel):
     repositories: List[RepositoryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ScoreDetailsTypeDef(BaseValidatorModel):
     cvss: Optional[CvssScoreDetailsTypeDef] = None
 
+
 class DescribeImagesResponseTypeDef(BaseValidatorModel):
     imageDetails: List[ImageDetailTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class GetLifecyclePolicyPreviewResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     lifecyclePolicyText: str
     status: LifecyclePolicyPreviewStatusType
-    nextToken: str
     previewResults: List[LifecyclePolicyPreviewResultTypeDef]
     summary: LifecyclePolicyPreviewSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class RegistryScanningConfigurationTypeDef(BaseValidatorModel):
     scanType: Optional[ScanTypeType] = None
     rules: Optional[List[RegistryScanningRuleOutputTypeDef]] = None
+
 
 class BatchGetRepositoryScanningConfigurationResponseTypeDef(BaseValidatorModel):
     scanningConfigurations: List[RepositoryScanningConfigurationTypeDef]
     failures: List[RepositoryScanningConfigurationFailureTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ReplicationConfigurationOutputTypeDef(BaseValidatorModel):
     rules: List[ReplicationRuleOutputTypeDef]
+
 
 class ReplicationConfigurationTypeDef(BaseValidatorModel):
     rules: Sequence[ReplicationRuleTypeDef]
 
-class EnhancedImageScanFindingTypeDef(BaseValidatorModel):
-    awsAccountId: Optional[str] = None
-    description: Optional[str] = None
-    findingArn: Optional[str] = None
-    firstObservedAt: Optional[datetime] = None
-    lastObservedAt: Optional[datetime] = None
-    packageVulnerabilityDetails: Optional[PackageVulnerabilityDetailsTypeDef] = None
-    remediation: Optional[RemediationTypeDef] = None
-    resources: Optional[List[ResourceTypeDef]] = None
-    score: Optional[float] = None
-    scoreDetails: Optional[ScoreDetailsTypeDef] = None
-    severity: Optional[str] = None
-    status: Optional[str] = None
-    title: Optional[str] = None
-    type: Optional[str] = None
-    updatedAt: Optional[datetime] = None
 
 class GetRegistryScanningConfigurationResponseTypeDef(BaseValidatorModel):
     registryId: str
     scanningConfiguration: RegistryScanningConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutRegistryScanningConfigurationResponseTypeDef(BaseValidatorModel):
     registryScanningConfiguration: RegistryScanningConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRegistryScanningConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class RegistryScanningRuleUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class PutRegistryScanningConfigurationRequestTypeDef(BaseValidatorModel):
     scanType: Optional[ScanTypeType] = None
     rules: Optional[Sequence[RegistryScanningRuleUnionTypeDef]] = None
+
 
 class DescribeRegistryResponseTypeDef(BaseValidatorModel):
     registryId: str
     replicationConfiguration: ReplicationConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutReplicationConfigurationResponseTypeDef(BaseValidatorModel):
     replicationConfiguration: ReplicationConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutReplicationConfigurationRequestRequestTypeDef(BaseValidatorModel):
-    replicationConfiguration: ReplicationConfigurationTypeDef
+
+class EnhancedImageScanFindingTypeDef(BaseValidatorModel):
+    pass
+
 
 class ImageScanFindingsTypeDef(BaseValidatorModel):
     imageScanCompletedAt: Optional[datetime] = None
@@ -776,12 +941,22 @@ class ImageScanFindingsTypeDef(BaseValidatorModel):
     findings: Optional[List[ImageScanFindingTypeDef]] = None
     enhancedFindings: Optional[List[EnhancedImageScanFindingTypeDef]] = None
 
+
+class ReplicationConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class PutReplicationConfigurationRequestTypeDef(BaseValidatorModel):
+    replicationConfiguration: ReplicationConfigurationUnionTypeDef
+
+
 class DescribeImageScanFindingsResponseTypeDef(BaseValidatorModel):
     registryId: str
     repositoryName: str
     imageId: ImageIdentifierTypeDef
     imageScanStatus: ImageScanStatusTypeDef
     imageScanFindings: ImageScanFindingsTypeDef
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 

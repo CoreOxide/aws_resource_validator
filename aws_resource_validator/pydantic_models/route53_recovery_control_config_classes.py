@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,19 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.route53_recovery_control_config_constants import *
 
-class RuleConfigTypeDef(BaseValidatorModel):
-    Inverted: bool
-    Threshold: int
-    Type: RuleTypeType
-
 class AssertionRuleUpdateTypeDef(BaseValidatorModel):
     Name: str
     SafetyRuleArn: str
     WaitPeriodMs: int
 
+
 class ClusterEndpointTypeDef(BaseValidatorModel):
     Endpoint: Optional[str] = None
     Region: Optional[str] = None
+
 
 class ControlPanelTypeDef(BaseValidatorModel):
     ClusterArn: Optional[str] = None
@@ -34,29 +32,34 @@ class ControlPanelTypeDef(BaseValidatorModel):
     Status: Optional[StatusType] = None
     Owner: Optional[str] = None
 
-class CreateClusterRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateClusterRequestTypeDef(BaseValidatorModel):
     ClusterName: str
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class CreateControlPanelRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateControlPanelRequestTypeDef(BaseValidatorModel):
     ClusterArn: str
     ControlPanelName: str
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateRoutingControlRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRoutingControlRequestTypeDef(BaseValidatorModel):
     ClusterArn: str
     RoutingControlName: str
     ClientToken: Optional[str] = None
     ControlPanelArn: Optional[str] = None
+
 
 class RoutingControlTypeDef(BaseValidatorModel):
     ControlPanelArn: Optional[str] = None
@@ -65,89 +68,116 @@ class RoutingControlTypeDef(BaseValidatorModel):
     Status: Optional[StatusType] = None
     Owner: Optional[str] = None
 
-class DeleteClusterRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteClusterRequestTypeDef(BaseValidatorModel):
     ClusterArn: str
 
-class DeleteControlPanelRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteControlPanelRequestTypeDef(BaseValidatorModel):
     ControlPanelArn: str
 
-class DeleteRoutingControlRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRoutingControlRequestTypeDef(BaseValidatorModel):
     RoutingControlArn: str
 
-class DeleteSafetyRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteSafetyRuleRequestTypeDef(BaseValidatorModel):
     SafetyRuleArn: str
+
+
+class DescribeClusterRequestTypeDef(BaseValidatorModel):
+    ClusterArn: str
+
 
 class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class DescribeClusterRequestRequestTypeDef(BaseValidatorModel):
-    ClusterArn: str
 
-class DescribeControlPanelRequestRequestTypeDef(BaseValidatorModel):
+class DescribeControlPanelRequestTypeDef(BaseValidatorModel):
     ControlPanelArn: str
 
-class DescribeRoutingControlRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeRoutingControlRequestTypeDef(BaseValidatorModel):
     RoutingControlArn: str
 
-class DescribeSafetyRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeSafetyRuleRequestTypeDef(BaseValidatorModel):
     SafetyRuleArn: str
+
 
 class GatingRuleUpdateTypeDef(BaseValidatorModel):
     Name: str
     SafetyRuleArn: str
     WaitPeriodMs: int
 
-class GetResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAssociatedRoute53HealthChecksRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAssociatedRoute53HealthChecksRequestTypeDef(BaseValidatorModel):
     RoutingControlArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListClustersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListClustersRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListControlPanelsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListControlPanelsRequestTypeDef(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListRoutingControlsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRoutingControlsRequestTypeDef(BaseValidatorModel):
     ControlPanelArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListSafetyRulesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSafetyRulesRequestTypeDef(BaseValidatorModel):
     ControlPanelArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateControlPanelRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateControlPanelRequestTypeDef(BaseValidatorModel):
     ControlPanelArn: str
     ControlPanelName: str
 
-class UpdateRoutingControlRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRoutingControlRequestTypeDef(BaseValidatorModel):
     RoutingControlArn: str
     RoutingControlName: str
+
+
+class RuleConfigTypeDef(BaseValidatorModel):
+    pass
+
 
 class AssertionRuleTypeDef(BaseValidatorModel):
     AssertedControls: List[str]
@@ -158,6 +188,7 @@ class AssertionRuleTypeDef(BaseValidatorModel):
     Status: StatusType
     WaitPeriodMs: int
     Owner: Optional[str] = None
+
 
 class GatingRuleTypeDef(BaseValidatorModel):
     ControlPanelArn: str
@@ -170,12 +201,14 @@ class GatingRuleTypeDef(BaseValidatorModel):
     WaitPeriodMs: int
     Owner: Optional[str] = None
 
+
 class NewAssertionRuleTypeDef(BaseValidatorModel):
     AssertedControls: Sequence[str]
     ControlPanelArn: str
     Name: str
     RuleConfig: RuleConfigTypeDef
     WaitPeriodMs: int
+
 
 class NewGatingRuleTypeDef(BaseValidatorModel):
     ControlPanelArn: str
@@ -185,6 +218,7 @@ class NewGatingRuleTypeDef(BaseValidatorModel):
     TargetControls: Sequence[str]
     WaitPeriodMs: int
 
+
 class ClusterTypeDef(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     ClusterEndpoints: Optional[List[ClusterEndpointTypeDef]] = None
@@ -192,136 +226,173 @@ class ClusterTypeDef(BaseValidatorModel):
     Status: Optional[StatusType] = None
     Owner: Optional[str] = None
 
+
 class CreateControlPanelResponseTypeDef(BaseValidatorModel):
     ControlPanel: ControlPanelTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeControlPanelResponseTypeDef(BaseValidatorModel):
     ControlPanel: ControlPanelTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListAssociatedRoute53HealthChecksResponseTypeDef(BaseValidatorModel):
     HealthCheckIds: List[str]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListControlPanelsResponseTypeDef(BaseValidatorModel):
     ControlPanels: List[ControlPanelTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateControlPanelResponseTypeDef(BaseValidatorModel):
     ControlPanel: ControlPanelTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateRoutingControlResponseTypeDef(BaseValidatorModel):
     RoutingControl: RoutingControlTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeRoutingControlResponseTypeDef(BaseValidatorModel):
     RoutingControl: RoutingControlTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListRoutingControlsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     RoutingControls: List[RoutingControlTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class UpdateRoutingControlResponseTypeDef(BaseValidatorModel):
     RoutingControl: RoutingControlTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeClusterRequestClusterCreatedWaitTypeDef(BaseValidatorModel):
+
+class DescribeClusterRequestWaitExtraTypeDef(BaseValidatorModel):
     ClusterArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeClusterRequestClusterDeletedWaitTypeDef(BaseValidatorModel):
+
+class DescribeClusterRequestWaitTypeDef(BaseValidatorModel):
     ClusterArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeControlPanelRequestControlPanelCreatedWaitTypeDef(BaseValidatorModel):
+
+class DescribeControlPanelRequestWaitExtraTypeDef(BaseValidatorModel):
     ControlPanelArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeControlPanelRequestControlPanelDeletedWaitTypeDef(BaseValidatorModel):
+
+class DescribeControlPanelRequestWaitTypeDef(BaseValidatorModel):
     ControlPanelArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeRoutingControlRequestRoutingControlCreatedWaitTypeDef(BaseValidatorModel):
+
+class DescribeRoutingControlRequestWaitExtraTypeDef(BaseValidatorModel):
     RoutingControlArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeRoutingControlRequestRoutingControlDeletedWaitTypeDef(BaseValidatorModel):
+
+class DescribeRoutingControlRequestWaitTypeDef(BaseValidatorModel):
     RoutingControlArn: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class UpdateSafetyRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateSafetyRuleRequestTypeDef(BaseValidatorModel):
     AssertionRuleUpdate: Optional[AssertionRuleUpdateTypeDef] = None
     GatingRuleUpdate: Optional[GatingRuleUpdateTypeDef] = None
 
-class ListClustersRequestListClustersPaginateTypeDef(BaseValidatorModel):
+
+class ListAssociatedRoute53HealthChecksRequestPaginateTypeDef(BaseValidatorModel):
+    RoutingControlArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListControlPanelsRequestListControlPanelsPaginateTypeDef(BaseValidatorModel):
+
+class ListClustersRequestPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListControlPanelsRequestPaginateTypeDef(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRoutingControlsRequestListRoutingControlsPaginateTypeDef(BaseValidatorModel):
+
+class ListRoutingControlsRequestPaginateTypeDef(BaseValidatorModel):
     ControlPanelArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSafetyRulesRequestListSafetyRulesPaginateTypeDef(BaseValidatorModel):
+
+class ListSafetyRulesRequestPaginateTypeDef(BaseValidatorModel):
     ControlPanelArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class CreateSafetyRuleResponseTypeDef(BaseValidatorModel):
     AssertionRule: AssertionRuleTypeDef
     GatingRule: GatingRuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeSafetyRuleResponseTypeDef(BaseValidatorModel):
     AssertionRule: AssertionRuleTypeDef
     GatingRule: GatingRuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class RuleTypeDef(BaseValidatorModel):
     ASSERTION: Optional[AssertionRuleTypeDef] = None
     GATING: Optional[GatingRuleTypeDef] = None
+
 
 class UpdateSafetyRuleResponseTypeDef(BaseValidatorModel):
     AssertionRule: AssertionRuleTypeDef
     GatingRule: GatingRuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateSafetyRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateSafetyRuleRequestTypeDef(BaseValidatorModel):
     AssertionRule: Optional[NewAssertionRuleTypeDef] = None
     ClientToken: Optional[str] = None
     GatingRule: Optional[NewGatingRuleTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
+
 class CreateClusterResponseTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeClusterResponseTypeDef(BaseValidatorModel):
     Cluster: ClusterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListClustersResponseTypeDef(BaseValidatorModel):
     Clusters: List[ClusterTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListSafetyRulesResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     SafetyRules: List[RuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
