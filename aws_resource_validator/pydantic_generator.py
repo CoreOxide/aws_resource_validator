@@ -115,7 +115,8 @@ def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name:
         "Sequence": "from typing import Sequence",
         "Mapping": "from typing import Mapping",
         "IO": "from typing import IO",
-        "StreamingBody": "from botocore.response import StreamingBody"
+        "StreamingBody": "from botocore.response import StreamingBody",
+        "EventStream": "from botocore.eventstream import EventStream"
     }
 
     def generate_model(name: str):
