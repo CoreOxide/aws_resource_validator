@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -9,12 +10,7 @@ from typing import Mapping
 from typing import Optional
 from typing import Sequence
 from typing import Union
-from botocore.response import StreamingBody
 from aws_resource_validator.pydantic_models.apigateway_constants import *
-
-class AccessLogSettingsTypeDef(BaseValidatorModel):
-    format: Optional[str] = None
-    destinationArn: Optional[str] = None
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -23,38 +19,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
 class ThrottleSettingsTypeDef(BaseValidatorModel):
     burstLimit: Optional[int] = None
     rateLimit: Optional[float] = None
 
-class ApiKeyTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    value: Optional[str] = None
-    name: Optional[str] = None
-    customerId: Optional[str] = None
-    description: Optional[str] = None
-    enabled: Optional[bool] = None
-    createdDate: Optional[datetime] = None
-    lastUpdatedDate: Optional[datetime] = None
-    stageKeys: Optional[List[str]] = None
-    tags: Optional[Dict[str, str]] = None
-
-class AuthorizerTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    type: Optional[AuthorizerTypeType] = None
-    providerARNs: Optional[List[str]] = None
-    authType: Optional[str] = None
-    authorizerUri: Optional[str] = None
-    authorizerCredentials: Optional[str] = None
-    identitySource: Optional[str] = None
-    identityValidationExpression: Optional[str] = None
-    authorizerResultTtlInSeconds: Optional[int] = None
 
 class BasePathMappingTypeDef(BaseValidatorModel):
     basePath: Optional[str] = None
     restApiId: Optional[str] = None
     stage: Optional[str] = None
+
 
 class CanarySettingsOutputTypeDef(BaseValidatorModel):
     percentTraffic: Optional[float] = None
@@ -62,11 +37,13 @@ class CanarySettingsOutputTypeDef(BaseValidatorModel):
     stageVariableOverrides: Optional[Dict[str, str]] = None
     useStageCache: Optional[bool] = None
 
+
 class CanarySettingsTypeDef(BaseValidatorModel):
     percentTraffic: Optional[float] = None
     deploymentId: Optional[str] = None
     stageVariableOverrides: Optional[Mapping[str, str]] = None
     useStageCache: Optional[bool] = None
+
 
 class ClientCertificateTypeDef(BaseValidatorModel):
     clientCertificateId: Optional[str] = None
@@ -76,201 +53,230 @@ class ClientCertificateTypeDef(BaseValidatorModel):
     expirationDate: Optional[datetime] = None
     tags: Optional[Dict[str, str]] = None
 
+
 class StageKeyTypeDef(BaseValidatorModel):
     restApiId: Optional[str] = None
     stageName: Optional[str] = None
 
-class CreateAuthorizerRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    name: str
-    type: AuthorizerTypeType
-    providerARNs: Optional[Sequence[str]] = None
-    authType: Optional[str] = None
-    authorizerUri: Optional[str] = None
-    authorizerCredentials: Optional[str] = None
-    identitySource: Optional[str] = None
-    identityValidationExpression: Optional[str] = None
-    authorizerResultTtlInSeconds: Optional[int] = None
 
-class CreateBasePathMappingRequestRequestTypeDef(BaseValidatorModel):
+class CreateBasePathMappingRequestTypeDef(BaseValidatorModel):
     domainName: str
     restApiId: str
+    domainNameId: Optional[str] = None
     basePath: Optional[str] = None
     stage: Optional[str] = None
+
 
 class DeploymentCanarySettingsTypeDef(BaseValidatorModel):
     percentTraffic: Optional[float] = None
     stageVariableOverrides: Optional[Mapping[str, str]] = None
     useStageCache: Optional[bool] = None
 
-class DocumentationPartLocationTypeDef(BaseValidatorModel):
-    type: DocumentationPartTypeType
-    path: Optional[str] = None
-    method: Optional[str] = None
-    statusCode: Optional[str] = None
-    name: Optional[str] = None
 
-class CreateDocumentationVersionRequestRequestTypeDef(BaseValidatorModel):
+class CreateDocumentationVersionRequestTypeDef(BaseValidatorModel):
     restApiId: str
     documentationVersion: str
     stageName: Optional[str] = None
     description: Optional[str] = None
 
-class EndpointConfigurationTypeDef(BaseValidatorModel):
-    types: Optional[Sequence[EndpointTypeType]] = None
-    vpcEndpointIds: Optional[Sequence[str]] = None
+
+class CreateDomainNameAccessAssociationRequestTypeDef(BaseValidatorModel):
+    domainNameArn: str
+    accessAssociationSourceType: Literal["VPCE"]
+    accessAssociationSource: str
+    tags: Optional[Mapping[str, str]] = None
+
 
 class MutualTlsAuthenticationInputTypeDef(BaseValidatorModel):
     truststoreUri: Optional[str] = None
     truststoreVersion: Optional[str] = None
 
-class CreateModelRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateModelRequestTypeDef(BaseValidatorModel):
     restApiId: str
     name: str
     contentType: str
     description: Optional[str] = None
     schema: Optional[str] = None
 
-class CreateRequestValidatorRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRequestValidatorRequestTypeDef(BaseValidatorModel):
     restApiId: str
     name: Optional[str] = None
     validateRequestBody: Optional[bool] = None
     validateRequestParameters: Optional[bool] = None
 
-class CreateResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateResourceRequestTypeDef(BaseValidatorModel):
     restApiId: str
     parentId: str
     pathPart: str
 
-class CreateUsagePlanKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateUsagePlanKeyRequestTypeDef(BaseValidatorModel):
     usagePlanId: str
     keyId: str
     keyType: str
+
 
 class QuotaSettingsTypeDef(BaseValidatorModel):
     limit: Optional[int] = None
     offset: Optional[int] = None
     period: Optional[QuotaPeriodTypeType] = None
 
-class CreateVpcLinkRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateVpcLinkRequestTypeDef(BaseValidatorModel):
     name: str
     targetArns: Sequence[str]
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class DeleteApiKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteApiKeyRequestTypeDef(BaseValidatorModel):
     apiKey: str
 
-class DeleteAuthorizerRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteAuthorizerRequestTypeDef(BaseValidatorModel):
     restApiId: str
     authorizerId: str
 
-class DeleteBasePathMappingRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteBasePathMappingRequestTypeDef(BaseValidatorModel):
     domainName: str
     basePath: str
+    domainNameId: Optional[str] = None
 
-class DeleteClientCertificateRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteClientCertificateRequestTypeDef(BaseValidatorModel):
     clientCertificateId: str
 
-class DeleteDeploymentRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDeploymentRequestTypeDef(BaseValidatorModel):
     restApiId: str
     deploymentId: str
 
-class DeleteDocumentationPartRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDocumentationPartRequestTypeDef(BaseValidatorModel):
     restApiId: str
     documentationPartId: str
 
-class DeleteDocumentationVersionRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDocumentationVersionRequestTypeDef(BaseValidatorModel):
     restApiId: str
     documentationVersion: str
 
-class DeleteDomainNameRequestRequestTypeDef(BaseValidatorModel):
-    domainName: str
 
-class DeleteGatewayResponseRequestRequestTypeDef(BaseValidatorModel):
+class DeleteDomainNameAccessAssociationRequestTypeDef(BaseValidatorModel):
+    domainNameAccessAssociationArn: str
+
+
+class DeleteDomainNameRequestTypeDef(BaseValidatorModel):
+    domainName: str
+    domainNameId: Optional[str] = None
+
+
+class DeleteGatewayResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     responseType: GatewayResponseTypeType
 
-class DeleteIntegrationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteIntegrationRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
 
-class DeleteIntegrationResponseRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    resourceId: str
-    httpMethod: str
-    statusCode: str
 
-class DeleteMethodRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    resourceId: str
-    httpMethod: str
-
-class DeleteMethodResponseRequestRequestTypeDef(BaseValidatorModel):
+class DeleteIntegrationResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
     statusCode: str
 
-class DeleteModelRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteMethodRequestTypeDef(BaseValidatorModel):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+
+
+class DeleteMethodResponseRequestTypeDef(BaseValidatorModel):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+
+
+class DeleteModelRequestTypeDef(BaseValidatorModel):
     restApiId: str
     modelName: str
 
-class DeleteRequestValidatorRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRequestValidatorRequestTypeDef(BaseValidatorModel):
     restApiId: str
     requestValidatorId: str
 
-class DeleteResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteResourceRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
 
-class DeleteRestApiRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRestApiRequestTypeDef(BaseValidatorModel):
     restApiId: str
 
-class DeleteStageRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteStageRequestTypeDef(BaseValidatorModel):
     restApiId: str
     stageName: str
 
-class DeleteUsagePlanKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteUsagePlanKeyRequestTypeDef(BaseValidatorModel):
     usagePlanId: str
     keyId: str
 
-class DeleteUsagePlanRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteUsagePlanRequestTypeDef(BaseValidatorModel):
     usagePlanId: str
 
-class DeleteVpcLinkRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteVpcLinkRequestTypeDef(BaseValidatorModel):
     vpcLinkId: str
+
 
 class MethodSnapshotTypeDef(BaseValidatorModel):
     authorizationType: Optional[str] = None
     apiKeyRequired: Optional[bool] = None
+
 
 class DocumentationVersionTypeDef(BaseValidatorModel):
     version: Optional[str] = None
     createdDate: Optional[datetime] = None
     description: Optional[str] = None
 
-class EndpointConfigurationOutputTypeDef(BaseValidatorModel):
-    types: Optional[List[EndpointTypeType]] = None
-    vpcEndpointIds: Optional[List[str]] = None
+
+class DomainNameAccessAssociationTypeDef(BaseValidatorModel):
+    domainNameAccessAssociationArn: Optional[str] = None
+    domainNameArn: Optional[str] = None
+    accessAssociationSourceType: Optional[Literal["VPCE"]] = None
+    accessAssociationSource: Optional[str] = None
+    tags: Optional[Dict[str, str]] = None
+
 
 class MutualTlsAuthenticationTypeDef(BaseValidatorModel):
     truststoreUri: Optional[str] = None
     truststoreVersion: Optional[str] = None
     truststoreWarnings: Optional[List[str]] = None
 
-class EndpointConfigurationExtraOutputTypeDef(BaseValidatorModel):
-    types: Optional[List[EndpointTypeType]] = None
-    vpcEndpointIds: Optional[List[str]] = None
 
-class FlushStageAuthorizersCacheRequestRequestTypeDef(BaseValidatorModel):
+class FlushStageAuthorizersCacheRequestTypeDef(BaseValidatorModel):
     restApiId: str
     stageName: str
 
-class FlushStageCacheRequestRequestTypeDef(BaseValidatorModel):
+
+class FlushStageCacheRequestTypeDef(BaseValidatorModel):
     restApiId: str
     stageName: str
+
 
 class GatewayResponseTypeDef(BaseValidatorModel):
     responseType: Optional[GatewayResponseTypeType] = None
@@ -279,214 +285,255 @@ class GatewayResponseTypeDef(BaseValidatorModel):
     responseTemplates: Optional[Dict[str, str]] = None
     defaultResponse: Optional[bool] = None
 
-class GenerateClientCertificateRequestRequestTypeDef(BaseValidatorModel):
+
+class GenerateClientCertificateRequestTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class GetApiKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetApiKeyRequestTypeDef(BaseValidatorModel):
     apiKey: str
     includeValue: Optional[bool] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetApiKeysRequestRequestTypeDef(BaseValidatorModel):
+
+class GetApiKeysRequestTypeDef(BaseValidatorModel):
     position: Optional[str] = None
     limit: Optional[int] = None
     nameQuery: Optional[str] = None
     customerId: Optional[str] = None
     includeValues: Optional[bool] = None
 
-class GetAuthorizerRequestRequestTypeDef(BaseValidatorModel):
+
+class GetAuthorizerRequestTypeDef(BaseValidatorModel):
     restApiId: str
     authorizerId: str
 
-class GetAuthorizersRequestRequestTypeDef(BaseValidatorModel):
+
+class GetAuthorizersRequestTypeDef(BaseValidatorModel):
     restApiId: str
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetBasePathMappingRequestRequestTypeDef(BaseValidatorModel):
+
+class GetBasePathMappingRequestTypeDef(BaseValidatorModel):
     domainName: str
     basePath: str
+    domainNameId: Optional[str] = None
 
-class GetBasePathMappingsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetBasePathMappingsRequestTypeDef(BaseValidatorModel):
     domainName: str
+    domainNameId: Optional[str] = None
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetClientCertificateRequestRequestTypeDef(BaseValidatorModel):
+
+class GetClientCertificateRequestTypeDef(BaseValidatorModel):
     clientCertificateId: str
 
-class GetClientCertificatesRequestRequestTypeDef(BaseValidatorModel):
+
+class GetClientCertificatesRequestTypeDef(BaseValidatorModel):
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetDeploymentRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDeploymentRequestTypeDef(BaseValidatorModel):
     restApiId: str
     deploymentId: str
     embed: Optional[Sequence[str]] = None
 
-class GetDeploymentsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDeploymentsRequestTypeDef(BaseValidatorModel):
     restApiId: str
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetDocumentationPartRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDocumentationPartRequestTypeDef(BaseValidatorModel):
     restApiId: str
     documentationPartId: str
 
-class GetDocumentationPartsRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    type: Optional[DocumentationPartTypeType] = None
-    nameQuery: Optional[str] = None
-    path: Optional[str] = None
-    position: Optional[str] = None
-    limit: Optional[int] = None
-    locationStatus: Optional[LocationStatusTypeType] = None
 
-class GetDocumentationVersionRequestRequestTypeDef(BaseValidatorModel):
+class GetDocumentationVersionRequestTypeDef(BaseValidatorModel):
     restApiId: str
     documentationVersion: str
 
-class GetDocumentationVersionsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDocumentationVersionsRequestTypeDef(BaseValidatorModel):
     restApiId: str
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetDomainNameRequestRequestTypeDef(BaseValidatorModel):
-    domainName: str
 
-class GetDomainNamesRequestRequestTypeDef(BaseValidatorModel):
+class GetDomainNameAccessAssociationsRequestTypeDef(BaseValidatorModel):
     position: Optional[str] = None
     limit: Optional[int] = None
+    resourceOwner: Optional[ResourceOwnerType] = None
 
-class GetExportRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDomainNameRequestTypeDef(BaseValidatorModel):
+    domainName: str
+    domainNameId: Optional[str] = None
+
+
+class GetDomainNamesRequestTypeDef(BaseValidatorModel):
+    position: Optional[str] = None
+    limit: Optional[int] = None
+    resourceOwner: Optional[ResourceOwnerType] = None
+
+
+class GetExportRequestTypeDef(BaseValidatorModel):
     restApiId: str
     stageName: str
     exportType: str
     parameters: Optional[Mapping[str, str]] = None
     accepts: Optional[str] = None
 
-class GetGatewayResponseRequestRequestTypeDef(BaseValidatorModel):
+
+class GetGatewayResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     responseType: GatewayResponseTypeType
 
-class GetGatewayResponsesRequestRequestTypeDef(BaseValidatorModel):
+
+class GetGatewayResponsesRequestTypeDef(BaseValidatorModel):
     restApiId: str
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetIntegrationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetIntegrationRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
 
-class GetIntegrationResponseRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    resourceId: str
-    httpMethod: str
-    statusCode: str
 
-class GetMethodRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    resourceId: str
-    httpMethod: str
-
-class GetMethodResponseRequestRequestTypeDef(BaseValidatorModel):
+class GetIntegrationResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
     statusCode: str
 
-class GetModelRequestRequestTypeDef(BaseValidatorModel):
+
+class GetMethodRequestTypeDef(BaseValidatorModel):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+
+
+class GetMethodResponseRequestTypeDef(BaseValidatorModel):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+
+
+class GetModelRequestTypeDef(BaseValidatorModel):
     restApiId: str
     modelName: str
     flatten: Optional[bool] = None
 
-class GetModelTemplateRequestRequestTypeDef(BaseValidatorModel):
+
+class GetModelTemplateRequestTypeDef(BaseValidatorModel):
     restApiId: str
     modelName: str
 
-class GetModelsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetModelsRequestTypeDef(BaseValidatorModel):
     restApiId: str
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetRequestValidatorRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRequestValidatorRequestTypeDef(BaseValidatorModel):
     restApiId: str
     requestValidatorId: str
 
-class GetRequestValidatorsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRequestValidatorsRequestTypeDef(BaseValidatorModel):
     restApiId: str
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class GetResourceRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     embed: Optional[Sequence[str]] = None
 
-class GetResourcesRequestRequestTypeDef(BaseValidatorModel):
+
+class GetResourcesRequestTypeDef(BaseValidatorModel):
     restApiId: str
     position: Optional[str] = None
     limit: Optional[int] = None
     embed: Optional[Sequence[str]] = None
 
-class GetRestApiRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRestApiRequestTypeDef(BaseValidatorModel):
     restApiId: str
 
-class GetRestApisRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRestApisRequestTypeDef(BaseValidatorModel):
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetSdkRequestRequestTypeDef(BaseValidatorModel):
+
+class GetSdkRequestTypeDef(BaseValidatorModel):
     restApiId: str
     stageName: str
     sdkType: str
     parameters: Optional[Mapping[str, str]] = None
 
-class GetSdkTypeRequestRequestTypeDef(BaseValidatorModel):
-    id: str
 
-class GetSdkTypesRequestRequestTypeDef(BaseValidatorModel):
+class GetSdkTypesRequestTypeDef(BaseValidatorModel):
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetStageRequestRequestTypeDef(BaseValidatorModel):
+
+class GetStageRequestTypeDef(BaseValidatorModel):
     restApiId: str
     stageName: str
 
-class GetStagesRequestRequestTypeDef(BaseValidatorModel):
+
+class GetStagesRequestTypeDef(BaseValidatorModel):
     restApiId: str
     deploymentId: Optional[str] = None
 
-class GetTagsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTagsRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetUsagePlanKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetUsagePlanKeyRequestTypeDef(BaseValidatorModel):
     usagePlanId: str
     keyId: str
 
-class GetUsagePlanKeysRequestRequestTypeDef(BaseValidatorModel):
+
+class GetUsagePlanKeysRequestTypeDef(BaseValidatorModel):
     usagePlanId: str
     position: Optional[str] = None
     limit: Optional[int] = None
     nameQuery: Optional[str] = None
 
-class GetUsagePlanRequestRequestTypeDef(BaseValidatorModel):
+
+class GetUsagePlanRequestTypeDef(BaseValidatorModel):
     usagePlanId: str
 
-class GetUsagePlansRequestRequestTypeDef(BaseValidatorModel):
+
+class GetUsagePlansRequestTypeDef(BaseValidatorModel):
     position: Optional[str] = None
     keyId: Optional[str] = None
     limit: Optional[int] = None
 
-class GetUsageRequestRequestTypeDef(BaseValidatorModel):
+
+class GetUsageRequestTypeDef(BaseValidatorModel):
     usagePlanId: str
     startDate: str
     endDate: str
@@ -494,12 +541,15 @@ class GetUsageRequestRequestTypeDef(BaseValidatorModel):
     position: Optional[str] = None
     limit: Optional[int] = None
 
-class GetVpcLinkRequestRequestTypeDef(BaseValidatorModel):
+
+class GetVpcLinkRequestTypeDef(BaseValidatorModel):
     vpcLinkId: str
 
-class GetVpcLinksRequestRequestTypeDef(BaseValidatorModel):
+
+class GetVpcLinksRequestTypeDef(BaseValidatorModel):
     position: Optional[str] = None
     limit: Optional[int] = None
+
 
 class IntegrationResponseTypeDef(BaseValidatorModel):
     statusCode: Optional[str] = None
@@ -508,13 +558,16 @@ class IntegrationResponseTypeDef(BaseValidatorModel):
     responseTemplates: Optional[Dict[str, str]] = None
     contentHandling: Optional[ContentHandlingStrategyType] = None
 
+
 class TlsConfigTypeDef(BaseValidatorModel):
     insecureSkipVerification: Optional[bool] = None
+
 
 class MethodResponseTypeDef(BaseValidatorModel):
     statusCode: Optional[str] = None
     responseParameters: Optional[Dict[str, bool]] = None
     responseModels: Optional[Dict[str, str]] = None
+
 
 class MethodSettingTypeDef(BaseValidatorModel):
     metricsEnabled: Optional[bool] = None
@@ -526,29 +579,18 @@ class MethodSettingTypeDef(BaseValidatorModel):
     cacheTtlInSeconds: Optional[int] = None
     cacheDataEncrypted: Optional[bool] = None
     requireAuthorizationForCacheControl: Optional[bool] = None
-    unauthorizedCacheControlHeaderStrategy: Optional[       UnauthorizedCacheControlHeaderStrategyType     ] = None
+    unauthorizedCacheControlHeaderStrategy: Optional[UnauthorizedCacheControlHeaderStrategyType] = None
 
-class ModelTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    schema: Optional[str] = None
-    contentType: Optional[str] = None
 
-class PatchOperationTypeDef(BaseValidatorModel):
-    op: Optional[OpType] = None
-    path: Optional[str] = None
-    value: Optional[str] = None
-    _from: Optional[str] = None
-
-class PutGatewayResponseRequestRequestTypeDef(BaseValidatorModel):
+class PutGatewayResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     responseType: GatewayResponseTypeType
     statusCode: Optional[str] = None
     responseParameters: Optional[Mapping[str, str]] = None
     responseTemplates: Optional[Mapping[str, str]] = None
 
-class PutIntegrationResponseRequestRequestTypeDef(BaseValidatorModel):
+
+class PutIntegrationResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
@@ -558,7 +600,8 @@ class PutIntegrationResponseRequestRequestTypeDef(BaseValidatorModel):
     responseTemplates: Optional[Mapping[str, str]] = None
     contentHandling: Optional[ContentHandlingStrategyType] = None
 
-class PutMethodRequestRequestTypeDef(BaseValidatorModel):
+
+class PutMethodRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
@@ -571,7 +614,8 @@ class PutMethodRequestRequestTypeDef(BaseValidatorModel):
     requestValidatorId: Optional[str] = None
     authorizationScopes: Optional[Sequence[str]] = None
 
-class PutMethodResponseRequestRequestTypeDef(BaseValidatorModel):
+
+class PutMethodResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
@@ -579,11 +623,11 @@ class PutMethodResponseRequestRequestTypeDef(BaseValidatorModel):
     responseParameters: Optional[Mapping[str, bool]] = None
     responseModels: Optional[Mapping[str, str]] = None
 
-class RequestValidatorTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    validateRequestBody: Optional[bool] = None
-    validateRequestParameters: Optional[bool] = None
+
+class RejectDomainNameAccessAssociationRequestTypeDef(BaseValidatorModel):
+    domainNameAccessAssociationArn: str
+    domainNameArn: str
+
 
 class SdkConfigurationPropertyTypeDef(BaseValidatorModel):
     name: Optional[str] = None
@@ -592,11 +636,13 @@ class SdkConfigurationPropertyTypeDef(BaseValidatorModel):
     required: Optional[bool] = None
     defaultValue: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class TestInvokeAuthorizerRequestRequestTypeDef(BaseValidatorModel):
+
+class TestInvokeAuthorizerRequestTypeDef(BaseValidatorModel):
     restApiId: str
     authorizerId: str
     headers: Optional[Mapping[str, str]] = None
@@ -606,7 +652,8 @@ class TestInvokeAuthorizerRequestRequestTypeDef(BaseValidatorModel):
     stageVariables: Optional[Mapping[str, str]] = None
     additionalContext: Optional[Mapping[str, str]] = None
 
-class TestInvokeMethodRequestRequestTypeDef(BaseValidatorModel):
+
+class TestInvokeMethodRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
@@ -617,61 +664,24 @@ class TestInvokeMethodRequestRequestTypeDef(BaseValidatorModel):
     clientCertificateId: Optional[str] = None
     stageVariables: Optional[Mapping[str, str]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UsagePlanKeyTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    type: Optional[str] = None
-    value: Optional[str] = None
-    name: Optional[str] = None
-
-class VpcLinkTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    targetArns: Optional[List[str]] = None
-    status: Optional[VpcLinkStatusType] = None
-    statusMessage: Optional[str] = None
-    tags: Optional[Dict[str, str]] = None
 
 class ApiKeyIdsTypeDef(BaseValidatorModel):
     ids: List[str]
     warnings: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ApiKeyResponseTypeDef(BaseValidatorModel):
-    id: str
-    value: str
-    name: str
-    customerId: str
-    description: str
-    enabled: bool
-    createdDate: datetime
-    lastUpdatedDate: datetime
-    stageKeys: List[str]
-    tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class AuthorizerResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    type: AuthorizerTypeType
-    providerARNs: List[str]
-    authType: str
-    authorizerUri: str
-    authorizerCredentials: str
-    identitySource: str
-    identityValidationExpression: str
-    authorizerResultTtlInSeconds: int
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class BasePathMappingResponseTypeDef(BaseValidatorModel):
     basePath: str
     restApiId: str
     stage: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ClientCertificateResponseTypeDef(BaseValidatorModel):
     clientCertificateId: str
@@ -682,10 +692,12 @@ class ClientCertificateResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DocumentationPartIdsTypeDef(BaseValidatorModel):
     ids: List[str]
     warnings: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DocumentationVersionResponseTypeDef(BaseValidatorModel):
     version: str
@@ -693,14 +705,26 @@ class DocumentationVersionResponseTypeDef(BaseValidatorModel):
     description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class DomainNameAccessAssociationResponseTypeDef(BaseValidatorModel):
+    domainNameAccessAssociationArn: str
+    domainNameArn: str
+    accessAssociationSourceType: Literal["VPCE"]
+    accessAssociationSource: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ExportResponseTypeDef(BaseValidatorModel):
     contentType: str
     contentDisposition: str
     body: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GatewayResponseResponseTypeDef(BaseValidatorModel):
     responseType: GatewayResponseTypeType
@@ -710,6 +734,7 @@ class GatewayResponseResponseTypeDef(BaseValidatorModel):
     defaultResponse: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class IntegrationResponseResponseTypeDef(BaseValidatorModel):
     statusCode: str
     selectionPattern: str
@@ -718,26 +743,13 @@ class IntegrationResponseResponseTypeDef(BaseValidatorModel):
     contentHandling: ContentHandlingStrategyType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class MethodResponseResponseTypeDef(BaseValidatorModel):
     statusCode: str
     responseParameters: Dict[str, bool]
     responseModels: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModelResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    description: str
-    schema: str
-    contentType: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class RequestValidatorResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    validateRequestBody: bool
-    validateRequestParameters: bool
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class SdkResponseTypeDef(BaseValidatorModel):
     contentType: str
@@ -745,13 +757,16 @@ class SdkResponseTypeDef(BaseValidatorModel):
     body: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class TagsTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class TemplateTypeDef(BaseValidatorModel):
     value: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class TestInvokeAuthorizerResponseTypeDef(BaseValidatorModel):
     clientStatus: int
@@ -763,6 +778,7 @@ class TestInvokeAuthorizerResponseTypeDef(BaseValidatorModel):
     claims: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class TestInvokeMethodResponseTypeDef(BaseValidatorModel):
     status: int
     body: str
@@ -772,12 +788,6 @@ class TestInvokeMethodResponseTypeDef(BaseValidatorModel):
     latency: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UsagePlanKeyResponseTypeDef(BaseValidatorModel):
-    id: str
-    type: str
-    value: str
-    name: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class UsageTypeDef(BaseValidatorModel):
     usagePlanId: str
@@ -787,15 +797,6 @@ class UsageTypeDef(BaseValidatorModel):
     items: Dict[str, List[List[int]]]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class VpcLinkResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    description: str
-    targetArns: List[str]
-    status: VpcLinkStatusType
-    statusMessage: str
-    tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class AccountTypeDef(BaseValidatorModel):
     cloudwatchRoleArn: str
@@ -804,20 +805,22 @@ class AccountTypeDef(BaseValidatorModel):
     apiKeyVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ApiStageExtraOutputTypeDef(BaseValidatorModel):
-    apiId: Optional[str] = None
-    stage: Optional[str] = None
-    throttle: Optional[Dict[str, ThrottleSettingsTypeDef]] = None
 
 class ApiStageOutputTypeDef(BaseValidatorModel):
     apiId: Optional[str] = None
     stage: Optional[str] = None
     throttle: Optional[Dict[str, ThrottleSettingsTypeDef]] = None
 
+
 class ApiStageTypeDef(BaseValidatorModel):
     apiId: Optional[str] = None
     stage: Optional[str] = None
     throttle: Optional[Mapping[str, ThrottleSettingsTypeDef]] = None
+
+
+class ApiKeyTypeDef(BaseValidatorModel):
+    pass
+
 
 class ApiKeysTypeDef(BaseValidatorModel):
     warnings: List[str]
@@ -825,58 +828,55 @@ class ApiKeysTypeDef(BaseValidatorModel):
     items: List[ApiKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class AuthorizerTypeDef(BaseValidatorModel):
+    pass
+
+
 class AuthorizersTypeDef(BaseValidatorModel):
     position: str
     items: List[AuthorizerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class BasePathMappingsTypeDef(BaseValidatorModel):
     position: str
     items: List[BasePathMappingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportApiKeysRequestRequestTypeDef(BaseValidatorModel):
-    body: BlobTypeDef
-    format: Literal["csv"]
-    failOnWarnings: Optional[bool] = None
 
-class ImportDocumentationPartsRequestRequestTypeDef(BaseValidatorModel):
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
+
+class ImportDocumentationPartsRequestTypeDef(BaseValidatorModel):
     restApiId: str
     body: BlobTypeDef
     mode: Optional[PutModeType] = None
     failOnWarnings: Optional[bool] = None
 
-class ImportRestApiRequestRequestTypeDef(BaseValidatorModel):
+
+class ImportRestApiRequestTypeDef(BaseValidatorModel):
     body: BlobTypeDef
     failOnWarnings: Optional[bool] = None
     parameters: Optional[Mapping[str, str]] = None
 
-class PutRestApiRequestRequestTypeDef(BaseValidatorModel):
+
+class PutRestApiRequestTypeDef(BaseValidatorModel):
     restApiId: str
     body: BlobTypeDef
     mode: Optional[PutModeType] = None
     failOnWarnings: Optional[bool] = None
     parameters: Optional[Mapping[str, str]] = None
 
-class CreateStageRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    stageName: str
-    deploymentId: str
-    description: Optional[str] = None
-    cacheClusterEnabled: Optional[bool] = None
-    cacheClusterSize: Optional[CacheClusterSizeType] = None
-    variables: Optional[Mapping[str, str]] = None
-    documentationVersion: Optional[str] = None
-    canarySettings: Optional[CanarySettingsTypeDef] = None
-    tracingEnabled: Optional[bool] = None
-    tags: Optional[Mapping[str, str]] = None
 
 class ClientCertificatesTypeDef(BaseValidatorModel):
     position: str
     items: List[ClientCertificateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateApiKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateApiKeyRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     enabled: Optional[bool] = None
@@ -886,7 +886,8 @@ class CreateApiKeyRequestRequestTypeDef(BaseValidatorModel):
     customerId: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateDeploymentRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateDeploymentRequestTypeDef(BaseValidatorModel):
     restApiId: str
     stageName: Optional[str] = None
     stageDescription: Optional[str] = None
@@ -897,103 +898,37 @@ class CreateDeploymentRequestRequestTypeDef(BaseValidatorModel):
     canarySettings: Optional[DeploymentCanarySettingsTypeDef] = None
     tracingEnabled: Optional[bool] = None
 
-class CreateDocumentationPartRequestRequestTypeDef(BaseValidatorModel):
+
+class DocumentationPartLocationTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateDocumentationPartRequestTypeDef(BaseValidatorModel):
     restApiId: str
     location: DocumentationPartLocationTypeDef
     properties: str
 
-class DocumentationPartResponseTypeDef(BaseValidatorModel):
-    id: str
-    location: DocumentationPartLocationTypeDef
-    properties: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class DocumentationPartTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    location: Optional[DocumentationPartLocationTypeDef] = None
-    properties: Optional[str] = None
-
-class CreateRestApiRequestRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    version: Optional[str] = None
-    cloneFrom: Optional[str] = None
-    binaryMediaTypes: Optional[Sequence[str]] = None
-    minimumCompressionSize: Optional[int] = None
-    apiKeySource: Optional[ApiKeySourceTypeType] = None
-    endpointConfiguration: Optional[EndpointConfigurationTypeDef] = None
-    policy: Optional[str] = None
-    tags: Optional[Mapping[str, str]] = None
-    disableExecuteApiEndpoint: Optional[bool] = None
-
-class CreateDomainNameRequestRequestTypeDef(BaseValidatorModel):
-    domainName: str
-    certificateName: Optional[str] = None
-    certificateBody: Optional[str] = None
-    certificatePrivateKey: Optional[str] = None
-    certificateChain: Optional[str] = None
-    certificateArn: Optional[str] = None
-    regionalCertificateName: Optional[str] = None
-    regionalCertificateArn: Optional[str] = None
-    endpointConfiguration: Optional[EndpointConfigurationTypeDef] = None
-    tags: Optional[Mapping[str, str]] = None
-    securityPolicy: Optional[SecurityPolicyType] = None
-    mutualTlsAuthentication: Optional[MutualTlsAuthenticationInputTypeDef] = None
-    ownershipVerificationCertificateArn: Optional[str] = None
-
-class DeploymentResponseTypeDef(BaseValidatorModel):
-    id: str
-    description: str
-    createdDate: datetime
-    apiSummary: Dict[str, Dict[str, MethodSnapshotTypeDef]]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class DeploymentTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    description: Optional[str] = None
-    createdDate: Optional[datetime] = None
-    apiSummary: Optional[Dict[str, Dict[str, MethodSnapshotTypeDef]]] = None
 
 class DocumentationVersionsTypeDef(BaseValidatorModel):
     position: str
     items: List[DocumentationVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestApiResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    description: str
-    createdDate: datetime
-    version: str
-    warnings: List[str]
-    binaryMediaTypes: List[str]
-    minimumCompressionSize: int
-    apiKeySource: ApiKeySourceTypeType
-    endpointConfiguration: EndpointConfigurationOutputTypeDef
-    policy: str
-    tags: Dict[str, str]
-    disableExecuteApiEndpoint: bool
-    rootResourceId: str
+
+class DomainNameAccessAssociationsTypeDef(BaseValidatorModel):
+    position: str
+    items: List[DomainNameAccessAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RestApiTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    createdDate: Optional[datetime] = None
-    version: Optional[str] = None
-    warnings: Optional[List[str]] = None
-    binaryMediaTypes: Optional[List[str]] = None
-    minimumCompressionSize: Optional[int] = None
-    apiKeySource: Optional[ApiKeySourceTypeType] = None
-    endpointConfiguration: Optional[EndpointConfigurationOutputTypeDef] = None
-    policy: Optional[str] = None
-    tags: Optional[Dict[str, str]] = None
-    disableExecuteApiEndpoint: Optional[bool] = None
-    rootResourceId: Optional[str] = None
+
+class EndpointConfigurationOutputTypeDef(BaseValidatorModel):
+    pass
+
 
 class DomainNameResponseTypeDef(BaseValidatorModel):
     domainName: str
+    domainNameId: str
+    domainNameArn: str
     certificateName: str
     certificateArn: str
     certificateUploadDate: datetime
@@ -1010,10 +945,15 @@ class DomainNameResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     mutualTlsAuthentication: MutualTlsAuthenticationTypeDef
     ownershipVerificationCertificateArn: str
+    managementPolicy: str
+    policy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DomainNameTypeDef(BaseValidatorModel):
     domainName: Optional[str] = None
+    domainNameId: Optional[str] = None
+    domainNameArn: Optional[str] = None
     certificateName: Optional[str] = None
     certificateArn: Optional[str] = None
     certificateUploadDate: Optional[datetime] = None
@@ -1030,143 +970,108 @@ class DomainNameTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
     mutualTlsAuthentication: Optional[MutualTlsAuthenticationTypeDef] = None
     ownershipVerificationCertificateArn: Optional[str] = None
+    managementPolicy: Optional[str] = None
+    policy: Optional[str] = None
+
 
 class GatewayResponsesTypeDef(BaseValidatorModel):
     position: str
     items: List[GatewayResponseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetApiKeysRequestGetApiKeysPaginateTypeDef(BaseValidatorModel):
+
+class GetApiKeysRequestPaginateTypeDef(BaseValidatorModel):
     nameQuery: Optional[str] = None
     customerId: Optional[str] = None
     includeValues: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetAuthorizersRequestGetAuthorizersPaginateTypeDef(BaseValidatorModel):
+
+class GetAuthorizersRequestPaginateTypeDef(BaseValidatorModel):
     restApiId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetBasePathMappingsRequestGetBasePathMappingsPaginateTypeDef(BaseValidatorModel):
+
+class GetBasePathMappingsRequestPaginateTypeDef(BaseValidatorModel):
     domainName: str
+    domainNameId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetClientCertificatesRequestGetClientCertificatesPaginateTypeDef(BaseValidatorModel):
+
+class GetClientCertificatesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDeploymentsRequestGetDeploymentsPaginateTypeDef(BaseValidatorModel):
+
+class GetDeploymentsRequestPaginateTypeDef(BaseValidatorModel):
     restApiId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDocumentationPartsRequestGetDocumentationPartsPaginateTypeDef(BaseValidatorModel):
-    restApiId: str
-    type: Optional[DocumentationPartTypeType] = None
-    nameQuery: Optional[str] = None
-    path: Optional[str] = None
-    locationStatus: Optional[LocationStatusTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDocumentationVersionsRequestGetDocumentationVersionsPaginateTypeDef(BaseValidatorModel):
+class GetDocumentationVersionsRequestPaginateTypeDef(BaseValidatorModel):
     restApiId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetDomainNamesRequestGetDomainNamesPaginateTypeDef(BaseValidatorModel):
+
+class GetDomainNamesRequestPaginateTypeDef(BaseValidatorModel):
+    resourceOwner: Optional[ResourceOwnerType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetGatewayResponsesRequestGetGatewayResponsesPaginateTypeDef(BaseValidatorModel):
+
+class GetGatewayResponsesRequestPaginateTypeDef(BaseValidatorModel):
     restApiId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetModelsRequestGetModelsPaginateTypeDef(BaseValidatorModel):
+
+class GetModelsRequestPaginateTypeDef(BaseValidatorModel):
     restApiId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRequestValidatorsRequestGetRequestValidatorsPaginateTypeDef(BaseValidatorModel):
+
+class GetRequestValidatorsRequestPaginateTypeDef(BaseValidatorModel):
     restApiId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetResourcesRequestGetResourcesPaginateTypeDef(BaseValidatorModel):
+
+class GetResourcesRequestPaginateTypeDef(BaseValidatorModel):
     restApiId: str
     embed: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRestApisRequestGetRestApisPaginateTypeDef(BaseValidatorModel):
+
+class GetRestApisRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetSdkTypesRequestGetSdkTypesPaginateTypeDef(BaseValidatorModel):
+
+class GetSdkTypesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetUsagePlanKeysRequestGetUsagePlanKeysPaginateTypeDef(BaseValidatorModel):
+
+class GetUsagePlanKeysRequestPaginateTypeDef(BaseValidatorModel):
     usagePlanId: str
     nameQuery: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetUsagePlansRequestGetUsagePlansPaginateTypeDef(BaseValidatorModel):
+
+class GetUsagePlansRequestPaginateTypeDef(BaseValidatorModel):
     keyId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetUsageRequestGetUsagePaginateTypeDef(BaseValidatorModel):
+
+class GetUsageRequestPaginateTypeDef(BaseValidatorModel):
     usagePlanId: str
     startDate: str
     endDate: str
     keyId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetVpcLinksRequestGetVpcLinksPaginateTypeDef(BaseValidatorModel):
+
+class GetVpcLinksRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class IntegrationExtraResponseTypeDef(BaseValidatorModel):
-    type: IntegrationTypeType
-    httpMethod: str
-    uri: str
-    connectionType: ConnectionTypeType
-    connectionId: str
-    credentials: str
-    requestParameters: Dict[str, str]
-    requestTemplates: Dict[str, str]
-    passthroughBehavior: str
-    contentHandling: ContentHandlingStrategyType
-    timeoutInMillis: int
-    cacheNamespace: str
-    cacheKeyParameters: List[str]
-    integrationResponses: Dict[str, IntegrationResponseTypeDef]
-    tlsConfig: TlsConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class IntegrationTypeDef(BaseValidatorModel):
-    type: Optional[IntegrationTypeType] = None
-    httpMethod: Optional[str] = None
-    uri: Optional[str] = None
-    connectionType: Optional[ConnectionTypeType] = None
-    connectionId: Optional[str] = None
-    credentials: Optional[str] = None
-    requestParameters: Optional[Dict[str, str]] = None
-    requestTemplates: Optional[Dict[str, str]] = None
-    passthroughBehavior: Optional[str] = None
-    contentHandling: Optional[ContentHandlingStrategyType] = None
-    timeoutInMillis: Optional[int] = None
-    cacheNamespace: Optional[str] = None
-    cacheKeyParameters: Optional[List[str]] = None
-    integrationResponses: Optional[Dict[str, IntegrationResponseTypeDef]] = None
-    tlsConfig: Optional[TlsConfigTypeDef] = None
+class AccessLogSettingsTypeDef(BaseValidatorModel):
+    pass
 
-class PutIntegrationRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    resourceId: str
-    httpMethod: str
-    type: IntegrationTypeType
-    integrationHttpMethod: Optional[str] = None
-    uri: Optional[str] = None
-    connectionType: Optional[ConnectionTypeType] = None
-    connectionId: Optional[str] = None
-    credentials: Optional[str] = None
-    requestParameters: Optional[Mapping[str, str]] = None
-    requestTemplates: Optional[Mapping[str, str]] = None
-    passthroughBehavior: Optional[str] = None
-    cacheNamespace: Optional[str] = None
-    cacheKeyParameters: Optional[Sequence[str]] = None
-    contentHandling: Optional[ContentHandlingStrategyType] = None
-    timeoutInMillis: Optional[int] = None
-    tlsConfig: Optional[TlsConfigTypeDef] = None
 
 class StageResponseTypeDef(BaseValidatorModel):
     deploymentId: str
@@ -1188,6 +1093,7 @@ class StageResponseTypeDef(BaseValidatorModel):
     lastUpdatedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StageTypeDef(BaseValidatorModel):
     deploymentId: Optional[str] = None
     clientCertificateId: Optional[str] = None
@@ -1207,189 +1113,277 @@ class StageTypeDef(BaseValidatorModel):
     createdDate: Optional[datetime] = None
     lastUpdatedDate: Optional[datetime] = None
 
+
+class ModelTypeDef(BaseValidatorModel):
+    pass
+
+
 class ModelsTypeDef(BaseValidatorModel):
     position: str
     items: List[ModelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAccountRequestRequestTypeDef(BaseValidatorModel):
+
+class PatchOperationTypeDef(BaseValidatorModel):
+    pass
+
+
+class UpdateAccountRequestTypeDef(BaseValidatorModel):
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateApiKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateApiKeyRequestTypeDef(BaseValidatorModel):
     apiKey: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateAuthorizerRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateAuthorizerRequestTypeDef(BaseValidatorModel):
     restApiId: str
     authorizerId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateBasePathMappingRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateBasePathMappingRequestTypeDef(BaseValidatorModel):
     domainName: str
     basePath: str
+    domainNameId: Optional[str] = None
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateClientCertificateRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateClientCertificateRequestTypeDef(BaseValidatorModel):
     clientCertificateId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateDeploymentRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateDeploymentRequestTypeDef(BaseValidatorModel):
     restApiId: str
     deploymentId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateDocumentationPartRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateDocumentationPartRequestTypeDef(BaseValidatorModel):
     restApiId: str
     documentationPartId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateDocumentationVersionRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateDocumentationVersionRequestTypeDef(BaseValidatorModel):
     restApiId: str
     documentationVersion: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateDomainNameRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateDomainNameRequestTypeDef(BaseValidatorModel):
     domainName: str
+    domainNameId: Optional[str] = None
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateGatewayResponseRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateGatewayResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     responseType: GatewayResponseTypeType
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateIntegrationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateIntegrationRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateIntegrationResponseRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    resourceId: str
-    httpMethod: str
-    statusCode: str
-    patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateMethodRequestRequestTypeDef(BaseValidatorModel):
-    restApiId: str
-    resourceId: str
-    httpMethod: str
-    patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
-
-class UpdateMethodResponseRequestRequestTypeDef(BaseValidatorModel):
+class UpdateIntegrationResponseRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     httpMethod: str
     statusCode: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateModelRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateMethodRequestTypeDef(BaseValidatorModel):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
+
+
+class UpdateMethodResponseRequestTypeDef(BaseValidatorModel):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+    patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
+
+
+class UpdateModelRequestTypeDef(BaseValidatorModel):
     restApiId: str
     modelName: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateRequestValidatorRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRequestValidatorRequestTypeDef(BaseValidatorModel):
     restApiId: str
     requestValidatorId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateResourceRequestTypeDef(BaseValidatorModel):
     restApiId: str
     resourceId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateRestApiRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRestApiRequestTypeDef(BaseValidatorModel):
     restApiId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateStageRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateStageRequestTypeDef(BaseValidatorModel):
     restApiId: str
     stageName: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateUsagePlanRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateUsagePlanRequestTypeDef(BaseValidatorModel):
     usagePlanId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateUsageRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateUsageRequestTypeDef(BaseValidatorModel):
     usagePlanId: str
     keyId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
 
-class UpdateVpcLinkRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateVpcLinkRequestTypeDef(BaseValidatorModel):
     vpcLinkId: str
     patchOperations: Optional[Sequence[PatchOperationTypeDef]] = None
+
+
+class RequestValidatorTypeDef(BaseValidatorModel):
+    pass
+
 
 class RequestValidatorsTypeDef(BaseValidatorModel):
     position: str
     items: List[RequestValidatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SdkTypeResponseTypeDef(BaseValidatorModel):
-    id: str
-    friendlyName: str
-    description: str
-    configurationProperties: List[SdkConfigurationPropertyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class SdkTypeTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    friendlyName: Optional[str] = None
-    description: Optional[str] = None
-    configurationProperties: Optional[List[SdkConfigurationPropertyTypeDef]] = None
+class UsagePlanKeyTypeDef(BaseValidatorModel):
+    pass
+
 
 class UsagePlanKeysTypeDef(BaseValidatorModel):
     position: str
     items: List[UsagePlanKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class VpcLinkTypeDef(BaseValidatorModel):
+    pass
+
+
 class VpcLinksTypeDef(BaseValidatorModel):
     position: str
     items: List[VpcLinkTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UsagePlanResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    description: str
-    apiStages: List[ApiStageOutputTypeDef]
-    throttle: ThrottleSettingsTypeDef
-    quota: QuotaSettingsTypeDef
-    productCode: str
-    tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class UsagePlanTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+class CanarySettingsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateStageRequestTypeDef(BaseValidatorModel):
+    restApiId: str
+    stageName: str
+    deploymentId: str
     description: Optional[str] = None
-    apiStages: Optional[List[ApiStageOutputTypeDef]] = None
-    throttle: Optional[ThrottleSettingsTypeDef] = None
-    quota: Optional[QuotaSettingsTypeDef] = None
-    productCode: Optional[str] = None
-    tags: Optional[Dict[str, str]] = None
+    cacheClusterEnabled: Optional[bool] = None
+    cacheClusterSize: Optional[CacheClusterSizeType] = None
+    variables: Optional[Mapping[str, str]] = None
+    documentationVersion: Optional[str] = None
+    canarySettings: Optional[CanarySettingsUnionTypeDef] = None
+    tracingEnabled: Optional[bool] = None
+    tags: Optional[Mapping[str, str]] = None
+
+
+class DocumentationPartTypeDef(BaseValidatorModel):
+    pass
+
 
 class DocumentationPartsTypeDef(BaseValidatorModel):
     position: str
     items: List[DocumentationPartTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class DeploymentTypeDef(BaseValidatorModel):
+    pass
+
+
 class DeploymentsTypeDef(BaseValidatorModel):
     position: str
     items: List[DeploymentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class RestApiTypeDef(BaseValidatorModel):
+    pass
+
 
 class RestApisTypeDef(BaseValidatorModel):
     position: str
     items: List[RestApiTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DomainNamesTypeDef(BaseValidatorModel):
     position: str
     items: List[DomainNameTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class MethodExtraResponseTypeDef(BaseValidatorModel):
+
+class EndpointConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateDomainNameRequestTypeDef(BaseValidatorModel):
+    domainName: str
+    certificateName: Optional[str] = None
+    certificateBody: Optional[str] = None
+    certificatePrivateKey: Optional[str] = None
+    certificateChain: Optional[str] = None
+    certificateArn: Optional[str] = None
+    regionalCertificateName: Optional[str] = None
+    regionalCertificateArn: Optional[str] = None
+    endpointConfiguration: Optional[EndpointConfigurationUnionTypeDef] = None
+    tags: Optional[Mapping[str, str]] = None
+    securityPolicy: Optional[SecurityPolicyType] = None
+    mutualTlsAuthentication: Optional[MutualTlsAuthenticationInputTypeDef] = None
+    ownershipVerificationCertificateArn: Optional[str] = None
+    policy: Optional[str] = None
+
+
+class CreateRestApiRequestTypeDef(BaseValidatorModel):
+    name: str
+    description: Optional[str] = None
+    version: Optional[str] = None
+    cloneFrom: Optional[str] = None
+    binaryMediaTypes: Optional[Sequence[str]] = None
+    minimumCompressionSize: Optional[int] = None
+    apiKeySource: Optional[ApiKeySourceTypeType] = None
+    endpointConfiguration: Optional[EndpointConfigurationUnionTypeDef] = None
+    policy: Optional[str] = None
+    tags: Optional[Mapping[str, str]] = None
+    disableExecuteApiEndpoint: Optional[bool] = None
+
+
+class IntegrationTypeDef(BaseValidatorModel):
+    pass
+
+
+class MethodResponseExtraTypeDef(BaseValidatorModel):
     httpMethod: str
     authorizationType: str
     authorizerId: str
@@ -1402,6 +1396,7 @@ class MethodExtraResponseTypeDef(BaseValidatorModel):
     methodIntegration: IntegrationTypeDef
     authorizationScopes: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class MethodTypeDef(BaseValidatorModel):
     httpMethod: Optional[str] = None
@@ -1416,21 +1411,37 @@ class MethodTypeDef(BaseValidatorModel):
     methodIntegration: Optional[IntegrationTypeDef] = None
     authorizationScopes: Optional[List[str]] = None
 
+
 class StagesTypeDef(BaseValidatorModel):
     item: List[StageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class SdkTypeTypeDef(BaseValidatorModel):
+    pass
+
 
 class SdkTypesTypeDef(BaseValidatorModel):
     position: str
     items: List[SdkTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class UsagePlanTypeDef(BaseValidatorModel):
+    pass
+
+
 class UsagePlansTypeDef(BaseValidatorModel):
     position: str
     items: List[UsagePlanTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateUsagePlanRequestRequestTypeDef(BaseValidatorModel):
+
+class ApiStageUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateUsagePlanRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     apiStages: Optional[Sequence[ApiStageUnionTypeDef]] = None
@@ -1438,23 +1449,14 @@ class CreateUsagePlanRequestRequestTypeDef(BaseValidatorModel):
     quota: Optional[QuotaSettingsTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
 
-class ResourceResponseTypeDef(BaseValidatorModel):
-    id: str
-    parentId: str
-    pathPart: str
-    path: str
-    resourceMethods: Dict[str, MethodTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ResourceTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    parentId: Optional[str] = None
-    pathPart: Optional[str] = None
-    path: Optional[str] = None
-    resourceMethods: Optional[Dict[str, MethodTypeDef]] = None
+    pass
+
 
 class ResourcesTypeDef(BaseValidatorModel):
     position: str
     items: List[ResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 

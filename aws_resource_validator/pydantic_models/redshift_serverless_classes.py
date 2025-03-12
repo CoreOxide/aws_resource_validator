@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -17,13 +18,16 @@ class AssociationTypeDef(BaseValidatorModel):
     customDomainName: Optional[str] = None
     workgroupName: Optional[str] = None
 
+
 class ConfigParameterTypeDef(BaseValidatorModel):
     parameterKey: Optional[str] = None
     parameterValue: Optional[str] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -31,6 +35,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
     HostId: Optional[str] = None
+
 
 class SnapshotTypeDef(BaseValidatorModel):
     accountsWithProvisionedRestoreAccess: Optional[List[str]] = None
@@ -56,17 +61,20 @@ class SnapshotTypeDef(BaseValidatorModel):
     status: Optional[SnapshotStatusType] = None
     totalBackupSizeInMegaBytes: Optional[float] = None
 
-class CreateCustomDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateCustomDomainAssociationRequestTypeDef(BaseValidatorModel):
     customDomainCertificateArn: str
     customDomainName: str
     workgroupName: str
 
-class CreateEndpointAccessRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateEndpointAccessRequestTypeDef(BaseValidatorModel):
     endpointName: str
     subnetIds: Sequence[str]
     workgroupName: str
     ownerAccount: Optional[str] = None
     vpcSecurityGroupIds: Optional[Sequence[str]] = None
+
 
 class NamespaceTypeDef(BaseValidatorModel):
     adminPasswordSecretArn: Optional[str] = None
@@ -83,11 +91,13 @@ class NamespaceTypeDef(BaseValidatorModel):
     namespaceName: Optional[str] = None
     status: Optional[NamespaceStatusType] = None
 
-class CreateSnapshotCopyConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateSnapshotCopyConfigurationRequestTypeDef(BaseValidatorModel):
     destinationRegion: str
     namespaceName: str
     destinationKmsKeyId: Optional[str] = None
     snapshotRetentionPeriod: Optional[int] = None
+
 
 class SnapshotCopyConfigurationTypeDef(BaseValidatorModel):
     destinationKmsKeyId: Optional[str] = None
@@ -97,12 +107,14 @@ class SnapshotCopyConfigurationTypeDef(BaseValidatorModel):
     snapshotCopyConfigurationId: Optional[str] = None
     snapshotRetentionPeriod: Optional[int] = None
 
-class CreateUsageLimitRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateUsageLimitRequestTypeDef(BaseValidatorModel):
     amount: int
     resourceArn: str
     usageType: UsageLimitUsageTypeType
     breachAction: Optional[UsageLimitBreachActionType] = None
     period: Optional[UsageLimitPeriodType] = None
+
 
 class UsageLimitTypeDef(BaseValidatorModel):
     amount: Optional[int] = None
@@ -113,58 +125,79 @@ class UsageLimitTypeDef(BaseValidatorModel):
     usageLimitId: Optional[str] = None
     usageType: Optional[UsageLimitUsageTypeType] = None
 
-class DeleteCustomDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class PerformanceTargetTypeDef(BaseValidatorModel):
+    level: Optional[int] = None
+    status: Optional[PerformanceTargetStatusType] = None
+
+
+class DeleteCustomDomainAssociationRequestTypeDef(BaseValidatorModel):
     customDomainName: str
     workgroupName: str
 
-class DeleteEndpointAccessRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteEndpointAccessRequestTypeDef(BaseValidatorModel):
     endpointName: str
 
-class DeleteNamespaceRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteNamespaceRequestTypeDef(BaseValidatorModel):
     namespaceName: str
     finalSnapshotName: Optional[str] = None
     finalSnapshotRetentionPeriod: Optional[int] = None
 
-class DeleteResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class DeleteScheduledActionRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteScheduledActionRequestTypeDef(BaseValidatorModel):
     scheduledActionName: str
 
-class DeleteSnapshotCopyConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteSnapshotCopyConfigurationRequestTypeDef(BaseValidatorModel):
     snapshotCopyConfigurationId: str
 
-class DeleteSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteSnapshotRequestTypeDef(BaseValidatorModel):
     snapshotName: str
 
-class DeleteUsageLimitRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteUsageLimitRequestTypeDef(BaseValidatorModel):
     usageLimitId: str
 
-class DeleteWorkgroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteWorkgroupRequestTypeDef(BaseValidatorModel):
     workgroupName: str
+
 
 class VpcSecurityGroupMembershipTypeDef(BaseValidatorModel):
     status: Optional[str] = None
     vpcSecurityGroupId: Optional[str] = None
 
-class GetCredentialsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCredentialsRequestTypeDef(BaseValidatorModel):
     customDomainName: Optional[str] = None
     dbName: Optional[str] = None
     durationSeconds: Optional[int] = None
     workgroupName: Optional[str] = None
 
-class GetCustomDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCustomDomainAssociationRequestTypeDef(BaseValidatorModel):
     customDomainName: str
     workgroupName: str
 
-class GetEndpointAccessRequestRequestTypeDef(BaseValidatorModel):
+
+class GetEndpointAccessRequestTypeDef(BaseValidatorModel):
     endpointName: str
 
-class GetNamespaceRequestRequestTypeDef(BaseValidatorModel):
+
+class GetNamespaceRequestTypeDef(BaseValidatorModel):
     namespaceName: str
 
-class GetRecoveryPointRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRecoveryPointRequestTypeDef(BaseValidatorModel):
     recoveryPointId: str
+
 
 class RecoveryPointTypeDef(BaseValidatorModel):
     namespaceArn: Optional[str] = None
@@ -174,23 +207,29 @@ class RecoveryPointTypeDef(BaseValidatorModel):
     totalSizeInMegaBytes: Optional[float] = None
     workgroupName: Optional[str] = None
 
-class GetResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
     resourceArn: str
+
 
 class ResourcePolicyTypeDef(BaseValidatorModel):
     policy: Optional[str] = None
     resourceArn: Optional[str] = None
 
-class GetScheduledActionRequestRequestTypeDef(BaseValidatorModel):
+
+class GetScheduledActionRequestTypeDef(BaseValidatorModel):
     scheduledActionName: str
 
-class GetSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class GetSnapshotRequestTypeDef(BaseValidatorModel):
     ownerAccount: Optional[str] = None
     snapshotArn: Optional[str] = None
     snapshotName: Optional[str] = None
 
-class GetTableRestoreStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTableRestoreStatusRequestTypeDef(BaseValidatorModel):
     tableRestoreRequestId: str
+
 
 class TableRestoreStatusTypeDef(BaseValidatorModel):
     message: Optional[str] = None
@@ -210,84 +249,125 @@ class TableRestoreStatusTypeDef(BaseValidatorModel):
     totalDataInMegaBytes: Optional[int] = None
     workgroupName: Optional[str] = None
 
-class GetUsageLimitRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTrackRequestTypeDef(BaseValidatorModel):
+    trackName: str
+
+
+class GetUsageLimitRequestTypeDef(BaseValidatorModel):
     usageLimitId: str
 
-class GetWorkgroupRequestRequestTypeDef(BaseValidatorModel):
+
+class GetWorkgroupRequestTypeDef(BaseValidatorModel):
     workgroupName: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListCustomDomainAssociationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCustomDomainAssociationsRequestTypeDef(BaseValidatorModel):
     customDomainCertificateArn: Optional[str] = None
     customDomainName: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListEndpointAccessRequestRequestTypeDef(BaseValidatorModel):
+
+class ListEndpointAccessRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     ownerAccount: Optional[str] = None
     vpcId: Optional[str] = None
     workgroupName: Optional[str] = None
 
-class ListNamespacesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListManagedWorkgroupsRequestTypeDef(BaseValidatorModel):
+    maxResults: Optional[int] = None
+    nextToken: Optional[str] = None
+    sourceArn: Optional[str] = None
+
+
+class ManagedWorkgroupListItemTypeDef(BaseValidatorModel):
+    creationDate: Optional[datetime] = None
+    managedWorkgroupId: Optional[str] = None
+    managedWorkgroupName: Optional[str] = None
+    sourceArn: Optional[str] = None
+    status: Optional[ManagedWorkgroupStatusType] = None
+
+
+class ListNamespacesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListScheduledActionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListScheduledActionsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     namespaceName: Optional[str] = None
     nextToken: Optional[str] = None
+
 
 class ScheduledActionAssociationTypeDef(BaseValidatorModel):
     namespaceName: Optional[str] = None
     scheduledActionName: Optional[str] = None
 
-class ListSnapshotCopyConfigurationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSnapshotCopyConfigurationsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     namespaceName: Optional[str] = None
     nextToken: Optional[str] = None
 
-class ListTableRestoreStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTableRestoreStatusRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     namespaceName: Optional[str] = None
     nextToken: Optional[str] = None
     workgroupName: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListUsageLimitsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTracksRequestTypeDef(BaseValidatorModel):
+    maxResults: Optional[int] = None
+    nextToken: Optional[str] = None
+
+
+class ListUsageLimitsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     resourceArn: Optional[str] = None
     usageType: Optional[UsageLimitUsageTypeType] = None
 
-class ListWorkgroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListWorkgroupsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     ownerAccount: Optional[str] = None
 
+
 class NetworkInterfaceTypeDef(BaseValidatorModel):
     availabilityZone: Optional[str] = None
+    ipv6Address: Optional[str] = None
     networkInterfaceId: Optional[str] = None
     privateIpAddress: Optional[str] = None
     subnetId: Optional[str] = None
 
-class PutResourcePolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
     policy: str
     resourceArn: str
 
-class RestoreFromRecoveryPointRequestRequestTypeDef(BaseValidatorModel):
+
+class RestoreFromRecoveryPointRequestTypeDef(BaseValidatorModel):
     namespaceName: str
     recoveryPointId: str
     workgroupName: str
 
-class RestoreFromSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class RestoreFromSnapshotRequestTypeDef(BaseValidatorModel):
     namespaceName: str
     workgroupName: str
     adminPasswordSecretKmsKeyId: Optional[str] = None
@@ -296,7 +376,8 @@ class RestoreFromSnapshotRequestRequestTypeDef(BaseValidatorModel):
     snapshotArn: Optional[str] = None
     snapshotName: Optional[str] = None
 
-class RestoreTableFromRecoveryPointRequestRequestTypeDef(BaseValidatorModel):
+
+class RestoreTableFromRecoveryPointRequestTypeDef(BaseValidatorModel):
     namespaceName: str
     newTableName: str
     recoveryPointId: str
@@ -308,7 +389,8 @@ class RestoreTableFromRecoveryPointRequestRequestTypeDef(BaseValidatorModel):
     targetDatabaseName: Optional[str] = None
     targetSchemaName: Optional[str] = None
 
-class RestoreTableFromSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class RestoreTableFromSnapshotRequestTypeDef(BaseValidatorModel):
     namespaceName: str
     newTableName: str
     snapshotName: str
@@ -320,24 +402,34 @@ class RestoreTableFromSnapshotRequestRequestTypeDef(BaseValidatorModel):
     targetDatabaseName: Optional[str] = None
     targetSchemaName: Optional[str] = None
 
+
 class ScheduleOutputTypeDef(BaseValidatorModel):
     at: Optional[datetime] = None
     cron: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateTargetTypeDef(BaseValidatorModel):
+    trackName: Optional[str] = None
+    workgroupVersion: Optional[str] = None
+
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateCustomDomainAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateCustomDomainAssociationRequestTypeDef(BaseValidatorModel):
     customDomainCertificateArn: str
     customDomainName: str
     workgroupName: str
 
-class UpdateEndpointAccessRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateEndpointAccessRequestTypeDef(BaseValidatorModel):
     endpointName: str
     vpcSecurityGroupIds: Optional[Sequence[str]] = None
 
-class UpdateNamespaceRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateNamespaceRequestTypeDef(BaseValidatorModel):
     namespaceName: str
     adminPasswordSecretKmsKeyId: Optional[str] = None
     adminUserPassword: Optional[str] = None
@@ -348,37 +440,31 @@ class UpdateNamespaceRequestRequestTypeDef(BaseValidatorModel):
     logExports: Optional[Sequence[LogExportType]] = None
     manageAdminPassword: Optional[bool] = None
 
-class UpdateSnapshotCopyConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateSnapshotCopyConfigurationRequestTypeDef(BaseValidatorModel):
     snapshotCopyConfigurationId: str
     snapshotRetentionPeriod: Optional[int] = None
 
-class UpdateSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateSnapshotRequestTypeDef(BaseValidatorModel):
     snapshotName: str
     retentionPeriod: Optional[int] = None
 
-class UpdateUsageLimitRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateUsageLimitRequestTypeDef(BaseValidatorModel):
     usageLimitId: str
     amount: Optional[int] = None
     breachAction: Optional[UsageLimitBreachActionType] = None
 
-class UpdateWorkgroupRequestRequestTypeDef(BaseValidatorModel):
-    workgroupName: str
-    baseCapacity: Optional[int] = None
-    configParameters: Optional[Sequence[ConfigParameterTypeDef]] = None
-    enhancedVpcRouting: Optional[bool] = None
-    maxCapacity: Optional[int] = None
-    port: Optional[int] = None
-    publiclyAccessible: Optional[bool] = None
-    securityGroupIds: Optional[Sequence[str]] = None
-    subnetIds: Optional[Sequence[str]] = None
 
-class ConvertRecoveryPointToSnapshotRequestRequestTypeDef(BaseValidatorModel):
+class ConvertRecoveryPointToSnapshotRequestTypeDef(BaseValidatorModel):
     recoveryPointId: str
     snapshotName: str
     retentionPeriod: Optional[int] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateNamespaceRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateNamespaceRequestTypeDef(BaseValidatorModel):
     namespaceName: str
     adminPasswordSecretKmsKeyId: Optional[str] = None
     adminUserPassword: Optional[str] = None
@@ -392,11 +478,13 @@ class CreateNamespaceRequestRequestTypeDef(BaseValidatorModel):
     redshiftIdcApplicationArn: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateSnapshotRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateSnapshotRequestTypeDef(BaseValidatorModel):
     namespaceName: str
     snapshotName: str
     retentionPeriod: Optional[int] = None
     tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class CreateSnapshotScheduleActionParametersOutputTypeDef(BaseValidatorModel):
     namespaceName: str
@@ -404,28 +492,18 @@ class CreateSnapshotScheduleActionParametersOutputTypeDef(BaseValidatorModel):
     retentionPeriod: Optional[int] = None
     tags: Optional[List[TagTypeDef]] = None
 
+
 class CreateSnapshotScheduleActionParametersTypeDef(BaseValidatorModel):
     namespaceName: str
     snapshotNamePrefix: str
     retentionPeriod: Optional[int] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateWorkgroupRequestRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
-    workgroupName: str
-    baseCapacity: Optional[int] = None
-    configParameters: Optional[Sequence[ConfigParameterTypeDef]] = None
-    enhancedVpcRouting: Optional[bool] = None
-    maxCapacity: Optional[int] = None
-    port: Optional[int] = None
-    publiclyAccessible: Optional[bool] = None
-    securityGroupIds: Optional[Sequence[str]] = None
-    subnetIds: Optional[Sequence[str]] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
+
 
 class CreateCustomDomainAssociationResponseTypeDef(BaseValidatorModel):
     customDomainCertificateArn: str
@@ -434,12 +512,14 @@ class CreateCustomDomainAssociationResponseTypeDef(BaseValidatorModel):
     workgroupName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetCredentialsResponseTypeDef(BaseValidatorModel):
     dbPassword: str
     dbUser: str
     expiration: datetime
     nextRefreshTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetCustomDomainAssociationResponseTypeDef(BaseValidatorModel):
     customDomainCertificateArn: str
@@ -448,14 +528,17 @@ class GetCustomDomainAssociationResponseTypeDef(BaseValidatorModel):
     workgroupName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListCustomDomainAssociationsResponseTypeDef(BaseValidatorModel):
     associations: List[AssociationTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateCustomDomainAssociationResponseTypeDef(BaseValidatorModel):
     customDomainCertificateArn: str
@@ -464,52 +547,64 @@ class UpdateCustomDomainAssociationResponseTypeDef(BaseValidatorModel):
     workgroupName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ConvertRecoveryPointToSnapshotResponseTypeDef(BaseValidatorModel):
     snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateSnapshotResponseTypeDef(BaseValidatorModel):
     snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteSnapshotResponseTypeDef(BaseValidatorModel):
     snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetSnapshotResponseTypeDef(BaseValidatorModel):
     snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListSnapshotsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     snapshots: List[SnapshotTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateSnapshotResponseTypeDef(BaseValidatorModel):
     snapshot: SnapshotTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateNamespaceResponseTypeDef(BaseValidatorModel):
     namespace: NamespaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteNamespaceResponseTypeDef(BaseValidatorModel):
     namespace: NamespaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetNamespaceResponseTypeDef(BaseValidatorModel):
     namespace: NamespaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListNamespacesResponseTypeDef(BaseValidatorModel):
     namespaces: List[NamespaceTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class RestoreFromRecoveryPointResponseTypeDef(BaseValidatorModel):
     namespace: NamespaceTypeDef
     recoveryPointId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class RestoreFromSnapshotResponseTypeDef(BaseValidatorModel):
     namespace: NamespaceTypeDef
@@ -517,11 +612,17 @@ class RestoreFromSnapshotResponseTypeDef(BaseValidatorModel):
     snapshotName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateNamespaceResponseTypeDef(BaseValidatorModel):
     namespace: NamespaceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRecoveryPointsRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListRecoveryPointsRequestTypeDef(BaseValidatorModel):
     endTime: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
     namespaceArn: Optional[str] = None
@@ -529,7 +630,8 @@ class ListRecoveryPointsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     startTime: Optional[TimestampTypeDef] = None
 
-class ListSnapshotsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSnapshotsRequestTypeDef(BaseValidatorModel):
     endTime: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
     namespaceArn: Optional[str] = None
@@ -537,113 +639,175 @@ class ListSnapshotsRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     ownerAccount: Optional[str] = None
     startTime: Optional[TimestampTypeDef] = None
+
 
 class ScheduleTypeDef(BaseValidatorModel):
     at: Optional[TimestampTypeDef] = None
     cron: Optional[str] = None
 
+
 class CreateSnapshotCopyConfigurationResponseTypeDef(BaseValidatorModel):
     snapshotCopyConfiguration: SnapshotCopyConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteSnapshotCopyConfigurationResponseTypeDef(BaseValidatorModel):
     snapshotCopyConfiguration: SnapshotCopyConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListSnapshotCopyConfigurationsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     snapshotCopyConfigurations: List[SnapshotCopyConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateSnapshotCopyConfigurationResponseTypeDef(BaseValidatorModel):
     snapshotCopyConfiguration: SnapshotCopyConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateUsageLimitResponseTypeDef(BaseValidatorModel):
     usageLimit: UsageLimitTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteUsageLimitResponseTypeDef(BaseValidatorModel):
     usageLimit: UsageLimitTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetUsageLimitResponseTypeDef(BaseValidatorModel):
     usageLimit: UsageLimitTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListUsageLimitsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     usageLimits: List[UsageLimitTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateUsageLimitResponseTypeDef(BaseValidatorModel):
     usageLimit: UsageLimitTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class CreateWorkgroupRequestTypeDef(BaseValidatorModel):
+    namespaceName: str
+    workgroupName: str
+    baseCapacity: Optional[int] = None
+    configParameters: Optional[Sequence[ConfigParameterTypeDef]] = None
+    enhancedVpcRouting: Optional[bool] = None
+    ipAddressType: Optional[str] = None
+    maxCapacity: Optional[int] = None
+    port: Optional[int] = None
+    pricePerformanceTarget: Optional[PerformanceTargetTypeDef] = None
+    publiclyAccessible: Optional[bool] = None
+    securityGroupIds: Optional[Sequence[str]] = None
+    subnetIds: Optional[Sequence[str]] = None
+    tags: Optional[Sequence[TagTypeDef]] = None
+    trackName: Optional[str] = None
+
+
+class UpdateWorkgroupRequestTypeDef(BaseValidatorModel):
+    workgroupName: str
+    baseCapacity: Optional[int] = None
+    configParameters: Optional[Sequence[ConfigParameterTypeDef]] = None
+    enhancedVpcRouting: Optional[bool] = None
+    ipAddressType: Optional[str] = None
+    maxCapacity: Optional[int] = None
+    port: Optional[int] = None
+    pricePerformanceTarget: Optional[PerformanceTargetTypeDef] = None
+    publiclyAccessible: Optional[bool] = None
+    securityGroupIds: Optional[Sequence[str]] = None
+    subnetIds: Optional[Sequence[str]] = None
+    trackName: Optional[str] = None
+
+
 class GetRecoveryPointResponseTypeDef(BaseValidatorModel):
     recoveryPoint: RecoveryPointTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListRecoveryPointsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     recoveryPoints: List[RecoveryPointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourcePolicy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
     resourcePolicy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetTableRestoreStatusResponseTypeDef(BaseValidatorModel):
     tableRestoreStatus: TableRestoreStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTableRestoreStatusResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     tableRestoreStatuses: List[TableRestoreStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class RestoreTableFromRecoveryPointResponseTypeDef(BaseValidatorModel):
     tableRestoreStatus: TableRestoreStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class RestoreTableFromSnapshotResponseTypeDef(BaseValidatorModel):
     tableRestoreStatus: TableRestoreStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListCustomDomainAssociationsRequestListCustomDomainAssociationsPaginateTypeDef(BaseValidatorModel):
+
+class ListCustomDomainAssociationsRequestPaginateTypeDef(BaseValidatorModel):
     customDomainCertificateArn: Optional[str] = None
     customDomainName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEndpointAccessRequestListEndpointAccessPaginateTypeDef(BaseValidatorModel):
+
+class ListEndpointAccessRequestPaginateTypeDef(BaseValidatorModel):
     ownerAccount: Optional[str] = None
     vpcId: Optional[str] = None
     workgroupName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListNamespacesRequestListNamespacesPaginateTypeDef(BaseValidatorModel):
+
+class ListManagedWorkgroupsRequestPaginateTypeDef(BaseValidatorModel):
+    sourceArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRecoveryPointsRequestListRecoveryPointsPaginateTypeDef(BaseValidatorModel):
+
+class ListNamespacesRequestPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListRecoveryPointsRequestPaginateTypeDef(BaseValidatorModel):
     endTime: Optional[TimestampTypeDef] = None
     namespaceArn: Optional[str] = None
     namespaceName: Optional[str] = None
     startTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListScheduledActionsRequestListScheduledActionsPaginateTypeDef(BaseValidatorModel):
+
+class ListScheduledActionsRequestPaginateTypeDef(BaseValidatorModel):
     namespaceName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSnapshotCopyConfigurationsRequestListSnapshotCopyConfigurationsPaginateTypeDef(BaseValidatorModel):
+
+class ListSnapshotCopyConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
     namespaceName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSnapshotsRequestListSnapshotsPaginateTypeDef(BaseValidatorModel):
+
+class ListSnapshotsRequestPaginateTypeDef(BaseValidatorModel):
     endTime: Optional[TimestampTypeDef] = None
     namespaceArn: Optional[str] = None
     namespaceName: Optional[str] = None
@@ -651,35 +815,59 @@ class ListSnapshotsRequestListSnapshotsPaginateTypeDef(BaseValidatorModel):
     startTime: Optional[TimestampTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTableRestoreStatusRequestListTableRestoreStatusPaginateTypeDef(BaseValidatorModel):
+
+class ListTableRestoreStatusRequestPaginateTypeDef(BaseValidatorModel):
     namespaceName: Optional[str] = None
     workgroupName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListUsageLimitsRequestListUsageLimitsPaginateTypeDef(BaseValidatorModel):
+
+class ListTracksRequestPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListUsageLimitsRequestPaginateTypeDef(BaseValidatorModel):
     resourceArn: Optional[str] = None
     usageType: Optional[UsageLimitUsageTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkgroupsRequestListWorkgroupsPaginateTypeDef(BaseValidatorModel):
+
+class ListWorkgroupsRequestPaginateTypeDef(BaseValidatorModel):
     ownerAccount: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
+class ListManagedWorkgroupsResponseTypeDef(BaseValidatorModel):
+    managedWorkgroups: List[ManagedWorkgroupListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
 class ListScheduledActionsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     scheduledActions: List[ScheduledActionAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class VpcEndpointTypeDef(BaseValidatorModel):
     networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
     vpcEndpointId: Optional[str] = None
     vpcId: Optional[str] = None
 
+
+class ServerlessTrackTypeDef(BaseValidatorModel):
+    trackName: Optional[str] = None
+    updateTargets: Optional[List[UpdateTargetTypeDef]] = None
+    workgroupVersion: Optional[str] = None
+
+
 class TargetActionOutputTypeDef(BaseValidatorModel):
     createSnapshot: Optional[CreateSnapshotScheduleActionParametersOutputTypeDef] = None
 
+
 class TargetActionTypeDef(BaseValidatorModel):
     createSnapshot: Optional[CreateSnapshotScheduleActionParametersTypeDef] = None
+
 
 class EndpointAccessTypeDef(BaseValidatorModel):
     address: Optional[str] = None
@@ -693,10 +881,23 @@ class EndpointAccessTypeDef(BaseValidatorModel):
     vpcSecurityGroups: Optional[List[VpcSecurityGroupMembershipTypeDef]] = None
     workgroupName: Optional[str] = None
 
+
 class EndpointTypeDef(BaseValidatorModel):
     address: Optional[str] = None
     port: Optional[int] = None
     vpcEndpoints: Optional[List[VpcEndpointTypeDef]] = None
+
+
+class GetTrackResponseTypeDef(BaseValidatorModel):
+    track: ServerlessTrackTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListTracksResponseTypeDef(BaseValidatorModel):
+    tracks: List[ServerlessTrackTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ScheduledActionResponseTypeDef(BaseValidatorModel):
     endTime: Optional[datetime] = None
@@ -711,47 +912,32 @@ class ScheduledActionResponseTypeDef(BaseValidatorModel):
     state: Optional[StateType] = None
     targetAction: Optional[TargetActionOutputTypeDef] = None
 
-class CreateScheduledActionRequestRequestTypeDef(BaseValidatorModel):
-    namespaceName: str
-    roleArn: str
-    schedule: ScheduleTypeDef
-    scheduledActionName: str
-    targetAction: TargetActionTypeDef
-    enabled: Optional[bool] = None
-    endTime: Optional[TimestampTypeDef] = None
-    scheduledActionDescription: Optional[str] = None
-    startTime: Optional[TimestampTypeDef] = None
-
-class UpdateScheduledActionRequestRequestTypeDef(BaseValidatorModel):
-    scheduledActionName: str
-    enabled: Optional[bool] = None
-    endTime: Optional[TimestampTypeDef] = None
-    roleArn: Optional[str] = None
-    schedule: Optional[ScheduleTypeDef] = None
-    scheduledActionDescription: Optional[str] = None
-    startTime: Optional[TimestampTypeDef] = None
-    targetAction: Optional[TargetActionTypeDef] = None
 
 class CreateEndpointAccessResponseTypeDef(BaseValidatorModel):
     endpoint: EndpointAccessTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteEndpointAccessResponseTypeDef(BaseValidatorModel):
     endpoint: EndpointAccessTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetEndpointAccessResponseTypeDef(BaseValidatorModel):
     endpoint: EndpointAccessTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListEndpointAccessResponseTypeDef(BaseValidatorModel):
     endpoints: List[EndpointAccessTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateEndpointAccessResponseTypeDef(BaseValidatorModel):
     endpoint: EndpointAccessTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class WorkgroupTypeDef(BaseValidatorModel):
     baseCapacity: Optional[int] = None
@@ -763,53 +949,98 @@ class WorkgroupTypeDef(BaseValidatorModel):
     customDomainName: Optional[str] = None
     endpoint: Optional[EndpointTypeDef] = None
     enhancedVpcRouting: Optional[bool] = None
+    ipAddressType: Optional[str] = None
     maxCapacity: Optional[int] = None
     namespaceName: Optional[str] = None
     patchVersion: Optional[str] = None
+    pendingTrackName: Optional[str] = None
     port: Optional[int] = None
+    pricePerformanceTarget: Optional[PerformanceTargetTypeDef] = None
     publiclyAccessible: Optional[bool] = None
     securityGroupIds: Optional[List[str]] = None
     status: Optional[WorkgroupStatusType] = None
     subnetIds: Optional[List[str]] = None
+    trackName: Optional[str] = None
     workgroupArn: Optional[str] = None
     workgroupId: Optional[str] = None
     workgroupName: Optional[str] = None
     workgroupVersion: Optional[str] = None
 
+
 class CreateScheduledActionResponseTypeDef(BaseValidatorModel):
     scheduledAction: ScheduledActionResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteScheduledActionResponseTypeDef(BaseValidatorModel):
     scheduledAction: ScheduledActionResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetScheduledActionResponseTypeDef(BaseValidatorModel):
     scheduledAction: ScheduledActionResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateScheduledActionResponseTypeDef(BaseValidatorModel):
     scheduledAction: ScheduledActionResponseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class TargetActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ScheduleUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateScheduledActionRequestTypeDef(BaseValidatorModel):
+    namespaceName: str
+    roleArn: str
+    schedule: ScheduleUnionTypeDef
+    scheduledActionName: str
+    targetAction: TargetActionUnionTypeDef
+    enabled: Optional[bool] = None
+    endTime: Optional[TimestampTypeDef] = None
+    scheduledActionDescription: Optional[str] = None
+    startTime: Optional[TimestampTypeDef] = None
+
+
+class UpdateScheduledActionRequestTypeDef(BaseValidatorModel):
+    scheduledActionName: str
+    enabled: Optional[bool] = None
+    endTime: Optional[TimestampTypeDef] = None
+    roleArn: Optional[str] = None
+    schedule: Optional[ScheduleUnionTypeDef] = None
+    scheduledActionDescription: Optional[str] = None
+    startTime: Optional[TimestampTypeDef] = None
+    targetAction: Optional[TargetActionUnionTypeDef] = None
+
+
 class CreateWorkgroupResponseTypeDef(BaseValidatorModel):
     workgroup: WorkgroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteWorkgroupResponseTypeDef(BaseValidatorModel):
     workgroup: WorkgroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetWorkgroupResponseTypeDef(BaseValidatorModel):
     workgroup: WorkgroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListWorkgroupsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     workgroups: List[WorkgroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class UpdateWorkgroupResponseTypeDef(BaseValidatorModel):
     workgroup: WorkgroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

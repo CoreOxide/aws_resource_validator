@@ -1,8 +1,6 @@
-from datetime import datetime
-
-from botocore.response import StreamingBody
-
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -23,12 +21,11 @@ class CopyDestinationImageSetPropertiesTypeDef(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
     imageSetArn: Optional[str] = None
 
+
 class CopyDestinationImageSetTypeDef(BaseValidatorModel):
     imageSetId: str
     latestVersionId: str
 
-class CopySourceImageSetInformationTypeDef(BaseValidatorModel):
-    latestVersionId: str
 
 class CopySourceImageSetPropertiesTypeDef(BaseValidatorModel):
     imageSetId: str
@@ -39,6 +36,7 @@ class CopySourceImageSetPropertiesTypeDef(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
     imageSetArn: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
@@ -46,11 +44,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateDatastoreRequestRequestTypeDef(BaseValidatorModel):
+
+class MetadataCopiesTypeDef(BaseValidatorModel):
+    copiableAttributes: str
+
+
+class CreateDatastoreRequestTypeDef(BaseValidatorModel):
     clientToken: str
     datastoreName: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     kmsKeyArn: Optional[str] = None
+
 
 class DICOMImportJobPropertiesTypeDef(BaseValidatorModel):
     jobId: str
@@ -64,6 +68,7 @@ class DICOMImportJobPropertiesTypeDef(BaseValidatorModel):
     submittedAt: Optional[datetime] = None
     message: Optional[str] = None
 
+
 class DICOMImportJobSummaryTypeDef(BaseValidatorModel):
     jobId: str
     jobName: str
@@ -74,9 +79,11 @@ class DICOMImportJobSummaryTypeDef(BaseValidatorModel):
     submittedAt: Optional[datetime] = None
     message: Optional[str] = None
 
+
 class DICOMStudyDateAndTimeTypeDef(BaseValidatorModel):
     DICOMStudyDate: str
     DICOMStudyTime: Optional[str] = None
+
 
 class DICOMTagsTypeDef(BaseValidatorModel):
     DICOMPatientId: Optional[str] = None
@@ -96,6 +103,7 @@ class DICOMTagsTypeDef(BaseValidatorModel):
     DICOMStudyDate: Optional[str] = None
     DICOMStudyTime: Optional[str] = None
 
+
 class DatastorePropertiesTypeDef(BaseValidatorModel):
     datastoreId: str
     datastoreName: str
@@ -105,6 +113,7 @@ class DatastorePropertiesTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
+
 class DatastoreSummaryTypeDef(BaseValidatorModel):
     datastoreId: str
     datastoreName: str
@@ -113,73 +122,81 @@ class DatastoreSummaryTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
-class DeleteDatastoreRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDatastoreRequestTypeDef(BaseValidatorModel):
     datastoreId: str
 
-class DeleteImageSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteImageSetRequestTypeDef(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
 
-class GetDICOMImportJobRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDICOMImportJobRequestTypeDef(BaseValidatorModel):
     datastoreId: str
     jobId: str
 
-class GetDatastoreRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDatastoreRequestTypeDef(BaseValidatorModel):
     datastoreId: str
+
 
 class ImageFrameInformationTypeDef(BaseValidatorModel):
     imageFrameId: str
 
-class GetImageSetMetadataRequestRequestTypeDef(BaseValidatorModel):
+
+class GetImageSetMetadataRequestTypeDef(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
     versionId: Optional[str] = None
 
-class GetImageSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetImageSetRequestTypeDef(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
     versionId: Optional[str] = None
 
-class ImageSetPropertiesTypeDef(BaseValidatorModel):
-    imageSetId: str
-    versionId: str
-    imageSetState: ImageSetStateType
-    ImageSetWorkflowStatus: Optional[ImageSetWorkflowStatusType] = None
-    createdAt: Optional[datetime] = None
-    updatedAt: Optional[datetime] = None
-    deletedAt: Optional[datetime] = None
-    message: Optional[str] = None
+
+class OverridesTypeDef(BaseValidatorModel):
+    forced: Optional[bool] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListDICOMImportJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDICOMImportJobsRequestTypeDef(BaseValidatorModel):
     datastoreId: str
     jobStatus: Optional[JobStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDatastoresRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDatastoresRequestTypeDef(BaseValidatorModel):
     datastoreStatus: Optional[DatastoreStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListImageSetVersionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListImageSetVersionsRequestTypeDef(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
+
 
 class SortTypeDef(BaseValidatorModel):
     sortOrder: SortOrderType
     sortField: SortFieldType
 
-class StartDICOMImportJobRequestRequestTypeDef(BaseValidatorModel):
+
+class StartDICOMImportJobRequestTypeDef(BaseValidatorModel):
     dataAccessRoleArn: str
     clientToken: str
     datastoreId: str
@@ -188,21 +205,25 @@ class StartDICOMImportJobRequestRequestTypeDef(BaseValidatorModel):
     jobName: Optional[str] = None
     inputOwnerAccountId: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
+
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
 
 class DICOMUpdatesTypeDef(BaseValidatorModel):
     removableAttributes: Optional[BlobTypeDef] = None
     updatableAttributes: Optional[BlobTypeDef] = None
 
-class CopyImageSetInformationTypeDef(BaseValidatorModel):
-    sourceImageSet: CopySourceImageSetInformationTypeDef
-    destinationImageSet: Optional[CopyDestinationImageSetTypeDef] = None
 
 class CopyImageSetResponseTypeDef(BaseValidatorModel):
     datastoreId: str
@@ -210,15 +231,18 @@ class CopyImageSetResponseTypeDef(BaseValidatorModel):
     destinationImageSetProperties: CopyDestinationImageSetPropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateDatastoreResponseTypeDef(BaseValidatorModel):
     datastoreId: str
     datastoreStatus: DatastoreStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteDatastoreResponseTypeDef(BaseValidatorModel):
     datastoreId: str
     datastoreStatus: DatastoreStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteImageSetResponseTypeDef(BaseValidatorModel):
     datastoreId: str
@@ -227,10 +251,12 @@ class DeleteImageSetResponseTypeDef(BaseValidatorModel):
     imageSetWorkflowStatus: ImageSetWorkflowStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetImageFrameResponseTypeDef(BaseValidatorModel):
     imageFrameBlob: StreamingBody
     contentType: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetImageSetMetadataResponseTypeDef(BaseValidatorModel):
     imageSetMetadataBlob: StreamingBody
@@ -238,22 +264,11 @@ class GetImageSetMetadataResponseTypeDef(BaseValidatorModel):
     contentEncoding: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImageSetResponseTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
-    versionId: str
-    imageSetState: ImageSetStateType
-    imageSetWorkflowStatus: ImageSetWorkflowStatusType
-    createdAt: datetime
-    updatedAt: datetime
-    deletedAt: datetime
-    message: str
-    imageSetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartDICOMImportJobResponseTypeDef(BaseValidatorModel):
     datastoreId: str
@@ -261,6 +276,7 @@ class StartDICOMImportJobResponseTypeDef(BaseValidatorModel):
     jobStatus: JobStatusType
     submittedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateImageSetMetadataResponseTypeDef(BaseValidatorModel):
     datastoreId: str
@@ -273,14 +289,22 @@ class UpdateImageSetMetadataResponseTypeDef(BaseValidatorModel):
     message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class CopySourceImageSetInformationTypeDef(BaseValidatorModel):
+    latestVersionId: str
+    DICOMCopies: Optional[MetadataCopiesTypeDef] = None
+
+
 class GetDICOMImportJobResponseTypeDef(BaseValidatorModel):
     jobProperties: DICOMImportJobPropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListDICOMImportJobsResponseTypeDef(BaseValidatorModel):
     jobSummaries: List[DICOMImportJobSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ImageSetsMetadataSummaryTypeDef(BaseValidatorModel):
     imageSetId: str
@@ -289,38 +313,71 @@ class ImageSetsMetadataSummaryTypeDef(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
     DICOMTags: Optional[DICOMTagsTypeDef] = None
 
+
 class GetDatastoreResponseTypeDef(BaseValidatorModel):
     datastoreProperties: DatastorePropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListDatastoresResponseTypeDef(BaseValidatorModel):
     datastoreSummaries: List[DatastoreSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class GetImageFrameRequestRequestTypeDef(BaseValidatorModel):
+
+class GetImageFrameRequestTypeDef(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
     imageFrameInformation: ImageFrameInformationTypeDef
 
-class ListImageSetVersionsResponseTypeDef(BaseValidatorModel):
-    imageSetPropertiesList: List[ImageSetPropertiesTypeDef]
-    nextToken: str
+
+class GetImageSetResponseTypeDef(BaseValidatorModel):
+    datastoreId: str
+    imageSetId: str
+    versionId: str
+    imageSetState: ImageSetStateType
+    imageSetWorkflowStatus: ImageSetWorkflowStatusType
+    createdAt: datetime
+    updatedAt: datetime
+    deletedAt: datetime
+    message: str
+    imageSetArn: str
+    overrides: OverridesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDICOMImportJobsRequestListDICOMImportJobsPaginateTypeDef(BaseValidatorModel):
+
+class ImageSetPropertiesTypeDef(BaseValidatorModel):
+    imageSetId: str
+    versionId: str
+    imageSetState: ImageSetStateType
+    ImageSetWorkflowStatus: Optional[ImageSetWorkflowStatusType] = None
+    createdAt: Optional[datetime] = None
+    updatedAt: Optional[datetime] = None
+    deletedAt: Optional[datetime] = None
+    message: Optional[str] = None
+    overrides: Optional[OverridesTypeDef] = None
+
+
+class ListDICOMImportJobsRequestPaginateTypeDef(BaseValidatorModel):
     datastoreId: str
     jobStatus: Optional[JobStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDatastoresRequestListDatastoresPaginateTypeDef(BaseValidatorModel):
+
+class ListDatastoresRequestPaginateTypeDef(BaseValidatorModel):
     datastoreStatus: Optional[DatastoreStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListImageSetVersionsRequestListImageSetVersionsPaginateTypeDef(BaseValidatorModel):
+
+class ListImageSetVersionsRequestPaginateTypeDef(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class SearchByAttributeValueTypeDef(BaseValidatorModel):
     DICOMPatientId: Optional[str] = None
@@ -332,42 +389,64 @@ class SearchByAttributeValueTypeDef(BaseValidatorModel):
     updatedAt: Optional[TimestampTypeDef] = None
     DICOMStudyDateAndTime: Optional[DICOMStudyDateAndTimeTypeDef] = None
 
+
 class MetadataUpdatesTypeDef(BaseValidatorModel):
     DICOMUpdates: Optional[DICOMUpdatesTypeDef] = None
+    revertToVersionId: Optional[str] = None
 
-class CopyImageSetRequestRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
-    sourceImageSetId: str
-    copyImageSetInformation: CopyImageSetInformationTypeDef
+
+class CopyImageSetInformationTypeDef(BaseValidatorModel):
+    sourceImageSet: CopySourceImageSetInformationTypeDef
+    destinationImageSet: Optional[CopyDestinationImageSetTypeDef] = None
+
 
 class SearchImageSetsResponseTypeDef(BaseValidatorModel):
     imageSetsMetadataSummaries: List[ImageSetsMetadataSummaryTypeDef]
     sort: SortTypeDef
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class SearchFilterTypeDef(BaseValidatorModel):
-    values: Sequence[SearchByAttributeValueTypeDef]
-    operator: OperatorType
 
-class UpdateImageSetMetadataRequestRequestTypeDef(BaseValidatorModel):
+class ListImageSetVersionsResponseTypeDef(BaseValidatorModel):
+    imageSetPropertiesList: List[ImageSetPropertiesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class UpdateImageSetMetadataRequestTypeDef(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
     latestVersionId: str
     updateImageSetMetadataUpdates: MetadataUpdatesTypeDef
+    force: Optional[bool] = None
+
+
+class CopyImageSetRequestTypeDef(BaseValidatorModel):
+    datastoreId: str
+    sourceImageSetId: str
+    copyImageSetInformation: CopyImageSetInformationTypeDef
+    force: Optional[bool] = None
+
+
+class SearchFilterTypeDef(BaseValidatorModel):
+    pass
+
 
 class SearchCriteriaTypeDef(BaseValidatorModel):
     filters: Optional[Sequence[SearchFilterTypeDef]] = None
     sort: Optional[SortTypeDef] = None
 
-class SearchImageSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class SearchImageSetsRequestPaginateTypeDef(BaseValidatorModel):
+    datastoreId: str
+    searchCriteria: Optional[SearchCriteriaTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class SearchImageSetsRequestTypeDef(BaseValidatorModel):
     datastoreId: str
     searchCriteria: Optional[SearchCriteriaTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class SearchImageSetsRequestSearchImageSetsPaginateTypeDef(BaseValidatorModel):
-    datastoreId: str
-    searchCriteria: Optional[SearchCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 

@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,43 +12,6 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.elbv2_constants import *
 
-class AuthenticateCognitoActionConfigExtraOutputTypeDef(BaseValidatorModel):
-    UserPoolArn: str
-    UserPoolClientId: str
-    UserPoolDomain: str
-    SessionCookieName: Optional[str] = None
-    Scope: Optional[str] = None
-    SessionTimeout: Optional[int] = None
-    AuthenticationRequestExtraParams: Optional[Dict[str, str]] = None
-    OnUnauthenticatedRequest: Optional[       AuthenticateCognitoActionConditionalBehaviorEnumType     ] = None
-
-class AuthenticateOidcActionConfigExtraOutputTypeDef(BaseValidatorModel):
-    Issuer: str
-    AuthorizationEndpoint: str
-    TokenEndpoint: str
-    UserInfoEndpoint: str
-    ClientId: str
-    ClientSecret: Optional[str] = None
-    SessionCookieName: Optional[str] = None
-    Scope: Optional[str] = None
-    SessionTimeout: Optional[int] = None
-    AuthenticationRequestExtraParams: Optional[Dict[str, str]] = None
-    OnUnauthenticatedRequest: Optional[AuthenticateOidcActionConditionalBehaviorEnumType] = None
-    UseExistingClientSecret: Optional[bool] = None
-
-class FixedResponseActionConfigTypeDef(BaseValidatorModel):
-    StatusCode: str
-    MessageBody: Optional[str] = None
-    ContentType: Optional[str] = None
-
-class RedirectActionConfigTypeDef(BaseValidatorModel):
-    StatusCode: RedirectActionStatusCodeEnumType
-    Protocol: Optional[str] = None
-    Port: Optional[str] = None
-    Host: Optional[str] = None
-    Path: Optional[str] = None
-    Query: Optional[str] = None
-
 class AuthenticateCognitoActionConfigOutputTypeDef(BaseValidatorModel):
     UserPoolArn: str
     UserPoolClientId: str
@@ -56,7 +20,8 @@ class AuthenticateCognitoActionConfigOutputTypeDef(BaseValidatorModel):
     Scope: Optional[str] = None
     SessionTimeout: Optional[int] = None
     AuthenticationRequestExtraParams: Optional[Dict[str, str]] = None
-    OnUnauthenticatedRequest: Optional[       AuthenticateCognitoActionConditionalBehaviorEnumType     ] = None
+    OnUnauthenticatedRequest: Optional[AuthenticateCognitoActionConditionalBehaviorEnumType] = None
+
 
 class AuthenticateOidcActionConfigOutputTypeDef(BaseValidatorModel):
     Issuer: str
@@ -72,6 +37,56 @@ class AuthenticateOidcActionConfigOutputTypeDef(BaseValidatorModel):
     OnUnauthenticatedRequest: Optional[AuthenticateOidcActionConditionalBehaviorEnumType] = None
     UseExistingClientSecret: Optional[bool] = None
 
+
+class FixedResponseActionConfigTypeDef(BaseValidatorModel):
+    StatusCode: str
+    MessageBody: Optional[str] = None
+    ContentType: Optional[str] = None
+
+
+class CertificateTypeDef(BaseValidatorModel):
+    CertificateArn: Optional[str] = None
+    IsDefault: Optional[bool] = None
+
+
+class ResponseMetadataTypeDef(BaseValidatorModel):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: Optional[str] = None
+
+
+class TagTypeDef(BaseValidatorModel):
+    Key: str
+    Value: Optional[str] = None
+
+
+class RevocationContentTypeDef(BaseValidatorModel):
+    S3Bucket: Optional[str] = None
+    S3Key: Optional[str] = None
+    S3ObjectVersion: Optional[str] = None
+    RevocationType: Optional[Literal["CRL"]] = None
+
+
+class TrustStoreRevocationTypeDef(BaseValidatorModel):
+    TrustStoreArn: Optional[str] = None
+    RevocationId: Optional[int] = None
+    RevocationType: Optional[Literal["CRL"]] = None
+    NumberOfRevokedEntries: Optional[int] = None
+
+
+class AdministrativeOverrideTypeDef(BaseValidatorModel):
+    State: Optional[TargetAdministrativeOverrideStateEnumType] = None
+    Reason: Optional[TargetAdministrativeOverrideReasonEnumType] = None
+    Description: Optional[str] = None
+
+
+class AnomalyDetectionTypeDef(BaseValidatorModel):
+    Result: Optional[AnomalyResultEnumType] = None
+    MitigationInEffect: Optional[MitigationInEffectEnumType] = None
+
+
 class AuthenticateCognitoActionConfigTypeDef(BaseValidatorModel):
     UserPoolArn: str
     UserPoolClientId: str
@@ -80,7 +95,8 @@ class AuthenticateCognitoActionConfigTypeDef(BaseValidatorModel):
     Scope: Optional[str] = None
     SessionTimeout: Optional[int] = None
     AuthenticationRequestExtraParams: Optional[Mapping[str, str]] = None
-    OnUnauthenticatedRequest: Optional[       AuthenticateCognitoActionConditionalBehaviorEnumType     ] = None
+    OnUnauthenticatedRequest: Optional[AuthenticateCognitoActionConditionalBehaviorEnumType] = None
+
 
 class AuthenticateOidcActionConfigTypeDef(BaseValidatorModel):
     Issuer: str
@@ -96,36 +112,6 @@ class AuthenticateOidcActionConfigTypeDef(BaseValidatorModel):
     OnUnauthenticatedRequest: Optional[AuthenticateOidcActionConditionalBehaviorEnumType] = None
     UseExistingClientSecret: Optional[bool] = None
 
-class CertificateTypeDef(BaseValidatorModel):
-    CertificateArn: Optional[str] = None
-    IsDefault: Optional[bool] = None
-
-class ResponseMetadataTypeDef(BaseValidatorModel):
-    RequestId: str
-    HTTPStatusCode: int
-    HTTPHeaders: Dict[str, str]
-    RetryAttempts: int
-    HostId: Optional[str] = None
-
-class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
-
-class RevocationContentTypeDef(BaseValidatorModel):
-    S3Bucket: Optional[str] = None
-    S3Key: Optional[str] = None
-    S3ObjectVersion: Optional[str] = None
-    RevocationType: Optional[Literal["CRL"]] = None
-
-class TrustStoreRevocationTypeDef(BaseValidatorModel):
-    TrustStoreArn: Optional[str] = None
-    RevocationId: Optional[int] = None
-    RevocationType: Optional[Literal["CRL"]] = None
-    NumberOfRevokedEntries: Optional[int] = None
-
-class AnomalyDetectionTypeDef(BaseValidatorModel):
-    Result: Optional[AnomalyResultEnumType] = None
-    MitigationInEffect: Optional[MitigationInEffectEnumType] = None
 
 class LoadBalancerAddressTypeDef(BaseValidatorModel):
     IpAddress: Optional[str] = None
@@ -133,24 +119,41 @@ class LoadBalancerAddressTypeDef(BaseValidatorModel):
     PrivateIPv4Address: Optional[str] = None
     IPv6Address: Optional[str] = None
 
+
+class CapacityReservationStatusTypeDef(BaseValidatorModel):
+    Code: Optional[CapacityReservationStateEnumType] = None
+    Reason: Optional[str] = None
+
+
 class CipherTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Priority: Optional[int] = None
+
 
 class MutualAuthenticationAttributesTypeDef(BaseValidatorModel):
     Mode: Optional[str] = None
     TrustStoreArn: Optional[str] = None
     IgnoreClientCertificateExpiry: Optional[bool] = None
+    TrustStoreAssociationStatus: Optional[TrustStoreAssociationStatusEnumType] = None
+    AdvertiseTrustStoreCaNames: Optional[AdvertiseTrustStoreCaNamesEnumType] = None
+
+
+class IpamPoolsTypeDef(BaseValidatorModel):
+    Ipv4IpamPoolId: Optional[str] = None
+
 
 class SubnetMappingTypeDef(BaseValidatorModel):
     SubnetId: Optional[str] = None
     AllocationId: Optional[str] = None
     PrivateIPv4Address: Optional[str] = None
     IPv6Address: Optional[str] = None
+    SourceNatIpv6Prefix: Optional[str] = None
+
 
 class MatcherTypeDef(BaseValidatorModel):
     HttpCode: Optional[str] = None
     GrpcCode: Optional[str] = None
+
 
 class TrustStoreTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -159,103 +162,149 @@ class TrustStoreTypeDef(BaseValidatorModel):
     NumberOfCaCertificates: Optional[int] = None
     TotalRevokedEntries: Optional[int] = None
 
-class DeleteListenerInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteListenerInputTypeDef(BaseValidatorModel):
     ListenerArn: str
 
-class DeleteLoadBalancerInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteLoadBalancerInputTypeDef(BaseValidatorModel):
     LoadBalancerArn: str
 
-class DeleteRuleInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteRuleInputTypeDef(BaseValidatorModel):
     RuleArn: str
 
-class DeleteTargetGroupInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteSharedTrustStoreAssociationInputTypeDef(BaseValidatorModel):
+    TrustStoreArn: str
+    ResourceArn: str
+
+
+class DeleteTargetGroupInputTypeDef(BaseValidatorModel):
     TargetGroupArn: str
 
-class DeleteTrustStoreInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteTrustStoreInputTypeDef(BaseValidatorModel):
     TrustStoreArn: str
+
 
 class TargetDescriptionTypeDef(BaseValidatorModel):
     Id: str
     Port: Optional[int] = None
     AvailabilityZone: Optional[str] = None
 
+
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeAccountLimitsInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeAccountLimitsInputTypeDef(BaseValidatorModel):
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
+
 
 class LimitTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Max: Optional[str] = None
 
-class DescribeListenerCertificatesInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeCapacityReservationInputTypeDef(BaseValidatorModel):
+    LoadBalancerArn: str
+
+
+class MinimumLoadBalancerCapacityTypeDef(BaseValidatorModel):
+    CapacityUnits: Optional[int] = None
+
+
+class DescribeListenerAttributesInputTypeDef(BaseValidatorModel):
+    ListenerArn: str
+
+
+class ListenerAttributeTypeDef(BaseValidatorModel):
+    Key: Optional[str] = None
+    Value: Optional[str] = None
+
+
+class DescribeListenerCertificatesInputTypeDef(BaseValidatorModel):
     ListenerArn: str
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
-class DescribeListenersInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeListenersInputTypeDef(BaseValidatorModel):
     LoadBalancerArn: Optional[str] = None
     ListenerArns: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
-class DescribeLoadBalancerAttributesInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeLoadBalancerAttributesInputTypeDef(BaseValidatorModel):
     LoadBalancerArn: str
+
 
 class LoadBalancerAttributeTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class WaiterConfigTypeDef(BaseValidatorModel):
-    Delay: Optional[int] = None
-    MaxAttempts: Optional[int] = None
 
-class DescribeLoadBalancersInputRequestTypeDef(BaseValidatorModel):
+class DescribeLoadBalancersInputTypeDef(BaseValidatorModel):
     LoadBalancerArns: Optional[Sequence[str]] = None
     Names: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
-class DescribeRulesInputRequestTypeDef(BaseValidatorModel):
+
+class WaiterConfigTypeDef(BaseValidatorModel):
+    Delay: Optional[int] = None
+    MaxAttempts: Optional[int] = None
+
+
+class DescribeRulesInputTypeDef(BaseValidatorModel):
     ListenerArn: Optional[str] = None
     RuleArns: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
-class DescribeSSLPoliciesInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeSSLPoliciesInputTypeDef(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
     LoadBalancerType: Optional[LoadBalancerTypeEnumType] = None
 
-class DescribeTagsInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeTagsInputTypeDef(BaseValidatorModel):
     ResourceArns: Sequence[str]
 
-class DescribeTargetGroupAttributesInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeTargetGroupAttributesInputTypeDef(BaseValidatorModel):
     TargetGroupArn: str
+
 
 class TargetGroupAttributeTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class DescribeTargetGroupsInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeTargetGroupsInputTypeDef(BaseValidatorModel):
     LoadBalancerArn: Optional[str] = None
     TargetGroupArns: Optional[Sequence[str]] = None
     Names: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
-class DescribeTrustStoreAssociationsInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeTrustStoreAssociationsInputTypeDef(BaseValidatorModel):
     TrustStoreArn: str
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
+
 class TrustStoreAssociationTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
+
 
 class DescribeTrustStoreRevocationTypeDef(BaseValidatorModel):
     TrustStoreArn: Optional[str] = None
@@ -263,183 +312,223 @@ class DescribeTrustStoreRevocationTypeDef(BaseValidatorModel):
     RevocationType: Optional[Literal["CRL"]] = None
     NumberOfRevokedEntries: Optional[int] = None
 
-class DescribeTrustStoreRevocationsInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeTrustStoreRevocationsInputTypeDef(BaseValidatorModel):
     TrustStoreArn: str
     RevocationIds: Optional[Sequence[int]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
-class DescribeTrustStoresInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeTrustStoresInputTypeDef(BaseValidatorModel):
     TrustStoreArns: Optional[Sequence[str]] = None
     Names: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
+
 class TargetGroupStickinessConfigTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     DurationSeconds: Optional[int] = None
+
 
 class TargetGroupTupleTypeDef(BaseValidatorModel):
     TargetGroupArn: Optional[str] = None
     Weight: Optional[int] = None
 
-class GetTrustStoreCaCertificatesBundleInputRequestTypeDef(BaseValidatorModel):
+
+class GetResourcePolicyInputTypeDef(BaseValidatorModel):
+    ResourceArn: str
+
+
+class GetTrustStoreCaCertificatesBundleInputTypeDef(BaseValidatorModel):
     TrustStoreArn: str
 
-class GetTrustStoreRevocationContentInputRequestTypeDef(BaseValidatorModel):
+
+class GetTrustStoreRevocationContentInputTypeDef(BaseValidatorModel):
     TrustStoreArn: str
     RevocationId: int
 
-class HostHeaderConditionConfigExtraOutputTypeDef(BaseValidatorModel):
-    Values: Optional[List[str]] = None
 
 class HostHeaderConditionConfigOutputTypeDef(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
+
 class HostHeaderConditionConfigTypeDef(BaseValidatorModel):
     Values: Optional[Sequence[str]] = None
 
-class HttpHeaderConditionConfigExtraOutputTypeDef(BaseValidatorModel):
-    HttpHeaderName: Optional[str] = None
-    Values: Optional[List[str]] = None
 
 class HttpHeaderConditionConfigOutputTypeDef(BaseValidatorModel):
     HttpHeaderName: Optional[str] = None
     Values: Optional[List[str]] = None
 
+
 class HttpHeaderConditionConfigTypeDef(BaseValidatorModel):
     HttpHeaderName: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
-class HttpRequestMethodConditionConfigExtraOutputTypeDef(BaseValidatorModel):
-    Values: Optional[List[str]] = None
 
 class HttpRequestMethodConditionConfigOutputTypeDef(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
+
 class HttpRequestMethodConditionConfigTypeDef(BaseValidatorModel):
     Values: Optional[Sequence[str]] = None
+
 
 class LoadBalancerStateTypeDef(BaseValidatorModel):
     Code: Optional[LoadBalancerStateEnumType] = None
     Reason: Optional[str] = None
 
-class ModifyTrustStoreInputRequestTypeDef(BaseValidatorModel):
+
+class ModifyTrustStoreInputTypeDef(BaseValidatorModel):
     TrustStoreArn: str
     CaCertificatesBundleS3Bucket: str
     CaCertificatesBundleS3Key: str
     CaCertificatesBundleS3ObjectVersion: Optional[str] = None
 
-class PathPatternConditionConfigExtraOutputTypeDef(BaseValidatorModel):
-    Values: Optional[List[str]] = None
 
 class PathPatternConditionConfigOutputTypeDef(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
+
 class PathPatternConditionConfigTypeDef(BaseValidatorModel):
     Values: Optional[Sequence[str]] = None
+
 
 class QueryStringKeyValuePairTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class RemoveTagsInputRequestTypeDef(BaseValidatorModel):
+
+class RemoveTagsInputTypeDef(BaseValidatorModel):
     ResourceArns: Sequence[str]
     TagKeys: Sequence[str]
 
-class RemoveTrustStoreRevocationsInputRequestTypeDef(BaseValidatorModel):
+
+class RemoveTrustStoreRevocationsInputTypeDef(BaseValidatorModel):
     TrustStoreArn: str
     RevocationIds: Sequence[int]
 
-class SourceIpConditionConfigExtraOutputTypeDef(BaseValidatorModel):
-    Values: Optional[List[str]] = None
 
 class SourceIpConditionConfigOutputTypeDef(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
-class SourceIpConditionConfigTypeDef(BaseValidatorModel):
-    Values: Optional[Sequence[str]] = None
 
 class RulePriorityPairTypeDef(BaseValidatorModel):
     RuleArn: Optional[str] = None
     Priority: Optional[int] = None
 
-class SetIpAddressTypeInputRequestTypeDef(BaseValidatorModel):
+
+class SetIpAddressTypeInputTypeDef(BaseValidatorModel):
     LoadBalancerArn: str
     IpAddressType: IpAddressTypeType
 
-class SetSecurityGroupsInputRequestTypeDef(BaseValidatorModel):
+
+class SetSecurityGroupsInputTypeDef(BaseValidatorModel):
     LoadBalancerArn: str
     SecurityGroups: Sequence[str]
-    EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Optional[       EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType     ] = None
+    EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Optional[ EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType ] = None
+
+
+class SourceIpConditionConfigTypeDef(BaseValidatorModel):
+    Values: Optional[Sequence[str]] = None
+
 
 class TargetHealthTypeDef(BaseValidatorModel):
     State: Optional[TargetHealthStateEnumType] = None
     Reason: Optional[TargetHealthReasonEnumType] = None
     Description: Optional[str] = None
 
-class AddListenerCertificatesInputRequestTypeDef(BaseValidatorModel):
+
+class AddListenerCertificatesInputTypeDef(BaseValidatorModel):
     ListenerArn: str
     Certificates: Sequence[CertificateTypeDef]
 
-class RemoveListenerCertificatesInputRequestTypeDef(BaseValidatorModel):
+
+class RemoveListenerCertificatesInputTypeDef(BaseValidatorModel):
     ListenerArn: str
     Certificates: Sequence[CertificateTypeDef]
+
 
 class AddListenerCertificatesOutputTypeDef(BaseValidatorModel):
     Certificates: List[CertificateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeListenerCertificatesOutputTypeDef(BaseValidatorModel):
     Certificates: List[CertificateTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class GetResourcePolicyOutputTypeDef(BaseValidatorModel):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class GetTrustStoreCaCertificatesBundleOutputTypeDef(BaseValidatorModel):
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetTrustStoreRevocationContentOutputTypeDef(BaseValidatorModel):
     Location: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SetIpAddressTypeOutputTypeDef(BaseValidatorModel):
     IpAddressType: IpAddressTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SetSecurityGroupsOutputTypeDef(BaseValidatorModel):
     SecurityGroupIds: List[str]
-    EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType
+    EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: ( EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType )
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AddTagsInputRequestTypeDef(BaseValidatorModel):
+
+class AddTagsInputTypeDef(BaseValidatorModel):
     ResourceArns: Sequence[str]
     Tags: Sequence[TagTypeDef]
 
-class CreateTrustStoreInputRequestTypeDef(BaseValidatorModel):
+
+class CreateTrustStoreInputTypeDef(BaseValidatorModel):
     Name: str
     CaCertificatesBundleS3Bucket: str
     CaCertificatesBundleS3Key: str
     CaCertificatesBundleS3ObjectVersion: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
+
 class TagDescriptionTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
-class AddTrustStoreRevocationsInputRequestTypeDef(BaseValidatorModel):
+
+class AddTrustStoreRevocationsInputTypeDef(BaseValidatorModel):
     TrustStoreArn: str
     RevocationContents: Optional[Sequence[RevocationContentTypeDef]] = None
+
 
 class AddTrustStoreRevocationsOutputTypeDef(BaseValidatorModel):
     TrustStoreRevocations: List[TrustStoreRevocationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class AvailabilityZoneTypeDef(BaseValidatorModel):
     ZoneName: Optional[str] = None
     SubnetId: Optional[str] = None
     OutpostId: Optional[str] = None
     LoadBalancerAddresses: Optional[List[LoadBalancerAddressTypeDef]] = None
+    SourceNatIpv6Prefixes: Optional[List[str]] = None
+
+
+class ZonalCapacityReservationStateTypeDef(BaseValidatorModel):
+    State: Optional[CapacityReservationStatusTypeDef] = None
+    AvailabilityZone: Optional[str] = None
+    EffectiveCapacityUnits: Optional[float] = None
+
 
 class SslPolicyTypeDef(BaseValidatorModel):
     SslProtocols: Optional[List[str]] = None
@@ -447,43 +536,27 @@ class SslPolicyTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     SupportedLoadBalancerTypes: Optional[List[str]] = None
 
-class CreateLoadBalancerInputRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Subnets: Optional[Sequence[str]] = None
-    SubnetMappings: Optional[Sequence[SubnetMappingTypeDef]] = None
-    SecurityGroups: Optional[Sequence[str]] = None
-    Scheme: Optional[LoadBalancerSchemeEnumType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    Type: Optional[LoadBalancerTypeEnumType] = None
-    IpAddressType: Optional[IpAddressTypeType] = None
-    CustomerOwnedIpv4Pool: Optional[str] = None
 
-class SetSubnetsInputRequestTypeDef(BaseValidatorModel):
+class ModifyIpPoolsInputTypeDef(BaseValidatorModel):
+    LoadBalancerArn: str
+    IpamPools: Optional[IpamPoolsTypeDef] = None
+    RemoveIpamPools: Optional[Sequence[Literal["ipv4"]]] = None
+
+
+class ModifyIpPoolsOutputTypeDef(BaseValidatorModel):
+    IpamPools: IpamPoolsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class SetSubnetsInputTypeDef(BaseValidatorModel):
     LoadBalancerArn: str
     Subnets: Optional[Sequence[str]] = None
     SubnetMappings: Optional[Sequence[SubnetMappingTypeDef]] = None
     IpAddressType: Optional[IpAddressTypeType] = None
+    EnablePrefixForIpv6SourceNat: Optional[EnablePrefixForIpv6SourceNatEnumType] = None
 
-class CreateTargetGroupInputRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Protocol: Optional[ProtocolEnumType] = None
-    ProtocolVersion: Optional[str] = None
-    Port: Optional[int] = None
-    VpcId: Optional[str] = None
-    HealthCheckProtocol: Optional[ProtocolEnumType] = None
-    HealthCheckPort: Optional[str] = None
-    HealthCheckEnabled: Optional[bool] = None
-    HealthCheckPath: Optional[str] = None
-    HealthCheckIntervalSeconds: Optional[int] = None
-    HealthCheckTimeoutSeconds: Optional[int] = None
-    HealthyThresholdCount: Optional[int] = None
-    UnhealthyThresholdCount: Optional[int] = None
-    Matcher: Optional[MatcherTypeDef] = None
-    TargetType: Optional[TargetTypeEnumType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    IpAddressType: Optional[TargetGroupIpAddressTypeEnumType] = None
 
-class ModifyTargetGroupInputRequestTypeDef(BaseValidatorModel):
+class ModifyTargetGroupInputTypeDef(BaseValidatorModel):
     TargetGroupArn: str
     HealthCheckProtocol: Optional[ProtocolEnumType] = None
     HealthCheckPort: Optional[str] = None
@@ -495,269 +568,269 @@ class ModifyTargetGroupInputRequestTypeDef(BaseValidatorModel):
     UnhealthyThresholdCount: Optional[int] = None
     Matcher: Optional[MatcherTypeDef] = None
 
-class TargetGroupTypeDef(BaseValidatorModel):
-    TargetGroupArn: Optional[str] = None
-    TargetGroupName: Optional[str] = None
-    Protocol: Optional[ProtocolEnumType] = None
-    Port: Optional[int] = None
-    VpcId: Optional[str] = None
-    HealthCheckProtocol: Optional[ProtocolEnumType] = None
-    HealthCheckPort: Optional[str] = None
-    HealthCheckEnabled: Optional[bool] = None
-    HealthCheckIntervalSeconds: Optional[int] = None
-    HealthCheckTimeoutSeconds: Optional[int] = None
-    HealthyThresholdCount: Optional[int] = None
-    UnhealthyThresholdCount: Optional[int] = None
-    HealthCheckPath: Optional[str] = None
-    Matcher: Optional[MatcherTypeDef] = None
-    LoadBalancerArns: Optional[List[str]] = None
-    TargetType: Optional[TargetTypeEnumType] = None
-    ProtocolVersion: Optional[str] = None
-    IpAddressType: Optional[TargetGroupIpAddressTypeEnumType] = None
 
 class CreateTrustStoreOutputTypeDef(BaseValidatorModel):
     TrustStores: List[TrustStoreTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeTrustStoresOutputTypeDef(BaseValidatorModel):
     TrustStores: List[TrustStoreTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ModifyTrustStoreOutputTypeDef(BaseValidatorModel):
     TrustStores: List[TrustStoreTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeregisterTargetsInputRequestTypeDef(BaseValidatorModel):
+
+class DeregisterTargetsInputTypeDef(BaseValidatorModel):
     TargetGroupArn: str
     Targets: Sequence[TargetDescriptionTypeDef]
 
-class DescribeTargetHealthInputRequestTypeDef(BaseValidatorModel):
+
+class DescribeTargetHealthInputTypeDef(BaseValidatorModel):
     TargetGroupArn: str
     Targets: Optional[Sequence[TargetDescriptionTypeDef]] = None
     Include: Optional[Sequence[DescribeTargetHealthInputIncludeEnumType]] = None
 
-class RegisterTargetsInputRequestTypeDef(BaseValidatorModel):
+
+class RegisterTargetsInputTypeDef(BaseValidatorModel):
     TargetGroupArn: str
     Targets: Sequence[TargetDescriptionTypeDef]
 
-class DescribeAccountLimitsInputDescribeAccountLimitsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeAccountLimitsInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeListenerCertificatesInputDescribeListenerCertificatesPaginateTypeDef(BaseValidatorModel):
+
+class DescribeListenerCertificatesInputPaginateTypeDef(BaseValidatorModel):
     ListenerArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeListenersInputDescribeListenersPaginateTypeDef(BaseValidatorModel):
+
+class DescribeListenersInputPaginateTypeDef(BaseValidatorModel):
     LoadBalancerArn: Optional[str] = None
     ListenerArns: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeLoadBalancersInputDescribeLoadBalancersPaginateTypeDef(BaseValidatorModel):
+
+class DescribeLoadBalancersInputPaginateTypeDef(BaseValidatorModel):
     LoadBalancerArns: Optional[Sequence[str]] = None
     Names: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeRulesInputDescribeRulesPaginateTypeDef(BaseValidatorModel):
+
+class DescribeRulesInputPaginateTypeDef(BaseValidatorModel):
     ListenerArn: Optional[str] = None
     RuleArns: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeSSLPoliciesInputDescribeSSLPoliciesPaginateTypeDef(BaseValidatorModel):
+
+class DescribeSSLPoliciesInputPaginateTypeDef(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     LoadBalancerType: Optional[LoadBalancerTypeEnumType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class DescribeTargetGroupsInputDescribeTargetGroupsPaginateTypeDef(BaseValidatorModel):
+
+class DescribeTargetGroupsInputPaginateTypeDef(BaseValidatorModel):
     LoadBalancerArn: Optional[str] = None
     TargetGroupArns: Optional[Sequence[str]] = None
     Names: Optional[Sequence[str]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class DescribeAccountLimitsOutputTypeDef(BaseValidatorModel):
     Limits: List[LimitTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class ModifyCapacityReservationInputTypeDef(BaseValidatorModel):
+    LoadBalancerArn: str
+    MinimumLoadBalancerCapacity: Optional[MinimumLoadBalancerCapacityTypeDef] = None
+    ResetCapacityReservation: Optional[bool] = None
+
+
+class DescribeListenerAttributesOutputTypeDef(BaseValidatorModel):
+    Attributes: List[ListenerAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ModifyListenerAttributesInputTypeDef(BaseValidatorModel):
+    ListenerArn: str
+    Attributes: Sequence[ListenerAttributeTypeDef]
+
+
+class ModifyListenerAttributesOutputTypeDef(BaseValidatorModel):
+    Attributes: List[ListenerAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class DescribeLoadBalancerAttributesOutputTypeDef(BaseValidatorModel):
     Attributes: List[LoadBalancerAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyLoadBalancerAttributesInputRequestTypeDef(BaseValidatorModel):
+
+class ModifyLoadBalancerAttributesInputTypeDef(BaseValidatorModel):
     LoadBalancerArn: str
     Attributes: Sequence[LoadBalancerAttributeTypeDef]
+
 
 class ModifyLoadBalancerAttributesOutputTypeDef(BaseValidatorModel):
     Attributes: List[LoadBalancerAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeLoadBalancersInputLoadBalancerAvailableWaitTypeDef(BaseValidatorModel):
+
+class DescribeLoadBalancersInputWaitExtraExtraTypeDef(BaseValidatorModel):
     LoadBalancerArns: Optional[Sequence[str]] = None
     Names: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeLoadBalancersInputLoadBalancerExistsWaitTypeDef(BaseValidatorModel):
+
+class DescribeLoadBalancersInputWaitExtraTypeDef(BaseValidatorModel):
     LoadBalancerArns: Optional[Sequence[str]] = None
     Names: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeLoadBalancersInputLoadBalancersDeletedWaitTypeDef(BaseValidatorModel):
+
+class DescribeLoadBalancersInputWaitTypeDef(BaseValidatorModel):
     LoadBalancerArns: Optional[Sequence[str]] = None
     Names: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeTargetHealthInputTargetDeregisteredWaitTypeDef(BaseValidatorModel):
+
+class DescribeTargetHealthInputWaitExtraTypeDef(BaseValidatorModel):
     TargetGroupArn: str
     Targets: Optional[Sequence[TargetDescriptionTypeDef]] = None
     Include: Optional[Sequence[DescribeTargetHealthInputIncludeEnumType]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class DescribeTargetHealthInputTargetInServiceWaitTypeDef(BaseValidatorModel):
+
+class DescribeTargetHealthInputWaitTypeDef(BaseValidatorModel):
     TargetGroupArn: str
     Targets: Optional[Sequence[TargetDescriptionTypeDef]] = None
     Include: Optional[Sequence[DescribeTargetHealthInputIncludeEnumType]] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
 
 class DescribeTargetGroupAttributesOutputTypeDef(BaseValidatorModel):
     Attributes: List[TargetGroupAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyTargetGroupAttributesInputRequestTypeDef(BaseValidatorModel):
+
+class ModifyTargetGroupAttributesInputTypeDef(BaseValidatorModel):
     TargetGroupArn: str
     Attributes: Sequence[TargetGroupAttributeTypeDef]
+
 
 class ModifyTargetGroupAttributesOutputTypeDef(BaseValidatorModel):
     Attributes: List[TargetGroupAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeTrustStoreAssociationsOutputTypeDef(BaseValidatorModel):
     TrustStoreAssociations: List[TrustStoreAssociationTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeTrustStoreRevocationsOutputTypeDef(BaseValidatorModel):
     TrustStoreRevocations: List[DescribeTrustStoreRevocationTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ForwardActionConfigExtraOutputTypeDef(BaseValidatorModel):
-    TargetGroups: Optional[List[TargetGroupTupleTypeDef]] = None
-    TargetGroupStickinessConfig: Optional[TargetGroupStickinessConfigTypeDef] = None
 
 class ForwardActionConfigOutputTypeDef(BaseValidatorModel):
     TargetGroups: Optional[List[TargetGroupTupleTypeDef]] = None
     TargetGroupStickinessConfig: Optional[TargetGroupStickinessConfigTypeDef] = None
 
+
 class ForwardActionConfigTypeDef(BaseValidatorModel):
     TargetGroups: Optional[Sequence[TargetGroupTupleTypeDef]] = None
     TargetGroupStickinessConfig: Optional[TargetGroupStickinessConfigTypeDef] = None
 
-class QueryStringConditionConfigExtraOutputTypeDef(BaseValidatorModel):
-    Values: Optional[List[QueryStringKeyValuePairTypeDef]] = None
 
 class QueryStringConditionConfigOutputTypeDef(BaseValidatorModel):
     Values: Optional[List[QueryStringKeyValuePairTypeDef]] = None
 
+
 class QueryStringConditionConfigTypeDef(BaseValidatorModel):
     Values: Optional[Sequence[QueryStringKeyValuePairTypeDef]] = None
 
-class SetRulePrioritiesInputRequestTypeDef(BaseValidatorModel):
+
+class SetRulePrioritiesInputTypeDef(BaseValidatorModel):
     RulePriorities: Sequence[RulePriorityPairTypeDef]
+
 
 class TargetHealthDescriptionTypeDef(BaseValidatorModel):
     Target: Optional[TargetDescriptionTypeDef] = None
     HealthCheckPort: Optional[str] = None
     TargetHealth: Optional[TargetHealthTypeDef] = None
     AnomalyDetection: Optional[AnomalyDetectionTypeDef] = None
+    AdministrativeOverride: Optional[AdministrativeOverrideTypeDef] = None
+
 
 class DescribeTagsOutputTypeDef(BaseValidatorModel):
     TagDescriptions: List[TagDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class LoadBalancerTypeDef(BaseValidatorModel):
-    LoadBalancerArn: Optional[str] = None
-    DNSName: Optional[str] = None
-    CanonicalHostedZoneId: Optional[str] = None
-    CreatedTime: Optional[datetime] = None
-    LoadBalancerName: Optional[str] = None
-    Scheme: Optional[LoadBalancerSchemeEnumType] = None
-    VpcId: Optional[str] = None
-    State: Optional[LoadBalancerStateTypeDef] = None
-    Type: Optional[LoadBalancerTypeEnumType] = None
-    AvailabilityZones: Optional[List[AvailabilityZoneTypeDef]] = None
-    SecurityGroups: Optional[List[str]] = None
-    IpAddressType: Optional[IpAddressTypeType] = None
-    CustomerOwnedIpv4Pool: Optional[str] = None
-    EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: Optional[str] = None
 
 class SetSubnetsOutputTypeDef(BaseValidatorModel):
     AvailabilityZones: List[AvailabilityZoneTypeDef]
     IpAddressType: IpAddressTypeType
+    EnablePrefixForIpv6SourceNat: EnablePrefixForIpv6SourceNatEnumType
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DescribeCapacityReservationOutputTypeDef(BaseValidatorModel):
+    LastModifiedTime: datetime
+    DecreaseRequestsRemaining: int
+    MinimumLoadBalancerCapacity: MinimumLoadBalancerCapacityTypeDef
+    CapacityReservationState: List[ZonalCapacityReservationStateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ModifyCapacityReservationOutputTypeDef(BaseValidatorModel):
+    LastModifiedTime: datetime
+    DecreaseRequestsRemaining: int
+    MinimumLoadBalancerCapacity: MinimumLoadBalancerCapacityTypeDef
+    CapacityReservationState: List[ZonalCapacityReservationStateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeSSLPoliciesOutputTypeDef(BaseValidatorModel):
     SslPolicies: List[SslPolicyTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class TargetGroupTypeDef(BaseValidatorModel):
+    pass
+
+
 class CreateTargetGroupOutputTypeDef(BaseValidatorModel):
     TargetGroups: List[TargetGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeTargetGroupsOutputTypeDef(BaseValidatorModel):
     TargetGroups: List[TargetGroupTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ModifyTargetGroupOutputTypeDef(BaseValidatorModel):
     TargetGroups: List[TargetGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ActionExtraOutputTypeDef(BaseValidatorModel):
-    Type: ActionTypeEnumType
-    TargetGroupArn: Optional[str] = None
-    AuthenticateOidcConfig: Optional[AuthenticateOidcActionConfigExtraOutputTypeDef] = None
-    AuthenticateCognitoConfig: Optional[AuthenticateCognitoActionConfigExtraOutputTypeDef] = None
-    Order: Optional[int] = None
-    RedirectConfig: Optional[RedirectActionConfigTypeDef] = None
-    FixedResponseConfig: Optional[FixedResponseActionConfigTypeDef] = None
-    ForwardConfig: Optional[ForwardActionConfigExtraOutputTypeDef] = None
-
-class ActionOutputTypeDef(BaseValidatorModel):
-    Type: ActionTypeEnumType
-    TargetGroupArn: Optional[str] = None
-    AuthenticateOidcConfig: Optional[AuthenticateOidcActionConfigOutputTypeDef] = None
-    AuthenticateCognitoConfig: Optional[AuthenticateCognitoActionConfigOutputTypeDef] = None
-    Order: Optional[int] = None
-    RedirectConfig: Optional[RedirectActionConfigTypeDef] = None
-    FixedResponseConfig: Optional[FixedResponseActionConfigTypeDef] = None
-    ForwardConfig: Optional[ForwardActionConfigOutputTypeDef] = None
-
-class ActionTypeDef(BaseValidatorModel):
-    Type: ActionTypeEnumType
-    TargetGroupArn: Optional[str] = None
-    AuthenticateOidcConfig: Optional[AuthenticateOidcActionConfigTypeDef] = None
-    AuthenticateCognitoConfig: Optional[AuthenticateCognitoActionConfigTypeDef] = None
-    Order: Optional[int] = None
-    RedirectConfig: Optional[RedirectActionConfigTypeDef] = None
-    FixedResponseConfig: Optional[FixedResponseActionConfigTypeDef] = None
-    ForwardConfig: Optional[ForwardActionConfigTypeDef] = None
-
-class RuleConditionExtraOutputTypeDef(BaseValidatorModel):
-    Field: Optional[str] = None
-    Values: Optional[List[str]] = None
-    HostHeaderConfig: Optional[HostHeaderConditionConfigExtraOutputTypeDef] = None
-    PathPatternConfig: Optional[PathPatternConditionConfigExtraOutputTypeDef] = None
-    HttpHeaderConfig: Optional[HttpHeaderConditionConfigExtraOutputTypeDef] = None
-    QueryStringConfig: Optional[QueryStringConditionConfigExtraOutputTypeDef] = None
-    HttpRequestMethodConfig: Optional[HttpRequestMethodConditionConfigExtraOutputTypeDef] = None
-    SourceIpConfig: Optional[SourceIpConditionConfigExtraOutputTypeDef] = None
 
 class RuleConditionOutputTypeDef(BaseValidatorModel):
     Field: Optional[str] = None
@@ -769,39 +842,30 @@ class RuleConditionOutputTypeDef(BaseValidatorModel):
     HttpRequestMethodConfig: Optional[HttpRequestMethodConditionConfigOutputTypeDef] = None
     SourceIpConfig: Optional[SourceIpConditionConfigOutputTypeDef] = None
 
-class RuleConditionTypeDef(BaseValidatorModel):
-    Field: Optional[str] = None
-    Values: Optional[Sequence[str]] = None
-    HostHeaderConfig: Optional[HostHeaderConditionConfigTypeDef] = None
-    PathPatternConfig: Optional[PathPatternConditionConfigTypeDef] = None
-    HttpHeaderConfig: Optional[HttpHeaderConditionConfigTypeDef] = None
-    QueryStringConfig: Optional[QueryStringConditionConfigTypeDef] = None
-    HttpRequestMethodConfig: Optional[HttpRequestMethodConditionConfigTypeDef] = None
-    SourceIpConfig: Optional[SourceIpConditionConfigTypeDef] = None
 
 class DescribeTargetHealthOutputTypeDef(BaseValidatorModel):
     TargetHealthDescriptions: List[TargetHealthDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class LoadBalancerTypeDef(BaseValidatorModel):
+    pass
+
+
 class CreateLoadBalancerOutputTypeDef(BaseValidatorModel):
     LoadBalancers: List[LoadBalancerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeLoadBalancersOutputTypeDef(BaseValidatorModel):
     LoadBalancers: List[LoadBalancerTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListenerTypeDef(BaseValidatorModel):
-    ListenerArn: Optional[str] = None
-    LoadBalancerArn: Optional[str] = None
-    Port: Optional[int] = None
-    Protocol: Optional[ProtocolEnumType] = None
-    Certificates: Optional[List[CertificateTypeDef]] = None
-    SslPolicy: Optional[str] = None
-    DefaultActions: Optional[List[ActionOutputTypeDef]] = None
-    AlpnPolicy: Optional[List[str]] = None
-    MutualAuthentication: Optional[MutualAuthenticationAttributesTypeDef] = None
+
+class ActionOutputTypeDef(BaseValidatorModel):
+    pass
+
 
 class RuleTypeDef(BaseValidatorModel):
     RuleArn: Optional[str] = None
@@ -810,66 +874,102 @@ class RuleTypeDef(BaseValidatorModel):
     Actions: Optional[List[ActionOutputTypeDef]] = None
     IsDefault: Optional[bool] = None
 
+
+class HostHeaderConditionConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class QueryStringConditionConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class HttpHeaderConditionConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class PathPatternConditionConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class SourceIpConditionConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class HttpRequestMethodConditionConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RuleConditionTypeDef(BaseValidatorModel):
+    Field: Optional[str] = None
+    Values: Optional[Sequence[str]] = None
+    HostHeaderConfig: Optional[HostHeaderConditionConfigUnionTypeDef] = None
+    PathPatternConfig: Optional[PathPatternConditionConfigUnionTypeDef] = None
+    HttpHeaderConfig: Optional[HttpHeaderConditionConfigUnionTypeDef] = None
+    QueryStringConfig: Optional[QueryStringConditionConfigUnionTypeDef] = None
+    HttpRequestMethodConfig: Optional[HttpRequestMethodConditionConfigUnionTypeDef] = None
+    SourceIpConfig: Optional[SourceIpConditionConfigUnionTypeDef] = None
+
+
+class ListenerTypeDef(BaseValidatorModel):
+    pass
+
+
 class CreateListenerOutputTypeDef(BaseValidatorModel):
     Listeners: List[ListenerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeListenersOutputTypeDef(BaseValidatorModel):
     Listeners: List[ListenerTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ModifyListenerOutputTypeDef(BaseValidatorModel):
     Listeners: List[ListenerTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateListenerInputRequestTypeDef(BaseValidatorModel):
-    LoadBalancerArn: str
-    DefaultActions: Sequence[ActionUnionTypeDef]
-    Protocol: Optional[ProtocolEnumType] = None
-    Port: Optional[int] = None
-    SslPolicy: Optional[str] = None
-    Certificates: Optional[Sequence[CertificateTypeDef]] = None
-    AlpnPolicy: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    MutualAuthentication: Optional[MutualAuthenticationAttributesTypeDef] = None
-
-class ModifyListenerInputRequestTypeDef(BaseValidatorModel):
-    ListenerArn: str
-    Port: Optional[int] = None
-    Protocol: Optional[ProtocolEnumType] = None
-    SslPolicy: Optional[str] = None
-    Certificates: Optional[Sequence[CertificateTypeDef]] = None
-    DefaultActions: Optional[Sequence[ActionUnionTypeDef]] = None
-    AlpnPolicy: Optional[Sequence[str]] = None
-    MutualAuthentication: Optional[MutualAuthenticationAttributesTypeDef] = None
 
 class CreateRuleOutputTypeDef(BaseValidatorModel):
     Rules: List[RuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeRulesOutputTypeDef(BaseValidatorModel):
     Rules: List[RuleTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ModifyRuleOutputTypeDef(BaseValidatorModel):
     Rules: List[RuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class SetRulePrioritiesOutputTypeDef(BaseValidatorModel):
     Rules: List[RuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRuleInputRequestTypeDef(BaseValidatorModel):
+
+class RuleConditionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateRuleInputTypeDef(BaseValidatorModel):
     ListenerArn: str
     Conditions: Sequence[RuleConditionUnionTypeDef]
     Priority: int
     Actions: Sequence[ActionUnionTypeDef]
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ModifyRuleInputRequestTypeDef(BaseValidatorModel):
+
+class ModifyRuleInputTypeDef(BaseValidatorModel):
     RuleArn: str
     Conditions: Optional[Sequence[RuleConditionUnionTypeDef]] = None
     Actions: Optional[Sequence[ActionUnionTypeDef]] = None
+
 

@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -17,40 +18,58 @@ class AbsoluteTimeRangeTypeDef(BaseValidatorModel):
     First: Optional[int] = None
     Last: Optional[int] = None
 
+
 class CallAnalyticsSkippedFeatureTypeDef(BaseValidatorModel):
     Feature: Optional[Literal["GENERATIVE_SUMMARIZATION"]] = None
     ReasonCode: Optional[CallAnalyticsSkippedReasonCodeType] = None
     Message: Optional[str] = None
+
 
 class ContentRedactionOutputTypeDef(BaseValidatorModel):
     RedactionType: Literal["PII"]
     RedactionOutput: RedactionOutputType
     PiiEntityTypes: Optional[List[PiiEntityTypeType]] = None
 
+
 class LanguageIdSettingsTypeDef(BaseValidatorModel):
     VocabularyName: Optional[str] = None
     VocabularyFilterName: Optional[str] = None
     LanguageModelName: Optional[str] = None
 
+
 class SummarizationTypeDef(BaseValidatorModel):
     GenerateAbstractiveSummary: bool
+
 
 class ContentRedactionTypeDef(BaseValidatorModel):
     RedactionType: Literal["PII"]
     RedactionOutput: RedactionOutputType
     PiiEntityTypes: Optional[Sequence[PiiEntityTypeType]] = None
 
+
 class ChannelDefinitionTypeDef(BaseValidatorModel):
     ChannelId: Optional[int] = None
     ParticipantRole: Optional[ParticipantRoleType] = None
+
 
 class MediaTypeDef(BaseValidatorModel):
     MediaFileUri: Optional[str] = None
     RedactedMediaFileUri: Optional[str] = None
 
+
+class TagTypeDef(BaseValidatorModel):
+    Key: str
+    Value: str
+
+
 class TranscriptTypeDef(BaseValidatorModel):
     TranscriptFileUri: Optional[str] = None
     RedactedTranscriptFileUri: Optional[str] = None
+
+
+class ClinicalNoteGenerationSettingsTypeDef(BaseValidatorModel):
+    NoteTemplate: Optional[MedicalScribeNoteTemplateType] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -59,68 +78,84 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
 class InputDataConfigTypeDef(BaseValidatorModel):
     S3Uri: str
     DataAccessRoleArn: str
     TuningDataS3Uri: Optional[str] = None
 
-class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
 
-class DeleteCallAnalyticsCategoryRequestRequestTypeDef(BaseValidatorModel):
+class DeleteCallAnalyticsCategoryRequestTypeDef(BaseValidatorModel):
     CategoryName: str
 
-class DeleteCallAnalyticsJobRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteCallAnalyticsJobRequestTypeDef(BaseValidatorModel):
     CallAnalyticsJobName: str
 
-class DeleteLanguageModelRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLanguageModelRequestTypeDef(BaseValidatorModel):
     ModelName: str
 
-class DeleteMedicalScribeJobRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteMedicalScribeJobRequestTypeDef(BaseValidatorModel):
     MedicalScribeJobName: str
 
-class DeleteMedicalTranscriptionJobRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteMedicalTranscriptionJobRequestTypeDef(BaseValidatorModel):
     MedicalTranscriptionJobName: str
 
-class DeleteMedicalVocabularyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteMedicalVocabularyRequestTypeDef(BaseValidatorModel):
     VocabularyName: str
 
-class DeleteTranscriptionJobRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteTranscriptionJobRequestTypeDef(BaseValidatorModel):
     TranscriptionJobName: str
 
-class DeleteVocabularyFilterRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteVocabularyFilterRequestTypeDef(BaseValidatorModel):
     VocabularyFilterName: str
 
-class DeleteVocabularyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteVocabularyRequestTypeDef(BaseValidatorModel):
     VocabularyName: str
 
-class DescribeLanguageModelRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeLanguageModelRequestTypeDef(BaseValidatorModel):
     ModelName: str
 
-class GetCallAnalyticsCategoryRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCallAnalyticsCategoryRequestTypeDef(BaseValidatorModel):
     CategoryName: str
 
-class GetCallAnalyticsJobRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCallAnalyticsJobRequestTypeDef(BaseValidatorModel):
     CallAnalyticsJobName: str
 
-class GetMedicalScribeJobRequestRequestTypeDef(BaseValidatorModel):
+
+class GetMedicalScribeJobRequestTypeDef(BaseValidatorModel):
     MedicalScribeJobName: str
 
-class GetMedicalTranscriptionJobRequestRequestTypeDef(BaseValidatorModel):
+
+class GetMedicalTranscriptionJobRequestTypeDef(BaseValidatorModel):
     MedicalTranscriptionJobName: str
 
-class GetMedicalVocabularyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetMedicalVocabularyRequestTypeDef(BaseValidatorModel):
     VocabularyName: str
 
-class GetTranscriptionJobRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTranscriptionJobRequestTypeDef(BaseValidatorModel):
     TranscriptionJobName: str
 
-class GetVocabularyFilterRequestRequestTypeDef(BaseValidatorModel):
+
+class GetVocabularyFilterRequestTypeDef(BaseValidatorModel):
     VocabularyFilterName: str
 
-class GetVocabularyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetVocabularyRequestTypeDef(BaseValidatorModel):
     VocabularyName: str
+
 
 class RelativeTimeRangeTypeDef(BaseValidatorModel):
     StartPercentage: Optional[int] = None
@@ -128,35 +163,42 @@ class RelativeTimeRangeTypeDef(BaseValidatorModel):
     First: Optional[int] = None
     Last: Optional[int] = None
 
+
 class JobExecutionSettingsTypeDef(BaseValidatorModel):
     AllowDeferredExecution: Optional[bool] = None
     DataAccessRoleArn: Optional[str] = None
+
 
 class LanguageCodeItemTypeDef(BaseValidatorModel):
     LanguageCode: Optional[LanguageCodeType] = None
     DurationInSeconds: Optional[float] = None
 
-class ListCallAnalyticsCategoriesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCallAnalyticsCategoriesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListCallAnalyticsJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCallAnalyticsJobsRequestTypeDef(BaseValidatorModel):
     Status: Optional[CallAnalyticsJobStatusType] = None
     JobNameContains: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListLanguageModelsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLanguageModelsRequestTypeDef(BaseValidatorModel):
     StatusEquals: Optional[ModelStatusType] = None
     NameContains: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListMedicalScribeJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListMedicalScribeJobsRequestTypeDef(BaseValidatorModel):
     Status: Optional[MedicalScribeJobStatusType] = None
     JobNameContains: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class MedicalScribeJobSummaryTypeDef(BaseValidatorModel):
     MedicalScribeJobName: Optional[str] = None
@@ -167,30 +209,20 @@ class MedicalScribeJobSummaryTypeDef(BaseValidatorModel):
     MedicalScribeJobStatus: Optional[MedicalScribeJobStatusType] = None
     FailureReason: Optional[str] = None
 
-class ListMedicalTranscriptionJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListMedicalTranscriptionJobsRequestTypeDef(BaseValidatorModel):
     Status: Optional[TranscriptionJobStatusType] = None
     JobNameContains: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class MedicalTranscriptionJobSummaryTypeDef(BaseValidatorModel):
-    MedicalTranscriptionJobName: Optional[str] = None
-    CreationTime: Optional[datetime] = None
-    StartTime: Optional[datetime] = None
-    CompletionTime: Optional[datetime] = None
-    LanguageCode: Optional[LanguageCodeType] = None
-    TranscriptionJobStatus: Optional[TranscriptionJobStatusType] = None
-    FailureReason: Optional[str] = None
-    OutputLocationType: Optional[OutputLocationTypeType] = None
-    Specialty: Optional[Literal["PRIMARYCARE"]] = None
-    ContentIdentificationType: Optional[Literal["PHI"]] = None
-    Type: Optional[TypeType] = None
 
-class ListMedicalVocabulariesRequestRequestTypeDef(BaseValidatorModel):
+class ListMedicalVocabulariesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     StateEquals: Optional[VocabularyStateType] = None
     NameContains: Optional[str] = None
+
 
 class VocabularyInfoTypeDef(BaseValidatorModel):
     VocabularyName: Optional[str] = None
@@ -198,49 +230,50 @@ class VocabularyInfoTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
     VocabularyState: Optional[VocabularyStateType] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListTranscriptionJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTranscriptionJobsRequestTypeDef(BaseValidatorModel):
     Status: Optional[TranscriptionJobStatusType] = None
     JobNameContains: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListVocabulariesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListVocabulariesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     StateEquals: Optional[VocabularyStateType] = None
     NameContains: Optional[str] = None
 
-class ListVocabularyFiltersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListVocabularyFiltersRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NameContains: Optional[str] = None
+
 
 class VocabularyFilterInfoTypeDef(BaseValidatorModel):
     VocabularyFilterName: Optional[str] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LastModifiedTime: Optional[datetime] = None
 
+
 class MedicalScribeChannelDefinitionTypeDef(BaseValidatorModel):
     ChannelId: int
     ParticipantRole: MedicalScribeParticipantRoleType
+
 
 class MedicalScribeOutputTypeDef(BaseValidatorModel):
     TranscriptFileUri: str
     ClinicalDocumentUri: str
 
-class MedicalScribeSettingsTypeDef(BaseValidatorModel):
-    ShowSpeakerLabels: Optional[bool] = None
-    MaxSpeakerLabels: Optional[int] = None
-    ChannelIdentification: Optional[bool] = None
-    VocabularyName: Optional[str] = None
-    VocabularyFilterName: Optional[str] = None
-    VocabularyFilterMethod: Optional[VocabularyFilterMethodType] = None
 
 class MedicalTranscriptTypeDef(BaseValidatorModel):
     TranscriptFileUri: Optional[str] = None
+
 
 class MedicalTranscriptionSettingTypeDef(BaseValidatorModel):
     ShowSpeakerLabels: Optional[bool] = None
@@ -250,8 +283,10 @@ class MedicalTranscriptionSettingTypeDef(BaseValidatorModel):
     MaxAlternatives: Optional[int] = None
     VocabularyName: Optional[str] = None
 
+
 class ModelSettingsTypeDef(BaseValidatorModel):
     LanguageModelName: Optional[str] = None
+
 
 class SettingsTypeDef(BaseValidatorModel):
     VocabularyName: Optional[str] = None
@@ -263,45 +298,55 @@ class SettingsTypeDef(BaseValidatorModel):
     VocabularyFilterName: Optional[str] = None
     VocabularyFilterMethod: Optional[VocabularyFilterMethodType] = None
 
+
 class SubtitlesTypeDef(BaseValidatorModel):
     Formats: Optional[Sequence[SubtitleFormatType]] = None
     OutputStartIndex: Optional[int] = None
+
 
 class SubtitlesOutputTypeDef(BaseValidatorModel):
     Formats: Optional[List[SubtitleFormatType]] = None
     SubtitleFileUris: Optional[List[str]] = None
     OutputStartIndex: Optional[int] = None
 
+
 class ToxicityDetectionSettingsOutputTypeDef(BaseValidatorModel):
     ToxicityCategories: List[Literal["ALL"]]
+
 
 class ToxicityDetectionSettingsTypeDef(BaseValidatorModel):
     ToxicityCategories: Sequence[Literal["ALL"]]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateMedicalVocabularyRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateMedicalVocabularyRequestTypeDef(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
     VocabularyFileUri: str
 
-class UpdateVocabularyFilterRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateVocabularyFilterRequestTypeDef(BaseValidatorModel):
     VocabularyFilterName: str
     Words: Optional[Sequence[str]] = None
     VocabularyFilterFileUri: Optional[str] = None
     DataAccessRoleArn: Optional[str] = None
 
-class UpdateVocabularyRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateVocabularyRequestTypeDef(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
     Phrases: Optional[Sequence[str]] = None
     VocabularyFileUri: Optional[str] = None
     DataAccessRoleArn: Optional[str] = None
 
+
 class CallAnalyticsJobDetailsTypeDef(BaseValidatorModel):
     Skipped: Optional[List[CallAnalyticsSkippedFeatureTypeDef]] = None
+
 
 class CallAnalyticsJobSettingsOutputTypeDef(BaseValidatorModel):
     VocabularyName: Optional[str] = None
@@ -313,6 +358,7 @@ class CallAnalyticsJobSettingsOutputTypeDef(BaseValidatorModel):
     LanguageIdSettings: Optional[Dict[LanguageCodeType, LanguageIdSettingsTypeDef]] = None
     Summarization: Optional[SummarizationTypeDef] = None
 
+
 class CallAnalyticsJobSettingsTypeDef(BaseValidatorModel):
     VocabularyName: Optional[str] = None
     VocabularyFilterName: Optional[str] = None
@@ -323,6 +369,47 @@ class CallAnalyticsJobSettingsTypeDef(BaseValidatorModel):
     LanguageIdSettings: Optional[Mapping[LanguageCodeType, LanguageIdSettingsTypeDef]] = None
     Summarization: Optional[SummarizationTypeDef] = None
 
+
+class CreateMedicalVocabularyRequestTypeDef(BaseValidatorModel):
+    VocabularyName: str
+    LanguageCode: LanguageCodeType
+    VocabularyFileUri: str
+    Tags: Optional[Sequence[TagTypeDef]] = None
+
+
+class CreateVocabularyFilterRequestTypeDef(BaseValidatorModel):
+    VocabularyFilterName: str
+    LanguageCode: LanguageCodeType
+    Words: Optional[Sequence[str]] = None
+    VocabularyFilterFileUri: Optional[str] = None
+    Tags: Optional[Sequence[TagTypeDef]] = None
+    DataAccessRoleArn: Optional[str] = None
+
+
+class CreateVocabularyRequestTypeDef(BaseValidatorModel):
+    VocabularyName: str
+    LanguageCode: LanguageCodeType
+    Phrases: Optional[Sequence[str]] = None
+    VocabularyFileUri: Optional[str] = None
+    Tags: Optional[Sequence[TagTypeDef]] = None
+    DataAccessRoleArn: Optional[str] = None
+
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+
+class MedicalScribeSettingsTypeDef(BaseValidatorModel):
+    ShowSpeakerLabels: Optional[bool] = None
+    MaxSpeakerLabels: Optional[int] = None
+    ChannelIdentification: Optional[bool] = None
+    VocabularyName: Optional[str] = None
+    VocabularyFilterName: Optional[str] = None
+    VocabularyFilterMethod: Optional[VocabularyFilterMethodType] = None
+    ClinicalNoteGenerationSettings: Optional[ClinicalNoteGenerationSettingsTypeDef] = None
+
+
 class CreateMedicalVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -331,11 +418,13 @@ class CreateMedicalVocabularyResponseTypeDef(BaseValidatorModel):
     FailureReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateVocabularyFilterResponseTypeDef(BaseValidatorModel):
     VocabularyFilterName: str
     LanguageCode: LanguageCodeType
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyName: str
@@ -345,8 +434,10 @@ class CreateVocabularyResponseTypeDef(BaseValidatorModel):
     FailureReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetMedicalVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyName: str
@@ -357,12 +448,14 @@ class GetMedicalVocabularyResponseTypeDef(BaseValidatorModel):
     DownloadUri: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetVocabularyFilterResponseTypeDef(BaseValidatorModel):
     VocabularyFilterName: str
     LanguageCode: LanguageCodeType
     LastModifiedTime: datetime
     DownloadUri: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyName: str
@@ -373,6 +466,13 @@ class GetVocabularyResponseTypeDef(BaseValidatorModel):
     DownloadUri: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+    ResourceArn: str
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class UpdateMedicalVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -380,11 +480,13 @@ class UpdateMedicalVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyState: VocabularyStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateVocabularyFilterResponseTypeDef(BaseValidatorModel):
     VocabularyFilterName: str
     LanguageCode: LanguageCodeType
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyName: str
@@ -393,62 +495,35 @@ class UpdateVocabularyResponseTypeDef(BaseValidatorModel):
     VocabularyState: VocabularyStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class CreateLanguageModelRequestTypeDef(BaseValidatorModel):
+    LanguageCode: CLMLanguageCodeType
+    BaseModelName: BaseModelNameType
+    ModelName: str
+    InputDataConfig: InputDataConfigTypeDef
+    Tags: Optional[Sequence[TagTypeDef]] = None
+
+
 class CreateLanguageModelResponseTypeDef(BaseValidatorModel):
     LanguageCode: CLMLanguageCodeType
-    BaseValidatorModelName: BaseValidatorModelNameType
+    BaseModelName: BaseModelNameType
     ModelName: str
     InputDataConfig: InputDataConfigTypeDef
     ModelStatus: ModelStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class LanguageModelTypeDef(BaseValidatorModel):
     ModelName: Optional[str] = None
     CreateTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     LanguageCode: Optional[CLMLanguageCodeType] = None
-    BaseValidatorModelName: Optional[BaseValidatorModelNameType] = None
+    BaseModelName: Optional[BaseModelNameType] = None
     ModelStatus: Optional[ModelStatusType] = None
     UpgradeAvailability: Optional[bool] = None
     FailureReason: Optional[str] = None
     InputDataConfig: Optional[InputDataConfigTypeDef] = None
 
-class CreateLanguageModelRequestRequestTypeDef(BaseValidatorModel):
-    LanguageCode: CLMLanguageCodeType
-    BaseValidatorModelName: BaseValidatorModelNameType
-    ModelName: str
-    InputDataConfig: InputDataConfigTypeDef
-    Tags: Optional[Sequence[TagTypeDef]] = None
-
-class CreateMedicalVocabularyRequestRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
-    LanguageCode: LanguageCodeType
-    VocabularyFileUri: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
-
-class CreateVocabularyFilterRequestRequestTypeDef(BaseValidatorModel):
-    VocabularyFilterName: str
-    LanguageCode: LanguageCodeType
-    Words: Optional[Sequence[str]] = None
-    VocabularyFilterFileUri: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    DataAccessRoleArn: Optional[str] = None
-
-class CreateVocabularyRequestRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
-    LanguageCode: LanguageCodeType
-    Phrases: Optional[Sequence[str]] = None
-    VocabularyFileUri: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    DataAccessRoleArn: Optional[str] = None
-
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Tags: Sequence[TagTypeDef]
 
 class InterruptionFilterTypeDef(BaseValidatorModel):
     Threshold: Optional[int] = None
@@ -457,11 +532,13 @@ class InterruptionFilterTypeDef(BaseValidatorModel):
     RelativeTimeRange: Optional[RelativeTimeRangeTypeDef] = None
     Negate: Optional[bool] = None
 
+
 class NonTalkTimeFilterTypeDef(BaseValidatorModel):
     Threshold: Optional[int] = None
     AbsoluteTimeRange: Optional[AbsoluteTimeRangeTypeDef] = None
     RelativeTimeRange: Optional[RelativeTimeRangeTypeDef] = None
     Negate: Optional[bool] = None
+
 
 class SentimentFilterOutputTypeDef(BaseValidatorModel):
     Sentiments: List[SentimentValueType]
@@ -470,12 +547,14 @@ class SentimentFilterOutputTypeDef(BaseValidatorModel):
     ParticipantRole: Optional[ParticipantRoleType] = None
     Negate: Optional[bool] = None
 
+
 class SentimentFilterTypeDef(BaseValidatorModel):
     Sentiments: Sequence[SentimentValueType]
     AbsoluteTimeRange: Optional[AbsoluteTimeRangeTypeDef] = None
     RelativeTimeRange: Optional[RelativeTimeRangeTypeDef] = None
     ParticipantRole: Optional[ParticipantRoleType] = None
     Negate: Optional[bool] = None
+
 
 class TranscriptFilterOutputTypeDef(BaseValidatorModel):
     TranscriptFilterType: Literal["EXACT"]
@@ -485,6 +564,7 @@ class TranscriptFilterOutputTypeDef(BaseValidatorModel):
     ParticipantRole: Optional[ParticipantRoleType] = None
     Negate: Optional[bool] = None
 
+
 class TranscriptFilterTypeDef(BaseValidatorModel):
     TranscriptFilterType: Literal["EXACT"]
     Targets: Sequence[str]
@@ -493,11 +573,17 @@ class TranscriptFilterTypeDef(BaseValidatorModel):
     ParticipantRole: Optional[ParticipantRoleType] = None
     Negate: Optional[bool] = None
 
+
 class ListMedicalScribeJobsResponseTypeDef(BaseValidatorModel):
     Status: MedicalScribeJobStatusType
     MedicalScribeJobSummaries: List[MedicalScribeJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
+
+class MedicalTranscriptionJobSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListMedicalTranscriptionJobsResponseTypeDef(BaseValidatorModel):
     Status: TranscriptionJobStatusType
@@ -505,11 +591,13 @@ class ListMedicalTranscriptionJobsResponseTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ListMedicalVocabulariesResponseTypeDef(BaseValidatorModel):
     Status: VocabularyStateType
     Vocabularies: List[VocabularyInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class ListVocabulariesResponseTypeDef(BaseValidatorModel):
     Status: VocabularyStateType
@@ -517,70 +605,12 @@ class ListVocabulariesResponseTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ListVocabularyFiltersResponseTypeDef(BaseValidatorModel):
     VocabularyFilters: List[VocabularyFilterInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class MedicalScribeJobTypeDef(BaseValidatorModel):
-    MedicalScribeJobName: Optional[str] = None
-    MedicalScribeJobStatus: Optional[MedicalScribeJobStatusType] = None
-    LanguageCode: Optional[Literal["en-US"]] = None
-    Media: Optional[MediaTypeDef] = None
-    MedicalScribeOutput: Optional[MedicalScribeOutputTypeDef] = None
-    StartTime: Optional[datetime] = None
-    CreationTime: Optional[datetime] = None
-    CompletionTime: Optional[datetime] = None
-    FailureReason: Optional[str] = None
-    Settings: Optional[MedicalScribeSettingsTypeDef] = None
-    DataAccessRoleArn: Optional[str] = None
-    ChannelDefinitions: Optional[List[MedicalScribeChannelDefinitionTypeDef]] = None
-    Tags: Optional[List[TagTypeDef]] = None
-
-class StartMedicalScribeJobRequestRequestTypeDef(BaseValidatorModel):
-    MedicalScribeJobName: str
-    Media: MediaTypeDef
-    OutputBucketName: str
-    DataAccessRoleArn: str
-    Settings: MedicalScribeSettingsTypeDef
-    OutputEncryptionKMSKeyId: Optional[str] = None
-    KMSEncryptionContext: Optional[Mapping[str, str]] = None
-    ChannelDefinitions: Optional[Sequence[MedicalScribeChannelDefinitionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-
-class MedicalTranscriptionJobTypeDef(BaseValidatorModel):
-    MedicalTranscriptionJobName: Optional[str] = None
-    TranscriptionJobStatus: Optional[TranscriptionJobStatusType] = None
-    LanguageCode: Optional[LanguageCodeType] = None
-    MediaSampleRateHertz: Optional[int] = None
-    MediaFormat: Optional[MediaFormatType] = None
-    Media: Optional[MediaTypeDef] = None
-    Transcript: Optional[MedicalTranscriptTypeDef] = None
-    StartTime: Optional[datetime] = None
-    CreationTime: Optional[datetime] = None
-    CompletionTime: Optional[datetime] = None
-    FailureReason: Optional[str] = None
-    Settings: Optional[MedicalTranscriptionSettingTypeDef] = None
-    ContentIdentificationType: Optional[Literal["PHI"]] = None
-    Specialty: Optional[Literal["PRIMARYCARE"]] = None
-    Type: Optional[TypeType] = None
-    Tags: Optional[List[TagTypeDef]] = None
-
-class StartMedicalTranscriptionJobRequestRequestTypeDef(BaseValidatorModel):
-    MedicalTranscriptionJobName: str
-    LanguageCode: LanguageCodeType
-    Media: MediaTypeDef
-    OutputBucketName: str
-    Specialty: Literal["PRIMARYCARE"]
-    Type: TypeType
-    MediaSampleRateHertz: Optional[int] = None
-    MediaFormat: Optional[MediaFormatType] = None
-    OutputKey: Optional[str] = None
-    OutputEncryptionKMSKeyId: Optional[str] = None
-    KMSEncryptionContext: Optional[Mapping[str, str]] = None
-    Settings: Optional[MedicalTranscriptionSettingTypeDef] = None
-    ContentIdentificationType: Optional[Literal["PHI"]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
 
 class TranscriptionJobSummaryTypeDef(BaseValidatorModel):
     TranscriptionJobName: Optional[str] = None
@@ -598,6 +628,7 @@ class TranscriptionJobSummaryTypeDef(BaseValidatorModel):
     IdentifiedLanguageScore: Optional[float] = None
     LanguageCodes: Optional[List[LanguageCodeItemTypeDef]] = None
     ToxicityDetection: Optional[List[ToxicityDetectionSettingsOutputTypeDef]] = None
+
 
 class TranscriptionJobTypeDef(BaseValidatorModel):
     TranscriptionJobName: Optional[str] = None
@@ -625,6 +656,7 @@ class TranscriptionJobTypeDef(BaseValidatorModel):
     LanguageIdSettings: Optional[Dict[LanguageCodeType, LanguageIdSettingsTypeDef]] = None
     ToxicityDetection: Optional[List[ToxicityDetectionSettingsOutputTypeDef]] = None
 
+
 class CallAnalyticsJobSummaryTypeDef(BaseValidatorModel):
     CallAnalyticsJobName: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -634,6 +666,7 @@ class CallAnalyticsJobSummaryTypeDef(BaseValidatorModel):
     CallAnalyticsJobStatus: Optional[CallAnalyticsJobStatusType] = None
     CallAnalyticsJobDetails: Optional[CallAnalyticsJobDetailsTypeDef] = None
     FailureReason: Optional[str] = None
+
 
 class CallAnalyticsJobTypeDef(BaseValidatorModel):
     CallAnalyticsJobName: Optional[str] = None
@@ -652,24 +685,47 @@ class CallAnalyticsJobTypeDef(BaseValidatorModel):
     IdentifiedLanguageScore: Optional[float] = None
     Settings: Optional[CallAnalyticsJobSettingsOutputTypeDef] = None
     ChannelDefinitions: Optional[List[ChannelDefinitionTypeDef]] = None
+    Tags: Optional[List[TagTypeDef]] = None
 
-class StartCallAnalyticsJobRequestRequestTypeDef(BaseValidatorModel):
-    CallAnalyticsJobName: str
-    Media: MediaTypeDef
-    OutputLocation: Optional[str] = None
-    OutputEncryptionKMSKeyId: Optional[str] = None
+
+class MedicalScribeJobTypeDef(BaseValidatorModel):
+    MedicalScribeJobName: Optional[str] = None
+    MedicalScribeJobStatus: Optional[MedicalScribeJobStatusType] = None
+    LanguageCode: Optional[Literal["en-US"]] = None
+    Media: Optional[MediaTypeDef] = None
+    MedicalScribeOutput: Optional[MedicalScribeOutputTypeDef] = None
+    StartTime: Optional[datetime] = None
+    CreationTime: Optional[datetime] = None
+    CompletionTime: Optional[datetime] = None
+    FailureReason: Optional[str] = None
+    Settings: Optional[MedicalScribeSettingsTypeDef] = None
     DataAccessRoleArn: Optional[str] = None
-    Settings: Optional[CallAnalyticsJobSettingsTypeDef] = None
-    ChannelDefinitions: Optional[Sequence[ChannelDefinitionTypeDef]] = None
+    ChannelDefinitions: Optional[List[MedicalScribeChannelDefinitionTypeDef]] = None
+    Tags: Optional[List[TagTypeDef]] = None
+
+
+class StartMedicalScribeJobRequestTypeDef(BaseValidatorModel):
+    MedicalScribeJobName: str
+    Media: MediaTypeDef
+    OutputBucketName: str
+    DataAccessRoleArn: str
+    Settings: MedicalScribeSettingsTypeDef
+    OutputEncryptionKMSKeyId: Optional[str] = None
+    KMSEncryptionContext: Optional[Mapping[str, str]] = None
+    ChannelDefinitions: Optional[Sequence[MedicalScribeChannelDefinitionTypeDef]] = None
+    Tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class DescribeLanguageModelResponseTypeDef(BaseValidatorModel):
     LanguageModel: LanguageModelTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListLanguageModelsResponseTypeDef(BaseValidatorModel):
     Models: List[LanguageModelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class RuleOutputTypeDef(BaseValidatorModel):
     NonTalkTimeFilter: Optional[NonTalkTimeFilterTypeDef] = None
@@ -677,27 +733,20 @@ class RuleOutputTypeDef(BaseValidatorModel):
     TranscriptFilter: Optional[TranscriptFilterOutputTypeDef] = None
     SentimentFilter: Optional[SentimentFilterOutputTypeDef] = None
 
-class RuleTypeDef(BaseValidatorModel):
-    NonTalkTimeFilter: Optional[NonTalkTimeFilterTypeDef] = None
-    InterruptionFilter: Optional[InterruptionFilterTypeDef] = None
-    TranscriptFilter: Optional[TranscriptFilterTypeDef] = None
-    SentimentFilter: Optional[SentimentFilterTypeDef] = None
 
-class GetMedicalScribeJobResponseTypeDef(BaseValidatorModel):
-    MedicalScribeJob: MedicalScribeJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class MedicalTranscriptionJobTypeDef(BaseValidatorModel):
+    pass
 
-class StartMedicalScribeJobResponseTypeDef(BaseValidatorModel):
-    MedicalScribeJob: MedicalScribeJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class GetMedicalTranscriptionJobResponseTypeDef(BaseValidatorModel):
     MedicalTranscriptionJob: MedicalTranscriptionJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartMedicalTranscriptionJobResponseTypeDef(BaseValidatorModel):
     MedicalTranscriptionJob: MedicalTranscriptionJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListTranscriptionJobsResponseTypeDef(BaseValidatorModel):
     Status: TranscriptionJobStatusType
@@ -705,15 +754,26 @@ class ListTranscriptionJobsResponseTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class GetTranscriptionJobResponseTypeDef(BaseValidatorModel):
     TranscriptionJob: TranscriptionJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartTranscriptionJobResponseTypeDef(BaseValidatorModel):
     TranscriptionJob: TranscriptionJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartTranscriptionJobRequestRequestTypeDef(BaseValidatorModel):
+
+class ContentRedactionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ToxicityDetectionSettingsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class StartTranscriptionJobRequestTypeDef(BaseValidatorModel):
     TranscriptionJobName: str
     Media: MediaTypeDef
     LanguageCode: Optional[LanguageCodeType] = None
@@ -726,7 +786,7 @@ class StartTranscriptionJobRequestRequestTypeDef(BaseValidatorModel):
     Settings: Optional[SettingsTypeDef] = None
     ModelSettings: Optional[ModelSettingsTypeDef] = None
     JobExecutionSettings: Optional[JobExecutionSettingsTypeDef] = None
-    ContentRedaction: Optional[ContentRedactionTypeDef] = None
+    ContentRedaction: Optional[ContentRedactionUnionTypeDef] = None
     IdentifyLanguage: Optional[bool] = None
     IdentifyMultipleLanguages: Optional[bool] = None
     LanguageOptions: Optional[Sequence[LanguageCodeType]] = None
@@ -735,51 +795,108 @@ class StartTranscriptionJobRequestRequestTypeDef(BaseValidatorModel):
     LanguageIdSettings: Optional[Mapping[LanguageCodeType, LanguageIdSettingsTypeDef]] = None
     ToxicityDetection: Optional[Sequence[ToxicityDetectionSettingsUnionTypeDef]] = None
 
+
 class ListCallAnalyticsJobsResponseTypeDef(BaseValidatorModel):
     Status: CallAnalyticsJobStatusType
     CallAnalyticsJobSummaries: List[CallAnalyticsJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class GetCallAnalyticsJobResponseTypeDef(BaseValidatorModel):
     CallAnalyticsJob: CallAnalyticsJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartCallAnalyticsJobResponseTypeDef(BaseValidatorModel):
     CallAnalyticsJob: CallAnalyticsJobTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class CallAnalyticsJobSettingsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class StartCallAnalyticsJobRequestTypeDef(BaseValidatorModel):
+    CallAnalyticsJobName: str
+    Media: MediaTypeDef
+    OutputLocation: Optional[str] = None
+    OutputEncryptionKMSKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[str] = None
+    Settings: Optional[CallAnalyticsJobSettingsUnionTypeDef] = None
+    Tags: Optional[Sequence[TagTypeDef]] = None
+    ChannelDefinitions: Optional[Sequence[ChannelDefinitionTypeDef]] = None
+
+
+class GetMedicalScribeJobResponseTypeDef(BaseValidatorModel):
+    MedicalScribeJob: MedicalScribeJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class StartMedicalScribeJobResponseTypeDef(BaseValidatorModel):
+    MedicalScribeJob: MedicalScribeJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CategoryPropertiesTypeDef(BaseValidatorModel):
     CategoryName: Optional[str] = None
     Rules: Optional[List[RuleOutputTypeDef]] = None
     CreateTime: Optional[datetime] = None
     LastUpdateTime: Optional[datetime] = None
+    Tags: Optional[List[TagTypeDef]] = None
     InputType: Optional[InputTypeType] = None
+
+
+class SentimentFilterUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class TranscriptFilterUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RuleTypeDef(BaseValidatorModel):
+    NonTalkTimeFilter: Optional[NonTalkTimeFilterTypeDef] = None
+    InterruptionFilter: Optional[InterruptionFilterTypeDef] = None
+    TranscriptFilter: Optional[TranscriptFilterUnionTypeDef] = None
+    SentimentFilter: Optional[SentimentFilterUnionTypeDef] = None
+
 
 class CreateCallAnalyticsCategoryResponseTypeDef(BaseValidatorModel):
     CategoryProperties: CategoryPropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetCallAnalyticsCategoryResponseTypeDef(BaseValidatorModel):
     CategoryProperties: CategoryPropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListCallAnalyticsCategoriesResponseTypeDef(BaseValidatorModel):
     Categories: List[CategoryPropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class UpdateCallAnalyticsCategoryResponseTypeDef(BaseValidatorModel):
     CategoryProperties: CategoryPropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCallAnalyticsCategoryRequestRequestTypeDef(BaseValidatorModel):
+
+class RuleUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateCallAnalyticsCategoryRequestTypeDef(BaseValidatorModel):
+    CategoryName: str
+    Rules: Sequence[RuleUnionTypeDef]
+    Tags: Optional[Sequence[TagTypeDef]] = None
+    InputType: Optional[InputTypeType] = None
+
+
+class UpdateCallAnalyticsCategoryRequestTypeDef(BaseValidatorModel):
     CategoryName: str
     Rules: Sequence[RuleUnionTypeDef]
     InputType: Optional[InputTypeType] = None
 
-class UpdateCallAnalyticsCategoryRequestRequestTypeDef(BaseValidatorModel):
-    CategoryName: str
-    Rules: Sequence[RuleUnionTypeDef]
-    InputType: Optional[InputTypeType] = None
 

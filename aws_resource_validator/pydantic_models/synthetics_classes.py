@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,17 +16,26 @@ class S3EncryptionConfigTypeDef(BaseValidatorModel):
     EncryptionMode: Optional[EncryptionModeType] = None
     KmsKeyArn: Optional[str] = None
 
-class AssociateResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateResourceRequestTypeDef(BaseValidatorModel):
     GroupIdentifier: str
     ResourceArn: str
 
-class BaseScreenshotTypeDef(BaseValidatorModel):
+
+class BaseScreenshotOutputTypeDef(BaseValidatorModel):
     ScreenshotName: str
     IgnoreCoordinates: Optional[List[str]] = None
+
+
+class BaseScreenshotTypeDef(BaseValidatorModel):
+    ScreenshotName: str
+    IgnoreCoordinates: Optional[Sequence[str]] = None
+
 
 class CanaryCodeOutputTypeDef(BaseValidatorModel):
     SourceLocationArn: Optional[str] = None
     Handler: Optional[str] = None
+
 
 class CanaryRunConfigInputTypeDef(BaseValidatorModel):
     TimeoutInSeconds: Optional[int] = None
@@ -33,32 +43,39 @@ class CanaryRunConfigInputTypeDef(BaseValidatorModel):
     ActiveTracing: Optional[bool] = None
     EnvironmentVariables: Optional[Mapping[str, str]] = None
 
+
 class CanaryRunConfigOutputTypeDef(BaseValidatorModel):
     TimeoutInSeconds: Optional[int] = None
     MemoryInMB: Optional[int] = None
     ActiveTracing: Optional[bool] = None
+
 
 class CanaryRunStatusTypeDef(BaseValidatorModel):
     State: Optional[CanaryRunStateType] = None
     StateReason: Optional[str] = None
     StateReasonCode: Optional[CanaryRunStateReasonCodeType] = None
 
+
 class CanaryRunTimelineTypeDef(BaseValidatorModel):
     Started: Optional[datetime] = None
     Completed: Optional[datetime] = None
+
 
 class CanaryScheduleInputTypeDef(BaseValidatorModel):
     Expression: str
     DurationInSeconds: Optional[int] = None
 
+
 class CanaryScheduleOutputTypeDef(BaseValidatorModel):
     Expression: Optional[str] = None
     DurationInSeconds: Optional[int] = None
+
 
 class CanaryStatusTypeDef(BaseValidatorModel):
     State: Optional[CanaryStateType] = None
     StateReason: Optional[str] = None
     StateReasonCode: Optional[CanaryStateReasonCodeType] = None
+
 
 class CanaryTimelineTypeDef(BaseValidatorModel):
     Created: Optional[datetime] = None
@@ -66,25 +83,32 @@ class CanaryTimelineTypeDef(BaseValidatorModel):
     LastStarted: Optional[datetime] = None
     LastStopped: Optional[datetime] = None
 
+
 class VpcConfigOutputTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
     SecurityGroupIds: Optional[List[str]] = None
+    Ipv6AllowedForDualStack: Optional[bool] = None
+
 
 class VpcConfigInputTypeDef(BaseValidatorModel):
     SubnetIds: Optional[Sequence[str]] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
+    Ipv6AllowedForDualStack: Optional[bool] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class CreateGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateGroupRequestTypeDef(BaseValidatorModel):
     Name: str
     Tags: Optional[Mapping[str, str]] = None
+
 
 class GroupTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
@@ -94,26 +118,32 @@ class GroupTypeDef(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
-class DeleteCanaryRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteCanaryRequestTypeDef(BaseValidatorModel):
     Name: str
     DeleteLambda: Optional[bool] = None
 
-class DeleteGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteGroupRequestTypeDef(BaseValidatorModel):
     GroupIdentifier: str
 
-class DescribeCanariesLastRunRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeCanariesLastRunRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Names: Optional[Sequence[str]] = None
 
-class DescribeCanariesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeCanariesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Names: Optional[Sequence[str]] = None
 
-class DescribeRuntimeVersionsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeRuntimeVersionsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class RuntimeVersionTypeDef(BaseValidatorModel):
     VersionName: Optional[str] = None
@@ -121,70 +151,87 @@ class RuntimeVersionTypeDef(BaseValidatorModel):
     ReleaseDate: Optional[datetime] = None
     DeprecationDate: Optional[datetime] = None
 
-class DisassociateResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateResourceRequestTypeDef(BaseValidatorModel):
     GroupIdentifier: str
     ResourceArn: str
 
-class GetCanaryRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCanaryRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class GetCanaryRunsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCanaryRunsRequestTypeDef(BaseValidatorModel):
     Name: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class GetGroupRequestTypeDef(BaseValidatorModel):
     GroupIdentifier: str
+
 
 class GroupSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Arn: Optional[str] = None
 
-class ListAssociatedGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAssociatedGroupsRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListGroupResourcesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListGroupResourcesRequestTypeDef(BaseValidatorModel):
     GroupIdentifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListGroupsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class StartCanaryRequestRequestTypeDef(BaseValidatorModel):
+
+class StartCanaryRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class StopCanaryRequestRequestTypeDef(BaseValidatorModel):
+
+class StopCanaryRequestTypeDef(BaseValidatorModel):
     Name: str
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
+
 
 class ArtifactConfigInputTypeDef(BaseValidatorModel):
     S3Encryption: Optional[S3EncryptionConfigTypeDef] = None
 
+
 class ArtifactConfigOutputTypeDef(BaseValidatorModel):
     S3Encryption: Optional[S3EncryptionConfigTypeDef] = None
 
-class VisualReferenceInputTypeDef(BaseValidatorModel):
-    BaseCanaryRunId: str
-    BaseScreenshots: Optional[Sequence[BaseScreenshotTypeDef]] = None
 
 class VisualReferenceOutputTypeDef(BaseValidatorModel):
-    BaseScreenshots: Optional[List[BaseScreenshotTypeDef]] = None
+    BaseScreenshots: Optional[List[BaseScreenshotOutputTypeDef]] = None
     BaseCanaryRunId: Optional[str] = None
+
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
 
 class CanaryCodeInputTypeDef(BaseValidatorModel):
     Handler: str
@@ -193,6 +240,7 @@ class CanaryCodeInputTypeDef(BaseValidatorModel):
     S3Version: Optional[str] = None
     ZipFile: Optional[BlobTypeDef] = None
 
+
 class CanaryRunTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -200,37 +248,45 @@ class CanaryRunTypeDef(BaseValidatorModel):
     Timeline: Optional[CanaryRunTimelineTypeDef] = None
     ArtifactS3Location: Optional[str] = None
 
+
 class ListGroupResourcesResponseTypeDef(BaseValidatorModel):
     Resources: List[str]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateGroupResponseTypeDef(BaseValidatorModel):
     Group: GroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetGroupResponseTypeDef(BaseValidatorModel):
     Group: GroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeRuntimeVersionsResponseTypeDef(BaseValidatorModel):
     RuntimeVersions: List[RuntimeVersionTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListAssociatedGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class CanaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
@@ -248,10 +304,21 @@ class CanaryTypeDef(BaseValidatorModel):
     RuntimeVersion: Optional[str] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
     VisualReference: Optional[VisualReferenceOutputTypeDef] = None
+    ProvisionedResourceCleanup: Optional[ProvisionedResourceCleanupSettingType] = None
     Tags: Optional[Dict[str, str]] = None
     ArtifactConfig: Optional[ArtifactConfigOutputTypeDef] = None
 
-class CreateCanaryRequestRequestTypeDef(BaseValidatorModel):
+
+class BaseScreenshotUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class VisualReferenceInputTypeDef(BaseValidatorModel):
+    BaseCanaryRunId: str
+    BaseScreenshots: Optional[Sequence[BaseScreenshotUnionTypeDef]] = None
+
+
+class CreateCanaryRequestTypeDef(BaseValidatorModel):
     Name: str
     Code: CanaryCodeInputTypeDef
     ArtifactS3Location: str
@@ -262,10 +329,40 @@ class CreateCanaryRequestRequestTypeDef(BaseValidatorModel):
     SuccessRetentionPeriodInDays: Optional[int] = None
     FailureRetentionPeriodInDays: Optional[int] = None
     VpcConfig: Optional[VpcConfigInputTypeDef] = None
+    ResourcesToReplicateTags: Optional[Sequence[Literal["lambda-function"]]] = None
+    ProvisionedResourceCleanup: Optional[ProvisionedResourceCleanupSettingType] = None
     Tags: Optional[Mapping[str, str]] = None
     ArtifactConfig: Optional[ArtifactConfigInputTypeDef] = None
 
-class UpdateCanaryRequestRequestTypeDef(BaseValidatorModel):
+
+class CanaryLastRunTypeDef(BaseValidatorModel):
+    CanaryName: Optional[str] = None
+    LastRun: Optional[CanaryRunTypeDef] = None
+
+
+class GetCanaryRunsResponseTypeDef(BaseValidatorModel):
+    CanaryRuns: List[CanaryRunTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class CreateCanaryResponseTypeDef(BaseValidatorModel):
+    Canary: CanaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DescribeCanariesResponseTypeDef(BaseValidatorModel):
+    Canaries: List[CanaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class GetCanaryResponseTypeDef(BaseValidatorModel):
+    Canary: CanaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class UpdateCanaryRequestTypeDef(BaseValidatorModel):
     Name: str
     Code: Optional[CanaryCodeInputTypeDef] = None
     ExecutionRoleArn: Optional[str] = None
@@ -278,31 +375,12 @@ class UpdateCanaryRequestRequestTypeDef(BaseValidatorModel):
     VisualReference: Optional[VisualReferenceInputTypeDef] = None
     ArtifactS3Location: Optional[str] = None
     ArtifactConfig: Optional[ArtifactConfigInputTypeDef] = None
+    ProvisionedResourceCleanup: Optional[ProvisionedResourceCleanupSettingType] = None
 
-class CanaryLastRunTypeDef(BaseValidatorModel):
-    CanaryName: Optional[str] = None
-    LastRun: Optional[CanaryRunTypeDef] = None
-
-class GetCanaryRunsResponseTypeDef(BaseValidatorModel):
-    CanaryRuns: List[CanaryRunTypeDef]
-    NextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class CreateCanaryResponseTypeDef(BaseValidatorModel):
-    Canary: CanaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class DescribeCanariesResponseTypeDef(BaseValidatorModel):
-    Canaries: List[CanaryTypeDef]
-    NextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class GetCanaryResponseTypeDef(BaseValidatorModel):
-    Canary: CanaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class DescribeCanariesLastRunResponseTypeDef(BaseValidatorModel):
     CanariesLastRun: List[CanaryLastRunTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 

@@ -24,6 +24,7 @@ Ac3MetadataControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AcceptHeaderType = Literal["image/jpeg"]
 AccessibilityTypeType = Literal["DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES", "IMPLEMENTS_ACCESSIBILITY_FEATURES"]
 AfdSignalingType = Literal["AUTO", "FIXED", "NONE"]
+AlgorithmType = Literal["AES128", "AES192", "AES256"]
 AudioDescriptionAudioTypeControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AudioDescriptionLanguageCodeControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AudioLanguageSelectionPolicyType = Literal["LOOSE", "STRICT"]
@@ -36,7 +37,27 @@ AudioOnlyHlsTrackTypeType = Literal["ALTERNATE_AUDIO_AUTO_SELECT",
     "AUDIO_ONLY_VARIANT_STREAM",]
 AudioTypeType = Literal["CLEAN_EFFECTS", "HEARING_IMPAIRED", "UNDEFINED", "VISUAL_IMPAIRED_COMMENTARY"]
 AuthenticationSchemeType = Literal["AKAMAI", "COMMON"]
+Av1GopSizeUnitsType = Literal["FRAMES", "SECONDS"]
+Av1LevelType = Literal["AV1_LEVEL_2",
+    "AV1_LEVEL_2_1",
+    "AV1_LEVEL_3",
+    "AV1_LEVEL_3_1",
+    "AV1_LEVEL_4",
+    "AV1_LEVEL_4_1",
+    "AV1_LEVEL_5",
+    "AV1_LEVEL_5_1",
+    "AV1_LEVEL_5_2",
+    "AV1_LEVEL_5_3",
+    "AV1_LEVEL_6",
+    "AV1_LEVEL_6_1",
+    "AV1_LEVEL_6_2",
+    "AV1_LEVEL_6_3",
+    "AV1_LEVEL_AUTO",]
+Av1LookAheadRateControlType = Literal["HIGH", "LOW", "MEDIUM"]
+Av1SceneChangeDetectType = Literal["DISABLED", "ENABLED"]
 AvailBlankingStateType = Literal["DISABLED", "ENABLED"]
+BandwidthReductionFilterStrengthType = Literal["AUTO", "STRENGTH_1", "STRENGTH_2", "STRENGTH_3", "STRENGTH_4"]
+BandwidthReductionPostFilterSharpeningType = Literal["DISABLED", "SHARPENING_1", "SHARPENING_2", "SHARPENING_3"]
 BlackoutSlateNetworkEndBlackoutType = Literal["DISABLED", "ENABLED"]
 BlackoutSlateStateType = Literal["DISABLED", "ENABLED"]
 BurnInAlignmentType = Literal["CENTERED", "LEFT", "SMART"]
@@ -50,6 +71,10 @@ ChannelClassType = Literal["SINGLE_PIPELINE", "STANDARD"]
 ChannelCreatedWaiterName = Literal["channel_created"]
 ChannelDeletedWaiterName = Literal["channel_deleted"]
 ChannelPipelineIdToRestartType = Literal["PIPELINE_0", "PIPELINE_1"]
+ChannelPlacementGroupAssignedWaiterName = Literal["channel_placement_group_assigned"]
+ChannelPlacementGroupDeletedWaiterName = Literal["channel_placement_group_deleted"]
+ChannelPlacementGroupStateType = Literal["ASSIGNED", "ASSIGNING", "DELETED", "DELETE_FAILED", "DELETING", "UNASSIGNED", "UNASSIGNING"]
+ChannelPlacementGroupUnassignedWaiterName = Literal["channel_placement_group_unassigned"]
 ChannelRunningWaiterName = Literal["channel_running"]
 ChannelStateType = Literal["CREATE_FAILED",
     "CREATING",
@@ -75,9 +100,16 @@ CloudWatchAlarmTemplateTargetResourceTypeType = Literal["CLOUDFRONT_DISTRIBUTION
     "MEDIALIVE_MULTIPLEX",
     "MEDIAPACKAGE_CHANNEL",
     "MEDIAPACKAGE_ORIGIN_ENDPOINT",
+    "MEDIATAILOR_PLAYBACK_CONFIGURATION",
     "S3_BUCKET",]
 CloudWatchAlarmTemplateTreatMissingDataType = Literal["breaching", "ignore", "missing", "notBreaching"]
+ClusterCreatedWaiterName = Literal["cluster_created"]
+ClusterDeletedWaiterName = Literal["cluster_deleted"]
+ClusterStateType = Literal["ACTIVE", "CREATE_FAILED", "CREATING", "DELETED", "DELETE_FAILED", "DELETING"]
+ClusterTypeType = Literal["ON_PREMISES"]
+CmafId3BehaviorType = Literal["DISABLED", "ENABLED"]
 CmafIngestSegmentLengthUnitsType = Literal["MILLISECONDS", "SECONDS"]
+CmafKLVBehaviorType = Literal["NO_PASSTHROUGH", "PASSTHROUGH"]
 CmafNielsenId3BehaviorType = Literal["NO_PASSTHROUGH", "PASSTHROUGH"]
 ColorSpaceType = Literal["HDR10", "HLG_2020", "REC_601", "REC_709"]
 ContentTypeType = Literal["image/jpeg"]
@@ -226,6 +258,7 @@ H264TimecodeInsertionBehaviorType = Literal["DISABLED", "PIC_TIMING_SEI"]
 H265AdaptiveQuantizationType = Literal["AUTO", "HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"]
 H265AlternativeTransferFunctionType = Literal["INSERT", "OMIT"]
 H265ColorMetadataType = Literal["IGNORE", "INSERT"]
+H265DeblockingType = Literal["DISABLED", "ENABLED"]
 H265FlickerAqType = Literal["DISABLED", "ENABLED"]
 H265GopSizeUnitsType = Literal["FRAMES", "SECONDS"]
 H265LevelType = Literal["H265_LEVEL_1",
@@ -322,6 +355,7 @@ InputLossActionForRtmpOutType = Literal["EMIT_OUTPUT", "PAUSE_OUTPUT"]
 InputLossActionForUdpOutType = Literal["DROP_PROGRAM", "DROP_TS", "EMIT_PROGRAM"]
 InputLossImageTypeType = Literal["COLOR", "SLATE"]
 InputMaximumBitrateType = Literal["MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS"]
+InputNetworkLocationType = Literal["AWS", "ON_PREMISES"]
 InputPreferenceType = Literal["EQUAL_INPUT_PREFERENCE", "PRIMARY_INPUT_PREFERRED"]
 InputResolutionType = Literal["HD", "SD", "UHD"]
 InputSecurityGroupStateType = Literal["DELETED", "IDLE", "IN_USE", "UPDATING"]
@@ -333,16 +367,20 @@ InputTypeType = Literal["AWS_CDI",
     "INPUT_DEVICE",
     "MEDIACONNECT",
     "MP4_FILE",
+    "MULTICAST",
     "RTMP_PULL",
     "RTMP_PUSH",
     "RTP_PUSH",
+    "SRT_CALLER",
     "TS_FILE",
     "UDP_PUSH",
     "URL_PULL",]
 LastFrameClippingBehaviorType = Literal["EXCLUDE_LAST_FRAME", "INCLUDE_LAST_FRAME"]
+ListChannelPlacementGroupsPaginatorName = Literal["list_channel_placement_groups"]
 ListChannelsPaginatorName = Literal["list_channels"]
 ListCloudWatchAlarmTemplateGroupsPaginatorName = Literal["list_cloud_watch_alarm_template_groups"]
 ListCloudWatchAlarmTemplatesPaginatorName = Literal["list_cloud_watch_alarm_templates"]
+ListClustersPaginatorName = Literal["list_clusters"]
 ListEventBridgeRuleTemplateGroupsPaginatorName = Literal["list_event_bridge_rule_template_groups"]
 ListEventBridgeRuleTemplatesPaginatorName = Literal["list_event_bridge_rule_templates"]
 ListInputDeviceTransfersPaginatorName = Literal["list_input_device_transfers"]
@@ -351,6 +389,8 @@ ListInputSecurityGroupsPaginatorName = Literal["list_input_security_groups"]
 ListInputsPaginatorName = Literal["list_inputs"]
 ListMultiplexProgramsPaginatorName = Literal["list_multiplex_programs"]
 ListMultiplexesPaginatorName = Literal["list_multiplexes"]
+ListNetworksPaginatorName = Literal["list_networks"]
+ListNodesPaginatorName = Literal["list_nodes"]
 ListOfferingsPaginatorName = Literal["list_offerings"]
 ListReservationsPaginatorName = Literal["list_reservations"]
 ListSignalMapsPaginatorName = Literal["list_signal_maps"]
@@ -405,6 +445,16 @@ MultiplexStateType = Literal["CREATE_FAILED",
     "STOPPING",]
 MultiplexStoppedWaiterName = Literal["multiplex_stopped"]
 NetworkInputServerValidationType = Literal["CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME", "CHECK_CRYPTOGRAPHY_ONLY"]
+NetworkInterfaceModeType = Literal["BRIDGE", "NAT"]
+NetworkStateType = Literal["ACTIVE",
+    "CREATE_FAILED",
+    "CREATING",
+    "DELETED",
+    "DELETE_FAILED",
+    "DELETING",
+    "IDLE",
+    "IN_USE",
+    "UPDATING",]
 NielsenPcmToId3TaggingStateType = Literal["DISABLED", "ENABLED"]
 NielsenWatermarkTimezonesType = Literal["AMERICA_PUERTO_RICO",
     "US_ALASKA",
@@ -418,13 +468,29 @@ NielsenWatermarkTimezonesType = Literal["AMERICA_PUERTO_RICO",
     "UTC",]
 NielsenWatermarksCbetStepasideType = Literal["DISABLED", "ENABLED"]
 NielsenWatermarksDistributionTypesType = Literal["FINAL_DISTRIBUTOR", "PROGRAM_CONTENT"]
+NodeConnectionStateType = Literal["CONNECTED", "DISCONNECTED"]
+NodeDeregisteredWaiterName = Literal["node_deregistered"]
+NodeRegisteredWaiterName = Literal["node_registered"]
+NodeRoleType = Literal["ACTIVE", "BACKUP"]
+NodeStateType = Literal["ACTIVATION_FAILED",
+    "ACTIVE",
+    "CREATED",
+    "DEREGISTERED",
+    "DEREGISTERING",
+    "DEREGISTRATION_FAILED",
+    "DRAINING",
+    "IN_USE",
+    "READY",
+    "READY_TO_ACTIVATE",
+    "REGISTERING",
+    "REGISTRATION_FAILED",]
 OfferingDurationUnitsType = Literal["MONTHS"]
 OfferingTypeType = Literal["NO_UPFRONT"]
 PipelineIdType = Literal["PIPELINE_0", "PIPELINE_1"]
 PreferredChannelPipelineType = Literal["CURRENTLY_ACTIVE", "PIPELINE_0", "PIPELINE_1"]
 RebootInputDeviceForceType = Literal["NO", "YES"]
 ReservationAutomaticRenewalType = Literal["DISABLED", "ENABLED", "UNAVAILABLE"]
-ReservationCodecType = Literal["AUDIO", "AVC", "HEVC", "LINK", "MPEG2"]
+ReservationCodecType = Literal["AUDIO", "AV1", "AVC", "HEVC", "LINK", "MPEG2"]
 ReservationMaximumBitrateType = Literal["MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS"]
 ReservationMaximumFramerateType = Literal["MAX_30_FPS", "MAX_60_FPS"]
 ReservationResolutionType = Literal["FHD", "HD", "SD", "UHD"]
@@ -483,6 +549,7 @@ SmoothGroupSparseTrackTypeType = Literal["NONE", "SCTE_35", "SCTE_35_WITHOUT_SEG
 SmoothGroupStreamManifestBehaviorType = Literal["DO_NOT_SEND", "SEND"]
 SmoothGroupTimestampOffsetModeType = Literal["USE_CONFIGURED_OFFSET", "USE_EVENT_START_DATE"]
 Smpte2038DataPreferenceType = Literal["IGNORE", "PREFER"]
+SrtEncryptionTypeType = Literal["AES128", "AES192", "AES256"]
 TemporalFilterPostFilterSharpeningType = Literal["AUTO", "DISABLED", "ENABLED"]
 TemporalFilterStrengthType = Literal["AUTO",
     "STRENGTH_1",
@@ -516,6 +583,7 @@ TimecodeBurninPositionType = Literal["BOTTOM_CENTER",
 TimecodeConfigSourceType = Literal["EMBEDDED", "SYSTEMCLOCK", "ZEROBASED"]
 TtmlDestinationStyleControlType = Literal["PASSTHROUGH", "USE_CONFIGURED"]
 UdpTimedMetadataId3FrameType = Literal["NONE", "PRIV", "TDRL"]
+UpdateNodeStateType = Literal["ACTIVE", "DRAINING"]
 VideoDescriptionRespondToAfdType = Literal["NONE", "PASSTHROUGH", "RESPOND"]
 VideoDescriptionScalingBehaviorType = Literal["DEFAULT", "STRETCH_TO_OUTPUT"]
 VideoSelectorColorSpaceType = Literal["FOLLOW", "HDR10", "HLG_2020", "REC_601", "REC_709"]
@@ -527,7 +595,6 @@ ServiceName = Literal["accessanalyzer",
     "account",
     "acm",
     "acm-pca",
-    "alexaforbusiness",
     "amp",
     "amplify",
     "amplifybackend",
@@ -542,11 +609,13 @@ ServiceName = Literal["accessanalyzer",
     "appintegrations",
     "application-autoscaling",
     "application-insights",
+    "application-signals",
     "applicationcostprofiler",
     "appmesh",
     "apprunner",
     "appstream",
     "appsync",
+    "apptest",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -556,13 +625,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
-    "backupstorage",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -599,7 +672,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -612,6 +684,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -637,6 +710,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -648,7 +723,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -672,6 +746,10 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "gameliftstreams",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -682,7 +760,6 @@ ServiceName = Literal["accessanalyzer",
     "guardduty",
     "health",
     "healthlake",
-    "honeycode",
     "iam",
     "identitystore",
     "imagebuilder",
@@ -691,11 +768,11 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
+    "iot-managed-integrations",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -743,12 +820,14 @@ ServiceName = Literal["accessanalyzer",
     "m2",
     "machinelearning",
     "macie2",
+    "mailmanager",
     "managedblockchain",
     "managedblockchain-query",
     "marketplace-agreement",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -768,7 +847,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -776,10 +854,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -789,9 +870,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
+    "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -805,6 +889,7 @@ ServiceName = Literal["accessanalyzer",
     "pricing",
     "privatenetworks",
     "proton",
+    "qapps",
     "qbusiness",
     "qconnect",
     "qldb",
@@ -836,6 +921,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -848,6 +934,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -865,10 +952,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -881,6 +970,7 @@ ServiceName = Literal["accessanalyzer",
     "support-app",
     "swf",
     "synthetics",
+    "taxsettings",
     "textract",
     "timestream-influxdb",
     "timestream-query",
@@ -899,7 +989,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -917,9 +1006,11 @@ ResourceServiceName = Literal["cloudformation",
     "sns",
     "sqs",]
 PaginatorName = Literal["describe_schedule",
+    "list_channel_placement_groups",
     "list_channels",
     "list_cloud_watch_alarm_template_groups",
     "list_cloud_watch_alarm_templates",
+    "list_clusters",
     "list_event_bridge_rule_template_groups",
     "list_event_bridge_rule_templates",
     "list_input_device_transfers",
@@ -928,13 +1019,20 @@ PaginatorName = Literal["describe_schedule",
     "list_inputs",
     "list_multiplex_programs",
     "list_multiplexes",
+    "list_networks",
+    "list_nodes",
     "list_offerings",
     "list_reservations",
     "list_signal_maps",]
 WaiterName = Literal["channel_created",
     "channel_deleted",
+    "channel_placement_group_assigned",
+    "channel_placement_group_deleted",
+    "channel_placement_group_unassigned",
     "channel_running",
     "channel_stopped",
+    "cluster_created",
+    "cluster_deleted",
     "input_attached",
     "input_deleted",
     "input_detached",
@@ -942,6 +1040,8 @@ WaiterName = Literal["channel_created",
     "multiplex_deleted",
     "multiplex_running",
     "multiplex_stopped",
+    "node_deregistered",
+    "node_registered",
     "signal_map_created",
     "signal_map_monitor_deleted",
     "signal_map_monitor_deployed",
@@ -965,6 +1065,3 @@ RegionName = Literal["ap-northeast-1",
     "us-east-1",
     "us-east-2",
     "us-west-2",]
-OutputDestinationUnionTypeDef = Union['OutputDestinationTypeDef', 'OutputDestinationExtraOutputTypeDef']
-InputAttachmentUnionTypeDef = Union['InputAttachmentTypeDef', 'InputAttachmentExtraOutputTypeDef']
-EncoderSettingsUnionTypeDef = Union['EncoderSettingsTypeDef', 'EncoderSettingsOutputTypeDef']

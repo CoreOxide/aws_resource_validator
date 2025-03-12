@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -14,6 +15,7 @@ from aws_resource_validator.pydantic_models.artifact_constants import *
 class AccountSettingsTypeDef(BaseValidatorModel):
     notificationSubscriptionStatus: Optional[NotificationSubscriptionStatusType] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
@@ -21,96 +23,98 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class GetReportMetadataRequestRequestTypeDef(BaseValidatorModel):
+
+class GetReportMetadataRequestTypeDef(BaseValidatorModel):
     reportId: str
     reportVersion: Optional[int] = None
 
-class ReportDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    periodStart: Optional[datetime] = None
-    periodEnd: Optional[datetime] = None
-    createdAt: Optional[datetime] = None
-    lastModifiedAt: Optional[datetime] = None
-    deletedAt: Optional[datetime] = None
-    state: Optional[PublishedStateType] = None
-    arn: Optional[str] = None
-    series: Optional[str] = None
-    category: Optional[str] = None
-    companyName: Optional[str] = None
-    productName: Optional[str] = None
-    termArn: Optional[str] = None
-    version: Optional[int] = None
-    acceptanceType: Optional[AcceptanceTypeType] = None
-    sequenceNumber: Optional[int] = None
-    uploadState: Optional[UploadStateType] = None
-    statusMessage: Optional[str] = None
 
-class GetReportRequestRequestTypeDef(BaseValidatorModel):
+class GetReportRequestTypeDef(BaseValidatorModel):
     reportId: str
     termToken: str
     reportVersion: Optional[int] = None
 
-class GetTermForReportRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTermForReportRequestTypeDef(BaseValidatorModel):
     reportId: str
     reportVersion: Optional[int] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListReportsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCustomerAgreementsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ReportSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    state: Optional[PublishedStateType] = None
-    arn: Optional[str] = None
-    version: Optional[int] = None
-    uploadState: Optional[UploadStateType] = None
-    description: Optional[str] = None
-    periodStart: Optional[datetime] = None
-    periodEnd: Optional[datetime] = None
-    series: Optional[str] = None
-    category: Optional[str] = None
-    companyName: Optional[str] = None
-    productName: Optional[str] = None
-    statusMessage: Optional[str] = None
-    acceptanceType: Optional[AcceptanceTypeType] = None
 
-class PutAccountSettingsRequestRequestTypeDef(BaseValidatorModel):
+class ListReportsRequestTypeDef(BaseValidatorModel):
+    maxResults: Optional[int] = None
+    nextToken: Optional[str] = None
+
+
+class PutAccountSettingsRequestTypeDef(BaseValidatorModel):
     notificationSubscriptionStatus: Optional[NotificationSubscriptionStatusType] = None
+
 
 class GetAccountSettingsResponseTypeDef(BaseValidatorModel):
     accountSettings: AccountSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetReportResponseTypeDef(BaseValidatorModel):
     documentPresignedUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetTermForReportResponseTypeDef(BaseValidatorModel):
     documentPresignedUrl: str
     termToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class CustomerAgreementSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListCustomerAgreementsResponseTypeDef(BaseValidatorModel):
+    customerAgreements: List[CustomerAgreementSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
 class PutAccountSettingsResponseTypeDef(BaseValidatorModel):
     accountSettings: AccountSettingsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ReportDetailTypeDef(BaseValidatorModel):
+    pass
+
 
 class GetReportMetadataResponseTypeDef(BaseValidatorModel):
     reportDetails: ReportDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListReportsRequestListReportsPaginateTypeDef(BaseValidatorModel):
+
+class ListCustomerAgreementsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListReportsRequestPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ReportSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListReportsResponseTypeDef(BaseValidatorModel):
     reports: List[ReportSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 

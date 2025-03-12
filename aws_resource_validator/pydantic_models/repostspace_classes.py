@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,7 +12,33 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.repostspace_constants import *
 
-class CreateSpaceInputRequestTypeDef(BaseValidatorModel):
+class BatchAddRoleInputTypeDef(BaseValidatorModel):
+    accessorIds: Sequence[str]
+    role: RoleType
+    spaceId: str
+
+
+class BatchErrorTypeDef(BaseValidatorModel):
+    accessorId: str
+    error: int
+    message: str
+
+
+class ResponseMetadataTypeDef(BaseValidatorModel):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: Optional[str] = None
+
+
+class BatchRemoveRoleInputTypeDef(BaseValidatorModel):
+    accessorIds: Sequence[str]
+    role: RoleType
+    spaceId: str
+
+
+class CreateSpaceInputTypeDef(BaseValidatorModel):
     name: str
     subdomain: str
     tier: TierLevelType
@@ -20,31 +47,30 @@ class CreateSpaceInputRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
     userKMSKey: Optional[str] = None
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
-    RequestId: str
-    HostId: str
-    HTTPStatusCode: int
-    HTTPHeaders: Dict[str, str]
-    RetryAttempts: int
 
-class DeleteSpaceInputRequestTypeDef(BaseValidatorModel):
+class DeleteSpaceInputTypeDef(BaseValidatorModel):
     spaceId: str
 
-class DeregisterAdminInputRequestTypeDef(BaseValidatorModel):
+
+class DeregisterAdminInputTypeDef(BaseValidatorModel):
     adminId: str
     spaceId: str
 
-class GetSpaceInputRequestTypeDef(BaseValidatorModel):
+
+class GetSpaceInputTypeDef(BaseValidatorModel):
     spaceId: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListSpacesInputRequestTypeDef(BaseValidatorModel):
+
+class ListSpacesInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class SpaceDataTypeDef(BaseValidatorModel):
     arn: str
@@ -64,39 +90,60 @@ class SpaceDataTypeDef(BaseValidatorModel):
     userCount: Optional[int] = None
     userKMSKey: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class RegisterAdminInputRequestTypeDef(BaseValidatorModel):
+
+class RegisterAdminInputTypeDef(BaseValidatorModel):
     adminId: str
     spaceId: str
 
-class SendInvitesInputRequestTypeDef(BaseValidatorModel):
+
+class SendInvitesInputTypeDef(BaseValidatorModel):
     accessorIds: Sequence[str]
     body: str
     spaceId: str
     title: str
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateSpaceInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateSpaceInputTypeDef(BaseValidatorModel):
     spaceId: str
     description: Optional[str] = None
     roleArn: Optional[str] = None
     tier: Optional[TierLevelType] = None
 
+
+class BatchAddRoleOutputTypeDef(BaseValidatorModel):
+    addedAccessorIds: List[str]
+    errors: List[BatchErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class BatchRemoveRoleOutputTypeDef(BaseValidatorModel):
+    errors: List[BatchErrorTypeDef]
+    removedAccessorIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 class CreateSpaceOutputTypeDef(BaseValidatorModel):
     spaceId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetSpaceOutputTypeDef(BaseValidatorModel):
     arn: str
@@ -110,6 +157,7 @@ class GetSpaceOutputTypeDef(BaseValidatorModel):
     groupAdmins: List[str]
     name: str
     randomDomain: str
+    roles: Dict[str, List[RoleType]]
     spaceId: str
     status: str
     storageLimit: int
@@ -121,15 +169,19 @@ class GetSpaceOutputTypeDef(BaseValidatorModel):
     vanityDomainStatus: VanityDomainStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSpacesInputListSpacesPaginateTypeDef(BaseValidatorModel):
+
+class ListSpacesInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
 class ListSpacesOutputTypeDef(BaseValidatorModel):
-    nextToken: str
     spaces: List[SpaceDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 

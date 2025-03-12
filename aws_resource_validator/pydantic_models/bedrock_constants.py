@@ -1,17 +1,20 @@
 from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO
 from datetime import datetime
 
+ApplicationTypeType = Literal["ModelEvaluation", "RagEvaluation"]
 CommitmentDurationType = Literal["OneMonth", "SixMonths"]
-CustomizationTypeType = Literal["CONTINUED_PRE_TRAINING", "FINE_TUNING"]
-EvaluationJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
+CustomizationTypeType = Literal["CONTINUED_PRE_TRAINING", "DISTILLATION", "FINE_TUNING"]
+EvaluationJobStatusType = Literal["Completed", "Deleting", "Failed", "InProgress", "Stopped", "Stopping"]
 EvaluationJobTypeType = Literal["Automated", "Human"]
 EvaluationTaskTypeType = Literal["Classification", "Custom", "Generation", "QuestionAndAnswer", "Summarization"]
+ExternalSourceTypeType = Literal["BYTE_CONTENT", "S3"]
 FineTuningJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
 FoundationModelLifecycleStatusType = Literal["ACTIVE", "LEGACY"]
 GuardrailContentFilterTypeType = Literal["HATE", "INSULTS", "MISCONDUCT", "PROMPT_ATTACK", "SEXUAL", "VIOLENCE"]
 GuardrailContextualGroundingFilterTypeType = Literal["GROUNDING", "RELEVANCE"]
 GuardrailFilterStrengthType = Literal["HIGH", "LOW", "MEDIUM", "NONE"]
 GuardrailManagedWordsTypeType = Literal["PROFANITY"]
+GuardrailModalityType = Literal["IMAGE", "TEXT"]
 GuardrailPiiEntityTypeType = Literal["ADDRESS",
     "AGE",
     "AWS_ACCESS_KEY",
@@ -46,20 +49,49 @@ GuardrailPiiEntityTypeType = Literal["ADDRESS",
 GuardrailSensitiveInformationActionType = Literal["ANONYMIZE", "BLOCK"]
 GuardrailStatusType = Literal["CREATING", "DELETING", "FAILED", "READY", "UPDATING", "VERSIONING"]
 GuardrailTopicTypeType = Literal["DENY"]
+InferenceProfileStatusType = Literal["ACTIVE"]
+InferenceProfileTypeType = Literal["APPLICATION", "SYSTEM_DEFINED"]
 InferenceTypeType = Literal["ON_DEMAND", "PROVISIONED"]
 ListCustomModelsPaginatorName = Literal["list_custom_models"]
 ListEvaluationJobsPaginatorName = Literal["list_evaluation_jobs"]
 ListGuardrailsPaginatorName = Literal["list_guardrails"]
+ListImportedModelsPaginatorName = Literal["list_imported_models"]
+ListInferenceProfilesPaginatorName = Literal["list_inference_profiles"]
+ListMarketplaceModelEndpointsPaginatorName = Literal["list_marketplace_model_endpoints"]
+ListModelCopyJobsPaginatorName = Literal["list_model_copy_jobs"]
 ListModelCustomizationJobsPaginatorName = Literal["list_model_customization_jobs"]
+ListModelImportJobsPaginatorName = Literal["list_model_import_jobs"]
+ListModelInvocationJobsPaginatorName = Literal["list_model_invocation_jobs"]
+ListPromptRoutersPaginatorName = Literal["list_prompt_routers"]
 ListProvisionedModelThroughputsPaginatorName = Literal["list_provisioned_model_throughputs"]
+ModelCopyJobStatusType = Literal["Completed", "Failed", "InProgress"]
 ModelCustomizationJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
-ModelCustomizationType = Literal["CONTINUED_PRE_TRAINING", "FINE_TUNING"]
+ModelCustomizationType = Literal["CONTINUED_PRE_TRAINING", "DISTILLATION", "FINE_TUNING"]
+ModelImportJobStatusType = Literal["Completed", "Failed", "InProgress"]
+ModelInvocationJobStatusType = Literal["Completed",
+    "Expired",
+    "Failed",
+    "InProgress",
+    "PartiallyCompleted",
+    "Scheduled",
+    "Stopped",
+    "Stopping",
+    "Submitted",
+    "Validating",]
 ModelModalityType = Literal["EMBEDDING", "IMAGE", "TEXT"]
+PerformanceConfigLatencyType = Literal["optimized", "standard"]
+PromptRouterStatusType = Literal["AVAILABLE"]
+PromptRouterTypeType = Literal["custom", "default"]
 ProvisionedModelStatusType = Literal["Creating", "Failed", "InService", "Updating"]
+QueryTransformationTypeType = Literal["QUERY_DECOMPOSITION"]
+RetrieveAndGenerateTypeType = Literal["EXTERNAL_SOURCES", "KNOWLEDGE_BASE"]
+S3InputFormatType = Literal["JSONL"]
+SearchTypeType = Literal["HYBRID", "SEMANTIC"]
 SortByProvisionedModelsType = Literal["CreationTime"]
 SortJobsByType = Literal["CreationTime"]
 SortModelsByType = Literal["CreationTime"]
 SortOrderType = Literal["Ascending", "Descending"]
+StatusType = Literal["INCOMPATIBLE_ENDPOINT", "REGISTERED"]
 BedrockServiceName = Literal["bedrock"]
 ServiceName = Literal["accessanalyzer",
     "account",
@@ -95,12 +127,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -137,7 +174,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -150,6 +186,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -175,6 +212,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -186,7 +225,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -210,6 +248,10 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "gameliftstreams",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -228,11 +270,11 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
+    "iot-managed-integrations",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -287,6 +329,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -306,7 +349,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -314,10 +356,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -327,10 +372,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -376,6 +423,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -388,6 +436,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -405,10 +454,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -440,7 +491,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -460,22 +510,30 @@ ResourceServiceName = Literal["cloudformation",
 PaginatorName = Literal["list_custom_models",
     "list_evaluation_jobs",
     "list_guardrails",
+    "list_imported_models",
+    "list_inference_profiles",
+    "list_marketplace_model_endpoints",
+    "list_model_copy_jobs",
     "list_model_customization_jobs",
+    "list_model_import_jobs",
+    "list_model_invocation_jobs",
+    "list_prompt_routers",
     "list_provisioned_model_throughputs",]
 RegionName = Literal["ap-northeast-1",
+    "ap-northeast-2",
+    "ap-northeast-3",
     "ap-south-1",
+    "ap-south-2",
     "ap-southeast-1",
     "ap-southeast-2",
     "ca-central-1",
     "eu-central-1",
+    "eu-central-2",
+    "eu-north-1",
     "eu-west-1",
     "eu-west-2",
     "eu-west-3",
     "sa-east-1",
     "us-east-1",
+    "us-east-2",
     "us-west-2",]
-TimestampTypeDef = Union[datetime, str]
-VpcConfigUnionTypeDef = Union['VpcConfigTypeDef', 'VpcConfigOutputTypeDef']
-ValidationDataConfigUnionTypeDef = Union[   'ValidationDataConfigTypeDef', 'ValidationDataConfigOutputTypeDef' ]
-EvaluationInferenceConfigUnionTypeDef = Union[   'EvaluationInferenceConfigTypeDef', 'EvaluationInferenceConfigOutputTypeDef' ]
-EvaluationConfigUnionTypeDef = Union['EvaluationConfigTypeDef', 'EvaluationConfigOutputTypeDef']

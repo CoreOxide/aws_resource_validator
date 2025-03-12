@@ -1,12 +1,24 @@
 from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO
 from datetime import datetime
 
+ActionGroupSignatureType = Literal["AMAZON.CodeInterpreter",
+    "AMAZON.UserInput",
+    "ANTHROPIC.Bash",
+    "ANTHROPIC.Computer",
+    "ANTHROPIC.TextEditor",]
+ActionInvocationTypeType = Literal["RESULT", "USER_CONFIRMATION", "USER_CONFIRMATION_AND_RESULT"]
+AgentCollaborationType = Literal["DISABLED", "SUPERVISOR", "SUPERVISOR_ROUTER"]
+AttributeTypeType = Literal["BOOLEAN", "NUMBER", "STRING", "STRING_LIST"]
+ConfirmationStateType = Literal["CONFIRM", "DENY"]
+ConversationRoleType = Literal["assistant", "user"]
 CreationModeType = Literal["DEFAULT", "OVERRIDDEN"]
+CustomControlMethodType = Literal["RETURN_CONTROL"]
 ExecutionTypeType = Literal["LAMBDA", "RETURN_CONTROL"]
 ExternalSourceTypeType = Literal["BYTE_CONTENT", "S3"]
 FileSourceTypeType = Literal["BYTE_CONTENT", "S3"]
 FileUseCaseType = Literal["CHAT", "CODE_INTERPRETER"]
-FlowCompletionReasonType = Literal["SUCCESS"]
+FlowCompletionReasonType = Literal["INPUT_REQUIRED", "SUCCESS"]
+GeneratedQueryTypeType = Literal["REDSHIFT_SQL"]
 GetAgentMemoryPaginatorName = Literal["get_agent_memory"]
 GuadrailActionType = Literal["INTERVENED", "NONE"]
 GuardrailActionType = Literal["INTERVENED", "NONE"]
@@ -49,7 +61,17 @@ GuardrailSensitiveInformationPolicyActionType = Literal["ANONYMIZED", "BLOCKED"]
 GuardrailTopicPolicyActionType = Literal["BLOCKED"]
 GuardrailTopicTypeType = Literal["DENY"]
 GuardrailWordPolicyActionType = Literal["BLOCKED"]
-InvocationTypeType = Literal["ACTION_GROUP", "ACTION_GROUP_CODE_INTERPRETER", "FINISH", "KNOWLEDGE_BASE"]
+ImageFormatType = Literal["gif", "jpeg", "png", "webp"]
+ImageInputFormatType = Literal["gif", "jpeg", "png", "webp"]
+InputQueryTypeType = Literal["TEXT"]
+InvocationTypeType = Literal["ACTION_GROUP",
+    "ACTION_GROUP_CODE_INTERPRETER",
+    "AGENT_COLLABORATOR",
+    "FINISH",
+    "KNOWLEDGE_BASE",]
+ListInvocationStepsPaginatorName = Literal["list_invocation_steps"]
+ListInvocationsPaginatorName = Literal["list_invocations"]
+ListSessionsPaginatorName = Literal["list_sessions"]
 MemoryTypeType = Literal["SESSION_SUMMARY"]
 NodeTypeType = Literal["ConditionNode",
     "FlowInputNode",
@@ -58,15 +80,37 @@ NodeTypeType = Literal["ConditionNode",
     "LambdaFunctionNode",
     "LexNode",
     "PromptNode",]
-PromptTypeType = Literal["KNOWLEDGE_BASE_RESPONSE_GENERATION", "ORCHESTRATION", "POST_PROCESSING", "PRE_PROCESSING"]
+ParameterTypeType = Literal["array", "boolean", "integer", "number", "string"]
+PayloadTypeType = Literal["RETURN_CONTROL", "TEXT"]
+PerformanceConfigLatencyType = Literal["optimized", "standard"]
+PromptStateType = Literal["DISABLED", "ENABLED"]
+PromptTypeType = Literal["KNOWLEDGE_BASE_RESPONSE_GENERATION",
+    "ORCHESTRATION",
+    "POST_PROCESSING",
+    "PRE_PROCESSING",
+    "ROUTING_CLASSIFIER",]
+QueryTransformationModeType = Literal["TEXT_TO_SQL"]
 QueryTransformationTypeType = Literal["QUERY_DECOMPOSITION"]
+RelayConversationHistoryType = Literal["DISABLED", "TO_COLLABORATOR"]
+RequireConfirmationType = Literal["DISABLED", "ENABLED"]
+RerankDocumentTypeType = Literal["JSON", "TEXT"]
+RerankPaginatorName = Literal["rerank"]
+RerankQueryContentTypeType = Literal["TEXT"]
+RerankSourceTypeType = Literal["INLINE"]
+RerankingConfigurationTypeType = Literal["BEDROCK_RERANKING_MODEL"]
+RerankingMetadataSelectionModeType = Literal["ALL", "SELECTIVE"]
 ResponseStateType = Literal["FAILURE", "REPROMPT"]
-RetrievalResultLocationTypeType = Literal["CONFLUENCE", "S3", "SALESFORCE", "SHAREPOINT", "WEB"]
+RetrievalResultContentColumnTypeType = Literal["BLOB", "BOOLEAN", "DOUBLE", "LONG", "NULL", "STRING"]
+RetrievalResultContentTypeType = Literal["IMAGE", "ROW", "TEXT"]
+RetrievalResultLocationTypeType = Literal["CONFLUENCE", "CUSTOM", "KENDRA", "S3", "SALESFORCE", "SHAREPOINT", "SQL", "WEB"]
 RetrieveAndGenerateTypeType = Literal["EXTERNAL_SOURCES", "KNOWLEDGE_BASE"]
 RetrievePaginatorName = Literal["retrieve"]
 SearchTypeType = Literal["HYBRID", "SEMANTIC"]
+SessionStatusType = Literal["ACTIVE", "ENDED", "EXPIRED"]
 SourceType = Literal["ACTION_GROUP", "KNOWLEDGE_BASE", "PARSER"]
-TypeType = Literal["ACTION_GROUP", "ASK_USER", "FINISH", "KNOWLEDGE_BASE", "REPROMPT"]
+TextToSqlConfigurationTypeType = Literal["KNOWLEDGE_BASE"]
+TypeType = Literal["ACTION_GROUP", "AGENT_COLLABORATOR", "ASK_USER", "FINISH", "KNOWLEDGE_BASE", "REPROMPT"]
+VectorSearchRerankingConfigurationTypeType = Literal["BEDROCK_RERANKING_MODEL"]
 AgentsforBedrockRuntimeServiceName = Literal["bedrock-agent-runtime"]
 ServiceName = Literal["accessanalyzer",
     "account",
@@ -102,12 +146,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -144,7 +193,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -157,6 +205,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -182,6 +231,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -193,7 +244,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -217,6 +267,10 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "gameliftstreams",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -235,11 +289,11 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
+    "iot-managed-integrations",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -294,6 +348,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -313,7 +368,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -321,10 +375,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -334,10 +391,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -383,6 +442,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -395,6 +455,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -412,10 +473,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -447,7 +510,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -464,5 +526,9 @@ ResourceServiceName = Literal["cloudformation",
     "s3",
     "sns",
     "sqs",]
-PaginatorName = Literal["get_agent_memory", "retrieve"]
-BlobTypeDef = Union[str, bytes, IO[Any]]
+PaginatorName = Literal["get_agent_memory",
+    "list_invocation_steps",
+    "list_invocations",
+    "list_sessions",
+    "rerank",
+    "retrieve",]

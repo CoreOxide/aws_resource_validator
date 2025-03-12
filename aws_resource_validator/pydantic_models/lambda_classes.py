@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -9,7 +10,6 @@ from typing import Mapping
 from typing import Optional
 from typing import Sequence
 from typing import Union
-from botocore.response import StreamingBody
 from aws_resource_validator.pydantic_models.lambda_constants import *
 
 class AccountLimitTypeDef(BaseValidatorModel):
@@ -19,11 +19,13 @@ class AccountLimitTypeDef(BaseValidatorModel):
     ConcurrentExecutions: Optional[int] = None
     UnreservedConcurrentExecutions: Optional[int] = None
 
+
 class AccountUsageTypeDef(BaseValidatorModel):
     TotalCodeSize: Optional[int] = None
     FunctionCount: Optional[int] = None
 
-class AddLayerVersionPermissionRequestRequestTypeDef(BaseValidatorModel):
+
+class AddLayerVersionPermissionRequestTypeDef(BaseValidatorModel):
     LayerName: str
     VersionNumber: int
     StatementId: str
@@ -32,6 +34,7 @@ class AddLayerVersionPermissionRequestRequestTypeDef(BaseValidatorModel):
     OrganizationId: Optional[str] = None
     RevisionId: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
@@ -39,7 +42,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AddPermissionRequestRequestTypeDef(BaseValidatorModel):
+
+class AddPermissionRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     StatementId: str
     Action: str
@@ -52,34 +56,43 @@ class AddPermissionRequestRequestTypeDef(BaseValidatorModel):
     PrincipalOrgID: Optional[str] = None
     FunctionUrlAuthType: Optional[FunctionUrlAuthTypeType] = None
 
-class AliasRoutingConfigurationPaginatorTypeDef(BaseValidatorModel):
+
+class AliasRoutingConfigurationOutputTypeDef(BaseValidatorModel):
     AdditionalVersionWeights: Optional[Dict[str, float]] = None
+
 
 class AliasRoutingConfigurationTypeDef(BaseValidatorModel):
     AdditionalVersionWeights: Optional[Mapping[str, float]] = None
 
-class AllowedPublishersPaginatorTypeDef(BaseValidatorModel):
+
+class AllowedPublishersOutputTypeDef(BaseValidatorModel):
     SigningProfileVersionArns: List[str]
+
 
 class AllowedPublishersTypeDef(BaseValidatorModel):
     SigningProfileVersionArns: Sequence[str]
 
+
 class AmazonManagedKafkaEventSourceConfigTypeDef(BaseValidatorModel):
     ConsumerGroupId: Optional[str] = None
+
 
 class CodeSigningPoliciesTypeDef(BaseValidatorModel):
     UntrustedArtifactOnDeployment: Optional[CodeSigningPolicyType] = None
 
+
 class ConcurrencyTypeDef(BaseValidatorModel):
     ReservedConcurrentExecutions: Optional[int] = None
 
-class CorsPaginatorTypeDef(BaseValidatorModel):
+
+class CorsOutputTypeDef(BaseValidatorModel):
     AllowCredentials: Optional[bool] = None
     AllowHeaders: Optional[List[str]] = None
     AllowMethods: Optional[List[str]] = None
     AllowOrigins: Optional[List[str]] = None
     ExposeHeaders: Optional[List[str]] = None
     MaxAge: Optional[int] = None
+
 
 class CorsTypeDef(BaseValidatorModel):
     AllowCredentials: Optional[bool] = None
@@ -89,41 +102,42 @@ class CorsTypeDef(BaseValidatorModel):
     ExposeHeaders: Optional[Sequence[str]] = None
     MaxAge: Optional[int] = None
 
+
 class DocumentDBEventSourceConfigTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     CollectionName: Optional[str] = None
     FullDocument: Optional[FullDocumentType] = None
 
+
+class ProvisionedPollerConfigTypeDef(BaseValidatorModel):
+    MinimumPollers: Optional[int] = None
+    MaximumPollers: Optional[int] = None
+
+
 class ScalingConfigTypeDef(BaseValidatorModel):
     MaximumConcurrency: Optional[int] = None
 
-class SelfManagedEventSourceTypeDef(BaseValidatorModel):
-    Endpoints: Optional[Mapping[Literal["KAFKA_BOOTSTRAP_SERVERS"], Sequence[str]]] = None
 
 class SelfManagedKafkaEventSourceConfigTypeDef(BaseValidatorModel):
     ConsumerGroupId: Optional[str] = None
 
-class SourceAccessConfigurationTypeDef(BaseValidatorModel):
-    Type: Optional[SourceAccessTypeType] = None
-    URI: Optional[str] = None
 
 class DeadLetterConfigTypeDef(BaseValidatorModel):
     TargetArn: Optional[str] = None
 
+
 class EnvironmentTypeDef(BaseValidatorModel):
     Variables: Optional[Mapping[str, str]] = None
 
+
 class EphemeralStorageTypeDef(BaseValidatorModel):
     Size: int
+
 
 class FileSystemConfigTypeDef(BaseValidatorModel):
     Arn: str
     LocalMountPath: str
 
-class ImageConfigTypeDef(BaseValidatorModel):
-    EntryPoint: Optional[Sequence[str]] = None
-    Command: Optional[Sequence[str]] = None
-    WorkingDirectory: Optional[str] = None
 
 class LoggingConfigTypeDef(BaseValidatorModel):
     LogFormat: Optional[LogFormatType] = None
@@ -131,74 +145,104 @@ class LoggingConfigTypeDef(BaseValidatorModel):
     SystemLogLevel: Optional[SystemLogLevelType] = None
     LogGroup: Optional[str] = None
 
+
 class SnapStartTypeDef(BaseValidatorModel):
     ApplyOn: Optional[SnapStartApplyOnType] = None
 
+
 class TracingConfigTypeDef(BaseValidatorModel):
     Mode: Optional[TracingModeType] = None
+
 
 class VpcConfigTypeDef(BaseValidatorModel):
     SubnetIds: Optional[Sequence[str]] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
     Ipv6AllowedForDualStack: Optional[bool] = None
 
-class DeleteAliasRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteAliasRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Name: str
 
-class DeleteCodeSigningConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteCodeSigningConfigRequestTypeDef(BaseValidatorModel):
     CodeSigningConfigArn: str
 
-class DeleteEventSourceMappingRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteEventSourceMappingRequestTypeDef(BaseValidatorModel):
     UUID: str
 
-class DeleteFunctionCodeSigningConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteFunctionCodeSigningConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
 
-class DeleteFunctionConcurrencyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteFunctionConcurrencyRequestTypeDef(BaseValidatorModel):
     FunctionName: str
 
-class DeleteFunctionEventInvokeConfigRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
 
-class DeleteFunctionRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
-
-class DeleteFunctionUrlConfigRequestRequestTypeDef(BaseValidatorModel):
+class DeleteFunctionEventInvokeConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
 
-class DeleteLayerVersionRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteFunctionRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    Qualifier: Optional[str] = None
+
+
+class DeleteFunctionUrlConfigRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    Qualifier: Optional[str] = None
+
+
+class DeleteLayerVersionRequestTypeDef(BaseValidatorModel):
     LayerName: str
     VersionNumber: int
 
-class DeleteProvisionedConcurrencyConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteProvisionedConcurrencyConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: str
+
 
 class OnFailureTypeDef(BaseValidatorModel):
     Destination: Optional[str] = None
 
+
 class OnSuccessTypeDef(BaseValidatorModel):
     Destination: Optional[str] = None
+
 
 class EnvironmentErrorTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     Message: Optional[str] = None
 
-class SelfManagedEventSourcePaginatorTypeDef(BaseValidatorModel):
+
+class EventSourceMappingMetricsConfigOutputTypeDef(BaseValidatorModel):
+    Metrics: Optional[List[Literal["EventCount"]]] = None
+
+
+class FilterCriteriaErrorTypeDef(BaseValidatorModel):
+    ErrorCode: Optional[str] = None
+    Message: Optional[str] = None
+
+
+class SelfManagedEventSourceOutputTypeDef(BaseValidatorModel):
     Endpoints: Optional[Dict[Literal["KAFKA_BOOTSTRAP_SERVERS"], List[str]]] = None
 
-class FilterTypeDef(BaseValidatorModel):
-    Pattern: Optional[str] = None
+
+class EventSourceMappingMetricsConfigTypeDef(BaseValidatorModel):
+    Metrics: Optional[Sequence[Literal["EventCount"]]] = None
+
 
 class FunctionCodeLocationTypeDef(BaseValidatorModel):
     RepositoryType: Optional[str] = None
     Location: Optional[str] = None
     ImageUri: Optional[str] = None
     ResolvedImageUri: Optional[str] = None
+    SourceKMSKeyArn: Optional[str] = None
+
 
 class LayerTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
@@ -206,12 +250,15 @@ class LayerTypeDef(BaseValidatorModel):
     SigningProfileVersionArn: Optional[str] = None
     SigningJobArn: Optional[str] = None
 
+
 class SnapStartResponseTypeDef(BaseValidatorModel):
     ApplyOn: Optional[SnapStartApplyOnType] = None
     OptimizationStatus: Optional[SnapStartOptimizationStatusType] = None
 
+
 class TracingConfigResponseTypeDef(BaseValidatorModel):
     Mode: Optional[TracingModeType] = None
+
 
 class VpcConfigResponseTypeDef(BaseValidatorModel):
     SubnetIds: Optional[List[str]] = None
@@ -219,52 +266,75 @@ class VpcConfigResponseTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
     Ipv6AllowedForDualStack: Optional[bool] = None
 
-class GetAliasRequestRequestTypeDef(BaseValidatorModel):
+
+class GetAliasRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Name: str
 
-class GetCodeSigningConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCodeSigningConfigRequestTypeDef(BaseValidatorModel):
     CodeSigningConfigArn: str
 
-class GetEventSourceMappingRequestRequestTypeDef(BaseValidatorModel):
+
+class GetEventSourceMappingRequestTypeDef(BaseValidatorModel):
     UUID: str
 
-class GetFunctionCodeSigningConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class GetFunctionCodeSigningConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
 
-class GetFunctionConcurrencyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetFunctionConcurrencyRequestTypeDef(BaseValidatorModel):
     FunctionName: str
+
+
+class GetFunctionConfigurationRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    Qualifier: Optional[str] = None
+
 
 class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class GetFunctionConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetFunctionEventInvokeConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
 
-class GetFunctionEventInvokeConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class GetFunctionRecursionConfigRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+
+
+class GetFunctionRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
 
-class GetFunctionRequestRequestTypeDef(BaseValidatorModel):
+
+class TagsErrorTypeDef(BaseValidatorModel):
+    ErrorCode: str
+    Message: str
+
+
+class GetFunctionUrlConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
 
-class GetFunctionUrlConfigRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
 
-class GetLayerVersionByArnRequestRequestTypeDef(BaseValidatorModel):
+class GetLayerVersionByArnRequestTypeDef(BaseValidatorModel):
     Arn: str
 
-class GetLayerVersionPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetLayerVersionPolicyRequestTypeDef(BaseValidatorModel):
     LayerName: str
     VersionNumber: int
 
-class GetLayerVersionRequestRequestTypeDef(BaseValidatorModel):
+
+class GetLayerVersionRequestTypeDef(BaseValidatorModel):
     LayerName: str
     VersionNumber: int
+
 
 class LayerVersionContentOutputTypeDef(BaseValidatorModel):
     Location: Optional[str] = None
@@ -273,34 +343,48 @@ class LayerVersionContentOutputTypeDef(BaseValidatorModel):
     SigningProfileVersionArn: Optional[str] = None
     SigningJobArn: Optional[str] = None
 
-class GetPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetPolicyRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
 
-class GetProvisionedConcurrencyConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class GetProvisionedConcurrencyConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: str
 
-class GetRuntimeManagementConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRuntimeManagementConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
+
 
 class ImageConfigErrorTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     Message: Optional[str] = None
 
-class ImageConfigPaginatorTypeDef(BaseValidatorModel):
+
+class ImageConfigOutputTypeDef(BaseValidatorModel):
     EntryPoint: Optional[List[str]] = None
     Command: Optional[List[str]] = None
     WorkingDirectory: Optional[str] = None
 
+
+class ImageConfigTypeDef(BaseValidatorModel):
+    EntryPoint: Optional[Sequence[str]] = None
+    Command: Optional[Sequence[str]] = None
+    WorkingDirectory: Optional[str] = None
+
+
 class InvokeResponseStreamUpdateTypeDef(BaseValidatorModel):
     Payload: Optional[bytes] = None
+
 
 class InvokeWithResponseStreamCompleteEventTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorDetails: Optional[str] = None
     LogResult: Optional[str] = None
+
 
 class LayerVersionsListItemTypeDef(BaseValidatorModel):
     LayerVersionArn: Optional[str] = None
@@ -311,65 +395,77 @@ class LayerVersionsListItemTypeDef(BaseValidatorModel):
     LicenseInfo: Optional[str] = None
     CompatibleArchitectures: Optional[List[ArchitectureType]] = None
 
+
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAliasesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAliasesRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     FunctionVersion: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListCodeSigningConfigsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCodeSigningConfigsRequestTypeDef(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListEventSourceMappingsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListEventSourceMappingsRequestTypeDef(BaseValidatorModel):
     EventSourceArn: Optional[str] = None
     FunctionName: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListFunctionEventInvokeConfigsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFunctionEventInvokeConfigsRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListFunctionUrlConfigsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFunctionUrlConfigsRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListFunctionsByCodeSigningConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFunctionsByCodeSigningConfigRequestTypeDef(BaseValidatorModel):
     CodeSigningConfigArn: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListFunctionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFunctionsRequestTypeDef(BaseValidatorModel):
     MasterRegion: Optional[str] = None
     FunctionVersion: Optional[Literal["ALL"]] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class ListLayerVersionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLayerVersionsRequestTypeDef(BaseValidatorModel):
     LayerName: str
     CompatibleRuntime: Optional[RuntimeType] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
     CompatibleArchitecture: Optional[ArchitectureType] = None
 
-class ListLayersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLayersRequestTypeDef(BaseValidatorModel):
     CompatibleRuntime: Optional[RuntimeType] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
     CompatibleArchitecture: Optional[ArchitectureType] = None
 
-class ListProvisionedConcurrencyConfigsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListProvisionedConcurrencyConfigsRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
+
 
 class ProvisionedConcurrencyConfigListItemTypeDef(BaseValidatorModel):
     FunctionArn: Optional[str] = None
@@ -380,102 +476,138 @@ class ProvisionedConcurrencyConfigListItemTypeDef(BaseValidatorModel):
     StatusReason: Optional[str] = None
     LastModified: Optional[str] = None
 
-class ListTagsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsRequestTypeDef(BaseValidatorModel):
     Resource: str
 
-class ListVersionsByFunctionRequestRequestTypeDef(BaseValidatorModel):
+
+class ListVersionsByFunctionRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
-class PublishVersionRequestRequestTypeDef(BaseValidatorModel):
+
+class PublishVersionRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     CodeSha256: Optional[str] = None
     Description: Optional[str] = None
     RevisionId: Optional[str] = None
 
-class PutFunctionCodeSigningConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class PutFunctionCodeSigningConfigRequestTypeDef(BaseValidatorModel):
     CodeSigningConfigArn: str
     FunctionName: str
 
-class PutFunctionConcurrencyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutFunctionConcurrencyRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     ReservedConcurrentExecutions: int
 
-class PutProvisionedConcurrencyConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class PutFunctionRecursionConfigRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    RecursiveLoop: RecursiveLoopType
+
+
+class PutProvisionedConcurrencyConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: str
     ProvisionedConcurrentExecutions: int
 
-class PutRuntimeManagementConfigRequestRequestTypeDef(BaseValidatorModel):
+
+class PutRuntimeManagementConfigRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     UpdateRuntimeOn: UpdateRuntimeOnType
     Qualifier: Optional[str] = None
     RuntimeVersionArn: Optional[str] = None
 
-class RemoveLayerVersionPermissionRequestRequestTypeDef(BaseValidatorModel):
+
+class RemoveLayerVersionPermissionRequestTypeDef(BaseValidatorModel):
     LayerName: str
     VersionNumber: int
     StatementId: str
     RevisionId: Optional[str] = None
 
-class RemovePermissionRequestRequestTypeDef(BaseValidatorModel):
+
+class RemovePermissionRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     StatementId: str
     Qualifier: Optional[str] = None
     RevisionId: Optional[str] = None
 
+
 class RuntimeVersionErrorTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     Message: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class SelfManagedEventSourceTypeDef(BaseValidatorModel):
+    Endpoints: Optional[Mapping[Literal["KAFKA_BOOTSTRAP_SERVERS"], Sequence[str]]] = None
+
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     Resource: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     Resource: str
     TagKeys: Sequence[str]
+
 
 class AddLayerVersionPermissionResponseTypeDef(BaseValidatorModel):
     Statement: str
     RevisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AddPermissionResponseTypeDef(BaseValidatorModel):
     Statement: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ConcurrencyResponseTypeDef(BaseValidatorModel):
     ReservedConcurrentExecutions: int
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetAccountSettingsResponseTypeDef(BaseValidatorModel):
     AccountLimit: AccountLimitTypeDef
     AccountUsage: AccountUsageTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetFunctionCodeSigningConfigResponseTypeDef(BaseValidatorModel):
     CodeSigningConfigArn: str
     FunctionName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetFunctionConcurrencyResponseTypeDef(BaseValidatorModel):
     ReservedConcurrentExecutions: int
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GetFunctionRecursionConfigResponseTypeDef(BaseValidatorModel):
+    RecursiveLoop: RecursiveLoopType
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetLayerVersionPolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     RevisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetPolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     RevisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetProvisionedConcurrencyConfigResponseTypeDef(BaseValidatorModel):
     RequestedProvisionedConcurrentExecutions: int
@@ -486,11 +618,13 @@ class GetProvisionedConcurrencyConfigResponseTypeDef(BaseValidatorModel):
     LastModified: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRuntimeManagementConfigResponseTypeDef(BaseValidatorModel):
     UpdateRuntimeOn: UpdateRuntimeOnType
     RuntimeVersionArn: str
     FunctionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class InvocationResponseTypeDef(BaseValidatorModel):
     StatusCode: int
@@ -500,23 +634,33 @@ class InvocationResponseTypeDef(BaseValidatorModel):
     ExecutedVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class InvokeAsyncResponseTypeDef(BaseValidatorModel):
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListFunctionsByCodeSigningConfigResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     FunctionArns: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PutFunctionCodeSigningConfigResponseTypeDef(BaseValidatorModel):
     CodeSigningConfigArn: str
     FunctionName: str
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class PutFunctionRecursionConfigResponseTypeDef(BaseValidatorModel):
+    RecursiveLoop: RecursiveLoopType
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PutProvisionedConcurrencyConfigResponseTypeDef(BaseValidatorModel):
     RequestedProvisionedConcurrentExecutions: int
@@ -527,51 +671,36 @@ class PutProvisionedConcurrencyConfigResponseTypeDef(BaseValidatorModel):
     LastModified: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutRuntimeManagementConfigResponseTypeDef(BaseValidatorModel):
     UpdateRuntimeOn: UpdateRuntimeOnType
     FunctionArn: str
     RuntimeVersionArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AliasConfigurationPaginatorTypeDef(BaseValidatorModel):
-    AliasArn: Optional[str] = None
-    Name: Optional[str] = None
-    FunctionVersion: Optional[str] = None
-    Description: Optional[str] = None
-    RoutingConfig: Optional[AliasRoutingConfigurationPaginatorTypeDef] = None
-    RevisionId: Optional[str] = None
 
 class AliasConfigurationResponseTypeDef(BaseValidatorModel):
     AliasArn: str
     Name: str
     FunctionVersion: str
     Description: str
-    RoutingConfig: AliasRoutingConfigurationTypeDef
+    RoutingConfig: AliasRoutingConfigurationOutputTypeDef
     RevisionId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class AliasConfigurationTypeDef(BaseValidatorModel):
     AliasArn: Optional[str] = None
     Name: Optional[str] = None
     FunctionVersion: Optional[str] = None
     Description: Optional[str] = None
-    RoutingConfig: Optional[AliasRoutingConfigurationTypeDef] = None
+    RoutingConfig: Optional[AliasRoutingConfigurationOutputTypeDef] = None
     RevisionId: Optional[str] = None
 
-class CreateAliasRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Name: str
-    FunctionVersion: str
-    Description: Optional[str] = None
-    RoutingConfig: Optional[AliasRoutingConfigurationTypeDef] = None
 
-class UpdateAliasRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Name: str
-    FunctionVersion: Optional[str] = None
-    Description: Optional[str] = None
-    RoutingConfig: Optional[AliasRoutingConfigurationTypeDef] = None
-    RevisionId: Optional[str] = None
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
 
 class FunctionCodeTypeDef(BaseValidatorModel):
     ZipFile: Optional[BlobTypeDef] = None
@@ -579,8 +708,10 @@ class FunctionCodeTypeDef(BaseValidatorModel):
     S3Key: Optional[str] = None
     S3ObjectVersion: Optional[str] = None
     ImageUri: Optional[str] = None
+    SourceKMSKeyArn: Optional[str] = None
 
-class InvocationRequestRequestTypeDef(BaseValidatorModel):
+
+class InvocationRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     InvocationType: Optional[InvocationTypeType] = None
     LogType: Optional[LogTypeType] = None
@@ -588,11 +719,13 @@ class InvocationRequestRequestTypeDef(BaseValidatorModel):
     Payload: Optional[BlobTypeDef] = None
     Qualifier: Optional[str] = None
 
-class InvokeAsyncRequestRequestTypeDef(BaseValidatorModel):
+
+class InvokeAsyncRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     InvokeArgs: BlobTypeDef
 
-class InvokeWithResponseStreamRequestRequestTypeDef(BaseValidatorModel):
+
+class InvokeWithResponseStreamRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     InvocationType: Optional[ResponseStreamingInvocationTypeType] = None
     LogType: Optional[LogTypeType] = None
@@ -600,13 +733,15 @@ class InvokeWithResponseStreamRequestRequestTypeDef(BaseValidatorModel):
     Qualifier: Optional[str] = None
     Payload: Optional[BlobTypeDef] = None
 
+
 class LayerVersionContentInputTypeDef(BaseValidatorModel):
     S3Bucket: Optional[str] = None
     S3Key: Optional[str] = None
     S3ObjectVersion: Optional[str] = None
     ZipFile: Optional[BlobTypeDef] = None
 
-class UpdateFunctionCodeRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateFunctionCodeRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     ZipFile: Optional[BlobTypeDef] = None
     S3Bucket: Optional[str] = None
@@ -617,58 +752,27 @@ class UpdateFunctionCodeRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     RevisionId: Optional[str] = None
     Architectures: Optional[Sequence[ArchitectureType]] = None
+    SourceKMSKeyArn: Optional[str] = None
 
-class CodeSigningConfigPaginatorTypeDef(BaseValidatorModel):
-    CodeSigningConfigId: str
-    CodeSigningConfigArn: str
-    AllowedPublishers: AllowedPublishersPaginatorTypeDef
-    CodeSigningPolicies: CodeSigningPoliciesTypeDef
-    LastModified: str
-    Description: Optional[str] = None
 
 class CodeSigningConfigTypeDef(BaseValidatorModel):
     CodeSigningConfigId: str
     CodeSigningConfigArn: str
-    AllowedPublishers: AllowedPublishersTypeDef
+    AllowedPublishers: AllowedPublishersOutputTypeDef
     CodeSigningPolicies: CodeSigningPoliciesTypeDef
     LastModified: str
     Description: Optional[str] = None
 
-class CreateCodeSigningConfigRequestRequestTypeDef(BaseValidatorModel):
-    AllowedPublishers: AllowedPublishersTypeDef
-    Description: Optional[str] = None
-    CodeSigningPolicies: Optional[CodeSigningPoliciesTypeDef] = None
-
-class UpdateCodeSigningConfigRequestRequestTypeDef(BaseValidatorModel):
-    CodeSigningConfigArn: str
-    Description: Optional[str] = None
-    AllowedPublishers: Optional[AllowedPublishersTypeDef] = None
-    CodeSigningPolicies: Optional[CodeSigningPoliciesTypeDef] = None
-
-class FunctionUrlConfigPaginatorTypeDef(BaseValidatorModel):
-    FunctionUrl: str
-    FunctionArn: str
-    CreationTime: str
-    LastModifiedTime: str
-    AuthType: FunctionUrlAuthTypeType
-    Cors: Optional[CorsPaginatorTypeDef] = None
-    InvokeMode: Optional[InvokeModeType] = None
-
-class CreateFunctionUrlConfigRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    AuthType: FunctionUrlAuthTypeType
-    Qualifier: Optional[str] = None
-    Cors: Optional[CorsTypeDef] = None
-    InvokeMode: Optional[InvokeModeType] = None
 
 class CreateFunctionUrlConfigResponseTypeDef(BaseValidatorModel):
     FunctionUrl: str
     FunctionArn: str
     AuthType: FunctionUrlAuthTypeType
-    Cors: CorsTypeDef
+    Cors: CorsOutputTypeDef
     CreationTime: str
     InvokeMode: InvokeModeType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class FunctionUrlConfigTypeDef(BaseValidatorModel):
     FunctionUrl: str
@@ -676,100 +780,89 @@ class FunctionUrlConfigTypeDef(BaseValidatorModel):
     CreationTime: str
     LastModifiedTime: str
     AuthType: FunctionUrlAuthTypeType
-    Cors: Optional[CorsTypeDef] = None
+    Cors: Optional[CorsOutputTypeDef] = None
     InvokeMode: Optional[InvokeModeType] = None
+
 
 class GetFunctionUrlConfigResponseTypeDef(BaseValidatorModel):
     FunctionUrl: str
     FunctionArn: str
     AuthType: FunctionUrlAuthTypeType
-    Cors: CorsTypeDef
+    Cors: CorsOutputTypeDef
     CreationTime: str
     LastModifiedTime: str
     InvokeMode: InvokeModeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFunctionUrlConfigRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
-    AuthType: Optional[FunctionUrlAuthTypeType] = None
-    Cors: Optional[CorsTypeDef] = None
-    InvokeMode: Optional[InvokeModeType] = None
 
 class UpdateFunctionUrlConfigResponseTypeDef(BaseValidatorModel):
     FunctionUrl: str
     FunctionArn: str
     AuthType: FunctionUrlAuthTypeType
-    Cors: CorsTypeDef
+    Cors: CorsOutputTypeDef
     CreationTime: str
     LastModifiedTime: str
     InvokeMode: InvokeModeType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFunctionConfigurationRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Role: Optional[str] = None
-    Handler: Optional[str] = None
-    Description: Optional[str] = None
-    Timeout: Optional[int] = None
-    MemorySize: Optional[int] = None
-    VpcConfig: Optional[VpcConfigTypeDef] = None
-    Environment: Optional[EnvironmentTypeDef] = None
-    Runtime: Optional[RuntimeType] = None
-    DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
-    KMSKeyArn: Optional[str] = None
-    TracingConfig: Optional[TracingConfigTypeDef] = None
-    RevisionId: Optional[str] = None
-    Layers: Optional[Sequence[str]] = None
-    FileSystemConfigs: Optional[Sequence[FileSystemConfigTypeDef]] = None
-    ImageConfig: Optional[ImageConfigTypeDef] = None
-    EphemeralStorage: Optional[EphemeralStorageTypeDef] = None
-    SnapStart: Optional[SnapStartTypeDef] = None
-    LoggingConfig: Optional[LoggingConfigTypeDef] = None
 
 class DestinationConfigTypeDef(BaseValidatorModel):
     OnSuccess: Optional[OnSuccessTypeDef] = None
     OnFailure: Optional[OnFailureTypeDef] = None
 
+
 class EnvironmentResponseTypeDef(BaseValidatorModel):
     Variables: Optional[Dict[str, str]] = None
     Error: Optional[EnvironmentErrorTypeDef] = None
 
-class FilterCriteriaPaginatorTypeDef(BaseValidatorModel):
+
+class FilterTypeDef(BaseValidatorModel):
+    pass
+
+
+class FilterCriteriaOutputTypeDef(BaseValidatorModel):
     Filters: Optional[List[FilterTypeDef]] = None
+
 
 class FilterCriteriaTypeDef(BaseValidatorModel):
     Filters: Optional[Sequence[FilterTypeDef]] = None
 
-class GetFunctionConfigurationRequestFunctionActiveWaitTypeDef(BaseValidatorModel):
+
+class GetFunctionConfigurationRequestWaitExtraExtraTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetFunctionConfigurationRequestFunctionUpdatedWaitTypeDef(BaseValidatorModel):
+
+class GetFunctionConfigurationRequestWaitExtraTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetFunctionConfigurationRequestPublishedVersionActiveWaitTypeDef(BaseValidatorModel):
+
+class GetFunctionConfigurationRequestWaitTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetFunctionRequestFunctionActiveV2WaitTypeDef(BaseValidatorModel):
+
+class GetFunctionRequestWaitExtraExtraTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetFunctionRequestFunctionExistsWaitTypeDef(BaseValidatorModel):
+
+class GetFunctionRequestWaitExtraTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetFunctionRequestFunctionUpdatedV2WaitTypeDef(BaseValidatorModel):
+
+class GetFunctionRequestWaitTypeDef(BaseValidatorModel):
     FunctionName: str
     Qualifier: Optional[str] = None
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
 
 class GetLayerVersionResponseTypeDef(BaseValidatorModel):
     Content: LayerVersionContentOutputTypeDef
@@ -783,6 +876,7 @@ class GetLayerVersionResponseTypeDef(BaseValidatorModel):
     CompatibleArchitectures: List[ArchitectureType]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PublishLayerVersionResponseTypeDef(BaseValidatorModel):
     Content: LayerVersionContentOutputTypeDef
     LayerArn: str
@@ -795,93 +889,314 @@ class PublishLayerVersionResponseTypeDef(BaseValidatorModel):
     CompatibleArchitectures: List[ArchitectureType]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ImageConfigResponseTypeDef(BaseValidatorModel):
-    ImageConfig: Optional[ImageConfigTypeDef] = None
+    ImageConfig: Optional[ImageConfigOutputTypeDef] = None
     Error: Optional[ImageConfigErrorTypeDef] = None
 
-class ImageConfigResponsePaginatorTypeDef(BaseValidatorModel):
-    ImageConfig: Optional[ImageConfigPaginatorTypeDef] = None
-    Error: Optional[ImageConfigErrorTypeDef] = None
 
 class InvokeWithResponseStreamResponseEventTypeDef(BaseValidatorModel):
     PayloadChunk: Optional[InvokeResponseStreamUpdateTypeDef] = None
     InvokeComplete: Optional[InvokeWithResponseStreamCompleteEventTypeDef] = None
+
 
 class LayersListItemTypeDef(BaseValidatorModel):
     LayerName: Optional[str] = None
     LayerArn: Optional[str] = None
     LatestMatchingVersion: Optional[LayerVersionsListItemTypeDef] = None
 
+
 class ListLayerVersionsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     LayerVersions: List[LayerVersionsListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAliasesRequestListAliasesPaginateTypeDef(BaseValidatorModel):
+
+class ListAliasesRequestPaginateTypeDef(BaseValidatorModel):
     FunctionName: str
     FunctionVersion: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCodeSigningConfigsRequestListCodeSigningConfigsPaginateTypeDef(BaseValidatorModel):
+
+class ListCodeSigningConfigsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListEventSourceMappingsRequestListEventSourceMappingsPaginateTypeDef(BaseValidatorModel):
+
+class ListEventSourceMappingsRequestPaginateTypeDef(BaseValidatorModel):
     EventSourceArn: Optional[str] = None
     FunctionName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFunctionEventInvokeConfigsRequestListFunctionEventInvokeConfigsPaginateTypeDef(BaseValidatorModel):
+
+class ListFunctionEventInvokeConfigsRequestPaginateTypeDef(BaseValidatorModel):
     FunctionName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFunctionUrlConfigsRequestListFunctionUrlConfigsPaginateTypeDef(BaseValidatorModel):
+
+class ListFunctionUrlConfigsRequestPaginateTypeDef(BaseValidatorModel):
     FunctionName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFunctionsByCodeSigningConfigRequestListFunctionsByCodeSigningConfigPaginateTypeDef(BaseValidatorModel):
+
+class ListFunctionsByCodeSigningConfigRequestPaginateTypeDef(BaseValidatorModel):
     CodeSigningConfigArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFunctionsRequestListFunctionsPaginateTypeDef(BaseValidatorModel):
+
+class ListFunctionsRequestPaginateTypeDef(BaseValidatorModel):
     MasterRegion: Optional[str] = None
     FunctionVersion: Optional[Literal["ALL"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLayerVersionsRequestListLayerVersionsPaginateTypeDef(BaseValidatorModel):
+
+class ListLayerVersionsRequestPaginateTypeDef(BaseValidatorModel):
     LayerName: str
     CompatibleRuntime: Optional[RuntimeType] = None
     CompatibleArchitecture: Optional[ArchitectureType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLayersRequestListLayersPaginateTypeDef(BaseValidatorModel):
+
+class ListLayersRequestPaginateTypeDef(BaseValidatorModel):
     CompatibleRuntime: Optional[RuntimeType] = None
     CompatibleArchitecture: Optional[ArchitectureType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVersionsByFunctionRequestListVersionsByFunctionPaginateTypeDef(BaseValidatorModel):
+
+class ListProvisionedConcurrencyConfigsRequestPaginateTypeDef(BaseValidatorModel):
     FunctionName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListVersionsByFunctionRequestPaginateTypeDef(BaseValidatorModel):
+    FunctionName: str
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class ListProvisionedConcurrencyConfigsResponseTypeDef(BaseValidatorModel):
     ProvisionedConcurrencyConfigs: List[ProvisionedConcurrencyConfigListItemTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class RuntimeVersionConfigTypeDef(BaseValidatorModel):
     RuntimeVersionArn: Optional[str] = None
     Error: Optional[RuntimeVersionErrorTypeDef] = None
 
-class ListAliasesResponsePaginatorTypeDef(BaseValidatorModel):
-    NextMarker: str
-    Aliases: List[AliasConfigurationPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListAliasesResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     Aliases: List[AliasConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFunctionRequestRequestTypeDef(BaseValidatorModel):
+
+class AliasRoutingConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateAliasRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    Name: str
+    FunctionVersion: str
+    Description: Optional[str] = None
+    RoutingConfig: Optional[AliasRoutingConfigurationUnionTypeDef] = None
+
+
+class UpdateAliasRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    Name: str
+    FunctionVersion: Optional[str] = None
+    Description: Optional[str] = None
+    RoutingConfig: Optional[AliasRoutingConfigurationUnionTypeDef] = None
+    RevisionId: Optional[str] = None
+
+
+class AllowedPublishersUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateCodeSigningConfigRequestTypeDef(BaseValidatorModel):
+    AllowedPublishers: AllowedPublishersUnionTypeDef
+    Description: Optional[str] = None
+    CodeSigningPolicies: Optional[CodeSigningPoliciesTypeDef] = None
+    Tags: Optional[Mapping[str, str]] = None
+
+
+class UpdateCodeSigningConfigRequestTypeDef(BaseValidatorModel):
+    CodeSigningConfigArn: str
+    Description: Optional[str] = None
+    AllowedPublishers: Optional[AllowedPublishersUnionTypeDef] = None
+    CodeSigningPolicies: Optional[CodeSigningPoliciesTypeDef] = None
+
+
+class PublishLayerVersionRequestTypeDef(BaseValidatorModel):
+    LayerName: str
+    Content: LayerVersionContentInputTypeDef
+    Description: Optional[str] = None
+    CompatibleRuntimes: Optional[Sequence[RuntimeType]] = None
+    LicenseInfo: Optional[str] = None
+    CompatibleArchitectures: Optional[Sequence[ArchitectureType]] = None
+
+
+class CreateCodeSigningConfigResponseTypeDef(BaseValidatorModel):
+    CodeSigningConfig: CodeSigningConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GetCodeSigningConfigResponseTypeDef(BaseValidatorModel):
+    CodeSigningConfig: CodeSigningConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListCodeSigningConfigsResponseTypeDef(BaseValidatorModel):
+    NextMarker: str
+    CodeSigningConfigs: List[CodeSigningConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class UpdateCodeSigningConfigResponseTypeDef(BaseValidatorModel):
+    CodeSigningConfig: CodeSigningConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListFunctionUrlConfigsResponseTypeDef(BaseValidatorModel):
+    FunctionUrlConfigs: List[FunctionUrlConfigTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class CorsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateFunctionUrlConfigRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    AuthType: FunctionUrlAuthTypeType
+    Qualifier: Optional[str] = None
+    Cors: Optional[CorsUnionTypeDef] = None
+    InvokeMode: Optional[InvokeModeType] = None
+
+
+class UpdateFunctionUrlConfigRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    Qualifier: Optional[str] = None
+    AuthType: Optional[FunctionUrlAuthTypeType] = None
+    Cors: Optional[CorsUnionTypeDef] = None
+    InvokeMode: Optional[InvokeModeType] = None
+
+
+class FunctionEventInvokeConfigResponseTypeDef(BaseValidatorModel):
+    LastModified: datetime
+    FunctionArn: str
+    MaximumRetryAttempts: int
+    MaximumEventAgeInSeconds: int
+    DestinationConfig: DestinationConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class FunctionEventInvokeConfigTypeDef(BaseValidatorModel):
+    LastModified: Optional[datetime] = None
+    FunctionArn: Optional[str] = None
+    MaximumRetryAttempts: Optional[int] = None
+    MaximumEventAgeInSeconds: Optional[int] = None
+    DestinationConfig: Optional[DestinationConfigTypeDef] = None
+
+
+class PutFunctionEventInvokeConfigRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    Qualifier: Optional[str] = None
+    MaximumRetryAttempts: Optional[int] = None
+    MaximumEventAgeInSeconds: Optional[int] = None
+    DestinationConfig: Optional[DestinationConfigTypeDef] = None
+
+
+class UpdateFunctionEventInvokeConfigRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    Qualifier: Optional[str] = None
+    MaximumRetryAttempts: Optional[int] = None
+    MaximumEventAgeInSeconds: Optional[int] = None
+    DestinationConfig: Optional[DestinationConfigTypeDef] = None
+
+
+class SourceAccessConfigurationTypeDef(BaseValidatorModel):
+    pass
+
+
+class EventSourceMappingConfigurationResponseTypeDef(BaseValidatorModel):
+    UUID: str
+    StartingPosition: EventSourcePositionType
+    StartingPositionTimestamp: datetime
+    BatchSize: int
+    MaximumBatchingWindowInSeconds: int
+    ParallelizationFactor: int
+    EventSourceArn: str
+    FilterCriteria: FilterCriteriaOutputTypeDef
+    FunctionArn: str
+    LastModified: datetime
+    LastProcessingResult: str
+    State: str
+    StateTransitionReason: str
+    DestinationConfig: DestinationConfigTypeDef
+    Topics: List[str]
+    Queues: List[str]
+    SourceAccessConfigurations: List[SourceAccessConfigurationTypeDef]
+    SelfManagedEventSource: SelfManagedEventSourceOutputTypeDef
+    MaximumRecordAgeInSeconds: int
+    BisectBatchOnFunctionError: bool
+    MaximumRetryAttempts: int
+    TumblingWindowInSeconds: int
+    FunctionResponseTypes: List[Literal["ReportBatchItemFailures"]]
+    AmazonManagedKafkaEventSourceConfig: AmazonManagedKafkaEventSourceConfigTypeDef
+    SelfManagedKafkaEventSourceConfig: SelfManagedKafkaEventSourceConfigTypeDef
+    ScalingConfig: ScalingConfigTypeDef
+    DocumentDBEventSourceConfig: DocumentDBEventSourceConfigTypeDef
+    KMSKeyArn: str
+    FilterCriteriaError: FilterCriteriaErrorTypeDef
+    EventSourceMappingArn: str
+    MetricsConfig: EventSourceMappingMetricsConfigOutputTypeDef
+    ProvisionedPollerConfig: ProvisionedPollerConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class EventSourceMappingConfigurationTypeDef(BaseValidatorModel):
+    UUID: Optional[str] = None
+    StartingPosition: Optional[EventSourcePositionType] = None
+    StartingPositionTimestamp: Optional[datetime] = None
+    BatchSize: Optional[int] = None
+    MaximumBatchingWindowInSeconds: Optional[int] = None
+    ParallelizationFactor: Optional[int] = None
+    EventSourceArn: Optional[str] = None
+    FilterCriteria: Optional[FilterCriteriaOutputTypeDef] = None
+    FunctionArn: Optional[str] = None
+    LastModified: Optional[datetime] = None
+    LastProcessingResult: Optional[str] = None
+    State: Optional[str] = None
+    StateTransitionReason: Optional[str] = None
+    DestinationConfig: Optional[DestinationConfigTypeDef] = None
+    Topics: Optional[List[str]] = None
+    Queues: Optional[List[str]] = None
+    SourceAccessConfigurations: Optional[List[SourceAccessConfigurationTypeDef]] = None
+    SelfManagedEventSource: Optional[SelfManagedEventSourceOutputTypeDef] = None
+    MaximumRecordAgeInSeconds: Optional[int] = None
+    BisectBatchOnFunctionError: Optional[bool] = None
+    MaximumRetryAttempts: Optional[int] = None
+    TumblingWindowInSeconds: Optional[int] = None
+    FunctionResponseTypes: Optional[List[Literal["ReportBatchItemFailures"]]] = None
+    AmazonManagedKafkaEventSourceConfig: Optional[AmazonManagedKafkaEventSourceConfigTypeDef] = None
+    SelfManagedKafkaEventSourceConfig: Optional[SelfManagedKafkaEventSourceConfigTypeDef] = None
+    ScalingConfig: Optional[ScalingConfigTypeDef] = None
+    DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
+    KMSKeyArn: Optional[str] = None
+    FilterCriteriaError: Optional[FilterCriteriaErrorTypeDef] = None
+    EventSourceMappingArn: Optional[str] = None
+    MetricsConfig: Optional[EventSourceMappingMetricsConfigOutputTypeDef] = None
+    ProvisionedPollerConfig: Optional[ProvisionedPollerConfigTypeDef] = None
+
+
+class ImageConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateFunctionRequestTypeDef(BaseValidatorModel):
     FunctionName: str
     Role: str
     Code: FunctionCodeTypeDef
@@ -900,262 +1215,49 @@ class CreateFunctionRequestRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
     Layers: Optional[Sequence[str]] = None
     FileSystemConfigs: Optional[Sequence[FileSystemConfigTypeDef]] = None
-    ImageConfig: Optional[ImageConfigTypeDef] = None
+    ImageConfig: Optional[ImageConfigUnionTypeDef] = None
     CodeSigningConfigArn: Optional[str] = None
     Architectures: Optional[Sequence[ArchitectureType]] = None
     EphemeralStorage: Optional[EphemeralStorageTypeDef] = None
     SnapStart: Optional[SnapStartTypeDef] = None
     LoggingConfig: Optional[LoggingConfigTypeDef] = None
 
-class PublishLayerVersionRequestRequestTypeDef(BaseValidatorModel):
-    LayerName: str
-    Content: LayerVersionContentInputTypeDef
+
+class UpdateFunctionConfigurationRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    Role: Optional[str] = None
+    Handler: Optional[str] = None
     Description: Optional[str] = None
-    CompatibleRuntimes: Optional[Sequence[RuntimeType]] = None
-    LicenseInfo: Optional[str] = None
-    CompatibleArchitectures: Optional[Sequence[ArchitectureType]] = None
+    Timeout: Optional[int] = None
+    MemorySize: Optional[int] = None
+    VpcConfig: Optional[VpcConfigTypeDef] = None
+    Environment: Optional[EnvironmentTypeDef] = None
+    Runtime: Optional[RuntimeType] = None
+    DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
+    KMSKeyArn: Optional[str] = None
+    TracingConfig: Optional[TracingConfigTypeDef] = None
+    RevisionId: Optional[str] = None
+    Layers: Optional[Sequence[str]] = None
+    FileSystemConfigs: Optional[Sequence[FileSystemConfigTypeDef]] = None
+    ImageConfig: Optional[ImageConfigUnionTypeDef] = None
+    EphemeralStorage: Optional[EphemeralStorageTypeDef] = None
+    SnapStart: Optional[SnapStartTypeDef] = None
+    LoggingConfig: Optional[LoggingConfigTypeDef] = None
 
-class ListCodeSigningConfigsResponsePaginatorTypeDef(BaseValidatorModel):
-    NextMarker: str
-    CodeSigningConfigs: List[CodeSigningConfigPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class CreateCodeSigningConfigResponseTypeDef(BaseValidatorModel):
-    CodeSigningConfig: CodeSigningConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class GetCodeSigningConfigResponseTypeDef(BaseValidatorModel):
-    CodeSigningConfig: CodeSigningConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListCodeSigningConfigsResponseTypeDef(BaseValidatorModel):
-    NextMarker: str
-    CodeSigningConfigs: List[CodeSigningConfigTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class UpdateCodeSigningConfigResponseTypeDef(BaseValidatorModel):
-    CodeSigningConfig: CodeSigningConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListFunctionUrlConfigsResponsePaginatorTypeDef(BaseValidatorModel):
-    FunctionUrlConfigs: List[FunctionUrlConfigPaginatorTypeDef]
-    NextMarker: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListFunctionUrlConfigsResponseTypeDef(BaseValidatorModel):
-    FunctionUrlConfigs: List[FunctionUrlConfigTypeDef]
-    NextMarker: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class FunctionEventInvokeConfigResponseTypeDef(BaseValidatorModel):
-    LastModified: datetime
-    FunctionArn: str
-    MaximumRetryAttempts: int
-    MaximumEventAgeInSeconds: int
-    DestinationConfig: DestinationConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class FunctionEventInvokeConfigTypeDef(BaseValidatorModel):
-    LastModified: Optional[datetime] = None
-    FunctionArn: Optional[str] = None
-    MaximumRetryAttempts: Optional[int] = None
-    MaximumEventAgeInSeconds: Optional[int] = None
-    DestinationConfig: Optional[DestinationConfigTypeDef] = None
-
-class PutFunctionEventInvokeConfigRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
-    MaximumRetryAttempts: Optional[int] = None
-    MaximumEventAgeInSeconds: Optional[int] = None
-    DestinationConfig: Optional[DestinationConfigTypeDef] = None
-
-class UpdateFunctionEventInvokeConfigRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    Qualifier: Optional[str] = None
-    MaximumRetryAttempts: Optional[int] = None
-    MaximumEventAgeInSeconds: Optional[int] = None
-    DestinationConfig: Optional[DestinationConfigTypeDef] = None
-
-class EventSourceMappingConfigurationPaginatorTypeDef(BaseValidatorModel):
-    UUID: Optional[str] = None
-    StartingPosition: Optional[EventSourcePositionType] = None
-    StartingPositionTimestamp: Optional[datetime] = None
-    BatchSize: Optional[int] = None
-    MaximumBatchingWindowInSeconds: Optional[int] = None
-    ParallelizationFactor: Optional[int] = None
-    EventSourceArn: Optional[str] = None
-    FilterCriteria: Optional[FilterCriteriaPaginatorTypeDef] = None
-    FunctionArn: Optional[str] = None
-    LastModified: Optional[datetime] = None
-    LastProcessingResult: Optional[str] = None
-    State: Optional[str] = None
-    StateTransitionReason: Optional[str] = None
-    DestinationConfig: Optional[DestinationConfigTypeDef] = None
-    Topics: Optional[List[str]] = None
-    Queues: Optional[List[str]] = None
-    SourceAccessConfigurations: Optional[List[SourceAccessConfigurationTypeDef]] = None
-    SelfManagedEventSource: Optional[SelfManagedEventSourcePaginatorTypeDef] = None
-    MaximumRecordAgeInSeconds: Optional[int] = None
-    BisectBatchOnFunctionError: Optional[bool] = None
-    MaximumRetryAttempts: Optional[int] = None
-    TumblingWindowInSeconds: Optional[int] = None
-    FunctionResponseTypes: Optional[List[Literal["ReportBatchItemFailures"]]] = None
-    AmazonManagedKafkaEventSourceConfig: Optional[       AmazonManagedKafkaEventSourceConfigTypeDef     ] = None
-    SelfManagedKafkaEventSourceConfig: Optional[SelfManagedKafkaEventSourceConfigTypeDef] = None
-    ScalingConfig: Optional[ScalingConfigTypeDef] = None
-    DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
-
-class CreateEventSourceMappingRequestRequestTypeDef(BaseValidatorModel):
-    FunctionName: str
-    EventSourceArn: Optional[str] = None
-    Enabled: Optional[bool] = None
-    BatchSize: Optional[int] = None
-    FilterCriteria: Optional[FilterCriteriaTypeDef] = None
-    MaximumBatchingWindowInSeconds: Optional[int] = None
-    ParallelizationFactor: Optional[int] = None
-    StartingPosition: Optional[EventSourcePositionType] = None
-    StartingPositionTimestamp: Optional[TimestampTypeDef] = None
-    DestinationConfig: Optional[DestinationConfigTypeDef] = None
-    MaximumRecordAgeInSeconds: Optional[int] = None
-    BisectBatchOnFunctionError: Optional[bool] = None
-    MaximumRetryAttempts: Optional[int] = None
-    TumblingWindowInSeconds: Optional[int] = None
-    Topics: Optional[Sequence[str]] = None
-    Queues: Optional[Sequence[str]] = None
-    SourceAccessConfigurations: Optional[Sequence[SourceAccessConfigurationTypeDef]] = None
-    SelfManagedEventSource: Optional[SelfManagedEventSourceTypeDef] = None
-    FunctionResponseTypes: Optional[Sequence[Literal["ReportBatchItemFailures"]]] = None
-    AmazonManagedKafkaEventSourceConfig: Optional[       AmazonManagedKafkaEventSourceConfigTypeDef     ] = None
-    SelfManagedKafkaEventSourceConfig: Optional[SelfManagedKafkaEventSourceConfigTypeDef] = None
-    ScalingConfig: Optional[ScalingConfigTypeDef] = None
-    DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
-
-class EventSourceMappingConfigurationResponseTypeDef(BaseValidatorModel):
-    UUID: str
-    StartingPosition: EventSourcePositionType
-    StartingPositionTimestamp: datetime
-    BatchSize: int
-    MaximumBatchingWindowInSeconds: int
-    ParallelizationFactor: int
-    EventSourceArn: str
-    FilterCriteria: FilterCriteriaTypeDef
-    FunctionArn: str
-    LastModified: datetime
-    LastProcessingResult: str
-    State: str
-    StateTransitionReason: str
-    DestinationConfig: DestinationConfigTypeDef
-    Topics: List[str]
-    Queues: List[str]
-    SourceAccessConfigurations: List[SourceAccessConfigurationTypeDef]
-    SelfManagedEventSource: SelfManagedEventSourceTypeDef
-    MaximumRecordAgeInSeconds: int
-    BisectBatchOnFunctionError: bool
-    MaximumRetryAttempts: int
-    TumblingWindowInSeconds: int
-    FunctionResponseTypes: List[Literal["ReportBatchItemFailures"]]
-    AmazonManagedKafkaEventSourceConfig: AmazonManagedKafkaEventSourceConfigTypeDef
-    SelfManagedKafkaEventSourceConfig: SelfManagedKafkaEventSourceConfigTypeDef
-    ScalingConfig: ScalingConfigTypeDef
-    DocumentDBEventSourceConfig: DocumentDBEventSourceConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class EventSourceMappingConfigurationTypeDef(BaseValidatorModel):
-    UUID: Optional[str] = None
-    StartingPosition: Optional[EventSourcePositionType] = None
-    StartingPositionTimestamp: Optional[datetime] = None
-    BatchSize: Optional[int] = None
-    MaximumBatchingWindowInSeconds: Optional[int] = None
-    ParallelizationFactor: Optional[int] = None
-    EventSourceArn: Optional[str] = None
-    FilterCriteria: Optional[FilterCriteriaTypeDef] = None
-    FunctionArn: Optional[str] = None
-    LastModified: Optional[datetime] = None
-    LastProcessingResult: Optional[str] = None
-    State: Optional[str] = None
-    StateTransitionReason: Optional[str] = None
-    DestinationConfig: Optional[DestinationConfigTypeDef] = None
-    Topics: Optional[List[str]] = None
-    Queues: Optional[List[str]] = None
-    SourceAccessConfigurations: Optional[List[SourceAccessConfigurationTypeDef]] = None
-    SelfManagedEventSource: Optional[SelfManagedEventSourceTypeDef] = None
-    MaximumRecordAgeInSeconds: Optional[int] = None
-    BisectBatchOnFunctionError: Optional[bool] = None
-    MaximumRetryAttempts: Optional[int] = None
-    TumblingWindowInSeconds: Optional[int] = None
-    FunctionResponseTypes: Optional[List[Literal["ReportBatchItemFailures"]]] = None
-    AmazonManagedKafkaEventSourceConfig: Optional[       AmazonManagedKafkaEventSourceConfigTypeDef     ] = None
-    SelfManagedKafkaEventSourceConfig: Optional[SelfManagedKafkaEventSourceConfigTypeDef] = None
-    ScalingConfig: Optional[ScalingConfigTypeDef] = None
-    DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
-
-class UpdateEventSourceMappingRequestRequestTypeDef(BaseValidatorModel):
-    UUID: str
-    FunctionName: Optional[str] = None
-    Enabled: Optional[bool] = None
-    BatchSize: Optional[int] = None
-    FilterCriteria: Optional[FilterCriteriaTypeDef] = None
-    MaximumBatchingWindowInSeconds: Optional[int] = None
-    DestinationConfig: Optional[DestinationConfigTypeDef] = None
-    MaximumRecordAgeInSeconds: Optional[int] = None
-    BisectBatchOnFunctionError: Optional[bool] = None
-    MaximumRetryAttempts: Optional[int] = None
-    ParallelizationFactor: Optional[int] = None
-    SourceAccessConfigurations: Optional[Sequence[SourceAccessConfigurationTypeDef]] = None
-    TumblingWindowInSeconds: Optional[int] = None
-    FunctionResponseTypes: Optional[Sequence[Literal["ReportBatchItemFailures"]]] = None
-    ScalingConfig: Optional[ScalingConfigTypeDef] = None
-    DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
 
 class InvokeWithResponseStreamResponseTypeDef(BaseValidatorModel):
     StatusCode: int
     ExecutedVersion: str
-    EventStream: "EventStream[InvokeWithResponseStreamResponseEventTypeDef]"
+    EventStream: EventStream[InvokeWithResponseStreamResponseEventTypeDef]
     ResponseStreamContentType: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListLayersResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     Layers: List[LayersListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class FunctionConfigurationPaginatorTypeDef(BaseValidatorModel):
-    FunctionName: Optional[str] = None
-    FunctionArn: Optional[str] = None
-    Runtime: Optional[RuntimeType] = None
-    Role: Optional[str] = None
-    Handler: Optional[str] = None
-    CodeSize: Optional[int] = None
-    Description: Optional[str] = None
-    Timeout: Optional[int] = None
-    MemorySize: Optional[int] = None
-    LastModified: Optional[str] = None
-    CodeSha256: Optional[str] = None
-    Version: Optional[str] = None
-    VpcConfig: Optional[VpcConfigResponseTypeDef] = None
-    DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
-    Environment: Optional[EnvironmentResponseTypeDef] = None
-    KMSKeyArn: Optional[str] = None
-    TracingConfig: Optional[TracingConfigResponseTypeDef] = None
-    MasterArn: Optional[str] = None
-    RevisionId: Optional[str] = None
-    Layers: Optional[List[LayerTypeDef]] = None
-    State: Optional[StateType] = None
-    StateReason: Optional[str] = None
-    StateReasonCode: Optional[StateReasonCodeType] = None
-    LastUpdateStatus: Optional[LastUpdateStatusType] = None
-    LastUpdateStatusReason: Optional[str] = None
-    LastUpdateStatusReasonCode: Optional[LastUpdateStatusReasonCodeType] = None
-    FileSystemConfigs: Optional[List[FileSystemConfigTypeDef]] = None
-    PackageType: Optional[PackageTypeType] = None
-    ImageConfigResponse: Optional[ImageConfigResponsePaginatorTypeDef] = None
-    SigningProfileVersionArn: Optional[str] = None
-    SigningJobArn: Optional[str] = None
-    Architectures: Optional[List[ArchitectureType]] = None
-    EphemeralStorage: Optional[EphemeralStorageTypeDef] = None
-    SnapStart: Optional[SnapStartResponseTypeDef] = None
-    RuntimeVersionConfig: Optional[RuntimeVersionConfigTypeDef] = None
-    LoggingConfig: Optional[LoggingConfigTypeDef] = None
 
 class FunctionConfigurationResponseTypeDef(BaseValidatorModel):
     FunctionName: str
@@ -1196,6 +1298,7 @@ class FunctionConfigurationResponseTypeDef(BaseValidatorModel):
     LoggingConfig: LoggingConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class FunctionConfigurationTypeDef(BaseValidatorModel):
     FunctionName: Optional[str] = None
     FunctionArn: Optional[str] = None
@@ -1234,45 +1337,105 @@ class FunctionConfigurationTypeDef(BaseValidatorModel):
     RuntimeVersionConfig: Optional[RuntimeVersionConfigTypeDef] = None
     LoggingConfig: Optional[LoggingConfigTypeDef] = None
 
+
 class ListFunctionEventInvokeConfigsResponseTypeDef(BaseValidatorModel):
     FunctionEventInvokeConfigs: List[FunctionEventInvokeConfigTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEventSourceMappingsResponsePaginatorTypeDef(BaseValidatorModel):
-    NextMarker: str
-    EventSourceMappings: List[EventSourceMappingConfigurationPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListEventSourceMappingsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     EventSourceMappings: List[EventSourceMappingConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFunctionsResponsePaginatorTypeDef(BaseValidatorModel):
-    NextMarker: str
-    Functions: List[FunctionConfigurationPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListVersionsByFunctionResponsePaginatorTypeDef(BaseValidatorModel):
-    NextMarker: str
-    Versions: List[FunctionConfigurationPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class FilterCriteriaUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class EventSourceMappingMetricsConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class SelfManagedEventSourceUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateEventSourceMappingRequestTypeDef(BaseValidatorModel):
+    FunctionName: str
+    EventSourceArn: Optional[str] = None
+    Enabled: Optional[bool] = None
+    BatchSize: Optional[int] = None
+    FilterCriteria: Optional[FilterCriteriaUnionTypeDef] = None
+    MaximumBatchingWindowInSeconds: Optional[int] = None
+    ParallelizationFactor: Optional[int] = None
+    StartingPosition: Optional[EventSourcePositionType] = None
+    StartingPositionTimestamp: Optional[TimestampTypeDef] = None
+    DestinationConfig: Optional[DestinationConfigTypeDef] = None
+    MaximumRecordAgeInSeconds: Optional[int] = None
+    BisectBatchOnFunctionError: Optional[bool] = None
+    MaximumRetryAttempts: Optional[int] = None
+    Tags: Optional[Mapping[str, str]] = None
+    TumblingWindowInSeconds: Optional[int] = None
+    Topics: Optional[Sequence[str]] = None
+    Queues: Optional[Sequence[str]] = None
+    SourceAccessConfigurations: Optional[Sequence[SourceAccessConfigurationTypeDef]] = None
+    SelfManagedEventSource: Optional[SelfManagedEventSourceUnionTypeDef] = None
+    FunctionResponseTypes: Optional[Sequence[Literal["ReportBatchItemFailures"]]] = None
+    AmazonManagedKafkaEventSourceConfig: Optional[AmazonManagedKafkaEventSourceConfigTypeDef] = None
+    SelfManagedKafkaEventSourceConfig: Optional[SelfManagedKafkaEventSourceConfigTypeDef] = None
+    ScalingConfig: Optional[ScalingConfigTypeDef] = None
+    DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
+    KMSKeyArn: Optional[str] = None
+    MetricsConfig: Optional[EventSourceMappingMetricsConfigUnionTypeDef] = None
+    ProvisionedPollerConfig: Optional[ProvisionedPollerConfigTypeDef] = None
+
+
+class UpdateEventSourceMappingRequestTypeDef(BaseValidatorModel):
+    UUID: str
+    FunctionName: Optional[str] = None
+    Enabled: Optional[bool] = None
+    BatchSize: Optional[int] = None
+    FilterCriteria: Optional[FilterCriteriaUnionTypeDef] = None
+    MaximumBatchingWindowInSeconds: Optional[int] = None
+    DestinationConfig: Optional[DestinationConfigTypeDef] = None
+    MaximumRecordAgeInSeconds: Optional[int] = None
+    BisectBatchOnFunctionError: Optional[bool] = None
+    MaximumRetryAttempts: Optional[int] = None
+    ParallelizationFactor: Optional[int] = None
+    SourceAccessConfigurations: Optional[Sequence[SourceAccessConfigurationTypeDef]] = None
+    TumblingWindowInSeconds: Optional[int] = None
+    FunctionResponseTypes: Optional[Sequence[Literal["ReportBatchItemFailures"]]] = None
+    ScalingConfig: Optional[ScalingConfigTypeDef] = None
+    DocumentDBEventSourceConfig: Optional[DocumentDBEventSourceConfigTypeDef] = None
+    KMSKeyArn: Optional[str] = None
+    MetricsConfig: Optional[EventSourceMappingMetricsConfigUnionTypeDef] = None
+    ProvisionedPollerConfig: Optional[ProvisionedPollerConfigTypeDef] = None
+
 
 class GetFunctionResponseTypeDef(BaseValidatorModel):
     Configuration: FunctionConfigurationTypeDef
     Code: FunctionCodeLocationTypeDef
     Tags: Dict[str, str]
+    TagsError: TagsErrorTypeDef
     Concurrency: ConcurrencyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListFunctionsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     Functions: List[FunctionConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListVersionsByFunctionResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     Versions: List[FunctionConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 

@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -13,12 +14,17 @@ from aws_resource_validator.pydantic_models.marketplacecommerceanalytics_constan
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class GenerateDataSetRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class GenerateDataSetRequestTypeDef(BaseValidatorModel):
     dataSetType: DataSetTypeType
     dataSetPublicationDate: TimestampTypeDef
     roleNameArn: str
@@ -27,7 +33,8 @@ class GenerateDataSetRequestRequestTypeDef(BaseValidatorModel):
     destinationS3Prefix: Optional[str] = None
     customerDefinedValues: Optional[Mapping[str, str]] = None
 
-class StartSupportDataExportRequestRequestTypeDef(BaseValidatorModel):
+
+class StartSupportDataExportRequestTypeDef(BaseValidatorModel):
     dataSetType: SupportDataSetTypeType
     fromDate: TimestampTypeDef
     roleNameArn: str
@@ -36,11 +43,14 @@ class StartSupportDataExportRequestRequestTypeDef(BaseValidatorModel):
     destinationS3Prefix: Optional[str] = None
     customerDefinedValues: Optional[Mapping[str, str]] = None
 
+
 class GenerateDataSetResultTypeDef(BaseValidatorModel):
     dataSetRequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartSupportDataExportResultTypeDef(BaseValidatorModel):
     dataSetRequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 

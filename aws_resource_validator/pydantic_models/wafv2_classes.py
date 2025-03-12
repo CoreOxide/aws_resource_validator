@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -17,48 +18,56 @@ class APIKeySummaryTypeDef(BaseValidatorModel):
     CreationTimestamp: Optional[datetime] = None
     Version: Optional[int] = None
 
+
 class AWSManagedRulesBotControlRuleSetTypeDef(BaseValidatorModel):
     InspectionLevel: InspectionLevelType
     EnableMachineLearning: Optional[bool] = None
 
+
 class ActionConditionTypeDef(BaseValidatorModel):
     Action: ActionValueType
+
 
 class AddressFieldTypeDef(BaseValidatorModel):
     Identifier: str
 
+
 class AndStatementOutputTypeDef(BaseValidatorModel):
-    Statements: List["StatementOutputTypeDef"]
+    Statements: List[Dict[str, Any]]
+
 
 class AndStatementTypeDef(BaseValidatorModel):
-    Statements: Sequence["StatementTypeDef"]
+    Statements: Sequence[Mapping[str, Any]]
 
-class AssociateWebACLRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateWebACLRequestTypeDef(BaseValidatorModel):
     WebACLArn: str
     ResourceArn: str
+
 
 class RequestBodyAssociatedResourceTypeConfigTypeDef(BaseValidatorModel):
     DefaultSizeInspectionLimit: SizeInspectionLimitType
 
+
 class BodyTypeDef(BaseValidatorModel):
     OversizeHandling: Optional[OversizeHandlingType] = None
 
-class TextTransformationTypeDef(BaseValidatorModel):
-    Priority: int
-    Type: TextTransformationTypeType
 
 class ImmunityTimePropertyTypeDef(BaseValidatorModel):
     ImmunityTime: int
+
 
 class CaptchaResponseTypeDef(BaseValidatorModel):
     ResponseCode: Optional[int] = None
     SolveTimestamp: Optional[int] = None
     FailureReason: Optional[FailureReasonType] = None
 
+
 class ChallengeResponseTypeDef(BaseValidatorModel):
     ResponseCode: Optional[int] = None
     SolveTimestamp: Optional[int] = None
     FailureReason: Optional[FailureReasonType] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -67,26 +76,32 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
 class LabelNameConditionTypeDef(BaseValidatorModel):
     LabelName: str
+
 
 class CookieMatchPatternOutputTypeDef(BaseValidatorModel):
     All: Optional[Dict[str, Any]] = None
     IncludedCookies: Optional[List[str]] = None
     ExcludedCookies: Optional[List[str]] = None
 
+
 class CookieMatchPatternTypeDef(BaseValidatorModel):
     All: Optional[Mapping[str, Any]] = None
     IncludedCookies: Optional[Sequence[str]] = None
     ExcludedCookies: Optional[Sequence[str]] = None
 
-class CreateAPIKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateAPIKeyRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     TokenDomains: Sequence[str]
+
 
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
+
 
 class IPSetSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -95,8 +110,10 @@ class IPSetSummaryTypeDef(BaseValidatorModel):
     LockToken: Optional[str] = None
     ARN: Optional[str] = None
 
+
 class RegexTypeDef(BaseValidatorModel):
     RegexString: Optional[str] = None
+
 
 class RegexPatternSetSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -105,14 +122,17 @@ class RegexPatternSetSummaryTypeDef(BaseValidatorModel):
     LockToken: Optional[str] = None
     ARN: Optional[str] = None
 
+
 class CustomResponseBodyTypeDef(BaseValidatorModel):
     ContentType: ResponseContentTypeType
     Content: str
+
 
 class VisibilityConfigTypeDef(BaseValidatorModel):
     SampledRequestsEnabled: bool
     CloudWatchMetricsEnabled: bool
     MetricName: str
+
 
 class RuleGroupSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -121,6 +141,7 @@ class RuleGroupSummaryTypeDef(BaseValidatorModel):
     LockToken: Optional[str] = None
     ARN: Optional[str] = None
 
+
 class WebACLSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Id: Optional[str] = None
@@ -128,52 +149,73 @@ class WebACLSummaryTypeDef(BaseValidatorModel):
     LockToken: Optional[str] = None
     ARN: Optional[str] = None
 
+
 class CustomHTTPHeaderTypeDef(BaseValidatorModel):
     Name: str
     Value: str
 
-class DeleteAPIKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class FieldToProtectOutputTypeDef(BaseValidatorModel):
+    FieldType: FieldToProtectTypeType
+    FieldKeys: Optional[List[str]] = None
+
+
+class FieldToProtectTypeDef(BaseValidatorModel):
+    FieldType: FieldToProtectTypeType
+    FieldKeys: Optional[Sequence[str]] = None
+
+
+class DeleteAPIKeyRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     APIKey: str
 
-class DeleteFirewallManagerRuleGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteFirewallManagerRuleGroupsRequestTypeDef(BaseValidatorModel):
     WebACLArn: str
     WebACLLockToken: str
 
-class DeleteIPSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteIPSetRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
     LockToken: str
 
-class DeleteLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLoggingConfigurationRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     LogType: Optional[Literal["WAF_LOGS"]] = None
     LogScope: Optional[LogScopeType] = None
 
-class DeletePermissionPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeletePermissionPolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DeleteRegexPatternSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRegexPatternSetRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
     LockToken: str
 
-class DeleteRuleGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRuleGroupRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
     LockToken: str
 
-class DeleteWebACLRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteWebACLRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
     LockToken: str
 
-class DescribeAllManagedProductsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeAllManagedProductsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
+
 
 class ManagedProductDescriptorTypeDef(BaseValidatorModel):
     VendorName: Optional[str] = None
@@ -186,56 +228,75 @@ class ManagedProductDescriptorTypeDef(BaseValidatorModel):
     IsVersioningSupported: Optional[bool] = None
     IsAdvancedManagedRuleSet: Optional[bool] = None
 
-class DescribeManagedProductsByVendorRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeManagedProductsByVendorRequestTypeDef(BaseValidatorModel):
     VendorName: str
     Scope: ScopeType
 
-class DescribeManagedRuleGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeManagedRuleGroupRequestTypeDef(BaseValidatorModel):
     VendorName: str
     Name: str
     Scope: ScopeType
     VersionName: Optional[str] = None
 
+
 class LabelSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class DisassociateWebACLRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateWebACLRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class EmailFieldTypeDef(BaseValidatorModel):
     Identifier: str
 
+
 class ExcludedRuleTypeDef(BaseValidatorModel):
     Name: str
+
 
 class HeaderOrderTypeDef(BaseValidatorModel):
     OversizeHandling: OversizeHandlingType
 
+
 class JA3FingerprintTypeDef(BaseValidatorModel):
     FallbackBehavior: FallbackBehaviorType
+
+
+class JA4FingerprintTypeDef(BaseValidatorModel):
+    FallbackBehavior: FallbackBehaviorType
+
 
 class SingleHeaderTypeDef(BaseValidatorModel):
     Name: str
 
+
 class SingleQueryArgumentTypeDef(BaseValidatorModel):
     Name: str
+
 
 class ForwardedIPConfigTypeDef(BaseValidatorModel):
     HeaderName: str
     FallbackBehavior: FallbackBehaviorType
 
-class GenerateMobileSdkReleaseUrlRequestRequestTypeDef(BaseValidatorModel):
+
+class GenerateMobileSdkReleaseUrlRequestTypeDef(BaseValidatorModel):
     Platform: PlatformType
     ReleaseVersion: str
 
-class GetDecryptedAPIKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDecryptedAPIKeyRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     APIKey: str
 
-class GetIPSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetIPSetRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
+
 
 class IPSetTypeDef(BaseValidatorModel):
     Name: str
@@ -245,111 +306,135 @@ class IPSetTypeDef(BaseValidatorModel):
     Addresses: List[str]
     Description: Optional[str] = None
 
-class GetLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetLoggingConfigurationRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     LogType: Optional[Literal["WAF_LOGS"]] = None
     LogScope: Optional[LogScopeType] = None
 
-class GetManagedRuleSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetManagedRuleSetRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
 
-class GetMobileSdkReleaseRequestRequestTypeDef(BaseValidatorModel):
+
+class GetMobileSdkReleaseRequestTypeDef(BaseValidatorModel):
     Platform: PlatformType
     ReleaseVersion: str
 
-class GetPermissionPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetPermissionPolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class GetRateBasedStatementManagedKeysRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRateBasedStatementManagedKeysRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     WebACLName: str
     WebACLId: str
     RuleName: str
     RuleGroupRuleName: Optional[str] = None
 
+
 class RateBasedStatementManagedKeysIPSetTypeDef(BaseValidatorModel):
     IPAddressVersion: Optional[IPAddressVersionType] = None
     Addresses: Optional[List[str]] = None
 
-class GetRegexPatternSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRegexPatternSetRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
 
-class GetRuleGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRuleGroupRequestTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Scope: Optional[ScopeType] = None
     Id: Optional[str] = None
     ARN: Optional[str] = None
 
+
 class TimeWindowOutputTypeDef(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
 
-class GetWebACLForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class GetWebACLForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class GetWebACLRequestRequestTypeDef(BaseValidatorModel):
+
+class GetWebACLRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
 
+
 class HTTPHeaderTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
+
 
 class HeaderMatchPatternOutputTypeDef(BaseValidatorModel):
     All: Optional[Dict[str, Any]] = None
     IncludedHeaders: Optional[List[str]] = None
     ExcludedHeaders: Optional[List[str]] = None
 
+
 class HeaderMatchPatternTypeDef(BaseValidatorModel):
     All: Optional[Mapping[str, Any]] = None
     IncludedHeaders: Optional[Sequence[str]] = None
     ExcludedHeaders: Optional[Sequence[str]] = None
+
 
 class IPSetForwardedIPConfigTypeDef(BaseValidatorModel):
     HeaderName: str
     FallbackBehavior: FallbackBehaviorType
     Position: ForwardedIPPositionType
 
+
 class JsonMatchPatternOutputTypeDef(BaseValidatorModel):
     All: Optional[Dict[str, Any]] = None
     IncludedPaths: Optional[List[str]] = None
+
 
 class JsonMatchPatternTypeDef(BaseValidatorModel):
     All: Optional[Mapping[str, Any]] = None
     IncludedPaths: Optional[Sequence[str]] = None
 
+
 class LabelMatchStatementTypeDef(BaseValidatorModel):
     Scope: LabelMatchScopeType
     Key: str
 
+
 class LabelTypeDef(BaseValidatorModel):
     Name: str
 
-class ListAPIKeysRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAPIKeysRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListAvailableManagedRuleGroupVersionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAvailableManagedRuleGroupVersionsRequestTypeDef(BaseValidatorModel):
     VendorName: str
     Name: str
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
+
 class ManagedRuleGroupVersionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     LastUpdateTimestamp: Optional[datetime] = None
 
-class ListAvailableManagedRuleGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAvailableManagedRuleGroupsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class ManagedRuleGroupSummaryTypeDef(BaseValidatorModel):
     VendorName: Optional[str] = None
@@ -357,21 +442,25 @@ class ManagedRuleGroupSummaryTypeDef(BaseValidatorModel):
     VersioningSupported: Optional[bool] = None
     Description: Optional[str] = None
 
-class ListIPSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListIPSetsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListLoggingConfigurationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLoggingConfigurationsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
     LogScope: Optional[LogScopeType] = None
 
-class ListManagedRuleSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListManagedRuleSetsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class ManagedRuleSetSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -381,44 +470,54 @@ class ManagedRuleSetSummaryTypeDef(BaseValidatorModel):
     ARN: Optional[str] = None
     LabelNamespace: Optional[str] = None
 
-class ListMobileSdkReleasesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListMobileSdkReleasesRequestTypeDef(BaseValidatorModel):
     Platform: PlatformType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class ReleaseSummaryTypeDef(BaseValidatorModel):
     ReleaseVersion: Optional[str] = None
     Timestamp: Optional[datetime] = None
 
-class ListRegexPatternSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRegexPatternSetsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListResourcesForWebACLRequestRequestTypeDef(BaseValidatorModel):
+
+class ListResourcesForWebACLRequestTypeDef(BaseValidatorModel):
     WebACLArn: str
     ResourceType: Optional[ResourceTypeType] = None
 
-class ListRuleGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRuleGroupsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListWebACLsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListWebACLsRequestTypeDef(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
+
 class PasswordFieldTypeDef(BaseValidatorModel):
     Identifier: str
 
+
 class UsernameFieldTypeDef(BaseValidatorModel):
     Identifier: str
+
 
 class ManagedRuleSetVersionTypeDef(BaseValidatorModel):
     AssociatedRuleGroupArn: Optional[str] = None
@@ -428,70 +527,99 @@ class ManagedRuleSetVersionTypeDef(BaseValidatorModel):
     LastUpdateTimestamp: Optional[datetime] = None
     ExpiryTimestamp: Optional[datetime] = None
 
+
+class NotStatementOutputTypeDef(BaseValidatorModel):
+    Statement: Dict[str, Any]
+
+
 class NotStatementTypeDef(BaseValidatorModel):
-    Statement: "StatementTypeDef"
+    Statement: Mapping[str, Any]
+
 
 class OrStatementOutputTypeDef(BaseValidatorModel):
-    Statements: List["StatementOutputTypeDef"]
+    Statements: List[Dict[str, Any]]
+
 
 class OrStatementTypeDef(BaseValidatorModel):
-    Statements: Sequence["StatementTypeDef"]
+    Statements: Sequence[Mapping[str, Any]]
+
 
 class PhoneNumberFieldTypeDef(BaseValidatorModel):
     Identifier: str
+
 
 class VersionToPublishTypeDef(BaseValidatorModel):
     AssociatedRuleGroupArn: Optional[str] = None
     ForecastedLifetime: Optional[int] = None
 
-class PutPermissionPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutPermissionPolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Policy: str
 
+
+class RateLimitJA3FingerprintTypeDef(BaseValidatorModel):
+    FallbackBehavior: FallbackBehaviorType
+
+
+class RateLimitJA4FingerprintTypeDef(BaseValidatorModel):
+    FallbackBehavior: FallbackBehaviorType
+
+
 class RateLimitLabelNamespaceTypeDef(BaseValidatorModel):
     Namespace: str
+
 
 class ResponseInspectionBodyContainsOutputTypeDef(BaseValidatorModel):
     SuccessStrings: List[str]
     FailureStrings: List[str]
 
+
 class ResponseInspectionBodyContainsTypeDef(BaseValidatorModel):
     SuccessStrings: Sequence[str]
     FailureStrings: Sequence[str]
+
 
 class ResponseInspectionHeaderOutputTypeDef(BaseValidatorModel):
     Name: str
     SuccessValues: List[str]
     FailureValues: List[str]
 
+
 class ResponseInspectionHeaderTypeDef(BaseValidatorModel):
     Name: str
     SuccessValues: Sequence[str]
     FailureValues: Sequence[str]
+
 
 class ResponseInspectionJsonOutputTypeDef(BaseValidatorModel):
     Identifier: str
     SuccessValues: List[str]
     FailureValues: List[str]
 
+
 class ResponseInspectionJsonTypeDef(BaseValidatorModel):
     Identifier: str
     SuccessValues: Sequence[str]
     FailureValues: Sequence[str]
 
+
 class ResponseInspectionStatusCodeOutputTypeDef(BaseValidatorModel):
     SuccessCodes: List[int]
     FailureCodes: List[int]
+
 
 class ResponseInspectionStatusCodeTypeDef(BaseValidatorModel):
     SuccessCodes: Sequence[int]
     FailureCodes: Sequence[int]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateIPSetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateIPSetRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
@@ -499,78 +627,103 @@ class UpdateIPSetRequestRequestTypeDef(BaseValidatorModel):
     LockToken: str
     Description: Optional[str] = None
 
+
 class AssociationConfigOutputTypeDef(BaseValidatorModel):
-    RequestBody: Optional[       Dict[AssociatedResourceTypeType, RequestBodyAssociatedResourceTypeConfigTypeDef]] = None
+    RequestBody: Optional[ Dict[AssociatedResourceTypeType, RequestBodyAssociatedResourceTypeConfigTypeDef] ] = None
+
 
 class AssociationConfigTypeDef(BaseValidatorModel):
-    RequestBody: Optional[       Mapping[AssociatedResourceTypeType, RequestBodyAssociatedResourceTypeConfigTypeDef]] = None
+    RequestBody: Optional[ Mapping[AssociatedResourceTypeType, RequestBodyAssociatedResourceTypeConfigTypeDef] ] = None
+
+
+class TextTransformationTypeDef(BaseValidatorModel):
+    pass
+
 
 class RateLimitCookieOutputTypeDef(BaseValidatorModel):
     Name: str
     TextTransformations: List[TextTransformationTypeDef]
 
+
 class RateLimitCookieTypeDef(BaseValidatorModel):
     Name: str
     TextTransformations: Sequence[TextTransformationTypeDef]
+
 
 class RateLimitHeaderOutputTypeDef(BaseValidatorModel):
     Name: str
     TextTransformations: List[TextTransformationTypeDef]
 
+
 class RateLimitHeaderTypeDef(BaseValidatorModel):
     Name: str
     TextTransformations: Sequence[TextTransformationTypeDef]
+
 
 class RateLimitQueryArgumentOutputTypeDef(BaseValidatorModel):
     Name: str
     TextTransformations: List[TextTransformationTypeDef]
 
+
 class RateLimitQueryArgumentTypeDef(BaseValidatorModel):
     Name: str
     TextTransformations: Sequence[TextTransformationTypeDef]
 
+
 class RateLimitQueryStringOutputTypeDef(BaseValidatorModel):
     TextTransformations: List[TextTransformationTypeDef]
+
 
 class RateLimitQueryStringTypeDef(BaseValidatorModel):
     TextTransformations: Sequence[TextTransformationTypeDef]
 
+
 class RateLimitUriPathOutputTypeDef(BaseValidatorModel):
     TextTransformations: List[TextTransformationTypeDef]
+
 
 class RateLimitUriPathTypeDef(BaseValidatorModel):
     TextTransformations: Sequence[TextTransformationTypeDef]
 
+
 class CaptchaConfigTypeDef(BaseValidatorModel):
     ImmunityTimeProperty: Optional[ImmunityTimePropertyTypeDef] = None
 
+
 class ChallengeConfigTypeDef(BaseValidatorModel):
     ImmunityTimeProperty: Optional[ImmunityTimePropertyTypeDef] = None
+
 
 class CheckCapacityResponseTypeDef(BaseValidatorModel):
     Capacity: int
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateAPIKeyResponseTypeDef(BaseValidatorModel):
     APIKey: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteFirewallManagerRuleGroupsResponseTypeDef(BaseValidatorModel):
     NextWebACLLockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GenerateMobileSdkReleaseUrlResponseTypeDef(BaseValidatorModel):
     Url: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetDecryptedAPIKeyResponseTypeDef(BaseValidatorModel):
     TokenDomains: List[str]
     CreationTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetPermissionPolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListAPIKeysResponseTypeDef(BaseValidatorModel):
     NextMarker: str
@@ -578,17 +731,21 @@ class ListAPIKeysResponseTypeDef(BaseValidatorModel):
     ApplicationIntegrationURL: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListResourcesForWebACLResponseTypeDef(BaseValidatorModel):
     ResourceArns: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PutManagedRuleSetVersionsResponseTypeDef(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateIPSetResponseTypeDef(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateManagedRuleSetVersionExpiryDateResponseTypeDef(BaseValidatorModel):
     ExpiringVersion: str
@@ -596,33 +753,34 @@ class UpdateManagedRuleSetVersionExpiryDateResponseTypeDef(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateRegexPatternSetResponseTypeDef(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateRuleGroupResponseTypeDef(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateWebACLResponseTypeDef(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ConditionTypeDef(BaseValidatorModel):
     ActionCondition: Optional[ActionConditionTypeDef] = None
     LabelNameCondition: Optional[LabelNameConditionTypeDef] = None
+
 
 class CookiesOutputTypeDef(BaseValidatorModel):
     MatchPattern: CookieMatchPatternOutputTypeDef
     MatchScope: MapMatchScopeType
     OversizeHandling: OversizeHandlingType
 
-class CookiesTypeDef(BaseValidatorModel):
-    MatchPattern: CookieMatchPatternTypeDef
-    MatchScope: MapMatchScopeType
-    OversizeHandling: OversizeHandlingType
 
-class CreateIPSetRequestRequestTypeDef(BaseValidatorModel):
+class CreateIPSetRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     IPAddressVersion: IPAddressVersionType
@@ -630,35 +788,42 @@ class CreateIPSetRequestRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
+
 class MobileSdkReleaseTypeDef(BaseValidatorModel):
     ReleaseVersion: Optional[str] = None
     Timestamp: Optional[datetime] = None
     ReleaseNotes: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
+
 class TagInfoForResourceTypeDef(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     TagList: Optional[List[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
+
 
 class CreateIPSetResponseTypeDef(BaseValidatorModel):
     Summary: IPSetSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListIPSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     IPSets: List[IPSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRegexPatternSetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRegexPatternSetRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     RegularExpressionList: Sequence[RegexTypeDef]
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class RegexPatternSetTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -667,7 +832,8 @@ class RegexPatternSetTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     RegularExpressionList: Optional[List[RegexTypeDef]] = None
 
-class UpdateRegexPatternSetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRegexPatternSetRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
@@ -675,74 +841,105 @@ class UpdateRegexPatternSetRequestRequestTypeDef(BaseValidatorModel):
     LockToken: str
     Description: Optional[str] = None
 
+
 class CreateRegexPatternSetResponseTypeDef(BaseValidatorModel):
     Summary: RegexPatternSetSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListRegexPatternSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     RegexPatternSets: List[RegexPatternSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateRuleGroupResponseTypeDef(BaseValidatorModel):
     Summary: RuleGroupSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListRuleGroupsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     RuleGroups: List[RuleGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateWebACLResponseTypeDef(BaseValidatorModel):
     Summary: WebACLSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListWebACLsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     WebACLs: List[WebACLSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CustomRequestHandlingOutputTypeDef(BaseValidatorModel):
     InsertHeaders: List[CustomHTTPHeaderTypeDef]
 
+
 class CustomRequestHandlingTypeDef(BaseValidatorModel):
     InsertHeaders: Sequence[CustomHTTPHeaderTypeDef]
+
 
 class CustomResponseOutputTypeDef(BaseValidatorModel):
     ResponseCode: int
     CustomResponseBodyKey: Optional[str] = None
     ResponseHeaders: Optional[List[CustomHTTPHeaderTypeDef]] = None
 
+
 class CustomResponseTypeDef(BaseValidatorModel):
     ResponseCode: int
     CustomResponseBodyKey: Optional[str] = None
     ResponseHeaders: Optional[Sequence[CustomHTTPHeaderTypeDef]] = None
 
+
+class DataProtectionOutputTypeDef(BaseValidatorModel):
+    Field: FieldToProtectOutputTypeDef
+    Action: DataProtectionActionType
+    ExcludeRuleMatchDetails: Optional[bool] = None
+    ExcludeRateBasedDetails: Optional[bool] = None
+
+
+class DataProtectionTypeDef(BaseValidatorModel):
+    Field: FieldToProtectTypeDef
+    Action: DataProtectionActionType
+    ExcludeRuleMatchDetails: Optional[bool] = None
+    ExcludeRateBasedDetails: Optional[bool] = None
+
+
 class DescribeAllManagedProductsResponseTypeDef(BaseValidatorModel):
     ManagedProducts: List[ManagedProductDescriptorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeManagedProductsByVendorResponseTypeDef(BaseValidatorModel):
     ManagedProducts: List[ManagedProductDescriptorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GeoMatchStatementOutputTypeDef(BaseValidatorModel):
     CountryCodes: Optional[List[CountryCodeType]] = None
     ForwardedIPConfig: Optional[ForwardedIPConfigTypeDef] = None
 
+
 class GeoMatchStatementTypeDef(BaseValidatorModel):
     CountryCodes: Optional[Sequence[CountryCodeType]] = None
     ForwardedIPConfig: Optional[ForwardedIPConfigTypeDef] = None
+
 
 class GetIPSetResponseTypeDef(BaseValidatorModel):
     IPSet: IPSetTypeDef
     LockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRateBasedStatementManagedKeysResponseTypeDef(BaseValidatorModel):
     ManagedKeysIPV4: RateBasedStatementManagedKeysIPSetTypeDef
     ManagedKeysIPV6: RateBasedStatementManagedKeysIPSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class HTTPRequestTypeDef(BaseValidatorModel):
     ClientIP: Optional[str] = None
@@ -752,19 +949,17 @@ class HTTPRequestTypeDef(BaseValidatorModel):
     HTTPVersion: Optional[str] = None
     Headers: Optional[List[HTTPHeaderTypeDef]] = None
 
+
 class HeadersOutputTypeDef(BaseValidatorModel):
     MatchPattern: HeaderMatchPatternOutputTypeDef
     MatchScope: MapMatchScopeType
     OversizeHandling: OversizeHandlingType
 
-class HeadersTypeDef(BaseValidatorModel):
-    MatchPattern: HeaderMatchPatternTypeDef
-    MatchScope: MapMatchScopeType
-    OversizeHandling: OversizeHandlingType
 
 class IPSetReferenceStatementTypeDef(BaseValidatorModel):
     ARN: str
     IPSetForwardedIPConfig: Optional[IPSetForwardedIPConfigTypeDef] = None
+
 
 class JsonBodyOutputTypeDef(BaseValidatorModel):
     MatchPattern: JsonMatchPatternOutputTypeDef
@@ -772,11 +967,6 @@ class JsonBodyOutputTypeDef(BaseValidatorModel):
     InvalidFallbackBehavior: Optional[BodyParsingFallbackBehaviorType] = None
     OversizeHandling: Optional[OversizeHandlingType] = None
 
-class JsonBodyTypeDef(BaseValidatorModel):
-    MatchPattern: JsonMatchPatternTypeDef
-    MatchScope: JsonMatchScopeType
-    InvalidFallbackBehavior: Optional[BodyParsingFallbackBehaviorType] = None
-    OversizeHandling: Optional[OversizeHandlingType] = None
 
 class ListAvailableManagedRuleGroupVersionsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
@@ -784,25 +974,30 @@ class ListAvailableManagedRuleGroupVersionsResponseTypeDef(BaseValidatorModel):
     CurrentDefaultVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListAvailableManagedRuleGroupsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     ManagedRuleGroups: List[ManagedRuleGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListManagedRuleSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     ManagedRuleSets: List[ManagedRuleSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListMobileSdkReleasesResponseTypeDef(BaseValidatorModel):
     ReleaseSummaries: List[ReleaseSummaryTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class RequestInspectionTypeDef(BaseValidatorModel):
     PayloadType: PayloadTypeType
     UsernameField: UsernameFieldTypeDef
     PasswordField: PasswordFieldTypeDef
+
 
 class ManagedRuleSetTypeDef(BaseValidatorModel):
     Name: str
@@ -813,6 +1008,7 @@ class ManagedRuleSetTypeDef(BaseValidatorModel):
     RecommendedVersion: Optional[str] = None
     LabelNamespace: Optional[str] = None
 
+
 class RequestInspectionACFPOutputTypeDef(BaseValidatorModel):
     PayloadType: PayloadTypeType
     UsernameField: Optional[UsernameFieldTypeDef] = None
@@ -820,6 +1016,7 @@ class RequestInspectionACFPOutputTypeDef(BaseValidatorModel):
     EmailField: Optional[EmailFieldTypeDef] = None
     PhoneNumberFields: Optional[List[PhoneNumberFieldTypeDef]] = None
     AddressFields: Optional[List[AddressFieldTypeDef]] = None
+
 
 class RequestInspectionACFPTypeDef(BaseValidatorModel):
     PayloadType: PayloadTypeType
@@ -829,7 +1026,8 @@ class RequestInspectionACFPTypeDef(BaseValidatorModel):
     PhoneNumberFields: Optional[Sequence[PhoneNumberFieldTypeDef]] = None
     AddressFields: Optional[Sequence[AddressFieldTypeDef]] = None
 
-class PutManagedRuleSetVersionsRequestRequestTypeDef(BaseValidatorModel):
+
+class PutManagedRuleSetVersionsRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
@@ -837,29 +1035,31 @@ class PutManagedRuleSetVersionsRequestRequestTypeDef(BaseValidatorModel):
     RecommendedVersion: Optional[str] = None
     VersionsToPublish: Optional[Mapping[str, VersionToPublishTypeDef]] = None
 
+
 class ResponseInspectionOutputTypeDef(BaseValidatorModel):
     StatusCode: Optional[ResponseInspectionStatusCodeOutputTypeDef] = None
     Header: Optional[ResponseInspectionHeaderOutputTypeDef] = None
     BodyContains: Optional[ResponseInspectionBodyContainsOutputTypeDef] = None
     Json: Optional[ResponseInspectionJsonOutputTypeDef] = None
 
-class ResponseInspectionTypeDef(BaseValidatorModel):
-    StatusCode: Optional[ResponseInspectionStatusCodeTypeDef] = None
-    Header: Optional[ResponseInspectionHeaderTypeDef] = None
-    BodyContains: Optional[ResponseInspectionBodyContainsTypeDef] = None
-    Json: Optional[ResponseInspectionJsonTypeDef] = None
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class TimeWindowTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
 
-class UpdateManagedRuleSetVersionExpiryDateRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateManagedRuleSetVersionExpiryDateRequestTypeDef(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
     LockToken: str
     VersionToExpire: str
     ExpiryTimestamp: TimestampTypeDef
+
 
 class RateBasedStatementCustomKeyOutputTypeDef(BaseValidatorModel):
     Header: Optional[RateLimitHeaderOutputTypeDef] = None
@@ -871,71 +1071,76 @@ class RateBasedStatementCustomKeyOutputTypeDef(BaseValidatorModel):
     IP: Optional[Dict[str, Any]] = None
     LabelNamespace: Optional[RateLimitLabelNamespaceTypeDef] = None
     UriPath: Optional[RateLimitUriPathOutputTypeDef] = None
+    JA3Fingerprint: Optional[RateLimitJA3FingerprintTypeDef] = None
+    JA4Fingerprint: Optional[RateLimitJA4FingerprintTypeDef] = None
 
-class RateBasedStatementCustomKeyTypeDef(BaseValidatorModel):
-    Header: Optional[RateLimitHeaderTypeDef] = None
-    Cookie: Optional[RateLimitCookieTypeDef] = None
-    QueryArgument: Optional[RateLimitQueryArgumentTypeDef] = None
-    QueryString: Optional[RateLimitQueryStringTypeDef] = None
-    HTTPMethod: Optional[Mapping[str, Any]] = None
-    ForwardedIP: Optional[Mapping[str, Any]] = None
-    IP: Optional[Mapping[str, Any]] = None
-    LabelNamespace: Optional[RateLimitLabelNamespaceTypeDef] = None
-    UriPath: Optional[RateLimitUriPathTypeDef] = None
 
 class FilterOutputTypeDef(BaseValidatorModel):
     Behavior: FilterBehaviorType
     Requirement: FilterRequirementType
     Conditions: List[ConditionTypeDef]
 
+
 class FilterTypeDef(BaseValidatorModel):
     Behavior: FilterBehaviorType
     Requirement: FilterRequirementType
     Conditions: Sequence[ConditionTypeDef]
 
+
+class CookieMatchPatternUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CookiesTypeDef(BaseValidatorModel):
+    MatchPattern: CookieMatchPatternUnionTypeDef
+    MatchScope: MapMatchScopeType
+    OversizeHandling: OversizeHandlingType
+
+
 class GetMobileSdkReleaseResponseTypeDef(BaseValidatorModel):
     MobileSdkRelease: MobileSdkReleaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     TagInfoForResource: TagInfoForResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRegexPatternSetResponseTypeDef(BaseValidatorModel):
     RegexPatternSet: RegexPatternSetTypeDef
     LockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AllowActionOutputTypeDef(BaseValidatorModel):
     CustomRequestHandling: Optional[CustomRequestHandlingOutputTypeDef] = None
+
 
 class CaptchaActionOutputTypeDef(BaseValidatorModel):
     CustomRequestHandling: Optional[CustomRequestHandlingOutputTypeDef] = None
 
+
 class ChallengeActionOutputTypeDef(BaseValidatorModel):
     CustomRequestHandling: Optional[CustomRequestHandlingOutputTypeDef] = None
+
 
 class CountActionOutputTypeDef(BaseValidatorModel):
     CustomRequestHandling: Optional[CustomRequestHandlingOutputTypeDef] = None
 
-class AllowActionTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[CustomRequestHandlingTypeDef] = None
-
-class CaptchaActionTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[CustomRequestHandlingTypeDef] = None
-
-class ChallengeActionTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[CustomRequestHandlingTypeDef] = None
-
-class CountActionTypeDef(BaseValidatorModel):
-    CustomRequestHandling: Optional[CustomRequestHandlingTypeDef] = None
 
 class BlockActionOutputTypeDef(BaseValidatorModel):
     CustomResponse: Optional[CustomResponseOutputTypeDef] = None
 
-class BlockActionTypeDef(BaseValidatorModel):
-    CustomResponse: Optional[CustomResponseTypeDef] = None
+
+class DataProtectionConfigOutputTypeDef(BaseValidatorModel):
+    DataProtections: List[DataProtectionOutputTypeDef]
+
+
+class DataProtectionConfigTypeDef(BaseValidatorModel):
+    DataProtections: Sequence[DataProtectionTypeDef]
+
 
 class SampledHTTPRequestTypeDef(BaseValidatorModel):
     Request: HTTPRequestTypeDef
@@ -950,6 +1155,17 @@ class SampledHTTPRequestTypeDef(BaseValidatorModel):
     ChallengeResponse: Optional[ChallengeResponseTypeDef] = None
     OverriddenAction: Optional[str] = None
 
+
+class HeaderMatchPatternUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class HeadersTypeDef(BaseValidatorModel):
+    MatchPattern: HeaderMatchPatternUnionTypeDef
+    MatchScope: MapMatchScopeType
+    OversizeHandling: OversizeHandlingType
+
+
 class FieldToMatchOutputTypeDef(BaseValidatorModel):
     SingleHeader: Optional[SingleHeaderTypeDef] = None
     SingleQueryArgument: Optional[SingleQueryArgumentTypeDef] = None
@@ -963,25 +1179,25 @@ class FieldToMatchOutputTypeDef(BaseValidatorModel):
     Cookies: Optional[CookiesOutputTypeDef] = None
     HeaderOrder: Optional[HeaderOrderTypeDef] = None
     JA3Fingerprint: Optional[JA3FingerprintTypeDef] = None
+    JA4Fingerprint: Optional[JA4FingerprintTypeDef] = None
 
-class FieldToMatchTypeDef(BaseValidatorModel):
-    SingleHeader: Optional[SingleHeaderTypeDef] = None
-    SingleQueryArgument: Optional[SingleQueryArgumentTypeDef] = None
-    AllQueryArguments: Optional[Mapping[str, Any]] = None
-    UriPath: Optional[Mapping[str, Any]] = None
-    QueryString: Optional[Mapping[str, Any]] = None
-    Body: Optional[BodyTypeDef] = None
-    Method: Optional[Mapping[str, Any]] = None
-    JsonBody: Optional[JsonBodyTypeDef] = None
-    Headers: Optional[HeadersTypeDef] = None
-    Cookies: Optional[CookiesTypeDef] = None
-    HeaderOrder: Optional[HeaderOrderTypeDef] = None
-    JA3Fingerprint: Optional[JA3FingerprintTypeDef] = None
+
+class JsonMatchPatternUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class JsonBodyTypeDef(BaseValidatorModel):
+    MatchPattern: JsonMatchPatternUnionTypeDef
+    MatchScope: JsonMatchScopeType
+    InvalidFallbackBehavior: Optional[BodyParsingFallbackBehaviorType] = None
+    OversizeHandling: Optional[OversizeHandlingType] = None
+
 
 class GetManagedRuleSetResponseTypeDef(BaseValidatorModel):
     ManagedRuleSet: ManagedRuleSetTypeDef
     LockToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class AWSManagedRulesACFPRuleSetOutputTypeDef(BaseValidatorModel):
     CreationPath: str
@@ -990,67 +1206,114 @@ class AWSManagedRulesACFPRuleSetOutputTypeDef(BaseValidatorModel):
     ResponseInspection: Optional[ResponseInspectionOutputTypeDef] = None
     EnableRegexInPath: Optional[bool] = None
 
+
 class AWSManagedRulesATPRuleSetOutputTypeDef(BaseValidatorModel):
     LoginPath: str
     RequestInspection: Optional[RequestInspectionTypeDef] = None
     ResponseInspection: Optional[ResponseInspectionOutputTypeDef] = None
     EnableRegexInPath: Optional[bool] = None
 
-class AWSManagedRulesACFPRuleSetTypeDef(BaseValidatorModel):
-    CreationPath: str
-    RegistrationPagePath: str
-    RequestInspection: RequestInspectionACFPTypeDef
-    ResponseInspection: Optional[ResponseInspectionTypeDef] = None
-    EnableRegexInPath: Optional[bool] = None
 
-class AWSManagedRulesATPRuleSetTypeDef(BaseValidatorModel):
-    LoginPath: str
-    RequestInspection: Optional[RequestInspectionTypeDef] = None
-    ResponseInspection: Optional[ResponseInspectionTypeDef] = None
-    EnableRegexInPath: Optional[bool] = None
+class ResponseInspectionHeaderUnionTypeDef(BaseValidatorModel):
+    pass
 
-class GetSampledRequestsRequestRequestTypeDef(BaseValidatorModel):
-    WebAclArn: str
-    RuleMetricName: str
-    Scope: ScopeType
-    TimeWindow: TimeWindowTypeDef
-    MaxItems: int
+
+class ResponseInspectionBodyContainsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ResponseInspectionJsonUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ResponseInspectionStatusCodeUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ResponseInspectionTypeDef(BaseValidatorModel):
+    StatusCode: Optional[ResponseInspectionStatusCodeUnionTypeDef] = None
+    Header: Optional[ResponseInspectionHeaderUnionTypeDef] = None
+    BodyContains: Optional[ResponseInspectionBodyContainsUnionTypeDef] = None
+    Json: Optional[ResponseInspectionJsonUnionTypeDef] = None
+
 
 class RateBasedStatementOutputTypeDef(BaseValidatorModel):
     Limit: int
     AggregateKeyType: RateBasedStatementAggregateKeyTypeType
     EvaluationWindowSec: Optional[int] = None
-    ScopeDownStatement: Optional["StatementOutputTypeDef"] = None
+    ScopeDownStatement: Optional[Dict[str, Any]] = None
     ForwardedIPConfig: Optional[ForwardedIPConfigTypeDef] = None
     CustomKeys: Optional[List[RateBasedStatementCustomKeyOutputTypeDef]] = None
 
-class RateBasedStatementTypeDef(BaseValidatorModel):
-    Limit: int
-    AggregateKeyType: RateBasedStatementAggregateKeyTypeType
-    EvaluationWindowSec: Optional[int] = None
-    ScopeDownStatement: Optional["StatementTypeDef"] = None
-    ForwardedIPConfig: Optional[ForwardedIPConfigTypeDef] = None
-    CustomKeys: Optional[Sequence[RateBasedStatementCustomKeyTypeDef]] = None
+
+class RateLimitQueryArgumentUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RateLimitUriPathUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RateLimitCookieUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RateLimitHeaderUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RateLimitQueryStringUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RateBasedStatementCustomKeyTypeDef(BaseValidatorModel):
+    Header: Optional[RateLimitHeaderUnionTypeDef] = None
+    Cookie: Optional[RateLimitCookieUnionTypeDef] = None
+    QueryArgument: Optional[RateLimitQueryArgumentUnionTypeDef] = None
+    QueryString: Optional[RateLimitQueryStringUnionTypeDef] = None
+    HTTPMethod: Optional[Mapping[str, Any]] = None
+    ForwardedIP: Optional[Mapping[str, Any]] = None
+    IP: Optional[Mapping[str, Any]] = None
+    LabelNamespace: Optional[RateLimitLabelNamespaceTypeDef] = None
+    UriPath: Optional[RateLimitUriPathUnionTypeDef] = None
+    JA3Fingerprint: Optional[RateLimitJA3FingerprintTypeDef] = None
+    JA4Fingerprint: Optional[RateLimitJA4FingerprintTypeDef] = None
+
 
 class LoggingFilterOutputTypeDef(BaseValidatorModel):
     Filters: List[FilterOutputTypeDef]
     DefaultBehavior: FilterBehaviorType
 
+
 class LoggingFilterTypeDef(BaseValidatorModel):
     Filters: Sequence[FilterTypeDef]
     DefaultBehavior: FilterBehaviorType
 
-class OverrideActionOutputTypeDef(BaseValidatorModel):
-    Count: Optional[CountActionOutputTypeDef] = None
-    _None: Optional[Dict[str, Any]] = None
 
-class OverrideActionTypeDef(BaseValidatorModel):
-    Count: Optional[CountActionTypeDef] = None
-    _None: Optional[Mapping[str, Any]] = None
+class CustomRequestHandlingUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class AllowActionTypeDef(BaseValidatorModel):
+    CustomRequestHandling: Optional[CustomRequestHandlingUnionTypeDef] = None
+
+
+class CaptchaActionTypeDef(BaseValidatorModel):
+    CustomRequestHandling: Optional[CustomRequestHandlingUnionTypeDef] = None
+
+
+class ChallengeActionTypeDef(BaseValidatorModel):
+    CustomRequestHandling: Optional[CustomRequestHandlingUnionTypeDef] = None
+
+
+class CountActionTypeDef(BaseValidatorModel):
+    CustomRequestHandling: Optional[CustomRequestHandlingUnionTypeDef] = None
+
 
 class DefaultActionOutputTypeDef(BaseValidatorModel):
     Block: Optional[BlockActionOutputTypeDef] = None
     Allow: Optional[AllowActionOutputTypeDef] = None
+
 
 class RuleActionOutputTypeDef(BaseValidatorModel):
     Block: Optional[BlockActionOutputTypeDef] = None
@@ -1059,16 +1322,14 @@ class RuleActionOutputTypeDef(BaseValidatorModel):
     Captcha: Optional[CaptchaActionOutputTypeDef] = None
     Challenge: Optional[ChallengeActionOutputTypeDef] = None
 
-class DefaultActionTypeDef(BaseValidatorModel):
-    Block: Optional[BlockActionTypeDef] = None
-    Allow: Optional[AllowActionTypeDef] = None
 
-class RuleActionTypeDef(BaseValidatorModel):
-    Block: Optional[BlockActionTypeDef] = None
-    Allow: Optional[AllowActionTypeDef] = None
-    Count: Optional[CountActionTypeDef] = None
-    Captcha: Optional[CaptchaActionTypeDef] = None
-    Challenge: Optional[ChallengeActionTypeDef] = None
+class CustomResponseUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class BlockActionTypeDef(BaseValidatorModel):
+    CustomResponse: Optional[CustomResponseUnionTypeDef] = None
+
 
 class GetSampledRequestsResponseTypeDef(BaseValidatorModel):
     SampledRequests: List[SampledHTTPRequestTypeDef]
@@ -1076,21 +1337,25 @@ class GetSampledRequestsResponseTypeDef(BaseValidatorModel):
     TimeWindow: TimeWindowOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ByteMatchStatementOutputTypeDef(BaseValidatorModel):
     SearchString: bytes
     FieldToMatch: FieldToMatchOutputTypeDef
     TextTransformations: List[TextTransformationTypeDef]
     PositionalConstraint: PositionalConstraintType
 
+
 class RegexMatchStatementOutputTypeDef(BaseValidatorModel):
     RegexString: str
     FieldToMatch: FieldToMatchOutputTypeDef
     TextTransformations: List[TextTransformationTypeDef]
 
+
 class RegexPatternSetReferenceStatementOutputTypeDef(BaseValidatorModel):
     ARN: str
     FieldToMatch: FieldToMatchOutputTypeDef
     TextTransformations: List[TextTransformationTypeDef]
+
 
 class SizeConstraintStatementOutputTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchOutputTypeDef
@@ -1098,45 +1363,17 @@ class SizeConstraintStatementOutputTypeDef(BaseValidatorModel):
     Size: int
     TextTransformations: List[TextTransformationTypeDef]
 
+
 class SqliMatchStatementOutputTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchOutputTypeDef
     TextTransformations: List[TextTransformationTypeDef]
     SensitivityLevel: Optional[SensitivityLevelType] = None
 
+
 class XssMatchStatementOutputTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchOutputTypeDef
     TextTransformations: List[TextTransformationTypeDef]
 
-class ByteMatchStatementTypeDef(BaseValidatorModel):
-    SearchString: BlobTypeDef
-    FieldToMatch: FieldToMatchTypeDef
-    TextTransformations: Sequence[TextTransformationTypeDef]
-    PositionalConstraint: PositionalConstraintType
-
-class RegexMatchStatementTypeDef(BaseValidatorModel):
-    RegexString: str
-    FieldToMatch: FieldToMatchTypeDef
-    TextTransformations: Sequence[TextTransformationTypeDef]
-
-class RegexPatternSetReferenceStatementTypeDef(BaseValidatorModel):
-    ARN: str
-    FieldToMatch: FieldToMatchTypeDef
-    TextTransformations: Sequence[TextTransformationTypeDef]
-
-class SizeConstraintStatementTypeDef(BaseValidatorModel):
-    FieldToMatch: FieldToMatchTypeDef
-    ComparisonOperator: ComparisonOperatorType
-    Size: int
-    TextTransformations: Sequence[TextTransformationTypeDef]
-
-class SqliMatchStatementTypeDef(BaseValidatorModel):
-    FieldToMatch: FieldToMatchTypeDef
-    TextTransformations: Sequence[TextTransformationTypeDef]
-    SensitivityLevel: Optional[SensitivityLevelType] = None
-
-class XssMatchStatementTypeDef(BaseValidatorModel):
-    FieldToMatch: FieldToMatchTypeDef
-    TextTransformations: Sequence[TextTransformationTypeDef]
 
 class ManagedRuleGroupConfigOutputTypeDef(BaseValidatorModel):
     LoginPath: Optional[str] = None
@@ -1147,14 +1384,18 @@ class ManagedRuleGroupConfigOutputTypeDef(BaseValidatorModel):
     AWSManagedRulesATPRuleSet: Optional[AWSManagedRulesATPRuleSetOutputTypeDef] = None
     AWSManagedRulesACFPRuleSet: Optional[AWSManagedRulesACFPRuleSetOutputTypeDef] = None
 
-class ManagedRuleGroupConfigTypeDef(BaseValidatorModel):
-    LoginPath: Optional[str] = None
-    PayloadType: Optional[PayloadTypeType] = None
-    UsernameField: Optional[UsernameFieldTypeDef] = None
-    PasswordField: Optional[PasswordFieldTypeDef] = None
-    AWSManagedRulesBotControlRuleSet: Optional[AWSManagedRulesBotControlRuleSetTypeDef] = None
-    AWSManagedRulesATPRuleSet: Optional[AWSManagedRulesATPRuleSetTypeDef] = None
-    AWSManagedRulesACFPRuleSet: Optional[AWSManagedRulesACFPRuleSetTypeDef] = None
+
+class TimeWindowUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class GetSampledRequestsRequestTypeDef(BaseValidatorModel):
+    WebAclArn: str
+    RuleMetricName: str
+    Scope: ScopeType
+    TimeWindow: TimeWindowUnionTypeDef
+    MaxItems: int
+
 
 class LoggingConfigurationOutputTypeDef(BaseValidatorModel):
     ResourceArn: str
@@ -1165,6 +1406,157 @@ class LoggingConfigurationOutputTypeDef(BaseValidatorModel):
     LogType: Optional[Literal["WAF_LOGS"]] = None
     LogScope: Optional[LogScopeType] = None
 
+
+class RuleActionOverrideOutputTypeDef(BaseValidatorModel):
+    Name: str
+    ActionToUse: RuleActionOutputTypeDef
+
+
+class RuleSummaryTypeDef(BaseValidatorModel):
+    Name: Optional[str] = None
+    Action: Optional[RuleActionOutputTypeDef] = None
+
+
+class DefaultActionTypeDef(BaseValidatorModel):
+    Block: Optional[BlockActionTypeDef] = None
+    Allow: Optional[AllowActionTypeDef] = None
+
+
+class JsonBodyUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class HeadersUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CookiesUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class FieldToMatchTypeDef(BaseValidatorModel):
+    SingleHeader: Optional[SingleHeaderTypeDef] = None
+    SingleQueryArgument: Optional[SingleQueryArgumentTypeDef] = None
+    AllQueryArguments: Optional[Mapping[str, Any]] = None
+    UriPath: Optional[Mapping[str, Any]] = None
+    QueryString: Optional[Mapping[str, Any]] = None
+    Body: Optional[BodyTypeDef] = None
+    Method: Optional[Mapping[str, Any]] = None
+    JsonBody: Optional[JsonBodyUnionTypeDef] = None
+    Headers: Optional[HeadersUnionTypeDef] = None
+    Cookies: Optional[CookiesUnionTypeDef] = None
+    HeaderOrder: Optional[HeaderOrderTypeDef] = None
+    JA3Fingerprint: Optional[JA3FingerprintTypeDef] = None
+    JA4Fingerprint: Optional[JA4FingerprintTypeDef] = None
+
+
+class ResponseInspectionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RequestInspectionACFPUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class AWSManagedRulesACFPRuleSetTypeDef(BaseValidatorModel):
+    CreationPath: str
+    RegistrationPagePath: str
+    RequestInspection: RequestInspectionACFPUnionTypeDef
+    ResponseInspection: Optional[ResponseInspectionUnionTypeDef] = None
+    EnableRegexInPath: Optional[bool] = None
+
+
+class AWSManagedRulesATPRuleSetTypeDef(BaseValidatorModel):
+    LoginPath: str
+    RequestInspection: Optional[RequestInspectionTypeDef] = None
+    ResponseInspection: Optional[ResponseInspectionUnionTypeDef] = None
+    EnableRegexInPath: Optional[bool] = None
+
+
+class RateBasedStatementCustomKeyUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RateBasedStatementTypeDef(BaseValidatorModel):
+    Limit: int
+    AggregateKeyType: RateBasedStatementAggregateKeyTypeType
+    EvaluationWindowSec: Optional[int] = None
+    ScopeDownStatement: Optional[Mapping[str, Any]] = None
+    ForwardedIPConfig: Optional[ForwardedIPConfigTypeDef] = None
+    CustomKeys: Optional[Sequence[RateBasedStatementCustomKeyUnionTypeDef]] = None
+
+
+class GetLoggingConfigurationResponseTypeDef(BaseValidatorModel):
+    LoggingConfiguration: LoggingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListLoggingConfigurationsResponseTypeDef(BaseValidatorModel):
+    LoggingConfigurations: List[LoggingConfigurationOutputTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class PutLoggingConfigurationResponseTypeDef(BaseValidatorModel):
+    LoggingConfiguration: LoggingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ManagedRuleGroupStatementOutputTypeDef(BaseValidatorModel):
+    VendorName: str
+    Name: str
+    Version: Optional[str] = None
+    ExcludedRules: Optional[List[ExcludedRuleTypeDef]] = None
+    ScopeDownStatement: Optional[Dict[str, Any]] = None
+    ManagedRuleGroupConfigs: Optional[List[ManagedRuleGroupConfigOutputTypeDef]] = None
+    RuleActionOverrides: Optional[List[RuleActionOverrideOutputTypeDef]] = None
+
+
+class RuleGroupReferenceStatementOutputTypeDef(BaseValidatorModel):
+    ARN: str
+    ExcludedRules: Optional[List[ExcludedRuleTypeDef]] = None
+    RuleActionOverrides: Optional[List[RuleActionOverrideOutputTypeDef]] = None
+
+
+class DescribeManagedRuleGroupResponseTypeDef(BaseValidatorModel):
+    VersionName: str
+    SnsTopicArn: str
+    Capacity: int
+    Rules: List[RuleSummaryTypeDef]
+    LabelNamespace: str
+    AvailableLabels: List[LabelSummaryTypeDef]
+    ConsumedLabels: List[LabelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class CaptchaActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class AllowActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CountActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class BlockActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ChallengeActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RuleActionTypeDef(BaseValidatorModel):
+    Block: Optional[BlockActionUnionTypeDef] = None
+    Allow: Optional[AllowActionUnionTypeDef] = None
+    Count: Optional[CountActionUnionTypeDef] = None
+    Captcha: Optional[CaptchaActionUnionTypeDef] = None
+    Challenge: Optional[ChallengeActionUnionTypeDef] = None
+
+
 class LoggingConfigurationTypeDef(BaseValidatorModel):
     ResourceArn: str
     LogDestinationConfigs: Sequence[str]
@@ -1174,14 +1566,109 @@ class LoggingConfigurationTypeDef(BaseValidatorModel):
     LogType: Optional[Literal["WAF_LOGS"]] = None
     LogScope: Optional[LogScopeType] = None
 
-class RuleActionOverrideOutputTypeDef(BaseValidatorModel):
+
+class FirewallManagerStatementTypeDef(BaseValidatorModel):
+    ManagedRuleGroupStatement: Optional[ManagedRuleGroupStatementOutputTypeDef] = None
+    RuleGroupReferenceStatement: Optional[RuleGroupReferenceStatementOutputTypeDef] = None
+
+
+class StatementOutputTypeDef(BaseValidatorModel):
+    ByteMatchStatement: Optional[ByteMatchStatementOutputTypeDef] = None
+    SqliMatchStatement: Optional[SqliMatchStatementOutputTypeDef] = None
+    XssMatchStatement: Optional[XssMatchStatementOutputTypeDef] = None
+    SizeConstraintStatement: Optional[SizeConstraintStatementOutputTypeDef] = None
+    GeoMatchStatement: Optional[GeoMatchStatementOutputTypeDef] = None
+    RuleGroupReferenceStatement: Optional[RuleGroupReferenceStatementOutputTypeDef] = None
+    IPSetReferenceStatement: Optional[IPSetReferenceStatementTypeDef] = None
+    RegexPatternSetReferenceStatement: Optional[RegexPatternSetReferenceStatementOutputTypeDef] = None
+    RateBasedStatement: Optional[RateBasedStatementOutputTypeDef] = None
+    AndStatement: Optional[AndStatementOutputTypeDef] = None
+    OrStatement: Optional[OrStatementOutputTypeDef] = None
+    NotStatement: Optional[NotStatementOutputTypeDef] = None
+    ManagedRuleGroupStatement: Optional[ManagedRuleGroupStatementOutputTypeDef] = None
+    LabelMatchStatement: Optional[LabelMatchStatementTypeDef] = None
+    RegexMatchStatement: Optional[RegexMatchStatementOutputTypeDef] = None
+
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
+
+class FieldToMatchUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ByteMatchStatementTypeDef(BaseValidatorModel):
+    SearchString: BlobTypeDef
+    FieldToMatch: FieldToMatchUnionTypeDef
+    TextTransformations: Sequence[TextTransformationTypeDef]
+    PositionalConstraint: PositionalConstraintType
+
+
+class RegexMatchStatementTypeDef(BaseValidatorModel):
+    RegexString: str
+    FieldToMatch: FieldToMatchUnionTypeDef
+    TextTransformations: Sequence[TextTransformationTypeDef]
+
+
+class RegexPatternSetReferenceStatementTypeDef(BaseValidatorModel):
+    ARN: str
+    FieldToMatch: FieldToMatchUnionTypeDef
+    TextTransformations: Sequence[TextTransformationTypeDef]
+
+
+class SizeConstraintStatementTypeDef(BaseValidatorModel):
+    FieldToMatch: FieldToMatchUnionTypeDef
+    ComparisonOperator: ComparisonOperatorType
+    Size: int
+    TextTransformations: Sequence[TextTransformationTypeDef]
+
+
+class SqliMatchStatementTypeDef(BaseValidatorModel):
+    FieldToMatch: FieldToMatchUnionTypeDef
+    TextTransformations: Sequence[TextTransformationTypeDef]
+    SensitivityLevel: Optional[SensitivityLevelType] = None
+
+
+class XssMatchStatementTypeDef(BaseValidatorModel):
+    FieldToMatch: FieldToMatchUnionTypeDef
+    TextTransformations: Sequence[TextTransformationTypeDef]
+
+
+class AWSManagedRulesACFPRuleSetUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class AWSManagedRulesATPRuleSetUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ManagedRuleGroupConfigTypeDef(BaseValidatorModel):
+    LoginPath: Optional[str] = None
+    PayloadType: Optional[PayloadTypeType] = None
+    UsernameField: Optional[UsernameFieldTypeDef] = None
+    PasswordField: Optional[PasswordFieldTypeDef] = None
+    AWSManagedRulesBotControlRuleSet: Optional[AWSManagedRulesBotControlRuleSetTypeDef] = None
+    AWSManagedRulesATPRuleSet: Optional[AWSManagedRulesATPRuleSetUnionTypeDef] = None
+    AWSManagedRulesACFPRuleSet: Optional[AWSManagedRulesACFPRuleSetUnionTypeDef] = None
+
+
+class OverrideActionOutputTypeDef(BaseValidatorModel):
+    pass
+
+
+class FirewallManagerRuleGroupTypeDef(BaseValidatorModel):
     Name: str
-    ActionToUse: RuleActionOutputTypeDef
+    Priority: int
+    FirewallManagerStatement: FirewallManagerStatementTypeDef
+    OverrideAction: OverrideActionOutputTypeDef
+    VisibilityConfig: VisibilityConfigTypeDef
+
 
 class RuleOutputTypeDef(BaseValidatorModel):
     Name: str
     Priority: int
-    Statement: "StatementOutputTypeDef"
+    Statement: StatementOutputTypeDef
     VisibilityConfig: VisibilityConfigTypeDef
     Action: Optional[RuleActionOutputTypeDef] = None
     OverrideAction: Optional[OverrideActionOutputTypeDef] = None
@@ -1189,54 +1676,23 @@ class RuleOutputTypeDef(BaseValidatorModel):
     CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
     ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
 
-class RuleSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Action: Optional[RuleActionOutputTypeDef] = None
+
+class RuleActionUnionTypeDef(BaseValidatorModel):
+    pass
+
 
 class RuleActionOverrideTypeDef(BaseValidatorModel):
     Name: str
-    ActionToUse: RuleActionTypeDef
+    ActionToUse: RuleActionUnionTypeDef
 
-class RuleTypeDef(BaseValidatorModel):
-    Name: str
-    Priority: int
-    Statement: "StatementTypeDef"
-    VisibilityConfig: VisibilityConfigTypeDef
-    Action: Optional[RuleActionTypeDef] = None
-    OverrideAction: Optional[OverrideActionTypeDef] = None
-    RuleLabels: Optional[Sequence[LabelTypeDef]] = None
-    CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
-    ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
 
-class GetLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    LoggingConfiguration: LoggingConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class LoggingConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
 
-class ListLoggingConfigurationsResponseTypeDef(BaseValidatorModel):
-    LoggingConfigurations: List[LoggingConfigurationOutputTypeDef]
-    NextMarker: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class PutLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    LoggingConfiguration: LoggingConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutLoggingConfigurationRequestTypeDef(BaseValidatorModel):
+    LoggingConfiguration: LoggingConfigurationUnionTypeDef
 
-class PutLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
-    LoggingConfiguration: LoggingConfigurationTypeDef
-
-class ManagedRuleGroupStatementOutputTypeDef(BaseValidatorModel):
-    VendorName: str
-    Name: str
-    Version: Optional[str] = None
-    ExcludedRules: Optional[List[ExcludedRuleTypeDef]] = None
-    ScopeDownStatement: Optional["StatementOutputTypeDef"] = None
-    ManagedRuleGroupConfigs: Optional[List[ManagedRuleGroupConfigOutputTypeDef]] = None
-    RuleActionOverrides: Optional[List[RuleActionOverrideOutputTypeDef]] = None
-
-class RuleGroupReferenceStatementOutputTypeDef(BaseValidatorModel):
-    ARN: str
-    ExcludedRules: Optional[List[ExcludedRuleTypeDef]] = None
-    RuleActionOverrides: Optional[List[RuleActionOverrideOutputTypeDef]] = None
 
 class RuleGroupTypeDef(BaseValidatorModel):
     Name: str
@@ -1251,132 +1707,6 @@ class RuleGroupTypeDef(BaseValidatorModel):
     AvailableLabels: Optional[List[LabelSummaryTypeDef]] = None
     ConsumedLabels: Optional[List[LabelSummaryTypeDef]] = None
 
-class DescribeManagedRuleGroupResponseTypeDef(BaseValidatorModel):
-    VersionName: str
-    SnsTopicArn: str
-    Capacity: int
-    Rules: List[RuleSummaryTypeDef]
-    LabelNamespace: str
-    AvailableLabels: List[LabelSummaryTypeDef]
-    ConsumedLabels: List[LabelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ManagedRuleGroupStatementTypeDef(BaseValidatorModel):
-    VendorName: str
-    Name: str
-    Version: Optional[str] = None
-    ExcludedRules: Optional[Sequence[ExcludedRuleTypeDef]] = None
-    ScopeDownStatement: Optional["StatementTypeDef"] = None
-    ManagedRuleGroupConfigs: Optional[Sequence[ManagedRuleGroupConfigTypeDef]] = None
-    RuleActionOverrides: Optional[Sequence[RuleActionOverrideTypeDef]] = None
-
-class RuleGroupReferenceStatementTypeDef(BaseValidatorModel):
-    ARN: str
-    ExcludedRules: Optional[Sequence[ExcludedRuleTypeDef]] = None
-    RuleActionOverrides: Optional[Sequence[RuleActionOverrideTypeDef]] = None
-
-class FirewallManagerStatementTypeDef(BaseValidatorModel):
-    ManagedRuleGroupStatement: Optional[ManagedRuleGroupStatementOutputTypeDef] = None
-    RuleGroupReferenceStatement: Optional[RuleGroupReferenceStatementOutputTypeDef] = None
-
-class StatementOutputTypeDef(BaseValidatorModel):
-    ByteMatchStatement: Optional[ByteMatchStatementOutputTypeDef] = None
-    SqliMatchStatement: Optional[SqliMatchStatementOutputTypeDef] = None
-    XssMatchStatement: Optional[XssMatchStatementOutputTypeDef] = None
-    SizeConstraintStatement: Optional[SizeConstraintStatementOutputTypeDef] = None
-    GeoMatchStatement: Optional[GeoMatchStatementOutputTypeDef] = None
-    RuleGroupReferenceStatement: Optional[RuleGroupReferenceStatementOutputTypeDef] = None
-    IPSetReferenceStatement: Optional[IPSetReferenceStatementTypeDef] = None
-    RegexPatternSetReferenceStatement: Optional[       RegexPatternSetReferenceStatementOutputTypeDef     ] = None
-    RateBasedStatement: Optional[Dict[str, Any]] = None
-    AndStatement: Optional[Dict[str, Any]] = None
-    OrStatement: Optional[Dict[str, Any]] = None
-    NotStatement: Optional[NotStatementTypeDef] = None
-    ManagedRuleGroupStatement: Optional[Dict[str, Any]] = None
-    LabelMatchStatement: Optional[LabelMatchStatementTypeDef] = None
-    RegexMatchStatement: Optional[RegexMatchStatementOutputTypeDef] = None
-
-class GetRuleGroupResponseTypeDef(BaseValidatorModel):
-    RuleGroup: RuleGroupTypeDef
-    LockToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class StatementTypeDef(BaseValidatorModel):
-    ByteMatchStatement: Optional[ByteMatchStatementTypeDef] = None
-    SqliMatchStatement: Optional[SqliMatchStatementTypeDef] = None
-    XssMatchStatement: Optional[XssMatchStatementTypeDef] = None
-    SizeConstraintStatement: Optional[SizeConstraintStatementTypeDef] = None
-    GeoMatchStatement: Optional[GeoMatchStatementTypeDef] = None
-    RuleGroupReferenceStatement: Optional[RuleGroupReferenceStatementTypeDef] = None
-    IPSetReferenceStatement: Optional[IPSetReferenceStatementTypeDef] = None
-    RegexPatternSetReferenceStatement: Optional[RegexPatternSetReferenceStatementTypeDef] = None
-    RateBasedStatement: Optional[Dict[str, Any]] = None
-    AndStatement: Optional[Dict[str, Any]] = None
-    OrStatement: Optional[Dict[str, Any]] = None
-    NotStatement: Optional[Dict[str, Any]] = None
-    ManagedRuleGroupStatement: Optional[Dict[str, Any]] = None
-    LabelMatchStatement: Optional[LabelMatchStatementTypeDef] = None
-    RegexMatchStatement: Optional[RegexMatchStatementTypeDef] = None
-
-class CheckCapacityRequestRequestTypeDef(BaseValidatorModel):
-    Scope: ScopeType
-    Rules: Sequence[RuleUnionTypeDef]
-
-class CreateRuleGroupRequestRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Scope: ScopeType
-    Capacity: int
-    VisibilityConfig: VisibilityConfigTypeDef
-    Description: Optional[str] = None
-    Rules: Optional[Sequence[RuleUnionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    CustomResponseBodies: Optional[Mapping[str, CustomResponseBodyTypeDef]] = None
-
-class CreateWebACLRequestRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Scope: ScopeType
-    DefaultAction: DefaultActionTypeDef
-    VisibilityConfig: VisibilityConfigTypeDef
-    Description: Optional[str] = None
-    Rules: Optional[Sequence[RuleUnionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    CustomResponseBodies: Optional[Mapping[str, CustomResponseBodyTypeDef]] = None
-    CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
-    ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
-    TokenDomains: Optional[Sequence[str]] = None
-    AssociationConfig: Optional[AssociationConfigTypeDef] = None
-
-class UpdateRuleGroupRequestRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Scope: ScopeType
-    Id: str
-    VisibilityConfig: VisibilityConfigTypeDef
-    LockToken: str
-    Description: Optional[str] = None
-    Rules: Optional[Sequence[RuleUnionTypeDef]] = None
-    CustomResponseBodies: Optional[Mapping[str, CustomResponseBodyTypeDef]] = None
-
-class UpdateWebACLRequestRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Scope: ScopeType
-    Id: str
-    DefaultAction: DefaultActionTypeDef
-    VisibilityConfig: VisibilityConfigTypeDef
-    LockToken: str
-    Description: Optional[str] = None
-    Rules: Optional[Sequence[RuleUnionTypeDef]] = None
-    CustomResponseBodies: Optional[Mapping[str, CustomResponseBodyTypeDef]] = None
-    CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
-    ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
-    TokenDomains: Optional[Sequence[str]] = None
-    AssociationConfig: Optional[AssociationConfigTypeDef] = None
-
-class FirewallManagerRuleGroupTypeDef(BaseValidatorModel):
-    Name: str
-    Priority: int
-    FirewallManagerStatement: FirewallManagerStatementTypeDef
-    OverrideAction: OverrideActionOutputTypeDef
-    VisibilityConfig: VisibilityConfigTypeDef
 
 class WebACLTypeDef(BaseValidatorModel):
     Name: str
@@ -1386,6 +1716,7 @@ class WebACLTypeDef(BaseValidatorModel):
     VisibilityConfig: VisibilityConfigTypeDef
     Description: Optional[str] = None
     Rules: Optional[List[RuleOutputTypeDef]] = None
+    DataProtectionConfig: Optional[DataProtectionConfigOutputTypeDef] = None
     Capacity: Optional[int] = None
     PreProcessFirewallManagerRuleGroups: Optional[List[FirewallManagerRuleGroupTypeDef]] = None
     PostProcessFirewallManagerRuleGroups: Optional[List[FirewallManagerRuleGroupTypeDef]] = None
@@ -1396,14 +1727,214 @@ class WebACLTypeDef(BaseValidatorModel):
     ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
     TokenDomains: Optional[List[str]] = None
     AssociationConfig: Optional[AssociationConfigOutputTypeDef] = None
+    RetrofittedByFirewallManager: Optional[bool] = None
+
+
+class GetRuleGroupResponseTypeDef(BaseValidatorModel):
+    RuleGroup: RuleGroupTypeDef
+    LockToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetWebACLForResourceResponseTypeDef(BaseValidatorModel):
     WebACL: WebACLTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetWebACLResponseTypeDef(BaseValidatorModel):
     WebACL: WebACLTypeDef
     LockToken: str
     ApplicationIntegrationURL: str
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class RuleActionOverrideUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ManagedRuleGroupConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ManagedRuleGroupStatementTypeDef(BaseValidatorModel):
+    VendorName: str
+    Name: str
+    Version: Optional[str] = None
+    ExcludedRules: Optional[Sequence[ExcludedRuleTypeDef]] = None
+    ScopeDownStatement: Optional[Mapping[str, Any]] = None
+    ManagedRuleGroupConfigs: Optional[Sequence[ManagedRuleGroupConfigUnionTypeDef]] = None
+    RuleActionOverrides: Optional[Sequence[RuleActionOverrideUnionTypeDef]] = None
+
+
+class RuleGroupReferenceStatementTypeDef(BaseValidatorModel):
+    ARN: str
+    ExcludedRules: Optional[Sequence[ExcludedRuleTypeDef]] = None
+    RuleActionOverrides: Optional[Sequence[RuleActionOverrideUnionTypeDef]] = None
+
+
+class RateBasedStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class OrStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RegexMatchStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class SizeConstraintStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class XssMatchStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class NotStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RegexPatternSetReferenceStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class AndStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RuleGroupReferenceStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ManagedRuleGroupStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ByteMatchStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class SqliMatchStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class GeoMatchStatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class StatementTypeDef(BaseValidatorModel):
+    ByteMatchStatement: Optional[ByteMatchStatementUnionTypeDef] = None
+    SqliMatchStatement: Optional[SqliMatchStatementUnionTypeDef] = None
+    XssMatchStatement: Optional[XssMatchStatementUnionTypeDef] = None
+    SizeConstraintStatement: Optional[SizeConstraintStatementUnionTypeDef] = None
+    GeoMatchStatement: Optional[GeoMatchStatementUnionTypeDef] = None
+    RuleGroupReferenceStatement: Optional[RuleGroupReferenceStatementUnionTypeDef] = None
+    IPSetReferenceStatement: Optional[IPSetReferenceStatementTypeDef] = None
+    RegexPatternSetReferenceStatement: Optional[RegexPatternSetReferenceStatementUnionTypeDef] = None
+    RateBasedStatement: Optional[RateBasedStatementUnionTypeDef] = None
+    AndStatement: Optional[AndStatementUnionTypeDef] = None
+    OrStatement: Optional[OrStatementUnionTypeDef] = None
+    NotStatement: Optional[NotStatementUnionTypeDef] = None
+    ManagedRuleGroupStatement: Optional[ManagedRuleGroupStatementUnionTypeDef] = None
+    LabelMatchStatement: Optional[LabelMatchStatementTypeDef] = None
+    RegexMatchStatement: Optional[RegexMatchStatementUnionTypeDef] = None
+
+
+class StatementUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class OverrideActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RuleTypeDef(BaseValidatorModel):
+    Name: str
+    Priority: int
+    Statement: StatementUnionTypeDef
+    VisibilityConfig: VisibilityConfigTypeDef
+    Action: Optional[RuleActionUnionTypeDef] = None
+    OverrideAction: Optional[OverrideActionUnionTypeDef] = None
+    RuleLabels: Optional[Sequence[LabelTypeDef]] = None
+    CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
+    ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
+
+
+class RuleUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CheckCapacityRequestTypeDef(BaseValidatorModel):
+    Scope: ScopeType
+    Rules: Sequence[RuleUnionTypeDef]
+
+
+class CreateRuleGroupRequestTypeDef(BaseValidatorModel):
+    Name: str
+    Scope: ScopeType
+    Capacity: int
+    VisibilityConfig: VisibilityConfigTypeDef
+    Description: Optional[str] = None
+    Rules: Optional[Sequence[RuleUnionTypeDef]] = None
+    Tags: Optional[Sequence[TagTypeDef]] = None
+    CustomResponseBodies: Optional[Mapping[str, CustomResponseBodyTypeDef]] = None
+
+
+class DefaultActionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class AssociationConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class DataProtectionConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateWebACLRequestTypeDef(BaseValidatorModel):
+    Name: str
+    Scope: ScopeType
+    DefaultAction: DefaultActionUnionTypeDef
+    VisibilityConfig: VisibilityConfigTypeDef
+    Description: Optional[str] = None
+    Rules: Optional[Sequence[RuleUnionTypeDef]] = None
+    DataProtectionConfig: Optional[DataProtectionConfigUnionTypeDef] = None
+    Tags: Optional[Sequence[TagTypeDef]] = None
+    CustomResponseBodies: Optional[Mapping[str, CustomResponseBodyTypeDef]] = None
+    CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
+    ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
+    TokenDomains: Optional[Sequence[str]] = None
+    AssociationConfig: Optional[AssociationConfigUnionTypeDef] = None
+
+
+class UpdateRuleGroupRequestTypeDef(BaseValidatorModel):
+    Name: str
+    Scope: ScopeType
+    Id: str
+    VisibilityConfig: VisibilityConfigTypeDef
+    LockToken: str
+    Description: Optional[str] = None
+    Rules: Optional[Sequence[RuleUnionTypeDef]] = None
+    CustomResponseBodies: Optional[Mapping[str, CustomResponseBodyTypeDef]] = None
+
+
+class UpdateWebACLRequestTypeDef(BaseValidatorModel):
+    Name: str
+    Scope: ScopeType
+    Id: str
+    DefaultAction: DefaultActionUnionTypeDef
+    VisibilityConfig: VisibilityConfigTypeDef
+    LockToken: str
+    Description: Optional[str] = None
+    Rules: Optional[Sequence[RuleUnionTypeDef]] = None
+    DataProtectionConfig: Optional[DataProtectionConfigUnionTypeDef] = None
+    CustomResponseBodies: Optional[Mapping[str, CustomResponseBodyTypeDef]] = None
+    CaptchaConfig: Optional[CaptchaConfigTypeDef] = None
+    ChallengeConfig: Optional[ChallengeConfigTypeDef] = None
+    TokenDomains: Optional[Sequence[str]] = None
+    AssociationConfig: Optional[AssociationConfigUnionTypeDef] = None
+
 

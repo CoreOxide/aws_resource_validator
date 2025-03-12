@@ -1,9 +1,12 @@
 from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO
 from datetime import datetime
 
+AWSServicePrincipalType = Literal["application.opensearchservice.amazonaws.com"]
 ActionSeverityType = Literal["HIGH", "LOW", "MEDIUM"]
 ActionStatusType = Literal["COMPLETED", "ELIGIBLE", "FAILED", "IN_PROGRESS", "NOT_ELIGIBLE", "PENDING_UPDATE"]
 ActionTypeType = Literal["JVM_HEAP_SIZE_TUNING", "JVM_YOUNG_GEN_TUNING", "SERVICE_SOFTWARE_UPDATE"]
+AppConfigTypeType = Literal["opensearchDashboards.dashboardAdmin.groups", "opensearchDashboards.dashboardAdmin.users"]
+ApplicationStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
 AutoTuneDesiredStateType = Literal["DISABLED", "ENABLED"]
 AutoTuneStateType = Literal["DISABLED",
     "DISABLED_AND_ROLLBACK_COMPLETE",
@@ -26,7 +29,7 @@ ConfigChangeStatusType = Literal["ApplyingChanges",
 ConnectionModeType = Literal["DIRECT", "VPC_ENDPOINT"]
 DataSourceStatusType = Literal["ACTIVE", "DISABLED"]
 DeploymentStatusType = Literal["COMPLETED", "ELIGIBLE", "IN_PROGRESS", "NOT_ELIGIBLE", "PENDING_UPDATE"]
-DescribePackagesFilterNameType = Literal["EngineVersion", "PackageID", "PackageName", "PackageStatus", "PackageType"]
+DescribePackagesFilterNameType = Literal["EngineVersion", "PackageID", "PackageName", "PackageOwner", "PackageStatus", "PackageType"]
 DomainHealthType = Literal["Green", "NotAvailable", "Red", "Yellow"]
 DomainPackageStatusType = Literal["ACTIVE", "ASSOCIATING", "ASSOCIATION_FAILED", "DISSOCIATING", "DISSOCIATION_FAILED"]
 DomainProcessingStatusTypeType = Literal["Active",
@@ -49,6 +52,7 @@ InboundConnectionStatusCodeType = Literal["ACTIVE",
     "REJECTED",
     "REJECTING",]
 InitiatedByType = Literal["CUSTOMER", "SERVICE"]
+ListApplicationsPaginatorName = Literal["list_applications"]
 LogTypeType = Literal["AUDIT_LOGS", "ES_APPLICATION_LOGS", "INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS"]
 MaintenanceStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "PENDING", "TIMED_OUT"]
 MaintenanceTypeType = Literal["REBOOT_NODE", "RESTART_DASHBOARD", "RESTART_SEARCH_PROCESS"]
@@ -61,6 +65,7 @@ NaturalLanguageQueryGenerationCurrentStateType = Literal["DISABLE_COMPLETE",
     "ENABLE_IN_PROGRESS",
     "NOT_ENABLED",]
 NaturalLanguageQueryGenerationDesiredStateType = Literal["DISABLED", "ENABLED"]
+NodeOptionsNodeTypeType = Literal["coordinator"]
 NodeStatusType = Literal["Active", "NotAvailable", "StandBy"]
 NodeTypeType = Literal["Data", "Master", "Ultrawarm"]
 OpenSearchPartitionInstanceTypeType = Literal["c4.2xlarge.search",
@@ -179,6 +184,7 @@ OutboundConnectionStatusCodeType = Literal["ACTIVE",
     "VALIDATING",
     "VALIDATION_FAILED",]
 OverallChangeStatusType = Literal["COMPLETED", "FAILED", "PENDING", "PROCESSING"]
+PackageScopeOperationEnumType = Literal["ADD", "OVERRIDE", "REMOVE"]
 PackageStatusType = Literal["AVAILABLE",
     "COPYING",
     "COPY_FAILED",
@@ -187,16 +193,19 @@ PackageStatusType = Literal["AVAILABLE",
     "DELETING",
     "VALIDATING",
     "VALIDATION_FAILED",]
-PackageTypeType = Literal["TXT-DICTIONARY", "ZIP-PLUGIN"]
+PackageTypeType = Literal["PACKAGE-CONFIG", "PACKAGE-LICENSE", "TXT-DICTIONARY", "ZIP-PLUGIN"]
 PrincipalTypeType = Literal["AWS_ACCOUNT", "AWS_SERVICE"]
 PropertyValueTypeType = Literal["PLAIN_TEXT", "STRINGIFIED_JSON"]
+RequirementLevelType = Literal["NONE", "OPTIONAL", "REQUIRED"]
 ReservedInstancePaymentOptionType = Literal["ALL_UPFRONT", "NO_UPFRONT", "PARTIAL_UPFRONT"]
+RolesKeyIdCOptionType = Literal["GroupId", "GroupName"]
 RollbackOnDisableType = Literal["DEFAULT_ROLLBACK", "NO_ROLLBACK"]
 ScheduleAtType = Literal["NOW", "OFF_PEAK_WINDOW", "TIMESTAMP"]
 ScheduledAutoTuneActionTypeType = Literal["JVM_HEAP_SIZE_TUNING", "JVM_YOUNG_GEN_TUNING"]
 ScheduledAutoTuneSeverityTypeType = Literal["HIGH", "LOW", "MEDIUM"]
 ScheduledByType = Literal["CUSTOMER", "SYSTEM"]
 SkipUnavailableStatusType = Literal["DISABLED", "ENABLED"]
+SubjectKeyIdCOptionType = Literal["Email", "UserId", "UserName"]
 TLSSecurityPolicyType = Literal["Policy-Min-TLS-1-0-2019-07", "Policy-Min-TLS-1-2-2019-07", "Policy-Min-TLS-1-2-PFS-2023-10"]
 TimeUnitType = Literal["HOURS"]
 UpgradeStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED", "SUCCEEDED_WITH_ISSUES"]
@@ -240,12 +249,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -282,7 +296,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -295,6 +308,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -320,6 +334,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -331,7 +347,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -355,6 +370,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -373,11 +391,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -432,6 +449,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -451,7 +469,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -459,10 +476,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -472,10 +492,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -521,6 +543,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -533,6 +556,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -550,10 +574,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -585,7 +611,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -602,6 +627,7 @@ ResourceServiceName = Literal["cloudformation",
     "s3",
     "sns",
     "sqs",]
+PaginatorName = Literal["list_applications"]
 RegionName = Literal["af-south-1",
     "ap-east-1",
     "ap-northeast-1",
@@ -613,6 +639,8 @@ RegionName = Literal["af-south-1",
     "ap-southeast-2",
     "ap-southeast-3",
     "ap-southeast-4",
+    "ap-southeast-5",
+    "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",
     "eu-central-1",
@@ -626,10 +654,9 @@ RegionName = Literal["af-south-1",
     "il-central-1",
     "me-central-1",
     "me-south-1",
+    "mx-central-1",
     "sa-east-1",
     "us-east-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-TimestampTypeDef = Union[datetime, str]
-AutoTuneOptionsUnionTypeDef = Union['AutoTuneOptionsTypeDef', 'AutoTuneOptionsExtraOutputTypeDef']

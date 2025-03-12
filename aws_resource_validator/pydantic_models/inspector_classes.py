@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,20 +16,24 @@ class AttributeTypeDef(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
+
 class FailedItemDetailsTypeDef(BaseValidatorModel):
     failureCode: FailedItemErrorCodeType
     retryable: bool
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class AgentFilterTypeDef(BaseValidatorModel):
     agentHealths: Sequence[AgentHealthType]
     agentHealthCodes: Sequence[AgentHealthCodeType]
+
 
 class AgentPreviewTypeDef(BaseValidatorModel):
     agentId: str
@@ -40,14 +45,17 @@ class AgentPreviewTypeDef(BaseValidatorModel):
     kernelVersion: Optional[str] = None
     ipv4Address: Optional[str] = None
 
+
 class TelemetryMetadataTypeDef(BaseValidatorModel):
     messageType: str
     count: int
     dataSize: Optional[int] = None
 
+
 class DurationRangeTypeDef(BaseValidatorModel):
     minSeconds: Optional[int] = None
     maxSeconds: Optional[int] = None
+
 
 class AssessmentRunNotificationTypeDef(BaseValidatorModel):
     date: datetime
@@ -57,12 +65,15 @@ class AssessmentRunNotificationTypeDef(BaseValidatorModel):
     snsTopicArn: Optional[str] = None
     snsPublishStatusCode: Optional[AssessmentRunNotificationSnsStatusCodeType] = None
 
+
 class AssessmentRunStateChangeTypeDef(BaseValidatorModel):
     stateChangedAt: datetime
     state: AssessmentRunStateType
 
+
 class AssessmentTargetFilterTypeDef(BaseValidatorModel):
     assessmentTargetNamePattern: Optional[str] = None
+
 
 class AssessmentTargetTypeDef(BaseValidatorModel):
     arn: str
@@ -71,53 +82,68 @@ class AssessmentTargetTypeDef(BaseValidatorModel):
     updatedAt: datetime
     resourceGroupArn: Optional[str] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
-class CreateAssessmentTargetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateAssessmentTargetRequestTypeDef(BaseValidatorModel):
     assessmentTargetName: str
     resourceGroupArn: Optional[str] = None
 
-class CreateExclusionsPreviewRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateExclusionsPreviewRequestTypeDef(BaseValidatorModel):
     assessmentTemplateArn: str
+
 
 class ResourceGroupTagTypeDef(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
-class DeleteAssessmentRunRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteAssessmentRunRequestTypeDef(BaseValidatorModel):
     assessmentRunArn: str
 
-class DeleteAssessmentTargetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteAssessmentTargetRequestTypeDef(BaseValidatorModel):
     assessmentTargetArn: str
 
-class DeleteAssessmentTemplateRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteAssessmentTemplateRequestTypeDef(BaseValidatorModel):
     assessmentTemplateArn: str
 
-class DescribeAssessmentRunsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeAssessmentRunsRequestTypeDef(BaseValidatorModel):
     assessmentRunArns: Sequence[str]
 
-class DescribeAssessmentTargetsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeAssessmentTargetsRequestTypeDef(BaseValidatorModel):
     assessmentTargetArns: Sequence[str]
 
-class DescribeAssessmentTemplatesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeAssessmentTemplatesRequestTypeDef(BaseValidatorModel):
     assessmentTemplateArns: Sequence[str]
 
-class DescribeExclusionsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeExclusionsRequestTypeDef(BaseValidatorModel):
     exclusionArns: Sequence[str]
     locale: Optional[Literal["EN_US"]] = None
 
-class DescribeFindingsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeFindingsRequestTypeDef(BaseValidatorModel):
     findingArns: Sequence[str]
     locale: Optional[Literal["EN_US"]] = None
 
-class DescribeResourceGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeResourceGroupsRequestTypeDef(BaseValidatorModel):
     resourceGroupArns: Sequence[str]
 
-class DescribeRulesPackagesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeRulesPackagesRequestTypeDef(BaseValidatorModel):
     rulesPackageArns: Sequence[str]
     locale: Optional[Literal["EN_US"]] = None
+
 
 class RulesPackageTypeDef(BaseValidatorModel):
     arn: str
@@ -126,102 +152,125 @@ class RulesPackageTypeDef(BaseValidatorModel):
     provider: str
     description: Optional[str] = None
 
+
 class EventSubscriptionTypeDef(BaseValidatorModel):
     event: InspectorEventType
     subscribedAt: datetime
 
+
 class ScopeTypeDef(BaseValidatorModel):
     key: Optional[ScopeTypeType] = None
     value: Optional[str] = None
+
 
 class InspectorServiceAttributesTypeDef(BaseValidatorModel):
     schemaVersion: int
     assessmentRunArn: Optional[str] = None
     rulesPackageArn: Optional[str] = None
 
-class GetAssessmentReportRequestRequestTypeDef(BaseValidatorModel):
+
+class GetAssessmentReportRequestTypeDef(BaseValidatorModel):
     assessmentRunArn: str
     reportFileFormat: ReportFileFormatType
     reportType: ReportTypeType
 
-class GetExclusionsPreviewRequestRequestTypeDef(BaseValidatorModel):
+
+class GetExclusionsPreviewRequestTypeDef(BaseValidatorModel):
     assessmentTemplateArn: str
     previewToken: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     locale: Optional[Literal["EN_US"]] = None
 
-class GetTelemetryMetadataRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTelemetryMetadataRequestTypeDef(BaseValidatorModel):
     assessmentRunArn: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListEventSubscriptionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListEventSubscriptionsRequestTypeDef(BaseValidatorModel):
     resourceArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListExclusionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListExclusionsRequestTypeDef(BaseValidatorModel):
     assessmentRunArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListRulesPackagesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRulesPackagesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
+
 
 class PrivateIpTypeDef(BaseValidatorModel):
     privateDnsName: Optional[str] = None
     privateIpAddress: Optional[str] = None
 
+
 class SecurityGroupTypeDef(BaseValidatorModel):
     groupName: Optional[str] = None
     groupId: Optional[str] = None
 
-class PreviewAgentsRequestRequestTypeDef(BaseValidatorModel):
+
+class PreviewAgentsRequestTypeDef(BaseValidatorModel):
     previewAgentsArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class RegisterCrossAccountAccessRoleRequestRequestTypeDef(BaseValidatorModel):
+
+class RegisterCrossAccountAccessRoleRequestTypeDef(BaseValidatorModel):
     roleArn: str
 
-class RemoveAttributesFromFindingsRequestRequestTypeDef(BaseValidatorModel):
+
+class RemoveAttributesFromFindingsRequestTypeDef(BaseValidatorModel):
     findingArns: Sequence[str]
     attributeKeys: Sequence[str]
 
-class StartAssessmentRunRequestRequestTypeDef(BaseValidatorModel):
+
+class StartAssessmentRunRequestTypeDef(BaseValidatorModel):
     assessmentTemplateArn: str
     assessmentRunName: Optional[str] = None
 
-class StopAssessmentRunRequestRequestTypeDef(BaseValidatorModel):
+
+class StopAssessmentRunRequestTypeDef(BaseValidatorModel):
     assessmentRunArn: str
     stopAction: Optional[StopActionType] = None
 
-class SubscribeToEventRequestRequestTypeDef(BaseValidatorModel):
+
+class SubscribeToEventRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     event: InspectorEventType
     topicArn: str
 
-class UnsubscribeFromEventRequestRequestTypeDef(BaseValidatorModel):
+
+class UnsubscribeFromEventRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     event: InspectorEventType
     topicArn: str
 
-class UpdateAssessmentTargetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateAssessmentTargetRequestTypeDef(BaseValidatorModel):
     assessmentTargetArn: str
     assessmentTargetName: str
     resourceGroupArn: Optional[str] = None
 
-class AddAttributesToFindingsRequestRequestTypeDef(BaseValidatorModel):
+
+class AddAttributesToFindingsRequestTypeDef(BaseValidatorModel):
     findingArns: Sequence[str]
     attributes: Sequence[AttributeTypeDef]
+
 
 class AssessmentTemplateTypeDef(BaseValidatorModel):
     arn: str
@@ -234,32 +283,39 @@ class AssessmentTemplateTypeDef(BaseValidatorModel):
     createdAt: datetime
     lastAssessmentRunArn: Optional[str] = None
 
-class CreateAssessmentTemplateRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateAssessmentTemplateRequestTypeDef(BaseValidatorModel):
     assessmentTargetArn: str
     assessmentTemplateName: str
     durationInSeconds: int
     rulesPackageArns: Sequence[str]
     userAttributesForFindings: Optional[Sequence[AttributeTypeDef]] = None
 
+
 class AddAttributesToFindingsResponseTypeDef(BaseValidatorModel):
     failedItems: Dict[str, FailedItemDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateAssessmentTargetResponseTypeDef(BaseValidatorModel):
     assessmentTargetArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateAssessmentTemplateResponseTypeDef(BaseValidatorModel):
     assessmentTemplateArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateExclusionsPreviewResponseTypeDef(BaseValidatorModel):
     previewToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateResourceGroupResponseTypeDef(BaseValidatorModel):
     resourceGroupArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeCrossAccountAccessRoleResponseTypeDef(BaseValidatorModel):
     roleArn: str
@@ -267,62 +323,68 @@ class DescribeCrossAccountAccessRoleResponseTypeDef(BaseValidatorModel):
     registeredAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetAssessmentReportResponseTypeDef(BaseValidatorModel):
     status: ReportStatusType
     url: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListAssessmentRunsResponseTypeDef(BaseValidatorModel):
     assessmentRunArns: List[str]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListAssessmentTargetsResponseTypeDef(BaseValidatorModel):
     assessmentTargetArns: List[str]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListAssessmentTemplatesResponseTypeDef(BaseValidatorModel):
     assessmentTemplateArns: List[str]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListExclusionsResponseTypeDef(BaseValidatorModel):
     exclusionArns: List[str]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListFindingsResponseTypeDef(BaseValidatorModel):
     findingArns: List[str]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListRulesPackagesResponseTypeDef(BaseValidatorModel):
     rulesPackageArns: List[str]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class RemoveAttributesFromFindingsResponseTypeDef(BaseValidatorModel):
     failedItems: Dict[str, FailedItemDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartAssessmentRunResponseTypeDef(BaseValidatorModel):
     assessmentRunArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssessmentRunAgentsRequestRequestTypeDef(BaseValidatorModel):
-    assessmentRunArn: str
-    filter: Optional[AgentFilterTypeDef] = None
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
 
 class PreviewAgentsResponseTypeDef(BaseValidatorModel):
     agentPreviews: List[AgentPreviewTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class AssessmentRunAgentTypeDef(BaseValidatorModel):
     agentId: str
@@ -333,14 +395,17 @@ class AssessmentRunAgentTypeDef(BaseValidatorModel):
     agentHealthDetails: Optional[str] = None
     autoScalingGroup: Optional[str] = None
 
+
 class GetTelemetryMetadataResponseTypeDef(BaseValidatorModel):
     telemetryMetadata: List[TelemetryMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class AssessmentTemplateFilterTypeDef(BaseValidatorModel):
     namePattern: Optional[str] = None
     durationRange: Optional[DurationRangeTypeDef] = None
     rulesPackageArns: Optional[Sequence[str]] = None
+
 
 class AssessmentRunTypeDef(BaseValidatorModel):
     arn: str
@@ -359,41 +424,44 @@ class AssessmentRunTypeDef(BaseValidatorModel):
     startedAt: Optional[datetime] = None
     completedAt: Optional[datetime] = None
 
-class ListAssessmentTargetsRequestRequestTypeDef(BaseValidatorModel):
-    filter: Optional[AssessmentTargetFilterTypeDef] = None
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
 
 class DescribeAssessmentTargetsResponseTypeDef(BaseValidatorModel):
     assessmentTargets: List[AssessmentTargetTypeDef]
     failedItems: Dict[str, FailedItemDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SetTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class SetTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateResourceGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateResourceGroupRequestTypeDef(BaseValidatorModel):
     resourceGroupTags: Sequence[ResourceGroupTagTypeDef]
+
 
 class ResourceGroupTypeDef(BaseValidatorModel):
     arn: str
     tags: List[ResourceGroupTagTypeDef]
     createdAt: datetime
 
+
 class DescribeRulesPackagesResponseTypeDef(BaseValidatorModel):
     rulesPackages: List[RulesPackageTypeDef]
     failedItems: Dict[str, FailedItemDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SubscriptionTypeDef(BaseValidatorModel):
     resourceArn: str
     topicArn: str
     eventSubscriptions: List[EventSubscriptionTypeDef]
+
 
 class ExclusionPreviewTypeDef(BaseValidatorModel):
     title: str
@@ -401,6 +469,7 @@ class ExclusionPreviewTypeDef(BaseValidatorModel):
     recommendation: str
     scopes: List[ScopeTypeDef]
     attributes: Optional[List[AttributeTypeDef]] = None
+
 
 class ExclusionTypeDef(BaseValidatorModel):
     arn: str
@@ -410,29 +479,25 @@ class ExclusionTypeDef(BaseValidatorModel):
     scopes: List[ScopeTypeDef]
     attributes: Optional[List[AttributeTypeDef]] = None
 
-class ListAssessmentRunAgentsRequestListAssessmentRunAgentsPaginateTypeDef(BaseValidatorModel):
-    assessmentRunArn: str
-    filter: Optional[AgentFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAssessmentTargetsRequestListAssessmentTargetsPaginateTypeDef(BaseValidatorModel):
-    filter: Optional[AssessmentTargetFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class ListEventSubscriptionsRequestListEventSubscriptionsPaginateTypeDef(BaseValidatorModel):
+class ListEventSubscriptionsRequestPaginateTypeDef(BaseValidatorModel):
     resourceArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListExclusionsRequestListExclusionsPaginateTypeDef(BaseValidatorModel):
+
+class ListExclusionsRequestPaginateTypeDef(BaseValidatorModel):
     assessmentRunArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRulesPackagesRequestListRulesPackagesPaginateTypeDef(BaseValidatorModel):
+
+class ListRulesPackagesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class PreviewAgentsRequestPreviewAgentsPaginateTypeDef(BaseValidatorModel):
+
+class PreviewAgentsRequestPaginateTypeDef(BaseValidatorModel):
     previewAgentsArn: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class NetworkInterfaceTypeDef(BaseValidatorModel):
     networkInterfaceId: Optional[str] = None
@@ -446,56 +511,58 @@ class NetworkInterfaceTypeDef(BaseValidatorModel):
     ipv6Addresses: Optional[List[str]] = None
     securityGroups: Optional[List[SecurityGroupTypeDef]] = None
 
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
 class TimestampRangeTypeDef(BaseValidatorModel):
     beginDate: Optional[TimestampTypeDef] = None
     endDate: Optional[TimestampTypeDef] = None
+
 
 class DescribeAssessmentTemplatesResponseTypeDef(BaseValidatorModel):
     assessmentTemplates: List[AssessmentTemplateTypeDef]
     failedItems: Dict[str, FailedItemDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListAssessmentRunAgentsResponseTypeDef(BaseValidatorModel):
     assessmentRunAgents: List[AssessmentRunAgentTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
-
-class ListAssessmentTemplatesRequestListAssessmentTemplatesPaginateTypeDef(BaseValidatorModel):
-    assessmentTargetArns: Optional[Sequence[str]] = None
-    filter: Optional[AssessmentTemplateFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class ListAssessmentTemplatesRequestRequestTypeDef(BaseValidatorModel):
-    assessmentTargetArns: Optional[Sequence[str]] = None
-    filter: Optional[AssessmentTemplateFilterTypeDef] = None
     nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
+
 
 class DescribeAssessmentRunsResponseTypeDef(BaseValidatorModel):
     assessmentRuns: List[AssessmentRunTypeDef]
     failedItems: Dict[str, FailedItemDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeResourceGroupsResponseTypeDef(BaseValidatorModel):
     resourceGroups: List[ResourceGroupTypeDef]
     failedItems: Dict[str, FailedItemDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListEventSubscriptionsResponseTypeDef(BaseValidatorModel):
     subscriptions: List[SubscriptionTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class GetExclusionsPreviewResponseTypeDef(BaseValidatorModel):
     previewStatus: PreviewStatusType
     exclusionPreviews: List[ExclusionPreviewTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class DescribeExclusionsResponseTypeDef(BaseValidatorModel):
     exclusions: Dict[str, ExclusionTypeDef]
     failedItems: Dict[str, FailedItemDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class AssetAttributesTypeDef(BaseValidatorModel):
     schemaVersion: int
@@ -507,6 +574,7 @@ class AssetAttributesTypeDef(BaseValidatorModel):
     tags: Optional[List[TagTypeDef]] = None
     networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
 
+
 class AssessmentRunFilterTypeDef(BaseValidatorModel):
     namePattern: Optional[str] = None
     states: Optional[Sequence[AssessmentRunStateType]] = None
@@ -515,6 +583,7 @@ class AssessmentRunFilterTypeDef(BaseValidatorModel):
     startTimeRange: Optional[TimestampRangeTypeDef] = None
     completionTimeRange: Optional[TimestampRangeTypeDef] = None
     stateChangeTimeRange: Optional[TimestampRangeTypeDef] = None
+
 
 class FindingFilterTypeDef(BaseValidatorModel):
     agentIds: Optional[Sequence[str]] = None
@@ -526,50 +595,14 @@ class FindingFilterTypeDef(BaseValidatorModel):
     userAttributes: Optional[Sequence[AttributeTypeDef]] = None
     creationTimeRange: Optional[TimestampRangeTypeDef] = None
 
+
 class FindingTypeDef(BaseValidatorModel):
-    arn: str
-    attributes: List[AttributeTypeDef]
-    userAttributes: List[AttributeTypeDef]
-    createdAt: datetime
-    updatedAt: datetime
-    schemaVersion: Optional[int] = None
-    service: Optional[str] = None
-    serviceAttributes: Optional[InspectorServiceAttributesTypeDef] = None
-    assetType: Optional[Literal["ec2-instance"]] = None
-    assetAttributes: Optional[AssetAttributesTypeDef] = None
-    id: Optional[str] = None
-    title: Optional[str] = None
-    description: Optional[str] = None
-    recommendation: Optional[str] = None
-    severity: Optional[SeverityType] = None
-    numericSeverity: Optional[float] = None
-    confidence: Optional[int] = None
-    indicatorOfCompromise: Optional[bool] = None
+    pass
 
-class ListAssessmentRunsRequestListAssessmentRunsPaginateTypeDef(BaseValidatorModel):
-    assessmentTemplateArns: Optional[Sequence[str]] = None
-    filter: Optional[AssessmentRunFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class ListAssessmentRunsRequestRequestTypeDef(BaseValidatorModel):
-    assessmentTemplateArns: Optional[Sequence[str]] = None
-    filter: Optional[AssessmentRunFilterTypeDef] = None
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
-
-class ListFindingsRequestListFindingsPaginateTypeDef(BaseValidatorModel):
-    assessmentRunArns: Optional[Sequence[str]] = None
-    filter: Optional[FindingFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class ListFindingsRequestRequestTypeDef(BaseValidatorModel):
-    assessmentRunArns: Optional[Sequence[str]] = None
-    filter: Optional[FindingFilterTypeDef] = None
-    nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
 
 class DescribeFindingsResponseTypeDef(BaseValidatorModel):
     findings: List[FindingTypeDef]
     failedItems: Dict[str, FailedItemDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 

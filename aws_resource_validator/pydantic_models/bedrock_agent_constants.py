@@ -1,9 +1,14 @@
 from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO
 from datetime import datetime
 
-ActionGroupSignatureType = Literal["AMAZON.CodeInterpreter", "AMAZON.UserInput"]
+ActionGroupSignatureType = Literal["AMAZON.CodeInterpreter",
+    "AMAZON.UserInput",
+    "ANTHROPIC.Bash",
+    "ANTHROPIC.Computer",
+    "ANTHROPIC.TextEditor",]
 ActionGroupStateType = Literal["DISABLED", "ENABLED"]
-AgentAliasStatusType = Literal["CREATING", "DELETING", "FAILED", "PREPARED", "UPDATING"]
+AgentAliasStatusType = Literal["CREATING", "DELETING", "DISSOCIATED", "FAILED", "PREPARED", "UPDATING"]
+AgentCollaborationType = Literal["DISABLED", "SUPERVISOR", "SUPERVISOR_ROUTER"]
 AgentStatusType = Literal["CREATING",
     "DELETING",
     "FAILED",
@@ -12,15 +17,34 @@ AgentStatusType = Literal["CREATING",
     "PREPARING",
     "UPDATING",
     "VERSIONING",]
+CachePointTypeType = Literal["default"]
 ChunkingStrategyType = Literal["FIXED_SIZE", "HIERARCHICAL", "NONE", "SEMANTIC"]
 ConfluenceAuthTypeType = Literal["BASIC", "OAUTH2_CLIENT_CREDENTIALS"]
 ConfluenceHostTypeType = Literal["SAAS"]
+ContentDataSourceTypeType = Literal["CUSTOM", "S3"]
+ContextEnrichmentTypeType = Literal["BEDROCK_FOUNDATION_MODEL"]
+ConversationRoleType = Literal["assistant", "user"]
 CrawlFilterConfigurationTypeType = Literal["PATTERN"]
 CreationModeType = Literal["DEFAULT", "OVERRIDDEN"]
 CustomControlMethodType = Literal["RETURN_CONTROL"]
+CustomSourceTypeType = Literal["IN_LINE", "S3_LOCATION"]
 DataDeletionPolicyType = Literal["DELETE", "RETAIN"]
 DataSourceStatusType = Literal["AVAILABLE", "DELETE_UNSUCCESSFUL", "DELETING"]
-DataSourceTypeType = Literal["CONFLUENCE", "S3", "SALESFORCE", "SHAREPOINT", "WEB"]
+DataSourceTypeType = Literal["CONFLUENCE", "CUSTOM", "REDSHIFT_METADATA", "S3", "SALESFORCE", "SHAREPOINT", "WEB"]
+DocumentStatusType = Literal["DELETE_IN_PROGRESS",
+    "DELETING",
+    "FAILED",
+    "IGNORED",
+    "INDEXED",
+    "IN_PROGRESS",
+    "METADATA_PARTIALLY_INDEXED",
+    "METADATA_UPDATE_FAILED",
+    "NOT_FOUND",
+    "PARTIALLY_INDEXED",
+    "PENDING",
+    "STARTING",]
+EmbeddingDataTypeType = Literal["BINARY", "FLOAT32"]
+EnrichmentStrategyMethodType = Literal["CHUNK_ENTITY_EXTRACTION"]
 FlowConnectionTypeType = Literal["Conditional", "Data"]
 FlowNodeIODataTypeType = Literal["Array", "Boolean", "Number", "Object", "String"]
 FlowNodeTypeType = Literal["Agent",
@@ -37,16 +61,51 @@ FlowNodeTypeType = Literal["Agent",
     "Storage",]
 FlowStatusType = Literal["Failed", "NotPrepared", "Prepared", "Preparing"]
 FlowValidationSeverityType = Literal["Error", "Warning"]
+FlowValidationTypeType = Literal["CyclicConnection",
+    "DuplicateConditionExpression",
+    "DuplicateConnections",
+    "IncompatibleConnectionDataType",
+    "MalformedConditionExpression",
+    "MalformedNodeInputExpression",
+    "MismatchedNodeInputType",
+    "MismatchedNodeOutputType",
+    "MissingConnectionConfiguration",
+    "MissingDefaultCondition",
+    "MissingEndingNodes",
+    "MissingNodeConfiguration",
+    "MissingNodeInput",
+    "MissingNodeOutput",
+    "MissingStartingNodes",
+    "MultipleNodeInputConnections",
+    "UnfulfilledNodeInput",
+    "UnknownConnectionCondition",
+    "UnknownConnectionSource",
+    "UnknownConnectionSourceOutput",
+    "UnknownConnectionTarget",
+    "UnknownConnectionTargetInput",
+    "UnknownNodeInput",
+    "UnknownNodeOutput",
+    "UnreachableNode",
+    "UnsatisfiedConnectionConditions",
+    "Unspecified",]
+IncludeExcludeType = Literal["EXCLUDE", "INCLUDE"]
 IngestionJobFilterAttributeType = Literal["STATUS"]
 IngestionJobFilterOperatorType = Literal["EQ"]
 IngestionJobSortByAttributeType = Literal["STARTED_AT", "STATUS"]
-IngestionJobStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS", "STARTING"]
+IngestionJobStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS", "STARTING", "STOPPED", "STOPPING"]
+InlineContentTypeType = Literal["BYTE", "TEXT"]
 KnowledgeBaseStateType = Literal["DISABLED", "ENABLED"]
 KnowledgeBaseStatusType = Literal["ACTIVE", "CREATING", "DELETE_UNSUCCESSFUL", "DELETING", "FAILED", "UPDATING"]
-KnowledgeBaseStorageTypeType = Literal["MONGO_DB_ATLAS", "OPENSEARCH_SERVERLESS", "PINECONE", "RDS", "REDIS_ENTERPRISE_CLOUD"]
-KnowledgeBaseTypeType = Literal["VECTOR"]
+KnowledgeBaseStorageTypeType = Literal["MONGO_DB_ATLAS",
+    "NEPTUNE_ANALYTICS",
+    "OPENSEARCH_SERVERLESS",
+    "PINECONE",
+    "RDS",
+    "REDIS_ENTERPRISE_CLOUD",]
+KnowledgeBaseTypeType = Literal["KENDRA", "SQL", "VECTOR"]
 ListAgentActionGroupsPaginatorName = Literal["list_agent_action_groups"]
 ListAgentAliasesPaginatorName = Literal["list_agent_aliases"]
+ListAgentCollaboratorsPaginatorName = Literal["list_agent_collaborators"]
 ListAgentKnowledgeBasesPaginatorName = Literal["list_agent_knowledge_bases"]
 ListAgentVersionsPaginatorName = Literal["list_agent_versions"]
 ListAgentsPaginatorName = Literal["list_agents"]
@@ -55,18 +114,35 @@ ListFlowAliasesPaginatorName = Literal["list_flow_aliases"]
 ListFlowVersionsPaginatorName = Literal["list_flow_versions"]
 ListFlowsPaginatorName = Literal["list_flows"]
 ListIngestionJobsPaginatorName = Literal["list_ingestion_jobs"]
+ListKnowledgeBaseDocumentsPaginatorName = Literal["list_knowledge_base_documents"]
 ListKnowledgeBasesPaginatorName = Literal["list_knowledge_bases"]
 ListPromptsPaginatorName = Literal["list_prompts"]
 MemoryTypeType = Literal["SESSION_SUMMARY"]
-ParsingStrategyType = Literal["BEDROCK_FOUNDATION_MODEL"]
+MetadataSourceTypeType = Literal["IN_LINE_ATTRIBUTE", "S3_LOCATION"]
+MetadataValueTypeType = Literal["BOOLEAN", "NUMBER", "STRING", "STRING_LIST"]
+OrchestrationTypeType = Literal["CUSTOM_ORCHESTRATION", "DEFAULT"]
+ParsingModalityType = Literal["MULTIMODAL"]
+ParsingStrategyType = Literal["BEDROCK_DATA_AUTOMATION", "BEDROCK_FOUNDATION_MODEL"]
 PromptStateType = Literal["DISABLED", "ENABLED"]
-PromptTemplateTypeType = Literal["TEXT"]
-PromptTypeType = Literal["KNOWLEDGE_BASE_RESPONSE_GENERATION", "ORCHESTRATION", "POST_PROCESSING", "PRE_PROCESSING"]
+PromptTemplateTypeType = Literal["CHAT", "TEXT"]
+PromptTypeType = Literal["KNOWLEDGE_BASE_RESPONSE_GENERATION",
+    "MEMORY_SUMMARIZATION",
+    "ORCHESTRATION",
+    "POST_PROCESSING",
+    "PRE_PROCESSING",]
+QueryEngineTypeType = Literal["REDSHIFT"]
+RedshiftProvisionedAuthTypeType = Literal["IAM", "USERNAME", "USERNAME_PASSWORD"]
+RedshiftQueryEngineStorageTypeType = Literal["AWS_DATA_CATALOG", "REDSHIFT"]
+RedshiftQueryEngineTypeType = Literal["PROVISIONED", "SERVERLESS"]
+RedshiftServerlessAuthTypeType = Literal["IAM", "USERNAME_PASSWORD"]
+RelayConversationHistoryType = Literal["DISABLED", "TO_COLLABORATOR"]
+RequireConfirmationType = Literal["DISABLED", "ENABLED"]
 SalesforceAuthTypeType = Literal["OAUTH2_CLIENT_CREDENTIALS"]
-SharePointAuthTypeType = Literal["OAUTH2_CLIENT_CREDENTIALS"]
+SharePointAuthTypeType = Literal["OAUTH2_CLIENT_CREDENTIALS", "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS"]
 SharePointHostTypeType = Literal["ONLINE"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
 StepTypeType = Literal["POST_CHUNKING"]
+SupplementalDataStorageLocationTypeType = Literal["S3"]
 TypeType = Literal["array", "boolean", "integer", "number", "string"]
 WebScopeTypeType = Literal["HOST_ONLY", "SUBDOMAINS"]
 AgentsforBedrockServiceName = Literal["bedrock-agent"]
@@ -104,12 +180,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -146,7 +227,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -159,6 +239,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -184,6 +265,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -195,7 +278,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -219,6 +301,10 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "gameliftstreams",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -237,11 +323,11 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
+    "iot-managed-integrations",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -296,6 +382,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -315,7 +402,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -323,10 +409,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -336,10 +425,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -385,6 +476,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -397,6 +489,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -414,10 +507,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -449,7 +544,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -468,6 +562,7 @@ ResourceServiceName = Literal["cloudformation",
     "sqs",]
 PaginatorName = Literal["list_agent_action_groups",
     "list_agent_aliases",
+    "list_agent_collaborators",
     "list_agent_knowledge_bases",
     "list_agent_versions",
     "list_agents",
@@ -476,12 +571,6 @@ PaginatorName = Literal["list_agent_action_groups",
     "list_flow_versions",
     "list_flows",
     "list_ingestion_jobs",
+    "list_knowledge_base_documents",
     "list_knowledge_bases",
     "list_prompts",]
-MemoryConfigurationUnionTypeDef = Union[   'MemoryConfigurationTypeDef', 'MemoryConfigurationOutputTypeDef' ]
-FunctionSchemaUnionTypeDef = Union['FunctionSchemaTypeDef', 'FunctionSchemaOutputTypeDef']
-PromptOverrideConfigurationUnionTypeDef = Union[   'PromptOverrideConfigurationTypeDef', 'PromptOverrideConfigurationOutputTypeDef' ]
-PromptVariantUnionTypeDef = Union['PromptVariantTypeDef', 'PromptVariantOutputTypeDef']
-VectorIngestionConfigurationUnionTypeDef = Union[   'VectorIngestionConfigurationTypeDef', 'VectorIngestionConfigurationOutputTypeDef' ]
-DataSourceConfigurationUnionTypeDef = Union[   'DataSourceConfigurationTypeDef', 'DataSourceConfigurationOutputTypeDef' ]
-FlowDefinitionUnionTypeDef = Union['FlowDefinitionTypeDef', 'FlowDefinitionOutputTypeDef']

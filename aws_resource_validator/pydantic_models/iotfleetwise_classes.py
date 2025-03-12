@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,97 +12,22 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iotfleetwise_constants import *
 
-class ActuatorExtraOutputTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    dataType: NodeDataTypeType
-    description: Optional[str] = None
-    unit: Optional[str] = None
-    allowedValues: Optional[List[str]] = None
-    min: Optional[float] = None
-    max: Optional[float] = None
-    assignedValue: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-    structFullyQualifiedName: Optional[str] = None
-
-class ActuatorOutputTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    dataType: NodeDataTypeType
-    description: Optional[str] = None
-    unit: Optional[str] = None
-    allowedValues: Optional[List[str]] = None
-    min: Optional[float] = None
-    max: Optional[float] = None
-    assignedValue: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-    structFullyQualifiedName: Optional[str] = None
-
-class ActuatorTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    dataType: NodeDataTypeType
-    description: Optional[str] = None
-    unit: Optional[str] = None
-    allowedValues: Optional[Sequence[str]] = None
-    min: Optional[float] = None
-    max: Optional[float] = None
-    assignedValue: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-    structFullyQualifiedName: Optional[str] = None
-
-class AssociateVehicleFleetRequestRequestTypeDef(BaseValidatorModel):
+class AssociateVehicleFleetRequestTypeDef(BaseValidatorModel):
     vehicleName: str
     fleetId: str
 
-class AttributeExtraOutputTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    dataType: NodeDataTypeType
-    description: Optional[str] = None
-    unit: Optional[str] = None
-    allowedValues: Optional[List[str]] = None
-    min: Optional[float] = None
-    max: Optional[float] = None
-    assignedValue: Optional[str] = None
-    defaultValue: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-
-class AttributeOutputTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    dataType: NodeDataTypeType
-    description: Optional[str] = None
-    unit: Optional[str] = None
-    allowedValues: Optional[List[str]] = None
-    min: Optional[float] = None
-    max: Optional[float] = None
-    assignedValue: Optional[str] = None
-    defaultValue: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-
-class AttributeTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    dataType: NodeDataTypeType
-    description: Optional[str] = None
-    unit: Optional[str] = None
-    allowedValues: Optional[Sequence[str]] = None
-    min: Optional[float] = None
-    max: Optional[float] = None
-    assignedValue: Optional[str] = None
-    defaultValue: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
 
 class CreateVehicleErrorTypeDef(BaseValidatorModel):
     vehicleName: Optional[str] = None
     code: Optional[str] = None
     message: Optional[str] = None
 
+
 class CreateVehicleResponseItemTypeDef(BaseValidatorModel):
     vehicleName: Optional[str] = None
     arn: Optional[str] = None
     thingArn: Optional[str] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -110,27 +36,24 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class UpdateVehicleRequestItemTypeDef(BaseValidatorModel):
-    vehicleName: str
-    modelManifestArn: Optional[str] = None
-    decoderManifestArn: Optional[str] = None
-    attributes: Optional[Mapping[str, str]] = None
-    attributeUpdateMode: Optional[UpdateModeType] = None
 
 class UpdateVehicleErrorTypeDef(BaseValidatorModel):
     vehicleName: Optional[str] = None
     code: Optional[int] = None
     message: Optional[str] = None
 
+
 class UpdateVehicleResponseItemTypeDef(BaseValidatorModel):
     vehicleName: Optional[str] = None
     arn: Optional[str] = None
+
 
 class BranchTypeDef(BaseValidatorModel):
     fullyQualifiedName: str
     description: Optional[str] = None
     deprecationMessage: Optional[str] = None
     comment: Optional[str] = None
+
 
 class CampaignSummaryTypeDef(BaseValidatorModel):
     creationTime: datetime
@@ -142,10 +65,12 @@ class CampaignSummaryTypeDef(BaseValidatorModel):
     targetArn: Optional[str] = None
     status: Optional[CampaignStatusType] = None
 
+
 class CanInterfaceTypeDef(BaseValidatorModel):
     name: str
     protocolName: Optional[str] = None
     protocolVersion: Optional[str] = None
+
 
 class CanSignalTypeDef(BaseValidatorModel):
     messageId: int
@@ -156,10 +81,13 @@ class CanSignalTypeDef(BaseValidatorModel):
     factor: float
     length: int
     name: Optional[str] = None
+    signalValueType: Optional[SignalValueTypeType] = None
+
 
 class CloudWatchLogDeliveryOptionsTypeDef(BaseValidatorModel):
     logType: LogTypeType
     logGroupName: Optional[str] = None
+
 
 class ConditionBasedCollectionSchemeTypeDef(BaseValidatorModel):
     expression: str
@@ -167,17 +95,31 @@ class ConditionBasedCollectionSchemeTypeDef(BaseValidatorModel):
     triggerMode: Optional[TriggerModeType] = None
     conditionLanguageVersion: Optional[int] = None
 
+
 class TimeBasedCollectionSchemeTypeDef(BaseValidatorModel):
     periodMs: int
+
+
+class ConditionBasedSignalFetchConfigTypeDef(BaseValidatorModel):
+    conditionExpression: str
+    triggerMode: TriggerModeType
+
 
 class SignalInformationTypeDef(BaseValidatorModel):
     name: str
     maxSampleCount: Optional[int] = None
     minimumSamplingIntervalMs: Optional[int] = None
+    dataPartitionId: Optional[str] = None
+
 
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
+
+
+class CustomDecodingInterfaceTypeDef(BaseValidatorModel):
+    name: str
+
 
 class CustomPropertyTypeDef(BaseValidatorModel):
     fullyQualifiedName: str
@@ -188,11 +130,18 @@ class CustomPropertyTypeDef(BaseValidatorModel):
     comment: Optional[str] = None
     structFullyQualifiedName: Optional[str] = None
 
+
 class CustomStructTypeDef(BaseValidatorModel):
     fullyQualifiedName: str
     description: Optional[str] = None
     deprecationMessage: Optional[str] = None
     comment: Optional[str] = None
+
+
+class MqttTopicConfigTypeDef(BaseValidatorModel):
+    mqttTopicArn: str
+    executionRoleArn: str
+
 
 class S3ConfigTypeDef(BaseValidatorModel):
     bucketArn: str
@@ -200,9 +149,26 @@ class S3ConfigTypeDef(BaseValidatorModel):
     storageCompressionFormat: Optional[StorageCompressionFormatType] = None
     prefix: Optional[str] = None
 
+
 class TimestreamConfigTypeDef(BaseValidatorModel):
     timestreamTableArn: str
     executionRoleArn: str
+
+
+class StorageMaximumSizeTypeDef(BaseValidatorModel):
+    unit: StorageMaximumSizeUnitType
+    value: int
+
+
+class StorageMinimumTimeToLiveTypeDef(BaseValidatorModel):
+    unit: StorageMinimumTimeToLiveUnitType
+    value: int
+
+
+class DataPartitionUploadOptionsTypeDef(BaseValidatorModel):
+    expression: str
+    conditionLanguageVersion: Optional[int] = None
+
 
 class DecoderManifestSummaryTypeDef(BaseValidatorModel):
     creationTime: datetime
@@ -214,55 +180,65 @@ class DecoderManifestSummaryTypeDef(BaseValidatorModel):
     status: Optional[ManifestStatusType] = None
     message: Optional[str] = None
 
-class DeleteCampaignRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteCampaignRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteDecoderManifestRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDecoderManifestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteFleetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteFleetRequestTypeDef(BaseValidatorModel):
     fleetId: str
 
-class DeleteModelManifestRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteModelManifestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteSignalCatalogRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteSignalCatalogRequestTypeDef(BaseValidatorModel):
     name: str
 
-class DeleteVehicleRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteStateTemplateRequestTypeDef(BaseValidatorModel):
+    identifier: str
+
+
+class DeleteVehicleRequestTypeDef(BaseValidatorModel):
     vehicleName: str
 
-class DisassociateVehicleFleetRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateVehicleFleetRequestTypeDef(BaseValidatorModel):
     vehicleName: str
     fleetId: str
 
-class FleetSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    signalCatalogArn: str
-    creationTime: datetime
-    description: Optional[str] = None
-    lastModificationTime: Optional[datetime] = None
 
 class FormattedVssTypeDef(BaseValidatorModel):
     vssJson: Optional[str] = None
 
-class GetCampaignRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCampaignRequestTypeDef(BaseValidatorModel):
     name: str
 
-class GetDecoderManifestRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDecoderManifestRequestTypeDef(BaseValidatorModel):
     name: str
 
-class GetFleetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetFleetRequestTypeDef(BaseValidatorModel):
     fleetId: str
 
-class GetModelManifestRequestRequestTypeDef(BaseValidatorModel):
+
+class GetModelManifestRequestTypeDef(BaseValidatorModel):
     name: str
+
 
 class IamRegistrationResponseTypeDef(BaseValidatorModel):
     roleArn: str
     registrationStatus: RegistrationStatusType
     errorMessage: Optional[str] = None
+
 
 class TimestreamRegistrationResponseTypeDef(BaseValidatorModel):
     timestreamDatabaseName: str
@@ -272,8 +248,10 @@ class TimestreamRegistrationResponseTypeDef(BaseValidatorModel):
     timestreamTableArn: Optional[str] = None
     errorMessage: Optional[str] = None
 
-class GetSignalCatalogRequestRequestTypeDef(BaseValidatorModel):
+
+class GetSignalCatalogRequestTypeDef(BaseValidatorModel):
     name: str
+
 
 class NodeCountsTypeDef(BaseValidatorModel):
     totalNodes: Optional[int] = None
@@ -284,65 +262,87 @@ class NodeCountsTypeDef(BaseValidatorModel):
     totalStructs: Optional[int] = None
     totalProperties: Optional[int] = None
 
-class GetVehicleRequestRequestTypeDef(BaseValidatorModel):
+
+class GetStateTemplateRequestTypeDef(BaseValidatorModel):
+    identifier: str
+
+
+class GetVehicleRequestTypeDef(BaseValidatorModel):
     vehicleName: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetVehicleStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class GetVehicleStatusRequestTypeDef(BaseValidatorModel):
     vehicleName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+
 
 class VehicleStatusTypeDef(BaseValidatorModel):
     campaignName: Optional[str] = None
     vehicleName: Optional[str] = None
     status: Optional[VehicleStateType] = None
 
+
 class IamResourcesTypeDef(BaseValidatorModel):
     roleArn: str
 
-class ListCampaignsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCampaignsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[str] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
 
-class ListDecoderManifestNetworkInterfacesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDecoderManifestNetworkInterfacesRequestTypeDef(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDecoderManifestSignalsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDecoderManifestSignalsRequestTypeDef(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListDecoderManifestsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDecoderManifestsRequestTypeDef(BaseValidatorModel):
     modelManifestArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
 
-class ListFleetsForVehicleRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFleetsForVehicleRequestTypeDef(BaseValidatorModel):
     vehicleName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListFleetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFleetsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
 
-class ListModelManifestNodesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListModelManifestNodesRequestTypeDef(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListModelManifestsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListModelManifestsRequestTypeDef(BaseValidatorModel):
     signalCatalogArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
+
 
 class ModelManifestSummaryTypeDef(BaseValidatorModel):
     creationTime: datetime
@@ -353,15 +353,18 @@ class ModelManifestSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     status: Optional[ManifestStatusType] = None
 
-class ListSignalCatalogNodesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSignalCatalogNodesRequestTypeDef(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     signalNodeType: Optional[SignalNodeTypeType] = None
 
-class ListSignalCatalogsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSignalCatalogsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+
 
 class SignalCatalogSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
@@ -369,20 +372,31 @@ class SignalCatalogSummaryTypeDef(BaseValidatorModel):
     creationTime: Optional[datetime] = None
     lastModificationTime: Optional[datetime] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListStateTemplatesRequestTypeDef(BaseValidatorModel):
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
+
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
 
-class ListVehiclesInFleetRequestRequestTypeDef(BaseValidatorModel):
+
+class ListVehiclesInFleetRequestTypeDef(BaseValidatorModel):
     fleetId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
-class ListVehiclesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListVehiclesRequestTypeDef(BaseValidatorModel):
     modelManifestArn: Optional[str] = None
     attributeNames: Optional[Sequence[str]] = None
     attributeValues: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
+
 
 class VehicleSummaryTypeDef(BaseValidatorModel):
     vehicleName: str
@@ -393,9 +407,6 @@ class VehicleSummaryTypeDef(BaseValidatorModel):
     lastModificationTime: datetime
     attributes: Optional[Dict[str, str]] = None
 
-class MessageSignalTypeDef(BaseValidatorModel):
-    topicName: str
-    structuredMessage: "StructuredMessageTypeDef"
 
 class ObdInterfaceTypeDef(BaseValidatorModel):
     name: str
@@ -406,45 +417,11 @@ class ObdInterfaceTypeDef(BaseValidatorModel):
     useExtendedIds: Optional[bool] = None
     hasTransmissionEcu: Optional[bool] = None
 
+
 class VehicleMiddlewareTypeDef(BaseValidatorModel):
     name: str
     protocolName: Literal["ROS_2"]
 
-class SensorExtraOutputTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    dataType: NodeDataTypeType
-    description: Optional[str] = None
-    unit: Optional[str] = None
-    allowedValues: Optional[List[str]] = None
-    min: Optional[float] = None
-    max: Optional[float] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-    structFullyQualifiedName: Optional[str] = None
-
-class SensorOutputTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    dataType: NodeDataTypeType
-    description: Optional[str] = None
-    unit: Optional[str] = None
-    allowedValues: Optional[List[str]] = None
-    min: Optional[float] = None
-    max: Optional[float] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-    structFullyQualifiedName: Optional[str] = None
-
-class SensorTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    dataType: NodeDataTypeType
-    description: Optional[str] = None
-    unit: Optional[str] = None
-    allowedValues: Optional[Sequence[str]] = None
-    min: Optional[float] = None
-    max: Optional[float] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-    structFullyQualifiedName: Optional[str] = None
 
 class ObdSignalTypeDef(BaseValidatorModel):
     pidResponseLength: int
@@ -456,6 +433,14 @@ class ObdSignalTypeDef(BaseValidatorModel):
     byteLength: int
     bitRightShift: Optional[int] = None
     bitMaskLength: Optional[int] = None
+    isSigned: Optional[bool] = None
+    signalValueType: Optional[SignalValueTypeType] = None
+
+
+class TimePeriodTypeDef(BaseValidatorModel):
+    unit: TimeUnitType
+    value: int
+
 
 class ROS2PrimitiveMessageDefinitionTypeDef(BaseValidatorModel):
     primitiveType: ROS2PrimitiveTypeType
@@ -463,81 +448,120 @@ class ROS2PrimitiveMessageDefinitionTypeDef(BaseValidatorModel):
     scaling: Optional[float] = None
     upperBound: Optional[int] = None
 
-class PutEncryptionConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class PutEncryptionConfigurationRequestTypeDef(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKeyId: Optional[str] = None
+
 
 class TimestreamResourcesTypeDef(BaseValidatorModel):
     timestreamDatabaseName: str
     timestreamTableName: str
 
+
+class TimeBasedSignalFetchConfigTypeDef(BaseValidatorModel):
+    executionFrequencyMs: int
+
+
+class StructuredMessageFieldNameAndDataTypePairOutputTypeDef(BaseValidatorModel):
+    fieldName: str
+    dataType: Dict[str, Any]
+
+
+class StructuredMessageFieldNameAndDataTypePairPaginatorTypeDef(BaseValidatorModel):
+    fieldName: str
+    dataType: Dict[str, Any]
+
+
 class StructuredMessageFieldNameAndDataTypePairTypeDef(BaseValidatorModel):
     fieldName: str
-    dataType: "StructuredMessageTypeDef"
+    dataType: Mapping[str, Any]
 
-class StructuredMessageListDefinitionTypeDef(BaseValidatorModel):
+
+class StructuredMessageListDefinitionOutputTypeDef(BaseValidatorModel):
     name: str
-    memberType: "StructuredMessageTypeDef"
+    memberType: Dict[str, Any]
     listType: StructuredMessageListTypeType
     capacity: Optional[int] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class StructuredMessageListDefinitionPaginatorTypeDef(BaseValidatorModel):
+    name: str
+    memberType: Dict[str, Any]
+    listType: StructuredMessageListTypeType
+    capacity: Optional[int] = None
+
+
+class StructuredMessageListDefinitionTypeDef(BaseValidatorModel):
+    name: str
+    memberType: Mapping[str, Any]
+    listType: StructuredMessageListTypeType
+    capacity: Optional[int] = None
+
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateCampaignRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateCampaignRequestTypeDef(BaseValidatorModel):
     name: str
     action: UpdateCampaignActionType
     description: Optional[str] = None
     dataExtraDimensions: Optional[Sequence[str]] = None
 
-class UpdateFleetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateFleetRequestTypeDef(BaseValidatorModel):
     fleetId: str
     description: Optional[str] = None
 
-class UpdateModelManifestRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateModelManifestRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     nodesToAdd: Optional[Sequence[str]] = None
     nodesToRemove: Optional[Sequence[str]] = None
     status: Optional[ManifestStatusType] = None
 
-class UpdateVehicleRequestRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
-    modelManifestArn: Optional[str] = None
-    decoderManifestArn: Optional[str] = None
-    attributes: Optional[Mapping[str, str]] = None
-    attributeUpdateMode: Optional[UpdateModeType] = None
+
+class UpdateStateTemplateRequestTypeDef(BaseValidatorModel):
+    identifier: str
+    description: Optional[str] = None
+    stateTemplatePropertiesToAdd: Optional[Sequence[str]] = None
+    stateTemplatePropertiesToRemove: Optional[Sequence[str]] = None
+    dataExtraDimensions: Optional[Sequence[str]] = None
+    metadataExtraDimensions: Optional[Sequence[str]] = None
+
 
 class BatchCreateVehicleResponseTypeDef(BaseValidatorModel):
     vehicles: List[CreateVehicleResponseItemTypeDef]
     errors: List[CreateVehicleErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateCampaignResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateDecoderManifestResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateFleetResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class CreateModelManifestResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateSignalCatalogResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateVehicleResponseTypeDef(BaseValidatorModel):
     vehicleName: str
@@ -545,35 +569,36 @@ class CreateVehicleResponseTypeDef(BaseValidatorModel):
     thingArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteCampaignResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteDecoderManifestResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteFleetResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class DeleteModelManifestResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteSignalCatalogResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteVehicleResponseTypeDef(BaseValidatorModel):
     vehicleName: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetDecoderManifestResponseTypeDef(BaseValidatorModel):
     name: str
@@ -586,6 +611,7 @@ class GetDecoderManifestResponseTypeDef(BaseValidatorModel):
     message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
     kmsKeyId: str
     encryptionStatus: EncryptionStatusType
@@ -595,14 +621,6 @@ class GetEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
     lastModificationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFleetResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    description: str
-    signalCatalogArn: str
-    creationTime: datetime
-    lastModificationTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class GetModelManifestResponseTypeDef(BaseValidatorModel):
     name: str
@@ -614,35 +632,30 @@ class GetModelManifestResponseTypeDef(BaseValidatorModel):
     lastModificationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVehicleResponseTypeDef(BaseValidatorModel):
-    vehicleName: str
-    arn: str
-    modelManifestArn: str
-    decoderManifestArn: str
-    attributes: Dict[str, str]
-    creationTime: datetime
-    lastModificationTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ImportDecoderManifestResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ImportSignalCatalogResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListFleetsForVehicleResponseTypeDef(BaseValidatorModel):
     fleets: List[str]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListVehiclesInFleetResponseTypeDef(BaseValidatorModel):
     vehicles: List[str]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class PutEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
     kmsKeyId: str
@@ -650,122 +663,143 @@ class PutEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateCampaignResponseTypeDef(BaseValidatorModel):
     arn: str
     name: str
     status: CampaignStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateDecoderManifestResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateFleetResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class UpdateModelManifestResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateSignalCatalogResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateVehicleResponseTypeDef(BaseValidatorModel):
     vehicleName: str
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchUpdateVehicleRequestRequestTypeDef(BaseValidatorModel):
-    vehicles: Sequence[UpdateVehicleRequestItemTypeDef]
 
 class BatchUpdateVehicleResponseTypeDef(BaseValidatorModel):
     vehicles: List[UpdateVehicleResponseItemTypeDef]
     errors: List[UpdateVehicleErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
+
 class CanDbcDefinitionTypeDef(BaseValidatorModel):
     networkInterface: str
     canDbcFiles: Sequence[BlobTypeDef]
     signalsMap: Optional[Mapping[str, str]] = None
 
+
 class ListCampaignsResponseTypeDef(BaseValidatorModel):
     campaignSummaries: List[CampaignSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class GetLoggingOptionsResponseTypeDef(BaseValidatorModel):
     cloudWatchLogDelivery: CloudWatchLogDeliveryOptionsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutLoggingOptionsRequestRequestTypeDef(BaseValidatorModel):
+
+class PutLoggingOptionsRequestTypeDef(BaseValidatorModel):
     cloudWatchLogDelivery: CloudWatchLogDeliveryOptionsTypeDef
+
 
 class CollectionSchemeTypeDef(BaseValidatorModel):
     timeBasedCollectionScheme: Optional[TimeBasedCollectionSchemeTypeDef] = None
     conditionBasedCollectionScheme: Optional[ConditionBasedCollectionSchemeTypeDef] = None
 
-class CreateFleetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateFleetRequestTypeDef(BaseValidatorModel):
     fleetId: str
     signalCatalogArn: str
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateModelManifestRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateModelManifestRequestTypeDef(BaseValidatorModel):
     name: str
     nodes: Sequence[str]
     signalCatalogArn: str
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateVehicleRequestItemTypeDef(BaseValidatorModel):
-    vehicleName: str
-    modelManifestArn: str
-    decoderManifestArn: str
-    attributes: Optional[Mapping[str, str]] = None
-    associationBehavior: Optional[VehicleAssociationBehaviorType] = None
+
+class CreateStateTemplateRequestTypeDef(BaseValidatorModel):
+    name: str
+    signalCatalogArn: str
+    stateTemplateProperties: Sequence[str]
+    description: Optional[str] = None
+    dataExtraDimensions: Optional[Sequence[str]] = None
+    metadataExtraDimensions: Optional[Sequence[str]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateVehicleRequestRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
-    modelManifestArn: str
-    decoderManifestArn: str
-    attributes: Optional[Mapping[str, str]] = None
-    associationBehavior: Optional[VehicleAssociationBehaviorType] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
+
 
 class DataDestinationConfigTypeDef(BaseValidatorModel):
     s3Config: Optional[S3ConfigTypeDef] = None
     timestreamConfig: Optional[TimestreamConfigTypeDef] = None
+    mqttTopicConfig: Optional[MqttTopicConfigTypeDef] = None
+
+
+class DataPartitionStorageOptionsTypeDef(BaseValidatorModel):
+    maximumSize: StorageMaximumSizeTypeDef
+    storageLocation: str
+    minimumTimeToLive: StorageMinimumTimeToLiveTypeDef
+
 
 class ListDecoderManifestsResponseTypeDef(BaseValidatorModel):
     summaries: List[DecoderManifestSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class FleetSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListFleetsResponseTypeDef(BaseValidatorModel):
     fleetSummaries: List[FleetSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class ImportSignalCatalogRequestRequestTypeDef(BaseValidatorModel):
+
+class ImportSignalCatalogRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     vss: Optional[FormattedVssTypeDef] = None
     tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class GetRegisterAccountStatusResponseTypeDef(BaseValidatorModel):
     customerAccountId: str
@@ -776,6 +810,7 @@ class GetRegisterAccountStatusResponseTypeDef(BaseValidatorModel):
     lastModificationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetSignalCatalogResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
@@ -785,124 +820,129 @@ class GetSignalCatalogResponseTypeDef(BaseValidatorModel):
     lastModificationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetVehicleStatusRequestGetVehicleStatusPaginateTypeDef(BaseValidatorModel):
+
+class GetVehicleStatusRequestPaginateTypeDef(BaseValidatorModel):
     vehicleName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCampaignsRequestListCampaignsPaginateTypeDef(BaseValidatorModel):
+
+class ListCampaignsRequestPaginateTypeDef(BaseValidatorModel):
     status: Optional[str] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDecoderManifestNetworkInterfacesRequestListDecoderManifestNetworkInterfacesPaginateTypeDef(BaseValidatorModel):
+
+class ListDecoderManifestNetworkInterfacesRequestPaginateTypeDef(BaseValidatorModel):
     name: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDecoderManifestSignalsRequestListDecoderManifestSignalsPaginateTypeDef(BaseValidatorModel):
+
+class ListDecoderManifestSignalsRequestPaginateTypeDef(BaseValidatorModel):
     name: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDecoderManifestsRequestListDecoderManifestsPaginateTypeDef(BaseValidatorModel):
+
+class ListDecoderManifestsRequestPaginateTypeDef(BaseValidatorModel):
     modelManifestArn: Optional[str] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFleetsForVehicleRequestListFleetsForVehiclePaginateTypeDef(BaseValidatorModel):
+
+class ListFleetsForVehicleRequestPaginateTypeDef(BaseValidatorModel):
     vehicleName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFleetsRequestListFleetsPaginateTypeDef(BaseValidatorModel):
+
+class ListFleetsRequestPaginateTypeDef(BaseValidatorModel):
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListModelManifestNodesRequestListModelManifestNodesPaginateTypeDef(BaseValidatorModel):
+
+class ListModelManifestNodesRequestPaginateTypeDef(BaseValidatorModel):
     name: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListModelManifestsRequestListModelManifestsPaginateTypeDef(BaseValidatorModel):
+
+class ListModelManifestsRequestPaginateTypeDef(BaseValidatorModel):
     signalCatalogArn: Optional[str] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSignalCatalogNodesRequestListSignalCatalogNodesPaginateTypeDef(BaseValidatorModel):
+
+class ListSignalCatalogNodesRequestPaginateTypeDef(BaseValidatorModel):
     name: str
     signalNodeType: Optional[SignalNodeTypeType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSignalCatalogsRequestListSignalCatalogsPaginateTypeDef(BaseValidatorModel):
+
+class ListSignalCatalogsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVehiclesInFleetRequestListVehiclesInFleetPaginateTypeDef(BaseValidatorModel):
+
+class ListStateTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListVehiclesInFleetRequestPaginateTypeDef(BaseValidatorModel):
     fleetId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVehiclesRequestListVehiclesPaginateTypeDef(BaseValidatorModel):
+
+class ListVehiclesRequestPaginateTypeDef(BaseValidatorModel):
     modelManifestArn: Optional[str] = None
     attributeNames: Optional[Sequence[str]] = None
     attributeValues: Optional[Sequence[str]] = None
+    listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class GetVehicleStatusResponseTypeDef(BaseValidatorModel):
     campaigns: List[VehicleStatusTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListModelManifestsResponseTypeDef(BaseValidatorModel):
     summaries: List[ModelManifestSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListSignalCatalogsResponseTypeDef(BaseValidatorModel):
     summaries: List[SignalCatalogSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class StateTemplateSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListStateTemplatesResponseTypeDef(BaseValidatorModel):
+    summaries: List[StateTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListVehiclesResponseTypeDef(BaseValidatorModel):
     vehicleSummaries: List[VehicleSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class NetworkInterfaceTypeDef(BaseValidatorModel):
-    interfaceId: str
-    type: NetworkInterfaceTypeType
-    canInterface: Optional[CanInterfaceTypeDef] = None
-    obdInterface: Optional[ObdInterfaceTypeDef] = None
-    vehicleMiddleware: Optional[VehicleMiddlewareTypeDef] = None
 
-class NodeExtraOutputTypeDef(BaseValidatorModel):
-    branch: Optional[BranchTypeDef] = None
-    sensor: Optional[SensorExtraOutputTypeDef] = None
-    actuator: Optional[ActuatorExtraOutputTypeDef] = None
-    attribute: Optional[AttributeExtraOutputTypeDef] = None
-    struct: Optional[CustomStructTypeDef] = None
-    property: Optional[CustomPropertyTypeDef] = None
+class PeriodicStateTemplateUpdateStrategyTypeDef(BaseValidatorModel):
+    stateTemplateUpdateRate: TimePeriodTypeDef
 
-class NodeOutputTypeDef(BaseValidatorModel):
-    branch: Optional[BranchTypeDef] = None
-    sensor: Optional[SensorOutputTypeDef] = None
-    actuator: Optional[ActuatorOutputTypeDef] = None
-    attribute: Optional[AttributeOutputTypeDef] = None
-    struct: Optional[CustomStructTypeDef] = None
-    property: Optional[CustomPropertyTypeDef] = None
-
-class NodeTypeDef(BaseValidatorModel):
-    branch: Optional[BranchTypeDef] = None
-    sensor: Optional[SensorTypeDef] = None
-    actuator: Optional[ActuatorTypeDef] = None
-    attribute: Optional[AttributeTypeDef] = None
-    struct: Optional[CustomStructTypeDef] = None
-    property: Optional[CustomPropertyTypeDef] = None
-
-class SignalDecoderTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    type: SignalDecoderTypeType
-    interfaceId: str
-    canSignal: Optional[CanSignalTypeDef] = None
-    obdSignal: Optional[ObdSignalTypeDef] = None
-    messageSignal: Optional[MessageSignalTypeDef] = None
 
 class PrimitiveMessageDefinitionTypeDef(BaseValidatorModel):
     ros2PrimitiveMessageDefinition: Optional[ROS2PrimitiveMessageDefinitionTypeDef] = None
 
-class RegisterAccountRequestRequestTypeDef(BaseValidatorModel):
+
+class RegisterAccountRequestTypeDef(BaseValidatorModel):
     timestreamResources: Optional[TimestreamResourcesTypeDef] = None
     iamResources: Optional[IamResourcesTypeDef] = None
+
 
 class RegisterAccountResponseTypeDef(BaseValidatorModel):
     registerAccountStatus: RegistrationStatusType
@@ -912,29 +952,115 @@ class RegisterAccountResponseTypeDef(BaseValidatorModel):
     lastModificationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class SignalFetchConfigTypeDef(BaseValidatorModel):
+    timeBased: Optional[TimeBasedSignalFetchConfigTypeDef] = None
+    conditionBased: Optional[ConditionBasedSignalFetchConfigTypeDef] = None
+
+
 class NetworkFileDefinitionTypeDef(BaseValidatorModel):
     canDbc: Optional[CanDbcDefinitionTypeDef] = None
 
-class BatchCreateVehicleRequestRequestTypeDef(BaseValidatorModel):
-    vehicles: Sequence[CreateVehicleRequestItemTypeDef]
 
-class CreateCampaignRequestRequestTypeDef(BaseValidatorModel):
+class NetworkInterfaceTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListDecoderManifestNetworkInterfacesResponseTypeDef(BaseValidatorModel):
+    networkInterfaces: List[NetworkInterfaceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class NodeOutputTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListModelManifestNodesResponseTypeDef(BaseValidatorModel):
+    nodes: List[NodeOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class ListSignalCatalogNodesResponseTypeDef(BaseValidatorModel):
+    nodes: List[NodeOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class StateTemplateUpdateStrategyOutputTypeDef(BaseValidatorModel):
+    periodic: Optional[PeriodicStateTemplateUpdateStrategyTypeDef] = None
+    onChange: Optional[Dict[str, Any]] = None
+
+
+class StateTemplateUpdateStrategyTypeDef(BaseValidatorModel):
+    periodic: Optional[PeriodicStateTemplateUpdateStrategyTypeDef] = None
+    onChange: Optional[Mapping[str, Any]] = None
+
+
+class StructuredMessageOutputTypeDef(BaseValidatorModel):
+    primitiveMessageDefinition: Optional[PrimitiveMessageDefinitionTypeDef] = None
+    structuredMessageListDefinition: Optional[StructuredMessageListDefinitionOutputTypeDef] = None
+    structuredMessageDefinition: Optional[ List[StructuredMessageFieldNameAndDataTypePairOutputTypeDef] ] = None
+
+
+class StructuredMessagePaginatorTypeDef(BaseValidatorModel):
+    primitiveMessageDefinition: Optional[PrimitiveMessageDefinitionTypeDef] = None
+    structuredMessageListDefinition: Optional[StructuredMessageListDefinitionPaginatorTypeDef] = None
+    structuredMessageDefinition: Optional[ List[StructuredMessageFieldNameAndDataTypePairPaginatorTypeDef] ] = None
+
+
+class SignalFetchInformationOutputTypeDef(BaseValidatorModel):
+    fullyQualifiedName: str
+    signalFetchConfig: SignalFetchConfigTypeDef
+    actions: List[str]
+    conditionLanguageVersion: Optional[int] = None
+
+
+class SignalFetchInformationTypeDef(BaseValidatorModel):
+    fullyQualifiedName: str
+    signalFetchConfig: SignalFetchConfigTypeDef
+    actions: Sequence[str]
+    conditionLanguageVersion: Optional[int] = None
+
+
+class StructuredMessageFieldNameAndDataTypePairUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class StructuredMessageListDefinitionUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class StructuredMessageTypeDef(BaseValidatorModel):
+    primitiveMessageDefinition: Optional[PrimitiveMessageDefinitionTypeDef] = None
+    structuredMessageListDefinition: Optional[StructuredMessageListDefinitionUnionTypeDef] = None
+    structuredMessageDefinition: Optional[ Sequence[StructuredMessageFieldNameAndDataTypePairUnionTypeDef] ] = None
+
+
+class ImportDecoderManifestRequestTypeDef(BaseValidatorModel):
     name: str
-    signalCatalogArn: str
-    targetArn: str
-    collectionScheme: CollectionSchemeTypeDef
-    description: Optional[str] = None
-    startTime: Optional[TimestampTypeDef] = None
-    expiryTime: Optional[TimestampTypeDef] = None
-    postTriggerCollectionDuration: Optional[int] = None
-    diagnosticsMode: Optional[DiagnosticsModeType] = None
-    spoolingMode: Optional[SpoolingModeType] = None
-    compression: Optional[CompressionType] = None
-    priority: Optional[int] = None
-    signalsToCollect: Optional[Sequence[SignalInformationTypeDef]] = None
-    dataExtraDimensions: Optional[Sequence[str]] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
-    dataDestinationConfigs: Optional[Sequence[DataDestinationConfigTypeDef]] = None
+    networkFileDefinitions: Sequence[NetworkFileDefinitionTypeDef]
+
+
+class StateTemplateAssociationOutputTypeDef(BaseValidatorModel):
+    identifier: str
+    stateTemplateUpdateStrategy: StateTemplateUpdateStrategyOutputTypeDef
+
+
+class MessageSignalOutputTypeDef(BaseValidatorModel):
+    topicName: str
+    structuredMessage: StructuredMessageOutputTypeDef
+
+
+class MessageSignalPaginatorTypeDef(BaseValidatorModel):
+    topicName: str
+    structuredMessage: StructuredMessagePaginatorTypeDef
+
+
+class DataPartitionTypeDef(BaseValidatorModel):
+    pass
+
 
 class GetCampaignResponseTypeDef(BaseValidatorModel):
     name: str
@@ -956,66 +1082,185 @@ class GetCampaignResponseTypeDef(BaseValidatorModel):
     creationTime: datetime
     lastModificationTime: datetime
     dataDestinationConfigs: List[DataDestinationConfigTypeDef]
+    dataPartitions: List[DataPartitionTypeDef]
+    signalsToFetch: List[SignalFetchInformationOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDecoderManifestNetworkInterfacesResponseTypeDef(BaseValidatorModel):
-    networkInterfaces: List[NetworkInterfaceTypeDef]
-    nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListSignalCatalogNodesResponseTypeDef(BaseValidatorModel):
-    nodes: List[NodeExtraOutputTypeDef]
-    nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListModelManifestNodesResponseTypeDef(BaseValidatorModel):
-    nodes: List[NodeOutputTypeDef]
-    nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class CreateDecoderManifestRequestRequestTypeDef(BaseValidatorModel):
-    name: str
+class GetVehicleResponseTypeDef(BaseValidatorModel):
+    vehicleName: str
+    arn: str
     modelManifestArn: str
-    description: Optional[str] = None
-    signalDecoders: Optional[Sequence[SignalDecoderTypeDef]] = None
-    networkInterfaces: Optional[Sequence[NetworkInterfaceTypeDef]] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
-
-class ListDecoderManifestSignalsResponseTypeDef(BaseValidatorModel):
-    signalDecoders: List[SignalDecoderTypeDef]
-    nextToken: str
+    decoderManifestArn: str
+    attributes: Dict[str, str]
+    stateTemplates: List[StateTemplateAssociationOutputTypeDef]
+    creationTime: datetime
+    lastModificationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDecoderManifestRequestRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    signalDecodersToAdd: Optional[Sequence[SignalDecoderTypeDef]] = None
-    signalDecodersToUpdate: Optional[Sequence[SignalDecoderTypeDef]] = None
-    signalDecodersToRemove: Optional[Sequence[str]] = None
-    networkInterfacesToAdd: Optional[Sequence[NetworkInterfaceTypeDef]] = None
-    networkInterfacesToUpdate: Optional[Sequence[NetworkInterfaceTypeDef]] = None
-    networkInterfacesToRemove: Optional[Sequence[str]] = None
-    status: Optional[ManifestStatusType] = None
 
-class StructuredMessageTypeDef(BaseValidatorModel):
-    primitiveMessageDefinition: Optional[PrimitiveMessageDefinitionTypeDef] = None
-    structuredMessageListDefinition: Optional[Dict[str, Any]] = None
-    structuredMessageDefinition: Optional[Sequence[Dict[str, Any]]] = None
+class StateTemplateUpdateStrategyUnionTypeDef(BaseValidatorModel):
+    pass
 
-class ImportDecoderManifestRequestRequestTypeDef(BaseValidatorModel):
-    name: str
-    networkFileDefinitions: Sequence[NetworkFileDefinitionTypeDef]
 
-class CreateSignalCatalogRequestRequestTypeDef(BaseValidatorModel):
+class StateTemplateAssociationTypeDef(BaseValidatorModel):
+    identifier: str
+    stateTemplateUpdateStrategy: StateTemplateUpdateStrategyUnionTypeDef
+
+
+class NodeUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateSignalCatalogRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     nodes: Optional[Sequence[NodeUnionTypeDef]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateSignalCatalogRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateSignalCatalogRequestTypeDef(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     nodesToAdd: Optional[Sequence[NodeUnionTypeDef]] = None
     nodesToUpdate: Optional[Sequence[NodeUnionTypeDef]] = None
     nodesToRemove: Optional[Sequence[str]] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class SignalFetchInformationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateCampaignRequestTypeDef(BaseValidatorModel):
+    name: str
+    signalCatalogArn: str
+    targetArn: str
+    collectionScheme: CollectionSchemeTypeDef
+    description: Optional[str] = None
+    startTime: Optional[TimestampTypeDef] = None
+    expiryTime: Optional[TimestampTypeDef] = None
+    postTriggerCollectionDuration: Optional[int] = None
+    diagnosticsMode: Optional[DiagnosticsModeType] = None
+    spoolingMode: Optional[SpoolingModeType] = None
+    compression: Optional[CompressionType] = None
+    priority: Optional[int] = None
+    signalsToCollect: Optional[Sequence[SignalInformationTypeDef]] = None
+    dataExtraDimensions: Optional[Sequence[str]] = None
+    tags: Optional[Sequence[TagTypeDef]] = None
+    dataDestinationConfigs: Optional[Sequence[DataDestinationConfigTypeDef]] = None
+    dataPartitions: Optional[Sequence[DataPartitionTypeDef]] = None
+    signalsToFetch: Optional[Sequence[SignalFetchInformationUnionTypeDef]] = None
+
+
+class StructuredMessageUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class MessageSignalTypeDef(BaseValidatorModel):
+    topicName: str
+    structuredMessage: StructuredMessageUnionTypeDef
+
+
+class SignalDecoderOutputTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListDecoderManifestSignalsResponseTypeDef(BaseValidatorModel):
+    signalDecoders: List[SignalDecoderOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class SignalDecoderPaginatorTypeDef(BaseValidatorModel):
+    pass
+
+
+class ListDecoderManifestSignalsResponsePaginatorTypeDef(BaseValidatorModel):
+    signalDecoders: List[SignalDecoderPaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class StateTemplateAssociationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateVehicleRequestItemTypeDef(BaseValidatorModel):
+    vehicleName: str
+    modelManifestArn: str
+    decoderManifestArn: str
+    attributes: Optional[Mapping[str, str]] = None
+    associationBehavior: Optional[VehicleAssociationBehaviorType] = None
+    tags: Optional[Sequence[TagTypeDef]] = None
+    stateTemplates: Optional[Sequence[StateTemplateAssociationUnionTypeDef]] = None
+
+
+class CreateVehicleRequestTypeDef(BaseValidatorModel):
+    vehicleName: str
+    modelManifestArn: str
+    decoderManifestArn: str
+    attributes: Optional[Mapping[str, str]] = None
+    associationBehavior: Optional[VehicleAssociationBehaviorType] = None
+    tags: Optional[Sequence[TagTypeDef]] = None
+    stateTemplates: Optional[Sequence[StateTemplateAssociationUnionTypeDef]] = None
+
+
+class UpdateVehicleRequestItemTypeDef(BaseValidatorModel):
+    vehicleName: str
+    modelManifestArn: Optional[str] = None
+    decoderManifestArn: Optional[str] = None
+    attributes: Optional[Mapping[str, str]] = None
+    attributeUpdateMode: Optional[UpdateModeType] = None
+    stateTemplatesToAdd: Optional[Sequence[StateTemplateAssociationUnionTypeDef]] = None
+    stateTemplatesToRemove: Optional[Sequence[str]] = None
+
+
+class UpdateVehicleRequestTypeDef(BaseValidatorModel):
+    vehicleName: str
+    modelManifestArn: Optional[str] = None
+    decoderManifestArn: Optional[str] = None
+    attributes: Optional[Mapping[str, str]] = None
+    attributeUpdateMode: Optional[UpdateModeType] = None
+    stateTemplatesToAdd: Optional[Sequence[StateTemplateAssociationUnionTypeDef]] = None
+    stateTemplatesToRemove: Optional[Sequence[str]] = None
+
+
+class BatchCreateVehicleRequestTypeDef(BaseValidatorModel):
+    vehicles: Sequence[CreateVehicleRequestItemTypeDef]
+
+
+class BatchUpdateVehicleRequestTypeDef(BaseValidatorModel):
+    vehicles: Sequence[UpdateVehicleRequestItemTypeDef]
+
+
+class SignalDecoderUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateDecoderManifestRequestTypeDef(BaseValidatorModel):
+    name: str
+    modelManifestArn: str
+    description: Optional[str] = None
+    signalDecoders: Optional[Sequence[SignalDecoderUnionTypeDef]] = None
+    networkInterfaces: Optional[Sequence[NetworkInterfaceTypeDef]] = None
+    defaultForUnmappedSignals: Optional[Literal["CUSTOM_DECODING"]] = None
+    tags: Optional[Sequence[TagTypeDef]] = None
+
+
+class UpdateDecoderManifestRequestTypeDef(BaseValidatorModel):
+    name: str
+    description: Optional[str] = None
+    signalDecodersToAdd: Optional[Sequence[SignalDecoderUnionTypeDef]] = None
+    signalDecodersToUpdate: Optional[Sequence[SignalDecoderUnionTypeDef]] = None
+    signalDecodersToRemove: Optional[Sequence[str]] = None
+    networkInterfacesToAdd: Optional[Sequence[NetworkInterfaceTypeDef]] = None
+    networkInterfacesToUpdate: Optional[Sequence[NetworkInterfaceTypeDef]] = None
+    networkInterfacesToRemove: Optional[Sequence[str]] = None
+    status: Optional[ManifestStatusType] = None
+    defaultForUnmappedSignals: Optional[Literal["CUSTOM_DECODING"]] = None
+
 

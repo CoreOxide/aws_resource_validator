@@ -10,12 +10,26 @@ ComparisonOperatorTypeType = Literal["GreaterThanOrEqualToThreshold",
     "GreaterThanThreshold",
     "LessThanOrEqualToThreshold",
     "LessThanThreshold",]
-ComputeStatusType = Literal["ACTIVE", "PENDING", "TERMINATING"]
-ComputeTypeType = Literal["ANYWHERE", "CONTAINER", "EC2"]
+ComputeStatusType = Literal["ACTIVE", "IMPAIRED", "PENDING", "TERMINATING"]
+ComputeTypeType = Literal["ANYWHERE", "EC2"]
 ContainerDependencyConditionType = Literal["COMPLETE", "HEALTHY", "START", "SUCCESS"]
+ContainerFleetBillingTypeType = Literal["ON_DEMAND", "SPOT"]
+ContainerFleetLocationStatusType = Literal["ACTIVATING", "ACTIVE", "CREATED", "CREATING", "DELETING", "PENDING", "UPDATING"]
+ContainerFleetRemoveAttributeType = Literal["PER_INSTANCE_CONTAINER_GROUP_DEFINITION"]
+ContainerFleetStatusType = Literal["ACTIVATING", "ACTIVE", "CREATED", "CREATING", "DELETING", "PENDING", "UPDATING"]
 ContainerGroupDefinitionStatusType = Literal["COPYING", "FAILED", "READY"]
+ContainerGroupTypeType = Literal["GAME_SERVER", "PER_INSTANCE"]
+ContainerMountPointAccessLevelType = Literal["READ_AND_WRITE", "READ_ONLY"]
 ContainerOperatingSystemType = Literal["AMAZON_LINUX_2023"]
-ContainerSchedulingStrategyType = Literal["DAEMON", "REPLICA"]
+DeploymentImpairmentStrategyType = Literal["MAINTAIN", "ROLLBACK"]
+DeploymentProtectionStrategyType = Literal["IGNORE_PROTECTION", "WITH_PROTECTION"]
+DeploymentStatusType = Literal["CANCELLED",
+    "COMPLETE",
+    "IMPAIRED",
+    "IN_PROGRESS",
+    "PENDING",
+    "ROLLBACK_COMPLETE",
+    "ROLLBACK_IN_PROGRESS",]
 DescribeFleetAttributesPaginatorName = Literal["describe_fleet_attributes"]
 DescribeFleetCapacityPaginatorName = Literal["describe_fleet_capacity"]
 DescribeFleetEventsPaginatorName = Literal["describe_fleet_events"]
@@ -204,11 +218,14 @@ EC2InstanceTypeType = Literal["c3.2xlarge",
     "t2.medium",
     "t2.micro",
     "t2.small",]
-EventCodeType = Literal["FLEET_ACTIVATION_FAILED",
+EventCodeType = Literal["COMPUTE_LOG_UPLOAD_FAILED",
+    "FLEET_ACTIVATION_FAILED",
     "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
     "FLEET_BINARY_DOWNLOAD_FAILED",
     "FLEET_CREATED",
+    "FLEET_CREATION_COMPLETED_INSTALLER",
     "FLEET_CREATION_EXTRACTING_BUILD",
+    "FLEET_CREATION_FAILED_INSTALLER",
     "FLEET_CREATION_RUNNING_INSTALLER",
     "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
     "FLEET_DELETED",
@@ -218,8 +235,12 @@ EventCodeType = Literal["FLEET_ACTIVATION_FAILED",
     "FLEET_STATE_ACTIVATING",
     "FLEET_STATE_ACTIVE",
     "FLEET_STATE_BUILDING",
+    "FLEET_STATE_CREATED",
+    "FLEET_STATE_CREATING",
     "FLEET_STATE_DOWNLOADING",
     "FLEET_STATE_ERROR",
+    "FLEET_STATE_PENDING",
+    "FLEET_STATE_UPDATING",
     "FLEET_STATE_VALIDATING",
     "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
     "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
@@ -227,15 +248,30 @@ EventCodeType = Literal["FLEET_ACTIVATION_FAILED",
     "FLEET_VPC_PEERING_DELETED",
     "FLEET_VPC_PEERING_FAILED",
     "FLEET_VPC_PEERING_SUCCEEDED",
+    "GAME_SERVER_CONTAINER_GROUP_CRASHED",
+    "GAME_SERVER_CONTAINER_GROUP_REPLACED_UNHEALTHY",
     "GAME_SESSION_ACTIVATION_TIMEOUT",
     "GENERIC_EVENT",
     "INSTANCE_INTERRUPTED",
     "INSTANCE_RECYCLED",
+    "INSTANCE_REPLACED_UNHEALTHY",
+    "LOCATION_STATE_ACTIVATING",
+    "LOCATION_STATE_ACTIVE",
+    "LOCATION_STATE_CREATED",
+    "LOCATION_STATE_CREATING",
+    "LOCATION_STATE_DELETED",
+    "LOCATION_STATE_DELETING",
+    "LOCATION_STATE_ERROR",
+    "LOCATION_STATE_PENDING",
+    "LOCATION_STATE_UPDATING",
+    "PER_INSTANCE_CONTAINER_GROUP_CRASHED",
     "SERVER_PROCESS_CRASHED",
     "SERVER_PROCESS_FORCE_TERMINATED",
     "SERVER_PROCESS_INVALID_PATH",
+    "SERVER_PROCESS_MISCONFIGURED_CONTAINER_PORT",
     "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
     "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
+    "SERVER_PROCESS_SDK_INITIALIZATION_FAILED",
     "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
     "SERVER_PROCESS_TERMINATED_UNHEALTHY",]
 FilterInstanceStatusType = Literal["ACTIVE", "DRAINING"]
@@ -349,15 +385,19 @@ GameServerInstanceStatusType = Literal["ACTIVE", "DRAINING", "SPOT_TERMINATING"]
 GameServerProtectionPolicyType = Literal["FULL_PROTECTION", "NO_PROTECTION"]
 GameServerUtilizationStatusType = Literal["AVAILABLE", "UTILIZED"]
 GameSessionPlacementStateType = Literal["CANCELLED", "FAILED", "FULFILLED", "PENDING", "TIMED_OUT"]
-GameSessionStatusReasonType = Literal["INTERRUPTED"]
+GameSessionStatusReasonType = Literal["FORCE_TERMINATED", "INTERRUPTED", "TRIGGERED_ON_PROCESS_TERMINATE"]
 GameSessionStatusType = Literal["ACTIVATING", "ACTIVE", "ERROR", "TERMINATED", "TERMINATING"]
 InstanceRoleCredentialsProviderType = Literal["SHARED_CREDENTIAL_FILE"]
 InstanceStatusType = Literal["ACTIVE", "PENDING", "TERMINATING"]
 IpProtocolType = Literal["TCP", "UDP"]
 ListAliasesPaginatorName = Literal["list_aliases"]
 ListBuildsPaginatorName = Literal["list_builds"]
+ListComputeInputStatusType = Literal["ACTIVE", "IMPAIRED"]
 ListComputePaginatorName = Literal["list_compute"]
+ListContainerFleetsPaginatorName = Literal["list_container_fleets"]
+ListContainerGroupDefinitionVersionsPaginatorName = Literal["list_container_group_definition_versions"]
 ListContainerGroupDefinitionsPaginatorName = Literal["list_container_group_definitions"]
+ListFleetDeploymentsPaginatorName = Literal["list_fleet_deployments"]
 ListFleetsPaginatorName = Literal["list_fleets"]
 ListGameServerGroupsPaginatorName = Literal["list_game_server_groups"]
 ListGameServersPaginatorName = Literal["list_game_servers"]
@@ -365,6 +405,7 @@ ListLocationsPaginatorName = Literal["list_locations"]
 ListScriptsPaginatorName = Literal["list_scripts"]
 LocationFilterType = Literal["AWS", "CUSTOM"]
 LocationUpdateStatusType = Literal["PENDING_UPDATE"]
+LogDestinationType = Literal["CLOUDWATCH", "NONE", "S3"]
 MatchmakingConfigurationStatusType = Literal["CANCELLED",
     "COMPLETED",
     "FAILED",
@@ -386,6 +427,7 @@ MetricNameType = Literal["ActivatingGameSessions",
     "QueueDepth",
     "WaitTime",]
 OperatingSystemType = Literal["AMAZON_LINUX", "AMAZON_LINUX_2", "AMAZON_LINUX_2023", "WINDOWS_2012", "WINDOWS_2016"]
+PlacementFallbackStrategyType = Literal["DEFAULT_AFTER_SINGLE_PASS", "NONE"]
 PlayerSessionCreationPolicyType = Literal["ACCEPT_ALL", "DENY_ALL"]
 PlayerSessionStatusType = Literal["ACTIVE", "COMPLETED", "RESERVED", "TIMEDOUT"]
 PolicyTypeType = Literal["RuleBased", "TargetBased"]
@@ -396,6 +438,7 @@ ScalingAdjustmentTypeType = Literal["ChangeInCapacity", "ExactCapacity", "Percen
 ScalingStatusTypeType = Literal["ACTIVE", "DELETED", "DELETE_REQUESTED", "DELETING", "ERROR", "UPDATE_REQUESTED", "UPDATING"]
 SearchGameSessionsPaginatorName = Literal["search_game_sessions"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
+TerminationModeType = Literal["FORCE_TERMINATE", "TRIGGER_ON_PROCESS_TERMINATE"]
 GameLiftServiceName = Literal["gamelift"]
 ServiceName = Literal["accessanalyzer",
     "account",
@@ -431,12 +474,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -473,7 +521,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -486,6 +533,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -511,6 +559,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -522,7 +572,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -546,6 +595,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -564,11 +616,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -623,6 +674,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -642,7 +694,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -650,10 +701,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -663,10 +717,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -712,6 +768,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -724,6 +781,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -741,10 +799,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -776,7 +836,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -809,7 +868,10 @@ PaginatorName = Literal["describe_fleet_attributes",
     "list_aliases",
     "list_builds",
     "list_compute",
+    "list_container_fleets",
+    "list_container_group_definition_versions",
     "list_container_group_definitions",
+    "list_fleet_deployments",
     "list_fleets",
     "list_game_server_groups",
     "list_game_servers",
@@ -837,9 +899,3 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]]
-TimestampTypeDef = Union[datetime, str]
-FilterConfigurationUnionTypeDef = Union[   'FilterConfigurationTypeDef', 'FilterConfigurationExtraOutputTypeDef' ]
-PriorityConfigurationUnionTypeDef = Union[   'PriorityConfigurationTypeDef', 'PriorityConfigurationExtraOutputTypeDef' ]
-PlayerUnionTypeDef = Union['PlayerTypeDef', 'PlayerOutputTypeDef']
-RuntimeConfigurationUnionTypeDef = Union[   'RuntimeConfigurationTypeDef', 'RuntimeConfigurationOutputTypeDef' ]

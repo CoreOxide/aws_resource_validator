@@ -4,10 +4,14 @@ from datetime import datetime
 APISchemaTypeType = Literal["OPEN_API_V3"]
 ActionPayloadFieldTypeType = Literal["ARRAY", "BOOLEAN", "NUMBER", "STRING"]
 ApplicationStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
-AttachmentStatusType = Literal["FAILED", "SUCCEEDED"]
+AttachmentStatusType = Literal["FAILED", "SUCCESS"]
 AttachmentsControlModeType = Literal["DISABLED", "ENABLED"]
 AttributeTypeType = Literal["DATE", "NUMBER", "STRING", "STRING_LIST"]
 AttributeValueOperatorType = Literal["DELETE"]
+AudioExtractionStatusType = Literal["DISABLED", "ENABLED"]
+AudioExtractionTypeType = Literal["SUMMARY", "TRANSCRIPT"]
+AutoSubscriptionStatusType = Literal["DISABLED", "ENABLED"]
+BrowserExtensionType = Literal["CHROME", "FIREFOX"]
 ChatModeType = Literal["CREATOR_MODE", "PLUGIN_MODE", "RETRIEVAL_MODE"]
 ContentTypeType = Literal["CSV",
     "HTML",
@@ -48,18 +52,26 @@ DocumentStatusType = Literal["DELETED",
 ErrorCodeType = Literal["InternalError", "InvalidRequest", "ResourceInactive", "ResourceNotFound"]
 GetChatControlsConfigurationPaginatorName = Literal["get_chat_controls_configuration"]
 GroupStatusType = Literal["DELETED", "DELETING", "FAILED", "PROCESSING", "SUCCEEDED"]
+IdentityTypeType = Literal["AWS_IAM_IDC", "AWS_IAM_IDP_OIDC", "AWS_IAM_IDP_SAML", "AWS_QUICKSIGHT_IDP"]
+ImageExtractionStatusType = Literal["DISABLED", "ENABLED"]
 IndexStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
 IndexTypeType = Literal["ENTERPRISE", "STARTER"]
 ListApplicationsPaginatorName = Literal["list_applications"]
+ListAttachmentsPaginatorName = Literal["list_attachments"]
 ListConversationsPaginatorName = Literal["list_conversations"]
+ListDataAccessorsPaginatorName = Literal["list_data_accessors"]
 ListDataSourceSyncJobsPaginatorName = Literal["list_data_source_sync_jobs"]
 ListDataSourcesPaginatorName = Literal["list_data_sources"]
 ListDocumentsPaginatorName = Literal["list_documents"]
 ListGroupsPaginatorName = Literal["list_groups"]
 ListIndicesPaginatorName = Literal["list_indices"]
 ListMessagesPaginatorName = Literal["list_messages"]
+ListPluginActionsPaginatorName = Literal["list_plugin_actions"]
+ListPluginTypeActionsPaginatorName = Literal["list_plugin_type_actions"]
+ListPluginTypeMetadataPaginatorName = Literal["list_plugin_type_metadata"]
 ListPluginsPaginatorName = Literal["list_plugins"]
 ListRetrieversPaginatorName = Literal["list_retrievers"]
+ListSubscriptionsPaginatorName = Literal["list_subscriptions"]
 ListWebExperiencesPaginatorName = Literal["list_web_experiences"]
 MemberRelationType = Literal["AND", "OR"]
 MembershipTypeType = Literal["DATASOURCE", "INDEX"]
@@ -78,6 +90,7 @@ MessageUsefulnessReasonType = Literal["COMPLETE",
     "RELEVANT_SOURCES",]
 MessageUsefulnessType = Literal["NOT_USEFUL", "USEFUL"]
 NumberAttributeBoostingTypeType = Literal["PRIORITIZE_LARGER_VALUES", "PRIORITIZE_SMALLER_VALUES"]
+OrchestrationControlType = Literal["DISABLED", "ENABLED"]
 PersonalizationControlModeType = Literal["DISABLED", "ENABLED"]
 PluginBuildStatusType = Literal["CREATE_FAILED",
     "CREATE_IN_PROGRESS",
@@ -87,15 +100,41 @@ PluginBuildStatusType = Literal["CREATE_FAILED",
     "UPDATE_FAILED",
     "UPDATE_IN_PROGRESS",]
 PluginStateType = Literal["DISABLED", "ENABLED"]
-PluginTypeType = Literal["CUSTOM", "JIRA", "SALESFORCE", "SERVICE_NOW", "ZENDESK"]
+PluginTypeCategoryType = Literal["Communication",
+    "Customer relationship management (CRM)",
+    "Productivity",
+    "Project management",
+    "Ticketing and incident management",]
+PluginTypeType = Literal["ASANA",
+    "ATLASSIAN_CONFLUENCE",
+    "CUSTOM",
+    "GOOGLE_CALENDAR",
+    "JIRA",
+    "JIRA_CLOUD",
+    "MICROSOFT_EXCHANGE",
+    "MICROSOFT_TEAMS",
+    "PAGERDUTY_ADVANCE",
+    "QUICKSIGHT",
+    "SALESFORCE",
+    "SALESFORCE_CRM",
+    "SERVICENOW_NOW_PLATFORM",
+    "SERVICE_NOW",
+    "SMARTSHEET",
+    "ZENDESK",
+    "ZENDESK_SUITE",]
 QAppsControlModeType = Literal["DISABLED", "ENABLED"]
 ReadAccessTypeType = Literal["ALLOW", "DENY"]
 ResponseScopeType = Literal["ENTERPRISE_CONTENT_ONLY", "EXTENDED_KNOWLEDGE_ENABLED"]
 RetrieverStatusType = Literal["ACTIVE", "CREATING", "FAILED"]
 RetrieverTypeType = Literal["KENDRA_INDEX", "NATIVE_INDEX"]
 RuleTypeType = Literal["CONTENT_BLOCKER_RULE", "CONTENT_RETRIEVAL_RULE"]
+ScoreConfidenceType = Literal["HIGH", "LOW", "MEDIUM", "NOT_AVAILABLE", "VERY_HIGH"]
+SearchRelevantContentPaginatorName = Literal["search_relevant_content"]
 StatusType = Literal["DISABLED", "ENABLED"]
 StringAttributeValueBoostingLevelType = Literal["HIGH", "LOW", "MEDIUM", "VERY_HIGH"]
+SubscriptionTypeType = Literal["Q_BUSINESS", "Q_LITE"]
+VideoExtractionStatusType = Literal["DISABLED", "ENABLED"]
+VideoExtractionTypeType = Literal["SUMMARY", "TRANSCRIPT"]
 WebExperienceSamplePromptsControlModeType = Literal["DISABLED", "ENABLED"]
 WebExperienceStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "PENDING_AUTH_CONFIG"]
 QBusinessServiceName = Literal["qbusiness"]
@@ -133,12 +172,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -175,7 +219,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -188,6 +231,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -213,6 +257,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -224,7 +270,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -248,6 +293,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -266,11 +314,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -325,6 +372,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -344,7 +392,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -352,10 +399,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -365,10 +415,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -382,6 +434,7 @@ ServiceName = Literal["accessanalyzer",
     "pricing",
     "privatenetworks",
     "proton",
+    "qapps",
     "qbusiness",
     "qconnect",
     "qldb",
@@ -413,6 +466,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -425,6 +479,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -442,10 +497,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -477,7 +534,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -496,16 +552,23 @@ ResourceServiceName = Literal["cloudformation",
     "sqs",]
 PaginatorName = Literal["get_chat_controls_configuration",
     "list_applications",
+    "list_attachments",
     "list_conversations",
+    "list_data_accessors",
     "list_data_source_sync_jobs",
     "list_data_sources",
     "list_documents",
     "list_groups",
     "list_indices",
     "list_messages",
+    "list_plugin_actions",
+    "list_plugin_type_actions",
+    "list_plugin_type_metadata",
     "list_plugins",
     "list_retrievers",
-    "list_web_experiences",]
+    "list_subscriptions",
+    "list_web_experiences",
+    "search_relevant_content",]
 RegionName = Literal["af-south-1",
     "ap-east-1",
     "ap-northeast-1",
@@ -517,6 +580,8 @@ RegionName = Literal["af-south-1",
     "ap-southeast-2",
     "ap-southeast-3",
     "ap-southeast-4",
+    "ap-southeast-5",
+    "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",
     "eu-central-1",
@@ -530,16 +595,9 @@ RegionName = Literal["af-south-1",
     "il-central-1",
     "me-central-1",
     "me-south-1",
+    "mx-central-1",
     "sa-east-1",
     "us-east-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]]
-TimestampTypeDef = Union[datetime, str]
-DataSourceVpcConfigurationUnionTypeDef = Union[   'DataSourceVpcConfigurationTypeDef', 'DataSourceVpcConfigurationOutputTypeDef' ]
-ActionExecutionUnionTypeDef = Union['ActionExecutionTypeDef', 'ActionExecutionExtraOutputTypeDef']
-PluginAuthConfigurationUnionTypeDef = Union[   'PluginAuthConfigurationTypeDef', 'PluginAuthConfigurationOutputTypeDef' ]
-RetrieverConfigurationUnionTypeDef = Union[   'RetrieverConfigurationTypeDef', 'RetrieverConfigurationOutputTypeDef' ]
-TopicConfigurationUnionTypeDef = Union[   'TopicConfigurationTypeDef', 'TopicConfigurationExtraOutputTypeDef' ]
-DocumentEnrichmentConfigurationUnionTypeDef = Union[   'DocumentEnrichmentConfigurationTypeDef', 'DocumentEnrichmentConfigurationOutputTypeDef' ]

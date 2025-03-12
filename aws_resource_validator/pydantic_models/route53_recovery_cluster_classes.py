@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,25 +12,29 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.route53_recovery_cluster_constants import *
 
-class GetRoutingControlStateRequestRequestTypeDef(BaseValidatorModel):
+class GetRoutingControlStateRequestTypeDef(BaseValidatorModel):
     RoutingControlArn: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListRoutingControlsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRoutingControlsRequestTypeDef(BaseValidatorModel):
     ControlPanelArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class RoutingControlTypeDef(BaseValidatorModel):
     ControlPanelArn: Optional[str] = None
@@ -39,14 +44,17 @@ class RoutingControlTypeDef(BaseValidatorModel):
     RoutingControlState: Optional[RoutingControlStateType] = None
     Owner: Optional[str] = None
 
+
 class UpdateRoutingControlStateEntryTypeDef(BaseValidatorModel):
     RoutingControlArn: str
     RoutingControlState: RoutingControlStateType
 
-class UpdateRoutingControlStateRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRoutingControlStateRequestTypeDef(BaseValidatorModel):
     RoutingControlArn: str
     RoutingControlState: RoutingControlStateType
     SafetyRulesToOverride: Optional[Sequence[str]] = None
+
 
 class GetRoutingControlStateResponseTypeDef(BaseValidatorModel):
     RoutingControlArn: str
@@ -54,16 +62,20 @@ class GetRoutingControlStateResponseTypeDef(BaseValidatorModel):
     RoutingControlName: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRoutingControlsRequestListRoutingControlsPaginateTypeDef(BaseValidatorModel):
+
+class ListRoutingControlsRequestPaginateTypeDef(BaseValidatorModel):
     ControlPanelArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
 class ListRoutingControlsResponseTypeDef(BaseValidatorModel):
     RoutingControls: List[RoutingControlTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class UpdateRoutingControlStatesRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRoutingControlStatesRequestTypeDef(BaseValidatorModel):
     UpdateRoutingControlStateEntries: Sequence[UpdateRoutingControlStateEntryTypeDef]
     SafetyRulesToOverride: Optional[Sequence[str]] = None
+
 

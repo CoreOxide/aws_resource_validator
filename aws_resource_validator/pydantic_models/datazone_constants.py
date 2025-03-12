@@ -3,8 +3,37 @@ from datetime import datetime
 
 AcceptRuleBehaviorType = Literal["ALL", "NONE"]
 AuthTypeType = Literal["DISABLED", "IAM_IDC"]
+AuthenticationTypeType = Literal["BASIC", "CUSTOM", "OAUTH2"]
 ChangeActionType = Literal["PUBLISH", "UNPUBLISH"]
+ComputeEnvironmentsType = Literal["ATHENA", "PYTHON", "SPARK"]
 ConfigurableActionTypeAuthorizationType = Literal["HTTPS", "IAM"]
+ConnectionStatusType = Literal["CREATE_FAILED",
+    "CREATING",
+    "DELETED",
+    "DELETE_FAILED",
+    "DELETING",
+    "READY",
+    "UPDATE_FAILED",
+    "UPDATING",]
+ConnectionTypeType = Literal["ATHENA",
+    "BIGQUERY",
+    "DATABRICKS",
+    "DOCUMENTDB",
+    "DYNAMODB",
+    "HYPERPOD",
+    "IAM",
+    "MYSQL",
+    "OPENSEARCH",
+    "ORACLE",
+    "POSTGRESQL",
+    "REDSHIFT",
+    "SAPHANA",
+    "SNOWFLAKE",
+    "SPARK",
+    "SQLSERVER",
+    "TERADATA",
+    "VERTICA",
+    "WORKFLOWS_MWAA",]
 DataAssetActivityStatusType = Literal["FAILED",
     "PUBLISHING_FAILED",
     "SKIPPED_ALREADY_IMPORTED",
@@ -13,6 +42,8 @@ DataAssetActivityStatusType = Literal["FAILED",
     "SUCCEEDED_CREATED",
     "SUCCEEDED_UPDATED",
     "UNCHANGED",]
+DataProductItemTypeType = Literal["ASSET"]
+DataProductStatusType = Literal["CREATED", "CREATE_FAILED", "CREATING"]
 DataSourceErrorTypeType = Literal["ACCESS_DENIED_EXCEPTION",
     "CONFLICT_EXCEPTION",
     "INTERNAL_SERVER_EXCEPTION",
@@ -30,12 +61,16 @@ DataSourceStatusType = Literal["CREATING",
     "READY",
     "RUNNING",
     "UPDATING",]
+DataZoneEntityTypeType = Literal["DOMAIN_UNIT"]
+DeploymentModeType = Literal["ON_CREATE", "ON_DEMAND"]
 DeploymentStatusType = Literal["FAILED", "IN_PROGRESS", "PENDING_DEPLOYMENT", "SUCCESSFUL"]
 DeploymentTypeType = Literal["CREATE", "DELETE", "UPDATE"]
 DomainStatusType = Literal["AVAILABLE", "CREATING", "CREATION_FAILED", "DELETED", "DELETING", "DELETION_FAILED"]
+DomainUnitDesignationType = Literal["OWNER"]
+DomainVersionType = Literal["V1", "V2"]
 EdgeDirectionType = Literal["DOWNSTREAM", "UPSTREAM"]
 EnableSettingType = Literal["DISABLED", "ENABLED"]
-EntityTypeType = Literal["ASSET"]
+EntityTypeType = Literal["ASSET", "DATA_PRODUCT"]
 EnvironmentStatusType = Literal["ACTIVE",
     "CREATE_FAILED",
     "CREATING",
@@ -50,41 +85,101 @@ EnvironmentStatusType = Literal["ACTIVE",
     "UPDATING",
     "VALIDATION_FAILED",]
 FilterExpressionTypeType = Literal["EXCLUDE", "INCLUDE"]
+FilterStatusType = Literal["INVALID", "VALID"]
 FormTypeStatusType = Literal["DISABLED", "ENABLED"]
 GlossaryStatusType = Literal["DISABLED", "ENABLED"]
 GlossaryTermStatusType = Literal["DISABLED", "ENABLED"]
+GlueConnectionTypeType = Literal["BIGQUERY",
+    "DOCUMENTDB",
+    "DYNAMODB",
+    "MYSQL",
+    "OPENSEARCH",
+    "ORACLE",
+    "POSTGRESQL",
+    "REDSHIFT",
+    "SAPHANA",
+    "SNOWFLAKE",
+    "SQLSERVER",
+    "TERADATA",
+    "VERTICA",]
+GovernanceTypeType = Literal["AWS_MANAGED", "USER_MANAGED"]
 GroupProfileStatusType = Literal["ASSIGNED", "NOT_ASSIGNED"]
 GroupSearchTypeType = Literal["DATAZONE_SSO_GROUP", "SSO_GROUP"]
-InventorySearchScopeType = Literal["ASSET", "GLOSSARY", "GLOSSARY_TERM"]
+HyperPodOrchestratorType = Literal["EKS", "SLURM"]
+InventorySearchScopeType = Literal["ASSET", "DATA_PRODUCT", "GLOSSARY", "GLOSSARY_TERM"]
+JobRunModeType = Literal["ON_DEMAND", "SCHEDULED"]
+JobRunStatusType = Literal["ABORTED",
+    "CANCELED",
+    "FAILED",
+    "IN_PROGRESS",
+    "PARTIALLY_SUCCEEDED",
+    "SCHEDULED",
+    "SUCCESS",
+    "TIMED_OUT",]
+JobTypeType = Literal["LINEAGE"]
+LineageEventProcessingStatusType = Literal["FAILED", "PROCESSING", "REQUESTED", "SUCCESS"]
+LineageImportStatusType = Literal["FAILED", "IN_PROGRESS", "PARTIALLY_SUCCEEDED", "SUCCESS"]
+ListAssetFiltersPaginatorName = Literal["list_asset_filters"]
 ListAssetRevisionsPaginatorName = Literal["list_asset_revisions"]
+ListConnectionsPaginatorName = Literal["list_connections"]
+ListDataProductRevisionsPaginatorName = Literal["list_data_product_revisions"]
 ListDataSourceRunActivitiesPaginatorName = Literal["list_data_source_run_activities"]
 ListDataSourceRunsPaginatorName = Literal["list_data_source_runs"]
 ListDataSourcesPaginatorName = Literal["list_data_sources"]
+ListDomainUnitsForParentPaginatorName = Literal["list_domain_units_for_parent"]
 ListDomainsPaginatorName = Literal["list_domains"]
+ListEntityOwnersPaginatorName = Literal["list_entity_owners"]
 ListEnvironmentActionsPaginatorName = Literal["list_environment_actions"]
 ListEnvironmentBlueprintConfigurationsPaginatorName = Literal["list_environment_blueprint_configurations"]
 ListEnvironmentBlueprintsPaginatorName = Literal["list_environment_blueprints"]
 ListEnvironmentProfilesPaginatorName = Literal["list_environment_profiles"]
 ListEnvironmentsPaginatorName = Literal["list_environments"]
+ListJobRunsPaginatorName = Literal["list_job_runs"]
+ListLineageEventsPaginatorName = Literal["list_lineage_events"]
 ListLineageNodeHistoryPaginatorName = Literal["list_lineage_node_history"]
 ListMetadataGenerationRunsPaginatorName = Literal["list_metadata_generation_runs"]
 ListNotificationsPaginatorName = Literal["list_notifications"]
+ListPolicyGrantsPaginatorName = Literal["list_policy_grants"]
 ListProjectMembershipsPaginatorName = Literal["list_project_memberships"]
+ListProjectProfilesPaginatorName = Literal["list_project_profiles"]
 ListProjectsPaginatorName = Literal["list_projects"]
+ListRulesPaginatorName = Literal["list_rules"]
 ListSubscriptionGrantsPaginatorName = Literal["list_subscription_grants"]
 ListSubscriptionRequestsPaginatorName = Literal["list_subscription_requests"]
 ListSubscriptionTargetsPaginatorName = Literal["list_subscription_targets"]
 ListSubscriptionsPaginatorName = Literal["list_subscriptions"]
 ListTimeSeriesDataPointsPaginatorName = Literal["list_time_series_data_points"]
 ListingStatusType = Literal["ACTIVE", "CREATING", "INACTIVE"]
+ManagedPolicyTypeType = Literal["ADD_TO_PROJECT_MEMBER_POOL",
+    "CREATE_ASSET_TYPE",
+    "CREATE_DOMAIN_UNIT",
+    "CREATE_ENVIRONMENT",
+    "CREATE_ENVIRONMENT_FROM_BLUEPRINT",
+    "CREATE_ENVIRONMENT_PROFILE",
+    "CREATE_FORM_TYPE",
+    "CREATE_GLOSSARY",
+    "CREATE_PROJECT",
+    "CREATE_PROJECT_FROM_PROJECT_PROFILE",
+    "DELEGATE_CREATE_ENVIRONMENT_PROFILE",
+    "OVERRIDE_DOMAIN_UNIT_OWNERS",
+    "OVERRIDE_PROJECT_OWNERS",]
 MetadataGenerationRunStatusType = Literal["CANCELED", "FAILED", "IN_PROGRESS", "SUBMITTED", "SUCCEEDED"]
 MetadataGenerationRunTypeType = Literal["BUSINESS_DESCRIPTIONS"]
 MetadataGenerationTargetTypeType = Literal["ASSET"]
 NotificationResourceTypeType = Literal["PROJECT"]
 NotificationRoleType = Literal["DOMAIN_OWNER", "PROJECT_CONTRIBUTOR", "PROJECT_OWNER", "PROJECT_SUBSCRIBER", "PROJECT_VIEWER"]
 NotificationTypeType = Literal["EVENT", "TASK"]
+OAuth2GrantTypeType = Literal["AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "JWT_BEARER"]
+OpenLineageRunStateType = Literal["ABORT", "COMPLETE", "FAIL", "OTHER", "RUNNING", "START"]
+OverallDeploymentStatusType = Literal["FAILED_DEPLOYMENT", "FAILED_VALIDATION", "IN_PROGRESS", "PENDING_DEPLOYMENT", "SUCCESSFUL"]
+ProjectDesignationType = Literal["CONTRIBUTOR", "OWNER", "PROJECT_CATALOG_STEWARD"]
 ProjectStatusType = Literal["ACTIVE", "DELETE_FAILED", "DELETING"]
+ProtocolType = Literal["ATHENA", "GLUE_INTERACTIVE_SESSION", "HTTPS", "JDBC", "LIVY", "ODBC", "PRISM"]
 RejectRuleBehaviorType = Literal["ALL", "NONE"]
+RuleActionType = Literal["CREATE_SUBSCRIPTION_REQUEST"]
+RuleScopeSelectionModeType = Literal["ALL", "SPECIFIC"]
+RuleTargetTypeType = Literal["DOMAIN_UNIT"]
+RuleTypeType = Literal["METADATA_FORM_ENFORCEMENT"]
 SearchGroupProfilesPaginatorName = Literal["search_group_profiles"]
 SearchListingsPaginatorName = Literal["search_listings"]
 SearchOutputAdditionalAttributeType = Literal["FORMS", "TIME_SERIES_DATA_POINT_FORMS"]
@@ -98,9 +193,11 @@ SelfGrantStatusType = Literal["GRANTED",
     "REVOKE_FAILED",
     "REVOKE_IN_PROGRESS",
     "REVOKE_PENDING",]
+SortFieldConnectionType = Literal["NAME"]
 SortFieldProjectType = Literal["NAME"]
 SortKeyType = Literal["CREATED_AT", "UPDATED_AT"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
+StatusType = Literal["DISABLED", "ENABLED"]
 SubscriptionGrantOverallStatusType = Literal["COMPLETED",
     "GRANT_AND_REVOKE_FAILED",
     "GRANT_FAILED",
@@ -118,6 +215,7 @@ SubscriptionGrantStatusType = Literal["GRANTED",
     "REVOKE_PENDING",]
 SubscriptionRequestStatusType = Literal["ACCEPTED", "PENDING", "REJECTED"]
 SubscriptionStatusType = Literal["APPROVED", "CANCELLED", "REVOKED"]
+TargetEntityTypeType = Literal["DOMAIN_UNIT", "ENVIRONMENT_BLUEPRINT_CONFIGURATION", "ENVIRONMENT_PROFILE"]
 TaskStatusType = Literal["ACTIVE", "INACTIVE"]
 TimeSeriesEntityTypeType = Literal["ASSET", "LISTING"]
 TimezoneType = Literal["AFRICA_JOHANNESBURG",
@@ -186,7 +284,11 @@ TimezoneType = Literal["AFRICA_JOHANNESBURG",
     "UTC",]
 TypesSearchScopeType = Literal["ASSET_TYPE", "FORM_TYPE", "LINEAGE_NODE_TYPE"]
 UserAssignmentType = Literal["AUTOMATIC", "MANUAL"]
-UserDesignationType = Literal["PROJECT_CONTRIBUTOR", "PROJECT_OWNER"]
+UserDesignationType = Literal["PROJECT_CATALOG_CONSUMER",
+    "PROJECT_CATALOG_STEWARD",
+    "PROJECT_CATALOG_VIEWER",
+    "PROJECT_CONTRIBUTOR",
+    "PROJECT_OWNER",]
 UserProfileStatusType = Literal["ACTIVATED", "ASSIGNED", "DEACTIVATED", "NOT_ASSIGNED"]
 UserProfileTypeType = Literal["IAM", "SSO"]
 UserSearchTypeType = Literal["DATAZONE_IAM_USER", "DATAZONE_SSO_USER", "DATAZONE_USER", "SSO_USER"]
@@ -226,12 +328,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -268,7 +375,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -281,6 +387,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -306,6 +413,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -317,7 +426,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -341,6 +449,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -359,11 +470,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -418,6 +528,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -437,7 +548,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -445,10 +555,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -458,10 +571,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -507,6 +622,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -519,6 +635,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -536,10 +653,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -571,7 +690,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -588,21 +706,31 @@ ResourceServiceName = Literal["cloudformation",
     "s3",
     "sns",
     "sqs",]
-PaginatorName = Literal["list_asset_revisions",
+PaginatorName = Literal["list_asset_filters",
+    "list_asset_revisions",
+    "list_connections",
+    "list_data_product_revisions",
     "list_data_source_run_activities",
     "list_data_source_runs",
     "list_data_sources",
+    "list_domain_units_for_parent",
     "list_domains",
+    "list_entity_owners",
     "list_environment_actions",
     "list_environment_blueprint_configurations",
     "list_environment_blueprints",
     "list_environment_profiles",
     "list_environments",
+    "list_job_runs",
+    "list_lineage_events",
     "list_lineage_node_history",
     "list_metadata_generation_runs",
     "list_notifications",
+    "list_policy_grants",
     "list_project_memberships",
+    "list_project_profiles",
     "list_projects",
+    "list_rules",
     "list_subscription_grants",
     "list_subscription_requests",
     "list_subscription_targets",
@@ -613,24 +741,21 @@ PaginatorName = Literal["list_asset_revisions",
     "search_listings",
     "search_types",
     "search_user_profiles",]
-RegionName = Literal["af-south-1",
-    "ap-east-1",
-    "ap-northeast-1",
+RegionName = Literal["ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
-    "ap-south-1",
     "ap-south-2",
     "ap-southeast-1",
     "ap-southeast-2",
     "ap-southeast-3",
     "ap-southeast-4",
+    "ap-southeast-5",
+    "ap-southeast-7",
     "ca-central-1",
     "ca-west-1",
     "eu-central-1",
-    "eu-central-2",
     "eu-north-1",
     "eu-south-1",
-    "eu-south-2",
     "eu-west-1",
     "eu-west-2",
     "eu-west-3",
@@ -642,6 +767,3 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]]
-TimestampTypeDef = Union[datetime, str]
-TermRelationsUnionTypeDef = Union['TermRelationsTypeDef', 'TermRelationsExtraOutputTypeDef']

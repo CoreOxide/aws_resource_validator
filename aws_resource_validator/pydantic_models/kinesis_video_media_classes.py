@@ -1,8 +1,6 @@
-from datetime import datetime
-
-from botocore.response import StreamingBody
-
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -16,15 +14,21 @@ from aws_resource_validator.pydantic_models.kinesis_video_media_constants import
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class GetMediaOutputTypeDef(BaseValidatorModel):
     ContentType: str
     Payload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class StartSelectorTypeDef(BaseValidatorModel):
     StartSelectorType: StartSelectorTypeType
@@ -32,8 +36,10 @@ class StartSelectorTypeDef(BaseValidatorModel):
     StartTimestamp: Optional[TimestampTypeDef] = None
     ContinuationToken: Optional[str] = None
 
-class GetMediaInputRequestTypeDef(BaseValidatorModel):
+
+class GetMediaInputTypeDef(BaseValidatorModel):
     StartSelector: StartSelectorTypeDef
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
+
 

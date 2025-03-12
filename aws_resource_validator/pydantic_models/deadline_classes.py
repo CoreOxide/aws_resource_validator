@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,76 +12,82 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.deadline_constants import *
 
-class AcceleratorCountRangeTypeDef(BaseValidatorModel):
-    min: int
-    max: Optional[int] = None
+class AcceleratorSelectionTypeDef(BaseValidatorModel):
+    name: AcceleratorNameType
+    runtime: Optional[str] = None
 
-class AcceleratorTotalMemoryMiBRangeTypeDef(BaseValidatorModel):
-    min: int
-    max: Optional[int] = None
+
+class AcquiredLimitTypeDef(BaseValidatorModel):
+    limitId: str
+    count: int
+
 
 class AssignedEnvironmentEnterSessionActionDefinitionTypeDef(BaseValidatorModel):
     environmentId: str
 
+
 class AssignedEnvironmentExitSessionActionDefinitionTypeDef(BaseValidatorModel):
     environmentId: str
+
 
 class AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef(BaseValidatorModel):
     stepId: Optional[str] = None
 
+
 class LogConfigurationTypeDef(BaseValidatorModel):
     logDriver: str
-    error: Optional[str] = None
     options: Optional[Dict[str, str]] = None
     parameters: Optional[Dict[str, str]] = None
+    error: Optional[str] = None
 
-class TaskParameterValueTypeDef(BaseValidatorModel):
-    float: Optional[str] = None
-    int: Optional[str] = None
-    path: Optional[str] = None
-    string: Optional[str] = None
 
-class AssociateMemberToFarmRequestRequestTypeDef(BaseValidatorModel):
+class AssociateMemberToFarmRequestTypeDef(BaseValidatorModel):
     farmId: str
-    identityStoreId: str
-    membershipLevel: MembershipLevelType
     principalId: str
     principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
 
-class AssociateMemberToFleetRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateMemberToFleetRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
-    identityStoreId: str
-    membershipLevel: MembershipLevelType
     principalId: str
     principalType: PrincipalTypeType
-
-class AssociateMemberToJobRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
     identityStoreId: str
+    membershipLevel: MembershipLevelType
+
+
+class AssociateMemberToJobRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
     jobId: str
-    membershipLevel: MembershipLevelType
     principalId: str
     principalType: PrincipalTypeType
-    queueId: str
-
-class AssociateMemberToQueueRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
     identityStoreId: str
     membershipLevel: MembershipLevelType
+
+
+class AssociateMemberToQueueRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
     principalId: str
     principalType: PrincipalTypeType
-    queueId: str
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
 
-class AssumeFleetRoleForReadRequestRequestTypeDef(BaseValidatorModel):
+
+class AssumeFleetRoleForReadRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
+
 
 class AwsCredentialsTypeDef(BaseValidatorModel):
     accessKeyId: str
-    expiration: datetime
     secretAccessKey: str
     sessionToken: str
+    expiration: datetime
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -89,429 +96,522 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AssumeFleetRoleForWorkerRequestRequestTypeDef(BaseValidatorModel):
+
+class AssumeFleetRoleForWorkerRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     workerId: str
 
-class AssumeQueueRoleForReadRequestRequestTypeDef(BaseValidatorModel):
+
+class AssumeQueueRoleForReadRequestTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
 
-class AssumeQueueRoleForUserRequestRequestTypeDef(BaseValidatorModel):
+
+class AssumeQueueRoleForUserRequestTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
 
-class AssumeQueueRoleForWorkerRequestRequestTypeDef(BaseValidatorModel):
+
+class AssumeQueueRoleForWorkerRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
-    queueId: str
     workerId: str
+    queueId: str
+
+
+class ManifestPropertiesOutputTypeDef(BaseValidatorModel):
+    rootPath: str
+    rootPathFormat: PathFormatType
+    fileSystemLocationName: Optional[str] = None
+    outputRelativeDirectories: Optional[List[str]] = None
+    inputManifestPath: Optional[str] = None
+    inputManifestHash: Optional[str] = None
+
 
 class ManifestPropertiesTypeDef(BaseValidatorModel):
     rootPath: str
     rootPathFormat: PathFormatType
     fileSystemLocationName: Optional[str] = None
-    inputManifestHash: Optional[str] = None
+    outputRelativeDirectories: Optional[Sequence[str]] = None
     inputManifestPath: Optional[str] = None
-    outputRelativeDirectories: Optional[List[str]] = None
+    inputManifestHash: Optional[str] = None
 
-class BudgetActionToAddTypeDef(BaseValidatorModel):
-    thresholdPercentage: float
-    type: BudgetActionTypeType
-    description: Optional[str] = None
 
-class BudgetActionToRemoveTypeDef(BaseValidatorModel):
-    thresholdPercentage: float
-    type: BudgetActionTypeType
+class FixedBudgetScheduleOutputTypeDef(BaseValidatorModel):
+    startTime: datetime
+    endTime: datetime
+
 
 class ConsumedUsagesTypeDef(BaseValidatorModel):
     approximateDollarUsage: float
 
+
 class UsageTrackingResourceTypeDef(BaseValidatorModel):
     queueId: Optional[str] = None
+
 
 class S3LocationTypeDef(BaseValidatorModel):
     bucketName: str
     key: str
 
-class CreateFarmRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateFarmRequestTypeDef(BaseValidatorModel):
     displayName: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     kmsKeyArn: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class JobParameterTypeDef(BaseValidatorModel):
-    float: Optional[str] = None
-    int: Optional[str] = None
-    path: Optional[str] = None
-    string: Optional[str] = None
 
-class CreateLicenseEndpointRequestRequestTypeDef(BaseValidatorModel):
-    securityGroupIds: Sequence[str]
-    subnetIds: Sequence[str]
+class CreateLicenseEndpointRequestTypeDef(BaseValidatorModel):
     vpcId: str
+    subnetIds: Sequence[str]
+    securityGroupIds: Sequence[str]
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
-class CreateMonitorRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateLimitRequestTypeDef(BaseValidatorModel):
+    displayName: str
+    amountRequirementName: str
+    maxCount: int
+    farmId: str
+    clientToken: Optional[str] = None
+    description: Optional[str] = None
+
+
+class CreateMonitorRequestTypeDef(BaseValidatorModel):
     displayName: str
     identityCenterInstanceArn: str
-    roleArn: str
     subdomain: str
+    roleArn: str
     clientToken: Optional[str] = None
 
-class CreateQueueEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateQueueEnvironmentRequestTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     priority: int
-    queueId: str
-    template: str
     templateType: EnvironmentTemplateTypeType
+    template: str
     clientToken: Optional[str] = None
 
-class CreateQueueFleetAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateQueueFleetAssociationRequestTypeDef(BaseValidatorModel):
     farmId: str
-    fleetId: str
     queueId: str
+    fleetId: str
+
+
+class CreateQueueLimitAssociationRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
+    limitId: str
+
 
 class JobAttachmentSettingsTypeDef(BaseValidatorModel):
-    rootPrefix: str
     s3BucketName: str
+    rootPrefix: str
 
-class FileSystemLocationTypeDef(BaseValidatorModel):
-    name: str
-    path: str
-    type: FileSystemLocationTypeType
 
-class FleetAmountCapabilityTypeDef(BaseValidatorModel):
-    min: float
-    name: str
-    max: Optional[float] = None
-
-class FleetAttributeCapabilityPaginatorTypeDef(BaseValidatorModel):
+class FleetAttributeCapabilityOutputTypeDef(BaseValidatorModel):
     name: str
     values: List[str]
 
-class MemoryMiBRangeTypeDef(BaseValidatorModel):
-    min: int
-    max: Optional[int] = None
-
-class VCpuCountRangeTypeDef(BaseValidatorModel):
-    min: int
-    max: Optional[int] = None
 
 class FleetAttributeCapabilityTypeDef(BaseValidatorModel):
     name: str
     values: Sequence[str]
 
-class DeleteBudgetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteBudgetRequestTypeDef(BaseValidatorModel):
+    farmId: str
     budgetId: str
+
+
+class DeleteFarmRequestTypeDef(BaseValidatorModel):
     farmId: str
 
-class DeleteFarmRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
 
-class DeleteFleetRequestRequestTypeDef(BaseValidatorModel):
+class DeleteFleetRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     clientToken: Optional[str] = None
 
-class DeleteLicenseEndpointRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLicenseEndpointRequestTypeDef(BaseValidatorModel):
     licenseEndpointId: str
 
-class DeleteMeteredProductRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLimitRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    limitId: str
+
+
+class DeleteMeteredProductRequestTypeDef(BaseValidatorModel):
     licenseEndpointId: str
     productId: str
 
-class DeleteMonitorRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteMonitorRequestTypeDef(BaseValidatorModel):
     monitorId: str
 
-class DeleteQueueEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteQueueEnvironmentRequestTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     queueEnvironmentId: str
-    queueId: str
 
-class DeleteQueueFleetAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteQueueFleetAssociationRequestTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     fleetId: str
-    queueId: str
 
-class DeleteQueueRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteQueueLimitAssociationRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
+    limitId: str
+
+
+class DeleteQueueRequestTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
 
-class DeleteStorageProfileRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteStorageProfileRequestTypeDef(BaseValidatorModel):
     farmId: str
     storageProfileId: str
 
-class DeleteWorkerRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteWorkerRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     workerId: str
 
+
 class DependencyCountsTypeDef(BaseValidatorModel):
-    consumersResolved: int
-    consumersUnresolved: int
     dependenciesResolved: int
     dependenciesUnresolved: int
+    consumersResolved: int
+    consumersUnresolved: int
 
-class DisassociateMemberFromFarmRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateMemberFromFarmRequestTypeDef(BaseValidatorModel):
     farmId: str
     principalId: str
 
-class DisassociateMemberFromFleetRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateMemberFromFleetRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     principalId: str
 
-class DisassociateMemberFromJobRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateMemberFromJobRequestTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     jobId: str
     principalId: str
-    queueId: str
 
-class DisassociateMemberFromQueueRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateMemberFromQueueRequestTypeDef(BaseValidatorModel):
     farmId: str
-    principalId: str
     queueId: str
+    principalId: str
+
 
 class Ec2EbsVolumeTypeDef(BaseValidatorModel):
-    iops: Optional[int] = None
     sizeGiB: Optional[int] = None
+    iops: Optional[int] = None
     throughputMiB: Optional[int] = None
 
+
 class EnvironmentDetailsEntityTypeDef(BaseValidatorModel):
-    environmentId: str
     jobId: str
+    environmentId: str
     schemaVersion: str
     template: Dict[str, Any]
 
+
 class EnvironmentDetailsErrorTypeDef(BaseValidatorModel):
-    code: JobEntityErrorCodeType
-    environmentId: str
     jobId: str
+    environmentId: str
+    code: JobEntityErrorCodeType
     message: str
 
+
 class EnvironmentDetailsIdentifiersTypeDef(BaseValidatorModel):
-    environmentId: str
     jobId: str
+    environmentId: str
+
 
 class EnvironmentEnterSessionActionDefinitionSummaryTypeDef(BaseValidatorModel):
     environmentId: str
 
+
 class EnvironmentEnterSessionActionDefinitionTypeDef(BaseValidatorModel):
     environmentId: str
+
 
 class EnvironmentExitSessionActionDefinitionSummaryTypeDef(BaseValidatorModel):
     environmentId: str
 
+
 class EnvironmentExitSessionActionDefinitionTypeDef(BaseValidatorModel):
     environmentId: str
 
+
 class FarmMemberTypeDef(BaseValidatorModel):
     farmId: str
-    identityStoreId: str
-    membershipLevel: MembershipLevelType
     principalId: str
     principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
+
 
 class FarmSummaryTypeDef(BaseValidatorModel):
+    farmId: str
+    displayName: str
     createdAt: datetime
     createdBy: str
-    displayName: str
-    farmId: str
     kmsKeyArn: Optional[str] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
+
 class FieldSortExpressionTypeDef(BaseValidatorModel):
-    name: str
     sortOrder: SortOrderType
+    name: str
+
 
 class FleetMemberTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
-    identityStoreId: str
-    membershipLevel: MembershipLevelType
     principalId: str
     principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
 
-class GetBudgetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetBudgetRequestTypeDef(BaseValidatorModel):
+    farmId: str
     budgetId: str
+
+
+class GetFarmRequestTypeDef(BaseValidatorModel):
     farmId: str
 
-class ResponseBudgetActionTypeDef(BaseValidatorModel):
-    thresholdPercentage: float
-    type: BudgetActionTypeType
-    description: Optional[str] = None
 
-class GetFarmRequestRequestTypeDef(BaseValidatorModel):
+class GetFleetRequestTypeDef(BaseValidatorModel):
     farmId: str
+    fleetId: str
+
 
 class WaiterConfigTypeDef(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
-class GetFleetRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
 
 class JobAttachmentDetailsErrorTypeDef(BaseValidatorModel):
-    code: JobEntityErrorCodeType
     jobId: str
+    code: JobEntityErrorCodeType
     message: str
+
 
 class JobDetailsErrorTypeDef(BaseValidatorModel):
-    code: JobEntityErrorCodeType
     jobId: str
+    code: JobEntityErrorCodeType
     message: str
+
 
 class StepDetailsErrorTypeDef(BaseValidatorModel):
-    code: JobEntityErrorCodeType
     jobId: str
-    message: str
     stepId: str
+    code: JobEntityErrorCodeType
+    message: str
 
-class GetJobRequestRequestTypeDef(BaseValidatorModel):
+
+class GetJobRequestTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
+    jobId: str
 
-class GetLicenseEndpointRequestRequestTypeDef(BaseValidatorModel):
+
+class GetLicenseEndpointRequestTypeDef(BaseValidatorModel):
     licenseEndpointId: str
 
-class GetMonitorRequestRequestTypeDef(BaseValidatorModel):
+
+class GetLimitRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    limitId: str
+
+
+class GetMonitorRequestTypeDef(BaseValidatorModel):
     monitorId: str
 
-class GetQueueEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class GetQueueEnvironmentRequestTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     queueEnvironmentId: str
-    queueId: str
 
-class GetQueueFleetAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetQueueFleetAssociationRequestTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     fleetId: str
-    queueId: str
 
-class GetQueueRequestRequestTypeDef(BaseValidatorModel):
+
+class GetQueueLimitAssociationRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
+    limitId: str
+
+
+class GetQueueRequestTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
 
-class GetSessionActionRequestRequestTypeDef(BaseValidatorModel):
+
+class GetSessionActionRequestTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     jobId: str
-    queueId: str
     sessionActionId: str
 
-class GetSessionRequestRequestTypeDef(BaseValidatorModel):
+
+class GetSessionRequestTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
+    jobId: str
     sessionId: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetSessionsStatisticsAggregationRequestRequestTypeDef(BaseValidatorModel):
-    aggregationId: str
+
+class GetSessionsStatisticsAggregationRequestTypeDef(BaseValidatorModel):
     farmId: str
+    aggregationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class GetStepRequestRequestTypeDef(BaseValidatorModel):
+
+class GetStepRequestTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
+    jobId: str
     stepId: str
 
-class GetStorageProfileForQueueRequestRequestTypeDef(BaseValidatorModel):
+
+class GetStorageProfileForQueueRequestTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
     storageProfileId: str
 
-class GetStorageProfileRequestRequestTypeDef(BaseValidatorModel):
+
+class GetStorageProfileRequestTypeDef(BaseValidatorModel):
     farmId: str
     storageProfileId: str
 
-class GetTaskRequestRequestTypeDef(BaseValidatorModel):
+
+class GetTaskRequestTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     jobId: str
-    queueId: str
     stepId: str
     taskId: str
 
-class GetWorkerRequestRequestTypeDef(BaseValidatorModel):
+
+class GetWorkerRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     workerId: str
+
+
+class IpAddressesOutputTypeDef(BaseValidatorModel):
+    ipV4Addresses: Optional[List[str]] = None
+    ipV6Addresses: Optional[List[str]] = None
+
 
 class IpAddressesTypeDef(BaseValidatorModel):
     ipV4Addresses: Optional[Sequence[str]] = None
     ipV6Addresses: Optional[Sequence[str]] = None
 
-class IpAddressesPaginatorTypeDef(BaseValidatorModel):
-    ipV4Addresses: Optional[List[str]] = None
-    ipV6Addresses: Optional[List[str]] = None
 
 class JobAttachmentDetailsIdentifiersTypeDef(BaseValidatorModel):
     jobId: str
 
+
 class PathMappingRuleTypeDef(BaseValidatorModel):
-    destinationPath: str
-    sourcePath: str
     sourcePathFormat: PathFormatType
+    sourcePath: str
+    destinationPath: str
+
 
 class JobDetailsIdentifiersTypeDef(BaseValidatorModel):
     jobId: str
+
 
 class StepDetailsIdentifiersTypeDef(BaseValidatorModel):
     jobId: str
     stepId: str
 
+
 class StepDetailsEntityTypeDef(BaseValidatorModel):
-    dependencies: List[str]
     jobId: str
-    schemaVersion: str
     stepId: str
+    schemaVersion: str
     template: Dict[str, Any]
+    dependencies: List[str]
+
 
 class JobMemberTypeDef(BaseValidatorModel):
     farmId: str
-    identityStoreId: str
+    queueId: str
     jobId: str
-    membershipLevel: MembershipLevelType
     principalId: str
     principalType: PrincipalTypeType
-    queueId: str
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
+
 
 class PosixUserTypeDef(BaseValidatorModel):
-    group: str
     user: str
+    group: str
+
 
 class WindowsUserTypeDef(BaseValidatorModel):
-    passwordArn: str
     user: str
+    passwordArn: str
+
 
 class JobSummaryTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdBy: str
     jobId: str
+    name: str
     lifecycleStatus: JobLifecycleStatusType
     lifecycleStatusMessage: str
-    name: str
     priority: int
-    endedAt: Optional[datetime] = None
-    maxFailedTasksCount: Optional[int] = None
-    maxRetriesPerTask: Optional[int] = None
-    startedAt: Optional[datetime] = None
-    targetTaskRunStatus: Optional[JobTargetTaskRunStatusType] = None
-    taskRunStatus: Optional[TaskRunStatusType] = None
-    taskRunStatusCounts: Optional[Dict[TaskRunStatusType, int]] = None
+    createdAt: datetime
+    createdBy: str
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
+    startedAt: Optional[datetime] = None
+    endedAt: Optional[datetime] = None
+    taskRunStatus: Optional[TaskRunStatusType] = None
+    targetTaskRunStatus: Optional[JobTargetTaskRunStatusType] = None
+    taskRunStatusCounts: Optional[Dict[TaskRunStatusType, int]] = None
+    maxFailedTasksCount: Optional[int] = None
+    maxRetriesPerTask: Optional[int] = None
+    maxWorkerCount: Optional[int] = None
+    sourceJobId: Optional[str] = None
+
 
 class LicenseEndpointSummaryTypeDef(BaseValidatorModel):
     licenseEndpointId: Optional[str] = None
@@ -519,1156 +619,1499 @@ class LicenseEndpointSummaryTypeDef(BaseValidatorModel):
     statusMessage: Optional[str] = None
     vpcId: Optional[str] = None
 
-class ListAvailableMeteredProductsRequestRequestTypeDef(BaseValidatorModel):
-    maxResults: Optional[int] = None
+
+class LimitSummaryTypeDef(BaseValidatorModel):
+    displayName: str
+    amountRequirementName: str
+    maxCount: int
+    createdAt: datetime
+    createdBy: str
+    farmId: str
+    limitId: str
+    currentCount: int
+    updatedAt: Optional[datetime] = None
+    updatedBy: Optional[str] = None
+
+
+class ListAvailableMeteredProductsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
 
 class MeteredProductSummaryTypeDef(BaseValidatorModel):
-    family: str
-    port: int
     productId: str
+    family: str
     vendor: str
+    port: int
 
-class ListBudgetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListBudgetsRequestTypeDef(BaseValidatorModel):
     farmId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
     status: Optional[BudgetStatusType] = None
 
-class ListFarmMembersRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
 
-class ListFarmsRequestRequestTypeDef(BaseValidatorModel):
+class ListFarmMembersRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    nextToken: Optional[str] = None
     maxResults: Optional[int] = None
+
+
+class ListFarmsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     principalId: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ListFleetMembersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFleetMembersRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ListFleetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListFleetsRequestTypeDef(BaseValidatorModel):
     farmId: str
-    displayName: Optional[str] = None
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
     principalId: Optional[str] = None
+    displayName: Optional[str] = None
     status: Optional[FleetStatusType] = None
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ListJobMembersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListJobMembersRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
+    jobId: str
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class ListJobParameterDefinitionsRequestTypeDef(BaseValidatorModel):
     farmId: str
     jobId: str
     queueId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ListJobsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListJobsRequestTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
     principalId: Optional[str] = None
-
-class ListLicenseEndpointsRequestRequestTypeDef(BaseValidatorModel):
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ListMeteredProductsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLicenseEndpointsRequestTypeDef(BaseValidatorModel):
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class ListLimitsRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class ListMeteredProductsRequestTypeDef(BaseValidatorModel):
     licenseEndpointId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ListMonitorsRequestRequestTypeDef(BaseValidatorModel):
-    maxResults: Optional[int] = None
+
+class ListMonitorsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
 
 class MonitorSummaryTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdBy: str
-    displayName: str
-    identityCenterApplicationArn: str
-    identityCenterInstanceArn: str
     monitorId: str
-    roleArn: str
+    displayName: str
     subdomain: str
     url: str
-    updatedAt: Optional[datetime] = None
-    updatedBy: Optional[str] = None
-
-class ListQueueEnvironmentsRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-
-class QueueEnvironmentSummaryTypeDef(BaseValidatorModel):
-    name: str
-    priority: int
-    queueEnvironmentId: str
-
-class ListQueueFleetAssociationsRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: Optional[str] = None
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    queueId: Optional[str] = None
-
-class QueueFleetAssociationSummaryTypeDef(BaseValidatorModel):
+    roleArn: str
+    identityCenterInstanceArn: str
+    identityCenterApplicationArn: str
     createdAt: datetime
     createdBy: str
-    fleetId: str
-    queueId: str
-    status: QueueFleetAssociationStatusType
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class ListQueueMembersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListQueueEnvironmentsRequestTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class QueueEnvironmentSummaryTypeDef(BaseValidatorModel):
+    queueEnvironmentId: str
+    name: str
+    priority: int
+
+
+class ListQueueFleetAssociationsRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: Optional[str] = None
+    fleetId: Optional[str] = None
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class QueueFleetAssociationSummaryTypeDef(BaseValidatorModel):
+    queueId: str
+    fleetId: str
+    status: QueueFleetAssociationStatusType
+    createdAt: datetime
+    createdBy: str
+    updatedAt: Optional[datetime] = None
+    updatedBy: Optional[str] = None
+
+
+class ListQueueLimitAssociationsRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: Optional[str] = None
+    limitId: Optional[str] = None
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class QueueLimitAssociationSummaryTypeDef(BaseValidatorModel):
+    createdAt: datetime
+    createdBy: str
+    queueId: str
+    limitId: str
+    status: QueueLimitAssociationStatusType
+    updatedAt: Optional[datetime] = None
+    updatedBy: Optional[str] = None
+
+
+class ListQueueMembersRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
 
 class QueueMemberTypeDef(BaseValidatorModel):
     farmId: str
-    identityStoreId: str
-    membershipLevel: MembershipLevelType
+    queueId: str
     principalId: str
     principalType: PrincipalTypeType
-    queueId: str
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
 
-class ListQueuesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListQueuesRequestTypeDef(BaseValidatorModel):
     farmId: str
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
     principalId: Optional[str] = None
     status: Optional[QueueStatusType] = None
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
 
 class QueueSummaryTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdBy: str
-    defaultBudgetAction: DefaultQueueBudgetActionType
-    displayName: str
     farmId: str
     queueId: str
+    displayName: str
     status: QueueStatusType
+    defaultBudgetAction: DefaultQueueBudgetActionType
+    createdAt: datetime
+    createdBy: str
     blockedReason: Optional[QueueBlockedReasonType] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class ListSessionActionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSessionActionsRequestTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    jobId: str
     sessionId: Optional[str] = None
     taskId: Optional[str] = None
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ListSessionsForWorkerRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSessionsForWorkerRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     workerId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
 
 class WorkerSessionSummaryTypeDef(BaseValidatorModel):
-    jobId: str
-    lifecycleStatus: SessionLifecycleStatusType
-    queueId: str
     sessionId: str
+    queueId: str
+    jobId: str
     startedAt: datetime
+    lifecycleStatus: SessionLifecycleStatusType
     endedAt: Optional[datetime] = None
     targetLifecycleStatus: Optional[Literal["ENDED"]] = None
 
-class ListSessionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSessionsRequestTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
-    maxResults: Optional[int] = None
+    jobId: str
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
 
 class SessionSummaryTypeDef(BaseValidatorModel):
-    fleetId: str
-    lifecycleStatus: SessionLifecycleStatusType
     sessionId: str
-    startedAt: datetime
+    fleetId: str
     workerId: str
+    startedAt: datetime
+    lifecycleStatus: SessionLifecycleStatusType
     endedAt: Optional[datetime] = None
-    targetLifecycleStatus: Optional[Literal["ENDED"]] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
+    targetLifecycleStatus: Optional[Literal["ENDED"]] = None
 
-class ListStepConsumersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListStepConsumersRequestTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
+    jobId: str
     stepId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
 
 class StepConsumerTypeDef(BaseValidatorModel):
+    stepId: str
     status: DependencyConsumerResolutionStatusType
-    stepId: str
 
-class ListStepDependenciesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListStepDependenciesRequestTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
+    jobId: str
     stepId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
 
 class StepDependencyTypeDef(BaseValidatorModel):
-    status: DependencyConsumerResolutionStatusType
     stepId: str
+    status: DependencyConsumerResolutionStatusType
 
-class ListStepsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListStepsRequestTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     jobId: str
-    queueId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ListStorageProfilesForQueueRequestRequestTypeDef(BaseValidatorModel):
+
+class ListStorageProfilesForQueueRequestTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
 
 class StorageProfileSummaryTypeDef(BaseValidatorModel):
+    storageProfileId: str
     displayName: str
     osFamily: StorageProfileOperatingSystemFamilyType
-    storageProfileId: str
 
-class ListStorageProfilesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListStorageProfilesRequestTypeDef(BaseValidatorModel):
     farmId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class ListTasksRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    jobId: str
-    queueId: str
-    stepId: str
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
 
-class ListWorkersRequestRequestTypeDef(BaseValidatorModel):
+class ListTasksRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+class ListWorkersRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
-    maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
 
-class ParameterFilterExpressionTypeDef(BaseValidatorModel):
-    name: str
-    operator: ComparisonOperatorType
-    value: str
 
 class ParameterSortExpressionTypeDef(BaseValidatorModel):
-    name: str
     sortOrder: SortOrderType
-
-class StepParameterTypeDef(BaseValidatorModel):
     name: str
-    type: StepParameterTypeType
 
-class PutMeteredProductRequestRequestTypeDef(BaseValidatorModel):
+
+class PutMeteredProductRequestTypeDef(BaseValidatorModel):
     licenseEndpointId: str
     productId: str
+
 
 class SearchTermFilterExpressionTypeDef(BaseValidatorModel):
     searchTerm: str
 
-class StringFilterExpressionTypeDef(BaseValidatorModel):
-    name: str
-    operator: ComparisonOperatorType
-    value: str
-
-class SearchGroupedFilterExpressionsTypeDef(BaseValidatorModel):
-    filters: Sequence["SearchFilterExpressionTypeDef"]
-    operator: LogicalOperatorType
 
 class UserJobsFirstTypeDef(BaseValidatorModel):
     userIdentityId: str
 
-class ServiceManagedEc2InstanceMarketOptionsTypeDef(BaseValidatorModel):
-    type: Ec2MarketTypeType
 
 class SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef(BaseValidatorModel):
     stepId: Optional[str] = None
 
+
 class TaskRunSessionActionDefinitionSummaryTypeDef(BaseValidatorModel):
-    stepId: str
     taskId: str
+    stepId: str
+
 
 class SyncInputJobAttachmentsSessionActionDefinitionTypeDef(BaseValidatorModel):
     stepId: Optional[str] = None
 
+
 class SessionsStatisticsResourcesTypeDef(BaseValidatorModel):
-    fleetIds: Optional[Sequence[str]] = None
     queueIds: Optional[Sequence[str]] = None
+    fleetIds: Optional[Sequence[str]] = None
 
-class StatsTypeDef(BaseValidatorModel):
-    avg: Optional[float] = None
-    max: Optional[float] = None
-    min: Optional[float] = None
-    sum: Optional[float] = None
-
-class StepAmountCapabilityTypeDef(BaseValidatorModel):
-    name: str
-    max: Optional[float] = None
-    min: Optional[float] = None
-    value: Optional[float] = None
 
 class StepAttributeCapabilityTypeDef(BaseValidatorModel):
     name: str
-    allOf: Optional[List[str]] = None
     anyOf: Optional[List[str]] = None
+    allOf: Optional[List[str]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Optional[Mapping[str, str]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateFarmRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    description: Optional[str] = None
-    displayName: Optional[str] = None
 
-class UpdateJobRequestRequestTypeDef(BaseValidatorModel):
+class UpdateFarmRequestTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
+    displayName: Optional[str] = None
+    description: Optional[str] = None
+
+
+class UpdateJobRequestTypeDef(BaseValidatorModel):
+    farmId: str
     queueId: str
+    jobId: str
     clientToken: Optional[str] = None
-    lifecycleStatus: Optional[Literal["ARCHIVED"]] = None
+    targetTaskRunStatus: Optional[JobTargetTaskRunStatusType] = None
+    priority: Optional[int] = None
     maxFailedTasksCount: Optional[int] = None
     maxRetriesPerTask: Optional[int] = None
-    priority: Optional[int] = None
-    targetTaskRunStatus: Optional[JobTargetTaskRunStatusType] = None
+    lifecycleStatus: Optional[Literal["ARCHIVED"]] = None
+    maxWorkerCount: Optional[int] = None
 
-class UpdateMonitorRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateLimitRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    limitId: str
+    displayName: Optional[str] = None
+    description: Optional[str] = None
+    maxCount: Optional[int] = None
+
+
+class UpdateMonitorRequestTypeDef(BaseValidatorModel):
     monitorId: str
+    subdomain: Optional[str] = None
     displayName: Optional[str] = None
     roleArn: Optional[str] = None
-    subdomain: Optional[str] = None
 
-class UpdateQueueEnvironmentRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateQueueEnvironmentRequestTypeDef(BaseValidatorModel):
     farmId: str
-    queueEnvironmentId: str
     queueId: str
+    queueEnvironmentId: str
     clientToken: Optional[str] = None
     priority: Optional[int] = None
-    template: Optional[str] = None
     templateType: Optional[EnvironmentTemplateTypeType] = None
+    template: Optional[str] = None
 
-class UpdateQueueFleetAssociationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateQueueFleetAssociationRequestTypeDef(BaseValidatorModel):
     farmId: str
-    fleetId: str
     queueId: str
+    fleetId: str
     status: UpdateQueueFleetAssociationStatusType
 
-class UpdateSessionRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateQueueLimitAssociationRequestTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
-    sessionId: str
+    limitId: str
+    status: UpdateQueueLimitAssociationStatusType
+
+
+class UpdateSessionRequestTypeDef(BaseValidatorModel):
     targetLifecycleStatus: Literal["ENDED"]
+    farmId: str
+    queueId: str
+    jobId: str
+    sessionId: str
     clientToken: Optional[str] = None
 
-class UpdateStepRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    jobId: str
-    queueId: str
-    stepId: str
+
+class UpdateStepRequestTypeDef(BaseValidatorModel):
     targetTaskRunStatus: StepTargetTaskRunStatusType
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
     clientToken: Optional[str] = None
 
-class UpdateTaskRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    jobId: str
-    queueId: str
-    stepId: str
+
+class UpdateTaskRequestTypeDef(BaseValidatorModel):
     targetRunStatus: TaskTargetRunStatusType
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
     taskId: str
     clientToken: Optional[str] = None
+
 
 class WorkerAmountCapabilityTypeDef(BaseValidatorModel):
     name: str
     value: float
 
+
 class WorkerAttributeCapabilityTypeDef(BaseValidatorModel):
     name: str
     values: Sequence[str]
 
+
+class AcceleratorCountRangeTypeDef(BaseValidatorModel):
+    pass
+
+
+class AcceleratorCapabilitiesOutputTypeDef(BaseValidatorModel):
+    selections: List[AcceleratorSelectionTypeDef]
+    count: Optional[AcceleratorCountRangeTypeDef] = None
+
+
+class AcceleratorCapabilitiesTypeDef(BaseValidatorModel):
+    selections: Sequence[AcceleratorSelectionTypeDef]
+    count: Optional[AcceleratorCountRangeTypeDef] = None
+
+
+class TaskParameterValueTypeDef(BaseValidatorModel):
+    pass
+
+
 class AssignedTaskRunSessionActionDefinitionTypeDef(BaseValidatorModel):
-    parameters: Dict[str, TaskParameterValueTypeDef]
-    stepId: str
     taskId: str
+    stepId: str
+    parameters: Dict[str, TaskParameterValueTypeDef]
+
 
 class TaskRunSessionActionDefinitionTypeDef(BaseValidatorModel):
-    parameters: Dict[str, TaskParameterValueTypeDef]
-    stepId: str
     taskId: str
+    stepId: str
+    parameters: Dict[str, TaskParameterValueTypeDef]
+
 
 class TaskSearchSummaryTypeDef(BaseValidatorModel):
-    endedAt: Optional[datetime] = None
-    failureRetryCount: Optional[int] = None
+    taskId: Optional[str] = None
+    stepId: Optional[str] = None
     jobId: Optional[str] = None
-    parameters: Optional[Dict[str, TaskParameterValueTypeDef]] = None
     queueId: Optional[str] = None
     runStatus: Optional[TaskRunStatusType] = None
-    startedAt: Optional[datetime] = None
-    stepId: Optional[str] = None
     targetRunStatus: Optional[TaskTargetRunStatusType] = None
-    taskId: Optional[str] = None
+    parameters: Optional[Dict[str, TaskParameterValueTypeDef]] = None
+    failureRetryCount: Optional[int] = None
+    startedAt: Optional[datetime] = None
+    endedAt: Optional[datetime] = None
+
 
 class TaskSummaryTypeDef(BaseValidatorModel):
+    taskId: str
     createdAt: datetime
     createdBy: str
     runStatus: TaskRunStatusType
-    taskId: str
-    endedAt: Optional[datetime] = None
+    targetRunStatus: Optional[TaskTargetRunStatusType] = None
     failureRetryCount: Optional[int] = None
-    latestSessionActionId: Optional[str] = None
     parameters: Optional[Dict[str, TaskParameterValueTypeDef]] = None
     startedAt: Optional[datetime] = None
-    targetRunStatus: Optional[TaskTargetRunStatusType] = None
+    endedAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
+    latestSessionActionId: Optional[str] = None
+
 
 class AssumeFleetRoleForReadResponseTypeDef(BaseValidatorModel):
     credentials: AwsCredentialsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AssumeFleetRoleForWorkerResponseTypeDef(BaseValidatorModel):
     credentials: AwsCredentialsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class AssumeQueueRoleForReadResponseTypeDef(BaseValidatorModel):
     credentials: AwsCredentialsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AssumeQueueRoleForUserResponseTypeDef(BaseValidatorModel):
     credentials: AwsCredentialsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class AssumeQueueRoleForWorkerResponseTypeDef(BaseValidatorModel):
     credentials: AwsCredentialsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CopyJobTemplateResponseTypeDef(BaseValidatorModel):
     templateType: JobTemplateTypeType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateBudgetResponseTypeDef(BaseValidatorModel):
     budgetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateFarmResponseTypeDef(BaseValidatorModel):
     farmId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateFleetResponseTypeDef(BaseValidatorModel):
     fleetId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateJobResponseTypeDef(BaseValidatorModel):
     jobId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateLicenseEndpointResponseTypeDef(BaseValidatorModel):
     licenseEndpointId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMonitorResponseTypeDef(BaseValidatorModel):
-    identityCenterApplicationArn: str
-    monitorId: str
+
+class CreateLimitResponseTypeDef(BaseValidatorModel):
+    limitId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class CreateMonitorResponseTypeDef(BaseValidatorModel):
+    monitorId: str
+    identityCenterApplicationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateQueueEnvironmentResponseTypeDef(BaseValidatorModel):
     queueEnvironmentId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateQueueResponseTypeDef(BaseValidatorModel):
     queueId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateStorageProfileResponseTypeDef(BaseValidatorModel):
     storageProfileId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateWorkerResponseTypeDef(BaseValidatorModel):
     workerId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetFarmResponseTypeDef(BaseValidatorModel):
+    farmId: str
+    displayName: str
+    description: str
+    kmsKeyArn: str
     createdAt: datetime
     createdBy: str
-    description: str
-    displayName: str
-    farmId: str
-    kmsKeyArn: str
     updatedAt: datetime
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetLicenseEndpointResponseTypeDef(BaseValidatorModel):
-    dnsName: str
     licenseEndpointId: str
-    securityGroupIds: List[str]
     status: LicenseEndpointStatusType
     statusMessage: str
-    subnetIds: List[str]
     vpcId: str
+    dnsName: str
+    subnetIds: List[str]
+    securityGroupIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GetLimitResponseTypeDef(BaseValidatorModel):
+    displayName: str
+    amountRequirementName: str
+    maxCount: int
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    farmId: str
+    limitId: str
+    currentCount: int
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetMonitorResponseTypeDef(BaseValidatorModel):
+    monitorId: str
+    displayName: str
+    subdomain: str
+    url: str
+    roleArn: str
+    identityCenterInstanceArn: str
+    identityCenterApplicationArn: str
     createdAt: datetime
     createdBy: str
-    displayName: str
-    identityCenterApplicationArn: str
-    identityCenterInstanceArn: str
-    monitorId: str
-    roleArn: str
-    subdomain: str
     updatedAt: datetime
     updatedBy: str
-    url: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetQueueEnvironmentResponseTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdBy: str
+    queueEnvironmentId: str
     name: str
     priority: int
-    queueEnvironmentId: str
-    template: str
     templateType: EnvironmentTemplateTypeType
+    template: str
+    createdAt: datetime
+    createdBy: str
     updatedAt: datetime
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetQueueFleetAssociationResponseTypeDef(BaseValidatorModel):
+    queueId: str
+    fleetId: str
+    status: QueueFleetAssociationStatusType
     createdAt: datetime
     createdBy: str
-    fleetId: str
-    queueId: str
-    status: QueueFleetAssociationStatusType
     updatedAt: datetime
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetTaskResponseTypeDef(BaseValidatorModel):
+
+class GetQueueLimitAssociationResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
-    endedAt: datetime
-    failureRetryCount: int
-    latestSessionActionId: str
-    parameters: Dict[str, TaskParameterValueTypeDef]
-    runStatus: TaskRunStatusType
-    startedAt: datetime
-    targetRunStatus: TaskTargetRunStatusType
-    taskId: str
     updatedAt: datetime
     updatedBy: str
+    queueId: str
+    limitId: str
+    status: QueueLimitAssociationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GetTaskResponseTypeDef(BaseValidatorModel):
+    taskId: str
+    createdAt: datetime
+    createdBy: str
+    runStatus: TaskRunStatusType
+    targetRunStatus: TaskTargetRunStatusType
+    failureRetryCount: int
+    parameters: Dict[str, TaskParameterValueTypeDef]
+    startedAt: datetime
+    endedAt: datetime
+    updatedAt: datetime
+    updatedBy: str
+    latestSessionActionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListJobParameterDefinitionsResponseTypeDef(BaseValidatorModel):
+    jobParameterDefinitions: List[Dict[str, Any]]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartSessionsStatisticsAggregationResponseTypeDef(BaseValidatorModel):
     aggregationId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateWorkerResponseTypeDef(BaseValidatorModel):
     log: LogConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AttachmentsTypeDef(BaseValidatorModel):
-    manifests: List[ManifestPropertiesTypeDef]
+
+class AttachmentsOutputTypeDef(BaseValidatorModel):
+    manifests: List[ManifestPropertiesOutputTypeDef]
     fileSystem: Optional[JobAttachmentsFileSystemType] = None
 
-class BudgetSummaryTypeDef(BaseValidatorModel):
-    approximateDollarLimit: float
-    budgetId: str
-    createdAt: datetime
-    createdBy: str
-    displayName: str
-    status: BudgetStatusType
-    usageTrackingResource: UsageTrackingResourceTypeDef
-    usages: ConsumedUsagesTypeDef
-    description: Optional[str] = None
-    updatedAt: Optional[datetime] = None
-    updatedBy: Optional[str] = None
 
-class CopyJobTemplateRequestRequestTypeDef(BaseValidatorModel):
+class AttachmentsTypeDef(BaseValidatorModel):
+    manifests: Sequence[ManifestPropertiesTypeDef]
+    fileSystem: Optional[JobAttachmentsFileSystemType] = None
+
+
+class BudgetScheduleOutputTypeDef(BaseValidatorModel):
+    fixed: Optional[FixedBudgetScheduleOutputTypeDef] = None
+
+
+class BudgetSummaryTypeDef(BaseValidatorModel):
+    budgetId: str
+    usageTrackingResource: UsageTrackingResourceTypeDef
+    status: BudgetStatusType
+    displayName: str
+    approximateDollarLimit: float
+    usages: ConsumedUsagesTypeDef
+    createdBy: str
+    createdAt: datetime
+    description: Optional[str] = None
+    updatedBy: Optional[str] = None
+    updatedAt: Optional[datetime] = None
+
+
+class CopyJobTemplateRequestTypeDef(BaseValidatorModel):
     farmId: str
     jobId: str
     queueId: str
     targetS3Location: S3LocationTypeDef
 
+
+class JobParameterTypeDef(BaseValidatorModel):
+    pass
+
+
 class JobSearchSummaryTypeDef(BaseValidatorModel):
-    createdAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
-    endedAt: Optional[datetime] = None
     jobId: Optional[str] = None
-    jobParameters: Optional[Dict[str, JobParameterTypeDef]] = None
+    queueId: Optional[str] = None
+    name: Optional[str] = None
     lifecycleStatus: Optional[JobLifecycleStatusType] = None
     lifecycleStatusMessage: Optional[str] = None
+    taskRunStatus: Optional[TaskRunStatusType] = None
+    targetTaskRunStatus: Optional[JobTargetTaskRunStatusType] = None
+    taskRunStatusCounts: Optional[Dict[TaskRunStatusType, int]] = None
+    priority: Optional[int] = None
     maxFailedTasksCount: Optional[int] = None
     maxRetriesPerTask: Optional[int] = None
-    name: Optional[str] = None
-    priority: Optional[int] = None
-    queueId: Optional[str] = None
+    createdBy: Optional[str] = None
+    createdAt: Optional[datetime] = None
+    endedAt: Optional[datetime] = None
     startedAt: Optional[datetime] = None
-    targetTaskRunStatus: Optional[JobTargetTaskRunStatusType] = None
-    taskRunStatus: Optional[TaskRunStatusType] = None
-    taskRunStatusCounts: Optional[Dict[TaskRunStatusType, int]] = None
+    jobParameters: Optional[Dict[str, JobParameterTypeDef]] = None
+    maxWorkerCount: Optional[int] = None
+    sourceJobId: Optional[str] = None
 
-class CreateStorageProfileRequestRequestTypeDef(BaseValidatorModel):
-    displayName: str
+
+class FileSystemLocationTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateStorageProfileRequestTypeDef(BaseValidatorModel):
     farmId: str
+    displayName: str
     osFamily: StorageProfileOperatingSystemFamilyType
     clientToken: Optional[str] = None
     fileSystemLocations: Optional[Sequence[FileSystemLocationTypeDef]] = None
 
+
 class GetStorageProfileForQueueResponseTypeDef(BaseValidatorModel):
-    displayName: str
-    fileSystemLocations: List[FileSystemLocationTypeDef]
-    osFamily: StorageProfileOperatingSystemFamilyType
     storageProfileId: str
+    displayName: str
+    osFamily: StorageProfileOperatingSystemFamilyType
+    fileSystemLocations: List[FileSystemLocationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetStorageProfileResponseTypeDef(BaseValidatorModel):
+    storageProfileId: str
+    displayName: str
+    osFamily: StorageProfileOperatingSystemFamilyType
     createdAt: datetime
     createdBy: str
-    displayName: str
-    fileSystemLocations: List[FileSystemLocationTypeDef]
-    osFamily: StorageProfileOperatingSystemFamilyType
-    storageProfileId: str
     updatedAt: datetime
     updatedBy: str
+    fileSystemLocations: List[FileSystemLocationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateStorageProfileRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateStorageProfileRequestTypeDef(BaseValidatorModel):
     farmId: str
     storageProfileId: str
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
+    osFamily: Optional[StorageProfileOperatingSystemFamilyType] = None
     fileSystemLocationsToAdd: Optional[Sequence[FileSystemLocationTypeDef]] = None
     fileSystemLocationsToRemove: Optional[Sequence[FileSystemLocationTypeDef]] = None
-    osFamily: Optional[StorageProfileOperatingSystemFamilyType] = None
 
-class CustomerManagedWorkerCapabilitiesPaginatorTypeDef(BaseValidatorModel):
-    cpuArchitectureType: CpuArchitectureTypeType
-    memoryMiB: MemoryMiBRangeTypeDef
-    osFamily: CustomerManagedFleetOperatingSystemFamilyType
-    vCpuCount: VCpuCountRangeTypeDef
-    acceleratorCount: Optional[AcceleratorCountRangeTypeDef] = None
-    acceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRangeTypeDef] = None
-    acceleratorTypes: Optional[List[Literal["gpu"]]] = None
-    customAmounts: Optional[List[FleetAmountCapabilityTypeDef]] = None
-    customAttributes: Optional[List[FleetAttributeCapabilityPaginatorTypeDef]] = None
 
-class CustomerManagedWorkerCapabilitiesTypeDef(BaseValidatorModel):
-    cpuArchitectureType: CpuArchitectureTypeType
-    memoryMiB: MemoryMiBRangeTypeDef
-    osFamily: CustomerManagedFleetOperatingSystemFamilyType
-    vCpuCount: VCpuCountRangeTypeDef
-    acceleratorCount: Optional[AcceleratorCountRangeTypeDef] = None
-    acceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRangeTypeDef] = None
-    acceleratorTypes: Optional[Sequence[Literal["gpu"]]] = None
-    customAmounts: Optional[Sequence[FleetAmountCapabilityTypeDef]] = None
-    customAttributes: Optional[Sequence[FleetAttributeCapabilityTypeDef]] = None
+class FleetAmountCapabilityTypeDef(BaseValidatorModel):
+    pass
+
 
 class FleetCapabilitiesTypeDef(BaseValidatorModel):
     amounts: Optional[List[FleetAmountCapabilityTypeDef]] = None
-    attributes: Optional[List[FleetAttributeCapabilityTypeDef]] = None
+    attributes: Optional[List[FleetAttributeCapabilityOutputTypeDef]] = None
 
-class DateTimeFilterExpressionTypeDef(BaseValidatorModel):
-    dateTime: TimestampTypeDef
-    name: str
-    operator: ComparisonOperatorType
+
+class MemoryMiBRangeTypeDef(BaseValidatorModel):
+    pass
+
+
+class VCpuCountRangeTypeDef(BaseValidatorModel):
+    pass
+
+
+class AcceleratorTotalMemoryMiBRangeTypeDef(BaseValidatorModel):
+    pass
+
+
+class CustomerManagedWorkerCapabilitiesOutputTypeDef(BaseValidatorModel):
+    vCpuCount: VCpuCountRangeTypeDef
+    memoryMiB: MemoryMiBRangeTypeDef
+    osFamily: CustomerManagedFleetOperatingSystemFamilyType
+    cpuArchitectureType: CpuArchitectureTypeType
+    acceleratorTypes: Optional[List[Literal["gpu"]]] = None
+    acceleratorCount: Optional[AcceleratorCountRangeTypeDef] = None
+    acceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRangeTypeDef] = None
+    customAmounts: Optional[List[FleetAmountCapabilityTypeDef]] = None
+    customAttributes: Optional[List[FleetAttributeCapabilityOutputTypeDef]] = None
+
+
+class CustomerManagedWorkerCapabilitiesTypeDef(BaseValidatorModel):
+    vCpuCount: VCpuCountRangeTypeDef
+    memoryMiB: MemoryMiBRangeTypeDef
+    osFamily: CustomerManagedFleetOperatingSystemFamilyType
+    cpuArchitectureType: CpuArchitectureTypeType
+    acceleratorTypes: Optional[Sequence[Literal["gpu"]]] = None
+    acceleratorCount: Optional[AcceleratorCountRangeTypeDef] = None
+    acceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRangeTypeDef] = None
+    customAmounts: Optional[Sequence[FleetAmountCapabilityTypeDef]] = None
+    customAttributes: Optional[Sequence[FleetAttributeCapabilityTypeDef]] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class FixedBudgetScheduleTypeDef(BaseValidatorModel):
-    endTime: TimestampTypeDef
     startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+
 
 class UpdatedSessionActionInfoTypeDef(BaseValidatorModel):
     completedStatus: Optional[CompletedStatusType] = None
-    endedAt: Optional[TimestampTypeDef] = None
     processExitCode: Optional[int] = None
     progressMessage: Optional[str] = None
-    progressPercent: Optional[float] = None
     startedAt: Optional[TimestampTypeDef] = None
+    endedAt: Optional[TimestampTypeDef] = None
     updatedAt: Optional[TimestampTypeDef] = None
+    progressPercent: Optional[float] = None
+
 
 class StepSummaryTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdBy: str
-    lifecycleStatus: StepLifecycleStatusType
-    name: str
     stepId: str
+    name: str
+    lifecycleStatus: StepLifecycleStatusType
     taskRunStatus: TaskRunStatusType
     taskRunStatusCounts: Dict[TaskRunStatusType, int]
-    dependencyCounts: Optional[DependencyCountsTypeDef] = None
-    endedAt: Optional[datetime] = None
+    createdAt: datetime
+    createdBy: str
     lifecycleStatusMessage: Optional[str] = None
-    startedAt: Optional[datetime] = None
     targetTaskRunStatus: Optional[StepTargetTaskRunStatusType] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
+    startedAt: Optional[datetime] = None
+    endedAt: Optional[datetime] = None
+    dependencyCounts: Optional[DependencyCountsTypeDef] = None
 
-class ServiceManagedEc2InstanceCapabilitiesPaginatorTypeDef(BaseValidatorModel):
-    cpuArchitectureType: CpuArchitectureTypeType
-    memoryMiB: MemoryMiBRangeTypeDef
-    osFamily: ServiceManagedFleetOperatingSystemFamilyType
-    vCpuCount: VCpuCountRangeTypeDef
-    allowedInstanceTypes: Optional[List[str]] = None
-    customAmounts: Optional[List[FleetAmountCapabilityTypeDef]] = None
-    customAttributes: Optional[List[FleetAttributeCapabilityPaginatorTypeDef]] = None
-    excludedInstanceTypes: Optional[List[str]] = None
-    rootEbsVolume: Optional[Ec2EbsVolumeTypeDef] = None
-
-class ServiceManagedEc2InstanceCapabilitiesTypeDef(BaseValidatorModel):
-    cpuArchitectureType: CpuArchitectureTypeType
-    memoryMiB: MemoryMiBRangeTypeDef
-    osFamily: ServiceManagedFleetOperatingSystemFamilyType
-    vCpuCount: VCpuCountRangeTypeDef
-    allowedInstanceTypes: Optional[Sequence[str]] = None
-    customAmounts: Optional[Sequence[FleetAmountCapabilityTypeDef]] = None
-    customAttributes: Optional[Sequence[FleetAttributeCapabilityTypeDef]] = None
-    excludedInstanceTypes: Optional[Sequence[str]] = None
-    rootEbsVolume: Optional[Ec2EbsVolumeTypeDef] = None
 
 class ListFarmMembersResponseTypeDef(BaseValidatorModel):
     members: List[FarmMemberTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListFarmsResponseTypeDef(BaseValidatorModel):
     farms: List[FarmSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListFleetMembersResponseTypeDef(BaseValidatorModel):
     members: List[FleetMemberTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class GetFleetRequestFleetActiveWaitTypeDef(BaseValidatorModel):
+
+class GetFleetRequestWaitTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetJobRequestJobCreateCompleteWaitTypeDef(BaseValidatorModel):
+
+class GetJobRequestWaitTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     jobId: str
-    queueId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetLicenseEndpointRequestLicenseEndpointDeletedWaitTypeDef(BaseValidatorModel):
+
+class GetLicenseEndpointRequestWaitExtraTypeDef(BaseValidatorModel):
     licenseEndpointId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetLicenseEndpointRequestLicenseEndpointValidWaitTypeDef(BaseValidatorModel):
+
+class GetLicenseEndpointRequestWaitTypeDef(BaseValidatorModel):
     licenseEndpointId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetQueueFleetAssociationRequestQueueFleetAssociationStoppedWaitTypeDef(BaseValidatorModel):
+
+class GetQueueFleetAssociationRequestWaitTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     fleetId: str
-    queueId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetQueueRequestQueueSchedulingBlockedWaitTypeDef(BaseValidatorModel):
+
+class GetQueueLimitAssociationRequestWaitTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
+    limitId: str
+    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
+
+class GetQueueRequestWaitExtraTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
 
-class GetQueueRequestQueueSchedulingWaitTypeDef(BaseValidatorModel):
+
+class GetQueueRequestWaitTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
     WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
 
 class GetJobEntityErrorTypeDef(BaseValidatorModel):
-    environmentDetails: Optional[EnvironmentDetailsErrorTypeDef] = None
-    jobAttachmentDetails: Optional[JobAttachmentDetailsErrorTypeDef] = None
     jobDetails: Optional[JobDetailsErrorTypeDef] = None
+    jobAttachmentDetails: Optional[JobAttachmentDetailsErrorTypeDef] = None
     stepDetails: Optional[StepDetailsErrorTypeDef] = None
+    environmentDetails: Optional[EnvironmentDetailsErrorTypeDef] = None
 
-class GetSessionsStatisticsAggregationRequestGetSessionsStatisticsAggregationPaginateTypeDef(BaseValidatorModel):
-    aggregationId: str
+
+class GetSessionsStatisticsAggregationRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
+    aggregationId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAvailableMeteredProductsRequestListAvailableMeteredProductsPaginateTypeDef(BaseValidatorModel):
+
+class ListAvailableMeteredProductsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListBudgetsRequestListBudgetsPaginateTypeDef(BaseValidatorModel):
+
+class ListBudgetsRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     status: Optional[BudgetStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFarmMembersRequestListFarmMembersPaginateTypeDef(BaseValidatorModel):
+
+class ListFarmMembersRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFarmsRequestListFarmsPaginateTypeDef(BaseValidatorModel):
+
+class ListFarmsRequestPaginateTypeDef(BaseValidatorModel):
     principalId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFleetMembersRequestListFleetMembersPaginateTypeDef(BaseValidatorModel):
+
+class ListFleetMembersRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListFleetsRequestListFleetsPaginateTypeDef(BaseValidatorModel):
+
+class ListFleetsRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
-    displayName: Optional[str] = None
     principalId: Optional[str] = None
+    displayName: Optional[str] = None
     status: Optional[FleetStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobMembersRequestListJobMembersPaginateTypeDef(BaseValidatorModel):
+
+class ListJobMembersRequestPaginateTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
+    jobId: str
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListJobParameterDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     jobId: str
     queueId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListJobsRequestListJobsPaginateTypeDef(BaseValidatorModel):
+
+class ListJobsRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
     principalId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLicenseEndpointsRequestListLicenseEndpointsPaginateTypeDef(BaseValidatorModel):
+
+class ListLicenseEndpointsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMeteredProductsRequestListMeteredProductsPaginateTypeDef(BaseValidatorModel):
+
+class ListLimitsRequestPaginateTypeDef(BaseValidatorModel):
+    farmId: str
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListMeteredProductsRequestPaginateTypeDef(BaseValidatorModel):
     licenseEndpointId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListMonitorsRequestListMonitorsPaginateTypeDef(BaseValidatorModel):
+
+class ListMonitorsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueueEnvironmentsRequestListQueueEnvironmentsPaginateTypeDef(BaseValidatorModel):
+
+class ListQueueEnvironmentsRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueueFleetAssociationsRequestListQueueFleetAssociationsPaginateTypeDef(BaseValidatorModel):
+
+class ListQueueFleetAssociationsRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
-    fleetId: Optional[str] = None
     queueId: Optional[str] = None
+    fleetId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueueMembersRequestListQueueMembersPaginateTypeDef(BaseValidatorModel):
+
+class ListQueueLimitAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: Optional[str] = None
+    limitId: Optional[str] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListQueueMembersRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueuesRequestListQueuesPaginateTypeDef(BaseValidatorModel):
+
+class ListQueuesRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     principalId: Optional[str] = None
     status: Optional[QueueStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSessionActionsRequestListSessionActionsPaginateTypeDef(BaseValidatorModel):
+
+class ListSessionActionsRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
+    jobId: str
     sessionId: Optional[str] = None
     taskId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSessionsForWorkerRequestListSessionsForWorkerPaginateTypeDef(BaseValidatorModel):
+
+class ListSessionsForWorkerRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     workerId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSessionsRequestListSessionsPaginateTypeDef(BaseValidatorModel):
+
+class ListSessionsRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
+    jobId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStepConsumersRequestListStepConsumersPaginateTypeDef(BaseValidatorModel):
+
+class ListStepConsumersRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
+    jobId: str
     stepId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStepDependenciesRequestListStepDependenciesPaginateTypeDef(BaseValidatorModel):
+
+class ListStepDependenciesRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
-    jobId: str
     queueId: str
+    jobId: str
     stepId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStepsRequestListStepsPaginateTypeDef(BaseValidatorModel):
+
+class ListStepsRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     jobId: str
-    queueId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStorageProfilesForQueueRequestListStorageProfilesForQueuePaginateTypeDef(BaseValidatorModel):
+
+class ListStorageProfilesForQueueRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListStorageProfilesRequestListStorageProfilesPaginateTypeDef(BaseValidatorModel):
+
+class ListStorageProfilesRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTasksRequestListTasksPaginateTypeDef(BaseValidatorModel):
+
+class ListTasksRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
+    queueId: str
     jobId: str
-    queueId: str
     stepId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWorkersRequestListWorkersPaginateTypeDef(BaseValidatorModel):
+
+class ListWorkersRequestPaginateTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class HostPropertiesRequestTypeDef(BaseValidatorModel):
-    hostName: Optional[str] = None
-    ipAddresses: Optional[IpAddressesTypeDef] = None
 
 class HostPropertiesResponseTypeDef(BaseValidatorModel):
+    ipAddresses: Optional[IpAddressesOutputTypeDef] = None
+    hostName: Optional[str] = None
     ec2InstanceArn: Optional[str] = None
     ec2InstanceType: Optional[str] = None
-    hostName: Optional[str] = None
-    ipAddresses: Optional[IpAddressesTypeDef] = None
 
-class HostPropertiesResponsePaginatorTypeDef(BaseValidatorModel):
-    ec2InstanceArn: Optional[str] = None
-    ec2InstanceType: Optional[str] = None
-    hostName: Optional[str] = None
-    ipAddresses: Optional[IpAddressesPaginatorTypeDef] = None
 
 class JobEntityIdentifiersUnionTypeDef(BaseValidatorModel):
-    environmentDetails: Optional[EnvironmentDetailsIdentifiersTypeDef] = None
-    jobAttachmentDetails: Optional[JobAttachmentDetailsIdentifiersTypeDef] = None
     jobDetails: Optional[JobDetailsIdentifiersTypeDef] = None
+    jobAttachmentDetails: Optional[JobAttachmentDetailsIdentifiersTypeDef] = None
     stepDetails: Optional[StepDetailsIdentifiersTypeDef] = None
+    environmentDetails: Optional[EnvironmentDetailsIdentifiersTypeDef] = None
+
 
 class ListJobMembersResponseTypeDef(BaseValidatorModel):
     members: List[JobMemberTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class JobRunAsUserTypeDef(BaseValidatorModel):
     runAs: RunAsType
     posix: Optional[PosixUserTypeDef] = None
     windows: Optional[WindowsUserTypeDef] = None
 
+
 class ListJobsResponseTypeDef(BaseValidatorModel):
     jobs: List[JobSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListLicenseEndpointsResponseTypeDef(BaseValidatorModel):
     licenseEndpoints: List[LicenseEndpointSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class ListLimitsResponseTypeDef(BaseValidatorModel):
+    limits: List[LimitSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListAvailableMeteredProductsResponseTypeDef(BaseValidatorModel):
     meteredProducts: List[MeteredProductSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListMeteredProductsResponseTypeDef(BaseValidatorModel):
     meteredProducts: List[MeteredProductSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListMonitorsResponseTypeDef(BaseValidatorModel):
     monitors: List[MonitorSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListQueueEnvironmentsResponseTypeDef(BaseValidatorModel):
     environments: List[QueueEnvironmentSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListQueueFleetAssociationsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     queueFleetAssociations: List[QueueFleetAssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class ListQueueLimitAssociationsResponseTypeDef(BaseValidatorModel):
+    queueLimitAssociations: List[QueueLimitAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListQueueMembersResponseTypeDef(BaseValidatorModel):
     members: List[QueueMemberTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListQueuesResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     queues: List[QueueSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListSessionsForWorkerResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     sessions: List[WorkerSessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListSessionsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     sessions: List[SessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListStepConsumersResponseTypeDef(BaseValidatorModel):
     consumers: List[StepConsumerTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListStepDependenciesResponseTypeDef(BaseValidatorModel):
     dependencies: List[StepDependencyTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListStorageProfilesForQueueResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     storageProfiles: List[StorageProfileSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListStorageProfilesResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     storageProfiles: List[StorageProfileSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class StepParameterTypeDef(BaseValidatorModel):
+    pass
+
 
 class ParameterSpaceTypeDef(BaseValidatorModel):
     parameters: List[StepParameterTypeDef]
     combination: Optional[str] = None
 
+
 class SearchSortExpressionTypeDef(BaseValidatorModel):
+    userJobsFirst: Optional[UserJobsFirstTypeDef] = None
     fieldSort: Optional[FieldSortExpressionTypeDef] = None
     parameterSort: Optional[ParameterSortExpressionTypeDef] = None
-    userJobsFirst: Optional[UserJobsFirstTypeDef] = None
+
 
 class SessionActionDefinitionSummaryTypeDef(BaseValidatorModel):
     envEnter: Optional[EnvironmentEnterSessionActionDefinitionSummaryTypeDef] = None
     envExit: Optional[EnvironmentExitSessionActionDefinitionSummaryTypeDef] = None
-    syncInputJobAttachments: Optional[       SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef     ] = None
     taskRun: Optional[TaskRunSessionActionDefinitionSummaryTypeDef] = None
+    syncInputJobAttachments: Optional[ SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef ] = None
 
-class StartSessionsStatisticsAggregationRequestRequestTypeDef(BaseValidatorModel):
-    endTime: TimestampTypeDef
+
+class StartSessionsStatisticsAggregationRequestTypeDef(BaseValidatorModel):
     farmId: str
-    groupBy: Sequence[UsageGroupByFieldType]
     resourceIds: SessionsStatisticsResourcesTypeDef
     startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    groupBy: Sequence[UsageGroupByFieldType]
     statistics: Sequence[UsageStatisticType]
-    period: Optional[PeriodType] = None
     timezone: Optional[str] = None
+    period: Optional[PeriodType] = None
+
+
+class StatsTypeDef(BaseValidatorModel):
+    pass
+
 
 class StatisticsTypeDef(BaseValidatorModel):
-    costInUsd: StatsTypeDef
     count: int
+    costInUsd: StatsTypeDef
     runtimeInSeconds: StatsTypeDef
-    aggregationEndTime: Optional[datetime] = None
-    aggregationStartTime: Optional[datetime] = None
+    queueId: Optional[str] = None
     fleetId: Optional[str] = None
-    instanceType: Optional[str] = None
     jobId: Optional[str] = None
     jobName: Optional[str] = None
-    licenseProduct: Optional[str] = None
-    queueId: Optional[str] = None
-    usageType: Optional[UsageTypeType] = None
     userId: Optional[str] = None
+    usageType: Optional[UsageTypeType] = None
+    licenseProduct: Optional[str] = None
+    instanceType: Optional[str] = None
+    aggregationStartTime: Optional[datetime] = None
+    aggregationEndTime: Optional[datetime] = None
+
+
+class StepAmountCapabilityTypeDef(BaseValidatorModel):
+    pass
+
 
 class StepRequiredCapabilitiesTypeDef(BaseValidatorModel):
-    amounts: List[StepAmountCapabilityTypeDef]
     attributes: List[StepAttributeCapabilityTypeDef]
+    amounts: List[StepAmountCapabilityTypeDef]
+
 
 class WorkerCapabilitiesTypeDef(BaseValidatorModel):
     amounts: Sequence[WorkerAmountCapabilityTypeDef]
     attributes: Sequence[WorkerAttributeCapabilityTypeDef]
 
+
+class ServiceManagedEc2InstanceCapabilitiesOutputTypeDef(BaseValidatorModel):
+    vCpuCount: VCpuCountRangeTypeDef
+    memoryMiB: MemoryMiBRangeTypeDef
+    osFamily: ServiceManagedFleetOperatingSystemFamilyType
+    cpuArchitectureType: CpuArchitectureTypeType
+    rootEbsVolume: Optional[Ec2EbsVolumeTypeDef] = None
+    acceleratorCapabilities: Optional[AcceleratorCapabilitiesOutputTypeDef] = None
+    allowedInstanceTypes: Optional[List[str]] = None
+    excludedInstanceTypes: Optional[List[str]] = None
+    customAmounts: Optional[List[FleetAmountCapabilityTypeDef]] = None
+    customAttributes: Optional[List[FleetAttributeCapabilityOutputTypeDef]] = None
+
+
+class ServiceManagedEc2InstanceCapabilitiesTypeDef(BaseValidatorModel):
+    vCpuCount: VCpuCountRangeTypeDef
+    memoryMiB: MemoryMiBRangeTypeDef
+    osFamily: ServiceManagedFleetOperatingSystemFamilyType
+    cpuArchitectureType: CpuArchitectureTypeType
+    rootEbsVolume: Optional[Ec2EbsVolumeTypeDef] = None
+    acceleratorCapabilities: Optional[AcceleratorCapabilitiesTypeDef] = None
+    allowedInstanceTypes: Optional[Sequence[str]] = None
+    excludedInstanceTypes: Optional[Sequence[str]] = None
+    customAmounts: Optional[Sequence[FleetAmountCapabilityTypeDef]] = None
+    customAttributes: Optional[Sequence[FleetAttributeCapabilityTypeDef]] = None
+
+
 class AssignedSessionActionDefinitionTypeDef(BaseValidatorModel):
     envEnter: Optional[AssignedEnvironmentEnterSessionActionDefinitionTypeDef] = None
     envExit: Optional[AssignedEnvironmentExitSessionActionDefinitionTypeDef] = None
-    syncInputJobAttachments: Optional[       AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef     ] = None
     taskRun: Optional[AssignedTaskRunSessionActionDefinitionTypeDef] = None
+    syncInputJobAttachments: Optional[ AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef ] = None
+
 
 class SessionActionDefinitionTypeDef(BaseValidatorModel):
     envEnter: Optional[EnvironmentEnterSessionActionDefinitionTypeDef] = None
     envExit: Optional[EnvironmentExitSessionActionDefinitionTypeDef] = None
-    syncInputJobAttachments: Optional[       SyncInputJobAttachmentsSessionActionDefinitionTypeDef     ] = None
     taskRun: Optional[TaskRunSessionActionDefinitionTypeDef] = None
+    syncInputJobAttachments: Optional[SyncInputJobAttachmentsSessionActionDefinitionTypeDef] = None
+
 
 class SearchTasksResponseTypeDef(BaseValidatorModel):
-    nextItemOffset: int
     tasks: List[TaskSearchSummaryTypeDef]
+    nextItemOffset: int
     totalResults: int
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListTasksResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     tasks: List[TaskSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class CreateJobRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    priority: int
-    queueId: str
-    template: str
-    templateType: JobTemplateTypeType
-    attachments: Optional[AttachmentsTypeDef] = None
-    clientToken: Optional[str] = None
-    maxFailedTasksCount: Optional[int] = None
-    maxRetriesPerTask: Optional[int] = None
-    parameters: Optional[Mapping[str, JobParameterTypeDef]] = None
-    storageProfileId: Optional[str] = None
-    targetTaskRunStatus: Optional[CreateJobTargetTaskRunStatusType] = None
 
 class GetJobResponseTypeDef(BaseValidatorModel):
-    attachments: AttachmentsTypeDef
-    createdAt: datetime
-    createdBy: str
-    description: str
-    endedAt: datetime
     jobId: str
+    name: str
     lifecycleStatus: JobLifecycleStatusType
     lifecycleStatusMessage: str
-    maxFailedTasksCount: int
-    maxRetriesPerTask: int
-    name: str
-    parameters: Dict[str, JobParameterTypeDef]
     priority: int
-    startedAt: datetime
-    storageProfileId: str
-    targetTaskRunStatus: JobTargetTaskRunStatusType
-    taskRunStatus: TaskRunStatusType
-    taskRunStatusCounts: Dict[TaskRunStatusType, int]
+    createdAt: datetime
+    createdBy: str
     updatedAt: datetime
     updatedBy: str
+    startedAt: datetime
+    endedAt: datetime
+    taskRunStatus: TaskRunStatusType
+    targetTaskRunStatus: JobTargetTaskRunStatusType
+    taskRunStatusCounts: Dict[TaskRunStatusType, int]
+    storageProfileId: str
+    maxFailedTasksCount: int
+    maxRetriesPerTask: int
+    parameters: Dict[str, JobParameterTypeDef]
+    attachments: AttachmentsOutputTypeDef
+    description: str
+    maxWorkerCount: int
+    sourceJobId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class JobAttachmentDetailsEntityTypeDef(BaseValidatorModel):
-    attachments: AttachmentsTypeDef
     jobId: str
+    attachments: AttachmentsOutputTypeDef
+
+
+class ResponseBudgetActionTypeDef(BaseValidatorModel):
+    pass
+
+
+class GetBudgetResponseTypeDef(BaseValidatorModel):
+    budgetId: str
+    usageTrackingResource: UsageTrackingResourceTypeDef
+    status: BudgetStatusType
+    displayName: str
+    description: str
+    approximateDollarLimit: float
+    usages: ConsumedUsagesTypeDef
+    actions: List[ResponseBudgetActionTypeDef]
+    schedule: BudgetScheduleOutputTypeDef
+    createdBy: str
+    createdAt: datetime
+    updatedBy: str
+    updatedAt: datetime
+    queueStoppedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListBudgetsResponseTypeDef(BaseValidatorModel):
     budgets: List[BudgetSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class SearchJobsResponseTypeDef(BaseValidatorModel):
     jobs: List[JobSearchSummaryTypeDef]
@@ -1676,150 +2119,159 @@ class SearchJobsResponseTypeDef(BaseValidatorModel):
     totalResults: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CustomerManagedFleetConfigurationPaginatorTypeDef(BaseValidatorModel):
+
+class CustomerManagedFleetConfigurationOutputTypeDef(BaseValidatorModel):
     mode: AutoScalingModeType
-    workerCapabilities: CustomerManagedWorkerCapabilitiesPaginatorTypeDef
+    workerCapabilities: CustomerManagedWorkerCapabilitiesOutputTypeDef
     storageProfileId: Optional[str] = None
+
 
 class CustomerManagedFleetConfigurationTypeDef(BaseValidatorModel):
     mode: AutoScalingModeType
     workerCapabilities: CustomerManagedWorkerCapabilitiesTypeDef
     storageProfileId: Optional[str] = None
 
+
+class DateTimeFilterExpressionTypeDef(BaseValidatorModel):
+    pass
+
+
+class StringFilterExpressionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ParameterFilterExpressionTypeDef(BaseValidatorModel):
+    pass
+
+
 class SearchFilterExpressionTypeDef(BaseValidatorModel):
     dateTimeFilter: Optional[DateTimeFilterExpressionTypeDef] = None
-    groupFilter: Optional[Dict[str, Any]] = None
     parameterFilter: Optional[ParameterFilterExpressionTypeDef] = None
     searchTermFilter: Optional[SearchTermFilterExpressionTypeDef] = None
     stringFilter: Optional[StringFilterExpressionTypeDef] = None
+    groupFilter: Optional[Mapping[str, Any]] = None
+
 
 class BudgetScheduleTypeDef(BaseValidatorModel):
     fixed: Optional[FixedBudgetScheduleTypeDef] = None
 
-class UpdateWorkerScheduleRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateWorkerScheduleRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     workerId: str
     updatedSessionActions: Optional[Mapping[str, UpdatedSessionActionInfoTypeDef]] = None
 
+
 class ListStepsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     steps: List[StepSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class ServiceManagedEc2FleetConfigurationPaginatorTypeDef(BaseValidatorModel):
-    instanceCapabilities: ServiceManagedEc2InstanceCapabilitiesPaginatorTypeDef
-    instanceMarketOptions: ServiceManagedEc2InstanceMarketOptionsTypeDef
-
-class ServiceManagedEc2FleetConfigurationTypeDef(BaseValidatorModel):
-    instanceCapabilities: ServiceManagedEc2InstanceCapabilitiesTypeDef
-    instanceMarketOptions: ServiceManagedEc2InstanceMarketOptionsTypeDef
-
-class CreateWorkerRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    clientToken: Optional[str] = None
-    hostProperties: Optional[HostPropertiesRequestTypeDef] = None
 
 class GetSessionResponseTypeDef(BaseValidatorModel):
-    endedAt: datetime
-    fleetId: str
-    hostProperties: HostPropertiesResponseTypeDef
-    lifecycleStatus: SessionLifecycleStatusType
-    log: LogConfigurationTypeDef
     sessionId: str
+    fleetId: str
+    workerId: str
     startedAt: datetime
-    targetLifecycleStatus: Literal["ENDED"]
+    log: LogConfigurationTypeDef
+    lifecycleStatus: SessionLifecycleStatusType
+    endedAt: datetime
     updatedAt: datetime
     updatedBy: str
-    workerId: str
+    targetLifecycleStatus: Literal["ENDED"]
+    hostProperties: HostPropertiesResponseTypeDef
     workerLog: LogConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetWorkerResponseTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdBy: str
     farmId: str
     fleetId: str
+    workerId: str
     hostProperties: HostPropertiesResponseTypeDef
-    log: LogConfigurationTypeDef
     status: WorkerStatusType
+    log: LogConfigurationTypeDef
+    createdAt: datetime
+    createdBy: str
     updatedAt: datetime
     updatedBy: str
-    workerId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class WorkerSearchSummaryTypeDef(BaseValidatorModel):
-    createdAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
     fleetId: Optional[str] = None
-    hostProperties: Optional[HostPropertiesResponseTypeDef] = None
-    status: Optional[WorkerStatusType] = None
-    updatedAt: Optional[datetime] = None
-    updatedBy: Optional[str] = None
     workerId: Optional[str] = None
+    status: Optional[WorkerStatusType] = None
+    hostProperties: Optional[HostPropertiesResponseTypeDef] = None
+    createdBy: Optional[str] = None
+    createdAt: Optional[datetime] = None
+    updatedBy: Optional[str] = None
+    updatedAt: Optional[datetime] = None
+
 
 class WorkerSummaryTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdBy: str
+    workerId: str
     farmId: str
     fleetId: str
     status: WorkerStatusType
-    workerId: str
+    createdAt: datetime
+    createdBy: str
     hostProperties: Optional[HostPropertiesResponseTypeDef] = None
     log: Optional[LogConfigurationTypeDef] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
-class WorkerSummaryPaginatorTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdBy: str
-    farmId: str
-    fleetId: str
-    status: WorkerStatusType
-    workerId: str
-    hostProperties: Optional[HostPropertiesResponsePaginatorTypeDef] = None
-    log: Optional[LogConfigurationTypeDef] = None
-    updatedAt: Optional[datetime] = None
-    updatedBy: Optional[str] = None
 
-class BatchGetJobEntityRequestRequestTypeDef(BaseValidatorModel):
+class IpAddressesUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class HostPropertiesRequestTypeDef(BaseValidatorModel):
+    ipAddresses: Optional[IpAddressesUnionTypeDef] = None
+    hostName: Optional[str] = None
+
+
+class BatchGetJobEntityRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
+    workerId: str
     identifiers: Sequence[JobEntityIdentifiersUnionTypeDef]
-    workerId: str
 
-class CreateQueueRequestRequestTypeDef(BaseValidatorModel):
-    displayName: str
+
+class CreateQueueRequestTypeDef(BaseValidatorModel):
     farmId: str
-    allowedStorageProfileIds: Optional[Sequence[str]] = None
+    displayName: str
     clientToken: Optional[str] = None
-    defaultBudgetAction: Optional[DefaultQueueBudgetActionType] = None
     description: Optional[str] = None
+    defaultBudgetAction: Optional[DefaultQueueBudgetActionType] = None
     jobAttachmentSettings: Optional[JobAttachmentSettingsTypeDef] = None
+    roleArn: Optional[str] = None
     jobRunAsUser: Optional[JobRunAsUserTypeDef] = None
     requiredFileSystemLocationNames: Optional[Sequence[str]] = None
-    roleArn: Optional[str] = None
+    allowedStorageProfileIds: Optional[Sequence[str]] = None
     tags: Optional[Mapping[str, str]] = None
 
+
 class GetQueueResponseTypeDef(BaseValidatorModel):
-    allowedStorageProfileIds: List[str]
+    queueId: str
+    displayName: str
+    description: str
+    farmId: str
+    status: QueueStatusType
+    defaultBudgetAction: DefaultQueueBudgetActionType
     blockedReason: QueueBlockedReasonType
+    jobAttachmentSettings: JobAttachmentSettingsTypeDef
+    roleArn: str
+    requiredFileSystemLocationNames: List[str]
+    allowedStorageProfileIds: List[str]
+    jobRunAsUser: JobRunAsUserTypeDef
     createdAt: datetime
     createdBy: str
-    defaultBudgetAction: DefaultQueueBudgetActionType
-    description: str
-    displayName: str
-    farmId: str
-    jobAttachmentSettings: JobAttachmentSettingsTypeDef
-    jobRunAsUser: JobRunAsUserTypeDef
-    queueId: str
-    requiredFileSystemLocationNames: List[str]
-    roleArn: str
-    status: QueueStatusType
     updatedAt: datetime
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class JobDetailsEntityTypeDef(BaseValidatorModel):
     jobId: str
@@ -1827,299 +2279,324 @@ class JobDetailsEntityTypeDef(BaseValidatorModel):
     schemaVersion: str
     jobAttachmentSettings: Optional[JobAttachmentSettingsTypeDef] = None
     jobRunAsUser: Optional[JobRunAsUserTypeDef] = None
+    queueRoleArn: Optional[str] = None
     parameters: Optional[Dict[str, JobParameterTypeDef]] = None
     pathMappingRules: Optional[List[PathMappingRuleTypeDef]] = None
-    queueRoleArn: Optional[str] = None
 
-class UpdateQueueRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateQueueRequestTypeDef(BaseValidatorModel):
     farmId: str
     queueId: str
-    allowedStorageProfileIdsToAdd: Optional[Sequence[str]] = None
-    allowedStorageProfileIdsToRemove: Optional[Sequence[str]] = None
     clientToken: Optional[str] = None
-    defaultBudgetAction: Optional[DefaultQueueBudgetActionType] = None
-    description: Optional[str] = None
     displayName: Optional[str] = None
+    description: Optional[str] = None
+    defaultBudgetAction: Optional[DefaultQueueBudgetActionType] = None
     jobAttachmentSettings: Optional[JobAttachmentSettingsTypeDef] = None
+    roleArn: Optional[str] = None
     jobRunAsUser: Optional[JobRunAsUserTypeDef] = None
     requiredFileSystemLocationNamesToAdd: Optional[Sequence[str]] = None
     requiredFileSystemLocationNamesToRemove: Optional[Sequence[str]] = None
-    roleArn: Optional[str] = None
+    allowedStorageProfileIdsToAdd: Optional[Sequence[str]] = None
+    allowedStorageProfileIdsToRemove: Optional[Sequence[str]] = None
+
 
 class StepSearchSummaryTypeDef(BaseValidatorModel):
-    createdAt: Optional[datetime] = None
-    endedAt: Optional[datetime] = None
+    stepId: Optional[str] = None
     jobId: Optional[str] = None
+    queueId: Optional[str] = None
+    name: Optional[str] = None
     lifecycleStatus: Optional[StepLifecycleStatusType] = None
     lifecycleStatusMessage: Optional[str] = None
-    name: Optional[str] = None
-    parameterSpace: Optional[ParameterSpaceTypeDef] = None
-    queueId: Optional[str] = None
-    startedAt: Optional[datetime] = None
-    stepId: Optional[str] = None
-    targetTaskRunStatus: Optional[StepTargetTaskRunStatusType] = None
     taskRunStatus: Optional[TaskRunStatusType] = None
+    targetTaskRunStatus: Optional[StepTargetTaskRunStatusType] = None
     taskRunStatusCounts: Optional[Dict[TaskRunStatusType, int]] = None
+    createdAt: Optional[datetime] = None
+    startedAt: Optional[datetime] = None
+    endedAt: Optional[datetime] = None
+    parameterSpace: Optional[ParameterSpaceTypeDef] = None
 
-class SearchJobsRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    itemOffset: int
-    queueIds: Sequence[str]
-    filterExpressions: Optional["SearchGroupedFilterExpressionsTypeDef"] = None
-    pageSize: Optional[int] = None
-    sortExpressions: Optional[Sequence[SearchSortExpressionTypeDef]] = None
-
-class SearchStepsRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    itemOffset: int
-    queueIds: Sequence[str]
-    filterExpressions: Optional["SearchGroupedFilterExpressionsTypeDef"] = None
-    jobId: Optional[str] = None
-    pageSize: Optional[int] = None
-    sortExpressions: Optional[Sequence[SearchSortExpressionTypeDef]] = None
-
-class SearchTasksRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    itemOffset: int
-    queueIds: Sequence[str]
-    filterExpressions: Optional["SearchGroupedFilterExpressionsTypeDef"] = None
-    jobId: Optional[str] = None
-    pageSize: Optional[int] = None
-    sortExpressions: Optional[Sequence[SearchSortExpressionTypeDef]] = None
-
-class SearchWorkersRequestRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetIds: Sequence[str]
-    itemOffset: int
-    filterExpressions: Optional["SearchGroupedFilterExpressionsTypeDef"] = None
-    pageSize: Optional[int] = None
-    sortExpressions: Optional[Sequence[SearchSortExpressionTypeDef]] = None
 
 class SessionActionSummaryTypeDef(BaseValidatorModel):
-    definition: SessionActionDefinitionSummaryTypeDef
     sessionActionId: str
     status: SessionActionStatusType
-    endedAt: Optional[datetime] = None
-    progressPercent: Optional[float] = None
+    definition: SessionActionDefinitionSummaryTypeDef
     startedAt: Optional[datetime] = None
+    endedAt: Optional[datetime] = None
     workerUpdatedAt: Optional[datetime] = None
+    progressPercent: Optional[float] = None
+
 
 class GetSessionsStatisticsAggregationResponseTypeDef(BaseValidatorModel):
-    nextToken: str
     statistics: List[StatisticsTypeDef]
     status: SessionsStatisticsAggregationStatusType
     statusMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class GetStepResponseTypeDef(BaseValidatorModel):
-    createdAt: datetime
-    createdBy: str
-    dependencyCounts: DependencyCountsTypeDef
-    description: str
-    endedAt: datetime
+    stepId: str
+    name: str
     lifecycleStatus: StepLifecycleStatusType
     lifecycleStatusMessage: str
-    name: str
-    parameterSpace: ParameterSpaceTypeDef
-    requiredCapabilities: StepRequiredCapabilitiesTypeDef
-    startedAt: datetime
-    stepId: str
-    targetTaskRunStatus: StepTargetTaskRunStatusType
     taskRunStatus: TaskRunStatusType
     taskRunStatusCounts: Dict[TaskRunStatusType, int]
+    targetTaskRunStatus: StepTargetTaskRunStatusType
+    createdAt: datetime
+    createdBy: str
     updatedAt: datetime
     updatedBy: str
+    startedAt: datetime
+    endedAt: datetime
+    dependencyCounts: DependencyCountsTypeDef
+    requiredCapabilities: StepRequiredCapabilitiesTypeDef
+    parameterSpace: ParameterSpaceTypeDef
+    description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateWorkerRequestRequestTypeDef(BaseValidatorModel):
+
+class ServiceManagedEc2InstanceMarketOptionsTypeDef(BaseValidatorModel):
+    pass
+
+
+class ServiceManagedEc2FleetConfigurationOutputTypeDef(BaseValidatorModel):
+    instanceCapabilities: ServiceManagedEc2InstanceCapabilitiesOutputTypeDef
+    instanceMarketOptions: ServiceManagedEc2InstanceMarketOptionsTypeDef
+
+
+class ServiceManagedEc2FleetConfigurationTypeDef(BaseValidatorModel):
+    instanceCapabilities: ServiceManagedEc2InstanceCapabilitiesTypeDef
+    instanceMarketOptions: ServiceManagedEc2InstanceMarketOptionsTypeDef
+
+
+class AssignedSessionActionTypeDef(BaseValidatorModel):
+    sessionActionId: str
+    definition: AssignedSessionActionDefinitionTypeDef
+
+
+class GetSessionActionResponseTypeDef(BaseValidatorModel):
+    sessionActionId: str
+    status: SessionActionStatusType
+    startedAt: datetime
+    endedAt: datetime
+    workerUpdatedAt: datetime
+    progressPercent: float
+    sessionId: str
+    processExitCode: int
+    progressMessage: str
+    definition: SessionActionDefinitionTypeDef
+    acquiredLimits: List[AcquiredLimitTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class AttachmentsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateJobRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueId: str
+    priority: int
+    clientToken: Optional[str] = None
+    template: Optional[str] = None
+    templateType: Optional[JobTemplateTypeType] = None
+    parameters: Optional[Mapping[str, JobParameterTypeDef]] = None
+    attachments: Optional[AttachmentsUnionTypeDef] = None
+    storageProfileId: Optional[str] = None
+    targetTaskRunStatus: Optional[CreateJobTargetTaskRunStatusType] = None
+    maxFailedTasksCount: Optional[int] = None
+    maxRetriesPerTask: Optional[int] = None
+    maxWorkerCount: Optional[int] = None
+    sourceJobId: Optional[str] = None
+
+
+class SearchWorkersResponseTypeDef(BaseValidatorModel):
+    workers: List[WorkerSearchSummaryTypeDef]
+    nextItemOffset: int
+    totalResults: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class ListWorkersResponseTypeDef(BaseValidatorModel):
+    workers: List[WorkerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class CreateWorkerRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    fleetId: str
+    hostProperties: Optional[HostPropertiesRequestTypeDef] = None
+    clientToken: Optional[str] = None
+
+
+class UpdateWorkerRequestTypeDef(BaseValidatorModel):
     farmId: str
     fleetId: str
     workerId: str
+    status: Optional[UpdatedWorkerStatusType] = None
     capabilities: Optional[WorkerCapabilitiesTypeDef] = None
     hostProperties: Optional[HostPropertiesRequestTypeDef] = None
-    status: Optional[UpdatedWorkerStatusType] = None
 
-class AssignedSessionActionTypeDef(BaseValidatorModel):
-    definition: AssignedSessionActionDefinitionTypeDef
-    sessionActionId: str
 
-class GetSessionActionResponseTypeDef(BaseValidatorModel):
-    definition: SessionActionDefinitionTypeDef
-    endedAt: datetime
-    processExitCode: int
-    progressMessage: str
-    progressPercent: float
-    sessionActionId: str
-    sessionId: str
-    startedAt: datetime
-    status: SessionActionStatusType
-    workerUpdatedAt: datetime
+class JobEntityTypeDef(BaseValidatorModel):
+    jobDetails: Optional[JobDetailsEntityTypeDef] = None
+    jobAttachmentDetails: Optional[JobAttachmentDetailsEntityTypeDef] = None
+    stepDetails: Optional[StepDetailsEntityTypeDef] = None
+    environmentDetails: Optional[EnvironmentDetailsEntityTypeDef] = None
+
+
+class SearchStepsResponseTypeDef(BaseValidatorModel):
+    steps: List[StepSearchSummaryTypeDef]
+    nextItemOffset: int
+    totalResults: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateBudgetRequestRequestTypeDef(BaseValidatorModel):
-    actions: Sequence[BudgetActionToAddTypeDef]
-    approximateDollarLimit: float
-    displayName: str
-    farmId: str
-    schedule: BudgetScheduleTypeDef
-    usageTrackingResource: UsageTrackingResourceTypeDef
-    clientToken: Optional[str] = None
-    description: Optional[str] = None
 
-class GetBudgetResponseTypeDef(BaseValidatorModel):
-    actions: List[ResponseBudgetActionTypeDef]
-    approximateDollarLimit: float
-    budgetId: str
-    createdAt: datetime
-    createdBy: str
-    description: str
-    displayName: str
-    queueStoppedAt: datetime
-    schedule: BudgetScheduleTypeDef
-    status: BudgetStatusType
-    updatedAt: datetime
-    updatedBy: str
-    usageTrackingResource: UsageTrackingResourceTypeDef
-    usages: ConsumedUsagesTypeDef
+class ListSessionActionsResponseTypeDef(BaseValidatorModel):
+    sessionActions: List[SessionActionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class UpdateBudgetRequestRequestTypeDef(BaseValidatorModel):
-    budgetId: str
-    farmId: str
-    actionsToAdd: Optional[Sequence[BudgetActionToAddTypeDef]] = None
-    actionsToRemove: Optional[Sequence[BudgetActionToRemoveTypeDef]] = None
-    approximateDollarLimit: Optional[float] = None
-    clientToken: Optional[str] = None
-    description: Optional[str] = None
-    displayName: Optional[str] = None
-    schedule: Optional[BudgetScheduleTypeDef] = None
-    status: Optional[BudgetStatusType] = None
 
-class FleetConfigurationPaginatorTypeDef(BaseValidatorModel):
-    customerManaged: Optional[CustomerManagedFleetConfigurationPaginatorTypeDef] = None
-    serviceManagedEc2: Optional[ServiceManagedEc2FleetConfigurationPaginatorTypeDef] = None
+class FleetConfigurationOutputTypeDef(BaseValidatorModel):
+    customerManaged: Optional[CustomerManagedFleetConfigurationOutputTypeDef] = None
+    serviceManagedEc2: Optional[ServiceManagedEc2FleetConfigurationOutputTypeDef] = None
+
 
 class FleetConfigurationTypeDef(BaseValidatorModel):
     customerManaged: Optional[CustomerManagedFleetConfigurationTypeDef] = None
     serviceManagedEc2: Optional[ServiceManagedEc2FleetConfigurationTypeDef] = None
 
-class SearchWorkersResponseTypeDef(BaseValidatorModel):
-    nextItemOffset: int
-    totalResults: int
-    workers: List[WorkerSearchSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListWorkersResponseTypeDef(BaseValidatorModel):
-    nextToken: str
-    workers: List[WorkerSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListWorkersResponsePaginatorTypeDef(BaseValidatorModel):
-    nextToken: str
-    workers: List[WorkerSummaryPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class JobEntityTypeDef(BaseValidatorModel):
-    environmentDetails: Optional[EnvironmentDetailsEntityTypeDef] = None
-    jobAttachmentDetails: Optional[JobAttachmentDetailsEntityTypeDef] = None
-    jobDetails: Optional[JobDetailsEntityTypeDef] = None
-    stepDetails: Optional[StepDetailsEntityTypeDef] = None
-
-class SearchStepsResponseTypeDef(BaseValidatorModel):
-    nextItemOffset: int
-    steps: List[StepSearchSummaryTypeDef]
-    totalResults: int
-    ResponseMetadata: ResponseMetadataTypeDef
-
-class ListSessionActionsResponseTypeDef(BaseValidatorModel):
-    nextToken: str
-    sessionActions: List[SessionActionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class AssignedSessionTypeDef(BaseValidatorModel):
-    jobId: str
-    logConfiguration: LogConfigurationTypeDef
     queueId: str
+    jobId: str
     sessionActions: List[AssignedSessionActionTypeDef]
+    logConfiguration: LogConfigurationTypeDef
 
-class FleetSummaryPaginatorTypeDef(BaseValidatorModel):
-    configuration: FleetConfigurationPaginatorTypeDef
-    createdAt: datetime
-    createdBy: str
-    displayName: str
-    farmId: str
-    fleetId: str
-    maxWorkerCount: int
-    minWorkerCount: int
-    status: FleetStatusType
-    workerCount: int
-    autoScalingStatus: Optional[AutoScalingStatusType] = None
-    targetWorkerCount: Optional[int] = None
-    updatedAt: Optional[datetime] = None
-    updatedBy: Optional[str] = None
 
-class CreateFleetRequestRequestTypeDef(BaseValidatorModel):
-    configuration: FleetConfigurationTypeDef
-    displayName: str
+class SearchGroupedFilterExpressionsTypeDef(BaseValidatorModel):
+    pass
+
+
+class SearchJobsRequestTypeDef(BaseValidatorModel):
     farmId: str
-    maxWorkerCount: int
-    roleArn: str
+    queueIds: Sequence[str]
+    itemOffset: int
+    filterExpressions: Optional[SearchGroupedFilterExpressionsTypeDef] = None
+    sortExpressions: Optional[Sequence[SearchSortExpressionTypeDef]] = None
+    pageSize: Optional[int] = None
+
+
+class SearchStepsRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueIds: Sequence[str]
+    itemOffset: int
+    jobId: Optional[str] = None
+    filterExpressions: Optional[SearchGroupedFilterExpressionsTypeDef] = None
+    sortExpressions: Optional[Sequence[SearchSortExpressionTypeDef]] = None
+    pageSize: Optional[int] = None
+
+
+class SearchTasksRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    queueIds: Sequence[str]
+    itemOffset: int
+    jobId: Optional[str] = None
+    filterExpressions: Optional[SearchGroupedFilterExpressionsTypeDef] = None
+    sortExpressions: Optional[Sequence[SearchSortExpressionTypeDef]] = None
+    pageSize: Optional[int] = None
+
+
+class SearchWorkersRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    fleetIds: Sequence[str]
+    itemOffset: int
+    filterExpressions: Optional[SearchGroupedFilterExpressionsTypeDef] = None
+    sortExpressions: Optional[Sequence[SearchSortExpressionTypeDef]] = None
+    pageSize: Optional[int] = None
+
+
+class BudgetScheduleUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class BudgetActionToAddTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateBudgetRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    usageTrackingResource: UsageTrackingResourceTypeDef
+    displayName: str
+    approximateDollarLimit: float
+    actions: Sequence[BudgetActionToAddTypeDef]
+    schedule: BudgetScheduleUnionTypeDef
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    minWorkerCount: Optional[int] = None
-    tags: Optional[Mapping[str, str]] = None
 
-class FleetSummaryTypeDef(BaseValidatorModel):
-    configuration: FleetConfigurationTypeDef
-    createdAt: datetime
-    createdBy: str
-    displayName: str
-    farmId: str
-    fleetId: str
-    maxWorkerCount: int
-    minWorkerCount: int
-    status: FleetStatusType
-    workerCount: int
-    autoScalingStatus: Optional[AutoScalingStatusType] = None
-    targetWorkerCount: Optional[int] = None
-    updatedAt: Optional[datetime] = None
-    updatedBy: Optional[str] = None
 
-class GetFleetResponseTypeDef(BaseValidatorModel):
-    autoScalingStatus: AutoScalingStatusType
-    capabilities: FleetCapabilitiesTypeDef
-    configuration: FleetConfigurationTypeDef
-    createdAt: datetime
-    createdBy: str
-    description: str
-    displayName: str
-    farmId: str
-    fleetId: str
-    maxWorkerCount: int
-    minWorkerCount: int
-    roleArn: str
-    status: FleetStatusType
-    targetWorkerCount: int
-    updatedAt: datetime
-    updatedBy: str
-    workerCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+class BudgetActionToRemoveTypeDef(BaseValidatorModel):
+    pass
 
-class UpdateFleetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateBudgetRequestTypeDef(BaseValidatorModel):
     farmId: str
-    fleetId: str
+    budgetId: str
     clientToken: Optional[str] = None
-    configuration: Optional[FleetConfigurationTypeDef] = None
-    description: Optional[str] = None
     displayName: Optional[str] = None
-    maxWorkerCount: Optional[int] = None
-    minWorkerCount: Optional[int] = None
-    roleArn: Optional[str] = None
+    description: Optional[str] = None
+    status: Optional[BudgetStatusType] = None
+    approximateDollarLimit: Optional[float] = None
+    actionsToAdd: Optional[Sequence[BudgetActionToAddTypeDef]] = None
+    actionsToRemove: Optional[Sequence[BudgetActionToRemoveTypeDef]] = None
+    schedule: Optional[BudgetScheduleUnionTypeDef] = None
+
 
 class BatchGetJobEntityResponseTypeDef(BaseValidatorModel):
     entities: List[JobEntityTypeDef]
     errors: List[GetJobEntityErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class FleetSummaryTypeDef(BaseValidatorModel):
+    fleetId: str
+    farmId: str
+    displayName: str
+    status: FleetStatusType
+    workerCount: int
+    minWorkerCount: int
+    maxWorkerCount: int
+    configuration: FleetConfigurationOutputTypeDef
+    createdAt: datetime
+    createdBy: str
+    autoScalingStatus: Optional[AutoScalingStatusType] = None
+    targetWorkerCount: Optional[int] = None
+    updatedAt: Optional[datetime] = None
+    updatedBy: Optional[str] = None
+
+
+class GetFleetResponseTypeDef(BaseValidatorModel):
+    fleetId: str
+    farmId: str
+    displayName: str
+    description: str
+    status: FleetStatusType
+    autoScalingStatus: AutoScalingStatusType
+    targetWorkerCount: int
+    workerCount: int
+    minWorkerCount: int
+    maxWorkerCount: int
+    configuration: FleetConfigurationOutputTypeDef
+    capabilities: FleetCapabilitiesTypeDef
+    roleArn: str
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateWorkerScheduleResponseTypeDef(BaseValidatorModel):
     assignedSessions: Dict[str, AssignedSessionTypeDef]
@@ -2128,13 +2605,38 @@ class UpdateWorkerScheduleResponseTypeDef(BaseValidatorModel):
     updateIntervalSeconds: int
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListFleetsResponsePaginatorTypeDef(BaseValidatorModel):
-    fleets: List[FleetSummaryPaginatorTypeDef]
-    nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListFleetsResponseTypeDef(BaseValidatorModel):
     fleets: List[FleetSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
+class FleetConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateFleetRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    displayName: str
+    roleArn: str
+    maxWorkerCount: int
+    configuration: FleetConfigurationUnionTypeDef
+    clientToken: Optional[str] = None
+    description: Optional[str] = None
+    minWorkerCount: Optional[int] = None
+    tags: Optional[Mapping[str, str]] = None
+
+
+class UpdateFleetRequestTypeDef(BaseValidatorModel):
+    farmId: str
+    fleetId: str
+    clientToken: Optional[str] = None
+    displayName: Optional[str] = None
+    description: Optional[str] = None
+    roleArn: Optional[str] = None
+    minWorkerCount: Optional[int] = None
+    maxWorkerCount: Optional[int] = None
+    configuration: Optional[FleetConfigurationUnionTypeDef] = None
+
 

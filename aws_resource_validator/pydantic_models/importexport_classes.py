@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,25 +16,29 @@ class ArtifactTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     URL: Optional[str] = None
 
-class CancelJobInputRequestTypeDef(BaseValidatorModel):
+
+class CancelJobInputTypeDef(BaseValidatorModel):
     JobId: str
     APIVersion: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class CreateJobInputRequestTypeDef(BaseValidatorModel):
+
+class CreateJobInputTypeDef(BaseValidatorModel):
     JobType: JobTypeType
     Manifest: str
     ValidateOnly: bool
     ManifestAddendum: Optional[str] = None
     APIVersion: Optional[str] = None
 
-class GetShippingLabelInputRequestTypeDef(BaseValidatorModel):
+
+class GetShippingLabelInputTypeDef(BaseValidatorModel):
     jobIds: Sequence[str]
     name: Optional[str] = None
     company: Optional[str] = None
@@ -47,9 +52,11 @@ class GetShippingLabelInputRequestTypeDef(BaseValidatorModel):
     street3: Optional[str] = None
     APIVersion: Optional[str] = None
 
-class GetStatusInputRequestTypeDef(BaseValidatorModel):
+
+class GetStatusInputTypeDef(BaseValidatorModel):
     JobId: str
     APIVersion: Optional[str] = None
+
 
 class JobTypeDef(BaseValidatorModel):
     JobId: Optional[str] = None
@@ -57,26 +64,31 @@ class JobTypeDef(BaseValidatorModel):
     IsCanceled: Optional[bool] = None
     JobType: Optional[JobTypeType] = None
 
+
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListJobsInputRequestTypeDef(BaseValidatorModel):
+
+class ListJobsInputTypeDef(BaseValidatorModel):
     MaxJobs: Optional[int] = None
     Marker: Optional[str] = None
     APIVersion: Optional[str] = None
 
-class UpdateJobInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateJobInputTypeDef(BaseValidatorModel):
     JobId: str
     Manifest: str
     JobType: JobTypeType
     ValidateOnly: bool
     APIVersion: Optional[str] = None
 
+
 class CancelJobOutputTypeDef(BaseValidatorModel):
     Success: bool
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateJobOutputTypeDef(BaseValidatorModel):
     JobId: str
@@ -87,10 +99,6 @@ class CreateJobOutputTypeDef(BaseValidatorModel):
     ArtifactList: List[ArtifactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetShippingLabelOutputTypeDef(BaseValidatorModel):
-    ShippingLabelURL: str
-    Warning: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class GetStatusOutputTypeDef(BaseValidatorModel):
     JobId: str
@@ -111,18 +119,22 @@ class GetStatusOutputTypeDef(BaseValidatorModel):
     ArtifactList: List[ArtifactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateJobOutputTypeDef(BaseValidatorModel):
     Success: bool
     WarningMessage: str
     ArtifactList: List[ArtifactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListJobsOutputTypeDef(BaseValidatorModel):
     Jobs: List[JobTypeDef]
     IsTruncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListJobsInputListJobsPaginateTypeDef(BaseValidatorModel):
+
+class ListJobsInputPaginateTypeDef(BaseValidatorModel):
     APIVersion: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 

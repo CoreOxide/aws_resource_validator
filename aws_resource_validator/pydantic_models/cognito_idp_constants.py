@@ -4,14 +4,33 @@ from datetime import datetime
 AccountTakeoverEventActionTypeType = Literal["BLOCK", "MFA_IF_CONFIGURED", "MFA_REQUIRED", "NO_ACTION"]
 AdminListGroupsForUserPaginatorName = Literal["admin_list_groups_for_user"]
 AdminListUserAuthEventsPaginatorName = Literal["admin_list_user_auth_events"]
+AdvancedSecurityEnabledModeTypeType = Literal["AUDIT", "ENFORCED"]
 AdvancedSecurityModeTypeType = Literal["AUDIT", "ENFORCED", "OFF"]
 AliasAttributeTypeType = Literal["email", "phone_number", "preferred_username"]
+AssetCategoryTypeType = Literal["AUTH_APP_GRAPHIC",
+    "EMAIL_GRAPHIC",
+    "FAVICON_ICO",
+    "FAVICON_SVG",
+    "FORM_BACKGROUND",
+    "FORM_LOGO",
+    "IDP_BUTTON_ICON",
+    "PAGE_BACKGROUND",
+    "PAGE_FOOTER_BACKGROUND",
+    "PAGE_FOOTER_LOGO",
+    "PAGE_HEADER_BACKGROUND",
+    "PAGE_HEADER_LOGO",
+    "PASSKEY_GRAPHIC",
+    "PASSWORD_GRAPHIC",
+    "SMS_GRAPHIC",]
+AssetExtensionTypeType = Literal["ICO", "JPEG", "PNG", "SVG", "WEBP"]
 AttributeDataTypeType = Literal["Boolean", "DateTime", "Number", "String"]
+AuthFactorTypeType = Literal["EMAIL_OTP", "PASSWORD", "SMS_OTP", "WEB_AUTHN"]
 AuthFlowTypeType = Literal["ADMIN_NO_SRP_AUTH",
     "ADMIN_USER_PASSWORD_AUTH",
     "CUSTOM_AUTH",
     "REFRESH_TOKEN",
     "REFRESH_TOKEN_AUTH",
+    "USER_AUTH",
     "USER_PASSWORD_AUTH",
     "USER_SRP_AUTH",]
 ChallengeNameType = Literal["Mfa", "Password"]
@@ -19,13 +38,20 @@ ChallengeNameTypeType = Literal["ADMIN_NO_SRP_AUTH",
     "CUSTOM_CHALLENGE",
     "DEVICE_PASSWORD_VERIFIER",
     "DEVICE_SRP_AUTH",
+    "EMAIL_OTP",
     "MFA_SETUP",
     "NEW_PASSWORD_REQUIRED",
+    "PASSWORD",
+    "PASSWORD_SRP",
     "PASSWORD_VERIFIER",
+    "SELECT_CHALLENGE",
     "SELECT_MFA_TYPE",
     "SMS_MFA",
-    "SOFTWARE_TOKEN_MFA",]
+    "SMS_OTP",
+    "SOFTWARE_TOKEN_MFA",
+    "WEB_AUTHN",]
 ChallengeResponseType = Literal["Failure", "Success"]
+ColorSchemeModeTypeType = Literal["DARK", "DYNAMIC", "LIGHT"]
 CompromisedCredentialsEventActionTypeType = Literal["BLOCK", "NO_ACTION"]
 CustomEmailSenderLambdaVersionTypeType = Literal["V1_0"]
 CustomSMSSenderLambdaVersionTypeType = Literal["V1_0"]
@@ -37,12 +63,13 @@ DomainStatusTypeType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDA
 EmailSendingAccountTypeType = Literal["COGNITO_DEFAULT", "DEVELOPER"]
 EventFilterTypeType = Literal["PASSWORD_CHANGE", "SIGN_IN", "SIGN_UP"]
 EventResponseTypeType = Literal["Fail", "InProgress", "Pass"]
-EventSourceNameType = Literal["userNotification"]
+EventSourceNameType = Literal["userAuthEvents", "userNotification"]
 EventTypeType = Literal["ForgotPassword", "PasswordChange", "ResendCode", "SignIn", "SignUp"]
 ExplicitAuthFlowsTypeType = Literal["ADMIN_NO_SRP_AUTH",
     "ALLOW_ADMIN_USER_PASSWORD_AUTH",
     "ALLOW_CUSTOM_AUTH",
     "ALLOW_REFRESH_TOKEN_AUTH",
+    "ALLOW_USER_AUTH",
     "ALLOW_USER_PASSWORD_AUTH",
     "ALLOW_USER_SRP_AUTH",
     "CUSTOM_AUTH_FLOW_ONLY",
@@ -56,10 +83,10 @@ ListUserPoolClientsPaginatorName = Literal["list_user_pool_clients"]
 ListUserPoolsPaginatorName = Literal["list_user_pools"]
 ListUsersInGroupPaginatorName = Literal["list_users_in_group"]
 ListUsersPaginatorName = Literal["list_users"]
-LogLevelType = Literal["ERROR"]
+LogLevelType = Literal["ERROR", "INFO"]
 MessageActionTypeType = Literal["RESEND", "SUPPRESS"]
 OAuthFlowTypeType = Literal["client_credentials", "code", "implicit"]
-PreTokenGenerationLambdaVersionTypeType = Literal["V1_0", "V2_0"]
+PreTokenGenerationLambdaVersionTypeType = Literal["V1_0", "V2_0", "V3_0"]
 PreventUserExistenceErrorTypesType = Literal["ENABLED", "LEGACY"]
 RecoveryOptionNameTypeType = Literal["admin_only", "verified_email", "verified_phone_number"]
 RiskDecisionTypeType = Literal["AccountTakeover", "Block", "NoRisk"]
@@ -68,6 +95,7 @@ StatusTypeType = Literal["Disabled", "Enabled"]
 TimeUnitsTypeType = Literal["days", "hours", "minutes", "seconds"]
 UserImportJobStatusTypeType = Literal["Created", "Expired", "Failed", "InProgress", "Pending", "Stopped", "Stopping", "Succeeded"]
 UserPoolMfaTypeType = Literal["OFF", "ON", "OPTIONAL"]
+UserPoolTierTypeType = Literal["ESSENTIALS", "LITE", "PLUS"]
 UserStatusTypeType = Literal["ARCHIVED",
     "COMPROMISED",
     "CONFIRMED",
@@ -76,6 +104,7 @@ UserStatusTypeType = Literal["ARCHIVED",
     "RESET_REQUIRED",
     "UNCONFIRMED",
     "UNKNOWN",]
+UserVerificationTypeType = Literal["preferred", "required"]
 UsernameAttributeTypeType = Literal["email", "phone_number"]
 VerifiedAttributeTypeType = Literal["email", "phone_number"]
 VerifySoftwareTokenResponseTypeType = Literal["ERROR", "SUCCESS"]
@@ -114,12 +143,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -156,7 +190,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -169,6 +202,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -194,6 +228,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -205,7 +241,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -229,6 +264,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -247,11 +285,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -306,6 +343,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -325,7 +363,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -333,10 +370,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -346,10 +386,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -363,6 +405,7 @@ ServiceName = Literal["accessanalyzer",
     "pricing",
     "privatenetworks",
     "proton",
+    "qapps",
     "qbusiness",
     "qconnect",
     "qldb",
@@ -394,6 +437,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -406,6 +450,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -423,10 +468,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -458,7 +505,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -485,6 +531,7 @@ PaginatorName = Literal["admin_list_groups_for_user",
     "list_users",
     "list_users_in_group",]
 RegionName = Literal["af-south-1",
+    "ap-east-1",
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-northeast-3",
@@ -495,6 +542,7 @@ RegionName = Literal["af-south-1",
     "ap-southeast-3",
     "ap-southeast-4",
     "ca-central-1",
+    "ca-west-1",
     "eu-central-1",
     "eu-central-2",
     "eu-north-1",
@@ -511,8 +559,3 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]]
-RiskExceptionConfigurationTypeUnionTypeDef = Union[   'RiskExceptionConfigurationTypeTypeDef', 'RiskExceptionConfigurationTypeOutputTypeDef' ]
-UserAttributeUpdateSettingsTypeUnionTypeDef = Union[   'UserAttributeUpdateSettingsTypeTypeDef', 'UserAttributeUpdateSettingsTypeOutputTypeDef' ]
-AccountRecoverySettingTypeUnionTypeDef = Union[   'AccountRecoverySettingTypeTypeDef', 'AccountRecoverySettingTypeOutputTypeDef' ]
-CompromisedCredentialsRiskConfigurationTypeUnionTypeDef = Union[   'CompromisedCredentialsRiskConfigurationTypeTypeDef',   'CompromisedCredentialsRiskConfigurationTypeOutputTypeDef', ]

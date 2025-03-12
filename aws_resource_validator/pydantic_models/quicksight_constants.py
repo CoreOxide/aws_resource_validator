@@ -1,6 +1,26 @@
 from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO
 from datetime import datetime
 
+AggTypeType = Literal["AVERAGE",
+    "COLUMN",
+    "COUNT",
+    "CUSTOM",
+    "DISTINCT_COUNT",
+    "MAX",
+    "MEDIAN",
+    "MIN",
+    "PERCENTILE",
+    "PTD_AVERAGE",
+    "PTD_COUNT",
+    "PTD_DISTINCT_COUNT",
+    "PTD_MAX",
+    "PTD_MIN",
+    "PTD_SUM",
+    "STDEV",
+    "STDEVP",
+    "SUM",
+    "VAR",
+    "VARP",]
 AnalysisErrorTypeType = Literal["ACCESS_DENIED",
     "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
     "COLUMN_REPLACEMENT_MISSING",
@@ -19,6 +39,9 @@ AnalysisFilterAttributeType = Literal["ANALYSIS_NAME",
     "QUICKSIGHT_USER",
     "QUICKSIGHT_VIEWER_OR_OWNER",]
 AnchorOptionType = Literal["NOW"]
+AnchorTypeType = Literal["TODAY"]
+AnonymousUserDashboardEmbeddingConfigurationDisabledFeatureType = Literal["SHARED_VIEW"]
+AnonymousUserDashboardEmbeddingConfigurationEnabledFeatureType = Literal["SHARED_VIEW"]
 ArcThicknessOptionsType = Literal["LARGE", "MEDIUM", "SMALL"]
 ArcThicknessType = Literal["LARGE", "MEDIUM", "SMALL", "WHOLE"]
 AssetBundleExportFormatType = Literal["CLOUDFORMATION_JSON", "QUICKSIGHT_JSON"]
@@ -43,6 +66,7 @@ AssetBundleExportJobDataSourcePropertyToOverrideType = Literal["Catalog",
     "Username",
     "Warehouse",
     "WorkGroup",]
+AssetBundleExportJobFolderPropertyToOverrideType = Literal["Name", "ParentFolderArn"]
 AssetBundleExportJobRefreshSchedulePropertyToOverrideType = Literal["StartAfterDateTime"]
 AssetBundleExportJobStatusType = Literal["FAILED", "IN_PROGRESS", "QUEUED_FOR_IMMEDIATE_EXECUTION", "SUCCESSFUL"]
 AssetBundleExportJobThemePropertyToOverrideType = Literal["Name"]
@@ -57,6 +81,7 @@ AssetBundleImportJobStatusType = Literal["FAILED",
     "SUCCESSFUL",]
 AssignmentStatusType = Literal["DISABLED", "DRAFT", "ENABLED"]
 AuthenticationMethodOptionType = Literal["ACTIVE_DIRECTORY", "IAM_AND_QUICKSIGHT", "IAM_IDENTITY_CENTER", "IAM_ONLY"]
+AuthenticationTypeType = Literal["PASSWORD", "TOKEN", "X509"]
 AuthorSpecifiedAggregationType = Literal["AVERAGE",
     "COUNT",
     "DISTINCT_COUNT",
@@ -74,6 +99,9 @@ BarChartOrientationType = Literal["HORIZONTAL", "VERTICAL"]
 BarsArrangementType = Literal["CLUSTERED", "STACKED", "STACKED_PERCENT"]
 BaseMapStyleTypeType = Literal["DARK_GRAY", "IMAGERY", "LIGHT_GRAY", "STREET"]
 BoxPlotFillStyleType = Literal["SOLID", "TRANSPARENT"]
+BrandStatusType = Literal["CREATE_FAILED", "CREATE_IN_PROGRESS", "CREATE_SUCCEEDED", "DELETE_FAILED", "DELETE_IN_PROGRESS"]
+BrandVersionStatusType = Literal["CREATE_FAILED", "CREATE_IN_PROGRESS", "CREATE_SUCCEEDED"]
+CapabilityStateType = Literal["DENY"]
 CategoricalAggregationFunctionType = Literal["COUNT", "DISTINCT_COUNT"]
 CategoryFilterFunctionType = Literal["CONTAINS", "EXACT"]
 CategoryFilterMatchOperatorType = Literal["CONTAINS", "DOES_NOT_CONTAIN", "DOES_NOT_EQUAL", "ENDS_WITH", "EQUALS", "STARTS_WITH"]
@@ -86,7 +114,18 @@ ColumnDataTypeType = Literal["DATETIME", "DECIMAL", "INTEGER", "STRING"]
 ColumnOrderingTypeType = Literal["GREATER_IS_BETTER", "LESSER_IS_BETTER", "SPECIFIED"]
 ColumnRoleType = Literal["DIMENSION", "MEASURE"]
 ColumnTagNameType = Literal["COLUMN_DESCRIPTION", "COLUMN_GEOGRAPHIC_ROLE"]
+CommitModeType = Literal["AUTO", "MANUAL"]
 ComparisonMethodType = Literal["DIFFERENCE", "PERCENT", "PERCENT_DIFFERENCE"]
+ComparisonMethodTypeType = Literal["DIFF",
+    "DIFF_AS_PERC",
+    "MOVING_AVERAGE",
+    "PERCENT_OF_TOTAL",
+    "PERC_DIFF",
+    "POP_CURRENT_DIFF",
+    "POP_CURRENT_DIFF_AS_PERC",
+    "POP_OVERTIME_DIFF",
+    "POP_OVERTIME_DIFF_AS_PERC",
+    "RUNNING_SUM",]
 ConditionalFormattingIconDisplayOptionType = Literal["ICON_ONLY"]
 ConditionalFormattingIconSetTypeType = Literal["BARS",
     "CARET_UP_MINUS_DOWN",
@@ -100,6 +139,11 @@ ConditionalFormattingIconSetTypeType = Literal["BARS",
     "THREE_GRAY_ARROW",
     "THREE_SHAPE",]
 ConstantTypeType = Literal["COLLECTIVE", "RANGE", "SINGULAR"]
+ContributionAnalysisDirectionType = Literal["DECREASE", "INCREASE", "NEUTRAL"]
+ContributionAnalysisSortTypeType = Literal["ABSOLUTE_DIFFERENCE",
+    "CONTRIBUTION_PERCENTAGE",
+    "DEVIATION_FROM_EXPECTED",
+    "PERCENTAGE_DIFFERENCE",]
 CrossDatasetTypesType = Literal["ALL_DATASETS", "SINGLE_DATASET"]
 CustomContentImageScalingConfigurationType = Literal["DO_NOT_SCALE", "FIT_TO_HEIGHT", "FIT_TO_WIDTH", "SCALE_TO_VISUAL"]
 CustomContentTypeType = Literal["IMAGE", "OTHER_EMBEDDED_CONTENT"]
@@ -122,6 +166,7 @@ DashboardFilterAttributeType = Literal["DASHBOARD_NAME",
     "QUICKSIGHT_USER",
     "QUICKSIGHT_VIEWER_OR_OWNER",]
 DashboardUIStateType = Literal["COLLAPSED", "EXPANDED"]
+DashboardsQAStatusType = Literal["DISABLED", "ENABLED"]
 DataLabelContentType = Literal["PERCENT", "VALUE", "VALUE_AND_PERCENT"]
 DataLabelOverlapType = Literal["DISABLE_OVERLAP", "ENABLE_OVERLAP"]
 DataLabelPositionType = Literal["BOTTOM", "INSIDE", "LEFT", "OUTSIDE", "RIGHT", "TOP"]
@@ -190,6 +235,7 @@ DefaultAggregationType = Literal["AVERAGE",
     "VARP",]
 DescribeFolderPermissionsPaginatorName = Literal["describe_folder_permissions"]
 DescribeFolderResolvedPermissionsPaginatorName = Literal["describe_folder_resolved_permissions"]
+DigitGroupingStyleType = Literal["DEFAULT", "LAKHS"]
 DisplayFormatType = Literal["AUTO", "CURRENCY", "DATE", "NUMBER", "PERCENT", "STRING"]
 EditionType = Literal["ENTERPRISE", "ENTERPRISE_AND_Q", "STANDARD"]
 EmbeddingIdentityTypeType = Literal["ANONYMOUS", "IAM", "QUICKSIGHT"]
@@ -215,8 +261,12 @@ FunnelChartMeasureDataLabelStyleType = Literal["PERCENTAGE_BY_FIRST_STAGE",
     "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE",
     "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
     "VALUE_ONLY",]
+GeneratedAnswerStatusType = Literal["ANSWER_DOWNGRADE", "ANSWER_GENERATED", "ANSWER_RETRIEVED"]
 GeoSpatialCountryCodeType = Literal["US"]
 GeoSpatialDataRoleType = Literal["CITY", "COUNTRY", "COUNTY", "LATITUDE", "LONGITUDE", "POSTCODE", "STATE"]
+GeospatialColorStateType = Literal["DISABLED", "ENABLED"]
+GeospatialLayerTypeType = Literal["LINE", "POINT", "POLYGON"]
+GeospatialMapNavigationType = Literal["DISABLED", "ENABLED"]
 GeospatialSelectedPointStyleType = Literal["CLUSTER", "HEATMAP", "POINT"]
 GroupFilterAttributeType = Literal["GROUP_NAME"]
 GroupFilterOperatorType = Literal["StartsWith"]
@@ -250,6 +300,10 @@ IconType = Literal["ARROW_DOWN",
     "X",]
 IdentityStoreType = Literal["QUICKSIGHT"]
 IdentityTypeType = Literal["IAM", "IAM_IDENTITY_CENTER", "QUICKSIGHT"]
+ImageCustomActionTriggerType = Literal["CLICK", "MENU"]
+IncludeFolderMembersType = Literal["NONE", "ONE_LEVEL", "RECURSE"]
+IncludeGeneratedAnswerType = Literal["EXCLUDE", "INCLUDE"]
+IncludeQuickSightQIndexType = Literal["EXCLUDE", "INCLUDE"]
 IngestionErrorTypeType = Literal["ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
     "CONNECTION_FAILURE",
     "CURSOR_NOT_ENABLED",
@@ -303,7 +357,8 @@ InputColumnDataTypeType = Literal["BIT", "BOOLEAN", "DATETIME", "DECIMAL", "INTE
 JoinTypeType = Literal["INNER", "LEFT", "OUTER", "RIGHT"]
 KPISparklineTypeType = Literal["AREA", "LINE"]
 KPIVisualStandardLayoutTypeType = Literal["CLASSIC", "VERTICAL"]
-LayoutElementTypeType = Literal["FILTER_CONTROL", "PARAMETER_CONTROL", "TEXT_BOX", "VISUAL"]
+LayerCustomActionTriggerType = Literal["DATA_POINT_CLICK", "DATA_POINT_MENU"]
+LayoutElementTypeType = Literal["FILTER_CONTROL", "IMAGE", "PARAMETER_CONTROL", "TEXT_BOX", "VISUAL"]
 LegendPositionType = Literal["AUTO", "BOTTOM", "RIGHT", "TOP"]
 LineChartLineStyleType = Literal["DASHED", "DOTTED", "SOLID"]
 LineChartMarkerShapeType = Literal["CIRCLE", "DIAMOND", "ROUNDED_SQUARE", "SQUARE", "TRIANGLE"]
@@ -312,11 +367,14 @@ LineInterpolationType = Literal["LINEAR", "SMOOTH", "STEPPED"]
 ListAnalysesPaginatorName = Literal["list_analyses"]
 ListAssetBundleExportJobsPaginatorName = Literal["list_asset_bundle_export_jobs"]
 ListAssetBundleImportJobsPaginatorName = Literal["list_asset_bundle_import_jobs"]
+ListBrandsPaginatorName = Literal["list_brands"]
+ListCustomPermissionsPaginatorName = Literal["list_custom_permissions"]
 ListDashboardVersionsPaginatorName = Literal["list_dashboard_versions"]
 ListDashboardsPaginatorName = Literal["list_dashboards"]
 ListDataSetsPaginatorName = Literal["list_data_sets"]
 ListDataSourcesPaginatorName = Literal["list_data_sources"]
 ListFolderMembersPaginatorName = Literal["list_folder_members"]
+ListFoldersForResourcePaginatorName = Literal["list_folders_for_resource"]
 ListFoldersPaginatorName = Literal["list_folders"]
 ListGroupMembershipsPaginatorName = Literal["list_group_memberships"]
 ListGroupsPaginatorName = Literal["list_groups"]
@@ -380,7 +438,8 @@ NetworkInterfaceStatusType = Literal["ATTACHMENT_FAILED_ROLLBACK_FAILED",
     "DELETION_SCHEDULED",
     "UPDATE_FAILED",
     "UPDATING",]
-NumberScaleType = Literal["AUTO", "BILLIONS", "MILLIONS", "NONE", "THOUSANDS", "TRILLIONS"]
+NullFilterOptionType = Literal["ALL_VALUES", "NON_NULLS_ONLY", "NULLS_ONLY"]
+NumberScaleType = Literal["AUTO", "BILLIONS", "CRORES", "LAKHS", "MILLIONS", "NONE", "THOUSANDS", "TRILLIONS"]
 NumericEqualityMatchOperatorType = Literal["DOES_NOT_EQUAL", "EQUALS"]
 NumericFilterSelectAllOptionsType = Literal["FILTER_ALL_VALUES"]
 NumericSeparatorSymbolType = Literal["COMMA", "DOT", "SPACE"]
@@ -399,6 +458,7 @@ PaperSizeType = Literal["A0",
     "US_LETTER",
     "US_TABLOID_LEDGER",]
 ParameterValueTypeType = Literal["MULTI_VALUED", "SINGLE_VALUED"]
+PersonalizationModeType = Literal["DISABLED", "ENABLED"]
 PivotTableConditionalFormattingScopeRoleType = Literal["FIELD", "FIELD_TOTAL", "GRAND_TOTAL"]
 PivotTableDataPathTypeType = Literal["COUNT_METRIC_COLUMN",
     "EMPTY_COLUMN_HEADER",
@@ -408,10 +468,14 @@ PivotTableFieldCollapseStateType = Literal["COLLAPSED", "EXPANDED"]
 PivotTableMetricPlacementType = Literal["COLUMN", "ROW"]
 PivotTableRowsLayoutType = Literal["HIERARCHY", "TABULAR"]
 PivotTableSubtotalLevelType = Literal["ALL", "CUSTOM", "LAST"]
+PluginVisualAxisNameType = Literal["GROUP_BY", "VALUE"]
 PrimaryValueDisplayTypeType = Literal["ACTUAL", "COMPARISON", "HIDDEN"]
 PropertyRoleType = Literal["ID", "PRIMARY"]
 PropertyUsageType = Literal["DIMENSION", "INHERIT", "MEASURE"]
 PurchaseModeType = Literal["AUTO_PURCHASE", "MANUAL"]
+QAResultTypeType = Literal["DASHBOARD_VISUAL", "GENERATED_ANSWER", "NO_ANSWER"]
+QSearchStatusType = Literal["DISABLED", "ENABLED"]
+QueryExecutionModeType = Literal["AUTO", "MANUAL"]
 RadarChartAxesRangeScaleType = Literal["AUTO", "INDEPENDENT", "SHARED"]
 RadarChartShapeType = Literal["CIRCLE", "POLYGON"]
 ReferenceLineLabelHorizontalPositionType = Literal["CENTER", "LEFT", "RIGHT"]
@@ -430,6 +494,13 @@ ResourceStatusType = Literal["CREATION_FAILED",
     "UPDATE_FAILED",
     "UPDATE_IN_PROGRESS",
     "UPDATE_SUCCESSFUL",]
+ReviewedAnswerErrorCodeType = Literal["DATASET_DOES_NOT_EXIST",
+    "DUPLICATED_ANSWER",
+    "INTERNAL_ERROR",
+    "INVALID_DATA",
+    "INVALID_DATASET_ARN",
+    "MISSING_ANSWER",
+    "MISSING_REQUIRED_FIELDS",]
 RoleType = Literal["ADMIN", "ADMIN_PRO", "AUTHOR", "AUTHOR_PRO", "READER", "READER_PRO"]
 RowLevelPermissionFormatVersionType = Literal["VERSION_1", "VERSION_2"]
 RowLevelPermissionPolicyType = Literal["DENY_ACCESS", "GRANT_ACCESS"]
@@ -439,16 +510,18 @@ SearchDataSetsPaginatorName = Literal["search_data_sets"]
 SearchDataSourcesPaginatorName = Literal["search_data_sources"]
 SearchFoldersPaginatorName = Literal["search_folders"]
 SearchGroupsPaginatorName = Literal["search_groups"]
+SearchTopicsPaginatorName = Literal["search_topics"]
 SectionPageBreakStatusType = Literal["DISABLED", "ENABLED"]
 SelectAllValueOptionsType = Literal["ALL_VALUES"]
 SelectedFieldOptionsType = Literal["ALL_FIELDS"]
 SelectedTooltipTypeType = Literal["BASIC", "DETAILED"]
-ServiceTypeType = Literal["REDSHIFT"]
+ServiceTypeType = Literal["QBUSINESS", "REDSHIFT"]
 SharingModelType = Literal["ACCOUNT", "NAMESPACE"]
 SheetContentTypeType = Literal["INTERACTIVE", "PAGINATED"]
 SheetControlDateTimePickerTypeType = Literal["DATE_RANGE", "SINGLE_VALUED"]
 SheetControlListTypeType = Literal["MULTI_SELECT", "SINGLE_SELECT"]
 SheetControlSliderTypeType = Literal["RANGE", "SINGLE_POINT"]
+SheetImageScalingTypeType = Literal["SCALE_NONE", "SCALE_TO_CONTAINER", "SCALE_TO_HEIGHT", "SCALE_TO_WIDTH"]
 SimpleAttributeAggregationFunctionType = Literal["UNIQUE_VALUE"]
 SimpleNumericalAggregationFunctionType = Literal["AVERAGE",
     "COUNT",
@@ -490,10 +563,38 @@ TooltipTargetType = Literal["BAR", "BOTH", "LINE"]
 TooltipTitleTypeType = Literal["NONE", "PRIMARY_VALUE"]
 TopBottomComputationTypeType = Literal["BOTTOM", "TOP"]
 TopBottomSortOrderType = Literal["ABSOLUTE_DIFFERENCE", "PERCENT_DIFFERENCE"]
+TopicFilterAttributeType = Literal["DIRECT_QUICKSIGHT_OWNER",
+    "DIRECT_QUICKSIGHT_SOLE_OWNER",
+    "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+    "QUICKSIGHT_OWNER",
+    "QUICKSIGHT_USER",
+    "QUICKSIGHT_VIEWER_OR_OWNER",
+    "TOPIC_NAME",]
+TopicFilterOperatorType = Literal["StringEquals", "StringLike"]
+TopicIRFilterFunctionType = Literal["CONTAINS",
+    "CONTAINS_STRING",
+    "ENDS_WITH",
+    "EXACT",
+    "LAST",
+    "NEXT",
+    "NOW",
+    "PREVIOUS",
+    "STARTS_WITH",
+    "THIS",]
+TopicIRFilterTypeType = Literal["ACCEPT_ALL_FILTER",
+    "CATEGORY_FILTER",
+    "DATE_RANGE_FILTER",
+    "EQUALS",
+    "NUMERIC_EQUALITY_FILTER",
+    "NUMERIC_RANGE_FILTER",
+    "RANK_LIMIT_FILTER",
+    "RELATIVE_DATE_FILTER",
+    "TOP_BOTTOM_FILTER",]
 TopicNumericSeparatorSymbolType = Literal["COMMA", "DOT"]
 TopicRefreshStatusType = Literal["CANCELLED", "COMPLETED", "FAILED", "INITIALIZED", "RUNNING"]
 TopicRelativeDateFilterFunctionType = Literal["LAST", "NEXT", "NOW", "PREVIOUS", "THIS"]
 TopicScheduleTypeType = Literal["DAILY", "HOURLY", "MONTHLY", "WEEKLY"]
+TopicSortDirectionType = Literal["ASCENDING", "DESCENDING"]
 TopicTimeGranularityType = Literal["DAY", "HOUR", "MINUTE", "MONTH", "QUARTER", "SECOND", "WEEK", "YEAR"]
 TopicUserExperienceVersionType = Literal["LEGACY", "NEW_READER_EXPERIENCE"]
 URLTargetConfigurationType = Literal["NEW_TAB", "NEW_WINDOW", "SAME_TAB"]
@@ -521,6 +622,7 @@ ValueWhenUnsetOptionType = Literal["NULL", "RECOMMENDED_VALUE"]
 VerticalTextAlignmentType = Literal["AUTO", "BOTTOM", "MIDDLE", "TOP"]
 VisibilityType = Literal["HIDDEN", "VISIBLE"]
 VisualCustomActionTriggerType = Literal["DATA_POINT_CLICK", "DATA_POINT_MENU"]
+VisualRoleType = Literal["COMPLIMENTARY", "FALLBACK", "FRAGMENT", "MULTI_INTENT", "PRIMARY"]
 WidgetStatusType = Literal["DISABLED", "ENABLED"]
 WordCloudCloudLayoutType = Literal["FLUID", "NORMAL"]
 WordCloudWordCasingType = Literal["EXISTING_CASE", "LOWER_CASE"]
@@ -562,12 +664,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -604,7 +711,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -617,6 +723,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -642,6 +749,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -653,7 +762,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -677,6 +785,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -695,11 +806,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -754,6 +864,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -773,7 +884,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -781,10 +891,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -794,10 +907,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -811,6 +926,7 @@ ServiceName = Literal["accessanalyzer",
     "pricing",
     "privatenetworks",
     "proton",
+    "qapps",
     "qbusiness",
     "qconnect",
     "qldb",
@@ -842,6 +958,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -854,6 +971,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -871,10 +989,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -906,7 +1026,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -928,12 +1047,15 @@ PaginatorName = Literal["describe_folder_permissions",
     "list_analyses",
     "list_asset_bundle_export_jobs",
     "list_asset_bundle_import_jobs",
+    "list_brands",
+    "list_custom_permissions",
     "list_dashboard_versions",
     "list_dashboards",
     "list_data_sets",
     "list_data_sources",
     "list_folder_members",
     "list_folders",
+    "list_folders_for_resource",
     "list_group_memberships",
     "list_groups",
     "list_iam_policy_assignments",
@@ -953,7 +1075,8 @@ PaginatorName = Literal["describe_folder_permissions",
     "search_data_sets",
     "search_data_sources",
     "search_folders",
-    "search_groups",]
+    "search_groups",
+    "search_topics",]
 RegionName = Literal["af-south-1",
     "ap-northeast-1",
     "ap-northeast-2",
@@ -973,28 +1096,3 @@ RegionName = Literal["af-south-1",
     "us-east-1",
     "us-east-2",
     "us-west-2",]
-TimestampTypeDef = Union[datetime, str]
-BlobTypeDef = Union[str, bytes, IO[Any]]
-ColumnLevelPermissionRuleUnionTypeDef = Union[   'ColumnLevelPermissionRuleTypeDef', 'ColumnLevelPermissionRuleOutputTypeDef' ]
-FieldFolderUnionTypeDef = Union['FieldFolderTypeDef', 'FieldFolderOutputTypeDef']
-ResourcePermissionUnionTypeDef = Union[   'ResourcePermissionTypeDef', 'ResourcePermissionExtraOutputTypeDef' ]
-AssetBundleCloudFormationOverridePropertyConfigurationUnionTypeDef = Union[   'AssetBundleCloudFormationOverridePropertyConfigurationTypeDef',   'AssetBundleCloudFormationOverridePropertyConfigurationOutputTypeDef', ]
-TopicRefreshScheduleUnionTypeDef = Union[   'TopicRefreshScheduleTypeDef', 'TopicRefreshScheduleOutputTypeDef' ]
-ColumnGroupUnionTypeDef = Union['ColumnGroupTypeDef', 'ColumnGroupOutputTypeDef']
-LinkSharingConfigurationUnionTypeDef = Union[   'LinkSharingConfigurationTypeDef', 'LinkSharingConfigurationOutputTypeDef' ]
-RowLevelPermissionTagConfigurationUnionTypeDef = Union[   'RowLevelPermissionTagConfigurationTypeDef', 'RowLevelPermissionTagConfigurationOutputTypeDef' ]
-AssetBundleImportJobOverrideTagsUnionTypeDef = Union[   'AssetBundleImportJobOverrideTagsTypeDef', 'AssetBundleImportJobOverrideTagsOutputTypeDef' ]
-ParametersUnionTypeDef = Union['ParametersTypeDef', 'ParametersOutputTypeDef']
-DataSourceParametersUnionTypeDef = Union[   'DataSourceParametersTypeDef', 'DataSourceParametersExtraOutputTypeDef' ]
-RefreshScheduleUnionTypeDef = Union['RefreshScheduleTypeDef', 'RefreshScheduleOutputTypeDef']
-PhysicalTableUnionTypeDef = Union['PhysicalTableTypeDef', 'PhysicalTableOutputTypeDef']
-AssetBundleImportJobOverridePermissionsUnionTypeDef = Union[   'AssetBundleImportJobOverridePermissionsTypeDef',   'AssetBundleImportJobOverridePermissionsOutputTypeDef', ]
-DatasetParameterUnionTypeDef = Union['DatasetParameterTypeDef', 'DatasetParameterOutputTypeDef']
-ThemeConfigurationUnionTypeDef = Union['ThemeConfigurationTypeDef', 'ThemeConfigurationOutputTypeDef']
-SnapshotConfigurationUnionTypeDef = Union[   'SnapshotConfigurationTypeDef', 'SnapshotConfigurationOutputTypeDef' ]
-LogicalTableUnionTypeDef = Union['LogicalTableTypeDef', 'LogicalTableOutputTypeDef']
-AssetBundleImportJobOverrideParametersUnionTypeDef = Union[   'AssetBundleImportJobOverrideParametersTypeDef',   'AssetBundleImportJobOverrideParametersOutputTypeDef', ]
-TopicDetailsUnionTypeDef = Union['TopicDetailsTypeDef', 'TopicDetailsOutputTypeDef']
-AnalysisDefinitionUnionTypeDef = Union['AnalysisDefinitionTypeDef', 'AnalysisDefinitionOutputTypeDef']
-DashboardVersionDefinitionUnionTypeDef = Union[   'DashboardVersionDefinitionTypeDef', 'DashboardVersionDefinitionOutputTypeDef' ]
-TemplateVersionDefinitionUnionTypeDef = Union[   'TemplateVersionDefinitionTypeDef', 'TemplateVersionDefinitionOutputTypeDef' ]

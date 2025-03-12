@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -18,8 +19,10 @@ class AliasListEntryTypeDef(BaseValidatorModel):
     CreationDate: Optional[datetime] = None
     LastUpdatedDate: Optional[datetime] = None
 
-class CancelKeyDeletionRequestRequestTypeDef(BaseValidatorModel):
+
+class CancelKeyDeletionRequestTypeDef(BaseValidatorModel):
     KeyId: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -28,24 +31,25 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class ConnectCustomKeyStoreRequestRequestTypeDef(BaseValidatorModel):
+
+class ConnectCustomKeyStoreRequestTypeDef(BaseValidatorModel):
     CustomKeyStoreId: str
 
-class CreateAliasRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateAliasRequestTypeDef(BaseValidatorModel):
     AliasName: str
     TargetKeyId: str
+
 
 class XksProxyAuthenticationCredentialTypeTypeDef(BaseValidatorModel):
     AccessKeyId: str
     RawSecretAccessKey: str
 
-class GrantConstraintsTypeDef(BaseValidatorModel):
-    EncryptionContextSubset: Optional[Mapping[str, str]] = None
-    EncryptionContextEquals: Optional[Mapping[str, str]] = None
 
 class TagTypeDef(BaseValidatorModel):
     TagKey: str
     TagValue: str
+
 
 class XksProxyConfigurationTypeTypeDef(BaseValidatorModel):
     Connectivity: Optional[XksProxyConnectivityTypeType] = None
@@ -54,54 +58,67 @@ class XksProxyConfigurationTypeTypeDef(BaseValidatorModel):
     UriPath: Optional[str] = None
     VpcEndpointServiceName: Optional[str] = None
 
-class DeleteAliasRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteAliasRequestTypeDef(BaseValidatorModel):
     AliasName: str
 
-class DeleteCustomKeyStoreRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteCustomKeyStoreRequestTypeDef(BaseValidatorModel):
     CustomKeyStoreId: str
 
-class DeleteImportedKeyMaterialRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteImportedKeyMaterialRequestTypeDef(BaseValidatorModel):
     KeyId: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class DescribeCustomKeyStoresRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeCustomKeyStoresRequestTypeDef(BaseValidatorModel):
     CustomKeyStoreId: Optional[str] = None
     CustomKeyStoreName: Optional[str] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class DescribeKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeKeyRequestTypeDef(BaseValidatorModel):
     KeyId: str
     GrantTokens: Optional[Sequence[str]] = None
 
-class DisableKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class DisableKeyRequestTypeDef(BaseValidatorModel):
     KeyId: str
 
-class DisableKeyRotationRequestRequestTypeDef(BaseValidatorModel):
+
+class DisableKeyRotationRequestTypeDef(BaseValidatorModel):
     KeyId: str
 
-class DisconnectCustomKeyStoreRequestRequestTypeDef(BaseValidatorModel):
+
+class DisconnectCustomKeyStoreRequestTypeDef(BaseValidatorModel):
     CustomKeyStoreId: str
 
-class EnableKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class EnableKeyRequestTypeDef(BaseValidatorModel):
     KeyId: str
 
-class EnableKeyRotationRequestRequestTypeDef(BaseValidatorModel):
+
+class EnableKeyRotationRequestTypeDef(BaseValidatorModel):
     KeyId: str
     RotationPeriodInDays: Optional[int] = None
 
-class GenerateDataKeyPairWithoutPlaintextRequestRequestTypeDef(BaseValidatorModel):
+
+class GenerateDataKeyPairWithoutPlaintextRequestTypeDef(BaseValidatorModel):
     KeyId: str
     KeyPairSpec: DataKeyPairSpecType
     EncryptionContext: Optional[Mapping[str, str]] = None
     GrantTokens: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class GenerateDataKeyWithoutPlaintextRequestRequestTypeDef(BaseValidatorModel):
+
+class GenerateDataKeyWithoutPlaintextRequestTypeDef(BaseValidatorModel):
     KeyId: str
     EncryptionContext: Optional[Mapping[str, str]] = None
     KeySpec: Optional[DataKeySpecType] = None
@@ -109,123 +126,154 @@ class GenerateDataKeyWithoutPlaintextRequestRequestTypeDef(BaseValidatorModel):
     GrantTokens: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class GetKeyPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetKeyPolicyRequestTypeDef(BaseValidatorModel):
     KeyId: str
     PolicyName: Optional[str] = None
 
-class GetKeyRotationStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class GetKeyRotationStatusRequestTypeDef(BaseValidatorModel):
     KeyId: str
 
-class GetParametersForImportRequestRequestTypeDef(BaseValidatorModel):
+
+class GetParametersForImportRequestTypeDef(BaseValidatorModel):
     KeyId: str
     WrappingAlgorithm: AlgorithmSpecType
     WrappingKeySpec: WrappingKeySpecType
 
-class GetPublicKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetPublicKeyRequestTypeDef(BaseValidatorModel):
     KeyId: str
     GrantTokens: Optional[Sequence[str]] = None
 
-class GrantConstraintsExtraOutputTypeDef(BaseValidatorModel):
-    EncryptionContextSubset: Optional[Dict[str, str]] = None
-    EncryptionContextEquals: Optional[Dict[str, str]] = None
 
 class GrantConstraintsOutputTypeDef(BaseValidatorModel):
     EncryptionContextSubset: Optional[Dict[str, str]] = None
     EncryptionContextEquals: Optional[Dict[str, str]] = None
 
+
+class GrantConstraintsTypeDef(BaseValidatorModel):
+    EncryptionContextSubset: Optional[Mapping[str, str]] = None
+    EncryptionContextEquals: Optional[Mapping[str, str]] = None
+
+
 class KeyListEntryTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
     KeyArn: Optional[str] = None
 
+
 class XksKeyConfigurationTypeTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
 
-class ListAliasesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAliasesRequestTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class ListGrantsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListGrantsRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
     Marker: Optional[str] = None
     GrantId: Optional[str] = None
     GranteePrincipal: Optional[str] = None
 
-class ListKeyPoliciesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListKeyPoliciesRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class ListKeyRotationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListKeyRotationsRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
     Marker: Optional[str] = None
+
 
 class RotationsListEntryTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
     RotationDate: Optional[datetime] = None
     RotationType: Optional[RotationTypeType] = None
 
-class ListKeysRequestRequestTypeDef(BaseValidatorModel):
+
+class ListKeysRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class ListResourceTagsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListResourceTagsRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
-class ListRetirableGrantsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRetirableGrantsRequestTypeDef(BaseValidatorModel):
     RetiringPrincipal: str
     Limit: Optional[int] = None
     Marker: Optional[str] = None
+
 
 class MultiRegionKeyTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Region: Optional[str] = None
 
-class PutKeyPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutKeyPolicyRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Policy: str
     PolicyName: Optional[str] = None
     BypassPolicyLockoutSafetyCheck: Optional[bool] = None
 
-class RetireGrantRequestRequestTypeDef(BaseValidatorModel):
+
+class RetireGrantRequestTypeDef(BaseValidatorModel):
     GrantToken: Optional[str] = None
     KeyId: Optional[str] = None
     GrantId: Optional[str] = None
     DryRun: Optional[bool] = None
 
-class RevokeGrantRequestRequestTypeDef(BaseValidatorModel):
+
+class RevokeGrantRequestTypeDef(BaseValidatorModel):
     KeyId: str
     GrantId: str
     DryRun: Optional[bool] = None
 
-class RotateKeyOnDemandRequestRequestTypeDef(BaseValidatorModel):
+
+class RotateKeyOnDemandRequestTypeDef(BaseValidatorModel):
     KeyId: str
 
-class ScheduleKeyDeletionRequestRequestTypeDef(BaseValidatorModel):
+
+class ScheduleKeyDeletionRequestTypeDef(BaseValidatorModel):
     KeyId: str
     PendingWindowInDays: Optional[int] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     KeyId: str
     TagKeys: Sequence[str]
 
-class UpdateAliasRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateAliasRequestTypeDef(BaseValidatorModel):
     AliasName: str
     TargetKeyId: str
 
-class UpdateKeyDescriptionRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateKeyDescriptionRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Description: str
 
-class UpdatePrimaryRegionRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdatePrimaryRegionRequestTypeDef(BaseValidatorModel):
     KeyId: str
     PrimaryRegion: str
 
-class EncryptRequestRequestTypeDef(BaseValidatorModel):
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
+
+class EncryptRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Plaintext: BlobTypeDef
     EncryptionContext: Optional[Mapping[str, str]] = None
@@ -233,14 +281,16 @@ class EncryptRequestRequestTypeDef(BaseValidatorModel):
     EncryptionAlgorithm: Optional[EncryptionAlgorithmSpecType] = None
     DryRun: Optional[bool] = None
 
-class GenerateMacRequestRequestTypeDef(BaseValidatorModel):
+
+class GenerateMacRequestTypeDef(BaseValidatorModel):
     Message: BlobTypeDef
     KeyId: str
     MacAlgorithm: MacAlgorithmSpecType
     GrantTokens: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class ReEncryptRequestRequestTypeDef(BaseValidatorModel):
+
+class ReEncryptRequestTypeDef(BaseValidatorModel):
     CiphertextBlob: BlobTypeDef
     DestinationKeyId: str
     SourceEncryptionContext: Optional[Mapping[str, str]] = None
@@ -251,11 +301,13 @@ class ReEncryptRequestRequestTypeDef(BaseValidatorModel):
     GrantTokens: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
+
 class RecipientInfoTypeDef(BaseValidatorModel):
     KeyEncryptionAlgorithm: Optional[Literal["RSAES_OAEP_SHA_256"]] = None
     AttestationDocument: Optional[BlobTypeDef] = None
 
-class SignRequestRequestTypeDef(BaseValidatorModel):
+
+class SignRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Message: BlobTypeDef
     SigningAlgorithm: SigningAlgorithmSpecType
@@ -263,7 +315,8 @@ class SignRequestRequestTypeDef(BaseValidatorModel):
     GrantTokens: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class VerifyMacRequestRequestTypeDef(BaseValidatorModel):
+
+class VerifyMacRequestTypeDef(BaseValidatorModel):
     Message: BlobTypeDef
     KeyId: str
     MacAlgorithm: MacAlgorithmSpecType
@@ -271,7 +324,8 @@ class VerifyMacRequestRequestTypeDef(BaseValidatorModel):
     GrantTokens: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
-class VerifyRequestRequestTypeDef(BaseValidatorModel):
+
+class VerifyRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Message: BlobTypeDef
     Signature: BlobTypeDef
@@ -280,18 +334,22 @@ class VerifyRequestRequestTypeDef(BaseValidatorModel):
     GrantTokens: Optional[Sequence[str]] = None
     DryRun: Optional[bool] = None
 
+
 class CancelKeyDeletionResponseTypeDef(BaseValidatorModel):
     KeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateCustomKeyStoreResponseTypeDef(BaseValidatorModel):
     CustomKeyStoreId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateGrantResponseTypeDef(BaseValidatorModel):
     GrantToken: str
     GrantId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DecryptResponseTypeDef(BaseValidatorModel):
     KeyId: str
@@ -299,6 +357,7 @@ class DecryptResponseTypeDef(BaseValidatorModel):
     EncryptionAlgorithm: EncryptionAlgorithmSpecType
     CiphertextForRecipient: bytes
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeriveSharedSecretResponseTypeDef(BaseValidatorModel):
     KeyId: str
@@ -308,14 +367,17 @@ class DeriveSharedSecretResponseTypeDef(BaseValidatorModel):
     KeyOrigin: OriginTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class EncryptResponseTypeDef(BaseValidatorModel):
     CiphertextBlob: bytes
     KeyId: str
     EncryptionAlgorithm: EncryptionAlgorithmSpecType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GenerateDataKeyPairResponseTypeDef(BaseValidatorModel):
     PrivateKeyCiphertextBlob: bytes
@@ -326,12 +388,14 @@ class GenerateDataKeyPairResponseTypeDef(BaseValidatorModel):
     CiphertextForRecipient: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GenerateDataKeyPairWithoutPlaintextResponseTypeDef(BaseValidatorModel):
     PrivateKeyCiphertextBlob: bytes
     PublicKey: bytes
     KeyId: str
     KeyPairSpec: DataKeyPairSpecType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GenerateDataKeyResponseTypeDef(BaseValidatorModel):
     CiphertextBlob: bytes
@@ -340,10 +404,12 @@ class GenerateDataKeyResponseTypeDef(BaseValidatorModel):
     CiphertextForRecipient: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GenerateDataKeyWithoutPlaintextResponseTypeDef(BaseValidatorModel):
     CiphertextBlob: bytes
     KeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GenerateMacResponseTypeDef(BaseValidatorModel):
     Mac: bytes
@@ -351,15 +417,18 @@ class GenerateMacResponseTypeDef(BaseValidatorModel):
     KeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GenerateRandomResponseTypeDef(BaseValidatorModel):
     Plaintext: bytes
     CiphertextForRecipient: bytes
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetKeyPolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     PolicyName: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetKeyRotationStatusResponseTypeDef(BaseValidatorModel):
     KeyRotationEnabled: bool
@@ -369,12 +438,14 @@ class GetKeyRotationStatusResponseTypeDef(BaseValidatorModel):
     OnDemandRotationStartDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetParametersForImportResponseTypeDef(BaseValidatorModel):
     KeyId: str
     ImportToken: bytes
     PublicKey: bytes
     ParametersValidTo: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetPublicKeyResponseTypeDef(BaseValidatorModel):
     KeyId: str
@@ -387,17 +458,20 @@ class GetPublicKeyResponseTypeDef(BaseValidatorModel):
     KeyAgreementAlgorithms: List[Literal["ECDH"]]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListAliasesResponseTypeDef(BaseValidatorModel):
     Aliases: List[AliasListEntryTypeDef]
     NextMarker: str
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListKeyPoliciesResponseTypeDef(BaseValidatorModel):
     PolicyNames: List[str]
     NextMarker: str
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ReEncryptResponseTypeDef(BaseValidatorModel):
     CiphertextBlob: bytes
@@ -407,9 +481,11 @@ class ReEncryptResponseTypeDef(BaseValidatorModel):
     DestinationEncryptionAlgorithm: EncryptionAlgorithmSpecType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class RotateKeyOnDemandResponseTypeDef(BaseValidatorModel):
     KeyId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ScheduleKeyDeletionResponseTypeDef(BaseValidatorModel):
     KeyId: str
@@ -418,11 +494,13 @@ class ScheduleKeyDeletionResponseTypeDef(BaseValidatorModel):
     PendingWindowInDays: int
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class SignResponseTypeDef(BaseValidatorModel):
     KeyId: str
     Signature: bytes
     SigningAlgorithm: SigningAlgorithmSpecType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class VerifyMacResponseTypeDef(BaseValidatorModel):
     KeyId: str
@@ -430,13 +508,15 @@ class VerifyMacResponseTypeDef(BaseValidatorModel):
     MacAlgorithm: MacAlgorithmSpecType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class VerifyResponseTypeDef(BaseValidatorModel):
     KeyId: str
     SignatureValid: bool
     SigningAlgorithm: SigningAlgorithmSpecType
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateCustomKeyStoreRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateCustomKeyStoreRequestTypeDef(BaseValidatorModel):
     CustomKeyStoreName: str
     CloudHsmClusterId: Optional[str] = None
     TrustAnchorCertificate: Optional[str] = None
@@ -445,10 +525,11 @@ class CreateCustomKeyStoreRequestRequestTypeDef(BaseValidatorModel):
     XksProxyUriEndpoint: Optional[str] = None
     XksProxyUriPath: Optional[str] = None
     XksProxyVpcEndpointServiceName: Optional[str] = None
-    XksProxyAuthenticationCredential: Optional[       XksProxyAuthenticationCredentialTypeTypeDef     ] = None
+    XksProxyAuthenticationCredential: Optional[XksProxyAuthenticationCredentialTypeTypeDef] = None
     XksProxyConnectivity: Optional[XksProxyConnectivityTypeType] = None
 
-class UpdateCustomKeyStoreRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateCustomKeyStoreRequestTypeDef(BaseValidatorModel):
     CustomKeyStoreId: str
     NewCustomKeyStoreName: Optional[str] = None
     KeyStorePassword: Optional[str] = None
@@ -456,20 +537,11 @@ class UpdateCustomKeyStoreRequestRequestTypeDef(BaseValidatorModel):
     XksProxyUriEndpoint: Optional[str] = None
     XksProxyUriPath: Optional[str] = None
     XksProxyVpcEndpointServiceName: Optional[str] = None
-    XksProxyAuthenticationCredential: Optional[       XksProxyAuthenticationCredentialTypeTypeDef     ] = None
+    XksProxyAuthenticationCredential: Optional[XksProxyAuthenticationCredentialTypeTypeDef] = None
     XksProxyConnectivity: Optional[XksProxyConnectivityTypeType] = None
 
-class CreateGrantRequestRequestTypeDef(BaseValidatorModel):
-    KeyId: str
-    GranteePrincipal: str
-    Operations: Sequence[GrantOperationType]
-    RetiringPrincipal: Optional[str] = None
-    Constraints: Optional[GrantConstraintsTypeDef] = None
-    GrantTokens: Optional[Sequence[str]] = None
-    Name: Optional[str] = None
-    DryRun: Optional[bool] = None
 
-class CreateKeyRequestRequestTypeDef(BaseValidatorModel):
+class CreateKeyRequestTypeDef(BaseValidatorModel):
     Policy: Optional[str] = None
     Description: Optional[str] = None
     KeyUsage: Optional[KeyUsageTypeType] = None
@@ -482,13 +554,15 @@ class CreateKeyRequestRequestTypeDef(BaseValidatorModel):
     MultiRegion: Optional[bool] = None
     XksKeyId: Optional[str] = None
 
+
 class ListResourceTagsResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     NextMarker: str
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplicateKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class ReplicateKeyRequestTypeDef(BaseValidatorModel):
     KeyId: str
     ReplicaRegion: str
     Policy: Optional[str] = None
@@ -496,9 +570,11 @@ class ReplicateKeyRequestRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     KeyId: str
     Tags: Sequence[TagTypeDef]
+
 
 class CustomKeyStoresListEntryTypeDef(BaseValidatorModel):
     CustomKeyStoreId: Optional[str] = None
@@ -511,39 +587,48 @@ class CustomKeyStoresListEntryTypeDef(BaseValidatorModel):
     CustomKeyStoreType: Optional[CustomKeyStoreTypeType] = None
     XksProxyConfiguration: Optional[XksProxyConfigurationTypeTypeDef] = None
 
-class DescribeCustomKeyStoresRequestDescribeCustomKeyStoresPaginateTypeDef(BaseValidatorModel):
+
+class DescribeCustomKeyStoresRequestPaginateTypeDef(BaseValidatorModel):
     CustomKeyStoreId: Optional[str] = None
     CustomKeyStoreName: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAliasesRequestListAliasesPaginateTypeDef(BaseValidatorModel):
+
+class ListAliasesRequestPaginateTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGrantsRequestListGrantsPaginateTypeDef(BaseValidatorModel):
+
+class ListGrantsRequestPaginateTypeDef(BaseValidatorModel):
     KeyId: str
     GrantId: Optional[str] = None
     GranteePrincipal: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListKeyPoliciesRequestListKeyPoliciesPaginateTypeDef(BaseValidatorModel):
+
+class ListKeyPoliciesRequestPaginateTypeDef(BaseValidatorModel):
     KeyId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListKeyRotationsRequestListKeyRotationsPaginateTypeDef(BaseValidatorModel):
+
+class ListKeyRotationsRequestPaginateTypeDef(BaseValidatorModel):
     KeyId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListKeysRequestListKeysPaginateTypeDef(BaseValidatorModel):
+
+class ListKeysRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourceTagsRequestListResourceTagsPaginateTypeDef(BaseValidatorModel):
+
+class ListResourceTagsRequestPaginateTypeDef(BaseValidatorModel):
     KeyId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRetirableGrantsRequestListRetirableGrantsPaginateTypeDef(BaseValidatorModel):
+
+class ListRetirableGrantsRequestPaginateTypeDef(BaseValidatorModel):
     RetiringPrincipal: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class GrantListEntryTypeDef(BaseValidatorModel):
     KeyId: Optional[str] = None
@@ -556,12 +641,18 @@ class GrantListEntryTypeDef(BaseValidatorModel):
     Operations: Optional[List[GrantOperationType]] = None
     Constraints: Optional[GrantConstraintsOutputTypeDef] = None
 
-class ImportKeyMaterialRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class ImportKeyMaterialRequestTypeDef(BaseValidatorModel):
     KeyId: str
     ImportToken: BlobTypeDef
     EncryptedKeyMaterial: BlobTypeDef
     ValidTo: Optional[TimestampTypeDef] = None
     ExpirationModel: Optional[ExpirationModelTypeType] = None
+
 
 class ListKeysResponseTypeDef(BaseValidatorModel):
     Keys: List[KeyListEntryTypeDef]
@@ -569,18 +660,21 @@ class ListKeysResponseTypeDef(BaseValidatorModel):
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListKeyRotationsResponseTypeDef(BaseValidatorModel):
     Rotations: List[RotationsListEntryTypeDef]
     NextMarker: str
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class MultiRegionConfigurationTypeDef(BaseValidatorModel):
     MultiRegionKeyType: Optional[MultiRegionKeyTypeType] = None
     PrimaryKey: Optional[MultiRegionKeyTypeDef] = None
     ReplicaKeys: Optional[List[MultiRegionKeyTypeDef]] = None
 
-class DecryptRequestRequestTypeDef(BaseValidatorModel):
+
+class DecryptRequestTypeDef(BaseValidatorModel):
     CiphertextBlob: BlobTypeDef
     EncryptionContext: Optional[Mapping[str, str]] = None
     GrantTokens: Optional[Sequence[str]] = None
@@ -589,7 +683,8 @@ class DecryptRequestRequestTypeDef(BaseValidatorModel):
     Recipient: Optional[RecipientInfoTypeDef] = None
     DryRun: Optional[bool] = None
 
-class DeriveSharedSecretRequestRequestTypeDef(BaseValidatorModel):
+
+class DeriveSharedSecretRequestTypeDef(BaseValidatorModel):
     KeyId: str
     KeyAgreementAlgorithm: Literal["ECDH"]
     PublicKey: BlobTypeDef
@@ -597,7 +692,8 @@ class DeriveSharedSecretRequestRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Recipient: Optional[RecipientInfoTypeDef] = None
 
-class GenerateDataKeyPairRequestRequestTypeDef(BaseValidatorModel):
+
+class GenerateDataKeyPairRequestTypeDef(BaseValidatorModel):
     KeyId: str
     KeyPairSpec: DataKeyPairSpecType
     EncryptionContext: Optional[Mapping[str, str]] = None
@@ -605,7 +701,8 @@ class GenerateDataKeyPairRequestRequestTypeDef(BaseValidatorModel):
     Recipient: Optional[RecipientInfoTypeDef] = None
     DryRun: Optional[bool] = None
 
-class GenerateDataKeyRequestRequestTypeDef(BaseValidatorModel):
+
+class GenerateDataKeyRequestTypeDef(BaseValidatorModel):
     KeyId: str
     EncryptionContext: Optional[Mapping[str, str]] = None
     NumberOfBytes: Optional[int] = None
@@ -614,10 +711,12 @@ class GenerateDataKeyRequestRequestTypeDef(BaseValidatorModel):
     Recipient: Optional[RecipientInfoTypeDef] = None
     DryRun: Optional[bool] = None
 
-class GenerateRandomRequestRequestTypeDef(BaseValidatorModel):
+
+class GenerateRandomRequestTypeDef(BaseValidatorModel):
     NumberOfBytes: Optional[int] = None
     CustomKeyStoreId: Optional[str] = None
     Recipient: Optional[RecipientInfoTypeDef] = None
+
 
 class DescribeCustomKeyStoresResponseTypeDef(BaseValidatorModel):
     CustomKeyStores: List[CustomKeyStoresListEntryTypeDef]
@@ -625,11 +724,28 @@ class DescribeCustomKeyStoresResponseTypeDef(BaseValidatorModel):
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListGrantsResponseTypeDef(BaseValidatorModel):
     Grants: List[GrantListEntryTypeDef]
     NextMarker: str
     Truncated: bool
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GrantConstraintsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateGrantRequestTypeDef(BaseValidatorModel):
+    KeyId: str
+    GranteePrincipal: str
+    Operations: Sequence[GrantOperationType]
+    RetiringPrincipal: Optional[str] = None
+    Constraints: Optional[GrantConstraintsUnionTypeDef] = None
+    GrantTokens: Optional[Sequence[str]] = None
+    Name: Optional[str] = None
+    DryRun: Optional[bool] = None
+
 
 class KeyMetadataTypeDef(BaseValidatorModel):
     KeyId: str
@@ -658,17 +774,21 @@ class KeyMetadataTypeDef(BaseValidatorModel):
     MacAlgorithms: Optional[List[MacAlgorithmSpecType]] = None
     XksKeyConfiguration: Optional[XksKeyConfigurationTypeTypeDef] = None
 
+
 class CreateKeyResponseTypeDef(BaseValidatorModel):
     KeyMetadata: KeyMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeKeyResponseTypeDef(BaseValidatorModel):
     KeyMetadata: KeyMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ReplicateKeyResponseTypeDef(BaseValidatorModel):
     ReplicaKeyMetadata: KeyMetadataTypeDef
     ReplicaPolicy: str
     ReplicaTags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 

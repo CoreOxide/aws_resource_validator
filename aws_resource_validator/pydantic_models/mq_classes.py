@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,16 +16,20 @@ class ActionRequiredTypeDef(BaseValidatorModel):
     ActionRequiredCode: Optional[str] = None
     ActionRequiredInfo: Optional[str] = None
 
+
 class AvailabilityZoneTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
+
 class EngineVersionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
+
 
 class BrokerInstanceTypeDef(BaseValidatorModel):
     ConsoleURL: Optional[str] = None
     Endpoints: Optional[List[str]] = None
     IpAddress: Optional[str] = None
+
 
 class BrokerSummaryTypeDef(BaseValidatorModel):
     DeploymentMode: DeploymentModeType
@@ -36,18 +41,22 @@ class BrokerSummaryTypeDef(BaseValidatorModel):
     Created: Optional[datetime] = None
     HostInstanceType: Optional[str] = None
 
+
 class ConfigurationIdTypeDef(BaseValidatorModel):
     Id: str
     Revision: Optional[int] = None
+
 
 class ConfigurationRevisionTypeDef(BaseValidatorModel):
     Created: datetime
     Revision: int
     Description: Optional[str] = None
 
+
 class EncryptionOptionsTypeDef(BaseValidatorModel):
     UseAwsOwnedKey: bool
     KmsKeyId: Optional[str] = None
+
 
 class LdapServerMetadataInputTypeDef(BaseValidatorModel):
     Hosts: Sequence[str]
@@ -62,9 +71,11 @@ class LdapServerMetadataInputTypeDef(BaseValidatorModel):
     UserRoleName: Optional[str] = None
     UserSearchSubtree: Optional[bool] = None
 
+
 class LogsTypeDef(BaseValidatorModel):
     Audit: Optional[bool] = None
     General: Optional[bool] = None
+
 
 class UserTypeDef(BaseValidatorModel):
     Password: str
@@ -73,10 +84,12 @@ class UserTypeDef(BaseValidatorModel):
     Groups: Optional[Sequence[str]] = None
     ReplicationUser: Optional[bool] = None
 
+
 class WeeklyStartTimeTypeDef(BaseValidatorModel):
     DayOfWeek: DayOfWeekType
     TimeOfDay: str
     TimeZone: Optional[str] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -85,18 +98,21 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateConfigurationRequestTypeDef(BaseValidatorModel):
     EngineType: EngineTypeType
     Name: str
     AuthenticationStrategy: Optional[AuthenticationStrategyType] = None
     EngineVersion: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateTagsRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateTagsRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateUserRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateUserRequestTypeDef(BaseValidatorModel):
     BrokerId: str
     Password: str
     Username: str
@@ -104,35 +120,43 @@ class CreateUserRequestRequestTypeDef(BaseValidatorModel):
     Groups: Optional[Sequence[str]] = None
     ReplicationUser: Optional[bool] = None
 
+
 class DataReplicationCounterpartTypeDef(BaseValidatorModel):
     BrokerId: str
     Region: str
 
-class DeleteBrokerRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteBrokerRequestTypeDef(BaseValidatorModel):
     BrokerId: str
 
-class DeleteTagsRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteTagsRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class DeleteUserRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteUserRequestTypeDef(BaseValidatorModel):
     BrokerId: str
     Username: str
 
-class DescribeBrokerEngineTypesRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeBrokerEngineTypesRequestTypeDef(BaseValidatorModel):
     EngineType: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class DescribeBrokerInstanceOptionsRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeBrokerInstanceOptionsRequestTypeDef(BaseValidatorModel):
     EngineType: Optional[str] = None
     HostInstanceType: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     StorageType: Optional[str] = None
 
-class DescribeBrokerRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeBrokerRequestTypeDef(BaseValidatorModel):
     BrokerId: str
+
 
 class LdapServerMetadataOutputTypeDef(BaseValidatorModel):
     Hosts: List[str]
@@ -146,80 +170,98 @@ class LdapServerMetadataOutputTypeDef(BaseValidatorModel):
     UserRoleName: Optional[str] = None
     UserSearchSubtree: Optional[bool] = None
 
+
 class UserSummaryTypeDef(BaseValidatorModel):
     Username: str
     PendingChange: Optional[ChangeTypeType] = None
 
-class DescribeConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeConfigurationRequestTypeDef(BaseValidatorModel):
     ConfigurationId: str
 
-class DescribeConfigurationRevisionRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeConfigurationRevisionRequestTypeDef(BaseValidatorModel):
     ConfigurationId: str
     ConfigurationRevision: str
 
-class DescribeUserRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeUserRequestTypeDef(BaseValidatorModel):
     BrokerId: str
     Username: str
+
 
 class UserPendingChangesTypeDef(BaseValidatorModel):
     PendingChange: ChangeTypeType
     ConsoleAccess: Optional[bool] = None
     Groups: Optional[List[str]] = None
 
+
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListBrokersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListBrokersRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListConfigurationRevisionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListConfigurationRevisionsRequestTypeDef(BaseValidatorModel):
     ConfigurationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListConfigurationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListConfigurationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListUsersRequestRequestTypeDef(BaseValidatorModel):
+
+class ListUsersRequestTypeDef(BaseValidatorModel):
     BrokerId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+
 
 class PendingLogsTypeDef(BaseValidatorModel):
     Audit: Optional[bool] = None
     General: Optional[bool] = None
 
-class PromoteRequestRequestTypeDef(BaseValidatorModel):
+
+class PromoteRequestTypeDef(BaseValidatorModel):
     BrokerId: str
     Mode: PromoteModeType
 
-class RebootBrokerRequestRequestTypeDef(BaseValidatorModel):
+
+class RebootBrokerRequestTypeDef(BaseValidatorModel):
     BrokerId: str
+
 
 class SanitizationWarningTypeDef(BaseValidatorModel):
     Reason: SanitizationWarningReasonType
     AttributeName: Optional[str] = None
     ElementName: Optional[str] = None
 
-class UpdateConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateConfigurationRequestTypeDef(BaseValidatorModel):
     ConfigurationId: str
     Data: str
     Description: Optional[str] = None
 
-class UpdateUserRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateUserRequestTypeDef(BaseValidatorModel):
     BrokerId: str
     Username: str
     ConsoleAccess: Optional[bool] = None
     Groups: Optional[Sequence[str]] = None
     Password: Optional[str] = None
     ReplicationUser: Optional[bool] = None
+
 
 class BrokerInstanceOptionTypeDef(BaseValidatorModel):
     AvailabilityZones: Optional[List[AvailabilityZoneTypeDef]] = None
@@ -229,14 +271,17 @@ class BrokerInstanceOptionTypeDef(BaseValidatorModel):
     SupportedDeploymentModes: Optional[List[DeploymentModeType]] = None
     SupportedEngineVersions: Optional[List[str]] = None
 
+
 class BrokerEngineTypeTypeDef(BaseValidatorModel):
     EngineType: Optional[EngineTypeType] = None
     EngineVersions: Optional[List[EngineVersionTypeDef]] = None
+
 
 class ConfigurationsTypeDef(BaseValidatorModel):
     Current: Optional[ConfigurationIdTypeDef] = None
     History: Optional[List[ConfigurationIdTypeDef]] = None
     Pending: Optional[ConfigurationIdTypeDef] = None
+
 
 class ConfigurationTypeDef(BaseValidatorModel):
     Arn: str
@@ -250,7 +295,8 @@ class ConfigurationTypeDef(BaseValidatorModel):
     Name: str
     Tags: Optional[Dict[str, str]] = None
 
-class CreateBrokerRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateBrokerRequestTypeDef(BaseValidatorModel):
     BrokerName: str
     DeploymentMode: DeploymentModeType
     EngineType: EngineTypeType
@@ -273,7 +319,8 @@ class CreateBrokerRequestRequestTypeDef(BaseValidatorModel):
     DataReplicationMode: Optional[DataReplicationModeType] = None
     DataReplicationPrimaryBrokerArn: Optional[str] = None
 
-class UpdateBrokerRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateBrokerRequestTypeDef(BaseValidatorModel):
     BrokerId: str
     AuthenticationStrategy: Optional[AuthenticationStrategyType] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
@@ -286,10 +333,12 @@ class UpdateBrokerRequestRequestTypeDef(BaseValidatorModel):
     SecurityGroups: Optional[Sequence[str]] = None
     DataReplicationMode: Optional[DataReplicationModeType] = None
 
+
 class CreateBrokerResponseTypeDef(BaseValidatorModel):
     BrokerArn: str
     BrokerId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateConfigurationResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -300,9 +349,11 @@ class CreateConfigurationResponseTypeDef(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteBrokerResponseTypeDef(BaseValidatorModel):
     BrokerId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeConfigurationResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -317,6 +368,7 @@ class DescribeConfigurationResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeConfigurationRevisionResponseTypeDef(BaseValidatorModel):
     ConfigurationId: str
     Created: datetime
@@ -324,13 +376,16 @@ class DescribeConfigurationRevisionResponseTypeDef(BaseValidatorModel):
     Description: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListBrokersResponseTypeDef(BaseValidatorModel):
     BrokerSummaries: List[BrokerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class ListConfigurationRevisionsResponseTypeDef(BaseValidatorModel):
     ConfigurationId: str
@@ -339,17 +394,21 @@ class ListConfigurationRevisionsResponseTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ListTagsResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PromoteResponseTypeDef(BaseValidatorModel):
     BrokerId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DataReplicationMetadataOutputTypeDef(BaseValidatorModel):
     DataReplicationRole: str
     DataReplicationCounterpart: Optional[DataReplicationCounterpartTypeDef] = None
+
 
 class ListUsersResponseTypeDef(BaseValidatorModel):
     BrokerId: str
@@ -357,6 +416,7 @@ class ListUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class DescribeUserResponseTypeDef(BaseValidatorModel):
     BrokerId: str
@@ -367,8 +427,10 @@ class DescribeUserResponseTypeDef(BaseValidatorModel):
     ReplicationUser: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListBrokersRequestListBrokersPaginateTypeDef(BaseValidatorModel):
+
+class ListBrokersRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class LogsSummaryTypeDef(BaseValidatorModel):
     General: bool
@@ -376,6 +438,7 @@ class LogsSummaryTypeDef(BaseValidatorModel):
     Audit: Optional[bool] = None
     AuditLogGroup: Optional[str] = None
     Pending: Optional[PendingLogsTypeDef] = None
+
 
 class UpdateConfigurationResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -386,11 +449,13 @@ class UpdateConfigurationResponseTypeDef(BaseValidatorModel):
     Warnings: List[SanitizationWarningTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribeBrokerInstanceOptionsResponseTypeDef(BaseValidatorModel):
     BrokerInstanceOptions: List[BrokerInstanceOptionTypeDef]
     MaxResults: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class DescribeBrokerEngineTypesResponseTypeDef(BaseValidatorModel):
     BrokerEngineTypes: List[BrokerEngineTypeTypeDef]
@@ -398,11 +463,13 @@ class DescribeBrokerEngineTypesResponseTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ListConfigurationsResponseTypeDef(BaseValidatorModel):
     Configurations: List[ConfigurationTypeDef]
     MaxResults: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class UpdateBrokerResponseTypeDef(BaseValidatorModel):
     AuthenticationStrategy: AuthenticationStrategyType
@@ -420,6 +487,7 @@ class UpdateBrokerResponseTypeDef(BaseValidatorModel):
     PendingDataReplicationMetadata: DataReplicationMetadataOutputTypeDef
     PendingDataReplicationMode: DataReplicationModeType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeBrokerResponseTypeDef(BaseValidatorModel):
     ActionsRequired: List[ActionRequiredTypeDef]
@@ -456,4 +524,5 @@ class DescribeBrokerResponseTypeDef(BaseValidatorModel):
     PendingDataReplicationMetadata: DataReplicationMetadataOutputTypeDef
     PendingDataReplicationMode: DataReplicationModeType
     ResponseMetadata: ResponseMetadataTypeDef
+
 

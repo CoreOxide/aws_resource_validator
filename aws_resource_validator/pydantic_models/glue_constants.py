@@ -17,7 +17,7 @@ AggFunctionType = Literal["avg",
     "sumDistinct",
     "var_pop",
     "var_samp",]
-AuthenticationTypeType = Literal["BASIC", "CUSTOM", "OAUTH2"]
+AuthenticationTypeType = Literal["BASIC", "CUSTOM", "IAM", "OAUTH2"]
 BackfillErrorCodeType = Literal["ENCRYPTED_PARTITION_ERROR",
     "INTERNAL_ERROR",
     "INVALID_PARTITION_TYPE_DATA_ERROR",
@@ -32,18 +32,24 @@ ColumnStatisticsTypeType = Literal["BINARY", "BOOLEAN", "DATE", "DECIMAL", "DOUB
 ComparatorType = Literal["EQUALS", "GREATER_THAN", "GREATER_THAN_EQUALS", "LESS_THAN", "LESS_THAN_EQUALS"]
 CompatibilityType = Literal["BACKWARD", "BACKWARD_ALL", "DISABLED", "FORWARD", "FORWARD_ALL", "FULL", "FULL_ALL", "NONE"]
 CompressionTypeType = Literal["bzip2", "gzip"]
-ConnectionPropertyKeyType = Literal["CONFIG_FILES",
+ComputationTypeType = Literal["FULL", "INCREMENTAL"]
+ComputeEnvironmentType = Literal["ATHENA", "PYTHON", "SPARK"]
+ConnectionPropertyKeyType = Literal["CLUSTER_IDENTIFIER",
+    "CONFIG_FILES",
     "CONNECTION_URL",
     "CONNECTOR_CLASS_NAME",
     "CONNECTOR_TYPE",
     "CONNECTOR_URL",
     "CUSTOM_JDBC_CERT",
     "CUSTOM_JDBC_CERT_STRING",
+    "DATABASE",
     "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
     "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
     "ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD",
     "ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD",
     "ENCRYPTED_PASSWORD",
+    "ENDPOINT",
+    "ENDPOINT_TYPE",
     "HOST",
     "INSTANCE_ID",
     "JDBC_CONNECTION_URL",
@@ -71,12 +77,42 @@ ConnectionPropertyKeyType = Literal["CONFIG_FILES",
     "KAFKA_SSL_ENABLED",
     "PASSWORD",
     "PORT",
+    "REGION",
     "ROLE_ARN",
     "SECRET_ID",
     "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
-    "USERNAME",]
+    "USERNAME",
+    "WORKGROUP_NAME",]
 ConnectionStatusType = Literal["FAILED", "IN_PROGRESS", "READY"]
-ConnectionTypeType = Literal["CUSTOM", "JDBC", "KAFKA", "MARKETPLACE", "MONGODB", "NETWORK", "SALESFORCE", "SFTP"]
+ConnectionTypeType = Literal["CUSTOM",
+    "FACEBOOKADS",
+    "GOOGLEADS",
+    "GOOGLEANALYTICS4",
+    "GOOGLESHEETS",
+    "HUBSPOT",
+    "INSTAGRAMADS",
+    "INTERCOM",
+    "JDBC",
+    "JIRACLOUD",
+    "KAFKA",
+    "MARKETO",
+    "MARKETPLACE",
+    "MONGODB",
+    "NETSUITEERP",
+    "NETWORK",
+    "SALESFORCE",
+    "SALESFORCEMARKETINGCLOUD",
+    "SALESFORCEPARDOT",
+    "SAPODATA",
+    "SERVICENOW",
+    "SFTP",
+    "SLACK",
+    "SNAPCHATADS",
+    "STRIPE",
+    "VIEW_VALIDATION_ATHENA",
+    "VIEW_VALIDATION_REDSHIFT",
+    "ZENDESK",
+    "ZOHOCRM",]
 CrawlStateType = Literal["CANCELLED", "CANCELLING", "ERROR", "FAILED", "RUNNING", "SUCCEEDED"]
 CrawlerHistoryStateType = Literal["COMPLETED", "FAILED", "RUNNING", "STOPPED"]
 CrawlerLineageSettingsType = Literal["DISABLE", "ENABLE"]
@@ -87,13 +123,43 @@ DQCompositeRuleEvaluationMethodType = Literal["COLUMN", "ROW"]
 DQStopJobOnFailureTimingType = Literal["AfterDataLoad", "Immediate"]
 DQTransformOutputType = Literal["EvaluationResults", "PrimaryInput"]
 DataFormatType = Literal["AVRO", "JSON", "PROTOBUF"]
+DataOperationType = Literal["READ", "WRITE"]
+DataQualityEncryptionModeType = Literal["DISABLED", "SSE-KMS"]
+DataQualityModelStatusType = Literal["FAILED", "RUNNING", "SUCCEEDED"]
 DataQualityRuleResultStatusType = Literal["ERROR", "FAIL", "PASS"]
 DatabaseAttributesType = Literal["NAME"]
 DeleteBehaviorType = Literal["DELETE_FROM_DATABASE", "DEPRECATE_IN_DATABASE", "LOG"]
 DeltaTargetCompressionTypeType = Literal["snappy", "uncompressed"]
+DescribeEntityPaginatorName = Literal["describe_entity"]
 EnableHybridValuesType = Literal["FALSE", "TRUE"]
 ExecutionClassType = Literal["FLEX", "STANDARD"]
+ExecutionStatusType = Literal["FAILED", "STARTED"]
 ExistConditionType = Literal["MUST_EXIST", "NONE", "NOT_EXIST"]
+FieldDataTypeType = Literal["ARRAY",
+    "BIGINT",
+    "BOOLEAN",
+    "BYTE",
+    "DATE",
+    "DECIMAL",
+    "DOUBLE",
+    "FLOAT",
+    "INT",
+    "LONG",
+    "MAP",
+    "SHORT",
+    "SMALLINT",
+    "STRING",
+    "STRUCT",
+    "TIMESTAMP",]
+FieldFilterOperatorType = Literal["BETWEEN",
+    "CONTAINS",
+    "EQUAL_TO",
+    "GREATER_THAN",
+    "GREATER_THAN_OR_EQUAL_TO",
+    "LESS_THAN",
+    "LESS_THAN_OR_EQUAL_TO",
+    "NOT_EQUAL_TO",
+    "ORDER_BY",]
 FieldNameType = Literal["CRAWL_ID", "DPU_HOUR", "END_TIME", "START_TIME", "STATE"]
 FilterLogicalOperatorType = Literal["AND", "OR"]
 FilterOperationType = Literal["EQ", "GT", "GTE", "ISNULL", "LT", "LTE", "REGEX"]
@@ -118,6 +184,8 @@ GetUserDefinedFunctionsPaginatorName = Literal["get_user_defined_functions"]
 GetWorkflowRunsPaginatorName = Literal["get_workflow_runs"]
 GlueRecordTypeType = Literal["BIGDECIMAL", "BYTE", "DATE", "DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP"]
 HudiTargetCompressionTypeType = Literal["gzip", "lzo", "snappy", "uncompressed"]
+InclusionAnnotationValueType = Literal["EXCLUDE", "INCLUDE"]
+IntegrationStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "MODIFYING", "NEEDS_ATTENTION", "SYNCING"]
 JDBCConnectionTypeType = Literal["mysql", "oracle", "postgresql", "redshift", "sqlserver"]
 JDBCDataTypeType = Literal["ARRAY",
     "BIGINT",
@@ -175,10 +243,13 @@ JoinTypeType = Literal["equijoin", "left", "leftanti", "leftsemi", "outer", "rig
 LanguageType = Literal["PYTHON", "SCALA"]
 LastCrawlStatusType = Literal["CANCELLED", "FAILED", "SUCCEEDED"]
 ListBlueprintsPaginatorName = Literal["list_blueprints"]
+ListConnectionTypesPaginatorName = Literal["list_connection_types"]
+ListEntitiesPaginatorName = Literal["list_entities"]
 ListJobsPaginatorName = Literal["list_jobs"]
 ListRegistriesPaginatorName = Literal["list_registries"]
 ListSchemaVersionsPaginatorName = Literal["list_schema_versions"]
 ListSchemasPaginatorName = Literal["list_schemas"]
+ListTableOptimizerRunsPaginatorName = Literal["list_table_optimizer_runs"]
 ListTriggersPaginatorName = Literal["list_triggers"]
 ListUsageProfilesPaginatorName = Literal["list_usage_profiles"]
 ListWorkflowsPaginatorName = Literal["list_workflows"]
@@ -203,26 +274,33 @@ PermissionType = Literal["ALL",
 PermissionTypeType = Literal["CELL_FILTER_PERMISSION", "COLUMN_PERMISSION", "NESTED_CELL_PERMISSION", "NESTED_PERMISSION"]
 PiiTypeType = Literal["ColumnAudit", "ColumnMasking", "RowAudit", "RowMasking"]
 PrincipalTypeType = Literal["GROUP", "ROLE", "USER"]
+PropertyTypeType = Literal["READ_ONLY", "SECRET", "SECRET_OR_USER_INPUT", "UNUSED", "USER_INPUT"]
 QuoteCharType = Literal["disabled", "quillemet", "quote", "single_quote"]
 RecrawlBehaviorType = Literal["CRAWL_EVENT_MODE", "CRAWL_EVERYTHING", "CRAWL_NEW_FOLDERS_ONLY"]
 RegistryStatusType = Literal["AVAILABLE", "DELETING"]
+ResourceActionType = Literal["CREATE", "UPDATE"]
 ResourceShareTypeType = Literal["ALL", "FEDERATED", "FOREIGN"]
+ResourceStateType = Literal["FAILED", "IN_PROGRESS", "QUEUED", "STOPPED", "SUCCESS"]
 ResourceTypeType = Literal["ARCHIVE", "FILE", "JAR"]
 S3EncryptionModeType = Literal["DISABLED", "SSE-KMS", "SSE-S3"]
 ScheduleStateType = Literal["NOT_SCHEDULED", "SCHEDULED", "TRANSITIONING"]
+ScheduleTypeType = Literal["AUTO", "CRON"]
 SchemaDiffTypeType = Literal["SYNTAX_DIFF"]
 SchemaStatusType = Literal["AVAILABLE", "DELETING", "PENDING"]
 SchemaVersionStatusType = Literal["AVAILABLE", "DELETING", "FAILURE", "PENDING"]
 SeparatorType = Literal["comma", "ctrla", "pipe", "semicolon", "tab"]
 SessionStatusType = Literal["FAILED", "PROVISIONING", "READY", "STOPPED", "STOPPING", "TIMEOUT"]
+SettingSourceType = Literal["CATALOG", "TABLE"]
 SortDirectionTypeType = Literal["ASCENDING", "DESCENDING"]
 SortType = Literal["ASC", "DESC"]
 SourceControlAuthStrategyType = Literal["AWS_SECRETS_MANAGER", "PERSONAL_ACCESS_TOKEN"]
 SourceControlProviderType = Literal["AWS_CODE_COMMIT", "BITBUCKET", "GITHUB", "GITLAB"]
 StartingPositionType = Literal["earliest", "latest", "timestamp", "trim_horizon"]
 StatementStateType = Literal["AVAILABLE", "CANCELLED", "CANCELLING", "ERROR", "RUNNING", "WAITING"]
+StatisticEvaluationLevelType = Literal["Column", "Dataset", "Multicolumn"]
+TableAttributesType = Literal["NAME", "TABLE_TYPE"]
 TableOptimizerEventTypeType = Literal["completed", "failed", "in_progress", "starting"]
-TableOptimizerTypeType = Literal["compaction"]
+TableOptimizerTypeType = Literal["compaction", "orphan_file_deletion", "retention"]
 TargetFormatType = Literal["avro", "csv", "delta", "hudi", "json", "orc", "parquet"]
 TaskRunSortColumnTypeType = Literal["STARTED", "STATUS", "TASK_RUN_TYPE"]
 TaskStatusTypeType = Literal["FAILED", "RUNNING", "STARTING", "STOPPED", "STOPPING", "SUCCEEDED", "TIMEOUT"]
@@ -240,6 +318,7 @@ TriggerStateType = Literal["ACTIVATED",
     "UPDATING",]
 TriggerTypeType = Literal["CONDITIONAL", "EVENT", "ON_DEMAND", "SCHEDULED"]
 UnionTypeType = Literal["ALL", "DISTINCT"]
+UnnestSpecType = Literal["FULL", "NOUNNEST", "TOPLEVEL"]
 UpdateBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
 UpdateCatalogBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
 ViewDialectType = Literal["ATHENA", "REDSHIFT", "SPARK"]
@@ -281,12 +360,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -323,7 +407,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -336,6 +419,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -361,6 +445,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -372,7 +458,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -396,6 +481,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -414,11 +502,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -473,6 +560,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -492,7 +580,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -500,10 +587,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -513,10 +603,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -562,6 +654,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -574,6 +667,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -591,10 +685,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -626,7 +722,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -643,7 +738,8 @@ ResourceServiceName = Literal["cloudformation",
     "s3",
     "sns",
     "sqs",]
-PaginatorName = Literal["get_classifiers",
+PaginatorName = Literal["describe_entity",
+    "get_classifiers",
     "get_connections",
     "get_crawler_metrics",
     "get_crawlers",
@@ -661,10 +757,13 @@ PaginatorName = Literal["get_classifiers",
     "get_user_defined_functions",
     "get_workflow_runs",
     "list_blueprints",
+    "list_connection_types",
+    "list_entities",
     "list_jobs",
     "list_registries",
     "list_schema_versions",
     "list_schemas",
+    "list_table_optimizer_runs",
     "list_triggers",
     "list_usage_profiles",
     "list_workflows",]
@@ -679,6 +778,7 @@ RegionName = Literal["af-south-1",
     "ap-southeast-2",
     "ap-southeast-3",
     "ap-southeast-4",
+    "ap-southeast-5",
     "ca-central-1",
     "ca-west-1",
     "eu-central-1",
@@ -697,17 +797,3 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-BlobTypeDef = Union[str, bytes, IO[Any]]
-TimestampTypeDef = Union[datetime, str]
-ConnectionsListUnionTypeDef = Union['ConnectionsListTypeDef', 'ConnectionsListExtraOutputTypeDef']
-GlueTableUnionTypeDef = Union['GlueTableTypeDef', 'GlueTableOutputTypeDef']
-PartitionValueListUnionTypeDef = Union[   'PartitionValueListTypeDef', 'PartitionValueListExtraOutputTypeDef' ]
-ActionUnionTypeDef = Union['ActionTypeDef', 'ActionExtraOutputTypeDef']
-CodeGenNodeUnionTypeDef = Union['CodeGenNodeTypeDef', 'CodeGenNodeOutputTypeDef']
-PredicateUnionTypeDef = Union['PredicateTypeDef', 'PredicateExtraOutputTypeDef']
-ProfileConfigurationUnionTypeDef = Union[   'ProfileConfigurationTypeDef', 'ProfileConfigurationOutputTypeDef' ]
-CrawlerTargetsUnionTypeDef = Union['CrawlerTargetsTypeDef', 'CrawlerTargetsExtraOutputTypeDef']
-DataSourceUnionTypeDef = Union['DataSourceTypeDef', 'DataSourceOutputTypeDef']
-EncryptionConfigurationUnionTypeDef = Union[   'EncryptionConfigurationTypeDef', 'EncryptionConfigurationExtraOutputTypeDef' ]
-CodeGenConfigurationNodeUnionTypeDef = Union[   'CodeGenConfigurationNodeTypeDef', 'CodeGenConfigurationNodeExtraOutputTypeDef' ]
-ColumnStatisticsUnionTypeDef = Union['ColumnStatisticsTypeDef', 'ColumnStatisticsOutputTypeDef']

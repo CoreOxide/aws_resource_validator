@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -14,9 +15,11 @@ from aws_resource_validator.pydantic_models.athena_constants import *
 class AclConfigurationTypeDef(BaseValidatorModel):
     S3AclOption: Literal["BUCKET_OWNER_FULL_CONTROL"]
 
+
 class ApplicationDPUSizesTypeDef(BaseValidatorModel):
     ApplicationRuntimeId: Optional[str] = None
     SupportedDPUSizes: Optional[List[int]] = None
+
 
 class AthenaErrorTypeDef(BaseValidatorModel):
     ErrorCategory: Optional[int] = None
@@ -24,8 +27,10 @@ class AthenaErrorTypeDef(BaseValidatorModel):
     Retryable: Optional[bool] = None
     ErrorMessage: Optional[str] = None
 
-class BatchGetNamedQueryInputRequestTypeDef(BaseValidatorModel):
+
+class BatchGetNamedQueryInputTypeDef(BaseValidatorModel):
     NamedQueryIds: Sequence[str]
+
 
 class NamedQueryTypeDef(BaseValidatorModel):
     Name: str
@@ -35,6 +40,7 @@ class NamedQueryTypeDef(BaseValidatorModel):
     NamedQueryId: Optional[str] = None
     WorkGroup: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
@@ -42,14 +48,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
 class UnprocessedNamedQueryIdTypeDef(BaseValidatorModel):
     NamedQueryId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class BatchGetPreparedStatementInputRequestTypeDef(BaseValidatorModel):
+
+class BatchGetPreparedStatementInputTypeDef(BaseValidatorModel):
     PreparedStatementNames: Sequence[str]
     WorkGroup: str
+
 
 class PreparedStatementTypeDef(BaseValidatorModel):
     StatementName: Optional[str] = None
@@ -58,21 +67,26 @@ class PreparedStatementTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
 
+
 class UnprocessedPreparedStatementNameTypeDef(BaseValidatorModel):
     StatementName: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
-class BatchGetQueryExecutionInputRequestTypeDef(BaseValidatorModel):
+
+class BatchGetQueryExecutionInputTypeDef(BaseValidatorModel):
     QueryExecutionIds: Sequence[str]
+
 
 class UnprocessedQueryExecutionIdTypeDef(BaseValidatorModel):
     QueryExecutionId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
+
 class CalculationConfigurationTypeDef(BaseValidatorModel):
     CodeBlock: Optional[str] = None
+
 
 class CalculationResultTypeDef(BaseValidatorModel):
     StdOutS3Uri: Optional[str] = None
@@ -80,9 +94,11 @@ class CalculationResultTypeDef(BaseValidatorModel):
     ResultS3Uri: Optional[str] = None
     ResultType: Optional[str] = None
 
+
 class CalculationStatisticsTypeDef(BaseValidatorModel):
     DpuExecutionInMillis: Optional[int] = None
     Progress: Optional[str] = None
+
 
 class CalculationStatusTypeDef(BaseValidatorModel):
     SubmissionDateTime: Optional[datetime] = None
@@ -90,8 +106,10 @@ class CalculationStatusTypeDef(BaseValidatorModel):
     State: Optional[CalculationExecutionStateType] = None
     StateChangeReason: Optional[str] = None
 
-class CancelCapacityReservationInputRequestTypeDef(BaseValidatorModel):
+
+class CancelCapacityReservationInputTypeDef(BaseValidatorModel):
     Name: str
+
 
 class CapacityAllocationTypeDef(BaseValidatorModel):
     Status: CapacityAllocationStatusType
@@ -99,34 +117,21 @@ class CapacityAllocationTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
     RequestCompletionTime: Optional[datetime] = None
 
+
 class CapacityAssignmentOutputTypeDef(BaseValidatorModel):
     WorkGroupNames: Optional[List[str]] = None
+
 
 class CapacityAssignmentTypeDef(BaseValidatorModel):
     WorkGroupNames: Optional[Sequence[str]] = None
 
-class ColumnInfoTypeDef(BaseValidatorModel):
-    Name: str
-    Type: str
-    CatalogName: Optional[str] = None
-    SchemaName: Optional[str] = None
-    TableName: Optional[str] = None
-    Label: Optional[str] = None
-    Precision: Optional[int] = None
-    Scale: Optional[int] = None
-    Nullable: Optional[ColumnNullableType] = None
-    CaseSensitive: Optional[bool] = None
-
-class ColumnTypeDef(BaseValidatorModel):
-    Name: str
-    Type: Optional[str] = None
-    Comment: Optional[str] = None
 
 class TagTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
-class CreateNamedQueryInputRequestTypeDef(BaseValidatorModel):
+
+class CreateNamedQueryInputTypeDef(BaseValidatorModel):
     Name: str
     Database: str
     QueryString: str
@@ -134,64 +139,69 @@ class CreateNamedQueryInputRequestTypeDef(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
     WorkGroup: Optional[str] = None
 
-class CreateNotebookInputRequestTypeDef(BaseValidatorModel):
+
+class CreateNotebookInputTypeDef(BaseValidatorModel):
     WorkGroup: str
     Name: str
     ClientRequestToken: Optional[str] = None
 
-class CreatePreparedStatementInputRequestTypeDef(BaseValidatorModel):
+
+class CreatePreparedStatementInputTypeDef(BaseValidatorModel):
     StatementName: str
     WorkGroup: str
     QueryStatement: str
     Description: Optional[str] = None
 
-class CreatePresignedNotebookUrlRequestRequestTypeDef(BaseValidatorModel):
+
+class CreatePresignedNotebookUrlRequestTypeDef(BaseValidatorModel):
     SessionId: str
+
 
 class CustomerContentEncryptionConfigurationTypeDef(BaseValidatorModel):
     KmsKey: str
 
-class DataCatalogSummaryTypeDef(BaseValidatorModel):
-    CatalogName: Optional[str] = None
-    Type: Optional[DataCatalogTypeType] = None
-
-class DataCatalogTypeDef(BaseValidatorModel):
-    Name: str
-    Type: DataCatalogTypeType
-    Description: Optional[str] = None
-    Parameters: Optional[Dict[str, str]] = None
 
 class DatabaseTypeDef(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     Parameters: Optional[Dict[str, str]] = None
 
+
 class DatumTypeDef(BaseValidatorModel):
     VarCharValue: Optional[str] = None
 
-class DeleteCapacityReservationInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteCapacityReservationInputTypeDef(BaseValidatorModel):
     Name: str
 
-class DeleteDataCatalogInputRequestTypeDef(BaseValidatorModel):
-    Name: str
 
-class DeleteNamedQueryInputRequestTypeDef(BaseValidatorModel):
+class DeleteDataCatalogInputTypeDef(BaseValidatorModel):
+    Name: str
+    DeleteCatalogOnly: Optional[bool] = None
+
+
+class DeleteNamedQueryInputTypeDef(BaseValidatorModel):
     NamedQueryId: str
 
-class DeleteNotebookInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteNotebookInputTypeDef(BaseValidatorModel):
     NotebookId: str
 
-class DeletePreparedStatementInputRequestTypeDef(BaseValidatorModel):
+
+class DeletePreparedStatementInputTypeDef(BaseValidatorModel):
     StatementName: str
     WorkGroup: str
 
-class DeleteWorkGroupInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteWorkGroupInputTypeDef(BaseValidatorModel):
     WorkGroup: str
     RecursiveDeleteOption: Optional[bool] = None
+
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
     EncryptionOption: EncryptionOptionType
     KmsKey: Optional[str] = None
+
 
 class EngineConfigurationOutputTypeDef(BaseValidatorModel):
     MaxConcurrentDpus: int
@@ -200,6 +210,7 @@ class EngineConfigurationOutputTypeDef(BaseValidatorModel):
     AdditionalConfigs: Optional[Dict[str, str]] = None
     SparkProperties: Optional[Dict[str, str]] = None
 
+
 class EngineConfigurationTypeDef(BaseValidatorModel):
     MaxConcurrentDpus: int
     CoordinatorDpuSize: Optional[int] = None
@@ -207,9 +218,11 @@ class EngineConfigurationTypeDef(BaseValidatorModel):
     AdditionalConfigs: Optional[Mapping[str, str]] = None
     SparkProperties: Optional[Mapping[str, str]] = None
 
+
 class EngineVersionTypeDef(BaseValidatorModel):
     SelectedEngineVersion: Optional[str] = None
     EffectiveEngineVersion: Optional[str] = None
+
 
 class ExecutorsSummaryTypeDef(BaseValidatorModel):
     ExecutorId: str
@@ -219,75 +232,86 @@ class ExecutorsSummaryTypeDef(BaseValidatorModel):
     ExecutorState: Optional[ExecutorStateType] = None
     ExecutorSize: Optional[int] = None
 
-class ExportNotebookInputRequestTypeDef(BaseValidatorModel):
+
+class ExportNotebookInputTypeDef(BaseValidatorModel):
     NotebookId: str
 
-class NotebookMetadataTypeDef(BaseValidatorModel):
-    NotebookId: Optional[str] = None
-    Name: Optional[str] = None
-    WorkGroup: Optional[str] = None
-    CreationTime: Optional[datetime] = None
-    Type: Optional[Literal["IPYNB"]] = None
-    LastModifiedTime: Optional[datetime] = None
 
 class FilterDefinitionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
 
-class GetCalculationExecutionCodeRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCalculationExecutionCodeRequestTypeDef(BaseValidatorModel):
     CalculationExecutionId: str
 
-class GetCalculationExecutionRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCalculationExecutionRequestTypeDef(BaseValidatorModel):
     CalculationExecutionId: str
 
-class GetCalculationExecutionStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCalculationExecutionStatusRequestTypeDef(BaseValidatorModel):
     CalculationExecutionId: str
 
-class GetCapacityAssignmentConfigurationInputRequestTypeDef(BaseValidatorModel):
+
+class GetCapacityAssignmentConfigurationInputTypeDef(BaseValidatorModel):
     CapacityReservationName: str
 
-class GetCapacityReservationInputRequestTypeDef(BaseValidatorModel):
+
+class GetCapacityReservationInputTypeDef(BaseValidatorModel):
     Name: str
 
-class GetDataCatalogInputRequestTypeDef(BaseValidatorModel):
+
+class GetDataCatalogInputTypeDef(BaseValidatorModel):
     Name: str
     WorkGroup: Optional[str] = None
 
-class GetDatabaseInputRequestTypeDef(BaseValidatorModel):
+
+class GetDatabaseInputTypeDef(BaseValidatorModel):
     CatalogName: str
     DatabaseName: str
     WorkGroup: Optional[str] = None
 
-class GetNamedQueryInputRequestTypeDef(BaseValidatorModel):
+
+class GetNamedQueryInputTypeDef(BaseValidatorModel):
     NamedQueryId: str
 
-class GetNotebookMetadataInputRequestTypeDef(BaseValidatorModel):
+
+class GetNotebookMetadataInputTypeDef(BaseValidatorModel):
     NotebookId: str
 
-class GetPreparedStatementInputRequestTypeDef(BaseValidatorModel):
+
+class GetPreparedStatementInputTypeDef(BaseValidatorModel):
     StatementName: str
     WorkGroup: str
 
-class GetQueryExecutionInputRequestTypeDef(BaseValidatorModel):
+
+class GetQueryExecutionInputTypeDef(BaseValidatorModel):
     QueryExecutionId: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetQueryResultsInputRequestTypeDef(BaseValidatorModel):
+
+class GetQueryResultsInputTypeDef(BaseValidatorModel):
     QueryExecutionId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetQueryRuntimeStatisticsInputRequestTypeDef(BaseValidatorModel):
+
+class GetQueryRuntimeStatisticsInputTypeDef(BaseValidatorModel):
     QueryExecutionId: str
 
-class GetSessionRequestRequestTypeDef(BaseValidatorModel):
+
+class GetSessionRequestTypeDef(BaseValidatorModel):
     SessionId: str
+
 
 class SessionStatisticsTypeDef(BaseValidatorModel):
     DpuExecutionInMillis: Optional[int] = None
+
 
 class SessionStatusTypeDef(BaseValidatorModel):
     StartDateTime: Optional[datetime] = None
@@ -297,100 +321,111 @@ class SessionStatusTypeDef(BaseValidatorModel):
     State: Optional[SessionStateType] = None
     StateChangeReason: Optional[str] = None
 
-class GetSessionStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class GetSessionStatusRequestTypeDef(BaseValidatorModel):
     SessionId: str
 
-class GetTableMetadataInputRequestTypeDef(BaseValidatorModel):
+
+class GetTableMetadataInputTypeDef(BaseValidatorModel):
     CatalogName: str
     DatabaseName: str
     TableName: str
     WorkGroup: Optional[str] = None
 
-class GetWorkGroupInputRequestTypeDef(BaseValidatorModel):
+
+class GetWorkGroupInputTypeDef(BaseValidatorModel):
     WorkGroup: str
+
 
 class IdentityCenterConfigurationTypeDef(BaseValidatorModel):
     EnableIdentityCenter: Optional[bool] = None
     IdentityCenterInstanceArn: Optional[str] = None
 
-class ImportNotebookInputRequestTypeDef(BaseValidatorModel):
-    WorkGroup: str
-    Name: str
-    Type: Literal["IPYNB"]
-    Payload: Optional[str] = None
-    NotebookS3LocationUri: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
 
-class ListApplicationDPUSizesInputRequestTypeDef(BaseValidatorModel):
+class ListApplicationDPUSizesInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCalculationExecutionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCalculationExecutionsRequestTypeDef(BaseValidatorModel):
     SessionId: str
     StateFilter: Optional[CalculationExecutionStateType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCapacityReservationsInputRequestTypeDef(BaseValidatorModel):
+
+class ListCapacityReservationsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListDataCatalogsInputRequestTypeDef(BaseValidatorModel):
+
+class ListDataCatalogsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WorkGroup: Optional[str] = None
 
-class ListDatabasesInputRequestTypeDef(BaseValidatorModel):
+
+class ListDatabasesInputTypeDef(BaseValidatorModel):
     CatalogName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WorkGroup: Optional[str] = None
 
-class ListEngineVersionsInputRequestTypeDef(BaseValidatorModel):
+
+class ListEngineVersionsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListExecutorsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListExecutorsRequestTypeDef(BaseValidatorModel):
     SessionId: str
     ExecutorStateFilter: Optional[ExecutorStateType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListNamedQueriesInputRequestTypeDef(BaseValidatorModel):
+
+class ListNamedQueriesInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WorkGroup: Optional[str] = None
 
-class ListNotebookSessionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListNotebookSessionsRequestTypeDef(BaseValidatorModel):
     NotebookId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+
 
 class NotebookSessionSummaryTypeDef(BaseValidatorModel):
     SessionId: Optional[str] = None
     CreationTime: Optional[datetime] = None
 
-class ListPreparedStatementsInputRequestTypeDef(BaseValidatorModel):
+
+class ListPreparedStatementsInputTypeDef(BaseValidatorModel):
     WorkGroup: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class PreparedStatementSummaryTypeDef(BaseValidatorModel):
     StatementName: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
 
-class ListQueryExecutionsInputRequestTypeDef(BaseValidatorModel):
+
+class ListQueryExecutionsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WorkGroup: Optional[str] = None
 
-class ListSessionsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSessionsRequestTypeDef(BaseValidatorModel):
     WorkGroup: str
     StateFilter: Optional[SessionStateType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTableMetadataInputRequestTypeDef(BaseValidatorModel):
+
+class ListTableMetadataInputTypeDef(BaseValidatorModel):
     CatalogName: str
     DatabaseName: str
     Expression: Optional[str] = None
@@ -398,32 +433,39 @@ class ListTableMetadataInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     WorkGroup: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputTypeDef(BaseValidatorModel):
     ResourceARN: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListWorkGroupsInputRequestTypeDef(BaseValidatorModel):
+
+class ListWorkGroupsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class QueryExecutionContextTypeDef(BaseValidatorModel):
     Database: Optional[str] = None
     Catalog: Optional[str] = None
 
+
 class ResultReuseInformationTypeDef(BaseValidatorModel):
     ReusedPreviousResult: bool
+
 
 class QueryResultsS3AccessGrantsConfigurationTypeDef(BaseValidatorModel):
     EnableS3AccessGrants: bool
     AuthenticationType: Literal["DIRECTORY_IDENTITY"]
     CreateUserLevelPrefix: Optional[bool] = None
 
+
 class QueryRuntimeStatisticsRowsTypeDef(BaseValidatorModel):
     InputRows: Optional[int] = None
     InputBytes: Optional[int] = None
     OutputBytes: Optional[int] = None
     OutputRows: Optional[int] = None
+
 
 class QueryRuntimeStatisticsTimelineTypeDef(BaseValidatorModel):
     QueryQueueTimeInMillis: Optional[int] = None
@@ -433,73 +475,60 @@ class QueryRuntimeStatisticsTimelineTypeDef(BaseValidatorModel):
     ServiceProcessingTimeInMillis: Optional[int] = None
     TotalExecutionTimeInMillis: Optional[int] = None
 
+
 class QueryStagePlanNodeTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Identifier: Optional[str] = None
     Children: Optional[List[Dict[str, Any]]] = None
     RemoteSources: Optional[List[str]] = None
 
-class QueryStageTypeDef(BaseValidatorModel):
-    StageId: Optional[int] = None
-    State: Optional[str] = None
-    OutputBytes: Optional[int] = None
-    OutputRows: Optional[int] = None
-    InputBytes: Optional[int] = None
-    InputRows: Optional[int] = None
-    ExecutionTime: Optional[int] = None
-    QueryStagePlan: Optional["QueryStagePlanNodeTypeDef"] = None
-    SubStages: Optional[List[Dict[str, Any]]] = None
 
 class ResultReuseByAgeConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
     MaxAgeInMinutes: Optional[int] = None
 
-class StopCalculationExecutionRequestRequestTypeDef(BaseValidatorModel):
+
+class StopCalculationExecutionRequestTypeDef(BaseValidatorModel):
     CalculationExecutionId: str
 
-class StopQueryExecutionInputRequestTypeDef(BaseValidatorModel):
+
+class StopQueryExecutionInputTypeDef(BaseValidatorModel):
     QueryExecutionId: str
 
-class TerminateSessionRequestRequestTypeDef(BaseValidatorModel):
+
+class TerminateSessionRequestTypeDef(BaseValidatorModel):
     SessionId: str
 
-class UntagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceInputTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateCapacityReservationInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateCapacityReservationInputTypeDef(BaseValidatorModel):
     TargetDpus: int
     Name: str
 
-class UpdateDataCatalogInputRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Type: DataCatalogTypeType
-    Description: Optional[str] = None
-    Parameters: Optional[Mapping[str, str]] = None
 
-class UpdateNamedQueryInputRequestTypeDef(BaseValidatorModel):
+class UpdateNamedQueryInputTypeDef(BaseValidatorModel):
     NamedQueryId: str
     Name: str
     QueryString: str
     Description: Optional[str] = None
 
-class UpdateNotebookInputRequestTypeDef(BaseValidatorModel):
-    NotebookId: str
-    Payload: str
-    Type: Literal["IPYNB"]
-    SessionId: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
 
-class UpdateNotebookMetadataInputRequestTypeDef(BaseValidatorModel):
+class UpdateNotebookMetadataInputTypeDef(BaseValidatorModel):
     NotebookId: str
     Name: str
     ClientRequestToken: Optional[str] = None
 
-class UpdatePreparedStatementInputRequestTypeDef(BaseValidatorModel):
+
+class UpdatePreparedStatementInputTypeDef(BaseValidatorModel):
     StatementName: str
     WorkGroup: str
     QueryStatement: str
     Description: Optional[str] = None
+
 
 class QueryExecutionStatusTypeDef(BaseValidatorModel):
     State: Optional[QueryExecutionStateType] = None
@@ -508,13 +537,16 @@ class QueryExecutionStatusTypeDef(BaseValidatorModel):
     CompletionDateTime: Optional[datetime] = None
     AthenaError: Optional[AthenaErrorTypeDef] = None
 
+
 class CreateNamedQueryOutputTypeDef(BaseValidatorModel):
     NamedQueryId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateNotebookOutputTypeDef(BaseValidatorModel):
     NotebookId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreatePresignedNotebookUrlResponseTypeDef(BaseValidatorModel):
     NotebookUrl: str
@@ -522,80 +554,97 @@ class CreatePresignedNotebookUrlResponseTypeDef(BaseValidatorModel):
     AuthTokenExpirationTime: int
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetCalculationExecutionCodeResponseTypeDef(BaseValidatorModel):
     CodeBlock: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetNamedQueryOutputTypeDef(BaseValidatorModel):
     NamedQuery: NamedQueryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ImportNotebookOutputTypeDef(BaseValidatorModel):
     NotebookId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListApplicationDPUSizesOutputTypeDef(BaseValidatorModel):
     ApplicationDPUSizes: List[ApplicationDPUSizesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ListNamedQueriesOutputTypeDef(BaseValidatorModel):
     NamedQueryIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class ListQueryExecutionsOutputTypeDef(BaseValidatorModel):
     QueryExecutionIds: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class StartCalculationExecutionResponseTypeDef(BaseValidatorModel):
     CalculationExecutionId: str
     State: CalculationExecutionStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StartQueryExecutionOutputTypeDef(BaseValidatorModel):
     QueryExecutionId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartSessionResponseTypeDef(BaseValidatorModel):
     SessionId: str
     State: SessionStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class StopCalculationExecutionResponseTypeDef(BaseValidatorModel):
     State: CalculationExecutionStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class TerminateSessionResponseTypeDef(BaseValidatorModel):
     State: SessionStateType
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class BatchGetNamedQueryOutputTypeDef(BaseValidatorModel):
     NamedQueries: List[NamedQueryTypeDef]
     UnprocessedNamedQueryIds: List[UnprocessedNamedQueryIdTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetPreparedStatementOutputTypeDef(BaseValidatorModel):
     PreparedStatement: PreparedStatementTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class BatchGetPreparedStatementOutputTypeDef(BaseValidatorModel):
     PreparedStatements: List[PreparedStatementTypeDef]
     UnprocessedPreparedStatementNames: List[UnprocessedPreparedStatementNameTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class StartCalculationExecutionRequestRequestTypeDef(BaseValidatorModel):
+
+class StartCalculationExecutionRequestTypeDef(BaseValidatorModel):
     SessionId: str
     Description: Optional[str] = None
     CalculationConfiguration: Optional[CalculationConfigurationTypeDef] = None
     CodeBlock: Optional[str] = None
     ClientRequestToken: Optional[str] = None
 
+
 class CalculationSummaryTypeDef(BaseValidatorModel):
     CalculationExecutionId: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[CalculationStatusTypeDef] = None
+
 
 class GetCalculationExecutionResponseTypeDef(BaseValidatorModel):
     CalculationExecutionId: str
@@ -607,10 +656,12 @@ class GetCalculationExecutionResponseTypeDef(BaseValidatorModel):
     Result: CalculationResultTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetCalculationExecutionStatusResponseTypeDef(BaseValidatorModel):
     Status: CalculationStatusTypeDef
     Statistics: CalculationStatisticsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CapacityReservationTypeDef(BaseValidatorModel):
     Name: str
@@ -621,12 +672,23 @@ class CapacityReservationTypeDef(BaseValidatorModel):
     LastAllocation: Optional[CapacityAllocationTypeDef] = None
     LastSuccessfulAllocationTime: Optional[datetime] = None
 
+
 class CapacityAssignmentConfigurationTypeDef(BaseValidatorModel):
     CapacityReservationName: Optional[str] = None
     CapacityAssignments: Optional[List[CapacityAssignmentOutputTypeDef]] = None
 
+
+class ColumnInfoTypeDef(BaseValidatorModel):
+    pass
+
+
 class ResultSetMetadataTypeDef(BaseValidatorModel):
     ColumnInfo: Optional[List[ColumnInfoTypeDef]] = None
+
+
+class ColumnTypeDef(BaseValidatorModel):
+    pass
+
 
 class TableMetadataTypeDef(BaseValidatorModel):
     Name: str
@@ -637,53 +699,74 @@ class TableMetadataTypeDef(BaseValidatorModel):
     PartitionKeys: Optional[List[ColumnTypeDef]] = None
     Parameters: Optional[Dict[str, str]] = None
 
-class CreateCapacityReservationInputRequestTypeDef(BaseValidatorModel):
+
+class CreateCapacityReservationInputTypeDef(BaseValidatorModel):
     TargetDpus: int
     Name: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateDataCatalogInputRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Type: DataCatalogTypeType
-    Description: Optional[str] = None
-    Parameters: Optional[Mapping[str, str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
 
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class TagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class TagResourceInputTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
+
+
+class DataCatalogTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateDataCatalogOutputTypeDef(BaseValidatorModel):
+    DataCatalog: DataCatalogTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DeleteDataCatalogOutputTypeDef(BaseValidatorModel):
+    DataCatalog: DataCatalogTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GetDataCatalogOutputTypeDef(BaseValidatorModel):
+    DataCatalog: DataCatalogTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DataCatalogSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListDataCatalogsOutputTypeDef(BaseValidatorModel):
     DataCatalogsSummary: List[DataCatalogSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetDataCatalogOutputTypeDef(BaseValidatorModel):
-    DataCatalog: DataCatalogTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class GetDatabaseOutputTypeDef(BaseValidatorModel):
     Database: DatabaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListDatabasesOutputTypeDef(BaseValidatorModel):
     DatabaseList: List[DatabaseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class RowTypeDef(BaseValidatorModel):
     Data: Optional[List[DatumTypeDef]] = None
+
 
 class ResultConfigurationTypeDef(BaseValidatorModel):
     OutputLocation: Optional[str] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     ExpectedBucketOwner: Optional[str] = None
     AclConfiguration: Optional[AclConfigurationTypeDef] = None
+
 
 class ResultConfigurationUpdatesTypeDef(BaseValidatorModel):
     OutputLocation: Optional[str] = None
@@ -695,24 +778,19 @@ class ResultConfigurationUpdatesTypeDef(BaseValidatorModel):
     AclConfiguration: Optional[AclConfigurationTypeDef] = None
     RemoveAclConfiguration: Optional[bool] = None
 
+
 class SessionConfigurationTypeDef(BaseValidatorModel):
     ExecutionRole: Optional[str] = None
     WorkingDirectory: Optional[str] = None
     IdleTimeoutSeconds: Optional[int] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
-class StartSessionRequestRequestTypeDef(BaseValidatorModel):
-    WorkGroup: str
-    EngineConfiguration: EngineConfigurationTypeDef
-    Description: Optional[str] = None
-    NotebookVersion: Optional[str] = None
-    SessionIdleTimeoutInMinutes: Optional[int] = None
-    ClientRequestToken: Optional[str] = None
 
 class ListEngineVersionsOutputTypeDef(BaseValidatorModel):
     EngineVersions: List[EngineVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class WorkGroupSummaryTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
@@ -722,68 +800,86 @@ class WorkGroupSummaryTypeDef(BaseValidatorModel):
     EngineVersion: Optional[EngineVersionTypeDef] = None
     IdentityCenterApplicationArn: Optional[str] = None
 
+
 class ListExecutorsResponseTypeDef(BaseValidatorModel):
     SessionId: str
     ExecutorsSummary: List[ExecutorsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
+class NotebookMetadataTypeDef(BaseValidatorModel):
+    pass
+
+
 class ExportNotebookOutputTypeDef(BaseValidatorModel):
     NotebookMetadata: NotebookMetadataTypeDef
     Payload: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetNotebookMetadataOutputTypeDef(BaseValidatorModel):
     NotebookMetadata: NotebookMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListNotebookMetadataOutputTypeDef(BaseValidatorModel):
     NotebookMetadataList: List[NotebookMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class ListNotebookMetadataInputRequestTypeDef(BaseValidatorModel):
+
+class ListNotebookMetadataInputTypeDef(BaseValidatorModel):
     WorkGroup: str
     Filters: Optional[FilterDefinitionTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetQueryResultsInputGetQueryResultsPaginateTypeDef(BaseValidatorModel):
+
+class GetQueryResultsInputPaginateTypeDef(BaseValidatorModel):
     QueryExecutionId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDataCatalogsInputListDataCatalogsPaginateTypeDef(BaseValidatorModel):
+
+class ListDataCatalogsInputPaginateTypeDef(BaseValidatorModel):
     WorkGroup: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDatabasesInputListDatabasesPaginateTypeDef(BaseValidatorModel):
+
+class ListDatabasesInputPaginateTypeDef(BaseValidatorModel):
     CatalogName: str
     WorkGroup: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListNamedQueriesInputListNamedQueriesPaginateTypeDef(BaseValidatorModel):
+
+class ListNamedQueriesInputPaginateTypeDef(BaseValidatorModel):
     WorkGroup: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListQueryExecutionsInputListQueryExecutionsPaginateTypeDef(BaseValidatorModel):
+
+class ListQueryExecutionsInputPaginateTypeDef(BaseValidatorModel):
     WorkGroup: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTableMetadataInputListTableMetadataPaginateTypeDef(BaseValidatorModel):
+
+class ListTableMetadataInputPaginateTypeDef(BaseValidatorModel):
     CatalogName: str
     DatabaseName: str
     Expression: Optional[str] = None
     WorkGroup: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListTagsForResourceInputListTagsForResourcePaginateTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputPaginateTypeDef(BaseValidatorModel):
     ResourceARN: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class GetSessionStatusResponseTypeDef(BaseValidatorModel):
     SessionId: str
     Status: SessionStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class SessionSummaryTypeDef(BaseValidatorModel):
     SessionId: Optional[str] = None
@@ -792,15 +888,18 @@ class SessionSummaryTypeDef(BaseValidatorModel):
     NotebookVersion: Optional[str] = None
     Status: Optional[SessionStatusTypeDef] = None
 
+
 class ListNotebookSessionsResponseTypeDef(BaseValidatorModel):
     NotebookSessionsList: List[NotebookSessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ListPreparedStatementsOutputTypeDef(BaseValidatorModel):
     PreparedStatements: List[PreparedStatementSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class QueryExecutionStatisticsTypeDef(BaseValidatorModel):
     EngineExecutionTimeInMillis: Optional[int] = None
@@ -813,48 +912,69 @@ class QueryExecutionStatisticsTypeDef(BaseValidatorModel):
     ServiceProcessingTimeInMillis: Optional[int] = None
     ResultReuseInformation: Optional[ResultReuseInformationTypeDef] = None
 
-class QueryRuntimeStatisticsTypeDef(BaseValidatorModel):
-    Timeline: Optional[QueryRuntimeStatisticsTimelineTypeDef] = None
-    Rows: Optional[QueryRuntimeStatisticsRowsTypeDef] = None
-    OutputStage: Optional["QueryStageTypeDef"] = None
+
+class QueryStageTypeDef(BaseValidatorModel):
+    StageId: Optional[int] = None
+    State: Optional[str] = None
+    OutputBytes: Optional[int] = None
+    OutputRows: Optional[int] = None
+    InputBytes: Optional[int] = None
+    InputRows: Optional[int] = None
+    ExecutionTime: Optional[int] = None
+    QueryStagePlan: Optional[QueryStagePlanNodeTypeDef] = None
+    SubStages: Optional[List[Dict[str, Any]]] = None
+
 
 class ResultReuseConfigurationTypeDef(BaseValidatorModel):
     ResultReuseByAgeConfiguration: Optional[ResultReuseByAgeConfigurationTypeDef] = None
+
 
 class ListCalculationExecutionsResponseTypeDef(BaseValidatorModel):
     Calculations: List[CalculationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class GetCapacityReservationOutputTypeDef(BaseValidatorModel):
     CapacityReservation: CapacityReservationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListCapacityReservationsOutputTypeDef(BaseValidatorModel):
     CapacityReservations: List[CapacityReservationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class GetCapacityAssignmentConfigurationOutputTypeDef(BaseValidatorModel):
     CapacityAssignmentConfiguration: CapacityAssignmentConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutCapacityAssignmentConfigurationInputRequestTypeDef(BaseValidatorModel):
+
+class CapacityAssignmentUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class PutCapacityAssignmentConfigurationInputTypeDef(BaseValidatorModel):
     CapacityReservationName: str
     CapacityAssignments: Sequence[CapacityAssignmentUnionTypeDef]
+
 
 class GetTableMetadataOutputTypeDef(BaseValidatorModel):
     TableMetadata: TableMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListTableMetadataOutputTypeDef(BaseValidatorModel):
     TableMetadataList: List[TableMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ResultSetTypeDef(BaseValidatorModel):
     Rows: Optional[List[RowTypeDef]] = None
     ResultSetMetadata: Optional[ResultSetMetadataTypeDef] = None
+
 
 class WorkGroupConfigurationTypeDef(BaseValidatorModel):
     ResultConfiguration: Optional[ResultConfigurationTypeDef] = None
@@ -865,10 +985,11 @@ class WorkGroupConfigurationTypeDef(BaseValidatorModel):
     EngineVersion: Optional[EngineVersionTypeDef] = None
     AdditionalConfiguration: Optional[str] = None
     ExecutionRole: Optional[str] = None
-    CustomerContentEncryptionConfiguration: Optional[       CustomerContentEncryptionConfigurationTypeDef     ] = None
+    CustomerContentEncryptionConfiguration: Optional[ CustomerContentEncryptionConfigurationTypeDef ] = None
     EnableMinimumEncryptionConfiguration: Optional[bool] = None
     IdentityCenterConfiguration: Optional[IdentityCenterConfigurationTypeDef] = None
-    QueryResultsS3AccessGrantsConfiguration: Optional[       QueryResultsS3AccessGrantsConfigurationTypeDef     ] = None
+    QueryResultsS3AccessGrantsConfiguration: Optional[ QueryResultsS3AccessGrantsConfigurationTypeDef ] = None
+
 
 class WorkGroupConfigurationUpdatesTypeDef(BaseValidatorModel):
     EnforceWorkGroupConfiguration: Optional[bool] = None
@@ -881,9 +1002,10 @@ class WorkGroupConfigurationUpdatesTypeDef(BaseValidatorModel):
     RemoveCustomerContentEncryptionConfiguration: Optional[bool] = None
     AdditionalConfiguration: Optional[str] = None
     ExecutionRole: Optional[str] = None
-    CustomerContentEncryptionConfiguration: Optional[       CustomerContentEncryptionConfigurationTypeDef     ] = None
+    CustomerContentEncryptionConfiguration: Optional[ CustomerContentEncryptionConfigurationTypeDef ] = None
     EnableMinimumEncryptionConfiguration: Optional[bool] = None
-    QueryResultsS3AccessGrantsConfiguration: Optional[       QueryResultsS3AccessGrantsConfigurationTypeDef     ] = None
+    QueryResultsS3AccessGrantsConfiguration: Optional[ QueryResultsS3AccessGrantsConfigurationTypeDef ] = None
+
 
 class GetSessionResponseTypeDef(BaseValidatorModel):
     SessionId: str
@@ -897,19 +1019,37 @@ class GetSessionResponseTypeDef(BaseValidatorModel):
     Statistics: SessionStatisticsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class EngineConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class StartSessionRequestTypeDef(BaseValidatorModel):
+    WorkGroup: str
+    EngineConfiguration: EngineConfigurationUnionTypeDef
+    Description: Optional[str] = None
+    NotebookVersion: Optional[str] = None
+    SessionIdleTimeoutInMinutes: Optional[int] = None
+    ClientRequestToken: Optional[str] = None
+
+
 class ListWorkGroupsOutputTypeDef(BaseValidatorModel):
     WorkGroups: List[WorkGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class ListSessionsResponseTypeDef(BaseValidatorModel):
     Sessions: List[SessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class GetQueryRuntimeStatisticsOutputTypeDef(BaseValidatorModel):
-    QueryRuntimeStatistics: QueryRuntimeStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+
+class QueryRuntimeStatisticsTypeDef(BaseValidatorModel):
+    Timeline: Optional[QueryRuntimeStatisticsTimelineTypeDef] = None
+    Rows: Optional[QueryRuntimeStatisticsRowsTypeDef] = None
+    OutputStage: Optional[QueryStageTypeDef] = None
+
 
 class QueryExecutionTypeDef(BaseValidatorModel):
     QueryExecutionId: Optional[str] = None
@@ -924,9 +1064,10 @@ class QueryExecutionTypeDef(BaseValidatorModel):
     EngineVersion: Optional[EngineVersionTypeDef] = None
     ExecutionParameters: Optional[List[str]] = None
     SubstatementType: Optional[str] = None
-    QueryResultsS3AccessGrantsConfiguration: Optional[       QueryResultsS3AccessGrantsConfigurationTypeDef     ] = None
+    QueryResultsS3AccessGrantsConfiguration: Optional[ QueryResultsS3AccessGrantsConfigurationTypeDef ] = None
 
-class StartQueryExecutionInputRequestTypeDef(BaseValidatorModel):
+
+class StartQueryExecutionInputTypeDef(BaseValidatorModel):
     QueryString: str
     ClientRequestToken: Optional[str] = None
     QueryExecutionContext: Optional[QueryExecutionContextTypeDef] = None
@@ -935,17 +1076,20 @@ class StartQueryExecutionInputRequestTypeDef(BaseValidatorModel):
     ExecutionParameters: Optional[Sequence[str]] = None
     ResultReuseConfiguration: Optional[ResultReuseConfigurationTypeDef] = None
 
+
 class GetQueryResultsOutputTypeDef(BaseValidatorModel):
     UpdateCount: int
     ResultSet: ResultSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
-class CreateWorkGroupInputRequestTypeDef(BaseValidatorModel):
+
+class CreateWorkGroupInputTypeDef(BaseValidatorModel):
     Name: str
     Configuration: Optional[WorkGroupConfigurationTypeDef] = None
     Description: Optional[str] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class WorkGroupTypeDef(BaseValidatorModel):
     Name: str
@@ -955,22 +1099,32 @@ class WorkGroupTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     IdentityCenterApplicationArn: Optional[str] = None
 
-class UpdateWorkGroupInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateWorkGroupInputTypeDef(BaseValidatorModel):
     WorkGroup: str
     Description: Optional[str] = None
     ConfigurationUpdates: Optional[WorkGroupConfigurationUpdatesTypeDef] = None
     State: Optional[WorkGroupStateType] = None
+
+
+class GetQueryRuntimeStatisticsOutputTypeDef(BaseValidatorModel):
+    QueryRuntimeStatistics: QueryRuntimeStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
 
 class BatchGetQueryExecutionOutputTypeDef(BaseValidatorModel):
     QueryExecutions: List[QueryExecutionTypeDef]
     UnprocessedQueryExecutionIds: List[UnprocessedQueryExecutionIdTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetQueryExecutionOutputTypeDef(BaseValidatorModel):
     QueryExecution: QueryExecutionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetWorkGroupOutputTypeDef(BaseValidatorModel):
     WorkGroup: WorkGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

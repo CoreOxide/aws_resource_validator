@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -16,53 +17,56 @@ class AttendeeCapabilitiesTypeDef(BaseValidatorModel):
     Video: MediaCapabilitiesType
     Content: MediaCapabilitiesType
 
+
 class AttendeeFeaturesTypeDef(BaseValidatorModel):
     MaxCount: Optional[int] = None
+
 
 class AttendeeIdItemTypeDef(BaseValidatorModel):
     AttendeeId: str
 
+
 class AudioFeaturesTypeDef(BaseValidatorModel):
     EchoReduction: Optional[MeetingFeatureStatusType] = None
+
 
 class CreateAttendeeErrorTypeDef(BaseValidatorModel):
     ExternalUserId: Optional[str] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
+
 
 class ContentFeaturesTypeDef(BaseValidatorModel):
     MaxResolution: Optional[ContentResolutionType] = None
+
 
 class NotificationsConfigurationTypeDef(BaseValidatorModel):
     LambdaFunctionArn: Optional[str] = None
     SnsTopicArn: Optional[str] = None
     SqsQueueArn: Optional[str] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class DeleteAttendeeRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteAttendeeRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
 
-class DeleteMeetingRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteMeetingRequestTypeDef(BaseValidatorModel):
     MeetingId: str
 
-class EngineTranscribeMedicalSettingsTypeDef(BaseValidatorModel):
-    LanguageCode: Literal["en-US"]
-    Specialty: TranscribeMedicalSpecialtyType
-    Type: TranscribeMedicalTypeType
-    VocabularyName: Optional[str] = None
-    Region: Optional[TranscribeMedicalRegionType] = None
-    ContentIdentificationType: Optional[Literal["PHI"]] = None
 
 class EngineTranscribeSettingsTypeDef(BaseValidatorModel):
     LanguageCode: Optional[TranscribeLanguageCodeType] = None
@@ -82,20 +86,25 @@ class EngineTranscribeSettingsTypeDef(BaseValidatorModel):
     VocabularyNames: Optional[str] = None
     VocabularyFilterNames: Optional[str] = None
 
-class GetAttendeeRequestRequestTypeDef(BaseValidatorModel):
+
+class GetAttendeeRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
 
-class GetMeetingRequestRequestTypeDef(BaseValidatorModel):
+
+class GetMeetingRequestTypeDef(BaseValidatorModel):
     MeetingId: str
 
-class ListAttendeesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAttendeesRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
+
 
 class MediaPlacementTypeDef(BaseValidatorModel):
     AudioHostUrl: Optional[str] = None
@@ -107,15 +116,19 @@ class MediaPlacementTypeDef(BaseValidatorModel):
     ScreenSharingUrl: Optional[str] = None
     EventIngestionUrl: Optional[str] = None
 
+
 class VideoFeaturesTypeDef(BaseValidatorModel):
     MaxResolution: Optional[VideoResolutionType] = None
 
-class StopMeetingTranscriptionRequestRequestTypeDef(BaseValidatorModel):
+
+class StopMeetingTranscriptionRequestTypeDef(BaseValidatorModel):
     MeetingId: str
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
+
 
 class AttendeeTypeDef(BaseValidatorModel):
     ExternalUserId: Optional[str] = None
@@ -123,39 +136,52 @@ class AttendeeTypeDef(BaseValidatorModel):
     JoinToken: Optional[str] = None
     Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
 
+
 class CreateAttendeeRequestItemTypeDef(BaseValidatorModel):
     ExternalUserId: str
     Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
 
-class CreateAttendeeRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateAttendeeRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     ExternalUserId: str
     Capabilities: Optional[AttendeeCapabilitiesTypeDef] = None
 
-class UpdateAttendeeCapabilitiesRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateAttendeeCapabilitiesRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
     Capabilities: AttendeeCapabilitiesTypeDef
 
-class BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef(BaseValidatorModel):
+
+class BatchUpdateAttendeeCapabilitiesExceptRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     ExcludedAttendeeIds: Sequence[AttendeeIdItemTypeDef]
     Capabilities: AttendeeCapabilitiesTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
+
+
+class EngineTranscribeMedicalSettingsTypeDef(BaseValidatorModel):
+    pass
+
 
 class TranscriptionConfigurationTypeDef(BaseValidatorModel):
     EngineTranscribeSettings: Optional[EngineTranscribeSettingsTypeDef] = None
     EngineTranscribeMedicalSettings: Optional[EngineTranscribeMedicalSettingsTypeDef] = None
+
 
 class MeetingFeaturesConfigurationTypeDef(BaseValidatorModel):
     Audio: Optional[AudioFeaturesTypeDef] = None
@@ -163,37 +189,45 @@ class MeetingFeaturesConfigurationTypeDef(BaseValidatorModel):
     Content: Optional[ContentFeaturesTypeDef] = None
     Attendee: Optional[AttendeeFeaturesTypeDef] = None
 
+
 class BatchCreateAttendeeResponseTypeDef(BaseValidatorModel):
     Attendees: List[AttendeeTypeDef]
     Errors: List[CreateAttendeeErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateAttendeeResponseTypeDef(BaseValidatorModel):
     Attendee: AttendeeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetAttendeeResponseTypeDef(BaseValidatorModel):
     Attendee: AttendeeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListAttendeesResponseTypeDef(BaseValidatorModel):
     Attendees: List[AttendeeTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class UpdateAttendeeCapabilitiesResponseTypeDef(BaseValidatorModel):
     Attendee: AttendeeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchCreateAttendeeRequestRequestTypeDef(BaseValidatorModel):
+
+class BatchCreateAttendeeRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     Attendees: Sequence[CreateAttendeeRequestItemTypeDef]
 
-class StartMeetingTranscriptionRequestRequestTypeDef(BaseValidatorModel):
+
+class StartMeetingTranscriptionRequestTypeDef(BaseValidatorModel):
     MeetingId: str
     TranscriptionConfiguration: TranscriptionConfigurationTypeDef
 
-class CreateMeetingRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateMeetingRequestTypeDef(BaseValidatorModel):
     ClientRequestToken: str
     MediaRegion: str
     ExternalMeetingId: str
@@ -204,7 +238,8 @@ class CreateMeetingRequestRequestTypeDef(BaseValidatorModel):
     TenantIds: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateMeetingWithAttendeesRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateMeetingWithAttendeesRequestTypeDef(BaseValidatorModel):
     ClientRequestToken: str
     MediaRegion: str
     ExternalMeetingId: str
@@ -215,6 +250,7 @@ class CreateMeetingWithAttendeesRequestRequestTypeDef(BaseValidatorModel):
     PrimaryMeetingId: Optional[str] = None
     TenantIds: Optional[Sequence[str]] = None
     Tags: Optional[Sequence[TagTypeDef]] = None
+
 
 class MeetingTypeDef(BaseValidatorModel):
     MeetingId: Optional[str] = None
@@ -227,9 +263,11 @@ class MeetingTypeDef(BaseValidatorModel):
     TenantIds: Optional[List[str]] = None
     MeetingArn: Optional[str] = None
 
+
 class CreateMeetingResponseTypeDef(BaseValidatorModel):
     Meeting: MeetingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateMeetingWithAttendeesResponseTypeDef(BaseValidatorModel):
     Meeting: MeetingTypeDef
@@ -237,7 +275,9 @@ class CreateMeetingWithAttendeesResponseTypeDef(BaseValidatorModel):
     Errors: List[CreateAttendeeErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetMeetingResponseTypeDef(BaseValidatorModel):
     Meeting: MeetingTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

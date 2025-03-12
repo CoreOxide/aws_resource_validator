@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -17,6 +18,7 @@ class AccountJiraConfigurationInputTypeDef(BaseValidatorModel):
     JiraProjectKey: Optional[str] = None
     IntegrationStatus: Optional[Literal["NOT_CONFIGURED"]] = None
 
+
 class AccountJiraConfigurationOutputTypeDef(BaseValidatorModel):
     IntegrationStatus: Optional[IntegrationStatusType] = None
     IssueManagementStatus: Optional[AccountJiraIssueManagementStatusType] = None
@@ -25,18 +27,22 @@ class AccountJiraConfigurationOutputTypeDef(BaseValidatorModel):
     JiraProjectKey: Optional[str] = None
     StatusMessage: Optional[str] = None
 
+
 class ChoiceContentTypeDef(BaseValidatorModel):
     DisplayText: Optional[str] = None
     Url: Optional[str] = None
+
 
 class ChoiceAnswerSummaryTypeDef(BaseValidatorModel):
     ChoiceId: Optional[str] = None
     Status: Optional[ChoiceStatusType] = None
     Reason: Optional[ChoiceReasonType] = None
 
+
 class JiraConfigurationTypeDef(BaseValidatorModel):
     JiraIssueUrl: Optional[str] = None
     LastSyncedTime: Optional[datetime] = None
+
 
 class ChoiceAnswerTypeDef(BaseValidatorModel):
     ChoiceId: Optional[str] = None
@@ -44,17 +50,21 @@ class ChoiceAnswerTypeDef(BaseValidatorModel):
     Reason: Optional[ChoiceReasonType] = None
     Notes: Optional[str] = None
 
-class AssociateLensesInputRequestTypeDef(BaseValidatorModel):
+
+class AssociateLensesInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAliases: Sequence[str]
 
-class AssociateProfilesInputRequestTypeDef(BaseValidatorModel):
+
+class AssociateProfilesInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     ProfileArns: Sequence[str]
+
 
 class BestPracticeTypeDef(BaseValidatorModel):
     ChoiceId: Optional[str] = None
     ChoiceTitle: Optional[str] = None
+
 
 class CheckDetailTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
@@ -71,6 +81,7 @@ class CheckDetailTypeDef(BaseValidatorModel):
     Reason: Optional[CheckFailureReasonType] = None
     UpdatedAt: Optional[datetime] = None
 
+
 class CheckSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -84,20 +95,24 @@ class CheckSummaryTypeDef(BaseValidatorModel):
     Status: Optional[CheckStatusType] = None
     AccountSummary: Optional[Dict[CheckStatusType, int]] = None
 
+
 class ChoiceImprovementPlanTypeDef(BaseValidatorModel):
     ChoiceId: Optional[str] = None
     DisplayText: Optional[str] = None
     ImprovementPlanUrl: Optional[str] = None
+
 
 class ChoiceUpdateTypeDef(BaseValidatorModel):
     Status: ChoiceStatusType
     Reason: Optional[ChoiceReasonType] = None
     Notes: Optional[str] = None
 
-class CreateLensShareInputRequestTypeDef(BaseValidatorModel):
+
+class CreateLensShareInputTypeDef(BaseValidatorModel):
     LensAlias: str
     SharedWith: str
     ClientRequestToken: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -106,27 +121,32 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateLensVersionInputRequestTypeDef(BaseValidatorModel):
+
+class CreateLensVersionInputTypeDef(BaseValidatorModel):
     LensAlias: str
     LensVersion: str
     ClientRequestToken: str
     IsMajorVersion: Optional[bool] = None
 
-class CreateMilestoneInputRequestTypeDef(BaseValidatorModel):
+
+class CreateMilestoneInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     MilestoneName: str
     ClientRequestToken: str
+
 
 class ProfileQuestionUpdateTypeDef(BaseValidatorModel):
     QuestionId: Optional[str] = None
     SelectedChoiceIds: Optional[Sequence[str]] = None
 
-class CreateProfileShareInputRequestTypeDef(BaseValidatorModel):
+
+class CreateProfileShareInputTypeDef(BaseValidatorModel):
     ProfileArn: str
     SharedWith: str
     ClientRequestToken: str
 
-class CreateReviewTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class CreateReviewTemplateInputTypeDef(BaseValidatorModel):
     TemplateName: str
     Description: str
     Lenses: Sequence[str]
@@ -134,90 +154,104 @@ class CreateReviewTemplateInputRequestTypeDef(BaseValidatorModel):
     Notes: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateTemplateShareInputRequestTypeDef(BaseValidatorModel):
+
+class CreateTemplateShareInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     SharedWith: str
     ClientRequestToken: str
 
-class WorkloadDiscoveryConfigTypeDef(BaseValidatorModel):
-    TrustedAdvisorIntegrationStatus: Optional[TrustedAdvisorIntegrationStatusType] = None
-    WorkloadResourceDefinition: Optional[Sequence[DefinitionTypeType]] = None
 
 class WorkloadJiraConfigurationInputTypeDef(BaseValidatorModel):
     IssueManagementStatus: Optional[WorkloadIssueManagementStatusType] = None
     IssueManagementType: Optional[IssueManagementTypeType] = None
     JiraProjectKey: Optional[str] = None
 
-class CreateWorkloadShareInputRequestTypeDef(BaseValidatorModel):
+
+class CreateWorkloadShareInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     SharedWith: str
     PermissionType: PermissionTypeType
     ClientRequestToken: str
 
-class DeleteLensInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteLensInputTypeDef(BaseValidatorModel):
     LensAlias: str
     ClientRequestToken: str
     LensStatus: LensStatusTypeType
 
-class DeleteLensShareInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteLensShareInputTypeDef(BaseValidatorModel):
     ShareId: str
     LensAlias: str
     ClientRequestToken: str
 
-class DeleteProfileInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteProfileInputTypeDef(BaseValidatorModel):
     ProfileArn: str
     ClientRequestToken: str
 
-class DeleteProfileShareInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteProfileShareInputTypeDef(BaseValidatorModel):
     ShareId: str
     ProfileArn: str
     ClientRequestToken: str
 
-class DeleteReviewTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteReviewTemplateInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     ClientRequestToken: str
 
-class DeleteTemplateShareInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteTemplateShareInputTypeDef(BaseValidatorModel):
     ShareId: str
     TemplateArn: str
     ClientRequestToken: str
 
-class DeleteWorkloadInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteWorkloadInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     ClientRequestToken: str
 
-class DeleteWorkloadShareInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteWorkloadShareInputTypeDef(BaseValidatorModel):
     ShareId: str
     WorkloadId: str
     ClientRequestToken: str
 
-class DisassociateLensesInputRequestTypeDef(BaseValidatorModel):
+
+class DisassociateLensesInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAliases: Sequence[str]
 
-class DisassociateProfilesInputRequestTypeDef(BaseValidatorModel):
+
+class DisassociateProfilesInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     ProfileArns: Sequence[str]
 
-class ExportLensInputRequestTypeDef(BaseValidatorModel):
+
+class ExportLensInputTypeDef(BaseValidatorModel):
     LensAlias: str
     LensVersion: Optional[str] = None
 
-class GetAnswerInputRequestTypeDef(BaseValidatorModel):
+
+class GetAnswerInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
     QuestionId: str
     MilestoneNumber: Optional[int] = None
 
-class GetConsolidatedReportInputRequestTypeDef(BaseValidatorModel):
+
+class GetConsolidatedReportInputTypeDef(BaseValidatorModel):
     Format: ReportFormatType
     IncludeSharedResources: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class GetLensInputRequestTypeDef(BaseValidatorModel):
+
+class GetLensInputTypeDef(BaseValidatorModel):
     LensAlias: str
     LensVersion: Optional[str] = None
+
 
 class LensTypeDef(BaseValidatorModel):
     LensArn: Optional[str] = None
@@ -228,45 +262,55 @@ class LensTypeDef(BaseValidatorModel):
     ShareInvitationId: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class GetLensReviewInputRequestTypeDef(BaseValidatorModel):
+
+class GetLensReviewInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
     MilestoneNumber: Optional[int] = None
 
-class GetLensReviewReportInputRequestTypeDef(BaseValidatorModel):
+
+class GetLensReviewReportInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
     MilestoneNumber: Optional[int] = None
+
 
 class LensReviewReportTypeDef(BaseValidatorModel):
     LensAlias: Optional[str] = None
     LensArn: Optional[str] = None
     Base64String: Optional[str] = None
 
-class GetLensVersionDifferenceInputRequestTypeDef(BaseValidatorModel):
+
+class GetLensVersionDifferenceInputTypeDef(BaseValidatorModel):
     LensAlias: str
     BaseLensVersion: Optional[str] = None
     TargetLensVersion: Optional[str] = None
 
-class GetMilestoneInputRequestTypeDef(BaseValidatorModel):
+
+class GetMilestoneInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
 
-class GetProfileInputRequestTypeDef(BaseValidatorModel):
+
+class GetProfileInputTypeDef(BaseValidatorModel):
     ProfileArn: str
     ProfileVersion: Optional[str] = None
 
-class GetReviewTemplateAnswerInputRequestTypeDef(BaseValidatorModel):
+
+class GetReviewTemplateAnswerInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
     QuestionId: str
 
-class GetReviewTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class GetReviewTemplateInputTypeDef(BaseValidatorModel):
     TemplateArn: str
 
-class GetReviewTemplateLensReviewInputRequestTypeDef(BaseValidatorModel):
+
+class GetReviewTemplateLensReviewInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
+
 
 class ReviewTemplateTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
@@ -281,22 +325,32 @@ class ReviewTemplateTypeDef(BaseValidatorModel):
     UpdateStatus: Optional[ReviewTemplateUpdateStatusType] = None
     ShareInvitationId: Optional[str] = None
 
-class GetWorkloadInputRequestTypeDef(BaseValidatorModel):
+
+class GetWorkloadInputTypeDef(BaseValidatorModel):
     WorkloadId: str
 
-class ImportLensInputRequestTypeDef(BaseValidatorModel):
+
+class ImportLensInputTypeDef(BaseValidatorModel):
     JSONString: str
     ClientRequestToken: str
     LensAlias: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class SelectedPillarTypeDef(BaseValidatorModel):
+
+class SelectedPillarOutputTypeDef(BaseValidatorModel):
     PillarId: Optional[str] = None
     SelectedQuestionIds: Optional[List[str]] = None
+
+
+class SelectedPillarTypeDef(BaseValidatorModel):
+    PillarId: Optional[str] = None
+    SelectedQuestionIds: Optional[Sequence[str]] = None
+
 
 class WorkloadProfileTypeDef(BaseValidatorModel):
     ProfileArn: Optional[str] = None
     ProfileVersion: Optional[str] = None
+
 
 class PillarReviewSummaryTypeDef(BaseValidatorModel):
     PillarId: Optional[str] = None
@@ -305,11 +359,13 @@ class PillarReviewSummaryTypeDef(BaseValidatorModel):
     RiskCounts: Optional[Dict[RiskType, int]] = None
     PrioritizedRiskCounts: Optional[Dict[RiskType, int]] = None
 
+
 class LensShareSummaryTypeDef(BaseValidatorModel):
     ShareId: Optional[str] = None
     SharedWith: Optional[str] = None
     Status: Optional[ShareStatusType] = None
     StatusMessage: Optional[str] = None
+
 
 class LensSummaryTypeDef(BaseValidatorModel):
     LensArn: Optional[str] = None
@@ -323,6 +379,7 @@ class LensSummaryTypeDef(BaseValidatorModel):
     Owner: Optional[str] = None
     LensStatus: Optional[LensStatusType] = None
 
+
 class LensUpgradeSummaryTypeDef(BaseValidatorModel):
     WorkloadId: Optional[str] = None
     WorkloadName: Optional[str] = None
@@ -333,7 +390,8 @@ class LensUpgradeSummaryTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     ResourceName: Optional[str] = None
 
-class ListAnswersInputRequestTypeDef(BaseValidatorModel):
+
+class ListAnswersInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
     PillarId: Optional[str] = None
@@ -342,7 +400,8 @@ class ListAnswersInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     QuestionPriority: Optional[QuestionPriorityType] = None
 
-class ListCheckDetailsInputRequestTypeDef(BaseValidatorModel):
+
+class ListCheckDetailsInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensArn: str
     PillarId: str
@@ -351,7 +410,8 @@ class ListCheckDetailsInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListCheckSummariesInputRequestTypeDef(BaseValidatorModel):
+
+class ListCheckSummariesInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensArn: str
     PillarId: str
@@ -360,7 +420,8 @@ class ListCheckSummariesInputRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListLensReviewImprovementsInputRequestTypeDef(BaseValidatorModel):
+
+class ListLensReviewImprovementsInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
     PillarId: Optional[str] = None
@@ -369,57 +430,56 @@ class ListLensReviewImprovementsInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     QuestionPriority: Optional[QuestionPriorityType] = None
 
-class ListLensReviewsInputRequestTypeDef(BaseValidatorModel):
+
+class ListLensReviewsInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: Optional[int] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListLensSharesInputRequestTypeDef(BaseValidatorModel):
+
+class ListLensSharesInputTypeDef(BaseValidatorModel):
     LensAlias: str
     SharedWithPrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Status: Optional[ShareStatusType] = None
 
-class ListLensesInputRequestTypeDef(BaseValidatorModel):
+
+class ListLensesInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     LensType: Optional[LensTypeType] = None
     LensStatus: Optional[LensStatusTypeType] = None
     LensName: Optional[str] = None
 
-class ListMilestonesInputRequestTypeDef(BaseValidatorModel):
+
+class ListMilestonesInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListNotificationsInputRequestTypeDef(BaseValidatorModel):
+
+class ListNotificationsInputTypeDef(BaseValidatorModel):
     WorkloadId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ResourceArn: Optional[str] = None
 
-class ListProfileNotificationsInputRequestTypeDef(BaseValidatorModel):
+
+class ListProfileNotificationsInputTypeDef(BaseValidatorModel):
     WorkloadId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ProfileNotificationSummaryTypeDef(BaseValidatorModel):
-    CurrentProfileVersion: Optional[str] = None
-    LatestProfileVersion: Optional[str] = None
-    Type: Optional[ProfileNotificationTypeType] = None
-    ProfileArn: Optional[str] = None
-    ProfileName: Optional[str] = None
-    WorkloadId: Optional[str] = None
-    WorkloadName: Optional[str] = None
 
-class ListProfileSharesInputRequestTypeDef(BaseValidatorModel):
+class ListProfileSharesInputTypeDef(BaseValidatorModel):
     ProfileArn: str
     SharedWithPrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Status: Optional[ShareStatusType] = None
+
 
 class ProfileShareSummaryTypeDef(BaseValidatorModel):
     ShareId: Optional[str] = None
@@ -427,11 +487,13 @@ class ProfileShareSummaryTypeDef(BaseValidatorModel):
     Status: Optional[ShareStatusType] = None
     StatusMessage: Optional[str] = None
 
-class ListProfilesInputRequestTypeDef(BaseValidatorModel):
+
+class ListProfilesInputTypeDef(BaseValidatorModel):
     ProfileNamePrefix: Optional[str] = None
     ProfileOwnerType: Optional[ProfileOwnerTypeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class ProfileSummaryTypeDef(BaseValidatorModel):
     ProfileArn: Optional[str] = None
@@ -442,16 +504,19 @@ class ProfileSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
-class ListReviewTemplateAnswersInputRequestTypeDef(BaseValidatorModel):
+
+class ListReviewTemplateAnswersInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
     PillarId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
-class ListReviewTemplatesInputRequestTypeDef(BaseValidatorModel):
+
+class ListReviewTemplatesInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class ReviewTemplateSummaryTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
@@ -462,7 +527,8 @@ class ReviewTemplateSummaryTypeDef(BaseValidatorModel):
     TemplateName: Optional[str] = None
     UpdateStatus: Optional[ReviewTemplateUpdateStatusType] = None
 
-class ListShareInvitationsInputRequestTypeDef(BaseValidatorModel):
+
+class ListShareInvitationsInputTypeDef(BaseValidatorModel):
     WorkloadNamePrefix: Optional[str] = None
     LensNamePrefix: Optional[str] = None
     ShareResourceType: Optional[ShareResourceTypeType] = None
@@ -470,6 +536,7 @@ class ListShareInvitationsInputRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     ProfileNamePrefix: Optional[str] = None
     TemplateNamePrefix: Optional[str] = None
+
 
 class ShareInvitationSummaryTypeDef(BaseValidatorModel):
     ShareInvitationId: Optional[str] = None
@@ -486,15 +553,18 @@ class ShareInvitationSummaryTypeDef(BaseValidatorModel):
     TemplateName: Optional[str] = None
     TemplateArn: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputTypeDef(BaseValidatorModel):
     WorkloadArn: str
 
-class ListTemplateSharesInputRequestTypeDef(BaseValidatorModel):
+
+class ListTemplateSharesInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     SharedWithPrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Status: Optional[ShareStatusType] = None
+
 
 class TemplateShareSummaryTypeDef(BaseValidatorModel):
     ShareId: Optional[str] = None
@@ -502,12 +572,14 @@ class TemplateShareSummaryTypeDef(BaseValidatorModel):
     Status: Optional[ShareStatusType] = None
     StatusMessage: Optional[str] = None
 
-class ListWorkloadSharesInputRequestTypeDef(BaseValidatorModel):
+
+class ListWorkloadSharesInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     SharedWithPrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Status: Optional[ShareStatusType] = None
+
 
 class WorkloadShareSummaryTypeDef(BaseValidatorModel):
     ShareId: Optional[str] = None
@@ -516,31 +588,37 @@ class WorkloadShareSummaryTypeDef(BaseValidatorModel):
     Status: Optional[ShareStatusType] = None
     StatusMessage: Optional[str] = None
 
-class ListWorkloadsInputRequestTypeDef(BaseValidatorModel):
+
+class ListWorkloadsInputTypeDef(BaseValidatorModel):
     WorkloadNamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class QuestionDifferenceTypeDef(BaseValidatorModel):
     QuestionId: Optional[str] = None
     QuestionTitle: Optional[str] = None
     DifferenceStatus: Optional[DifferenceStatusType] = None
 
+
 class ProfileChoiceTypeDef(BaseValidatorModel):
     ChoiceId: Optional[str] = None
     ChoiceTitle: Optional[str] = None
     ChoiceDescription: Optional[str] = None
+
 
 class ProfileTemplateChoiceTypeDef(BaseValidatorModel):
     ChoiceId: Optional[str] = None
     ChoiceTitle: Optional[str] = None
     ChoiceDescription: Optional[str] = None
 
+
 class ReviewTemplatePillarReviewSummaryTypeDef(BaseValidatorModel):
     PillarId: Optional[str] = None
     PillarName: Optional[str] = None
     Notes: Optional[str] = None
     QuestionCounts: Optional[Dict[QuestionType, int]] = None
+
 
 class ShareInvitationTypeDef(BaseValidatorModel):
     ShareInvitationId: Optional[str] = None
@@ -551,20 +629,24 @@ class ShareInvitationTypeDef(BaseValidatorModel):
     ProfileArn: Optional[str] = None
     TemplateArn: Optional[str] = None
 
-class TagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class TagResourceInputTypeDef(BaseValidatorModel):
     WorkloadArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceInputTypeDef(BaseValidatorModel):
     WorkloadArn: str
     TagKeys: Sequence[str]
 
-class UpdateIntegrationInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateIntegrationInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     ClientRequestToken: str
     IntegratingService: Literal["JIRA"]
 
-class UpdateReviewTemplateInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateReviewTemplateInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     TemplateName: Optional[str] = None
     Description: Optional[str] = None
@@ -572,20 +654,24 @@ class UpdateReviewTemplateInputRequestTypeDef(BaseValidatorModel):
     LensesToAssociate: Optional[Sequence[str]] = None
     LensesToDisassociate: Optional[Sequence[str]] = None
 
-class UpdateReviewTemplateLensReviewInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateReviewTemplateLensReviewInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
     LensNotes: Optional[str] = None
     PillarNotes: Optional[Mapping[str, str]] = None
 
-class UpdateShareInvitationInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateShareInvitationInputTypeDef(BaseValidatorModel):
     ShareInvitationId: str
     ShareInvitationAction: ShareInvitationActionType
 
-class UpdateWorkloadShareInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateWorkloadShareInputTypeDef(BaseValidatorModel):
     ShareId: str
     WorkloadId: str
     PermissionType: PermissionTypeType
+
 
 class WorkloadShareTypeDef(BaseValidatorModel):
     ShareId: Optional[str] = None
@@ -596,22 +682,36 @@ class WorkloadShareTypeDef(BaseValidatorModel):
     WorkloadName: Optional[str] = None
     WorkloadId: Optional[str] = None
 
-class UpgradeLensReviewInputRequestTypeDef(BaseValidatorModel):
+
+class UpgradeLensReviewInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
     MilestoneName: str
     ClientRequestToken: Optional[str] = None
 
-class UpgradeProfileVersionInputRequestTypeDef(BaseValidatorModel):
+
+class UpgradeProfileVersionInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     ProfileArn: str
     MilestoneName: Optional[str] = None
     ClientRequestToken: Optional[str] = None
 
-class UpgradeReviewTemplateLensReviewInputRequestTypeDef(BaseValidatorModel):
+
+class UpgradeReviewTemplateLensReviewInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
     ClientRequestToken: Optional[str] = None
+
+
+class WorkloadDiscoveryConfigOutputTypeDef(BaseValidatorModel):
+    TrustedAdvisorIntegrationStatus: Optional[TrustedAdvisorIntegrationStatusType] = None
+    WorkloadResourceDefinition: Optional[List[DefinitionTypeType]] = None
+
+
+class WorkloadDiscoveryConfigTypeDef(BaseValidatorModel):
+    TrustedAdvisorIntegrationStatus: Optional[TrustedAdvisorIntegrationStatusType] = None
+    WorkloadResourceDefinition: Optional[Sequence[DefinitionTypeType]] = None
+
 
 class WorkloadJiraConfigurationOutputTypeDef(BaseValidatorModel):
     IssueManagementStatus: Optional[WorkloadIssueManagementStatusType] = None
@@ -619,19 +719,18 @@ class WorkloadJiraConfigurationOutputTypeDef(BaseValidatorModel):
     JiraProjectKey: Optional[str] = None
     StatusMessage: Optional[str] = None
 
-class UpdateGlobalSettingsInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateGlobalSettingsInputTypeDef(BaseValidatorModel):
     OrganizationSharingStatus: Optional[OrganizationSharingStatusType] = None
     DiscoveryIntegrationStatus: Optional[DiscoveryIntegrationStatusType] = None
     JiraConfiguration: Optional[AccountJiraConfigurationInputTypeDef] = None
 
-class AdditionalResourcesTypeDef(BaseValidatorModel):
-    Type: Optional[AdditionalResourceTypeType] = None
-    Content: Optional[List[ChoiceContentTypeDef]] = None
 
 class QuestionMetricTypeDef(BaseValidatorModel):
     QuestionId: Optional[str] = None
     Risk: Optional[RiskType] = None
     BestPractices: Optional[List[BestPracticeTypeDef]] = None
+
 
 class ImprovementSummaryTypeDef(BaseValidatorModel):
     QuestionId: Optional[str] = None
@@ -642,7 +741,8 @@ class ImprovementSummaryTypeDef(BaseValidatorModel):
     ImprovementPlans: Optional[List[ChoiceImprovementPlanTypeDef]] = None
     JiraConfiguration: Optional[JiraConfigurationTypeDef] = None
 
-class UpdateAnswerInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateAnswerInputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
     QuestionId: str
@@ -652,7 +752,8 @@ class UpdateAnswerInputRequestTypeDef(BaseValidatorModel):
     IsApplicable: Optional[bool] = None
     Reason: Optional[AnswerReasonType] = None
 
-class UpdateReviewTemplateAnswerInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateReviewTemplateAnswerInputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
     QuestionId: str
@@ -662,55 +763,67 @@ class UpdateReviewTemplateAnswerInputRequestTypeDef(BaseValidatorModel):
     IsApplicable: Optional[bool] = None
     Reason: Optional[AnswerReasonType] = None
 
+
 class CreateLensShareOutputTypeDef(BaseValidatorModel):
     ShareId: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateLensVersionOutputTypeDef(BaseValidatorModel):
     LensArn: str
     LensVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateMilestoneOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateProfileOutputTypeDef(BaseValidatorModel):
     ProfileArn: str
     ProfileVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateProfileShareOutputTypeDef(BaseValidatorModel):
     ShareId: str
     ProfileArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateReviewTemplateOutputTypeDef(BaseValidatorModel):
     TemplateArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateTemplateShareOutputTypeDef(BaseValidatorModel):
     TemplateArn: str
     ShareId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateWorkloadOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     WorkloadArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateWorkloadShareOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     ShareId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ExportLensOutputTypeDef(BaseValidatorModel):
     LensJSON: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetGlobalSettingsOutputTypeDef(BaseValidatorModel):
     OrganizationSharingStatus: OrganizationSharingStatusType
@@ -718,82 +831,48 @@ class GetGlobalSettingsOutputTypeDef(BaseValidatorModel):
     JiraConfiguration: AccountJiraConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ImportLensOutputTypeDef(BaseValidatorModel):
     LensArn: str
     Status: ImportLensStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListCheckDetailsOutputTypeDef(BaseValidatorModel):
     CheckDetails: List[CheckDetailTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListCheckSummariesOutputTypeDef(BaseValidatorModel):
     CheckSummaries: List[CheckSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateProfileInputRequestTypeDef(BaseValidatorModel):
+
+class CreateProfileInputTypeDef(BaseValidatorModel):
     ProfileName: str
     ProfileDescription: str
     ProfileQuestions: Sequence[ProfileQuestionUpdateTypeDef]
     ClientRequestToken: str
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateProfileInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateProfileInputTypeDef(BaseValidatorModel):
     ProfileArn: str
     ProfileDescription: Optional[str] = None
     ProfileQuestions: Optional[Sequence[ProfileQuestionUpdateTypeDef]] = None
 
-class CreateWorkloadInputRequestTypeDef(BaseValidatorModel):
-    WorkloadName: str
-    Description: str
-    Environment: WorkloadEnvironmentType
-    Lenses: Sequence[str]
-    ClientRequestToken: str
-    AccountIds: Optional[Sequence[str]] = None
-    AwsRegions: Optional[Sequence[str]] = None
-    NonAwsRegions: Optional[Sequence[str]] = None
-    PillarPriorities: Optional[Sequence[str]] = None
-    ArchitecturalDesign: Optional[str] = None
-    ReviewOwner: Optional[str] = None
-    IndustryType: Optional[str] = None
-    Industry: Optional[str] = None
-    Notes: Optional[str] = None
-    Tags: Optional[Mapping[str, str]] = None
-    DiscoveryConfig: Optional[WorkloadDiscoveryConfigTypeDef] = None
-    Applications: Optional[Sequence[str]] = None
-    ProfileArns: Optional[Sequence[str]] = None
-    ReviewTemplateArns: Optional[Sequence[str]] = None
-    JiraConfiguration: Optional[WorkloadJiraConfigurationInputTypeDef] = None
-
-class UpdateWorkloadInputRequestTypeDef(BaseValidatorModel):
-    WorkloadId: str
-    WorkloadName: Optional[str] = None
-    Description: Optional[str] = None
-    Environment: Optional[WorkloadEnvironmentType] = None
-    AccountIds: Optional[Sequence[str]] = None
-    AwsRegions: Optional[Sequence[str]] = None
-    NonAwsRegions: Optional[Sequence[str]] = None
-    PillarPriorities: Optional[Sequence[str]] = None
-    ArchitecturalDesign: Optional[str] = None
-    ReviewOwner: Optional[str] = None
-    IsReviewOwnerUpdateAcknowledged: Optional[bool] = None
-    IndustryType: Optional[str] = None
-    Industry: Optional[str] = None
-    Notes: Optional[str] = None
-    ImprovementStatus: Optional[WorkloadImprovementStatusType] = None
-    DiscoveryConfig: Optional[WorkloadDiscoveryConfigTypeDef] = None
-    Applications: Optional[Sequence[str]] = None
-    JiraConfiguration: Optional[WorkloadJiraConfigurationInputTypeDef] = None
 
 class GetLensOutputTypeDef(BaseValidatorModel):
     Lens: LensTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetLensReviewReportOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
@@ -801,16 +880,24 @@ class GetLensReviewReportOutputTypeDef(BaseValidatorModel):
     LensReviewReport: LensReviewReportTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetReviewTemplateOutputTypeDef(BaseValidatorModel):
     ReviewTemplate: ReviewTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateReviewTemplateOutputTypeDef(BaseValidatorModel):
     ReviewTemplate: ReviewTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class JiraSelectedQuestionConfigurationOutputTypeDef(BaseValidatorModel):
+    SelectedPillars: Optional[List[SelectedPillarOutputTypeDef]] = None
+
+
 class JiraSelectedQuestionConfigurationTypeDef(BaseValidatorModel):
-    SelectedPillars: Optional[List[SelectedPillarTypeDef]] = None
+    SelectedPillars: Optional[Sequence[SelectedPillarTypeDef]] = None
+
 
 class LensReviewSummaryTypeDef(BaseValidatorModel):
     LensAlias: Optional[str] = None
@@ -822,6 +909,7 @@ class LensReviewSummaryTypeDef(BaseValidatorModel):
     RiskCounts: Optional[Dict[RiskType, int]] = None
     Profiles: Optional[List[WorkloadProfileTypeDef]] = None
     PrioritizedRiskCounts: Optional[Dict[RiskType, int]] = None
+
 
 class WorkloadSummaryTypeDef(BaseValidatorModel):
     WorkloadId: Optional[str] = None
@@ -835,62 +923,73 @@ class WorkloadSummaryTypeDef(BaseValidatorModel):
     Profiles: Optional[List[WorkloadProfileTypeDef]] = None
     PrioritizedRiskCounts: Optional[Dict[RiskType, int]] = None
 
+
 class ListLensSharesOutputTypeDef(BaseValidatorModel):
     LensShareSummaries: List[LensShareSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListLensesOutputTypeDef(BaseValidatorModel):
     LensSummaries: List[LensSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class NotificationSummaryTypeDef(BaseValidatorModel):
-    Type: Optional[NotificationTypeType] = None
-    LensUpgradeSummary: Optional[LensUpgradeSummaryTypeDef] = None
+
+class ProfileNotificationSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListProfileNotificationsOutputTypeDef(BaseValidatorModel):
     NotificationSummaries: List[ProfileNotificationSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListProfileSharesOutputTypeDef(BaseValidatorModel):
     ProfileShareSummaries: List[ProfileShareSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListProfilesOutputTypeDef(BaseValidatorModel):
     ProfileSummaries: List[ProfileSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListReviewTemplatesOutputTypeDef(BaseValidatorModel):
     ReviewTemplates: List[ReviewTemplateSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListShareInvitationsOutputTypeDef(BaseValidatorModel):
     ShareInvitationSummaries: List[ShareInvitationSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListTemplateSharesOutputTypeDef(BaseValidatorModel):
     TemplateArn: str
     TemplateShareSummaries: List[TemplateShareSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListWorkloadSharesOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     WorkloadShareSummaries: List[WorkloadShareSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class PillarDifferenceTypeDef(BaseValidatorModel):
     PillarId: Optional[str] = None
     PillarName: Optional[str] = None
     DifferenceStatus: Optional[DifferenceStatusType] = None
     QuestionDifferences: Optional[List[QuestionDifferenceTypeDef]] = None
+
 
 class ProfileQuestionTypeDef(BaseValidatorModel):
     QuestionId: Optional[str] = None
@@ -901,6 +1000,7 @@ class ProfileQuestionTypeDef(BaseValidatorModel):
     MinSelectedChoices: Optional[int] = None
     MaxSelectedChoices: Optional[int] = None
 
+
 class ProfileTemplateQuestionTypeDef(BaseValidatorModel):
     QuestionId: Optional[str] = None
     QuestionTitle: Optional[str] = None
@@ -908,6 +1008,7 @@ class ProfileTemplateQuestionTypeDef(BaseValidatorModel):
     QuestionChoices: Optional[List[ProfileTemplateChoiceTypeDef]] = None
     MinSelectedChoices: Optional[int] = None
     MaxSelectedChoices: Optional[int] = None
+
 
 class ReviewTemplateLensReviewTypeDef(BaseValidatorModel):
     LensAlias: Optional[str] = None
@@ -921,14 +1022,17 @@ class ReviewTemplateLensReviewTypeDef(BaseValidatorModel):
     QuestionCounts: Optional[Dict[QuestionType, int]] = None
     NextToken: Optional[str] = None
 
+
 class UpdateShareInvitationOutputTypeDef(BaseValidatorModel):
     ShareInvitation: ShareInvitationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateWorkloadShareOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     WorkloadShare: WorkloadShareTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class WorkloadTypeDef(BaseValidatorModel):
     WorkloadId: Optional[str] = None
@@ -954,11 +1058,16 @@ class WorkloadTypeDef(BaseValidatorModel):
     Owner: Optional[str] = None
     ShareInvitationId: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
-    DiscoveryConfig: Optional[WorkloadDiscoveryConfigTypeDef] = None
+    DiscoveryConfig: Optional[WorkloadDiscoveryConfigOutputTypeDef] = None
     Applications: Optional[List[str]] = None
     Profiles: Optional[List[WorkloadProfileTypeDef]] = None
     PrioritizedRiskCounts: Optional[Dict[RiskType, int]] = None
     JiraConfiguration: Optional[WorkloadJiraConfigurationOutputTypeDef] = None
+
+
+class AdditionalResourcesTypeDef(BaseValidatorModel):
+    pass
+
 
 class ChoiceTypeDef(BaseValidatorModel):
     ChoiceId: Optional[str] = None
@@ -968,10 +1077,12 @@ class ChoiceTypeDef(BaseValidatorModel):
     ImprovementPlan: Optional[ChoiceContentTypeDef] = None
     AdditionalResources: Optional[List[AdditionalResourcesTypeDef]] = None
 
+
 class PillarMetricTypeDef(BaseValidatorModel):
     PillarId: Optional[str] = None
     RiskCounts: Optional[Dict[RiskType, int]] = None
     Questions: Optional[List[QuestionMetricTypeDef]] = None
+
 
 class ListLensReviewImprovementsOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
@@ -979,8 +1090,9 @@ class ListLensReviewImprovementsOutputTypeDef(BaseValidatorModel):
     LensAlias: str
     LensArn: str
     ImprovementSummaries: List[ImprovementSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class LensReviewTypeDef(BaseValidatorModel):
     LensAlias: Optional[str] = None
@@ -989,7 +1101,7 @@ class LensReviewTypeDef(BaseValidatorModel):
     LensName: Optional[str] = None
     LensStatus: Optional[LensStatusType] = None
     PillarReviewSummaries: Optional[List[PillarReviewSummaryTypeDef]] = None
-    JiraConfiguration: Optional[JiraSelectedQuestionConfigurationTypeDef] = None
+    JiraConfiguration: Optional[JiraSelectedQuestionConfigurationOutputTypeDef] = None
     UpdatedAt: Optional[datetime] = None
     Notes: Optional[str] = None
     RiskCounts: Optional[Dict[RiskType, int]] = None
@@ -997,24 +1109,20 @@ class LensReviewTypeDef(BaseValidatorModel):
     Profiles: Optional[List[WorkloadProfileTypeDef]] = None
     PrioritizedRiskCounts: Optional[Dict[RiskType, int]] = None
 
-class UpdateLensReviewInputRequestTypeDef(BaseValidatorModel):
-    WorkloadId: str
-    LensAlias: str
-    LensNotes: Optional[str] = None
-    PillarNotes: Optional[Mapping[str, str]] = None
-    JiraConfiguration: Optional[JiraSelectedQuestionConfigurationTypeDef] = None
 
 class ListLensReviewsOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
     LensReviewSummaries: List[LensReviewSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListWorkloadsOutputTypeDef(BaseValidatorModel):
     WorkloadSummaries: List[WorkloadSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class MilestoneSummaryTypeDef(BaseValidatorModel):
     MilestoneNumber: Optional[int] = None
@@ -1022,13 +1130,20 @@ class MilestoneSummaryTypeDef(BaseValidatorModel):
     RecordedAt: Optional[datetime] = None
     WorkloadSummary: Optional[WorkloadSummaryTypeDef] = None
 
+
+class NotificationSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
 class ListNotificationsOutputTypeDef(BaseValidatorModel):
     NotificationSummaries: List[NotificationSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class VersionDifferencesTypeDef(BaseValidatorModel):
     PillarDifferences: Optional[List[PillarDifferenceTypeDef]] = None
+
 
 class ProfileTypeDef(BaseValidatorModel):
     ProfileArn: Optional[str] = None
@@ -1042,25 +1157,78 @@ class ProfileTypeDef(BaseValidatorModel):
     ShareInvitationId: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
+
 class ProfileTemplateTypeDef(BaseValidatorModel):
     TemplateName: Optional[str] = None
     TemplateQuestions: Optional[List[ProfileTemplateQuestionTypeDef]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
+
 class GetReviewTemplateLensReviewOutputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensReview: ReviewTemplateLensReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateReviewTemplateLensReviewOutputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensReview: ReviewTemplateLensReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class WorkloadDiscoveryConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateWorkloadInputTypeDef(BaseValidatorModel):
+    WorkloadName: str
+    Description: str
+    Environment: WorkloadEnvironmentType
+    Lenses: Sequence[str]
+    ClientRequestToken: str
+    AccountIds: Optional[Sequence[str]] = None
+    AwsRegions: Optional[Sequence[str]] = None
+    NonAwsRegions: Optional[Sequence[str]] = None
+    PillarPriorities: Optional[Sequence[str]] = None
+    ArchitecturalDesign: Optional[str] = None
+    ReviewOwner: Optional[str] = None
+    IndustryType: Optional[str] = None
+    Industry: Optional[str] = None
+    Notes: Optional[str] = None
+    Tags: Optional[Mapping[str, str]] = None
+    DiscoveryConfig: Optional[WorkloadDiscoveryConfigUnionTypeDef] = None
+    Applications: Optional[Sequence[str]] = None
+    ProfileArns: Optional[Sequence[str]] = None
+    ReviewTemplateArns: Optional[Sequence[str]] = None
+    JiraConfiguration: Optional[WorkloadJiraConfigurationInputTypeDef] = None
+
+
+class UpdateWorkloadInputTypeDef(BaseValidatorModel):
+    WorkloadId: str
+    WorkloadName: Optional[str] = None
+    Description: Optional[str] = None
+    Environment: Optional[WorkloadEnvironmentType] = None
+    AccountIds: Optional[Sequence[str]] = None
+    AwsRegions: Optional[Sequence[str]] = None
+    NonAwsRegions: Optional[Sequence[str]] = None
+    PillarPriorities: Optional[Sequence[str]] = None
+    ArchitecturalDesign: Optional[str] = None
+    ReviewOwner: Optional[str] = None
+    IsReviewOwnerUpdateAcknowledged: Optional[bool] = None
+    IndustryType: Optional[str] = None
+    Industry: Optional[str] = None
+    Notes: Optional[str] = None
+    ImprovementStatus: Optional[WorkloadImprovementStatusType] = None
+    DiscoveryConfig: Optional[WorkloadDiscoveryConfigUnionTypeDef] = None
+    Applications: Optional[Sequence[str]] = None
+    JiraConfiguration: Optional[WorkloadJiraConfigurationInputTypeDef] = None
+
+
 class GetWorkloadOutputTypeDef(BaseValidatorModel):
     Workload: WorkloadTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class MilestoneTypeDef(BaseValidatorModel):
     MilestoneNumber: Optional[int] = None
@@ -1068,22 +1236,11 @@ class MilestoneTypeDef(BaseValidatorModel):
     RecordedAt: Optional[datetime] = None
     Workload: Optional[WorkloadTypeDef] = None
 
+
 class UpdateWorkloadOutputTypeDef(BaseValidatorModel):
     Workload: WorkloadTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class AnswerSummaryTypeDef(BaseValidatorModel):
-    QuestionId: Optional[str] = None
-    PillarId: Optional[str] = None
-    QuestionTitle: Optional[str] = None
-    Choices: Optional[List[ChoiceTypeDef]] = None
-    SelectedChoices: Optional[List[str]] = None
-    ChoiceAnswerSummaries: Optional[List[ChoiceAnswerSummaryTypeDef]] = None
-    IsApplicable: Optional[bool] = None
-    Risk: Optional[RiskType] = None
-    Reason: Optional[AnswerReasonType] = None
-    QuestionType: Optional[QuestionTypeType] = None
-    JiraConfiguration: Optional[JiraConfigurationTypeDef] = None
 
 class AnswerTypeDef(BaseValidatorModel):
     QuestionId: Optional[str] = None
@@ -1102,17 +1259,6 @@ class AnswerTypeDef(BaseValidatorModel):
     Reason: Optional[AnswerReasonType] = None
     JiraConfiguration: Optional[JiraConfigurationTypeDef] = None
 
-class ReviewTemplateAnswerSummaryTypeDef(BaseValidatorModel):
-    QuestionId: Optional[str] = None
-    PillarId: Optional[str] = None
-    QuestionTitle: Optional[str] = None
-    Choices: Optional[List[ChoiceTypeDef]] = None
-    SelectedChoices: Optional[List[str]] = None
-    ChoiceAnswerSummaries: Optional[List[ChoiceAnswerSummaryTypeDef]] = None
-    IsApplicable: Optional[bool] = None
-    AnswerStatus: Optional[ReviewTemplateAnswerStatusType] = None
-    Reason: Optional[AnswerReasonType] = None
-    QuestionType: Optional[QuestionTypeType] = None
 
 class ReviewTemplateAnswerTypeDef(BaseValidatorModel):
     QuestionId: Optional[str] = None
@@ -1130,10 +1276,12 @@ class ReviewTemplateAnswerTypeDef(BaseValidatorModel):
     Notes: Optional[str] = None
     Reason: Optional[AnswerReasonType] = None
 
+
 class LensMetricTypeDef(BaseValidatorModel):
     LensArn: Optional[str] = None
     Pillars: Optional[List[PillarMetricTypeDef]] = None
     RiskCounts: Optional[Dict[RiskType, int]] = None
+
 
 class GetLensReviewOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
@@ -1141,16 +1289,31 @@ class GetLensReviewOutputTypeDef(BaseValidatorModel):
     LensReview: LensReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateLensReviewOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensReview: LensReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class JiraSelectedQuestionConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class UpdateLensReviewInputTypeDef(BaseValidatorModel):
+    WorkloadId: str
+    LensAlias: str
+    LensNotes: Optional[str] = None
+    PillarNotes: Optional[Mapping[str, str]] = None
+    JiraConfiguration: Optional[JiraSelectedQuestionConfigurationUnionTypeDef] = None
+
+
 class ListMilestonesOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     MilestoneSummaries: List[MilestoneSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class GetLensVersionDifferenceOutputTypeDef(BaseValidatorModel):
     LensAlias: str
@@ -1161,22 +1324,31 @@ class GetLensVersionDifferenceOutputTypeDef(BaseValidatorModel):
     VersionDifferences: VersionDifferencesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetProfileOutputTypeDef(BaseValidatorModel):
     Profile: ProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateProfileOutputTypeDef(BaseValidatorModel):
     Profile: ProfileTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetProfileTemplateOutputTypeDef(BaseValidatorModel):
     ProfileTemplate: ProfileTemplateTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetMilestoneOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     Milestone: MilestoneTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class AnswerSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListAnswersOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
@@ -1184,8 +1356,9 @@ class ListAnswersOutputTypeDef(BaseValidatorModel):
     LensAlias: str
     LensArn: str
     AnswerSummaries: List[AnswerSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class GetAnswerOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
@@ -1195,6 +1368,7 @@ class GetAnswerOutputTypeDef(BaseValidatorModel):
     Answer: AnswerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateAnswerOutputTypeDef(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
@@ -1202,12 +1376,18 @@ class UpdateAnswerOutputTypeDef(BaseValidatorModel):
     Answer: AnswerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class ReviewTemplateAnswerSummaryTypeDef(BaseValidatorModel):
+    pass
+
+
 class ListReviewTemplateAnswersOutputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
     AnswerSummaries: List[ReviewTemplateAnswerSummaryTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class GetReviewTemplateAnswerOutputTypeDef(BaseValidatorModel):
     TemplateArn: str
@@ -1215,11 +1395,13 @@ class GetReviewTemplateAnswerOutputTypeDef(BaseValidatorModel):
     Answer: ReviewTemplateAnswerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateReviewTemplateAnswerOutputTypeDef(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
     Answer: ReviewTemplateAnswerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ConsolidatedReportMetricTypeDef(BaseValidatorModel):
     MetricType: Optional[Literal["WORKLOAD"]] = None
@@ -1231,9 +1413,11 @@ class ConsolidatedReportMetricTypeDef(BaseValidatorModel):
     Lenses: Optional[List[LensMetricTypeDef]] = None
     LensesAppliedCount: Optional[int] = None
 
+
 class GetConsolidatedReportOutputTypeDef(BaseValidatorModel):
     Metrics: List[ConsolidatedReportMetricTypeDef]
-    NextToken: str
     Base64String: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 

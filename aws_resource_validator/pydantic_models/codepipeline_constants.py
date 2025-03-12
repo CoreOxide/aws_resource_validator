@@ -1,7 +1,7 @@
 from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO
 from datetime import datetime
 
-ActionCategoryType = Literal["Approval", "Build", "Deploy", "Invoke", "Source", "Test"]
+ActionCategoryType = Literal["Approval", "Build", "Compute", "Deploy", "Invoke", "Source", "Test"]
 ActionConfigurationPropertyTypeType = Literal["Boolean", "Number", "String"]
 ActionExecutionStatusType = Literal["Abandoned", "Failed", "InProgress", "Succeeded"]
 ActionOwnerType = Literal["AWS", "Custom", "ThirdParty"]
@@ -9,6 +9,8 @@ ApprovalStatusType = Literal["Approved", "Rejected"]
 ArtifactLocationTypeType = Literal["S3"]
 ArtifactStoreTypeType = Literal["S3"]
 BlockerTypeType = Literal["Schedule"]
+ConditionExecutionStatusType = Literal["Abandoned", "Cancelled", "Errored", "Failed", "InProgress", "Overridden", "Succeeded"]
+ConditionTypeType = Literal["BEFORE_ENTRY", "ON_SUCCESS"]
 EncryptionKeyTypeType = Literal["KMS"]
 ExecutionModeType = Literal["PARALLEL", "QUEUED", "SUPERSEDED"]
 ExecutionTypeType = Literal["ROLLBACK", "STANDARD"]
@@ -25,14 +27,20 @@ ListActionExecutionsPaginatorName = Literal["list_action_executions"]
 ListActionTypesPaginatorName = Literal["list_action_types"]
 ListPipelineExecutionsPaginatorName = Literal["list_pipeline_executions"]
 ListPipelinesPaginatorName = Literal["list_pipelines"]
+ListRuleExecutionsPaginatorName = Literal["list_rule_executions"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 ListWebhooksPaginatorName = Literal["list_webhooks"]
 PipelineExecutionStatusType = Literal["Cancelled", "Failed", "InProgress", "Stopped", "Stopping", "Succeeded", "Superseded"]
 PipelineTriggerProviderTypeType = Literal["CodeStarSourceConnection"]
 PipelineTypeType = Literal["V1", "V2"]
-ResultType = Literal["ROLLBACK"]
+ResultType = Literal["FAIL", "RETRY", "ROLLBACK", "SKIP"]
+RetryTriggerType = Literal["AutomatedStageRetry", "ManualStageRetry"]
+RuleCategoryType = Literal["Rule"]
+RuleConfigurationPropertyTypeType = Literal["Boolean", "Number", "String"]
+RuleExecutionStatusType = Literal["Abandoned", "Failed", "InProgress", "Succeeded"]
+RuleOwnerType = Literal["AWS"]
 SourceRevisionTypeType = Literal["COMMIT_ID", "IMAGE_DIGEST", "S3_OBJECT_KEY", "S3_OBJECT_VERSION_ID"]
-StageExecutionStatusType = Literal["Cancelled", "Failed", "InProgress", "Stopped", "Stopping", "Succeeded"]
+StageExecutionStatusType = Literal["Cancelled", "Failed", "InProgress", "Skipped", "Stopped", "Stopping", "Succeeded"]
 StageRetryModeType = Literal["ALL_ACTIONS", "FAILED_ACTIONS"]
 StageTransitionTypeType = Literal["Inbound", "Outbound"]
 StartTimeRangeType = Literal["All", "Latest"]
@@ -65,11 +73,13 @@ ServiceName = Literal["accessanalyzer",
     "appintegrations",
     "application-autoscaling",
     "application-insights",
+    "application-signals",
     "applicationcostprofiler",
     "appmesh",
     "apprunner",
     "appstream",
     "appsync",
+    "apptest",
     "arc-zonal-shift",
     "artifact",
     "athena",
@@ -79,13 +89,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
-    "backupstorage",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -122,7 +136,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -135,6 +148,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -160,6 +174,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -171,7 +187,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -195,6 +210,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -213,11 +231,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -272,6 +289,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -291,7 +309,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -299,10 +316,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -312,9 +332,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
+    "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -328,6 +351,7 @@ ServiceName = Literal["accessanalyzer",
     "pricing",
     "privatenetworks",
     "proton",
+    "qapps",
     "qbusiness",
     "qconnect",
     "qldb",
@@ -359,6 +383,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -371,6 +396,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -388,10 +414,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -423,7 +451,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -444,6 +471,7 @@ PaginatorName = Literal["list_action_executions",
     "list_action_types",
     "list_pipeline_executions",
     "list_pipelines",
+    "list_rule_executions",
     "list_tags_for_resource",
     "list_webhooks",]
 RegionName = Literal["af-south-1",
@@ -474,8 +502,3 @@ RegionName = Literal["af-south-1",
     "us-east-2",
     "us-west-1",
     "us-west-2",]
-TimestampTypeDef = Union[datetime, str]
-ActionRevisionUnionTypeDef = Union['ActionRevisionTypeDef', 'ActionRevisionOutputTypeDef']
-WebhookDefinitionUnionTypeDef = Union['WebhookDefinitionTypeDef', 'WebhookDefinitionExtraOutputTypeDef']
-ActionTypeDeclarationUnionTypeDef = Union[   'ActionTypeDeclarationTypeDef', 'ActionTypeDeclarationOutputTypeDef' ]
-PipelineDeclarationUnionTypeDef = Union[   'PipelineDeclarationTypeDef', 'PipelineDeclarationOutputTypeDef' ]

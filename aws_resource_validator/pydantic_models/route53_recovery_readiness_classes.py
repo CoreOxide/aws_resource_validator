@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -18,87 +19,108 @@ class CellOutputTypeDef(BaseValidatorModel):
     ParentReadinessScopes: List[str]
     Tags: Optional[Dict[str, str]] = None
 
-class CreateCellRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateCellRequestTypeDef(BaseValidatorModel):
     CellName: str
     Cells: Optional[Sequence[str]] = None
     Tags: Optional[Mapping[str, str]] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class CreateCrossAccountAuthorizationRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateCrossAccountAuthorizationRequestTypeDef(BaseValidatorModel):
     CrossAccountAuthorization: str
 
-class CreateReadinessCheckRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateReadinessCheckRequestTypeDef(BaseValidatorModel):
     ReadinessCheckName: str
     ResourceSetName: str
     Tags: Optional[Mapping[str, str]] = None
 
-class CreateRecoveryGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRecoveryGroupRequestTypeDef(BaseValidatorModel):
     RecoveryGroupName: str
     Cells: Optional[Sequence[str]] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class DeleteCellRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteCellRequestTypeDef(BaseValidatorModel):
     CellName: str
 
-class DeleteCrossAccountAuthorizationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteCrossAccountAuthorizationRequestTypeDef(BaseValidatorModel):
     CrossAccountAuthorization: str
 
-class DeleteReadinessCheckRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteReadinessCheckRequestTypeDef(BaseValidatorModel):
     ReadinessCheckName: str
 
-class DeleteRecoveryGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRecoveryGroupRequestTypeDef(BaseValidatorModel):
     RecoveryGroupName: str
 
-class DeleteResourceSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteResourceSetRequestTypeDef(BaseValidatorModel):
     ResourceSetName: str
 
-class GetArchitectureRecommendationsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetArchitectureRecommendationsRequestTypeDef(BaseValidatorModel):
     RecoveryGroupName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
+
 class RecommendationTypeDef(BaseValidatorModel):
     RecommendationText: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetCellReadinessSummaryRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCellReadinessSummaryRequestTypeDef(BaseValidatorModel):
     CellName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+
 
 class ReadinessCheckSummaryTypeDef(BaseValidatorModel):
     Readiness: Optional[ReadinessType] = None
     ReadinessCheckName: Optional[str] = None
 
-class GetCellRequestRequestTypeDef(BaseValidatorModel):
+
+class GetCellRequestTypeDef(BaseValidatorModel):
     CellName: str
 
-class GetReadinessCheckRequestRequestTypeDef(BaseValidatorModel):
+
+class GetReadinessCheckRequestTypeDef(BaseValidatorModel):
     ReadinessCheckName: str
 
-class GetReadinessCheckResourceStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class GetReadinessCheckResourceStatusRequestTypeDef(BaseValidatorModel):
     ReadinessCheckName: str
     ResourceIdentifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetReadinessCheckStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class GetReadinessCheckStatusRequestTypeDef(BaseValidatorModel):
     ReadinessCheckName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
+
 class MessageTypeDef(BaseValidatorModel):
     MessageText: Optional[str] = None
+
 
 class ResourceResultTypeDef(BaseValidatorModel):
     LastCheckedTimestamp: datetime
@@ -106,28 +128,35 @@ class ResourceResultTypeDef(BaseValidatorModel):
     ComponentId: Optional[str] = None
     ResourceArn: Optional[str] = None
 
-class GetRecoveryGroupReadinessSummaryRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRecoveryGroupReadinessSummaryRequestTypeDef(BaseValidatorModel):
     RecoveryGroupName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class GetRecoveryGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRecoveryGroupRequestTypeDef(BaseValidatorModel):
     RecoveryGroupName: str
 
-class GetResourceSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetResourceSetRequestTypeDef(BaseValidatorModel):
     ResourceSetName: str
 
-class ListCellsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCellsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListCrossAccountAuthorizationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListCrossAccountAuthorizationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListReadinessChecksRequestRequestTypeDef(BaseValidatorModel):
+
+class ListReadinessChecksRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+
 
 class ReadinessCheckOutputTypeDef(BaseValidatorModel):
     ReadinessCheckArn: str
@@ -135,9 +164,11 @@ class ReadinessCheckOutputTypeDef(BaseValidatorModel):
     ReadinessCheckName: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
-class ListRecoveryGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRecoveryGroupsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+
 
 class RecoveryGroupOutputTypeDef(BaseValidatorModel):
     Cells: List[str]
@@ -145,49 +176,61 @@ class RecoveryGroupOutputTypeDef(BaseValidatorModel):
     RecoveryGroupName: str
     Tags: Optional[Dict[str, str]] = None
 
-class ListResourceSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListResourceSetsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+
 
 class ListRulesOutputTypeDef(BaseValidatorModel):
     ResourceType: str
     RuleDescription: str
     RuleId: str
 
-class ListRulesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRulesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ResourceType: Optional[str] = None
 
-class ListTagsForResourcesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourcesRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class NLBResourceTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
+
 
 class R53ResourceRecordTypeDef(BaseValidatorModel):
     DomainName: Optional[str] = None
     RecordSetId: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateCellRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateCellRequestTypeDef(BaseValidatorModel):
     CellName: str
     Cells: Sequence[str]
 
-class UpdateReadinessCheckRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateReadinessCheckRequestTypeDef(BaseValidatorModel):
     ReadinessCheckName: str
     ResourceSetName: str
 
-class UpdateRecoveryGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRecoveryGroupRequestTypeDef(BaseValidatorModel):
     Cells: Sequence[str]
     RecoveryGroupName: str
+
 
 class CreateCellResponseTypeDef(BaseValidatorModel):
     CellArn: str
@@ -197,9 +240,11 @@ class CreateCellResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateCrossAccountAuthorizationResponseTypeDef(BaseValidatorModel):
     CrossAccountAuthorization: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateReadinessCheckResponseTypeDef(BaseValidatorModel):
     ReadinessCheckArn: str
@@ -208,6 +253,7 @@ class CreateReadinessCheckResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateRecoveryGroupResponseTypeDef(BaseValidatorModel):
     Cells: List[str]
     RecoveryGroupArn: str
@@ -215,8 +261,10 @@ class CreateRecoveryGroupResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetCellResponseTypeDef(BaseValidatorModel):
     CellArn: str
@@ -226,12 +274,14 @@ class GetCellResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetReadinessCheckResponseTypeDef(BaseValidatorModel):
     ReadinessCheckArn: str
     ReadinessCheckName: str
     ResourceSet: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetRecoveryGroupResponseTypeDef(BaseValidatorModel):
     Cells: List[str]
@@ -240,19 +290,23 @@ class GetRecoveryGroupResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListCellsResponseTypeDef(BaseValidatorModel):
     Cells: List[CellOutputTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListCrossAccountAuthorizationsResponseTypeDef(BaseValidatorModel):
     CrossAccountAuthorizations: List[str]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListTagsForResourcesResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateCellResponseTypeDef(BaseValidatorModel):
     CellArn: str
@@ -262,12 +316,14 @@ class UpdateCellResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateReadinessCheckResponseTypeDef(BaseValidatorModel):
     ReadinessCheckArn: str
     ReadinessCheckName: str
     ResourceSet: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateRecoveryGroupResponseTypeDef(BaseValidatorModel):
     Cells: List[str]
@@ -276,59 +332,73 @@ class UpdateRecoveryGroupResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetArchitectureRecommendationsResponseTypeDef(BaseValidatorModel):
     LastAuditTimestamp: datetime
-    NextToken: str
     Recommendations: List[RecommendationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class GetCellReadinessSummaryRequestGetCellReadinessSummaryPaginateTypeDef(BaseValidatorModel):
+
+class GetCellReadinessSummaryRequestPaginateTypeDef(BaseValidatorModel):
     CellName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetReadinessCheckResourceStatusRequestGetReadinessCheckResourceStatusPaginateTypeDef(BaseValidatorModel):
+
+class GetReadinessCheckResourceStatusRequestPaginateTypeDef(BaseValidatorModel):
     ReadinessCheckName: str
     ResourceIdentifier: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetReadinessCheckStatusRequestGetReadinessCheckStatusPaginateTypeDef(BaseValidatorModel):
+
+class GetReadinessCheckStatusRequestPaginateTypeDef(BaseValidatorModel):
     ReadinessCheckName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class GetRecoveryGroupReadinessSummaryRequestGetRecoveryGroupReadinessSummaryPaginateTypeDef(BaseValidatorModel):
+
+class GetRecoveryGroupReadinessSummaryRequestPaginateTypeDef(BaseValidatorModel):
     RecoveryGroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCellsRequestListCellsPaginateTypeDef(BaseValidatorModel):
+
+class ListCellsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListCrossAccountAuthorizationsRequestListCrossAccountAuthorizationsPaginateTypeDef(BaseValidatorModel):
+
+class ListCrossAccountAuthorizationsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListReadinessChecksRequestListReadinessChecksPaginateTypeDef(BaseValidatorModel):
+
+class ListReadinessChecksRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRecoveryGroupsRequestListRecoveryGroupsPaginateTypeDef(BaseValidatorModel):
+
+class ListRecoveryGroupsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListResourceSetsRequestListResourceSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListResourceSetsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRulesRequestListRulesPaginateTypeDef(BaseValidatorModel):
+
+class ListRulesRequestPaginateTypeDef(BaseValidatorModel):
     ResourceType: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
 class GetCellReadinessSummaryResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     Readiness: ReadinessType
     ReadinessChecks: List[ReadinessCheckSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class GetRecoveryGroupReadinessSummaryResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     Readiness: ReadinessType
     ReadinessChecks: List[ReadinessCheckSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class RuleResultTypeDef(BaseValidatorModel):
     LastCheckedTimestamp: datetime
@@ -336,37 +406,44 @@ class RuleResultTypeDef(BaseValidatorModel):
     Readiness: ReadinessType
     RuleId: str
 
+
 class GetReadinessCheckStatusResponseTypeDef(BaseValidatorModel):
     Messages: List[MessageTypeDef]
-    NextToken: str
     Readiness: ReadinessType
     Resources: List[ResourceResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListReadinessChecksResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     ReadinessChecks: List[ReadinessCheckOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListRecoveryGroupsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     RecoveryGroups: List[RecoveryGroupOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class ListRulesResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     Rules: List[ListRulesOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class TargetResourceTypeDef(BaseValidatorModel):
     NLBResource: Optional[NLBResourceTypeDef] = None
     R53Resource: Optional[R53ResourceRecordTypeDef] = None
 
+
 class GetReadinessCheckResourceStatusResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     Readiness: ReadinessType
     Rules: List[RuleResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class DNSTargetResourceTypeDef(BaseValidatorModel):
     DomainName: Optional[str] = None
@@ -375,11 +452,13 @@ class DNSTargetResourceTypeDef(BaseValidatorModel):
     RecordType: Optional[str] = None
     TargetResource: Optional[TargetResourceTypeDef] = None
 
-class ResourcePaginatorTypeDef(BaseValidatorModel):
+
+class ResourceOutputTypeDef(BaseValidatorModel):
     ComponentId: Optional[str] = None
     DnsTargetResource: Optional[DNSTargetResourceTypeDef] = None
     ReadinessScopes: Optional[List[str]] = None
     ResourceArn: Optional[str] = None
+
 
 class ResourceTypeDef(BaseValidatorModel):
     ComponentId: Optional[str] = None
@@ -387,62 +466,62 @@ class ResourceTypeDef(BaseValidatorModel):
     ReadinessScopes: Optional[Sequence[str]] = None
     ResourceArn: Optional[str] = None
 
-class ResourceSetOutputPaginatorTypeDef(BaseValidatorModel):
-    ResourceSetArn: str
-    ResourceSetName: str
-    ResourceSetType: str
-    Resources: List[ResourcePaginatorTypeDef]
-    Tags: Optional[Dict[str, str]] = None
-
-class CreateResourceSetRequestRequestTypeDef(BaseValidatorModel):
-    ResourceSetName: str
-    ResourceSetType: str
-    Resources: Sequence[ResourceTypeDef]
-    Tags: Optional[Mapping[str, str]] = None
 
 class CreateResourceSetResponseTypeDef(BaseValidatorModel):
     ResourceSetArn: str
     ResourceSetName: str
     ResourceSetType: str
-    Resources: List[ResourceTypeDef]
+    Resources: List[ResourceOutputTypeDef]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetResourceSetResponseTypeDef(BaseValidatorModel):
     ResourceSetArn: str
     ResourceSetName: str
     ResourceSetType: str
-    Resources: List[ResourceTypeDef]
+    Resources: List[ResourceOutputTypeDef]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ResourceSetOutputTypeDef(BaseValidatorModel):
     ResourceSetArn: str
     ResourceSetName: str
     ResourceSetType: str
-    Resources: List[ResourceTypeDef]
+    Resources: List[ResourceOutputTypeDef]
     Tags: Optional[Dict[str, str]] = None
 
-class UpdateResourceSetRequestRequestTypeDef(BaseValidatorModel):
-    ResourceSetName: str
-    ResourceSetType: str
-    Resources: Sequence[ResourceTypeDef]
 
 class UpdateResourceSetResponseTypeDef(BaseValidatorModel):
     ResourceSetArn: str
     ResourceSetName: str
     ResourceSetType: str
-    Resources: List[ResourceTypeDef]
+    Resources: List[ResourceOutputTypeDef]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourceSetsResponsePaginatorTypeDef(BaseValidatorModel):
-    NextToken: str
-    ResourceSets: List[ResourceSetOutputPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListResourceSetsResponseTypeDef(BaseValidatorModel):
-    NextToken: str
     ResourceSets: List[ResourceSetOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class ResourceUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateResourceSetRequestTypeDef(BaseValidatorModel):
+    ResourceSetName: str
+    ResourceSetType: str
+    Resources: Sequence[ResourceUnionTypeDef]
+    Tags: Optional[Mapping[str, str]] = None
+
+
+class UpdateResourceSetRequestTypeDef(BaseValidatorModel):
+    ResourceSetName: str
+    ResourceSetType: str
+    Resources: Sequence[ResourceUnionTypeDef]
+
 

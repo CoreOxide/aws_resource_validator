@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,10 +12,6 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_edge_constants import *
 
-class ChecksumTypeDef(BaseValidatorModel):
-    Type: Optional[Literal["SHA1"]] = None
-    Sum: Optional[str] = None
-
 class DeploymentModelTypeDef(BaseValidatorModel):
     ModelHandle: Optional[str] = None
     ModelName: Optional[str] = None
@@ -25,26 +22,39 @@ class DeploymentModelTypeDef(BaseValidatorModel):
     StatusReason: Optional[str] = None
     RollbackFailureReason: Optional[str] = None
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class GetDeploymentsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDeploymentsRequestTypeDef(BaseValidatorModel):
     DeviceName: str
     DeviceFleetName: str
 
-class GetDeviceRegistrationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDeviceRegistrationRequestTypeDef(BaseValidatorModel):
     DeviceName: str
     DeviceFleetName: str
+
+
+class ChecksumTypeDef(BaseValidatorModel):
+    pass
+
 
 class DefinitionTypeDef(BaseValidatorModel):
     ModelHandle: Optional[str] = None
     S3Url: Optional[str] = None
     Checksum: Optional[ChecksumTypeDef] = None
     State: Optional[ModelStateType] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class DeploymentResultTypeDef(BaseValidatorModel):
     DeploymentName: Optional[str] = None
@@ -54,25 +64,23 @@ class DeploymentResultTypeDef(BaseValidatorModel):
     DeploymentEndTime: Optional[TimestampTypeDef] = None
     DeploymentModels: Optional[Sequence[DeploymentModelTypeDef]] = None
 
+
 class EdgeMetricTypeDef(BaseValidatorModel):
     Dimension: Optional[str] = None
     MetricName: Optional[str] = None
     Value: Optional[float] = None
     Timestamp: Optional[TimestampTypeDef] = None
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetDeviceRegistrationResultTypeDef(BaseValidatorModel):
     DeviceRegistration: str
     CacheTTL: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class EdgeDeploymentTypeDef(BaseValidatorModel):
-    DeploymentName: Optional[str] = None
-    Type: Optional[Literal["Model"]] = None
-    FailureHandlingPolicy: Optional[FailureHandlingPolicyType] = None
-    Definitions: Optional[List[DefinitionTypeDef]] = None
 
 class ModelTypeDef(BaseValidatorModel):
     ModelName: Optional[str] = None
@@ -81,15 +89,22 @@ class ModelTypeDef(BaseValidatorModel):
     LatestInference: Optional[TimestampTypeDef] = None
     ModelMetrics: Optional[Sequence[EdgeMetricTypeDef]] = None
 
+
+class EdgeDeploymentTypeDef(BaseValidatorModel):
+    pass
+
+
 class GetDeploymentsResultTypeDef(BaseValidatorModel):
     Deployments: List[EdgeDeploymentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class SendHeartbeatRequestRequestTypeDef(BaseValidatorModel):
+
+class SendHeartbeatRequestTypeDef(BaseValidatorModel):
     AgentVersion: str
     DeviceName: str
     DeviceFleetName: str
     AgentMetrics: Optional[Sequence[EdgeMetricTypeDef]] = None
     Models: Optional[Sequence[ModelTypeDef]] = None
     DeploymentResult: Optional[DeploymentResultTypeDef] = None
+
 

@@ -28,64 +28,83 @@ os.makedirs(output_dir, exist_ok=True)
 # pylint: disable=too-many-locals
 def parse_type_defs(file_path: str) -> Tuple[Dict[str, Dict[str, str]], Dict[str, str]]:
     """
-    Parse the `type_defs.py` file to extract TypedDict definitions and other type definitions.
-
-    Args:
-        file_path (str): The path to the `type_defs.py` file.
+    Parse the `type_defs.py` file to extract TypedDict definitions (including multi-line fields).
 
     Returns:
-        Tuple[Dict[str, Dict[str, str]], Dict[str, str]]: A tuple containing two dictionaries:
-            - The first dictionary maps TypedDict names to their field definitions.
-            - The second dictionary maps other type definition names to their type values.
+        (type_defs, other_defs):
+            type_defs: { 'DomainValidationTypeDef': {
+                'DomainName': 'str',
+                'ValidationEmails': 'Optional[List[str]]',
+                ...
+            }, ... }
+            other_defs: {}  # For any other definitions you might parse
     """
     type_defs, other_defs = {}, {}
+
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Regex pattern to capture TypedDict name and its fields, including nested types with commas
-    typed_dict_pattern = re.compile(
-        r'(\w+)\s*=\s*TypedDict\(\s*"\w+"\s*,\s*\{(.*?)\}', re.DOTALL
+    # 1. Extract each TypedDict block:
+    #    This finds "class <Name>(TypedDict):" plus the subsequent indented lines.
+    #    The body is captured in group(2).
+    typed_dict_blocks = re.findall(
+        r'class\s+(\w+)\(TypedDict\):\s*'         # class Foo(TypedDict):
+        r'((?:\n[ \t]+[^\n]+)+)',                 # One or more lines of indentation and content
+        content,
+        flags=re.DOTALL
     )
-    # Pattern to exclude TypedDicts and capture other definitions
-    other_defs_pattern = re.compile(
-        r'(\w+)\s*=\s*(?!TypedDict)(Union\[[^\]]+\]|Optional\[[^\]]+\]|Dict\[[^\]]+\]|List\[[^\]]+\]|Any|Literal\[['
-        r'^\]]+\]|datetime|str|int|float|bool)',
-        re.DOTALL
-    )
 
-    # Parsing TypedDict matches
-    for match in typed_dict_pattern.finditer(content):
-        type_name, fields = match.groups()
+    for type_name, body in typed_dict_blocks:
+        # We'll parse each typed-dict block line by line
+        fields = {}
 
-        # Improved regex pattern to capture fields correctly, including nested types with commas
-        field_matches = re.findall(r'\s*"(\w+)"\s*:\s*([^,]+(?:\[[^\]]+\]|,|[^,\n]+)*)', fields, re.DOTALL)
-        field_dict = {}
-        for field_match in field_matches:
-            field_name, field_type = field_match
-            if 'NotRequired[' in field_type:
-                field_type = field_type.replace('NotRequired[', 'Optional[')
-            field_dict[field_name] = field_type.strip().replace("\n", " ").replace("  ", " ").rstrip(',')
-        type_defs[type_name] = field_dict
+        # Split out the block lines (indented lines)
+        lines = body.splitlines()
+        current_field = None
+        field_lines: list[str] = []
 
-    # Parsing other definitions
-    for match in other_defs_pattern.finditer(content):
-        def_name, def_value = match.groups()
-        other_defs[def_name] = def_value.strip().replace("\n", " ").replace("  ", " ").rstrip(',')
+        for raw_line in lines:
+            line = raw_line.strip()
+            # Skip empty or comment-only lines
+            if not line or line.startswith('#'):
+                continue
+
+            # Check if this line starts a new field, like "Foo: Bar"
+            field_match = re.match(r'^(\w+):\s*(.*)', line)
+            if field_match:
+                # If we were already accumulating a previous field, finalize it
+                if current_field:
+                    combined_field = ' '.join(field_lines).strip()
+                    # Convert NotRequired[...] to Optional[...]
+                    combined_field = combined_field.replace('NotRequired[', 'Optional[')
+                    fields[current_field] = combined_field
+
+                # Start a new field
+                current_field = field_match.group(1)
+                # Start collecting the field's type annotation (which might be multiline)
+                field_lines = [field_match.group(2)]
+            else:
+                # This line continues the current field definition (multiline union, etc.)
+                field_lines.append(line)
+
+        # End of block: store the last field if it exists
+        if current_field:
+            combined_field = ' '.join(field_lines).strip()
+            combined_field = combined_field.replace('NotRequired[', 'Optional[')
+            fields[current_field] = combined_field
+
+        # Store the parsed fields under the typed dict name
+        type_defs[type_name] = fields
 
     return type_defs, other_defs
 
 
 def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name: str, file_path: str):
-    """
-    Generate Pydantic models from TypedDict definitions and save them to a specified output file.
-
-    Args:
-        type_defs (Dict[str, Dict[str, str]]): Dictionary of TypedDict definitions.
-        service_name (str): The service name for generating the corresponding constants file import.
-        file_path (str): The path to the output file where Pydantic models will be saved.
-    """
-    imports = set(["from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel",
-                   "from datetime import datetime"])
+    generated = set()
+    imports = set([
+        "from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel",
+        "from datetime import datetime"
+    ])
     type_imports = {
         "Optional": "from typing import Optional",
         "List": "from typing import List",
@@ -99,23 +118,40 @@ def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name:
         "StreamingBody": "from botocore.response import StreamingBody"
     }
 
-    with open(file_path, 'w', encoding='utf-8') as f:
-        # Write imports
-        for import_statement in sorted(imports.union(type_imports.values())):
-            f.write(f'{import_statement}\n')
+    def generate_model(name: str):
+        if name in generated:
+            return
+        fields = type_defs.get(name, {})
 
-        # Import the corresponding constants file
-        f.write(f'from aws_resource_validator.pydantic_models.{service_name}_constants import *\n\n')
+        nested_types = set(re.findall(r'(\w+TypeDef)', ' '.join(fields.values())))
+        for nested in nested_types:
+            if nested != name:
+                generate_model(nested)
 
-        # Write Pydantic models
-        for type_name, fields in type_defs.items():
-            f.write(f'class {type_name}(BaseModel):\n')
+        model_lines = [f"class {name}(BaseValidatorModel):"]
+        if fields:
             for field_name, field_type in fields.items():
                 if 'Optional[' in field_type:
-                    f.write(f'    {field_name}: {field_type} = None\n')
+                    model_lines.append(f"    {field_name}: {field_type} = None")
                 else:
-                    f.write(f'    {field_name}: {field_type}\n')
-            f.write('\n')
+                    model_lines.append(f"    {field_name}: {field_type}")
+        else:
+            model_lines.append("    pass")
+        model_lines.append("\n")
+
+        with open(file_path, 'a', encoding='utf-8') as f:
+            f.write('\n'.join(model_lines))
+            f.write("\n")
+
+        generated.add(name)
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        for imp in sorted(imports.union(type_imports.values())):
+            f.write(f'{imp}\n')
+        f.write(f'from aws_resource_validator.pydantic_models.{service_name}_constants import *\n\n')
+
+    for model_name in type_defs:
+        generate_model(model_name)
 
 
 def parse_literals(file_path: str) -> Dict[str, str]:

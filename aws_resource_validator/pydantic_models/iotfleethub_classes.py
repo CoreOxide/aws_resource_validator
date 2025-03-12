@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -20,12 +21,14 @@ class ApplicationSummaryTypeDef(BaseValidatorModel):
     applicationLastUpdateDate: Optional[int] = None
     applicationState: Optional[ApplicationStateType] = None
 
-class CreateApplicationRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateApplicationRequestTypeDef(BaseValidatorModel):
     applicationName: str
     roleArn: str
     applicationDescription: Optional[str] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -34,42 +37,52 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class DeleteApplicationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteApplicationRequestTypeDef(BaseValidatorModel):
     applicationId: str
     clientToken: Optional[str] = None
 
-class DescribeApplicationRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeApplicationRequestTypeDef(BaseValidatorModel):
     applicationId: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListApplicationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListApplicationsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdateApplicationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateApplicationRequestTypeDef(BaseValidatorModel):
     applicationId: str
     applicationName: Optional[str] = None
     applicationDescription: Optional[str] = None
     clientToken: Optional[str] = None
 
+
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
     applicationId: str
     applicationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeApplicationResponseTypeDef(BaseValidatorModel):
     applicationId: str
@@ -86,15 +99,19 @@ class DescribeApplicationResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     applicationSummaries: List[ApplicationSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListApplicationsRequestListApplicationsPaginateTypeDef(BaseValidatorModel):
+
+class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 

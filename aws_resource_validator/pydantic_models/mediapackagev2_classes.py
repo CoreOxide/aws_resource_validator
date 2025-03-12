@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,12 +12,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mediapackagev2_constants import *
 
+class CancelHarvestJobRequestTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    HarvestJobName: str
+    ETag: Optional[str] = None
+
+
 class ChannelGroupListConfigurationTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     Arn: str
     CreatedAt: datetime
     ModifiedAt: datetime
     Description: Optional[str] = None
+
 
 class ChannelListConfigurationTypeDef(BaseValidatorModel):
     Arn: str
@@ -27,11 +37,13 @@ class ChannelListConfigurationTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     InputType: Optional[InputTypeType] = None
 
-class CreateChannelGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateChannelGroupRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -40,165 +52,240 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateChannelRequestRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    ClientToken: Optional[str] = None
-    InputType: Optional[InputTypeType] = None
-    Description: Optional[str] = None
-    Tags: Optional[Mapping[str, str]] = None
+
+class InputSwitchConfigurationTypeDef(BaseValidatorModel):
+    MQCSInputSwitching: Optional[bool] = None
+
+
+class OutputHeaderConfigurationTypeDef(BaseValidatorModel):
+    PublishMQCS: Optional[bool] = None
+
 
 class IngestEndpointTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Url: Optional[str] = None
 
+
 class DashUtcTimingTypeDef(BaseValidatorModel):
     TimingMode: Optional[DashUtcTimingModeType] = None
     TimingSource: Optional[str] = None
 
+
 class ScteDashTypeDef(BaseValidatorModel):
     AdMarkerDash: Optional[AdMarkerDashType] = None
+
+
+class HarvesterScheduleConfigurationOutputTypeDef(BaseValidatorModel):
+    StartTime: datetime
+    EndTime: datetime
+
 
 class ScteHlsTypeDef(BaseValidatorModel):
     AdMarkerHls: Optional[Literal["DATERANGE"]] = None
 
-class ForceEndpointErrorConfigurationTypeDef(BaseValidatorModel):
-    EndpointErrorConditions: Optional[Sequence[EndpointErrorConditionType]] = None
+
+class StartTagTypeDef(BaseValidatorModel):
+    TimeOffset: float
+    Precise: Optional[bool] = None
+
 
 class ForceEndpointErrorConfigurationOutputTypeDef(BaseValidatorModel):
     EndpointErrorConditions: Optional[List[EndpointErrorConditionType]] = None
 
-class DeleteChannelGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteChannelGroupRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
 
-class DeleteChannelPolicyRequestRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
 
-class DeleteChannelRequestRequestTypeDef(BaseValidatorModel):
+class DeleteChannelPolicyRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
 
-class DeleteOriginEndpointPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteChannelRequestTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+
+
+class DeleteOriginEndpointPolicyRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
 
-class DeleteOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteOriginEndpointRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
+
+
+class S3DestinationConfigTypeDef(BaseValidatorModel):
+    BucketName: str
+    DestinationPath: str
+
 
 class EncryptionContractConfigurationTypeDef(BaseValidatorModel):
     PresetSpeke20Audio: PresetSpeke20AudioType
     PresetSpeke20Video: PresetSpeke20VideoType
 
+
 class EncryptionMethodTypeDef(BaseValidatorModel):
     TsEncryptionMethod: Optional[TsEncryptionMethodType] = None
     CmafEncryptionMethod: Optional[CmafEncryptionMethodType] = None
+
 
 class FilterConfigurationOutputTypeDef(BaseValidatorModel):
     ManifestFilter: Optional[str] = None
     Start: Optional[datetime] = None
     End: Optional[datetime] = None
     TimeDelaySeconds: Optional[int] = None
+    ClipStartTime: Optional[datetime] = None
 
-class ForceEndpointErrorConfigurationExtraOutputTypeDef(BaseValidatorModel):
-    EndpointErrorConditions: Optional[List[EndpointErrorConditionType]] = None
 
-class GetChannelGroupRequestRequestTypeDef(BaseValidatorModel):
+class ForceEndpointErrorConfigurationTypeDef(BaseValidatorModel):
+    EndpointErrorConditions: Optional[Sequence[EndpointErrorConditionType]] = None
+
+
+class GetChannelGroupRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
 
-class GetChannelPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetChannelPolicyRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
 
-class GetChannelRequestRequestTypeDef(BaseValidatorModel):
+
+class GetChannelRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
 
-class GetOriginEndpointPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetHarvestJobRequestTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    HarvestJobName: str
+
+
+class WaiterConfigTypeDef(BaseValidatorModel):
+    Delay: Optional[int] = None
+    MaxAttempts: Optional[int] = None
+
+
+class GetOriginEndpointPolicyRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
 
-class GetOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
+
+class GetOriginEndpointRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
+
+
+class HarvestedDashManifestTypeDef(BaseValidatorModel):
+    ManifestName: str
+
+
+class HarvestedHlsManifestTypeDef(BaseValidatorModel):
+    ManifestName: str
+
+
+class HarvestedLowLatencyHlsManifestTypeDef(BaseValidatorModel):
+    ManifestName: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListChannelGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListChannelGroupsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListChannelsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListChannelsRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
+
 class ListDashManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     Url: Optional[str] = None
+
+
+class ListHarvestJobsRequestTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: Optional[str] = None
+    OriginEndpointName: Optional[str] = None
+    Status: Optional[HarvestJobStatusType] = None
+    MaxResults: Optional[int] = None
+    NextToken: Optional[str] = None
+
 
 class ListHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     ChildManifestName: Optional[str] = None
     Url: Optional[str] = None
 
+
 class ListLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     ChildManifestName: Optional[str] = None
     Url: Optional[str] = None
 
-class ListOriginEndpointsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListOriginEndpointsRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class PutChannelPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutChannelPolicyRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     Policy: str
 
-class PutOriginEndpointPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutOriginEndpointPolicyRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
     Policy: str
 
+
 class ScteOutputTypeDef(BaseValidatorModel):
     ScteFilter: Optional[List[ScteFilterType]] = None
+
 
 class ScteTypeDef(BaseValidatorModel):
     ScteFilter: Optional[Sequence[ScteFilterType]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
-class UpdateChannelGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateChannelGroupRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ETag: Optional[str] = None
     Description: Optional[str] = None
 
-class UpdateChannelRequestRequestTypeDef(BaseValidatorModel):
-    ChannelGroupName: str
-    ChannelName: str
-    ETag: Optional[str] = None
-    Description: Optional[str] = None
 
 class CreateChannelGroupResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
@@ -211,8 +298,10 @@ class CreateChannelGroupResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class EmptyResponseMetadataTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetChannelGroupResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
@@ -225,11 +314,13 @@ class GetChannelGroupResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetChannelPolicyResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetOriginEndpointPolicyResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
@@ -238,19 +329,23 @@ class GetOriginEndpointPolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListChannelGroupsResponseTypeDef(BaseValidatorModel):
     Items: List[ChannelGroupListConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class ListChannelsResponseTypeDef(BaseValidatorModel):
     Items: List[ChannelListConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
+
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateChannelGroupResponseTypeDef(BaseValidatorModel):
     ChannelGroupName: str
@@ -263,6 +358,27 @@ class UpdateChannelGroupResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class CreateChannelRequestTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    ClientToken: Optional[str] = None
+    InputType: Optional[InputTypeType] = None
+    Description: Optional[str] = None
+    InputSwitchConfiguration: Optional[InputSwitchConfigurationTypeDef] = None
+    OutputHeaderConfiguration: Optional[OutputHeaderConfigurationTypeDef] = None
+    Tags: Optional[Mapping[str, str]] = None
+
+
+class UpdateChannelRequestTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    ETag: Optional[str] = None
+    Description: Optional[str] = None
+    InputSwitchConfiguration: Optional[InputSwitchConfigurationTypeDef] = None
+    OutputHeaderConfiguration: Optional[OutputHeaderConfigurationTypeDef] = None
+
+
 class CreateChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelName: str
@@ -274,7 +390,10 @@ class CreateChannelResponseTypeDef(BaseValidatorModel):
     InputType: InputTypeType
     ETag: str
     Tags: Dict[str, str]
+    InputSwitchConfiguration: InputSwitchConfigurationTypeDef
+    OutputHeaderConfiguration: OutputHeaderConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -287,7 +406,10 @@ class GetChannelResponseTypeDef(BaseValidatorModel):
     InputType: InputTypeType
     ETag: str
     Tags: Dict[str, str]
+    InputSwitchConfiguration: InputSwitchConfigurationTypeDef
+    OutputHeaderConfiguration: OutputHeaderConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateChannelResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -300,7 +422,14 @@ class UpdateChannelResponseTypeDef(BaseValidatorModel):
     InputType: InputTypeType
     ETag: str
     Tags: Dict[str, str]
+    InputSwitchConfiguration: InputSwitchConfigurationTypeDef
+    OutputHeaderConfiguration: OutputHeaderConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class DestinationTypeDef(BaseValidatorModel):
+    S3Destination: S3DestinationConfigTypeDef
+
 
 class SpekeKeyProviderOutputTypeDef(BaseValidatorModel):
     EncryptionContractConfiguration: EncryptionContractConfigurationTypeDef
@@ -309,12 +438,14 @@ class SpekeKeyProviderOutputTypeDef(BaseValidatorModel):
     RoleArn: str
     Url: str
 
+
 class SpekeKeyProviderTypeDef(BaseValidatorModel):
     EncryptionContractConfiguration: EncryptionContractConfigurationTypeDef
     ResourceId: str
     DrmSystems: Sequence[DrmSystemType]
     RoleArn: str
     Url: str
+
 
 class GetDashManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
@@ -330,6 +461,7 @@ class GetDashManifestConfigurationTypeDef(BaseValidatorModel):
     DrmSignaling: Optional[DashDrmSignalingType] = None
     UtcTiming: Optional[DashUtcTimingTypeDef] = None
 
+
 class GetHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
     Url: str
@@ -338,6 +470,8 @@ class GetHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     ScteHls: Optional[ScteHlsTypeDef] = None
     FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
+    StartTag: Optional[StartTagTypeDef] = None
+
 
 class GetLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ManifestName: str
@@ -347,24 +481,68 @@ class GetLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     ScteHls: Optional[ScteHlsTypeDef] = None
     FilterConfiguration: Optional[FilterConfigurationOutputTypeDef] = None
+    StartTag: Optional[StartTagTypeDef] = None
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class FilterConfigurationTypeDef(BaseValidatorModel):
     ManifestFilter: Optional[str] = None
     Start: Optional[TimestampTypeDef] = None
     End: Optional[TimestampTypeDef] = None
     TimeDelaySeconds: Optional[int] = None
+    ClipStartTime: Optional[TimestampTypeDef] = None
 
-class ListChannelGroupsRequestListChannelGroupsPaginateTypeDef(BaseValidatorModel):
+
+class HarvesterScheduleConfigurationTypeDef(BaseValidatorModel):
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+
+
+class GetHarvestJobRequestWaitTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    HarvestJobName: str
+    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+
+
+class HarvestedManifestsOutputTypeDef(BaseValidatorModel):
+    HlsManifests: Optional[List[HarvestedHlsManifestTypeDef]] = None
+    DashManifests: Optional[List[HarvestedDashManifestTypeDef]] = None
+    LowLatencyHlsManifests: Optional[List[HarvestedLowLatencyHlsManifestTypeDef]] = None
+
+
+class HarvestedManifestsTypeDef(BaseValidatorModel):
+    HlsManifests: Optional[Sequence[HarvestedHlsManifestTypeDef]] = None
+    DashManifests: Optional[Sequence[HarvestedDashManifestTypeDef]] = None
+    LowLatencyHlsManifests: Optional[Sequence[HarvestedLowLatencyHlsManifestTypeDef]] = None
+
+
+class ListChannelGroupsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListChannelsRequestListChannelsPaginateTypeDef(BaseValidatorModel):
+
+class ListChannelsRequestPaginateTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListOriginEndpointsRequestListOriginEndpointsPaginateTypeDef(BaseValidatorModel):
+
+class ListHarvestJobsRequestPaginateTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: Optional[str] = None
+    OriginEndpointName: Optional[str] = None
+    Status: Optional[HarvestJobStatusType] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListOriginEndpointsRequestPaginateTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class OriginEndpointListConfigurationTypeDef(BaseValidatorModel):
     Arn: str
@@ -378,7 +556,8 @@ class OriginEndpointListConfigurationTypeDef(BaseValidatorModel):
     HlsManifests: Optional[List[ListHlsManifestConfigurationTypeDef]] = None
     LowLatencyHlsManifests: Optional[List[ListLowLatencyHlsManifestConfigurationTypeDef]] = None
     DashManifests: Optional[List[ListDashManifestConfigurationTypeDef]] = None
-    ForceEndpointErrorConfiguration: Optional[       ForceEndpointErrorConfigurationOutputTypeDef     ] = None
+    ForceEndpointErrorConfiguration: Optional[ForceEndpointErrorConfigurationOutputTypeDef] = None
+
 
 class EncryptionOutputTypeDef(BaseValidatorModel):
     EncryptionMethod: EncryptionMethodTypeDef
@@ -386,45 +565,74 @@ class EncryptionOutputTypeDef(BaseValidatorModel):
     ConstantInitializationVector: Optional[str] = None
     KeyRotationIntervalSeconds: Optional[int] = None
 
+
 class EncryptionTypeDef(BaseValidatorModel):
     EncryptionMethod: EncryptionMethodTypeDef
     SpekeKeyProvider: SpekeKeyProviderTypeDef
     ConstantInitializationVector: Optional[str] = None
     KeyRotationIntervalSeconds: Optional[int] = None
 
-class CreateDashManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
-    ManifestWindowSeconds: Optional[int] = None
-    FilterConfiguration: Optional[FilterConfigurationTypeDef] = None
-    MinUpdatePeriodSeconds: Optional[int] = None
-    MinBufferTimeSeconds: Optional[int] = None
-    SuggestedPresentationDelaySeconds: Optional[int] = None
-    SegmentTemplateFormat: Optional[Literal["NUMBER_WITH_TIMELINE"]] = None
-    PeriodTriggers: Optional[Sequence[DashPeriodTriggerType]] = None
-    ScteDash: Optional[ScteDashTypeDef] = None
-    DrmSignaling: Optional[DashDrmSignalingType] = None
-    UtcTiming: Optional[DashUtcTimingTypeDef] = None
 
-class CreateHlsManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
-    ChildManifestName: Optional[str] = None
-    ScteHls: Optional[ScteHlsTypeDef] = None
-    ManifestWindowSeconds: Optional[int] = None
-    ProgramDateTimeIntervalSeconds: Optional[int] = None
-    FilterConfiguration: Optional[FilterConfigurationTypeDef] = None
+class CreateHarvestJobResponseTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    Destination: DestinationTypeDef
+    HarvestJobName: str
+    HarvestedManifests: HarvestedManifestsOutputTypeDef
+    Description: str
+    ScheduleConfiguration: HarvesterScheduleConfigurationOutputTypeDef
+    Arn: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Status: HarvestJobStatusType
+    ErrorMessage: str
+    ETag: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
-    ManifestName: str
-    ChildManifestName: Optional[str] = None
-    ScteHls: Optional[ScteHlsTypeDef] = None
-    ManifestWindowSeconds: Optional[int] = None
-    ProgramDateTimeIntervalSeconds: Optional[int] = None
-    FilterConfiguration: Optional[FilterConfigurationTypeDef] = None
+
+class GetHarvestJobResponseTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    Destination: DestinationTypeDef
+    HarvestJobName: str
+    HarvestedManifests: HarvestedManifestsOutputTypeDef
+    Description: str
+    ScheduleConfiguration: HarvesterScheduleConfigurationOutputTypeDef
+    Arn: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Status: HarvestJobStatusType
+    ErrorMessage: str
+    ETag: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class HarvestJobTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    Destination: DestinationTypeDef
+    HarvestJobName: str
+    HarvestedManifests: HarvestedManifestsOutputTypeDef
+    ScheduleConfiguration: HarvesterScheduleConfigurationOutputTypeDef
+    Arn: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Status: HarvestJobStatusType
+    Description: Optional[str] = None
+    ErrorMessage: Optional[str] = None
+    ETag: Optional[str] = None
+
 
 class ListOriginEndpointsResponseTypeDef(BaseValidatorModel):
     Items: List[OriginEndpointListConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 
 class SegmentOutputTypeDef(BaseValidatorModel):
     SegmentDurationSeconds: Optional[int] = None
@@ -435,6 +643,7 @@ class SegmentOutputTypeDef(BaseValidatorModel):
     Scte: Optional[ScteOutputTypeDef] = None
     Encryption: Optional[EncryptionOutputTypeDef] = None
 
+
 class SegmentTypeDef(BaseValidatorModel):
     SegmentDurationSeconds: Optional[int] = None
     SegmentName: Optional[str] = None
@@ -443,6 +652,72 @@ class SegmentTypeDef(BaseValidatorModel):
     TsIncludeDvbSubtitles: Optional[bool] = None
     Scte: Optional[ScteTypeDef] = None
     Encryption: Optional[EncryptionTypeDef] = None
+
+
+class FilterConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateDashManifestConfigurationTypeDef(BaseValidatorModel):
+    ManifestName: str
+    ManifestWindowSeconds: Optional[int] = None
+    FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
+    MinUpdatePeriodSeconds: Optional[int] = None
+    MinBufferTimeSeconds: Optional[int] = None
+    SuggestedPresentationDelaySeconds: Optional[int] = None
+    SegmentTemplateFormat: Optional[Literal["NUMBER_WITH_TIMELINE"]] = None
+    PeriodTriggers: Optional[Sequence[DashPeriodTriggerType]] = None
+    ScteDash: Optional[ScteDashTypeDef] = None
+    DrmSignaling: Optional[DashDrmSignalingType] = None
+    UtcTiming: Optional[DashUtcTimingTypeDef] = None
+
+
+class CreateHlsManifestConfigurationTypeDef(BaseValidatorModel):
+    ManifestName: str
+    ChildManifestName: Optional[str] = None
+    ScteHls: Optional[ScteHlsTypeDef] = None
+    StartTag: Optional[StartTagTypeDef] = None
+    ManifestWindowSeconds: Optional[int] = None
+    ProgramDateTimeIntervalSeconds: Optional[int] = None
+    FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
+
+
+class CreateLowLatencyHlsManifestConfigurationTypeDef(BaseValidatorModel):
+    ManifestName: str
+    ChildManifestName: Optional[str] = None
+    ScteHls: Optional[ScteHlsTypeDef] = None
+    StartTag: Optional[StartTagTypeDef] = None
+    ManifestWindowSeconds: Optional[int] = None
+    ProgramDateTimeIntervalSeconds: Optional[int] = None
+    FilterConfiguration: Optional[FilterConfigurationUnionTypeDef] = None
+
+
+class ListHarvestJobsResponseTypeDef(BaseValidatorModel):
+    Items: List[HarvestJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
+
+class HarvestedManifestsUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class HarvesterScheduleConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateHarvestJobRequestTypeDef(BaseValidatorModel):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    HarvestedManifests: HarvestedManifestsUnionTypeDef
+    ScheduleConfiguration: HarvesterScheduleConfigurationUnionTypeDef
+    Destination: DestinationTypeDef
+    Description: Optional[str] = None
+    ClientToken: Optional[str] = None
+    HarvestJobName: Optional[str] = None
+    Tags: Optional[Mapping[str, str]] = None
+
 
 class CreateOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -463,6 +738,7 @@ class CreateOriginEndpointResponseTypeDef(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
     ChannelGroupName: str
@@ -481,6 +757,7 @@ class GetOriginEndpointResponseTypeDef(BaseValidatorModel):
     ETag: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateOriginEndpointResponseTypeDef(BaseValidatorModel):
     Arn: str
@@ -501,32 +778,43 @@ class UpdateOriginEndpointResponseTypeDef(BaseValidatorModel):
     DashManifests: List[GetDashManifestConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
+
+class ForceEndpointErrorConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class SegmentUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateOriginEndpointRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
     ContainerType: ContainerTypeType
-    Segment: Optional[SegmentTypeDef] = None
+    Segment: Optional[SegmentUnionTypeDef] = None
     ClientToken: Optional[str] = None
     Description: Optional[str] = None
     StartoverWindowSeconds: Optional[int] = None
     HlsManifests: Optional[Sequence[CreateHlsManifestConfigurationTypeDef]] = None
-    LowLatencyHlsManifests: Optional[       Sequence[CreateLowLatencyHlsManifestConfigurationTypeDef]     ] = None
+    LowLatencyHlsManifests: Optional[Sequence[CreateLowLatencyHlsManifestConfigurationTypeDef]] = None
     DashManifests: Optional[Sequence[CreateDashManifestConfigurationTypeDef]] = None
-    ForceEndpointErrorConfiguration: Optional[ForceEndpointErrorConfigurationTypeDef] = None
+    ForceEndpointErrorConfiguration: Optional[ForceEndpointErrorConfigurationUnionTypeDef] = None
     Tags: Optional[Mapping[str, str]] = None
 
-class UpdateOriginEndpointRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateOriginEndpointRequestTypeDef(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
     ContainerType: ContainerTypeType
-    Segment: Optional[SegmentTypeDef] = None
+    Segment: Optional[SegmentUnionTypeDef] = None
     Description: Optional[str] = None
     StartoverWindowSeconds: Optional[int] = None
     HlsManifests: Optional[Sequence[CreateHlsManifestConfigurationTypeDef]] = None
-    LowLatencyHlsManifests: Optional[       Sequence[CreateLowLatencyHlsManifestConfigurationTypeDef]     ] = None
+    LowLatencyHlsManifests: Optional[Sequence[CreateLowLatencyHlsManifestConfigurationTypeDef]] = None
     DashManifests: Optional[Sequence[CreateDashManifestConfigurationTypeDef]] = None
-    ForceEndpointErrorConfiguration: Optional[ForceEndpointErrorConfigurationTypeDef] = None
+    ForceEndpointErrorConfiguration: Optional[ForceEndpointErrorConfigurationUnionTypeDef] = None
     ETag: Optional[str] = None
+
 

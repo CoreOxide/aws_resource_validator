@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,39 +12,52 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iotsecuretunneling_constants import *
 
-class CloseTunnelRequestRequestTypeDef(BaseValidatorModel):
+class CloseTunnelRequestTypeDef(BaseValidatorModel):
     tunnelId: str
     delete: Optional[bool] = None
+
 
 class ConnectionStateTypeDef(BaseValidatorModel):
     status: Optional[ConnectionStatusType] = None
     lastUpdatedAt: Optional[datetime] = None
 
-class DescribeTunnelRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeTunnelRequestTypeDef(BaseValidatorModel):
     tunnelId: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class DestinationConfigTypeDef(BaseValidatorModel):
+
+class DestinationConfigOutputTypeDef(BaseValidatorModel):
     services: List[str]
     thingName: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class DestinationConfigTypeDef(BaseValidatorModel):
+    services: Sequence[str]
+    thingName: Optional[str] = None
+
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
+
 
 class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
 
-class ListTunnelsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTunnelsRequestTypeDef(BaseValidatorModel):
     thingName: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class TunnelSummaryTypeDef(BaseValidatorModel):
     tunnelId: Optional[str] = None
@@ -53,12 +67,15 @@ class TunnelSummaryTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
 
+
 class TimeoutConfigTypeDef(BaseValidatorModel):
     maxLifetimeTimeoutMinutes: Optional[int] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
+
 
 class OpenTunnelResponseTypeDef(BaseValidatorModel):
     tunnelId: str
@@ -67,35 +84,29 @@ class OpenTunnelResponseTypeDef(BaseValidatorModel):
     destinationAccessToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class RotateTunnelAccessTokenResponseTypeDef(BaseValidatorModel):
     tunnelArn: str
     sourceAccessToken: str
     destinationAccessToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class RotateTunnelAccessTokenRequestRequestTypeDef(BaseValidatorModel):
-    tunnelId: str
-    clientMode: ClientModeType
-    destinationConfig: Optional[DestinationConfigTypeDef] = None
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
 
+
 class ListTunnelsResponseTypeDef(BaseValidatorModel):
     tunnelSummaries: List[TunnelSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class OpenTunnelRequestRequestTypeDef(BaseValidatorModel):
-    description: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
-    destinationConfig: Optional[DestinationConfigTypeDef] = None
-    timeoutConfig: Optional[TimeoutConfigTypeDef] = None
 
 class TunnelTypeDef(BaseValidatorModel):
     tunnelId: Optional[str] = None
@@ -104,13 +115,32 @@ class TunnelTypeDef(BaseValidatorModel):
     sourceConnectionState: Optional[ConnectionStateTypeDef] = None
     destinationConnectionState: Optional[ConnectionStateTypeDef] = None
     description: Optional[str] = None
-    destinationConfig: Optional[DestinationConfigTypeDef] = None
+    destinationConfig: Optional[DestinationConfigOutputTypeDef] = None
     timeoutConfig: Optional[TimeoutConfigTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
 
+
+class DestinationConfigUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class OpenTunnelRequestTypeDef(BaseValidatorModel):
+    description: Optional[str] = None
+    tags: Optional[Sequence[TagTypeDef]] = None
+    destinationConfig: Optional[DestinationConfigUnionTypeDef] = None
+    timeoutConfig: Optional[TimeoutConfigTypeDef] = None
+
+
+class RotateTunnelAccessTokenRequestTypeDef(BaseValidatorModel):
+    tunnelId: str
+    clientMode: ClientModeType
+    destinationConfig: Optional[DestinationConfigUnionTypeDef] = None
+
+
 class DescribeTunnelResponseTypeDef(BaseValidatorModel):
     tunnel: TunnelTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 

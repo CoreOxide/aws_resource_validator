@@ -1,6 +1,15 @@
 from typing import Literal, Union, Optional, List, Dict, Any, Sequence, Mapping, IO
 from datetime import datetime
 
+AIAgentAssociationConfigurationTypeType = Literal["KNOWLEDGE_BASE"]
+AIAgentTypeType = Literal["ANSWER_RECOMMENDATION", "MANUAL_SEARCH", "SELF_SERVICE"]
+AIPromptAPIFormatType = Literal["ANTHROPIC_CLAUDE_MESSAGES", "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS"]
+AIPromptTemplateTypeType = Literal["TEXT"]
+AIPromptTypeType = Literal["ANSWER_GENERATION",
+    "INTENT_LABELING_GENERATION",
+    "QUERY_REFORMULATION",
+    "SELF_SERVICE_ANSWER_GENERATION",
+    "SELF_SERVICE_PRE_PROCESSING",]
 AssistantCapabilityTypeType = Literal["V1", "V2"]
 AssistantStatusType = Literal["ACTIVE",
     "CREATE_FAILED",
@@ -10,7 +19,10 @@ AssistantStatusType = Literal["ACTIVE",
     "DELETE_IN_PROGRESS",]
 AssistantTypeType = Literal["AGENT"]
 AssociationTypeType = Literal["KNOWLEDGE_BASE"]
+ChannelSubtypeType = Literal["EMAIL", "SMS"]
+ChunkingStrategyType = Literal["FIXED_SIZE", "HIERARCHICAL", "NONE", "SEMANTIC"]
 ContentAssociationTypeType = Literal["AMAZON_CONNECT_GUIDE"]
+ContentDispositionType = Literal["ATTACHMENT"]
 ContentStatusType = Literal["ACTIVE",
     "CREATE_FAILED",
     "CREATE_IN_PROGRESS",
@@ -18,31 +30,87 @@ ContentStatusType = Literal["ACTIVE",
     "DELETE_FAILED",
     "DELETE_IN_PROGRESS",
     "UPDATE_FAILED",]
+ConversationStatusReasonType = Literal["FAILED", "REJECTED", "SUCCESS"]
+ConversationStatusType = Literal["CLOSED", "PROCESSING", "READY"]
 ExternalSourceType = Literal["AMAZON_CONNECT"]
 FilterFieldType = Literal["NAME"]
 FilterOperatorType = Literal["EQUALS"]
+GuardrailContentFilterTypeType = Literal["HATE", "INSULTS", "MISCONDUCT", "PROMPT_ATTACK", "SEXUAL", "VIOLENCE"]
+GuardrailContextualGroundingFilterTypeType = Literal["GROUNDING", "RELEVANCE"]
+GuardrailFilterStrengthType = Literal["HIGH", "LOW", "MEDIUM", "NONE"]
+GuardrailManagedWordsTypeType = Literal["PROFANITY"]
+GuardrailPiiEntityTypeType = Literal["ADDRESS",
+    "AGE",
+    "AWS_ACCESS_KEY",
+    "AWS_SECRET_KEY",
+    "CA_HEALTH_NUMBER",
+    "CA_SOCIAL_INSURANCE_NUMBER",
+    "CREDIT_DEBIT_CARD_CVV",
+    "CREDIT_DEBIT_CARD_EXPIRY",
+    "CREDIT_DEBIT_CARD_NUMBER",
+    "DRIVER_ID",
+    "EMAIL",
+    "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+    "IP_ADDRESS",
+    "LICENSE_PLATE",
+    "MAC_ADDRESS",
+    "NAME",
+    "PASSWORD",
+    "PHONE",
+    "PIN",
+    "SWIFT_CODE",
+    "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+    "UK_NATIONAL_INSURANCE_NUMBER",
+    "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+    "URL",
+    "USERNAME",
+    "US_BANK_ACCOUNT_NUMBER",
+    "US_BANK_ROUTING_NUMBER",
+    "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+    "US_PASSPORT_NUMBER",
+    "US_SOCIAL_SECURITY_NUMBER",
+    "VEHICLE_IDENTIFICATION_NUMBER",]
+GuardrailSensitiveInformationActionType = Literal["ANONYMIZE", "BLOCK"]
+GuardrailTopicTypeType = Literal["DENY"]
 ImportJobStatusType = Literal["COMPLETE", "DELETED", "DELETE_FAILED", "DELETE_IN_PROGRESS", "FAILED", "START_IN_PROGRESS"]
 ImportJobTypeType = Literal["QUICK_RESPONSES"]
+KnowledgeBaseSearchTypeType = Literal["HYBRID", "SEMANTIC"]
 KnowledgeBaseStatusType = Literal["ACTIVE",
     "CREATE_FAILED",
     "CREATE_IN_PROGRESS",
     "DELETED",
     "DELETE_FAILED",
     "DELETE_IN_PROGRESS",]
-KnowledgeBaseTypeType = Literal["CUSTOM", "EXTERNAL", "QUICK_RESPONSES"]
+KnowledgeBaseTypeType = Literal["CUSTOM", "EXTERNAL", "MANAGED", "MESSAGE_TEMPLATES", "QUICK_RESPONSES"]
+ListAIAgentVersionsPaginatorName = Literal["list_ai_agent_versions"]
+ListAIAgentsPaginatorName = Literal["list_ai_agents"]
+ListAIGuardrailVersionsPaginatorName = Literal["list_ai_guardrail_versions"]
+ListAIGuardrailsPaginatorName = Literal["list_ai_guardrails"]
+ListAIPromptVersionsPaginatorName = Literal["list_ai_prompt_versions"]
+ListAIPromptsPaginatorName = Literal["list_ai_prompts"]
 ListAssistantAssociationsPaginatorName = Literal["list_assistant_associations"]
 ListAssistantsPaginatorName = Literal["list_assistants"]
 ListContentAssociationsPaginatorName = Literal["list_content_associations"]
 ListContentsPaginatorName = Literal["list_contents"]
 ListImportJobsPaginatorName = Literal["list_import_jobs"]
 ListKnowledgeBasesPaginatorName = Literal["list_knowledge_bases"]
+ListMessageTemplateVersionsPaginatorName = Literal["list_message_template_versions"]
+ListMessageTemplatesPaginatorName = Literal["list_message_templates"]
+ListMessagesPaginatorName = Literal["list_messages"]
 ListQuickResponsesPaginatorName = Literal["list_quick_responses"]
+MessageTemplateAttributeTypeType = Literal["AGENT", "CUSTOM", "CUSTOMER_PROFILE", "SYSTEM"]
+MessageTemplateFilterOperatorType = Literal["EQUALS", "PREFIX"]
+MessageTemplateQueryOperatorType = Literal["CONTAINS", "CONTAINS_AND_PREFIX"]
+MessageTypeType = Literal["TEXT"]
 OrderType = Literal["ASC", "DESC"]
+OriginType = Literal["CUSTOMER", "SYSTEM"]
+ParsingStrategyType = Literal["BEDROCK_FOUNDATION_MODEL"]
+ParticipantType = Literal["AGENT", "BOT", "CUSTOMER"]
 PriorityType = Literal["HIGH", "LOW", "MEDIUM"]
 QueryAssistantPaginatorName = Literal["query_assistant"]
 QueryConditionComparisonOperatorType = Literal["EQUALS"]
 QueryConditionFieldNameType = Literal["RESULT_TYPE"]
-QueryResultTypeType = Literal["GENERATIVE_ANSWER", "KNOWLEDGE_CONTENT"]
+QueryResultTypeType = Literal["GENERATIVE_ANSWER", "INTENT_ANSWER", "KNOWLEDGE_CONTENT"]
 QuickResponseFilterOperatorType = Literal["EQUALS", "PREFIX"]
 QuickResponseQueryOperatorType = Literal["CONTAINS", "CONTAINS_AND_PREFIX"]
 QuickResponseStatusType = Literal["CREATED",
@@ -55,14 +123,26 @@ QuickResponseStatusType = Literal["CREATED",
     "UPDATE_IN_PROGRESS",]
 RecommendationSourceTypeType = Literal["ISSUE_DETECTION", "OTHER", "RULE_EVALUATION"]
 RecommendationTriggerTypeType = Literal["GENERATIVE", "QUERY"]
-RecommendationTypeType = Literal["GENERATIVE_ANSWER", "GENERATIVE_RESPONSE", "KNOWLEDGE_CONTENT"]
+RecommendationTypeType = Literal["DETECTED_INTENT", "GENERATIVE_ANSWER", "GENERATIVE_RESPONSE", "KNOWLEDGE_CONTENT"]
+ReferenceTypeType = Literal["KNOWLEDGE_BASE", "WEB_CRAWLER"]
 RelevanceLevelType = Literal["HIGH", "LOW", "MEDIUM"]
 RelevanceType = Literal["HELPFUL", "NOT_HELPFUL"]
 SearchContentPaginatorName = Literal["search_content"]
+SearchMessageTemplatesPaginatorName = Literal["search_message_templates"]
 SearchQuickResponsesPaginatorName = Literal["search_quick_responses"]
 SearchSessionsPaginatorName = Literal["search_sessions"]
+SessionDataNamespaceType = Literal["Custom"]
 SourceContentTypeType = Literal["KNOWLEDGE_CONTENT"]
+StatusType = Literal["ACTIVE",
+    "CREATE_FAILED",
+    "CREATE_IN_PROGRESS",
+    "DELETED",
+    "DELETE_FAILED",
+    "DELETE_IN_PROGRESS",]
+SyncStatusType = Literal["CREATE_IN_PROGRESS", "SYNCING_IN_PROGRESS", "SYNC_FAILED", "SYNC_SUCCESS"]
 TargetTypeType = Literal["RECOMMENDATION", "RESULT"]
+VisibilityStatusType = Literal["PUBLISHED", "SAVED"]
+WebScopeTypeType = Literal["HOST_ONLY", "SUBDOMAINS"]
 QConnectServiceName = Literal["qconnect"]
 ServiceName = Literal["accessanalyzer",
     "account",
@@ -98,12 +178,17 @@ ServiceName = Literal["accessanalyzer",
     "b2bi",
     "backup",
     "backup-gateway",
+    "backupsearch",
     "batch",
     "bcm-data-exports",
+    "bcm-pricing-calculator",
     "bedrock",
     "bedrock-agent",
     "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
     "bedrock-runtime",
+    "billing",
     "billingconductor",
     "braket",
     "budgets",
@@ -140,7 +225,6 @@ ServiceName = Literal["accessanalyzer",
     "codeguru-security",
     "codeguruprofiler",
     "codepipeline",
-    "codestar",
     "codestar-connections",
     "codestar-notifications",
     "cognito-identity",
@@ -153,6 +237,7 @@ ServiceName = Literal["accessanalyzer",
     "connect",
     "connect-contact-lens",
     "connectcampaigns",
+    "connectcampaignsv2",
     "connectcases",
     "connectparticipant",
     "controlcatalog",
@@ -178,6 +263,8 @@ ServiceName = Literal["accessanalyzer",
     "docdb-elastic",
     "drs",
     "ds",
+    "ds-data",
+    "dsql",
     "dynamodb",
     "dynamodbstreams",
     "ebs",
@@ -189,7 +276,6 @@ ServiceName = Literal["accessanalyzer",
     "efs",
     "eks",
     "eks-auth",
-    "elastic-inference",
     "elasticache",
     "elasticbeanstalk",
     "elastictranscoder",
@@ -213,6 +299,9 @@ ServiceName = Literal["accessanalyzer",
     "freetier",
     "fsx",
     "gamelift",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
     "glacier",
     "globalaccelerator",
     "glue",
@@ -231,11 +320,10 @@ ServiceName = Literal["accessanalyzer",
     "inspector-scan",
     "inspector2",
     "internetmonitor",
+    "invoicing",
     "iot",
     "iot-data",
     "iot-jobs-data",
-    "iot1click-devices",
-    "iot1click-projects",
     "iotanalytics",
     "iotdeviceadvisor",
     "iotevents",
@@ -290,6 +378,7 @@ ServiceName = Literal["accessanalyzer",
     "marketplace-catalog",
     "marketplace-deployment",
     "marketplace-entitlement",
+    "marketplace-reporting",
     "marketplacecommerceanalytics",
     "mediaconnect",
     "mediaconvert",
@@ -309,7 +398,6 @@ ServiceName = Literal["accessanalyzer",
     "migrationhub-config",
     "migrationhuborchestrator",
     "migrationhubstrategy",
-    "mobile",
     "mq",
     "mturk",
     "mwaa",
@@ -317,10 +405,13 @@ ServiceName = Literal["accessanalyzer",
     "neptune-graph",
     "neptunedata",
     "network-firewall",
+    "networkflowmonitor",
     "networkmanager",
     "networkmonitor",
-    "nimble",
+    "notifications",
+    "notificationscontacts",
     "oam",
+    "observabilityadmin",
     "omics",
     "opensearch",
     "opensearchserverless",
@@ -330,10 +421,12 @@ ServiceName = Literal["accessanalyzer",
     "osis",
     "outposts",
     "panorama",
+    "partnercentral-selling",
     "payment-cryptography",
     "payment-cryptography-data",
     "pca-connector-ad",
     "pca-connector-scep",
+    "pcs",
     "personalize",
     "personalize-events",
     "personalize-runtime",
@@ -347,6 +440,7 @@ ServiceName = Literal["accessanalyzer",
     "pricing",
     "privatenetworks",
     "proton",
+    "qapps",
     "qbusiness",
     "qconnect",
     "qldb",
@@ -378,6 +472,7 @@ ServiceName = Literal["accessanalyzer",
     "s3",
     "s3control",
     "s3outposts",
+    "s3tables",
     "sagemaker",
     "sagemaker-a2i-runtime",
     "sagemaker-edge",
@@ -390,6 +485,7 @@ ServiceName = Literal["accessanalyzer",
     "schemas",
     "sdb",
     "secretsmanager",
+    "security-ir",
     "securityhub",
     "securitylake",
     "serverlessrepo",
@@ -407,10 +503,12 @@ ServiceName = Literal["accessanalyzer",
     "snow-device-management",
     "snowball",
     "sns",
+    "socialmessaging",
     "sqs",
     "ssm",
     "ssm-contacts",
     "ssm-incidents",
+    "ssm-quicksetup",
     "ssm-sap",
     "sso",
     "sso-admin",
@@ -442,7 +540,6 @@ ServiceName = Literal["accessanalyzer",
     "wellarchitected",
     "wisdom",
     "workdocs",
-    "worklink",
     "workmail",
     "workmailmessageflow",
     "workspaces",
@@ -459,15 +556,25 @@ ResourceServiceName = Literal["cloudformation",
     "s3",
     "sns",
     "sqs",]
-PaginatorName = Literal["list_assistant_associations",
+PaginatorName = Literal["list_ai_agent_versions",
+    "list_ai_agents",
+    "list_ai_guardrail_versions",
+    "list_ai_guardrails",
+    "list_ai_prompt_versions",
+    "list_ai_prompts",
+    "list_assistant_associations",
     "list_assistants",
     "list_content_associations",
     "list_contents",
     "list_import_jobs",
     "list_knowledge_bases",
+    "list_message_template_versions",
+    "list_message_templates",
+    "list_messages",
     "list_quick_responses",
     "query_assistant",
     "search_content",
+    "search_message_templates",
     "search_quick_responses",
     "search_sessions",]
 RegionName = Literal["ap-northeast-1",
@@ -479,6 +586,3 @@ RegionName = Literal["ap-northeast-1",
     "eu-west-2",
     "us-east-1",
     "us-west-2",]
-GroupingConfigurationUnionTypeDef = Union[   'GroupingConfigurationTypeDef', 'GroupingConfigurationExtraOutputTypeDef' ]
-SourceConfigurationUnionTypeDef = Union[   'SourceConfigurationTypeDef', 'SourceConfigurationExtraOutputTypeDef' ]
-TagFilterUnionTypeDef = Union['TagFilterTypeDef', 'TagFilterOutputTypeDef']

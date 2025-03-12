@@ -1,8 +1,6 @@
-from datetime import datetime
-
-from botocore.response import StreamingBody
-
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -19,11 +17,13 @@ class AssetSummaryTypeDef(BaseValidatorModel):
     size: Optional[int] = None
     hashes: Optional[Dict[HashAlgorithmType, str]] = None
 
-class AssociateExternalConnectionRequestRequestTypeDef(BaseValidatorModel):
+
+class AssociateExternalConnectionRequestTypeDef(BaseValidatorModel):
     domain: str
     repository: str
     externalConnection: str
     domainOwner: Optional[str] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -32,36 +32,21 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class AssociatedPackageTypeDef(BaseValidatorModel):
-    format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    package: Optional[str] = None
-    associationType: Optional[PackageGroupAssociationTypeType] = None
-
-class CopyPackageVersionsRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    sourceRepository: str
-    destinationRepository: str
-    format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    versions: Optional[Sequence[str]] = None
-    versionRevisions: Optional[Mapping[str, str]] = None
-    allowOverwrite: Optional[bool] = None
-    includeFromUpstream: Optional[bool] = None
 
 class PackageVersionErrorTypeDef(BaseValidatorModel):
     errorCode: Optional[PackageVersionErrorCodeType] = None
     errorMessage: Optional[str] = None
 
+
 class SuccessfulPackageVersionInfoTypeDef(BaseValidatorModel):
     revision: Optional[str] = None
     status: Optional[PackageVersionStatusType] = None
 
+
 class TagTypeDef(BaseValidatorModel):
     key: str
     value: str
+
 
 class DomainDescriptionTypeDef(BaseValidatorModel):
     name: Optional[str] = None
@@ -74,108 +59,75 @@ class DomainDescriptionTypeDef(BaseValidatorModel):
     assetSizeBytes: Optional[int] = None
     s3BucketArn: Optional[str] = None
 
+
 class UpstreamRepositoryTypeDef(BaseValidatorModel):
     repositoryName: str
 
-class DeleteDomainPermissionsPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDomainPermissionsPolicyRequestTypeDef(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
     policyRevision: Optional[str] = None
+
 
 class ResourcePolicyTypeDef(BaseValidatorModel):
     resourceArn: Optional[str] = None
     revision: Optional[str] = None
     document: Optional[str] = None
 
-class DeleteDomainRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteDomainRequestTypeDef(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
 
-class DeletePackageGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DeletePackageGroupRequestTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
 
-class DeletePackageRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
 
-class DeletePackageVersionsRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    versions: Sequence[str]
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    expectedStatus: Optional[PackageVersionStatusType] = None
-
-class DeleteRepositoryPermissionsPolicyRequestRequestTypeDef(BaseValidatorModel):
+class DeleteRepositoryPermissionsPolicyRequestTypeDef(BaseValidatorModel):
     domain: str
     repository: str
     domainOwner: Optional[str] = None
     policyRevision: Optional[str] = None
 
-class DeleteRepositoryRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRepositoryRequestTypeDef(BaseValidatorModel):
     domain: str
     repository: str
     domainOwner: Optional[str] = None
 
-class DescribeDomainRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribeDomainRequestTypeDef(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
 
-class DescribePackageGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DescribePackageGroupRequestTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
 
-class DescribePackageRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
 
-class DescribePackageVersionRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    packageVersion: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-
-class DescribeRepositoryRequestRequestTypeDef(BaseValidatorModel):
+class DescribeRepositoryRequestTypeDef(BaseValidatorModel):
     domain: str
     repository: str
     domainOwner: Optional[str] = None
 
-class DisassociateExternalConnectionRequestRequestTypeDef(BaseValidatorModel):
+
+class DisassociateExternalConnectionRequestTypeDef(BaseValidatorModel):
     domain: str
     repository: str
     externalConnection: str
     domainOwner: Optional[str] = None
 
-class DisposePackageVersionsRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    versions: Sequence[str]
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    versionRevisions: Optional[Mapping[str, str]] = None
-    expectedStatus: Optional[PackageVersionStatusType] = None
 
 class DomainEntryPointTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     externalConnectionName: Optional[str] = None
+
 
 class DomainSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
@@ -185,63 +137,36 @@ class DomainSummaryTypeDef(BaseValidatorModel):
     createdTime: Optional[datetime] = None
     encryptionKey: Optional[str] = None
 
-class GetAssociatedPackageGroupRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
 
-class GetAuthorizationTokenRequestRequestTypeDef(BaseValidatorModel):
+class GetAuthorizationTokenRequestTypeDef(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
     durationSeconds: Optional[int] = None
 
-class GetDomainPermissionsPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetDomainPermissionsPolicyRequestTypeDef(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
 
-class GetPackageVersionAssetRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    packageVersion: str
-    asset: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    packageVersionRevision: Optional[str] = None
 
-class GetPackageVersionReadmeRequestRequestTypeDef(BaseValidatorModel):
+class GetRepositoryPermissionsPolicyRequestTypeDef(BaseValidatorModel):
     domain: str
     repository: str
-    format: PackageFormatType
-    package: str
-    packageVersion: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-
-class GetRepositoryEndpointRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
     domainOwner: Optional[str] = None
 
-class GetRepositoryPermissionsPolicyRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
 
 class LicenseInfoTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     url: Optional[str] = None
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListAllowedRepositoriesForGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAllowedRepositoriesForGroupRequestTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     originRestrictionType: PackageGroupOriginRestrictionTypeType
@@ -249,7 +174,8 @@ class ListAllowedRepositoriesForGroupRequestRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListAssociatedPackagesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListAssociatedPackagesRequestTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
@@ -257,37 +183,19 @@ class ListAssociatedPackagesRequestRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     preview: Optional[bool] = None
 
-class ListDomainsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListDomainsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListPackageGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListPackageGroupsRequestTypeDef(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     prefix: Optional[str] = None
 
-class ListPackageVersionAssetsRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    packageVersion: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-
-class ListPackageVersionDependenciesRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    packageVersion: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    nextToken: Optional[str] = None
 
 class PackageDependencyTypeDef(BaseValidatorModel):
     namespace: Optional[str] = None
@@ -295,38 +203,15 @@ class PackageDependencyTypeDef(BaseValidatorModel):
     dependencyType: Optional[str] = None
     versionRequirement: Optional[str] = None
 
-class ListPackageVersionsRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    status: Optional[PackageVersionStatusType] = None
-    sortBy: Optional[Literal["PUBLISHED_TIME"]] = None
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    originType: Optional[PackageVersionOriginTypeType] = None
 
-class ListPackagesRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
-    format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    packagePrefix: Optional[str] = None
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    publish: Optional[AllowPublishType] = None
-    upstream: Optional[AllowUpstreamType] = None
-
-class ListRepositoriesInDomainRequestRequestTypeDef(BaseValidatorModel):
+class ListRepositoriesInDomainRequestTypeDef(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
     administratorAccount: Optional[str] = None
     repositoryPrefix: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
+
 
 class RepositorySummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
@@ -337,81 +222,83 @@ class RepositorySummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     createdTime: Optional[datetime] = None
 
-class ListRepositoriesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRepositoriesRequestTypeDef(BaseValidatorModel):
     repositoryPrefix: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListSubPackageGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSubPackageGroupsRequestTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
+
 
 class PackageGroupAllowedRepositoryTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
     originRestrictionType: Optional[PackageGroupOriginRestrictionTypeType] = None
 
+
 class PackageGroupReferenceTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     pattern: Optional[str] = None
+
 
 class PackageOriginRestrictionsTypeDef(BaseValidatorModel):
     publish: AllowPublishType
     upstream: AllowUpstreamType
 
-class PutDomainPermissionsPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutDomainPermissionsPolicyRequestTypeDef(BaseValidatorModel):
     domain: str
     policyDocument: str
     domainOwner: Optional[str] = None
     policyRevision: Optional[str] = None
 
-class PutRepositoryPermissionsPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class PutRepositoryPermissionsPolicyRequestTypeDef(BaseValidatorModel):
     domain: str
     repository: str
     policyDocument: str
     domainOwner: Optional[str] = None
     policyRevision: Optional[str] = None
+
 
 class RepositoryExternalConnectionInfoTypeDef(BaseValidatorModel):
     externalConnectionName: Optional[str] = None
     packageFormat: Optional[PackageFormatType] = None
     status: Optional[Literal["Available"]] = None
 
+
 class UpstreamRepositoryInfoTypeDef(BaseValidatorModel):
     repositoryName: Optional[str] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
-class UpdatePackageGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdatePackageGroupRequestTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
     contactInfo: Optional[str] = None
     description: Optional[str] = None
 
-class UpdatePackageVersionsStatusRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    versions: Sequence[str]
-    targetStatus: PackageVersionStatusType
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    versionRevisions: Optional[Mapping[str, str]] = None
-    expectedStatus: Optional[PackageVersionStatusType] = None
 
 class GetAuthorizationTokenResultTypeDef(BaseValidatorModel):
     authorizationToken: str
     expiration: datetime
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetPackageVersionAssetResultTypeDef(BaseValidatorModel):
     asset: StreamingBody
@@ -420,88 +307,59 @@ class GetPackageVersionAssetResultTypeDef(BaseValidatorModel):
     packageVersionRevision: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetPackageVersionReadmeResultTypeDef(BaseValidatorModel):
-    format: PackageFormatType
-    namespace: str
-    package: str
-    version: str
-    versionRevision: str
-    readme: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class GetRepositoryEndpointResultTypeDef(BaseValidatorModel):
     repositoryEndpoint: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListAllowedRepositoriesForGroupResultTypeDef(BaseValidatorModel):
     allowedRepositories: List[str]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class ListPackageVersionAssetsResultTypeDef(BaseValidatorModel):
-    format: PackageFormatType
-    namespace: str
-    package: str
-    version: str
-    versionRevision: str
-    nextToken: str
-    assets: List[AssetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
-class PublishPackageVersionResultTypeDef(BaseValidatorModel):
-    format: PackageFormatType
-    namespace: str
-    package: str
-    version: str
-    versionRevision: str
-    status: PackageVersionStatusType
-    asset: AssetSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociatedPackageTypeDef(BaseValidatorModel):
+    pass
+
 
 class ListAssociatedPackagesResultTypeDef(BaseValidatorModel):
     packages: List[AssociatedPackageTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class PublishPackageVersionRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    packageVersion: str
-    assetContent: BlobTypeDef
-    assetName: str
-    assetSHA256: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    unfinished: Optional[bool] = None
 
 class CopyPackageVersionsResultTypeDef(BaseValidatorModel):
     successfulVersions: Dict[str, SuccessfulPackageVersionInfoTypeDef]
     failedVersions: Dict[str, PackageVersionErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeletePackageVersionsResultTypeDef(BaseValidatorModel):
     successfulVersions: Dict[str, SuccessfulPackageVersionInfoTypeDef]
     failedVersions: Dict[str, PackageVersionErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DisposePackageVersionsResultTypeDef(BaseValidatorModel):
     successfulVersions: Dict[str, SuccessfulPackageVersionInfoTypeDef]
     failedVersions: Dict[str, PackageVersionErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdatePackageVersionsStatusResultTypeDef(BaseValidatorModel):
     successfulVersions: Dict[str, SuccessfulPackageVersionInfoTypeDef]
     failedVersions: Dict[str, PackageVersionErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateDomainRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateDomainRequestTypeDef(BaseValidatorModel):
     domain: str
     encryptionKey: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreatePackageGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class CreatePackageGroupRequestTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
@@ -509,27 +367,33 @@ class CreatePackageGroupRequestRequestTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
+
 class ListTagsForResourceResultTypeDef(BaseValidatorModel):
     tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Sequence[TagTypeDef]
+
 
 class CreateDomainResultTypeDef(BaseValidatorModel):
     domain: DomainDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteDomainResultTypeDef(BaseValidatorModel):
     domain: DomainDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeDomainResultTypeDef(BaseValidatorModel):
     domain: DomainDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRepositoryRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRepositoryRequestTypeDef(BaseValidatorModel):
     domain: str
     repository: str
     domainOwner: Optional[str] = None
@@ -537,146 +401,123 @@ class CreateRepositoryRequestRequestTypeDef(BaseValidatorModel):
     upstreams: Optional[Sequence[UpstreamRepositoryTypeDef]] = None
     tags: Optional[Sequence[TagTypeDef]] = None
 
-class UpdateRepositoryRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRepositoryRequestTypeDef(BaseValidatorModel):
     domain: str
     repository: str
     domainOwner: Optional[str] = None
     description: Optional[str] = None
     upstreams: Optional[Sequence[UpstreamRepositoryTypeDef]] = None
 
+
 class DeleteDomainPermissionsPolicyResultTypeDef(BaseValidatorModel):
     policy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteRepositoryPermissionsPolicyResultTypeDef(BaseValidatorModel):
     policy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetDomainPermissionsPolicyResultTypeDef(BaseValidatorModel):
     policy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetRepositoryPermissionsPolicyResultTypeDef(BaseValidatorModel):
     policy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutDomainPermissionsPolicyResultTypeDef(BaseValidatorModel):
     policy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PutRepositoryPermissionsPolicyResultTypeDef(BaseValidatorModel):
     policy: ResourcePolicyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PackageVersionOriginTypeDef(BaseValidatorModel):
     domainEntryPoint: Optional[DomainEntryPointTypeDef] = None
     originType: Optional[PackageVersionOriginTypeType] = None
 
+
 class ListDomainsResultTypeDef(BaseValidatorModel):
     domains: List[DomainSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class ListAllowedRepositoriesForGroupRequestListAllowedRepositoriesForGroupPaginateTypeDef(BaseValidatorModel):
+
+class ListAllowedRepositoriesForGroupRequestPaginateTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     originRestrictionType: PackageGroupOriginRestrictionTypeType
     domainOwner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListAssociatedPackagesRequestListAssociatedPackagesPaginateTypeDef(BaseValidatorModel):
+
+class ListAssociatedPackagesRequestPaginateTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
     preview: Optional[bool] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListDomainsRequestListDomainsPaginateTypeDef(BaseValidatorModel):
+
+class ListDomainsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPackageGroupsRequestListPackageGroupsPaginateTypeDef(BaseValidatorModel):
+
+class ListPackageGroupsRequestPaginateTypeDef(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
     prefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPackageVersionAssetsRequestListPackageVersionAssetsPaginateTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    packageVersion: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPackageVersionsRequestListPackageVersionsPaginateTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
-    status: Optional[PackageVersionStatusType] = None
-    sortBy: Optional[Literal["PUBLISHED_TIME"]] = None
-    originType: Optional[PackageVersionOriginTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class ListPackagesRequestListPackagesPaginateTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    domainOwner: Optional[str] = None
-    format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    packagePrefix: Optional[str] = None
-    publish: Optional[AllowPublishType] = None
-    upstream: Optional[AllowUpstreamType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-class ListRepositoriesInDomainRequestListRepositoriesInDomainPaginateTypeDef(BaseValidatorModel):
+class ListRepositoriesInDomainRequestPaginateTypeDef(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
     administratorAccount: Optional[str] = None
     repositoryPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRepositoriesRequestListRepositoriesPaginateTypeDef(BaseValidatorModel):
+
+class ListRepositoriesRequestPaginateTypeDef(BaseValidatorModel):
     repositoryPrefix: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubPackageGroupsRequestListSubPackageGroupsPaginateTypeDef(BaseValidatorModel):
+
+class ListSubPackageGroupsRequestPaginateTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListPackageVersionDependenciesResultTypeDef(BaseValidatorModel):
-    format: PackageFormatType
-    namespace: str
-    package: str
-    version: str
-    versionRevision: str
-    nextToken: str
-    dependencies: List[PackageDependencyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class ListRepositoriesInDomainResultTypeDef(BaseValidatorModel):
     repositories: List[RepositorySummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListRepositoriesResultTypeDef(BaseValidatorModel):
     repositories: List[RepositorySummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
 
-class UpdatePackageGroupOriginConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdatePackageGroupOriginConfigurationRequestTypeDef(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
-    restrictions: Optional[Mapping[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionModeType]] = None
+    restrictions: Optional[ Mapping[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionModeType] ] = None
     addAllowedRepositories: Optional[Sequence[PackageGroupAllowedRepositoryTypeDef]] = None
     removeAllowedRepositories: Optional[Sequence[PackageGroupAllowedRepositoryTypeDef]] = None
+
 
 class PackageGroupOriginRestrictionTypeDef(BaseValidatorModel):
     mode: Optional[PackageGroupOriginRestrictionModeType] = None
@@ -684,17 +525,10 @@ class PackageGroupOriginRestrictionTypeDef(BaseValidatorModel):
     inheritedFrom: Optional[PackageGroupReferenceTypeDef] = None
     repositoriesCount: Optional[int] = None
 
+
 class PackageOriginConfigurationTypeDef(BaseValidatorModel):
     restrictions: Optional[PackageOriginRestrictionsTypeDef] = None
 
-class PutPackageOriginConfigurationRequestRequestTypeDef(BaseValidatorModel):
-    domain: str
-    repository: str
-    format: PackageFormatType
-    package: str
-    restrictions: PackageOriginRestrictionsTypeDef
-    domainOwner: Optional[str] = None
-    namespace: Optional[str] = None
 
 class RepositoryDescriptionTypeDef(BaseValidatorModel):
     name: Optional[str] = None
@@ -707,20 +541,6 @@ class RepositoryDescriptionTypeDef(BaseValidatorModel):
     externalConnections: Optional[List[RepositoryExternalConnectionInfoTypeDef]] = None
     createdTime: Optional[datetime] = None
 
-class PackageVersionDescriptionTypeDef(BaseValidatorModel):
-    format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    packageName: Optional[str] = None
-    displayName: Optional[str] = None
-    version: Optional[str] = None
-    summary: Optional[str] = None
-    homePage: Optional[str] = None
-    sourceCodeRepository: Optional[str] = None
-    publishedTime: Optional[datetime] = None
-    licenses: Optional[List[LicenseInfoTypeDef]] = None
-    revision: Optional[str] = None
-    status: Optional[PackageVersionStatusType] = None
-    origin: Optional[PackageVersionOriginTypeDef] = None
 
 class PackageVersionSummaryTypeDef(BaseValidatorModel):
     version: str
@@ -728,61 +548,54 @@ class PackageVersionSummaryTypeDef(BaseValidatorModel):
     revision: Optional[str] = None
     origin: Optional[PackageVersionOriginTypeDef] = None
 
+
 class PackageGroupOriginConfigurationTypeDef(BaseValidatorModel):
-    restrictions: Optional[       Dict[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionTypeDef] ]= None
+    restrictions: Optional[ Dict[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionTypeDef] ] = None
 
-class PackageDescriptionTypeDef(BaseValidatorModel):
-    format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    name: Optional[str] = None
-    originConfiguration: Optional[PackageOriginConfigurationTypeDef] = None
-
-class PackageSummaryTypeDef(BaseValidatorModel):
-    format: Optional[PackageFormatType] = None
-    namespace: Optional[str] = None
-    package: Optional[str] = None
-    originConfiguration: Optional[PackageOriginConfigurationTypeDef] = None
 
 class PutPackageOriginConfigurationResultTypeDef(BaseValidatorModel):
     originConfiguration: PackageOriginConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class AssociateExternalConnectionResultTypeDef(BaseValidatorModel):
     repository: RepositoryDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateRepositoryResultTypeDef(BaseValidatorModel):
     repository: RepositoryDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteRepositoryResultTypeDef(BaseValidatorModel):
     repository: RepositoryDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DescribeRepositoryResultTypeDef(BaseValidatorModel):
     repository: RepositoryDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DisassociateExternalConnectionResultTypeDef(BaseValidatorModel):
     repository: RepositoryDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateRepositoryResultTypeDef(BaseValidatorModel):
     repository: RepositoryDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
+class PackageVersionDescriptionTypeDef(BaseValidatorModel):
+    pass
+
+
 class DescribePackageVersionResultTypeDef(BaseValidatorModel):
     packageVersion: PackageVersionDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPackageVersionsResultTypeDef(BaseValidatorModel):
-    defaultDisplayVersion: str
-    format: PackageFormatType
-    namespace: str
-    package: str
-    versions: List[PackageVersionSummaryTypeDef]
-    nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
 
 class PackageGroupDescriptionTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
@@ -795,6 +608,7 @@ class PackageGroupDescriptionTypeDef(BaseValidatorModel):
     originConfiguration: Optional[PackageGroupOriginConfigurationTypeDef] = None
     parent: Optional[PackageGroupReferenceTypeDef] = None
 
+
 class PackageGroupSummaryTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     pattern: Optional[str] = None
@@ -806,52 +620,72 @@ class PackageGroupSummaryTypeDef(BaseValidatorModel):
     originConfiguration: Optional[PackageGroupOriginConfigurationTypeDef] = None
     parent: Optional[PackageGroupReferenceTypeDef] = None
 
+
+class PackageDescriptionTypeDef(BaseValidatorModel):
+    pass
+
+
 class DescribePackageResultTypeDef(BaseValidatorModel):
     package: PackageDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class PackageSummaryTypeDef(BaseValidatorModel):
+    pass
+
 
 class DeletePackageResultTypeDef(BaseValidatorModel):
     deletedPackage: PackageSummaryTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListPackagesResultTypeDef(BaseValidatorModel):
     packages: List[PackageSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class CreatePackageGroupResultTypeDef(BaseValidatorModel):
     packageGroup: PackageGroupDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeletePackageGroupResultTypeDef(BaseValidatorModel):
     packageGroup: PackageGroupDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DescribePackageGroupResultTypeDef(BaseValidatorModel):
     packageGroup: PackageGroupDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetAssociatedPackageGroupResultTypeDef(BaseValidatorModel):
     packageGroup: PackageGroupDescriptionTypeDef
     associationType: PackageGroupAssociationTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdatePackageGroupOriginConfigurationResultTypeDef(BaseValidatorModel):
     packageGroup: PackageGroupDescriptionTypeDef
-    allowedRepositoryUpdates: List[       PackageGroupOriginRestrictionTypeType]
+    allowedRepositoryUpdates: Dict[ PackageGroupOriginRestrictionTypeType, Dict[PackageGroupAllowedRepositoryUpdateTypeType, List[str]], ]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdatePackageGroupResultTypeDef(BaseValidatorModel):
     packageGroup: PackageGroupDescriptionTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListPackageGroupsResultTypeDef(BaseValidatorModel):
     packageGroups: List[PackageGroupSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 
 class ListSubPackageGroupsResultTypeDef(BaseValidatorModel):
     packageGroups: List[PackageGroupSummaryTypeDef]
-    nextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
 

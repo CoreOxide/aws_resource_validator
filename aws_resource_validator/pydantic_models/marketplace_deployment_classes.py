@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -15,27 +16,33 @@ class DeploymentParameterInputTypeDef(BaseValidatorModel):
     name: str
     secretString: str
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tags: Optional[Mapping[str, str]] = None
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PutDeploymentParameterResponseTypeDef(BaseValidatorModel):
     agreementId: str
@@ -44,7 +51,12 @@ class PutDeploymentParameterResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutDeploymentParameterRequestRequestTypeDef(BaseValidatorModel):
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
+
+class PutDeploymentParameterRequestTypeDef(BaseValidatorModel):
     agreementId: str
     catalog: str
     deploymentParameter: DeploymentParameterInputTypeDef
@@ -52,4 +64,5 @@ class PutDeploymentParameterRequestRequestTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
     expirationDate: Optional[TimestampTypeDef] = None
     tags: Optional[Mapping[str, str]] = None
+
 

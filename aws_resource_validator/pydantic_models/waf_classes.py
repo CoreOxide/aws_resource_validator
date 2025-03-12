@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -14,23 +15,16 @@ from aws_resource_validator.pydantic_models.waf_constants import *
 class ExcludedRuleTypeDef(BaseValidatorModel):
     RuleId: str
 
-class WafActionTypeDef(BaseValidatorModel):
-    Type: WafActionTypeType
-
-class WafOverrideActionTypeDef(BaseValidatorModel):
-    Type: WafOverrideActionTypeType
 
 class ByteMatchSetSummaryTypeDef(BaseValidatorModel):
     ByteMatchSetId: str
     Name: str
 
-class FieldToMatchTypeDef(BaseValidatorModel):
-    Type: MatchFieldTypeType
-    Data: Optional[str] = None
 
-class CreateByteMatchSetRequestRequestTypeDef(BaseValidatorModel):
+class CreateByteMatchSetRequestTypeDef(BaseValidatorModel):
     Name: str
     ChangeToken: str
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -39,328 +33,370 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
-class CreateGeoMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateGeoMatchSetRequestTypeDef(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
-class CreateIPSetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateIPSetRequestTypeDef(BaseValidatorModel):
     Name: str
     ChangeToken: str
+
 
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class CreateRegexMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRegexMatchSetRequestTypeDef(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
-class CreateRegexPatternSetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRegexPatternSetRequestTypeDef(BaseValidatorModel):
     Name: str
     ChangeToken: str
+
 
 class RegexPatternSetTypeDef(BaseValidatorModel):
     RegexPatternSetId: str
     RegexPatternStrings: List[str]
     Name: Optional[str] = None
 
+
 class RuleGroupTypeDef(BaseValidatorModel):
     RuleGroupId: str
     Name: Optional[str] = None
     MetricName: Optional[str] = None
 
-class CreateSizeConstraintSetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateSizeConstraintSetRequestTypeDef(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
-class CreateSqlInjectionMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateSqlInjectionMatchSetRequestTypeDef(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
-class CreateWebACLMigrationStackRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateWebACLMigrationStackRequestTypeDef(BaseValidatorModel):
     WebACLId: str
     S3BucketName: str
     IgnoreUnsupportedType: bool
 
-class CreateXssMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateXssMatchSetRequestTypeDef(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
-class DeleteByteMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteByteMatchSetRequestTypeDef(BaseValidatorModel):
     ByteMatchSetId: str
     ChangeToken: str
 
-class DeleteGeoMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteGeoMatchSetRequestTypeDef(BaseValidatorModel):
     GeoMatchSetId: str
     ChangeToken: str
 
-class DeleteIPSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteIPSetRequestTypeDef(BaseValidatorModel):
     IPSetId: str
     ChangeToken: str
 
-class DeleteLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteLoggingConfigurationRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DeletePermissionPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class DeletePermissionPolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class DeleteRateBasedRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRateBasedRuleRequestTypeDef(BaseValidatorModel):
     RuleId: str
     ChangeToken: str
 
-class DeleteRegexMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRegexMatchSetRequestTypeDef(BaseValidatorModel):
     RegexMatchSetId: str
     ChangeToken: str
 
-class DeleteRegexPatternSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRegexPatternSetRequestTypeDef(BaseValidatorModel):
     RegexPatternSetId: str
     ChangeToken: str
 
-class DeleteRuleGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRuleGroupRequestTypeDef(BaseValidatorModel):
     RuleGroupId: str
     ChangeToken: str
 
-class DeleteRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteRuleRequestTypeDef(BaseValidatorModel):
     RuleId: str
     ChangeToken: str
 
-class DeleteSizeConstraintSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteSizeConstraintSetRequestTypeDef(BaseValidatorModel):
     SizeConstraintSetId: str
     ChangeToken: str
 
-class DeleteSqlInjectionMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteSqlInjectionMatchSetRequestTypeDef(BaseValidatorModel):
     SqlInjectionMatchSetId: str
     ChangeToken: str
 
-class DeleteWebACLRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteWebACLRequestTypeDef(BaseValidatorModel):
     WebACLId: str
     ChangeToken: str
 
-class DeleteXssMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class DeleteXssMatchSetRequestTypeDef(BaseValidatorModel):
     XssMatchSetId: str
     ChangeToken: str
 
-class GeoMatchConstraintTypeDef(BaseValidatorModel):
-    Type: Literal["Country"]
-    Value: GeoMatchConstraintValueType
 
 class GeoMatchSetSummaryTypeDef(BaseValidatorModel):
     GeoMatchSetId: str
     Name: str
 
-class GetByteMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetByteMatchSetRequestTypeDef(BaseValidatorModel):
     ByteMatchSetId: str
 
-class GetChangeTokenStatusRequestRequestTypeDef(BaseValidatorModel):
+
+class GetChangeTokenStatusRequestTypeDef(BaseValidatorModel):
     ChangeToken: str
 
-class GetGeoMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetGeoMatchSetRequestTypeDef(BaseValidatorModel):
     GeoMatchSetId: str
 
-class GetIPSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetIPSetRequestTypeDef(BaseValidatorModel):
     IPSetId: str
 
-class GetLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
+
+class GetLoggingConfigurationRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class GetPermissionPolicyRequestRequestTypeDef(BaseValidatorModel):
+
+class GetPermissionPolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetRateBasedRuleManagedKeysRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRateBasedRuleManagedKeysRequestTypeDef(BaseValidatorModel):
     RuleId: str
     NextMarker: Optional[str] = None
 
-class GetRateBasedRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRateBasedRuleRequestTypeDef(BaseValidatorModel):
     RuleId: str
 
-class GetRegexMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRegexMatchSetRequestTypeDef(BaseValidatorModel):
     RegexMatchSetId: str
 
-class GetRegexPatternSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRegexPatternSetRequestTypeDef(BaseValidatorModel):
     RegexPatternSetId: str
 
-class GetRuleGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRuleGroupRequestTypeDef(BaseValidatorModel):
     RuleGroupId: str
 
-class GetRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class GetRuleRequestTypeDef(BaseValidatorModel):
     RuleId: str
+
 
 class TimeWindowOutputTypeDef(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
 
-class GetSizeConstraintSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetSizeConstraintSetRequestTypeDef(BaseValidatorModel):
     SizeConstraintSetId: str
 
-class GetSqlInjectionMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetSqlInjectionMatchSetRequestTypeDef(BaseValidatorModel):
     SqlInjectionMatchSetId: str
 
-class GetWebACLRequestRequestTypeDef(BaseValidatorModel):
+
+class GetWebACLRequestTypeDef(BaseValidatorModel):
     WebACLId: str
 
-class GetXssMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class GetXssMatchSetRequestTypeDef(BaseValidatorModel):
     XssMatchSetId: str
+
 
 class HTTPHeaderTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
-class IPSetDescriptorTypeDef(BaseValidatorModel):
-    Type: IPSetDescriptorTypeType
-    Value: str
 
 class IPSetSummaryTypeDef(BaseValidatorModel):
     IPSetId: str
     Name: str
 
-class ListActivatedRulesInRuleGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class ListActivatedRulesInRuleGroupRequestTypeDef(BaseValidatorModel):
     RuleGroupId: Optional[str] = None
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListByteMatchSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListByteMatchSetsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListGeoMatchSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListGeoMatchSetsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListIPSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListIPSetsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListLoggingConfigurationsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListLoggingConfigurationsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListRateBasedRulesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRateBasedRulesRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class RuleSummaryTypeDef(BaseValidatorModel):
     RuleId: str
     Name: str
 
-class ListRegexMatchSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRegexMatchSetsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class RegexMatchSetSummaryTypeDef(BaseValidatorModel):
     RegexMatchSetId: str
     Name: str
 
-class ListRegexPatternSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRegexPatternSetsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class RegexPatternSetSummaryTypeDef(BaseValidatorModel):
     RegexPatternSetId: str
     Name: str
 
-class ListRuleGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRuleGroupsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class RuleGroupSummaryTypeDef(BaseValidatorModel):
     RuleGroupId: str
     Name: str
 
-class ListRulesRequestRequestTypeDef(BaseValidatorModel):
+
+class ListRulesRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListSizeConstraintSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSizeConstraintSetsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class SizeConstraintSetSummaryTypeDef(BaseValidatorModel):
     SizeConstraintSetId: str
     Name: str
 
-class ListSqlInjectionMatchSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSqlInjectionMatchSetsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class SqlInjectionMatchSetSummaryTypeDef(BaseValidatorModel):
     SqlInjectionMatchSetId: str
     Name: str
 
-class ListSubscribedRuleGroupsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListSubscribedRuleGroupsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class SubscribedRuleGroupSummaryTypeDef(BaseValidatorModel):
     RuleGroupId: str
     Name: str
     MetricName: str
 
-class ListTagsForResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
-class ListWebACLsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListWebACLsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class WebACLSummaryTypeDef(BaseValidatorModel):
     WebACLId: str
     Name: str
 
-class ListXssMatchSetsRequestRequestTypeDef(BaseValidatorModel):
+
+class ListXssMatchSetsRequestTypeDef(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
+
 
 class XssMatchSetSummaryTypeDef(BaseValidatorModel):
     XssMatchSetId: str
     Name: str
 
-class PredicateTypeDef(BaseValidatorModel):
-    Negated: bool
-    Type: PredicateTypeType
-    DataId: str
 
-class PutPermissionPolicyRequestRequestTypeDef(BaseValidatorModel):
+class PutPermissionPolicyRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     Policy: str
+
 
 class RegexPatternSetUpdateTypeDef(BaseValidatorModel):
     Action: ChangeActionType
     RegexPatternString: str
 
-class UntagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class ActivatedRuleExtraOutputTypeDef(BaseValidatorModel):
-    Priority: int
-    RuleId: str
-    Action: Optional[WafActionTypeDef] = None
-    OverrideAction: Optional[WafOverrideActionTypeDef] = None
-    Type: Optional[WafRuleTypeType] = None
-    ExcludedRules: Optional[List[ExcludedRuleTypeDef]] = None
 
-class ActivatedRuleOutputTypeDef(BaseValidatorModel):
-    Priority: int
-    RuleId: str
-    Action: Optional[WafActionTypeDef] = None
-    OverrideAction: Optional[WafOverrideActionTypeDef] = None
-    Type: Optional[WafRuleTypeType] = None
-    ExcludedRules: Optional[List[ExcludedRuleTypeDef]] = None
+class FieldToMatchTypeDef(BaseValidatorModel):
+    pass
 
-class ActivatedRuleTypeDef(BaseValidatorModel):
-    Priority: int
-    RuleId: str
-    Action: Optional[WafActionTypeDef] = None
-    OverrideAction: Optional[WafOverrideActionTypeDef] = None
-    Type: Optional[WafRuleTypeType] = None
-    ExcludedRules: Optional[Sequence[ExcludedRuleTypeDef]] = None
 
 class ByteMatchTupleOutputTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchTypeDef
@@ -368,31 +404,35 @@ class ByteMatchTupleOutputTypeDef(BaseValidatorModel):
     TextTransformation: TextTransformationType
     PositionalConstraint: PositionalConstraintType
 
+
+class BlobTypeDef(BaseValidatorModel):
+    pass
+
+
 class ByteMatchTupleTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchTypeDef
     TargetString: BlobTypeDef
     TextTransformation: TextTransformationType
     PositionalConstraint: PositionalConstraintType
 
-class LoggingConfigurationExtraOutputTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    LogDestinationConfigs: List[str]
-    RedactedFields: Optional[List[FieldToMatchTypeDef]] = None
 
 class LoggingConfigurationOutputTypeDef(BaseValidatorModel):
     ResourceArn: str
     LogDestinationConfigs: List[str]
     RedactedFields: Optional[List[FieldToMatchTypeDef]] = None
 
+
 class LoggingConfigurationTypeDef(BaseValidatorModel):
     ResourceArn: str
     LogDestinationConfigs: Sequence[str]
     RedactedFields: Optional[Sequence[FieldToMatchTypeDef]] = None
 
+
 class RegexMatchTupleTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchTypeDef
     TextTransformation: TextTransformationType
     RegexPatternSetId: str
+
 
 class SizeConstraintTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchTypeDef
@@ -400,137 +440,170 @@ class SizeConstraintTypeDef(BaseValidatorModel):
     ComparisonOperator: ComparisonOperatorType
     Size: int
 
+
 class SqlInjectionMatchTupleTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchTypeDef
     TextTransformation: TextTransformationType
+
 
 class XssMatchTupleTypeDef(BaseValidatorModel):
     FieldToMatch: FieldToMatchTypeDef
     TextTransformation: TextTransformationType
 
+
 class CreateWebACLMigrationStackResponseTypeDef(BaseValidatorModel):
     S3ObjectUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteByteMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteGeoMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteIPSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteRateBasedRuleResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteRegexMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteRegexPatternSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteRuleGroupResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteRuleResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteSizeConstraintSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteSqlInjectionMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteWebACLResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteXssMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetChangeTokenResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetChangeTokenStatusResponseTypeDef(BaseValidatorModel):
     ChangeTokenStatus: ChangeTokenStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetPermissionPolicyResponseTypeDef(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetRateBasedRuleManagedKeysResponseTypeDef(BaseValidatorModel):
     ManagedKeys: List[str]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListByteMatchSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     ByteMatchSets: List[ByteMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateByteMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateGeoMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateIPSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateRateBasedRuleResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateRegexMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateRegexPatternSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateRuleGroupResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateRuleResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateSizeConstraintSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateSqlInjectionMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateWebACLResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateXssMatchSetResponseTypeDef(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateRateBasedRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRateBasedRuleRequestTypeDef(BaseValidatorModel):
     Name: str
     MetricName: str
     RateKey: Literal["IP"]
@@ -538,114 +611,151 @@ class CreateRateBasedRuleRequestRequestTypeDef(BaseValidatorModel):
     ChangeToken: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRuleGroupRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRuleGroupRequestTypeDef(BaseValidatorModel):
     Name: str
     MetricName: str
     ChangeToken: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class CreateRuleRequestTypeDef(BaseValidatorModel):
     Name: str
     MetricName: str
     ChangeToken: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class CreateWebACLRequestRequestTypeDef(BaseValidatorModel):
+
+class WafActionTypeDef(BaseValidatorModel):
+    pass
+
+
+class CreateWebACLRequestTypeDef(BaseValidatorModel):
     Name: str
     MetricName: str
     DefaultAction: WafActionTypeDef
     ChangeToken: str
     Tags: Optional[Sequence[TagTypeDef]] = None
 
+
 class TagInfoForResourceTypeDef(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     TagList: Optional[List[TagTypeDef]] = None
 
-class TagResourceRequestRequestTypeDef(BaseValidatorModel):
+
+class TagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
+
 
 class CreateRegexPatternSetResponseTypeDef(BaseValidatorModel):
     RegexPatternSet: RegexPatternSetTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRegexPatternSetResponseTypeDef(BaseValidatorModel):
     RegexPatternSet: RegexPatternSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateRuleGroupResponseTypeDef(BaseValidatorModel):
     RuleGroup: RuleGroupTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRuleGroupResponseTypeDef(BaseValidatorModel):
     RuleGroup: RuleGroupTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class GeoMatchConstraintTypeDef(BaseValidatorModel):
+    pass
+
 
 class GeoMatchSetTypeDef(BaseValidatorModel):
     GeoMatchSetId: str
     GeoMatchConstraints: List[GeoMatchConstraintTypeDef]
     Name: Optional[str] = None
 
+
 class GeoMatchSetUpdateTypeDef(BaseValidatorModel):
     Action: ChangeActionType
     GeoMatchConstraint: GeoMatchConstraintTypeDef
+
 
 class ListGeoMatchSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     GeoMatchSets: List[GeoMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRateBasedRuleManagedKeysRequestGetRateBasedRuleManagedKeysPaginateTypeDef(BaseValidatorModel):
+
+class GetRateBasedRuleManagedKeysRequestPaginateTypeDef(BaseValidatorModel):
     RuleId: str
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListActivatedRulesInRuleGroupRequestListActivatedRulesInRuleGroupPaginateTypeDef(BaseValidatorModel):
+
+class ListActivatedRulesInRuleGroupRequestPaginateTypeDef(BaseValidatorModel):
     RuleGroupId: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListByteMatchSetsRequestListByteMatchSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListByteMatchSetsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListGeoMatchSetsRequestListGeoMatchSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListGeoMatchSetsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListIPSetsRequestListIPSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListIPSetsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListLoggingConfigurationsRequestListLoggingConfigurationsPaginateTypeDef(BaseValidatorModel):
+
+class ListLoggingConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRateBasedRulesRequestListRateBasedRulesPaginateTypeDef(BaseValidatorModel):
+
+class ListRateBasedRulesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRegexMatchSetsRequestListRegexMatchSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListRegexMatchSetsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRegexPatternSetsRequestListRegexPatternSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListRegexPatternSetsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRuleGroupsRequestListRuleGroupsPaginateTypeDef(BaseValidatorModel):
+
+class ListRuleGroupsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListRulesRequestListRulesPaginateTypeDef(BaseValidatorModel):
+
+class ListRulesRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSizeConstraintSetsRequestListSizeConstraintSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListSizeConstraintSetsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSqlInjectionMatchSetsRequestListSqlInjectionMatchSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListSqlInjectionMatchSetsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListSubscribedRuleGroupsRequestListSubscribedRuleGroupsPaginateTypeDef(BaseValidatorModel):
+
+class ListSubscribedRuleGroupsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListWebACLsRequestListWebACLsPaginateTypeDef(BaseValidatorModel):
+
+class ListWebACLsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListXssMatchSetsRequestListXssMatchSetsPaginateTypeDef(BaseValidatorModel):
+
+class ListXssMatchSetsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class HTTPRequestTypeDef(BaseValidatorModel):
     ClientIP: Optional[str] = None
@@ -655,69 +765,91 @@ class HTTPRequestTypeDef(BaseValidatorModel):
     HTTPVersion: Optional[str] = None
     Headers: Optional[List[HTTPHeaderTypeDef]] = None
 
+
+class IPSetDescriptorTypeDef(BaseValidatorModel):
+    pass
+
+
 class IPSetTypeDef(BaseValidatorModel):
     IPSetId: str
     IPSetDescriptors: List[IPSetDescriptorTypeDef]
     Name: Optional[str] = None
 
+
 class IPSetUpdateTypeDef(BaseValidatorModel):
     Action: ChangeActionType
     IPSetDescriptor: IPSetDescriptorTypeDef
+
 
 class ListIPSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     IPSets: List[IPSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListRateBasedRulesResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     Rules: List[RuleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListRulesResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     Rules: List[RuleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListRegexMatchSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     RegexMatchSets: List[RegexMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListRegexPatternSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     RegexPatternSets: List[RegexPatternSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListRuleGroupsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     RuleGroups: List[RuleGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListSizeConstraintSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     SizeConstraintSets: List[SizeConstraintSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListSqlInjectionMatchSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     SqlInjectionMatchSets: List[SqlInjectionMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListSubscribedRuleGroupsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     RuleGroups: List[SubscribedRuleGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListWebACLsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     WebACLs: List[WebACLSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class ListXssMatchSetsResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     XssMatchSets: List[XssMatchSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class PredicateTypeDef(BaseValidatorModel):
+    pass
+
 
 class RateBasedRuleTypeDef(BaseValidatorModel):
     RuleId: str
@@ -727,29 +859,43 @@ class RateBasedRuleTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     MetricName: Optional[str] = None
 
+
 class RuleTypeDef(BaseValidatorModel):
     RuleId: str
     Predicates: List[PredicateTypeDef]
     Name: Optional[str] = None
     MetricName: Optional[str] = None
 
+
 class RuleUpdateTypeDef(BaseValidatorModel):
     Action: ChangeActionType
     Predicate: PredicateTypeDef
 
-class UpdateRegexPatternSetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRegexPatternSetRequestTypeDef(BaseValidatorModel):
     RegexPatternSetId: str
     Updates: Sequence[RegexPatternSetUpdateTypeDef]
     ChangeToken: str
+
+
+class TimestampTypeDef(BaseValidatorModel):
+    pass
+
 
 class TimeWindowTypeDef(BaseValidatorModel):
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
 
+
+class ActivatedRuleOutputTypeDef(BaseValidatorModel):
+    pass
+
+
 class ListActivatedRulesInRuleGroupResponseTypeDef(BaseValidatorModel):
     NextMarker: str
-    ActivatedRules: List[ActivatedRuleExtraOutputTypeDef]
+    ActivatedRules: List[ActivatedRuleOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class WebACLTypeDef(BaseValidatorModel):
     WebACLId: str
@@ -759,93 +905,95 @@ class WebACLTypeDef(BaseValidatorModel):
     MetricName: Optional[str] = None
     WebACLArn: Optional[str] = None
 
-class RuleGroupUpdateTypeDef(BaseValidatorModel):
-    Action: ChangeActionType
-    ActivatedRule: ActivatedRuleTypeDef
-
-class WebACLUpdateTypeDef(BaseValidatorModel):
-    Action: ChangeActionType
-    ActivatedRule: ActivatedRuleTypeDef
 
 class ByteMatchSetTypeDef(BaseValidatorModel):
     ByteMatchSetId: str
     ByteMatchTuples: List[ByteMatchTupleOutputTypeDef]
     Name: Optional[str] = None
 
-class ByteMatchSetUpdateTypeDef(BaseValidatorModel):
-    Action: ChangeActionType
-    ByteMatchTuple: ByteMatchTupleTypeDef
 
 class GetLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     LoggingConfiguration: LoggingConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ListLoggingConfigurationsResponseTypeDef(BaseValidatorModel):
     LoggingConfigurations: List[LoggingConfigurationOutputTypeDef]
     NextMarker: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutLoggingConfigurationResponseTypeDef(BaseValidatorModel):
     LoggingConfiguration: LoggingConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutLoggingConfigurationRequestRequestTypeDef(BaseValidatorModel):
-    LoggingConfiguration: LoggingConfigurationTypeDef
 
 class RegexMatchSetTypeDef(BaseValidatorModel):
     RegexMatchSetId: Optional[str] = None
     Name: Optional[str] = None
     RegexMatchTuples: Optional[List[RegexMatchTupleTypeDef]] = None
 
+
 class RegexMatchSetUpdateTypeDef(BaseValidatorModel):
     Action: ChangeActionType
     RegexMatchTuple: RegexMatchTupleTypeDef
+
 
 class SizeConstraintSetTypeDef(BaseValidatorModel):
     SizeConstraintSetId: str
     SizeConstraints: List[SizeConstraintTypeDef]
     Name: Optional[str] = None
 
+
 class SizeConstraintSetUpdateTypeDef(BaseValidatorModel):
     Action: ChangeActionType
     SizeConstraint: SizeConstraintTypeDef
+
 
 class SqlInjectionMatchSetTypeDef(BaseValidatorModel):
     SqlInjectionMatchSetId: str
     SqlInjectionMatchTuples: List[SqlInjectionMatchTupleTypeDef]
     Name: Optional[str] = None
 
+
 class SqlInjectionMatchSetUpdateTypeDef(BaseValidatorModel):
     Action: ChangeActionType
     SqlInjectionMatchTuple: SqlInjectionMatchTupleTypeDef
+
 
 class XssMatchSetTypeDef(BaseValidatorModel):
     XssMatchSetId: str
     XssMatchTuples: List[XssMatchTupleTypeDef]
     Name: Optional[str] = None
 
+
 class XssMatchSetUpdateTypeDef(BaseValidatorModel):
     Action: ChangeActionType
     XssMatchTuple: XssMatchTupleTypeDef
+
 
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     NextMarker: str
     TagInfoForResource: TagInfoForResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class CreateGeoMatchSetResponseTypeDef(BaseValidatorModel):
     GeoMatchSet: GeoMatchSetTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetGeoMatchSetResponseTypeDef(BaseValidatorModel):
     GeoMatchSet: GeoMatchSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGeoMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateGeoMatchSetRequestTypeDef(BaseValidatorModel):
     GeoMatchSetId: str
     ChangeToken: str
     Updates: Sequence[GeoMatchSetUpdateTypeDef]
+
 
 class SampledHTTPRequestTypeDef(BaseValidatorModel):
     Request: HTTPRequestTypeDef
@@ -854,148 +1002,214 @@ class SampledHTTPRequestTypeDef(BaseValidatorModel):
     Action: Optional[str] = None
     RuleWithinRuleGroup: Optional[str] = None
 
+
 class CreateIPSetResponseTypeDef(BaseValidatorModel):
     IPSet: IPSetTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetIPSetResponseTypeDef(BaseValidatorModel):
     IPSet: IPSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateIPSetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateIPSetRequestTypeDef(BaseValidatorModel):
     IPSetId: str
     ChangeToken: str
     Updates: Sequence[IPSetUpdateTypeDef]
+
 
 class CreateRateBasedRuleResponseTypeDef(BaseValidatorModel):
     Rule: RateBasedRuleTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRateBasedRuleResponseTypeDef(BaseValidatorModel):
     Rule: RateBasedRuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateRuleResponseTypeDef(BaseValidatorModel):
     Rule: RuleTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRuleResponseTypeDef(BaseValidatorModel):
     Rule: RuleTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRateBasedRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRateBasedRuleRequestTypeDef(BaseValidatorModel):
     RuleId: str
     ChangeToken: str
     Updates: Sequence[RuleUpdateTypeDef]
     RateLimit: int
 
-class UpdateRuleRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRuleRequestTypeDef(BaseValidatorModel):
     RuleId: str
     ChangeToken: str
     Updates: Sequence[RuleUpdateTypeDef]
 
-class GetSampledRequestsRequestRequestTypeDef(BaseValidatorModel):
-    WebAclId: str
-    RuleId: str
-    TimeWindow: TimeWindowTypeDef
-    MaxItems: int
 
 class CreateWebACLResponseTypeDef(BaseValidatorModel):
     WebACL: WebACLTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetWebACLResponseTypeDef(BaseValidatorModel):
     WebACL: WebACLTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRuleGroupRequestRequestTypeDef(BaseValidatorModel):
-    RuleGroupId: str
-    Updates: Sequence[RuleGroupUpdateTypeDef]
-    ChangeToken: str
 
-class UpdateWebACLRequestRequestTypeDef(BaseValidatorModel):
-    WebACLId: str
-    ChangeToken: str
-    Updates: Optional[Sequence[WebACLUpdateTypeDef]] = None
-    DefaultAction: Optional[WafActionTypeDef] = None
+class ActivatedRuleUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class RuleGroupUpdateTypeDef(BaseValidatorModel):
+    Action: ChangeActionType
+    ActivatedRule: ActivatedRuleUnionTypeDef
+
+
+class WebACLUpdateTypeDef(BaseValidatorModel):
+    Action: ChangeActionType
+    ActivatedRule: ActivatedRuleUnionTypeDef
+
 
 class CreateByteMatchSetResponseTypeDef(BaseValidatorModel):
     ByteMatchSet: ByteMatchSetTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetByteMatchSetResponseTypeDef(BaseValidatorModel):
     ByteMatchSet: ByteMatchSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateByteMatchSetRequestRequestTypeDef(BaseValidatorModel):
-    ByteMatchSetId: str
-    ChangeToken: str
-    Updates: Sequence[ByteMatchSetUpdateTypeDef]
+
+class ByteMatchTupleUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class ByteMatchSetUpdateTypeDef(BaseValidatorModel):
+    Action: ChangeActionType
+    ByteMatchTuple: ByteMatchTupleUnionTypeDef
+
+
+class LoggingConfigurationUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class PutLoggingConfigurationRequestTypeDef(BaseValidatorModel):
+    LoggingConfiguration: LoggingConfigurationUnionTypeDef
+
 
 class CreateRegexMatchSetResponseTypeDef(BaseValidatorModel):
     RegexMatchSet: RegexMatchSetTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetRegexMatchSetResponseTypeDef(BaseValidatorModel):
     RegexMatchSet: RegexMatchSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateRegexMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateRegexMatchSetRequestTypeDef(BaseValidatorModel):
     RegexMatchSetId: str
     Updates: Sequence[RegexMatchSetUpdateTypeDef]
     ChangeToken: str
+
 
 class CreateSizeConstraintSetResponseTypeDef(BaseValidatorModel):
     SizeConstraintSet: SizeConstraintSetTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetSizeConstraintSetResponseTypeDef(BaseValidatorModel):
     SizeConstraintSet: SizeConstraintSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSizeConstraintSetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateSizeConstraintSetRequestTypeDef(BaseValidatorModel):
     SizeConstraintSetId: str
     ChangeToken: str
     Updates: Sequence[SizeConstraintSetUpdateTypeDef]
+
 
 class CreateSqlInjectionMatchSetResponseTypeDef(BaseValidatorModel):
     SqlInjectionMatchSet: SqlInjectionMatchSetTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetSqlInjectionMatchSetResponseTypeDef(BaseValidatorModel):
     SqlInjectionMatchSet: SqlInjectionMatchSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSqlInjectionMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateSqlInjectionMatchSetRequestTypeDef(BaseValidatorModel):
     SqlInjectionMatchSetId: str
     ChangeToken: str
     Updates: Sequence[SqlInjectionMatchSetUpdateTypeDef]
+
 
 class CreateXssMatchSetResponseTypeDef(BaseValidatorModel):
     XssMatchSet: XssMatchSetTypeDef
     ChangeToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetXssMatchSetResponseTypeDef(BaseValidatorModel):
     XssMatchSet: XssMatchSetTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateXssMatchSetRequestRequestTypeDef(BaseValidatorModel):
+
+class UpdateXssMatchSetRequestTypeDef(BaseValidatorModel):
     XssMatchSetId: str
     ChangeToken: str
     Updates: Sequence[XssMatchSetUpdateTypeDef]
+
 
 class GetSampledRequestsResponseTypeDef(BaseValidatorModel):
     SampledRequests: List[SampledHTTPRequestTypeDef]
     PopulationSize: int
     TimeWindow: TimeWindowOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
+
+class TimeWindowUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class GetSampledRequestsRequestTypeDef(BaseValidatorModel):
+    WebAclId: str
+    RuleId: str
+    TimeWindow: TimeWindowUnionTypeDef
+    MaxItems: int
+
+
+class UpdateRuleGroupRequestTypeDef(BaseValidatorModel):
+    RuleGroupId: str
+    Updates: Sequence[RuleGroupUpdateTypeDef]
+    ChangeToken: str
+
+
+class UpdateWebACLRequestTypeDef(BaseValidatorModel):
+    WebACLId: str
+    ChangeToken: str
+    Updates: Optional[Sequence[WebACLUpdateTypeDef]] = None
+    DefaultAction: Optional[WafActionTypeDef] = None
+
+
+class UpdateByteMatchSetRequestTypeDef(BaseValidatorModel):
+    ByteMatchSetId: str
+    ChangeToken: str
+    Updates: Sequence[ByteMatchSetUpdateTypeDef]
+
 

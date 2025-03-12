@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -17,16 +18,19 @@ class EntitlementValueTypeDef(BaseValidatorModel):
     BooleanValue: Optional[bool] = None
     StringValue: Optional[str] = None
 
+
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class GetEntitlementsRequestRequestTypeDef(BaseValidatorModel):
+
+class GetEntitlementsRequestTypeDef(BaseValidatorModel):
     ProductCode: str
     Filter: Optional[Mapping[GetEntitlementFilterNameType, Sequence[str]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
+
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
@@ -35,6 +39,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     RetryAttempts: int
     HostId: Optional[str] = None
 
+
 class EntitlementTypeDef(BaseValidatorModel):
     ProductCode: Optional[str] = None
     Dimension: Optional[str] = None
@@ -42,13 +47,16 @@ class EntitlementTypeDef(BaseValidatorModel):
     Value: Optional[EntitlementValueTypeDef] = None
     ExpirationDate: Optional[datetime] = None
 
-class GetEntitlementsRequestGetEntitlementsPaginateTypeDef(BaseValidatorModel):
+
+class GetEntitlementsRequestPaginateTypeDef(BaseValidatorModel):
     ProductCode: str
     Filter: Optional[Mapping[GetEntitlementFilterNameType, Sequence[str]]] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
 
 class GetEntitlementsResultTypeDef(BaseValidatorModel):
     Entitlements: List[EntitlementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
+
 

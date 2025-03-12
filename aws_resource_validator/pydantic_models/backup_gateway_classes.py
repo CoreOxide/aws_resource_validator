@@ -1,5 +1,6 @@
-from datetime import datetime
 from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
+from botocore.response import StreamingBody
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import IO
@@ -11,18 +12,20 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.backup_gateway_constants import *
 
-class AssociateGatewayToServerInputRequestTypeDef(BaseValidatorModel):
+class AssociateGatewayToServerInputTypeDef(BaseValidatorModel):
     GatewayArn: str
     ServerArn: str
 
+
 class ResponseMetadataTypeDef(BaseValidatorModel):
     RequestId: str
-    HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
     RetryAttempts: int
+    HostId: Optional[str] = None
 
-class BandwidthRateLimitIntervalTypeDef(BaseValidatorModel):
+
+class BandwidthRateLimitIntervalOutputTypeDef(BaseValidatorModel):
     DaysOfWeek: List[int]
     EndHourOfDay: int
     EndMinuteOfHour: int
@@ -30,24 +33,39 @@ class BandwidthRateLimitIntervalTypeDef(BaseValidatorModel):
     StartMinuteOfHour: int
     AverageUploadRateLimitInBitsPerSec: Optional[int] = None
 
+
+class BandwidthRateLimitIntervalTypeDef(BaseValidatorModel):
+    DaysOfWeek: Sequence[int]
+    EndHourOfDay: int
+    EndMinuteOfHour: int
+    StartHourOfDay: int
+    StartMinuteOfHour: int
+    AverageUploadRateLimitInBitsPerSec: Optional[int] = None
+
+
 class TagTypeDef(BaseValidatorModel):
     Key: str
     Value: str
 
-class DeleteGatewayInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteGatewayInputTypeDef(BaseValidatorModel):
     GatewayArn: str
 
-class DeleteHypervisorInputRequestTypeDef(BaseValidatorModel):
+
+class DeleteHypervisorInputTypeDef(BaseValidatorModel):
     HypervisorArn: str
 
-class DisassociateGatewayFromServerInputRequestTypeDef(BaseValidatorModel):
+
+class DisassociateGatewayFromServerInputTypeDef(BaseValidatorModel):
     GatewayArn: str
+
 
 class MaintenanceStartTimeTypeDef(BaseValidatorModel):
     HourOfDay: int
     MinuteOfHour: int
     DayOfMonth: Optional[int] = None
     DayOfWeek: Optional[int] = None
+
 
 class GatewayTypeDef(BaseValidatorModel):
     GatewayArn: Optional[str] = None
@@ -56,14 +74,18 @@ class GatewayTypeDef(BaseValidatorModel):
     HypervisorId: Optional[str] = None
     LastSeenTime: Optional[datetime] = None
 
-class GetBandwidthRateLimitScheduleInputRequestTypeDef(BaseValidatorModel):
+
+class GetBandwidthRateLimitScheduleInputTypeDef(BaseValidatorModel):
     GatewayArn: str
 
-class GetGatewayInputRequestTypeDef(BaseValidatorModel):
+
+class GetGatewayInputTypeDef(BaseValidatorModel):
     GatewayArn: str
 
-class GetHypervisorInputRequestTypeDef(BaseValidatorModel):
+
+class GetHypervisorInputTypeDef(BaseValidatorModel):
     HypervisorArn: str
+
 
 class HypervisorDetailsTypeDef(BaseValidatorModel):
     Host: Optional[str] = None
@@ -76,8 +98,10 @@ class HypervisorDetailsTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     State: Optional[HypervisorStateType] = None
 
-class GetHypervisorPropertyMappingsInputRequestTypeDef(BaseValidatorModel):
+
+class GetHypervisorPropertyMappingsInputTypeDef(BaseValidatorModel):
     HypervisorArn: str
+
 
 class VmwareToAwsTagMappingTypeDef(BaseValidatorModel):
     AwsTagKey: str
@@ -85,8 +109,10 @@ class VmwareToAwsTagMappingTypeDef(BaseValidatorModel):
     VmwareCategory: str
     VmwareTagName: str
 
-class GetVirtualMachineInputRequestTypeDef(BaseValidatorModel):
+
+class GetVirtualMachineInputTypeDef(BaseValidatorModel):
     ResourceArn: str
+
 
 class HypervisorTypeDef(BaseValidatorModel):
     Host: Optional[str] = None
@@ -95,26 +121,32 @@ class HypervisorTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     State: Optional[HypervisorStateType] = None
 
+
 class PaginatorConfigTypeDef(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
-class ListGatewaysInputRequestTypeDef(BaseValidatorModel):
+
+class ListGatewaysInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListHypervisorsInputRequestTypeDef(BaseValidatorModel):
+
+class ListHypervisorsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
-class ListTagsForResourceInputRequestTypeDef(BaseValidatorModel):
+
+class ListTagsForResourceInputTypeDef(BaseValidatorModel):
     ResourceArn: str
 
-class ListVirtualMachinesInputRequestTypeDef(BaseValidatorModel):
+
+class ListVirtualMachinesInputTypeDef(BaseValidatorModel):
     HypervisorArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
+
 
 class VirtualMachineTypeDef(BaseValidatorModel):
     HostName: Optional[str] = None
@@ -124,34 +156,41 @@ class VirtualMachineTypeDef(BaseValidatorModel):
     Path: Optional[str] = None
     ResourceArn: Optional[str] = None
 
-class PutMaintenanceStartTimeInputRequestTypeDef(BaseValidatorModel):
+
+class PutMaintenanceStartTimeInputTypeDef(BaseValidatorModel):
     GatewayArn: str
     HourOfDay: int
     MinuteOfHour: int
     DayOfMonth: Optional[int] = None
     DayOfWeek: Optional[int] = None
 
-class StartVirtualMachinesMetadataSyncInputRequestTypeDef(BaseValidatorModel):
+
+class StartVirtualMachinesMetadataSyncInputTypeDef(BaseValidatorModel):
     HypervisorArn: str
 
-class TestHypervisorConfigurationInputRequestTypeDef(BaseValidatorModel):
+
+class TestHypervisorConfigurationInputTypeDef(BaseValidatorModel):
     GatewayArn: str
     Host: str
     Password: Optional[str] = None
     Username: Optional[str] = None
 
-class UntagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class UntagResourceInputTypeDef(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
-class UpdateGatewayInformationInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateGatewayInformationInputTypeDef(BaseValidatorModel):
     GatewayArn: str
     GatewayDisplayName: Optional[str] = None
 
-class UpdateGatewaySoftwareNowInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateGatewaySoftwareNowInputTypeDef(BaseValidatorModel):
     GatewayArn: str
 
-class UpdateHypervisorInputRequestTypeDef(BaseValidatorModel):
+
+class UpdateHypervisorInputTypeDef(BaseValidatorModel):
     HypervisorArn: str
     Host: Optional[str] = None
     LogGroupArn: Optional[str] = None
@@ -159,87 +198,102 @@ class UpdateHypervisorInputRequestTypeDef(BaseValidatorModel):
     Password: Optional[str] = None
     Username: Optional[str] = None
 
+
 class VmwareTagTypeDef(BaseValidatorModel):
     VmwareCategory: Optional[str] = None
     VmwareTagDescription: Optional[str] = None
     VmwareTagName: Optional[str] = None
 
+
 class AssociateGatewayToServerOutputTypeDef(BaseValidatorModel):
     GatewayArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class CreateGatewayOutputTypeDef(BaseValidatorModel):
     GatewayArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DeleteGatewayOutputTypeDef(BaseValidatorModel):
     GatewayArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class DeleteHypervisorOutputTypeDef(BaseValidatorModel):
     HypervisorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class DisassociateGatewayFromServerOutputTypeDef(BaseValidatorModel):
     GatewayArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class ImportHypervisorConfigurationOutputTypeDef(BaseValidatorModel):
     HypervisorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutBandwidthRateLimitScheduleOutputTypeDef(BaseValidatorModel):
     GatewayArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class PutHypervisorPropertyMappingsOutputTypeDef(BaseValidatorModel):
     HypervisorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class PutMaintenanceStartTimeOutputTypeDef(BaseValidatorModel):
     GatewayArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class StartVirtualMachinesMetadataSyncOutputTypeDef(BaseValidatorModel):
     HypervisorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class TagResourceOutputTypeDef(BaseValidatorModel):
     ResourceARN: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UntagResourceOutputTypeDef(BaseValidatorModel):
     ResourceARN: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateGatewayInformationOutputTypeDef(BaseValidatorModel):
     GatewayArn: str
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class UpdateGatewaySoftwareNowOutputTypeDef(BaseValidatorModel):
     GatewayArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class UpdateHypervisorOutputTypeDef(BaseValidatorModel):
     HypervisorArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetBandwidthRateLimitScheduleOutputTypeDef(BaseValidatorModel):
-    BandwidthRateLimitIntervals: List[BandwidthRateLimitIntervalTypeDef]
+    BandwidthRateLimitIntervals: List[BandwidthRateLimitIntervalOutputTypeDef]
     GatewayArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutBandwidthRateLimitScheduleInputRequestTypeDef(BaseValidatorModel):
-    BandwidthRateLimitIntervals: Sequence[BandwidthRateLimitIntervalTypeDef]
-    GatewayArn: str
 
-class CreateGatewayInputRequestTypeDef(BaseValidatorModel):
+class CreateGatewayInputTypeDef(BaseValidatorModel):
     ActivationKey: str
     GatewayDisplayName: str
     GatewayType: Literal["BACKUP_VM"]
     Tags: Optional[Sequence[TagTypeDef]] = None
 
-class ImportHypervisorConfigurationInputRequestTypeDef(BaseValidatorModel):
+
+class ImportHypervisorConfigurationInputTypeDef(BaseValidatorModel):
     Host: str
     Name: str
     KmsKeyArn: Optional[str] = None
@@ -247,14 +301,17 @@ class ImportHypervisorConfigurationInputRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Sequence[TagTypeDef]] = None
     Username: Optional[str] = None
 
+
 class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
     ResourceArn: str
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceInputRequestTypeDef(BaseValidatorModel):
+
+class TagResourceInputTypeDef(BaseValidatorModel):
     ResourceARN: str
     Tags: Sequence[TagTypeDef]
+
 
 class GatewayDetailsTypeDef(BaseValidatorModel):
     GatewayArn: Optional[str] = None
@@ -266,14 +323,17 @@ class GatewayDetailsTypeDef(BaseValidatorModel):
     NextUpdateAvailabilityTime: Optional[datetime] = None
     VpcEndpoint: Optional[str] = None
 
+
 class ListGatewaysOutputTypeDef(BaseValidatorModel):
     Gateways: List[GatewayTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class GetHypervisorOutputTypeDef(BaseValidatorModel):
     Hypervisor: HypervisorDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
 class GetHypervisorPropertyMappingsOutputTypeDef(BaseValidatorModel):
     HypervisorArn: str
@@ -281,30 +341,37 @@ class GetHypervisorPropertyMappingsOutputTypeDef(BaseValidatorModel):
     VmwareToAwsTagMappings: List[VmwareToAwsTagMappingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
-class PutHypervisorPropertyMappingsInputRequestTypeDef(BaseValidatorModel):
+
+class PutHypervisorPropertyMappingsInputTypeDef(BaseValidatorModel):
     HypervisorArn: str
     IamRoleArn: str
     VmwareToAwsTagMappings: Sequence[VmwareToAwsTagMappingTypeDef]
 
+
 class ListHypervisorsOutputTypeDef(BaseValidatorModel):
     Hypervisors: List[HypervisorTypeDef]
-    NextToken: str
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
 
-class ListGatewaysInputListGatewaysPaginateTypeDef(BaseValidatorModel):
+
+class ListGatewaysInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListHypervisorsInputListHypervisorsPaginateTypeDef(BaseValidatorModel):
+
+class ListHypervisorsInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
-class ListVirtualMachinesInputListVirtualMachinesPaginateTypeDef(BaseValidatorModel):
+
+class ListVirtualMachinesInputPaginateTypeDef(BaseValidatorModel):
     HypervisorArn: Optional[str] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
+
 class ListVirtualMachinesOutputTypeDef(BaseValidatorModel):
-    NextToken: str
     VirtualMachines: List[VirtualMachineTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: Optional[str] = None
+
 
 class VirtualMachineDetailsTypeDef(BaseValidatorModel):
     HostName: Optional[str] = None
@@ -315,11 +382,23 @@ class VirtualMachineDetailsTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     VmwareTags: Optional[List[VmwareTagTypeDef]] = None
 
+
+class BandwidthRateLimitIntervalUnionTypeDef(BaseValidatorModel):
+    pass
+
+
+class PutBandwidthRateLimitScheduleInputTypeDef(BaseValidatorModel):
+    BandwidthRateLimitIntervals: Sequence[BandwidthRateLimitIntervalUnionTypeDef]
+    GatewayArn: str
+
+
 class GetGatewayOutputTypeDef(BaseValidatorModel):
     Gateway: GatewayDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
+
 class GetVirtualMachineOutputTypeDef(BaseValidatorModel):
     VirtualMachine: VirtualMachineDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
+
 
