@@ -1,5 +1,4 @@
-from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel
-from botocore.eventstream import EventStream
+from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel, EventStream
 from botocore.response import StreamingBody
 from datetime import datetime
 from typing import Any
