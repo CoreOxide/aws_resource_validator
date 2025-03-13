@@ -102,7 +102,7 @@ def parse_type_defs(file_path: str) -> Tuple[Dict[str, Dict[str, str]], Dict[str
 def generate_pydantic_models(type_defs: Dict[str, Dict[str, str]], service_name: str, file_path: str):
     generated = set()
     imports = set([
-        "from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel",
+        "from aws_resource_validator.pydantic_models.base_validator_model import BaseValidatorModel, EventStream",
         "from datetime import datetime"
     ])
     type_imports = {
